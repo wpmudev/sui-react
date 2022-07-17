@@ -37,6 +37,12 @@
     "lerna": "^4.0.0"
   },
   "dependencies": {},
+  "resolutions": {
+    "glob-parent": "^6.0.2",
+    "parse-path": "^5.0.0",
+    "trim": "^0.0.3",
+    "trim-newlines": "^4.0.2"
+  },
   "scripts": {
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook"
