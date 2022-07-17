@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "name": "@wpmudev/layout",
+  "description": "",
+  "version": "0.0.0",
+  "license": "GPL-3.0",
+  "keywords": [
+    "wpmudev",
+    "shared-ui",
+    "layout",
+    "grid"
+  ],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "main": "dist/layout.min.css",
+  "src": "lib/layout.scss",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://iamleigh@github.com/wpmudev/sui-css.git",
+    "directory": "packages/layout"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://incsub.atlassian.net/browse/SUI"
+  },
+  "homepage": "https://github.com/wpmudev/sui-css#readme"
+}
