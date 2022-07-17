@@ -1,0 +1,10 @@
+$color-hello: #00f;
+$color-world: #008000;
+
+#hello {
+	color: $color-blue;
+
+	.world {
+		color: $color-green;
+	}
+}
