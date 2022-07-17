@@ -1,4 +1,4 @@
-name: 'File existence checker'
+name: 'File(s) Existence'
 
 on:
   push:
