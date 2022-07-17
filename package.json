@@ -37,6 +37,9 @@
     "lerna": "^4.0.0"
   },
   "dependencies": {},
+  "resolutions": {
+    "glob-parent": "^5.1.2"
+  },
   "scripts": {
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook"
