@@ -1,5 +1,8 @@
-.dccache
 node_modules
+.DS_Store
+.npmrc
+.changelog
+.dccache
 
-# Ignore error logs.
+# Ignore all error logs.
 *.log
