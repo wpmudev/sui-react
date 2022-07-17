@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "sui-css",
+  "license": "GPL-3.0",
+  "keywords": [
+    "incsub",
+    "wpmudev",
+    "shared-ui",
+    "css"
+  ],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-css.git"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
