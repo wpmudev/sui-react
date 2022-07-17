@@ -16,6 +16,13 @@
 				"parenSpacing": false,
 				"bracketSpacing": true
 			}
+		},
+		{
+			"files": ["package.json", "*.yml"],
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
 		}
 	]
 }
