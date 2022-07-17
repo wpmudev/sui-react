@@ -39,6 +39,7 @@
   "dependencies": {},
   "resolutions": {
     "glob-parent": "^5.1.2",
+    "parse-path": "^5.0.0",
     "trim-newlines": "^3.0.1"
   },
   "scripts": {
