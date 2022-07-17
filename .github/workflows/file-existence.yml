@@ -1,3 +1,8 @@
+#
+# All the packages, even private ones, must include a set of basic files to
+# perform correctly. This workflow checks the existence of those files when
+# pushing or submitting a PR to specific branches.
+#
 name: 'File(s) Existence'
 
 on:
@@ -30,8 +35,15 @@ jobs:
           # Makes the Action fail on missing files.
           allow_failure: true
 
-      - name: Packages main files exist
-        # "files_exists" outputs true if the file(s) exists, otherwise false.
+      # ******** NOTE ********
+      # "files_exists" outputs true if the file(s) exists, otherwise false.
+      #
+      - name: Successful result
         if: steps.check_files.outputs.files_exists == 'true'
         # Only runs if all of the files exists.
         run: echo All files exists.
+
+      - name: Unsuccessful result
+        if: steps.check_files.outputs.files_exists != 'true'
+        # Only runs if some of the files don't exist.
+        run: echo Looks like one or more files are missing.
