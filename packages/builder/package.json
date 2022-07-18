@@ -1,0 +1,44 @@
+{
+  "private": true,
+  "name": "@wpmudev/css-builder",
+  "description": "This builder helps you compile SASS into CSS and minify it.",
+  "version": "0.0.0",
+  "license": "GPL-3.0",
+  "keywords": [
+    "incsub",
+    "wpmudev",
+    "shared-ui",
+    "css-builder"
+  ],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "main": "lib/builder.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "bin": {
+    "css-builder": "./lib/builder.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-css.git",
+    "directory": "packages/builder"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://incsub.atlassian.net/browse/SUI"
+  },
+  "homepage": "https://github.com/wpmudev/sui-css#readme"
+}
