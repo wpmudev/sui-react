@@ -19,13 +19,13 @@
     }
   ],
   "main": "dist/layout.min.css",
-  "src": "lib/layout.scss",
+  "src": "scss/layout.scss",
   "directories": {
-    "lib": "lib"
+    "scss": "scss"
   },
   "files": [
     "dist",
-    "lib"
+    "scss"
   ],
   "publishConfig": {
     "access": "public"
@@ -35,9 +35,14 @@
     "url": "git+https://github.com/wpmudev/sui-css.git",
     "directory": "packages/layout"
   },
-  "scripts": {},
+  "scripts": {
+    "build": "css-builder"
+  },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
   },
-  "homepage": "https://github.com/wpmudev/sui-css#readme"
+  "homepage": "https://github.com/wpmudev/sui-css#readme",
+  "devDependencies": {
+    "@wpmudev/css-builder": "^0.0.0"
+  }
 }
