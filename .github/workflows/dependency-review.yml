@@ -7,10 +7,6 @@
 name: 'Dependency Review'
 
 on:
-  push:
-    branches:
-      - master
-      - release/**
   pull_request:
     branches:
       - release/**
