@@ -13,6 +13,7 @@ const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css');
 const autoprefixer = require('gulp-autoprefixer');
 const header = require('gulp-header');
+const prettier = require('gulp-prettier');
 
 /**
  * Development Paths & Files
@@ -41,18 +42,15 @@ const banner = [
 	' * Copyright 2018 - 2022 Incsub (https://incsub.com)',
 	' * Licensed under GPL-3.0 (http://www.gnu.org/licenses/gpl-3.0.html)',
 	' */',
-	''
-].join( '\n' );
+	'',
+].join('\n');
 
 /**
  * List of Supported Browsers
  *
  * @since 0.0.0
  */
-const browsersList = [
-	'last 2 version',
-	'> 1%'
-];
+const browsersList = ['last 2 version', '> 1%'];
 
 /**
  * Compiling tasks.
@@ -61,15 +59,19 @@ const browsersList = [
  * @since 0.0.0
  */
 function compile() {
-	return gulp.src(inputPath)
+	return gulp
+		.src(inputPath)
+		.pipe(prettier())
+		.pipe(gulp.dest('scss/'))
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-		.pipe( autoprefixer( browsersList ) )
-		.pipe( header( banner ) )
+		.pipe(autoprefixer(browsersList))
+		.pipe(header(banner))
+		.pipe(prettier())
 		.pipe(gulp.dest('dist/'))
 		.pipe(cleanCSS())
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest('dist/'))
-		.on('finish', function() {
+		.on('finish', function () {
 			console.log('📦 Package ' + packageName + ' compiled.');
 		});
 }

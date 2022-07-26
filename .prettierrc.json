@@ -8,6 +8,7 @@
 	"arrowParens": "always",
 	"parenSpacing": true,
 	"bracketSpacing": true,
+	"endOfLine": "lf",
 	"overrides": [
 		{
 			"files": "*.{css,sass,scss}",
@@ -15,6 +16,13 @@
 				"singleQuote": false,
 				"parenSpacing": false,
 				"bracketSpacing": true
+			}
+		},
+		{
+			"files": "*.css",
+			"options": {
+				"useTabs": true,
+				"tabWidth": 4
 			}
 		},
 		{
