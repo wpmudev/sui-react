@@ -27,7 +27,7 @@ jobs:
         with:
           # Comma separated string with paths to files and directories to check for existence.
           # Supports glob paterns (https://github.com/isaacs/node-glob).
-          files: "packages/**/package.json, packages/**/README.md, packages/**/CHANGELOG.md, packages/**/LICENSE, packages/**/.gitignore"
+          files: 'packages/**/package.json, packages/**/README.md, packages/**/CHANGELOG.md, packages/**/LICENSE, packages/**/.gitignore'
           # Ignore if a file name has upper or lower cases.
           ignore_case: true
           # Indicates whether to follow symbolic links.

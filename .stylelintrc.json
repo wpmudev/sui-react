@@ -1,5 +1,3 @@
 {
-	"extends": [
-		"@wordpress/stylelint-config"
-	]
+	"extends": ["@wordpress/stylelint-config"]
 }
