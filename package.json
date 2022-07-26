@@ -36,6 +36,7 @@
     "@wordpress/stylelint-config": "^20.0.2",
     "babel-loader": "^8.2.5",
     "lerna": "^4.0.0",
+    "lerna-changelog": "^2.2.0",
     "prettier": "2.7.1",
     "stylelint": "^14.9.1"
   },
@@ -50,6 +51,19 @@
     "format-files": "clear && yarn prettier --write .",
     "build-css": "clear && lerna run build",
     "storybook": "start-storybook -p 6007",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "changelog": "npx lerna-changelog"
+  },
+  "changelog": {
+    "repo": "wpmudev/sui-css",
+    "labels": {
+      "breaking": "💥 Breaking Change",
+      "new": "✨ New Feature",
+      "improvement": "🚀 Improvement",
+      "bug": "🐛 Bug Fix",
+      "accessibility": "♿️ Accessibility",
+      "documentation": "📝 Documentation",
+      "internal": "🏠 Internal"
+    }
   }
 }
