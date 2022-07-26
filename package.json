@@ -47,6 +47,8 @@
     "trim-newlines": "^3.0.1"
   },
   "scripts": {
+    "format-files": "clear && yarn prettier --write .",
+    "build-css": "clear && lerna run build",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook"
   }
