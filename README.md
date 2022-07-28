@@ -9,6 +9,7 @@ WPMU DEV's Shared UI CSS Framework includes a wide range of shorthand utility cl
 This framework's primary goal is to deliver a method of styling elements with as little friction as possible. Our framework allows us to use our Design Tokens via memorable CSS-based utility classes.
 
 ## **Installation**
+
 Before proceeding further, please ensure you have [Node.js](https://nodejs.org/) installed. You can install the latest version via their website.
 
 Run in your project root directory (where `package.json` lives):
@@ -18,8 +19,9 @@ npm install @wpmudev/sui-css --save-dev
 ```
 
 ## **Documentation**
+
 Please, read through our common guidelines before starting to contribute on any of our projects:
 
-- [General Guidelines](https://github.com/wpmudev/sui-docs/guidelines.md)
-- [Contributions Guidelines](https://github.com/wpmudev/sui-docs/contributions.md)
-- [Release Guidelines](https://github.com/wpmudev/sui-docs/release.md)
+-   [General Guidelines](https://github.com/wpmudev/sui-docs/guidelines.md)
+-   [Contributions Guidelines](https://github.com/wpmudev/sui-docs/contributions.md)
+-   [Release Guidelines](https://github.com/wpmudev/sui-docs/release.md)
