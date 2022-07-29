@@ -9,18 +9,14 @@ module.exports = {
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
-		'@storybook/addon-postcss'
+		'@storybook/addon-postcss',
 	],
 	webpackFinal: async (config, { configType }) => {
 		// Add SASS support.
 		config.module.rules.push({
 			test: /\.scss$/,
-			use: [
-				'style-loader',
-				'css-loader',
-				'sass-loader'
-			],
-			include: path.resolve( __dirname, '../' ),
+			use: ['style-loader', 'css-loader', 'sass-loader'],
+			include: path.resolve(__dirname, '../'),
 		});
 
 		return config;
