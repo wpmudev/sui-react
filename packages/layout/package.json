@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@wpmudev/layout",
+  "name": "@wpmudev/css-layout",
   "description": "",
   "version": "0.0.0",
   "license": "GPL-3.0",
