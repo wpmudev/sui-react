@@ -1,0 +1,56 @@
+import { Meta, Canvas, Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import dedent from 'dedent';
+
+<Meta title="SUI/CSS Framework/Layout/Overview" />
+
+<Docs.Page title="Container" light={true} status="dead">
+	<Docs.Content
+		title={
+			<>
+				The containers are the most basic layout and are{' '}
+				<strong>required</strong> when using our default{' '}
+				<strong>grid system</strong>. Choose between full-width (meaning
+				it's 100% wide all the time) and contained (meaning, it has a
+				maximum width) content.
+			</>
+		}
+	>
+		<Docs.Section title="Full Width">
+			<p>
+				Use <code>.sui-layout</code> as the main container. It will span
+				the entire width of the available space (without admin bar) on
+				the WordPress admin page.
+			</p>
+			<Source
+				dark
+				language="html"
+				code={dedent`
+<div class="sui-layout">\n
+	...\n
+</div>
+				`}
+			/>
+		</Docs.Section>
+		<Docs.Section title="Contained">
+			<p>
+				Use <code>.sui-layout__content</code> as a second container. It
+				will wrap the content, set a maximum width and align it to the
+				middle of the remaining space (without admin bar) on the
+				WordPress admin page.
+			</p>
+			<Source
+				dark
+				language="html"
+				code={dedent`
+<div class="sui-layout">\n
+	<div className="sui-layout__content">\n
+		...\n
+	</div>\n
+</div>
+				`}
+			/>
+		</Docs.Section>
+	</Docs.Content>
+	<Docs.Footer />
+</Docs.Page>

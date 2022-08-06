@@ -1,0 +1,120 @@
+import { Meta, Canvas, Story, Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import { GridSample } from './Grid';
+import dedent from 'dedent';
+
+import '../scss/layout.scss';
+
+<Meta title="SUI/CSS Framework/Layout/Grid" />
+
+<Docs.Page title="The Grid" light={true} status="draft">
+	<Docs.Content title="Our robust flexbox grid builds layouts of all shapes and sizes thanks to a twelve-column system with dozens of predefined classes.">
+		<Docs.Section title="How it works">
+			<p>
+				The Shared UI grid system employs a sequence of containers,
+				rows, and columns to align and layout content. The grid is
+				created using{' '}
+				<a
+					href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes"
+					target="_blank"
+					rel="nofollow"
+				>
+					flexbox
+				</a>{' '}
+				and is fully responsive. Below is a sample and an in-depth look
+				at how the grid comes together.
+			</p>
+			<Canvas withToolbar>
+				<GridSample size="4" />
+			</Canvas>
+			<Source
+				dark
+				language="html"
+				code={dedent`
+<div class="sui-row sui-row--inline">\n
+	<div class="sui-col sui-col--3 sui-col--inline-spacing"> ... </div>\n
+	<div class="sui-col sui-col--3 sui-col--inline-spacing"> ... </div>\n
+	<div class="sui-col sui-col--3 sui-col--inline-spacing"> ... </div>\n
+</div>
+				`}
+			/>
+			<p>
+				Above, there's an example of three equal-width columns on small,
+				medium, large, and extra large devices, achieved by using our
+				predefined grid classes.
+			</p>
+		</Docs.Section>
+		<Docs.Section title="Options">
+			<p>
+				Praesent commodo cursus magna, vel scelerisque nisl consectetur
+				et. Donec id elit non mi porta gravida at eget metus. Sed
+				posuere consectetur est at lobortis. Etiam porta sem malesuada
+				magna mollis euismod. Donec sed odio dui. Vivamus sagittis lacus
+				vel augue laoreet rutrum faucibus dolor auctor.
+			</p>
+			<Docs.Table id="grid-options">
+				<Docs.TableHead>
+					<div size="2"></div>
+					<div size="2">
+						Extra Small
+						<br />
+						<small>auto</small>
+					</div>
+					<div size="2">
+						Small
+						<br />
+						<small>≥ 783px</small>
+					</div>
+					<div size="2">
+						Medium
+						<br />
+						<small>≥ 1024px</small>
+					</div>
+					<div size="2">
+						Large
+						<br />
+						<small>≥ 1200px</small>
+					</div>
+					<div size="2">
+						Extra Large
+						<br />
+						<small>≥ 1600px</small>
+					</div>
+				</Docs.TableHead>
+				<Docs.TableBody>
+					<div>
+						<div size="2" scope={true}>
+							Class prefix
+						</div>
+						<div size="2">
+							<code>.sui-col--</code>
+						</div>
+						<div size="2">
+							<code>.sui-col-sm-</code>
+						</div>
+						<div size="2">
+							<code>.sui-col-md-</code>
+						</div>
+						<div size="2">
+							<code>.sui-col-lg-</code>
+						</div>
+						<div size="2">
+							<code>.sui-col-xl-</code>
+						</div>
+					</div>
+					<div>
+						<div size="2" scope={true}>
+							Gutter width
+						</div>
+						<div size="2">8px</div>
+						<div size="2">16px</div>
+						<div size="2">16px</div>
+						<div size="2">16px</div>
+						<div size="2">24px</div>
+					</div>
+				</Docs.TableBody>
+			</Docs.Table>
+		</Docs.Section>
+	</Docs.Content>
+	<Docs.Footer />
+</Docs.Page>

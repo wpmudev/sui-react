@@ -1,0 +1,77 @@
+import { Meta, Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import dedent from 'dedent';
+
+<Meta title="SUI/CSS Framework/Layout/Overview" />
+
+<Docs.Page title="Overview" light={true} status="draft">
+	<Docs.Content
+		title={
+			<>
+				Components and options for laying out your plugin, including
+				wrapping containers, a powerful grid system, a flexible media
+				object, and responsible utility classes.
+			</>
+		}
+	>
+		<Docs.Section title="Containers">
+			<p>
+				Containers are the most basic layout in Shared UI Design System
+				and are <strong>required when using grid system</strong>. Choose
+				between full-width (meaning it's 100% wide all the time) and
+				contained (meaning, it has a maximum width) content.
+			</p>
+			<p>
+				You can nest containers, if that's what you need, but it won't
+				always be required for WPMU DEV products.
+			</p>
+			<Source
+				dark
+				language="html"
+				format={false}
+				code={dedent`
+<div class="sui-layout">\n
+	<div class="sui-layout__content"> ... </div>\n
+</div>
+	`}
+			/>
+		</Docs.Section>
+		<Docs.Section title="Responsive Breakpoints">
+			<p>Shared UI is developed to be mobile first, we use a handful of media queries to create sensible breakpoints for our layouts and interfaces. These breakpoints are mostly based on minimum viewport widths and allow us to scale up elements as the viewport changes.</p>
+			<p>Shared UI primarily uses the following media query ranges—or breakpoints—in our source Sass files for our layout, grid system, and components.</p>
+			<p>Since we write our source CSS in Sass, all our media queries are available via Sass mixins:</p>
+			<Source
+	dark
+	language="scss"
+	format={false}
+	code={dedent`
+// Small devices (783px and up)
+@include media(min-width, sm) { ... }\n
+// Medium devices (1024px and up)
+@include media(min-width, md) { ... }\n
+// Large devices (1200px and up)
+@include media(min-width, lg) { ... }\n
+// Extra large devices (1600 and up)
+@include media(min-width, xl) { ... }
+	`}
+/>
+
+<Source
+	dark
+	language="scss"
+	format={false}
+	code={dedent`
+// Extra small devices (782px and down)
+@include media(max-width, xs) { ... }\n
+// Small devices (1023px and down)
+@include media(max-width, md) { ... }\n
+// Medium devices (1199px and down)
+@include media(max-width, lg) { ... }\n
+// Large devices (1599px and down)
+@include media(max-width, xl) { ... }
+	`}
+/>
+		</Docs.Section>
+	</Docs.Content>
+	<Docs.Footer />
+</Docs.Page>
