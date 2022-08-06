@@ -1,0 +1,60 @@
+@use "sass:map";
+
+@import "./variables";
+@import "./breakpoints";
+
+.sui-layout {
+	margin-left: -10px;
+
+	@include media(min-width, sm) {
+		margin-left: -20px;
+	}
+
+	// Set top spacing to prevent content from starting at top edge of the window.
+	&--justify {
+		margin-top: map.get($spacing, lg);
+	}
+
+	// Set sides spacing.
+	&--spacing {
+		padding: 0 map.get($spacing, sm);
+	}
+
+	// Set spacing in relation to the breakpoints.
+	@each $bp-label, $bp-value in $breakpoints {
+		// Set top spacing to prevent content from starting at top edge of the window.
+		&-#{$bp-label}--justify {
+			@include media(min-width, $bp-label) {
+				margin-top: map.get($spacing, lg);
+			}
+		}
+
+		// Remove top spacing in case neded.
+		&-#{$bp-label}--justify-reset {
+			@include media(min-width, $bp-label) {
+				margin-top: 0;
+			}
+		}
+
+		// Set sides spacing.
+		&-#{$bp-label}--spacing {
+			@include media(min-width, $bp-label) {
+				padding: 0 map.get($spacing, $bp-label);
+			}
+		}
+
+		// Remove sides spacing.
+		&-#{$bp-label}--spacing-reset {
+			@include media(min-width, $bp-label) {
+				padding: 0;
+			}
+		}
+	}
+
+	// Element that wraps content in a maximum width.
+	&__content {
+		max-width: map.get($breakpoints, xl);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

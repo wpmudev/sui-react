@@ -1,0 +1,74 @@
+@use "sass:map";
+@use "sass:math";
+
+@import "./variables";
+@import "./breakpoints";
+
+.sui-row {
+	display: block;
+	margin-bottom: map.get($spacing, sm);
+
+	@include media(min-width, md) {
+		margin-bottom: map.get($spacing, md);
+	}
+
+	@include media(min-width, lg) {
+		margin-bottom: map.get($spacing, lg);
+	}
+
+	// Set columns inline.
+	&--inline {
+		display: flex;
+		flex-flow: row wrap;
+
+		&-spacing {
+			margin-left: -#{math.div(map.get($spacing, sm), 2)};
+			margin-right: -#{math.div(map.get($spacing, sm), 2)};
+		}
+	}
+
+	// Set columns stacked.
+	&--stacked {
+		display: block;
+
+		&-spacing {
+			margin-left: 0;
+			margin-right: 0;
+			margin-bottom: map.get($spacing, sm);
+		}
+	}
+
+	@each $bp-label, $bp-value in $breakpoints {
+		&-#{$bp-label}--inline {
+			@include media(min-width, $bp-label) {
+				display: flex;
+				flex-flow: row wrap;
+			}
+
+			&-spacing {
+				@include media(min-width, $bp-label) {
+					margin-left: -#{math.div(map.get($spacing, $bp-label), 2)};
+					margin-right: -#{math.div(map.get($spacing, $bp-label), 2)};
+				}
+			}
+		}
+
+		&-#{$bp-label}--stacked {
+			@include media(min-width, $bp-label) {
+				display: block;
+			}
+
+			&-spacing {
+				@include media(min-width, $bp-label) {
+					margin-left: 0;
+					margin-right: 0;
+					margin-bottom: map.get($spacing, $bp-label);
+				}
+			}
+		}
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

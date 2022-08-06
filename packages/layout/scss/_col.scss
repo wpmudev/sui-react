@@ -1,0 +1,91 @@
+@use "sass:map";
+@use "sass:math";
+
+@import "./variables";
+@import "./breakpoints";
+
+.sui-col {
+	max-width: 100%;
+	display: block;
+
+	// Set column width flexible in relation to its container.
+	&--auto {
+		width: auto;
+		min-width: 1px;
+		flex: 1;
+	}
+
+	// Set column width flexible in relation to its content.
+	&--fixed {
+		width: auto;
+		flex: 0 0 auto;
+	}
+
+	// Set column width fixed in relation to a 12-col grid.
+	@for $size from 1 through 12 {
+		$value: math.div(($size * 100), $grid);
+		$width: #{$value + "%"};
+
+		&--#{$size} {
+			width: $width;
+			flex: 0 0 auto;
+		}
+	}
+
+	// Set spacing for inline columns.
+	&--inline-spacing {
+		padding: 0 math.div(map.get($spacing, sm), 2);
+		margin-bottom: 0;
+	}
+
+	// Set spacing for stacked columns.
+	&--stacked-spacing {
+		padding: 0;
+		margin-bottom: map.get($spacing, sm);
+	}
+
+	// Set column width in relation to the breakpoints.
+	@each $bp-label, $bp-value in $breakpoints {
+		// Set column width flexible in relation to its container.
+		&-#{$bp-label}--auto {
+			width: auto;
+			min-width: 1px;
+			flex: 1;
+		}
+
+		// Set column width flexible in relation to its content.
+		&-#{$bp-label}--fixed {
+			width: auto;
+			flex: 0 0 auto;
+		}
+
+		// Set column width fixed in relation to a 12-col grid.
+		@for $size from 1 through 12 {
+			$value: math.div(($size * 100), $grid);
+			$width: #{$value + "%"};
+
+			&-#{$bp-label}--#{$size} {
+				@include media(min-width, $bp-label) {
+					width: $width;
+					flex: 0 0 auto;
+				}
+			}
+		}
+
+		// Reset spacing for inline columns.
+		&-#{$bp-label}--inline {
+			@include media(min-width, $bp-label) {
+				padding: 0 math.div(map.get($spacing, $bp-label), 2);
+				margin-bottom: 0;
+			}
+		}
+
+		// Reset spacing for stacked columns.
+		&-#{$bp-label}--stacked {
+			@include media(min-width, $bp-label) {
+				padding: 0;
+				margin-bottom: map.get($spacing, $bp-label);
+			}
+		}
+	}
+}
