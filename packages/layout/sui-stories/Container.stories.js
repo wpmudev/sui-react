@@ -19,25 +19,61 @@ export default {
 };
 
 export const Container = (args) => {
+	const boxStyles = {
+		padding: '16px 0',
+		background: '#fff',
+	};
+
+	const boxWrapperStyles = {
+		padding: '0 32px',
+	};
+
+	const logoStyles = {
+		width: 48,
+		height: 48,
+		display: 'flex',
+		flexFlow: 'row wrap',
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderRadius: 16,
+		background: '#2DC4E0',
+		color: '#FFF',
+		fontSize: 22,
+		lineHeight: 1,
+		fontWeight: 700,
+		textAlign: 'center',
+	};
+
 	return (
 		<Layout {...args}>
-			<h1>Container</h1>
-			<p>
-				Hello, I am a content wrapped inside a layout class:{' '}
-				<code>sui-layout</code>. By default, I'll be fullscreen but you
-				can wrap me inside a layout content element (
-				<code>sui-layout__content</code>) to set a maximum width for the
-				content.
-			</p>
+			<div style={boxStyles}>
+				<div style={boxWrapperStyles}>
+					<div style={logoStyles}>L</div>
+				</div>
+			</div>
 		</Layout>
 	);
 };
 Container.args = {
 	fullwidth: true,
+	justify: true,
+	spacing: true,
 };
 Container.argTypes = {
 	fullwidth: {
 		name: 'Full Width',
+		control: {
+			type: 'boolean',
+		},
+	},
+	justify: {
+		name: 'Top Spacing',
+		control: {
+			type: 'boolean',
+		},
+	},
+	spacing: {
+		name: 'Sides Spacing',
 		control: {
 			type: 'boolean',
 		},
