@@ -8,69 +8,44 @@ import dedent from 'dedent';
 	<Docs.Content
 		title={
 			<>
-				Components and options for laying out your plugin, including
-				wrapping containers, a powerful grid system, a flexible media
-				object, and responsible utility classes.
+				Layout includes all necessary styling options for laying out
+				your plugin, including wrapping containers, a powerful grid
+				system, a flexible media object, and responsive utility classes.
 			</>
 		}
 	>
-		<Docs.Section title="Containers">
+		<Docs.Section title="Installation">
 			<p>
-				Containers are the most basic layout in Shared UI Design System
-				and are <strong>required when using grid system</strong>. Choose
-				between full-width (meaning it's 100% wide all the time) and
-				contained (meaning, it has a maximum width) content.
+				There are two ways to access Layout stylesheets: install the
+				complete <strong>CSS Framework</strong> package or the single
+				package that contains only the Layout stylesheets you need.
 			</p>
 			<p>
-				You can nest containers, if that's what you need, but it won't
-				always be required for WPMU DEV products.
+				Layout single package contains three files in different formats:
+				CSS, Minified CSS, and Sassy CSS (Scss).
 			</p>
 			<Source
 				dark
-				language="html"
+				language="shell" // bash, shell, zsh, sh
 				format={false}
 				code={dedent`
-<div class="sui-layout">\n
-	<div class="sui-layout__content"> ... </div>\n
-</div>
-	`}
+npm install @wpmudev/sui-css --save-dev
+				`}
 			/>
 		</Docs.Section>
-		<Docs.Section title="Responsive Breakpoints">
-			<p>Shared UI is developed to be mobile first, we use a handful of media queries to create sensible breakpoints for our layouts and interfaces. These breakpoints are mostly based on minimum viewport widths and allow us to scale up elements as the viewport changes.</p>
-			<p>Shared UI primarily uses the following media query ranges—or breakpoints—in our source Sass files for our layout, grid system, and components.</p>
-			<p>Since we write our source CSS in Sass, all our media queries are available via Sass mixins:</p>
+		<Docs.Section title="Usage">
+			<p>
+				Import layout stylesheet inside an existing Scss file in your
+				project, just do the following:
+			</p>
 			<Source
-	dark
-	language="scss"
-	format={false}
-	code={dedent`
-// Small devices (783px and up)
-@include media(min-width, sm) { ... }\n
-// Medium devices (1024px and up)
-@include media(min-width, md) { ... }\n
-// Large devices (1200px and up)
-@include media(min-width, lg) { ... }\n
-// Extra large devices (1600 and up)
-@include media(min-width, xl) { ... }
-	`}
-/>
-
-<Source
-	dark
-	language="scss"
-	format={false}
-	code={dedent`
-// Extra small devices (782px and down)
-@include media(max-width, xs) { ... }\n
-// Small devices (1023px and down)
-@include media(max-width, md) { ... }\n
-// Medium devices (1199px and down)
-@include media(max-width, lg) { ... }\n
-// Large devices (1599px and down)
-@include media(max-width, xl) { ... }
-	`}
-/>
+				dark
+				language="css"
+				format={false}
+				code={dedent`
+@import "~@wpmudev/css-layout/layout";
+				`}
+			/>
 		</Docs.Section>
 	</Docs.Content>
 	<Docs.Footer />
