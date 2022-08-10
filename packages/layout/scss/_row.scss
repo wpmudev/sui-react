@@ -5,7 +5,6 @@
 @import "./breakpoints";
 
 .sui-row {
-	display: block;
 	margin-bottom: map.get($spacing, sm);
 
 	@include media(min-width, md) {
@@ -16,26 +15,16 @@
 		margin-bottom: map.get($spacing, lg);
 	}
 
-	// Set columns inline.
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	/// @modifier Inline.
 	&--inline {
 		display: flex;
 		flex-flow: row wrap;
-
-		&-spacing {
-			margin-left: -#{math.div(map.get($spacing, sm), 2)};
-			margin-right: -#{math.div(map.get($spacing, sm), 2)};
-		}
-	}
-
-	// Set columns stacked.
-	&--stacked {
-		display: block;
-
-		&-spacing {
-			margin-left: 0;
-			margin-right: 0;
-			margin-bottom: map.get($spacing, sm);
-		}
+		margin-left: -#{math.div(map.get($spacing, sm), 2)};
+		margin-right: -#{math.div(map.get($spacing, sm), 2)};
 	}
 
 	@each $bp-label, $bp-value in $breakpoints {
@@ -43,32 +32,17 @@
 			@include media(min-width, $bp-label) {
 				display: flex;
 				flex-flow: row wrap;
-			}
-
-			&-spacing {
-				@include media(min-width, $bp-label) {
-					margin-left: -#{math.div(map.get($spacing, $bp-label), 2)};
-					margin-right: -#{math.div(map.get($spacing, $bp-label), 2)};
-				}
+				margin-left: -#{math.div(map.get($spacing, $bp-label), 2)};
+				margin-right: -#{math.div(map.get($spacing, $bp-label), 2)};
 			}
 		}
 
 		&-#{$bp-label}--stacked {
 			@include media(min-width, $bp-label) {
 				display: block;
-			}
-
-			&-spacing {
-				@include media(min-width, $bp-label) {
-					margin-left: 0;
-					margin-right: 0;
-					margin-bottom: map.get($spacing, $bp-label);
-				}
+				margin-left: 0;
+				margin-right: 0;
 			}
 		}
-	}
-
-	&:last-child {
-		margin-bottom: 0;
 	}
 }
