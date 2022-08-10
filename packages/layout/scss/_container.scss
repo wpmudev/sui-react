@@ -3,6 +3,8 @@
 @import "./variables";
 @import "./breakpoints";
 
+/// Layout
+/// @type block
 .sui-layout {
 	margin-left: -10px;
 
@@ -10,48 +12,39 @@
 		margin-left: -20px;
 	}
 
-	// Set top spacing to prevent content from starting at top edge of the window.
+	/// Layout Justify.
+	/// @type modifier
+	/// Top spacing to prevent content from starting at top edge of the window.
 	&--justify {
-		margin-top: map.get($spacing, lg);
+		margin-top: map.get($spacing, sm);
+
+		@include media(min-width, md) {
+			margin-top: map.get($spacing, md);
+		}
+
+		@include media(min-width, lg) {
+			margin-top: map.get($spacing, lg);
+		}
 	}
 
-	// Set sides spacing.
+	/// Layout Spacing.
+	/// @type modifier
+	/// Set padding spacing to left and right of the layout.
 	&--spacing {
 		padding: 0 map.get($spacing, sm);
-	}
 
-	// Set spacing in relation to the breakpoints.
-	@each $bp-label, $bp-value in $breakpoints {
-		// Set top spacing to prevent content from starting at top edge of the window.
-		&-#{$bp-label}--justify {
-			@include media(min-width, $bp-label) {
-				margin-top: map.get($spacing, lg);
-			}
+		@include media(min-width, md) {
+			padding: 0 map.get($spacing, md);
 		}
 
-		// Remove top spacing in case neded.
-		&-#{$bp-label}--justify-reset {
-			@include media(min-width, $bp-label) {
-				margin-top: 0;
-			}
-		}
-
-		// Set sides spacing.
-		&-#{$bp-label}--spacing {
-			@include media(min-width, $bp-label) {
-				padding: 0 map.get($spacing, $bp-label);
-			}
-		}
-
-		// Remove sides spacing.
-		&-#{$bp-label}--spacing-reset {
-			@include media(min-width, $bp-label) {
-				padding: 0;
-			}
+		@include media(min-width, lg) {
+			padding: 0 map.get($spacing, lg);
 		}
 	}
 
-	// Element that wraps content in a maximum width.
+	/// Layout Content.
+	/// @type element
+	/// Wraps content in a 1600px maximum width container.
 	&__content {
 		max-width: map.get($breakpoints, xl);
 		margin-left: auto;
