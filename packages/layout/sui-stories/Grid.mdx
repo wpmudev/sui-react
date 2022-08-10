@@ -8,12 +8,19 @@ import '../scss/layout.scss';
 <Meta title="SUI/CSS Framework/Layout/Grid" />
 
 <Docs.Page title="The Grid" light={true} status="draft">
-	<Docs.Content title="Our robust flexbox grid builds layouts of all shapes and sizes thanks to a twelve-column system with dozens of predefined classes.">
+	<Docs.Content
+		title={
+			<>
+				Our robust flexbox grid builds layouts of all shapes and sizes
+				thanks to a twelve-column system.
+			</>
+		}
+	>
 		<Docs.Section title="How it works">
 			<p>
-				The Shared UI grid system employs a sequence of containers,
-				rows, and columns to align and layout content. The grid is
-				created using{' '}
+				The Shared UI grid system employs a sequence of rows, and
+				columns to align and organize the content inside the layout. The
+				grid is created using{' '}
 				<a
 					href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes"
 					target="_blank"
@@ -21,8 +28,13 @@ import '../scss/layout.scss';
 				>
 					flexbox
 				</a>{' '}
-				and is fully responsive. Below is a sample and an in-depth look
-				at how the grid comes together.
+				and is fully responsive.
+			</p>
+			<p>
+				Below there's a quick sample and an in-depth look at how the
+				grid with three-equal columns comes together on small, medium,
+				large, and extra large devices, achieved by using our predefined
+				grid classes.
 			</p>
 			<Canvas withToolbar>
 				<GridSample size="4" />
@@ -38,11 +50,6 @@ import '../scss/layout.scss';
 </div>
 				`}
 			/>
-			<p>
-				Above, there's an example of three equal-width columns on small,
-				medium, large, and extra large devices, achieved by using our
-				predefined grid classes.
-			</p>
 		</Docs.Section>
 		<Docs.Section title="Options">
 			<p>
