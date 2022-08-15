@@ -7,8 +7,11 @@
   "keywords": [
     "wpmudev",
     "shared-ui",
+    "css-framework",
     "layout",
-    "grid"
+    "styles",
+    "scss",
+    "css"
   ],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -19,13 +22,13 @@
     }
   ],
   "main": "dist/layout.min.css",
-  "src": "scss/layout.scss",
+  "src": "src/layout.scss",
   "directories": {
-    "scss": "scss"
+    "src": "src"
   },
   "files": [
     "dist",
-    "scss"
+    "src"
   ],
   "publishConfig": {
     "access": "public"

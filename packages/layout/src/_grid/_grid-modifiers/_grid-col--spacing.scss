@@ -1,0 +1,22 @@
+@use "../../../external/utilities" as *;
+
+@use "./_grid-col/col-spacing--inline" as *;
+@use "./_grid-col/col-spacing--stacked" as *;
+
+/// Column Spacing.
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name.
+@mixin column-spacing($block) {
+	@include column-space--inline($block);
+	@include column-space--stacked($block);
+
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

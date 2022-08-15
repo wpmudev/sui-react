@@ -1,0 +1,26 @@
+@use "sass:map";
+
+@use "../../../../external/utilities" as *;
+
+/// Grid Row Stacked.
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name.
+@mixin row-stacked($block) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@each $bp-label, $bp-value in $breakpoints {
+				&-#{$bp-label} {
+					@include modifier(stacked) {
+						@include media(min-width, $bp-label) {
+							display: block;
+							margin-left: 0;
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
