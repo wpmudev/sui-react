@@ -4,7 +4,7 @@ import docs from './Grid.mdx';
 import { Layout } from './Container';
 import { GridSample, Row, Col, BlockSample } from './Grid';
 
-import '../scss/layout.scss';
+import '../src/layout.scss';
 
 export default {
 	title: 'SUI/CSS Framework/Layout/Grid',

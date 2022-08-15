@@ -3,7 +3,7 @@ import docs from './Container.mdx';
 
 import { Layout } from './Container';
 
-import '../scss/layout.scss';
+import '../src/layout.scss';
 
 export default {
 	title: 'SUI/CSS Framework/Layout/Container',
