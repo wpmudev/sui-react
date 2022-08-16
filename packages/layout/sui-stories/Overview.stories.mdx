@@ -35,15 +35,51 @@ npm install @wpmudev/sui-css --save-dev
 		</Docs.Section>
 		<Docs.Section title="Usage">
 			<p>
-				Import layout stylesheet inside an existing Scss file in your
-				project, just do the following:
+				Import layout stylesheet inside an existing SCSS file in your
+				project; do the following:
 			</p>
 			<Source
 				dark
 				language="css"
 				format={false}
 				code={dedent`
-@import "~@wpmudev/css-layout/layout";
+@forward "~@wpmudev/css-layout/layout";
+				`}
+			/>
+			<p>
+				Import layout elements and modifiers individually inside an
+				existing SCSS file in your project; do the following:
+			</p>
+			<Source
+				dark
+				language="css"
+				format={false}
+				code={dedent`
+@use "~@wpmudev/css-layout/_layout/_layout-elements/layout-elements" as sui-layout--element;
+@use "~@wpmudev/css-layout/_layout/_layout-modifiers/layout-modifiers" as sui-layout--modifier;\n
+// Layout elements.
+@include sui-layout--element.layout-main(layout);
+@include sui-layout--element.layout-content(layout);\n
+// Layout modifiers.
+@include sui-layout--modifier.spacing-top(layout);
+@include sui-layout--modifier.spacing-sides(layout);
+				`}
+			/>
+			<Source
+				dark
+				language="css"
+				format={false}
+				code={dedent`
+@use "~@wpmudev/css-layout/_grid/_grid-elements/grid-elements" as sui-grid--element;
+@use "~@wpmudev/css-layout/_grid/_grid-modifiers/grid-modifiers" as sui-grid--modifier;\n
+// Grid elements.
+@include sui-grid--element.grid-row(row);
+@include sui-grid--element.grid-col(col);\n
+// Grid modifiers.
+@include sui-grid--modifier.row-inline(row);
+@include sui-grid--modifier.row-stacked(row);
+@include sui-grid--modifier.column-size(col);
+@include sui-grid--modifier.column-spacing(col);
 				`}
 			/>
 		</Docs.Section>
