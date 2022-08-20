@@ -1,0 +1,57 @@
+import { Canvas, Story, Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import dedent from 'dedent';
+
+<Docs.Page title="Overline" light={true} status="ready">
+	<Docs.Content title="Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper.">
+		<Docs.Section title="Usage">
+			<p>
+				Cum sociis natoque penatibus et magnis dis parturient montes,
+				nascetur ridiculus mus. Integer posuere erat a ante venenatis
+				dapibus posuere velit aliquet. Vestibulum id ligula porta felis
+				euismod semper. Vestibulum id ligula porta felis euismod semper.
+				Praesent commodo cursus magna, vel scelerisque nisl consectetur
+				et. Donec ullamcorper nulla non metus auctor fringilla. Praesent
+				commodo cursus magna, vel scelerisque nisl consectetur et.
+			</p>
+			<Canvas>
+				<div className="sui-wrap sui-theme--light">
+					<div className="sui-layout sui-layout--spacing sui-layout--justify">
+						<p className="sui-overline">The Quick Brown Fox</p>
+					</div>
+				</div>
+			</Canvas>
+			<Source
+				dark
+				language="html"
+				format={false}
+				code={dedent`
+<p class="sui-overline">The Quick Brown Fox</p>
+				`}
+			/>
+		</Docs.Section>
+		<Docs.Section title="Alignment">
+			<p>
+				If you need to align text in a different direction, assign the{' '}
+				<strong>text-align</strong> property to the parent container
+				where your text stands.
+			</p>
+			<Canvas>
+				<div className="sui-wrap sui-theme--light">
+					<div
+						className="sui-layout sui-layout--spacing sui-layout--justify"
+						style={{ textAlign: 'center' }}
+					>
+						<p className="sui-overline">The Quick Brown Fox</p>
+					</div>
+				</div>
+			</Canvas>
+			<p>
+				In the example above, you can see a overline text that is{' '}
+				<strong>center-aligned</strong>. The parent container has the{' '}
+				<code>text-align: center</code> property.
+			</p>
+		</Docs.Section>
+	</Docs.Content>
+	<Docs.Footer />
+</Docs.Page>
