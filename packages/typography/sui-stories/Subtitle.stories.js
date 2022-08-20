@@ -38,8 +38,8 @@ export const Subtitle = ({ align, small, children }) => {
 	);
 };
 Subtitle.args = {
-	small: false,
 	align: 'left',
+	small: false,
 	children: 'The quick brown fox jumps over the lazy dog',
 };
 Subtitle.argTypes = {
@@ -47,6 +47,9 @@ Subtitle.argTypes = {
 		name: 'Small Size',
 		control: {
 			type: 'boolean',
+		},
+		table: {
+			category: 'Element'
 		},
 	},
 	align: {
@@ -59,8 +62,14 @@ Subtitle.argTypes = {
 				Right: 'right',
 			},
 		},
+		table: {
+			category: 'Container'
+		},
 	},
 	children: {
 		name: 'Demo Content',
+		table: {
+			category: 'Element'
+		},
 	},
 };

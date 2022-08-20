@@ -49,8 +49,14 @@ Caption.argTypes = {
 				Right: 'right',
 			},
 		},
+		table: {
+			category: 'Container',
+		},
 	},
 	children: {
 		name: 'Demo Content',
+		table: {
+			category: 'Element',
+		},
 	},
 };

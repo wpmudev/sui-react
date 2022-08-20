@@ -38,11 +38,25 @@ export const Heading = ({ children, align, type }) => {
 	);
 };
 Heading.args = {
-	type: 'h1',
 	align: 'left',
+	type: 'h1',
 	children: 'The quick brown fox jumps over the lazy dog',
 };
 Heading.argTypes = {
+	align: {
+		name: 'Text Align',
+		control: {
+			type: 'select',
+			options: {
+				Left: 'left',
+				Center: 'center',
+				Right: 'right',
+			},
+		},
+		table: {
+			category: 'Container',
+		},
+	},
 	type: {
 		name: 'Heading Type',
 		control: {
@@ -55,19 +69,14 @@ Heading.argTypes = {
 				'Heading 5': 'h5',
 			},
 		},
-	},
-	align: {
-		name: 'Text Align',
-		control: {
-			type: 'select',
-			options: {
-				Left: 'left',
-				Center: 'center',
-				Right: 'right',
-			},
+		table: {
+			category: 'Element',
 		},
 	},
 	children: {
 		name: 'Demo Content',
+		table: {
+			category: 'Element',
+		},
 	},
 };
