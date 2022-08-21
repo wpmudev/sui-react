@@ -1,5 +1,5 @@
 import React from 'react';
-import docs from './Heading.mdx';
+import docs from './tab-docs/Heading.mdx';
 
 import '../src/typography.scss';
 

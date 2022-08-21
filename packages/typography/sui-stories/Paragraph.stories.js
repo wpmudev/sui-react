@@ -1,5 +1,5 @@
 import React from 'react';
-import docs from './Paragraph.mdx';
+import docs from './tab-docs/Paragraph.mdx';
 
 import '../src/typography.scss';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import docs from './Overline.mdx';
+import docs from './tab-docs/Overline.mdx';
 
 import '../src/typography.scss';
 

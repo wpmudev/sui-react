@@ -1,5 +1,5 @@
 import React from 'react';
-import docs from './Caption.mdx';
+import docs from './tab-docs/Caption.mdx';
 
 import '../src/typography.scss';
 

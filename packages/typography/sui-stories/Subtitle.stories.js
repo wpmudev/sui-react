@@ -1,5 +1,5 @@
 import React from 'react';
-import docs from './Subtitle.mdx';
+import docs from './tab-docs/Subtitle.mdx';
 
 import '../src/typography.scss';
 
@@ -49,7 +49,7 @@ Subtitle.argTypes = {
 			type: 'boolean',
 		},
 		table: {
-			category: 'Element'
+			category: 'Element',
 		},
 	},
 	align: {
@@ -63,13 +63,13 @@ Subtitle.argTypes = {
 			},
 		},
 		table: {
-			category: 'Container'
+			category: 'Container',
 		},
 	},
 	children: {
 		name: 'Demo Content',
 		table: {
-			category: 'Element'
+			category: 'Element',
 		},
 	},
 };
