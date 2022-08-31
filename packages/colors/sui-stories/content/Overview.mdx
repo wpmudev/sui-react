@@ -1,0 +1,29 @@
+import { Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import dedent from 'dedent';
+
+export const srcInstallation = dedent`npm install @wpmudev/css-colors --save-dev`;
+export const srcUsage = dedent`@forward "~@wpmudev/css-colors/colors";`;
+
+<span></span>
+
+<Docs.Section title="Installation">
+	<p>
+		There are two ways to access Colors stylesheets: install the complete
+		CSS Framework package or the single package that contains only the
+		Colors stylesheets you need.
+	</p>
+	<p>
+		Colors single package contains three files in different formats: CSS,
+		Minified CSS, and Sassy CSS (Scss).
+	</p>
+	<Source dark language="bash" format={false} code={srcInstallation} />
+</Docs.Section>
+
+<Docs.Section title="Usage">
+	<p>
+		Import colors stylesheet inside an existing SCSS file in your project;
+		do the following:
+	</p>
+	<Source dark language="scss" format={false} code={srcUsage} />
+</Docs.Section>

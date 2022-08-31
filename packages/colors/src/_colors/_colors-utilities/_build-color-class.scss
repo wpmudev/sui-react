@@ -1,0 +1,26 @@
+@use "sass:map";
+
+@use "../../../external/utilities" as *;
+@use "../_colors-themes/theme-noplugin" as *;
+
+@mixin build-color-class($block) {
+	@include sui-class($rtl: false, $theme: light) {
+		@each $name, $map in $palette {
+			@each $shade, $value in $map {
+				@include block($block + "-" + $name) {
+					@include modifier($shade) {
+						@if $block == color {
+							color: $value;
+						} @else if $block == border {
+							border-color: $value;
+						} @else if $block == bg {
+							background: $value;
+						} @else if $block == background {
+							background: $value;
+						}
+					}
+				}
+			}
+		}
+	}
+}
