@@ -13,11 +13,17 @@ export default {
 	},
 };
 
-const ParagraphDemo = ({ children }) => {
+const ParagraphDemo = ({ small, children }) => {
+	const smallExists = small && 'boolean' === typeof small;
+
+	if ( smallExists && small ) {
+		return <p><small>{ children }</small></p>
+	}
+
 	return <p>{children}</p>;
 };
 
-export const Paragraph = ({ align, children }) => {
+export const Paragraph = ({ align, small, children }) => {
 	const hasAlign = align && align !== '' ? true : false;
 	const boxStyles = {
 		padding: 20,
@@ -29,14 +35,15 @@ export const Paragraph = ({ align, children }) => {
 	return (
 		<div className="sui-layout sui-layout--justify sui-layout--spacing">
 			<div style={boxStyles}>
-				<ParagraphDemo>{children}</ParagraphDemo>
+				<ParagraphDemo small={ small }>{children}</ParagraphDemo>
 			</div>
 		</div>
 	);
 };
 Paragraph.args = {
 	align: 'left',
-	children: 'The quick brown fox jumps over the lazy dog',
+	small: false,
+	children: 'The quick brown fox jumps over the lazy dog.',
 };
 Paragraph.argTypes = {
 	align: {
@@ -51,6 +58,15 @@ Paragraph.argTypes = {
 		},
 		table: {
 			category: 'Container',
+		},
+	},
+	small: {
+		name: 'Small Size',
+		control: {
+			type: 'boolean',
+		},
+		table: {
+			category: 'Element',
 		},
 	},
 	children: {
