@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "@wpmudev/css-utilities",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "Leighton <2328848+iamleigh@users.noreply.github.com>",
+  "license": "ISC",
+  "main": "lib/css-utilities.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://iamleigh@github.com/wpmudev/sui-css.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/sui-css/issues"
+  },
+  "homepage": "https://github.com/wpmudev/sui-css#readme"
+}
