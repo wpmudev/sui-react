@@ -62,7 +62,7 @@ function compile() {
 	return gulp
 		.src(inputPath)
 		.pipe(prettier())
-		.pipe(gulp.dest('scss/'))
+		.pipe(gulp.dest('src/'))
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(autoprefixer(browsersList))
 		.pipe(header(banner))

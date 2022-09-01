@@ -1,14 +1,17 @@
 {
   "private": true,
-  "name": "@wpmudev/layout",
+  "name": "@wpmudev/css-layout",
   "description": "",
   "version": "0.0.0",
   "license": "GPL-3.0",
   "keywords": [
     "wpmudev",
     "shared-ui",
+    "css-framework",
     "layout",
-    "grid"
+    "styles",
+    "scss",
+    "css"
   ],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -19,13 +22,13 @@
     }
   ],
   "main": "dist/layout.min.css",
-  "src": "scss/layout.scss",
+  "src": "src/layout.scss",
   "directories": {
-    "scss": "scss"
+    "src": "src"
   },
   "files": [
     "dist",
-    "scss"
+    "src"
   ],
   "publishConfig": {
     "access": "public"
@@ -43,6 +46,7 @@
   },
   "homepage": "https://github.com/wpmudev/sui-css#readme",
   "devDependencies": {
-    "@wpmudev/css-builder": "^0.0.0"
+    "@wpmudev/css-builder": "^0.0.0",
+    "dedent": "^0.7.0"
   }
 }

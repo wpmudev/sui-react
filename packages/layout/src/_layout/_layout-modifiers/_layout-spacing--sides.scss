@@ -1,0 +1,32 @@
+@use "sass:map";
+
+@use "../../../external/helpers" as *;
+@use "../../../external/utilities" as *;
+
+/// Layout Sides Spacing.
+/// This modifier creates spacing between WordPress side bar and the right edge of the window.
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin spacing-sides($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			// Element wrapper.
+			@include modifier(spacing) {
+				padding: 0 map.get($spacing, sm);
+
+				@include media(min-width, md) {
+					padding: 0 map.get($spacing, md);
+				}
+
+				@include media(min-width, lg) {
+					padding: 0 map.get($spacing, lg);
+				}
+			}
+		}
+	}
+}
