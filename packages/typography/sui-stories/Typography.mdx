@@ -1,0 +1,33 @@
+import { Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import dedent from 'dedent';
+
+import Overview from './containers/Overview.mdx';
+import Heading from './containers/Heading.mdx';
+import Subtitle from './containers/Subtitle.mdx';
+import Paragraph from './containers/Paragraph.mdx';
+import Caption from './containers/Caption.mdx';
+import Overline from './containers/Overline.mdx';
+
+import '../src/typography.scss';
+
+<Docs.TabbedContent title="Typography" subtitle={<>Typography includes all necessary documentation and examples for headings, body text, lists, global settings, and more.</>} status="ready">
+	<div id="overview" label="Overview">
+		<Overview />
+	</div>
+	<div id="heading" label="Heading">
+		<Heading />
+	</div>
+	<div id="subtitle" label="Subtitle">
+		<Subtitle />
+	</div>
+	<div id="paragraph" label="Paragraph">
+		<Paragraph />
+	</div>
+	<div id="caption" label="Caption">
+		<Caption />
+	</div>
+	<div id="caption" label="Overline">
+		<Overline />
+	</div>
+</Docs.TabbedContent>

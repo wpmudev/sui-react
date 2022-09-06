@@ -1,0 +1,84 @@
+import { Canvas, Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import dedent from 'dedent';
+
+export const codeUsage = dedent`
+<h2 class="sui-subtitle">The Quick Brown Fox</h2>
+`;
+
+export const codeModifiers = dedent`
+<h2 className="sui-subtitle sui-subtitle--sm">The Quick Brown Fox</h2>
+`;
+
+<p>Subtitles are commonly used on boxes and after a heading before starting a new section of content.</p>
+
+<Docs.Section title="Usage">
+	<p>
+		Transform some text into a subtitle using the{' '}
+		<code>sui-subtitle</code> class name in any tag but preferably
+		following the proper content hierarchy.
+	</p>
+	<Canvas className="sbdocs-preview--light">
+		<div className="sui-wrap sui-theme--light">
+			<div className="sui-layout sui-layout--spacing sui-layout--justify">
+				<h2 className="sui-subtitle">The Quick Brown Fox</h2>
+			</div>
+		</div>
+	</Canvas>
+	<Source
+		dark
+		language="html"
+		format={false}
+		code={codeUsage}
+	/>
+</Docs.Section>
+
+<Docs.Section title="Modifiers">
+	<p>
+		Subtitles come in two variants, the default size of{' '}
+		<code>16px</code> and the small size text of <code>14px</code>.
+		You can access the small variant using the{' '}
+		<code>sui-subtitle--sm</code> modifier class name, as seen in
+		the example below.
+	</p>
+	<Canvas className="sbdocs-preview--light">
+		<div className="sui-wrap sui-theme--light">
+			<div className="sui-layout sui-layout--spacing sui-layout--justify">
+				<h2 className="sui-subtitle sui-subtitle--sm">
+					The Quick Brown Fox
+				</h2>
+			</div>
+		</div>
+	</Canvas>
+	<Source
+		dark
+		language="html"
+		format={false}
+		code={codeModifiers}
+	/>
+</Docs.Section>
+
+<Docs.Section title="Alignment">
+	<p>
+		If you need to align text in a different direction, assign the{' '}
+		<strong>text-align</strong> property to the parent container
+		where your text stands.
+	</p>
+	<Canvas className="sbdocs-preview--light">
+		<div className="sui-wrap sui-theme--light">
+			<div
+				className="sui-layout sui-layout--spacing sui-layout--justify"
+				style={{ textAlign: 'center' }}
+			>
+				<h2 className="sui-subtitle sui-subtitle--sm">
+					The Quick Brown Fox
+				</h2>
+			</div>
+		</div>
+	</Canvas>
+	<p>
+		In the example above, you can see a subtitle that is{' '}
+		<strong>center-aligned</strong>. The parent container has the{' '}
+		<code>text-align: center</code> property.
+	</p>
+</Docs.Section>
