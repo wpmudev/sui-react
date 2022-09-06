@@ -1,0 +1,47 @@
+import { Canvas, Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import dedent from 'dedent';
+
+export const codeUsage = dedent`
+<p class="sui-overline">The Quick Brown Fox</p>
+`;
+
+<span></span>
+
+<Docs.Section title="Usage">
+	<p>
+		Add the <code>sui-overline</code> class name to any text you want to
+		assign the overline text styles.
+	</p>
+	<Canvas className="sbdocs-preview--light">
+		<div className="sui-wrap sui-theme--light">
+			<div className="sui-layout sui-layout--spacing sui-layout--justify">
+				<p className="sui-overline">The Quick Brown Fox</p>
+			</div>
+		</div>
+	</Canvas>
+	<Source dark language="html" format={false} code={codeUsage} />
+</Docs.Section>
+
+<Docs.Section title="Alignment">
+	<p>
+		If you need to align text in a different direction, assign the{' '}
+		<strong>text-align</strong> property to the parent container where your
+		text stands.
+	</p>
+	<Canvas className="sbdocs-preview--light">
+		<div className="sui-wrap sui-theme--light">
+			<div
+				className="sui-layout sui-layout--spacing sui-layout--justify"
+				style={{ textAlign: 'center' }}
+			>
+				<p className="sui-overline">The Quick Brown Fox</p>
+			</div>
+		</div>
+	</Canvas>
+	<p>
+		In the example above, you can see a overline text that is{' '}
+		<strong>center-aligned</strong>. The parent container has the{' '}
+		<code>text-align: center</code> property.
+	</p>
+</Docs.Section>
