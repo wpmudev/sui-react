@@ -1,0 +1,54 @@
+{
+  "private": true,
+  "name": "@wpmudev/css-grid",
+  "description": "",
+  "version": "0.0.0",
+  "license": "GPL-3.0",
+  "keywords": [
+    "wpmudev",
+    "shared-ui",
+    "css-framework",
+    "grid",
+    "row",
+    "column",
+    "styles",
+    "scss",
+    "css"
+  ],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "main": "dist/grid.min.css",
+  "src": "src/grid.scss",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-css.git",
+    "directory": "packages/grid"
+  },
+  "scripts": {
+    "build": "css-builder"
+  },
+  "bugs": {
+    "url": "https://incsub.atlassian.net/browse/SUI"
+  },
+  "homepage": "https://github.com/wpmudev/sui-css#readme",
+  "devDependencies": {
+    "@wpmudev/css-builder": "^0.0.0",
+    "dedent": "^0.7.0"
+  }
+}

@@ -1,0 +1,45 @@
+import { Canvas, Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import { Grid as SuiGrid } from '../components/DynamicGrid';
+import dedent from 'dedent';
+
+export const RowAlign = {
+	md: 'inline',
+};
+
+export const codeDemo = dedent`
+<div class="sui-row sui-row-md--inline">\n
+	<div class="sui-col sui-col--3"> ... </div>\n
+	<div class="sui-col sui-col--3"> ... </div>\n
+	<div class="sui-col sui-col--3"> ... </div>\n
+</div>
+`;
+
+<span></span>
+
+<Docs.Section title="How it works">
+	<p>
+		The Shared UI grid system employs a sequence of rows, and columns to
+		align and organize the content inside the layout. The grid is created
+		using{' '}
+		<a
+			href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes"
+			target="_blank"
+			rel="nofollow"
+		>
+			flexbox
+		</a>{' '}
+		and is fully responsive.
+	</p>
+	<Canvas className="sbdocs-preview--light" withToolbar>
+		<div className="sui-wrap sui-theme--light">
+			<SuiGrid size="4" alignment={RowAlign} />
+		</div>
+	</Canvas>
+	<Source dark language="html" format={false} code={codeDemo} />
+	<p>
+		Above, there's an example of three equal-width columns on small, medium,
+		large, and extra large devices, achieved by using our predefined grid
+		classes.
+	</p>
+</Docs.Section>

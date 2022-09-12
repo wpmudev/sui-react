@@ -8,7 +8,7 @@
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name.
-@mixin grid-col($block) {
+@mixin build-col($block) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			min-width: 0;

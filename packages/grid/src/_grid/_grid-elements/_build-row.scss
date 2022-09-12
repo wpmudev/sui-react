@@ -8,7 +8,7 @@
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name.
-@mixin grid-row($block) {
+@mixin build-row($block) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			margin-bottom: map.get($spacing, sm);
