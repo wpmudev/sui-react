@@ -1,0 +1,58 @@
+import { Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import dedent from 'dedent';
+
+import PalettePrimary from './the-brand/PalettePrimary.mdx';
+import PaletteNeutral from './the-brand/PaletteNeutral.mdx';
+import PaletteSuccess from './the-brand/PaletteSuccess.mdx';
+import PaletteWarning from './the-brand/PaletteWarning.mdx';
+import PaletteError from './the-brand/PaletteError.mdx';
+
+export const data = [
+	{
+		id: 'palette',
+		data: [
+			{
+				label: 'Palette: Primary',
+				value: 'primary',
+				content: <PalettePrimary />,
+			},
+			{
+				label: 'Palette: Neutral',
+				value: 'neutral',
+				content: <PaletteNeutral />,
+			},
+			{
+				label: 'Palette: Status',
+				value: 'status',
+				data: [
+					{
+						label: 'Status: Success',
+						value: 'success',
+						content: <PaletteSuccess />,
+					},
+					{
+						label: 'Status: Warning',
+						value: 'warning',
+						content: <PaletteWarning />,
+					},
+					{
+						label: 'Status: Error',
+						value: 'error',
+						content: <PaletteError />,
+					},
+				],
+			},
+		],
+	},
+];
+
+<p style={{ marginTop: 40, marginBottom: 0 }}>
+	The Shared UI color system contains all the base colors we can use to create
+	a branded and unified look across our plugins, divided into three main
+	categories that will remain consistent across all our products.
+</p>
+
+<Docs.Section>
+	<Docs.Switcher data={data} />
+</Docs.Section>

@@ -1,0 +1,41 @@
+import { Source, ColorPalette, ColorItem } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import dedent from 'dedent';
+
+export const sourceCode = dedent`@forward "~@wpmudev/css-colors/colors";`;
+
+<Docs.Section title="Primary">
+	<ColorPalette>
+		<ColorItem
+			title="Blue / Dark / 10"
+			colors={{
+				'$sui-color-primary--10': '#081630',
+			}}
+		/>
+		<ColorItem
+			title="Blue / Dark / 30"
+			colors={{
+				'$sui-color-primary--30': '#184291',
+			}}
+		/>
+		<ColorItem
+			title="Blue / Base / 50"
+			colors={{
+				'$sui-color-primary--50': '#286EF1',
+			}}
+		/>
+		<ColorItem
+			title="Blue / Light / 70"
+			colors={{
+				'$sui-color-primary--70': '#D5E3FD',
+			}}
+		/>
+		<ColorItem
+			title="Blue / Light / 90"
+			colors={{
+				'$sui-color-primary--90': '#EAF1FE',
+			}}
+		/>
+	</ColorPalette>
+	<Source dark language="css" format={false} code={sourceCode} />
+</Docs.Section>

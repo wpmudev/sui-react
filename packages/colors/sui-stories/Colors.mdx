@@ -1,0 +1,26 @@
+import { Meta, Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import dedent from 'dedent';
+
+import Overview from './content/Overview.mdx';
+import TheBrand from './content/TheBrand.mdx';
+import TheProduct from './content/TheProduct.mdx';
+
+<Meta title="SUI/CSS Framework/Colors" />
+
+<Docs.TabbedContent
+	title="Colors"
+	subtitle="This color system guide shows the unified colors used in the plugins while helping to keep the consistent experiences across our products through helpers and predefined classes."
+	theme="light"
+	status="ready"
+>
+	<div id="overview" label="Overview">
+		<Overview />
+	</div>
+	<div id="the-brand" label="The Brand">
+		<TheBrand />
+	</div>
+	<div id="the-products" label="The Product">
+		<TheProduct />
+	</div>
+</Docs.TabbedContent>
