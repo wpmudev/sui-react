@@ -13,6 +13,9 @@ export default {
 		docs: {
 			page: docs,
 		},
+		actions: {
+			disable: true,
+		},
 	},
 };
 
