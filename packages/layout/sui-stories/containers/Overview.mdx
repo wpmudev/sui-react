@@ -1,0 +1,55 @@
+import { Canvas, Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import dedent from 'dedent';
+
+export const codeInstall = dedent`
+npm install @wpmudev/sui-css --save-dev
+`;
+
+export const codeForward = dedent`
+@forward "~@wpmudev/css-layout/layout";
+`;
+
+export const codeCss = dedent`
+@use "~@wpmudev/css-layout/_layout/_layout-elements/layout-elements" as sui-layout--element;
+@use "~@wpmudev/css-layout/_layout/_layout-modifiers/layout-modifiers" as sui-layout--modifier;\n
+// Layout elements.
+@include sui-layout--element.layout-main(layout);
+@include sui-layout--element.layout-content(layout);\n
+// Layout modifiers.
+@include sui-layout--modifier.spacing-top(layout);
+@include sui-layout--modifier.spacing-sides(layout);
+`;
+
+<span></span>
+
+<Docs.Section title="Installation">
+	<p>
+		There are two ways to access Layout stylesheets: install the complete{' '}
+		<strong>CSS Framework</strong> package or the single package that
+		contains only the Layout stylesheets you need.
+	</p>
+	<p>
+		Layout single package contains three files in different formats: CSS,
+		Minified CSS, and Sassy CSS (Scss).
+	</p>
+	<Source
+		dark
+		language="shell" // bash, shell, zsh, sh
+		format={false}
+		code={codeInstall}
+	/>
+</Docs.Section>
+
+<Docs.Section title="Usage">
+	<p>
+		Import layout stylesheet inside an existing SCSS file in your project;
+		do the following:
+	</p>
+	<Source dark language="css" format={false} code={codeForward} />
+	<p>
+		Import layout elements and modifiers individually inside an existing
+		SCSS file in your project; do the following:
+	</p>
+	<Source dark language="css" format={false} code={codeCss} />
+</Docs.Section>

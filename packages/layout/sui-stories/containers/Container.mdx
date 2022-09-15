@@ -1,0 +1,23 @@
+import { Canvas, Source } from '@storybook/addon-docs';
+import { Docs } from '@wpmudev/docs-elements';
+import dedent from 'dedent';
+
+export const codeSample = dedent`
+<div class="sui-layout">\n
+	<div className="sui-layout__content">\n
+		...\n
+	</div>\n
+</div>
+`;
+
+<span></span>
+
+<Docs.Section>
+	<p>
+		Use <code>sui-layout__content</code> class name for an inner div that
+		wraps the content of your plugin. This wrapper will set a maximum width
+		and horizontally align it to the center of the remaining space (wihtout
+		admin bar) on the WordPRESS admin page.
+	</p>
+	<Source dark language="html" code={codeSample} />
+</Docs.Section>

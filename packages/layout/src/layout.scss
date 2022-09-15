@@ -1,9 +1,6 @@
 @use "./_layout/_layout-elements/layout-elements" as sui-layout--element;
 @use "./_layout/_layout-modifiers/layout-modifiers" as sui-layout--modifier;
 
-@use "./_grid/_grid-elements/grid-elements" as sui-grid--element;
-@use "./_grid/_grid-modifiers/grid-modifiers" as sui-grid--modifier;
-
 // Layout elements.
 @include sui-layout--element.layout-main(layout);
 @include sui-layout--element.layout-content(layout);
@@ -11,13 +8,3 @@
 // Layout modifiers.
 @include sui-layout--modifier.spacing-top(layout);
 @include sui-layout--modifier.spacing-sides(layout);
-
-// Grid elements.
-@include sui-grid--element.grid-row(row);
-@include sui-grid--element.grid-col(col);
-
-// Grid modifiers.
-@include sui-grid--modifier.row-inline(row);
-@include sui-grid--modifier.row-stacked(row);
-@include sui-grid--modifier.column-size(col);
-@include sui-grid--modifier.column-spacing(col);

@@ -1,0 +1,33 @@
+import { Source } from '@storybook/addon-docs';
+import LinkTo from '@storybook/addon-links/react';
+import { Docs } from '@wpmudev/docs-elements';
+
+import Overview from './containers/Overview.mdx';
+import Container from './containers/Container.mdx';
+import Spacing from './containers/Spacing.mdx';
+
+<Docs.TabbedContent
+	title="Layout"
+	subtitle={
+		<>
+			Layout is the most basic container and is <strong>required</strong>{' '}
+			when using our default{' '}
+			<LinkTo kind="sui-css-framework-grid" story="grid">
+				grid system
+			</LinkTo>
+			. Choose between full-width (meaning it's 100% wide all the time) and
+			contained (meaning, it has a maximum width) content.
+		</>
+	}
+	status="ready"
+>
+	<div id="overview" label="Overview">
+		<Overview />
+	</div>
+	<div id="container" label="Container">
+		<Container />
+	</div>
+	<div id="spacing" label="Spacing">
+		<Spacing />
+	</div>
+</Docs.TabbedContent>
