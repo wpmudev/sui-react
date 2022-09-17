@@ -1,5 +1,6 @@
 import React from 'react';
 import docs from './Colors.mdx';
+import { Palettes } from './Colors.map';
 
 import '../src/colors.scss';
 
@@ -13,180 +14,213 @@ export default {
 	},
 };
 
-const getValidShade = (name, shade) => {
-	let valid;
+const Colors = ({ palette, secondary, subpalette, extended, shade }) => {
+	let getPalette, getShade, showAllPalettes, colorName, colorHex, colorHsl;
 
-	switch (name) {
-		case 'primary':
-		case 'success':
-		case 'error':
-		case 'warning':
-			switch (shade) {
-				case 10:
-				case 30:
-				case 50:
-				case 70:
-				case 90:
-					valid = true;
-					break;
-
-				default:
-					valid = false;
-					break;
+	switch (palette) {
+		case 'secondary':
+			if ('all' === subpalette) {
+				getPalette = secondary + 'General';
+				showAllPalettes = true;
+			} else {
+				getPalette = secondary + subpalette;
 			}
 			break;
 
-		case 'neutral':
-			switch (shade) {
-				case 10:
-				case 50:
-				case 60:
-				case 70:
-				case 80:
-				case 90:
-				case 95:
-				case 100:
-					valid = true;
-					break;
-
-				default:
-					valid = false;
-					break;
-			}
+		case 'extended':
+			getPalette = extended;
 			break;
 
 		default:
-			valid = false;
+			getPalette = palette;
+			showAllPalettes = false;
 			break;
 	}
 
-	return valid;
-};
+	switch (shade) {
+		case 10:
+		case 20:
+		case 30:
+		case 40:
+			colorName = 'Dark / ' + shade;
+			break;
 
-const Tag = ({ status, text }) => {
-	const tagColor = `sui-color-${status}--90`;
-	const tagBg = `sui-bg-${status}--50`;
-	const tagStyles = {
-		verticalAlign: 'middle',
-		padding: '5px 15px',
-		borderRadius: '20px',
-		fontSize: '12px',
-		fontWeight: 500,
-		lineHeight: '14px',
-	};
+		case 50:
+			colorName = 'Base / ' + shade;
+			break;
 
-	return (
-		<span className={tagColor + ' ' + tagBg} style={tagStyles}>
-			{text}
-		</span>
-	);
-};
+		default:
+			colorName = 'Light / ' + shade;
+			break;
+	}
 
-export const Colors = ({ palette, colorShade, backgroundShade }) => {
-	const backgroundName = palette;
-	const hasBackground =
-		backgroundName && '' !== backgroundName ? true : false;
-	const getBackground = hasBackground
-		? backgroundName + '--' + backgroundShade
-		: '';
-	const classBackground = hasBackground ? 'sui-bg-' + getBackground : '';
-	const validBackground = getValidShade(backgroundName, backgroundShade);
+	if (!isUndefined(Palettes[getPalette][shade])) {
+		getShade = Palettes[getPalette][shade];
+		colorHex = getShade.hex;
+		colorHsl = getShade.hsl;
 
-	const colorName = palette;
-	const hasColor = colorName && '' !== colorName ? true : false;
-	const getColor = hasColor ? colorName + '--' + colorShade : '';
-	const classColor = hasColor ? 'sui-color-' + getColor : '';
-	const validColor = getValidShade(colorName, colorShade);
+		return (
+			<>
+				<CardStyles />
 
-	const boxStyles = {
-		height: 60,
-		display: 'flex',
-		alignItems: 'center',
-		padding: '5px 30px',
-		borderRadius: 4,
-	};
+				<div className="sui-layout sui-layout--spacing sui-layout--justify">
+					<div className="sui-layout__content">
+						{/** Iterate all shades in palette */}
+						<div className="sui-row sui-row--inline">
+							<div className="sui-col">
+								<Shades>
+									{Object.keys(Palettes[getPalette]).map(
+										(key) => {
+											return (
+												<div
+													key={key}
+													label={key}
+													hex={
+														Palettes[getPalette][
+															key
+														].hex
+													}
+												/>
+											);
+										}
+									)}
+								</Shades>
+							</div>
+						</div>
+						{showAllPalettes && (
+							<div className="sui-row sui-row--inline">
+								<div className="sui-col">
+									<Shades>
+										{Object.keys(
+											Palettes[secondary + 'Variant']
+										).map((key) => {
+											return (
+												<div
+													key={key}
+													label={key}
+													hex={
+														Palettes[
+															secondary +
+																'Variant'
+														][key].hex
+													}
+												/>
+											);
+										})}
+									</Shades>
+								</div>
+							</div>
+						)}
 
-	const listStyles = {
-		display: 'flex',
-		flexWrap: 'wrap',
-		background: '#fff',
-		border: '1px solid #333',
-	};
-
-	const listColStyles = {
-		width: 50 + '%',
-		flex: '0 0 auto',
-		margin: 0,
-		padding: '8px 20px',
-		borderBottom: '1px solid #333',
-		fontSize: '14px',
-		lineHeight: '24px',
-	};
-
-	const listColLastStyles = {
-		...listColStyles,
-		borderBottom: 0,
-	};
-
-	return (
-		<div className="sui-layout sui-layout--spacing sui-layout--justify">
-			<div className="sui-layout__content">
-				<div
-					{...(hasBackground && { className: classBackground })}
-					style={boxStyles}
-				>
-					<span
-						className={`sui-overline${
-							hasColor && ' ' + classColor
-						}`}
-					>
-						The quick brown fox jumps over a lazy dog.
-					</span>
-				</div>
-				<div style={{ maxWidth: 600, marginTop: 30 }}>
-					<p>
-						Edit the controls below and create the proper class
-						name. When the palette with the shade combination
-						doesn't return a valid match for the class name, hence
-						it doesn't exist in the stylesheet, you will see a red
-						tag with the "invalid" text.
-					</p>
-					<dl style={listStyles}>
-						<dt style={listColStyles}>Background Class</dt>
-						<dd style={listColStyles}>
-							{validBackground ? (
-								<Tag
-									status="primary"
-									text={`.${classBackground}`}
+						{/** Show selected shade from palette */}
+						<div className="sui-row sui-row-md--inline">
+							<div className="sui-col sui-col--4">
+								<Card
+									title={colorName}
+									{...(!isUndefined(Palettes[getPalette]) && {
+										palette: getPalette,
+									})}
+									{...('secondary' !== palette && {
+										shade: shade,
+									})}
+									hex={colorHex}
+									hsl={colorHsl}
 								/>
-							) : (
-								<Tag
-									status="error"
-									text={`Shade ${backgroundShade} doesn't exist.`}
-								/>
+							</div>
+							{'secondary' !== palette && (
+								<div className="sui-col sui-col--4">
+									{/** Show selected background */}
+									<h4
+										className="sui-overline"
+										style={{ marginTop: 0 }}
+									>
+										Background Color
+									</h4>
+									<div
+										className={`sui-bg-${
+											'extended' === palette
+												? extended
+												: palette
+										}--${shade}`}
+										style={{
+											height: 50,
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'center',
+											borderRadius: 4,
+										}}
+									>
+										<p
+											style={{
+												flex: '0 0 auto',
+												color:
+													shade > 50
+														? '#000'
+														: '#fff',
+											}}
+										>
+											.sui-bg-
+											{'extended' === palette
+												? extended
+												: palette}
+											--{shade}
+										</p>
+									</div>
+
+									{/** Show selected text color */}
+									<h4
+										className="sui-overline"
+										style={{ marginTop: 30 }}
+									>
+										Text Color
+									</h4>
+									<p
+										className={`sui-color-${
+											'extended' === palette
+												? extended
+												: palette
+										}--${shade}`}
+									>
+										.sui-color-
+										{'extended' === palette
+											? extended
+											: palette}
+										--{shade}
+									</p>
+								</div>
 							)}
-						</dd>
-						<dt style={listColLastStyles}>Text Color Class</dt>
-						<dd style={listColLastStyles}>
-							{validColor ? (
-								<Tag status="primary" text={`.${classColor}`} />
-							) : (
-								<Tag
-									status="error"
-									text={`Shade ${colorShade} doesn't exist.`}
-								/>
+							{showAllPalettes && (
+								<div className="sui-col sui-col--4">
+									<Card
+										title={colorName}
+										hex={
+											Palettes[secondary + 'Variant'][
+												shade
+											].hex
+										}
+										hsl={
+											Palettes[secondary + 'Variant'][
+												shade
+											].hsl
+										}
+									/>
+								</div>
 							)}
-						</dd>
-					</dl>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-	);
+			</>
+		);
+	}
+
+	return <p>Unexistent palette and/or shade.</p>;
 };
 Colors.args = {
 	palette: 'primary',
-	backgroundShade: 50,
-	colorShade: 90,
+	secondary: 'smush',
+	subpalette: 'General',
+	extended: 'neutral',
+	shade: 50,
 };
 Colors.argTypes = {
 	palette: {
@@ -195,23 +229,64 @@ Colors.argTypes = {
 			type: 'select',
 			options: {
 				Primary: 'primary',
+				Secondary: 'secondary',
+				Extended: 'extended',
+			},
+		},
+	},
+	secondary: {
+		name: 'Product',
+		control: {
+			type: 'select',
+			options: {
+				Smush: 'smush',
+				Hummingbird: 'hummingbird',
+				SmartCrawl: 'smartcrawl',
+				Defender: 'defender',
+				Forminator: 'forminator',
+				Branda: 'branda',
+				Beehive: 'beehive',
+				Snapshot: 'snapshot',
+				Hustle: 'hustle',
+			},
+		},
+		if: {
+			arg: 'palette',
+			eq: 'secondary',
+		},
+	},
+	subpalette: {
+		name: 'Type',
+		control: {
+			type: 'inline-radio',
+			options: {
+				All: 'all',
+				General: 'General',
+				Variant: 'Variant',
+			},
+		},
+		if: {
+			arg: 'palette',
+			eq: 'secondary',
+		},
+	},
+	extended: {
+		name: 'Sub Palette',
+		control: {
+			type: 'select',
+			options: {
 				Neutral: 'neutral',
 				Success: 'success',
 				Warning: 'warning',
 				Error: 'error',
 			},
 		},
-	},
-	backgroundShade: {
-		name: 'Background Shade',
-		control: {
-			type: 'range',
-			min: 10,
-			max: 100,
-			step: 5,
+		if: {
+			arg: 'palette',
+			eq: 'extended',
 		},
 	},
-	colorShade: {
+	shade: {
 		name: 'Color Shade',
 		control: {
 			type: 'range',
@@ -221,3 +296,189 @@ Colors.argTypes = {
 		},
 	},
 };
+
+const isUndefined = (element) => {
+	if (element && 'undefined' !== typeof element && '' !== element) {
+		return false;
+	}
+
+	return true;
+};
+
+const Card = ({ title, palette, shade, hex, hsl }) => {
+	return (
+		<div className="csb-card">
+			{!isUndefined(hex) && (
+				<div className="csb-card__color" style={{ background: hex }}>
+					{!isUndefined(title) && <span>{title}</span>}
+				</div>
+			)}
+
+			<div className="csb-card__info">
+				{!isUndefined(palette) && !isUndefined(shade) && (
+					<>
+						<div className="sui-row sui-row--inline">
+							<div className="sui-col">
+								<h5>SCSS Variable</h5>
+								<p>
+									$sui-color-{palette}--{shade}
+								</p>
+							</div>
+						</div>
+
+						<div className="sui-row sui-row--inline">
+							<div className="sui-col">
+								<h5>Class Names</h5>
+								<code>
+									.sui-bg-{palette}--{shade}
+								</code>
+								<code>
+									.sui-color-{palette}--{shade}
+								</code>
+							</div>
+						</div>
+					</>
+				)}
+
+				{(!isUndefined(hex) || !isUndefined(hsl)) && (
+					<div className="sui-row sui-row-md--inline">
+						{!isUndefined(hex) && (
+							<div
+								className={`sui-col${
+									!isUndefined(hex) && !isUndefined(hsl)
+										? ' sui-col-md--6'
+										: ''
+								}`}
+							>
+								<h5>HEX</h5>
+								<p>{hex}</p>
+							</div>
+						)}
+
+						{!isUndefined(hsl) && (
+							<div
+								className={`sui-col${
+									!isUndefined(hex) && !isUndefined(hsl)
+										? ' sui-col-md--6'
+										: ''
+								}`}
+							>
+								<h5>HSL</h5>
+								<p>{hsl}</p>
+							</div>
+						)}
+					</div>
+				)}
+			</div>
+		</div>
+	);
+};
+
+const CardStyles = () => {
+	return (
+		<style>
+			{`
+					.csb-card {
+						overflow: hidden;
+						border-radius: 4px;
+						background: #fff;
+					}
+
+					.csb-card__color {
+						height: 120px;
+						position: relative;
+					}
+
+					.csb-card__color span {
+						display: block;
+						position: absolute;
+						right: 30px;
+						bottom: 30px;
+						left: 30px;
+						color: #fff;
+						font-size: 12px;
+						line-height: 20px;
+						font-weight: 600;
+						text-transform: uppercase;
+					}
+
+					.csb-card__info {
+						padding: 30px;
+					}
+
+					.csb-card__info h5,
+					.csb-card__info p {
+						color: #505050;
+						line-height: 20px;
+					}
+
+					.csb-card__info h5 {
+						margin: 0 0 5px;
+						font-size: 12px;
+						font-weight: 600;
+						text-transform: uppercase;
+					}
+
+					.csb-card__info p {
+						margin: 0;
+						font-size: 14px;
+					}
+
+					.csb-card__info code {
+						display: block;
+						margin: 5px 0;
+						padding: 5px 10px;
+						border-radius: 2px;
+						-moz-border-radius: 2px;
+						-webkit-border-radius: 2px;
+						font-size: 11px;
+						font-family: monospace;
+					}
+				`}
+		</style>
+	);
+};
+
+const Shades = ({ children }) => {
+	const shadesStyles = {
+		display: 'flex',
+		margin: '-10px',
+	};
+
+	const bullets = React.Children.map(children, (bullet, index) => {
+		const wrapperStyle = {
+			flex: '0 0 auto',
+			padding: 10,
+		};
+
+		const bulletStyle = {
+			width: 40,
+			height: 40,
+			borderRadius: '100%',
+			background: '#fff',
+		};
+
+		if (
+			bullet.props.hex &&
+			'undefined' !== typeof bullet.props.hex &&
+			'' !== bullet.props.hex
+		) {
+			bulletStyle.background = bullet.props.hex;
+		}
+
+		return (
+			<div key={index} style={wrapperStyle}>
+				<div style={bulletStyle} />
+				{!isUndefined(bullet.props.label) && (
+					<p style={{ margin: '5px 0 0', fontSize: '12px', fontFamily: 'monospace', textAlign: 'center' }}>
+						{bullet.props.label}
+					</p>
+				)}
+			</div>
+		);
+	});
+
+	return <div style={shadesStyles}>{bullets}</div>;
+};
+
+export { Colors };
