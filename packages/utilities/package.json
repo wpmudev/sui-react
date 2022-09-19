@@ -1,31 +1,56 @@
 {
   "private": true,
   "name": "@wpmudev/css-utilities",
-  "version": "0.0.0",
   "description": "",
-  "keywords": [],
-  "author": "Leighton <2328848+iamleigh@users.noreply.github.com>",
-  "license": "ISC",
-  "main": "lib/css-utilities.js",
+  "version": "0.0.0",
+  "license": "GPL-3.0",
+  "keywords": [
+    "wpmudev",
+    "shared-ui",
+    "css-framework",
+    "global-tools",
+    "utilities",
+    "variables",
+    "functions",
+    "mixins",
+    "styles",
+    "scss",
+    "css"
+  ],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "main": "dist/utilities.min.css",
+  "src": "src/utilities.scss",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "src": "src"
   },
   "files": [
-    "lib"
+    "dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://iamleigh@github.com/wpmudev/sui-css.git"
+    "url": "git+https://iamleigh@github.com/wpmudev/sui-css.git",
+    "directory": "packages/utilities"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "css-builder"
   },
   "bugs": {
-    "url": "https://github.com/wpmudev/sui-css/issues"
+    "url": "https://incsub.atlassian.net/browse/SUI"
   },
-  "homepage": "https://github.com/wpmudev/sui-css#readme"
+  "homepage": "https://github.com/wpmudev/sui-css#readme",
+  "devDependencies": {
+    "@wpmudev/css-builder": "^0.0.0",
+    "dedent": "^0.7.0"
+  }
 }
