@@ -1,8 +1,7 @@
 @use "sass:map";
 @use "sass:math";
 
-@use "../../../external/helpers" as *;
-@use "../../../external/utilities" as *;
+@use "../../../../utilities/src/utilities.scss" as *;
 
 @mixin build-size($block) {
 	@include sui-class($rtl: false, $theme: null) {

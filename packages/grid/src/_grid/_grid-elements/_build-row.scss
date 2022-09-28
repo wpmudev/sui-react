@@ -1,7 +1,6 @@
 @use "sass:map";
 
-@use "../../../external/helpers" as *;
-@use "../../../external/utilities" as *;
+@use "../../../../utilities/src/utilities.scss" as *;
 
 /// Grid Row.
 /// @type block

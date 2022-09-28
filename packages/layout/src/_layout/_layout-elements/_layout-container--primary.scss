@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "../../../external/utilities" as *;
+@use "../../../../utilities/src/utilities.scss" as *;
 @use "../_layout-utils/layout-utils" as *;
 
 /// Layout Main Wrapper.

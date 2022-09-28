@@ -47,7 +47,6 @@
   "homepage": "https://github.com/wpmudev/sui-css#readme",
   "devDependencies": {
     "@wpmudev/css-builder": "^0.0.0",
-    "@wpmudev/css-utilities": "^0.0.0",
     "dedent": "^0.7.0"
   }
 }

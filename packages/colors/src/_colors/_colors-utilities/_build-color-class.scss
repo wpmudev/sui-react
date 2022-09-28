@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "../../../external/utilities" as *;
+@use "../../../../utilities/src/utilities.scss" as *;
 @use "../_colors-themes/theme-noplugin" as *;
 
 @mixin build-color-class($block) {
