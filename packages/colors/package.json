@@ -54,6 +54,7 @@
     "@wpmudev/docs-page": "^0.0.0",
     "@wpmudev/docs-section": "^0.0.0",
     "@wpmudev/docs-select": "^0.0.0",
+    "@wpmudev/docs-switcher": "^0.0.0",
     "dedent": "^0.7.0"
   },
   "dependencies": {
