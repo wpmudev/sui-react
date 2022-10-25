@@ -1,0 +1,343 @@
+import { Section } from '@wpmudev/docs-section';
+import { Message } from '@wpmudev/docs-message';
+import { Switcher } from '../Switcher.js';
+import { Palettes } from '../Palettes.js';
+
+<Section contained={ true } style={{ paddingTop: 0 }}>
+	<Message color="yellow">
+		<p>These products are not part of the CSS Framework or the Design Tokens file. Below you will only see a brief description of what these colors are for and find their color codes. To include them in your project, you need to do it manually, directly in your project stylesheets.</p>
+	</Message>
+</Section>
+
+<Section style={{ paddingTop: 0 }}>
+	<div className="csb-section__contained" style={{ marginBottom: 20 }}>
+		<p>Our secondary palette holds a variety of colors to highlight each of our products, keeping them attractive for the users. We rely on these colors more frequently when brand attention is excessive or on some properties related to that specific product. When we use it in conjunction with our primary palette, these colors make every product feel on-brand during every user interaction.</p>
+	</div>
+	<Switcher>
+		<div label="Product: Smush" value="smush">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#09272D',
+							30: '#0D3B43',
+							50: '#2DC4E0',
+							70: '#C0EDF6',
+							90: '#EAF9FC',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#09060F',
+							30: '#170732',
+							50: '#2F1D4D',
+							70: '#D3BEF2',
+							90: '#F1E7FF',
+						},
+					},
+				]} />
+		</div>
+		<div label="Product: Hummingbird" value="hummingbird">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#331C0C',
+							30: '#80471E',
+							50: '#FF8E3C',
+							70: '#FFDDC5',
+							90: '#FFF4EC',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#051315',
+							30: '#0E3135',
+							50: '#1B6169',
+							70: '#BBD0D2',
+							90: '#E8EFF0',
+						},
+					},
+				]} />
+		</div>
+		<div label="Product: SmartCrawl" value="smartcrawl">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#2C0702',
+							30: '#9B1907',
+							50: '#DE240A',
+							70: '#F5BDB6',
+							90: '#FCE9E7',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#2B2C2D',
+							30: '#979B9D',
+							50: '#D7DEE0',
+							70: '#EFF2F3',
+							90: '#F7F8F9',
+						},
+					},
+				]} />
+		</div>
+		<div label="Product: Defender" value="defender">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#040404',
+							30: '#1C1D1F',
+							50: '#282A2C',
+							70: '#BFBFC0',
+							90: '#EAEAEA',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#190D04',
+							30: '#964E1A',
+							50: '#FA822C',
+							70: '#FEDAC0',
+							90: '#FFF3EA',
+						},
+					},
+				]} />
+		</div>
+		<div label="Product: Forminator" value="forminator">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#060810',
+							30: '#141934',
+							50: '#1F2852',
+							70: '#BCBFCB',
+							90: '#E9EAEE',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#2E2D28',
+							30: '#747065',
+							50: '#E8E0C9',
+							70: '#F5F1E6',
+							90: '#FAF9F4',
+						},
+					},
+				]} />
+		</div>
+		<div label="Product: Hustle" value="hustle">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#030303',
+							30: '#121212',
+							50: '#1A1A1A',
+							70: '#BABABA',
+							90: '#E8E8E8',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#4C3810',
+							30: '#B38224',
+							50: '#FFBA34',
+							70: '#FFEAC2',
+							90: '#FFF8EB',
+						},
+					},
+				]} />
+		</div>
+		<div label="Product: Beehive" value="beehive">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#000C22',
+							30: '#012365',
+							50: '#013AA9',
+							70: '#B3C4E5',
+							90: '#E6EBF6',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#332A13',
+							30: '#7F6930',
+							50: '#FED260',
+							70: '#FFF2CF',
+							90: '#FFFBEF',
+						},
+					},
+				]} />
+		</div>
+		<div label="Product: Branda" value="branda">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#331A1A',
+							30: '#994D4F',
+							50: '#FF8184',
+							70: '#FFD9DA',
+							90: '#FFF2F3',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#030303',
+							30: '#121212',
+							50: '#1A1A1A',
+							70: '#BABABA',
+							90: '#E8E8E8',
+						},
+					},
+				]} />
+		</div>
+		<div label="Product: Snapshot" value="snapshot">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#0E1A30',
+							30: '#15294D',
+							50: '#1A325E',
+							70: '#87A6DE',
+							90: '#D7E1F4',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#020202',
+							30: '#060706',
+							50: '#141613',
+							70: '#B9B9B8',
+							90: '#E8E8E7',
+						},
+					},
+				]} />
+		</div>
+		<div label="Product: WPMU DEV Dashboard" value="dashboard">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#07142C',
+							30: '#0D2148',
+							50: '#102C60',
+							70: '#7CA2E9',
+							90: '#D3E0F8',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#0B1E28',
+							30: '#215978',
+							50: '#3793C7',
+							70: '#87BFDE',
+							90: '#D7EAF4',
+						},
+					},
+				]} />
+		</div>
+		<div label="Product: Shipper" value="shipper">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#1A1221',
+							30: '#4F3663',
+							50: '#7B5499',
+							70: '#B59CC9',
+							90: '#E6DEED',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#04252F',
+							30: '#0D6E8C',
+							50: '#7DD7F3',
+							70: '#B9E9F9',
+							90: '#E8F8FD',
+						},
+					},
+				]} />
+		</div>
+		<div label="Product: IVT" value="ivt">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#092A09',
+							30: '#1C7E1B',
+							50: '#65DE63',
+							70: '#C1F2C0',
+							90: '#EAFBEA',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#0D2326',
+							30: '#286871',
+							50: '#368C98',
+							70: '#8ECED7',
+							90: '#D9EFF2',
+						},
+					},
+				]} />
+		</div>
+		<div label="Product: Broken Link Checker" value="blc">
+			<Palettes
+				arrays={[
+					{
+						title: 'General Colors',
+						colors: {
+							10: '#00332C',
+							30: '#009984',
+							50: '#00BFA5',
+							70: '#C1EEE8',
+							90: '#E8FAF8',
+						},
+					},
+					{
+						title: 'Variant Colors',
+						colors: {
+							10: '#151B1E',
+							30: '#2A363C',
+							50: '#455A64',
+							70: '#A4B7C1',
+							90: '#E1E7EA',
+						},
+					},
+				]} />
+		</div>
+	</Switcher>
+</Section>

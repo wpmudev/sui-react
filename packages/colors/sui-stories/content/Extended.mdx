@@ -1,0 +1,101 @@
+import { Section } from '@wpmudev/docs-section';
+import { Code } from '@wpmudev/docs-code';
+import { Switcher } from '../Switcher.js';
+import { Palettes } from '../Palettes.js';
+
+<Section style={{ paddingTop: 0 }}>
+	<div className="csb-section__contained" style={{ marginBottom: 40 }}>
+		<p>The extended palettes consist of all the useable hues and shades for global actions like warning alerts or accent colors. They are all numbered for easy reference. Usage of these colors varies depending on the type of communication. Still, they come in handy for global text, backgrounds, and other global elements.</p>
+	</div>
+	<Switcher>
+		<div label="Neutrals" value="neutrals">
+			<Palettes
+				arrays={[
+					{
+						intro: <>
+							<p>Neutrals have varying degrees of saturation that allow for the appropriate level of warmth across the products. We typically use these for text and subtle backgrounds when we don't want to draw too much attention to a particular section or share information such as <Code>to do</Code> or <Code>disabled</Code>.</p>
+							<p>These colors never dominate the product design, although when the dark mode is active, these colors overpower the design.</p>
+						</>,
+						title: 'Dark neutrals',
+						description: <p>Dark neutral colors are very effective for creating contrast between primary colors, and we primarily use them for typography.</p>,
+						colors: {
+							10: '#1A1A1A',
+							50: '#505050',
+							60: '#737373',
+						},
+						scss: true,
+					},
+					{
+						title: 'Mid-neutrals',
+						description: <p>Use mid-neutrals to create subtle text and icons in light-neutral colors. Avoid mid-neutrals as background colors unless it includes a border with an intense hue that can generate enough contrast to remain AA compliant.</p>,
+						colors: {
+							70: '#AAAAAA',
+							80: '#E6E6E6',
+						},
+						scss: true,
+					},
+					{
+						title: 'Light neutrals',
+						description: <>
+							<p>We use light neutrals as subtle backgrounds to indicate different interactive states, such as hover and disabled, or to create secondary attention towards a component. You'll find light neutrals everywhere in the designs.</p>
+							<p>Light neutrals help compensate for content in a primarily white layout without losing warmth and cleanliness. They are, therefore, often used as a background color or to help create subtle shadows.</p>
+						</>,
+						colors: {
+							90: '#F2F2F2',
+							95: '#F8F8F8',
+							100: '#FFFFFF',
+						},
+						scss: true,
+					},
+				]} />
+		</div>
+		<div label="Green" value="green">
+			<Palettes
+				arrays={[
+					{
+						intro: <p>We use green when indicating a successful action or celebrating a win. These go well with tags, badges, icons, and successful messages.</p>,
+						colors: {
+							10: '#05250F',
+							30: '#0C5E26',
+							50: '#18BB4B',
+							70: '#BAEBC9',
+							90: '#E8F8ED',
+						},
+						scss: true,
+					},
+				]} />
+		</div>
+		<div label="Yellow" value="yellow">
+			<Palettes
+				arrays={[
+					{
+						intro: <p>To indicate a warning or an impeded progress, use yellow colors. These fit perfectly in components like notifications and tags.</p>,
+						colors: {
+							10: '#191609',
+							30: '#5B502B',
+							50: '#FFCC20',
+							70: '#FFF4CE',
+							90: '#FFFBEF',
+						},
+						scss: true,
+					},
+				]} />
+		</div>
+		<div label="Red" value="red">
+			<Palettes
+				arrays={[
+					{
+						intro: <p>Mainly use red colors for backgrounds in messages and error states to draw attention to important information, destructive actions, or block workflow. You'll find red in components such as tags, icons, flag messages, buttons, and typography.</p>,
+						colors: {
+							10: '#180909',
+							30: '#AB403E',
+							50: '#F45C59',
+							70: '#FCCECD',
+							90: '#FEEFEE',
+						},
+						scss: true,
+					},
+				]} />
+		</div>
+	</Switcher>
+</Section>
