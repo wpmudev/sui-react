@@ -1,0 +1,30 @@
+import { Section } from '@wpmudev/docs-section';
+import { Code } from '@wpmudev/docs-code';
+import { Snippet } from '@wpmudev/docs-snippet';
+import { Preview } from '@wpmudev/docs-preview';
+import dedent from 'dedent';
+
+export const sampleCode = dedent`
+<h4 class="sui-subtitle">
+	The quick brown fox jumps over the lazy dog.
+</h4>\n
+<h4 class="sui-subtitle sui-subtitle--sm">
+	The quick brown fox jumps over the lazy dog.
+</h4>
+`;
+
+<Section
+	title="Usage"
+	style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p>Commonly use subtitles at the beginning of a section, adding the <Code>sui-subtitle</Code> class name in any tag, but preferably following the proper content hierarchy.</p>
+	<p>Subtitles come in two variants, the default size of 16px and the small size text of 14px. To make your subtitle smaller, include an additional <Code>sui-subtitle--sm</Code> class name to your text, as seen in the example below.</p>
+	<Preview wrapper={ true }>
+		<h4 className="sui-subtitle" style={{ margin: 0, marginBottom: 10 }}>
+			The quick brown fox jumps over the lazy dog.
+		</h4>
+		<h4 className="sui-subtitle sui-subtitle--sm" style={{ margin: 0 }}>
+			The quick brown fox jumps over the lazy dog.
+		</h4>
+	</Preview>
+	<Snippet language="html">{ sampleCode }</Snippet>
+</Section>
