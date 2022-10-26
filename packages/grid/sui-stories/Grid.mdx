@@ -1,17 +1,14 @@
-import { Source } from '@storybook/addon-docs';
-import { Docs } from '@wpmudev/docs-elements';
+import { Page } from '@wpmudev/docs-page';
 
-import Overview from './containers/Overview.mdx';
-import Row from './containers/Row.mdx';
-import Column from './containers/Column.mdx';
+import Overview from './content/Overview.mdx';
+import Row from './content/Rows.mdx';
+import Column from './content/Columns.mdx';
 
-<Docs.TabbedContent
+<Page.Tabs
 	title="Grid"
 	subtitle={
 		<>
-			Our robust mobile-first grid system builds layouts of all shapes and
-			sizes thanks to a twelve-column grid system based on flexbox with
-			several predefined classes, Sass variables, and mixins.
+			Our robust mobile-first grid system builds layouts of all shapes and sizes thanks to a twelve-column grid system based on flexbox with several predefined classes, Sass variables, and mixins.
 		</>
 	}
 	status="ready"
@@ -19,10 +16,10 @@ import Column from './containers/Column.mdx';
 	<div id="overview" label="Overview">
 		<Overview />
 	</div>
-	<div id="row" label="Row">
+	<div id="row" label="Rows">
 		<Row />
 	</div>
-	<div id="column" label="Column">
+	<div id="column" label="Columns">
 		<Column />
 	</div>
-</Docs.TabbedContent>
+</Page.Tabs>

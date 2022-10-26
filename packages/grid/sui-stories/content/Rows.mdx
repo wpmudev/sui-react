@@ -1,0 +1,106 @@
+import { Section } from '@wpmudev/docs-section';
+import { Snippet } from '@wpmudev/docs-snippet';
+import { Table } from '@wpmudev/docs-table';
+import { Code } from '@wpmudev/docs-code';
+import dedent from 'dedent';
+
+import { Grid as SuiGrid } from '../components/DynamicGrid';
+
+export const codeRow = dedent`
+<div class="sui-row"> ... </div>
+`;
+
+export const codeRowInline = dedent`
+<!--
+Min container width:
+None (Auto)
+-->
+<div class="sui-row sui-row--inline"> ... </div>
+`;
+
+export const codeBreakpoints = dedent`
+<!--
+@param {String} $bp - Sets the minimum screen size code.
+@param {String} $dir - Sets the columns direction.
+-->
+<div class="sui-row sui-row-$bp--$dir"> ... </div>
+`;
+
+<Section
+	title="Usage"
+	contained={ true }
+	border={ true }
+	style={{ paddingTop: 0 }}>
+	<p>Rows are wrappers for columns. Each column has some padding (called a gutter) to control the space between them. The rows fight back the columns' padding with negative margins; this way, all the columns visually align down the left side.</p>
+	<p>Enable row styles and align columns properly; for that, use the class name as in the sample code below:</p>
+	<Snippet language="html">
+		{ codeRow }
+	</Snippet>
+</Section>
+
+<Section
+	title="Modifiers"
+	contained={ true }
+	border={ true }>
+	<p>Rows can organize columns inline (placing one next to the other) or stacked (placing one below the other) based on different breakpoints to create a more flexible layout.</p>
+	<p>By default, columns are aligned one below the other in stacked mode. To switch them into inline columns for the window starting point (zero), you need to:</p>
+	<Snippet language="html">
+		{ codeRowInline }
+	</Snippet>
+	<p>Since the grid system departs from small to large screens, you need to use a modifier class to make the proper variations based on the minimum screen size you want to change.</p>
+	<p>For that, you need to use <Code>sui-row-$bp--$dir</Code> class, where <Code>$bp</Code> is the breakpoint code (read Breakpoints section for more) and <Code>$dir</Code> for the alignment direction, which could be <strong>inline</strong> or <strong>stacked</strong>.</p>
+	<Snippet language="html">
+		{ codeBreakpoints }
+	</Snippet>
+</Section>
+
+<Section title="Breakpoints">
+	<div className="csb-section__contained" style={{ marginBottom: 20 }}>
+		<p>The breakpoints divide into five different sizes, apart from the default or initial size, based on the WordPress admin content area sizing changes and elements like the sidebar menu or top menu that might interrupt the content area depending on the browser's maximum width. We state these breakpoints as follows:</p>
+	</div>
+	<Table
+		headers={[
+			'',
+			'Default',
+			'Small',
+			'Medium',
+			'Large',
+			'Extra Large',
+		]}
+		content={[
+			{ columns: {
+				0: <strong>Contained min-width</strong>,
+				1: 'None (auto)',
+				2: '≥ 783px',
+				3: '≥ 1024px',
+				4: '≥ 1200px',
+				5: '≥ 1600px',
+			} },
+			{ columns: {
+				0: <strong>Class prefix</strong>,
+				1: '-',
+				2: <Code fullWidth={ true }>sui-row-sm--</Code>,
+				3: <Code fullWidth={ true }>sui-row-md--</Code>,
+				4: <Code fullWidth={ true }>sui-row-lg--</Code>,
+				5: <Code fullWidth={ true }>sui-row-xl--</Code>,
+			} },
+			{ columns: {
+				0: <strong>Stacked alignment</strong>,
+				1: 'Default',
+				2: '✓',
+				3: '✓',
+				4: '✓',
+				5: '✓',
+			} },
+			{ columns: {
+				0: <strong>Inline alignment</strong>,
+				1: '✓',
+				2: '✓',
+				3: '✓',
+				4: '✓',
+				5: '✓',
+			} },
+		]}
+		border={ true } />
+	<p>The modifier classes affect the minimum container width, as stated in the table above.</p>
+</Section>
