@@ -1,0 +1,13 @@
+# Ignore importer files.
+importer.js
+
+# Ignore lock files.
+package-lock.json
+
+# Ignore all error logs.
+*.log
+.dccache
+
+# Ignore build files.
+node_modules
+.DS_Store
