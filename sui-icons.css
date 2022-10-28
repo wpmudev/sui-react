@@ -1,3 +1,11 @@
+@charset "UTF-8";
+
+/**
+ * SUI Icons Pack, 3.0.0
+ * Created by WPMU DEV
+ * https://github.com/wpmudev/sui-icons/
+ * GPL-3.0 License
+ */
 @font-face {
   font-family: 'sui-icons';
   src:  url('./sui-icons.eot?yg6yp8');
@@ -11,59 +19,62 @@
 }
 
 .sui-icons {
-  /* use !important to prevent issues with browser extensions that change fonts */
+  /* Load font as !important to prevent compat issues */
   font-family: 'sui-icons' !important;
+
+  /* Better Font Rendering ========================== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Basic styles =================================== */
   speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
+  text-decoration: none;
   text-transform: none;
   line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-.sui-icons--beehive:before {
+.sui-icons--plugin-beehive:before {
   content: "\e900";
 }
-.sui-icons--branda:before {
+.sui-icons--plugin-branda:before {
   content: "\e901";
 }
-.sui-icons--broken-link-checker:before {
+.sui-icons--plugin-blc:before {
   content: "\e902";
 }
-.sui-icons--defender:before {
+.sui-icons--plugin-defender:before {
   content: "\e903";
 }
-.sui-icons--forminator:before {
+.sui-icons--plugin-forminator:before {
   content: "\e904";
 }
-.sui-icons--hub:before {
+.sui-icons--plugin-hub:before {
   content: "\e905";
 }
-.sui-icons--hummingbird:before {
+.sui-icons--plugin-hummingbird:before {
   content: "\e906";
 }
-.sui-icons--hustle:before {
+.sui-icons--plugin-hustle:before {
   content: "\e907";
 }
-.sui-icons--integrated-video-tutorials:before {
+.sui-icons--plugin-ivt:before {
   content: "\e908";
 }
-.sui-icons--shipper:before {
+.sui-icons--plugin-shipper:before {
   content: "\e909";
 }
-.sui-icons--smartcrawl:before {
+.sui-icons--plugin-smartcrawl:before {
   content: "\e90a";
 }
-.sui-icons--smush:before {
+.sui-icons--plugin-smush:before {
   content: "\e90b";
 }
-.sui-icons--snapshot:before {
+.sui-icons--plugin-snapshot:before {
   content: "\e90c";
 }
-.sui-icons--wpmudev-dashboard:before {
+.sui-icons--plugin-dashboard:before {
   content: "\e90d";
 }
