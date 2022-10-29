@@ -1,3 +1,6 @@
+# Ignore lock files.
+package-lock.json
+
 # Ignore error logs.
 *.log
 .dccache
