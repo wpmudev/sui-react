@@ -20,7 +20,7 @@ There are many ways/formats of how to use the Shared UI Icons Package. The faste
 <img
 	width="32"
 	height="32"
-	src="@wpmudev/sui-icons/svg/icon-smartcrawl.svg"
+	src="@wpmudev/sui-icons/icons/plugin-smartcrawl.svg"
 	alt="SmartCrawl Plugin" />
 ```
 
@@ -30,7 +30,7 @@ There are many ways/formats of how to use the Shared UI Icons Package. The faste
 <img
 	width="32"
 	height="32"
-	src="https://unpkg.com/@wpmudev/sui-icons/svg/icon-smartcrawl.svg"
+	src="https://unpkg.com/@wpmudev/sui-icons/icons/plugin-smartcrawl.svg"
 	alt="SmartCrawl Plugin" />
 ```
 
