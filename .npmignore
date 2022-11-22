@@ -5,6 +5,9 @@ package-lock.json
 *.log
 .dccache
 
+# Ignore documentation.
+RELEASING.md
+
 # Miscellaneous.
 node_modules
 .DS_Store
