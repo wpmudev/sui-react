@@ -31,5 +31,11 @@
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
   },
-  "homepage": "https://github.com/wpmudev/sui-icons#readme"
+  "homepage": "https://github.com/wpmudev/sui-icons#readme",
+  "devDependencies": {
+    "@wpmudev/storybook": "^0.0.0",
+    "dedent": "^0.7.0",
+    "react": "^18.2.0",
+    "ts-dedent": "^2.2.0"
+  }
 }
