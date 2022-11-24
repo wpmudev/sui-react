@@ -22,7 +22,7 @@ export default {
 	},
 };
 
-const Primary = ({ category, search }) => {
+const Page = ({ category, search }) => {
 	const groups = Object.keys( ListIcons ).map( ( group, groupIndex ) => {
 		const catName = ListIcons[ group ].name;
 		const objIcons = ListIcons[ group ].icons;
@@ -510,11 +510,11 @@ const ListIcons = {
 	},
 }
 
-Primary.storyName = 'Icons Pack';
-Primary.args = {
+Page.storyName = 'Icons Pack';
+Page.args = {
 	category: 'all',
 }
-Primary.argTypes = {
+Page.argTypes = {
 	category: {
 		name: 'Category',
 		control: {
@@ -534,4 +534,4 @@ Primary.argTypes = {
 	},
 }
 
-export { Primary }
+export { Page }
