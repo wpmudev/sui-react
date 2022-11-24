@@ -1,0 +1,18 @@
+import { Section } from '@wpmudev/storybook';
+import { Palettes } from './PaletteComponent.js';
+
+<Section style={{ paddingTop: 0 }}>
+	<div className="csb-section__contained" style={{ marginBottom: 20 }}>
+		<p>Our primary palette uses five shades of blue to bring boldness to our brand. We use it smartly throughout our products to guide the eye and highlight the significant bits.</p>
+		<p>We pepper secondary palette colors to soften the experience, highlight, and subtly differentiate each product.</p>
+	</div>
+	<Palettes
+		colors={{
+			10: '#081630',
+			30: '#184291',
+			50: '#286EF1',
+			70: '#D5E3FD',
+			90: '#EAF1FE',
+		}}
+		scss={ true } />
+</Section>

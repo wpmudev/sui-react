@@ -1,0 +1,15 @@
+import dedent from 'ts-dedent';
+
+import { Section, Code, Snippet } from '@wpmudev/storybook';
+
+<Section contained={ true } style={{ paddingTop: 0 }}>
+	<p>Once you've installed the CSS Framework package into your plugin, you can import and minify the Sassy Cascading Stylesheets (<Code>.scss</Code>) using Webpack, Gulp, or any other preprocessor.</p>
+	<p>The compressed file, obtained by the method mentioned before or directly from the minified file existing in the CSS Framework package, should be called using the enqueue method for WordPress, which will add a <Code>&lt;link&gt;</Code> tag into the <Code>&lt;head&gt;</Code> section of the plugin.</p>
+	<Snippet language="php">{dedent`
+function myplugin_styles() {
+    $plugin_url = plugin_dir_url( __FILE__ );
+    wp_enqueue_style( 'style',  $plugin_url . "/css/shared-ui.css");
+}\n
+add_action( 'admin_print_styles', myplugin_styles );
+	`}</Snippet>
+</Section>
