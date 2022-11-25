@@ -26,9 +26,18 @@ const Page = ({ category, search }) => {
 	const groups = Object.keys( ListIcons ).map( ( group, groupIndex ) => {
 		const catName = ListIcons[ group ].name;
 		const objIcons = ListIcons[ group ].icons;
+		const filteredobjIcons = 
+			( 0 !== search.trim().length ) ?
+				Object.entries(objIcons).reduce((newObj, [key, val]) => {
+					const name = val.name.toLowerCase();
+					if (name.includes(search.toLowerCase())) {
+						newObj[key] = val;
+					}
+					return newObj;
+				}, {})
+				: objIcons;
 
-		const icons = Children.map( Object.keys( objIcons ), ( icon, iconIndex ) => {
-			console.log( objIcons[icon].tags );
+		const icons = Children.map( Object.keys( filteredobjIcons ), ( icon, iconIndex ) => {
 
 			return (
 				<Fragment>
@@ -513,6 +522,7 @@ const ListIcons = {
 Page.storyName = 'Icons Pack';
 Page.args = {
 	category: 'all',
+	search: ''
 }
 Page.argTypes = {
 	category: {
@@ -530,6 +540,12 @@ Page.argTypes = {
 				'Social Media': 'social',
 				Global: 'global',
 			},
+		},
+	},
+	search: {
+		name: 'Search',
+		control: {
+			type: 'text',
 		},
 	},
 }
