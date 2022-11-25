@@ -1,0 +1,89 @@
+{
+  "name": "@wpmudev/sui-react",
+  "description": "SUI React, the WPMU DEV Products styles library.",
+  "version": "0.0.0",
+  "license": "GPL-3.0",
+  "keywords": [
+    "incsub",
+    "wpmudev",
+    "shared-ui",
+    "react",
+    "components",
+    "containers"
+  ],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-react.git"
+  },
+  "scripts": {
+    "format-files": "clear && yarn prettier --write .",
+    "build-css": "clear && lerna run build",
+    "storybook": "start-storybook -p 6007",
+    "build-storybook": "build-storybook",
+    "changelog": "npx lerna-changelog"
+  },
+  "bugs": {
+    "url": "https://incsub.atlassian.net/browse/SUI"
+  },
+  "homepage": "https://github.com/wpmudev/sui-react#readme",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/addon-postcss": "2.0.0",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
+    "@wordpress/stylelint-config": "^20.0.2",
+    "@wpmudev/storybook": "^0.0.0",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "dedent": "^0.7.0",
+    "lerna": "^4.0.0",
+    "lerna-changelog": "^2.2.0",
+    "path": "^0.12.7",
+    "prettier": "2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.54.0",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
+    "stylelint": "^14.9.1"
+  },
+  "resolutions": {
+    "glob-parent": "^6.0.1",
+    "parse-path": "^5.0.0",
+    "parse-url": "^8.1.0",
+    "trim": "^0.0.3",
+    "trim-newlines": "^3.0.1"
+  },
+  "changelog": {
+    "repo": "wpmudev/sui-react",
+    "labels": {
+      "breaking": "💥 Breaking Change",
+      "new": "✨ New Feature",
+      "improvement": "🚀 Improvement",
+      "bug": "🐛 Bug Fix",
+      "accessibility": "♿️ Accessibility",
+      "documentation": "📝 Documentation",
+      "internal": "🏠 Internal"
+    }
+  }
+}

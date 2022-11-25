@@ -1,0 +1,36 @@
+{
+	"useTabs": true,
+	"tabWidth": 4,
+	"printWidth": 80,
+	"singleQuote": true,
+	"trailingComma": "es5",
+	"bracketSameLine": false,
+	"arrowParens": "always",
+	"parenSpacing": true,
+	"bracketSpacing": true,
+	"endOfLine": "lf",
+	"overrides": [
+		{
+			"files": "*.{css,sass,scss}",
+			"options": {
+				"singleQuote": false,
+				"parenSpacing": false,
+				"bracketSpacing": true
+			}
+		},
+		{
+			"files": "*.css",
+			"options": {
+				"useTabs": true,
+				"tabWidth": 4
+			}
+		},
+		{
+			"files": ["package.json", "*.yml"],
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
+		}
+	]
+}
