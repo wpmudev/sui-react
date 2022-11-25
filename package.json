@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-react",
-  "description": "SUI React, the WPMU DEV Products styles library.",
+  "description": "Reusable building blocks of our design system based on React.",
   "version": "0.0.0",
   "license": "GPL-3.0",
   "keywords": [
