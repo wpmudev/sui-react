@@ -18,7 +18,7 @@ export default {
 			disable: true,
 		},
 	},
-}
+};
 
 // Build "Typography" story.
 const Typography = ({
@@ -73,7 +73,7 @@ const Typography = ({
 			</div>
 		</div>
 	);
-}
+};
 Typography.args = {
 	style: 'paragraph',
 	sizeHeading: 'h1',
@@ -81,7 +81,7 @@ Typography.args = {
 	sizeSubtitle: 'normal',
 	align: 'left',
 	children: 'The quick brown fox jumps over the lazy dog.',
-}
+};
 Typography.argTypes = {
 	style: {
 		name: 'Text Style',
@@ -155,7 +155,7 @@ Typography.argTypes = {
 	children: {
 		name: 'Demo Content',
 	},
-}
+};
 
 // Build "Heading" component.
 const Heading = ({ type, children }) => {
@@ -163,7 +163,7 @@ const Heading = ({ type, children }) => {
 	const setType = ' sui-heading--' + type;
 
 	return <h1 {...(hasType && { className: setType })}>{children}</h1>;
-}
+};
 
 // Build "Subtitle" component.
 const Subtitle = ({ small, children }) => {
@@ -171,7 +171,7 @@ const Subtitle = ({ small, children }) => {
 	const setSmall = isSmall ? ' sui-subtitle--sm' : '';
 
 	return <h2 className={`sui-subtitle${setSmall}`}>{children}</h2>;
-}
+};
 
 // Build "Paragraph" component.
 const Paragraph = ({ small, children }) => {
@@ -186,7 +186,7 @@ const Paragraph = ({ small, children }) => {
 	}
 
 	return <p>{children}</p>;
-}
+};
 
 // Publish required stories.
-export { Typography }
+export { Typography };

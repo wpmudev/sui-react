@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 // Import documentation main page.
 import docs from './content/Colors/Main.mdx';
@@ -19,7 +19,7 @@ export default {
 			page: docs,
 		},
 	},
-}
+};
 
 // Build "Colors" story.
 const Colors = ({ palette, secondary, extended, shade, type }) => {
@@ -27,9 +27,10 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 	 * Semantic colors
 	 * Get the list of colors available from the "Palettes" map.
 	 */
-	const mapColors = palette === 'primary'
-		? Palettes[palette]
-		: palette === 'secondary'
+	const mapColors =
+		palette === 'primary'
+			? Palettes[palette]
+			: palette === 'secondary'
 			? Palettes[secondary][type]
 			: Palettes[extended];
 
@@ -37,9 +38,10 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 	 * Colors by class name
 	 * Get the required palette name for the color class.
 	 */
-	 const setPalette = palette === 'primary'
-		? palette
-		: palette === 'secondary'
+	const setPalette =
+		palette === 'primary'
+			? palette
+			: palette === 'secondary'
 			? secondary
 			: extended;
 	const codeStyles = {
@@ -58,11 +60,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 	 * Get the required properties for the color card.
 	 */
 	const setTheme = shade > 60 ? 'light' : 'dark';
-	const setPrefix = shade === 50
-		? 'Base'
-		: shade > 50
-			? 'Light'
-			: 'Dark';
+	const setPrefix = shade === 50 ? 'Base' : shade > 50 ? 'Light' : 'Dark';
 	const setColor = mapColors[shade];
 	const setVars = palette === 'secondary' ? false : true;
 
@@ -70,17 +68,24 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 	 * Statements
 	 * Check if the selected shade exists.
 	 */
-	const doesShadeExists = palette === 'primary'
-		? shade in Palettes[palette]
-		: palette === 'secondary'
+	const doesShadeExists =
+		palette === 'primary'
+			? shade in Palettes[palette]
+			: palette === 'secondary'
 			? shade in Palettes[secondary][type]
 			: shade in Palettes[extended];
 
-	if ( !doesShadeExists ) {
+	if (!doesShadeExists) {
 		return (
 			<div className="sui-layout sui-layout--spacing sui-layout--justify">
 				<Message color="yellow" style={{ background: '#FFF' }}>
-					<p>The selected shade doesn't exists on the <strong style={{ textTransform: 'capitalize' }}>{ setPalette }</strong> colors list.</p>
+					<p>
+						The selected shade doesn't exists on the{' '}
+						<strong style={{ textTransform: 'capitalize' }}>
+							{setPalette}
+						</strong>{' '}
+						colors list.
+					</p>
 				</Message>
 			</div>
 		);
@@ -94,135 +99,168 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 					paddingTop: 0,
 					paddingRight: 0,
 					paddingLeft: 0,
-				}}>
+				}}
+			>
 				<div
 					style={{
 						display: 'flex',
 						flexFlow: 'row wrap',
 						margin: '-5px',
-					}}>
-						{ Object.keys( mapColors ).map( ( key, index ) => {
-							return (
-								<div style={{ padding: 5 }}>
-									<div
+					}}
+				>
+					{Object.keys(mapColors).map((key, index) => {
+						return (
+							<div style={{ padding: 5 }}>
+								<div
+									style={{
+										padding: 10,
+										borderRadius: 4,
+										background:
+											key > 60 ? '#141934' : '#FFF',
+									}}
+								>
+									<span
+										key={index}
 										style={{
-											padding: 10,
-											borderRadius: 4,
-											background: key > 60 ? '#141934' : '#FFF',
-										}}>
-										<span
-											key={ index }
-											style={{
-												width: 40,
-												height: 40,
-												display: 'block',
-												borderRadius: 40,
-												backgroundColor: mapColors[key],
-											}}
-											aria-label={`${ setPalette } palette, shade ${shade}`} />
+											width: 40,
+											height: 40,
+											display: 'block',
+											borderRadius: 40,
+											backgroundColor: mapColors[key],
+										}}
+										aria-label={`${setPalette} palette, shade ${shade}`}
+									/>
 
-										<span
-											style={{
-												display: 'block',
-												marginTop: 5,
-												color: key > 60 ? '#E9EAEE' : '#1A1A1A',
-												fontSize: '12px',
-												lineHeight: '24px',
-												fontFamily: 'monospace',
-												textAlign: 'center',
-											}}
-											aria-hidden="true">{ key }</span>
-									</div>
-								</div>
-							);
-						}) }
-					</div>
-			</Section>
-					{ setVars && (
-						<Section
-							title="Colors by class name"
-							style={{
-								paddingTop: 0,
-								paddingRight: 0,
-								paddingLeft: 0,
-							}}>
-							<Row>
-								<Col size="2">
-									<p className="sui-overline" style={{ color: '#000' }}>Background color</p>
-									<code
+									<span
 										style={{
-											...codeStyles,
-											backgroundColor: setColor,
-											color: 'light' === setTheme ? '#000' : '#FFF',
-											textAlign: 'center'
-										}}>
-										.sui-bg-{ setPalette }--{ shade }
-									</code>
-								</Col>
-							</Row>
-
-							<Row>
-								<Col size="2">
-									<p className="sui-overline" style={{ color: '#000' }}>Text color</p>
-									<code
-										style={{
-											...codeStyles,
-											padding: 0,
-											color: setColor,
-										}}>
-										.sui-color-{ setPalette }--{ shade }
-										</code>
-								</Col>
-							</Row>
-
-							<Row>
-								<Col size="2">
-									<p className="sui-overline" style={{ color: '#000' }}>Border color</p>
-									<code
-										style={{
-											...codeStyles,
-											borderWidth: '3px',
-											borderStyle: 'solid',
-											borderColor: setColor,
+											display: 'block',
+											marginTop: 5,
+											color:
+												key > 60
+													? '#E9EAEE'
+													: '#1A1A1A',
+											fontSize: '12px',
+											lineHeight: '24px',
+											fontFamily: 'monospace',
 											textAlign: 'center',
-										}}>
-										.sui-border-{ setPalette }--{ shade }
-									</code>
-								</Col>
-							</Row>
-						</Section>
-					)}
+										}}
+										aria-hidden="true"
+									>
+										{key}
+									</span>
+								</div>
+							</div>
+						);
+					})}
+				</div>
+			</Section>
+			{setVars && (
+				<Section
+					title="Colors by class name"
+					style={{
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingLeft: 0,
+					}}
+				>
+					<Row>
+						<Col size="2">
+							<p
+								className="sui-overline"
+								style={{ color: '#000' }}
+							>
+								Background color
+							</p>
+							<code
+								style={{
+									...codeStyles,
+									backgroundColor: setColor,
+									color:
+										'light' === setTheme ? '#000' : '#FFF',
+									textAlign: 'center',
+								}}
+							>
+								.sui-bg-{setPalette}--{shade}
+							</code>
+						</Col>
+					</Row>
 
-					<Section
-						title="Colors information"
-						style={{
-							paddingTop: 0,
-							paddingRight: 0,
-							paddingLeft: 0,
-						}}>
-						<Row>
-							<Col size="2">
-								<Card.Color
-									theme={ setTheme }
-									content={{
-										shade: shade,
-										prefix: setPrefix,
-										hex: setColor,
-										variables: setVars,
-									}} />
-							</Col>
-						</Row>
-					</Section>
+					<Row>
+						<Col size="2">
+							<p
+								className="sui-overline"
+								style={{ color: '#000' }}
+							>
+								Text color
+							</p>
+							<code
+								style={{
+									...codeStyles,
+									padding: 0,
+									color: setColor,
+								}}
+							>
+								.sui-color-{setPalette}--{shade}
+							</code>
+						</Col>
+					</Row>
+
+					<Row>
+						<Col size="2">
+							<p
+								className="sui-overline"
+								style={{ color: '#000' }}
+							>
+								Border color
+							</p>
+							<code
+								style={{
+									...codeStyles,
+									borderWidth: '3px',
+									borderStyle: 'solid',
+									borderColor: setColor,
+									textAlign: 'center',
+								}}
+							>
+								.sui-border-{setPalette}--{shade}
+							</code>
+						</Col>
+					</Row>
+				</Section>
+			)}
+
+			<Section
+				title="Colors information"
+				style={{
+					paddingTop: 0,
+					paddingRight: 0,
+					paddingLeft: 0,
+				}}
+			>
+				<Row>
+					<Col size="2">
+						<Card.Color
+							theme={setTheme}
+							content={{
+								shade: shade,
+								prefix: setPrefix,
+								hex: setColor,
+								variables: setVars,
+							}}
+						/>
+					</Col>
+				</Row>
+			</Section>
 		</div>
 	);
-}
+};
 Colors.args = {
 	palette: 'primary',
 	secondary: 'smush',
 	extended: 'neutrals',
 	type: 'general',
 	shade: 50,
-}
+};
 Colors.argTypes = {
 	palette: {
 		name: 'Palette',
@@ -251,7 +289,7 @@ Colors.argTypes = {
 				Snapshot: 'snapshot',
 				'WPMU DEV Dashboard': 'dashboard',
 				Shipper: 'shipper',
-				'IVT': 'ivt',
+				IVT: 'ivt',
 				'Broken Link Checker': 'blc',
 			},
 		},
@@ -299,7 +337,7 @@ Colors.argTypes = {
 			step: 5,
 		},
 	},
-}
+};
 
 // Publish required stories.
-export { Colors }
+export { Colors };
