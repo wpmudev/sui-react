@@ -1,6 +1,7 @@
 {
-  "private": true,
-  "name": "sui-css",
+  "name": "@wpmudev/sui-css",
+  "description": "SUI CSS Framework, the WPMU DEV Products styles library.",
+  "version": "0.0.0",
   "license": "GPL-3.0",
   "keywords": [
     "incsub",
@@ -16,10 +17,24 @@
       "url": "https://iamleigh.com"
     }
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wpmudev/sui-css.git"
   },
+  "scripts": {
+    "format-files": "clear && yarn prettier --write .",
+    "build-css": "clear && lerna run build",
+    "storybook": "start-storybook -p 6007",
+    "build-storybook": "build-storybook",
+    "changelog": "npx lerna-changelog"
+  },
+  "bugs": {
+    "url": "https://incsub.atlassian.net/browse/SUI"
+  },
+  "homepage": "https://github.com/wpmudev/sui-css#readme",
   "workspaces": [
     "packages/*"
   ],
@@ -35,6 +50,7 @@
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
     "@wordpress/stylelint-config": "^20.0.2",
+    "@wpmudev/storybook": "^0.0.0",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "dedent": "^0.7.0",
@@ -49,19 +65,12 @@
     "style-loader": "^3.3.1",
     "stylelint": "^14.9.1"
   },
-  "dependencies": {},
   "resolutions": {
     "glob-parent": "^6.0.1",
     "parse-path": "^5.0.0",
+    "parse-url": "^8.1.0",
     "trim": "^0.0.3",
     "trim-newlines": "^3.0.1"
-  },
-  "scripts": {
-    "format-files": "clear && yarn prettier --write .",
-    "build-css": "clear && lerna run build",
-    "storybook": "start-storybook -p 6007",
-    "build-storybook": "build-storybook",
-    "changelog": "npx lerna-changelog"
   },
   "changelog": {
     "repo": "wpmudev/sui-css",

@@ -1,8 +1,0 @@
-node_modules
-.DS_Store
-.npmrc
-.changelog
-.dccache
-
-# Ignore all error logs.
-*.log
