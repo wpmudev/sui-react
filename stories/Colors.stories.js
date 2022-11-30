@@ -110,7 +110,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 				>
 					{Object.keys(mapColors).map((key, index) => {
 						return (
-							<div style={{ padding: 5 }}>
+							<div key={ index } style={{ padding: 5 }}>
 								<div
 									style={{
 										padding: 10,
