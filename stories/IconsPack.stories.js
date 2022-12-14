@@ -6,7 +6,7 @@ import { Tag, Code } from '@wpmudev/storybook';
 import docs from './IconsPack.mdx';
 
 // Import required styles.
-import '../sui-icons.css';
+import '../suicons.css';
 import './styles/icons-pack.scss';
 
 export default {

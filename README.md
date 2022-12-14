@@ -2,10 +2,10 @@
 
 ## Install
 
-This repository is distributed with [npm](https://www.npmjs.com/). After [installing npm](https://docs.npmjs.com/getting-started/installing-node), you can install `@wpmudev/sui-icons` with this command.
+This repository is distributed with [npm](https://www.npmjs.com/). After [installing npm](https://docs.npmjs.com/getting-started/installing-node), you can install `@wpmudev/suicons` with this command.
 
 ```bash
-npm i --save-dev @wpmudev/sui-icons
+npm i --save-dev @wpmudev/suicons
 ```
 
 ## Usage
@@ -20,51 +20,51 @@ There are many ways/formats to use the Shared UI Icons Package. The fastest and 
 <img
 	width="32"
 	height="32"
-	src="@wpmudev/sui-icons/icons/plugin-smartcrawl.svg"
+	src="@wpmudev/suicons/icons/plugin-smartcrawl.svg"
 	alt="SmartCrawl Plugin" />
 ```
 
-2. It's possible to serve the icons from a CDN such as [Unpkg](https://unpkg.com/). Use the `@wpmudev/sui-icons` npm package in the URL like the following:
+2. It's possible to serve the icons from a CDN such as [Unpkg](https://unpkg.com/). Use the `@wpmudev/suicons` npm package in the URL like the following:
 
 ```html
 <img
 	width="32"
 	height="32"
-	src="https://unpkg.com/@wpmudev/sui-icons/icons/plugin-smartcrawl.svg"
+	src="https://unpkg.com/@wpmudev/suicons/icons/plugin-smartcrawl.svg"
 	alt="SmartCrawl Plugin" />
 ```
 
 ### Icons Font - Ideal when you want to include all icons at once
 
-1. Install the `@wpmudev/sui-icons` and in the `&lt;head&gt;` of your HTML file, reference the location to your `sui-icons.css` stylesheet.
+1. Install the `@wpmudev/suicons` and in the `&lt;head&gt;` of your HTML file, reference the location to your `suicons.css` stylesheet.
 
 ```html
 <head>
   ...
-  <link rel="stylesheet" href="@wpmudev/sui-icons/sui-icons.css" />
+  <link rel="stylesheet" href="@wpmudev/suicons/suicons.css" />
   ...
 </head>
 ```
 
-2. Use [unpkg.com](https://unpkg.com/) to load the [Shared UI Icons Pack](https://www.npmjs.com/package/@wpmudev/sui-icons) directly without installing anything:
+2. Use [unpkg.com](https://unpkg.com/) to load the [Shared UI Icons Pack](https://www.npmjs.com/package/@wpmudev/suicons) directly without installing anything:
 
 ```html
 <head>
   ...
-  <link rel="stylesheet" href="https://unpkg.com/@wpmudev/sui-icons/sui-icons.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@wpmudev/suicons/suicons.css" />
   ...
 </head>
 ```
 
->Place the `sui-icons` class with `&lt;span&gt;` tag in your HTML file, like this. Then, use the <strong>icon name</strong> along with the `sui-icons-` class prefix.
+>Place the `suicons` class with `&lt;span&gt;` tag in your HTML file, like this. Then, use the <strong>icon name</strong> along with the `suicons-` class prefix.
 
 ```html
-<span class="sui-icons sui-icons--smartcrawl"></span>
+<span class="suicons suicons--smartcrawl"></span>
 ```
 
 ## Bugs, Ideas, Pull Requests
 
-If you have any ideas or found bugs, please send me Pull Requests or let me know with [GitHub Issues](https://github.com/wpmudev/sui-icons/issues).
+If you have any ideas or found bugs, please send me Pull Requests or let me know with [GitHub Issues](https://github.com/wpmudev/suicons/issues).
 
 ## License
 
