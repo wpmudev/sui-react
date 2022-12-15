@@ -6,6 +6,7 @@ package-lock.json
 .dccache
 
 # Ignore documentation.
+stories
 RELEASING.md
 
 # Miscellaneous.
