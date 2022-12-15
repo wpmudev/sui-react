@@ -6,7 +6,7 @@ import { Tag, Code } from '@wpmudev/storybook';
 import docs from './IconsPack.mdx';
 
 // Import required styles.
-import '../suicons.css';
+import '../dist/css/sui-icons.css';
 import './styles/icons-pack.scss';
 
 export default {
@@ -71,7 +71,7 @@ const IconsCard = ({ category, name, alt, checked, id }) => {
 	const hasTagChecked = 'boolean' === typeof checked;
 
 	const sample = dedent`
-<span class="sui-icon sui-icon--${ id }" aria-hidden="true"></span>
+<span class="suicons suicons--${ id }" aria-hidden="true"></span>
 	`;
 
 	return (
@@ -92,7 +92,7 @@ const IconsCard = ({ category, name, alt, checked, id }) => {
 				)}
 				<div className="csb-icon__preview-icon">
 					<span
-						className={`sui-icon sui-icon--${ id }`}
+						className={`suicons suicons--${ id }`}
 						style={{ fontSize: 64 }} />
 				</div>
 			</div>

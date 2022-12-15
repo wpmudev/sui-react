@@ -20,19 +20,19 @@ import dedent from 'ts-dedent';
 <img
   width="32"
   height="32"
-  src="@wpmudev/suicons/icons/plugin-smartcrawl.svg"
+  src="@wpmudev/sui-icons/dist/svg/plugin-smartcrawl.svg"
   alt="SmartCrawl Plugin" />
 	`}</Snippet>
 	<List>
 		<div label={
-			<>It's possible to serve the icons from a CDN such as <a href="https://unpkg.com/" target="_blank" rel="nofollow">Unpkg</a>. Use the <Code small={ true }>@wpmudev/suicons</Code> npm package in the URL like the following:</>
+			<>It's possible to serve the icons from a CDN such as <a href="https://unpkg.com/" target="_blank" rel="nofollow">Unpkg</a>. Use the <Code small={ true }>@wpmudev/sui-icons</Code> npm package in the URL like the following:</>
 		 } />
 	</List>
 	<Snippet>{ dedent`
 <img
   width="32"
   height="32"
-  src="https://unpkg.com/@wpmudev/suicons/icons/plugin-smartcrawl.svg"
+  src="https://unpkg.com/@wpmudev/sui-icons/dist/svg/plugin-smartcrawl.svg"
   alt="SmartCrawl Plugin" />
 	`}</Snippet>
 </Section>
@@ -45,13 +45,13 @@ import dedent from 'ts-dedent';
 	contained={ true }>
 	<List>
 		<div label={
-			<>Install the <Code small={ true }>@wpmudev/suicons</Code> and in the <Code small={ true }>&lt;head&gt;</Code> of your HTML file, reference the location to your <Code small={ true }>suicons.css</Code> stylesheet.</>
+			<>Install the <Code small={ true }>@wpmudev/sui-icons</Code> and in the <Code small={ true }>&lt;head&gt;</Code> of your HTML file, reference the location to your <Code small={ true }>sui-icons.css</Code> stylesheet.</>
 		 } />
 	</List>
 	<Snippet>{ dedent`
 <head>
   ...
-  <link rel="stylesheet" href="@wpmudev/suicons/suicons.css" />
+  <link rel="stylesheet" href="@wpmudev/sui-icons/dist/css/sui-icons.css" />
   ...
 </head>
 	`}</Snippet>
@@ -63,11 +63,11 @@ import dedent from 'ts-dedent';
 	<Snippet>{ dedent`
 <head>
   ...
-  <link rel="stylesheet" href="https://unpkg.com/@wpmudev/suicons/suicons.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@wpmudev/sui-icons/dist/css/sui-icons.css" />
   ...
 </head>
 	`}</Snippet>
 	<Message color="blue">
-		<p>Place the <Code theme="dark">suicons</Code> class with <Code theme="dark">&lt;span&gt;</Code> tag in your HTML file, like this. Then, use the <strong>icon name</strong> along with the <Code theme="dark">suicons-</Code> class prefix.</p>
+		<p>Place the <Code theme="dark">suicons</Code> class with <Code theme="dark">&lt;span&gt;</Code> tag in your HTML file, like this. Then, use the <strong>icon name</strong> along with the <Code theme="dark">suicons--</Code> class prefix.</p>
 	</Message>
 </Section>
