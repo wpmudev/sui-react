@@ -1,6 +1,6 @@
 [![npm](https://img.shields.io/npm/v/@wpmudev/sui-icons?color=blue&style=for-the-badge)](https://www.npmjs.com/package/@wpmudev/sui-icons)
 [![GitHub package.json version (subfolder of monorepo)](https://img.shields.io/github/package-json/v/wpmudev/sui-icons?color=orange&filename=packages%2Flayout%2Fpackage.json&label=core&style=for-the-badge)](https://github.com/wpmudev/sui-icons/)
-[![License: GPLv3](https://img.shields.io/badge/License-GPL%20v3-blue.svg?color=green&style=for-the-badge)](http://www.gnu.org/licenses/gpl-3.0)
+[![License: GPLv2](https://img.shields.io/badge/License-GPL%20v2-blue.svg?color=green&style=for-the-badge)](http://www.gnu.org/licenses/gpl-3.0)
 
 # Shared UI Icons Pack
 
