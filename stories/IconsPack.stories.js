@@ -26,7 +26,7 @@ const Page = ({ category, search }) => {
 	const groups = Object.keys( ListIcons ).map( ( group, groupIndex ) => {
 		const catName = ListIcons[ group ].name;
 		const objIcons = ListIcons[ group ].icons;
-		const filteredobjIcons = 
+		const filteredobjIcons =
 			( 0 !== search.trim().length ) ?
 				Object.entries(objIcons).reduce((newObj, [key, val]) => {
 					const name = val.name.toLowerCase();
@@ -543,7 +543,7 @@ Page.argTypes = {
 		},
 	},
 	search: {
-		name: 'Search',
+		name: 'Keyword Search',
 		control: {
 			type: 'text',
 		},
