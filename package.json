@@ -1,4 +1,5 @@
 {
+    "private": true,
   "name": "@wpmudev/sui-css",
   "description": "SUI CSS Framework, the WPMU DEV Products styles library.",
   "version": "0.0.0",
@@ -29,7 +30,8 @@
     "build-css": "clear && lerna run build",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
-    "changelog": "npx lerna-changelog"
+    "changelog": "npx lerna-changelog",
+    "tokens": "style-dictionary build"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
