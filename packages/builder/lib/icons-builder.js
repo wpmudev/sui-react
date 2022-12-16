@@ -4,7 +4,7 @@
  * Supported Packages
  * List here all dependencies necessary to run required tasks.
  *
- * @since 0.0.0
+ * @since 1.0.0
  */
 const path = require('path');
 const gulp = require('gulp');
@@ -18,7 +18,7 @@ const prettier = require('gulp-prettier');
 /**
  * Development Paths & Files
  *
- * @since 0.0.0
+ * @since 1.0.0
  */
 
 const currentWorkingPath = process.cwd();
@@ -32,7 +32,7 @@ const fileName = name.replace('@wpmudev/', '');
  * WPMU DEV Banner
  * Print this on SUI scripts.
  *
- * @since 0.0.0
+ * @since 1.0.0
  */
 
 const banner = [
@@ -49,7 +49,7 @@ const banner = [
 /**
  * List of Supported Browsers
  *
- * @since 0.0.0
+ * @since 1.0.0
  */
 
 const browsersList = ['last 2 version', '> 1%'];
@@ -58,7 +58,7 @@ const browsersList = ['last 2 version', '> 1%'];
  * Compiling tasks.
  * Compile files and copy to dist folder.
  *
- * @since 0.0.0
+ * @since 1.0.0
  */
 
 function compile() {
@@ -83,7 +83,7 @@ function compile() {
  * Run tasks.
  * Use Gulp to run compiling tasks.
  *
- * @since 0.0.0
+ * @since 1.0.0
  */
 
 gulp.task('build', compile);
