@@ -21,11 +21,13 @@
       "url": "https://iamleigh.com"
     }
   ],
+  "src": "src/scss/sui-icons.scss",
   "directories": {
-    "dist": "dist"
+    "src": "src"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
