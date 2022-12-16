@@ -1,0 +1,35 @@
+@use './variables' as *;
+
+@font-face {
+	font-family: '#{$font-family}';
+	src:
+		url('#{$font-path}/#{$font-family}.ttf?g7ckuh') format('truetype'),
+		url('#{$font-path}/#{$font-family}.woff?g7ckuh') format('woff'),
+		url('#{$font-path}/#{$font-family}.svg?g7ckuh##{$font-family}') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+.suicons {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: '#{$font-family}' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@each $icon-name, $icon-code in $suicons {
+	.suicons--#{$icon-name} {
+		&:before {
+			content: $icon-code;
+		}
+	}
+}
