@@ -1,10 +1,8 @@
 @font-face {
   font-family: 'sui-icons';
-  src:  url('../fonts/sui-icons.eot?clui59');
-  src:  url('../fonts/sui-icons.eot?clui59#iefix') format('embedded-opentype'),
-    url('../fonts/sui-icons.ttf?clui59') format('truetype'),
-    url('../fonts/sui-icons.woff?clui59') format('woff'),
-    url('../fonts/sui-icons.svg?clui59#sui-icons') format('svg');
+  src: url('../fonts/sui-icons.ttf?g7ckuh') format('truetype'),
+    url('../fonts/sui-icons.woff?g7ckuh') format('woff'),
+    url('../fonts/sui-icons.svg?g7ckuh#sui-icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
