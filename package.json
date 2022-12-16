@@ -20,13 +20,20 @@
     "type": "git",
     "url": "git+https://github.com/wpmudev/sui-icons.git"
   },
-  "scripts": {},
+  "workspaces": [
+    "./packages/*"
+  ],
+  "scripts": {
+    "release": "npx lerna publish --no-private"
+  },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
   },
   "homepage": "https://github.com/wpmudev/sui-icons#readme",
   "devDependencies": {
     "@wordpress/stylelint-config": "^21.6.0",
+    "lerna": "^6.1.0",
+    "prettier": "^2.8.1",
     "stylelint": "^14.16.0"
   }
 }
