@@ -1,5 +1,5 @@
 {
-  "private": "true",
+  "private": true,
   "name": "sui-icons",
   "description": "SUI Icons Pack, the WPMU DEV Products icons font.",
   "version": "0.0.0",
