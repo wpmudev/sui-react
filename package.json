@@ -24,5 +24,9 @@
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
   },
-  "homepage": "https://github.com/wpmudev/sui-icons#readme"
+  "homepage": "https://github.com/wpmudev/sui-icons#readme",
+  "devDependencies": {
+    "@wordpress/stylelint-config": "^21.6.0",
+    "stylelint": "^14.16.0"
+  }
 }
