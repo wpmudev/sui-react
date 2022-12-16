@@ -64,8 +64,6 @@ const browsersList = ['last 2 version', '> 1%'];
 function compile() {
 	return gulp
 		.src(inputPath)
-		.pipe(prettier())
-		.pipe(gulp.dest('scss/'))
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(autoprefixer(browsersList))
 		.pipe(header(banner))
