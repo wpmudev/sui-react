@@ -1,18 +1,10 @@
 {
-  "name": "@wpmudev/sui-icons","private": "true",
+  "private": "true",
+  "name": "sui-icons",
   "description": "SUI Icons Pack, the WPMU DEV Products icons font.",
   "version": "0.0.0",
   "license": "GPL-2.0",
-  "keywords": [
-    "wpmudev",
-    "shared-ui",
-    "icons-font",
-    "sui-icons",
-    "sui-icon",
-    "sui-icons",
-    "icons",
-    "icon"
-  ],
+  "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
     {
@@ -32,11 +24,5 @@
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
   },
-  "homepage": "https://github.com/wpmudev/sui-icons#readme",
-  "devDependencies": {
-    "@wpmudev/storybook": "^0.0.0",
-    "dedent": "^0.7.0",
-    "react": "^18.2.0",
-    "ts-dedent": "^2.2.0"
-  }
+  "homepage": "https://github.com/wpmudev/sui-icons#readme"
 }

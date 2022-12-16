@@ -1,0 +1,54 @@
+{
+  "name": "@wpmudev/icons-builder",
+  "version": "1.0.0",
+  "private": true,
+  "description": "This builder helps you compile SASS into CSS and minify it.",
+  "keywords": [
+    "incsub",
+    "wpmudev",
+    "shared-ui",
+    "icons-builder"
+  ],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "license": "GPL-2.0",
+  "main": "lib/icons-builder.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "bin": {
+    "icons-builder": "./lib/icons-builder.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-icons.git",
+    "directory": "packages/builder"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://incsub.atlassian.net/browse/SUI"
+  },
+  "homepage": "https://github.com/wpmudev/sui-icons#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-header": "^2.0.9",
+    "gulp-prettier": "^4.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "path": "^0.12.7"
+  }
+}
