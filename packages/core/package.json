@@ -21,7 +21,8 @@
       "url": "https://iamleigh.com"
     }
   ],
-  "src": "src/scss/sui-icons.scss",
+  "input": "src",
+  "output": "dist",
   "directories": {
     "src": "src"
   },

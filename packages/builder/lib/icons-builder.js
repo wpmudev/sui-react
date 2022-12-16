@@ -22,11 +22,16 @@ const prettier = require('gulp-prettier');
  */
 
 const currentWorkingPath = process.cwd();
-const { src, name } = require(path.join(currentWorkingPath, 'package.json'));
+const { input, output, name } = require(path.join(currentWorkingPath, 'package.json'));
 
-const inputPath = path.join(currentWorkingPath, src);
 const packageName = name;
-const fileName = name.replace('@wpmudev/', '');
+const fileName = packageName.replace('@wpmudev/', '');
+
+const inputSource = path.join(currentWorkingPath, input);
+const inputStyles = path.join(inputSource, 'scss/' + fileName + '.scss');
+
+const outputSource = path.join(currentWorkingPath, output);
+const outputStyles = path.join(currentWorkingPath, output + '/css');
 
 /**
  * WPMU DEV Banner
@@ -55,25 +60,34 @@ const banner = [
 const browsersList = ['last 2 version', '> 1%'];
 
 /**
- * Compiling tasks.
- * Compile files and copy to dist folder.
+ * Building functions.
+ * Compile and copy to output folder.
  *
  * @since 1.0.0
  */
 
 function compile() {
 	return gulp
-		.src(inputPath)
+		.src(inputStyles)
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(autoprefixer(browsersList))
 		.pipe(header(banner))
 		.pipe(prettier())
-		.pipe(gulp.dest('dist/css/'))
+		.pipe(gulp.dest(outputStyles))
 		.pipe(cleanCSS())
 		.pipe(rename({ suffix: '.min' }))
-		.pipe(gulp.dest('dist/css/'))
+		.pipe(gulp.dest(outputStyles))
 		.on('finish', function () {
-			console.log('📦 Package ' + packageName + ' compiled.');
+			console.log('📦 Styles compiled and copied to output folder.');
+		});
+}
+
+function copy() {
+	return gulp
+		.src(inputSource + '/**')
+		.pipe(gulp.dest(outputSource))
+		.on('finish', function () {
+			console.log('📦 Source files copied to output folder.');
 		});
 }
 
@@ -84,7 +98,7 @@ function compile() {
  * @since 1.0.0
  */
 
-gulp.task('build', compile);
+gulp.task('build', gulp.series(compile, copy));
 
 const build = gulp.task('build');
 
