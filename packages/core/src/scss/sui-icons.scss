@@ -1,4 +1,4 @@
-@use './variables';
+@use './variables' as *;
 
 @font-face {
 	font-family: '#{$font-family}';
@@ -26,10 +26,10 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-@each $icon-name, $code-code in $suicons {
+@each $icon-name, $icon-code in $suicons {
 	.suicons--#{$icon-name} {
 		&:before {
-			content: $code;
+			content: $icon-code;
 		}
 	}
 }
