@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-icons",
   "description": "SUI Icons Pack, the WPMU DEV Products icons font.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "GPL-2.0",
   "keywords": [
     "wpmudev",
@@ -39,7 +39,8 @@
     "directory": "packages/sui-icons"
   },
   "scripts": {
-    "build": "gulp"
+    "build": "gulp",
+    "release": "cd packages/sui-icons && npm pack && cd ../.."
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
