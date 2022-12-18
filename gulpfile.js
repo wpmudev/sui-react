@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * Supported Packages
  * List here all dependencies necessary to run required tasks.
@@ -78,7 +76,7 @@ function compile() {
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(gulp.dest(outputStyles))
 		.on('finish', function () {
-			console.log('📦 Styles compiled and copied to output folder.');
+			console.log('📦 ' + packageName + ' finished compiling.');
 		});
 }
 
@@ -87,7 +85,7 @@ function copy() {
 		.src(inputSource + '/**')
 		.pipe(gulp.dest(outputSource))
 		.on('finish', function () {
-			console.log('📦 Source files copied to output folder.');
+			console.log('📦 ' + packageName + ' finished copying files.');
 		});
 }
 
@@ -98,8 +96,4 @@ function copy() {
  * @since 1.0.0
  */
 
-gulp.task('build', gulp.series(compile, copy));
-
-const build = gulp.task('build');
-
-build();
+exports.default = gulp.series(compile, copy);

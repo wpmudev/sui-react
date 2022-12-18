@@ -1,10 +1,18 @@
 {
-  "private": true,
-  "name": "sui-icons",
+  "name": "@wpmudev/sui-icons",
   "description": "SUI Icons Pack, the WPMU DEV Products icons font.",
   "version": "0.0.0",
   "license": "GPL-2.0",
-  "keywords": [],
+  "keywords": [
+    "wpmudev",
+    "shared-ui",
+    "icons-font",
+    "sui-icons",
+    "sui-icon",
+    "sui-icons",
+    "icons",
+    "icon"
+  ],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
     {
@@ -13,27 +21,42 @@
       "url": "https://iamleigh.com"
     }
   ],
+  "input": "./src",
+  "output": "./dist",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "publishConfig": {
     "access": "public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wpmudev/sui-icons.git"
+    "url": "git+https://github.com/wpmudev/sui-icons.git",
+    "directory": "packages/sui-icons"
   },
-  "workspaces": [
-    "./packages/*"
-  ],
   "scripts": {
-    "release": "npx lerna publish --no-private"
+    "build": "gulp"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
   },
   "homepage": "https://github.com/wpmudev/sui-icons#readme",
   "devDependencies": {
-    "@wordpress/stylelint-config": "^21.6.0",
-    "lerna": "^6.1.0",
-    "prettier": "^2.8.1",
-    "stylelint": "^14.16.0"
+    "@wpmudev/storybook": "^0.0.0",
+    "dedent": "^0.7.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-header": "^2.0.9",
+    "gulp-prettier": "^4.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "react": "^18.2.0",
+    "sass": "^1.57.0",
+    "ts-dedent": "^2.2.0"
   }
 }

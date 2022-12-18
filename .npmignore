@@ -1,0 +1,17 @@
+# Ignore source folder.
+src
+
+# Ignore lock files.
+package-lock.json
+
+# Ignore error logs.
+*.log
+.dccache
+
+# Ignore documentation.
+stories
+RELEASING.md
+
+# Miscellaneous.
+node_modules
+.DS_Store
