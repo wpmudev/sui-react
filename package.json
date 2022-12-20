@@ -44,7 +44,7 @@
     "publish:test": "yarn prepare && npm version prerelease --git-tag-version=false && npm pack",
     "publish:patch": "yarn prepare && npm version patch -m \"📦️ SUI Icons %s\" && npm publish",
     "publish:minor": "yarn prepare && npm version minor -m \"📦️ SUI Icons %s\" && npm publish",
-    "publish:major": "yarn prepare && npm version major -m \"📦️ SUI Icons %s\" && npm pack"
+    "publish:major": "yarn prepare && npm version major -m \"📦️ SUI Icons %s\" && npm publish"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
