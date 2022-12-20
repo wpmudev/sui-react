@@ -40,7 +40,10 @@
   },
   "scripts": {
     "build": "gulp",
-    "release": "cd packages/sui-icons && npm pack && cd ../.."
+    "publish:test": "yarn build && npm version patch --git-tag-version=false && npm pack",
+    "publish:patch": "yarn build && npm version patch && npm pack",
+    "publish:minor": "yarn build && npm version minor && npm pack",
+    "publish:major": "yarn build && npm version major && npm pack"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
