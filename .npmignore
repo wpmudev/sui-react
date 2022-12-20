@@ -1,8 +1,9 @@
 # Ignore source folder.
 src
 
-# Ignore lock files.
-package-lock.json
+# Ignore test package.
+*.tgz
+/package
 
 # Ignore error logs.
 *.log
