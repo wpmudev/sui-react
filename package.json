@@ -42,9 +42,9 @@
     "clean": "clear && git restore .",
     "prepare": "yarn clean && yarn build",
     "publish:test": "yarn prepare && npm version prerelease --git-tag-version=false && npm pack",
-    "publish:patch": "yarn prepare && npm version patch && npm publish",
-    "publish:minor": "yarn prepare && npm version minor && npm publish",
-    "publish:major": "yarn prepare && npm version major -m \"📦️ SUI Icons Pack %s\"  && npm pack"
+    "publish:patch": "yarn prepare && npm version patch -m \"📦️ SUI Icons %s\" && npm publish",
+    "publish:minor": "yarn prepare && npm version minor -m \"📦️ SUI Icons %s\" && npm publish",
+    "publish:major": "yarn prepare && npm version major -m \"📦️ SUI Icons %s\" && npm pack"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
