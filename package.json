@@ -39,8 +39,8 @@
   },
   "scripts": {
     "build": "gulp",
-    "clean": "rm -rf *.tgz && rom -rf ./package && git restore .",
-    "prepare": "clear && yarn clean && yarn build",
+    "clean": "clear && git restore .",
+    "prepare": "yarn clean && yarn build",
     "publish:test": "yarn prepare && npm version prerelease --git-tag-version=false && npm pack",
     "publish:patch": "yarn prepare && npm version patch && npm pack",
     "publish:minor": "yarn prepare && npm version minor && npm pack",
