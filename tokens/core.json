@@ -1,27 +1,25 @@
 {
   "color": {
     "primary": {
-      "blue": {
-        "10": {
-          "value": "#081630",
-          "type": "color"
-        },
-        "30": {
-          "value": "#184291",
-          "type": "color"
-        },
-        "50": {
-          "value": "#286EF1",
-          "type": "color"
-        },
-        "70": {
-          "value": "#D5E3FD",
-          "type": "color"
-        },
-        "90": {
-          "value": "#EAF1FE",
-          "type": "color"
-        }
+      "10": {
+        "value": "#081630",
+        "type": "color"
+      },
+      "30": {
+        "value": "#184291",
+        "type": "color"
+      },
+      "50": {
+        "value": "#286EF1",
+        "type": "color"
+      },
+      "70": {
+        "value": "#D5E3FD",
+        "type": "color"
+      },
+      "90": {
+        "value": "#EAF1FE",
+        "type": "color"
       }
     },
     "secondary": {
@@ -927,7 +925,7 @@
         "type": "fontSizes"
       }
     },
-    "line": {
+    "height": {
       "xs": {
         "value": "16px",
         "type": "lineHeights"
