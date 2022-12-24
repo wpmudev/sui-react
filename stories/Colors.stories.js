@@ -8,7 +8,7 @@ import { Palettes } from './content/Colors/Map';
 import { Section, Row, Col, Card, Message } from '@wpmudev/storybook';
 
 // Import required styles.
-import '../src/colors.scss';
+import "../src/_components/_colors.scss";
 
 // Configure default options.
 export default {
@@ -242,6 +242,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 						<Card.Color
 							theme={setTheme}
 							content={{
+								palette: 'primary' === setPalette ? setPalette : palette + '-' + setPalette,
 								shade: shade,
 								prefix: setPrefix,
 								hex: setColor,
@@ -257,7 +258,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 Colors.args = {
 	palette: 'primary',
 	secondary: 'smush',
-	extended: 'neutrals',
+	extended: 'neutral',
 	type: 'general',
 	shade: 50,
 };
@@ -303,10 +304,10 @@ Colors.argTypes = {
 		control: {
 			type: 'select',
 			options: {
-				Neutrals: 'neutrals',
-				Green: 'green',
-				Yellow: 'yellow',
-				Red: 'red',
+				Neutral: 'neutral',
+				Success: 'success',
+				Warning: 'warning',
+				Error: 'error',
 			},
 		},
 		if: {
