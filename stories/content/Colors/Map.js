@@ -7,8 +7,9 @@ export const Palettes = {
 		90: '#EAF1FE',
 	},
 	// Extended Palette.
-	neutrals: {
+	neutral: {
 		10: '#1A1A1A',
+		30: '#333333',
 		50: '#505050',
 		60: '#737373',
 		70: '#AAAAAA',
@@ -17,21 +18,21 @@ export const Palettes = {
 		95: '#F8F8F8',
 		100: '#FFFFFF',
 	},
-	green: {
+	success: {
 		10: '#05250F',
 		30: '#0C5E26',
 		50: '#18BB4B',
 		70: '#BAEBC9',
 		90: '#E8F8ED',
 	},
-	yellow: {
+	warning: {
 		10: '#191609',
 		30: '#5B502B',
 		50: '#FFCC20',
 		70: '#FFF4CE',
 		90: '#FFFBEF',
 	},
-	red: {
+	error: {
 		10: '#180909',
 		30: '#AB403E',
 		50: '#F45C59',
