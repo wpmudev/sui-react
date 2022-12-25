@@ -1,4 +1,5 @@
-@use "../../utilities.scss" as *;
+@use "../../../_utilities/_helpers/variables" as *;
+@use "../../../_utilities/mixins" as *;
 
 /// Layout Content Wrapper.
 /// @type element
@@ -6,9 +7,6 @@
 ///
 /// @param {String} $block - Main block name
 @mixin layout-content($block) {
-	// Layout maximum width.
-	$width: 1600px;
-
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
@@ -16,7 +14,7 @@
 		@include block($block) {
 			// Element wrapper.
 			@include element(content) {
-				max-width: $width;
+				max-width: $layout-content-width;
 				margin-left: auto;
 				margin-right: auto;
 			}

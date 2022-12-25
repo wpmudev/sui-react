@@ -1,6 +1,7 @@
 @use "sass:map";
 
-@use "../../utilities.scss" as *;
+@use "../../../_utilities/_helpers/variables" as *;
+@use "../../../_utilities/mixins" as *;
 
 /// Layout Sides Spacing.
 /// This modifier creates spacing between WordPress side bar and the right edge of the window.
@@ -16,14 +17,14 @@
 		@include block($block) {
 			// Element wrapper.
 			@include modifier(spacing) {
-				padding: 0 map.get($spacing, sm);
+				padding: 0 $grid-spacing-sm;
 
 				@include media(min-width, md) {
-					padding: 0 map.get($spacing, md);
+					padding: 0 $grid-spacing-md;
 				}
 
 				@include media(min-width, lg) {
-					padding: 0 map.get($spacing, lg);
+					padding: 0 $grid-spacing-lg;
 				}
 			}
 		}

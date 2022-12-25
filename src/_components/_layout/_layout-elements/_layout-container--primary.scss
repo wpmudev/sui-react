@@ -1,6 +1,7 @@
 @use "sass:map";
 
-@use "../../utilities.scss" as *;
+@use "../../../_utilities/_helpers/variables" as *;
+@use "../../../_utilities/mixins" as *;
 @use "../_layout-utils/layout-utils" as *;
 
 /// Layout Main Wrapper.
@@ -9,17 +10,13 @@
 ///
 /// @param {String} $block - Main block name.
 @mixin layout-main($block) {
-	// WordPress default spacing.
-	$left-sm: 10px;
-	$left-md: 20px;
-
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-			margin-left: -#{$left-sm};
+			margin-left: $layout-spacing-main-md;
 
 			@include media(min-width, sm) {
-				margin-left: -#{$left-md};
+				margin-left: $layout-spacing-main-sm;
 			}
 
 			@extend %layout-reset;

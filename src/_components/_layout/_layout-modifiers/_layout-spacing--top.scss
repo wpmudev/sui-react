@@ -1,6 +1,7 @@
 @use "sass:map";
 
-@use "../../utilities.scss" as *;
+@use "../../../_utilities/_helpers/variables" as *;
+@use "../../../_utilities/mixins" as *;
 
 /// Layout Top Spacing.
 /// This modifier creates spacing between WordPress top bar and the content.
@@ -16,14 +17,14 @@
 		@include block($block) {
 			// Element wrapper.
 			@include modifier(justify) {
-				margin-top: map.get($spacing, sm);
+				margin-top: $grid-spacing-sm;
 
 				@include media(min-width, md) {
-					margin-top: map.get($spacing, md);
+					margin-top: $grid-spacing-md;
 				}
 
 				@include media(min-width, lg) {
-					margin-top: map.get($spacing, lg);
+					margin-top: $grid-spacing-lg;
 				}
 			}
 		}
