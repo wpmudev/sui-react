@@ -4,7 +4,7 @@ import React from 'react';
 import docs from './content/Typography/Main.mdx';
 
 // Import required styles.
-import "../src/_components/_typography.scss";
+import "../src/_core/_typography.scss";
 
 // Configure default options.
 export default {
