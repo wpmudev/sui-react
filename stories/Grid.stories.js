@@ -9,7 +9,7 @@ import { Grid as DynamicGrid } from './components/Grid/DynamicGrid';
 import { Block } from './components/Grid/Block';
 
 // Import required styles.
-import '../src/grid.scss';
+import "../src/_components/_grid.scss";
 
 // Configure default options.
 export default {

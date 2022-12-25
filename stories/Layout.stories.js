@@ -4,7 +4,7 @@ import React from 'react';
 import docs from './content/Layout/Main.mdx';
 
 // Import required styles.
-import '../src/layout.scss';
+import "../src/_components/_layout.scss";
 
 // Configure default options.
 export default {
