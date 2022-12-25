@@ -1,0 +1,17 @@
+@use "sass:map";
+
+@use "../../_utilities/mixins" as *;
+@use "./color-map" as *;
+
+
+@include sui-class($rtl: false, $theme: light) {
+	@each $name, $map in $palette {
+		@each $shade, $value in $map {
+			@include block("border-color-" + $name) {
+				@include modifier($shade) {
+					border-color: $value;
+				}
+			}
+		}
+	}
+}
