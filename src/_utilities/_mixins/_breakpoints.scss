@@ -1,13 +1,15 @@
 @use "sass:map";
 
+@use "../_helpers/variables" as *;
+
 /// Breakpoints.
 /// Defines the breakpoints based on the WordPress admin UI changes.
 /// @param {Array} $breakpoints - List of predefined breakpoints.
 $breakpoints: (
-	sm: 783px,
-	md: 1024px,
-	lg: 1200px,
-	xl: 1600px,
+	sm: $grid-breakpoint-sm,
+	md: $grid-breakpoint-md,
+	lg: $grid-breakpoint-lg,
+	xl: $grid-breakpoint-xl
 );
 
 @mixin media($type, $size-1, $size-2: null) {
