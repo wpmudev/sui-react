@@ -1,0 +1,105 @@
+@use "../_utilities/_helpers/variables" as *;
+@use "../_utilities/mixins" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
+
+@include sui-class($rtl: false, $theme: null) {
+	&,
+	* {
+		font-family: $font-family-default;
+		font-variant-ligatures: none;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+	}
+
+	&,
+	p {
+		font-size: $body-md-font-size;
+		font-weight: $body-font-weight;
+		line-height: $body-font-height;
+		letter-spacing: $body-font-spacing;
+
+		small {
+			font-size: $body-sm-font-size;
+		}
+
+		b,
+		strong {
+			font-weight: $font-weight-lg;
+		}
+	}
+
+	@include block(heading) {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-weight: $heading-font-weight;
+
+		@include modifier(h1) {
+			font-size: $heading-one-font-size;
+			line-height: $heading-one-font-height;
+			letter-spacing: $heading-one-font-spacing;
+		}
+
+		@include modifier(h2) {
+			font-size: $heading-two-font-size;
+			line-height: $heading-two-font-height;
+			letter-spacing: $heading-two-font-spacing;
+		}
+
+		@include modifier(h3) {
+			font-size: $heading-three-font-size;
+			line-height: $heading-three-font-height;
+			letter-spacing: $heading-three-font-spacing;
+		}
+
+		@include modifier(h4) {
+			font-size: $heading-four-font-size;
+			line-height: $heading-four-font-height;
+			letter-spacing: $heading-four-font-spacing;
+		}
+
+		@include modifier(h5) {
+			font-size: $heading-five-font-size;
+			line-height: $heading-five-font-height;
+			letter-spacing: $heading-five-font-spacing;
+		}
+	}
+
+	@include block(subtitle) {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: $subtitle-md-font-size;
+		font-weight: $subtitle-font-weight;
+		line-height: $subtitle-font-height;
+		letter-spacing: $subtitle-font-spacing;
+
+		@include modifier(sm) {
+			font-size: $subtitle-sm-font-size;
+		}
+	}
+
+	@include block(caption) {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: $caption-font-size;
+		font-weight: $caption-font-weight;
+		line-height: $caption-font-height;
+		letter-spacing: $caption-font-spacing;
+	}
+
+	@include block(overline) {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: $overline-font-size;
+		font-weight: $overline-font-weight;
+		line-height: $overline-font-height;
+		letter-spacing: $overline-font-spacing;
+		text-transform: uppercase;
+	}
+}
