@@ -1,0 +1,11 @@
+// Import main variables.
+@use "../../../_utilities/_helpers/variables" as *;
+
+$sui-grid: $grid-columns;
+
+$sui-grid-spacing: (
+	sm: $grid-spacing-sm,
+	md: $grid-spacing-md,
+	lg: $grid-spacing-lg,
+	xl: $grid-spacing-lg
+);

@@ -1,14 +1,18 @@
 @use "sass:map";
 @use "sass:math";
 
-@use "../../utilities.scss" as *;
+// Import main blocks of styles.
+@use "../../../_utilities/mixins" as *;
+
+// Import grid variables.
+@use "../_grid-utils/variables" as *;
 
 @mixin build-spacing($block) {
 	@include sui-class($rtl: false, $theme: null) {
 		.sui-row--inline {
 			@include block($block) {
 				margin: 0;
-				padding: 0 math.div(map.get($spacing, sm), 2);
+				padding: 0 math.div(map.get($sui-grid-spacing, sm), 2);
 			}
 		}
 
@@ -18,7 +22,7 @@
 					@include block($block) {
 						@include media(min-width, $bp-label) {
 							margin: 0;
-							padding: 0 math.div(map.get($spacing, $bp-label), 2);
+							padding: 0 math.div(map.get($sui-grid-spacing, $bp-label), 2);
 						}
 					}
 				}
@@ -26,7 +30,7 @@
 				&--stacked {
 					@include block($block) {
 						@include media(min-width, $bp-label) {
-							margin: 0 0 map.get($spacing, $bp-label);
+							margin: 0 0 map.get($sui-grid-spacing, $bp-label);
 							padding: 0;
 						}
 					}

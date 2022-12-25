@@ -1,6 +1,10 @@
 @use "sass:map";
 
-@use "../../utilities.scss" as *;
+// Import main blocks of styles.
+@use "../../../_utilities/mixins" as *;
+
+// Import grid variables.
+@use "../_grid-utils/variables" as *;
 
 /// Grid Column.
 /// @type block
@@ -13,7 +17,7 @@
 			min-width: 0;
 			max-width: 100%;
 			display: block;
-			margin: 0 0 map.get($spacing, sm);
+			margin: 0 0 map.get($sui-grid-spacing, sm);
 		}
 	}
 }

@@ -1,7 +1,11 @@
 @use "sass:map";
 @use "sass:math";
 
-@use "../../utilities.scss" as *;
+// Import main blocks of styles.
+@use "../../../_utilities/mixins" as *;
+
+// Import grid variables.
+@use "../_grid-utils/variables" as *;
 
 @mixin build-size($block) {
 	@include sui-class($rtl: false, $theme: null) {
@@ -11,7 +15,7 @@
 				flex: 1;
 
 				@for $size from 1 through 12 {
-					$value: math.div(($size * 100), $grid);
+					$value: math.div(($size * 100), $sui-grid);
 					$width: #{$value + "%"};
 
 					@include modifier($size) {
@@ -32,7 +36,7 @@
 						}
 
 						@for $size from 1 through 12 {
-							$value: math.div(($size * 100), $grid);
+							$value: math.div(($size * 100), $sui-grid);
 							$width: #{$value + "%"};
 
 							@include modifier($size) {

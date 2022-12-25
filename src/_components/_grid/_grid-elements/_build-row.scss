@@ -1,6 +1,10 @@
 @use "sass:map";
 
-@use "../../utilities.scss" as *;
+// Import main blocks of styles.
+@use "../../../_utilities/mixins" as *;
+
+// Import grid variables.
+@use "../_grid-utils/variables" as *;
 
 /// Grid Row.
 /// @type block
@@ -10,14 +14,14 @@
 @mixin build-row($block) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			margin-bottom: map.get($spacing, sm);
+			margin-bottom: map.get($sui-grid-spacing, sm);
 
 			@include media(min-width, md) {
-				margin-bottom: map.get($spacing, md);
+				margin-bottom: map.get($sui-grid-spacing, md);
 			}
 
 			@include media(min-width, lg) {
-				margin-bottom: map.get($spacing, lg);
+				margin-bottom: map.get($sui-grid-spacing, lg);
 			}
 
 			&:last-child {

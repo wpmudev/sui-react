@@ -1,7 +1,11 @@
 @use "sass:map";
 @use "sass:math";
 
-@use "../../utilities.scss" as *;
+// Import main blocks of styles.
+@use "../../../_utilities/mixins" as *;
+
+// Import grid variables.
+@use "../_grid-utils/variables" as *;
 
 @mixin build-alignment($block) {
 	@include sui-class($rtl: false, $theme: null) {
@@ -9,8 +13,8 @@
 			@include modifier(inline) {
 				display: flex;
 				flex-flow: row wrap;
-				margin-left: -#{math.div(map.get($spacing, sm), 2)};
-				margin-right: -#{math.div(map.get($spacing, sm), 2)};
+				margin-left: -#{math.div(map.get($sui-grid-spacing, sm), 2)};
+				margin-right: -#{math.div(map.get($sui-grid-spacing, sm), 2)};
 			}
 
 			@each $bp-label, $bp-value in $breakpoints {
@@ -20,11 +24,11 @@
 							display: flex;
 							flex-flow: row wrap;
 							margin-left: -#{math.div(
-									map.get($spacing, $bp-label),
+									map.get($sui-grid-spacing, $bp-label),
 									2
 								)};
 							margin-right: -#{math.div(
-									map.get($spacing, $bp-label),
+									map.get($sui-grid-spacing, $bp-label),
 									2
 								)};
 						}
