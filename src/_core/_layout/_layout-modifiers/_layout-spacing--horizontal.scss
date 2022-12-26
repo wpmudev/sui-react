@@ -3,28 +3,28 @@
 @use "../../../_utilities/tokens" as *;
 @use "../../../_utilities/mixins" as *;
 
-/// Layout Top Spacing.
-/// This modifier creates spacing between WordPress top bar and the content.
+/// Layout Sides Spacing.
+/// This modifier creates spacing between WordPress side bar and the right edge of the window.
 /// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin spacing-top($block) {
+@mixin spacing-horizontal($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
 			// Element wrapper.
-			@include modifier(justify) {
-				margin-top: $grid-spacing-sm;
+			@include modifier(horizontal) {
+				padding: 0 $grid-spacing-sm;
 
 				@include media(min-width, md) {
-					margin-top: $grid-spacing-md;
+					padding: 0 $grid-spacing-md;
 				}
 
 				@include media(min-width, lg) {
-					margin-top: $grid-spacing-lg;
+					padding: 0 $grid-spacing-lg;
 				}
 			}
 		}

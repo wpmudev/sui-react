@@ -8,10 +8,10 @@ export const SnippetLayout = dedent`
 `;
 
 export const SnippetLayoutContent = dedent`
-<!-- For top spacing -->
-<div class="sui-layout sui-layout--justify"> ... </div>\n
-<!-- For sides spacing -->
-<div class="sui-layout sui-layout--sides"> ... </div>
+<!-- For vertical spacing -->
+<div class="sui-layout sui-layout--vertical"> ... </div>\n
+<!-- For horizontal spacing -->
+<div class="sui-layout sui-layout--horizontal"> ... </div>
 `;
 
 export const SnippetSpacing = dedent`
@@ -58,7 +58,7 @@ export const SnippetSpacing = dedent`
 		</p>
 		<Snippet language="html">{SnippetLayoutContent}</Snippet>
 		<p>
-			Remember skipping the <Code>sui-layout--justify</Code> class for the
+			Remember skipping the <Code>sui-layout--vertical</Code> class for the
 			Top Navigation component is fine, but it is a must-go modifier for
 			other types of content.
 		</p>
@@ -67,7 +67,7 @@ export const SnippetSpacing = dedent`
 		<div className="csb-section__contained" style={{ marginBottom: 20 }}>
 			<p>
 				Modify the <Code>sui-layout</Code> wrapper spacing in two ways:
-				sides and top, where top spacing will prevent your content from
+				vertical and horizontal, where vertical spacing will prevent your content from
 				being glued to the WordPress top bar.
 			</p>
 			<Snippet html="html">{SnippetSpacing}</Snippet>

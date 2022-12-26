@@ -6,5 +6,5 @@
 @include sui-layout--element.layout-content(layout);
 
 // Layout modifiers.
-@include sui-layout--modifier.spacing-top(layout);
-@include sui-layout--modifier.spacing-sides(layout);
+@include sui-layout--modifier.spacing-vertical(layout);
+@include sui-layout--modifier.spacing-horizontal(layout);
