@@ -21,19 +21,19 @@ export default {
 };
 
 // Build "Layout" story.
-const Layout = ({ fullwidth, justify, spacing }) => {
+const Layout = ({ fullwidth, vertical, horizontal }) => {
 	const barSettings = {
 		fullwidth: fullwidth,
-		justify: justify,
-		spacing: spacing,
+		vertical: vertical,
+		horizontal: horizontal,
 	};
 
 	return <TopBar settings={barSettings} />;
 };
 Layout.args = {
 	fullwidth: false,
-	justify: false,
-	spacing: false,
+	vertical: false,
+	horizontal: false,
 };
 Layout.argTypes = {
 	fullwidth: {
@@ -42,14 +42,14 @@ Layout.argTypes = {
 			type: 'boolean',
 		},
 	},
-	justify: {
-		name: 'Top Spacing',
+	vertical: {
+		name: 'Vertical Spacing',
 		control: {
 			type: 'boolean',
 		},
 	},
-	spacing: {
-		name: 'Sides Spacing',
+	horizontal: {
+		name: 'Horizontal Spacing',
 		control: {
 			type: 'boolean',
 		},
@@ -107,17 +107,17 @@ const TopBar = ({ settings }) => {
 	const barSettings = Object.assign(
 		{
 			fullwidth: false,
-			justify: false,
-			spacing: false,
+			vertical: false,
+			horizontal: false,
 		},
 		settings
 	);
 
-	const isJustify = barSettings.justify ? ' sui-layout--justify' : '';
-	const hasSpacing = barSettings.spacing ? ' sui-layout--spacing' : '';
+	const vSpacing = barSettings.vertical ? ' sui-layout--vertical' : '';
+	const hSpacing = barSettings.horizontal ? ' sui-layout--horizontal' : '';
 
 	return (
-		<div className={`sui-layout${isJustify}${hasSpacing}`}>
+		<div className={`sui-layout${vSpacing}${hSpacing}`}>
 			{barSettings.fullwidth ? (
 				<div className="sui-layout__content">
 					<Box top={true}>

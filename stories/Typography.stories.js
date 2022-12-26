@@ -67,7 +67,7 @@ const Typography = ({
 	}
 
 	return (
-		<div className="sui-layout sui-layout--spacing sui-layout--justify">
+		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>{content}</div>
 			</div>
