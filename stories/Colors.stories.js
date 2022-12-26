@@ -83,7 +83,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 
 	if (!doesShadeExists) {
 		return (
-			<div className="sui-layout sui-layout--spacing sui-layout--justify">
+			<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 				<Message color="yellow" style={{ background: '#FFF' }}>
 					<p>
 						The selected shade doesn't exists on the{' '}
@@ -98,7 +98,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 	}
 
 	return (
-		<div className="sui-layout sui-layout--spacing sui-layout--justify">
+		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<Section
 				title="Semantic colors"
 				style={{
