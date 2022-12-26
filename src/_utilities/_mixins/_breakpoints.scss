@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "../variables" as *;
+@use "../tokens" as *;
 
 /// Breakpoints.
 /// Defines the breakpoints based on the WordPress admin UI changes.

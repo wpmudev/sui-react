@@ -6,7 +6,7 @@
 			"buildPath": "src/_utilities/",
 			"files": [
 				{
-					"destination": "_variables.scss",
+					"destination": "_tokens.scss",
 					"format": "scss/variables"
 				}
 			]
