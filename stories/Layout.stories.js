@@ -3,9 +3,6 @@ import React from 'react';
 // Import documentation main page.
 import docs from './content/Layout/Main.mdx';
 
-// Import required styles.
-import "../src/_core/_layout.scss";
-
 // Configure default options.
 export default {
 	title: 'SUI/CSS Framework/Layout',

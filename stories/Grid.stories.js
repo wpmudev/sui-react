@@ -8,9 +8,6 @@ import { Grid as SuiGrid } from './components/Grid/Grid';
 import { Grid as DynamicGrid } from './components/Grid/DynamicGrid';
 import { Block } from './components/Grid/Block';
 
-// Import required styles.
-import "../src/_core/_grid.scss";
-
 // Configure default options.
 export default {
 	title: 'SUI/CSS Framework/Grid',

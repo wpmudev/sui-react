@@ -7,9 +7,6 @@ import docs from './content/Colors/Main.mdx';
 import { Palettes } from './content/Colors/Map';
 import { Section, Row, Col, Card, Message } from '@wpmudev/storybook';
 
-// Import required styles.
-import "../src/_core/_colors/_colors.scss";
-
 // Configure default options.
 export default {
 	title: 'SUI/CSS Framework/Colors',
