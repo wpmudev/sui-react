@@ -1,5 +1,5 @@
-@use "./_grid/_grid-elements/grid-elements" as sui-grid--element;
-@use "./_grid/_grid-modifiers/grid-modifiers" as sui-grid--modifier;
+@use "./_grid/_grid-elements/elements" as sui-grid--element;
+@use "./_grid/_grid-modifiers/modifiers" as sui-grid--modifier;
 
 @include sui-grid--element.build-row(row);
 @include sui-grid--element.build-col(col);
