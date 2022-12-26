@@ -1,5 +1,5 @@
-@use "./_layout/_layout-elements/layout-elements" as sui-layout--element;
-@use "./_layout/_layout-modifiers/layout-modifiers" as sui-layout--modifier;
+@use "./_layout-elements/elements" as sui-layout--element;
+@use "./_layout-modifiers/modifiers" as sui-layout--modifier;
 
 // Layout elements.
 @include sui-layout--element.layout-main(layout);
