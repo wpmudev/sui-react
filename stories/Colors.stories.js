@@ -62,7 +62,13 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 	const setTheme = shade > 60 ? 'light' : 'dark';
 	const setPrefix = shade === 50 ? 'Base' : shade > 50 ? 'Light' : 'Dark';
 	const setColor = mapColors[shade];
-	const setVars = palette === 'secondary' ? false : true;
+	const setClass = palette === 'secondary' ? false : true;
+	const setVars = true;
+	const setVarName = 'primary' === setPalette
+		? setPalette
+		: 'secondary' === palette
+			? `${palette}-${setPalette}-${type}`
+			: `${palette}-${setPalette}`;
 
 	/**
 	 * Statements
@@ -154,7 +160,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 					})}
 				</div>
 			</Section>
-			{setVars && (
+			{setClass && (
 				<Section
 					title="Colors by class name"
 					style={{
@@ -242,7 +248,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 						<Card.Color
 							theme={setTheme}
 							content={{
-								palette: 'primary' === setPalette ? setPalette : palette + '-' + setPalette,
+								palette: setVarName,
 								shade: shade,
 								prefix: setPrefix,
 								hex: setColor,
