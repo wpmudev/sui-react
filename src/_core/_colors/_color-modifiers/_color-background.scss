@@ -1,7 +1,10 @@
 @use "sass:map";
 
-@use "../../_utilities/mixins" as *;
-@use "./color-map" as *;
+// Import main blocks of styles.
+@use "../../../_utilities/mixins" as *;
+
+// Import colors map.
+@use "../_color-utils/color-map" as *;
 
 
 @include sui-class($rtl: false, $theme: light) {
