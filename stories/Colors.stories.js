@@ -298,6 +298,7 @@ Colors.argTypes = {
 				Shipper: 'shipper',
 				IVT: 'ivt',
 				'Broken Link Checker': 'blc',
+				Hub: 'hub',
 			},
 		},
 		if: {
