@@ -8,7 +8,7 @@
 
 @mixin build-font($block) {
 	@include sui-class($rtl: false, $theme: light) {
-		@each $name, $map in $palette {
+		@each $name, $map in $sui-palette {
 			@each $shade, $value in $map {
 				@include block($block + '-' + $name) {
 					@include modifier($shade) {
