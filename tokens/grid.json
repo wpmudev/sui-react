@@ -1,0 +1,40 @@
+{
+  "grid": {
+    "spacing": {
+      "sm": {
+        "value": "{spacing.md} * 2",
+        "type": "spacing"
+      },
+      "md": {
+        "value": "{spacing.md} * 3",
+        "type": "spacing"
+      },
+      "lg": {
+        "value": "{spacing.md} * 4",
+        "type": "spacing"
+      }
+    },
+    "breakpoint": {
+      "sm": {
+        "value": "783px",
+        "type": "sizing"
+      },
+      "md": {
+        "value": "1024px",
+        "type": "sizing"
+      },
+      "lg": {
+        "value": "1200px",
+        "type": "sizing"
+      },
+      "xl": {
+        "value": "1600px",
+        "type": "sizing"
+      }
+    },
+    "columns": {
+      "value": "12",
+      "type": "other"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@use "sass:map";
+
+@use "../../../_utilities/tokens" as *;
+@use "../../../_utilities/mixins" as *;
+@use "../_layout-utils/layout-utils" as *;
+
+/// Layout Main Wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name.
+@mixin layout-main($block) {
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			margin-left: $layout-spacing-main-md;
+
+			@include media(min-width, sm) {
+				margin-left: $layout-spacing-main-sm;
+			}
+
+			@extend %layout-reset;
+		}
+	}
+}

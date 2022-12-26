@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "@wpmudev/sui-css",
   "description": "SUI CSS Framework, the WPMU DEV Products styles library.",
   "version": "0.0.0",
@@ -29,7 +30,8 @@
     "build-css": "clear && lerna run build",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
-    "changelog": "npx lerna-changelog"
+    "changelog": "npx lerna-changelog",
+    "tokens": "style-dictionary build"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
@@ -54,6 +56,7 @@
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "dedent": "^0.7.0",
+    "gulp": "^4.0.2",
     "lerna": "^4.0.0",
     "lerna-changelog": "^2.2.0",
     "path": "^0.12.7",
@@ -62,6 +65,7 @@
     "react-dom": "^18.2.0",
     "sass": "^1.54.0",
     "sass-loader": "^13.0.2",
+    "style-dictionary": "^3.7.1",
     "style-loader": "^3.3.1",
     "stylelint": "^14.9.1"
   },

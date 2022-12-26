@@ -4,7 +4,7 @@ import React from 'react';
 import docs from './content/Layout/Main.mdx';
 
 // Import required styles.
-import '../src/layout.scss';
+import "../src/_core/_layout.scss";
 
 // Configure default options.
 export default {
@@ -29,12 +29,12 @@ const Layout = ({ fullwidth, justify, spacing }) => {
 	};
 
 	return <TopBar settings={barSettings} />;
-}
+};
 Layout.args = {
 	fullwidth: false,
 	justify: false,
 	spacing: false,
-}
+};
 Layout.argTypes = {
 	fullwidth: {
 		name: 'Full Width',
@@ -54,7 +54,7 @@ Layout.argTypes = {
 			type: 'boolean',
 		},
 	},
-}
+};
 
 // Build "Box" component.
 const Box = ({ top, children }) => {
@@ -70,7 +70,7 @@ const Box = ({ top, children }) => {
 	}
 
 	return <div style={boxStyles}>{children}</div>;
-}
+};
 
 // Build "Box Wrapper" component.
 const BoxWrapper = ({ children }) => {
@@ -79,7 +79,7 @@ const BoxWrapper = ({ children }) => {
 	};
 
 	return <div style={boxStyles}>{children}</div>;
-}
+};
 
 // Build "Logo" component.
 const Logo = () => {
@@ -100,7 +100,7 @@ const Logo = () => {
 	};
 
 	return <div style={logoStyles}>L</div>;
-}
+};
 
 // Build "Top Bar" component.
 const TopBar = ({ settings }) => {
@@ -135,7 +135,7 @@ const TopBar = ({ settings }) => {
 			)}
 		</div>
 	);
-}
+};
 
 // Publish required stories.
-export { Layout }
+export { Layout };

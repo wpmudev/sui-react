@@ -1,5 +1,0 @@
-@use "sass:map";
-
-@use "../_colors-palette/colors-palette" as *;
-
-$palette: map.merge($palette-main, $palette-status);

@@ -1,0 +1,23 @@
+@use "../../../_utilities/tokens" as *;
+@use "../../../_utilities/mixins" as *;
+
+/// Layout Content Wrapper.
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin layout-content($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			// Element wrapper.
+			@include element(content) {
+				max-width: $layout-content-width;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+}

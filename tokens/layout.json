@@ -1,0 +1,38 @@
+{
+  "layout": {
+    "content": {
+      "width": {
+        "value": "{grid.breakpoint.xl}",
+        "type": "sizing"
+      }
+    },
+    "spacing": {
+      "main": {
+        "sm": {
+          "value": "-20px",
+          "type": "spacing",
+          "description": "Correct WordPress default spacing."
+        },
+        "md": {
+          "value": "-10px",
+          "type": "spacing",
+          "description": "Correct WordPress default spacing."
+        }
+      },
+      "content": {
+        "sm": {
+          "value": "{spacing.md}*2",
+          "type": "spacing"
+        },
+        "md": {
+          "value": "{spacing.md}*3",
+          "type": "spacing"
+        },
+        "lg": {
+          "value": "{spacing.md}*4",
+          "type": "spacing"
+        }
+      }
+    }
+  }
+}

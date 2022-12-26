@@ -10,7 +10,7 @@ export const Grid = ({ alignment, children }) => {
 			'' !== column.props.size;
 
 		return (
-			<Col key={index} {...(hasSize && { size: column.props.size })}>
+			<Col key={`col-${index}`} {...(hasSize && { size: column.props.size })}>
 				{column.props.children}
 			</Col>
 		);

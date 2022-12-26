@@ -9,7 +9,7 @@ import { Grid as DynamicGrid } from './components/Grid/DynamicGrid';
 import { Block } from './components/Grid/Block';
 
 // Import required styles.
-import '../src/grid.scss';
+import "../src/_core/_grid.scss";
 
 // Configure default options.
 export default {
@@ -74,7 +74,7 @@ const Grid = ({
 			</div>
 		</div>
 	);
-}
+};
 Grid.args = {
 	size: 8,
 	alignDefault: 'stacked',
@@ -82,7 +82,7 @@ Grid.args = {
 	alignMedium: 'inline',
 	alignLarge: 'inline',
 	alignExtraLarge: 'inline',
-}
+};
 Grid.argTypes = {
 	size: {
 		name: 'Column Size',
@@ -127,13 +127,13 @@ Grid.argTypes = {
 			options: Options,
 		},
 	},
-}
+};
 
 // List alignment options.
 const Options = {
 	Stacked: 'stacked',
 	Inline: 'inline',
-}
+};
 
 // Publish required stories.
-export { Grid }
+export { Grid };
