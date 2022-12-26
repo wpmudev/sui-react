@@ -3,33 +3,18 @@ import { Section, Row, Col, Card } from '@wpmudev/storybook';
 
 // Build "palettes" component.
 const Palettes = ({
-	general,
-	variant,
 	arrays = [],
 	colors,
+	name,
 	wrapper,
-	intro,
-	title,
-	description,
-	scss,
 }) => {
-	const hasIntro = !isUndefined(intro) ? true : false;
-	const hasTitle = !isUndefined(title) ? true : false;
-	const hasDescription = !isUndefined(description) ? true : false;
-	const hasWrapper = hasIntro || hasTitle || hasDescription ? true : false;
-	const hasScss = !isUndefined(scss) ? true : false;
-
-	const objGeneral = Object.assign({}, general);
-
-	const objVariant = Object.assign({}, variant);
-
 	const printArrays = arrays.map((arr, index) => {
 		const hasIntro = !isUndefined(arr.intro) ? true : false;
 		const hasTitle = !isUndefined(arr.title) ? true : false;
 		const hasDescription = !isUndefined(arr.description) ? true : false;
 		const hasWrapper =
 			hasIntro || hasTitle || hasDescription ? true : false;
-		const hasScss = !isUndefined(arr.scss) ? true : false;
+		const hasPalette = !isUndefined(arr.palette) ? true : false;
 
 		return (
 			<BuildSections
@@ -38,8 +23,8 @@ const Palettes = ({
 				{...(hasIntro && { intro: arr.intro })}
 				{...(hasTitle && { title: arr.title })}
 				{...(hasDescription && { description: arr.description })}
+				{...(hasPalette && { palette: arr.palette })}
 				data={arr.colors}
-				{...(hasScss && { scss: arr.scss })}
 			/>
 		);
 	});
@@ -48,29 +33,6 @@ const Palettes = ({
 
 	return (
 		<Fragment>
-			{/** General Colors */}
-			{Object.keys(objGeneral).length > 0 && (
-				<BuildSections
-					title="General Colors"
-					data={objGeneral}
-					{...(hasWrapper && { wrapper: true })}
-					{...(hasIntro && { intro: intro })}
-					{...(hasTitle && { title: title })}
-					{...(hasDescription && { description: description })}
-					{...(hasScss && { scss: scss })}
-				/>
-			)}
-
-			{/** Variant Colors */}
-			{Object.keys(objVariant).length > 0 && (
-				<BuildSections
-					title="Variant Colors"
-					data={objVariant}
-					{...(!isUndefined(wrapper) && { wrapper: wrapper })}
-					{...(!isUndefined(scss) && { scss: scss })}
-				/>
-			)}
-
 			{/** Print array data */}
 			{arrays.length > 0 && printArrays}
 
@@ -78,8 +40,8 @@ const Palettes = ({
 			{Object.keys(objColors).length > 0 && (
 				<BuildSections
 					data={objColors}
+					{...(!isUndefined(name) && { palette: name })}
 					{...(!isUndefined(wrapper) && { wrapper: wrapper })}
-					{...(!isUndefined(scss) && { scss: scss })}
 				/>
 			)}
 		</Fragment>
@@ -87,9 +49,9 @@ const Palettes = ({
 };
 
 // Build "sections" component.
-const BuildSections = ({ wrapper, intro, title, description, data, scss }) => {
+const BuildSections = ({ wrapper, intro, title, description, data, palette }) => {
 	const rows = (
-		<BuildRows data={data} {...(!isUndefined(scss) && { scss: scss })} />
+		<BuildRows data={data} {...(!isUndefined(palette) && { palette: palette })} />
 	);
 
 	if (true === wrapper) {
@@ -123,7 +85,7 @@ const BuildSections = ({ wrapper, intro, title, description, data, scss }) => {
 };
 
 // Build "rows builder" component.
-const BuildRows = ({ data, scss }) => {
+const BuildRows = ({ data, palette }) => {
 	const colsLimit = 3;
 
 	const contents = Object.keys(data)
@@ -136,10 +98,10 @@ const BuildRows = ({ data, scss }) => {
 					<Card.Color
 						theme={setTheme}
 						content={{
+							palette: palette,
 							shade: key,
 							prefix: setPrefix,
-							hex: data[key],
-							variables: !isUndefined(scss) ? scss : false,
+							hex: data[key]
 						}}
 						overWhite={true}
 					/>

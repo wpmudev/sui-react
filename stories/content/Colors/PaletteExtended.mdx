@@ -43,13 +43,13 @@ import { Palettes } from './PaletteComponent.js';
 								primarily use them for typography.
 							</p>
 						),
+						palette: 'extended-neutral',
 						colors: {
 							10: '#1A1A1A',
 							30: '#333333',
 							50: '#505050',
 							60: '#737373',
 						},
-						scss: true,
 					},
 					{
 						title: 'Mid-neutrals',
@@ -62,11 +62,11 @@ import { Palettes } from './PaletteComponent.js';
 								contrast to remain AA compliant.
 							</p>
 						),
+						palette: 'extended-neutral',
 						colors: {
 							70: '#AAAAAA',
 							80: '#E6E6E6',
 						},
-						scss: true,
 					},
 					{
 						title: 'Light neutrals',
@@ -89,17 +89,17 @@ import { Palettes } from './PaletteComponent.js';
 								</p>
 							</>
 						),
+						palette: 'extended-neutral',
 						colors: {
 							90: '#F2F2F2',
 							95: '#F8F8F8',
 							100: '#FFFFFF',
 						},
-						scss: true,
 					},
 				]}
 			/>
 		</div>
-		<div label="Green" value="green">
+		<div label="Success" value="green">
 			<Palettes
 				arrays={[
 					{
@@ -110,6 +110,7 @@ import { Palettes } from './PaletteComponent.js';
 								badges, icons, and successful messages.
 							</p>
 						),
+						palette: 'extended-success',
 						colors: {
 							10: '#05250F',
 							30: '#0C5E26',
@@ -117,12 +118,11 @@ import { Palettes } from './PaletteComponent.js';
 							70: '#BAEBC9',
 							90: '#E8F8ED',
 						},
-						scss: true,
 					},
 				]}
 			/>
 		</div>
-		<div label="Yellow" value="yellow">
+		<div label="Warning" value="yellow">
 			<Palettes
 				arrays={[
 					{
@@ -133,6 +133,7 @@ import { Palettes } from './PaletteComponent.js';
 								components like notifications and tags.
 							</p>
 						),
+						palette: 'extended-warning',
 						colors: {
 							10: '#191609',
 							30: '#5B502B',
@@ -140,12 +141,11 @@ import { Palettes } from './PaletteComponent.js';
 							70: '#FFF4CE',
 							90: '#FFFBEF',
 						},
-						scss: true,
 					},
 				]}
 			/>
 		</div>
-		<div label="Red" value="red">
+		<div label="Error" value="red">
 			<Palettes
 				arrays={[
 					{
@@ -159,6 +159,7 @@ import { Palettes } from './PaletteComponent.js';
 								typography.
 							</p>
 						),
+						palette: 'extended-error',
 						colors: {
 							10: '#180909',
 							30: '#AB403E',
@@ -166,7 +167,6 @@ import { Palettes } from './PaletteComponent.js';
 							70: '#FCCECD',
 							90: '#FEEFEE',
 						},
-						scss: true,
 					},
 				]}
 			/>
