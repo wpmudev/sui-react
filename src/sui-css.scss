@@ -1,7 +1,5 @@
-/// Utilities
-@forward './_utilities/_utilities.scss';
-
 /// Core
+/// @since 1.0.0
 @forward './_core/_colors.scss';
 @forward './_core/_typography.scss';
 @forward './_core/_layout.scss';
