@@ -83,7 +83,7 @@ function compile() {
 function copy() {
 	return gulp
 		.src(inputSource + '/**')
-		.pipe(gulp.dest(outputSource))
+		.pipe(gulp.dest(outputSource + '/scss'))
 		.on('finish', function () {
 			console.log('📦 ' + packageName + ' finished copying files.');
 		});
