@@ -1,0 +1,62 @@
+@use "sass:map";
+@use "sass:math";
+
+// Import main blocks of styles.
+@use "../../../_utils/mixins" as *;
+
+// Import grid variables.
+@use "../_grid-utils/variables" as *;
+
+@mixin build-size($block) {
+	@include sui-class($rtl: false, $theme: null) {
+		.sui-row--inline {
+			@include block($block) {
+				width: auto;
+				flex: 1;
+
+				@for $size from 1 through 12 {
+					$value: math.div(($size * 100), $sui-grid);
+					$width: #{$value + "%"};
+
+					@include modifier($size) {
+						width: $width;
+						flex: 0 0 auto;
+					}
+				}
+			}
+		}
+
+		@each $bp-label, $bp-value in $breakpoints {
+			.sui-row-#{$bp-label} {
+				&--inline {
+					@include block($block) {
+						@include media(min-width, $bp-label) {
+							width: auto;
+							flex: 1;
+						}
+
+						@for $size from 1 through 12 {
+							$value: math.div(($size * 100), $sui-grid);
+							$width: #{$value + "%"};
+
+							@include modifier($size) {
+								@include media(min-width, $bp-label) {
+									width: $width;
+									flex: 0 0 auto;
+								}
+							}
+						}
+					}
+				}
+
+				&--stacked {
+					@include block($block) {
+						@include media(min-width, $bp-label) {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
