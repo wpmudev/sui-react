@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "@wpmudev/sui-css",
   "description": "SUI CSS Framework, the WPMU DEV Products styles library.",
   "version": "1.0.0",
