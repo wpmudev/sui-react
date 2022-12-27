@@ -39,7 +39,6 @@
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
     "changelog": "npx lerna-changelog",
-
     "clean": "clear && git restore .",
     "tokens": "style-dictionary build",
     "build": "yarn tokens && gulp",

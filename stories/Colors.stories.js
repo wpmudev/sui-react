@@ -61,9 +61,10 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 	const setColor = mapColors[shade];
 	const setClass = palette === 'secondary' ? false : true;
 	const setVars = true;
-	const setVarName = 'primary' === setPalette
-		? setPalette
-		: 'secondary' === palette
+	const setVarName =
+		'primary' === setPalette
+			? setPalette
+			: 'secondary' === palette
 			? `${palette}-${setPalette}-${type}`
 			: `${palette}-${setPalette}`;
 
@@ -113,7 +114,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 				>
 					{Object.keys(mapColors).map((key, index) => {
 						return (
-							<div key={ index } style={{ padding: 5 }}>
+							<div key={index} style={{ padding: 5 }}>
 								<div
 									style={{
 										padding: 10,

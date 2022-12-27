@@ -9,7 +9,7 @@ $breakpoints: (
 	sm: $grid-breakpoint-sm,
 	md: $grid-breakpoint-md,
 	lg: $grid-breakpoint-lg,
-	xl: $grid-breakpoint-xl
+	xl: $grid-breakpoint-xl,
 );
 
 @mixin media($type, $size-1, $size-2: null) {

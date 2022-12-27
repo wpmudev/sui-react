@@ -10,7 +10,7 @@ $sui-palette: (
 		30: $color-primary-30,
 		50: $color-primary-50,
 		70: $color-primary-70,
-		90: $color-primary-90
+		90: $color-primary-90,
 	),
 	neutral: (
 		10: $color-extended-neutral-10,
@@ -21,27 +21,27 @@ $sui-palette: (
 		80: $color-extended-neutral-80,
 		90: $color-extended-neutral-90,
 		95: $color-extended-neutral-95,
-		100: $color-extended-neutral-100
+		100: $color-extended-neutral-100,
 	),
 	success: (
 		10: $color-extended-success-10,
 		30: $color-extended-success-30,
 		50: $color-extended-success-50,
 		70: $color-extended-success-70,
-		90: $color-extended-success-90
+		90: $color-extended-success-90,
 	),
 	warning: (
 		10: $color-extended-warning-10,
 		30: $color-extended-warning-30,
 		50: $color-extended-warning-50,
 		70: $color-extended-warning-70,
-		90: $color-extended-warning-90
+		90: $color-extended-warning-90,
 	),
 	error: (
 		10: $color-extended-error-10,
 		30: $color-extended-error-30,
 		50: $color-extended-error-50,
 		70: $color-extended-error-70,
-		90: $color-extended-error-90
-	)
+		90: $color-extended-error-90,
+	),
 );

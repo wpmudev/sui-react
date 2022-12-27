@@ -20,7 +20,10 @@ const prettier = require('gulp-prettier');
  */
 
 const currentWorkingPath = process.cwd();
-const { input, output, name } = require(path.join(currentWorkingPath, 'package.json'));
+const { input, output, name } = require(path.join(
+	currentWorkingPath,
+	'package.json'
+));
 
 const packageName = name;
 const fileName = packageName.replace('@wpmudev/', '');

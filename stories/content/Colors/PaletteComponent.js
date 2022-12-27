@@ -2,12 +2,7 @@ import React, { Fragment } from 'react';
 import { Section, Row, Col, Card } from '@wpmudev/storybook';
 
 // Build "palettes" component.
-const Palettes = ({
-	arrays = [],
-	colors,
-	name,
-	wrapper,
-}) => {
+const Palettes = ({ arrays = [], colors, name, wrapper }) => {
 	const printArrays = arrays.map((arr, index) => {
 		const hasIntro = !isUndefined(arr.intro) ? true : false;
 		const hasTitle = !isUndefined(arr.title) ? true : false;
@@ -49,9 +44,19 @@ const Palettes = ({
 };
 
 // Build "sections" component.
-const BuildSections = ({ wrapper, intro, title, description, data, palette }) => {
+const BuildSections = ({
+	wrapper,
+	intro,
+	title,
+	description,
+	data,
+	palette,
+}) => {
 	const rows = (
-		<BuildRows data={data} {...(!isUndefined(palette) && { palette: palette })} />
+		<BuildRows
+			data={data}
+			{...(!isUndefined(palette) && { palette: palette })}
+		/>
 	);
 
 	if (true === wrapper) {
@@ -101,7 +106,7 @@ const BuildRows = ({ data, palette }) => {
 							palette: palette,
 							shade: key,
 							prefix: setPrefix,
-							hex: data[key]
+							hex: data[key],
 						}}
 						overWhite={true}
 					/>
