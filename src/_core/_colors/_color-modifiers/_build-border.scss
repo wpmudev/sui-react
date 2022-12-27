@@ -1,7 +1,7 @@
 @use "sass:map";
 
 // Import main blocks of styles.
-@use "../../../_utilities/mixins" as *;
+@use "../../../_utils/mixins" as *;
 
 // Import colors map.
 @use "../_color-utils/variables" as *;
