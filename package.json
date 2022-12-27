@@ -44,9 +44,9 @@
     "build": "yarn tokens && gulp",
     "prepare": "yarn clean && yarn build",
     "publish:test": "yarn prepare && npm version prerelease --git-tag-version=false && npm pack",
-    "publish:patch": "yarn prepare && npm version patch -m \"📦️ SUI Icons %s\" && npm publish",
-    "publish:minor": "yarn prepare && npm version minor -m \"📦️ SUI Icons %s\" && npm publish",
-    "publish:major": "yarn prepare && npm version major -m \"📦️ SUI Icons %s\" && npm publish"
+    "publish:patch": "yarn prepare && npm version patch -m \"📦️ SUI CSS Framework %s\" && npm publish",
+    "publish:minor": "yarn prepare && npm version minor -m \"📦️ SUI CSS Framework %s\" && npm publish",
+    "publish:major": "yarn prepare && npm version major -m \"📦️ SUI CSS Framework %s\" && npm publish"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
