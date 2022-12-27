@@ -24,8 +24,7 @@
     "src": "src"
   },
   "files": [
-    "dist",
-    "tokens"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
