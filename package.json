@@ -41,7 +41,7 @@
     "clean": "clear && git restore .",
     "tokens": "style-dictionary build",
     "build": "yarn tokens && gulp",
-    "prepare": "yarn clean && yarn build",
+    "prepare": "yarn clean && gulp",
     "publish:test": "yarn prepare && npm version prerelease --git-tag-version=false && npm pack",
     "publish:patch": "yarn prepare && npm version patch -m \"📦️ SUI CSS Framework %s\" && npm publish",
     "publish:minor": "yarn prepare && npm version minor -m \"📦️ SUI CSS Framework %s\" && npm publish",
