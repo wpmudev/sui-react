@@ -3,7 +3,7 @@
 	"platforms": {
 		"scss": {
 			"transformGroup": "scss",
-			"buildPath": "src/_utils/",
+			"buildPath": "src/scss/_utils/",
 			"files": [
 				{
 					"destination": "_tokens.scss",
