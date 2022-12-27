@@ -66,7 +66,7 @@ const browsersList = ['last 2 version', '> 1%'];
 
 function compile() {
 	return gulp
-		.src(inputSource + '/**/*.scss')
+		.src(inputSource + '/scss/**/*.scss')
 		.pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
 		.pipe(autoprefixer(browsersList))
 		.pipe(header(banner))
@@ -82,8 +82,8 @@ function compile() {
 
 function copy() {
 	return gulp
-		.src(inputSource + '/**')
-		.pipe(gulp.dest(outputSource + '/scss'))
+		.src(inputSource + '/**/**/**/**')
+		.pipe(gulp.dest(outputSource))
 		.on('finish', function () {
 			console.log('📦 ' + packageName + ' finished copying files.');
 		});
