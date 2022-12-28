@@ -7,7 +7,9 @@
     "incsub",
     "wpmudev",
     "shared-ui",
-    "css"
+    "css",
+    "scss",
+    "css-framework"
   ],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
