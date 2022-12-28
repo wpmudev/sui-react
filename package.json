@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-css",
   "description": "SUI CSS Framework, the WPMU DEV Products styles library.",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "license": "GPL-3.0",
   "keywords": [
     "incsub",
