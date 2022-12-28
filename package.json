@@ -1,5 +1,4 @@
 {
-    "private": true,
   "name": "@wpmudev/sui-react",
   "description": "Reusable building blocks of our design system based on React.",
   "version": "0.0.0",
