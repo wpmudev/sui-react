@@ -39,13 +39,13 @@
 		"primary": {
 			"blue": {
 				"default": {
-					"blackground": {
+					"background": {
 						"value": "{color.primary.50}",
 						"type": "color"
 					}
 				},
 				"variant": {
-					"blackground": {
+					"background": {
 						"value": "{color.primary.30}",
 						"type": "color"
 					}
@@ -53,7 +53,7 @@
 			},
 			"black": {
 				"default": {
-					"blackground": {
+					"background": {
 						"value": "{color.extended.neutral.10}",
 						"type": "color"
 					}
@@ -67,7 +67,7 @@
 			},
 			"red": {
 				"default": {
-					"blackground": {
+					"background": {
 						"value": "{color.extended.error.50}",
 						"type": "color"
 					}
@@ -81,7 +81,7 @@
 			},
 			"hub": {
 				"default": {
-					"blackground": {
+					"background": {
 						"value": "{color.primary.30}",
 						"type": "color"
 					}
@@ -95,7 +95,7 @@
 			},
 			"white": {
 				"default": {
-					"blackground": {
+					"background": {
 						"value": "{color.extended.neutral.100}",
 						"type": "color"
 					},
@@ -133,7 +133,7 @@
 					}
 				},
 				"variant": {
-					"blackground": {
+					"background": {
 						"value": "{color.primary.90}",
 						"type": "color"
 					}
