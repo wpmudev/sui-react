@@ -1,0 +1,53 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_button-utils/variables" as *;
+
+/// Build Button
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-button($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			cursor: pointer;
+			min-width: map.get($sui-button-size, sm, width);
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0;
+			@if map.has-key($sui-button-spacing, md, vertical) {
+				padding-top: map.get($sui-button-spacing, md, vertical);
+				padding-bottom: map.get($sui-button-spacing, md, vertical);
+			}
+			@if map.has-key($sui-button-spacing, md, horizontal) {
+				padding-left: #{map.get($sui-button-spacing, md, horizontal)-4px};
+				padding-right: #{map.get($sui-button-spacing, md, horizontal)-4px};
+			}
+			border: 0;
+			@if map.has-key($sui-button-border, md, radius) {
+				border-radius: map.get($sui-button-border, md, radius);
+			}
+			background: transparent;
+			box-shadow: none;
+			text-align: center;
+			text-decoration: none;
+			transition: 0.1s ease-in-out;
+
+			@include media(min-width, md) {
+				min-width: map.get($sui-button-size, md, width);
+			}
+
+			&:hover,
+			&:focus {
+				box-shadow: none;
+			}
+		}
+	}
+}
