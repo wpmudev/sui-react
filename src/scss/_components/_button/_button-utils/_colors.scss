@@ -1,0 +1,164 @@
+@use "../../../_utils/tokens" as *;
+
+$sui-button-primary: (
+	blue: (
+		default: (
+			background: $button-color-primary-blue-default-background
+		),
+		variant: (
+			background: $button-color-primary-blue-variant-background
+		)
+	),
+	black: (
+		default: (
+			background: $button-color-primary-black-default-background
+		),
+		variant: (
+			background: $button-color-primary-black-variant-background
+		)
+	),
+	red: (
+		default: (
+			background: $button-color-primary-red-default-background
+		),
+		variant: (
+			background: $button-color-primary-red-variant-background
+		)
+	),
+	hub: (
+		default: (
+			background: $button-color-primary-hub-default-background
+		),
+		variant: (
+			background: $button-color-primary-hub-variant-background
+		)
+	),
+	white: (
+		default: (
+			background: $button-color-primary-white-default-background,
+			color: $button-color-primary-white-default-color
+		),
+		variant: (
+			background: $button-color-primary-white-variant-background
+		)
+	),
+	common: (
+		default: (
+			color: $button-color-primary-common-default-color
+		)
+	)
+);
+
+$sui-button-secondary: (
+	blue: (
+		default: (
+			border-color: $button-color-secondary-blue-default-border-color,
+			color: $button-color-secondary-blue-default-color
+		),
+		variant: (
+			background: $button-color-secondary-blue-variant-background
+		)
+	),
+	black: (
+		default: (
+			border-color: $button-color-secondary-black-default-border-color,
+			color: $button-color-secondary-black-default-color
+		),
+		variant: (
+			background: $button-color-secondary-black-variant-background
+		)
+	),
+	red: (
+		default: (
+			border-color: $button-color-secondary-red-default-border-color,
+			color: $button-color-secondary-red-default-color
+		),
+		variant: (
+			background: $button-color-secondary-red-variant-background
+		)
+	),
+	hub: (
+		default: (
+			border-color: $button-color-secondary-hub-default-border-color,
+			color: $button-color-secondary-hub-default-color
+		),
+		variant: (
+			background: $button-color-secondary-hub-variant-background
+		)
+	),
+	white: (
+		default: (
+			border-color: $button-color-secondary-white-default-border-color,
+			color: $button-color-secondary-white-default-color
+		),
+		variant: (
+			background: $button-color-secondary-white-variant-background,
+			color: $button-color-secondary-white-variant-color
+		)
+	),
+	common: (
+		default: (
+			background: $button-color-secondary-common-default-background
+		)
+	)
+);
+
+$sui-button-tertiary: (
+	blue: (
+		default: (
+			color: $button-color-tertiary-blue-default-color
+		),
+		variant: (
+			border-color: $button-color-tertiary-blue-variant-border-color,
+			background: $button-color-tertiary-blue-variant-background
+		)
+	),
+	black: (
+		default: (
+			color: $button-color-tertiary-black-default-color
+		),
+		variant: (
+			border-color: $button-color-tertiary-black-variant-border-color,
+			background: $button-color-tertiary-black-variant-background
+		)
+	),
+	red: (
+		default: (
+			color: $button-color-tertiary-red-default-color
+		),
+		variant: (
+			border-color: $button-color-tertiary-red-variant-border-color,
+			background: $button-color-tertiary-red-variant-background
+		)
+	),
+	hub: (
+		default: (
+			color: $button-color-tertiary-hub-default-color
+		),
+		variant: (
+			border-color: $button-color-tertiary-hub-variant-border-color,
+			background: $button-color-tertiary-hub-variant-background
+		)
+	),
+	white: (
+		default: (
+			color: $button-color-tertiary-white-default-color
+		),
+		variant: (
+			border-color: $button-color-tertiary-white-variant-border-color,
+			background: $button-color-tertiary-white-variant-background,
+			color: $button-color-tertiary-white-variant-color
+		)
+	),
+	common: (
+		default: (
+			border-color: $button-color-tertiary-common-default-border-color,
+			background: $button-color-tertiary-common-default-background
+		)
+	)
+);
+
+$sui-button-disabled: (
+	background: $button-color-disabled-background,
+	color: $button-color-disabled-color
+);

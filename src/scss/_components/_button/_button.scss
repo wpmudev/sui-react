@@ -1,0 +1,14 @@
+@use "./_button-elements/elements" as sui-button--element;
+@use "./_button-modifiers/modifiers" as sui-button--modifier;
+@use "./_button-states/states" as sui-button--state;
+
+@include sui-button--element.build-button(button);
+@include sui-button--element.build-label(button);
+@include sui-button--element.build-icon(button);
+
+@include sui-button--modifier.build-primary-design(button);
+@include sui-button--modifier.build-secondary-design(button);
+@include sui-button--modifier.build-tertiary-design(button);
+
+@include sui-button--state.build-loading(button);
+@include sui-button--state.build-disabled(button);
