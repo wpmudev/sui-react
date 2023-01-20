@@ -1,0 +1,170 @@
+@use "sass:map";
+
+@use "../../_utils/mixins" as *;
+@use "../../_utils/tokens" as *;
+
+// DIR: Left to right.
+@include sui-class($rtl: false, $theme: null) {
+    .sui-tag {
+        height: auto;
+        min-height: 26px;
+        cursor: default;
+        display: inline-block;
+        margin: 0 3px;
+        padding: 0 16px;
+        border: 2px solid transparent;
+        border-radius: 13px;
+        background-color: $tag-color-default-background;
+        color: $tag-color-default-color;
+        font: 500 12px/22px $font;
+        letter-spacing: $font--letter-spacing;
+        text-align: center;
+    
+        // VARIATION: One line tag.
+        &.sui-tag-truncated {
+            max-width: 100%;
+    
+            span {
+                max-width: 100%;
+                overflow: hidden;
+                display: block;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    
+        // TAG: Red
+        &.sui-tag-red,
+        &.sui-tag-error {
+            background-color: $tag-color-red-background;
+            // color: $tag--red-color;
+        }
+    
+        // TAG: Yellow
+        &.sui-tag-yellow,
+        &.sui-tag-warning {
+            background-color: $tag-color-yellow-background;
+            color: $tag-color-yellow-color;
+        }
+    
+        // TAG: Green
+        &.sui-tag-green,
+        &.sui-tag-upsell,
+        &.sui-tag-success,
+        &.sui-tag-upgrade {
+            background-color: $tag-color-green-background;
+            // color: $tag--green-color;
+        }
+    
+        // TAG: Blue
+        &.sui-tag-blue,
+        &.sui-tag-branded {
+            background-color: $tag-color-blue-background;
+            // color: $tag--blue-color;
+        }
+    
+        // TAG: Purple
+        &.sui-tag-purple {
+            background-color: $tag-color-purple-background;
+            // color: $tag--purple-color;
+        }
+    
+        // TAG: Disabled
+        &.sui-tag-disabled,
+        &.sui-tag-inactive {
+            background-color: $tag-color-default-background;
+            // color: $tag--disabled-color;
+        }
+    
+        // TAG: Uppercase
+        &.sui-tag-uppercase {
+            text-transform: uppercase;
+        }
+    
+        &.sui-tag-pro,
+        &.sui-tag-beta {
+            min-height: 12px;
+            padding: 2px 8px 1px;
+            border: 0;
+            border-radius: 6px;
+            font-size: 8px;
+            line-height: 9px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    
+        // TAG: Pro
+        &.sui-tag-pro {
+            background-color: $tag--pro-background;
+            color: $tag--pro-color;
+        }
+    
+        // TAG: Beta
+        &.sui-tag-beta {
+            background-color: $tag--beta-background;
+            color: $tag--beta-color;
+        }
+    
+        // SIZE: Small
+        &.sui-tag-sm {
+            min-height: 18px;
+            padding: 2px 10px;
+            font-size: 10px;
+            line-height: 12px;
+            font-weight: bold;
+        }
+    
+        // GHOST TAGS
+        &.sui-tag-ghost {
+    
+            // TAG: Red
+            &.sui-tag-red,
+            &.sui-tag-error {
+                border-color: $tag--red-border-color;
+                background-color: transparent;
+                color: $tag--red-background;
+            }
+    
+            // TAG: Yellow
+            &.sui-tag-yellow,
+            &.sui-tag-warning {
+                border-color: $tag--yellow-border-color;
+                background-color: transparent;
+                color: $tag--yellow-background;
+            }
+    
+            // TAG: Green
+            &.sui-tag-green,
+            &.sui-tag-upsell,
+            &.sui-tag-success,
+            &.sui-tag-upgrade {
+                border-color: $tag--green-border-color;
+                background-color: transparent;
+                color: $tag--green-background;
+            }
+    
+            // TAG: Blue
+            &.sui-tag-blue,
+            &.sui-tag-branded {
+                border-color: $tag--blue-border-color;
+                background-color: transparent;
+                color: $tag--blue-background;
+            }
+    
+            // TAG: Purple
+            &.sui-tag-purple {
+                border-color: $tag--purple-border-color;
+                background-color: transparent;
+                color: $tag--purple-background;
+            }
+        }
+    
+        &:first-child {
+            margin-left: 0;
+        }
+    
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
