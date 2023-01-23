@@ -41,7 +41,7 @@ const outputStyles = path.join(currentWorkingPath, output + '/css');
 const banner = [
 	'/*!',
 	' * WPMU DEV Shared UI',
-	`${fileName !== 'sui-css' ? ' * CSS Framework (' + fileName + ')' : ''}`,
+	`${fileName !== 'sui-icons' ? ' * Icons Pack (' + fileName + ')' : ''}`,
 	' * ',
 	' * Copyright 2018 - 2023 Incsub (https://incsub.com)',
 	' * Licensed under GPL-2.0 (http://www.gnu.org/licenses/gpl-2.0.html)',
