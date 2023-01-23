@@ -1,5 +1,7 @@
 $font-family: "sui-icons" !default;
 $font-path: "../fonts" !default;
+$font-code: "oq5w8k" !default;
+
 $font-size: (
 	sm: 12px,
 	md: 16px,
@@ -84,6 +86,7 @@ $suicons: (
 	lock: "\e965",
 	lock-alt: "\e966",
 	submit: "\e967",
+	roadmap: "\e96e",
 	check: "\e968",
 	check-alt: "\e969",
 	info: "\e96a",

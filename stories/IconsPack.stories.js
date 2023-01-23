@@ -323,6 +323,9 @@ const ListIcons = {
 			'submit': {
 				name: 'Submit',
 			},
+			'roadmap': {
+				name: 'Roadmap',
+			},
 		},
 	},
 	'state': {
