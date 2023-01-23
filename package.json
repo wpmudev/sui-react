@@ -41,10 +41,11 @@
     "build": "gulp",
     "clean": "clear && git restore .",
     "prepare": "yarn clean && yarn build",
+    "prepack": "yarn prepare && git add . && git commit -am \"📦️ Build package \"",
     "publish:test": "yarn prepare && npm version prerelease --git-tag-version=false && npm pack",
-    "publish:patch": "yarn prepare && npm version patch -m \"📦️ SUI Icons Pack %s\" && npm publish",
-    "publish:minor": "yarn prepare && npm version minor -m \"📦️ SUI Icons Pack %s\" && npm publish",
-    "publish:major": "yarn prepare && npm version major -m \"📦️ SUI Icons Pack %s\" && npm publish"
+    "publish:patch": "yarn prepack && npm version patch -m \"🚀 Publish Icons Pack %s\" && npm publish",
+    "publish:minor": "yarn prepack && npm version minor -m \"🚀 Publish Icons Pack %s\" && npm publish",
+    "publish:major": "yarn prepack && npm version major -m \"🚀 Publish Icons Pack %s\" && npm publish"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
