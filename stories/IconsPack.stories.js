@@ -518,6 +518,21 @@ const ListIcons = {
 			'rss': {
 				name: 'RSS (Feed)',
 			},
+			'external-link': {
+				name: 'External Link',
+			},
+			'key': {
+				name: 'Key',
+			},
+			'copy': {
+				name: 'Copy',
+			},
+			'tag': {
+				name: 'Label Tag',
+			},
+			'clock': {
+				name: 'Clock (Time)',
+			},
 		},
 	},
 }
