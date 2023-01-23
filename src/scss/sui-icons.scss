@@ -26,7 +26,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-@each $key, $size in $font-icon {
+@each $key, $size in $font-size {
 	.suicons--#{$key} {
 		width: $size;
 		height: $size;

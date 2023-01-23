@@ -413,8 +413,39 @@ const ListIcons = {
 			'image': {
 				name: 'Image',
 			},
-			'images': {
-				name: 'Images',
+			'globe': {
+				name: 'Globe',
+			},
+			'docs': {
+				name: 'Documentation',
+			},
+			'plugin': {
+				name: 'Plugin',
+			},
+			'tutorials': {
+				name: 'Tutorials',
+			},
+			'menu': {
+				name: 'Menu',
+			},
+			'user': {
+				name: 'User',
+			},
+			'user-alt': {
+				name: 'User',
+				alt: true,
+			},
+			'search': {
+				name: 'Search',
+			},
+			'calendar': {
+				name: 'Calendar',
+			},
+			'folder-open': {
+				name: 'Folder (Open)',
+			},
+			'folder-close': {
+				name: 'Folder (Close)',
 			},
 			'file': {
 				name: 'File',
@@ -424,11 +455,11 @@ const ListIcons = {
 				name: 'File',
 				checked: true,
 			},
-			'file-code': {
-				name: 'File Code',
+			'config': {
+				name: 'Config',
 			},
-			'file-zip': {
-				name: 'File Zip',
+			'images': {
+				name: 'Images',
 			},
 			'desktop': {
 				name: 'Desktop',
@@ -436,14 +467,11 @@ const ListIcons = {
 			'mobile': {
 				name: 'Mobile',
 			},
-			'folder-close': {
-				name: 'Folder (Close)',
+			'file-zip': {
+				name: 'File Zip',
 			},
-			'folder-open': {
-				name: 'Folder (Open)',
-			},
-			'globe': {
-				name: 'Globe',
+			'edit': {
+				name: 'Edit (Pen Line)',
 			},
 			'like': {
 				name: 'Like',
@@ -459,64 +487,51 @@ const ListIcons = {
 				name: 'Dislike',
 				alt: true,
 			},
-			'user': {
-				name: 'User',
-			},
-			'user-alt': {
-				name: 'User',
-				alt: true,
-			},
-			'edit': {
-				name: 'Edit',
-			},
-			'tutorials': {
-				name: 'Tutorials',
-			},
-			'docs': {
-				name: 'Docs',
-			},
-			'tools': {
-				name: 'Tools',
-			},
-			'config': {
-				name: 'Config',
-			},
-			'bell': {
-				name: 'Bell',
-			},
-			'plugin': {
-				name: 'Plugin',
-			},
 			'lifesaver': {
-				name: 'Lifesaver',
+				name: 'Lifesaver (Life Ring)',
 			},
 			'compress-alt': {
 				name: 'Compress',
 				alt: true,
 			},
-			'calendar': {
-				name: 'Calendar',
-			},
-			'cart': {
-				name: 'Cart',
-			},
-			'rss': {
-				name: 'RSS',
-			},
-			'code': {
-				name: 'Code',
+			'file-code': {
+				name: 'File Code',
 			},
 			'server': {
 				name: 'Server',
 			},
-			'search': {
-				name: 'Search',
+			'code': {
+				name: 'Code',
 			},
-			'menu': {
-				name: 'Menu',
+			'cart': {
+				name: 'Cart',
 			},
 			'emoji': {
 				name: 'Emoji',
+			},
+			'tools': {
+				name: 'Tools (Settings Wrench)',
+			},
+			'bell': {
+				name: 'Bell (Notification)',
+			},
+			'rss': {
+				name: 'RSS (Feed)',
+			},
+			'external-link': {
+				name: 'External Link',
+			},
+			'key': {
+				name: 'Key',
+			},
+			'copy': {
+				name: 'Copy',
+			},
+			'tag': {
+				name: 'Label Tag',
+			},
+			'clock': {
+				name: 'Clock (Time)',
 			},
 		},
 	},
