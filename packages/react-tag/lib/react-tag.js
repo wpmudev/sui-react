@@ -1,54 +1,39 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { Fragment } from 'react';
+import { isBoolean, isEmpty, isUndefined } from '@wpmudev/react-utils';
 
-const IconWrap = styled.span`
-	width: 22px;
-	position: relative;
-	margin-left: -7px;
-	vertical-align: middle;
-	line-height: 1;
-	&:before {
-		color: inherit !important;
-	}
-`;
+const Tag = ({ size, htmlTag, theme, color, uppercase, truncated, multiline, disabled, href, target, children, ...props }) => {
+	// Set button props prefix.
+	const tag = {};
 
-const ButtonWrap = styled.button`
-	cursor: pointer !important;
-`;
+	tag.link = href;
 
-const LinkWrap = styled.a`
-	cursor: pointer !important;
-`;
+	tag.markup = children;
 
-const Tag = ({
-	size,
-	label,
-	childrenContent,
-	ghost,
-	color,
-	truncated,
-	multiline,
-	uppercase,
-	onClick,
-	icon,
-	href,
-	...props
-}) => {
-	let classes = [
-			'sui-tag',
-			truncated ? 'sui-tag-truncated' : '',
-			uppercase ? 'sui-tag-uppercase' : '',
-		],
-		htmlTag = '';
+	tag.class = 'sui-tag';
 
-	// switch size
-	switch (size) {
-		case 'sm':
-		case 'pro':
-		case 'beta':
-			classes.push(`sui-tag-${size}`);
+	// Determine where to open the link when `href` is available.
+	switch (target) {
+		case '_self':
+		case '_blank':
+		case '_parent':
+		case '_top':
+			tag.target = target;
 			break;
+
 		default:
+			tag.target = '_blank';
+			break;
+	}
+
+	// theme for tag
+	switch (theme) {
+		case 'primary':
+		case 'secondary':
+			tag.class += ' sui-tag--' + theme;
+			break;
+
+		default:
+			tag.class += ' sui-tag--primary';
 			break;
 	}
 
@@ -59,25 +44,70 @@ const Tag = ({
 		case 'green':
 		case 'blue':
 		case 'purple':
-		case 'disabled':
-			ghost ? classes.push(`sui-tag-ghost sui-tag-${color}`) : classes.push(`sui-tag-${color}`);
+			tag.class += ' sui-tag--' + color;
 			break;
 		default:
-			ghost && classes.push('sui-tag-ghost sui-tag-red');
+			break;
+	}
+	
+	switch(htmlTag) {
+		case 'button':
+		case 'a':
+			tag.html = htmlTag;
+			break;
+		default:
+			tag.html = 'span';
 			break;
 	}
 
-	// if props href is set, then set htmlTag to 'a' or if else onclick set then set html tag to 'button'
-	if (href) {
-		htmlTag = LinkWrap;
-	} else if (onClick) {
-		htmlTag = ButtonWrap;
-	} else {
-		htmlTag = 'span';
+	if ( !isEmpty(size) && !isUndefined(size) ) {
+		tag.class += ' sui-tag--' + size;
 	}
 
-	return React.createElement(
-		htmlTag,
+	if ( isBoolean(disabled) && disabled ) {
+		tag.class += ' sui-tag--disabled';
+	}
+
+	if ( isBoolean(uppercase) && uppercase ) {
+		tag.class += ' sui-tag--uppercase';
+	}
+
+	if ( isBoolean(truncated) && truncated ) {
+		tag.class += ' sui-tag--truncated';
+		tag.markup = (
+			<span>{ children }</span>
+		);
+	}
+
+	if ( isBoolean(multiline) && multiline ) {
+		tag.class += ' sui-tag--multiline';
+	}
+
+	return (
+		<Fragment>
+			{ 'button' === tag.html && (
+				<button className={ tag.class } { ...props }>
+					{ tag.markup }
+				</button>
+			)}
+			{ 'a' === tag.html && (
+				<a 
+					href={ tag.link } 
+					target={ tag.target } 
+					className={ tag.class } 
+					{ ...props }>
+					{ tag.markup }
+				</a>
+			)}
+			{ 'span' === tag.html && (
+				<span className={ tag.class } { ...props }>
+					{ tag.markup }
+				</span>
+			)}
+		</Fragment>
+	);
+	React.createElement(
+		tag.html,
 		{
 			className: classes.join(' '),
 			style: truncated || multiline ? { maxWidth: '100px' } : {},
@@ -85,8 +115,7 @@ const Tag = ({
 			href: href ? href : null,
 			...props,
 		},
-		icon ? <IconWrap className={'sui-icon-' + icon} aria-hidden="true"></IconWrap> : null,
-		truncated || childrenContent ? <span>{label}</span> : label,
+		truncated ? <span>{ label }</span> : label,
 	);
 }
 

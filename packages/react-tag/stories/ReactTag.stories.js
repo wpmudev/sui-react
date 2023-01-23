@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { isUndefined, isEmpty } from "@wpmudev/react-utils";
+import React from "react";
 
 // Import required component.
 import { Tag as SuiTag } from '../lib/react-tag';
@@ -20,19 +19,73 @@ export default {
 };
 
 // Build "Tag" story.
-const Tag = ({ ...props }) => {
-	console.log(props);
+const Tag = ({ 
+	example,
+	label,
+	theme,
+	color,
+	size,
+	uppercase,
+	truncated,
+	multiline,
+	disabled
+}) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: props.color !== 'white' ? '#fff' : '#333',
+		background: color !== 'white' ? '#fff' : '#333',
 	};
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiTag {...props} />
+					{ 'button' === example && (
+						<SuiTag
+							size={size}
+							htmlTag="button"
+							theme={theme}
+							color={color}
+							uppercase={uppercase}
+							truncated={truncated}
+							multiline={multiline}
+							onClick={() => console.log("Button Click.")}
+							{ ... ( disabled && { disabled: true } ) }
+						>
+							{label}
+						</SuiTag>
+					)}
+
+					{ 'link' === example && (
+						<SuiTag
+							size={size}
+							htmlTag="a"
+							href="#"
+							target="_blank"
+							theme={theme}
+							color={color}
+							uppercase={uppercase}
+							truncated={truncated}
+							multiline={multiline}
+							{ ... ( disabled && { disabled: true } ) }
+						>
+							{label}
+						</SuiTag>
+					)}
+
+					{ 'span' === example && (
+						<SuiTag
+							size={size}
+							theme={theme}
+							color={color}
+							uppercase={uppercase}
+							truncated={truncated}
+							multiline={multiline}
+							{ ... ( disabled && { disabled: true } ) }
+						>
+							{label}
+						</SuiTag>
+					)}
 				</div>
 			</div>
 		</div>
@@ -41,78 +94,103 @@ const Tag = ({ ...props }) => {
 
 // Set story arguments.
 Tag.args = {
-	label: 'Primary',
-	childrenContent: false,
-	color: 'default',
-	size: 'default',
-	icon: '',
-	href: '',
-	onClick: '',
-	ghost: false,
+	example: 'span',
+	label: 'Default',
+	theme: 'primary',
+	color: 'blue',
 	uppercase: false,
 	truncated: false,
-	multiline: false,
+	multiline: true,
+	disabled: false,
 };
 
 // Set controls for story arguments.
 Tag.argTypes = {
+	example: {
+		name: 'Example',
+		control : {
+			type: 'select',
+			options: {
+				'Example: Default': 'span',
+				'Example: Link': 'link',
+				'Example: Basic Button': 'button'
+			}
+		}
+	},
 	label: {
-		description: 'The label of the tag.',
-		control: {
-			type: 'text',
-		},
+		name: 'Label',
+		table: {
+			category: 'Elements'
+		}
 	},
-	childrenContent: {
-		description: 'If true, the content of the tag will be rendered as children.',
-		control: {
-			type: 'boolean',
-		},
-	},
-	color: {
-		description: 'The color of the tag that will be filled background.',
+	theme: {
+		name: 'Theme',
 		control: {
 			type: 'select',
-			options: ['default', 'red', 'yellow', 'green', 'blue', 'purple', 'disabled'],
+			options: {
+				'Theme: Primary': 'primary',
+				'Theme: Secondary': 'secondary'
+			}
 		},
+		table: {
+			category: 'Modifiers'
+		}
 	},
 	size: {
-		description: 'The size of the tag.',
+		name: 'Size',
 		control: {
 			type: 'select',
-			options: { default: 'default', small: 'sm', 'mini pro': 'pro', 'mini beta': 'beta' },
+			options: {
+				'Size: Default': '',
+				'Size: Mini': 'xs',
+				'Size: Small': 'sm'
+			}
 		},
+		table: {
+			category: 'Modifiers'
+		}
 	},
-	icon: {
-		description: 'Add icon inside the tag.',
+	color: {
+		name: 'Color',
 		control: {
-			type: 'text',
+			type: 'select',
+			options: {
+				'Color: Default': 'default',
+				'Color: Red': 'red',
+				'Color: Yellow': 'yellow',
+				'Color: Green': 'green',
+				'Color: Blue': 'blue',
+				'Color: Purple': 'purple',
+			}
 		},
-	},
-	href: {
-		description: 'The link or href of the tag.',
-		control: { type: 'text' },
-	},
-	onClick: {
-		description: 'The button with onClick function for the tag.',
-		control: { type: 'function' },
-	},
-	ghost: {
-		description: 'Some designs will require outlined tags.',
-		control: { type: 'boolean' },
-	},
-	truncated: {
-		description:
-			'By default tags are multi-line, this mean height of the tag will adjust depending on the amount of text and its width. But there are times when you will need to truncate text inside tag instead using multi-line text.',
-		control: { type: 'boolean' },
+		table: {
+			category: 'Modifiers'
+		}
 	},
 	uppercase: {
-		description: 'Some tags require to have uppercase text.',
-		control: { type: 'boolean' },
+		name: 'Uppercase',
+		table: {
+			category: 'States'
+		}
+	},
+	truncated: {
+		name: 'Truncated',
+		table: {
+			category: 'States'
+		}
 	},
 	multiline: {
-		description: 'Some tags require to have multi-line text.',
-		control: { type: 'boolean' },
+		name: 'Multiline',
+		table: {
+			category: 'States'
+		}
 	},
+	disabled: {
+		name: 'Disabled',
+		table: {
+			category: 'States'
+		}
+	}
 };
 
 // Publish required stories.

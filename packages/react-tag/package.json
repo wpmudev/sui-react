@@ -42,7 +42,6 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "devDependencies": {
     "@wpmudev/react-utils": "^1.0.0",
-    "react": "^18.2.0",
-    "styled-components": "^5.3.6"
+    "react": "^18.2.0"
   }
 }
