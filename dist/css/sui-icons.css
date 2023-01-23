@@ -1,15 +1,15 @@
 /*!
  * WPMU DEV Shared UI
- * CSS Framework (sui-icons)
+
  * 
- * Copyright 2018 - 2023 Incsub (https://incsub.com)
+ * Copyright 2023 Incsub (https://incsub.com)
  * Licensed under GPL-2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
  */
 @font-face {
 	font-family: "sui-icons";
-	src: url("../fonts/sui-icons.ttf?g7ckuh") format("truetype"),
-		url("../fonts/sui-icons.woff?g7ckuh") format("woff"),
-		url("../fonts/sui-icons.svg?g7ckuh#sui-icons") format("svg");
+	src: url("../fonts/sui-icons.ttf?pgb4ck") format("truetype"),
+		url("../fonts/sui-icons.woff?pgb4ck") format("woff"),
+		url("../fonts/sui-icons.svg?pgb4ck#sui-icons") format("svg");
 	font-weight: normal;
 	font-style: normal;
 	font-display: block;
@@ -26,6 +26,27 @@
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.suicons--sm {
+	width: 12px;
+	height: 12px;
+	display: inline-block;
+	font-size: 12px;
+}
+
+.suicons--md {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.suicons--lg {
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	font-size: 24px;
 }
 
 .suicons--image:before {
@@ -142,6 +163,26 @@
 
 .suicons--rss:before {
 	content: "\e938";
+}
+
+.suicons--external-link:before {
+	content: "\e96f";
+}
+
+.suicons--key:before {
+	content: "\e970";
+}
+
+.suicons--copy:before {
+	content: "\e971";
+}
+
+.suicons--tag:before {
+	content: "\e972";
+}
+
+.suicons--clock:before {
+	content: "\e973";
 }
 
 .suicons--code:before {
@@ -334,6 +375,10 @@
 
 .suicons--submit:before {
 	content: "\e967";
+}
+
+.suicons--roadmap:before {
+	content: "\e96e";
 }
 
 .suicons--check:before {
