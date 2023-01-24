@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { isBoolean, isEmpty, isUndefined } from '@wpmudev/react-utils';
 
-const Tag = ({ size, htmlTag, theme, color, uppercase, truncated, multiline, disabled, href, target, children, ...props }) => {
+const Tag = ({ size, htmlTag, color, uppercase, truncated, multiline, disabled, href, target, children, ...props }) => {
 	// Set button props prefix.
 	const tag = {};
 
@@ -25,18 +25,6 @@ const Tag = ({ size, htmlTag, theme, color, uppercase, truncated, multiline, dis
 			break;
 	}
 
-	// theme for tag
-	switch (theme) {
-		case 'primary':
-		case 'secondary':
-			tag.class += ' sui-tag--' + theme;
-			break;
-
-		default:
-			tag.class += ' sui-tag--primary';
-			break;
-	}
-
 	// switch color
 	switch (color) {
 		case 'red':
@@ -44,12 +32,15 @@ const Tag = ({ size, htmlTag, theme, color, uppercase, truncated, multiline, dis
 		case 'green':
 		case 'blue':
 		case 'purple':
+		case 'white':
+		case 'black':
+		case 'dark-blue':
 			tag.class += ' sui-tag--' + color;
 			break;
 		default:
 			break;
 	}
-	
+
 	switch(htmlTag) {
 		case 'button':
 		case 'a':
@@ -105,17 +96,6 @@ const Tag = ({ size, htmlTag, theme, color, uppercase, truncated, multiline, dis
 				</span>
 			)}
 		</Fragment>
-	);
-	React.createElement(
-		tag.html,
-		{
-			className: classes.join(' '),
-			style: truncated || multiline ? { maxWidth: '100px' } : {},
-			onClick: onClick ? onClick : null,
-			href: href ? href : null,
-			...props,
-		},
-		truncated ? <span>{ label }</span> : label,
 	);
 }
 

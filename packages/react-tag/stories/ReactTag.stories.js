@@ -22,7 +22,6 @@ export default {
 const Tag = ({ 
 	example,
 	label,
-	theme,
 	color,
 	size,
 	uppercase,
@@ -44,7 +43,6 @@ const Tag = ({
 						<SuiTag
 							size={size}
 							htmlTag="button"
-							theme={theme}
 							color={color}
 							uppercase={uppercase}
 							truncated={truncated}
@@ -62,7 +60,6 @@ const Tag = ({
 							htmlTag="a"
 							href="#"
 							target="_blank"
-							theme={theme}
 							color={color}
 							uppercase={uppercase}
 							truncated={truncated}
@@ -76,7 +73,6 @@ const Tag = ({
 					{ 'span' === example && (
 						<SuiTag
 							size={size}
-							theme={theme}
 							color={color}
 							uppercase={uppercase}
 							truncated={truncated}
@@ -96,7 +92,6 @@ const Tag = ({
 Tag.args = {
 	example: 'span',
 	label: 'Default',
-	theme: 'primary',
 	color: 'blue',
 	uppercase: false,
 	truncated: false,
@@ -123,26 +118,12 @@ Tag.argTypes = {
 			category: 'Elements'
 		}
 	},
-	theme: {
-		name: 'Theme',
-		control: {
-			type: 'select',
-			options: {
-				'Theme: Primary': 'primary',
-				'Theme: Secondary': 'secondary'
-			}
-		},
-		table: {
-			category: 'Modifiers'
-		}
-	},
 	size: {
 		name: 'Size',
 		control: {
 			type: 'select',
 			options: {
 				'Size: Default': '',
-				'Size: Mini': 'xs',
 				'Size: Small': 'sm'
 			}
 		},
@@ -161,11 +142,14 @@ Tag.argTypes = {
 				'Color: Green': 'green',
 				'Color: Blue': 'blue',
 				'Color: Purple': 'purple',
+				'Color: White': 'white',
+				'Color: Black': 'black',
+				'Color: Dark Blue': 'dark-blue',
 			}
 		},
 		table: {
 			category: 'Modifiers'
-		}
+		},
 	},
 	uppercase: {
 		name: 'Uppercase',
