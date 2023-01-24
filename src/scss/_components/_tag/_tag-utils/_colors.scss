@@ -1,0 +1,38 @@
+@use "../../../_utils/tokens" as *;
+
+$sui-tag-primary: (
+	blue: (
+        background: $tag-color-blue-variant-background
+	),
+	yellow: (
+        background: $tag-color-yellow-variant-background,
+		color: $tag-color-yellow-variant-color
+	),
+	red: (
+        background: $tag-color-red-variant-background
+	),
+	green: (
+        background: $tag-color-green-variant-background
+	),
+	dark-blue: (
+        border-color: $tag-color-dark-blue-variant-border-color,
+		color: $tag-color-dark-blue-variant-color
+	),
+	black: (
+        border-color: $tag-color-black-variant-border-color,
+		color: $tag-color-black-variant-color
+	),
+	white: (
+        background: $tag-color-white-variant-background,
+		color: $tag-color-white-variant-color
+	),
+	common: (
+		background: $tag-color-default-variant-background,
+		color: $tag-color-default-variant-color
+	)
+);
+
+$sui-tag-disabled: (
+	background: $tag-color-disabled-background,
+	color: $tag-color-disabled-color
+);
