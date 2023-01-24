@@ -2,12 +2,22 @@
 
 $sui-tag-size: (
 	sm: (
-		height: 18px
+		height: 16px
 	),
 	md: (
-		height: 26px
+		height: 24px
 	)
 );
+$sui-tag-border: (
+	width: $tag-border-width,
+	radius: $tag-border-radius
+);
+// $sui-tag-spacing: (
+// 	md: (
+// 		vertical: $tag-spacing-vertical,
+// 		horizontal: $tag-spacing-horizontal
+// 	)
+// );
 $sui-tag-font: (
 	md: (
 		size: $tag-font-size-md,

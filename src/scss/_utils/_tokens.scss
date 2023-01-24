@@ -1,6 +1,6 @@
 
 // Do not edit directly
-// Generated on Thu, 19 Jan 2023 06:43:20 GMT
+// Generated on Tue, 24 Jan 2023 18:59:31 GMT
 
 $button-font-size-sm: 14px-1px;
 $button-font-size-md: 16px-1px;
@@ -279,6 +279,29 @@ $layout-spacing-main-md: -10px;
 $layout-spacing-content-sm: 8px*2;
 $layout-spacing-content-md: 8px*3;
 $layout-spacing-content-lg: 8px*4;
+$tag-font-size-sm: 12px-3px;
+$tag-font-size-md: 12px;
+$tag-font-spacing-sm: 0px;
+$tag-font-height-sm: 16px-4px;
+$tag-font-height-md: 16px;
+$tag-font-weight: 500;
+$tag-color-default-color: #ffffff;
+$tag-color-default-background: #737373;
+$tag-color-blue-default-background: #286ef1;
+$tag-color-yellow-default-background: #ffcc20;
+$tag-color-yellow-default-color: #1a1a1a;
+$tag-color-red-default-background: #f45c59;
+$tag-color-green-default-background: #18bb4b;
+$tag-color-white-default-background: #ffffff;
+$tag-color-white-default-color: #1a1a1a;
+$tag-color-black-default-border-color: #1a1a1a;
+$tag-color-black-default-color: #1a1a1a;
+$tag-color-dark-blue-default-border-color: #184291;
+$tag-color-dark-blue-default-color: #184291;
+$tag-color-disabled-background: #e6e6e6;
+$tag-color-disabled-color: #aaaaaa;
+$tag-border-width: 2px;
+$tag-border-radius: 13px;
 $heading-one-font-size: 40px;
 $heading-one-font-height: 48px;
 $heading-one-font-spacing: 0px;
@@ -313,24 +336,3 @@ $overline-font-size: 12px - 1px;
 $overline-font-spacing: 0.2px;
 $overline-font-height: 16px;
 $overline-font-weight: 600;
-$tag-color-default-variant-background: #737373;
-$tag-color-blue-variant-background: #286EF1;
-$tag-color-yellow-variant-background: #FFCC20;
-$tag-color-red-variant-background: #F45C59;
-$tag-color-green-variant-background: #18BB4B;
-$tag-color-black-variant-border-color: #1a1a1a;
-$tag-color-dark-blue-variant-border-color: #184291;
-$tag-color-white-variant-background: #fff;
-$tag-color-default-variant-color: #fff;
-$tag-color-yellow-variant-color: #1a1a1a;
-$tag-color-black-variant-color: #1a1a1a;
-$tag-color-dark-blue-variant-color: #184291;
-$tag-color-white-variant-color: #1a1a1a;
-$tag-color-disabled-background: #f2f2f2;
-$tag-color-disabled-color: #aaa;
-$tag-font-size-md: 12px;
-$tag-font-size-sm: 9px;
-$tag-font-height-md: 16px;
-$tag-font-height-sm: 12px;
-$tag-font-spacing-sm: -0.1px;
-$tag-font-weight: 500;

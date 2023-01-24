@@ -2,33 +2,33 @@
 
 $sui-tag-primary: (
 	blue: (
-        background: $tag-color-blue-variant-background
+        background: $tag-color-blue-default-background
 	),
 	yellow: (
-        background: $tag-color-yellow-variant-background,
-		color: $tag-color-yellow-variant-color
+        background: $tag-color-yellow-default-background,
+		color: $tag-color-yellow-default-color
 	),
 	red: (
-        background: $tag-color-red-variant-background
+        background: $tag-color-red-default-background
 	),
 	green: (
-        background: $tag-color-green-variant-background
+        background: $tag-color-green-default-background
 	),
 	dark-blue: (
-        border-color: $tag-color-dark-blue-variant-border-color,
-		color: $tag-color-dark-blue-variant-color
+        border-color: $tag-color-dark-blue-default-border-color,
+		color: $tag-color-dark-blue-default-color
 	),
 	black: (
-        border-color: $tag-color-black-variant-border-color,
-		color: $tag-color-black-variant-color
+        border-color: $tag-color-black-default-border-color,
+		color: $tag-color-black-default-color
 	),
 	white: (
-        background: $tag-color-white-variant-background,
-		color: $tag-color-white-variant-color
+        background: $tag-color-white-default-background,
+		color: $tag-color-white-default-color
 	),
 	common: (
-		background: $tag-color-default-variant-background,
-		color: $tag-color-default-variant-color
+		background: $tag-color-default-background,
+		color: $tag-color-default-color
 	)
 );
 

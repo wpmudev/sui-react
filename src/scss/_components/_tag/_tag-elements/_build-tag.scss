@@ -23,9 +23,13 @@
             cursor: default;
             display: inline-block;
             margin: 0 3px;
-            padding: 4px 16px;
-            border: 2px solid transparent;
-            border-radius: 13px;
+            padding: 0 12px;
+            @if map.has-key($sui-tag-border, width) {
+                border: map.get($sui-tag-border, width) solid transparent;
+            }
+            @if map.has-key($sui-tag-border, radius) {
+                border-radius: map.get($sui-tag-border, radius);
+            }
             text-align: center;
             text-decoration: none;
 
@@ -33,6 +37,25 @@
 				@include modifier(sm) {
                     min-height: map.get($sui-tag-size, sm, height);
                 }
+            }
+
+            @include modifier(multiline) {
+                max-width: 100px;
+            }
+
+            @include modifier(truncated) {
+                max-width: 100px;
+                span {
+                    max-width: 100%;
+                    overflow: hidden;
+                    display: block;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+
+            @include modifier(uppercase) {
+                text-transform: uppercase;
             }
 
             &:first-child {

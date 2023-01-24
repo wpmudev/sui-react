@@ -1,0 +1,140 @@
+{
+    "tag": {
+        "font": {
+            "size": {
+                "sm": {
+                    "value": "{font.size.xs}-3px",
+                    "type": "fontSizes"
+                },
+                "md": {
+                    "value": "{font.size.xs}",
+                    "type": "fontSizes"
+                }
+            },
+            "spacing": {
+                "sm": {
+                    "value": "{font.spacing.default}",
+                    "type": "letterSpacing"
+                }
+            },
+            "height": {
+                "sm": {
+                    "value": "{font.height.xs}-4px",
+                    "type": "lineHeights"
+                },
+                "md": {
+                    "value": "{font.height.xs}",
+                    "type": "lineHeights"
+                }
+            },
+            "weight": {
+                "value": "500",
+                "type": "fontWeights"
+            }
+        },
+        "color": {
+            "default": {
+                "color": {
+                  "value": "{color.extended.neutral.100}",
+                  "type": "color"
+                },
+                "background": {
+                    "value": "{color.extended.neutral.60}",
+                    "type": "color"
+                }
+            },
+            "blue": {
+                "default": {
+                  "background": {
+                    "value": "{color.primary.50}",
+                    "type": "color"
+                  }
+                }
+            },
+            "yellow": {
+                "default": {
+                  "background": {
+                    "value": "{color.extended.warning.50}",
+                    "type": "color"
+                  },
+                  "color": {
+                    "value": "{color.extended.neutral.10}",
+                    "type": "color"
+                  }
+                }
+            },
+            "red": {
+                "default": {
+                  "background": {
+                    "value": "{color.extended.error.50}",
+                    "type": "color"
+                  }
+                }
+            },
+            "green": {
+                "default": {
+                  "background": {
+                    "value": "{color.extended.success.50}",
+                    "type": "color"
+                  }
+                }
+            },
+            "white": {
+                "default": {
+                  "background": {
+                    "value": "{color.extended.neutral.100}",
+                    "type": "color"
+                  },
+                  "color": {
+                    "value": "{color.extended.neutral.10}",
+                    "type": "color"
+                  }
+                }
+            },
+            "black": {
+                "default": {
+                  "border-color": {
+                    "value": "{color.extended.neutral.10}",
+                    "type": "color"
+                  },
+                  "color": {
+                    "value": "{color.extended.neutral.10}",
+                    "type": "color"
+                  }
+                }
+            },
+            "dark-blue": {
+                "default": {
+                  "border-color": {
+                    "value": "{color.primary.30}",
+                    "type": "color"
+                  },
+                  "color": {
+                    "value": "{color.primary.30}",
+                    "type": "color"
+                  }
+                }
+            },
+            "disabled": {
+                "background": {
+                    "value": "{color.extended.neutral.80}",
+                    "type": "color"
+                },
+                "color": {
+                    "value": "{color.extended.neutral.70}",
+                    "type": "color"
+                }
+            }
+        },
+        "border": {
+            "width": {
+                "value": "2px",
+				"type": "borderWidth"
+            },
+            "radius": {
+                "value": "13px",
+                "type": "borderRadius"
+            }
+        }
+    }
+}
