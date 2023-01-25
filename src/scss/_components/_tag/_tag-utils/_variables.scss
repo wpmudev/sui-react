@@ -12,12 +12,16 @@ $sui-tag-border: (
 	width: $tag-border-width,
 	radius: $tag-border-radius
 );
-// $sui-tag-spacing: (
-// 	md: (
-// 		vertical: $tag-spacing-vertical,
-// 		horizontal: $tag-spacing-horizontal
-// 	)
-// );
+$sui-tag-spacing: (
+	md: (
+		vertical: $tag-spacing-md-vertical,
+		horizontal: $tag-spacing-md-horizontal
+	),
+	sm: (
+		vertical: $tag-spacing-sm-vertical,
+		horizontal: $tag-spacing-sm-horizontal
+	)
+);
 $sui-tag-font: (
 	md: (
 		size: $tag-font-size-md,

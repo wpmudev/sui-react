@@ -13,7 +13,7 @@
             },
             "spacing": {
                 "sm": {
-                    "value": "{font.spacing.default}",
+                    "value": "-{font.spacing.sm}",
                     "type": "letterSpacing"
                 }
             },
@@ -126,10 +126,32 @@
                 }
             }
         },
+        "spacing": {
+          "sm": {
+            "vertical": {
+              "value": "0",
+              "type": "spacing"
+            },
+            "horizontal": {
+              "value": "{spacing.md}-2px",
+              "type": "spacing"
+            }
+          },
+          "md": {
+            "vertical": {
+              "value": "{spacing.sm}-2px",
+              "type": "spacing"
+            },
+            "horizontal": {
+              "value": "{spacing.md}+2px",
+              "type": "spacing"
+            }
+          }
+        },
         "border": {
             "width": {
                 "value": "2px",
-				"type": "borderWidth"
+				        "type": "borderWidth"
             },
             "radius": {
                 "value": "13px",

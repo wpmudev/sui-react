@@ -35,20 +35,6 @@
 							border-color: map.get($sui-tag-primary, $color, color);
 							background: transparent;
 						}
-
-						// State: Hover
-						@if map.get($sui-tag-primary, $color, variant) {
-							&:hover {
-								background: map.get($sui-tag-primary, $color, variant, background);
-							}
-						}
-
-						// State: Focus
-						&:focus {
-							outline: 2px solid map.get($sui-tag-primary, $color, background);
-							outline-offset: 2px;
-							background: map.get($sui-tag-primary, $color, background);
-						}
 					}
 				}
 			}
