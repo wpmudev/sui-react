@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { isBoolean, isEmpty, isUndefined } from '@wpmudev/react-utils';
 
 const Tag = ({ size, htmlTag, color, uppercase, style, disabled, href, target, children, ...props }) => {
-	// Set button props prefix.
+	// Set tag props prefix.
 	const tag = {};
 
 	tag.link = href;
