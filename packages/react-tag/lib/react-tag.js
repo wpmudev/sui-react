@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { isBoolean, isEmpty, isUndefined } from '@wpmudev/react-utils';
 
-const Tag = ({ size, htmlTag, color, uppercase, truncated, multiline, disabled, href, target, children, ...props }) => {
+const Tag = ({ size, htmlTag, color, uppercase, style, disabled, href, target, children, ...props }) => {
 	// Set button props prefix.
 	const tag = {};
 
@@ -51,6 +51,20 @@ const Tag = ({ size, htmlTag, color, uppercase, truncated, multiline, disabled, 
 			break;
 	}
 
+	switch(style) {
+		case 'truncated':
+			tag.class += ' sui-tag--' + style;
+			tag.markup = (
+				<span>{ children }</span>
+			);
+			break;
+		case 'multiline':
+			tag.class += ' sui-tag--' + style;
+			break;
+		default:
+			break;
+	}
+
 	if ( !isEmpty(size) && !isUndefined(size) ) {
 		tag.class += ' sui-tag--' + size;
 	}
@@ -61,17 +75,6 @@ const Tag = ({ size, htmlTag, color, uppercase, truncated, multiline, disabled, 
 
 	if ( isBoolean(uppercase) && uppercase ) {
 		tag.class += ' sui-tag--uppercase';
-	}
-
-	if ( isBoolean(truncated) && truncated ) {
-		tag.class += ' sui-tag--truncated';
-		tag.markup = (
-			<span>{ children }</span>
-		);
-	}
-
-	if ( isBoolean(multiline) && multiline ) {
-		tag.class += ' sui-tag--multiline';
 	}
 
 	return (

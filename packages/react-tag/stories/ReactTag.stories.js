@@ -25,8 +25,7 @@ const Tag = ({
 	color,
 	size,
 	uppercase,
-	truncated,
-	multiline,
+	style,
 	disabled
 }) => {
 	const boxStyles = {
@@ -45,8 +44,7 @@ const Tag = ({
 							htmlTag="button"
 							color={color}
 							uppercase={uppercase}
-							truncated={truncated}
-							multiline={multiline}
+							style={style}
 							onClick={() => console.log("Button Click.")}
 							{ ... ( disabled && { disabled: true } ) }
 						>
@@ -62,8 +60,7 @@ const Tag = ({
 							target="_blank"
 							color={color}
 							uppercase={uppercase}
-							truncated={truncated}
-							multiline={multiline}
+							style={style}
 							{ ... ( disabled && { disabled: true } ) }
 						>
 							{label}
@@ -75,8 +72,7 @@ const Tag = ({
 							size={size}
 							color={color}
 							uppercase={uppercase}
-							truncated={truncated}
-							multiline={multiline}
+							style={style}
 							{ ... ( disabled && { disabled: true } ) }
 						>
 							{label}
@@ -93,9 +89,9 @@ Tag.args = {
 	example: 'span',
 	label: 'Default',
 	color: 'blue',
+	size: '',
+	style: 'default',
 	uppercase: false,
-	truncated: false,
-	multiline: true,
 	disabled: false,
 };
 
@@ -150,22 +146,24 @@ Tag.argTypes = {
 			category: 'Modifiers'
 		},
 	},
+	style: {
+		name: 'Style',
+		control: {
+			type: 'select',
+			options: {
+				'Style: Default': 'default',
+				'Style: Truncated': 'truncated',
+				'Style: Multiline': 'multiline',
+			}
+		},
+		table: {
+			category: 'Modifiers'
+		},
+	},
 	uppercase: {
 		name: 'Uppercase',
 		table: {
-			category: 'States'
-		}
-	},
-	truncated: {
-		name: 'Truncated',
-		table: {
-			category: 'States'
-		}
-	},
-	multiline: {
-		name: 'Multiline',
-		table: {
-			category: 'States'
+			category: 'Modifiers'
 		}
 	},
 	disabled: {
