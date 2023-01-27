@@ -20,8 +20,9 @@ export default {
 
 // Build "Tag" story.
 const CodeSnippet = ({ 
+	type,
 	copy,
-	content,
+	code,
 	color,
 }) => {
 	const boxStyles = {
@@ -34,7 +35,7 @@ const CodeSnippet = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiCodeSnippet copy={copy} content={content} />
+					<SuiCodeSnippet type={type} copy={copy} code={code} />
 				</div>
 			</div>
 		</div>
@@ -43,91 +44,34 @@ const CodeSnippet = ({
 
 // Set story arguments.
 CodeSnippet.args = {
-copy: true,
-content: `// Code Starts
-<div class=”className”>
-    <a href=”#”> Link </a>
-</div>`
+	type: 'markup',
+	copy: true,
+	code: `<!-- Code Starts -->
+	<div class=”className”>
+		<a href=”#”> Link </a>
+	</div>`
 };
 
 // Set controls for story arguments.
-// CodeSnippet.argTypes = {
-// 	example: {
-// 		name: 'Example',
-// 		control : {
-// 			type: 'select',
-// 			options: {
-// 				'Example: Default': 'span',
-// 				'Example: Link': 'link',
-// 				'Example: Basic Button': 'button'
-// 			}
-// 		}
-// 	},
-// 	label: {
-// 		name: 'Label',
-// 		table: {
-// 			category: 'Elements'
-// 		}
-// 	},
-// 	size: {
-// 		name: 'Size',
-// 		control: {
-// 			type: 'select',
-// 			options: {
-// 				'Size: Default': '',
-// 				'Size: Small': 'sm'
-// 			}
-// 		},
-// 		table: {
-// 			category: 'Modifiers'
-// 		}
-// 	},
-// 	color: {
-// 		name: 'Color',
-// 		control: {
-// 			type: 'select',
-// 			options: {
-// 				'Color: Default': 'default',
-// 				'Color: Blue': 'blue',
-// 				'Color: Yellow': 'yellow',
-// 				'Color: Red': 'red',
-// 				'Color: Green': 'green',
-// 				'Color: White': 'white',
-// 				'Color: Black': 'black',
-// 				'Color: Dark Blue': 'dark-blue',
-// 			}
-// 		},
-// 		table: {
-// 			category: 'Modifiers'
-// 		},
-// 	},
-// 	style: {
-// 		name: 'Style',
-// 		control: {
-// 			type: 'select',
-// 			options: {
-// 				'Style: Default': 'default',
-// 				'Style: Truncated': 'truncated',
-// 				'Style: Multiline': 'multiline',
-// 			}
-// 		},
-// 		table: {
-// 			category: 'Modifiers'
-// 		},
-// 	},
-// 	uppercase: {
-// 		name: 'Uppercase',
-// 		table: {
-// 			category: 'Modifiers'
-// 		}
-// 	},
-// 	disabled: {
-// 		name: 'Disabled',
-// 		table: {
-// 			category: 'States'
-// 		}
-// 	}
-// };
+CodeSnippet.argTypes = {
+	type: {
+		name: 'Code Type',
+		control: {
+			type: 'select',
+			options: {
+				'Type: HTML': 'markup',
+				'Type: Javascript': 'javascript',
+				'Type: CSS': 'css'
+			}
+		}
+	},
+	copy: {
+		name: 'Copy Button',
+	},
+	code: {
+		name: 'Code'
+	}
+};
 
 // Publish required stories.
 export { CodeSnippet };
