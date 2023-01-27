@@ -1,0 +1,96 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_code-snippet-utils/variables" as *;
+
+/// Build Code snippet
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-design($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			pre[class*="language-"]::selection,
+			code[class*="language-"]::selection,
+			pre[class*="language-"]::mozselection,
+			code[class*="language-"]::mozselection {
+				text-shadow: none;
+				@if map.has-key($sui-code-snippet-color, blue) {
+					background: map.get($sui-code-snippet-color, blue);
+				}
+			}
+
+			.token.comment,
+			.token.prolog,
+			.token.doctype,
+			.token.cdata {
+				@if map.has-key($sui-code-snippet-color, grey) {
+					color: map.get($sui-code-snippet-color, grey);
+				}
+			}
+
+			.token.punctuation,
+			.token.operator,
+			.token.entity,
+			.token.url,
+			.language-css .token.string,
+			.style .token.string {
+				@if map.has-key($sui-code-snippet-color, dark-grey) {
+					color: map.get($sui-code-snippet-color, dark-grey);
+				}
+			}
+
+			.token.property,
+			.token.tag,
+			.token.boolean,
+			.token.number,
+			.token.constant,
+			.token.symbol,
+			.token.deleted {
+				@if map.has-key($sui-code-snippet-color, dark-blue) {
+					color: map.get($sui-code-snippet-color, dark-blue);
+				}
+			}
+
+			.token.selector,
+			.token.attr-name,
+			.token.string,
+			.token.char,
+			.token.builtin,
+			.token.inserted,
+			.token.function,
+			.token.regex,
+			.token.important,
+			.token.variable {
+				@if map.has-key($sui-code-snippet-color, red) {
+					color: map.get($sui-code-snippet-color, red);
+				}
+			}
+
+			.token.atrule,
+			.token.attr-value,
+			.token.keyword {
+				@if map.has-key($sui-code-snippet-color, blue) {
+					color: map.get($sui-code-snippet-color, blue);
+				}
+			}
+
+			.token.entity {
+				cursor: help;
+			}
+
+			@media print {
+				pre[class*="language-"],
+				code[class*="language-"] {
+				  text-shadow: none;
+				}
+			}
+		}
+	}
+}
