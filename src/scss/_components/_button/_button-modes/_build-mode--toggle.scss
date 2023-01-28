@@ -1,0 +1,105 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_button-utils/variables" as *;
+@use "../_button-utils/colors" as *;
+
+/// Build "Toggle Button"
+/// This function creates styles for the default
+/// button styles.
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-toggle($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			// Block modifier.
+			@include modifier(toggle) {
+				margin: 0;
+				@if map.has-key($sui-button-border, lg, width) {
+					border-width: map.get($sui-button-border, lg, width);
+					@if map.has-key($sui-button-border, md, style) {
+						border-style: map.get($sui-button-border, md, style);
+					}
+					@if map.has-key($sui-button-toggle, default, background) {
+						border-color: map.get($sui-button-toggle, default, background);
+					} @else {
+						border-color: transparent;
+					}
+				}
+				@if map.has-key($sui-button-toggle, default, background) {
+					background: map.get($sui-button-toggle, default, background);
+				}
+				@if map.has-key($sui-button-toggle, default, color) {
+					color: map.get($sui-button-toggle, default, color);
+				}
+
+				&:hover {
+					@if map.has-key($sui-button-toggle, hover, background) {
+						border-color: map.get($sui-button-toggle, hover, background);
+						background: map.get($sui-button-toggle, hover, background);
+					}
+					@if map.has-key($sui-button-toggle, hover, color) {
+						color: map.get($sui-button-toggle, hover, color);
+					}
+				}
+
+				&:focus {
+					@if map.has-key($sui-button-toggle, focus, border-color) {
+						border-color: map.get($sui-button-toggle, focus, border-color);
+					}
+					@if map.has-key($sui-button-toggle, focus, background) {
+						background: map.get($sui-button-toggle, focus, background);
+					}
+					@if map.has-key($sui-button-toggle, focus, color) {
+						color: map.get($sui-button-toggle, focus, color);
+					}
+				}
+
+				&.sui-button--active {
+					@if map.has-key($sui-button-toggle, active, background) {
+						border-color: map.get($sui-button-toggle, active, background);
+						background: map.get($sui-button-toggle, active, background);
+					}
+					@if map.has-key($sui-button-toggle, active, color) {
+						color: map.get($sui-button-toggle, active, color);
+					}
+				}
+
+				// State: Disabled
+				&.sui-#{$block}--disabled {
+					border-color: map.get($sui-button-disabled, background);
+					background: map.get($sui-button-disabled, background);
+					color: map.get($sui-button-disabled, color);
+				}
+
+				// Modifier: Left Segment.
+				&.sui-#{$block}--left {
+					@if map.has-key($sui-button-border, md, radius) {
+						border-top-left-radius: map.get($sui-button-border, md, radius);
+						border-bottom-left-radius: map.get($sui-button-border, md, radius);
+					}
+				}
+
+				// Modifier: Middle Segment.
+				&.sui-#{$block}--middle {
+					@if map.has-key($sui-button-border, md, radius) {
+						border-radius: 0;
+					}
+				}
+
+				// Modifier: Right Segment.
+				&.sui-#{$block}--right {
+					@if map.has-key($sui-button-border, md, radius) {
+						border-top-right-radius: map.get($sui-button-border, md, radius);
+						border-bottom-right-radius: map.get($sui-button-border, md, radius);
+					}
+				}
+			}
+		}
+	}
+}

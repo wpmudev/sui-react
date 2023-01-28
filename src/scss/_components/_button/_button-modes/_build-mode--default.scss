@@ -1,0 +1,36 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_button-utils/variables" as *;
+
+/// Build "Default Button"
+/// This function creates styles for the default
+/// button styles.
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-default($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			// Block modifier.
+			@include modifier(default) {
+				margin: 0 10px;
+				@if map.has-key($sui-button-border, md, radius) {
+					border-radius: map.get($sui-button-border, md, radius);
+				}
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
