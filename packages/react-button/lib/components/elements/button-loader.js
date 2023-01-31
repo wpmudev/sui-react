@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { isUndefined, isEmpty } from "@wpmudev/react-utils";
 
 // Build "Loader" component.

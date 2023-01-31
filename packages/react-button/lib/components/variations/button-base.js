@@ -133,6 +133,7 @@ const ButtonBase = ({
 			className: set.class,
 			... ( has.loader && { 'aria-live': 'polite' }),
 			... ( has.loader && { 'aria-busy': loading }),
+			... ( has.selected && { 'aria-selected': selected }),
 			... ( ifs.disabled && { 'disabled': '' } ),
 			onMouseEnter: () => setIsHover(true),
 			onMouseLeave: () => setIsHover(false),

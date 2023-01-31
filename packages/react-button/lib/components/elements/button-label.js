@@ -13,7 +13,7 @@ const Label = ({ hidden, children }) => {
 			)}
 
 			{ !isHidden && (
-				<span className="sui-button__label">{ children }</span>
+				<span className="sui-button__label" tabIndex="-1">{ children }</span>
 			)}
 		</Fragment>
 	);

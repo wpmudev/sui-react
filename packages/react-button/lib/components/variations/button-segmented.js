@@ -5,28 +5,25 @@ import { isUndefined, isEmpty } from "@wpmudev/react-utils";
 import { ButtonBase } from "./button-base";
 
 // Build "Themed Button" component.
-const ButtonThemed = ({ prefix, theme, color, children, ...props }) => {
+const ButtonSegmented = ({ prefix, position, children, ...props }) => {
 	const has = {};
 	const set = {};
 
-	has.prefix = !isUndefined(prefix) && !isEmpty(prefix) ? true : false;
-	has.theme = !isUndefined(theme) && !isEmpty(theme) ? true : false;
-	has.color = !isUndefined(color) && !isEmpty(color) ? true : false;
-
 	// Sets the component prefix.
+	has.prefix = !isUndefined(prefix) && !isEmpty(prefix) ? true : false;
 	set.prefix = has.prefix ? prefix : 'sui-button';
 
 	// Sets the appearance of the button.
-	if ( has.theme ) {
-		set.class = set.prefix + '--' + theme;
+	switch (position) {
+		case 'left':
+		case 'middle':
+		case 'right':
+			set.class = 'sui-toggle-button--' + position;
+			break;
 
-		if ( has.color ) {
-			set.class += set.prefix + '--' + color;
-		}
-	} else {
-		if ( has.color ) {
-			set.class = set.prefix + '--' + color;
-		}
+		default:
+			// do nothing.
+			break;
 	}
 
 	return (
@@ -40,4 +37,4 @@ const ButtonThemed = ({ prefix, theme, color, children, ...props }) => {
 }
 
 // Publish required component(s).
-export { ButtonThemed }
+export { ButtonSegmented }
