@@ -67,6 +67,9 @@ CodeSnippet.argTypes = {
 	},
 	copy: {
 		name: 'Copy Button',
+		control: {
+			type: 'boolean'
+		}
 	},
 	code: {
 		name: 'Code'
