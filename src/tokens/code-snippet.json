@@ -61,8 +61,14 @@
             }
         },
         "spacing": {
-            "value": "{spacing.lg}",
-            "type": "spacing"
+            "default": {
+                "value": "{spacing.lg}",
+                "type": "spacing"
+            },
+            "right": {
+                "value": "{spacing.lg}+70px",
+                "type": "spacing"
+            }            
         },
         "border": {
             "width": {

@@ -16,7 +16,8 @@ $sui-code-snippet-background: (
 	default: $code-snippet-color-default-background
 );
 $sui-code-snippet-spacing: (
-	default: $code-snippet-spacing
+	default: $code-snippet-spacing-default,
+	right: $code-snippet-spacing-right
 );
 $sui-code-snippet-font: (
 	family: $code-snippet-font-family,
