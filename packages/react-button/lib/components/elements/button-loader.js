@@ -6,7 +6,7 @@ const Loader = ({ label }) => {
 	const set = {};
 
 	// Define spinner icon.
-	set.class = 'suicons suicons--spinner-alt suicons--md';
+	set.class = 'suicons suicons--spinner suicons--md';
 
 	// Define loading animation.
 	set.class += ' sui-animate--spin';
