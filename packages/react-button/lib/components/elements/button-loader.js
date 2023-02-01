@@ -13,6 +13,7 @@ const Loader = ({ label }) => {
 
 	// Define button element class name.
 	set.class += ' sui-button__icon';
+	set.class += ' sui-button__loader';
 
 	return (
 		<Fragment>
