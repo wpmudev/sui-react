@@ -21,6 +21,9 @@
                 margin: 0;
                 overflow: auto;
                 border-style: solid;
+                @if map.has-key($sui-code-snippet-size, height) {
+                    min-height: map.get($sui-code-snippet-size, height);
+                }
                 @if map.has-key($sui-code-snippet-spacing, default) {
                     padding: map.get($sui-code-snippet-spacing, default);
                 }
