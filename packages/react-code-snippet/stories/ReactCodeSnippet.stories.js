@@ -46,10 +46,11 @@ const CodeSnippet = ({
 CodeSnippet.args = {
 	type: 'markup',
 	copy: true,
-	code: `<!-- Code Starts -->
-	<div class=”className”>
-		<a href=”#”> Link </a>
-	</div>`
+	code: 
+`<!-- Code Starts -->
+<div class=”className”>
+	<a href=”#”> Link </a>
+</div>`
 };
 
 // Set controls for story arguments.
