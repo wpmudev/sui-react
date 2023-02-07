@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react';
 
-const Score = ({ scoreValue, type, size }) => {
+const Score = ({ scoreValue, scoreContent, percentage, state, size }) => {
 
 	const score = {};
 
 	score.class = 'sui-score sui-score--loaded';
 
 	// add class based on type
-	switch (type) {
+	switch (state) {
 		case 'error':
 		case 'warning':
 		case 'success':
-			score.class += ' sui-score--' + type;
+			score.class += ' sui-score--' + state;
 			break;
 
 		default:
@@ -30,7 +30,7 @@ const Score = ({ scoreValue, type, size }) => {
 
 	return (
 		<Fragment>
-			<div className={ score.class } data-score={ scoreValue }>
+			<div className={ score.class }>
 				<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 					<circle strokeWidth="16" cx="50" cy="50" r="42"></circle>
 					<circle
@@ -42,7 +42,13 @@ const Score = ({ scoreValue, type, size }) => {
 						style={{ animation: `3s ease 0s 1 normal forwards running sui${scoreValue}` }}
 					></circle>
 				</svg>
-				<span className="sui-score--label">{scoreValue}</span>
+				<span className="sui-score--content">
+					{scoreValue}
+					{percentage && ( 
+						<span className="sui-score--percentage">%</span>
+					)}
+					{' ' + scoreContent}
+				</span>
 				<span className="sui-screen-reader-text" tabIndex="0">{`Score ${scoreValue} out of 100`}</span>
 			</div>
 		</Fragment>
