@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { isNull, isEmpty, isObject, isUndefined } from '@wpmudev/react-utils';
+import { isEmpty, isUndefined } from '@wpmudev/react-utils';
 
 const Score = ({ scoreBar, scoreValue, scoreContent, percentage, state, size }) => {
 
