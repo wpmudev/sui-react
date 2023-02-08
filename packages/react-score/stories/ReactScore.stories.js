@@ -20,6 +20,7 @@ export default {
 
 // Build "Score" story.
 const Score = ({
+	scoreBar,
 	scoreValue,
 	scoreContent,
 	percentage,
@@ -38,7 +39,7 @@ const Score = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiScore scoreValue={ scoreValue } scoreContent={ scoreContent } percentage={ percentage } state={ state } size={ size } />
+					<SuiScore scoreBar={ scoreBar } scoreValue={ scoreValue } scoreContent={ scoreContent } percentage={ percentage } state={ state } size={ size } />
 				</div>
 			</div>
 		</div>
@@ -47,32 +48,61 @@ const Score = ({
 
 // Set story arguments.
 Score.args = {
+	scoreBar: 55,
 	scoreValue: 55,
-	scoreContent: '',
 	percentage: false,
 	state: 'warning',
-	size: 'large'
+	size: 'large',
 };
 
 // Set controls for story arguments.
 Score.argTypes = {
-	scoreValue: {
-		description: 'The score value to display.',
+	scoreBar: {
+		name: 'Circle Bar',
+		description: 'The score circle.',
+		table: {
+			category: 'Elements'
+		},
 		control: {
 			type: 'range',
 			min: 0,
 			max: 100,
 			step: 1
+		}
+	},
+	scoreValue: {
+		name: 'Score Value',
+		description: 'The score value to display.',
+		table: {
+			category: 'Elements'
 		},
+		control: 'number'
 	},
 	scoreContent: {
-		description: 'The score content to display.'
+		name: 'Content',
+		description: 'The score content to display.',
+		control: 'text',
+		table: {
+			category: 'Elements'
+		},
+		if: {
+			arg: 'size',
+			eq: 'small'
+		}
 	},
 	percentage: {
+		name: 'Show Percentage',
 		description: 'The percentage to display.',
+		table: {
+			category: 'Elements'
+		}
 	},
 	state: {
+		name: 'Type',
 		description: 'The scroes color variation according to type.',
+		table: {
+			category: 'Modifiers'
+		},
 		control: {
 			type: 'select',
 			options: {
@@ -83,7 +113,11 @@ Score.argTypes = {
 		},
 	},
 	size: {
+		name: 'Size',
 		description: 'The scores component size.',
+		table: {
+			category: 'Modifiers'
+		},
 		control: {
 			type: 'select',
 			options: {
@@ -91,7 +125,7 @@ Score.argTypes = {
 				'Size: Large': 'large'
 			}
 		},
-	},
+	}
 };
 
 // Publish required stories.
