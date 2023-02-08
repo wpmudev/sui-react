@@ -28,14 +28,11 @@
 
 			circle {
                 fill: none;
-				// stroke-linecap: butt;
 
-				// Background.
 				&:first-child {
 					stroke: map.get($sui-score-design, default, stroke);
 				}
 
-				// Dial.
 				&:last-child {
 					stroke: map.get($sui-score-design, success, stroke);
 				}
