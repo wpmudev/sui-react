@@ -11,6 +11,9 @@ $sui-score-size: (
 $sui-score-content-size: (
     width: 90px
 );
+$sui-score-spacing: (
+	vertical: $score-spacing-vertical
+);
 $sui-score-font: (
     lg: (
         size: $score-font-size-lg,
@@ -28,3 +31,8 @@ $sui-score-font: (
 		weight: $score-font-weight-normal
 	)
 );
+$sui-score-stroke: (
+	lg: (
+		width: 10px
+	)
+)

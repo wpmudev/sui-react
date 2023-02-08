@@ -2,6 +2,7 @@
 
 @use "../../../_utils/mixins" as *;
 @use "../_score-utils/variables" as *;
+@use "../_score-utils/colors" as *;
 @use "../_score-utils/animation" as *;
 
 /// Build SVG
@@ -31,18 +32,18 @@
 
 				// Background.
 				&:first-child {
-					stroke: #e6e6e6;
+					stroke: map.get($sui-score-design, default, stroke);
 				}
 
 				// Dial.
 				&:last-child {
-					stroke: #1ABC9C;
+					stroke: map.get($sui-score-design, success, stroke);
 				}
             }
 
 			@include modifier(lg) {
                 circle {
-                    stroke-width: 10px;
+                    stroke-width: map.get($sui-score-stroke, lg, width);
                 }
             }
 		}

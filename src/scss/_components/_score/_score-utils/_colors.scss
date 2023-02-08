@@ -10,4 +10,8 @@ $sui-score-design: (
 	error: (
 		stroke: $score-color-red,
 	),
+	default: (
+		stroke: $score-color-grey,
+		color: $score-color-black
+	)
 );
