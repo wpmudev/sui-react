@@ -3,7 +3,7 @@ import { isBoolean, isEmpty, isObject, isUndefined } from '@wpmudev/react-utils'
 import { Button as SuiButton } from '@wpmudev/react-button';
 
 // Build "Tooltip" component.
-const Tooltip = ({ href, label, tooltipText, position, icon, customWidth, customMobileWidth, onClick, children, ...props  }) => {
+const Tooltip = ({ href, target, label, tooltipText, position, icon, customWidth, customMobileWidth, onClick, children, ...props  }) => {
 	// Tooltip open close state.
 	const [isOpen, setIsOpen] = useState(false);
 	
@@ -68,8 +68,10 @@ const Tooltip = ({ href, label, tooltipText, position, icon, customWidth, custom
 			<div className={ tooltip.class }>
 				<SuiButton
 					href={ href }
+					target={ target }
 					theme="primary"
 					color="black"
+					icon={icon}
 					onClick={ onClick }
 				>
 					{ label }

@@ -52,18 +52,44 @@ const Tooltip = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiTooltip
-						{ ... ( 'none' !== iconMode && { icon: props.icon } ) }
-						label={label}
-						tooltipText={tooltipText}
-						position={position}
-						customWidth={customWidth}
-						customMobileWidth={customMobileWidth}
-						href="text"
-						onClick={() => console.log('button clicked.')}
-					>
-						{label}
-					</SuiTooltip>
+					{ 'button' === example && (
+						<SuiTooltip
+							{ ... ( 'none' !== iconMode && { icon: props.icon } ) }
+							label={label}
+							position={position}
+							customWidth={customWidth}
+							customMobileWidth={customMobileWidth}
+							onClick={() => console.log('Button Clicked.')}
+						>
+							{tooltipText}
+						</SuiTooltip>
+					)}
+
+					{ 'icon' === example && (
+						<SuiTooltip
+							{ ... ( 'none' !== iconMode && { icon: props.icon } ) }
+							position={position}
+							customWidth={customWidth}
+							customMobileWidth={customMobileWidth}
+							onClick={() => console.log('Button Clicked.')}
+						>
+							{tooltipText}
+						</SuiTooltip>
+					)}
+
+					{ 'link' === example && (
+						<SuiTooltip
+							href="#"
+							target="_blank"
+							{ ... ( 'none' !== iconMode && { icon: props.icon } ) }
+							label={label}
+							position={position}
+							customWidth={customWidth}
+							customMobileWidth={customMobileWidth}
+						>
+							{tooltipText}
+						</SuiTooltip>
+					)}
 				</div>
 			</div>
 		</div>
