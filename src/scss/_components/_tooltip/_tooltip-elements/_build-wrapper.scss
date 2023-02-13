@@ -1,0 +1,24 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_tooltip-utils/variables" as *;
+
+/// Build Tooltip
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-wrapper($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+
+		// Block wrapper.
+		@include block($block) {
+			position: relative;
+	        display: inline-block;
+		}
+	}
+}
