@@ -3,7 +3,7 @@ import { isBoolean, isEmpty, isObject, isUndefined } from '@wpmudev/react-utils'
 import { Button as SuiButton } from '@wpmudev/react-button';
 
 // Build "Tooltip" component.
-const Tooltip = ({ href, target, label, tooltipText, position, icon, customWidth, customMobileWidth, onClick, children, ...props  }) => {
+const Tooltip = ({ href, target, label, tooltipText, position, icon, customWidth, customMobileWidth, onClick, children, theme, color, ...props  }) => {
 	// Tooltip open close state.
 	const [isOpen, setIsOpen] = useState(false);
 	
@@ -16,6 +16,7 @@ const Tooltip = ({ href, target, label, tooltipText, position, icon, customWidth
 	// Add show hide class based on tooltip open
 	tooltip.class += isOpen ? ' show' : ' hide';
 
+	// tooltip custom width
 	tooltip.tooltipWidth = {};
 
 	// Custom tooltip width
@@ -66,16 +67,23 @@ const Tooltip = ({ href, target, label, tooltipText, position, icon, customWidth
 	return (
 		<Fragment>
 			<div className={ tooltip.class }>
-				<SuiButton
-					href={ href }
-					target={ target }
-					theme="primary"
-					color="black"
-					icon={icon}
-					onClick={ onClick }
-				>
-					{ label }
-				</SuiButton>
+				{(!isUndefined(theme) && !isEmpty(theme)) ? (
+					<SuiButton
+						href={ href }
+						target={ target }
+						theme={ theme }
+						color={ color }
+						icon={icon}
+						onClick={ onClick }
+					>
+						{ label }
+					</SuiButton>
+				)
+				: (
+					<span>
+						{ label }
+					</span>
+				)}
 				{ (!isUndefined(children) && !isEmpty(children)) && (
 					<span 
 						role="tooltip"

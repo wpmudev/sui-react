@@ -56,6 +56,8 @@ const Tooltip = ({
 						<SuiTooltip
 							{ ... ( 'none' !== iconMode && { icon: props.icon } ) }
 							label={label}
+							theme="primary"
+							color="black"
 							position={position}
 							customWidth={customWidth}
 							customMobileWidth={customMobileWidth}
@@ -65,13 +67,12 @@ const Tooltip = ({
 						</SuiTooltip>
 					)}
 
-					{ 'icon' === example && (
+					{ 'text' === example && (
 						<SuiTooltip
-							{ ... ( 'none' !== iconMode && { icon: props.icon } ) }
+							label={label}
 							position={position}
 							customWidth={customWidth}
 							customMobileWidth={customMobileWidth}
-							onClick={() => console.log('Button Clicked.')}
 						>
 							{tooltipText}
 						</SuiTooltip>
@@ -83,6 +84,8 @@ const Tooltip = ({
 							target="_blank"
 							{ ... ( 'none' !== iconMode && { icon: props.icon } ) }
 							label={label}
+							theme="primary"
+							color="black"
 							position={position}
 							customWidth={customWidth}
 							customMobileWidth={customMobileWidth}
@@ -120,15 +123,14 @@ Tooltip.argTypes = {
 		control : {
 			type: 'select',
 			options: {
-				'Example: Static': 'span',
 				'Example: Link': 'link',
 				'Example: Button': 'button',
-				'Example: Icon': 'icon'
+				'Example: Text': 'text'
 			}
 		}
 	},
 	label: {
-		name: 'Button Label',
+		name: 'Label',
 		table: {
 			category: 'Elements'
 		}
