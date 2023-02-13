@@ -156,7 +156,11 @@ Tooltip.argTypes = {
 				'Bottom Left': 'bottom-left',
 				'Bottom Right': 'bottom-right',
 				Left: 'left',
+				'Left Top': 'left-top',
+				'Left Bottom': 'left-bottom',
 				Right: 'right',
+				'Right Top': 'right-top',
+				'Right Bottom': 'right-bottom'
 			},
 		},
 	},

@@ -14,7 +14,7 @@ const Tooltip = ({ href, target, label, tooltipText, position, icon, customWidth
 	tooltip.class = 'sui-tooltip';
 	
 	// Add show hide class based on tooltip open
-	tooltip.class += isOpen ? ' show' : ' hide';
+	isOpen && ( tooltip.class += ' sui-tooltip--show');
 
 	// tooltip custom width
 	tooltip.tooltipWidth = {};
@@ -39,7 +39,11 @@ const Tooltip = ({ href, target, label, tooltipText, position, icon, customWidth
 		case 'bottom-left':
 		case 'bottom-right':
 		case 'left':
+		case 'left-top':
+		case 'left-bottom':
 		case 'right':
+		case 'right-top':
+		case 'right-bottom':
 			tooltip.class += ' sui-tooltip--' + position;
 			break;
 		default:
@@ -75,17 +79,27 @@ const Tooltip = ({ href, target, label, tooltipText, position, icon, customWidth
 						color={ color }
 						icon={icon}
 						onClick={ onClick }
+						onFocus={() => setIsOpen(true)}
+						onBlur={() => setIsOpen(false)}
+						onMouseEnter={() => setIsOpen(true)}
+						onMouseLeave={() => setIsOpen(false)}
 					>
 						{ label }
 					</SuiButton>
 				)
 				: (
-					<span>
+					<span
+						onFocus={() => setIsOpen(true)}
+						onBlur={() => setIsOpen(false)}
+						onMouseEnter={() => setIsOpen(true)}
+						onMouseLeave={() => setIsOpen(false)}
+					>
 						{ label }
 					</span>
 				)}
 				{ (!isUndefined(children) && !isEmpty(children)) && (
-					<span 
+					<span
+						className="sui-tooltip__content" 
 						role="tooltip"
 						aria-hidden={ !isOpen }
 						aria-live="polite"
