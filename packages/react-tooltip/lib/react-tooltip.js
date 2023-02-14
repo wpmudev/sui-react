@@ -21,12 +21,13 @@ const Tooltip = ({ href, target, label, tooltipText, position, icon, customWidth
 
 	// Custom tooltip width
 	if ( !isEmpty(customWidth) && !isUndefined(customWidth) ) {
+		tooltip.class += ' sui-tooltip--custom-width';
 		tooltip.tooltipWidth['--tooltip-width'] = `${customWidth}px`;
 	}
 
 	// Custom tooltip width mobile
 	if ( !isEmpty(customMobileWidth) && !isUndefined(customMobileWidth) ) {
-		tooltip.class = ' sui-tooltip--mobile';
+		tooltip.class += ' sui-tooltip--custom-width';
 		tooltip.tooltipWidth['--tooltip-width-mobile'] = `${customMobileWidth}px`;
 	}
 
