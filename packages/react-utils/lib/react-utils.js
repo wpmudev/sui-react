@@ -40,6 +40,18 @@ const isBoolean = element => {
 	return false;
 }
 
+const isNumber = element => {
+	if ( 'number' === typeof element ) {
+		return true;
+	} else {
+		if ( !Number.isNaN( element ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
 const isEmpty = element => {
 	if ( '' !== element ) {
 		return false;
@@ -49,4 +61,4 @@ const isEmpty = element => {
 }
 
 // Publish required function(s).
-export { isNull, isUndefined, isObject, isArray, isBoolean, isEmpty }
+export { isNull, isUndefined, isObject, isArray, isBoolean, isNumber, isEmpty }
