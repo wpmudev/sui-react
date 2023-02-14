@@ -1,11 +1,11 @@
-# `@wpmudev/react-tag`
+# `@wpmudev/react-tooltip`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactTag = require('@wpmudev/react-tag');
+const reactTooltip = require('@wpmudev/react-tooltip');
 
 // TODO: DEMONSTRATE API
 ```

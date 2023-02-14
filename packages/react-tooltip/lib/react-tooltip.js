@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect, useCallback } from 'react';
-import { isBoolean, isEmpty, isObject, isUndefined } from '@wpmudev/react-utils';
+import { isEmpty, isUndefined } from '@wpmudev/react-utils';
 import { Button as SuiButton } from '@wpmudev/react-button';
 
 // Build "Tooltip" component.
