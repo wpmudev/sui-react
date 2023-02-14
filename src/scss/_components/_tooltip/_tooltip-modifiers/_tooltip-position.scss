@@ -24,7 +24,7 @@
                 .sui-#{$block}__content {
                     left: 50%;
                     bottom: 100%;
-                    margin-bottom: 10px;
+                    margin-bottom: map.get($sui-tooltip-spacing, margin);
                     transform: translateX(-50%);
                     
                     &:after {
@@ -41,7 +41,7 @@
                 .sui-#{$block}__content {
                     left: 0;
                     bottom: 100%;
-                    margin-bottom: 10px;
+                    margin-bottom: map.get($sui-tooltip-spacing, margin);
                     transform: translateX(0);
 
                     &:after {
@@ -57,7 +57,7 @@
                 .sui-#{$block}__content {
                     right: 0;
                     bottom: 100%;
-                    margin-bottom: 10px;
+                    margin-bottom: map.get($sui-tooltip-spacing, margin);
                 
                     &:after {
                         @include equilateral-triangle(down, 6px, #333);
@@ -72,7 +72,7 @@
                 .sui-#{$block}__content {
                     top: 100%;
                     left: 50%;
-                    margin-top: 10px;
+                    margin-top: map.get($sui-tooltip-spacing, margin);
                     transform: translateX(-50%);
 
                     &:after {
@@ -89,7 +89,7 @@
                 .sui-#{$block}__content {
                     top: 100%;
                     left: 0;
-                    margin-top: 10px;
+                    margin-top: map.get($sui-tooltip-spacing, margin);
                     
                     &:after {
                         @include equilateral-triangle(up, 6px, #333);
@@ -104,7 +104,7 @@
                 .sui-#{$block}__content {
                     top: 100%;
                     right: 0;
-                    margin-top: 10px;
+                    margin-top: map.get($sui-tooltip-spacing, margin);
                     
                     &:after {
                         @include equilateral-triangle(up, 6px, #333);
@@ -118,7 +118,7 @@
 
                 .sui-#{$block}__content {
                     top: 50%;
-                    right: calc(100% + 10px);
+                    right: calc(100% + map.get($sui-tooltip-spacing, margin));
                     transform: translateY(-50%);
 
                     &:after {
@@ -134,7 +134,7 @@
 
                 .sui-#{$block}__content {
                     top: 0;
-                    right: calc(100% + 10px);
+                    right: calc(100% + map.get($sui-tooltip-spacing, margin));
                     
                     &:after {
                         right: -6px;
@@ -148,7 +148,7 @@
 
                 .sui-#{$block}__content {
                     bottom: 0;
-                    right: calc(100% + 10px);
+                    right: calc(100% + map.get($sui-tooltip-spacing, margin));
                     
                     &:after {
                         right: -6px;
@@ -162,7 +162,7 @@
 
                 .sui-#{$block}__content {
                     top: 50%;
-                    left: calc(100% + 10px);
+                    left: calc(100% + map.get($sui-tooltip-spacing, margin));
                     transform: translateY(-50%);
 
                     &:after {
@@ -178,7 +178,7 @@
 
                 .sui-#{$block}__content {
                     top: 0;
-                    left: calc(100% + 10px);
+                    left: calc(100% + map.get($sui-tooltip-spacing, margin));
 
                     &:after {
                         left: -6px;
@@ -192,7 +192,7 @@
 
                 .sui-#{$block}__content {
                     bottom: 0;
-                    left: calc(100% + 10px);
+                    left: calc(100% + map.get($sui-tooltip-spacing, margin));
 
                     &:after {
                         left: -6px;

@@ -1,1 +1,30 @@
 @use "../../../_utils/tokens" as *;
+
+$sui-tooltip-size: (
+	sm: (
+		width: 95px
+	),
+	md: (
+		width: 120px
+	)
+);
+$sui-tooltip-position: (
+    top: (
+        
+    )
+);
+$sui-tooltip-border: (
+    radius: $tooltip-border-radius,
+);
+$sui-tooltip-spacing: (
+    padding: (
+        vertical: $tooltip-spacing-padding-vertical,
+        horizontal: $tooltip-spacing-padding-horizontal
+    ),
+    margin: $tooltip-spacing-margin
+);
+$sui-tooltip-font: (
+    size: $tooltip-font-size,
+    height: $tooltip-font-height,
+    spacing: $tooltip-font-spacing
+);
