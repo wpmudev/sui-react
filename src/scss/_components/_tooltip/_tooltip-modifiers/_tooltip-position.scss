@@ -118,8 +118,7 @@
 
                 .sui-#{$block}__content {
                     top: 50%;
-                    right: 100%;
-                    margin-right: 10px;
+                    right: calc(100% + 10px);
                     transform: translateY(-50%);
 
                     &:after {
@@ -134,10 +133,8 @@
             @include modifier(left-top) {
 
                 .sui-#{$block}__content {
-                    top: 50%;
-                    right: 100%;
-                    margin-right: 10px;
-                    transform: translateY(-50%);
+                    top: 0;
+                    right: calc(100% + 10px);
                     
                     &:after {
                         right: -6px;
@@ -150,10 +147,8 @@
             @include modifier(left-bottom) {
 
                 .sui-#{$block}__content {
-                    top: 50%;
-                    right: 100%;
-                    margin-right: 10px;
-                    transform: translateY(-50%);
+                    bottom: 0;
+                    right: calc(100% + 10px);
                     
                     &:after {
                         right: -6px;
@@ -167,8 +162,7 @@
 
                 .sui-#{$block}__content {
                     top: 50%;
-                    left: 100%;
-                    margin-left: 10px;
+                    left: calc(100% + 10px);
                     transform: translateY(-50%);
 
                     &:after {
@@ -184,8 +178,7 @@
 
                 .sui-#{$block}__content {
                     top: 0;
-                    left: 100%;
-                    margin-left: 10px;
+                    left: calc(100% + 10px);
 
                     &:after {
                         left: -6px;
@@ -199,8 +192,7 @@
 
                 .sui-#{$block}__content {
                     bottom: 0;
-                    left: 100%;
-                    margin-left: 10px;
+                    left: calc(100% + 10px);
 
                     &:after {
                         left: -6px;
