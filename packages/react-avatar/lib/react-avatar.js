@@ -9,6 +9,7 @@ const Avatar = ({
 }) => {
 
 	
+
 	return (
 		<Fragment>
 			<div className="sui-avatar">
