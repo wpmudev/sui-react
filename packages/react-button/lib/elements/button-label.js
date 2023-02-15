@@ -11,7 +11,7 @@ const Label = ({ hidden, children }) => {
 
 	if ( is.defined && !is.boolean ) {
 		throw new Error(
-			'The hidden parameter on the button label is not a boolean.'
+			`Incorrect parameter type. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Button\n\nThe parameter "hidden" used in the label element is not a boolean type.\n\n`
 		);
 	}
 

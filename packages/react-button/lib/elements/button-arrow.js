@@ -12,7 +12,7 @@ const Arrow = ({ open, size }) => {
 
 	if ( is.defined && !is.boolean ) {
 		throw new Error(
-			'The open parameter on the button arrow is not a boolean.'
+			`Incorrect parameter type. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Button\n\nThe parameter "open" used in the arrow element is not a boolean type.\n\n`
 		);
 	}
 

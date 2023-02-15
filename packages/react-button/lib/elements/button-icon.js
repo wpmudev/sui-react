@@ -11,7 +11,7 @@ const Icon = ({ name, size }) => {
 
 	if ( !has.name ) {
 		throw new Error(
-			'The name parameter on the button icon is required and must not be empty.'
+			`Required parameter is empty. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Button\n\nThe "name" parameter in the icon element is required and must not be empty.\n\n`
 		);
 	}
 
