@@ -19,9 +19,11 @@ const Avatar = ({
 				{ !isEmpty(icon) && !isUndefined(icon) && (
 					<span className={`suicons suicons--${icon}`} aria-hidden="true"></span>
 				)}
-				
+
 				{ !isEmpty(status) && !isUndefined(status) && (
-					<span className={`sui-avatar--${status}`}></span>
+					<span className={`sui-avatar__status`}>
+						<span className={`suicons suicons--${status}`} aria-hidden="true"></span>
+					</span>
 				)}
 			</div>
 		</Fragment>

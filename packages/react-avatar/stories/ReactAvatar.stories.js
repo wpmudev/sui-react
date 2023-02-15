@@ -118,7 +118,7 @@ Avatar.argTypes = {
 		options: {
 			'Status: Online': 'online',
 			'Status: Warning': 'warning',
-			'Status: Check': 'check'
+			'Status: Check': 'check-alt'
 		}
 	},
 	size: {
