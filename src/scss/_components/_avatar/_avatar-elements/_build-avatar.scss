@@ -1,0 +1,90 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_avatar-utils/variables" as *;
+
+/// Build Avatar
+/// This function creates styles for the element
+/// avatar wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-avatar($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+            position: relative;
+            display: inline-block;
+            background: #F2F2F2;
+            border-radius: 100%;
+            width: 32px;
+            height: 32px;
+            // overflow: hidden;
+
+            .suicons {
+                font-size: 22px;
+                line-height: 19px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+            }
+
+            .sui-avatar__image {
+                overflow: hidden;
+                border-radius: 100%;
+                width: 100%;
+                height: 100%;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .sui-avatar__status {
+                position: absolute;
+                display: block;
+                width: 18px;
+                height: 18px;
+                border-radius: 100%;
+                padding: 2px;
+                background: #fff;
+                bottom: -3px;
+                right: -3px;
+
+                .suicons {
+                    font-size: 16px;
+                    line-height: 13px;
+                }
+
+                .suicons--check-alt {
+                    color: #18BB4B;
+                }
+
+                .suicons--warning {
+                    color: #F45C59;
+                }
+            }
+
+            &.sui-avatar--sm {
+                width: 24px;
+                height: 24px;
+
+                .suicons {
+                    font-size: 12px;
+                    line-height: 10px;
+                }
+
+                .sui-avatar__status {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+		}
+	}
+}

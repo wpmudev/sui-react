@@ -1,0 +1,3 @@
+@use "./_avatar-elements/elements" as sui-avatar--element;
+
+@include sui-avatar--element.build-avatar(avatar);
