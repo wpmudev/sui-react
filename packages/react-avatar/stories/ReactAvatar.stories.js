@@ -115,10 +115,10 @@ Avatar.argTypes = {
 			type: 'select',
 			options: {
 				'Status: None': 'none',
-				'Status: Warning': 'warning',
-				'Status: Danger': 'danger',
-				'Status: Check': 'check-alt',
-				'Status: Timer': 'timer'
+				'Status: Confirmed': 'check-alt',
+				'Status: Awaiting': 'timer',
+				'Status: Not Accepted': 'warning',
+				'Status: Not Connected': 'danger'
 			}
 		},
 		table: {

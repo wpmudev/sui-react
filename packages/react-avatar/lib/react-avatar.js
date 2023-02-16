@@ -34,7 +34,7 @@ const Avatar = ({
 				)}
 
 				{ !isEmpty(icon) && !isUndefined(icon) && (
-					<span className={`suicons suicons--${icon}`} aria-hidden="true"></span>
+					<span className={`sui-avatar--icon suicons suicons--${icon}`} aria-hidden="true"></span>
 				)}
 
 				{ !isEmpty(status) && !isUndefined(status) && 'none' !== status && (

@@ -1,5 +1,5 @@
 {
-  "name": "@wpmudev/react-button",
+  "name": "@wpmudev/react-avatar",
   "version": "0.0.0",
   "private": true,
   "description": "WPMU DEV Shared UI React Button Component",
@@ -10,10 +10,15 @@
       "name": "Leighton Sapir",
       "email": "2328848+iamleigh@users.noreply.github.com",
       "url": "https://iamleigh.com"
+    },
+    {
+      "name": "Pawan Kumar",
+      "email": "40248406+creador-dev@users.noreply.github.com",
+      "url": "https://creador.dev/"
     }
   ],
   "license": "GPL-2.0",
-  "main": "lib/react-button.js",
+  "main": "lib/react-avatar.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
