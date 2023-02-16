@@ -1,0 +1,40 @@
+@use "../../../_utils/tokens" as *;
+
+$sui-avatar-size: (
+    xs: (
+        width: 14px,
+        height: 14px
+    ),
+	sm: (
+        width: 18px,
+        height: 18px
+    ),
+    md: (
+		width: 24px,
+        height: 24px
+	),
+	lg: (
+		width: 32px,
+        height: 32px
+	)
+);
+$sui-avatar-border: (
+	radius: $avatar-border-radius
+);
+$sui-avatar-spacing: (
+    default: $avatar-spacing
+);
+$sui-avatar-font: (
+    lg: (
+        size: $avatar-font-size-lg,
+		height: $avatar-font-height-lg
+    ),
+	md: (
+		size: $avatar-font-size-md,
+		height: $avatar-font-height-md
+	),
+	sm: (
+		size: $avatar-font-size-sm,
+		height: $avatar-font-height-sm
+	)
+);
