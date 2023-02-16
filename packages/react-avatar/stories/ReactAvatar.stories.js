@@ -22,12 +22,11 @@ export default {
 // Build "Avatar" story.
 const Avatar = ({
 	color,
-	example,
 	iconMode,
 	iconString,
-	icon,
 	image,
-	status
+	status,
+	size
 }) => {
 
 	const boxStyles = {
@@ -54,6 +53,7 @@ const Avatar = ({
 				<div style={boxStyles}>
 					<SuiAvatar
 						{ ... ( 'image' !== iconMode ? { icon: props.icon } : { image: props.icon } ) }
+						size={size}
 						status={status}
 					></SuiAvatar>
 				</div>
@@ -64,10 +64,10 @@ const Avatar = ({
 
 // Set story arguments.
 Avatar.args = {
-	status: 'warning',
+	status: 'none',
 	iconMode: 'image',
 	iconString: 'logo',
-	image: 'https://www.seekpng.com/png/full/41-410093_circled-user-icon-user-profile-icon-png.png',
+	image: 'https://avatars.githubusercontent.com/u/40248406?v=4',
 	size: 'default'
 };
 
@@ -111,25 +111,31 @@ Avatar.argTypes = {
 	},
 	status: {
 		name: 'Status',
-		control: 'select',
+		control: {
+			type: 'select',
+			options: {
+				'Status: None': 'none',
+				'Status: Warning': 'warning',
+				'Status: Danger': 'danger',
+				'Status: Check': 'check-alt',
+				'Status: Timer': 'timer'
+			}
+		},
 		table: {
 			category: 'Elements'
-		},
-		options: {
-			'Status: Online': 'online',
-			'Status: Warning': 'warning',
-			'Status: Check': 'check-alt'
 		}
 	},
 	size: {
 		name: 'Size',
-		control: 'select',
+		control: {
+			type: 'select',
+			options: {
+				'Size: Default': 'default',
+				'Size: Small': 'small'
+			}
+		},
 		table: {
 			category: 'Modifiers'
-		},
-		options: {
-			'Size: Default': 'default',
-			'Size: Small': 'small'
 		}
 	},
 };
