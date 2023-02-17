@@ -28,8 +28,8 @@
 
             @include modifier(sm) {
                 .sui-#{$block}--icon {
-                    font-size: map.get($sui-avatar-font, sm, size);
-                    line-height: map.get($sui-avatar-font, sm, height);
+                    font-size: map.get($sui-avatar-font, md, size);
+                    line-height: map.get($sui-avatar-font, md, height);
                 }
             }
 		}

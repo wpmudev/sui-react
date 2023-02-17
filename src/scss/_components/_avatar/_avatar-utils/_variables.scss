@@ -1,14 +1,6 @@
 @use "../../../_utils/tokens" as *;
 
 $sui-avatar-size: (
-    xs: (
-        width: 14px,
-        height: 14px
-    ),
-	sm: (
-        width: 18px,
-        height: 18px
-    ),
     md: (
 		width: 24px,
         height: 24px
@@ -18,6 +10,20 @@ $sui-avatar-size: (
         height: 32px
 	)
 );
+$sui-avatar-status-size: (
+	md: (
+        width: 14px,
+        height: 14px
+    ),
+	lg: (
+        width: 18px,
+        height: 18px
+    ),
+);
+$sui-avatar-status-position: (
+	bottom: -3px,
+	right: -3px
+);
 $sui-avatar-border: (
 	radius: $avatar-border-radius
 );
@@ -25,16 +31,22 @@ $sui-avatar-spacing: (
     default: $avatar-spacing
 );
 $sui-avatar-font: (
-    lg: (
+	lg: (
         size: $avatar-font-size-lg,
 		height: $avatar-font-height-lg
     ),
 	md: (
-		size: $avatar-font-size-md,
-		height: $avatar-font-height-md
-	),
-	sm: (
 		size: $avatar-font-size-sm,
 		height: $avatar-font-height-sm
 	)
+);
+$sui-avatar-status-font: (
+	md: (
+		size: $avatar-font-size-md,
+		height: $avatar-font-height-md
+	),
+	lg: (
+        size: $avatar-font-size-lg,
+		height: $avatar-font-height-lg
+    )
 );
