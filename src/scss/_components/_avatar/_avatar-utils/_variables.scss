@@ -41,6 +41,10 @@ $sui-avatar-font: (
 	)
 );
 $sui-avatar-status-font: (
+	sm: (
+		size: $avatar-font-size-sm,
+		height: $avatar-font-height-sm
+	),
 	md: (
 		size: $avatar-font-size-md,
 		height: $avatar-font-height-md
