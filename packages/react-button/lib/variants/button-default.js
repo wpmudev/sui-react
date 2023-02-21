@@ -20,6 +20,7 @@ const Button = ({
 	...props
 }) => {
 	const is = {};
+	const not = {};
 	const has = {};
 	const set = {};
 
@@ -27,25 +28,24 @@ const Button = ({
 	[is.hover, set.hover] = useState(false);
 	[is.focus, set.focus] = useState(false);
 
-	// Define button defaults.
-	set.loading = loading || false;
-	set.disabled = disabled || false;
-
 	// Parameter(s) validation.
 	is.link = !isUndefined(href) && !isEmpty(href) ? true : false;
 	is.label = !isUndefined(htmlFor) && !isEmpty(htmlFor) ? true : false;
 
-	has.class = !isUndefined(className) && !isEmpty(className) ? true : false;
-	has.loading = !isUndefined(loading) ? true : false;
-	has.disabled = !isUndefined(disabled) && isBoolean(disabled) ? true : false;
+	not.loading = !isUndefined(loading) && !isBoolean(loading) ? true : false;
+	not.disabled = !isUndefined(disabled) && !isBoolean(disabled) ? true : false;
 
-	if ( !has.loading ) {
+	has.class = !isUndefined(className) && !isEmpty(className) ? true : false;
+	has.loading = !isUndefined(loading) && isBoolean(loading) ? true : false;
+	has.disabled = isBoolean(disabled) ? true : false;
+
+	if ( not.loading ) {
 		throw new Error(
 			`Incorrect parameter type. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Button\n\nThe parameter "loading" is not a boolean type.\n\n`
 		);
 	}
 
-	if ( !has.disabled ) {
+	if ( not.disabled ) {
 		throw new Error(
 			`Incorrect parameter type. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Button\n\nThe parameter "disabled" is not a boolean type.\n\n`
 		);
@@ -111,16 +111,16 @@ const Button = ({
 		set.class += ' sui-button--focus';
 	}
 
-	if ( set.loading ) {
+	if ( has.loading && loading ) {
 		set.class += ' sui-button--loading';
 	}
 
-	if ( set.disabled ) {
+	if ( has.disabled && disabled ) {
 		set.class += ' sui-button--disabled';
 	}
 
-	// Define button markup.
-	set.markup = (
+	// Define button elements.
+	set.elements = (
 		<Fragment>
 			{ Children.map( children, ( child, index ) => {
 				return (
@@ -142,19 +142,24 @@ const Button = ({
 		</Fragment>
 	);
 
+	// Define button markup.
+	set.markup = has.loading && loading
+		? <Loader />
+		: set.elements;
+
 	return createElement(
 		set.tag,
 		{
 			... ( has.link && { href: href }),
 			... ( has.label && { htmlFor: htmlFor }),
 			className: set.class,
-			... ( !isUndefined(loading) && isBoolean(loading) && { 'aria-live': 'polite' }),
-			... ( !has.loading && { 'aria-busy': loading }),
+			... ( has.loading && { 'aria-live': 'polite' }),
+			... ( has.loading && { 'aria-busy': loading }),
 			onMouseEnter: () => set.hover(true),
 			onMouseLeave: () => set.hover(false),
 			onFocus: () => set.focus(true),
 			onBlur: () => set.focus(false),
-			... ( !isUndefined(disabled) && { disabled: disabled }),
+			... ( has.disabled && { disabled: disabled }),
 			...props
 		},
 		set.markup
