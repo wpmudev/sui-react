@@ -29,8 +29,8 @@ const Button = ({
 	[is.focus, set.focus] = useState(false);
 
 	// Parameter(s) validation.
-	is.link = !isUndefined(href) && !isEmpty(href) ? true : false;
-	is.label = !isUndefined(htmlFor) && !isEmpty(htmlFor) ? true : false;
+	is.link = !isUndefined(href) ? true : false;
+	is.label = !isUndefined(htmlFor) ? true : false;
 
 	not.loading = !isUndefined(loading) && !isBoolean(loading) ? true : false;
 	not.disabled = !isUndefined(disabled) && !isBoolean(disabled) ? true : false;
@@ -150,8 +150,8 @@ const Button = ({
 	return createElement(
 		set.tag,
 		{
-			... ( has.link && { href: href }),
-			... ( has.label && { htmlFor: htmlFor }),
+			... ( is.link && { href: href }),
+			... ( is.label && { htmlFor: htmlFor }),
 			className: set.class,
 			... ( has.loading && { 'aria-live': 'polite' }),
 			... ( has.loading && { 'aria-busy': loading }),
