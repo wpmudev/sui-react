@@ -14,6 +14,7 @@ const Button = ({
 	color,
 	size,
 	className,
+	active,
 	loading,
 	disabled,
 	children,
@@ -32,12 +33,20 @@ const Button = ({
 	is.link = !isUndefined(href) ? true : false;
 	is.label = !isUndefined(htmlFor) ? true : false;
 
+	not.active = !isUndefined(active) && !isBoolean(active) ? true : false;
 	not.loading = !isUndefined(loading) && !isBoolean(loading) ? true : false;
 	not.disabled = !isUndefined(disabled) && !isBoolean(disabled) ? true : false;
 
 	has.class = !isUndefined(className) && !isEmpty(className) ? true : false;
+	has.active = !isUndefined(active) && isBoolean(active) ? true : false;
 	has.loading = !isUndefined(loading) && isBoolean(loading) ? true : false;
 	has.disabled = isBoolean(disabled) ? true : false;
+
+	if ( not.active ) {
+		throw new Error(
+			`Incorrect parameter type. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Button\n\nThe parameter "active" is not a boolean type.\n\n`
+		);
+	}
 
 	if ( not.loading ) {
 		throw new Error(
@@ -111,6 +120,10 @@ const Button = ({
 		set.class += ' sui-button--focus';
 	}
 
+	if ( has.active && active ) {
+		set.class += ' sui-button--active';
+	}
+
 	if ( has.loading && loading ) {
 		set.class += ' sui-button--loading';
 	}
@@ -153,6 +166,7 @@ const Button = ({
 			... ( is.link && { href: href }),
 			... ( is.label && { htmlFor: htmlFor }),
 			className: set.class,
+			... ( has.active && { 'aria-pressed': active }),
 			... ( has.loading && { 'aria-live': 'polite' }),
 			... ( has.loading && { 'aria-busy': loading }),
 			onMouseEnter: () => set.hover(true),
