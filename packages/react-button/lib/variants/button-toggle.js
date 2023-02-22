@@ -65,7 +65,7 @@ const Button = ({
 	}
 
 	// Define button class.
-	set.class = 'sui-button';
+	set.class = 'sui-button sui-button-toggle';
 
 	switch ( theme ) {
 		case 'primary':
