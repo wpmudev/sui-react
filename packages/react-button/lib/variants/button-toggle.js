@@ -7,7 +7,6 @@ import { Icon } from "../elements/button-icon";
 
 // Build "Default Button" component.
 const Button = ({
-	href,
 	htmlFor,
 	theme,
 	segment,
@@ -15,6 +14,7 @@ const Button = ({
 	className,
 	active,
 	disabled,
+	onClick,
 	children,
 	...props
 }) => {
@@ -26,14 +26,15 @@ const Button = ({
 	// Define button states.
 	[is.hover, set.hover] = useState(false);
 	[is.focus, set.focus] = useState(false);
+	[is.checked, set.checked] = useState(active);
 
 	// Parameter(s) validation.
-	is.link = !isUndefined(href) ? true : false;
 	is.label = !isUndefined(htmlFor) ? true : false;
 
 	not.disabled = !isUndefined(disabled) && !isBoolean(disabled) ? true : false;
 
 	has.class = !isUndefined(className) && !isEmpty(className) ? true : false;
+	has.cbFunc = !isUndefined(onClick) ? true : false;
 	has.disabled = isBoolean(disabled) ? true : false;
 
 	if ( isUndefined(active) ) {
@@ -55,12 +56,15 @@ const Button = ({
 		);
 	}
 
+	// Define button actions.
+	const handleChange = () => {
+		set.checked(!is.checked);
+	}
+
 	// Define button tag.
 	set.tag = 'button';
 
-	if ( is.link ) {
-		set.tag = 'a';
-	} else if ( is.label ) {
+	if ( is.label ) {
 		set.tag = 'label';
 	}
 
@@ -112,7 +116,7 @@ const Button = ({
 		set.class += ' sui-button--focus';
 	}
 
-	if ( active ) {
+	if ( is.checked ) {
 		set.class += ' sui-button--active';
 	}
 
@@ -120,8 +124,8 @@ const Button = ({
 		set.class += ' sui-button--disabled';
 	}
 
-	// Define button markup.
-	set.markup = (
+	// Define button elements.
+	set.elements = (
 		<Fragment>
 			{ Children.map( children, ( child, index ) => {
 				return (
@@ -143,19 +147,49 @@ const Button = ({
 		</Fragment>
 	);
 
+	// Define buton markup.
+	set.markup = (
+		<Fragment>
+			{ is.label && (
+				<input
+					id={ htmlFor }
+					className="sui-screen-reader-only"
+					type="checkbox"
+					tabIndex={ is.checked ? '0' : '-1' }
+					checked={ is.checked }
+					onChange={ handleChange }
+					{ ...props } />
+			)}
+			{ set.elements }
+		</Fragment>
+	);
+
 	return createElement(
 		set.tag,
 		{
-			... ( is.link && { href: href }),
 			... ( is.label && { htmlFor: htmlFor }),
 			className: set.class,
-			'aria-pressed': active,
+			... ( !is.label && { 'aria-pressed': is.checked }),
 			onMouseEnter: () => set.hover(true),
 			onMouseLeave: () => set.hover(false),
 			onFocus: () => set.focus(true),
 			onBlur: () => set.focus(false),
+			... ( is.label && { onClick: e => {
+				if ( has.cbFunc ) {
+					onClick( e );
+				}
+
+				e.preventDefault();
+			} }),
+			... ( !is.label && { onClick: e => {
+				set.checked( !is.checked );
+
+				if ( has.cbFunc ) {
+					onClick( e );
+				}
+			} }),
 			... ( has.disabled && { disabled: disabled }),
-			...props
+			... ( !is.label && { ...props } )
 		},
 		set.markup
 	);
