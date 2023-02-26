@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React from "react";
 
 // Import required component(s).
 import { Button as SuiButton } from "../lib/react-button";
@@ -20,68 +20,41 @@ export default {
 
 // Build "Button" story.
 const Button = ({ example, ...props }) => {
-	const [nightMode, setNightMode] = useState(props.active);
-	const [darkMode, setDarkMode] = useState(props.active);
+	const set = {};
 
-	const changeNightMode = () => {
-		setNightMode(!nightMode);
+	set.content = 'Cancel';
 
-		if ( !nightMode ) {
-			console.log( 'Night mode is enabled' );
-		} else {
-			console.log( 'Night mode is disabled' );
-		}
+	if ( 'link' === example ) {
+		set.content = 'Try Pro For Free';
+	} else if ( 'button-load' === example ) {
+		set.content = 'Save Settings';
+	} else if ( 'button-icon' === example ) {
+		set.content = <span slot="icon" name="save" label="Save Settings" />;
 	}
 
-	const changeDarkMode = () => {
-		setNightMode(!darkMode);
-
-		if ( !darkMode ) {
-			console.log( 'Dark mode is enabled' );
-		} else {
-			console.log( 'Dark mode is disabled' );
-		}
+	set.box = {
+		margin: 0,
+		padding: '30px',
+		border: 0,
+		borderRadius: '4px',
+		background: '#fff'
 	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div>
-					{ 'link' === example && (
-						<SuiButton href="" { ...props }>
-							Click Here
-						</SuiButton>
-					)}
-
-					{ 'button' === example && (
+				<div style={ set.box }>
+					{ 'label-icon' === example && (
 						<SuiButton { ...props }>
-							Click Here
+							Next Step
+							<span slot="icon" name="chevron-right" />
 						</SuiButton>
 					)}
 
-					{ 'button-load' === example && (
+					{ 'label-icon' !== example && (
 						<SuiButton { ...props }>
-							Click Here
+							{ set.content }
 						</SuiButton>
-					)}
-
-					{ 'toggle' === example && (
-						<Fragment>
-							<SuiButton
-								variant="toggle"
-								onClick={ changeNightMode }
-								{ ...props }>
-								Night Mode
-							</SuiButton>
-
-							<SuiButton
-								variant="toggle"
-								htmlFor="button-enable"
-								onClick={ changeDarkMode }
-								{ ...props }>
-								Dark Mode
-							</SuiButton>
-						</Fragment>
 					)}
 				</div>
 			</div>
@@ -89,19 +62,15 @@ const Button = ({ example, ...props }) => {
 	);
 }
 
-// Set "Button" story arguments.
 Button.args = {
 	example: 'button',
 	href: '',
 	theme: 'primary',
 	color: 'blue',
-	segment: '',
 	size: '',
-	active: false,
 	loading: false
 }
 
-// Set controls for "Button" story arguments.
 Button.argTypes = {
 	example: {
 		name: 'Example',
@@ -109,9 +78,10 @@ Button.argTypes = {
 			type: 'select',
 			options: {
 				'Example: Link': 'link',
-				'Example: Basic Button': 'button',
-				'Example: Loading Button': 'button-load',
-				'Example: Toggle Button': 'toggle'
+				'Example: Button': 'button',
+				'Example: Loading': 'button-load',
+				'Example: Label + Icon': 'label-icon',
+				'Example: Icon Button': 'button-icon'
 			}
 		}
 	},
@@ -147,25 +117,6 @@ Button.argTypes = {
 				'Navy': 'navy',
 				'White': 'white'
 			}
-		},
-		if: {
-			arg: 'example',
-			neq: 'toggle'
-		}
-	},
-	segment: {
-		name: 'Segment',
-		control: {
-			type: 'inline-radio',
-			options: {
-				'Left': 'left',
-				'Middle': '',
-				'Right': 'right'
-			}
-		},
-		if: {
-			arg: 'example',
-			eq: 'toggle'
 		}
 	},
 	size: {
@@ -176,16 +127,6 @@ Button.argTypes = {
 				'Default': '',
 				'Small': 'sm'
 			}
-		}
-	},
-	active: {
-		name: 'Active',
-		control: {
-			type: 'boolean'
-		},
-		if: {
-			arg: 'example',
-			eq: 'toggle'
 		}
 	},
 	loading: {
