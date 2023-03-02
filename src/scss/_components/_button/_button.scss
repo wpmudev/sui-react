@@ -1,0 +1,88 @@
+@use "sass:map";
+@use "sass:color";
+
+@use "../../_utils/functions" as *;
+@use "../../_utils/mixins" as *;
+
+@use "./_modifiers/modifiers" as sui-button--modifier;
+
+@include sui-button--modifier.build-design(button);
+@include sui-button--modifier.build-hue(button);
+
+// DIR: Left to right.
+// THEME: None.
+@include sui-class($rtl: false, $theme: null) {
+	// Block: Button
+	@include block(button) {
+		cursor: pointer;
+		min-width: 74px;
+		max-width: 100%;
+		display: inline-flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: center;
+		margin: 0 8px;
+		padding: 4px 12px;
+		border: 0;
+		border-radius: 4px;
+		background-image: none;
+		box-shadow: none;
+		font-weight: 500;
+		font-size: 15px;
+		line-height: 24px;
+		letter-spacing: 0.2px;
+		text-decoration: none;
+		transition: 0.1s ease;
+
+		// Element: Label
+		@include element(label) {
+			margin: 4px;
+		}
+
+		// Element: Icon
+		@include element(icon) {
+			display: block;
+			margin: 8px 4px;
+		}
+
+		// Modifier: Small
+		@include modifier(sm) {
+			min-width: 68px;
+			font-size: 13px;
+			line-height: 16px;
+
+			@include block(button) {
+				// Element: Icon
+				@include element(icon) {
+					margin: 4px;
+				}
+			}
+		}
+	}
+
+	// Block: Icon Button
+	@include block(button-icon) {
+		min-width: unset;
+		max-width: unset;
+		padding: 4px 8px;
+
+		// Modifier: Small
+		&.sui-button--sm {
+			padding: 4px;
+		}
+	}
+}
+
+// Modifiers Hierarchy
+// 1. State: Default, Hover, Focus, Selected, Loading, Disabled
+// 2. Design: Solid, Solid Alt, Outlined, Text
+// 3. Hue:
+//   2.1. Hue: Gray, Blue, Black, Red, Navy, White
+//   2.2. Tint: True, False – For lighter colors
+//   2.3. Shade: True, False – For darker colors
+//
+// Example(s):
+// .sui-button--solid .sui-button--blue
+// .sui-button--solid .sui-button--blue .sui-button--light
+// .sui-button--solid .sui-button--blue .sui-button--dark
+//
