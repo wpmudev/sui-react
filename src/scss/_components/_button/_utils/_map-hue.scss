@@ -1,0 +1,181 @@
+@use "sass:map";
+@use "sass:color";
+
+@use "../../../_utils/functions" as *;
+
+$light: 90%;
+$dark: 10%;
+
+$blue: #286ef1;
+$black: #1A1A1A;
+$red: #F45C59;
+$navy: #184291;
+$black: #1A1A1A;
+$white: #ffffff;
+$none: transparent;
+
+$hue: (
+	blue: (
+		default: (
+			outline: $blue,
+			background: $blue,
+			color: $white
+		),
+		hover: (
+			background: shade($blue, 40%)
+		),
+		loading: (
+			background: $blue
+		),
+		focus: (
+			background: $blue
+		)
+	),
+	blue-alt: (
+		default: (
+			outline: $blue,
+			background: $none,
+			color: $blue
+		),
+		hover: (
+			background: tint($blue, 90%)
+		),
+		loading: (
+			background: $none
+		),
+		focus: (
+			background: tint($blue, 90%)
+		)
+	),
+	black: (
+		default: (
+			outline: $black,
+			background: $black,
+			color: $white
+		),
+		hover: (
+			background: shade($black, 40%)
+		),
+		loading: (
+			background: $black
+		),
+		focus: (
+			background: $black
+		)
+	),
+	black-alt: (
+		default: (
+			outline: $black,
+			background: $none,
+			color: $black
+		),
+		hover: (
+			background: tint($black, 90%)
+		),
+		loading: (
+			background: $none
+		),
+		focus: (
+			background: tint($black, 90%)
+		)
+	),
+	red: (
+		default: (
+			outline: $red,
+			background: $red,
+			color: $white
+		),
+		hover: (
+			background: shade($red, 40%)
+		),
+		loading: (
+			background: $red
+		),
+		focus: (
+			background: $red
+		)
+	),
+	red-alt: (
+		default: (
+			outline: $red,
+			background: $none,
+			color: $red
+		),
+		hover: (
+			background: tint($red, 90%)
+		),
+		loading: (
+			background: $none
+		),
+		focus: (
+			background: tint($red, 90%)
+		)
+	),
+	navy: (
+		default: (
+			outline: $navy,
+			background: $navy,
+			color: $white
+		),
+		hover: (
+			background: shade($navy, 40%)
+		),
+		loading: (
+			background: $navy
+		),
+		focus: (
+			background: $navy
+		)
+	),
+	navy-alt: (
+		default: (
+			outline: $navy,
+			background: $none,
+			color: $navy
+		),
+		hover: (
+			background: tint($navy, 90%)
+		),
+		loading: (
+			background: $none
+		),
+		focus: (
+			background: tint($navy, 90%)
+		)
+	),
+	white: (
+		default: (
+			outline: $white,
+			background: $white,
+			color: $black
+		),
+		hover: (
+			background: shade($white, 5%)
+		),
+		loading: (
+			background: $white
+		),
+		focus: (
+			background: $white
+		)
+	),
+	white-alt: (
+		default: (
+			outline: $white,
+			background: $none,
+			color: $white
+		),
+		hover: (
+			background: $white,
+			color: $black
+		),
+		loading: (
+			background: $none
+		),
+		focus: (
+			outline: $white,
+			background: $none,
+			color: $white
+		)
+	),
+);
