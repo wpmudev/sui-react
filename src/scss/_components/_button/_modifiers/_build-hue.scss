@@ -7,6 +7,24 @@
 @mixin build-hue($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
+			outline-color: #737373;
+			background-color: #F8F8F8;
+			color: #737373;
+
+			@include modifier(hover) {
+				background-color: #F2F2F2;
+				color: #333333;
+			}
+
+			@include modifier(focus) {
+				background-color: #F8F8F8;
+				color: #737373;
+			}
+
+			@include modifier(loading) {
+				pointer-events: none;
+			}
+
 			@each $color, $state-map in $hue {
 				@include modifier($color) {
 					@each $state, $props in $state-map {
