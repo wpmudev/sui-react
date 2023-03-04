@@ -14,6 +14,10 @@ const Button = ({
 	color,
 	size,
 	className,
+	label,
+	icon,
+	leadIcon,
+	trailIcon,
 	loading,
 	disabled,
 	children,
@@ -35,6 +39,10 @@ const Button = ({
 	not.loading = !isUndefined(loading) && !isBoolean(loading) ? true : false;
 	not.disabled = !isUndefined(disabled) && !isBoolean(disabled) ? true : false;
 
+	has.icon = !isUndefined(icon) && !isEmpty(icon) ? true : false;
+	has.lead = !isUndefined(leadIcon) && !isEmpty(leadIcon) ? true : false;
+	has.trail = !isUndefined(trailIcon) && !isEmpty(trailIcon) ? true : false;
+	has.label = !isUndefined(label) && !isEmpty(label) ? true : false;
 	has.class = !isUndefined(className) && !isEmpty(className) ? true : false;
 	has.loading = !isUndefined(loading) && isBoolean(loading) ? true : false;
 	has.disabled = isBoolean(disabled) ? true : false;
@@ -63,11 +71,21 @@ const Button = ({
 	// Define button class.
 	set.class = 'sui-button';
 
+	if ( has.icon ) {
+		set.class += ' sui-button-icon';
+	}
+
 	switch ( theme ) {
 		case 'primary':
+			set.class += ' sui-button--solid';
+			break;
+
 		case 'secondary':
+			set.class += ' sui-button--outlined';
+			break;
+
 		case 'tertiary':
-			set.class += ' sui-button--' + theme;
+			set.class += ' sui-button--text';
 			break;
 
 		default:
@@ -82,6 +100,9 @@ const Button = ({
 		case 'navy':
 		case 'white':
 			set.class += ' sui-button--' + color;
+			if ( 'secondary' === theme || 'tertiary' === theme ) {
+				set.class += '-alt';
+			}
 			break;
 
 		default:
@@ -89,14 +110,8 @@ const Button = ({
 			break;
 	}
 
-	switch ( size ) {
-		case 'sm':
-			set.class += ' sui-button--' + size;
-			break;
-
-		default:
-			// Do nothing.
-			break;
+	if ( 'sm' === size ) {
+		set.class += ' sui-button--' + size;
 	}
 
 	if ( has.class ) {
@@ -122,23 +137,27 @@ const Button = ({
 	// Define button elements.
 	set.elements = (
 		<Fragment>
-			{ Children.map( children, ( child, index ) => {
-				return (
-					<Fragment key={ index }>
-						{ isObject( child )
-							? isUndefined(child.props.slot)
-								? child
-								: (
-									<Fragment>
-										{ 'icon' === child.props.slot && <Icon name={ child.props.name } /> }
-										{ 'label' === child.props.slot && <Label>{ child.props.children }</Label> }
-									</Fragment>
-								)
-							: <Label>{ child }</Label>
-						}
-					</Fragment>
-				);
-			}) }
+			{ has.icon && (
+				<Fragment>
+					<Icon name={ icon } />
+					{ has.label && (
+						<span className="sui-screen-reader-only" tabIndex="-1">
+							{ label }
+						</span>
+					)}
+				</Fragment>
+			)}
+			{ !has.icon && (
+				<Fragment>
+					{ has.lead && (
+						<Icon name={ leadIcon } />
+					)}
+					<Label>{ children }</Label>
+					{ has.trail && (
+						<Icon name={ trailIcon } />
+					)}
+				</Fragment>
+			)}
 		</Fragment>
 	);
 
