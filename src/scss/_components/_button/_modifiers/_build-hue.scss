@@ -57,6 +57,12 @@
 					}
 				}
 			}
+
+			&.sui-#{$block-name}--disabled {
+				pointer-events: none;
+				background-color: #E6E6E6;
+				color: #AAAAAA;
+			}
 		}
 	}
 }
