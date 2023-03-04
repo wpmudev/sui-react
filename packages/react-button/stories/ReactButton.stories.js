@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 // Import required component(s).
-import { Button as SuiButton } from "../lib/react-button";
+import { Button as SuiButton, IconButton as SuiIconButton } from "../lib/react-button";
 
 // Import documentation main page.
 import docs from './ReactButton.mdx';
@@ -23,21 +23,30 @@ const Button = ({ example, ...props }) => {
 	const set = {};
 
 	set.content = 'Cancel';
+	set.function = () => {
+		let message = 'You clicked on a button.';
+
+		if ( 'link' === example ) {
+			message = 'You clicked on a link.';
+		} else if ( 'button-load' === example ) {
+			message = 'Changes were saved successfully.';
+		}
+
+		console.log( message );
+	}
 
 	if ( 'link' === example ) {
 		set.content = 'Try Pro For Free';
 	} else if ( 'button-load' === example ) {
 		set.content = 'Save Settings';
-	} else if ( 'button-icon' === example ) {
-		set.content = <span slot="icon" name="save" label="Save Settings" />;
 	}
 
 	set.box = {
 		margin: 0,
 		padding: '30px',
-		border: 0,
+		border: 'white' === props.color ? '1px solid #E6E6E6' : 0,
 		borderRadius: '4px',
-		background: '#fff'
+		background: 'white' === props.color ? '#333' : '#fff'
 	}
 
 	return (
@@ -45,16 +54,36 @@ const Button = ({ example, ...props }) => {
 			<div className="sui-layout__content">
 				<div style={ set.box }>
 					{ 'label-icon' === example && (
-						<SuiButton { ...props }>
-							Next Step
-							<span slot="icon" name="chevron-right" />
-						</SuiButton>
+						<Fragment>
+							<SuiButton
+								leadIcon="chevron-left"
+								disabled={ true }
+								{ ...props }>
+								Prev
+							</SuiButton>
+							<SuiButton
+								trailIcon="chevron-right"
+								onClick={ () => console.log( 'Go to next step.' ) }
+								{ ...props }>
+								Next
+							</SuiButton>
+						</Fragment>
 					)}
 
 					{ 'label-icon' !== example && (
-						<SuiButton { ...props }>
-							{ set.content }
-						</SuiButton>
+						<Fragment>
+							{ 'button-icon' === example && (
+								<Fragment>
+									<SuiIconButton icon="save" label="Save Settings" onClick={ set.function } { ...props } />
+									<SuiIconButton icon="save" label="Save Settings" loading={ true } { ...props } />
+								</Fragment>
+							)}
+							{ 'button-icon' !== example && (
+								<SuiButton onClick={ set.function } { ...props }>
+									{ set.content }
+								</SuiButton>
+							)}
+						</Fragment>
 					)}
 				</div>
 			</div>
@@ -65,10 +94,12 @@ const Button = ({ example, ...props }) => {
 Button.args = {
 	example: 'button',
 	href: '',
+	target: '_blank',
 	theme: 'primary',
 	color: 'blue',
 	size: '',
-	loading: false
+	loading: true,
+	disabled: false
 }
 
 Button.argTypes = {
@@ -95,6 +126,20 @@ Button.argTypes = {
 			eq: 'link'
 		}
 	},
+	target: {
+		name: 'Target',
+		control: {
+			type: 'select',
+			options: [
+				'_self',
+				'_blank'
+			]
+		},
+		if: {
+			arg: 'example',
+			eq: 'link'
+		}
+	},
 	theme: {
 		name: 'Theme',
 		control: {
@@ -111,6 +156,7 @@ Button.argTypes = {
 		control: {
 			type: 'select',
 			options: {
+				'-': '',
 				'Blue': 'blue',
 				'Black': 'black',
 				'Red': 'red',
@@ -137,6 +183,12 @@ Button.argTypes = {
 		if: {
 			arg: 'example',
 			eq: 'button-load'
+		}
+	},
+	disabled: {
+		name: 'Disabled',
+		control: {
+			type: 'boolean'
 		}
 	}
 }
