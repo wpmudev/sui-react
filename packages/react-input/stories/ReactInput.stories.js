@@ -91,6 +91,7 @@ const Input = ({
 							readOnly={true}
 							size={size}
 							disabled={disabled}
+							value="Ready only"
 							{...('none' !== iconMode && { icon: props.icon })}
 						/>
 					)}

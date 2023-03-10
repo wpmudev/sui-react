@@ -6,9 +6,20 @@ import {
 	isUndefined,
 } from '@wpmudev/react-utils';
 
+const Icon = ({ icon }) => {
+	const iconClass = 'suicons suicons--md suicons--' + icon;
+
+	return (
+		<Fragment>
+			<i className={iconClass} aria-hidden="true" />
+		</Fragment>
+	);
+};
+
 // Build "Input" component.
 const Input = ({ label, description, ...props }) => {
 	const {
+		type,
 		id,
 		labelId,
 		placeholder,
@@ -31,6 +42,9 @@ const Input = ({ label, description, ...props }) => {
 
 	// Input id.
 	input.id = !isUndefined(id) && !isEmpty(id) ? id : '';
+
+	// Input type.
+	input.type = !isUndefined(type) && !isEmpty(type) ? type : 'text';
 
 	// Input placeholder.
 	input.placeholder =
@@ -100,6 +114,7 @@ const Input = ({ label, description, ...props }) => {
 					<Icon icon={input.icon.name} />
 				)}
 				<input
+					type={input.type}
 					className="sui-input__field"
 					{...(!isEmpty(input.placeholder) && {
 						placeholder: input.placeholder,
@@ -144,16 +159,6 @@ const Input = ({ label, description, ...props }) => {
 				</span>
 			)}
 		</div>
-	);
-};
-
-const Icon = ({ icon }) => {
-	const iconClass = 'suicons suicons--md suicons--' + icon;
-
-	return (
-		<Fragment>
-			<i className={iconClass} aria-hidden="true" />
-		</Fragment>
 	);
 };
 
