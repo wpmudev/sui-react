@@ -1,0 +1,58 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_input-utils/variables" as *;
+
+/// Build Button
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-input($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			.sui-#{$block}__wrapper {
+				position: relative;
+				display: flex;
+				flex-direction: column-reverse;
+			}
+
+			.sui-#{$block}__field {
+				font-weight: 400;
+				font-size: 15px;
+				line-height: 24px;
+				padding: 8px 12px 8px 16px;
+				background: #ffffff;
+				border: 1px solid #aaaaaa;
+				border-radius: 4px;
+				width: 100%;
+				outline: none;
+
+				&:hover {
+					border: 1px solid #286ef1;
+				}
+
+				&:focus {
+					border: 2px solid #286ef1;
+
+					+ .sui-#{$block}__label {
+						color: #286ef1;
+					}
+				}
+
+				&:read-only {
+					background: #f8f8f8;
+					border: none;
+					+ .sui-#{$block}__label {
+						color: #505050;
+					}
+				}
+			}
+		}
+	}
+}

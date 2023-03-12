@@ -1,0 +1,30 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_input-utils/variables" as *;
+
+/// Build Description
+/// This function creates styles for the button
+/// label element.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-description($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			.sui-#{$block}__description {
+				display: block;
+				font-weight: 400;
+				font-size: 15px;
+				line-height: 24px;
+				letter-spacing: 0.1px;
+				color: #505050;
+				margin-top: 4px;
+			}
+		}
+	}
+}

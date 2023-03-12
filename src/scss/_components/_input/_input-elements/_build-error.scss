@@ -1,0 +1,51 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_input-utils/variables" as *;
+
+/// Build Error Message
+/// This function creates styles for the button
+/// label element.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-error-message($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			.sui-#{$block}__error-message {
+				display: block;
+				font-weight: 400;
+				font-size: 15px;
+				line-height: 24px;
+				letter-spacing: 0.1px;
+				color: #f45c59;
+				margin-top: 4px;
+			}
+
+			&.sui-#{$block}--error {
+				.sui-#{$block}__field {
+					border: 1px solid #f45c59;
+
+					+ .sui-#{$block}__label {
+						color: #505050;
+					}
+
+					&:focus {
+						border: 2px solid #f45c59;
+					}
+				}
+			}
+
+			@include modifier(sm) {
+				.sui-#{$block}__error-message {
+					font-size: 12px;
+					line-height: 16px;
+				}
+			}
+		}
+	}
+}

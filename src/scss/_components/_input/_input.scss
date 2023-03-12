@@ -1,0 +1,15 @@
+@use "./_input-elements/elements" as sui-input--element;
+@use "./_input-modifiers/modifiers" as sui-input--modifier;
+@use "./_input-states/states" as sui-input--state;
+
+@include sui-input--element.build-input(input);
+@include sui-input--element.build-label(input);
+@include sui-input--element.build-description(input);
+@include sui-input--element.build-icon(input);
+
+@include sui-input--modifier.build-input-filled(input);
+@include sui-input--modifier.build-size(input);
+
+@include sui-input--element.build-error-message(input);
+
+@include sui-input--state.build-disabled(input);
