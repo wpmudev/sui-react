@@ -60,5 +60,9 @@ const isEmpty = element => {
 	return true;
 }
 
+const isFunction = element => {
+	return element && {}.toString.call(element) === '[object Function]';
+}
+
 // Publish required function(s).
-export { isNull, isUndefined, isObject, isArray, isBoolean, isNumber, isEmpty }
+export { isNull, isUndefined, isObject, isArray, isBoolean, isNumber, isEmpty, isFunction }
