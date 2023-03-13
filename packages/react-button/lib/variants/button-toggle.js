@@ -50,6 +50,7 @@ const ToggleButton = ({
 
 	return (
 		<Base
+			{ ... ( is.label && { htmlFor: htmlFor })}
 			appearance={appearance}
 			color={color}
 			isSmall={isSmall}
