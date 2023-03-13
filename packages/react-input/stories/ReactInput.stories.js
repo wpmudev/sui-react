@@ -54,6 +54,7 @@ const Input = ({
 						<SuiInput
 							id="input-default"
 							label={label}
+							value="truess"
 							labelId="label-id"
 							placeholder="Placeholder"
 							description={description}

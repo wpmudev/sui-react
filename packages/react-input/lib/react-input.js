@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import {
 	isBoolean,
 	isEmpty,
@@ -29,8 +29,18 @@ const Input = ({ label, description, ...props }) => {
 		icon,
 		size,
 		disabled,
+		value = '',
 		...inputprops
 	} = props;
+
+	const [inputValue, setInputValue] = useState(
+		!isUndefined(value) ? value : ''
+	);
+
+	const handleInputChange = (event) => {
+		const inputValue = event.target.value;
+		setInputValue(inputValue);
+	};
 
 	const input = {};
 
@@ -77,6 +87,8 @@ const Input = ({ label, description, ...props }) => {
 		props.icon
 	);
 
+	const hasIcon = !isUndefined(input.icon.name) && !isEmpty(input.icon.name);
+
 	// Input size.
 	if (!isEmpty(size) && !isUndefined(size) && 'sm' === size) {
 		input.class += ' sui-input--sm';
@@ -95,25 +107,26 @@ const Input = ({ label, description, ...props }) => {
 		input.class += ' sui-input--error';
 	}
 
-	const hasIcon = !isUndefined(input.icon.name) && !isEmpty(input.icon.name);
+	// if input is filled with value.
+	if (!isEmpty(inputValue)) {
+		input.class += ' sui-input--filled';
+	}
+
+	// if input has icon.
+	if (hasIcon) {
+		input.class += ' sui-input__icon';
+		input.class +=
+			'trail' === input.icon.position
+				? ' sui-input__icon--right'
+				: ' sui-input__icon--left';
+	}
 
 	return (
 		<div className={input.class}>
-			{!isEmpty(input.label) && (
-				<label
-					className="sui-input__label"
-					{...(!isEmpty(input.id) && { htmlFor: input.id })}
-					{...(!isEmpty(input.labelId) && { id: input.labelId })}
-				>
-					{input.label}
-				</label>
-			)}
-
 			<div className="sui-input__wrapper">
-				{hasIcon && input.icon.position === 'lead' && (
-					<Icon icon={input.icon.name} />
-				)}
+				{hasIcon && <Icon icon={input.icon.name} />}
 				<input
+					value={inputValue}
 					type={input.type}
 					className="sui-input__field"
 					{...(!isEmpty(input.placeholder) && {
@@ -131,10 +144,17 @@ const Input = ({ label, description, ...props }) => {
 					{...(!isEmpty(input.disabled) && {
 						disabled: input.disabled,
 					})}
+					onChange={handleInputChange}
 					{...inputprops}
 				/>
-				{hasIcon && input.icon.position === 'trail' && (
-					<Icon icon={input.icon.name} />
+				{!isEmpty(input.label) && (
+					<label
+						className="sui-input__label"
+						{...(!isEmpty(input.id) && { htmlFor: input.id })}
+						{...(!isEmpty(input.labelId) && { id: input.labelId })}
+					>
+						{input.label}
+					</label>
 				)}
 			</div>
 
