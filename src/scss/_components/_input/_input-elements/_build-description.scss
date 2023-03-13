@@ -3,6 +3,8 @@
 @use "../../../_utils/mixins" as *;
 @use "../_input-utils/variables" as *;
 
+@use "../_input-utils/colors" as *;
+
 /// Build Description
 /// This function creates styles for the button
 /// label element.
@@ -17,13 +19,31 @@
 		// Block wrapper.
 		@include block($block) {
 			.sui-#{$block}__description {
+				@if map.has-key($sui-input-font, sm, size) {
+					font-size: map.get($sui-input-font, sm, size);
+				}
+				@if map.has-key($sui-input-font, sm, height) {
+					line-height: map.get($sui-input-font, sm, height);
+				}
+				@if map.has-key($sui-input-font, sm, spacing) {
+					letter-spacing: map.get($sui-input-font, sm, spacing);
+				}
+				@if map.has-key($sui-input-color, grey, dark, color) {
+					color: map.get($sui-input-color, grey, dark, color);
+				}
 				display: block;
-				font-weight: 400;
-				font-size: 15px;
-				line-height: 24px;
-				letter-spacing: 0.1px;
-				color: #505050;
 				margin-top: 4px;
+			}
+
+			@include modifier(sm) {
+				.sui-#{$block}__description {
+					@if map.has-key($sui-input-font, xs, size) {
+						font-size: map.get($sui-input-font, xs, size);
+					}
+					@if map.has-key($sui-input-font, xs, height) {
+						line-height: map.get($sui-input-font, xs, height);
+					}
+				}
 			}
 		}
 	}

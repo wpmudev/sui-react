@@ -8,7 +8,6 @@
 @include sui-input--element.build-icon(input);
 
 @include sui-input--modifier.build-input-filled(input);
-@include sui-input--modifier.build-size(input);
 
 @include sui-input--element.build-error-message(input);
 

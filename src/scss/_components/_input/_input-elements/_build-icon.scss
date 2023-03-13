@@ -3,11 +3,13 @@
 @use "../../../_utils/mixins" as *;
 @use "../_input-utils/variables" as *;
 
+@use "../_input-utils/colors" as *;
+
 /// Build Icon
 /// This function creates styles for the element
 /// main wrapper.
 /// @type block
-/// @author WPMU DEV
+/// @author WP     MU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-icon($block) {
@@ -17,8 +19,50 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(icon) {
-				display: block;
-				margin: 4px;
+				.suicons {
+					position: absolute;
+					@if map.has-key($sui-input-font, lg, size) {
+						font-size: map.get($sui-input-font, lg, size);
+					}
+					@if map.has-key($sui-input-color, grey, default, color) {
+						color: map.get($sui-input-color, grey, default, color);
+					}
+					padding: 8px 8px 10px 12px;
+				}
+
+				&.sui-#{$block}--sm {
+					.suicons {
+						@if map.has-key($sui-input-font, md, size) {
+							font-size: map.get($sui-input-font, md, size);
+						}
+						padding: 8px 8px 8px 12px;
+					}
+
+					.sui-#{$block}__field {
+						padding-left: 36px;
+					}
+				}
+
+				@include modifier(right) {
+					.suicons {
+						right: 0;
+						padding: 8px 12px 10px 8px;
+					}
+
+					.sui-#{$block}__field {
+						padding-right: 44px;
+					}
+				}
+
+				@include modifier(left) {
+					.suicons {
+						left: 0;
+					}
+
+					.sui-#{$block}__field {
+						padding-left: 44px;
+					}
+				}
 			}
 		}
 	}

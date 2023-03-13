@@ -3,6 +3,8 @@
 @use "../../../_utils/mixins" as *;
 @use "../_input-utils/variables" as *;
 
+@use "../_input-utils/colors" as *;
+
 /// Build Button
 /// This function creates styles for the element
 /// main wrapper.
@@ -23,33 +25,98 @@
 			}
 
 			.sui-#{$block}__field {
-				font-weight: 400;
-				font-size: 15px;
-				line-height: 24px;
+				@if map.has-key($sui-input-font, sm, size) {
+					font-size: map.get($sui-input-font, sm, size);
+				}
+				@if map.has-key($sui-input-font, sm, height) {
+					line-height: map.get($sui-input-font, sm, height);
+				}
+				@if map.has-key($sui-input-color, white, default, color) {
+					background: map.get(
+						$sui-input-color,
+						white,
+						default,
+						color
+					);
+				}
+				@if map.has-key($sui-input-border, sm, width) {
+					border-width: map.get($sui-input-border, sm, width);
+				}
+				@if map.has-key($sui-input-border, sm, style) {
+					border-style: map.get($sui-input-border, sm, style);
+				}
+				@if map.has-key($sui-input-color, grey, light, color) {
+					border-color: map.get($sui-input-color, grey, light, color);
+				}
+				@if map.has-key($sui-input-border, sm, radius) {
+					border-radius: map.get($sui-input-border, sm, radius);
+				}
 				padding: 8px 12px 8px 16px;
-				background: #ffffff;
-				border: 1px solid #aaaaaa;
-				border-radius: 4px;
 				width: 100%;
 				outline: none;
 
 				&:hover {
-					border: 1px solid #286ef1;
+					@if map.has-key($sui-input-color, blue, default, color) {
+						border-color: map.get(
+							$sui-input-color,
+							blue,
+							default,
+							color
+						);
+					}
 				}
 
 				&:focus {
-					border: 2px solid #286ef1;
+					@if map.has-key($sui-input-border, md, width) {
+						border-width: map.get($sui-input-border, md, width);
+					}
+					@if map.has-key($sui-input-color, blue, default, color) {
+						border-color: map.get(
+							$sui-input-color,
+							blue,
+							default,
+							color
+						);
+					}
 
 					+ .sui-#{$block}__label {
-						color: #286ef1;
+						@if map.has-key($sui-input-color, blue, default, color)
+						{
+							color: map.get(
+								$sui-input-color,
+								blue,
+								default,
+								color
+							);
+						}
 					}
 				}
 
 				&:read-only {
-					background: #f8f8f8;
+					@if map.has-key($sui-input-color, white, smoke, color) {
+						background: map.get(
+							$sui-input-color,
+							white,
+							smoke,
+							color
+						);
+					}
 					border: none;
 					+ .sui-#{$block}__label {
-						color: #505050;
+						@if map.has-key($sui-input-color, grey, dark, color) {
+							color: map.get($sui-input-color, grey, dark, color);
+						}
+					}
+				}
+			}
+
+			@include modifier(sm) {
+				.sui-#{$block}__field {
+					@if map.has-key($sui-input-font, xs, size) {
+						font-size: map.get($sui-input-font, xs, size);
+					}
+					@if map.has-key($sui-input-font, xs, height) {
+						line-height: map.get($sui-input-font, xs, height);
 					}
 				}
 			}

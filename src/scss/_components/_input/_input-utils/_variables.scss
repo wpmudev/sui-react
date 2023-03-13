@@ -1,26 +1,39 @@
 @use "../../../_utils/tokens" as *;
 
-// $sui-button-size: (
-// 	sm: (
-// 		width: 68px
-// 	),
-// 	md: (
-// 		width: 74px
-// 	)
-// );
-// $sui-button-border: (
-// 	sm: (
-// 		width: $button-border-width-sm
-// 	),
-// 	md: (
-// 		width: $button-border-width-md,
-// 		style: solid,
-// 		radius: $button-border-radius
-// 	),
-// 	lg: (
-// 		width: $button-border-width-lg
-// 	)
-// );
+$sui-input-font: (
+	xs: (
+		size: $input-font-size-xs,
+		height: $input-font-height-xs,
+		spacing: $input-font-spacing,
+	),
+	sm: (
+		size: $input-font-size-sm,
+		height: $input-font-height-sm,
+		weight: $button-font-weight,
+		spacing: $input-font-spacing,
+	),
+	md: (
+		size: $input-font-size-md,
+		height: $input-font-height-sm,
+		spacing: $input-font-spacing,
+	),
+	lg: (
+		size: $input-font-size-lg,
+		height: $input-font-height-sm,
+		spacing: $input-font-spacing,
+	),
+);
+
+$sui-input-border: (
+	sm: (
+		width: $input-border-width-sm,
+		style: solid,
+		radius: $input-border-radius,
+	),
+	md: (
+		width: $input-border-width-md,
+	),
+);
 // $sui-button-spacing: (
 // 	md: (
 // 		vertical: $button-spacing-vertical,

@@ -3,6 +3,8 @@
 @use "../../../_utils/mixins" as *;
 @use "../_input-utils/variables" as *;
 
+@use "../_input-utils/colors" as *;
+
 /// Build Error Message
 /// This function creates styles for the button
 /// label element.
@@ -18,32 +20,54 @@
 		@include block($block) {
 			.sui-#{$block}__error-message {
 				display: block;
-				font-weight: 400;
-				font-size: 15px;
-				line-height: 24px;
-				letter-spacing: 0.1px;
-				color: #f45c59;
+				@if map.has-key($sui-input-font, sm, size) {
+					font-size: map.get($sui-input-font, sm, size);
+				}
+				@if map.has-key($sui-input-font, sm, height) {
+					line-height: map.get($sui-input-font, sm, height);
+				}
+				@if map.has-key($sui-input-font, sm, spacing) {
+					letter-spacing: map.get($sui-input-font, sm, spacing);
+				}
+				@if map.has-key($sui-input-color, red, default, color) {
+					color: map.get($sui-input-color, red, default, color);
+				}
 				margin-top: 4px;
 			}
 
 			&.sui-#{$block}--error {
 				.sui-#{$block}__field {
-					border: 1px solid #f45c59;
+					@if map.has-key($sui-input-color, red, default, color) {
+						border-color: map.get(
+							$sui-input-color,
+							red,
+							default,
+							color
+						);
+					}
 
 					+ .sui-#{$block}__label {
-						color: #505050;
+						@if map.has-key($sui-input-color, grey, dark, color) {
+							color: map.get($sui-input-color, grey, dark, color);
+						}
 					}
 
 					&:focus {
-						border: 2px solid #f45c59;
+						@if map.has-key($sui-input-border, md, width) {
+							border-width: map.get($sui-input-border, md, width);
+						}
 					}
 				}
 			}
 
 			@include modifier(sm) {
 				.sui-#{$block}__error-message {
-					font-size: 12px;
-					line-height: 16px;
+					@if map.has-key($sui-input-font, xs, size) {
+						font-size: map.get($sui-input-font, xs, size);
+					}
+					@if map.has-key($sui-input-font, xs, height) {
+						line-height: map.get($sui-input-font, xs, height);
+					}
 				}
 			}
 		}

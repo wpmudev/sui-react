@@ -19,13 +19,28 @@
 		@include block($block) {
 			@include modifier(disabled) {
 				pointer-events: none;
+
+				.suicons {
+					@if map.has-key($sui-input-disabled, color) {
+						color: map.get($sui-input-disabled, color);
+					}
+				}
+
 				.sui-#{$block}__field {
 					border: none;
-					color: #aaaaaa;
-					background: #f2f2f2;
+					@if map.has-key($sui-input-disabled, color) {
+						color: map.get($sui-input-disabled, color);
+					}
+					@if map.has-key($sui-input-disabled, background) {
+						background: map.get($sui-input-disabled, background);
+					}
 
-					+ .sui-#{$block}__label {
-						color: #aaaaaa;
+					&:disabled {
+						+ .sui-#{$block}__label {
+							@if map.has-key($sui-input-disabled, color) {
+								color: map.get($sui-input-disabled, color);
+							}
+						}
 					}
 				}
 			}
