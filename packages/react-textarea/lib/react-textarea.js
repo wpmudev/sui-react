@@ -72,7 +72,7 @@ const Textarea = ({ description, ...props }) => {
 	return (
 		<div className={input.class}>
 			<textarea
-				value={input.value}
+				defaultValue={input.value}
 				className="sui-input__field"
 				{...(!isEmpty(input.placeholder) && {
 					placeholder: input.placeholder,
