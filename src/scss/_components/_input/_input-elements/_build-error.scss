@@ -20,6 +20,7 @@
 		@include block($block) {
 			.sui-#{$block}__error-message {
 				display: block;
+				margin-top: 4px;
 				@if map.has-key($sui-input-font, sm, size) {
 					font-size: map.get($sui-input-font, sm, size);
 				}
@@ -32,7 +33,6 @@
 				@if map.has-key($sui-input-color, red, default, color) {
 					color: map.get($sui-input-color, red, default, color);
 				}
-				margin-top: 4px;
 			}
 
 			&.sui-#{$block}--error {

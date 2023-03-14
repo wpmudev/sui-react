@@ -19,6 +19,8 @@
 		// Block wrapper.
 		@include block($block) {
 			.sui-#{$block}__description {
+				display: block;
+				margin-top: 4px;
 				@if map.has-key($sui-input-font, sm, size) {
 					font-size: map.get($sui-input-font, sm, size);
 				}
@@ -31,8 +33,6 @@
 				@if map.has-key($sui-input-color, grey, dark, color) {
 					color: map.get($sui-input-color, grey, dark, color);
 				}
-				display: block;
-				margin-top: 4px;
 			}
 
 			@include modifier(sm) {

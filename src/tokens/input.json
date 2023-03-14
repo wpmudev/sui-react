@@ -98,16 +98,6 @@
 				}
 			}
 		},
-		"spacing": {
-			"vertical": {
-				"value": "{spacing.md}",
-				"type": "spacing"
-			},
-			"horizontal": {
-				"value": "{spacing.lg}",
-				"type": "spacing"
-			}
-		},
 		"border": {
 			"radius": {
 				"value": "{border.radius.sm}",
