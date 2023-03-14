@@ -18,6 +18,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
+			line-height: normal;
 			.sui-#{$block}__wrapper {
 				position: relative;
 				display: flex;
