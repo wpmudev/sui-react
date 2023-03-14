@@ -35,7 +35,7 @@
 						@if map.has-key($sui-input-font, md, size) {
 							font-size: map.get($sui-input-font, md, size);
 						}
-						padding: 8px 8px 8px 12px;
+						padding: 8px 8px 10px 12px;
 					}
 
 					.sui-#{$block}__field {
@@ -51,6 +51,13 @@
 
 					.sui-#{$block}__field {
 						padding-right: 44px;
+						padding-left: 16px;
+					}
+
+					&.sui-#{$block}--sm {
+						.sui-#{$block}__field {
+							padding-left: 16px;
+						}
 					}
 				}
 
