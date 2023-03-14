@@ -31,11 +31,14 @@
 					@if map.has-key($sui-input-disabled, color) {
 						color: map.get($sui-input-disabled, color);
 					}
-					@if map.has-key($sui-input-disabled, background) {
-						background: map.get($sui-input-disabled, background);
-					}
 
 					&:disabled {
+						@if map.has-key($sui-input-disabled, background) {
+							background: map.get(
+								$sui-input-disabled,
+								background
+							);
+						}
 						+ .sui-#{$block}__label {
 							@if map.has-key($sui-input-disabled, color) {
 								color: map.get($sui-input-disabled, color);

@@ -89,7 +89,7 @@
 			},
 			"disabled": {
 				"background": {
-					"value": "{color.extended.neutral.80}",
+					"value": "{color.extended.neutral.95}",
 					"type": "color"
 				},
 				"color": {
