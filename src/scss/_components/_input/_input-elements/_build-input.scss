@@ -55,6 +55,7 @@
 				padding: 8px 12px 8px 16px;
 				width: 100%;
 				outline: none;
+				max-height: 40px;
 
 				&:hover {
 					@if map.has-key($sui-input-color, blue, default, color) {
@@ -119,6 +120,7 @@
 					@if map.has-key($sui-input-font, xs, height) {
 						line-height: map.get($sui-input-font, xs, height);
 					}
+					max-height: 32px;
 				}
 			}
 		}
