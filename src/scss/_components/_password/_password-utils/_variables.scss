@@ -1,36 +1,14 @@
-// @use "../../../_utils/tokens" as *;
+@use "../../../_utils/tokens" as *;
 
-// $sui-input-font: (
-// 	xs: (
-// 		size: $input-font-size-xs,
-// 		height: $input-font-height-xs,
-// 		spacing: $input-font-spacing,
-// 	),
-// 	sm: (
-// 		size: $input-font-size-sm,
-// 		height: $input-font-height-sm,
-// 		weight: $button-font-weight,
-// 		spacing: $input-font-spacing,
-// 	),
-// 	md: (
-// 		size: $input-font-size-md,
-// 		height: $input-font-height-sm,
-// 		spacing: $input-font-spacing,
-// 	),
-// 	lg: (
-// 		size: $input-font-size-lg,
-// 		height: $input-font-height-sm,
-// 		spacing: $input-font-spacing,
-// 	),
-// );
-
-// $sui-input-border: (
-// 	sm: (
-// 		width: $input-border-width-sm,
-// 		style: solid,
-// 		radius: $input-border-radius,
-// 	),
-// 	md: (
-// 		width: $input-border-width-md,
-// 	),
-// );
+$sui-password-font: (
+	sm: (
+		size: $password-font-size-sm,
+		height: $password-font-height-sm,
+	),
+	md: (
+		size: $password-font-size-md,
+	),
+	lg: (
+		size: $password-font-size-lg,
+	),
+);
