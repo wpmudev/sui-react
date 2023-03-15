@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 // Import required component(s).
 import { Button as SuiButton, IconButton as SuiIconButton } from "../lib/react-button";
@@ -39,6 +39,8 @@ const Button = ({ example, ...props }) => {
 		set.content = 'Try Pro For Free';
 	} else if ( 'button-load' === example ) {
 		set.content = 'Save Settings';
+	} else if ( 'button-toggle' === example ) {
+		set.content = 'Dark Mode';
 	}
 
 	set.box = {
@@ -47,6 +49,12 @@ const Button = ({ example, ...props }) => {
 		border: 'white' === props.color ? '1px solid #E6E6E6' : 0,
 		borderRadius: '4px',
 		background: 'white' === props.color ? '#333' : '#fff'
+	}
+
+	const [ isChecked, setIsChecked ] = useState(false);
+
+	const checkedFunc = () => {
+		setIsChecked(!isChecked);
 	}
 
 	return (
@@ -79,7 +87,12 @@ const Button = ({ example, ...props }) => {
 								</Fragment>
 							)}
 							{ 'button-icon' !== example && (
-								<SuiButton onClick={ set.function } { ...props }>
+								<SuiButton
+									{ ... ( 'button-load' === example && { variant: 'loading' })}
+									{ ... ( 'button-toggle' === example && { variant: 'toggle' })}
+									onClick={ checkedFunc }
+									{ ... ( isChecked && { isSelected: true })}
+									{ ...props }>
 									{ set.content }
 								</SuiButton>
 							)}
@@ -95,11 +108,13 @@ Button.args = {
 	example: 'button',
 	href: '',
 	target: '_blank',
-	theme: 'primary',
+	htmlFor: '',
+	appearance: 'primary',
 	color: 'blue',
-	size: '',
-	loading: true,
-	disabled: false
+	className: 'sui-toggle',
+	isSmall: false,
+	isLoading: true,
+	isDisabled: false
 }
 
 Button.argTypes = {
@@ -111,6 +126,7 @@ Button.argTypes = {
 				'Example: Link': 'link',
 				'Example: Button': 'button',
 				'Example: Loading': 'button-load',
+				'Example: Toggle': 'button-toggle',
 				'Example: Label + Icon': 'label-icon',
 				'Example: Icon Button': 'button-icon'
 			}
@@ -140,15 +156,30 @@ Button.argTypes = {
 			eq: 'link'
 		}
 	},
-	theme: {
-		name: 'Theme',
+	htmlFor: {
+		name: 'For (input ID)',
+		control: {
+			type: 'text'
+		},
+		if: {
+			arg: 'example',
+			eq: 'button-toggle'
+		}
+	},
+	appearance: {
+		name: 'Appearance',
 		control: {
 			type: 'select',
 			options: {
+				'-': '',
 				'Primary': 'primary',
 				'Secondary': 'secondary',
 				'Tertiary': 'tertiary'
 			}
+		},
+		if: {
+			arg: 'example',
+			neq: 'button-toggle'
 		}
 	},
 	color: {
@@ -163,19 +194,29 @@ Button.argTypes = {
 				'Navy': 'navy',
 				'White': 'white'
 			}
+		},
+		if: {
+			arg: 'example',
+			neq: 'button-toggle'
 		}
 	},
-	size: {
-		name: 'Size',
+	className: {
+		name: 'Class Name',
 		control: {
-			type: 'inline-radio',
-			options: {
-				'Default': '',
-				'Small': 'sm'
-			}
+			type: 'text'
+		},
+		if: {
+			arg: 'example',
+			eq: 'button-toggle'
 		}
 	},
-	loading: {
+	isSmall: {
+		name: 'Small',
+		control: {
+			type: 'boolean'
+		}
+	},
+	isLoading: {
 		name: 'Loading',
 		control: {
 			type: 'boolean'
@@ -185,7 +226,7 @@ Button.argTypes = {
 			eq: 'button-load'
 		}
 	},
-	disabled: {
+	isDisabled: {
 		name: 'Disabled',
 		control: {
 			type: 'boolean'
