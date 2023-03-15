@@ -1,5 +1,5 @@
 import React, { createElement, Fragment, useState } from "react";
-import { isUndefined, isEmpty, isBoolean } from "@wpmudev/react-utils";
+import { isUndefined, isEmpty } from "@wpmudev/react-utils";
 
 // Import required component(s).
 import { Label } from "../elements/button-label";
