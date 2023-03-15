@@ -42,10 +42,10 @@ const ToggleButton = ({
 	}
 
 	// Define button class.
-	set.class = isSelected ? 'sui-button--selected' : '';
+	set.class = is.checked ? 'sui-button--selected' : '';
 
 	if ( !isUndefined(className) && !isEmpty(className) ) {
-		set.class += isSelected ? ' ' + className : className;
+		set.class += is.checked ? ' ' + className : className;
 	}
 
 	return (
@@ -67,8 +67,8 @@ const ToggleButton = ({
 						id={ htmlFor }
 						className="sui-screen-reader-only"
 						type="checkbox"
-						tabIndex={ isSelected ? '0' : '-1' }
-						checked={ isSelected }
+						tabIndex={ is.checked ? '0' : '-1' }
+						checked={ is.checked }
 						onChange={ handleChange }
 						{ ... ( isDisabled && { disabled: isDisabled })}
 						{ ...props } />
