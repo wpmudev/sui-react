@@ -1,0 +1,56 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+// @use "../_input-utils/variables" as *;
+
+// @use "../_input-utils/colors" as *;
+
+/// Build Button
+/// This function creates styles for the button
+/// label element.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-button($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			.sui-input__field {
+				padding-right: 70px;
+			}
+			.sui-button {
+				position: absolute;
+				min-width: unset;
+				bottom: 4px;
+				right: 4px;
+				font-size: 13px;
+				line-height: 16px;
+
+				.sui-button__icon {
+					font-size: 24px;
+				}
+			}
+
+			&.sui-input--sm {
+				.sui-button {
+					padding: 4px 8px;
+					.sui-button__icon {
+						font-size: 16px;
+					}
+				}
+			}
+
+			&.sui-password--icon {
+				.sui-button {
+					padding: 0;
+				}
+				.sui-input__field {
+					padding-right: 40px;
+				}
+			}
+		}
+	}
+}
