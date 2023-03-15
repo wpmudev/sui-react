@@ -1,12 +1,45 @@
 import React from 'react';
 
 // Import required component(s).
-import { Button as DefaultButton } from './variants/button-standard';
-import { Button as ToggleButton } from './variants/button-toggle';
-import { Button as TabButton } from './variants/button-tab';
+import { Button as StandardButton } from './variants/button-standard';
+import { LoadingButton } from './variants/button-loading';
+import { ToggleButton } from './variants/button-toggle';
 
 // Build "Default Button" component.
 const Button = ({ variant, children, ...props }) => {
+	const set = {}
+
+	switch ( variant ) {
+		case 'loading':
+			set.markup = (
+				<LoadingButton { ...props }>
+					{ children }
+				</LoadingButton>
+			);
+			break;
+
+		case 'toggle':
+			set.markup = (
+				<ToggleButton { ...props }>
+					{ children }
+				</ToggleButton>
+			);
+			break;
+
+		default:
+			set.markup = (
+				<StandardButton { ...props }>
+					{ children }
+				</StandardButton>
+			);
+			break;
+	}
+
+	return set.markup;
+}
+
+// Build "Default Button" component.
+const IconButton = ({ variant, icon, label, ...props }) => {
 	const set = {}
 
 	switch ( variant ) {
@@ -18,25 +51,9 @@ const Button = ({ variant, children, ...props }) => {
 			);
 			break;
 
-		case 'tab':
-			set.markup = (
-				<TabButton { ...props }>
-					{ children }
-				</TabButton>
-			);
-			break;
-
-		case 'menu':
-			set.markup = (
-				<button>menu button</button>
-			);
-			break;
-
 		default:
 			set.markup = (
-				<DefaultButton { ...props }>
-					{ children }
-				</DefaultButton>
+				<DefaultButton icon={ icon } label={ label } { ...props } />
 			);
 			break;
 	}
@@ -44,4 +61,4 @@ const Button = ({ variant, children, ...props }) => {
 	return set.markup;
 }
 
-export { Button }
+export { Button, IconButton }
