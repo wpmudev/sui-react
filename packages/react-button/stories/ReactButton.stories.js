@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 
 // Import required component(s).
 import { Button as SuiButton, IconButton as SuiIconButton } from "../lib/react-button";
@@ -39,8 +39,6 @@ const Button = ({ example, ...props }) => {
 		set.content = 'Try Pro For Free';
 	} else if ( 'button-load' === example ) {
 		set.content = 'Save Settings';
-	} else if ( 'button-toggle' === example ) {
-		set.content = 'Dark Mode';
 	}
 
 	set.box = {
@@ -49,12 +47,6 @@ const Button = ({ example, ...props }) => {
 		border: 'white' === props.color ? '1px solid #E6E6E6' : 0,
 		borderRadius: '4px',
 		background: 'white' === props.color ? '#333' : '#fff'
-	}
-
-	const [ isChecked, setIsChecked ] = useState(false);
-
-	const checkedFunc = () => {
-		setIsChecked(!isChecked);
 	}
 
 	return (
@@ -89,9 +81,6 @@ const Button = ({ example, ...props }) => {
 							{ 'button-icon' !== example && (
 								<SuiButton
 									{ ... ( 'button-load' === example && { variant: 'loading' })}
-									{ ... ( 'button-toggle' === example && { variant: 'toggle' })}
-									onClick={ checkedFunc }
-									{ ... ( isChecked && { isSelected: true })}
 									{ ...props }>
 									{ set.content }
 								</SuiButton>
@@ -111,7 +100,6 @@ Button.args = {
 	htmlFor: '',
 	appearance: 'primary',
 	color: 'blue',
-	className: 'sui-toggle',
 	isSmall: false,
 	isLoading: true,
 	isDisabled: false
@@ -126,9 +114,7 @@ Button.argTypes = {
 				'Example: Link': 'link',
 				'Example: Button': 'button',
 				'Example: Loading': 'button-load',
-				'Example: Toggle': 'button-toggle',
-				'Example: Label + Icon': 'label-icon',
-				'Example: Icon Button': 'button-icon'
+				'Example: Label + Icon': 'label-icon'
 			}
 		}
 	},
@@ -198,16 +184,6 @@ Button.argTypes = {
 		if: {
 			arg: 'example',
 			neq: 'button-toggle'
-		}
-	},
-	className: {
-		name: 'Class Name',
-		control: {
-			type: 'text'
-		},
-		if: {
-			arg: 'example',
-			eq: 'button-toggle'
 		}
 	},
 	isSmall: {
