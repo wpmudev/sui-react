@@ -64,13 +64,13 @@ const Button = ({ example, ...props }) => {
 					{ 'label-icon' === example && (
 						<Fragment>
 							<SuiButton
-								leadIcon="chevron-left"
+								iconLead="chevron-left"
 								disabled={ true }
 								{ ...props }>
 								Prev
 							</SuiButton>
 							<SuiButton
-								trailIcon="chevron-right"
+								iconTrail="chevron-right"
 								onClick={ () => console.log( 'Go to next step.' ) }
 								{ ...props }>
 								Next
