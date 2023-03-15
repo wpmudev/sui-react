@@ -47,14 +47,13 @@ const Password = ({
 						<SuiPassword
 							id="password-default"
 							label={label}
-							value="truess"
+							value="pa$$Word123"
 							labelId="label-id"
 							placeholder="Placeholder"
 							description={description}
 							descriptionId="desc-id"
 							view={view}
 							size={size}
-							disabled={disabled}
 						/>
 					)}
 
@@ -70,7 +69,6 @@ const Password = ({
 							errorId="error-id"
 							view={view}
 							size={size}
-							disabled={disabled}
 						/>
 					)}
 				</div>
@@ -86,7 +84,6 @@ Password.args = {
 	description: 'Enter password.',
 	view: 'icon',
 	size: 'lg',
-	disabled: false,
 };
 
 // Set controls for story arguments.
@@ -137,12 +134,6 @@ Password.argTypes = {
 		},
 		table: {
 			category: 'Modifiers',
-		},
-	},
-	disabled: {
-		name: 'Disabled',
-		table: {
-			category: 'States',
 		},
 	},
 };

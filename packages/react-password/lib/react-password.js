@@ -46,7 +46,7 @@ const Password = ({ label, description, ...props }) => {
 
 	const input = {};
 
-	input.class = 'sui-input sui-input__password';
+	input.class = 'sui-input sui-password';
 
 	input.label = !isUndefined(label) && !isEmpty(label) ? label : '';
 	input.description =
@@ -114,6 +114,11 @@ const Password = ({ label, description, ...props }) => {
 		input.class += ' sui-input--filled';
 	}
 
+	// if password has icon.
+	if (hasIcon) {
+		input.class += ' sui-password--icon';
+	}
+
 	return (
 		<div className={input.class}>
 			<div className="sui-input__wrapper">
@@ -139,6 +144,17 @@ const Password = ({ label, description, ...props }) => {
 					onChange={handleInputChange}
 					{...inputprops}
 				/>
+				{!isEmpty(input.label) && (
+					<label
+						className="sui-input__label"
+						{...(!isEmpty(input.id) && { htmlFor: input.id })}
+						{...(!isEmpty(input.labelId) && {
+							id: input.labelId,
+						})}
+					>
+						{input.label}
+					</label>
+				)}
 				{hasIcon ? (
 					<SuiButton
 						theme="tertiary"
@@ -162,17 +178,6 @@ const Password = ({ label, description, ...props }) => {
 					>
 						{'password' === inputType ? 'Show' : 'Hide'}
 					</SuiButton>
-				)}
-				{!isEmpty(input.label) && (
-					<label
-						className="sui-input__label"
-						{...(!isEmpty(input.id) && { htmlFor: input.id })}
-						{...(!isEmpty(input.labelId) && {
-							id: input.labelId,
-						})}
-					>
-						{input.label}
-					</label>
 				)}
 			</div>
 
