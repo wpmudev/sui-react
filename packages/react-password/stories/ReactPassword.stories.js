@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { isUndefined, isEmpty } from '@wpmudev/react-utils';
+import React from 'react';
 
 // Import required component.
 import { Password as SuiPassword } from '../lib/react-password';
@@ -20,15 +19,7 @@ export default {
 };
 
 // Build "Password" story.
-const Password = ({
-	example,
-	label,
-	description,
-	view,
-	color,
-	size,
-	disabled,
-}) => {
+const Password = ({ example, label, description, view, color, size }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,

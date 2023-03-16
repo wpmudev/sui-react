@@ -1,21 +1,6 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
+import { isBoolean, isEmpty, isUndefined } from '@wpmudev/react-utils';
 import { Button as SuiButton } from '@wpmudev/react-button';
-import {
-	isBoolean,
-	isEmpty,
-	isObject,
-	isUndefined,
-} from '@wpmudev/react-utils';
-
-const Icon = ({ icon }) => {
-	const iconClass = 'suicons suicons--md suicons--' + icon;
-
-	return (
-		<Fragment>
-			<i className={iconClass} aria-hidden="true" />
-		</Fragment>
-	);
-};
 
 // Build "Password" component.
 const Password = ({ label, description, ...props }) => {
@@ -84,9 +69,9 @@ const Password = ({ label, description, ...props }) => {
 	// Renders icon element.
 	input.icon = Object.assign({
 		name: 'password' === inputType ? 'show' : 'hide',
-		size: 'md',
+		size: 'lg',
 		position: 'lead',
-		label: 'password' === inputType ? 'Show Password' : 'Hide Password',
+		label: '',
 	});
 
 	const hasIcon = 'button' !== input.view ? true : false;
