@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 import { isBoolean, isEmpty, isUndefined } from '@wpmudev/react-utils';
 
 // Build "Textarea" component.

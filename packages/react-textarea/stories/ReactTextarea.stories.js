@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 // Import required component.
 import { Textarea as SuiTextarea } from '../lib/react-textarea';
