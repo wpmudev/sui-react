@@ -23,19 +23,17 @@ import { ToggleButton } from '@wpmudev/sui-react';
 `;
 
 <Section title="Button (standard button)" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-	<p>The most commonly used button component. This button has different appearances, as well as supported the existing dark mode solution.</p>
-	<p>It does not support the discouraged theming approach.</p>
+	<p>The most used button component. This button comes in different colors and styles and supports the existing dark mode solution.</p>
 	<Snippet language="js">{StandardButtonCode}</Snippet>
 </Section>
 
 <Section title="Loading button" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-	<p>A small wrapper around Button that allows you to show an @atlaskit/spinner as an overlay on the button when you set an isLoading prop to true.</p>
-	<p>LoadingButton takes care of applying a spinner with the correct size and color based on the button spacing and appearance props.</p>
+	<p>A small wrapper around the "Button" that allows you to show a spinner on the button when you set an isLoading prop to true.</p>
+	<p>"LoadingButton" applies a spinner based on the appearance props.</p>
 	<Snippet language="js">{LoadingButtonCode}</Snippet>
 </Section>
 
 <Section title="Toggle button" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
-	<p>A small wrapper around Button that allows you to show an @atlaskit/spinner as an overlay on the button when you set an isLoading prop to true.</p>
-	<p>LoadingButton takes care of applying a spinner with the correct size and color based on the button spacing and appearance props.</p>
+	<p>This variation unlocks the active state and allows new props to enable or disable the new button state and other ARIA attributes required for its proper functionality.</p>
 	<Snippet language="js">{ToggleButtonCode}</Snippet>
 </Section>
