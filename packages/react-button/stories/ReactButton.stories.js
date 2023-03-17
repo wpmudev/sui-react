@@ -57,7 +57,7 @@ const Button = ({ example, ...props }) => {
 						<Fragment>
 							<SuiButton
 								iconLead="chevron-left"
-								disabled={ true }
+								onClick={ () => console.log( 'Go to prev step.' ) }
 								{ ...props }>
 								Prev
 							</SuiButton>
