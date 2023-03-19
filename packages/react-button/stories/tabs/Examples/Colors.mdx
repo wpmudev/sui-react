@@ -4,7 +4,7 @@ import dedent from 'dedent';
 
 export const BlueButtonCode = dedent`
 import React from 'react';\n
-import { Button } from '@wpmudev/sui-react/button';\n
+import { Button } from '@wpmudev/sui-react';\n
 const Example() => {
 	return <Button color="blue">Blue button</Button>;
 }\n
@@ -13,7 +13,7 @@ export default Example;
 
 export const BlackButtonCode = dedent`
 import React from 'react';\n
-import { Button } from '@wpmudev/sui-react/button';\n
+import { Button } from '@wpmudev/sui-react';\n
 const Example() => {
 	return <Button color="black">Black button</Button>;
 }\n
@@ -22,7 +22,7 @@ export default Example;
 
 export const RedButtonCode = dedent`
 import React from 'react';\n
-import { Button } from '@wpmudev/sui-react/button';\n
+import { Button } from '@wpmudev/sui-react';\n
 const Example() => {
 	return <Button color="red">Red button</Button>;
 }\n
@@ -31,7 +31,7 @@ export default Example;
 
 export const NavyButtonCode = dedent`
 import React from 'react';\n
-import { Button } from '@wpmudev/sui-react/button';\n
+import { Button } from '@wpmudev/sui-react';\n
 const Example() => {
 	return <Button color="navy">Navy button</Button>;
 }\n
@@ -40,7 +40,7 @@ export default Example;
 
 export const WhiteButtonCode = dedent`
 import React from 'react';\n
-import { Button } from '@wpmudev/sui-react/button';\n
+import { Button } from '@wpmudev/sui-react';\n
 const Example() => {
 	return <Button color="white">White button</Button>;
 }\n
@@ -48,7 +48,7 @@ export default Example;
 `;
 
 <Section title="Blue" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-	<p>Blue is the primary color when calling the strongest attention to action.</p>
+	<p>This is the primary color when calling the strongest attention to action.</p>
 	<Preview wrapper={true}>
 		<Button color="blue" theme="primary">Blue button</Button>
 		<Button color="blue" theme="secondary">Blue button</Button>

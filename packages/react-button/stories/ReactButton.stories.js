@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
 // Import required component(s).
-import { Button as SuiButton, IconButton as SuiIconButton } from "../lib/react-button";
+import { Button as StandardButton, LoadingButton } from "../lib/react-button";
 
 // Import documentation main page.
 import docs from './ReactButton.mdx';
@@ -9,7 +9,7 @@ import docs from './ReactButton.mdx';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Button',
-	component: SuiButton,
+	component: StandardButton,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -55,18 +55,18 @@ const Button = ({ example, ...props }) => {
 				<div style={ set.box }>
 					{ 'label-icon' === example && (
 						<Fragment>
-							<SuiButton
+							<StandardButton
 								iconLead="chevron-left"
 								onClick={ () => console.log( 'Go to prev step.' ) }
 								{ ...props }>
 								Prev
-							</SuiButton>
-							<SuiButton
+							</StandardButton>
+							<StandardButton
 								iconTrail="chevron-right"
 								onClick={ () => console.log( 'Go to next step.' ) }
 								{ ...props }>
 								Next
-							</SuiButton>
+							</StandardButton>
 						</Fragment>
 					)}
 
@@ -79,11 +79,18 @@ const Button = ({ example, ...props }) => {
 								</Fragment>
 							)}
 							{ 'button-icon' !== example && (
-								<SuiButton
-									{ ... ( 'button-load' === example && { variant: 'loading' })}
-									{ ...props }>
-									{ set.content }
-								</SuiButton>
+								<Fragment>
+									{ 'button-load' === example && (
+										<LoadingButton { ...props }>
+											{ set.content }
+										</LoadingButton>
+									)}
+									{ 'button-load' !== example && (
+										<StandardButton { ...props }>
+											{ set.content }
+										</StandardButton>
+									)}
+								</Fragment>
 							)}
 						</Fragment>
 					)}

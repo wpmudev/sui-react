@@ -3,21 +3,21 @@ import dedent from 'dedent';
 
 export const StandardButtonCode = dedent`
 // from named entry point (to ensure minimum code is brought in)
-import { Button } from '@wpmudev/button/standard-button';\n
+import { Button } from '@wpmudev/react-button/lib/variants/button-standard';\n
 // from main entry point
 import { Button } from '@wpmudev/sui-react';
 `;
 
 export const LoadingButtonCode = dedent`
 // from named entry point (to ensure minimum code is brought in)
-import { LoadingButton } from '@wpmudev/button/loading-button';\n
+import { LoadingButton } from '@wpmudev/react-button/lib/variants/button-loading';\n
 // from main entry point
 import { LoadingButton } from '@wpmudev/sui-react';
 `;
 
 export const ToggleButtonCode = dedent`
 // from named entry point (to ensure minimum code is brought in)
-import { ToggleButton } from '@wpmudev/button/toggle-button';\n
+import { ToggleButton } from '@wpmudev/react-button/lib/variants/button-toggle';\n
 // from main entry point
 import { ToggleButton } from '@wpmudev/sui-react';
 `;
@@ -28,8 +28,8 @@ import { ToggleButton } from '@wpmudev/sui-react';
 </Section>
 
 <Section title="Loading button" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-	<p>A small wrapper around the "Button" that allows you to show a spinner on the button when you set an isLoading prop to true.</p>
-	<p>"LoadingButton" applies a spinner based on the appearance props.</p>
+	<p>A small wrapper around the <Code small={true}>Button</Code> that allows you to show a spinner on the button when you set an <Code small={true}>isLoading</Code> prop to true.</p>
+	<p><Code small={true}>LoadingButton</Code> applies a spinner based on the appearance props.</p>
 	<Snippet language="js">{LoadingButtonCode}</Snippet>
 </Section>
 

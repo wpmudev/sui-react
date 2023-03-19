@@ -41,24 +41,32 @@ import ButtonEmphasisIconWrong from '../images/emphasis-icon-wrong.png';
 	<Section title={{ content: "Multiple buttons", small: true }} contained={true} style={{ paddingLeft: 0, paddingTop: 0, paddingRight: 0 }}>
 		<Row gutter="sm">
 			<Col size="3">
-				<img src={ButtonEmphasisPrimaryRight} alt="Usage button guidelines" style={{ marginBottom: 20 }} />
-				<p><strong>Do:</strong> Use different emphasis buttons while using various in the same row.</p>
+				<figure style={{ display: 'block', margin: 0, padding: 0, border: 0 }} aria-labelledby="multiple-buttons-do">
+					<img src={ButtonEmphasisPrimaryRight} alt="Usage button guidelines" style={{ display: 'block', margin: '0 0 5px', padding: 0, border: '2px solid #18BB4B', borderRadius: 4 }} />
+					<p id="multiple-buttons-do" style={{ padding: '10px 15px', borderRadius: 4, background: '#E8F8ED' }}><strong>Do:</strong> Use different emphasis buttons while using various in the same row.</p>
+				</figure>
 			</Col>
 			<Col size="3">
-				<img src={ButtonEmphasisPrimaryWrong} alt="Usage button guidelines" style={{ marginBottom: 20 }} />
-				<p><strong>Don't:</strong> Do not use two high-emphasis buttons while using more than one in the same row.</p>
+				<figure style={{ display: 'block', margin: 0, padding: 0, border: 0 }} aria-labelledby="multiple-buttons-dont">
+					<img src={ButtonEmphasisPrimaryWrong} alt="Usage button guidelines" style={{ display: 'block', margin: '0 0 5px', padding: 0, border: '2px solid #F45C59', borderRadius: 4 }} />
+					<p id="multiple-buttons-dont" style={{ padding: '10px 15px', borderRadius: 4, background: '#FEEFEE' }}><strong>Don't:</strong> Use two high-emphasis buttons while using more than one in the same row.</p>
+				</figure>
 			</Col>
 		</Row>
 	</Section>
 	<Section title={{ content: "Icon", small: true }} style={{ padding: 0 }}>
 		<Row gutter="sm">
 			<Col size="3">
-				<img src={ButtonEmphasisIconRight} alt="Usage button guidelines" style={{ marginBottom: 20 }} />
-				<p><strong>Do:</strong> Use a single icon inside a button.</p>
+				<figure style={{ display: 'block', margin: 0, padding: 0, border: 0 }} aria-labelledby="icons-do">
+					<img src={ButtonEmphasisIconRight} alt="Usage button guidelines" style={{ display: 'block', margin: '0 0 5px', padding: 0, border: '2px solid #18BB4B', borderRadius: 4 }} />
+					<p id="icons-do" style={{ padding: '10px 15px', borderRadius: 4, background: '#E8F8ED' }}><strong>Do:</strong> Use a single icon inside a button.</p>
+				</figure>
 			</Col>
 			<Col size="3">
-				<img src={ButtonEmphasisIconWrong} alt="Usage button guidelines" style={{ marginBottom: 20 }} />
-				<p><strong>Don't:</strong> Do not use two icons on the same button.</p>
+				<figure style={{ display: 'block', margin: 0, padding: 0, border: 0 }} aria-labelledby="icons-dont">
+					<img src={ButtonEmphasisIconWrong} alt="Usage button guidelines" style={{ display: 'block', margin: '0 0 5px', padding: 0, border: '2px solid #F45C59', borderRadius: 4 }} />
+					<p id="icons-dont" style={{ padding: '10px 15px', borderRadius: 4, background: '#FEEFEE' }}><strong>Don't:</strong> Use two icons on the same button.</p>
+				</figure>
 			</Col>
 		</Row>
 	</Section>

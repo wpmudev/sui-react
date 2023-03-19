@@ -4,7 +4,7 @@ import dedent from 'dedent';
 
 export const SmallButtonCode = dedent`
 import React from 'react';\n
-import { Button } from '@wpmudev/sui-react/button';\n
+import { Button } from '@wpmudev/sui-react';\n
 const Example() => {
 	return <Button size="sm">Button</Button>;
 }\n
@@ -12,7 +12,7 @@ export default Example;
 `;
 
 <Section title="Small" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
-	<p>Set the "isSmall" prop to reduce the button width and height, fitting with the design context.</p>
+	<p>Set the <Code small={true}>isSmall</Code> prop to reduce the button width and height, fitting with the design context.</p>
 	<Preview wrapper={true}>
 		<Button size="sm">Button</Button>
 	</Preview>
