@@ -1,0 +1,27 @@
+import { Source } from '@storybook/addon-docs';
+import { Page } from '@wpmudev/storybook';
+
+import TabUsage from './tabs/TabUsage.mdx';
+import TabCode from './tabs/TabCode.mdx';
+// import TabExamples from './tabs/TabExamples.mdx';
+
+<Page.Tabs
+	title="Tags"
+	subtitle={
+		<>
+			Use tag for label and categorizing items. They come in different
+			variations based on the design needs for a better user experience.
+		</>
+	}
+	status="draft"
+>
+	<div id="usage" label="Usage">
+		<TabUsage />
+	</div>
+	<div id="code" label="Code">
+		<TabCode />
+	</div>
+	<div id="examples" label="Examples">
+		<TabExamples />
+	</div>
+</Page.Tabs>

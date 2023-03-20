@@ -1,0 +1,27 @@
+import { Section, Row, Col, List } from '@wpmudev/storybook';
+
+import TagAnatomy from '../images/anatomy.png';
+
+<Section contained={true} border={true} style={{ paddingTop: 0 }}>
+	<p>Tags are used to highlight specific bits of information and warnings.</p>
+</Section>
+
+<Section title="Anatomy" contained={true} border={true}>
+	<img src={TagAnatomy} alt="Tag anatomy" style={{ marginBottom: 20 }} />
+	<List>
+		<span
+			label={
+				<>
+					<strong>Text:</strong> A text contextual to the content.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Container:</strong> Container to wrap the tag.
+				</>
+			}
+		/>
+	</List>
+</Section>

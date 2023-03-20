@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 // Import required component.
 import { Tag as SuiTag } from '../lib/react-tag';
@@ -19,14 +19,16 @@ export default {
 };
 
 // Build "Tag" story.
-const Tag = ({ 
+const Tag = ({
 	example,
 	label,
+	href,
+	target,
 	color,
 	size,
 	uppercase,
 	style,
-	disabled
+	disabled,
 }) => {
 	const boxStyles = {
 		padding: 20,
@@ -38,42 +40,42 @@ const Tag = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{ 'button' === example && (
+					{'button' === example && (
 						<SuiTag
 							size={size}
-							htmlTag="button"
+							type="button"
 							color={color}
 							uppercase={uppercase}
 							style={style}
-							onClick={() => console.log("Button Click.")}
-							{ ... ( disabled && { disabled: true } ) }
+							onClick={() => console.log('Button Click.')}
+							{...(disabled && { disabled: true })}
 						>
 							{label}
 						</SuiTag>
 					)}
 
-					{ 'link' === example && (
+					{'link' === example && (
 						<SuiTag
 							size={size}
-							htmlTag="a"
-							href="#"
-							target="_blank"
+							type="link"
+							href={href}
+							target={target}
 							color={color}
 							uppercase={uppercase}
 							style={style}
-							{ ... ( disabled && { disabled: true } ) }
+							{...(disabled && { disabled: true })}
 						>
 							{label}
 						</SuiTag>
 					)}
 
-					{ 'span' === example && (
+					{'span' === example && (
 						<SuiTag
 							size={size}
 							color={color}
 							uppercase={uppercase}
 							style={style}
-							{ ... ( disabled && { disabled: true } ) }
+							{...(disabled && { disabled: true })}
 						>
 							{label}
 						</SuiTag>
@@ -87,8 +89,10 @@ const Tag = ({
 // Set story arguments.
 Tag.args = {
 	example: 'span',
-	label: 'Default',
-	color: 'blue',
+	label: 'This is a label.',
+	href: '',
+	target: '_blank',
+	color: 'default',
 	size: '',
 	style: 'default',
 	uppercase: false,
@@ -99,20 +103,47 @@ Tag.args = {
 Tag.argTypes = {
 	example: {
 		name: 'Example',
-		control : {
+		control: {
 			type: 'select',
 			options: {
 				'Example: Default': 'span',
 				'Example: Link': 'link',
-				'Example: Basic Button': 'button'
-			}
-		}
+				'Example: Basic Button': 'button',
+			},
+		},
 	},
 	label: {
 		name: 'Label',
 		table: {
-			category: 'Elements'
-		}
+			category: 'Elements',
+		},
+	},
+	href: {
+		name: 'Link',
+		table: {
+			category: 'Elements',
+		},
+		control: {
+			type: 'text',
+		},
+		if: {
+			arg: 'example',
+			eq: 'link',
+		},
+	},
+	target: {
+		name: 'Target',
+		table: {
+			category: 'Elements',
+		},
+		control: {
+			type: 'select',
+			options: ['_self', '_blank'],
+		},
+		if: {
+			arg: 'example',
+			eq: 'link',
+		},
 	},
 	size: {
 		name: 'Size',
@@ -120,12 +151,12 @@ Tag.argTypes = {
 			type: 'select',
 			options: {
 				'Size: Default': '',
-				'Size: Small': 'sm'
-			}
+				'Size: Small': 'sm',
+			},
 		},
 		table: {
-			category: 'Modifiers'
-		}
+			category: 'Modifiers',
+		},
 	},
 	color: {
 		name: 'Color',
@@ -140,10 +171,10 @@ Tag.argTypes = {
 				'Color: White': 'white',
 				'Color: Black': 'black',
 				'Color: Dark Blue': 'dark-blue',
-			}
+			},
 		},
 		table: {
-			category: 'Modifiers'
+			category: 'Modifiers',
 		},
 	},
 	style: {
@@ -154,24 +185,24 @@ Tag.argTypes = {
 				'Style: Default': 'default',
 				'Style: Truncated': 'truncated',
 				'Style: Multiline': 'multiline',
-			}
+			},
 		},
 		table: {
-			category: 'Modifiers'
+			category: 'Modifiers',
 		},
 	},
 	uppercase: {
 		name: 'Uppercase',
 		table: {
-			category: 'Modifiers'
-		}
+			category: 'Modifiers',
+		},
 	},
 	disabled: {
 		name: 'Disabled',
 		table: {
-			category: 'States'
-		}
-	}
+			category: 'States',
+		},
+	},
 };
 
 // Publish required stories.

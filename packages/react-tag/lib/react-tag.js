@@ -1,7 +1,18 @@
 import React, { Fragment } from 'react';
 import { isBoolean, isEmpty, isUndefined } from '@wpmudev/react-utils';
 
-const Tag = ({ size, htmlTag, color, uppercase, style, disabled, href, target, children, ...props }) => {
+const Tag = ({
+	size,
+	type,
+	color,
+	uppercase,
+	style,
+	disabled,
+	href,
+	target,
+	children,
+	...props
+}) => {
 	// Set tag props prefix.
 	const tag = {};
 
@@ -41,22 +52,21 @@ const Tag = ({ size, htmlTag, color, uppercase, style, disabled, href, target, c
 			break;
 	}
 
-	switch(htmlTag) {
+	switch (type) {
 		case 'button':
-		case 'a':
-			tag.html = htmlTag;
+		case 'link':
+			tag.html = type;
+			tag.class += ` sui-tag__${type}`;
 			break;
 		default:
 			tag.html = 'span';
 			break;
 	}
 
-	switch(style) {
+	switch (style) {
 		case 'truncated':
 			tag.class += ' sui-tag--' + style;
-			tag.markup = (
-				<span>{ children }</span>
-			);
+			tag.markup = <span>{children}</span>;
 			break;
 		case 'multiline':
 			tag.class += ' sui-tag--' + style;
@@ -65,42 +75,43 @@ const Tag = ({ size, htmlTag, color, uppercase, style, disabled, href, target, c
 			break;
 	}
 
-	if ( !isEmpty(size) && !isUndefined(size) ) {
+	if (!isEmpty(size) && !isUndefined(size)) {
 		tag.class += ' sui-tag--' + size;
 	}
 
-	if ( isBoolean(disabled) && disabled ) {
+	if (isBoolean(disabled) && disabled) {
 		tag.class += ' sui-tag--disabled';
 	}
 
-	if ( isBoolean(uppercase) && uppercase ) {
+	if (isBoolean(uppercase) && uppercase) {
 		tag.class += ' sui-tag--uppercase';
 	}
 
 	return (
 		<Fragment>
-			{ 'button' === tag.html && (
-				<button className={ tag.class } { ...props }>
-					{ tag.markup }
+			{'button' === tag.html && (
+				<button className={tag.class} {...props}>
+					{tag.markup}
 				</button>
 			)}
-			{ 'a' === tag.html && (
-				<a 
-					href={ tag.link } 
-					target={ tag.target } 
-					className={ tag.class } 
-					{ ...props }>
-					{ tag.markup }
+			{'link' === tag.html && (
+				<a
+					href={tag.link}
+					target={tag.target}
+					className={tag.class}
+					{...props}
+				>
+					{tag.markup}
 				</a>
 			)}
-			{ 'span' === tag.html && (
-				<span className={ tag.class } { ...props }>
-					{ tag.markup }
+			{'span' === tag.html && (
+				<span className={tag.class} {...props}>
+					{tag.markup}
 				</span>
 			)}
 		</Fragment>
 	);
-}
+};
 
 // Publish required component.
-export { Tag }
+export { Tag };
