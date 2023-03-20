@@ -11,133 +11,78 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 <Section title="Shared props" border={true}>
 	<p>All tag variants share the following props.</p>
 	<Section
-		title={{ content: 'href', tag: 'string', small: true }}
-		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>Provides a url for buttons being used as a link.</p>
-	</Section>
-	<Section
-		title={{ content: 'htmlFor', tag: 'string', small: true }}
+		title={{ content: 'type', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the value of the for content property used on labels.</p>
-	</Section>
-	<Section
-		title={{ content: 'appearance', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>
-			The base styling to apply. It is empty by default to allow you keep
-			the markup and base styles but customize it in case is necessary.
-		</p>
+		<p>Choose the tag html type to make it button or link.</p>
 		<p>Allowed options:</p>
 		<List>
-			<span
-				label={
-					<>
-						<Code small={true}>primary</Code>: Solid button.
-					</>
-				}
-			/>
-			<span
-				label={
-					<>
-						<Code small={true}>secondary</Code>: Outlined button.
-					</>
-				}
-			/>
-			<span
-				label={
-					<>
-						<Code small={true}>tertiary</Code>: Text button.
-					</>
-				}
-			/>
+			<span label={<Code small={true}>link</Code>} />
+			<span label={<Code small={true}>button</Code>} />
 		</List>
 	</Section>
 	<Section
 		title={{ content: 'color', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Choose the set of colors to complement the button appearance.</p>
+		<p>Choose the set of colors to complement the tag appearance.</p>
 		<p>Allowed options:</p>
 		<List>
 			<span label={<Code small={true}>blue</Code>} />
-			<span label={<Code small={true}>black</Code>} />
+			<span label={<Code small={true}>yellow</Code>} />
 			<span label={<Code small={true}>red</Code>} />
-			<span label={<Code small={true}>navy</Code>} />
+			<span label={<Code small={true}>green</Code>} />
 			<span label={<Code small={true}>white</Code>} />
+			<span label={<Code small={true}>black</Code>} />
+			<span label={<Code small={true}>dark blue</Code>} />
+		</List>
+	</Section>
+	<Section
+		title={{ content: 'design', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Choose the design of tag to make it truncated or multiline.</p>
+		<p>Allowed options:</p>
+		<List>
+			<span label={<Code small={true}>truncated</Code>} />
+			<span label={<Code small={true}>multiline</Code>} />
 		</List>
 	</Section>
 	<Section
 		title={{ content: 'isSmall', tag: 'boolean', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Set if the button is small.</p>
+		<p>Set if the tag is small.</p>
 	</Section>
 	<Section
 		title={{ content: 'isDisabled', tag: 'boolean', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Set if the button is disabled.</p>
+		<p>Set if the tag is disabled.</p>
+	</Section>
+	<Section
+		title={{ content: 'isUppercase', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Set if the tag is uppercase.</p>
 	</Section>
 	<Section
 		title={{ content: 'className', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Add a class name to the button.</p>
-	</Section>
-	<Section
-		title={{ content: 'iconLead', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>Places an icon within the button, before the button's text.</p>
-	</Section>
-	<Section
-		title={{ content: 'iconTrail', tag: 'string', small: true }}
-		style={{
-			paddingTop: 0,
-			paddingBottom: 0,
-			paddingLeft: 20,
-			paddingRight: 0,
-		}}
-	>
-		<p>Places an icon within the button, after the button's text.</p>
+		<p>Add a class name to the tag.</p>
 	</Section>
 </Section>
 
-<Section title="Loading button props" contained={true} border={true}>
+<Section title="Link Tag props" contained={true}>
 	<p>
-		The <Code small={true}>LoadingButton</Code> accepts all the shared props
-		and an optional <Code small={true}>isLoading</Code> prop.
+		The <Code small={true}>Tag</Code> accepts all the shared props and an
+		optional <Code small={true}>href</Code> prop.
 	</p>
 	<Section
-		title={{ content: 'isLoading', tag: 'boolean', small: true }}
-		style={{
-			paddingTop: 10,
-			paddingBottom: 0,
-			paddingLeft: 20,
-			paddingRight: 0,
-		}}
+		title={{ content: 'href', tag: 'string', small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Conditionally shows a spinner over the top of a button.</p>
-	</Section>
-</Section>
-
-<Section title="Toggle button props" contained={true}>
-	<p>
-		The <Code small={true}>ToggleButton</Code> accepts all the shared props
-		and an optional <Code small={true}>isSelected</Code> prop.
-	</p>
-	<Section
-		title={{ content: 'isSelected', tag: 'boolean', small: true }}
-		style={{
-			paddingTop: 10,
-			paddingBottom: 0,
-			paddingLeft: 20,
-			paddingRight: 0,
-		}}
-	>
-		<p>Change the style to indicate the button is selected.</p>
+		<p>Provides a url for tags being used as a link.</p>
 	</Section>
 </Section>

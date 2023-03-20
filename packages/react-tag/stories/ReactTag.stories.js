@@ -25,10 +25,10 @@ const Tag = ({
 	href,
 	target,
 	color,
-	size,
-	uppercase,
-	style,
-	disabled,
+	isSmall,
+	isDisabled,
+	isUppercase,
+	design,
 }) => {
 	const boxStyles = {
 		padding: 20,
@@ -42,13 +42,13 @@ const Tag = ({
 				<div style={boxStyles}>
 					{'button' === example && (
 						<SuiTag
-							size={size}
+							isSmall={isSmall}
 							type="button"
 							color={color}
-							uppercase={uppercase}
-							style={style}
+							isUppercase={isUppercase}
+							design={design}
 							onClick={() => console.log('Button Click.')}
-							{...(disabled && { disabled: true })}
+							{...(disabled && { isDisabled: true })}
 						>
 							{label}
 						</SuiTag>
@@ -56,14 +56,14 @@ const Tag = ({
 
 					{'link' === example && (
 						<SuiTag
-							size={size}
+							isSmall={isSmall}
 							type="link"
 							href={href}
 							target={target}
 							color={color}
-							uppercase={uppercase}
-							style={style}
-							{...(disabled && { disabled: true })}
+							isUppercase={isUppercase}
+							design={design}
+							{...(isDisabled && { isDisabled: true })}
 						>
 							{label}
 						</SuiTag>
@@ -71,11 +71,11 @@ const Tag = ({
 
 					{'span' === example && (
 						<SuiTag
-							size={size}
+							isSmall={isSmall}
 							color={color}
-							uppercase={uppercase}
-							style={style}
-							{...(disabled && { disabled: true })}
+							isUppercase={isUppercase}
+							design={design}
+							{...(isDisabled && { isDisabled: true })}
 						>
 							{label}
 						</SuiTag>
@@ -93,10 +93,10 @@ Tag.args = {
 	href: '',
 	target: '_blank',
 	color: 'default',
-	size: '',
-	style: 'default',
-	uppercase: false,
-	disabled: false,
+	design: 'default',
+	isUppercase: false,
+	isSmall: false,
+	isDisabled: false,
 };
 
 // Set controls for story arguments.
@@ -145,19 +145,6 @@ Tag.argTypes = {
 			eq: 'link',
 		},
 	},
-	size: {
-		name: 'Size',
-		control: {
-			type: 'select',
-			options: {
-				'Size: Default': '',
-				'Size: Small': 'sm',
-			},
-		},
-		table: {
-			category: 'Modifiers',
-		},
-	},
 	color: {
 		name: 'Color',
 		control: {
@@ -177,27 +164,36 @@ Tag.argTypes = {
 			category: 'Modifiers',
 		},
 	},
-	style: {
-		name: 'Style',
+	design: {
+		name: 'Design',
 		control: {
 			type: 'select',
 			options: {
-				'Style: Default': 'default',
-				'Style: Truncated': 'truncated',
-				'Style: Multiline': 'multiline',
+				'Design: Default': 'default',
+				'Design: Truncated': 'truncated',
+				'Design: Multiline': 'multiline',
 			},
 		},
 		table: {
 			category: 'Modifiers',
 		},
 	},
-	uppercase: {
+	isUppercase: {
 		name: 'Uppercase',
 		table: {
 			category: 'Modifiers',
 		},
 	},
-	disabled: {
+	isSmall: {
+		name: 'Small',
+		table: {
+			category: 'Modifiers',
+		},
+		control: {
+			type: 'boolean',
+		},
+	},
+	isDisabled: {
 		name: 'Disabled',
 		table: {
 			category: 'States',

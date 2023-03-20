@@ -2,12 +2,13 @@ import React, { Fragment } from 'react';
 import { isBoolean, isEmpty, isUndefined } from '@wpmudev/react-utils';
 
 const Tag = ({
-	size,
+	isSmall = false,
 	type,
 	color,
-	uppercase,
-	style,
-	disabled,
+	isUppercase = false,
+	className,
+	design,
+	isDisabled = false,
 	href,
 	target,
 	children,
@@ -63,27 +64,31 @@ const Tag = ({
 			break;
 	}
 
-	switch (style) {
+	switch (design) {
 		case 'truncated':
-			tag.class += ' sui-tag--' + style;
+			tag.class += ' sui-tag--' + design;
 			tag.markup = <span>{children}</span>;
 			break;
 		case 'multiline':
-			tag.class += ' sui-tag--' + style;
+			tag.class += ' sui-tag--' + design;
 			break;
 		default:
 			break;
 	}
 
-	if (!isEmpty(size) && !isUndefined(size)) {
-		tag.class += ' sui-tag--' + size;
+	if (isBoolean(isSmall) && isSmall) {
+		tag.class += ' sui-tag--sm';
 	}
 
-	if (isBoolean(disabled) && disabled) {
+	if (!isEmpty(className) && !isUndefined(className)) {
+		tag.class += ' ' + className;
+	}
+
+	if (isBoolean(isDisabled) && isDisabled) {
 		tag.class += ' sui-tag--disabled';
 	}
 
-	if (isBoolean(uppercase) && uppercase) {
+	if (isBoolean(isUppercase) && isUppercase) {
 		tag.class += ' sui-tag--uppercase';
 	}
 
