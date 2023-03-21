@@ -1,5 +1,5 @@
 import React, { createElement, Fragment, useState } from "react";
-import { isUndefined, isEmpty } from "@wpmudev/react-utils";
+import { isUndefined, isEmpty, isFunction } from "@wpmudev/react-utils";
 
 // Import required component(s).
 import { Label } from "../elements/button-label";
@@ -19,6 +19,10 @@ const Button = ({
 	iconLead,
 	iconTrail,
 	children,
+	onMouseEnter = () => {},
+	onMouseLeave = () => {},
+	onFocus = () => {},
+	onBlur = () => {},
 	...props
 }) => {
 	const is = {};
@@ -119,10 +123,30 @@ const Button = ({
 			... ( is.link && { target: target || '_blank' }),
 			... ( is.label && { htmlFor: htmlFor }),
 			className: set.class,
-			onMouseEnter: () => set.hover(true),
-			onMouseLeave: () => set.hover(false),
-			onFocus: () => set.focus(true),
-			onBlur: () => set.focus(false),
+			onMouseEnter: ( e ) => {
+				set.hover(true);
+				if ( isFunction( onMouseEnter ) ) {
+					onMouseEnter( e );
+				}
+			},
+			onMouseLeave: ( e ) => {
+				set.hover(false);
+				if ( isFunction( onMouseLeave ) ) {
+					onMouseLeave( e );
+				}
+			},
+			onFocus: ( e ) => {
+				set.focus(true);
+				if ( isFunction( onFocus ) ) {
+					onFocus( e );
+				}
+			},
+			onBlur: ( e ) => {
+				set.focus(false);
+				if ( isFunction( onBlur ) ) {
+					onBlur( e );
+				}
+			},
 			... ( isDisabled && { disabled: isDisabled }),
 			...props
 		},
