@@ -1,37 +1,53 @@
 import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
-import { Button } from '../../../lib/react-button';
+import { Tag } from '../../../lib/react-tag';
 import dedent from 'dedent';
 
-export const DisabledButtonCode = dedent`
+export const DisabledTagCode = dedent`
 import React from 'react';\n
-import { Button } from '@wpmudev/sui-react';\n
+import { Tag } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Button disabled={true}>Disabled button</Button>;
+	return <Tag isDisabled={true}>Disabled tag</Tag>;
 }\n
 export default Example;
 `;
 
-export const LoadingButtonCode = dedent`
+export const UppercaseTagCode = dedent`
 import React from 'react';\n
-import { Button } from '@wpmudev/sui-react';\n
+import { Tag } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Button loading={true}>Loading button</Button>;
+	return <Tag isUppercase={true}>Uppercase tag</Tag>;
 }\n
 export default Example;
 `;
 
-<Section title="Disabled" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-	<p>Set the <Code small={true}>isDisabled</Code> prop to disable a button that is not usable.</p>
+<Section
+	title="Disabled"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isDisabled</Code> prop to disable a tag that
+		is not usable.
+	</p>
 	<Preview wrapper={true}>
-		<Button disabled={true}>Disabled button</Button>
+		<Tag isDisabled={true}>Disabled tag</Tag>
 	</Preview>
-	<Snippet language="js">{DisabledButtonCode}</Snippet>
+	<Snippet language="js">{DisabledTagCode}</Snippet>
 </Section>
 
-<Section title="Loading" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
-	<p>Set the <Code small={true}>isLoading</Code> prop to indicate the button is loading. The button text hides, and a spinner shows in its place.</p>
+<Section
+	title="Uppercase"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isUppercase</Code> prop to uppercase a tag
+		that is not usable.
+	</p>
 	<Preview wrapper={true}>
-		<Button loading={true}>Loading button</Button>
+		<Tag isUppercase={true}>Uppercase tag</Tag>
 	</Preview>
-	<Snippet language="js">{LoadingButtonCode}</Snippet>
+	<Snippet language="js">{UppercaseTagCode}</Snippet>
 </Section>

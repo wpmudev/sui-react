@@ -1,20 +1,27 @@
 import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
-import { Button } from '../../../lib/react-button';
+import { Tag } from '../../../lib/react-tag';
 import dedent from 'dedent';
 
-export const SmallButtonCode = dedent`
+export const SmallTagCode = dedent`
 import React from 'react';\n
-import { Button } from '@wpmudev/sui-react';\n
+import { Tag } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Button size="sm">Button</Button>;
+	return <Tag isSmall={true}>Tag</Tag>;
 }\n
 export default Example;
 `;
 
-<Section title="Small" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
-	<p>Set the <Code small={true}>isSmall</Code> prop to reduce the button width and height, fitting with the design context.</p>
+<Section
+	title="Small"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isSmall</Code> prop to reduce the tag width
+		and height, fitting with the design context.
+	</p>
 	<Preview wrapper={true}>
-		<Button size="sm">Button</Button>
+		<Tag isSmall={true}>Default tag</Tag>
 	</Preview>
-	<Snippet language="js">{SmallButtonCode}</Snippet>
+	<Snippet language="js">{SmallTagCode}</Snippet>
 </Section>

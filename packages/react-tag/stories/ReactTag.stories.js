@@ -48,7 +48,7 @@ const Tag = ({
 							isUppercase={isUppercase}
 							design={design}
 							onClick={() => console.log('Button Click.')}
-							{...(disabled && { isDisabled: true })}
+							isDisabled={isDisabled}
 						>
 							{label}
 						</SuiTag>
@@ -63,7 +63,7 @@ const Tag = ({
 							color={color}
 							isUppercase={isUppercase}
 							design={design}
-							{...(isDisabled && { isDisabled: true })}
+							isDisabled={isDisabled}
 						>
 							{label}
 						</SuiTag>
@@ -75,7 +75,7 @@ const Tag = ({
 							color={color}
 							isUppercase={isUppercase}
 							design={design}
-							{...(isDisabled && { isDisabled: true })}
+							isDisabled={isDisabled}
 						>
 							{label}
 						</SuiTag>

@@ -1,0 +1,54 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
+import { Tag } from '../../../lib/react-tag';
+import dedent from 'dedent';
+
+export const MutilineTagCode = dedent`
+import React from 'react';\n
+import { Tag } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Tag design="multiline">This is a label.</Tag>;
+}\n
+export default Example;
+`;
+
+export const TruncatedTagCode = dedent`
+import React from 'react';\n
+import { Tag } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Tag design="truncated">This is a label.</Tag>;
+}\n
+export default Example;
+`;
+
+<Section
+	title="Multiline"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Use <Code small={true}>primary</Code> button to call attention to
+		action. Combined with <Code small={true}>blue</Code> color prop
+		highlights the strongest call to action on a page.
+	</p>
+	<Preview wrapper={true}>
+		<Tag design="multiline">This is a label.</Tag>
+	</Preview>
+	<Snippet language="js">{MutilineTagCode}</Snippet>
+</Section>
+
+<Section
+	title="Truncated"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		A subtle outlined button that handles secondary actions, such as
+		"Cancel."
+	</p>
+	<Preview wrapper={true}>
+		<Tag design="truncated">This is a label.</Tag>
+	</Preview>
+	<Snippet language="js">{TruncatedTagCode}</Snippet>
+</Section>
