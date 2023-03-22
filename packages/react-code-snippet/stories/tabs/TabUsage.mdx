@@ -1,0 +1,36 @@
+import { Section, Row, Col, List } from '@wpmudev/storybook';
+
+import CodeSnippetAnatomy from '../images/anatomy.png';
+
+<Section contained={true} border={true} style={{ paddingTop: 0 }}>
+	<p>
+		This element is meant to be used to display code. By default, it will
+		place a copy button on top right of the container, that way users can
+		easily copy snippet content to clipboard.
+	</p>
+</Section>
+
+<Section title="Anatomy" contained={true} border={true}>
+	<img
+		src={CodeSnippetAnatomy}
+		alt="Code snippet anatomy"
+		style={{ marginBottom: 20 }}
+	/>
+	<List>
+		<span
+			label={
+				<>
+					<strong>Snippet Text:</strong> Line or a block of codes.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Copy button:</strong> A copy button to copy the
+					code.
+				</>
+			}
+		/>
+	</List>
+</Section>

@@ -1,42 +1,59 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "@wpmudev/react-button";
-import Prism from "prismjs";
+import React, { useState, useEffect } from 'react';
+import { Tooltip } from '../../react-tooltip/lib/react-tooltip';
+import Prism from 'prismjs';
+import dedent from 'dedent';
+import { isUndefined, isEmpty } from '@wpmudev/react-utils';
 
-const CodeSnippet = ({ type, copy, code }) => {
+const CodeSnippet = ({
+	language = 'markup',
+	copy = true,
+	className,
+	children,
+}) => {
 	const [hasCopied, setHasCopied] = useState(false);
 
-	const copyCode = ( text ) => {
-		// copy text to clipboard
-		navigator.clipboard.writeText( text );
+	// copy text to clipboard
+	const copyCode = (text) => {
+		navigator.clipboard.writeText(text);
 		setHasCopied(true);
+	};
+
+	const code =
+		!isUndefined(children) && !isEmpty(children) ? dedent(children) : '';
+
+	let classes = 'sui-code-snippet';
+
+	if (!isUndefined(className) && !isEmpty(className)) {
+		classes += ' ' + className;
 	}
 
 	// highlight the code
 	useEffect(() => {
 		Prism.highlightAll();
-	}, [code, type]);
+	}, [language]);
 
-	return (
-		<div className="sui-code-snippet">
+	return code ? (
+		<div className={classes}>
 			<pre>
-				<code className={`language-${type}`}>
-					{ code }
-				</code>
+				<code className={`language-${language}`}>{code}</code>
 			</pre>
 			{copy && (
-				<Button
+				<Tooltip
+					label="Copy"
 					theme="secondary"
 					color="black"
-					aria-label={hasCopied ? "Copied!" : ""}
-					data-tooltip={hasCopied ? "Copied!" : ""}
+					position="top"
+					aria-label={hasCopied ? 'Copied' : ''}
 					onMouseLeave={() => setHasCopied(false)}
-					onClick={ () => copyCode(code) }
-					data-clipboard-target=""
+					onClick={() => copyCode(code)}
+					customWidth="65"
 				>
-					Copy
-				</Button>
+					{hasCopied ? 'Copied' : ''}
+				</Tooltip>
 			)}
 		</div>
+	) : (
+		''
 	);
 };
 

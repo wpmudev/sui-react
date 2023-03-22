@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 // Import required component.
 import { CodeSnippet as SuiCodeSnippet } from '../lib/react-code-snippet';
@@ -19,12 +19,7 @@ export default {
 };
 
 // Build "Tag" story.
-const CodeSnippet = ({ 
-	type,
-	copy,
-	code,
-	color,
-}) => {
+const CodeSnippet = ({ language, copy, color }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -35,7 +30,12 @@ const CodeSnippet = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiCodeSnippet type={type} copy={copy} code={code} />
+					<SuiCodeSnippet language={language} copy={copy}>
+						{`<!-- Code Starts -->
+<div class=”className”>
+	<a href=”#”> Link </a>
+</div>`}
+					</SuiCodeSnippet>
 				</div>
 			</div>
 		</div>
@@ -44,37 +44,29 @@ const CodeSnippet = ({
 
 // Set story arguments.
 CodeSnippet.args = {
-	type: 'markup',
+	language: 'markup',
 	copy: true,
-	code: 
-`<!-- Code Starts -->
-<div class=”className”>
-	<a href=”#”> Link </a>
-</div>`
 };
 
 // Set controls for story arguments.
 CodeSnippet.argTypes = {
-	type: {
-		name: 'Code Type',
+	language: {
+		name: 'Code Language',
 		control: {
 			type: 'select',
 			options: {
-				'Type: HTML': 'markup',
-				'Type: Javascript': 'javascript',
-				'Type: CSS': 'css'
-			}
-		}
+				'Language: HTML': 'markup',
+				'Language: Javascript': 'javascript',
+				'Language: CSS': 'css',
+			},
+		},
 	},
 	copy: {
 		name: 'Copy Button',
 		control: {
-			type: 'boolean'
-		}
+			type: 'boolean',
+		},
 	},
-	code: {
-		name: 'Code'
-	}
 };
 
 // Publish required stories.
