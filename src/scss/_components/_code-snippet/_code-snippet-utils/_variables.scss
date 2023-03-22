@@ -1,31 +1,37 @@
 @use "../../../_utils/tokens" as *;
 
 $sui-code-snippet-size: (
-	height: 75px
+	height: 75px,
 );
 $sui-code-snippet-border: (
 	width: $code-snippet-border-width,
 	radius: $code-snippet-border-radius,
-	color: $code-snippet-border-color
+	color: $code-snippet-border-color,
 );
 $sui-code-snippet-color: (
 	dark-grey: $code-snippet-color-dark-grey-color,
 	grey: $code-snippet-color-grey-color,
 	blue: $code-snippet-color-blue-color,
 	dark-blue: $code-snippet-color-dark-blue-color,
-	red: $code-snippet-color-red-color
+	red: $code-snippet-color-red-color,
 );
 $sui-code-snippet-background: (
-	default: $code-snippet-color-default-background
+	default: $code-snippet-color-default-background,
 );
 $sui-code-snippet-spacing: (
 	default: $code-snippet-spacing-default,
-	right: $code-snippet-spacing-right
+	right: $code-snippet-spacing-right,
 );
 $sui-code-snippet-font: (
 	family: $code-snippet-font-family,
-	size: $code-snippet-font-size,
-	height: $code-snippet-font-height,
+	size: (
+		xs: $code-snippet-font-size-xs,
+		sm: $code-snippet-font-size-sm,
+	),
+	height: (
+		xs: $code-snippet-font-height-xs,
+		sm: $code-snippet-font-height-sm,
+	),
 	weight: $code-snippet-font-weight,
-	spacing: $code-snippet-font-spacing
+	spacing: $code-snippet-font-spacing,
 );

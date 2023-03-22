@@ -16,7 +16,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-            code {
+			code {
 				position: relative;
 				direction: ltr;
 				text-align: left;
@@ -34,11 +34,11 @@
 				padding: 0;
 				margin: 0;
 				z-index: 1;
-				@if map.has-key($sui-code-snippet-font, size) {
-					font-size: map.get($sui-code-snippet-font, size);
+				@if map.has-key($sui-code-snippet-font, size, xs) {
+					font-size: map.get($sui-code-snippet-font, size, xs);
 				}
-				@if map.has-key($sui-code-snippet-font, height) {
-					line-height: map.get($sui-code-snippet-font, height);
+				@if map.has-key($sui-code-snippet-font, height, sm) {
+					line-height: map.get($sui-code-snippet-font, height, sm);
 				}
 				@if map.has-key($sui-code-snippet-font, weight) {
 					font-weight: map.get($sui-code-snippet-font, weight);

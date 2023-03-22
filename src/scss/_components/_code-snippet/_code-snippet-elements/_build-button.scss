@@ -16,11 +16,26 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-            .sui-button {
-                position: absolute;
-                top: 16px;
-                right: 16px;
-            }
+			.sui-tooltip {
+				position: absolute;
+				top: 16px;
+				right: 16px;
+
+				.sui-button {
+					margin: 0;
+					min-width: auto;
+					@if map.has-key($sui-code-snippet-font, size, sm) {
+						font-size: map.get($sui-code-snippet-font, size, sm);
+					}
+					@if map.has-key($sui-code-snippet-font, height, xs) {
+						line-height: map.get(
+							$sui-code-snippet-font,
+							height,
+							xs
+						);
+					}
+				}
+			}
 		}
 	}
 }
