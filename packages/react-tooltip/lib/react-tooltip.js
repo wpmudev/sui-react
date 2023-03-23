@@ -1,34 +1,63 @@
-import React, { Fragment, useState, useEffect, useCallback } from 'react';
-import { isEmpty, isUndefined } from '@wpmudev/react-utils';
+import React, {
+	Fragment,
+	useState,
+	useEffect,
+	useCallback,
+	createElement,
+} from 'react';
 import { Button as SuiButton } from '@wpmudev/react-button';
+import { isEmpty, isUndefined, isFunction } from '@wpmudev/react-utils';
 
 // Build "Tooltip" component.
-const Tooltip = ({ href, target, label, tooltipText, position, icon, customWidth, customMobileWidth, onClick, children, theme, color, ...props  }) => {
-	// Tooltip open close state.
-	const [isOpen, setIsOpen] = useState(false);
-	
-	// Set tooltip props prefix.
-	const tooltip = {};
-	
+const Tooltip = ({
+	label,
+	type = 'button',
+	position,
+	customWidth,
+	customMobileWidth,
+	children,
+	onClick = () => {},
+	onMouseEnter = () => {},
+	onMouseLeave = () => {},
+	onFocus = () => {},
+	onBlur = () => {},
+	...props
+}) => {
+	const is = {};
+	const set = {};
+
+	// Define tooltip state.
+	[is.open, is.setOpen] = useState(false);
+
+	// Parameter(s) validation.
+	is.customWidth = !isUndefined(customWidth) && !isEmpty(customWidth);
+	is.customMobileWidth =
+		!isEmpty(customMobileWidth) && !isUndefined(customMobileWidth);
+	is.children = !isUndefined(children) && !isEmpty(children);
+
 	// Renders tooltip class name.
-	tooltip.class = 'sui-tooltip';
-	
+	set.class = 'sui-tooltip';
+
 	// Add show hide class based on tooltip open
-	isOpen && ( tooltip.class += ' sui-tooltip--show');
+	is.open && (set.class += ' sui-tooltip--show');
 
 	// tooltip custom width
-	tooltip.tooltipWidth = {};
+	set.tooltipWidth = {};
+
+	// tooltip type button or text
+	set.tag = 'button' === type ? SuiButton : 'span';
 
 	// Custom tooltip width
-	if ( !isEmpty(customWidth) && !isUndefined(customWidth) ) {
-		tooltip.class += ' sui-tooltip--custom-width';
-		tooltip.tooltipWidth['--tooltip-width'] = `${customWidth}px`;
+	if (is.customWidth) {
+		set.class += ' sui-tooltip--custom-width';
+		set.tooltipWidth['--tooltip-width'] = `${customWidth}px`;
+		set.tooltipWidth['--tooltip-width-mobile'] = `${customWidth}px`;
 	}
 
 	// Custom tooltip width mobile
-	if ( !isEmpty(customMobileWidth) && !isUndefined(customMobileWidth) ) {
-		tooltip.class += ' sui-tooltip--custom-width';
-		tooltip.tooltipWidth['--tooltip-width-mobile'] = `${customMobileWidth}px`;
+	if (is.customMobileWidth) {
+		set.class += ' sui-tooltip--custom-width';
+		set.tooltipWidth['--tooltip-width-mobile'] = `${customMobileWidth}px`;
 	}
 
 	// switch position
@@ -45,20 +74,21 @@ const Tooltip = ({ href, target, label, tooltipText, position, icon, customWidth
 		case 'right':
 		case 'right-top':
 		case 'right-bottom':
-			tooltip.class += ' sui-tooltip--' + position;
+			set.class += ' sui-tooltip--' + position;
 			break;
 		default:
+			// do nothing
 			break;
 	}
 
 	// when escape key is pressed close the tooltip
 	const escFunction = useCallback(
 		(event) => {
-			if (event.keyCode === 27 && isOpen) {
-				setIsOpen(false);
+			if (event.keyCode === 27 && is.open) {
+				is.setOpen(false);
 			}
 		},
-		[isOpen]
+		[is.open]
 	);
 
 	useEffect(() => {
@@ -69,51 +99,70 @@ const Tooltip = ({ href, target, label, tooltipText, position, icon, customWidth
 		};
 	}, [escFunction]);
 
-	return (
+	// Define tooltip markup.
+	set.markup = (
 		<Fragment>
-			<div className={ tooltip.class }>
-				{(!isUndefined(theme) && !isEmpty(theme)) ? (
-					<SuiButton
-						href={ href }
-						target={ target }
-						theme={ theme }
-						color={ color }
-						icon={icon}
-						onClick={ onClick }
-						onFocus={() => setIsOpen(true)}
-						onBlur={() => setIsOpen(false)}
-						onMouseEnter={() => setIsOpen(true)}
-						onMouseLeave={() => setIsOpen(false)}
-					>
-						{ label }
-					</SuiButton>
-				)
-				: (
-					<span
-						onFocus={() => setIsOpen(true)}
-						onBlur={() => setIsOpen(false)}
-						onMouseEnter={() => setIsOpen(true)}
-						onMouseLeave={() => setIsOpen(false)}
-					>
-						{ label }
-					</span>
+			{createElement(
+				set.tag,
+				{
+					onClick: (e) => {
+						if (isFunction(onClick)) {
+							onClick(e);
+						}
+					},
+					onFocus: (e) => {
+						is.setOpen(true);
+						if (isFunction(onFocus)) {
+							onFocus(e);
+						}
+					},
+					onBlur: (e) => {
+						is.setOpen(false);
+						if (isFunction(onBlur)) {
+							onBlur(e);
+						}
+					},
+					onMouseEnter: (e) => {
+						is.setOpen(true);
+						if (isFunction(onMouseEnter)) {
+							onMouseEnter(e);
+						}
+					},
+					onMouseLeave: (e) => {
+						is.setOpen(false);
+						if (isFunction(onMouseLeave)) {
+							onMouseLeave(e);
+						}
+					},
+					...props,
+				},
+				label
+			)}
+			{!isUndefined(is.children) &&
+				!isEmpty(is.children) &&
+				createElement(
+					'span',
+					{
+						className: 'sui-tooltip__content',
+						role: 'tooltip',
+						'aria-hidden': !is.open,
+						'aria-live': 'polite',
+						'tab-index': is.open ? '0' : '-1',
+						style: set.tooltipWidth,
+					},
+					children
 				)}
-				{ (!isUndefined(children) && !isEmpty(children)) && (
-					<span
-						className="sui-tooltip__content" 
-						role="tooltip"
-						aria-hidden={ !isOpen }
-						aria-live="polite"
-						tab-index={ isOpen ? '0' : '-1' }
-						style={ tooltip.tooltipWidth }
-					>
-						{children}
-					</span>
-				)}
-			</div>
 		</Fragment>
+	);
+
+	return createElement(
+		'div',
+		{
+			className: set.class,
+		},
+		set.markup
 	);
 };
 
 // Publish required component.
-export { Tooltip }
+export { Tooltip };

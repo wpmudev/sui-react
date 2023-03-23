@@ -1,5 +1,4 @@
-import React from "react";
-import { isUndefined, isEmpty } from "@wpmudev/react-utils";
+import React from 'react';
 
 // Import required component.
 import { Tooltip as SuiTooltip } from '../lib/react-tooltip';
@@ -10,7 +9,7 @@ import docs from './ReactTooltip.mdx';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Tooltip',
-	component: SuiTooltip,
+	component: Tooltip,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -23,15 +22,14 @@ export default {
 const Tooltip = ({
 	example,
 	label,
-	theme,
+	href,
+	target,
+	appearance,
 	tooltipText,
 	position,
 	customWidth,
 	customMobileWidth,
-	iconMode,
-	iconString,
-	icon,
-	color
+	color,
 }) => {
 	const boxStyles = {
 		padding: 20,
@@ -41,22 +39,16 @@ const Tooltip = ({
 
 	const props = {};
 
-	props.theme = theme;
-	props.icon = iconString;
-
-	if ( 'object' === iconMode ) {
-		props.icon = icon;
-	}
+	props.appearance = appearance;
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{ 'button' === example && (
+					{'button' === example && (
 						<SuiTooltip
-							{ ... ( 'none' !== iconMode && { icon: props.icon } ) }
 							label={label}
-							theme="primary"
+							appearance="primary"
 							color="black"
 							position={position}
 							customWidth={customWidth}
@@ -67,8 +59,9 @@ const Tooltip = ({
 						</SuiTooltip>
 					)}
 
-					{ 'text' === example && (
+					{'text' === example && (
 						<SuiTooltip
+							type="text"
 							label={label}
 							position={position}
 							customWidth={customWidth}
@@ -78,13 +71,12 @@ const Tooltip = ({
 						</SuiTooltip>
 					)}
 
-					{ 'link' === example && (
+					{'link' === example && (
 						<SuiTooltip
-							href="#"
-							target="_blank"
-							{ ... ( 'none' !== iconMode && { icon: props.icon } ) }
+							href={href}
+							target={target}
 							label={label}
-							theme="primary"
+							appearance="primary"
 							color="black"
 							position={position}
 							customWidth={customWidth}
@@ -102,50 +94,57 @@ const Tooltip = ({
 // Set story arguments.
 Tooltip.args = {
 	example: 'button',
+	href: '',
+	target: '_blank',
 	label: 'Button',
 	tooltipText: 'Tooltip label',
-	iconMode: 'none',
-	iconString: 'add',
-	icon: {
-		name: 'add',
-		size: 'md',
-		position: 'lead'
-	},
 	position: 'top',
 	customWidth: '',
-	customMobileWidth: ''
+	customMobileWidth: '',
 };
 
 // Set controls for story arguments.
 Tooltip.argTypes = {
 	example: {
 		name: 'Example',
-		control : {
+		control: {
 			type: 'select',
 			options: {
 				'Example: Link': 'link',
 				'Example: Button': 'button',
-				'Example: Text': 'text'
-			}
-		}
+				'Example: Text': 'text',
+			},
+		},
 	},
 	label: {
 		name: 'Label',
-		table: {
-			category: 'Elements'
-		}
+	},
+	href: {
+		name: 'Link',
+		control: {
+			type: 'text',
+		},
+		if: {
+			arg: 'example',
+			eq: 'link',
+		},
+	},
+	target: {
+		name: 'Target',
+		control: {
+			type: 'select',
+			options: ['_self', '_blank'],
+		},
+		if: {
+			arg: 'example',
+			eq: 'link',
+		},
 	},
 	tooltipText: {
 		name: 'Tooltip Text',
-		table: {
-			category: 'Elements'
-		}
 	},
 	position: {
 		name: 'Position',
-		table: {
-			category: 'Modifiers'
-		},
 		control: {
 			type: 'select',
 			options: {
@@ -160,64 +159,22 @@ Tooltip.argTypes = {
 				'Left Bottom': 'left-bottom',
 				Right: 'right',
 				'Right Top': 'right-top',
-				'Right Bottom': 'right-bottom'
+				'Right Bottom': 'right-bottom',
 			},
 		},
 	},
-	iconMode: {
-		name: 'Icon Mode',
-		control: {
-			type: 'inline-radio',
-			options: {
-				None: 'none',
-				String: 'string',
-				Object: 'object'
-			}
-		},
-		table: {
-			category: 'Modifiers'
-		},
-	},
-	iconString: {
-		name: 'Icon String',
-		control: 'text',
-		table: {
-			category: 'Modifiers'
-		},
-		if: {
-			arg: 'iconMode',
-			eq: 'string'
-		}
-	},
-	icon: {
-		name: 'Icon Object',
-		control: 'object',
-		table: {
-			category: 'Modifiers'
-		},
-		if: {
-			arg: 'iconMode',
-			eq: 'object'
-		}
-	},
 	customWidth: {
 		name: 'Custom Width',
-		table: {
-			category: 'Modifiers'
-		},
 		control: {
 			type: 'number',
 		},
 	},
 	customMobileWidth: {
 		name: 'Custom Width (Mobile)',
-		table: {
-			category: 'Modifiers'
-		},
 		control: {
 			type: 'number',
 		},
-	}
+	},
 };
 
 // Publish required stories.
