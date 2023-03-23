@@ -25,7 +25,6 @@ const Tooltip = ({
 	href,
 	target,
 	appearance,
-	tooltipText,
 	position,
 	customWidth,
 	customMobileWidth,
@@ -37,9 +36,17 @@ const Tooltip = ({
 		background: color !== 'white' ? '#fff' : '#333',
 	};
 
+	const set = {};
+
+	set.content = 'Tooltip text';
+
 	const props = {};
 
 	props.appearance = appearance;
+
+	if ('link' === example) {
+		set.content = 'Tooltip link';
+	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
@@ -55,7 +62,7 @@ const Tooltip = ({
 							customMobileWidth={customMobileWidth}
 							onClick={() => console.log('Button Clicked.')}
 						>
-							{tooltipText}
+							{set.content}
 						</SuiTooltip>
 					)}
 
@@ -67,7 +74,7 @@ const Tooltip = ({
 							customWidth={customWidth}
 							customMobileWidth={customMobileWidth}
 						>
-							{tooltipText}
+							{set.content}
 						</SuiTooltip>
 					)}
 
@@ -82,7 +89,7 @@ const Tooltip = ({
 							customWidth={customWidth}
 							customMobileWidth={customMobileWidth}
 						>
-							{tooltipText}
+							{set.content}
 						</SuiTooltip>
 					)}
 				</div>
@@ -97,7 +104,6 @@ Tooltip.args = {
 	href: '',
 	target: '_blank',
 	label: 'Button',
-	tooltipText: 'Tooltip label',
 	position: 'top',
 	customWidth: '',
 	customMobileWidth: '',
@@ -139,9 +145,6 @@ Tooltip.argTypes = {
 			arg: 'example',
 			eq: 'link',
 		},
-	},
-	tooltipText: {
-		name: 'Tooltip Text',
 	},
 	position: {
 		name: 'Position',

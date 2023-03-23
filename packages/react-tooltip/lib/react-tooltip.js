@@ -12,7 +12,8 @@ import { isEmpty, isUndefined, isFunction } from '@wpmudev/react-utils';
 const Tooltip = ({
 	label,
 	type = 'button',
-	position,
+	className,
+	position = 'top',
 	customWidth,
 	customMobileWidth,
 	children,
@@ -34,6 +35,7 @@ const Tooltip = ({
 	is.customMobileWidth =
 		!isEmpty(customMobileWidth) && !isUndefined(customMobileWidth);
 	is.children = !isUndefined(children) && !isEmpty(children);
+	is.className = !isUndefined(className) && !isEmpty(className);
 
 	// Renders tooltip class name.
 	set.class = 'sui-tooltip';
@@ -60,26 +62,13 @@ const Tooltip = ({
 		set.tooltipWidth['--tooltip-width-mobile'] = `${customMobileWidth}px`;
 	}
 
-	// switch position
-	switch (position) {
-		case 'top':
-		case 'top-left':
-		case 'top-right':
-		case 'bottom':
-		case 'bottom-left':
-		case 'bottom-right':
-		case 'left':
-		case 'left-top':
-		case 'left-bottom':
-		case 'right':
-		case 'right-top':
-		case 'right-bottom':
-			set.class += ' sui-tooltip--' + position;
-			break;
-		default:
-			// do nothing
-			break;
+	// Add classes in tooltip component.
+	if (is.className) {
+		set.class += ' ' + className;
 	}
+
+	// set position
+	set.class += ' sui-tooltip--' + position;
 
 	// when escape key is pressed close the tooltip
 	const escFunction = useCallback(
