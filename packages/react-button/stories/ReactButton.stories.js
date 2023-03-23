@@ -72,12 +72,6 @@ const Button = ({ example, ...props }) => {
 
 					{ 'label-icon' !== example && (
 						<Fragment>
-							{ 'button-icon' === example && (
-								<Fragment>
-									<SuiIconButton icon="save" label="Save Settings" onClick={ set.function } { ...props } />
-									<SuiIconButton icon="save" label="Save Settings" loading={ true } { ...props } />
-								</Fragment>
-							)}
 							{ 'button-icon' !== example && (
 								<Fragment>
 									{ 'button-load' === example && (
