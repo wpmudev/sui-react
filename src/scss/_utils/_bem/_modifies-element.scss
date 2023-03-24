@@ -1,0 +1,46 @@
+@use "./defaults" as *;
+
+// ----------------------------------------------------------------------
+// Element modifier
+// ----------------------------------------------------------------------
+
+/// Scopes the @content ruleset to an element of the block being modified
+/// @private
+/// @param {String | Arglist} $modified-elements - List of elements that should be modified
+/// @returns The final selector for the element(s) modified by the block modifier
+@function to-modifies-element($modified-elements...) {
+
+    $inside-check: _should-be-called-within('block', 'modifier', 'state', 'theme');
+    $outside-check: _should-not-be-called-within('element');
+
+    // Return false in case error throwing is disabled
+    @if $inside-check == false or $outside-check == false {
+        @return false;
+    }
+
+    $selectors: ();
+
+    @each $element in $modified-elements {
+        $element: map-get(map-get($_bem-current-context, 'block'), 'selector') + $bem-element-separator + $element;
+        $selectors: append($selectors, $element, 'comma');
+    }
+
+    $s: &; // Workaround for libsass
+    $block: selector-append($s...);
+
+    $selector: selector-nest($block, $selectors);
+
+    $set-current: set-current-context('modifies-element', $modified-elements, $selector);
+
+    @return $selector;
+}
+
+/// Scopes the @content ruleset to an element of the block being modified
+/// @param {String | Arglist} $modified-elements - Name of the element(s) that should be modified
+@mixin modifies-element($modified-elements...) {
+    @at-root #{to-modifies-element($modified-elements...)} {
+        @content;
+    }
+
+    $unset-current: unset-current-context('modifies-element');
+}

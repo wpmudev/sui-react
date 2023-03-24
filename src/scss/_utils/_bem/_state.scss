@@ -1,0 +1,27 @@
+@use "./defaults" as *;
+
+// -----------------------------------------------------------------------------
+// State constructor
+// -----------------------------------------------------------------------------
+@function _state($states...) {
+    $selector: ();
+    $namespace: $bem-namespace + '-';
+
+    @each $state in $states {
+		$ss: &; // Workaround for libsass
+		$s: selector-append($ss, '.#{$namespace}#{$state}');
+		$selector: append($selector, $s, 'comma');
+    }
+
+    $set-current: set-current-context('state', $states, $selector);
+
+    @return $selector;
+}
+
+@mixin state($states...) {
+    @at-root #{_state($states...)} {
+		@content;
+    }
+
+    $unset-state: unset-current-context('state');
+}

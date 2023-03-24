@@ -1,0 +1,19 @@
+// -----------------------------------------------------------------------------
+// Defaults
+// -----------------------------------------------------------------------------
+
+/// Set default namespace
+/// @public
+$bem-namespace: 'sui-' !default;
+
+/// Bem style element separator
+/// @public
+$bem-element-separator: '__' !default;
+
+/// Bem style modifier separator
+/// @public
+$bem-modifier-separator: '--' !default;
+
+/// Throw errors
+/// @public
+$bem-throw-errors: true !default;

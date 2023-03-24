@@ -1,0 +1,41 @@
+@use "./defaults" as *;
+
+// -----------------------------------------------------------------------------
+// Block constructor
+// -----------------------------------------------------------------------------
+
+/// Initializes a new block object
+/// @private
+/// @param {String} $block  - Name for the new block
+/// @returns The final selector for the new block object
+@function _block($name) {
+
+    // Log new block
+    $new-block: _bem-log-block($name);
+
+    // Error check
+    $outside-check: _should-not-be-called-within('scope', 'block');
+
+    // Return false in case error throwing is disabled
+    @if $outside-check == false {
+        @return false;
+    }
+
+    $selector: '.' + $bem-namespace + $name;
+    $set-current: set-current-context('block', $name, $selector);
+
+    @return $selector;
+}
+
+/// Creates a block object with the given type
+/// @param {String} $block  - Name for the new block
+@mixin block($name) {
+
+    // Write block selector
+    @at-root #{_block($name)} {
+        @content;
+    }
+
+    // Clear $_bem-current-context block after creation
+    $unset-current: unset-current-context('block');
+}
