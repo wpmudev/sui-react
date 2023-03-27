@@ -1,4 +1,4 @@
-# `@wpmudev/react-button`
+# `@wpmudev/react-input`
 
 > TODO: description
 
