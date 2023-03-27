@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { isUndefined, isEmpty } from '@wpmudev/react-utils';
+import React from 'react';
 
 // Import required component.
 import { Input as SuiInput } from '../lib/react-input';
@@ -10,7 +9,7 @@ import docs from './ReactInput.mdx';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Input',
-	component: SuiInput,
+	component: Input,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -26,9 +25,8 @@ const Input = ({
 	description,
 	color,
 	size,
-	iconMode,
-	iconString,
-	icon,
+	iconLead,
+	iconTrail,
 	disabled,
 }) => {
 	const boxStyles = {
@@ -36,15 +34,6 @@ const Input = ({
 		borderRadius: 4,
 		background: color !== 'white' ? '#fff' : '#333',
 	};
-
-	const props = {};
-
-	props.color = color;
-	props.icon = iconString;
-
-	if ('object' === iconMode) {
-		props.icon = icon;
-	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
@@ -54,14 +43,15 @@ const Input = ({
 						<SuiInput
 							id="input-default"
 							label={label}
-							value="truess"
+							value="true"
 							labelId="label-id"
 							placeholder="Placeholder"
 							description={description}
 							descriptionId="desc-id"
 							size={size}
 							disabled={disabled}
-							{...('none' !== iconMode && { icon: props.icon })}
+							iconLead={iconLead}
+							iconTrail={iconTrail}
 						/>
 					)}
 
@@ -77,7 +67,8 @@ const Input = ({
 							errorId="error-id"
 							size={size}
 							disabled={disabled}
-							{...('none' !== iconMode && { icon: props.icon })}
+							iconLead={iconLead}
+							iconTrail={iconTrail}
 						/>
 					)}
 
@@ -93,7 +84,8 @@ const Input = ({
 							size={size}
 							disabled={disabled}
 							value="Ready only"
-							{...('none' !== iconMode && { icon: props.icon })}
+							iconLead={iconLead}
+							iconTrail={iconTrail}
 						/>
 					)}
 				</div>
@@ -109,12 +101,8 @@ Input.args = {
 	description: 'Help text',
 	size: 'lg',
 	iconMode: 'none',
-	iconString: 'add',
-	icon: {
-		name: 'add',
-		size: 'md',
-		position: 'lead',
-	},
+	iconLead: 'user',
+	iconTrail: 'user',
 	disabled: false,
 };
 
@@ -162,34 +150,34 @@ Input.argTypes = {
 			type: 'inline-radio',
 			options: {
 				None: 'none',
-				String: 'string',
-				Object: 'object',
+				Lead: 'icon-lead',
+				Trail: 'icon-trail',
 			},
 		},
 		table: {
 			category: 'Elements',
 		},
 	},
-	iconString: {
-		name: 'Icon String',
+	iconLead: {
+		name: 'Icon Lead',
 		control: 'text',
 		table: {
 			category: 'Elements',
 		},
 		if: {
 			arg: 'iconMode',
-			eq: 'string',
+			eq: 'icon-lead',
 		},
 	},
-	icon: {
-		name: 'Icon Object',
-		control: 'object',
+	iconTrail: {
+		name: 'Icon Trail',
+		control: 'text',
 		table: {
 			category: 'Elements',
 		},
 		if: {
 			arg: 'iconMode',
-			eq: 'object',
+			eq: 'icon-trail',
 		},
 	},
 	disabled: {

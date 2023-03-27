@@ -1,184 +1,198 @@
-import React, { Fragment, useState } from 'react';
+import React, { createElement, Fragment, useState } from 'react';
 import {
-	isBoolean,
 	isEmpty,
-	isObject,
 	isUndefined,
+	isFunction,
 } from '@wpmudev/react-utils';
-
-const Icon = ({ icon }) => {
-	const iconClass = 'suicons suicons--md suicons--' + icon;
-
-	return (
-		<Fragment>
-			<i className={iconClass} aria-hidden="true" />
-		</Fragment>
-	);
-};
+import { Icon } from './elements/input-icon';
 
 // Build "Input" component.
-const Input = ({ label, description, ...props }) => {
-	const {
-		type,
-		id,
-		labelId,
-		placeholder,
-		descriptionId,
-		errorMessage,
-		errorId,
-		icon,
-		size,
-		disabled,
-		value = '',
-		...inputprops
-	} = props;
+const Input = ({
+	label,
+	description,
+	type = 'text',
+	id,
+	labelId,
+	descriptionId,
+	errorMessage,
+	errorId,
+	iconLead,
+	iconTrail,
+	size,
+	isDisabled = false,
+	value = '',
+	onChange = () => {},
+	...props
+}) => {
+	const is = {};
+	const set = {};
 
-	const [inputValue, setInputValue] = useState(
-		!isUndefined(value) ? value : ''
-	);
+	// Define tooltip states.
+	[set.inputValue, set.setInputValue] = useState(value);
 
-	const handleInputChange = (event) => {
-		const inputValue = event.target.value;
-		setInputValue(inputValue);
-	};
+	// Parameter(s) validation.
+	is.label = !isUndefined(label) && !isEmpty(label) ? true : false;
+	is.description =
+		!isUndefined(description) && !isEmpty(description) ? true : false;
+	is.id = !isUndefined(id) && !isEmpty(id) ? true : false;
+	is.labelId = !isUndefined(labelId) && !isEmpty(labelId) ? true : false;
+	is.descriptionId =
+		!isUndefined(descriptionId) && !isEmpty(descriptionId) ? true : false;
+	is.error =
+		!isUndefined(errorMessage) && !isEmpty(errorMessage) ? true : false;
+	is.errorId = !isUndefined(errorId) && !isEmpty(errorId) ? true : false;
+	is.lead = !isUndefined(iconLead) && !isEmpty(iconLead) ? true : false;
+	is.trail = !isUndefined(iconTrail) && !isEmpty(iconTrail) ? true : false;
+	is.size = !isUndefined(size) && !isEmpty(size);
+	is.value = !isEmpty(set.inputValue) ? true : false;
 
-	const input = {};
+	// set base values.
+	set.class = 'sui-input';
+	set.type = type;
 
-	input.class = 'sui-input';
+	// set input id.
+	if (is.id) {
+		set.id = id;
+	}
 
-	input.label = !isUndefined(label) && !isEmpty(label) ? label : '';
-	input.description =
-		!isUndefined(description) && !isEmpty(description) ? description : '';
+	// set input aria-labelledby.
+	if (is.label) {
+		set.label = label;
+	}
 
-	// Input id.
-	input.id = !isUndefined(id) && !isEmpty(id) ? id : '';
+	// set input label id.
+	if (is.labelId) {
+		set.labelId = labelId;
+	}
 
-	// Input type.
-	input.type = !isUndefined(type) && !isEmpty(type) ? type : 'text';
+	// set input aria-describedby and description id.
+	if (is.description) {
+		set.description = description;
+	}
 
-	// Input placeholder.
-	input.placeholder =
-		!isUndefined(placeholder) && !isEmpty(placeholder) ? placeholder : '';
+	if (is.descriptionId) {
+		set.descriptionId = descriptionId;
+	}
 
-	// Input aria-labelledby and label id.
-	input.labelId = !isUndefined(labelId) && !isEmpty(labelId) ? labelId : '';
+	// set input error message and error id.
+	if (is.error) {
+		set.error = errorMessage;
+		set.class += ' sui-input--error';
+	}
 
-	// Input aria-describedby and description id.
-	input.descriptionId =
-		!isUndefined(descriptionId) && !isEmpty(descriptionId)
-			? descriptionId
-			: '';
+	if (is.errorId) {
+		set.errorId = errorId;
+		set.descriptionId += ' ' + errorId;
+	}
 
-	// Input error message.
-	input.error =
-		!isUndefined(errorMessage) && !isEmpty(errorMessage)
-			? errorMessage
-			: '';
-	input.errorId = !isUndefined(errorId) && !isEmpty(errorId) ? errorId : '';
+	// set lead icon for input.
+	if(is.lead) {
+		set.icon = iconLead;
+	}
 
-	// Renders icon element.
-	input.icon = Object.assign(
-		{
-			name: !isObject(icon) ? icon : '',
-			size: 'lg',
-			position: 'lead',
-			label: '',
-		},
-		props.icon
-	);
-
-	const hasIcon = !isUndefined(input.icon.name) && !isEmpty(input.icon.name);
+	// set trail icon for input.
+	if(is.trail) {
+		set.icon = iconTrail;
+	}
 
 	// Input size.
-	if (!isEmpty(size) && !isUndefined(size) && 'sm' === size) {
-		input.class += ' sui-input--sm';
+	if (is.size) {
+		set.class += ' sui-input--' + size;
 	}
 
 	// Input is disabled.
-	input.disabled =
-		!isUndefined(disabled) && isBoolean(disabled) ? disabled : false;
-
-	if (input.disabled) {
-		input.class += ' sui-input--disabled';
-	}
-
-	// Input error.
-	if (!isEmpty(input.error)) {
-		input.class += ' sui-input--error';
+	if (isDisabled) {
+		set.disabled = true;
+		set.class += ' sui-input--disabled';
 	}
 
 	// if input is filled with value.
-	if (!isEmpty(inputValue)) {
-		input.class += ' sui-input--filled';
+	if (is.value) {
+		set.class += ' sui-input--filled';
 	}
 
 	// if input has icon.
-	if (hasIcon) {
-		input.class += ' sui-input__icon';
-		input.class +=
-			'trail' === input.icon.position
+	if (is.lead || is.trail) {
+		set.class += ' sui-input__icon';
+		set.class +=
+			is.trail
 				? ' sui-input__icon--right'
 				: ' sui-input__icon--left';
 	}
 
-	return (
-		<div className={input.class}>
-			<div className="sui-input__wrapper">
-				{hasIcon && <Icon icon={input.icon.name} />}
-				<input
-					value={inputValue}
-					type={input.type}
-					className="sui-input__field"
-					{...(!isEmpty(input.placeholder) && {
-						placeholder: input.placeholder,
-					})}
-					{...(!isEmpty(input.id) && { id: input.id })}
-					{...(!isEmpty(input.labelId) && {
-						'aria-labelledby': input.labelId,
-					})}
-					{...((!isEmpty(input.descriptionId) ||
-						!isEmpty(input.descriptionId)) && {
-						'aria-describedby':
-							input.descriptionId + ' ' + input.errorId,
-					})}
-					{...(!isEmpty(input.disabled) && {
-						disabled: input.disabled,
-					})}
-					onChange={handleInputChange}
-					{...inputprops}
-				/>
-				{!isEmpty(input.label) && (
-					<label
-						className="sui-input__label"
-						{...(!isEmpty(input.id) && { htmlFor: input.id })}
-						{...(!isEmpty(input.labelId) && { id: input.labelId })}
-					>
-						{input.label}
-					</label>
+	set.inputMarkup = (
+		<Fragment>
+			{(is.lead || is.trail) && <Icon name={set.icon} />}
+			{createElement('input', {
+				type: set.type,
+				className: 'sui-input__field',
+				...( is.value && { value: set.inputValue }),
+				...(is.id && { id: set.id }),
+				...(is.labelId && {
+					'aria-labelledby': set.labelId,
+				}),
+				...((is.descriptionId || is.errorId) && {
+					'aria-describedby': set.descriptionId,
+				}),
+				...(isDisabled && {
+					disabled: set.disabled,
+				}),
+				onChange: (e) => {
+					set.setInputValue(e.target.value);
+					if (isFunction(onChange)) {
+						onChange(e);
+					}
+				},
+				...props,
+			})}
+			{is.label &&
+				createElement(
+					'label',
+					{
+						className: 'sui-input__label',
+						...(is.id && { htmlFor: set.id }),
+						...(is.labelId && { id: set.labelId }),
+					},
+					set.label
 				)}
-			</div>
+		</Fragment>
+	);
 
-			{!isEmpty(input.error) && (
-				<span
-					{...(!isEmpty(input.errorId) && { id: input.errorId })}
-					className="sui-input__error-message"
-					role="alert"
-				>
-					{input.error}
-				</span>
-			)}
+	set.errorMarkup = createElement(
+		'span',
+		{
+			...(is.errorId && { id: set.errorId }),
+			className: 'sui-input__error-message',
+			role: 'alert',
+		},
+		set.error
+	);
 
-			{!isEmpty(input.description) && (
-				<span
-					{...(!isEmpty(input.descriptionId) && {
-						id: input.descriptionId,
-					})}
-					className="sui-input__description"
-				>
-					{input.description}
-				</span>
-			)}
-		</div>
+	set.descMarkup = createElement(
+		'span',
+		{
+			className: 'sui-input__description',
+			...(is.descriptionId && {
+				id: set.descriptionId,
+			}),
+		},
+		set.description
+	);
+
+	return createElement(
+		'div',
+		{
+			className: set.class,
+		},
+		createElement(
+			'div',
+			{
+				className: 'sui-input__wrapper',
+			},
+			set.inputMarkup
+		),
+		is.error && set.errorMarkup,
+		is.description && set.descMarkup
 	);
 };
 
