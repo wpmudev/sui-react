@@ -27,7 +27,8 @@
 					@if map.has-key($sui-input-color, grey, default, color) {
 						color: map.get($sui-input-color, grey, default, color);
 					}
-					padding: 8px 8px 10px 12px;
+					padding: 8px 8px 8px 12px;
+					margin: 0;
 				}
 
 				&.sui-#{$block}--sm {
@@ -35,7 +36,6 @@
 						@if map.has-key($sui-input-font, md, size) {
 							font-size: map.get($sui-input-font, md, size);
 						}
-						padding: 8px 8px 10px 12px;
 					}
 
 					.sui-#{$block}__field {
@@ -46,7 +46,7 @@
 				@include modifier(right) {
 					.suicons {
 						right: 0;
-						padding: 8px 12px 10px 8px;
+						padding: 8px 12px 8px 8px;
 					}
 
 					.sui-#{$block}__field {

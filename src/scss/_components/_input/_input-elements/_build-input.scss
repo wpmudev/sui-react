@@ -52,7 +52,7 @@
 				@if map.has-key($sui-input-border, sm, radius) {
 					border-radius: map.get($sui-input-border, sm, radius);
 				}
-				padding: 8px 12px 8px 16px;
+				padding: 8px 16px;
 				width: 100%;
 				outline: none;
 				max-height: 40px;
@@ -121,6 +121,7 @@
 						line-height: map.get($sui-input-font, xs, height);
 					}
 					max-height: 32px;
+					padding: 8px 12px;
 				}
 			}
 		}
