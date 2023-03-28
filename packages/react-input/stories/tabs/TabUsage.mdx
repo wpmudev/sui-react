@@ -1,0 +1,47 @@
+import { Section, Row, Col, List } from '@wpmudev/storybook';
+
+import InputAnatomy from '../images/anatomy.png';
+
+<Section contained={true} border={true} style={{ paddingTop: 0 }}>
+	<p>
+		Input element are used to collect user data on web pages. When a user submits a form, the data they entered into the input elements is sent to the server for processing.
+	</p>
+</Section>
+
+<Section title="Anatomy" contained={true} border={true}>
+	<img
+		src={InputAnatomy}
+		alt="Input anatomy"
+		style={{ marginBottom: 20 }}
+	/>
+	<List>
+		<span
+			label={
+				<>
+					<strong>Label:</strong> The input label serves as a caption for the input in a user interface.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Input:</strong> Input is used to create interactive forms to collect users data.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Placeholder:</strong> There will be a placeholder when the input ha no value set.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Help Text:</strong> Help text is an overall description about the input field.
+				</>
+			}
+		/>
+	</List>
+</Section>

@@ -24,10 +24,10 @@ const Input = ({
 	label,
 	description,
 	color,
-	size,
+	isSmall,
 	iconLead,
 	iconTrail,
-	disabled,
+	isDisabled,
 }) => {
 	const boxStyles = {
 		padding: 20,
@@ -48,8 +48,8 @@ const Input = ({
 							placeholder="Placeholder"
 							description={description}
 							descriptionId="desc-id"
-							size={size}
-							disabled={disabled}
+							isSmall={isSmall}
+							isDisabled={isDisabled}
 							iconLead={iconLead}
 							iconTrail={iconTrail}
 						/>
@@ -65,8 +65,8 @@ const Input = ({
 							descriptionId="desc-id"
 							errorMessage="This is an error."
 							errorId="error-id"
-							size={size}
-							disabled={disabled}
+							isSmall={isSmall}
+							isDisabled={isDisabled}
 							iconLead={iconLead}
 							iconTrail={iconTrail}
 						/>
@@ -81,8 +81,8 @@ const Input = ({
 							description={description}
 							descriptionId="desc-id"
 							readOnly={true}
-							size={size}
-							disabled={disabled}
+							isSmall={isSmall}
+							isDisabled={isDisabled}
 							value="Ready only"
 							iconLead={iconLead}
 							iconTrail={iconTrail}
@@ -99,11 +99,11 @@ Input.args = {
 	example: 'input',
 	label: 'Label',
 	description: 'Help text',
-	size: 'lg',
 	iconMode: 'none',
 	iconLead: 'user',
 	iconTrail: 'user',
-	disabled: false,
+	isSmall: false,
+	isDisabled: false,
 };
 
 // Set controls for story arguments.
@@ -121,28 +121,12 @@ Input.argTypes = {
 	},
 	label: {
 		name: 'Label',
-		table: {
-			category: 'Elements',
-		},
 	},
 	description: {
 		name: 'Description',
-		table: {
-			category: 'Elements',
-		},
 	},
-	size: {
-		name: 'Size',
-		control: {
-			type: 'select',
-			options: {
-				Large: 'lg',
-				Small: 'sm',
-			},
-		},
-		table: {
-			category: 'Modifiers',
-		},
+	isSmall: {
+		name: 'Small',
 	},
 	iconMode: {
 		name: 'Icon Mode',
@@ -154,16 +138,10 @@ Input.argTypes = {
 				Trail: 'icon-trail',
 			},
 		},
-		table: {
-			category: 'Elements',
-		},
 	},
 	iconLead: {
 		name: 'Icon Lead',
 		control: 'text',
-		table: {
-			category: 'Elements',
-		},
 		if: {
 			arg: 'iconMode',
 			eq: 'icon-lead',
@@ -172,19 +150,13 @@ Input.argTypes = {
 	iconTrail: {
 		name: 'Icon Trail',
 		control: 'text',
-		table: {
-			category: 'Elements',
-		},
 		if: {
 			arg: 'iconMode',
 			eq: 'icon-trail',
 		},
 	},
-	disabled: {
+	isDisabled: {
 		name: 'Disabled',
-		table: {
-			category: 'States',
-		},
 	},
 };
 

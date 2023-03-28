@@ -1,26 +1,23 @@
 import React, { createElement, Fragment, useState } from 'react';
-import {
-	isEmpty,
-	isUndefined,
-	isFunction,
-} from '@wpmudev/react-utils';
+import { isEmpty, isUndefined, isFunction } from '@wpmudev/react-utils';
 import { Icon } from './elements/input-icon';
 
 // Build "Input" component.
 const Input = ({
-	label,
-	description,
-	type = 'text',
 	id,
+	className = '',
+	type = 'text',
+	value = '',
+	label,
 	labelId,
+	description,
 	descriptionId,
 	errorMessage,
 	errorId,
 	iconLead,
 	iconTrail,
-	size,
+	isSmall = false,
 	isDisabled = false,
-	value = '',
 	onChange = () => {},
 	...props
 }) => {
@@ -43,12 +40,16 @@ const Input = ({
 	is.errorId = !isUndefined(errorId) && !isEmpty(errorId) ? true : false;
 	is.lead = !isUndefined(iconLead) && !isEmpty(iconLead) ? true : false;
 	is.trail = !isUndefined(iconTrail) && !isEmpty(iconTrail) ? true : false;
-	is.size = !isUndefined(size) && !isEmpty(size);
 	is.value = !isEmpty(set.inputValue) ? true : false;
 
 	// set base values.
 	set.class = 'sui-input';
 	set.type = type;
+
+	// add classes
+	if (!isEmpty(className)) {
+		set.class += ' ' + className;
+	}
 
 	// set input id.
 	if (is.id) {
@@ -86,18 +87,18 @@ const Input = ({
 	}
 
 	// set lead icon for input.
-	if(is.lead) {
+	if (is.lead) {
 		set.icon = iconLead;
 	}
 
 	// set trail icon for input.
-	if(is.trail) {
+	if (is.trail) {
 		set.icon = iconTrail;
 	}
 
 	// Input size.
-	if (is.size) {
-		set.class += ' sui-input--' + size;
+	if (isSmall) {
+		set.class += ' sui-input--sm';
 	}
 
 	// Input is disabled.
@@ -114,10 +115,9 @@ const Input = ({
 	// if input has icon.
 	if (is.lead || is.trail) {
 		set.class += ' sui-input__icon';
-		set.class +=
-			is.trail
-				? ' sui-input__icon--right'
-				: ' sui-input__icon--left';
+		set.class += is.trail
+			? ' sui-input__icon--right'
+			: ' sui-input__icon--left';
 	}
 
 	set.inputMarkup = (
@@ -126,7 +126,7 @@ const Input = ({
 			{createElement('input', {
 				type: set.type,
 				className: 'sui-input__field',
-				...( is.value && { value: set.inputValue }),
+				...(is.value && { value: set.inputValue }),
 				...(is.id && { id: set.id }),
 				...(is.labelId && {
 					'aria-labelledby': set.labelId,
