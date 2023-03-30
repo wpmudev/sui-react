@@ -1,0 +1,132 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
+import { Password } from '../../../lib/react-password';
+import dedent from 'dedent';
+
+export const DisabledPasswordCode = dedent`
+import React from 'react';\n
+import { Password } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Password id="password-id-1" label="Label" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" isDisabled={true} />;
+}\n
+export default Example;
+`;
+
+export const ValueEnteredPasswordCode = dedent`
+import React from 'react';\n
+import { Password } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Password id="password-id-1" value="Default" label="Label" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" />;
+}\n
+export default Example;
+`;
+
+export const ReadOnlyPasswordCode = dedent`
+import React from 'react';\n
+import { Password } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Password id="password-id-1" label="Label" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" readonly="true" />;
+}\n
+export default Example;
+`;
+
+export const ErrorPasswordCode = dedent`
+import React from 'react';\n
+import { Password } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Password id="password-id-1" label="Label" errorId="error-id" errorMessage="There is an error." description="This is a description." descriptionId="desc-id" placeholder="Placeholder" />;
+}\n
+export default Example;
+`;
+
+<Section
+	title="Disabled"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isDisabled</Code> prop to disable a Password
+		that is not usable.
+	</p>
+	<Preview wrapper={true}>
+		<Password
+			id="password-id-1"
+			label="Label"
+			description="This is a description."
+			descriptionId="desc-id-1"
+			placeholder="Placeholder"
+			isDisabled={true}
+		/>
+	</Preview>
+	<Snippet language="js">{DisabledPasswordCode}</Snippet>
+</Section>
+
+<Section
+	title="Value Entered"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>value</Code> prop to Password to set it's
+		value.
+	</p>
+	<Preview wrapper={true}>
+		<Password
+			id="password-id-2"
+			value="Default"
+			label="Label"
+			description="This is a description."
+			descriptionId="desc-id-2"
+			placeholder="Placeholder"
+		/>
+	</Preview>
+	<Snippet language="js">{ValueEnteredPasswordCode}</Snippet>
+</Section>
+
+<Section
+	title="Read Only"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Add the <Code small={true}>readonly</Code> prop to set Password
+		readonly.
+	</p>
+	<Preview wrapper={true}>
+		<Password
+			id="password-id-3"
+			label="Label"
+			description="This is a description."
+			descriptionId="desc-id-3"
+			placeholder="Placeholder"
+			readonly="true"
+		/>
+	</Preview>
+	<Snippet language="js">{ReadOnlyPasswordCode}</Snippet>
+</Section>
+
+<Section
+	title="Error"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>errorMessage</Code> prop to show the error in
+		the field.
+	</p>
+	<Preview wrapper={true}>
+		<Password
+			id="password-id-4"
+			label="Label"
+			errorId="error-id-1"
+			errorMessage="There is an error."
+			description="This is a description."
+			descriptionId="desc-id-4"
+			placeholder="Placeholder"
+		/>
+	</Preview>
+	<Snippet language="js">{ErrorPasswordCode}</Snippet>
+</Section>

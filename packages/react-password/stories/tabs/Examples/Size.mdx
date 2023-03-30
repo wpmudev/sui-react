@@ -1,0 +1,32 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
+import { Password } from '../../../lib/react-password';
+import dedent from 'dedent';
+
+export const SmallPasswordCode = dedent`
+import React from 'react';\n
+import { Button } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Password id="password-id-4" label="Label" placeholder="Placeholder" isSmall={true} />;
+}\n
+export default Example;
+`;
+
+<Section
+	title="Small"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isSmall</Code> prop to reduce the Password
+		height, fitting with the design context.
+	</p>
+	<Preview wrapper={true}>
+		<Password
+			id="password-id-4"
+			label="Label"
+			placeholder="Placeholder"
+			isSmall={true}
+		/>
+	</Preview>
+	<Snippet language="js">{SmallPasswordCode}</Snippet>
+</Section>

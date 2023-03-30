@@ -9,7 +9,7 @@ import docs from './ReactPassword.mdx';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Password',
-	component: SuiPassword,
+	component: Password,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -19,7 +19,15 @@ export default {
 };
 
 // Build "Password" story.
-const Password = ({ example, label, description, view, color, size }) => {
+const Password = ({
+	example,
+	label,
+	description,
+	view,
+	color,
+	isSmall,
+	isDisabled,
+}) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -44,7 +52,8 @@ const Password = ({ example, label, description, view, color, size }) => {
 							description={description}
 							descriptionId="desc-id"
 							view={view}
-							size={size}
+							isSmall={isSmall}
+							isDisabled={isDisabled}
 						/>
 					)}
 
@@ -59,7 +68,8 @@ const Password = ({ example, label, description, view, color, size }) => {
 							errorMessage="This is an error."
 							errorId="error-id"
 							view={view}
-							size={size}
+							isSmall={isSmall}
+							isDisabled={isDisabled}
 						/>
 					)}
 				</div>
@@ -74,7 +84,8 @@ Password.args = {
 	label: 'Password',
 	description: 'Enter password.',
 	view: 'icon',
-	size: 'lg',
+	isSmall: false,
+	isDisabled: false,
 };
 
 // Set controls for story arguments.
@@ -91,15 +102,9 @@ Password.argTypes = {
 	},
 	label: {
 		name: 'Label',
-		table: {
-			category: 'Elements',
-		},
 	},
 	description: {
 		name: 'Description',
-		table: {
-			category: 'Elements',
-		},
 	},
 	view: {
 		name: 'Hide and View',
@@ -110,22 +115,12 @@ Password.argTypes = {
 				'Icon Button': 'icon',
 			},
 		},
-		table: {
-			category: 'Elements',
-		},
 	},
-	size: {
-		name: 'Size',
-		control: {
-			type: 'select',
-			options: {
-				Large: 'lg',
-				Small: 'sm',
-			},
-		},
-		table: {
-			category: 'Modifiers',
-		},
+	isSmall: {
+		name: 'Small',
+	},
+	isDisabled: {
+		name: 'Disabled',
 	},
 };
 

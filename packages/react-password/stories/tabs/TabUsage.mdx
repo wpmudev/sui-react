@@ -1,0 +1,53 @@
+import { Section, Row, Col, List } from '@wpmudev/storybook';
+
+import PasswordAnatomy from '../images/anatomy.png';
+
+<Section contained={true} border={true} style={{ paddingTop: 0 }}>
+	<p>
+		Password element are used to collect user data on web pages. When a user
+		submits a form, the data they entered into the password elements is sent
+		to the server for processing.
+	</p>
+</Section>
+
+<Section title="Anatomy" contained={true} border={true}>
+	<img
+		src={PasswordAnatomy}
+		alt="Password anatomy"
+		style={{ marginBottom: 20 }}
+	/>
+	<List>
+		<span
+			label={
+				<>
+					<strong>Label:</strong> The password label serves as a
+					caption for the Password in a user interface.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Password:</strong> Password is used to create
+					interactive forms to collect users data.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Placeholder:</strong> There will be a placeholder
+					when the password ha no value set.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Help Text:</strong> Help text is an overall
+					description about the password field.
+				</>
+			}
+		/>
+	</List>
+</Section>

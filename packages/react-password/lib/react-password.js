@@ -1,192 +1,239 @@
-import React, { useState } from 'react';
-import { isBoolean, isEmpty, isUndefined } from '@wpmudev/react-utils';
-import { Button as SuiButton } from '@wpmudev/react-button';
+import React, { createElement, Fragment, useState } from 'react';
+import { isEmpty, isUndefined, isFunction } from '@wpmudev/react-utils';
+import { Icon } from './elements/input-icon';
+import { Button } from '@wpmudev/react-button';
 
 // Build "Password" component.
-const Password = ({ label, description, ...props }) => {
-	const {
-		id,
-		labelId,
-		placeholder,
-		descriptionId,
-		view,
-		errorMessage,
-		errorId,
-		size,
-		disabled,
-		value = '',
-		...inputprops
-	} = props;
+const Password = ({
+	id,
+	className = '',
+	value = '',
+	label,
+	labelId,
+	description,
+	descriptionId,
+	view,
+	errorMessage,
+	errorId,
+	iconLead,
+	isSmall = false,
+	isDisabled = false,
+	onChange = () => {},
+	...props
+}) => {
+	const is = {};
+	const set = {};
 
-	const [inputValue, setInputValue] = useState(
-		!isUndefined(value) ? value : ''
-	);
+	// Define tooltip states.
+	[set.inputValue, set.setInputValue] = useState(value);
+	[set.inputType, set.setInputType] = useState('password');
 
-	const [inputType, setInputType] = useState('password');
+	// Parameter(s) validation.
+	is.label = !isUndefined(label) && !isEmpty(label) ? true : false;
+	is.description =
+		!isUndefined(description) && !isEmpty(description) ? true : false;
+	is.id = !isUndefined(id) && !isEmpty(id) ? true : false;
+	is.labelId = !isUndefined(labelId) && !isEmpty(labelId) ? true : false;
+	is.descriptionId =
+		!isUndefined(descriptionId) && !isEmpty(descriptionId) ? true : false;
+	is.error =
+		!isUndefined(errorMessage) && !isEmpty(errorMessage) ? true : false;
+	is.errorId = !isUndefined(errorId) && !isEmpty(errorId) ? true : false;
+	is.lead = !isUndefined(iconLead) && !isEmpty(iconLead) ? true : false;
+	is.value = !isEmpty(set.inputValue) ? true : false;
+	is.buttonIcon =
+		!isUndefined(view) && !isEmpty(view) && 'icon' === view ? true : false;
 
-	const handleInputChange = (event) => {
-		const inputValue = event.target.value;
-		setInputValue(inputValue);
-	};
+	// set base values.
+	set.class = 'sui-input sui-password';
+	set.buttonAppearance = 'secondary';
 
-	const input = {};
+	// set icon
+	if ('password' !== set.inputType) {
+		set.iconButton = 'hide';
+	} else {
+		set.iconButton = 'show';
+	}
 
-	input.class = 'sui-input sui-password';
+	// add classes
+	if (!isEmpty(className)) {
+		set.class += ' ' + className;
+	}
 
-	input.label = !isUndefined(label) && !isEmpty(label) ? label : '';
-	input.description =
-		!isUndefined(description) && !isEmpty(description) ? description : '';
+	// set input id.
+	if (is.id) {
+		set.id = id;
+	}
 
-	// Input id.
-	input.id = !isUndefined(id) && !isEmpty(id) ? id : '';
+	// set input aria-labelledby.
+	if (is.label) {
+		set.label = label;
+	}
 
-	// Input type.
-	input.type = inputType;
+	// set input label id.
+	if (is.labelId) {
+		set.labelId = labelId;
+	}
 
-	// Input placeholder.
-	input.placeholder =
-		!isUndefined(placeholder) && !isEmpty(placeholder) ? placeholder : '';
+	// set input aria-describedby and description id.
+	if (is.description) {
+		set.description = description;
+	}
 
-	// Input aria-labelledby and label id.
-	input.labelId = !isUndefined(labelId) && !isEmpty(labelId) ? labelId : '';
+	if (is.descriptionId) {
+		set.descriptionId = descriptionId;
+	}
 
-	// Input aria-describedby and description id.
-	input.descriptionId =
-		!isUndefined(descriptionId) && !isEmpty(descriptionId)
-			? descriptionId
-			: '';
+	// set input error message and error id.
+	if (is.error) {
+		set.error = errorMessage;
+		set.class += ' sui-input--error';
+	}
 
-	// Input error message.
-	input.error =
-		!isUndefined(errorMessage) && !isEmpty(errorMessage)
-			? errorMessage
-			: '';
-	input.errorId = !isUndefined(errorId) && !isEmpty(errorId) ? errorId : '';
+	if (is.errorId) {
+		set.errorId = errorId;
+		set.descriptionId += ' ' + errorId;
+	}
 
-	// Input view password as text or button.
-	input.view = !isUndefined(view) && !isEmpty(view) ? view : 'button';
-
-	// Renders icon element.
-	input.icon = Object.assign({
-		name: 'password' === inputType ? 'show' : 'hide',
-		size: 'lg',
-		position: 'lead',
-		label: '',
-	});
-
-	const hasIcon = 'button' !== input.view ? true : false;
+	// set lead icon for input.
+	if (is.lead) {
+		set.icon = iconLead;
+	}
 
 	// Input size.
-	if (!isEmpty(size) && !isUndefined(size) && 'sm' === size) {
-		input.class += ' sui-input--sm';
+	if (isSmall) {
+		set.class += ' sui-input--sm';
 	}
 
 	// Input is disabled.
-	input.disabled =
-		!isUndefined(disabled) && isBoolean(disabled) ? disabled : false;
-
-	if (input.disabled) {
-		input.class += ' sui-input--disabled';
-	}
-
-	// Input error.
-	if (!isEmpty(input.error)) {
-		input.class += ' sui-input--error';
+	if (isDisabled) {
+		set.disabled = true;
+		set.class += ' sui-input--disabled';
 	}
 
 	// if input is filled with value.
-	if (!isEmpty(inputValue)) {
-		input.class += ' sui-input--filled';
+	if (is.value) {
+		set.class += ' sui-input--filled';
 	}
 
-	// if password has icon.
-	if (hasIcon) {
-		input.class += ' sui-password--icon';
+	// if input has icon.
+	if (is.lead || is.trail) {
+		set.class += ' sui-input__icon';
+		set.class += is.trail
+			? ' sui-input__icon--right'
+			: ' sui-input__icon--left';
 	}
 
-	return (
-		<div className={input.class}>
-			<div className="sui-input__wrapper">
-				<input
-					value={inputValue}
-					type={input.type}
-					className="sui-input__field"
-					{...(!isEmpty(input.placeholder) && {
-						placeholder: input.placeholder,
-					})}
-					{...(!isEmpty(input.id) && { id: input.id })}
-					{...(!isEmpty(input.labelId) && {
-						'aria-labelledby': input.labelId,
-					})}
-					{...((!isEmpty(input.descriptionId) ||
-						!isEmpty(input.descriptionId)) && {
-						'aria-describedby':
-							input.descriptionId + ' ' + input.errorId,
-					})}
-					{...(!isEmpty(input.disabled) && {
-						disabled: input.disabled,
-					})}
-					onChange={handleInputChange}
-					{...inputprops}
-				/>
-				{!isEmpty(input.label) && (
-					<label
-						className="sui-input__label"
-						{...(!isEmpty(input.id) && { htmlFor: input.id })}
-						{...(!isEmpty(input.labelId) && {
-							id: input.labelId,
-						})}
-					>
-						{input.label}
-					</label>
-				)}
-				{hasIcon ? (
-					<SuiButton
-						theme="tertiary"
-						color="black"
-						icon={input.icon}
-						onClick={() => {
-							setInputType(
-								'password' === inputType ? 'text' : 'password'
-							);
-						}}
-					></SuiButton>
-				) : (
-					<SuiButton
-						theme="secondary"
-						color="black"
-						onClick={() => {
-							setInputType(
-								'password' === inputType ? 'text' : 'password'
-							);
-						}}
-					>
-						{'password' === inputType ? 'Show' : 'Hide'}
-					</SuiButton>
-				)}
-			</div>
+	// set show/hide button
+	if ('password' === set.inputType && !is.buttonIcon) {
+		set.showHideButton = 'Show';
+	} else if ('password' === set.inputType && is.buttonIcon) {
+		set.showHideButton = 'Show password';
+	} else if ('text' === set.inputType && is.buttonIcon) {
+		set.showHideButton = 'Hide password';
+	} else {
+		set.showHideButton = 'Hide';
+	}
 
-			{!isEmpty(input.error) && (
-				<span
-					{...(!isEmpty(input.errorId) && { id: input.errorId })}
-					className="sui-input__error-message"
-					role="alert"
-				>
-					{input.error}
-				</span>
-			)}
+	// set show.hide button appearance
+	if (is.buttonIcon) {
+		set.buttonAppearance = 'tertiary';
+	}
 
-			{!isEmpty(input.description) && (
-				<span
-					{...(!isEmpty(input.descriptionId) && {
-						id: input.descriptionId,
-					})}
-					className="sui-input__description"
-				>
-					{input.description}
-				</span>
+	if (!is.value || isDisabled) {
+		set.buttonAppearance = 'tertiary';
+	}
+
+	set.inputMarkup = (
+		<Fragment>
+			{is.lead && <Icon name={set.icon} />}
+			{createElement('input', {
+				type: set.inputType,
+				className: 'sui-input__field',
+				value: is.value ? set.inputValue : '',
+				...(is.id && { id: set.id }),
+				...(is.labelId && {
+					'aria-labelledby': set.labelId,
+				}),
+				...((is.descriptionId || is.errorId) && {
+					'aria-describedby': set.descriptionId,
+				}),
+				...(isDisabled && {
+					disabled: set.disabled,
+				}),
+				onChange: (e) => {
+					set.setInputValue(e.target.value);
+					if (isFunction(onChange)) {
+						onChange(e);
+					}
+				},
+				...props,
+			})}
+			{is.label &&
+				createElement(
+					'label',
+					{
+						className: 'sui-input__label',
+						...(is.id && { htmlFor: set.id }),
+						...(is.labelId && { id: set.labelId }),
+					},
+					set.label
+				)}
+
+			{createElement(
+				Button,
+				{
+					appearance: set.buttonAppearance,
+					color: 'black',
+					...(is.buttonIcon && { iconLead: set.iconButton }),
+					...((!is.value || isDisabled) && { tabIndex: -1 }),
+					...((!is.value || isDisabled) && { isDisabled: true }),
+					onClick: () => {
+						set.setInputType(
+							'password' === set.inputType ? 'text' : 'password'
+						);
+					},
+				},
+				set.showHideButton
 			)}
-		</div>
+		</Fragment>
+	);
+
+	set.errorMarkup = createElement(
+		'span',
+		{
+			...(is.errorId && { id: set.errorId }),
+			className: 'sui-input__error-message',
+			role: 'alert',
+		},
+		set.error
+	);
+
+	set.descMarkup = createElement(
+		'span',
+		{
+			className: 'sui-input__description',
+			...(is.descriptionId && {
+				id: set.descriptionId,
+			}),
+		},
+		set.description
+	);
+
+	return createElement(
+		'div',
+		{
+			className: set.class,
+		},
+		createElement(
+			'div',
+			{
+				className: 'sui-input__wrapper',
+			},
+			set.inputMarkup
+		),
+		is.error && set.errorMarkup,
+		is.description && set.descMarkup
 	);
 };
 
