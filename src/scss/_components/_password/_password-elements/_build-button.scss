@@ -30,17 +30,21 @@
 				min-width: unset;
 				bottom: 4px;
 				right: 4px;
+				margin: 0;
+				padding-top: 4px;
+				padding-bottom: 4px;
 
 				.sui-button__icon {
 					@if map.has-key($sui-password-font, lg, size) {
 						font-size: map.get($sui-password-font, lg, size);
 					}
+					margin: 0;
 				}
 			}
 
 			&.sui-input--sm {
 				.sui-button {
-					padding: 4px 8px;
+					padding: 0px 8px;
 					.sui-button__icon {
 						@if map.has-key($sui-password-font, md, size) {
 							font-size: map.get($sui-password-font, md, size);
