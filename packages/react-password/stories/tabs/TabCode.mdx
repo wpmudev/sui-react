@@ -9,44 +9,36 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 </Section>
 
 <Section title="Props" border={true}>
-	<p>Input component have the following props.</p>
+	<p>Password component have the following props.</p>
 	<Section
 		title={{ content: 'label', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the label of the input field.</p>
+		<p>Reflects the label of the password field.</p>
 	</Section>
 	<Section
 		title={{ content: 'id', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Add a unique id to the input.</p>
+		<p>Add a unique id to the password.</p>
 	</Section>
 	<Section
 		title={{ content: 'className', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Add a class name to the input.</p>
+		<p>Add a class name to the password.</p>
 	</Section>
 	<Section
 		title={{ content: 'value', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the value of the input field.</p>
-	</Section>
-	<Section
-		title={{ content: 'type', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>
-			Reflects the type of the input field whether it's text, number etc.
-		</p>
+		<p>Reflects the value of the password field.</p>
 	</Section>
 	<Section
 		title={{ content: 'description', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the description of the input field.</p>
+		<p>Reflects the description of the password field.</p>
 	</Section>
 	<Section
 		title={{ content: 'descriptionId', tag: 'string', small: true }}
@@ -58,10 +50,16 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 		</p>
 	</Section>
 	<Section
+		title={{ content: 'view', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Reflects the show/hide button to be icon or text button.</p>
+	</Section>
+	<Section
 		title={{ content: 'errorMessage', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the error message of the input field.</p>
+		<p>Reflects the error message of the password field.</p>
 	</Section>
 	<Section
 		title={{ content: 'errorId', tag: 'string', small: true }}
@@ -75,18 +73,18 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 		title={{ content: 'isSmall', tag: 'boolean', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Set if the input is small.</p>
+		<p>Set if the password is small.</p>
 	</Section>
 	<Section
 		title={{ content: 'isDisabled', tag: 'boolean', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Set if the input is disabled.</p>
+		<p>Set if the password is disabled.</p>
 	</Section>
 	<Section
 		title={{ content: 'iconLead', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Places an icon within the input, before the input's text.</p>
+		<p>Places an icon within the password, before the password's text.</p>
 	</Section>
 </Section>
