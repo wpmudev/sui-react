@@ -126,7 +126,7 @@ const Input = ({
 			{createElement('input', {
 				type: set.type,
 				className: 'sui-input__field',
-				...(is.value && { value: set.inputValue }),
+				value: is.value ? set.inputValue : '',
 				...(is.id && { id: set.id }),
 				...(is.labelId && {
 					'aria-labelledby': set.labelId,
