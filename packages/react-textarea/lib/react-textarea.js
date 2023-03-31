@@ -1,115 +1,189 @@
-import React from 'react';
-import { isBoolean, isEmpty, isUndefined } from '@wpmudev/react-utils';
+import React, { createElement, Fragment, useState } from 'react';
+import { isEmpty, isUndefined, isFunction } from '@wpmudev/react-utils';
 
 // Build "Textarea" component.
-const Textarea = ({ description, ...props }) => {
-	const {
-		type,
-		id,
-		labelId,
-		placeholder,
-		descriptionId,
-		errorMessage,
-		errorId,
-		icon,
-		size,
-		disabled,
-		value = '',
-		...inputprops
-	} = props;
+const Textarea = ({
+	id,
+	className = '',
+	value = '',
+	label,
+	labelId,
+	description,
+	descriptionId,
+	errorMessage,
+	errorId,
+	isSmall = false,
+	isDisabled = false,
+	onChange = () => {},
+	...props
+}) => {
+	const is = {};
+	const set = {};
 
-	const input = {};
+	// Define tooltip states.
+	[set.inputValue, set.setInputValue] = useState(value);
 
-	input.class = 'sui-input';
+	// Parameter(s) validation.
+	is.label = !isUndefined(label) && !isEmpty(label) ? true : false;
+	is.description =
+		!isUndefined(description) && !isEmpty(description) ? true : false;
+	is.id = !isUndefined(id) && !isEmpty(id) ? true : false;
+	is.labelId = !isUndefined(labelId) && !isEmpty(labelId) ? true : false;
+	is.descriptionId =
+		!isUndefined(descriptionId) && !isEmpty(descriptionId) ? true : false;
+	is.error =
+		!isUndefined(errorMessage) && !isEmpty(errorMessage) ? true : false;
+	is.errorId = !isUndefined(errorId) && !isEmpty(errorId) ? true : false;
+	is.value = !isEmpty(set.inputValue) ? true : false;
 
-	input.description =
-		!isUndefined(description) && !isEmpty(description) ? description : '';
+	// set base values.
+	set.class = 'sui-input sui-textarea';
 
-	// Input id.
-	input.id = !isUndefined(id) && !isEmpty(id) ? id : '';
+	// add classes
+	if (!isEmpty(className)) {
+		set.class += ' ' + className;
+	}
 
-	// Input type.
-	input.type = !isUndefined(type) && !isEmpty(type) ? type : 'text';
+	// set input id.
+	if (is.id) {
+		set.id = id;
+	}
 
-	// Input value.
-	input.value = value;
+	// set input aria-labelledby.
+	if (is.label) {
+		set.label = label;
+	}
 
-	// Input placeholder.
-	input.placeholder =
-		!isUndefined(placeholder) && !isEmpty(placeholder) ? placeholder : '';
+	// set input label id.
+	if (is.labelId) {
+		set.labelId = labelId;
+	}
 
-	// Input aria-describedby and description id.
-	input.descriptionId =
-		!isUndefined(descriptionId) && !isEmpty(descriptionId)
-			? descriptionId
-			: '';
+	// set input aria-describedby and description id.
+	if (is.description) {
+		set.description = description;
+	}
 
-	// Input error message.
-	input.error =
-		!isUndefined(errorMessage) && !isEmpty(errorMessage)
-			? errorMessage
-			: '';
-	input.errorId = !isUndefined(errorId) && !isEmpty(errorId) ? errorId : '';
+	if (is.descriptionId) {
+		set.descriptionId = descriptionId;
+	}
+
+	// set input error message and error id.
+	if (is.error) {
+		set.error = errorMessage;
+		set.class += ' sui-input--error';
+	}
+
+	if (is.errorId) {
+		set.errorId = errorId;
+		set.descriptionId += ' ' + errorId;
+	}
+
+	// set lead icon for input.
+	if (is.lead) {
+		set.icon = iconLead;
+	}
+
+	// set trail icon for input.
+	if (is.trail) {
+		set.icon = iconTrail;
+	}
 
 	// Input size.
-	if (!isEmpty(size) && !isUndefined(size) && 'sm' === size) {
-		input.class += ' sui-input--sm';
+	if (isSmall) {
+		set.class += ' sui-input--sm';
 	}
 
 	// Input is disabled.
-	input.disabled =
-		!isUndefined(disabled) && isBoolean(disabled) ? disabled : false;
-
-	if (input.disabled) {
-		input.class += ' sui-input--disabled';
+	if (isDisabled) {
+		set.disabled = true;
+		set.class += ' sui-input--disabled';
 	}
 
-	// Input error.
-	if (!isEmpty(input.error)) {
-		input.class += ' sui-input--error';
+	// if input is filled with value.
+	if (is.value) {
+		set.class += ' sui-input--filled';
 	}
 
-	return (
-		<div className={input.class}>
-			<textarea
-				defaultValue={input.value}
-				className="sui-input__field"
-				{...(!isEmpty(input.placeholder) && {
-					placeholder: input.placeholder,
-				})}
-				{...(!isEmpty(input.id) && { id: input.id })}
-				{...((!isEmpty(input.descriptionId) ||
-					!isEmpty(input.descriptionId)) && {
-					'aria-describedby':
-						input.descriptionId + ' ' + input.errorId,
-				})}
-				{...(!isEmpty(input.disabled) && {
-					disabled: input.disabled,
-				})}
-				{...inputprops}
-			/>
+	// if input has icon.
+	if (is.lead || is.trail) {
+		set.class += ' sui-input__icon';
+		set.class += is.trail
+			? ' sui-input__icon--right'
+			: ' sui-input__icon--left';
+	}
 
-			{!isEmpty(input.error) && (
-				<span
-					{...(!isEmpty(input.errorId) && { id: input.errorId })}
-					className="sui-input__error-message"
-					role="alert"
-				>
-					{input.error}
-				</span>
-			)}
+	set.inputMarkup = (
+		<Fragment>
+			{createElement('textarea', {
+				className: 'sui-input__field',
+				...(is.value && { value: set.inputValue }),
+				...(is.id && { id: set.id }),
+				...(is.labelId && {
+					'aria-labelledby': set.labelId,
+				}),
+				...((is.descriptionId || is.errorId) && {
+					'aria-describedby': set.descriptionId,
+				}),
+				...(isDisabled && {
+					disabled: set.disabled,
+				}),
+				onChange: (e) => {
+					set.setInputValue(e.target.value);
+					if (isFunction(onChange)) {
+						onChange(e);
+					}
+				},
+				...props,
+			})}
+			{is.label &&
+				createElement(
+					'label',
+					{
+						className: 'sui-input__label',
+						...(is.id && { htmlFor: set.id }),
+						...(is.labelId && { id: set.labelId }),
+					},
+					set.label
+				)}
+		</Fragment>
+	);
 
-			{!isEmpty(input.description) && (
-				<span
-					{...(!isEmpty(input.descriptionId) && {
-						id: input.descriptionId,
-					})}
-					className="sui-input__description"
-				>
-					{input.description}
-				</span>
-			)}
-		</div>
+	set.errorMarkup = createElement(
+		'span',
+		{
+			...(is.errorId && { id: set.errorId }),
+			className: 'sui-input__error-message',
+			role: 'alert',
+		},
+		set.error
+	);
+
+	set.descMarkup = createElement(
+		'span',
+		{
+			className: 'sui-input__description',
+			...(is.descriptionId && {
+				id: set.descriptionId,
+			}),
+		},
+		set.description
+	);
+
+	return createElement(
+		'div',
+		{
+			className: set.class,
+		},
+		createElement(
+			'div',
+			{
+				className: 'sui-input__wrapper',
+			},
+			set.inputMarkup
+		),
+		is.error && set.errorMarkup,
+		is.description && set.descMarkup
 	);
 };
 

@@ -1,0 +1,126 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
+import { Textarea } from '../../../lib/react-textarea';
+import dedent from 'dedent';
+
+export const DisabledTextareaCode = dedent`
+import React from 'react';\n
+import { Textarea } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Textarea id="textarea-id-1" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" isDisabled={true} />;
+}\n
+export default Example;
+`;
+
+export const ValueEnteredTextareaCode = dedent`
+import React from 'react';\n
+import { Textarea } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Textarea id="textarea-id-1" value="Default" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" />;
+}\n
+export default Example;
+`;
+
+export const ReadOnlyTextareaCode = dedent`
+import React from 'react';\n
+import { Textarea } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Textarea id="textarea-id-1" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" readonly="true" />;
+}\n
+export default Example;
+`;
+
+export const ErrorTextareaCode = dedent`
+import React from 'react';\n
+import { Textarea } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Textarea id="textarea-id-1" errorId="error-id" errorMessage="There is an error." description="This is a description." descriptionId="desc-id" placeholder="Placeholder" />;
+}\n
+export default Example;
+`;
+
+<Section
+	title="Disabled"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isDisabled</Code> prop to disable a Textarea
+		that is not usable.
+	</p>
+	<Preview wrapper={true}>
+		<Textarea
+			id="textarea-id-1"
+			description="This is a description."
+			descriptionId="desc-id-1"
+			placeholder="Placeholder"
+			isDisabled={true}
+		/>
+	</Preview>
+	<Snippet language="js">{DisabledTextareaCode}</Snippet>
+</Section>
+
+<Section
+	title="Value Entered"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>value</Code> prop to Textarea to set it's value.
+	</p>
+	<Preview wrapper={true}>
+		<Textarea
+			id="textarea-id-2"
+			value="Default"
+			description="This is a description."
+			descriptionId="desc-id-2"
+			placeholder="Placeholder"
+		/>
+	</Preview>
+	<Snippet language="js">{ValueEnteredTextareaCode}</Snippet>
+</Section>
+
+<Section
+	title="Read Only"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Add the <Code small={true}>readonly</Code> prop to set Textarea readonly.
+	</p>
+	<Preview wrapper={true}>
+		<Textarea
+			id="textarea-id-3"
+			description="This is a description."
+			descriptionId="desc-id-3"
+			placeholder="Placeholder"
+			readonly
+		/>
+	</Preview>
+	<Snippet language="js">{ReadOnlyTextareaCode}</Snippet>
+</Section>
+
+<Section
+	title="Error"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>errorMessage</Code> prop to show the error in
+		the field.
+	</p>
+	<Preview wrapper={true}>
+		<Textarea
+			id="textarea-id-4"
+			errorId="error-id-1"
+			errorMessage="There is an error."
+			description="This is a description."
+			descriptionId="desc-id-4"
+			placeholder="Placeholder"
+		/>
+	</Preview>
+	<Snippet language="js">{ErrorTextareaCode}</Snippet>
+</Section>

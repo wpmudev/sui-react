@@ -9,7 +9,7 @@ import docs from './ReactTextarea.mdx';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Textarea',
-	component: SuiTextarea,
+	component: Textarea,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -19,7 +19,7 @@ export default {
 };
 
 // Build "Textarea" story.
-const Textarea = ({ example, description, color, size, disabled }) => {
+const Textarea = ({ example, description, color, size, isSmall, isDisabled }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -41,8 +41,8 @@ const Textarea = ({ example, description, color, size, disabled }) => {
 							placeholder="Placeholder"
 							description={description}
 							descriptionId="desc-id"
-							size={size}
-							disabled={disabled}
+							isSmall={isSmall}
+							isDisabled={isDisabled}
 						/>
 					)}
 
@@ -55,8 +55,8 @@ const Textarea = ({ example, description, color, size, disabled }) => {
 							descriptionId="desc-id"
 							errorMessage="This is an error."
 							errorId="error-id"
-							size={size}
-							disabled={disabled}
+							isSmall={isSmall}
+							isDisabled={isDisabled}
 						/>
 					)}
 				</div>
@@ -69,8 +69,8 @@ const Textarea = ({ example, description, color, size, disabled }) => {
 Textarea.args = {
 	example: 'textarea',
 	description: 'Help text',
-	size: 'lg',
-	disabled: false,
+	isSmall: false,
+	isDisabled: false,
 };
 
 // Set controls for story arguments.
@@ -87,28 +87,12 @@ Textarea.argTypes = {
 	},
 	description: {
 		name: 'Description',
-		table: {
-			category: 'Elements',
-		},
 	},
-	size: {
-		name: 'Size',
-		control: {
-			type: 'select',
-			options: {
-				Large: 'lg',
-				Small: 'sm',
-			},
-		},
-		table: {
-			category: 'Modifiers',
-		},
+	isSmall: {
+		name: 'Small',
 	},
-	disabled: {
+	isDisabled: {
 		name: 'Disabled',
-		table: {
-			category: 'States',
-		},
 	},
 };
 
