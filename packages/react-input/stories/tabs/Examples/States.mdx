@@ -24,7 +24,7 @@ export const ReadOnlyInputCode = dedent`
 import React from 'react';\n
 import { Input } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Input id="input-id-1" label="Label" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" readonly />;
+	return <Input id="input-id-1" label="Label" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" readOnly={true} />;
 }\n
 export default Example;
 `;
@@ -90,7 +90,7 @@ export default Example;
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
 	<p>
-		Add the <Code small={true}>readonly</Code> prop to set input readonly.
+		Add the <Code small={true}>readOnly</Code> prop to set input readonly.
 	</p>
 	<Preview wrapper={true}>
 		<Input
@@ -99,7 +99,7 @@ export default Example;
 			description="This is a description."
 			descriptionId="desc-id-3"
 			placeholder="Placeholder"
-			readonly
+			readOnly={true}
 		/>
 	</Preview>
 	<Snippet language="js">{ReadOnlyInputCode}</Snippet>
