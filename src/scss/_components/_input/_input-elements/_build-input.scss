@@ -25,6 +25,10 @@
 				flex-direction: column-reverse;
 			}
 
+			input {
+				max-height: 40px;
+			}
+
 			.sui-#{$block}__field {
 				@if map.has-key($sui-input-font, sm, size) {
 					font-size: map.get($sui-input-font, sm, size);
@@ -55,7 +59,6 @@
 				padding: 8px 16px;
 				width: 100%;
 				outline: none;
-				max-height: 40px;
 
 				&:hover {
 					@if map.has-key($sui-input-color, blue, default, color) {
@@ -120,8 +123,11 @@
 					@if map.has-key($sui-input-font, xs, height) {
 						line-height: map.get($sui-input-font, xs, height);
 					}
-					max-height: 32px;
 					padding: 8px 12px;
+				}
+
+				input {
+					max-height: 32px;
 				}
 			}
 		}
