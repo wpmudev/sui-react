@@ -1,11 +1,11 @@
-# `@wpmudev/react-input`
+# `@wpmudev/react-textarea`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactInput = require('@wpmudev/react-input');
+const reactTextarea = require('@wpmudev/react-textarea');
 
 // TODO: DEMONSTRATE API
 ```
