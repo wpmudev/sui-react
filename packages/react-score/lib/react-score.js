@@ -1,62 +1,112 @@
-import React, { Fragment } from 'react';
-import { isEmpty, isUndefined } from '@wpmudev/react-utils';
+import React, { Fragment, createElement } from 'react';
+import { isEmpty, isUndefined, isBoolean } from '@wpmudev/react-utils';
 
-const Score = ({ scoreBar, scoreValue, scoreContent, percentage, state, size }) => {
+const Score = ({
+	bar,
+	value,
+	content,
+	state,
+	isSmall = false,
+	isPercentage = true,
+	className,
+	...props
+}) => {
+	const is = {};
+	const set = {};
 
-	const score = {};
+	// validation of values.
+	is.value = !isUndefined(value) && !isEmpty(value) ? true : false;
+	is.bar = !isUndefined(bar) && !isEmpty(bar) ? true : false;
+	is.content = !isUndefined(content) && !isEmpty(content) ? true : false;
+	is.className =
+		!isUndefined(className) && !isEmpty(className) ? true : false;
+	is.state = !isUndefined(state) && !isEmpty(state) ? true : false;
 
-	score.class = 'sui-score sui-score--loaded';
+	set.classes = 'sui-score sui-score--loaded';
+	set.value = is.bar ? bar : 0;
 
-	// add class based on type
-	switch (state) {
-		case 'error':
-		case 'warning':
-		case 'success':
-			score.class += ' sui-score--' + state;
-			break;
-
-		default:
-			break;
+	// add class based on state type
+	if (is.state) {
+		set.classes += ` sui-score--${state}`;
 	}
 
-	// switch size of score element
-	switch (size) {
-		case 'large':
-			score.class += ' sui-score--lg';
-			break;
-
-		default:
-			break;
+	if (is.value) {
+		set.value = value;
 	}
 
-	const hasValue = !isUndefined(scoreValue) && !isEmpty(scoreValue);
+	// size of score element
+	if (!isSmall) {
+		set.classes += ' sui-score--lg';
+	}
 
-	return (
-		<Fragment>
-			<div className={ score.class }>
-				<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-					<circle strokeWidth="12" cx="50" cy="50" r="42"></circle>
-					<circle
-						strokeWidth="12"
-						cx="50"
-						cy="50"
-						r="42"
-						strokeDasharray="0,3943.4067435231395"
-						style={{ animation: `3s ease 0s 1 normal forwards running sui${scoreBar}` }}
-					></circle>
-				</svg>
-				<span className="sui-score--content">
-					{ ( hasValue ) ? scoreValue : scoreBar } 
-					{ ( !isUndefined(percentage) && percentage ) && (
-						<span className="sui-score--percentage">%</span>
-					)}
-					{ ( !isUndefined(scoreContent) && !isEmpty(scoreContent) ) && ' ' + scoreContent }
-				</span>
-				<span className="sui-screen-reader-text" tabIndex="0">{`Score ${ ( hasValue ) ? scoreValue : scoreBar } out of 100`}</span>
-			</div>
-		</Fragment>
+	// if we have custom classes
+	if (is.className) {
+		set.classes += ` ${className}`;
+	}
+
+	const svgHTML = createElement(
+		'svg',
+		{
+			viewBox: '0 0 100 100',
+			xmlns: 'http://www.w3.org/2000/svg',
+		},
+		createElement('circle', {
+			strokeWidth: '12',
+			cx: '50',
+			cy: '50',
+			r: '42',
+		}),
+		createElement('circle', {
+			strokeWidth: '12',
+			cx: '50',
+			cy: '50',
+			r: '42',
+			strokeDasharray: '0,3943.4067435231395',
+			style: {
+				animation: `3s ease 0s 1 normal forwards running sui${
+					is.bar ? bar : set.value
+				}`,
+			},
+		})
+	);
+
+	const contentHTML = createElement(
+		'span',
+		{
+			className: 'sui-score--content',
+		},
+		set.value,
+		isPercentage &&
+			createElement(
+				'span',
+				{
+					className: 'sui-score--percentage',
+				},
+				'%'
+			),
+		is.content && ` ${content}`
+	);
+
+	const screenreaderHTML = createElement(
+		'span',
+		{
+			className: 'sui-screen-reader-text',
+			tabIndex: '0',
+		},
+		`Score ${set.value} out of 100`
+	);
+
+	return createElement(
+		'div',
+		{
+			className: set.classes,
+			...props,
+		},
+		svgHTML,
+		contentHTML,
+		screenreaderHTML
 	);
 };
 
 // Publish required component.
-export { Score }
+export { Score };

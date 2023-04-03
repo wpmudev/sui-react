@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 // Import required component.
 import { Score as SuiScore } from '../lib/react-score';
@@ -9,7 +9,7 @@ import docs from './ReactScore.mdx';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Score',
-	component: SuiScore,
+	component: Score,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -20,26 +20,32 @@ export default {
 
 // Build "Score" story.
 const Score = ({
-	scoreBar,
-	scoreValue,
-	scoreContent,
-	percentage,
+	bar,
+	value,
+	content,
 	state,
-	size,
-	color
+	isSmall,
+	isPercentage,
+	color,
 }) => {
-
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: color !== 'white' ? '#fff' : '#333'
+		background: color !== 'white' ? '#fff' : '#333',
 	};
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiScore scoreBar={ scoreBar } scoreValue={ scoreValue } scoreContent={ scoreContent } percentage={ percentage } state={ state } size={ size } />
+					<SuiScore
+						bar={bar}
+						value={value}
+						content={content}
+						state={state}
+						isSmall={isSmall}
+						isPercentage={isPercentage}
+					/>
 				</div>
 			</div>
 		</div>
@@ -48,84 +54,59 @@ const Score = ({
 
 // Set story arguments.
 Score.args = {
-	scoreBar: 55,
-	scoreValue: 55,
-	percentage: false,
+	bar: 55,
+	value: 55,
+	isPercentage: false,
 	state: 'warning',
-	size: 'large',
+	isSmall: true,
 };
 
 // Set controls for story arguments.
 Score.argTypes = {
-	scoreBar: {
+	bar: {
 		name: 'Circle Bar',
 		description: 'The score circle.',
-		table: {
-			category: 'Elements'
-		},
 		control: {
 			type: 'range',
 			min: 0,
 			max: 100,
-			step: 1
-		}
+			step: 1,
+		},
 	},
-	scoreValue: {
+	value: {
 		name: 'Score Value',
 		description: 'The score value to display.',
-		table: {
-			category: 'Elements'
-		},
-		control: 'number'
+		control: 'number',
 	},
-	scoreContent: {
+	content: {
 		name: 'Content',
 		description: 'The score content to display.',
 		control: 'text',
-		table: {
-			category: 'Elements'
-		},
 		if: {
 			arg: 'size',
-			eq: 'small'
-		}
+			eq: 'small',
+		},
 	},
-	percentage: {
+	isPercentage: {
 		name: 'Show Percentage',
 		description: 'The percentage to display.',
-		table: {
-			category: 'Elements'
-		}
 	},
 	state: {
 		name: 'Type',
-		description: 'The scroes color variation according to type.',
-		table: {
-			category: 'Modifiers'
-		},
+		description: 'The scores color variation according to type.',
 		control: {
 			type: 'select',
 			options: {
 				'Type: Error': 'error',
 				'Type: Warning': 'warning',
-				'Type: Success': 'success'
+				'Type: Success': 'success',
 			},
 		},
 	},
-	size: {
+	isSmall: {
 		name: 'Size',
 		description: 'The scores component size.',
-		table: {
-			category: 'Modifiers'
-		},
-		control: {
-			type: 'select',
-			options: {
-				'Size: Small': 'small',
-				'Size: Large': 'large'
-			}
-		},
-	}
+	},
 };
 
 // Publish required stories.

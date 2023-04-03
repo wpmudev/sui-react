@@ -1,11 +1,11 @@
-# `@wpmudev/react-score`
+# `@wpmudev/react-button`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactScore = require('@wpmudev/react-score');
+const reactButton = require('@wpmudev/react-button');
 
 // TODO: DEMONSTRATE API
 ```
