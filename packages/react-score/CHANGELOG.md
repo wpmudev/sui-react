@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file. See [Conven
 ## Unreleased (2023-03-20)
 
 #### ✨ New Features
-- feat: Initial release ([@iamleigh](https://github.com/iamleigh))
+- feat: Initial release ([@creador-dev](https://github.com/creador-dev))
 
 #### Committers: 1
-- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))
