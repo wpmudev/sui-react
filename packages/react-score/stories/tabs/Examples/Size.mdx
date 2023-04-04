@@ -1,20 +1,27 @@
 import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
-import { Button } from '../../../lib/react-button';
+import { Score } from '../../../lib/react-score';
 import dedent from 'dedent';
 
-export const SmallButtonCode = dedent`
+export const SmallScoreCode = dedent`
 import React from 'react';\n
-import { Button } from '@wpmudev/sui-react';\n
+import { Score } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Button size="sm">Button</Button>;
+	return <Score bar={95} isSmall={true} />;
 }\n
 export default Example;
 `;
 
-<Section title="Small" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
-	<p>Set the <Code small={true}>isSmall</Code> prop to reduce the button width and height, fitting with the design context.</p>
+<Section
+	title="Small"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isSmall</Code> prop to reduce the score width
+		and height, fitting with the design context.
+	</p>
 	<Preview wrapper={true}>
-		<Button size="sm">Button</Button>
+		<Score bar={95} isSmall={true} />
 	</Preview>
-	<Snippet language="js">{SmallButtonCode}</Snippet>
+	<Snippet language="js">{SmallScoreCode}</Snippet>
 </Section>

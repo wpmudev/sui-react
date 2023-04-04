@@ -1,19 +1,15 @@
 import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
 import { Score } from '../../lib/react-score';
 import dedent from 'dedent';
-
-import Variants from './Examples/Variants.mdx';
-import Appearance from './Examples/Appearance.mdx';
-import Colors from './Examples/Colors.mdx';
+import Types from './Examples/Types.mdx';
 import States from './Examples/States.mdx';
 import Size from './Examples/Size.mdx';
-import Icon from './Examples/Icon.mdx';
 
 export const sampleCode = dedent`
 import React from 'react';\n
 import { Score } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Score scoreBar={ scoreBar } scoreValue={ scoreValue } scoreContent={ scoreContent } percentage={ percentage } state={ state } size={ size } />;
+	return <Score bar={55} />;
 }\n
 export default Example;
 `;
@@ -25,30 +21,21 @@ export default Example;
 		necessary in some scenarios.
 	</p>
 	<Preview wrapper={true}>
-		<Button>Default button</Button>
+		<Score bar={95} />
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
 
 <Section style={{ paddingTop: 0 }}>
 	<Switcher>
-		<div label="Variants" value="variants">
-			<Variants />
-		</div>
-		<div label="Appearance" value="appearance">
-			<Appearance />
-		</div>
-		<div label="Colors" value="colors">
-			<Colors />
+		<div label="Types" value="types">
+			<Types />
 		</div>
 		<div label="States" value="states">
 			<States />
 		</div>
 		<div label="Size" value="size">
 			<Size />
-		</div>
-		<div label="Button with Icon" value="icon">
-			<Icon />
 		</div>
 	</Switcher>
 </Section>

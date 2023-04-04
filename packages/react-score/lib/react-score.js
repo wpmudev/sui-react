@@ -24,10 +24,19 @@ const Score = ({
 
 	set.classes = 'sui-score sui-score--loaded';
 	set.value = is.bar ? bar : 0;
+	set.state = is.state ? state : '';
 
 	// add class based on state type
-	if (is.state) {
-		set.classes += ` sui-score--${state}`;
+	if (!is.state) {
+		if (61 <= set.value) {
+			set.classes += ' sui-score--success';
+		} else if (35 <= set.value && 60 >= set.value) {
+			set.classes += ' sui-score--warning';
+		} else {
+			set.classes += ' sui-score--error';
+		}
+	} else {
+		set.classes += ` sui-score--${set.state}`;
 	}
 
 	if (is.value) {
@@ -84,7 +93,7 @@ const Score = ({
 				},
 				'%'
 			),
-		is.content && ` ${content}`
+		is.content && isSmall && ` ${content}`
 	);
 
 	const screenreaderHTML = createElement(

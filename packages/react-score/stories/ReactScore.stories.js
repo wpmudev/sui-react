@@ -56,6 +56,7 @@ const Score = ({
 Score.args = {
 	bar: 55,
 	value: 55,
+	content: '',
 	isPercentage: false,
 	state: 'warning',
 	isSmall: true,
@@ -83,8 +84,8 @@ Score.argTypes = {
 		description: 'The score content to display.',
 		control: 'text',
 		if: {
-			arg: 'size',
-			eq: 'small',
+			arg: 'isSmall',
+			eq: true,
 		},
 	},
 	isPercentage: {
@@ -104,7 +105,7 @@ Score.argTypes = {
 		},
 	},
 	isSmall: {
-		name: 'Size',
+		name: 'Small',
 		description: 'The scores component size.',
 	},
 };
