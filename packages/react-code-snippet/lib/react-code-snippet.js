@@ -77,30 +77,6 @@ const CodeSnippet = ({
 		set.codeHTML,
 		copy && set.copyHTML
 	);
-
-	// return code ? (
-	// 	<div className={classes}>
-	// 		<pre>
-	// 			<code className={`language-${language}`}>{code}</code>
-	// 		</pre>
-	// 		{copy && (
-	// 			<Tooltip
-	// 				label="Copy"
-	// 				theme="secondary"
-	// 				color="black"
-	// 				position="top"
-	// 				aria-label={set.copied ? 'Copied' : ''}
-	// 				onMouseLeave={() => set.setCopied(false)}
-	// 				onClick={() => copyCode(code)}
-	// 				customWidth="65"
-	// 			>
-	// 				{set.copied ? 'Copied' : ''}
-	// 			</Tooltip>
-	// 		)}
-	// 	</div>
-	// ) : (
-	// 	''
-	// );
 };
 
 export { CodeSnippet };
