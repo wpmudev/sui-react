@@ -50,7 +50,7 @@ const CodeSnippet = ({
 			{
 				className: `language-${set.language}`,
 			},
-			set.children
+			is.children && set.children
 		)
 	);
 
