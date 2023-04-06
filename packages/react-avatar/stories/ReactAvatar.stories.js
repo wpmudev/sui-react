@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { isUndefined, isEmpty } from "@wpmudev/react-utils";
+import React from 'react';
 
 // Import required component.
 import { Avatar as SuiAvatar } from '../lib/react-avatar';
@@ -10,7 +9,7 @@ import docs from './ReactAvatar.mdx';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Avatar',
-	component: SuiAvatar,
+	component: Avatar,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -20,15 +19,7 @@ export default {
 };
 
 // Build "Avatar" story.
-const Avatar = ({
-	color,
-	iconMode,
-	iconString,
-	image,
-	status,
-	size
-}) => {
-
+const Avatar = ({ color, iconMode, iconString, image, status, isSmall }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -39,11 +30,11 @@ const Avatar = ({
 
 	props.icon = iconString;
 
-	if ( 'none' === iconMode ) {
+	if ('none' === iconMode) {
 		props.icon = 'user-alt';
 	}
 
-	if ( 'image' === iconMode ) {
+	if ('image' === iconMode) {
 		props.icon = image;
 	}
 
@@ -52,8 +43,10 @@ const Avatar = ({
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<SuiAvatar
-						{ ... ( 'image' !== iconMode ? { icon: props.icon } : { image: props.icon } ) }
-						size={size}
+						{...('image' !== iconMode
+							? { icon: props.icon }
+							: { image: props.icon })}
+						isSmall={isSmall}
 						status={status}
 					></SuiAvatar>
 				</div>
@@ -64,11 +57,14 @@ const Avatar = ({
 
 // Set story arguments.
 Avatar.args = {
-	status: 'none',
+	status: '',
 	iconMode: 'image',
 	iconString: 'logo',
-	image: 'https://avatars.githubusercontent.com/u/40248406?v=4',
-	size: 'default'
+	image: {
+		alt: 'image-alt',
+		src: 'https://avatars.githubusercontent.com/u/40248406?v=4',
+	},
+	isSmall: false,
 };
 
 // Set controls for story arguments.
@@ -80,63 +76,41 @@ Avatar.argTypes = {
 			options: {
 				None: 'none',
 				Image: 'image',
-				String: 'string'
-			}
+				String: 'string',
+			},
 		},
-		table: {
-			category: 'Elements'
-		}
 	},
 	iconString: {
 		name: 'Icon String',
 		control: 'text',
-		table: {
-			category: 'Elements'
-		},
 		if: {
 			arg: 'iconMode',
-			eq: 'string'
-		}
+			eq: 'string',
+		},
 	},
 	image: {
 		name: 'Image',
-		control: 'text',
-		table: {
-			category: 'Elements'
-		},
+		control: 'object',
 		if: {
 			arg: 'iconMode',
-			eq: 'image'
-		}
+			eq: 'image',
+		},
 	},
 	status: {
 		name: 'Status',
 		control: {
 			type: 'select',
 			options: {
-				'Status: None': 'none',
-				'Status: Confirmed': 'check-alt',
-				'Status: Awaiting': 'timer',
-				'Status: Not Accepted': 'warning',
-				'Status: Not Connected': 'danger'
-			}
+				'Status: None': '',
+				'Status: Confirmed': 'confirmed',
+				'Status: Awaiting': 'awaiting',
+				'Status: Not Accepted': 'not-accepted',
+				'Status: Not Connected': 'not-connected',
+			},
 		},
-		table: {
-			category: 'Elements'
-		}
 	},
-	size: {
-		name: 'Size',
-		control: {
-			type: 'select',
-			options: {
-				'Size: Default': 'default',
-				'Size: Small': 'small'
-			}
-		},
-		table: {
-			category: 'Modifiers'
-		}
+	isSmall: {
+		name: 'Small',
 	},
 };
 
