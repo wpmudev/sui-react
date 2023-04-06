@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "devDependencies": {
-    "@wpmudev/react-button": "^1.1.2",
+    "@wpmudev/react-tooltip": "^1.0.0",
     "@wpmudev/react-utils": "^1.0.0",
     "react": "^18.2.0",
     "prismjs": "^1.29.0"
