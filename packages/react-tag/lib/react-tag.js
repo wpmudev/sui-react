@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react';
-import { isBoolean, isEmpty, isUndefined } from '@wpmudev/react-utils';
+import { createElement } from 'react';
+import { isEmpty, isUndefined } from '@wpmudev/react-utils';
 
 const Tag = ({
 	isSmall = false,
 	type,
 	color,
 	isUppercase = false,
-	className,
-	design,
+	className = '',
+	design = '',
 	isDisabled = false,
 	href,
 	target,
@@ -15,106 +15,69 @@ const Tag = ({
 	...props
 }) => {
 	// Set tag props prefix.
-	const tag = {};
+	const is = {};
+	const set = {};
 
-	tag.link = href;
+	// validation for tag props
+	is.link = !isUndefined(href) ? true : false;
+	is.color = !isUndefined(color) && !isEmpty(color) ? true : false;
+	is.children = !isUndefined(children) && !isEmpty(children) ? true : false;
+	is.type = !isUndefined(type) && !isEmpty(type) ? true : false;
+	is.design = !isEmpty(design) ? true : false;
 
-	tag.markup = children;
+	// set default value
+	set.children = '';
+	set.class = 'sui-tag';
+	set.tag = 'span';
 
-	tag.class = 'sui-tag';
-
-	// Determine where to open the link when `href` is available.
-	switch (target) {
-		case '_self':
-		case '_blank':
-		case '_parent':
-		case '_top':
-			tag.target = target;
-			break;
-
-		default:
-			tag.target = '_blank';
-			break;
+	// set color class for tags
+	if (is.color) {
+		set.class += ` sui-tag--${color}`;
 	}
 
-	// switch color
-	switch (color) {
-		case 'red':
-		case 'yellow':
-		case 'green':
-		case 'blue':
-		case 'purple':
-		case 'white':
-		case 'black':
-		case 'dark-blue':
-			tag.class += ' sui-tag--' + color;
-			break;
-		default:
-			break;
+	// set children html
+	if (is.children) {
+		set.children = children;
 	}
 
-	switch (type) {
-		case 'button':
-		case 'link':
-			tag.html = type;
-			tag.class += ` sui-tag__${type}`;
-			break;
-		default:
-			tag.html = 'span';
-			break;
+	// set type of tag
+	if (is.type) {
+		set.tag = type;
+		set.class += ` sui-tag__${type}`;
 	}
 
-	switch (design) {
-		case 'truncated':
-			tag.class += ' sui-tag--' + design;
-			tag.markup = <span>{children}</span>;
-			break;
-		case 'multiline':
-			tag.class += ' sui-tag--' + design;
-			break;
-		default:
-			break;
+	// design class in tag
+	if (is.design) {
+		set.class += ` sui-tag--${design}`;
 	}
 
-	if (isBoolean(isSmall) && isSmall) {
-		tag.class += ' sui-tag--sm';
+	if (isSmall) {
+		set.class += ' sui-tag--sm';
 	}
 
-	if (!isEmpty(className) && !isUndefined(className)) {
-		tag.class += ' ' + className;
+	if (!isEmpty(className)) {
+		set.class += ` ${className}`;
 	}
 
-	if (isBoolean(isDisabled) && isDisabled) {
-		tag.class += ' sui-tag--disabled';
+	if (isDisabled) {
+		set.class += ' sui-tag--disabled';
 	}
 
-	if (isBoolean(isUppercase) && isUppercase) {
-		tag.class += ' sui-tag--uppercase';
+	if (isUppercase) {
+		set.class += ' sui-tag--uppercase';
 	}
 
-	return (
-		<Fragment>
-			{'button' === tag.html && (
-				<button className={tag.class} {...props}>
-					{tag.markup}
-				</button>
-			)}
-			{'link' === tag.html && (
-				<a
-					href={tag.link}
-					target={tag.target}
-					className={tag.class}
-					{...props}
-				>
-					{tag.markup}
-				</a>
-			)}
-			{'span' === tag.html && (
-				<span className={tag.class} {...props}>
-					{tag.markup}
-				</span>
-			)}
-		</Fragment>
+	return createElement(
+		set.tag,
+		{
+			...(is.link && { href: href }),
+			...(is.link && { target: target || '_blank' }),
+			className: set.class,
+			...props,
+		},
+		is.design && 'truncated' === design
+			? createElement('span', {}, set.children)
+			: set.children
 	);
 };
 

@@ -9,7 +9,7 @@ import docs from './ReactTag.mdx';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Tag',
-	component: SuiTag,
+	component: Tag,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -57,7 +57,7 @@ const Tag = ({
 					{'link' === example && (
 						<SuiTag
 							isSmall={isSmall}
-							type="link"
+							type="a"
 							href={href}
 							target={target}
 							color={color}
@@ -93,7 +93,7 @@ Tag.args = {
 	href: '',
 	target: '_blank',
 	color: 'default',
-	design: 'default',
+	design: '',
 	isUppercase: false,
 	isSmall: false,
 	isDisabled: false,
@@ -114,15 +114,9 @@ Tag.argTypes = {
 	},
 	label: {
 		name: 'Label',
-		table: {
-			category: 'Elements',
-		},
 	},
 	href: {
 		name: 'Link',
-		table: {
-			category: 'Elements',
-		},
 		control: {
 			type: 'text',
 		},
@@ -133,9 +127,6 @@ Tag.argTypes = {
 	},
 	target: {
 		name: 'Target',
-		table: {
-			category: 'Elements',
-		},
 		control: {
 			type: 'select',
 			options: ['_self', '_blank'],
@@ -160,44 +151,29 @@ Tag.argTypes = {
 				'Color: Dark Blue': 'dark-blue',
 			},
 		},
-		table: {
-			category: 'Modifiers',
-		},
 	},
 	design: {
 		name: 'Design',
 		control: {
 			type: 'select',
 			options: {
-				'Design: Default': 'default',
+				'Design: Default': '',
 				'Design: Truncated': 'truncated',
 				'Design: Multiline': 'multiline',
 			},
 		},
-		table: {
-			category: 'Modifiers',
-		},
 	},
 	isUppercase: {
 		name: 'Uppercase',
-		table: {
-			category: 'Modifiers',
-		},
 	},
 	isSmall: {
 		name: 'Small',
-		table: {
-			category: 'Modifiers',
-		},
 		control: {
 			type: 'boolean',
 		},
 	},
 	isDisabled: {
 		name: 'Disabled',
-		table: {
-			category: 'States',
-		},
 	},
 };
 
