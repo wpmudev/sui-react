@@ -1,20 +1,138 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:selector";
+
 // -----------------------------------------------------------------------------
-// BEM Constructor
+// SUI BEM Constructor
 //
-// A modified version of the "BEM Constructor" by Daniel Guillan
+// Inspired by "BEM Constructor" SASS library by Daniel Guillan
 // https://github.com/danielguillan/bem-constructor
 // -----------------------------------------------------------------------------
+// @forward "./_bem/constructor";
 
-// @forward "./_bem/defaults";
-@forward "./_bem/logger";
-@forward "./_bem/error-checks";
-@forward "./_bem/block";
-@forward "./_bem/element";
-@forward "./_bem/modifier";
-@forward "./_bem/modifies-element";
-@forward "./_bem/scope";
-@forward "./_bem/theme";
-@forward "./_bem/state";
-@forward "./_bem/hack";
-@forward "./_bem/suffix";
-@forward "./_bem/debug";
+$bem-namespace: 'sui-';
+$bem-current-context: () !default;
+
+$bem-element-separator: '__';
+$bem-modifier-separator: '--';
+
+@function set-current-context($obj, $name, $selector) {
+	$new-current: (
+		#{$obj}: (
+			name: $name,
+			selector: $selector,
+		)
+	);
+
+	$bem-current-context: map.merge(
+		$bem-current-context,
+		$new-current
+	) !global;
+
+	@return $selector;
+}
+
+@function unset-current-context($obj) {
+	$new-current: (#{$obj}: null);
+	$bem-current-context: map.merge(
+		$bem-current-context,
+		$new-current
+	) !global;
+
+	@return null;
+}
+
+@function build-block($name) {
+	$selector: "." + $bem-namespace + $name;
+
+	$set-current: set-current-context('block', $name, $selector);
+
+	@return $selector;
+}
+
+@function build-element($elements...) {
+	$selector: ();
+
+	@each $element in $elements {
+		$sel: #{'&'} + $bem-element-separator + $element;
+		$selector: list.append($selector, $sel, comma);
+
+		// $set-current: set-current-context('element', $element, $selector);
+	}
+
+	$set-current: set-current-context('element', $elements, $selector);
+
+	@return $selector;
+}
+
+@function build-modifier($modifiers...) {
+	$selector: ();
+
+	// Check if modifier is inside another modifier
+	@if (str-index(#{&}, '--')) {
+		@error 'Modifier cannot nest another modifier.';
+	}
+
+	@each $modifier in $modifiers {
+		$sel: #{'&'} + $bem-modifier-separator + $modifier;
+		$selector: list.append($selector, $sel, comma);
+
+		// $set-current: set-current-context('modifier', $modifier, $selector);
+	}
+
+	$set-current: set-current-context('modifier', $modifiers, $selector);
+
+	@return $selector;
+}
+
+@function build-modifies-element($modified-elements...) {
+	$selectors: ();
+
+	// Check if inside a label
+	@if (str-index(#{&}, '__')) {
+		@error 'Label cannot nest another label.';
+	}
+
+	@each $element in $modified-elements {
+		$sel: map.get($bem-current-context, block, selector) + $bem-element-separator + $element;
+		$selectors: list.append($selectors, $sel, comma);
+	}
+
+	$selector: selector.nest($selectors...);
+
+	$set-current: set-current-context('modifies-element', $modified-elements, $selector);
+
+	@return $selector;
+}
+
+@mixin block($name) {
+	#{build-block($name)} {
+		@content;
+	}
+
+	$unset-current: unset-current-context('block');
+}
+
+@mixin element($elements...) {
+	#{build-element($elements...)} {
+		@content;
+	}
+
+	$unset-current: unset-current-context("element");
+}
+
+@mixin modifier($modifiers...) {
+	#{build-modifier($modifiers...)} {
+		@content;
+	}
+
+	$unset-current: unset-current-context("modifier");
+}
+
+@mixin modifies-element($modified-elements...) {
+	#{build-modifies-element($modified-elements...)} {
+		@content;
+	}
+
+	$unset-current: unset-current-context("modifies-element");
+}

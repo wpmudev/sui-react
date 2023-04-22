@@ -1,37 +1,34 @@
-// -----------------------------------------------------------------------------
-// Context logger
-// -----------------------------------------------------------------------------
-// Table of contents:
-// 1. Store current context
-// 2. Clear current context
+@use "sass:map";
 
+// Import required stylesheets
+@use "../defaults" as *;
 
-/// Used to stores the current object being constructed
-/// @private
-$_bem-current-context: () !global;
-
-
-// -----------------------------------------------------------------------------
-// 1. Store current context
-// -----------------------------------------------------------------------------
-
+/// 1. Store Context
 /// Sets the current object, stores name and generated selector
 @function set-current-context($obj, $name, $selector) {
-    $new-current: (#{$obj}: (name: $name, selector: $selector));
-    $_bem-current-context: map-merge($_bem-current-context, $new-current) !global;
+	$new-current: (
+		#{$obj}: (
+				name: $name,
+				selector: $selector,
+			)
+	);
 
-    @return $selector;
+	$bem-current-context: map.merge(
+		$bem-current-context,
+		$new-current
+	);
+
+	@return $selector;
 }
 
-
-// -----------------------------------------------------------------------------
-// 2. Clear current context
-// -----------------------------------------------------------------------------
-
+/// 2. Clear Context
 /// Clears the current object
 @function unset-current-context($obj) {
-    $new-current: (#{$obj}: null);
-    $_bem-current-context: map-merge($_bem-current-context, $new-current) !global;
+	$new-current: (#{$obj}: null);
+	$bem-current-context: map.merge(
+		$bem-current-context,
+		$new-current
+	);
 
-    @return null;
+	@return null;
 }

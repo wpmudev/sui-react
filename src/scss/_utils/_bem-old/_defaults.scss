@@ -1,17 +1,5 @@
 // -----------------------------------------------------------------------------
-// Global Logger
-// -----------------------------------------------------------------------------
-
-/// Stores the whole BEM structure
-/// @private
-$_bem-log: ();
-
-/// Used to stores the current object being constructed
-/// @private
-$bem-current-context: ();
-
-// -----------------------------------------------------------------------------
-// Default variables
+// Defaults
 // -----------------------------------------------------------------------------
 
 /// Set default namespace
@@ -28,4 +16,4 @@ $bem-modifier-separator: "--" !default;
 
 /// Throw errors
 /// @public
-$bem-throw-errors: false !default;
+$bem-throw-errors: true !default;

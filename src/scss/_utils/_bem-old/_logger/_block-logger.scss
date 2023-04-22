@@ -1,25 +1,26 @@
 @use "sass:map";
 
 // Import required stylesheets
-@use "../defaults" as *;
+@use "./global" as *;
 
-/// 1. Block Checker
+// -----------------------------------------------------------------------------
+// Block Logger
+// -----------------------------------------------------------------------------
+
 /// Find if a given $block has already been created
 /// @param {String} $block - Name of the block
 @function block-exists($block) {
 	@return map.has-key($_bem-log, $block);
 }
 
-/// 2. Block Logger
 /// Log the new $block
 /// @param {String} $block - Block name
 @function _bem-log-block($block) {
 	// Check if the block has already been created
 	@if block-exists($block) {
 		@if $bem-throw-errors {
-			@error '`#{$block}` block already exists';
+			@error '`#{$block}` block has already been created';
 		}
-
 		@return false;
 	}
 

@@ -1,23 +1,20 @@
 @use "sass:map";
 
-// Import required stylesheets
-@use "../defaults" as *;
-@use "./context-logger" as *;
+// -----------------------------------------------------------------------------
+// Modifier Logger
+// -----------------------------------------------------------------------------
 
-/// 1. Modifier Checker
 /// Find if the given $modifiers have already been created
 /// @param {Arglist | String} $modifiers - A single or multiple modifier names
 @function modifier-exists($modifiers...) {
 	// Get the current block name
+	// Then get the current block map
+	// Then get the current block modifiers map
 	$current-block-name: map.get(
 		map.get($_bem-current-context, "block"),
 		"name"
 	);
-
-	// Then get the current block map
 	$current-block: map.get($_bem-log, $current-block-name);
-
-	// Then get the current block modifiers map
 	$current-modifiers: map.get($current-block, "modifiers");
 
 	@each $modifier in $modifiers {
@@ -29,7 +26,6 @@
 	@return false;
 }
 
-/// 2. Modifier Logger
 /// Log the new $modifiers
 /// @param {Arglist | String} $modifiers - A single or multiple modifier names
 @function _bem-log-modifier($modifiers...) {
@@ -76,22 +72,21 @@
 
 		@if $context-type == "element" {
 			$updated: (
-				#{$modifier}: (
-					"modified-by": ()
-				)
+				#{$modifier}:
+					(
+						"modified-by": (),
+					)
 			);
-		}
-
-		@else {
+		} @else {
 			$modifies-element: map.get(
 				$_bem-current-context,
 				"modifies-element"
 			);
-
 			$updated: (
-				#{$modifier}: (
-					"modifies-element": ()
-				)
+				#{$modifier}:
+					(
+						"modifies-element": (),
+					)
 			);
 		}
 
@@ -102,37 +97,38 @@
 	$updated-block: ();
 
 	@if $context-type == "element" {
-		// Update the element map
+		// update the element map;
 		$updated-item: (
-			#{$current-item-name}: (
-				"modifiers": $current-item-modifiers
-			)
+			#{$current-item-name}:
+				(
+					"modifiers": $current-item-modifiers,
+				)
 		);
-
-		// @error $updated-item
+		// @error $updated-item;
 		$updated-elements: map.merge(
 			map.get($current-block, "elements"),
 			$updated-item
 		);
-
 		$updated-block: (
-			#{$current-block-name}: (
-				"modifiers": map.get($current-block, "modifiers"),
-				"elements": $updated-elements,
-			)
+			#{$current-block-name}:
+				(
+					"modifiers": map.get($current-block, "modifiers"),
+					"elements": $updated-elements,
+				)
+		);
+	} @else {
+		$updated-block: (
+			#{$current-block-name}:
+				(
+					"modifiers": (
+						$current-item-modifiers,
+					),
+					"elements": map.get($current-block, "elements"),
+				)
 		);
 	}
 
-	@else {
-		$updated-block: (
-			#{$current-block-name}: (
-				"modifiers": ( $current-item-modifiers ),
-				"elements": map.get($current-block, "elements")
-			)
-		);
-	}
-
-	// Update the log
+	// // Update the log
 	$_bem-log: map.merge($_bem-log, $updated-block) !global;
 
 	@return true;

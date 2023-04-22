@@ -1,0 +1,59 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:selector";
+@use "sass:string";
+
+@use "../../functions" as *;
+
+@use "../defaults" as *;
+@use "../logger" as *;
+@use "../error-checks" as *;
+
+/// Scopes the @content ruleset to an element of the block being modified
+/// @private
+/// @param {String | Arglist} $modified-elements - List of elements that should be modified
+/// @returns The final selector for the element(s) modified by the block modifier
+@function build-modifies-element($modified-elements...) {
+	$inside-check: _should-be-called-within(
+		"block",
+		"modifier",
+		"state",
+		"theme"
+	);
+	$outside-check: _should-not-be-called-within("element");
+
+	// Return false in case error throwing is disabled
+	@if $inside-check == false or $outside-check == false {
+		@return false;
+	}
+
+	$selectors: ();
+
+	@each $element in $modified-elements {
+		$sel: map.get($bem-current-context, "block", "selector") + $bem-element-separator + $element;
+
+		$selectors: list.append($selectors, $sel, comma);
+	}
+
+	$s: &; // Workaround for libsass
+	$block: selector.append($s...);
+
+	$selector: selector.nest($block, $selectors);
+
+	$set-current: set-current-context('modifies-element', $modified-elements, $selector);
+
+	@return $selector;
+}
+
+/// Scopes the @content ruleset to an element of the block being modified
+/// @param {String | Arglist} $modified-elements - Name of the element(s) that should be modified
+@mixin modifies-element($modified-elements...) {
+	// Write modifier selector
+	// Usually would be placed @at-root but since we want to limit it inside
+	// the `sui-wrapper` element then we call the modifier name only
+	#{build-modifies-element($modified-elements...)} {
+		@content;
+	}
+
+	$unset-current: unset-current-context('modifies-element');
+}

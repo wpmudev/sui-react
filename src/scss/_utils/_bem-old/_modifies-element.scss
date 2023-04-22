@@ -1,4 +1,18 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:selector";
+
+// Import required files
 @use "./defaults" as *;
+
+@use "./_logger/global" as *;
+@use "./_logger/context-logger" as *;
+@use "./_logger/block-logger" as *;
+@use "./_logger/element-logger" as *;
+@use "./_logger/modifier-logger" as *;
+@use "./_logger/scope-logger" as *;
+
+@use "./error-checks" as *;
 
 // ----------------------------------------------------------------------
 // Element modifier
@@ -8,7 +22,8 @@
 /// @private
 /// @param {String | Arglist} $modified-elements - List of elements that should be modified
 /// @returns The final selector for the element(s) modified by the block modifier
-@function to-modifies-element($modified-elements...) {
+
+@function _modifies-element($modified-elements...) {
 
     $inside-check: _should-be-called-within('block', 'modifier', 'state', 'theme');
     $outside-check: _should-not-be-called-within('element');
@@ -35,10 +50,12 @@
     @return $selector;
 }
 
+
 /// Scopes the @content ruleset to an element of the block being modified
 /// @param {String | Arglist} $modified-elements - Name of the element(s) that should be modified
+
 @mixin modifies-element($modified-elements...) {
-    @at-root #{to-modifies-element($modified-elements...)} {
+    @at-root #{_modifies-element($modified-elements...)} {
         @content;
     }
 

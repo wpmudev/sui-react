@@ -1,0 +1,20 @@
+// -----------------------------------------------------------------------------
+// BEM Constructor
+//
+// A modified version of the "BEM Constructor" by Daniel Guillan
+// https://github.com/danielguillan/bem-constructor
+// -----------------------------------------------------------------------------
+
+// @forward "./_bem/defaults";
+@forward "./_bem/logger";
+@forward "./_bem/error-checks";
+@forward "./_bem/block";
+@forward "./_bem/element";
+@forward "./_bem/modifier";
+@forward "./_bem/modifies-element";
+@forward "./_bem/scope";
+@forward "./_bem/theme";
+@forward "./_bem/state";
+@forward "./_bem/hack";
+@forward "./_bem/suffix";
+@forward "./_bem/debug";

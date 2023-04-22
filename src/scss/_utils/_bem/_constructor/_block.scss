@@ -1,0 +1,39 @@
+@use "../defaults" as *;
+@use "../logger" as *;
+@use "../error-checks" as *;
+
+/// Initializes a new block object
+/// @private
+/// @param {String} $block  - Name for the new block
+/// @returns The final selector for the new block object
+@function build-block($name) {
+	// Log new block
+	$new-block: _bem-log-block($name);
+
+	// Error check
+	$outside-check: _should-not-be-called-within("scope", "block");
+
+	// Return false in case error throwing is disabled
+	@if $outside-check == false {
+		@return false;
+	}
+
+	$selector: "." + $bem-namespace + $name;
+	$set-current: set-current-context("block", $name, $selector);
+
+	@return $selector;
+}
+
+/// Creates a block object with the given type
+/// @param {String} $block  - Name for the new block
+@mixin block($name) {
+	// Write block selector
+	// Usually would be placed @at-root but since we want to limit it inside
+	// the `sui-wrapper` element then we call the block name only
+	#{build-block($name)} {
+		@content;
+	}
+
+	// Clear $bem-current-context block after creation
+	$unset-current: unset-current-context("block");
+}

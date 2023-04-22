@@ -1,0 +1,37 @@
+@use "./defaults" as *;
+
+// -----------------------------------------------------------------------------
+// Theme constructor
+// -----------------------------------------------------------------------------
+@function _theme($themes...) {
+	// If you try to hack a hack you can break the internet.
+	// So please, no one try it.
+	$outside-check: _should-not-be-called-within("theme");
+
+	// Return false in case error throwing is disabled
+	@if $outside-check == false {
+		@return false;
+	}
+
+	$selector: ();
+	$namespace: $bem-namespace + "-";
+
+	@each $theme in $themes {
+		@each $sel in & {
+			$t: selector-nest(".#{$namespace}#{$theme}", $sel);
+			$selector: append($selector, $t, "comma");
+		}
+	}
+
+	$set-current: set-current-context("theme", $themes, $selector);
+
+	@return $selector;
+}
+
+@mixin theme($themes...) {
+	@at-root #{_theme($themes...)} {
+		@content;
+	}
+
+	$unset-current: unset-current-context("theme");
+}
