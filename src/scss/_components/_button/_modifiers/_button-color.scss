@@ -10,9 +10,9 @@ $colors: (
 	white: $color-extended-neutral-100
 );
 
-@mixin modify-color {
+@mixin modify-color($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
-		@include block(button) {
+		@include block($block-name) {
 			@each $theme in $themes {
 				@each $name, $value in $colors {
 					$modifier-name: #{$theme + '-' + $name};
@@ -23,7 +23,7 @@ $colors: (
 							background: transparent;
 							color: $value;
 
-							&.sui-button--hover {
+							&.sui-#{$block-name}--hover {
 								border-color: if($name == white, $value, tint($value, 90%));
 								background: if($name == white, $value, tint($value, 90%));
 								@if $name == white {
@@ -31,7 +31,7 @@ $colors: (
 								}
 							}
 
-							&.sui-button--focus {
+							&.sui-#{$block-name}--focus {
 								border-color: $value;
 								outline: 1px solid $value;
 								background: transparent;
@@ -45,14 +45,14 @@ $colors: (
 							background: transparent;
 							color: $value;
 
-							&.sui-button--hover {
+							&.sui-#{$block-name}--hover {
 								background: if($name == white, $value, tint($value, 90%));
 								@if $name == white {
 									color: $color-extended-neutral-10;
 								}
 							}
 
-							&.sui-button--focus {
+							&.sui-#{$block-name}--focus {
 								outline-width: if($name == white, 2px, 1px);
 								outline-style: solid;
 								outline-color: $value;
@@ -68,12 +68,12 @@ $colors: (
 							background: $value;
 							color: if($name == white, $color-extended-neutral-10, $color-extended-neutral-100);
 
-							&.sui-button--hover {
+							&.sui-#{$block-name}--hover {
 								border-color: if($name == white, shade($value, 5%), shade($value, 40%));
 								background: if($name == white, shade($value, 5%), shade($value, 40%));
 							}
 
-							&.sui-button--focus {
+							&.sui-#{$block-name}--focus {
 								border-color: $value;
 								outline: 2px solid $value;
 								outline-offset: 2px;

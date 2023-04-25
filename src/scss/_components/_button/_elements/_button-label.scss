@@ -1,8 +1,8 @@
 @use "../../../_utils/utils" as *;
 
-@mixin build-label {
+@mixin build-label($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
-		@include block(button) {
+		@include block($block-name) {
 			@include element(label) {
 				display: block;
 				padding: $button-label-padding-vertical $button-label-padding-horizontal;
