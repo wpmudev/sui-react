@@ -1,75 +1,78 @@
 @use "sass:map";
 @use "sass:color";
 
+@use "../../_utils/tokens" as *;
 @use "../../_utils/functions" as *;
+@use "../../_utils/bem" as *;
 @use "../../_utils/mixins" as *;
 
-@use "./_modifiers/modifiers" as sui-button--modifier;
-
-@include sui-button--modifier.build-design(button);
-@include sui-button--modifier.build-hue(button);
-
-// DIR: Left to right.
-// THEME: None.
 @include sui-class($rtl: false, $theme: null) {
-	// Block: Button
 	@include block(button) {
 		cursor: pointer;
-		min-width: 74px;
+		min-width: $button-container-size-md;
 		max-width: 100%;
 		display: inline-flex;
 		flex-flow: row wrap;
 		align-items: center;
 		justify-content: center;
-		margin: 0 8px;
-		padding: 4px 12px;
-		border: 0;
-		border-radius: 4px;
+		margin: $button-container-margin-vertical $button-container-margin-horizontal;
+		padding: $button-container-padding-vertical $button-container-padding-horizontal;
+		border-width: $button-container-border-width;
+		border-radius: $button-container-border-radius;
+		outline: none;
 		background-image: none;
 		box-shadow: none;
-		font-weight: 500;
-		font-size: 15px;
-		line-height: 24px;
-		letter-spacing: 0.2px;
+		font-weight: $button-label-font-weight;
+		font-size: $button-label-font-size-md;
+		line-height: $button-label-font-height-md;
+		letter-spacing: $button-label-font-spacing-md;
 		text-decoration: none;
 		transition: 0.1s ease;
 
-		// Element: Label
-		@include element(label) {
-			margin: 4px;
+		&:first-child {
+			margin-left: 0;
 		}
 
-		// Element: Icon
+		&:last-child {
+			margin-right: 0;
+		}
+
+		@include element(label) {
+			display: block;
+			padding: $button-label-padding-vertical $button-label-padding-horizontal;
+		}
+
 		@include element(icon) {
 			display: block;
-			margin: 8px 4px;
+			padding: $button-icon-padding-vertical-md $button-icon-padding-horizontal-md;
 		}
 
-		// Modifier: Small
 		@include modifier(sm) {
-			min-width: 68px;
-			font-size: 13px;
-			line-height: 16px;
+			min-width: $button-container-size-sm;
+			font-size: $button-label-font-size-sm;
+			line-height: $button-label-font-height-sm;
+			letter-spacing: $button-label-font-spacing-sm;
 
-			@include block(button) {
-				// Element: Icon
-				@include element(icon) {
-					margin: 4px;
-				}
+			@include modifies-element(icon) {
+				padding: $button-icon-padding-vertical-sm $button-icon-padding-horizontal-sm;
 			}
 		}
-	}
 
-	// Block: Icon Button
-	@include block(button-icon) {
-		min-width: unset;
-		max-width: unset;
-		padding: 4px 8px;
+		// @include modifier(test) {
+		// 	__toString__: inspect($bem-current-context);
+		// 	__length__: length($bem-current-context);
+		// 	__keys__: map-keys($bem-current-context);
 
-		// Modifier: Small
-		&.sui-button--sm {
-			padding: 4px;
-		}
+		// 	@if map-has-key($bem-current-context, modifier) {
+		// 		content: 'true';
+		// 	}
+
+		// 	__properties__ {
+		// 		@each $key, $value in $bem-current-context {
+		// 			#{$key}: inspect($value);
+		// 		}
+		// 	}
+		// }
 	}
 }
 
