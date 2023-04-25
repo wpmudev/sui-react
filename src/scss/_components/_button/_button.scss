@@ -6,6 +6,16 @@
 @use "../../_utils/bem" as *;
 @use "../../_utils/mixins" as *;
 
+$themes: primary, secondary, tertiary;
+
+$colors: (
+	blue: $color-primary-50,
+	black: $color-extended-neutral-10,
+	red: $color-extended-error-50,
+	navy: $color-primary-30,
+	white: $color-extended-neutral-100
+);
+
 @include sui-class($rtl: false, $theme: null) {
 	@include block(button) {
 		cursor: pointer;
@@ -18,6 +28,7 @@
 		margin: $button-container-margin-vertical $button-container-margin-horizontal;
 		padding: $button-container-padding-vertical $button-container-padding-horizontal;
 		border-width: $button-container-border-width;
+		border-style: $button-container-border-style;
 		border-radius: $button-container-border-radius;
 		outline: none;
 		background-image: none;
@@ -47,6 +58,10 @@
 			padding: $button-icon-padding-vertical-md $button-icon-padding-horizontal-md;
 		}
 
+		@include element(spinner) {
+			display: block;
+		}
+
 		@include modifier(sm) {
 			min-width: $button-container-size-sm;
 			font-size: $button-label-font-size-sm;
@@ -56,6 +71,89 @@
 			@include modifies-element(icon) {
 				padding: $button-icon-padding-vertical-sm $button-icon-padding-horizontal-sm;
 			}
+		}
+
+		@each $theme in $themes {
+			@each $name, $value in $colors {
+				$modifier-name: #{$theme + '-' + $name};
+
+				@include modifier($modifier-name) {
+					@if $theme == tertiary {
+						border-color: transparent;
+						background: transparent;
+						color: $value;
+
+						&.sui-button--hover {
+							border-color: if($name == white, $value, tint($value, 90%));
+							background: if($name == white, $value, tint($value, 90%));
+							@if $name == white {
+								color: $color-extended-neutral-10;
+							}
+						}
+
+						&.sui-button--focus {
+							border-color: $value;
+							outline: 1px solid $value;
+							background: transparent;
+							@if $name == white {
+								color: $value;
+							}
+						}
+					}
+					@else if $theme == secondary {
+						border-color: $value;
+						background: transparent;
+						color: $value;
+
+						&.sui-button--hover {
+							background: if($name == white, $value, tint($value, 90%));
+							@if $name == white {
+								color: $color-extended-neutral-10;
+							}
+						}
+
+						&.sui-button--focus {
+							outline-width: if($name == white, 2px, 1px);
+							outline-style: solid;
+							outline-color: $value;
+							outline-offset: if($name == white, 2px, 0);
+							background: if($name == white, $value, tint($value, 90%));
+							@if $name == white {
+								color: $color-extended-neutral-10;
+							}
+						}
+					}
+					@else {
+						border-color: $value;
+						background: $value;
+						color: if($name == white, $color-extended-neutral-10, $color-extended-neutral-100);
+
+						&.sui-button--hover {
+							border-color: if($name == white, shade($value, 5%), shade($value, 40%));
+							background: if($name == white, shade($value, 5%), shade($value, 40%));
+						}
+
+						&.sui-button--focus {
+							border-color: $value;
+							outline: 2px solid $value;
+							outline-offset: 2px;
+							background: $value;
+						}
+					}
+				}
+			}
+		}
+
+		@include modifier(loading) {
+			pointer-events: none;
+		}
+
+		@include modifier(disabled) {
+			cursor: default;
+			pointer-events: none;
+			border-color: $color-extended-neutral-80;
+			background: $color-extended-neutral-80;
+			color: $color-extended-neutral-70;
 		}
 
 		// @include modifier(test) {
