@@ -1,0 +1,12 @@
+@use "../../../_utils/utils" as *;
+
+@mixin build-label {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block(button) {
+			@include element(label) {
+				display: block;
+				padding: $button-label-padding-vertical $button-label-padding-horizontal;
+			}
+		}
+	}
+}
