@@ -1,0 +1,13 @@
+@use "./_elements/elements" as sui-button-element;
+@use "./_modifiers/modifiers" as sui-button-modifier;
+
+$block-name: icon-button;
+
+@include sui-button-element.build-container($block-name);
+@include sui-button-element.build-label($block-name);
+@include sui-button-element.build-icon($block-name);
+
+@include sui-button-modifier.modify-size($block-name);
+@include sui-button-modifier.modify-color($block-name);
+@include sui-button-modifier.modify-loading($block-name);
+@include sui-button-modifier.modify-disabled($block-name);
