@@ -8,10 +8,10 @@
 /// Defines the animations required for specific actions.
 @keyframes spin {
 	from {
-		transform:rotate(0deg);
+		transform: rotate(0deg);
 	}
 	to {
-		transform:rotate(360deg);
+		transform: rotate(360deg);
 	}
 }
 
@@ -20,8 +20,7 @@
 		animation-name: spin;
 		@if $duration == null {
 			animation-duration: 1500ms;
-		}
-		@else {
+		} @else {
 			animation-duration: $duration;
 		}
 		animation-iteration-count: infinite;
