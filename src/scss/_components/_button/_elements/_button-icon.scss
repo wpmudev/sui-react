@@ -5,7 +5,8 @@
 		@include block($block-name) {
 			@include element(icon) {
 				display: block;
-				padding: $button-icon-padding-vertical-md $button-icon-padding-horizontal-md;
+				padding: $button-icon-padding-vertical-md
+					$button-icon-padding-horizontal-md;
 
 				span {
 					display: block;

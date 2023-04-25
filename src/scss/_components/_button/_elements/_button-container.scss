@@ -9,8 +9,10 @@
 			display: inline-flex;
 			flex-flow: row wrap;
 			justify-content: center;
-			margin: $button-container-margin-vertical $button-container-margin-horizontal;
-			padding: $button-container-padding-vertical $button-container-padding-horizontal;
+			margin: $button-container-margin-vertical
+				$button-container-margin-horizontal;
+			padding: $button-container-padding-vertical
+				$button-container-padding-horizontal;
 			border-width: $button-container-border-width;
 			border-style: $button-container-border-style;
 			border-radius: $button-container-border-radius;

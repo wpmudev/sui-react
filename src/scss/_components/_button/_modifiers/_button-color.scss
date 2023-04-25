@@ -7,7 +7,7 @@ $colors: (
 	black: $color-extended-neutral-10,
 	red: $color-extended-error-50,
 	navy: $color-primary-30,
-	white: $color-extended-neutral-100
+	white: $color-extended-neutral-100,
 );
 
 @mixin modify-color($block-name) {
@@ -15,7 +15,7 @@ $colors: (
 		@include block($block-name) {
 			@each $theme in $themes {
 				@each $name, $value in $colors {
-					$modifier-name: #{$theme + '-' + $name};
+					$modifier-name: #{$theme + "-" + $name};
 
 					@include modifier($modifier-name) {
 						@if $theme == tertiary {
@@ -24,8 +24,16 @@ $colors: (
 							color: $value;
 
 							&.sui-#{$block-name}--hover {
-								border-color: if($name == white, $value, tint($value, 90%));
-								background: if($name == white, $value, tint($value, 90%));
+								border-color: if(
+									$name == white,
+									$value,
+									tint($value, 90%)
+								);
+								background: if(
+									$name == white,
+									$value,
+									tint($value, 90%)
+								);
 								@if $name == white {
 									color: $color-extended-neutral-10;
 								}
@@ -39,14 +47,17 @@ $colors: (
 									color: $value;
 								}
 							}
-						}
-						@else if $theme == secondary {
+						} @else if $theme == secondary {
 							border-color: $value;
 							background: transparent;
 							color: $value;
 
 							&.sui-#{$block-name}--hover {
-								background: if($name == white, $value, tint($value, 90%));
+								background: if(
+									$name == white,
+									$value,
+									tint($value, 90%)
+								);
 								@if $name == white {
 									color: $color-extended-neutral-10;
 								}
@@ -57,20 +68,35 @@ $colors: (
 								outline-style: solid;
 								outline-color: $value;
 								outline-offset: if($name == white, 2px, 0);
-								background: if($name == white, $value, tint($value, 90%));
+								background: if(
+									$name == white,
+									$value,
+									tint($value, 90%)
+								);
 								@if $name == white {
 									color: $color-extended-neutral-10;
 								}
 							}
-						}
-						@else {
+						} @else {
 							border-color: $value;
 							background: $value;
-							color: if($name == white, $color-extended-neutral-10, $color-extended-neutral-100);
+							color: if(
+								$name == white,
+								$color-extended-neutral-10,
+								$color-extended-neutral-100
+							);
 
 							&.sui-#{$block-name}--hover {
-								border-color: if($name == white, shade($value, 5%), shade($value, 40%));
-								background: if($name == white, shade($value, 5%), shade($value, 40%));
+								border-color: if(
+									$name == white,
+									shade($value, 5%),
+									shade($value, 40%)
+								);
+								background: if(
+									$name == white,
+									shade($value, 5%),
+									shade($value, 40%)
+								);
 							}
 
 							&.sui-#{$block-name}--focus {

@@ -1,5 +1,3 @@
 module.exports = {
-	plugins: [
-		require('@postcss-plugins/console')
-	]
-}
+	plugins: [require('@postcss-plugins/console')],
+};

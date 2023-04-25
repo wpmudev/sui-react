@@ -10,7 +10,8 @@
 				letter-spacing: $button-label-font-spacing-sm;
 
 				@include modifies-element(icon) {
-					padding: $button-icon-padding-vertical-sm $button-icon-padding-horizontal-sm;
+					padding: $button-icon-padding-vertical-sm
+						$button-icon-padding-horizontal-sm;
 				}
 			}
 		}

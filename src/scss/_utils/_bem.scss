@@ -10,36 +10,30 @@
 ///
 /// @author WPMU DEV (Incsub Ltd.)
 /// -----------------------------------------------------------------------------
-$bem-namespace: 'sui-';
+$bem-namespace: "sui-";
 $bem-current-context: () !default;
 
-$bem-element-separator: '__';
-$bem-modifier-separator: '--';
+$bem-element-separator: "__";
+$bem-modifier-separator: "--";
 
 $bem-log: ();
 
 @function set-current-context($obj, $name, $selector) {
 	$new-current: (
 		#{$obj}: (
-			name: $name,
-			selector: $selector,
-		)
+				name: $name,
+				selector: $selector,
+			)
 	);
 
-	$bem-current-context: map.merge(
-		$bem-current-context,
-		$new-current
-	) !global;
+	$bem-current-context: map.merge($bem-current-context, $new-current) !global;
 
 	@return $selector;
 }
 
 @function unset-current-context($obj) {
 	$new-current: (#{$obj}: null);
-	$bem-current-context: map.merge(
-		$bem-current-context,
-		$new-current
-	) !global;
+	$bem-current-context: map.merge($bem-current-context, $new-current) !global;
 
 	@return null;
 }
@@ -90,10 +84,10 @@ $bem-log: ();
 	$bem-log: map.merge($bem-log, $new-block);
 
 	// Error check
-	$outside-check: dont-call('scope', 'block');
+	$outside-check: dont-call("scope", "block");
 
 	$selector: "." + $bem-namespace + $name;
-	$set-current: set-current-context('block', $name, $selector);
+	$set-current: set-current-context("block", $name, $selector);
 
 	@return $selector;
 }
@@ -106,15 +100,21 @@ $bem-log: ();
 	@if map.get($bem-log, $current-block, elements) == null {
 		$current-elements: (
 			$current-block: (
-				elements: ()
-			)
+				elements: (),
+			),
 		);
 		$current-elements: map.merge($bem-log, $current-elements);
 	}
 
 	@each $element in $elements {
 		// Check if any element has already been created
-		@if map.has-key($bem-log, map.get($bem-current-context, block, name), elements, $element) {
+		@if map.has-key(
+			$bem-log,
+			map.get($bem-current-context, block, name),
+			elements,
+			$element
+		)
+		{
 			@error 'One or more elements from `#{inspect($elements)}` have already been created';
 			@return false;
 		}
@@ -143,11 +143,7 @@ $bem-log: ();
 
 	// Error checks
 	$inside-check: do-call("block");
-	$outside-check: dont-call(
-		"modifier",
-		"state",
-		"element"
-	);
+	$outside-check: dont-call("modifier", "state", "element");
 
 	// Return false in case error throwing is disabled
 	@if $inside-check == false or $outside-check == false {
@@ -157,11 +153,11 @@ $bem-log: ();
 	$selector: ();
 
 	@each $element in $elements {
-		$sel: #{'&'} + $bem-element-separator + $element;
+		$sel: #{"&"} + $bem-element-separator + $element;
 		$selector: list.append($selector, $sel, comma);
 	}
 
-	$set-current: set-current-context('element', $elements, $selector);
+	$set-current: set-current-context("element", $elements, $selector);
 
 	@return $selector;
 }
@@ -169,7 +165,13 @@ $bem-log: ();
 @function build-modifier($modifiers...) {
 	// Check if any modifier has already been created
 	@each $modifier in $modifiers {
-		@if map.has-key($bem-log, map.get($bem-current-context, block, name), modifiers, $modifier) {
+		@if map.has-key(
+			$bem-log,
+			map.get($bem-current-context, block, name),
+			modifiers,
+			$modifier
+		)
+		{
 			@error 'One or more modifiers from `#{inspect($modifiers)}` have already been created';
 			@return false;
 		}
@@ -190,8 +192,12 @@ $bem-log: ();
 		$new-selector: ();
 
 		@each $sel in & {
-			$modified-selector: #{'&'} + $bem-modifier-separator + $modifier;
-			$new-selector: list.append($new-selector, $modified-selector, comma);
+			$modified-selector: #{"&"} + $bem-modifier-separator + $modifier;
+			$new-selector: list.append(
+				$new-selector,
+				$modified-selector,
+				comma
+			);
 		}
 
 		$selector: list.append($selector, $new-selector, comma);
@@ -203,8 +209,8 @@ $bem-log: ();
 }
 
 @function build-modifies-element($modified-elements...) {
-	$inside-check: do-call('block', 'modifier', 'state', 'theme');
-	$outside-check: dont-call('element');
+	$inside-check: do-call("block", "modifier", "state", "theme");
+	$outside-check: dont-call("element");
 
 	// Return false in case error throwing is disabled
 	@if $inside-check == false or $outside-check == false {
@@ -214,13 +220,19 @@ $bem-log: ();
 	$selectors: ();
 
 	@each $element in $modified-elements {
-		$sel: map.get($bem-current-context, block, selector) + $bem-element-separator + $element;
+		$sel: map.get($bem-current-context, block, selector) +
+			$bem-element-separator +
+			$element;
 		$selectors: list.append($selectors, $sel, comma);
 	}
 
 	$selector: selector.nest($selectors...);
 
-	$set-current: set-current-context('modifies-element', $modified-elements, $selector);
+	$set-current: set-current-context(
+		"modifies-element",
+		$modified-elements,
+		$selector
+	);
 
 	@return $selector;
 }
@@ -232,7 +244,7 @@ $bem-log: ();
 		@content;
 	}
 
-	$unset-current: unset-current-context('block');
+	$unset-current: unset-current-context("block");
 }
 
 @mixin element($elements...) {

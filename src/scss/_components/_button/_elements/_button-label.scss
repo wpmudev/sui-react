@@ -5,7 +5,8 @@
 		@include block($block-name) {
 			@include element(label) {
 				display: block;
-				padding: $button-label-padding-vertical $button-label-padding-horizontal;
+				padding: $button-label-padding-vertical
+					$button-label-padding-horizontal;
 			}
 		}
 	}
