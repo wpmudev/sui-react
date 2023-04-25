@@ -2,6 +2,7 @@
 @use "sass:math";
 
 // Import main blocks of styles.
+@use "../../../_utils/bem" as *;
 @use "../../../_utils/mixins" as *;
 
 // Import grid variables.
