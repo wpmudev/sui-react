@@ -2,12 +2,14 @@
 @use "sass:list";
 @use "sass:selector";
 
-// -----------------------------------------------------------------------------
-// SUI BEM Constructor
-//
-// Inspired by "BEM Constructor" SASS library by Daniel Guillan
-// https://github.com/danielguillan/bem-constructor
-// -----------------------------------------------------------------------------
+/// -----------------------------------------------------------------------------
+/// SUI BEM Constructor
+///
+/// Inspired by "BEM Constructor" SASS library by Daniel Guillan
+/// https://github.com/danielguillan/bem-constructor
+///
+/// @author WPMU DEV (Incsub Ltd.)
+/// -----------------------------------------------------------------------------
 $bem-namespace: 'sui-';
 $bem-current-context: () !default;
 
@@ -202,12 +204,12 @@ $bem-log: ();
 
 @function build-modifies-element($modified-elements...) {
 	$inside-check: do-call('block', 'modifier', 'state', 'theme');
-    $outside-check: dont-call('element');
+	$outside-check: dont-call('element');
 
 	// Return false in case error throwing is disabled
-    @if $inside-check == false or $outside-check == false {
-        @return false;
-    }
+	@if $inside-check == false or $outside-check == false {
+		@return false;
+	}
 
 	$selectors: ();
 
