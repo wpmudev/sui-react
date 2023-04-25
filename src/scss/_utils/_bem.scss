@@ -8,13 +8,13 @@
 // Inspired by "BEM Constructor" SASS library by Daniel Guillan
 // https://github.com/danielguillan/bem-constructor
 // -----------------------------------------------------------------------------
-// @forward "./_bem/constructor";
-
 $bem-namespace: 'sui-';
 $bem-current-context: () !default;
 
 $bem-element-separator: '__';
 $bem-modifier-separator: '--';
+
+$bem-log: ();
 
 @function set-current-context($obj, $name, $selector) {
 	$new-current: (
@@ -42,22 +42,121 @@ $bem-modifier-separator: '--';
 	@return null;
 }
 
-@function build-block($name) {
-	$selector: "." + $bem-namespace + $name;
+// -----------------------------------------------------------------------------
+// Checks
+@function do-call($objs...) {
+	@each $obj in $objs {
+		@if map.get($bem-current-context, $obj) != null {
+			@return true;
+		}
+	}
 
+	@error 'It should be called within #{inspect($objs)}';
+
+	@return false;
+}
+
+@function dont-call($objs...) {
+	@each $obj in $objs {
+		@if map.get($bem-current-context, $obj) != null {
+			@error 'It should not be called within #{inspect($objs)}';
+
+			@return false;
+		}
+	}
+
+	@return true;
+}
+
+// -----------------------------------------------------------------------------
+@function build-block($name) {
+	// Check if the block has already been created
+	@if map.has-key($bem-log, $name) {
+		@error '`#{$name}` block has already been created';
+		@return false;
+	}
+
+	// Initialize a new block map
+	$new-block: (
+		$name: (
+			elements: (),
+			modifiers: (),
+		),
+	);
+
+	// Update bem log with new block
+	$bem-log: map.merge($bem-log, $new-block);
+
+	// Error check
+	$outside-check: dont-call('scope', 'block');
+
+	$selector: "." + $bem-namespace + $name;
 	$set-current: set-current-context('block', $name, $selector);
 
 	@return $selector;
 }
 
 @function build-element($elements...) {
+	$current-block: map.get($bem-current-context, block, name);
+	$current-elements: map.get($bem-log, $current-block, elements);
+
+	// Check if elements exists in $bem-log
+	@if map.get($bem-log, $current-block, elements) == null {
+		$current-elements: (
+			$current-block: (
+				elements: ()
+			)
+		);
+		$current-elements: map.merge($bem-log, $current-elements);
+	}
+
+	@each $element in $elements {
+		// Check if any element has already been created
+		@if map.has-key($bem-log, map.get($bem-current-context, block, name), elements, $element) {
+			@error 'One or more elements from `#{inspect($elements)}` have already been created';
+			@return false;
+		}
+
+		$updated: (
+			$element: (
+				modifiers: (),
+			),
+		);
+
+		$current-elements: map.merge($current-elements, $updated);
+	}
+
+	// Update the block
+	$updated-block: (
+		$current-block: (
+			elements: (
+				$current-elements,
+			),
+			modifiers: map.get($bem-log, $current-block, modifiers),
+		),
+	);
+
+	// Update the log
+	$bem-log: map.merge($bem-log, $updated-block);
+
+	// Error checks
+	$inside-check: do-call("block");
+	$outside-check: dont-call(
+		"modifier",
+		"state",
+		"element"
+	);
+
+	// Return false in case error throwing is disabled
+	@if $inside-check == false or $outside-check == false {
+		@return false;
+	}
+
 	$selector: ();
 
 	@each $element in $elements {
 		$sel: #{'&'} + $bem-element-separator + $element;
 		$selector: list.append($selector, $sel, comma);
-
-		// $set-current: set-current-context('element', $element, $selector);
 	}
 
 	$set-current: set-current-context('element', $elements, $selector);
@@ -66,32 +165,51 @@ $bem-modifier-separator: '--';
 }
 
 @function build-modifier($modifiers...) {
+	// Check if any modifier has already been created
+	@each $modifier in $modifiers {
+		@if map.has-key($bem-log, map.get($bem-current-context, block, name), modifiers, $modifier) {
+			@error 'One or more modifiers from `#{inspect($modifiers)}` have already been created';
+			@return false;
+		}
+	}
+
+	// Error checks
+	$inside-check: do-call("block");
+	$outside-check: dont-call("modifier");
+
+	// Return false in case error throwing is disabled
+	@if $inside-check == false or $outside-check == false {
+		@return false;
+	}
+
 	$selector: ();
 
-	// Check if modifier is inside another modifier
-	@if (str-index(#{&}, '--')) {
-		@error 'Modifier cannot nest another modifier.';
-	}
-
 	@each $modifier in $modifiers {
-		$sel: #{'&'} + $bem-modifier-separator + $modifier;
-		$selector: list.append($selector, $sel, comma);
+		$new-selector: ();
 
-		// $set-current: set-current-context('modifier', $modifier, $selector);
+		@each $sel in & {
+			$modified-selector: #{'&'} + $bem-modifier-separator + $modifier;
+			$new-selector: list.append($new-selector, $modified-selector, comma);
+		}
+
+		$selector: list.append($selector, $new-selector, comma);
 	}
 
-	$set-current: set-current-context('modifier', $modifiers, $selector);
+	$set-current: set-current-context(modifier, $modifiers, $selector);
 
 	@return $selector;
 }
 
 @function build-modifies-element($modified-elements...) {
-	$selectors: ();
+	$inside-check: do-call('block', 'modifier', 'state', 'theme');
+    $outside-check: dont-call('element');
 
-	// Check if inside a label
-	@if (str-index(#{&}, '__')) {
-		@error 'Label cannot nest another label.';
-	}
+	// Return false in case error throwing is disabled
+    @if $inside-check == false or $outside-check == false {
+        @return false;
+    }
+
+	$selectors: ();
 
 	@each $element in $modified-elements {
 		$sel: map.get($bem-current-context, block, selector) + $bem-element-separator + $element;
@@ -105,6 +223,8 @@ $bem-modifier-separator: '--';
 	@return $selector;
 }
 
+// -----------------------------------------------------------------------------
+// Block
 @mixin block($name) {
 	#{build-block($name)} {
 		@content;
