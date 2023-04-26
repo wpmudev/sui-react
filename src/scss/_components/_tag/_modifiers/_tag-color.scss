@@ -1,15 +1,15 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-@use "../_tag-utils/colors" as *;
+@use "../_utils/colors" as *;
 
-/// Build Colors
+/// Build Tag Colors
 ///
 /// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block-name - Main block name
-@mixin build-colors($block-name) {
+@mixin build-color($block-name) {
 	// DIR: Left to right.
 	// THEME: Light.
 	@include sui-class($rtl: false, $theme: light) {
