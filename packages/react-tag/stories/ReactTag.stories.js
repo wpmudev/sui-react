@@ -19,7 +19,7 @@ export default {
 };
 
 // Build "Tag" story.
-const Tag = ({ design, children, ...props }) => {
+const Tag = ({ children, ...props }) => {
 	const set = {};
 
 	set.box = {
@@ -34,7 +34,7 @@ const Tag = ({ design, children, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={set.box}>
-					<SuiTag design={design} {...props}>
+					<SuiTag {...props}>
 						{children}
 					</SuiTag>
 				</div>
