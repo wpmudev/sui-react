@@ -1,15 +1,12 @@
 @use "../../../_utils/utils" as *;
 
-$semantic-colors: (
+$colors: (
 	default: $color-extended-neutral-60,
 	blue: $color-primary-50,
 	yellow: $color-extended-warning-50,
 	red: $color-extended-error-50,
 	green: $color-extended-success-50,
 	white: $color-extended-neutral-100,
-);
-
-$structured-colors: (
-	pro: $color-extended-neutral-10,
-	beta: $color-primary-30,
+	black: $color-extended-neutral-10,
+	navy: $color-primary-30,
 );

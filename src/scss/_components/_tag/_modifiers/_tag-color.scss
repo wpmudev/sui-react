@@ -14,13 +14,15 @@
 	// THEME: Light.
 	@include sui-class($rtl: false, $theme: light) {
 		@include block($block-name) {
-			// Variation: Semantic
-			@each $name, $value in $semantic-colors {
+			// Variation: Semantic (Solid)
+			@each $name, $value in $colors {
 				@if $name == default {
+					border-color: $value;
 					background: $value;
 					color: $color-extended-neutral-100;
 				} @else {
 					@include modifier($name) {
+						border-color: $value;
 						background: $value;
 						@if $name == yellow or $name == white {
 							color: $color-extended-neutral-10;
@@ -29,12 +31,19 @@
 				}
 			}
 
-			// Variation: Structured
-			@each $name, $value in $structured-colors {
-				@include modifier($name) {
-					border-color: $value;
-					background: transparent;
-					color: $value;
+			// Variation: Structured (Outlined)
+			@each $name, $value in $colors {
+				@if $name == default {
+					@include modifier(outlined) {
+						background: transparent;
+						color: $value;
+					}
+				} @else {
+					@include modifier(#{"outlined-" + $name}) {
+						border-color: $value;
+						background: transparent;
+						color: $value;
+					}
 				}
 			}
 		}
