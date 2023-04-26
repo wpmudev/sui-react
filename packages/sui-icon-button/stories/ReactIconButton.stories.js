@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Import required component(s).
-import { IconButton as StandardIconButton } from '../lib/react-icon-button';
+import { IconButton as StandardIconButton, LoadingIconButton } from '../lib/react-icon-button';
 
 // Import documentation main page.
 import docs from './ReactIconButton.mdx';
@@ -50,7 +50,7 @@ const IconButton = ({ example, ...props }) => {
 						/>
 					)}
 					{'button-load' === example && (
-						<StandardIconButton
+						<LoadingIconButton
 							icon="download"
 							label="Download"
 							onClick={() => console.log('Downloading plugin...')}
