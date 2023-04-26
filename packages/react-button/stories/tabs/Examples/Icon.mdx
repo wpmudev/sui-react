@@ -20,7 +20,12 @@ const Example() => {
 export default Example;
 `;
 
-<Section title="Leading" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+<Section
+	title="Leading"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
 	<p>Display an icon before the text.</p>
 	<Preview wrapper={true}>
 		<Button iconLead="logo">Icon before</Button>
@@ -28,7 +33,11 @@ export default Example;
 	<Snippet language="js">{LeadButtonCode}</Snippet>
 </Section>
 
-<Section title="Trailing" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
+<Section
+	title="Trailing"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
 	<p>Display an icon after the text.</p>
 	<Preview wrapper={true}>
 		<Button iconTrail="logo">Icon after</Button>

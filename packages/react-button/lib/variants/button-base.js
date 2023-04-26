@@ -1,9 +1,9 @@
-import React, { createElement, Fragment, useState } from "react";
-import { isUndefined, isEmpty, isFunction } from "@wpmudev/react-utils";
+import React, { createElement, Fragment, useState } from 'react';
+import { isUndefined, isEmpty, isFunction } from '@wpmudev/react-utils';
 
 // Import required component(s).
-import { Label } from "../elements/button-label";
-import { Icon } from "../elements/button-icon";
+import { Label } from '../elements/button-label';
+import { Icon } from '../elements/button-icon';
 
 // Build "Base Button" component.
 const Button = ({
@@ -38,80 +38,53 @@ const Button = ({
 	is.lead = !isUndefined(iconLead) && !isEmpty(iconLead) ? true : false;
 	is.trail = !isUndefined(iconTrail) && !isEmpty(iconTrail) ? true : false;
 
+	is.themeEnabled = !isUndefined(appearance) && !isEmpty(appearance);
+	is.colorEnabled = !isUndefined(color) && !isEmpty(color);
+
 	// Define button tag.
 	set.tag = 'button';
 
-	if ( is.link ) {
+	if (is.link) {
 		set.tag = 'a';
-	} else if ( is.label ) {
+	} else if (is.label) {
 		set.tag = 'label';
 	}
 
 	// Define button class.
 	set.class = 'sui-button';
 
-	switch ( appearance ) {
-		case 'primary':
-			set.class += ' sui-button--solid';
-			break;
-
-		case 'secondary':
-			set.class += ' sui-button--outlined';
-			break;
-
-		case 'tertiary':
-			set.class += ' sui-button--text';
-			break;
-
-		default:
-			// do nothing.
-			break;
+	// Define button appearance.
+	if (is.themeEnabled && is.colorEnabled) {
+		set.class += ' sui-button--' + appearance + '-' + color;
 	}
 
-	switch ( color ) {
-		case 'blue':
-		case 'black':
-		case 'red':
-		case 'navy':
-		case 'white':
-			set.class += ' sui-button--' + color;
-			if ( 'secondary' === appearance || 'tertiary' === appearance ) {
-				set.class += '-alt';
-			}
-			break;
-
-		default:
-			// do nothing.
-			break;
-	}
-
-	if ( isSmall ) {
+	if (isSmall) {
 		set.class += ' sui-button--sm';
 	}
 
-	if ( is.hover ) {
+	if (is.hover) {
 		set.class += ' sui-button--hover';
 	}
 
-	if ( is.focus ) {
+	if (is.focus) {
 		set.class += ' sui-button--focus';
 	}
 
-	if ( isDisabled ) {
+	if (isDisabled) {
 		set.class += ' sui-button--disabled';
 	}
 
-	if ( !isUndefined(className) && !isEmpty(className) ) {
+	if (!isUndefined(className) && !isEmpty(className)) {
 		set.class += ' ' + className;
 	}
 
 	// Define button markup.
 	set.markup = (
 		<Fragment>
-			{ is.lead && <Icon name={ iconLead } /> }
-			{ isUnwrapped && children }
-			{ !isUnwrapped && <Label>{ children }</Label> }
-			{ is.trail && <Icon name={ iconTrail } /> }
+			{is.lead && <Icon name={iconLead} />}
+			{isUnwrapped && children}
+			{!isUnwrapped && <Label>{children}</Label>}
+			{is.trail && <Icon name={iconTrail} />}
 		</Fragment>
 	);
 
@@ -119,40 +92,40 @@ const Button = ({
 	return createElement(
 		set.tag,
 		{
-			... ( is.link && { href: href }),
-			... ( is.link && { target: target || '_blank' }),
-			... ( is.label && { htmlFor: htmlFor }),
+			...(is.link && { href: href }),
+			...(is.link && { target: target || '_blank' }),
+			...(is.label && { htmlFor: htmlFor }),
 			className: set.class,
-			onMouseEnter: ( e ) => {
+			onMouseEnter: (e) => {
 				set.hover(true);
-				if ( isFunction( onMouseEnter ) ) {
-					onMouseEnter( e );
+				if (isFunction(onMouseEnter)) {
+					onMouseEnter(e);
 				}
 			},
-			onMouseLeave: ( e ) => {
+			onMouseLeave: (e) => {
 				set.hover(false);
-				if ( isFunction( onMouseLeave ) ) {
-					onMouseLeave( e );
+				if (isFunction(onMouseLeave)) {
+					onMouseLeave(e);
 				}
 			},
-			onFocus: ( e ) => {
+			onFocus: (e) => {
 				set.focus(true);
-				if ( isFunction( onFocus ) ) {
-					onFocus( e );
+				if (isFunction(onFocus)) {
+					onFocus(e);
 				}
 			},
-			onBlur: ( e ) => {
+			onBlur: (e) => {
 				set.focus(false);
-				if ( isFunction( onBlur ) ) {
-					onBlur( e );
+				if (isFunction(onBlur)) {
+					onBlur(e);
 				}
 			},
-			... ( isDisabled && { disabled: isDisabled }),
-			...props
+			...(isDisabled && { disabled: isDisabled }),
+			...props,
 		},
 		set.markup
 	);
-}
+};
 
 // Publish required component(s).
-export { Button }
+export { Button };

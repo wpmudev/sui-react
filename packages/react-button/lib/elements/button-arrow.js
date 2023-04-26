@@ -1,5 +1,5 @@
-import React from "react";
-import { isUndefined, isBoolean } from "@wpmudev/react-utils";
+import React from 'react';
+import { isUndefined, isBoolean } from '@wpmudev/react-utils';
 
 // Build "Arrow" component.
 const Arrow = ({ open, size }) => {
@@ -10,7 +10,7 @@ const Arrow = ({ open, size }) => {
 	is.defined = !isUndefined(open) ? true : false;
 	is.boolean = isBoolean(open) ? true : false;
 
-	if ( is.defined && !is.boolean ) {
+	if (is.defined && !is.boolean) {
 		throw new Error(
 			`Incorrect parameter type. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Button\n\nThe parameter "open" used in the arrow element is not a boolean type.\n\n`
 		);
@@ -33,15 +33,15 @@ const Arrow = ({ open, size }) => {
 	}
 
 	// Define rotate animation.
-	if ( open ) {
+	if (open) {
 		set.class += ' sui-animate--rotate';
 	}
 
 	// Define button class.
 	set.class += ' sui-button__icon';
 
-	return <span className={ set.class } aria-hidden="true" />;
-}
+	return <span className={set.class} aria-hidden="true" />;
+};
 
 // Publish required component(s).
-export { Arrow }
+export { Arrow };

@@ -3,5 +3,5 @@
 const reactButton = require('..');
 
 describe('@wpmudev/react-button', () => {
-    it('needs tests');
+	it('needs tests');
 });

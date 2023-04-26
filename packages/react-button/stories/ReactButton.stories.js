@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 
 // Import required component(s).
-import { Button as StandardButton, LoadingButton } from "../lib/react-button";
+import { Button as StandardButton, LoadingButton } from '../lib/react-button';
 
 // Import documentation main page.
 import docs from './ReactButton.mdx';
@@ -13,10 +13,10 @@ export default {
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
-			page: docs
-		}
-	}
-}
+			page: docs,
+		},
+	},
+};
 
 // Build "Button" story.
 const Button = ({ example, ...props }) => {
@@ -26,18 +26,18 @@ const Button = ({ example, ...props }) => {
 	set.function = () => {
 		let message = 'You clicked on a button.';
 
-		if ( 'link' === example ) {
+		if ('link' === example) {
 			message = 'You clicked on a link.';
-		} else if ( 'button-load' === example ) {
+		} else if ('button-load' === example) {
 			message = 'Changes were saved successfully.';
 		}
 
-		console.log( message );
-	}
+		console.log(message);
+	};
 
-	if ( 'link' === example ) {
+	if ('link' === example) {
 		set.content = 'Try Pro For Free';
-	} else if ( 'button-load' === example ) {
+	} else if ('button-load' === example) {
 		set.content = 'Save Settings';
 	}
 
@@ -46,42 +46,44 @@ const Button = ({ example, ...props }) => {
 		padding: '30px',
 		border: 'white' === props.color ? '1px solid #E6E6E6' : 0,
 		borderRadius: '4px',
-		background: 'white' === props.color ? '#333' : '#fff'
-	}
+		background: 'white' === props.color ? '#333' : '#fff',
+	};
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={ set.box }>
-					{ 'label-icon' === example && (
+				<div style={set.box}>
+					{'label-icon' === example && (
 						<Fragment>
 							<StandardButton
 								iconLead="chevron-left"
-								onClick={ () => console.log( 'Go to prev step.' ) }
-								{ ...props }>
+								onClick={() => console.log('Go to prev step.')}
+								{...props}
+							>
 								Prev
 							</StandardButton>
 							<StandardButton
 								iconTrail="chevron-right"
-								onClick={ () => console.log( 'Go to next step.' ) }
-								{ ...props }>
+								onClick={() => console.log('Go to next step.')}
+								{...props}
+							>
 								Next
 							</StandardButton>
 						</Fragment>
 					)}
 
-					{ 'label-icon' !== example && (
+					{'label-icon' !== example && (
 						<Fragment>
-							{ 'button-icon' !== example && (
+							{'button-icon' !== example && (
 								<Fragment>
-									{ 'button-load' === example && (
-										<LoadingButton { ...props }>
-											{ set.content }
+									{'button-load' === example && (
+										<LoadingButton {...props}>
+											{set.content}
 										</LoadingButton>
 									)}
-									{ 'button-load' !== example && (
-										<StandardButton { ...props }>
-											{ set.content }
+									{'button-load' !== example && (
+										<StandardButton {...props}>
+											{set.content}
 										</StandardButton>
 									)}
 								</Fragment>
@@ -92,7 +94,7 @@ const Button = ({ example, ...props }) => {
 			</div>
 		</div>
 	);
-}
+};
 
 Button.args = {
 	example: 'button',
@@ -103,8 +105,8 @@ Button.args = {
 	color: 'blue',
 	isSmall: false,
 	isLoading: true,
-	isDisabled: false
-}
+	isDisabled: false,
+};
 
 Button.argTypes = {
 	example: {
@@ -115,43 +117,40 @@ Button.argTypes = {
 				'Example: Link': 'link',
 				'Example: Button': 'button',
 				'Example: Loading': 'button-load',
-				'Example: Label + Icon': 'label-icon'
-			}
-		}
+				'Example: Label + Icon': 'label-icon',
+			},
+		},
 	},
 	href: {
 		name: 'Link',
 		control: {
-			type: 'text'
+			type: 'text',
 		},
 		if: {
 			arg: 'example',
-			eq: 'link'
-		}
+			eq: 'link',
+		},
 	},
 	target: {
 		name: 'Target',
 		control: {
 			type: 'select',
-			options: [
-				'_self',
-				'_blank'
-			]
+			options: ['_self', '_blank'],
 		},
 		if: {
 			arg: 'example',
-			eq: 'link'
-		}
+			eq: 'link',
+		},
 	},
 	htmlFor: {
 		name: 'For (input ID)',
 		control: {
-			type: 'text'
+			type: 'text',
 		},
 		if: {
 			arg: 'example',
-			eq: 'button-toggle'
-		}
+			eq: 'button-toggle',
+		},
 	},
 	appearance: {
 		name: 'Appearance',
@@ -159,15 +158,15 @@ Button.argTypes = {
 			type: 'select',
 			options: {
 				'-': '',
-				'Primary': 'primary',
-				'Secondary': 'secondary',
-				'Tertiary': 'tertiary'
-			}
+				Primary: 'primary',
+				Secondary: 'secondary',
+				Tertiary: 'tertiary',
+			},
 		},
 		if: {
 			arg: 'example',
-			neq: 'button-toggle'
-		}
+			neq: 'button-toggle',
+		},
 	},
 	color: {
 		name: 'Color',
@@ -175,41 +174,41 @@ Button.argTypes = {
 			type: 'select',
 			options: {
 				'-': '',
-				'Blue': 'blue',
-				'Black': 'black',
-				'Red': 'red',
-				'Navy': 'navy',
-				'White': 'white'
-			}
+				Blue: 'blue',
+				Black: 'black',
+				Red: 'red',
+				Navy: 'navy',
+				White: 'white',
+			},
 		},
 		if: {
 			arg: 'example',
-			neq: 'button-toggle'
-		}
+			neq: 'button-toggle',
+		},
 	},
 	isSmall: {
 		name: 'Small',
 		control: {
-			type: 'boolean'
-		}
+			type: 'boolean',
+		},
 	},
 	isLoading: {
 		name: 'Loading',
 		control: {
-			type: 'boolean'
+			type: 'boolean',
 		},
 		if: {
 			arg: 'example',
-			eq: 'button-load'
-		}
+			eq: 'button-load',
+		},
 	},
 	isDisabled: {
 		name: 'Disabled',
 		control: {
-			type: 'boolean'
-		}
-	}
-}
+			type: 'boolean',
+		},
+	},
+};
 
 // Publish required stories.
-export { Button }
+export { Button };

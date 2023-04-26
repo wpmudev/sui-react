@@ -29,24 +29,47 @@ const Example() => {
 export default Example;
 `;
 
-<Section title="Primary" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-	<p>Use <Code small={true}>primary</Code> button to call attention to action. Combined with <Code small={true}>blue</Code> color prop highlights the strongest call to action on a page.</p>
+<Section
+	title="Primary"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Use <Code small={true}>primary</Code> button to call attention to
+		action. Combined with <Code small={true}>blue</Code> color prop
+		highlights the strongest call to action on a page.
+	</p>
 	<Preview wrapper={true}>
 		<Button theme="primary">Primary button</Button>
 	</Preview>
 	<Snippet language="js">{PrimaryButtonCode}</Snippet>
 </Section>
 
-<Section title="Secondary" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-	<p>A subtle outlined button that handles secondary actions, such as "Cancel."</p>
+<Section
+	title="Secondary"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		A subtle outlined button that handles secondary actions, such as
+		"Cancel."
+	</p>
 	<Preview wrapper={true}>
 		<Button theme="secondary">Secondary button</Button>
 	</Preview>
 	<Snippet language="js">{SecondaryButtonCode}</Snippet>
 </Section>
 
-<Section title="Tertiary" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
-	<p>Link style button commonly used as navigation menu or in special cases.</p>
+<Section
+	title="Tertiary"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		Link style button commonly used as navigation menu or in special cases.
+	</p>
 	<Preview wrapper={true}>
 		<Button theme="tertiary">Tertiary button</Button>
 	</Preview>
