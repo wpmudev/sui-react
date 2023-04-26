@@ -4,11 +4,6 @@ import { isUndefined, isEmpty, isFunction } from '@wpmudev/react-utils';
 // Import component functions
 import { defineTag } from '../utils/functions';
 
-// Import required component(s)
-import { Label } from '../elements/button-label';
-import { Icon } from '../elements/button-icon';
-import { Loader } from '../elements/button-loader';
-
 // Build base component
 const IconButton = ({
 	href,
@@ -20,8 +15,6 @@ const IconButton = ({
 	isLoading = false,
 	isDisabled = false,
 	className,
-	icon,
-	label,
 	children,
 	onMouseEnter = () => {},
 	onMouseLeave = () => {},
@@ -32,74 +25,70 @@ const IconButton = ({
 	const is = {};
 	const set = {};
 
-	// Define button states.
+	// Define states
 	[is.hover, set.hover] = useState(false);
 	[is.focus, set.focus] = useState(false);
 
-	// Parameter(s) validation.
+	// Props validation
 	is.link = !isUndefined(href) ? true : false;
-	is.labelTag = !isUndefined(htmlFor) ? true : false;
-	is.icon = !isUndefined(icon) && !isEmpty(icon) ? true : false;
-	is.label = !isUndefined(label) && !isEmpty(label) ? true : false;
+	is.label = !isUndefined(htmlFor) ? true : false;
 
 	is.themeEnabled = !isUndefined(appearance) && !isEmpty(appearance);
 	is.colorEnabled = !isUndefined(color) && !isEmpty(color);
 
-	// Define button tag.
-	set.tag = defineTag(is.link ? 'link' : is.labelTag ? 'label' : null);
+	// Define element main tag
+	set.tag = defineTag(is.link ? 'link' : is.label ? 'label' : null);
 
-	// Define component prefix.
+	// Define element prefix
 	set.prefix = 'sui-icon-button';
 
-	// Define button class.
+	// Define class name
 	set.class = set.prefix;
 
-	// Define button appearance.
+	// Define appearance
 	if (is.themeEnabled && is.colorEnabled) {
 		set.class += ' ' + set.prefix + '--' + appearance + '-' + color;
 	}
 
+	// Define button size
 	if (isSmall) {
 		set.class += ' ' + set.prefix + '--sm';
 	}
 
+	// Define hover class name
 	if (is.hover) {
 		set.class += ' ' + set.prefix + '--hover';
 	}
 
+	// Define focus class name
 	if (is.focus) {
 		set.class += ' ' + set.prefix + '--focus';
 	}
 
+	// Define disabled class name
 	if (isDisabled) {
 		set.class += ' ' + set.prefix + '--disabled';
 	}
 
+	// Define custom class name(s)
 	if (!isUndefined(className) && !isEmpty(className)) {
 		set.class += ' ' + className;
 	}
 
-	// Define button markup.
+	// Define inner markup
 	set.markup = (
 		<Fragment>
-			{isLoading && <Loader />}
-			{!isLoading && (
-				<Fragment>
-					<Icon name={icon} />
-					<Label>{label}</Label>
-				</Fragment>
-			)}
 			{children}
 		</Fragment>
 	);
 
-	// Create button element.
+	// Create element
 	return createElement(
 		set.tag,
 		{
 			...(is.link && { href: href }),
 			...(is.link && { target: target || '_blank' }),
-			...(is.labelTag && { htmlFor: htmlFor }),
+			...(is.label && { htmlFor: htmlFor }),
 			className: set.class,
 			onMouseEnter: (e) => {
 				set.hover(true);
@@ -132,5 +121,5 @@ const IconButton = ({
 	);
 };
 
-// Publish required component(s).
+// Publish required component(s)
 export { IconButton };
