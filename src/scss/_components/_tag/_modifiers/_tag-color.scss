@@ -19,8 +19,7 @@
 				@if $name == default {
 					background: $value;
 					color: $color-extended-neutral-100;
-				}
-				@else {
+				} @else {
 					@include modifier($name) {
 						background: $value;
 						@if $name == yellow or $name == white {
