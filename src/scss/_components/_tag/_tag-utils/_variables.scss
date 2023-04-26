@@ -1,0 +1,36 @@
+@use "../../../_utils/tokens" as *;
+
+$sui-tag-size: (
+	sm: (
+		height: 16px
+	),
+	md: (
+		height: 24px
+	)
+);
+$sui-tag-border: (
+	width: $tag-border-width,
+	radius: $tag-border-radius
+);
+$sui-tag-spacing: (
+	md: (
+		vertical: $tag-spacing-md-vertical,
+		horizontal: $tag-spacing-md-horizontal
+	),
+	sm: (
+		vertical: $tag-spacing-sm-vertical,
+		horizontal: $tag-spacing-sm-horizontal
+	)
+);
+$sui-tag-font: (
+	md: (
+		size: $tag-font-size-md,
+		height: $tag-font-height-md,
+		weight: $tag-font-weight,
+	),
+	sm: (
+		size: $tag-font-size-sm,
+		height: $tag-font-height-sm,
+		spacing: $tag-font-spacing-sm
+	)
+);

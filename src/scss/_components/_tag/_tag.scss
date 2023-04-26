@@ -1,0 +1,10 @@
+@use "./_tag-elements/elements" as sui-tag--element;
+@use "./_tag-modifiers/modifiers" as sui-tag--modifier;
+@use "./_tag-states/states" as sui-tag--state;
+
+@include sui-tag--element.build-tag(tag);
+@include sui-tag--element.build-label(tag);
+
+@include sui-tag--modifier.build-design(tag);
+
+@include sui-tag--state.build-disabled(tag);

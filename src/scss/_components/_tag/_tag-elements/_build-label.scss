@@ -1,0 +1,47 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_tag-utils/variables" as *;
+
+/// Build Label
+/// This function creates styles for the tag
+/// label element.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-label($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@if map.has-key($sui-tag-font, md, size) {
+				font-size: map.get($sui-tag-font, md, size);
+			}
+			@if map.has-key($sui-tag-font, md, height) == true {
+				line-height: map.get($sui-tag-font, md, height);
+			}
+			@if map.has-key($sui-tag-font, md, spacing) == true {
+				letter-spacing: normal;
+			}
+			@if map.has-key($sui-tag-font, md, weight) == true {
+				font-weight: map.get($sui-tag-font, md, weight);
+			}
+
+			@if map.has-key($sui-tag-font, sm) {
+				@include modifier(sm) {
+					@if map.has-key($sui-tag-font, sm, size) == true {
+						font-size: map.get($sui-tag-font, sm, size);
+					}
+					@if map.has-key($sui-tag-font, sm, height) == true {
+						line-height: map.get($sui-tag-font, sm, height);
+					}
+					@if map.has-key($sui-tag-font, sm, spacing) == true {
+						letter-spacing: map.get($sui-tag-font, sm, spacing);
+					}
+				}
+			}
+		}
+	}
+}
