@@ -1,0 +1,88 @@
+import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
+
+<Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
+	<p>
+		Install the <Code small={true}>Tag</Code> package as an individual
+		component or follow the Overview page instructions to get the complete
+		SUI Components package.
+	</p>
+</Section>
+
+<Section title="Shared props" border={true}>
+	<p>All tag variants share the following props.</p>
+	<Section
+		title={{ content: 'type', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Pass the html tag to make it button or link.</p>
+		<p>Allowed options:</p>
+		<List>
+			<span label={<Code small={true}>a</Code>} />
+			<span label={<Code small={true}>button</Code>} />
+		</List>
+	</Section>
+	<Section
+		title={{ content: 'color', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Choose the set of colors to complement the tag appearance.</p>
+		<p>Allowed options:</p>
+		<List>
+			<span label={<Code small={true}>blue</Code>} />
+			<span label={<Code small={true}>yellow</Code>} />
+			<span label={<Code small={true}>red</Code>} />
+			<span label={<Code small={true}>green</Code>} />
+			<span label={<Code small={true}>white</Code>} />
+			<span label={<Code small={true}>black</Code>} />
+			<span label={<Code small={true}>dark blue</Code>} />
+		</List>
+	</Section>
+	<Section
+		title={{ content: 'design', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Choose the design of tag to make it truncated or multiline.</p>
+		<p>Allowed options:</p>
+		<List>
+			<span label={<Code small={true}>truncated</Code>} />
+			<span label={<Code small={true}>multiline</Code>} />
+		</List>
+	</Section>
+	<Section
+		title={{ content: 'isSmall', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Set if the tag is small.</p>
+	</Section>
+	<Section
+		title={{ content: 'isDisabled', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Set if the tag is disabled.</p>
+	</Section>
+	<Section
+		title={{ content: 'isUppercase', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Set if the tag is uppercase.</p>
+	</Section>
+	<Section
+		title={{ content: 'className', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Add a class name to the tag.</p>
+	</Section>
+</Section>
+
+<Section title="Link Tag props" contained={true}>
+	<p>
+		The <Code small={true}>Tag</Code> accepts all the shared props and an
+		optional <Code small={true}>href</Code> prop.
+	</p>
+	<Section
+		title={{ content: 'href', tag: 'string', small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Provides a url for tags being used as a link.</p>
+	</Section>
+</Section>
