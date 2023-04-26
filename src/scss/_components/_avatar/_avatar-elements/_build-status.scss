@@ -1,0 +1,65 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_avatar-utils/variables" as *;
+@use "../_avatar-utils/colors" as *;
+
+/// Build Status
+/// This function creates styles for the element
+/// status wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-status($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+
+            .sui-#{$block}__status {
+                font-size: map.get($sui-avatar-status-font, md, size);
+                line-height: map.get($sui-avatar-status-font, md, height);
+                color: map.get($sui-avatar-color, grey, color);
+                position: absolute;
+                display: block;
+                width: map.get($sui-avatar-status-size, lg, width);
+                height: map.get($sui-avatar-status-size, lg, height);
+                border-radius: map.get($sui-avatar-border, radius);
+                padding: map.get($sui-avatar-spacing, default);
+                background: map.get($sui-avatar-color, white, background);
+                bottom: map.get($sui-avatar-status-position, bottom);
+                right: map.get($sui-avatar-status-position, right);
+
+                span {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+                &.sui-#{$block}__status--check-alt {
+                    color: map.get($sui-avatar-color, green, color);
+                }
+
+                &.sui-#{$block}__status--warning {
+                    color: map.get($sui-avatar-color, yellow, color);
+                }
+
+                &.sui-#{$block}__status--danger {
+                    color: map.get($sui-avatar-color, red, color);
+                }
+            }
+
+            @include modifier(sm) {
+                .sui-#{$block}__status {
+                    width: map.get($sui-avatar-status-size, md, width);
+                    height: map.get($sui-avatar-status-size, md, height);
+                    font-size: map.get($sui-avatar-status-font, sm, size);
+                    line-height: map.get($sui-avatar-status-font, sm, height);
+                }
+            }
+		}
+	}
+}

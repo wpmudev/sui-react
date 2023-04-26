@@ -1,0 +1,82 @@
+{
+  "avatar": {
+    "font": {
+      "size": {
+        "sm": {
+          "value": "{font.size.xs}",
+          "type": "fontSizes"
+        },
+        "md": {
+          "value": "{font.size.md}",
+          "type": "fontSizes"
+        },
+        "lg": {
+            "value": "{font.size.lg}-2px",
+            "type": "fontSizes"
+        }
+      },
+      "height": {
+        "sm": {
+            "value": "{font.height.xs}-6px",
+            "type": "lineHeights"
+        },
+        "md": {
+            "value": "{font.height.xs}-3px",
+            "type": "lineHeights"
+        },
+        "lg": {
+            "value": "{font.height.sm}-5px",
+            "type": "lineHeights"
+        }
+      }
+    },
+    "color": {
+        "white": {
+            "background": {
+                "value": "{color.extended.neutral.100}",
+                "type": "color"
+            }
+        },
+        "grey": {
+            "color": {
+                "value": "{color.extended.neutral.60}",
+                "type": "color"
+            }
+        },
+        "green": {
+            "color": {
+                "value": "{color.extended.success.50}",
+                "type": "color"
+            }
+        },
+        "yellow": {
+            "color": {
+                "value": "{color.extended.warning.50}",
+                "type": "color"
+            }
+        },
+        "red": {
+            "color": {
+                "value": "{color.extended.error.50}",
+                "type": "color"
+            }
+        },
+        "common": {
+            "background": {
+                "value": "{color.extended.neutral.90}",
+                "type": "color"
+            }
+        }
+    },
+    "spacing": {
+        "value": "{spacing.sm}-2px",
+        "type": "spacing"
+    },
+    "border": {
+      "radius": {
+        "value": "100%",
+        "type": "borderRadius"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@use "../../../_utils/tokens" as *;
+
+$sui-avatar-color: (
+    green: (
+        color: $avatar-color-green-color
+    ),
+    yellow: (
+        color: $avatar-color-yellow-color
+    ),
+    red: (
+        color: $avatar-color-red-color
+    ),
+	grey: (
+        color: $avatar-color-grey-color
+    ),
+	white: (
+		background: $avatar-color-white-background
+	),
+	common: (
+		background: $avatar-color-common-background
+	)
+);
