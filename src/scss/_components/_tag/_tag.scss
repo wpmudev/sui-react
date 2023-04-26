@@ -5,6 +5,6 @@
 @include sui-tag--element.build-tag(tag);
 @include sui-tag--element.build-label(tag);
 
-@include sui-tag--modifier.build-design(tag);
+@include sui-tag--modifier.build-colors(tag);
 
 @include sui-tag--state.build-disabled(tag);
