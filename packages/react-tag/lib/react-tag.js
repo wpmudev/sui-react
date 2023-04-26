@@ -1,83 +1,77 @@
-import { createElement } from 'react';
+import React, { createElement } from 'react';
 import { isEmpty, isUndefined } from '@wpmudev/react-utils';
 
 const Tag = ({
-	isSmall = false,
-	type,
+	design,
 	color,
+	style,
+	className,
+	isSmall = false,
 	isUppercase = false,
-	className = '',
-	design = '',
-	isDisabled = false,
-	href,
-	target,
 	children,
 	...props
 }) => {
-	// Set tag props prefix.
-	const is = {};
+	// Props prefix
+	const has = {};
 	const set = {};
 
-	// validation for tag props
-	is.link = !isUndefined(href) ? true : false;
-	is.color = !isUndefined(color) && !isEmpty(color) ? true : false;
-	is.children = !isUndefined(children) && !isEmpty(children) ? true : false;
-	is.type = !isUndefined(type) && !isEmpty(type) ? true : false;
-	is.design = !isEmpty(design) ? true : false;
+	// Prop(s) validation
+	has.design = 'outlined' === design ? true : false;
+	has.color = !isUndefined(color) && !isEmpty(color) ? true : false;
+	has.style = 'multiline' === style || 'truncated' === style ? true : false;
+	has.class = !isUndefined(className) && !isEmpty(className) ? true : false;
 
-	// set default value
-	set.children = '';
+	// Define main class name
 	set.class = 'sui-tag';
-	set.tag = 'span';
 
-	// set color class for tags
-	if (is.color) {
-		set.class += ` sui-tag--${color}`;
+	// Define tag design
+	// Limited to: solid (default) and outlined
+	if ( has.design ) {
+		if ( has.color ) {
+			set.class += ` sui-tag--${design}-${color}`;
+		} else {
+			set.class += ` sui-tag--${design}`;
+		}
+	} else {
+		if ( has.color ) {
+			set.class += ` sui-tag--${color}`;
+		}
 	}
 
-	// set children html
-	if (is.children) {
-		set.children = children;
+	// Define tag style
+	// Limited to: none (default), multiline, and truncated
+	if ( has.style ) {
+		set.class += ` sui-tag--${style}`;
 	}
 
-	// set type of tag
-	if (is.type) {
-		set.tag = type;
-		set.class += ` sui-tag__${type}`;
-	}
-
-	// design class in tag
-	if (is.design) {
-		set.class += ` sui-tag--${design}`;
-	}
-
-	if (isSmall) {
+	// Define tag size
+	if ( isSmall ) {
 		set.class += ' sui-tag--sm';
 	}
 
-	if (!isEmpty(className)) {
-		set.class += ` ${className}`;
-	}
-
-	if (isDisabled) {
-		set.class += ' sui-tag--disabled';
-	}
-
-	if (isUppercase) {
+	// Define tag text
+	if ( isUppercase ) {
 		set.class += ' sui-tag--uppercase';
 	}
 
+	// Define custom class name(s)
+	if ( has.class ) {
+		set.class += ` ${className}`;
+	}
+
+	// Define inner markup
+	set.markup = (
+		<span className="sui-tag__label">{ children }</span>
+	);
+
+	// Create element
 	return createElement(
-		set.tag,
+		'span',
 		{
-			...(is.link && { href: href }),
-			...(is.link && { target: target || '_blank' }),
 			className: set.class,
 			...props,
 		},
-		is.design && 'truncated' === design
-			? createElement('span', {}, set.children)
-			: set.children
+		set.markup
 	);
 };
 
