@@ -9,6 +9,6 @@ const defineTag = (tag) => {
 	}
 
 	return tagName;
-}
+};
 
 export { defineTag };

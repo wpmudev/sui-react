@@ -19,11 +19,7 @@ export default {
 };
 
 // Build "Tag" story.
-const Tag = ({
-	design,
-	children,
-	...props
-}) => {
+const Tag = ({ design, children, ...props }) => {
 	const set = {};
 
 	set.box = {
@@ -38,7 +34,7 @@ const Tag = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={set.box}>
-					<SuiTag design={design} { ...props }>
+					<SuiTag design={design} {...props}>
 						{children}
 					</SuiTag>
 				</div>
@@ -68,7 +64,7 @@ Tag.argTypes = {
 			type: 'select',
 			options: {
 				'Design: Solid': '',
-				'Design: Outlined': 'outlined'
+				'Design: Outlined': 'outlined',
 			},
 		},
 	},
@@ -86,7 +82,7 @@ Tag.argTypes = {
 				'Color: Black': 'black',
 				'Color: White': 'white',
 			},
-		}
+		},
 	},
 	style: {
 		name: 'Style',
@@ -97,7 +93,7 @@ Tag.argTypes = {
 				'Style: Multiline': 'multiline',
 				'Style: Truncated': 'truncated',
 			},
-		}
+		},
 	},
 	isUppercase: {
 		name: 'Uppercase',

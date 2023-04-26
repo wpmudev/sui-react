@@ -34,25 +34,28 @@ const IconButton = ({ example, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={set.box}>
-					{ 'link' === example && (
+					{'link' === example && (
 						<StandardIconButton
 							icon="external-link"
 							label="Open link in external window"
-							{ ...props } />
+							{...props}
+						/>
 					)}
-					{ 'button' === example && (
+					{'button' === example && (
 						<StandardIconButton
 							icon="add"
 							label="Install plugin"
 							onClick={() => console.log('Installing plugin...')}
-							{ ...props } />
+							{...props}
+						/>
 					)}
-					{ 'button-load' === example && (
+					{'button-load' === example && (
 						<StandardIconButton
 							icon="download"
 							label="Download"
 							onClick={() => console.log('Downloading plugin...')}
-							{ ...props } />
+							{...props}
+						/>
 					)}
 				</div>
 			</div>

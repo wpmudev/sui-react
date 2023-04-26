@@ -73,12 +73,12 @@ const isFunction = (element) => {
 };
 
 const isString = (element) => {
-	if ( 'string' === typeof element ) {
+	if ('string' === typeof element) {
 		return true;
 	}
 
 	return false;
-}
+};
 
 // Publish required function(s).
 export {

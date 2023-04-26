@@ -82,8 +82,8 @@ const IconButton = ({
 	// Define button markup.
 	set.markup = (
 		<Fragment>
-			{ isLoading && <Loader /> }
-			{ !isLoading && (
+			{isLoading && <Loader />}
+			{!isLoading && (
 				<Fragment>
 					<Icon name={icon} />
 					<Label>{label}</Label>

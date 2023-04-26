@@ -26,43 +26,41 @@ const Tag = ({
 
 	// Define tag design
 	// Limited to: solid (default) and outlined
-	if ( has.design ) {
-		if ( has.color ) {
+	if (has.design) {
+		if (has.color) {
 			set.class += ` sui-tag--${design}-${color}`;
 		} else {
 			set.class += ` sui-tag--${design}`;
 		}
 	} else {
-		if ( has.color ) {
+		if (has.color) {
 			set.class += ` sui-tag--${color}`;
 		}
 	}
 
 	// Define tag style
 	// Limited to: none (default), multiline, and truncated
-	if ( has.style ) {
+	if (has.style) {
 		set.class += ` sui-tag--${style}`;
 	}
 
 	// Define tag size
-	if ( isSmall ) {
+	if (isSmall) {
 		set.class += ' sui-tag--sm';
 	}
 
 	// Define tag text
-	if ( isUppercase ) {
+	if (isUppercase) {
 		set.class += ' sui-tag--uppercase';
 	}
 
 	// Define custom class name(s)
-	if ( has.class ) {
+	if (has.class) {
 		set.class += ` ${className}`;
 	}
 
 	// Define inner markup
-	set.markup = (
-		<span className="sui-tag__label">{ children }</span>
-	);
+	set.markup = <span className="sui-tag__label">{children}</span>;
 
 	// Create element
 	return createElement(
