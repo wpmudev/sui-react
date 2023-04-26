@@ -1,38 +1,15 @@
 @use "../../../_utils/utils" as *;
 
-$sui-tag-primary: (
-	blue: (
-        background: $tag-color-blue-default-background
-	),
-	yellow: (
-        background: $tag-color-yellow-default-background,
-		color: $tag-color-yellow-default-color
-	),
-	red: (
-        background: $tag-color-red-default-background
-	),
-	green: (
-        background: $tag-color-green-default-background
-	),
-	dark-blue: (
-        border-color: $tag-color-dark-blue-default-border-color,
-		color: $tag-color-dark-blue-default-color
-	),
-	black: (
-        border-color: $tag-color-black-default-border-color,
-		color: $tag-color-black-default-color
-	),
-	white: (
-        background: $tag-color-white-default-background,
-		color: $tag-color-white-default-color
-	),
-	common: (
-		background: $tag-color-default-background,
-		color: $tag-color-default-color
-	)
+$semantic-colors: (
+	default: $color-extended-neutral-60,
+	blue: $color-primary-50,
+	yellow: $color-extended-warning-50,
+	red: $color-extended-error-50,
+	green: $color-extended-success-50,
+	white:$color-extended-neutral-100,
 );
 
-$sui-tag-disabled: (
-	background: $tag-color-disabled-background,
-	color: $tag-color-disabled-color
+$structured-colors: (
+	pro: $color-extended-neutral-10,
+	beta: $color-primary-30,
 );
