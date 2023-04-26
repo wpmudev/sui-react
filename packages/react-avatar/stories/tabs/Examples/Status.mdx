@@ -1,0 +1,103 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
+import { Avatar } from '../../../lib/react-avatar';
+import dedent from 'dedent';
+
+export const ConfirmedAvatarCode = dedent`
+import React from 'react';\n
+import { Avatar } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Avatar status="confirmed" />;
+}\n
+export default Example;
+`;
+
+export const AwaitingAvatarCode = dedent`
+import React from 'react';\n
+import { Avatar } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Avatar status="awaiting" />;
+}\n
+export default Example;
+`;
+
+export const NotAcceptedAvatarCode = dedent`
+import React from 'react';\n
+import { Avatar } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Avatar status="not-connected" />;
+}\n
+export default Example;
+`;
+
+export const NotConnectedAvatarCode = dedent`
+import React from 'react';\n
+import { Avatar } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Avatar status="not-accepted" />;
+}\n
+export default Example;
+`;
+
+<Section
+	title="Confirmed"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>status</Code> prop to
+		<Code small={true}>confirmed</Code>.
+	</p>
+	<Preview wrapper={true}>
+		<Avatar status="confirmed" />
+	</Preview>
+	<Snippet language="js">{ConfirmedAvatarCode}</Snippet>
+</Section>
+
+<Section
+	title="Awaiting"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>status</Code> prop to
+		<Code small={true}>awaiting</Code>.
+	</p>
+	<Preview wrapper={true}>
+		<Avatar status="awaiting" />
+	</Preview>
+	<Snippet language="js">{AwaitingAvatarCode}</Snippet>
+</Section>
+
+<Section
+	title="Not Accepted"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>status</Code> prop to
+		<Code small={true}>not-accepted</Code>.
+	</p>
+	<Preview wrapper={true}>
+		<Avatar status="not-accepted" />
+	</Preview>
+	<Snippet language="js">{NotAcceptedAvatarCode}</Snippet>
+</Section>
+
+<Section
+	title="Not Connected"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>status</Code> prop to
+		<Code small={true}>not-connected</Code>.
+	</p>
+	<Preview wrapper={true}>
+		<Avatar status="not-connected" />
+	</Preview>
+	<Snippet language="js">{NotConnectedAvatarCode}</Snippet>
+</Section>
