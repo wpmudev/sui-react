@@ -5,11 +5,13 @@
 /// @param {Boolean} $rtl - Enable the RTL class on body.
 @mixin body-class($rtl: false) {
 	@if $rtl {
-		body.rtl {
+		@at-root body.rtl {
 			@content;
 		}
 	} @else {
-		@content;
+		@at-root {
+			@content;
+		}
 	}
 }
 
