@@ -20,66 +20,27 @@ export default {
 
 // Build "Tag" story.
 const Tag = ({
-	example,
-	label,
-	href,
-	target,
-	color,
-	isSmall,
-	isDisabled,
-	isUppercase,
 	design,
+	children,
+	...props
 }) => {
-	const boxStyles = {
-		padding: 20,
-		borderRadius: 4,
-		background: color !== 'white' ? '#fff' : '#333',
+	const set = {};
+
+	set.box = {
+		margin: 0,
+		padding: '30px',
+		border: '1px solid #E6E6E6',
+		borderRadius: '4px',
+		background: props.color === 'white' ? '#333' : '#fff',
 	};
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={boxStyles}>
-					{'button' === example && (
-						<SuiTag
-							isSmall={isSmall}
-							type="button"
-							color={color}
-							isUppercase={isUppercase}
-							design={design}
-							onClick={() => console.log('Button Click.')}
-							isDisabled={isDisabled}
-						>
-							{label}
-						</SuiTag>
-					)}
-
-					{'link' === example && (
-						<SuiTag
-							isSmall={isSmall}
-							type="a"
-							href={href}
-							target={target}
-							color={color}
-							isUppercase={isUppercase}
-							design={design}
-							isDisabled={isDisabled}
-						>
-							{label}
-						</SuiTag>
-					)}
-
-					{'span' === example && (
-						<SuiTag
-							isSmall={isSmall}
-							color={color}
-							isUppercase={isUppercase}
-							design={design}
-							isDisabled={isDisabled}
-						>
-							{label}
-						</SuiTag>
-					)}
+				<div style={set.box}>
+					<SuiTag design={design} { ...props }>
+						{children}
+					</SuiTag>
 				</div>
 			</div>
 		</div>
@@ -88,52 +49,27 @@ const Tag = ({
 
 // Set story arguments.
 Tag.args = {
-	example: 'span',
-	label: 'This is a label.',
-	href: '',
-	target: '_blank',
-	color: 'default',
+	children: 'Hello, I am a tag',
 	design: '',
+	color: '',
+	style: '',
 	isUppercase: false,
 	isSmall: false,
-	isDisabled: false,
 };
 
 // Set controls for story arguments.
 Tag.argTypes = {
-	example: {
-		name: 'Example',
+	children: {
+		name: 'Content',
+	},
+	design: {
+		name: 'Design',
 		control: {
 			type: 'select',
 			options: {
-				'Example: Default': 'span',
-				'Example: Link': 'link',
-				'Example: Basic Button': 'button',
+				'Design: Solid': '',
+				'Design: Outlined': 'outlined'
 			},
-		},
-	},
-	label: {
-		name: 'Label',
-	},
-	href: {
-		name: 'Link',
-		control: {
-			type: 'text',
-		},
-		if: {
-			arg: 'example',
-			eq: 'link',
-		},
-	},
-	target: {
-		name: 'Target',
-		control: {
-			type: 'select',
-			options: ['_self', '_blank'],
-		},
-		if: {
-			arg: 'example',
-			eq: 'link',
 		},
 	},
 	color: {
@@ -141,39 +77,39 @@ Tag.argTypes = {
 		control: {
 			type: 'select',
 			options: {
-				'Color: Default': 'default',
-				'Color: Blue': 'blue',
-				'Color: Yellow': 'yellow',
-				'Color: Red': 'red',
-				'Color: Green': 'green',
-				'Color: White': 'white',
+				'Color: Default': '',
+				'Color: Blue (Information)': 'blue',
+				'Color: Navy Blue': 'navy',
+				'Color: Yellow (Warning)': 'yellow',
+				'Color: Red (Error)': 'red',
+				'Color: Green (Success)': 'green',
 				'Color: Black': 'black',
-				'Color: Dark Blue': 'dark-blue',
+				'Color: White': 'white',
 			},
-		},
+		}
 	},
-	design: {
-		name: 'Design',
+	style: {
+		name: 'Style',
 		control: {
 			type: 'select',
 			options: {
-				'Design: Default': '',
-				'Design: Truncated': 'truncated',
-				'Design: Multiline': 'multiline',
+				'Style: Default': '',
+				'Style: Multiline': 'multiline',
+				'Style: Truncated': 'truncated',
 			},
-		},
+		}
 	},
 	isUppercase: {
 		name: 'Uppercase',
+		control: {
+			type: 'boolean',
+		},
 	},
 	isSmall: {
 		name: 'Small',
 		control: {
 			type: 'boolean',
 		},
-	},
-	isDisabled: {
-		name: 'Disabled',
 	},
 };
 
