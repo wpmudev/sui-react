@@ -1,20 +1,24 @@
-// Do not edit directly
-// Generated on Sat, 18 Feb 2023 05:56:10 GMT
 
-$avatar-font-size-sm: 12px;
-$avatar-font-size-md: 16px;
-$avatar-font-size-lg: 24px-2px;
-$avatar-font-height-sm: 16px-6px;
-$avatar-font-height-md: 16px-3px;
-$avatar-font-height-lg: 24px-5px;
-$avatar-color-white-background: #ffffff;
-$avatar-color-grey-color: #737373;
-$avatar-color-green-color: #18bb4b;
-$avatar-color-yellow-color: #ffcc20;
-$avatar-color-red-color: #f45c59;
-$avatar-color-common-background: #f2f2f2;
-$avatar-spacing: 4px-2px;
-$avatar-border-radius: 100%;
+// Do not edit directly
+// Generated on Thu, 27 Apr 2023 02:58:04 GMT
+
+$avatar-container-size-sm: 24px;
+$avatar-container-size-md: 32px;
+$avatar-container-border-radius: 100%;
+$avatar-container-background: #f2f2f2;
+$avatar-icon-color: #1a1a1a;
+$avatar-icon-size-sm: 14px;
+$avatar-icon-size-md: 20px;
+$avatar-image-size: 100%;
+$avatar-image-border-radius: 100%;
+$avatar-status-margin-sm: -2px;
+$avatar-status-margin-md: -3px;
+$avatar-status-padding-sm: 2px;
+$avatar-status-padding-md: 2px;
+$avatar-status-border-radius: 100%;
+$avatar-status-size-sm: 10px;
+$avatar-status-size-md: 14px;
+$avatar-status-background: #ffffff;
 $button-container-size-md: 74px;
 $button-container-size-sm: 68px;
 $button-container-padding-vertical: 3px;
@@ -215,8 +219,8 @@ $spacing-lg: 16px;
 $border-width-sm: 1px;
 $border-width-md: 2px;
 $border-radius-sm: 4px;
-$border-radius-md: 4px * 2;
-$border-radius-lg: 4px * 3;
+$border-radius-md: 4px*2;
+$border-radius-lg: 4px*3;
 $font-weight-sm: 400;
 $font-weight-md: 600;
 $font-weight-lg: 700;
@@ -236,8 +240,7 @@ $font-height-xl: 48px;
 $font-spacing-sm: 0.1px;
 $font-spacing-md: 0.2px;
 $font-spacing-default: 0px;
-$font-family-default: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
-	Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+$font-family-default: "Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
 $font-family-code: "Roboto Mono", monospace;
 $grid-spacing-sm: 8px * 2;
 $grid-spacing-md: 8px * 3;
@@ -250,9 +253,9 @@ $grid-columns: 12;
 $layout-content-width: 1600px;
 $layout-spacing-main-sm: -20px;
 $layout-spacing-main-md: -10px;
-$layout-spacing-content-sm: 8px * 2;
-$layout-spacing-content-md: 8px * 3;
-$layout-spacing-content-lg: 8px * 4;
+$layout-spacing-content-sm: 8px*2;
+$layout-spacing-content-md: 8px*3;
+$layout-spacing-content-lg: 8px*4;
 $tag-font-size-sm: 10px;
 $tag-font-size-md: 12px;
 $tag-font-spacing-sm: -0.1px;
