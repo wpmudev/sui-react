@@ -1,0 +1,32 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
+import { Input } from '../../../lib/react-input';
+import dedent from 'dedent';
+
+export const SmallInputCode = dedent`
+import React from 'react';\n
+import { Button } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Input id="input-id-4" label="Label" placeholder="Placeholder" isSmall={true} />;
+}\n
+export default Example;
+`;
+
+<Section
+	title="Small"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isSmall</Code> prop to reduce the input
+		height, fitting with the design context.
+	</p>
+	<Preview wrapper={true}>
+		<Input
+			id="input-id-4"
+			label="Label"
+			placeholder="Placeholder"
+			isSmall={true}
+		/>
+	</Preview>
+	<Snippet language="js">{SmallInputCode}</Snippet>
+</Section>
