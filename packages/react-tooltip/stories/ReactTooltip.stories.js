@@ -8,7 +8,7 @@ import docs from './ReactTooltip.mdx';
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Tooltip',
+	title: 'SUI/Components/Simple/Tooltip',
 	component: Tooltip,
 	parameters: {
 		layout: 'fullscreen',
