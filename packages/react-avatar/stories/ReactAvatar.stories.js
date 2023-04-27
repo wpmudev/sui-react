@@ -1,10 +1,13 @@
 import React from 'react';
 
-// Import required component.
+// Import required component
 import { Avatar as SuiAvatar } from '../lib/react-avatar';
 
-// Import documentation main page.
+// Import documentation main page
 import docs from './ReactAvatar.mdx';
+
+// Import required assets
+import image from './images/unreal-person.jpg';
 
 // Configure default options.
 export default {
@@ -19,36 +22,22 @@ export default {
 };
 
 // Build "Avatar" story.
-const Avatar = ({ color, iconMode, iconString, image, status, isSmall }) => {
-	const boxStyles = {
+const Avatar = ({ ...props }) => {
+	const set = {};
+
+	set.box = {
 		padding: 20,
 		borderRadius: 4,
-		background: color !== 'white' ? '#fff' : '#333',
+		background: '#fff',
+		fontSize: 0,
+		lineHeight: 1
 	};
-
-	const props = {};
-
-	props.icon = iconString;
-
-	if ('none' === iconMode) {
-		props.icon = 'user-alt';
-	}
-
-	if ('image' === iconMode) {
-		props.icon = image;
-	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={boxStyles}>
-					<SuiAvatar
-						{...('image' !== iconMode
-							? { icon: props.icon }
-							: { image: props.icon })}
-						isSmall={isSmall}
-						status={status}
-					></SuiAvatar>
+				<div style={set.box}>
+					<SuiAvatar {...props} />
 				</div>
 			</div>
 		</div>
@@ -57,42 +46,32 @@ const Avatar = ({ color, iconMode, iconString, image, status, isSmall }) => {
 
 // Set story arguments.
 Avatar.args = {
+	example: 'icon',
 	status: '',
-	iconMode: 'image',
-	iconString: 'logo',
 	image: {
-		alt: 'image-alt',
-		src: 'https://avatars.githubusercontent.com/u/40248406?v=4',
+		alt: 'Unreal Person avatar image',
+		src: image,
 	},
 	isSmall: false,
 };
 
 // Set controls for story arguments.
 Avatar.argTypes = {
-	iconMode: {
-		name: 'Icon Mode',
+	example: {
+		name: 'Example',
 		control: {
-			type: 'inline-radio',
+			type: 'select',
 			options: {
-				None: 'none',
-				Image: 'image',
-				String: 'string',
+				'Example: Icon Avatar': 'icon',
+				'Example: Image Avatar': 'image'
 			},
-		},
-	},
-	iconString: {
-		name: 'Icon String',
-		control: 'text',
-		if: {
-			arg: 'iconMode',
-			eq: 'string',
 		},
 	},
 	image: {
 		name: 'Image',
 		control: 'object',
 		if: {
-			arg: 'iconMode',
+			arg: 'example',
 			eq: 'image',
 		},
 	},
@@ -111,6 +90,7 @@ Avatar.argTypes = {
 	},
 	isSmall: {
 		name: 'Small',
+		control: 'boolean',
 	},
 };
 
