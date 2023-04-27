@@ -1,0 +1,118 @@
+{
+	"input": {
+		"font": {
+			"size": {
+				"xs": {
+					"value": "{font.size.xs}",
+					"type": "fontSizes"
+				},
+				"sm": {
+					"value": "{font.size.default}",
+					"type": "fontSizes"
+				},
+				"md": {
+					"value": "{font.size.md}+1px",
+					"type": "fontSizes"
+				},
+				"lg": {
+					"value": "{font.size.lg}",
+					"type": "fontSizes"
+				}
+			},
+			"spacing": {
+				"value": "{font.spacing.sm}",
+				"type": "letterSpacing"
+			},
+			"height": {
+				"xs": {
+					"value": "{font.height.xs}",
+					"type": "lineHeights"
+				},
+				"sm": {
+					"value": "{font.height.sm}",
+					"type": "lineHeights"
+				}
+			},
+			"weight": {
+				"value": "500",
+				"type": "fontWeights"
+			}
+		},
+		"color": {
+			"dark-grey": {
+				"color": {
+					"value": "{color.extended.neutral.50}",
+					"type": "color"
+				}
+			},
+			"grey": {
+				"color": {
+					"value": "{color.extended.neutral.60}",
+					"type": "color"
+				}
+			},
+			"light-grey": {
+				"color": {
+					"value": "{color.extended.neutral.70}",
+					"type": "color"
+				}
+			},
+			"very-light-grey": {
+				"color": {
+					"value": "{color.extended.neutral.90}",
+					"type": "color"
+				}
+			},
+			"white-smoke": {
+				"color": {
+					"value": "{color.extended.neutral.95}",
+					"type": "color"
+				}
+			},
+			"red": {
+				"color": {
+					"value": "{color.extended.error.50}",
+					"type": "color"
+				}
+			},
+			"blue": {
+				"color": {
+					"value": "{color.primary.50}",
+					"type": "color"
+				}
+			},
+			"white": {
+				"color": {
+					"value": "{color.extended.neutral.100}",
+					"type": "color"
+				}
+			},
+			"disabled": {
+				"background": {
+					"value": "{color.extended.neutral.95}",
+					"type": "color"
+				},
+				"color": {
+					"value": "{color.extended.neutral.70}",
+					"type": "color"
+				}
+			}
+		},
+		"border": {
+			"radius": {
+				"value": "{border.radius.sm}",
+				"type": "borderRadius"
+			},
+			"width": {
+				"sm": {
+					"value": "{border.width.sm}",
+					"type": "borderWidth"
+				},
+				"md": {
+					"value": "{border.width.md}",
+					"type": "borderWidth"
+				}
+			}
+		}
+	}
+}
