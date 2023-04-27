@@ -1,4 +1,4 @@
-@use "../../../_utils/tokens" as *;
+@use "../../../_utils/utils" as *;
 
 $sui-input-font: (
 	xs: (
@@ -9,7 +9,7 @@ $sui-input-font: (
 	sm: (
 		size: $input-font-size-sm,
 		height: $input-font-height-sm,
-		weight: $button-font-weight,
+		weight: 500,
 		spacing: $input-font-spacing,
 	),
 	md: (

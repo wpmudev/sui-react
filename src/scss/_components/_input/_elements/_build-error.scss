@@ -1,24 +1,24 @@
 @use "sass:map";
 
-@use "../../../_utils/mixins" as *;
-@use "../_input-utils/variables" as *;
+@use "../../../_utils/utils" as *;
+@use "../_utils/variables" as *;
 
-@use "../_input-utils/colors" as *;
+@use "../_utils/colors" as *;
 
-/// Build Description
+/// Build Error Message
 /// This function creates styles for the button
 /// label element.
 /// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-description($block) {
+@mixin build-error-message($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-			.sui-#{$block}__description {
+			.sui-#{$block}__error-message {
 				display: block;
 				margin-top: 4px;
 				@if map.has-key($sui-input-font, sm, size) {
@@ -30,13 +30,38 @@
 				@if map.has-key($sui-input-font, sm, spacing) {
 					letter-spacing: map.get($sui-input-font, sm, spacing);
 				}
-				@if map.has-key($sui-input-color, grey, dark, color) {
-					color: map.get($sui-input-color, grey, dark, color);
+				@if map.has-key($sui-input-color, red, default, color) {
+					color: map.get($sui-input-color, red, default, color);
+				}
+			}
+
+			&.sui-#{$block}--error {
+				.sui-#{$block}__field {
+					@if map.has-key($sui-input-color, red, default, color) {
+						border-color: map.get(
+							$sui-input-color,
+							red,
+							default,
+							color
+						);
+					}
+
+					+ .sui-#{$block}__label {
+						@if map.has-key($sui-input-color, grey, dark, color) {
+							color: map.get($sui-input-color, grey, dark, color);
+						}
+					}
+
+					&:focus {
+						@if map.has-key($sui-input-border, md, width) {
+							border-width: map.get($sui-input-border, md, width);
+						}
+					}
 				}
 			}
 
 			@include modifier(sm) {
-				.sui-#{$block}__description {
+				.sui-#{$block}__error-message {
 					@if map.has-key($sui-input-font, xs, size) {
 						font-size: map.get($sui-input-font, xs, size);
 					}

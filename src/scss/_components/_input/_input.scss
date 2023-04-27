@@ -1,6 +1,6 @@
-@use "./_input-elements/elements" as sui-input--element;
-@use "./_input-modifiers/modifiers" as sui-input--modifier;
-@use "./_input-states/states" as sui-input--state;
+@use "./_elements/elements" as sui-input--element;
+@use "./_modifiers/modifiers" as sui-input--modifier;
+@use "./_states/states" as sui-input--state;
 
 @include sui-input--element.build-input(input);
 @include sui-input--element.build-label(input);
