@@ -57,6 +57,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.18.9",
+    "@postcss-plugins/console": "^0.2.5",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
@@ -81,6 +82,7 @@
     "lerna": "^4.0.0",
     "lerna-changelog": "^2.2.0",
     "path": "^0.12.7",
+    "postcss-bem-linter": "^3.3.0",
     "prettier": "2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

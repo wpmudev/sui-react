@@ -1,11 +1,10 @@
 @use "sass:map";
 
-@use "../../../_utils/mixins" as *;
-@use "../_button-utils/variables" as *;
+@use "../../../_utils/utils" as *;
 
-/// Build Icon
+/// Build Avatar
 /// This function creates styles for the element
-/// main wrapper.
+/// avatar wrapper.
 /// @type block
 /// @author WPMU DEV
 ///
@@ -14,12 +13,18 @@
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
-		// Block wrapper.
 		@include block($block) {
 			@include element(icon) {
-				display: block;
-				margin: 4px;
-			}
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: $avatar-icon-color;
+				font-size: $avatar-icon-size-md;
+
+				&:before {
+					margin-top: -0.5px;
+				}
+            }
 		}
 	}
 }
