@@ -1,0 +1,41 @@
+@use "../../../_utils/tokens" as *;
+
+$sui-input-color: (
+	grey: (
+		default: (
+			color: $input-color-grey-color,
+		),
+		dark: (
+			color: $input-color-dark-grey-color,
+		),
+		light: (
+			color: $input-color-light-grey-color,
+		),
+		lightest: (
+			color: $input-color-very-light-grey-color,
+		),
+	),
+	white: (
+		default: (
+			color: $input-color-white-color,
+		),
+		smoke: (
+			color: $input-color-white-smoke-color,
+		),
+	),
+	blue: (
+		default: (
+			color: $input-color-blue-color,
+		),
+	),
+	red: (
+		default: (
+			color: $input-color-red-color,
+		),
+	),
+);
+
+$sui-input-disabled: (
+	background: $input-color-disabled-background,
+	color: $input-color-disabled-color,
+);
