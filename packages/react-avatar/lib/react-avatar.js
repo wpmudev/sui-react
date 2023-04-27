@@ -1,113 +1,59 @@
-import React, { createElement } from 'react';
+import React, { Fragment, createElement } from 'react';
 import { isEmpty, isUndefined, isObject } from '@wpmudev/react-utils';
 
-// Build "Avatar" component.
+// Import required component(s)
+import { Icon } from './elements/icon-avatar';
+import { Image } from './elements/image-avatar';
+import { Status } from './elements/status';
+
+// Build "avatar" component
 const Avatar = ({
-	status,
-	icon,
-	isSmall = false,
 	image,
-	className = '',
+	status,
+	isSmall = false,
+	className,
 	...props
 }) => {
-	const is = {};
+	const has = {};
 	const set = {};
 
-	// valication of props
-	is.status = !isUndefined(status) && !isEmpty(status) ? true : false;
-	is.icon = !isUndefined(icon) && !isEmpty(icon) ? true : false;
-	is.image = !isUndefined(image) && isObject(image) ? true : false;
+	// Define image object
+	set.img = Object.assign(
+		{
+			src: '',
+			alt: '',
+		},
+		image
+	);
 
+	// Props validation
+	has.status = !isUndefined(status) && !isEmpty(status) ? true : false;
+	has.image = !isUndefined(image) && !isEmpty(set.img.src) ? true : false;
+
+	// Define class name
 	set.class = 'sui-avatar';
-	set.status = {};
-	set.image = {};
-	set.status.icon = '';
-	set.status.classes = 'sui-avatar__status';
 
-	// add classes
-	if (!isEmpty(className)) {
-		set.class += ' ' + className;
-	}
-
-	// avatar size
+	// Define avatar size
 	if (isSmall) {
 		set.class += ' sui-avatar--sm';
 	}
 
-	// avatar image set
-	if (is.image) {
-		set.image.src =
-			!isUndefined(image.src) && !isEmpty(image.src) ? image.src : '';
-		set.image.alt =
-			!isUndefined(image.alt) && !isEmpty(image.alt) ? image.alt : '';
-	}
-
-	// set avatar icon
-	if (is.icon) {
-		set.icon = icon;
-	} else {
-		set.icon = 'user-alt';
-	}
-
-	// set status icon and class
-	switch (status) {
-		case 'confirmed':
-			set.status.icon = 'check-alt';
-			set.status.classes += ' sui-avatar__status--check-alt';
-			break;
-		case 'awaiting':
-			set.status.icon = 'timer';
-			set.status.classes += ' sui-avatar__status--timer';
-			break;
-		case 'not-accepted':
-			set.status.icon = 'warning';
-			set.status.classes += ' sui-avatar__status--warning';
-			break;
-		case 'not-connected':
-			set.status.icon = 'warning';
-			set.status.classes += ' sui-avatar__status--danger';
-			break;
-		default:
-			break;
-	}
-
-	set.iconHtml = createElement('span', {
-		className: `sui-avatar--icon suicons suicons--${set.icon}`,
-		'aria-hidden': 'true',
-	});
-
-	set.statusHtml = createElement(
-		'span',
-		{
-			className: set.status.classes,
-		},
-		createElement('span', {
-			className: `suicons suicons--${set.status.icon}`,
-			'aria-hidden': 'true',
-		})
-	);
-
-	set.imageHtml = createElement(
-		'div',
-		{
-			className: 'sui-avatar__image',
-		},
-		createElement('img', {
-			src: set.image.src,
-			alt: set.image.alt,
-			width: '20',
-		})
+	// Create avatar inner markup
+	set.markup = (
+		<Fragment>
+			{ has.image && <Image source={set.img.src} text={set.img.alt} /> }
+			{ !has.image && <Icon /> }
+			{ has.status && <Status status={status} /> }
+		</Fragment>
 	);
 
 	return createElement(
-		'div',
+		'span',
 		{
 			className: set.class,
-			...props,
+			...props
 		},
-		is.image && set.imageHtml,
-		!is.image && set.iconHtml,
-		is.status && set.statusHtml
+		set.markup
 	);
 };
 
