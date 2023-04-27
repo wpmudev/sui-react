@@ -1,5 +1,5 @@
-@use "./_tooltip-elements/elements" as sui-tooltip--element;
-@use "./_tooltip-modifiers/modifiers" as sui-tooltip--modifier;
+@use "./_elements/elements" as sui-tooltip--element;
+@use "./_modifiers/modifiers" as sui-tooltip--modifier;
 
 @include sui-tooltip--element.build-wrapper(tooltip);
 @include sui-tooltip--element.build-tooltip(tooltip);

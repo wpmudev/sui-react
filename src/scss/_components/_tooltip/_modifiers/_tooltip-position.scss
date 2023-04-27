@@ -1,8 +1,8 @@
 @use "sass:map";
 
-@use "../../../_utils/mixins" as *;
-@use "../_tooltip-utils/variables" as *;
-@use "../_tooltip-utils/mixins" as *;
+@use "../../../_utils/utils" as *;
+@use "../_utils/variables" as *;
+@use "../_utils/mixins" as *;
 
 /// Build Tooltip Position
 /// This function creates styles for the element
@@ -25,7 +25,7 @@
                     bottom: 100%;
                     margin-bottom: map.get($sui-tooltip-spacing, margin);
                     transform: translateX(-50%);
-                    
+
                     &:after {
                         @include equilateral-triangle(down, 6px, #333);
                         left: 50%;
@@ -57,7 +57,7 @@
                     right: 0;
                     bottom: 100%;
                     margin-bottom: map.get($sui-tooltip-spacing, margin);
-                
+
                     &:after {
                         @include equilateral-triangle(down, 6px, #333);
                         right: 8px;
@@ -89,7 +89,7 @@
                     top: 100%;
                     left: 0;
                     margin-top: map.get($sui-tooltip-spacing, margin);
-                    
+
                     &:after {
                         @include equilateral-triangle(up, 6px, #333);
                         top: -6px;
@@ -104,7 +104,7 @@
                     top: 100%;
                     right: 0;
                     margin-top: map.get($sui-tooltip-spacing, margin);
-                    
+
                     &:after {
                         @include equilateral-triangle(up, 6px, #333);
                         top: -6px;
@@ -134,7 +134,7 @@
                 .sui-#{$block}__content {
                     top: 0;
                     right: calc(100% + map.get($sui-tooltip-spacing, margin));
-                    
+
                     &:after {
                         right: -6px;
                         top: 8px;
@@ -148,7 +148,7 @@
                 .sui-#{$block}__content {
                     bottom: 0;
                     right: calc(100% + map.get($sui-tooltip-spacing, margin));
-                    
+
                     &:after {
                         right: -6px;
                         bottom: 8px;

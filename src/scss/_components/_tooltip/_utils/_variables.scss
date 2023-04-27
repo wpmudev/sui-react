@@ -1,4 +1,4 @@
-@use "../../../_utils/tokens" as *;
+@use "../../../_utils/utils" as *;
 
 $sui-tooltip-size: (
 	sm: (
@@ -10,7 +10,7 @@ $sui-tooltip-size: (
 );
 $sui-tooltip-position: (
     top: (
-        
+
     )
 );
 $sui-tooltip-border: (

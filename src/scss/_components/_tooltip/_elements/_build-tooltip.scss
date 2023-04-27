@@ -1,8 +1,8 @@
 @use "sass:map";
 
-@use "../../../_utils/mixins" as *;
-@use "../_tooltip-utils/variables" as *;
-@use "../_tooltip-utils/colors" as *;
+@use "../../../_utils/utils" as *;
+@use "../_utils/variables" as *;
+@use "../_utils/colors" as *;
 
 /// Build Tooltip
 /// This function creates styles for the element
@@ -58,7 +58,7 @@
                     transition: 0.2s;
                 }
             }
-			
+
 			.sui-button {
 				margin: 0;
 			}
