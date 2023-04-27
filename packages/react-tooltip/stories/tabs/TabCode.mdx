@@ -1,0 +1,194 @@
+import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
+
+<Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
+	<p>
+		Install the <Code small={true}>Tooltip</Code> package as an individual
+		component or follow the Overview page instructions to get the complete
+		SUI Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+	<p>
+		For tooltip we have the following props and we can pass additional
+		button component props as well:
+	</p>
+	<Section
+		title={{ content: 'label', tag: 'string', small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Label for toltip being used as button, link or text.</p>
+	</Section>
+	<Section
+		title={{ content: 'href', tag: 'string', small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Provides a url for buttons being used as a link.</p>
+	</Section>
+	<Section
+		title={{ content: 'type', tag: 'string', small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			Whether the type of tooltip is button, link or text. By default the
+			type is set button.
+		</p>
+		<p>Allowed options:</p>
+		<List>
+			<span
+				label={
+					<>
+						<Code small={true}>button</Code>
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>link</Code>
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>text</Code>
+					</>
+				}
+			/>
+		</List>
+	</Section>
+	<Section
+		title={{ content: 'position', tag: 'string', small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			A tooltip can be placed at the top, bottom, left, or right of the
+			element.
+		</p>
+		<p>Allowed options:</p>
+		<List>
+			<span
+				label={
+					<>
+						<Code small={true}>top</Code>: Tooltip will be aligned
+						to the top center of the element.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>top-left</Code>: Tooltip will be
+						aligned to the top left of the element.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>top-right</Code>: Tooltip will be
+						aligned to the top right of the element.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>bottom</Code>: Tooltip will be
+						aligned to the bottom center of the element.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>bottom-left</Code>: Tooltip will be
+						aligned to the bottom left of the element.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>bottom-right</Code>: Tooltip will be
+						aligned to the bottom right of the element.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>left</Code>: Tooltip will be aligned
+						to the left center of the element.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>left-top</Code>: Tooltip will be
+						aligned to the left top of the element.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>left-bottom</Code>: Tooltip will be
+						aligned to the left bottom of the element.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>right</Code>: Tooltip will be aligned
+						to the right center of the element.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>right-top</Code>: Tooltip will be
+						aligned to the right top of the element.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>right-bottom</Code>: Tooltip will be
+						aligned to the right bottom of the element.
+					</>
+				}
+			/>
+		</List>
+	</Section>
+	<Section
+		title={{ content: 'className', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Add a class name to the tooltip.</p>
+	</Section>
+	<Section
+		title={{ content: 'customWidth', tag: 'number', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			There are times when you need a to set a width of the tooltip to
+			make the content overflow appear on the next line.
+		</p>
+	</Section>
+	<Section
+		title={{ content: 'customMobileWidth', tag: 'number', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			There are times when you need a to set a width of the tooltip to
+			make the content overflow appear on the next line. It will only be
+			applied on the mobile view.
+		</p>
+	</Section>
+</Section>

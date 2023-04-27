@@ -1,0 +1,35 @@
+import { Section, Row, Col, List } from '@wpmudev/storybook';
+
+import TooltipAnatomy from '../images/anatomy.png';
+import TooltipSpacing from '../images/spacing.png';
+
+<Section contained={true} border={true} style={{ paddingTop: 0 }}>
+	<p>
+		A tooltip is displayed to provide additional information about specific
+		element when the user hovers or focuses on them.
+	</p>
+	<p>Tooltips:</p>
+	<List>
+		<span label="Provides additional information about specific element." />
+		<span label="Act as a information for call to action (CTA)." />
+	</List>
+</Section>
+
+<Section title="Anatomy" contained={true} border={true}>
+	<Row gutter="sm">
+		<Col size="3">
+			<img
+				src={TooltipAnatomy}
+				alt="Tooltip anatomy"
+				style={{ marginBottom: 20 }}
+			/>
+		</Col>
+		<Col size="3">
+			<img
+				src={TooltipSpacing}
+				alt="Tooltip anatomy"
+				style={{ marginBottom: 20 }}
+			/>
+		</Col>
+	</Row>
+</Section>
