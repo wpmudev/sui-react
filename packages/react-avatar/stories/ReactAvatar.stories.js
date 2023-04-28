@@ -11,7 +11,7 @@ import image from './images/unreal-person.jpg';
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Simple/Avatar',
+	title: 'SUI/Components/Simple Elements/Avatar',
 	component: Avatar,
 	parameters: {
 		layout: 'fullscreen',

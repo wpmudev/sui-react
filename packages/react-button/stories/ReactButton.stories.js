@@ -8,7 +8,7 @@ import docs from './ReactButton.mdx';
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Simple/Button',
+	title: 'SUI/Components/Simple Elements/Button',
 	component: StandardButton,
 	parameters: {
 		layout: 'fullscreen',
