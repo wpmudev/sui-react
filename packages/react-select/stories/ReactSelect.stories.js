@@ -54,10 +54,9 @@ Select.argTypes = {
 		control: {
 			type: 'select',
 			options: {
-				'Example: Link': 'link',
-				'Example: Button': 'button',
-				'Example: Loading': 'button-load',
-				'Example: Label + Icon': 'label-icon',
+				'Example: Select': 'select',
+				'Example: Multiselect': 'multi-select',
+				'Example: Smartsearch': 'smart-search',
 			},
 		},
 	},
