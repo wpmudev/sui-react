@@ -9,7 +9,7 @@ import docs from './ReactInput.mdx';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Form Elements/Input',
-	component: Input,
+	component: SuiInput,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -21,73 +21,19 @@ export default {
 // Build "Input" story.
 const Input = ({
 	example,
-	label,
-	description,
-	color,
-	isSmall,
-	iconLead,
-	iconTrail,
-	isDisabled,
+	...args
 }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: color !== 'white' ? '#fff' : '#333',
+		background: '#fff',
 	};
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{'input' === example && (
-						<SuiInput
-							id="input-default"
-							label={label}
-							value="true"
-							labelId="label-id"
-							placeholder="Placeholder"
-							description={description}
-							descriptionId="desc-id"
-							isSmall={isSmall}
-							isDisabled={isDisabled}
-							iconLead={iconLead}
-							iconTrail={iconTrail}
-						/>
-					)}
-
-					{'input-error' === example && (
-						<SuiInput
-							id="input-default"
-							label={label}
-							labelId="label-id"
-							placeholder="Placeholder"
-							description={description}
-							descriptionId="desc-id"
-							errorMessage="This is an error."
-							errorId="error-id"
-							isSmall={isSmall}
-							isDisabled={isDisabled}
-							iconLead={iconLead}
-							iconTrail={iconTrail}
-						/>
-					)}
-
-					{'input-readonly' === example && (
-						<SuiInput
-							id="input-default"
-							label={label}
-							labelId="label-id"
-							placeholder="Placeholder"
-							description={description}
-							descriptionId="desc-id"
-							readOnly={true}
-							isSmall={isSmall}
-							isDisabled={isDisabled}
-							value="Ready only"
-							iconLead={iconLead}
-							iconTrail={iconTrail}
-						/>
-					)}
+					<SuiInput {...args} />
 				</div>
 			</div>
 		</div>
@@ -96,13 +42,13 @@ const Input = ({
 
 // Set story arguments.
 Input.args = {
-	example: 'input',
-	label: 'Label',
-	description: 'Help text',
-	iconMode: 'none',
-	iconLead: 'user',
-	iconTrail: 'user',
+	example: 'standard',
+	type: 'text',
+	id: 'myCustomId',
+	value: 'Hello World',
 	isSmall: false,
+	isError: false,
+	isReadOnly: true,
 	isDisabled: false,
 };
 
@@ -113,50 +59,52 @@ Input.argTypes = {
 		control: {
 			type: 'select',
 			options: {
-				'Example: Basic Input': 'input',
-				'Example: Input with error': 'input-error',
-				'Example: Read only input': 'input-readonly',
+				'Example: Standard': 'standard',
+				'Example: Read Only': 'readonly',
 			},
 		},
 	},
-	label: {
-		name: 'Label',
+	type: {
+		name: 'Type',
+		control: {
+			type: 'select',
+			options: ['text', 'email', 'password', 'number', 'search', 'tel', 'url']
+		}
 	},
-	description: {
-		name: 'Description',
+	id: {
+		name: 'ID',
+		control: 'text'
+	},
+	value: {
+		name: 'Value',
 	},
 	isSmall: {
 		name: 'Small',
+		control: 'boolean'
 	},
-	iconMode: {
-		name: 'Icon Mode',
-		control: {
-			type: 'inline-radio',
-			options: {
-				None: 'none',
-				Lead: 'icon-lead',
-				Trail: 'icon-trail',
-			},
-		},
-	},
-	iconLead: {
-		name: 'Icon Lead',
-		control: 'text',
+	isError: {
+		name: 'Error',
+		control: 'boolean',
 		if: {
-			arg: 'iconMode',
-			eq: 'icon-lead',
-		},
+			arg: 'example',
+			eq: 'standard'
+		}
 	},
-	iconTrail: {
-		name: 'Icon Trail',
-		control: 'text',
+	isReadOnly: {
+		name: 'Read Only',
+		control: 'boolean',
 		if: {
-			arg: 'iconMode',
-			eq: 'icon-trail',
-		},
+			arg: 'example',
+			eq: 'readonly'
+		}
 	},
 	isDisabled: {
 		name: 'Disabled',
+		control: 'boolean',
+		if: {
+			arg: 'example',
+			eq: 'standard'
+		}
 	},
 };
 
