@@ -1,0 +1,100 @@
+{
+  "form-field": {
+    "container": {
+      "margin": {
+        "sm": {
+          "value": "{layout.spacing.content.sm}",
+          "type": "spacing"
+        },
+        "md": {
+          "value": "{layout.spacing.content.md}",
+          "type": "spacing"
+        }
+      }
+    },
+    "label": {
+      "margin": {
+        "value": "{spacing.sm}",
+        "type": "spacing"
+      },
+      "font": {
+        "weight": {
+					"value": "{font.weight.md}",
+					"type": "fontWeights"
+				},
+        "size": {
+					"sm": {
+						"value": "{font.size.xs}",
+						"type": "fontSizes"
+					},
+          "md": {
+						"value": "{font.size.md}",
+						"type": "fontSizes"
+					}
+				},
+        "height": {
+          "sm": {
+						"value": "{font.height.xs}",
+						"type": "letterSpacing"
+					},
+          "md": {
+						"value": "{font.height.sm}",
+						"type": "fontSizes"
+					}
+				},
+        "spacing": {
+          "sm": {
+            "value": "{font.spacing.md}",
+					  "type": "letterSpacing"
+          },
+          "md": {
+            "value": "{font.spacing.default}",
+					  "type": "letterSpacing"
+          }
+				}
+      }
+    },
+    "helper": {
+      "margin": {
+        "value": "{spacing.sm}",
+        "type": "spacing"
+      },
+      "font": {
+        "weight": {
+					"value": "{font.weight.md}",
+					"type": "fontWeights"
+				},
+        "size": {
+					"sm": {
+						"value": "{font.size.xs}",
+						"type": "fontSizes"
+					},
+          "md": {
+						"value": "{font.size.md}",
+						"type": "fontSizes"
+					}
+				},
+        "height": {
+          "sm": {
+						"value": "{font.height.xs}",
+						"type": "letterSpacing"
+					},
+          "md": {
+						"value": "{font.height.sm}",
+						"type": "fontSizes"
+					}
+				},
+        "spacing": {
+          "sm": {
+            "value": "{font.spacing.default}",
+					  "type": "letterSpacing"
+          },
+          "md": {
+            "value": "{font.spacing.sm}",
+					  "type": "letterSpacing"
+          }
+				}
+      }
+    }
+  }
+}
