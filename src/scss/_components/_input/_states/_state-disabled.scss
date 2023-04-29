@@ -22,6 +22,7 @@
 				@include modifies-element(input) {
 					pointer-events: none;
 					background: $input-bg-disabled;
+					color: $input-font-color-disabled;
 				}
 			}
 		}
