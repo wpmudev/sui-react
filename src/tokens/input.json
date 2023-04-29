@@ -1,109 +1,63 @@
 {
 	"input": {
 		"font": {
+      "color": {
+        "default": {
+          "value": "{color.extended.neutral.10}",
+          "type": "color"
+        },
+        "placeholder": {
+          "value": "{color.extended.neutral.60}",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "{color.extended.neutral.70}",
+          "type": "color"
+        }
+      },
 			"size": {
-				"xs": {
+        "sm": {
 					"value": "{font.size.xs}",
 					"type": "fontSizes"
 				},
-				"sm": {
-					"value": "{font.size.default}",
-					"type": "fontSizes"
-				},
 				"md": {
-					"value": "{font.size.md}+1px",
-					"type": "fontSizes"
-				},
-				"lg": {
-					"value": "{font.size.lg}",
+					"value": "{font.size.default}",
 					"type": "fontSizes"
 				}
 			},
-			"spacing": {
-				"value": "{font.spacing.sm}",
-				"type": "letterSpacing"
-			},
-			"height": {
-				"xs": {
+      "height": {
+				"sm": {
 					"value": "{font.height.xs}",
 					"type": "lineHeights"
 				},
-				"sm": {
+				"md": {
 					"value": "{font.height.sm}",
 					"type": "lineHeights"
 				}
-			},
-			"weight": {
-				"value": "500",
-				"type": "fontWeights"
 			}
 		},
-		"color": {
-			"dark-grey": {
-				"color": {
-					"value": "{color.extended.neutral.50}",
-					"type": "color"
-				}
-			},
-			"grey": {
-				"color": {
-					"value": "{color.extended.neutral.60}",
-					"type": "color"
-				}
-			},
-			"light-grey": {
-				"color": {
-					"value": "{color.extended.neutral.70}",
-					"type": "color"
-				}
-			},
-			"very-light-grey": {
-				"color": {
-					"value": "{color.extended.neutral.90}",
-					"type": "color"
-				}
-			},
-			"white-smoke": {
-				"color": {
-					"value": "{color.extended.neutral.95}",
-					"type": "color"
-				}
-			},
-			"red": {
-				"color": {
-					"value": "{color.extended.error.50}",
-					"type": "color"
-				}
-			},
-			"blue": {
-				"color": {
-					"value": "{color.primary.50}",
-					"type": "color"
-				}
-			},
-			"white": {
-				"color": {
-					"value": "{color.extended.neutral.100}",
-					"type": "color"
-				}
-			},
-			"disabled": {
-				"background": {
-					"value": "{color.extended.neutral.95}",
-					"type": "color"
-				},
-				"color": {
-					"value": "{color.extended.neutral.70}",
-					"type": "color"
-				}
-			}
-		},
+    "spacing": {
+      "padding": {
+        "vertical": {
+          "sm": {
+            "value": "{spacing.md}"
+          },
+          "md": {
+            "value": "{spacing.md}"
+          }
+        },
+        "horizontal": {
+          "sm": {
+            "value": "{spacing.sm}*3"
+          },
+          "md": {
+            "value": "{spacing.lg}"
+          }
+        }
+      }
+    },
 		"border": {
-			"radius": {
-				"value": "{border.radius.sm}",
-				"type": "borderRadius"
-			},
-			"width": {
+      "width": {
 				"sm": {
 					"value": "{border.width.sm}",
 					"type": "borderWidth"
@@ -112,7 +66,51 @@
 					"value": "{border.width.md}",
 					"type": "borderWidth"
 				}
+			},
+      "style": {
+        "value": "solid",
+        "type": "other"
+      },
+      "color": {
+        "default": {
+          "value": "{color.extended.neutral.70}",
+					"type": "color"
+        },
+        "active": {
+          "value": "{color.primary.50}",
+					"type": "color"
+        },
+        "error": {
+          "value": "{color.extended.error.50}",
+					"type": "color"
+        },
+        "disabled": {
+          "value": "{color.extended.neutral.90}",
+          "type": "color"
+        },
+        "readonly": {
+          "value": "{color.extended.neutral.95}",
+          "type": "color"
+        }
+      },
+			"radius": {
+				"value": "{border.radius.sm}",
+				"type": "borderRadius"
 			}
-		}
+		},
+    "bg": {
+      "default": {
+        "value": "{color.extended.neutral.100}",
+        "type": "color"
+      },
+      "disabled": {
+        "value": "{color.extended.neutral.90}",
+        "type": "color"
+      },
+      "readonly": {
+        "value": "{color.extended.neutral.95}",
+        "type": "color"
+      }
+    }
 	}
 }

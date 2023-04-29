@@ -2,13 +2,13 @@
 @use "./_modifiers/modifiers" as sui-input--modifier;
 @use "./_states/states" as sui-input--state;
 
+@include sui-input--element.build-container(input);
 @include sui-input--element.build-input(input);
-@include sui-input--element.build-label(input);
-@include sui-input--element.build-description(input);
-@include sui-input--element.build-icon(input);
 
-@include sui-input--modifier.build-input-filled(input);
+@include sui-input--modifier.edit-size(input);
 
-@include sui-input--element.build-error-message(input);
-
-@include sui-input--state.build-disabled(input);
+@include sui-input--state.edit-hover(input);
+@include sui-input--state.edit-focus(input);
+@include sui-input--state.edit-error(input);
+@include sui-input--state.edit-readonly(input);
+@include sui-input--state.edit-disabled(input);
