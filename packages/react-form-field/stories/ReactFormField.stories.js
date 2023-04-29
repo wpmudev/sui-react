@@ -97,7 +97,7 @@ FormField.argTypes = {
 		control: 'object',
 		if: {
 			arg: 'example',
-			eq: 'input'
+			neq: ''
 		}
 	},
 	className: {},

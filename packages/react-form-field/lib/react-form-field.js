@@ -39,11 +39,6 @@ const Field = ({
 	// Define main class name
 	set.class = 'sui-form-field';
 
-	// Define error class name
-	if (set.error.state) {
-		set.class += ' sui-form-field--error';
-	}
-
 	// Define small class name
 	if (isSmall) {
 		set.class += ' sui-form-field--sm';
@@ -64,8 +59,16 @@ const Field = ({
 		<div className={set.class} { ...props }>
 			<Label id={id} hidden={isLabelHidden}>{label}</Label>
 			{children}
-			{(isObject(error) && Object.keys(error).length > 0) && <ErrorMessage id={id} show={set.error.state}>{set.error.text}</ErrorMessage>}
-			{has.helper && <Helper id={id}>{helper}</Helper>}
+			{(isObject(error) && Object.keys(error).length > 0) && (
+				<ErrorMessage id={id} show={set.error.state} small={isSmall}>
+					{set.error.text}
+				</ErrorMessage>
+			)}
+			{has.helper && (
+				<Helper id={id} small={isSmall}>
+					{helper}
+				</Helper>
+			)}
 		</div>
 	);
 }

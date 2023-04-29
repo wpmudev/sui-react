@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createElement } from 'react';
 
 // Build field helper text element
 export const Helper = ({ id, children }) => {
@@ -7,9 +7,16 @@ export const Helper = ({ id, children }) => {
 	// Define main class name(s)
 	set.class = 'sui-form-field__helper';
 
-	return (
-		<span id={`${id}__helper`} className={set.class}>
-			{children}
-		</span>
+	// Define default tag
+	set.tag = 'span';
+
+	// Render
+	return createElement(
+		set.tag,
+		{
+			id: `${id}__helper`,
+			className: set.class
+		},
+		children
 	);
 }
