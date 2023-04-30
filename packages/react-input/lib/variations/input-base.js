@@ -9,7 +9,7 @@ export const Input = ({
 	id,
 	className,
 	inputClass,
-	isMultiline = false,
+	isMultiLine = false,
 	isSmall = false,
 	isReadOnly = false,
 	isError = false,
@@ -66,7 +66,7 @@ export const Input = ({
 	}
 
 	// Define multiline class name
-	if (isMultiline) {
+	if (isMultiLine) {
 		if (isSmall) {
 			set.class += ' sui-input--multiline-sm';
 		} else {
@@ -108,7 +108,7 @@ export const Input = ({
 	// Define main tag
 	set.tag = 'input';
 
-	if (isMultiline) {
+	if (isMultiLine) {
 		set.tag = 'textarea';
 	}
 
@@ -116,7 +116,7 @@ export const Input = ({
 	set.markup = createElement(
 		set.tag,
 		{
-			... (isMultiline && {type: set.type}),
+			... (isMultiLine && {type: set.type}),
 			value: is.value || '',
 			... (has.placeholder && {placeholder: placeholder}),
 			id: id,
