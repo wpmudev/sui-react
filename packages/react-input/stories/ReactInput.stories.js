@@ -45,7 +45,7 @@ Input.args = {
 	example: 'standard',
 	type: 'text',
 	id: 'myCustomId',
-	value: 'Hello World',
+	defaultValue: 'Hello World',
 	isSmall: false,
 	isError: false,
 	isReadOnly: true,
@@ -75,7 +75,7 @@ Input.argTypes = {
 		name: 'ID',
 		control: 'text'
 	},
-	value: {
+	defaultValue: {
 		name: 'Value',
 	},
 	isSmall: {
