@@ -21,6 +21,18 @@
 					line-height: $input-font-height-sm;
 				}
 			}
+
+			@include modifier(multiline) {
+				@include modifies-element(input) {
+					min-height: 120px;
+				}
+			}
+
+			@include modifier(multiline-sm) {
+				@include modifies-element(input) {
+					min-height: 84px;
+				}
+			}
 		}
 	}
 }
