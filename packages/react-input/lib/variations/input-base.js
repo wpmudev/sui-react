@@ -4,7 +4,7 @@ import { isUndefined, isEmpty, isFunction } from '@wpmudev/react-utils';
 // Build input component
 export const Input = ({
 	type,
-	value,
+	defaultValue,
 	placeholder,
 	id,
 	className,
@@ -22,7 +22,7 @@ export const Input = ({
 	const set = {};
 
 	// Define states
-	[is.value, set.value] = useState(value);
+	[is.value, set.value] = useState(defaultValue);
 	[is.hover, set.hover] = useState(false);
 	[is.focus, set.focus] = useState(false);
 
@@ -98,7 +98,7 @@ export const Input = ({
 		'input',
 		{
 			type: set.type,
-			... (has.value && {value: is.value}),
+			value: is.value || '',
 			... (has.placeholder && {placeholder: placeholder}),
 			id: id,
 			className: `sui-input__input`,
