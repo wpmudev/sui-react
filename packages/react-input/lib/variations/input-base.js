@@ -9,6 +9,7 @@ export const Input = ({
 	id,
 	className,
 	inputClass,
+	isMultiline = false,
 	isSmall = false,
 	isReadOnly = false,
 	isError = false,
@@ -64,6 +65,15 @@ export const Input = ({
 		set.class += ' sui-input--sm';
 	}
 
+	// Define multiline class name
+	if (isMultiline) {
+		if (isSmall) {
+			set.class += ' sui-input--multiline-sm';
+		} else {
+			set.class += ' sui-input--multiline';
+		}
+	}
+
 	// Define class name(s) for states
 	if (isReadOnly) {
 		set.class += ' sui-input--readonly';
@@ -95,11 +105,18 @@ export const Input = ({
 		set.class += ` ${className}`;
 	}
 
+	// Define main tag
+	set.tag = 'input';
+
+	if (isMultiline) {
+		set.tag = 'textarea';
+	}
+
 	// Create input element
 	set.markup = createElement(
-		'input',
+		set.tag,
 		{
-			type: set.type,
+			... (isMultiline && {type: set.type}),
 			value: is.value || '',
 			... (has.placeholder && {placeholder: placeholder}),
 			id: id,
