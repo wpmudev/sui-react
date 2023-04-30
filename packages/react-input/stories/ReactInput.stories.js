@@ -46,6 +46,7 @@ Input.args = {
 	type: 'text',
 	id: 'myCustomId',
 	defaultValue: 'Hello World',
+	isMultiline: false,
 	isSmall: false,
 	isError: false,
 	isReadOnly: true,
@@ -77,6 +78,10 @@ Input.argTypes = {
 	},
 	defaultValue: {
 		name: 'Value',
+	},
+	isMultiline: {
+		name: 'Multi Line',
+		control: 'boolean'
 	},
 	isSmall: {
 		name: 'Small',
