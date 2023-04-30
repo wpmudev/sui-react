@@ -8,6 +8,7 @@ export const Input = ({
 	placeholder,
 	id,
 	className,
+	inputClass,
 	isSmall = false,
 	isReadOnly = false,
 	isError = false,
@@ -31,6 +32,7 @@ export const Input = ({
 	has.value = !isUndefined(is.value) && !isEmpty(is.value) ? true : false;
 	has.placeholder = !isUndefined(placeholder) && !isEmpty(placeholder) ? true : false;
 	has.class = !isUndefined(className) && !isEmpty(className) ? true : false;
+	has.classInput = !isUndefined(inputClass) && !isEmpty(inputClass) ? true : false;
 
 	if (!has.id) {
 		throw new Error(
@@ -101,7 +103,7 @@ export const Input = ({
 			value: is.value || '',
 			... (has.placeholder && {placeholder: placeholder}),
 			id: id,
-			className: `sui-input__input`,
+			className: `sui-input__input${has.classInput ? ` ${inputClass}` : ''}`,
 			... (isReadOnly && {readOnly: true}),
 			... (isDisabled && {disabled: true}),
 			onMouseEnter: (e) => {
