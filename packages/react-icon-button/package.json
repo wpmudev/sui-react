@@ -12,7 +12,7 @@
     }
   ],
   "license": "GPL-2.0",
-  "main": "lib/sui-icon-button.js",
+  "main": "lib/react-icon-button.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -25,17 +25,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://iamleigh@github.com/wpmudev/sui-docs.git"
+    "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
-    "url": "https://github.com/wpmudev/sui-docs/issues"
+    "url": "https://github.com/wpmudev/sui-react/issues"
   },
-  "homepage": "https://github.com/wpmudev/sui-docs#readme",
+  "homepage": "https://github.com/wpmudev/sui-react#readme",
   "devDependencies": {
-    "@wpmudev/react-utils": "^1.0.0",
     "react": "^18.2.0"
   }
 }
