@@ -12,7 +12,7 @@ const Recipient = ({
 	userName,
 	userEmail,
 	userImage,
-	isAdd = true,
+	isAdded = true,
 	appearance,
 	...props
 }) => {
@@ -46,10 +46,10 @@ const Recipient = ({
 				)}
 			</div>
 			<div className="sui-recipient__actions">
-				{isAdd && (
+				{!isAdded && (
 					<RecipientButton icon="add" color="black">Add recipient</RecipientButton>
 				)}
-				{!isAdd && (
+				{isAdded && (
 					<Fragment>
 						<RecipientButton icon="submit" color="black">Send recipient</RecipientButton>
 						<RecipientButton icon="trash" color="red">Delete recipient</RecipientButton>

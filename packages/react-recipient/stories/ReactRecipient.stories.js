@@ -54,7 +54,7 @@ Recipient.args = {
 		alt: 'Unreal Person avatar image',
 		src: image,
 	},
-	isAdd: false,
+	isAdded: false,
 };
 
 // Set controls for story arguments.
@@ -85,8 +85,8 @@ Recipient.argTypes = {
 			eq: 'image',
 		},
 	},
-	isAdd: {
-		name: 'Add',
+	isAdded: {
+		name: 'Recipient added',
 		control: {
 			type: 'boolean'
 		}
