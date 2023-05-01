@@ -6,6 +6,9 @@ import { Recipient as SuiRecipient } from '../lib/react-recipient';
 // Import documentation main page
 import docs from './ReactRecipient.mdx';
 
+// Import required assets
+import image from './images/unreal-person.jpg';
+
 // Configure default options.
 export default {
 	title: 'SUI/Components/Recipient',
@@ -24,7 +27,7 @@ const Recipient = ({ ...props }) => {
 
 	set.box = {
 		margin: 0,
-		padding: '30px',
+		padding: '10px',
 		border: 'white' === props.color ? '1px solid #E6E6E6' : 0,
 		borderRadius: '4px',
 		background: 'white' === props.color ? '#333' : '#fff',
@@ -43,45 +46,60 @@ const Recipient = ({ ...props }) => {
 
 // Set story arguments.
 Recipient.args = {
-	example: ''
+	appearance: 'primary',
+	userName: 'Recipient Name',
+	userEmail: 'example@email.com',
+	userAvatar: 'icon',
+	userImage: {
+		alt: 'Unreal Person avatar image',
+		src: image,
+	},
+	isAdd: false,
 };
 
 // Set controls for story arguments.
 Recipient.argTypes = {
-	example: {
-		name: 'Example',
+	userName: {
+		name: 'Recipient name',
+	},
+	userEmail: {
+		name: 'Recipient email',
+	},
+	userAvatar: {
+		name: 'Recipient avatar',
 		control: {
-			type: 'select',
+			type: 'inline-radio',
 			options: {
-				'Example: Icon Avatar': 'icon',
-				'Example: Image Avatar': 'image'
+				Icon: 'icon',
+				Image: 'image',
 			},
 		},
 	},
-	image: {
-		name: 'Image',
-		control: 'object',
+	userImage: {
+		name: 'Recipient image',
+		control: {
+			type: 'object'
+		},
 		if: {
-			arg: 'example',
+			arg: 'userAvatar',
 			eq: 'image',
 		},
 	},
-	status: {
-		name: 'Status',
+	isAdd: {
+		name: 'Add',
+		control: {
+			type: 'boolean'
+		}
+	},
+	appearance: {
+		name: 'Appearance',
 		control: {
 			type: 'select',
 			options: {
-				'Status: None': '',
-				'Status: Confirmed': 'confirmed',
-				'Status: Awaiting': 'awaiting',
-				'Status: Not Accepted': 'not-accepted',
-				'Status: Not Connected': 'not-connected',
+				'Primary': 'primary',
+				'Secondary': 'secondary'
 			},
 		},
-	},
-	isSmall: {
-		name: 'Small',
-		control: 'boolean',
 	},
 };
 

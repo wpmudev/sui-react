@@ -2,46 +2,70 @@ import React, { Fragment, createElement } from 'react';
 import { isEmpty, isUndefined, isObject } from '@wpmudev/react-utils';
 
 import { Avatar } from '../../react-avatar';
-import { IconButton } from '../../sui-icon-button/lib/react-icon-button';
+
+import { RecipientName } from './elements/name-recipient';
+import { RecipientEmail } from './elements/email-recipient';
+import { RecipientButton } from './elements/button-recipient';
 
 // Build "recipient" component
-const Recipient = ({}) => {
-	const has = {};
+const Recipient = ({
+	userName,
+	userEmail,
+	userImage,
+	isAdd = true,
+	appearance,
+	...props
+}) => {
+	const is = {};
 	const set = {};
 
-	return (
-		<div className="sui-recipient"> 
+	// Parameter(s) validation.
+	is.themeEnabled = !isUndefined(appearance) && !isEmpty(appearance);
+	is.name = !isUndefined(userName) && !isEmpty(userName) ? true : false;
+	is.email = !isUndefined(userEmail) && !isEmpty(userEmail) ? true : false;
+	is.image = !isUndefined(userImage) && isObject(userImage) ? true : false;
+
+
+	// Define recipient class.
+	set.class = 'sui-recipient';
+
+	// Define recipient appearance.
+	if (is.themeEnabled) {
+		set.class += ' sui-recipient--' + appearance;
+	}
+
+	set.markup = (
+		<Fragment>
 			<div className="sui-recipient__info">
-				<span className="sui-recipient__info--name">
-					<Avatar status="confirmed" />
-					John Doe
-				</span>
-				<span className="sui-recipient__email">john@email.com</span>
+				<Avatar status="confirmed" {...(is.image && { image: userImage })}/>
+				{(is.name || is.email) && (
+					<div className="sui-recipient__avatar">
+						{is.name && <RecipientName>{userName}</RecipientName>}
+						{is.email && <RecipientEmail>{userEmail}</RecipientEmail>}
+					</div>
+				)}
 			</div>
 			<div className="sui-recipient__actions">
-				<IconButton
-					icon="submit"
-					label="Send recipient"
-					appearance="tertiary"
-					color="black"
-					isSmall={true}
-				/>
-				<IconButton
-					icon="trash"
-					label="Delete recipient"
-					appearance="tertiary"
-					color="red"
-					isSmall={true}
-				/>
-				<IconButton
-					icon="add"
-					label="Add recipient"
-					appearance="tertiary"
-					color="black"
-					isSmall={true}
-				/>
+				{isAdd && (
+					<RecipientButton icon="add" color="black">Add recipient</RecipientButton>
+				)}
+				{!isAdd && (
+					<Fragment>
+						<RecipientButton icon="submit" color="black">Send recipient</RecipientButton>
+						<RecipientButton icon="trash" color="red">Delete recipient</RecipientButton>
+					</Fragment>
+				)}
 			</div>
-		</div>
+		</Fragment>
+	);
+
+	return createElement(
+		'div',
+		{
+			className: set.class,
+			...props
+		},
+		set.markup
 	);
 };
 
