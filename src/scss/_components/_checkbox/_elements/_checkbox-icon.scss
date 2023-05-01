@@ -1,0 +1,32 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Checkbox Icon
+/// This function creates styles for the checkbox icon element
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-icon($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(icon) {
+				width: 20px;
+				height: 20px;
+				display: block;
+				position: relative;
+				font-size: 20px;
+
+				&:before {
+					position: absolute;
+					margin-top: -0.5px;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+}

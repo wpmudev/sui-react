@@ -1,0 +1,34 @@
+@use "../../../_utils/utils" as *;
+
+/// Edit Size
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-size($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(sm) {
+				@include modifies-element(box) {
+					width: $font-size-md;
+					height: $font-size-md;
+					margin: 0;
+				}
+
+				@include modifies-element(icon) {
+					width: $font-size-md;
+					height: $font-size-md;
+					font-size: $font-size-md;
+				}
+
+				@include modifies-element(label) {
+					font-size: $font-size-xs;
+					line-height: $font-height-xs;
+				}
+			}
+		}
+	}
+}
