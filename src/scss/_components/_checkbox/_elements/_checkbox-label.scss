@@ -1,0 +1,26 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Checkbox Label
+/// This function creates styles for the label element
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-label($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(label) {
+				margin: 0;
+				margin-left: $spacing-md;
+				color: $color-extended-neutral-10;
+				font-weight: $font-weight-default;
+				font-size: $font-size-default;
+				line-height: $font-height-sm;
+				letter-spacing: $font-spacing-default;
+			}
+		}
+	}
+}

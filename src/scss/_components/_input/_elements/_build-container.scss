@@ -1,0 +1,33 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Container
+/// This function creates styles for the input container
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-container($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			position: relative;
+
+			&:before {
+				content: " ";
+				pointer-events: none;
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				bottom: 0;
+				border: $input-border-width-sm $input-border-style $input-border-color-default;
+				border-radius: $input-border-radius;
+				transition: 0.1s ease;
+			}
+		}
+	}
+}

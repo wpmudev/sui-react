@@ -1,13 +1,10 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-@use "../_utils/variables" as *;
-
-@use "../_utils/colors" as *;
 
 /// Build Input
-/// This function creates styles for the element
-/// main wrapper.
+/// This function creates styles for main element
+///
 /// @type block
 /// @author WPMU DEV
 ///
@@ -16,119 +13,22 @@
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
-		// Block wrapper.
 		@include block($block) {
-			line-height: normal;
-			.sui-#{$block}__wrapper {
-				position: relative;
-				display: flex;
-				flex-direction: column-reverse;
-			}
-
-			input {
-				max-height: 40px;
-			}
-
-			.sui-#{$block}__field {
-				@if map.has-key($sui-input-font, sm, size) {
-					font-size: map.get($sui-input-font, sm, size);
-				}
-				@if map.has-key($sui-input-font, sm, height) {
-					line-height: map.get($sui-input-font, sm, height);
-				}
-				@if map.has-key($sui-input-color, white, default, color) {
-					background: map.get(
-						$sui-input-color,
-						white,
-						default,
-						color
-					);
-				}
-				@if map.has-key($sui-input-border, sm, width) {
-					border-width: map.get($sui-input-border, sm, width);
-				}
-				@if map.has-key($sui-input-border, sm, style) {
-					border-style: map.get($sui-input-border, sm, style);
-				}
-				@if map.has-key($sui-input-color, grey, light, color) {
-					border-color: map.get($sui-input-color, grey, light, color);
-				}
-				@if map.has-key($sui-input-border, sm, radius) {
-					border-radius: map.get($sui-input-border, sm, radius);
-				}
-				padding: 8px 16px;
+			@include element(input) {
 				width: 100%;
+				max-width: 100%;
+				display: block;
+				margin: 0;
+				padding: $input-spacing-padding-vertical-md $input-spacing-padding-horizontal-md;
+				border: 0;
+				border-radius: $input-border-radius;
 				outline: none;
-
-				&:hover {
-					@if map.has-key($sui-input-color, blue, default, color) {
-						border-color: map.get(
-							$sui-input-color,
-							blue,
-							default,
-							color
-						);
-					}
-				}
-
-				&:focus {
-					@if map.has-key($sui-input-border, md, width) {
-						border-width: map.get($sui-input-border, md, width);
-					}
-					@if map.has-key($sui-input-color, blue, default, color) {
-						border-color: map.get(
-							$sui-input-color,
-							blue,
-							default,
-							color
-						);
-					}
-
-					+ .sui-#{$block}__label {
-						@if map.has-key($sui-input-color, blue, default, color)
-						{
-							color: map.get(
-								$sui-input-color,
-								blue,
-								default,
-								color
-							);
-						}
-					}
-				}
-
-				&:read-only {
-					@if map.has-key($sui-input-color, white, smoke, color) {
-						background: map.get(
-							$sui-input-color,
-							white,
-							smoke,
-							color
-						);
-					}
-					border: none;
-					+ .sui-#{$block}__label {
-						@if map.has-key($sui-input-color, grey, dark, color) {
-							color: map.get($sui-input-color, grey, dark, color);
-						}
-					}
-				}
-			}
-
-			@include modifier(sm) {
-				.sui-#{$block}__field {
-					@if map.has-key($sui-input-font, xs, size) {
-						font-size: map.get($sui-input-font, xs, size);
-					}
-					@if map.has-key($sui-input-font, xs, height) {
-						line-height: map.get($sui-input-font, xs, height);
-					}
-					padding: 8px 12px;
-				}
-
-				input {
-					max-height: 32px;
-				}
+				background: $input-bg-default;
+				color: $input-font-color-default;
+				font-size: $input-font-size-md;
+				line-height: $input-font-height-md;
+				letter-spacing: 0;
+				transition: 0.1s ease;
 			}
 		}
 	}
