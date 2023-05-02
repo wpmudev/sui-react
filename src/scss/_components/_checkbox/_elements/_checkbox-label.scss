@@ -13,6 +13,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(label) {
+				pointer-events: none;
 				margin: 0;
 				margin-left: $spacing-md;
 				color: $color-extended-neutral-10;
