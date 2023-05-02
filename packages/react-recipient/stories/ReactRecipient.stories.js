@@ -22,7 +22,7 @@ export default {
 };
 
 // Build "Avatar" story.
-const Recipient = ({ ...props }) => {
+const Recipient = ({ userAvatar, ...props }) => {
 	const set = {};
 
 	set.box = {
@@ -50,6 +50,7 @@ Recipient.args = {
 	userName: 'Recipient Name',
 	userEmail: 'example@email.com',
 	userAvatar: 'icon',
+	userConfirmed: true,
 	userImage: {
 		alt: 'Unreal Person avatar image',
 		src: image,
@@ -84,6 +85,12 @@ Recipient.argTypes = {
 			arg: 'userAvatar',
 			eq: 'image',
 		},
+	},
+	userConfirmed: {
+		name: 'Recipient confirmed',
+		control: {
+			type: 'boolean'
+		}
 	},
 	isAdded: {
 		name: 'Recipient added',
