@@ -37,7 +37,7 @@ const Recipient = ({
 	set.markup = (
 		<Fragment>
 			<div className="sui-recipient__info">
-				<Avatar {...(userConfirmed && { status: 'confirmed' })} {...(is.image && { image: userImage })}/>
+				<Avatar className="sui-recipient__avatar" {...(userConfirmed && { status: 'confirmed' })} {...(is.image && { image: userImage })}/>
 				{(is.name || is.email) && (
 					<div className="sui-recipient__details">
 						{is.name && <RecipientName>{userName}</RecipientName>}
