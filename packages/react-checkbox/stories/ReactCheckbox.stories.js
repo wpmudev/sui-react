@@ -46,4 +46,10 @@ Checkbox.args = {
 };
 
 // Story props settings
-Checkbox.argTypes = {};
+Checkbox.argTypes = {
+	defaultValue: {
+		table: {
+			disable: true
+		}
+	}
+};
