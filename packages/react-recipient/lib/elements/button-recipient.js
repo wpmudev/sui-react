@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { isUndefined, isString } from '@wpmudev/react-utils';
 
-import { IconButton } from '../../../sui-icon-button/lib/react-icon-button';
+import { IconButton } from '../../../react-icon-button/lib/react-icon-button';
 
 // Build "Label" component.
 const RecipientButton = ({ children, ...props }) => {
