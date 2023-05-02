@@ -1,0 +1,97 @@
+{
+    "recipient": {
+      "container": {
+        "padding": {
+            "vertical": {
+                "value": "{spacing.lg}",
+                "type": "spacing"
+            },
+            "horizontal": {
+                "value": "24px",
+                "type": "spacing"
+            }
+        },
+        "border": {
+          "radius": {
+            "value": "{spacing.sm}",
+            "type": "borderRadius"
+          },
+          "width": {
+            "value": "1px",
+            "type": "borderWidth"
+          },
+          "color": {
+            "value": "{color.extended.neutral.80}",
+            "type": "borderColor"
+          }
+        },
+        "background": {
+            "primary": {
+                "value": "{color.extended.neutral.100}",
+                "type": "color"
+            },
+            "secondary": {
+                "value": "{color.extended.neutral.95}",
+                "type": "color"
+            }
+        }
+      },
+      "button": {
+        "margin": {
+            "horizontal": {
+                "value": "{spacing.sm}",
+                "type": "spacing"
+            }
+        }
+      },
+      "name": {
+        "font": {
+            "size": {
+                "value": "{font.size.default}",
+                "type": "fontSizes"
+            },
+            "height": {
+                "value": "{font.height.sm}",
+                "type": "lineHeights"
+            }
+        },
+        "color": {
+            "value": "{color.extended.neutral.60}",
+            "type": "color"
+        },
+        "padding": {
+            "horizontal": {
+                "value": "{spacing.md}",
+                "type": "spacing"
+            }
+        }
+      },
+      "email": {
+        "font": {
+            "size": {
+                "value": "{font.size.sm}",
+                "type": "fontSizes"
+            },
+            "weight": {
+                "value": "500",
+                "type": "fontWeights"
+            },
+            "height": {
+                "value": "{font.height.sm}",
+                "type": "lineHeights"
+            }
+        },
+        "color": {
+            "value": "{color.extended.neutral.10}",
+            "type": "color"
+        },
+        "padding": {
+            "horizontal": {
+                "value": "{spacing.md}",
+                "type": "spacing"
+            }
+        }
+      }
+    }
+  }
+  
