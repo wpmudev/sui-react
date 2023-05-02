@@ -10,21 +10,14 @@
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-info($block) {
+@mixin build-avatar($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			@include element(info, details) {
-				display: flex;
-				align-items: center;
-				flex: 1;
-			}
-
-			@include element(details) {
+			@include element(avatar) {
 				@include media(max-width, md) {
-					flex-direction: column;
-					align-items: start;
+					align-self: start;
 				}
 			}
 		}
