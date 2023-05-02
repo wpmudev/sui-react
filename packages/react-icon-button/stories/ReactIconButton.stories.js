@@ -8,7 +8,7 @@ import docs from './ReactIconButton.mdx';
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Icon Button',
+	title: 'SUI/Components/Simple Elements/Icon Button',
 	component: StandardIconButton,
 	parameters: {
 		layout: 'fullscreen',
