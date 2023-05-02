@@ -13,6 +13,15 @@ export const Checkbox = ({id, label, defaultValue = false, isSmall = false, isDi
 		htmlFor: id,
 		id: `${id}__label`,
 		className: 'sui-checkbox',
+		onMouseEnter: () => {
+			set.hover(true);
+		},
+		onMouseDownCapture: () => set.focus(true),
+		onMouseUpCapture: () => set.focus(true),
+		onMouseLeave: () => {
+			set.hover(false);
+		},
+		onBlurCapture: () => set.focus(false),
 	};
 
 	// Define input props
@@ -36,16 +45,6 @@ export const Checkbox = ({id, label, defaultValue = false, isSmall = false, isDi
 	set.labelProps = {
 		tabIndex: -1,
 		className: 'sui-checkbox__label',
-		'aria-hidden': true,
-		onMouseEnter: () => {
-			set.hover(true);
-		},
-		onMouseDownCapture: () => set.focus(true),
-		onMouseUpCapture: () => set.focus(true),
-		onMouseLeave: () => {
-			set.hover(false);
-		},
-		onBlurCapture: () => set.focus(false),
 	};
 
 	// Define additional class name(s) based on state(s)
