@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export const Checkbox = ({id, label, defaultValue = false, isSmall = false, isDisabled = false}) => {
+export const Checkbox = ({label, defaultValue = false, isLabelHidden = false, isSmall = false, isDisabled = false}) => {
 	const is = {};
 	const set = {};
 
@@ -10,8 +10,6 @@ export const Checkbox = ({id, label, defaultValue = false, isSmall = false, isDi
 
 	// Define container props
 	set.containerProps = {
-		htmlFor: id,
-		id: `${id}__label`,
 		className: 'sui-checkbox',
 		onMouseEnter: () => {
 			set.hover(true);
@@ -27,7 +25,6 @@ export const Checkbox = ({id, label, defaultValue = false, isSmall = false, isDi
 	// Define input props
 	set.inputProps = {
 		type: 'checkbox',
-		id: id,
 		className: 'sui-screen-reader-only',
 		checked: is.checked,
 		disabled: isDisabled,
@@ -36,18 +33,21 @@ export const Checkbox = ({id, label, defaultValue = false, isSmall = false, isDi
 
 	// Define box props
 	set.boxProps = {
-		tabIndex: -1,
+		tabIndex: '-1',
 		className: 'sui-checkbox__box',
 		'aria-hidden': true,
 	};
 
 	// Define label props
 	set.labelProps = {
-		tabIndex: -1,
 		className: 'sui-checkbox__label',
 	};
 
 	// Define additional class name(s) based on state(s)
+	if (isLabelHidden) {
+		set.containerProps.className += ' sui-checkbox--hidden-label';
+	}
+
 	if (is.checked) {
 		set.containerProps.className += ' sui-checkbox--checked';
 	}
@@ -74,7 +74,7 @@ export const Checkbox = ({id, label, defaultValue = false, isSmall = false, isDi
 			<span {...set.boxProps}>
 				{is.checked && <span className="suicons suicons--check sui-checkbox__icon" />}
 			</span>
-			<span {...set.labelProps}>{label}</span>
+			{isLabelHidden ? <span className="sui-screen-reader-only">{label}</span> : label}
 		</label>
 	);
 }
