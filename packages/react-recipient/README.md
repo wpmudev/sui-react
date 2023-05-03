@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-const reactAvatar = require('@wpmudev/react-recipient');
+const reactRecipient = require('@wpmudev/react-recipient');
 
 // TODO: DEMONSTRATE API
 ```
