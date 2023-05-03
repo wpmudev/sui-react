@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { isUndefined, isString } from '@wpmudev/react-utils';
 
-// Build "Label" component.
+// Build "Email" component.
 const RecipientEmail = ({ children }) => {
 	const is = {};
 

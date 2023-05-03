@@ -3,7 +3,7 @@ import { isUndefined, isString } from '@wpmudev/react-utils';
 
 import { IconButton } from '../../../react-icon-button/lib/react-icon-button';
 
-// Build "Label" component.
+// Build "Button" component.
 const RecipientButton = ({ children, ...props }) => {
 	const is = {};
 

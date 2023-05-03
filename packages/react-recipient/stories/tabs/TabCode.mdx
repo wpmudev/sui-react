@@ -2,73 +2,65 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 
 <Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
 	<p>
-		Install the <Code small={true}>Avatar</Code> package as an individual
+		Install the <Code small={true}>Recipient</Code> package as an individual
 		component or follow the Overview page instructions to get the complete
 		SUI Components package.
 	</p>
 </Section>
 
 <Section title="Props" border={true}>
-	<p>Avatar component have the following props.</p>
+	<p>Recipient component have the following props.</p>
 	<Section
-		title={{ content: 'status', tag: 'string', small: true }}
+		title={{ content: 'appearance', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the status of the avatar.</p>
+		<p>Reflects the theme of the recipient.</p>
 		<p>Allowed options:</p>
 		<List>
 			<span
 				label={
 					<>
-						<Code small={true}>confirmed</Code>
+						<Code small={true}>primary</Code>
 					</>
 				}
 			/>
 			<span
 				label={
 					<>
-						<Code small={true}>awaiting</Code>
-					</>
-				}
-			/>
-			<span
-				label={
-					<>
-						<Code small={true}>not-connected</Code>
-					</>
-				}
-			/>
-			<span
-				label={
-					<>
-						<Code small={true}>not-accepted</Code>
+						<Code small={true}>secondary</Code>
 					</>
 				}
 			/>
 		</List>
 	</Section>
 	<Section
-		title={{ content: 'icon', tag: 'string', small: true }}
+		title={{ content: 'userName', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the icon of the avatar.</p>
+		<p>Reflects the name of the recipient.</p>
 	</Section>
 	<Section
-		title={{ content: 'isSmall', tag: 'string', small: true }}
+		title={{ content: 'userEmail', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Set if the avatar is small.</p>
+		<p>Reflects the email of the recipient.</p>
 	</Section>
 	<Section
-		title={{ content: 'image', tag: 'string', small: true }}
+		title={{ content: 'userConfirmed', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Reflects the recipient is confirmed.</p>
+	</Section>
+	<Section
+		title={{ content: 'image', tag: 'object', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Reflects the profile image of the avatar.</p>
 	</Section>
 	<Section
-		title={{ content: 'className', tag: 'string', small: true }}
+		title={{ content: 'isInvited', tag: 'boolean', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Add a class name to the avatar.</p>
+		<p>Reflects whether the user is invited or not.</p>
 	</Section>
 </Section>

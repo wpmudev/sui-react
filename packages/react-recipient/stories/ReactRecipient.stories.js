@@ -21,7 +21,7 @@ export default {
 	},
 };
 
-// Build "Avatar" story.
+// Build "Recipient" story.
 const Recipient = ({ userAvatar, ...props }) => {
 	const set = {};
 
@@ -55,7 +55,7 @@ Recipient.args = {
 		alt: 'Unreal Person avatar image',
 		src: image,
 	},
-	isAdded: false,
+	isInvited: false,
 };
 
 // Set controls for story arguments.
@@ -92,8 +92,8 @@ Recipient.argTypes = {
 			type: 'boolean'
 		}
 	},
-	isAdded: {
-		name: 'Recipient added',
+	isInvited: {
+		name: 'Recipient invited',
 		control: {
 			type: 'boolean'
 		}

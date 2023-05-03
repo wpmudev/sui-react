@@ -1,21 +1,22 @@
 import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
-import { Avatar } from '../../../lib/react-avatar';
+import { Recipient } from '../../../lib/react-recipient';
+import image from '../../images/unreal-person.jpg';
 import dedent from 'dedent';
 
-export const IconAvatarCode = dedent`
+export const IconRecipientCode = dedent`
 import React from 'react';\n
-import { Avatar } from '@wpmudev/sui-react';\n
+import { Recipient } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Avatar icon="logo" />;
+	return <Recipient userName="Recipient name" userEmail="email@example.com" />;
 }\n
 export default Example;
 `;
 
-export const ImageAvatarCode = dedent`
+export const ImageRecipientCode = dedent`
 import React from 'react';\n
-import { Avatar } from '@wpmudev/sui-react';\n
+import { Recipient } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Avatar image={{ src: 'https://avatars.githubusercontent.com/u/40248406?v=4', alt: 'image-alt' }} />;
+	return <Recipient image={{ src: image, alt: 'image-alt' }} />;
 }\n
 export default Example;
 `;
@@ -29,9 +30,9 @@ export default Example;
 		Set the <Code small={true}>icon</Code> prop to show icon in avatar.
 	</p>
 	<Preview wrapper={true}>
-		<Avatar icon="logo" />
+		<Recipient userName="Recipient name" userEmail="email@example.com" />
 	</Preview>
-	<Snippet language="js">{IconAvatarCode}</Snippet>
+	<Snippet language="js">{IconRecipientCode}</Snippet>
 </Section>
 
 <Section
@@ -40,15 +41,17 @@ export default Example;
 	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
 >
 	<p>
-		Set the <Code small={true}>image</Code> prop to show image in avatar.
+		Set the <Code small={true}>userImage</Code> prop to show image in avatar.
 	</p>
 	<Preview wrapper={true}>
-		<Avatar
-			image={{
-				src: 'https://avatars.githubusercontent.com/u/40248406?v=4',
+		<Recipient
+			userName="Recipient name" 
+			userEmail="email@example.com"
+			userImage={{
+				src: image,
 				alt: 'image-alt',
 			}}
 		/>
 	</Preview>
-	<Snippet language="js">{ImageAvatarCode}</Snippet>
+	<Snippet language="js">{ImageRecipientCode}</Snippet>
 </Section>
