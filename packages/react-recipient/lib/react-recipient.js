@@ -1,7 +1,7 @@
 import React, { Fragment, createElement } from 'react';
 import { isEmpty, isUndefined, isObject } from '@wpmudev/react-utils';
 
-import { Avatar } from '../../react-avatar';
+import { Avatar } from '@wpmudev/react-avatar';
 
 import { RecipientName } from './elements/name-recipient';
 import { RecipientEmail } from './elements/email-recipient';
