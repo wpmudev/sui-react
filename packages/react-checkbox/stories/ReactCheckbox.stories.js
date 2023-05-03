@@ -39,8 +39,8 @@ export const Checkbox = ({...args}) => {
 
 // Story props defaults
 Checkbox.args = {
-	id: 'uniqueId',
 	label: 'Checkbox label',
+	isLabelHidden: false,
 	isSmall: false,
 	isDisabled: false,
 };
