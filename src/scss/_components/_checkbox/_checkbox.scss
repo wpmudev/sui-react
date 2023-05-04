@@ -5,9 +5,9 @@
 @include sui-checkbox--element.build-container(checkbox);
 @include sui-checkbox--element.build-box(checkbox);
 @include sui-checkbox--element.build-icon(checkbox);
-@include sui-checkbox--element.build-label(checkbox);
 
 @include sui-checkbox--modifier.edit-size(checkbox);
+@include sui-checkbox--modifier.edit-aria(checkbox);
 
 @include sui-checkbox--state.edit-checked(checkbox);
 @include sui-checkbox--state.edit-hover(checkbox);

@@ -13,8 +13,14 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			cursor: pointer;
+			user-select: none;
 			position: relative;
 			display: inline-flex;
+			color: $color-extended-neutral-10;
+			font-weight: $font-weight-default;
+			font-size: $font-size-default;
+			line-height: $font-height-sm;
+			letter-spacing: $font-spacing-default;
 		}
 	}
 }
