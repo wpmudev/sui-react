@@ -1,15 +1,15 @@
 import React from 'react';
 
-// Import required component.
-import { Input as SuiInput } from '../lib/react-input';
+// Import modules
+import { TextField as SuiTextField } from '../lib/react-field-text';
 
-// Import documentation main page.
-import docs from './ReactInput.mdx';
+// Import documentation
+import docs from './ReactFieldText.mdx';
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Form Elements/Input',
-	component: SuiInput,
+	title: 'SUI/Components/Form Elements/Text Field',
+	component: SuiTextField,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -18,8 +18,8 @@ export default {
 	},
 };
 
-// Build "Input" story.
-const Input = ({
+// Build "Text Field" story.
+const TextField = ({
 	example,
 	...args
 }) => {
@@ -33,7 +33,7 @@ const Input = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiInput {...args} />
+					<SuiTextField {...args} />
 				</div>
 			</div>
 		</div>
@@ -41,77 +41,82 @@ const Input = ({
 };
 
 // Set story arguments.
-Input.args = {
-	example: 'standard',
+TextField.args = {
 	type: 'text',
 	id: 'myCustomId',
-	defaultValue: 'Hello World',
-	isMultiline: false,
+	label: 'Label text',
+	helper: 'Supporting text goes here',
+	errorMessage: 'Something went wrong',
+	isMultiLine: false,
+	isLabelHidden: false,
 	isSmall: false,
 	isError: false,
-	isReadOnly: true,
+	isReadOnly: false,
 	isDisabled: false,
 };
 
 // Set controls for story arguments.
-Input.argTypes = {
-	example: {
-		name: 'Example',
-		control: {
-			type: 'select',
-			options: {
-				'Example: Standard': 'standard',
-				'Example: Read Only': 'readonly',
-			},
-		},
-	},
+TextField.argTypes = {
 	type: {
 		name: 'Type',
 		control: {
 			type: 'select',
 			options: ['text', 'email', 'password', 'number', 'search', 'tel', 'url']
+		},
+		if: {
+			arg: 'isMultiLine',
+			eq: false
 		}
 	},
 	id: {
 		name: 'ID',
-		control: 'text'
+		control: 'text',
 	},
-	defaultValue: {
-		name: 'Value',
+	label: {
+		name: 'Label',
+		control: 'text',
 	},
-	isMultiline: {
+	helper: {
+		name: 'Helper',
+		control: 'text',
+	},
+	errorMessage: {
+		name: 'Error Message',
+		control: 'text',
+	},
+	isMultiLine: {
 		name: 'Multi Line',
-		control: 'boolean'
+		control: 'boolean',
 	},
 	isSmall: {
 		name: 'Small',
-		control: 'boolean'
+		control: 'boolean',
+	},
+	isLabelHidden: {
+		name: 'SR Label',
+		control: 'boolean',
 	},
 	isError: {
 		name: 'Error',
 		control: 'boolean',
 		if: {
-			arg: 'example',
-			eq: 'standard'
+			arg: 'isReadOnly',
+			eq: false
 		}
 	},
 	isReadOnly: {
 		name: 'Read Only',
 		control: 'boolean',
-		if: {
-			arg: 'example',
-			eq: 'readonly'
-		}
 	},
 	isDisabled: {
 		name: 'Disabled',
 		control: 'boolean',
 		if: {
-			arg: 'example',
-			eq: 'standard'
+			arg: 'isReadOnly',
+			eq: false
 		}
 	},
 };
 
 // Publish required stories.
-export { Input };
+export { TextField };
