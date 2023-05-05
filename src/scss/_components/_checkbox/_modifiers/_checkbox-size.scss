@@ -12,6 +12,9 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(sm) {
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
+
 				@include modifies-element(box) {
 					width: $font-size-md;
 					height: $font-size-md;
@@ -22,11 +25,6 @@
 					width: $font-size-md;
 					height: $font-size-md;
 					font-size: $font-size-md;
-				}
-
-				@include modifies-element(label) {
-					font-size: $font-size-xs;
-					line-height: $font-height-xs;
 				}
 			}
 		}
