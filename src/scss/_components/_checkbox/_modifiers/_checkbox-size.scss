@@ -18,13 +18,13 @@
 				@include modifies-element(box) {
 					width: $font-size-md;
 					height: $font-size-md;
-					margin: 0;
+					margin-top: 0;
+					margin-bottom: 0;
 				}
 
 				@include modifies-element(icon) {
-					width: $font-size-md;
-					height: $font-size-md;
-					font-size: $font-size-md;
+					width: 11px;
+					height: 9px;
 				}
 			}
 		}

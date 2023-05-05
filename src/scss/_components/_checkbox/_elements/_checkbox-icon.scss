@@ -13,19 +13,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(icon) {
-				width: 20px;
-				height: 20px;
-				display: block;
-				position: relative;
-				font-size: 20px;
-
-				&:before {
-					position: absolute;
-					margin-top: -0.5px;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-				}
+				width: 12px;
+				height: 10px;
+				opacity: 0;
+				fill: $color-extended-neutral-100;
 			}
 		}
 	}

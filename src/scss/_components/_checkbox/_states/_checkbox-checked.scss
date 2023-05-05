@@ -16,6 +16,10 @@
 					border-color: $color-primary-50;
 					background: $color-primary-50;
 				}
+
+				@include modifies-element(icon) {
+					opacity: 1;
+				}
 			}
 		}
 	}
