@@ -13,6 +13,7 @@
 		@include block($block) {
 			@include modifier(disabled) {
 				pointer-events: none;
+				color: $color-extended-neutral-70;
 
 				@include modifies-element(box) {
 					border-color: $color-extended-neutral-80;
@@ -21,10 +22,6 @@
 
 				@include modifies-element(icon) {
 					fill: $color-extended-neutral-70;
-				}
-
-				@include modifies-element(label) {
-					color: $color-extended-neutral-70;
 				}
 			}
 		}
