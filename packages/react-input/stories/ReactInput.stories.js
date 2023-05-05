@@ -8,7 +8,7 @@ import docs from './ReactInput.mdx';
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Form Elements/Input',
+	title: 'SUI/Components/Simple Elements/Input',
 	component: SuiInput,
 	parameters: {
 		layout: 'fullscreen',

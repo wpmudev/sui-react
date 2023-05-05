@@ -8,7 +8,7 @@ import docs from './ReactCheckbox.mdx';
 
 // Default settings
 export default {
-	title: 'SUI/Components/Form Elements/Checkbox',
+	title: 'SUI/Components/Simple Elements/Checkbox',
 	component: SuiCheckbox,
 	parameters: {
 		layout: 'fullscreen',
