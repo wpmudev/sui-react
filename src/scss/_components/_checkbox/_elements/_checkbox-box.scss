@@ -14,17 +14,19 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(box) {
-				width: 20px;
-				height: 20px;
+				width: $checkbox-box-size-md;
+				height: $checkbox-box-size-md;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				margin: math.div($spacing-sm, 2) 0;
-				margin-right: $spacing-md;
-				border: 1px solid $color-extended-neutral-70;
-				border-radius: $border-radius-sm;
-				background: $color-extended-neutral-100;
-				color: $color-extended-neutral-100;
+				margin: $checkbox-box-margin-vertical-md 0;
+				margin-right: $checkbox-box-margin-horizontal-md;
+				border:
+					$checkbox-box-border-width
+					$checkbox-box-border-style
+					$checkbox-box-border-color-default;
+				border-radius: $checkbox-box-border-radius;
+				background: $checkbox-box-background-default;
 			}
 		}
 	}
