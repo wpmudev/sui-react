@@ -16,11 +16,12 @@
 			user-select: none;
 			position: relative;
 			display: inline-flex;
-			color: $color-extended-neutral-10;
-			font-weight: $font-weight-default;
-			font-size: $font-size-default;
-			line-height: $font-height-sm;
-			letter-spacing: $font-spacing-default;
+			align-items: center;
+			color: $radio-font-color-default;
+			font-weight: $radio-font-weight;
+			font-size: $radio-font-size-md;
+			line-height: $radio-font-height-md;
+			letter-spacing: $radio-font-spacing;
 		}
 	}
 }

@@ -12,19 +12,17 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(sm) {
-				font-size: $font-size-xs;
-				line-height: $font-height-xs;
+				font-size: $radio-font-size-sm;
+				line-height: $radio-font-height-sm;
 
 				@include modifies-element(box) {
-					width: 16px;
-					height: 16px;
-					margin-top: 0;
-					margin-bottom: 0;
+					width: $radio-input-size-sm;
+					height: $radio-input-size-sm;
 				}
 
 				@include modifies-element(icon) {
-					width: 6px;
-					height: 6px;
+					width: $radio-icon-size-sm;
+					height: $radio-icon-size-sm;
 				}
 			}
 		}

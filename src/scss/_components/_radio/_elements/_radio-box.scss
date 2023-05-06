@@ -14,16 +14,16 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(box) {
-				width: 20px;
-				height: 20px;
+				width: $radio-input-size-md;
+				height: $radio-input-size-md;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				margin: math.div($spacing-sm, 2) 0;
-				margin-right: $spacing-md;
-				border: 1px solid $color-extended-neutral-70;
+				margin: 0;
+				margin-right: $radio-input-spacing;
+				border: 1px solid $radio-input-border-color-default;
 				border-radius: 100%;
-				background: $color-extended-neutral-100;
+				background: $radio-input-background-default;
 			}
 		}
 	}

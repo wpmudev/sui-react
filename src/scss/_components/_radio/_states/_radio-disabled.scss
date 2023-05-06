@@ -16,12 +16,12 @@
 				color: $color-extended-neutral-70;
 
 				@include modifies-element(box) {
-					border-color: $color-extended-neutral-80;
-					background: $color-extended-neutral-80;
+					border-color: $radio-input-border-color-disabled;
+					background: $radio-input-background-disabled;
 				}
 
 				@include modifies-element(icon) {
-					background: $color-extended-neutral-70;
+					background: $radio-icon-color-disabled;
 				}
 			}
 		}
