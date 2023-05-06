@@ -22,6 +22,10 @@
 			font-size: $checkbox-font-size-md;
 			line-height: $checkbox-font-height-md;
 			letter-spacing: $checkbox-font-spacing;
+
+			* {
+				pointer-events: none;
+			}
 		}
 	}
 }
