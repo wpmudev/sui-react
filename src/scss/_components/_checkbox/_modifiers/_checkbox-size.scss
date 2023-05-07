@@ -16,10 +16,10 @@
 				line-height: $checkbox-font-height-sm;
 
 				@include modifies-element(box) {
-					width: $checkbox-box-size-sm;
-					height: $checkbox-box-size-sm;
-					margin: $checkbox-box-margin-vertical-sm 0;
-					margin-right: $checkbox-box-margin-horizontal-sm;
+					width: $checkbox-input-size-sm;
+					height: $checkbox-input-size-sm;
+					margin: $checkbox-input-margin-vertical-sm 0;
+					margin-right: $checkbox-input-margin-horizontal-sm;
 				}
 
 				@include modifies-element(icon) {

@@ -1,6 +1,6 @@
 {
   "checkbox": {
-    "box": {
+    "input": {
       "size": {
         "sm": {
           "value": "16px",

@@ -13,9 +13,9 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(box) {
-					outline: 2px solid $checkbox-box-border-color-active;
+					outline: 2px solid $checkbox-input-border-color-active;
 					outline-offset: 2px;
-					border-color: $checkbox-box-border-color-active;
+					border-color: $checkbox-input-border-color-active;
 				}
 			}
 		}

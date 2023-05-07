@@ -16,8 +16,8 @@
 				color: $checkbox-font-color-disabled;
 
 				@include modifies-element(box) {
-					border-color: $checkbox-box-border-color-disabled;
-					background: $checkbox-box-background-disabled;
+					border-color: $checkbox-input-border-color-disabled;
+					background: $checkbox-input-background-disabled;
 				}
 
 				@include modifies-element(icon) {
