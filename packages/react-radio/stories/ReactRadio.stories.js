@@ -8,7 +8,7 @@ import docs from './ReactRadio.mdx';
 
 // Default settings
 export default {
-	title: 'SUI/Components/Simple Elements/Radio',
+	title: 'SUI/Components/Form Elements/Radio',
 	component: SuiRadio,
 	parameters: {
 		layout: 'fullscreen',
