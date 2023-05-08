@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://iamleigh@github.com/wpmudev/sui-docs.git"
+    "url": "git+https://github.com/wpmudev/sui-docs.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
