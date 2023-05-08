@@ -6,8 +6,8 @@ All notable changes to this project will be documented in this file. See [Conven
 
 #### ✨ New Features
 
--   feat: Initial release ([@iamleigh](https://github.com/iamleigh))
+- feat: Initial release ([@iamleigh](https://github.com/iamleigh))
 
 #### Committers: 1
 
--   Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
+- Leighton Sapir ([@iamleigh](https://github.com/iamleigh))
