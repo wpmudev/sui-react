@@ -1,0 +1,17 @@
+@use "../../../_utils/utils" as *;
+
+@mixin build-container($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			display: flex;
+			align-items: flex-start;
+			margin: 0;
+			padding: $spacing-md $spacing-lg;
+			border-width: 0;
+			border-left-width: 4px;
+			border-style: solid;
+			border-radius: $border-radius-md;
+			background: $color-extended-neutral-100;
+		}
+	}
+}
