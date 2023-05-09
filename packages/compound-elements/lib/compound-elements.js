@@ -1,5 +1,5 @@
 // Import compound modules
-import {Dropdown, IconDropdown} from '@wpmudev/react-dropdown';
+import {Dropdown} from '@wpmudev/react-dropdown';
 
 // Publish compound modules
-export {Dropdown, IconDropdown}
+export {Dropdown}
