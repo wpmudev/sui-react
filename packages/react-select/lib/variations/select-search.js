@@ -23,6 +23,7 @@ const Select = ({
 	[is.focus, set.focus] = useState(false);
 	[is.dropdownOpen, set.setDropdownOpen] = useState(false);
 	[is.selectedOption, set.setSelectedOption] = useState('');
+	[set.options, set.setOptions] = useState(options);
 
 	// Properties validation
 	has.id = !isUndefined(id) && !isEmpty(id) ? true : false;
@@ -32,9 +33,6 @@ const Select = ({
 			`Empty parameter is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Input\n\nThe parameter "id" in the "Input" component is required.\n\n`
 		);
 	}
-
-	// set defaullt values
-	set.options = options;
 
 	// Define select class.
 	set.class = 'sui-select';
@@ -48,6 +46,16 @@ const Select = ({
 
 	const handleDropdownToggle = () => {
 		set.setDropdownOpen(!is.dropdownOpen);
+	};
+
+	const handleSearchDropdown = (searchValue) => {
+		const optionsArray = options;
+		set.setDropdownOpen(true);
+		if(isEmpty(searchValue)) {
+			set.setOptions(optionsArray);
+		} else {
+			set.setOptions(optionsArray.filter(option => option.value.includes(searchValue)));
+		}
 	};
 
 	if (isSmall) {
@@ -91,7 +99,7 @@ const Select = ({
 		set.options.map((option) => {
 			return (
 				<Fragment>
-					<li id={option.id} role="option" className={option.value === is.selectedOption ? 'option selected' : 'option'} onClick={() => handleOptionClick(option.value)} onKeyDown={(e) => { if (e.key === 'Enter') { handleOptionClick(option.value) }}} >
+					<li id={option.id} role="option" tabIndex="0" className={option.value === is.selectedOption ? 'option selected' : 'option'} onClick={() => handleOptionClick(option.value)} onKeyDown={(e) => { if (e.key === 'Enter') { handleOptionClick(option.value) }}} >
 						<span className="suicons suicons--settings" aria-hidden="true"></span>
 						{option.value}
 					</li>
@@ -100,55 +108,48 @@ const Select = ({
 		})
 	);
 
-	return createElement(
-		'div',
-		{
-			className: set.class,
-			onMouseEnter: (e) => {
-				if (!isReadOnly) set.hover(true);
-
-				if (isFunction(onMouseEnter)) {
-					onMouseEnter(e);
-				}
-			},
-			onMouseDownCapture: () => (!isReadOnly) ? set.focus(true) : {},
-			onMouseUpCapture: () => (!isReadOnly) ? set.focus(true) : {},
-			onMouseLeave: (e) => {
-				if (!isReadOnly) set.hover(false);
-
-				if (isFunction(onMouseLeave)) {
-					onMouseLeave(e);
-				}
-			},
-			onBlurCapture: () => (!isReadOnly) ? set.focus(false) : {},
-		},
-		createElement(
-			'div',
-			{
-				className: 'select-header',
-				onClick: handleDropdownToggle,
-				onKeyDown: (e) => {
-					if (e.key === 'Enter') {
-						handleDropdownToggle();
+	return (
+		<Fragment>
+			<div 
+				className={ set.class }
+				onMouseEnter={(e) => {
+					if (!isReadOnly) set.hover(true);
+	
+					if (isFunction(onMouseEnter)) {
+						onMouseEnter(e);
 					}
-				},
-				tabIndex: '0',
-				'aria-haspopup': 'listbox',
-				'aria-expanded': is.dropdownOpen,
-			},
-			createElement(
-				'span',
-				{
-					className: 'selected-option',
-				},
-				is.selectedOption || 'Select'
-			),
-			createElement('span', {
-				className: set.arrowClass,
-				'aria-hidden': true,
-			})
-		),
-		is.dropdownOpen && set.dropdownHTML
+				}}
+				onMouseDownCapture={() => (!isReadOnly) ? set.focus(true) : {}}
+				onMouseUpCapture={() => (!isReadOnly) ? set.focus(true) : {}}
+				onMouseLeave={(e) => {
+					if (!isReadOnly) set.hover(false);
+	
+					if (isFunction(onMouseLeave)) {
+						onMouseLeave(e);
+					}
+				}}
+				onBlurCapture={() => (!isReadOnly) ? set.focus(false) : {}}
+			>
+				<div>
+					<input 
+						type="text" 
+						value={ is.selectedOption } 
+						className='select-header sui-select__input'
+						onClick={ handleDropdownToggle }
+						onChange={(e) => {
+							set.setSelectedOption(e.target.value);
+						}}
+						onKeyUp={(e) => {
+							handleSearchDropdown(e.target.value);
+						}}
+						tabIndex='0'
+						aria-haspopup='listbox'
+						aria-expanded={is.dropdownOpen}
+					/>
+				</div>
+				{is.dropdownOpen && set.dropdownHTML}
+			</div>
+		</Fragment>
 	);
 };
 

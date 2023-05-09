@@ -8,7 +8,7 @@ import docs from './ReactSelect.mdx';
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Select',
+	title: 'SUI/Components/Form Elements/Select',
 	component: Select,
 	parameters: {
 		layout: 'fullscreen',
@@ -18,7 +18,7 @@ export default {
 	},
 };
 
-// Build "Button" story.
+// Build "Select" story.
 const Select = ({ example, ...props }) => {
 	const set = {};
 
@@ -42,8 +42,52 @@ const Select = ({ example, ...props }) => {
 };
 
 Select.args = {
-	example: 'button',
-	options: ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'],
+	id: "id-1",
+	example: 'select',
+	options: [
+		{
+			icon: 'settings',
+			id: 'option-1',
+			value: 'Option 1 is the option.',
+		},
+		{
+			icon: 'settings',
+			id: 'option-2',
+			value: 'Option 2',
+		},
+		{
+			icon: 'settings',
+			id: 'option-3',
+			value: 'Option 3',
+		},
+		{
+			icon: 'settings',
+			id: 'option-4',
+			value: 'Option 4',
+		},
+		{
+			icon: 'settings',
+			id: 'option-5',
+			value: 'Option 5',
+		},
+		{
+			icon: 'settings',
+			id: 'option-6',
+			value: 'Option 6',
+		},
+		{
+			icon: 'settings',
+			id: 'option-7',
+			value: 'Option 7',
+		},
+		{
+			icon: 'settings',
+			id: 'option-8',
+			value: 'India',
+		}
+	],
+	isError: false,
+	isReadOnly: false,
 	isDisabled: false,
 	isSmall: false,
 };
