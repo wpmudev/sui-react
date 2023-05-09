@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Import required component(s)
-import { Dropdown as SuiDropdown, IconDropdown } from '../lib/react-dropdown';
+import { Dropdown as SuiDropdown } from '../lib/react-dropdown';
 
 // Import documentation main page
 import docs from './ReactDropdown.mdx';
