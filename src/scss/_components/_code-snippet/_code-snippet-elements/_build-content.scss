@@ -1,0 +1,60 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_code-snippet-utils/variables" as *;
+
+/// Build Content
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-content($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			code {
+				position: relative;
+				direction: ltr;
+				text-align: left;
+				white-space: pre;
+				word-spacing: normal;
+				word-break: normal;
+				-moz-tab-size: 4;
+				-o-tab-size: 4;
+				tab-size: 4;
+				-webkit-hyphens: none;
+				-moz-hyphens: none;
+				-ms-hyphens: none;
+				hyphens: none;
+				background: transparent;
+				padding: 0;
+				margin: 0;
+				z-index: 1;
+				@if map.has-key($sui-code-snippet-font, size, xs) {
+					font-size: map.get($sui-code-snippet-font, size, xs);
+				}
+				@if map.has-key($sui-code-snippet-font, height, sm) {
+					line-height: map.get($sui-code-snippet-font, height, sm);
+				}
+				@if map.has-key($sui-code-snippet-font, weight) {
+					font-weight: map.get($sui-code-snippet-font, weight);
+				}
+				@if map.has-key($sui-code-snippet-font, spacing) {
+					letter-spacing: map.get($sui-code-snippet-font, spacing);
+				}
+				* {
+					@if map.has-key($sui-code-snippet-font, family) {
+						font-family: map.get($sui-code-snippet-font, family);
+					}
+				}
+				@if map.has-key($sui-code-snippet-color, dark-grey) {
+					color: map.get($sui-code-snippet-color, dark-grey);
+				}
+			}
+		}
+	}
+}

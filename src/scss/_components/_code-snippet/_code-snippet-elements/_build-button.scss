@@ -1,0 +1,41 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_code-snippet-utils/variables" as *;
+
+/// Build Copy Button
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-button($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			.sui-tooltip {
+				position: absolute;
+				top: 16px;
+				right: 16px;
+
+				.sui-button {
+					margin: 0;
+					min-width: auto;
+					@if map.has-key($sui-code-snippet-font, size, sm) {
+						font-size: map.get($sui-code-snippet-font, size, sm);
+					}
+					@if map.has-key($sui-code-snippet-font, height, xs) {
+						line-height: map.get(
+							$sui-code-snippet-font,
+							height,
+							xs
+						);
+					}
+				}
+			}
+		}
+	}
+}

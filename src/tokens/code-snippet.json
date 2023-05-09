@@ -1,0 +1,100 @@
+{
+	"code-snippet": {
+		"font": {
+			"family": {
+				"value": "{font.family.code}",
+				"type": "fontFamily"
+			},
+			"size": {
+				"xs": {
+					"value": "{font.size.xs}",
+					"type": "fontSizes"
+				},
+				"sm": {
+					"value": "{font.size.xs}+1px",
+					"type": "fontSizes"
+				}
+			},
+			"spacing": {
+				"value": "{font.spacing.default}",
+				"type": "letterSpacing"
+			},
+			"height": {
+				"xs": {
+					"value": "{font.height.xs}",
+					"type": "lineHeights"
+				},
+				"sm": {
+					"value": "{font.height.sm}-4px",
+					"type": "lineHeights"
+				}
+			},
+			"weight": {
+				"value": "400",
+				"type": "fontWeights"
+			}
+		},
+		"color": {
+			"default": {
+				"background": {
+					"value": "{color.extended.neutral.95}",
+					"type": "color"
+				}
+			},
+			"dark-grey": {
+				"color": {
+					"value": "{color.extended.neutral.20}",
+					"type": "color"
+				}
+			},
+			"grey": {
+				"color": {
+					"value": "{color.extended.neutral.70}",
+					"type": "color"
+				}
+			},
+			"blue": {
+				"color": {
+					"value": "{color.primary.50}",
+					"type": "color"
+				}
+			},
+			"dark-blue": {
+				"color": {
+					"value": "{color.primary.30}",
+					"type": "color"
+				}
+			},
+			"red": {
+				"color": {
+					"value": "{color.extended.error.50}",
+					"type": "color"
+				}
+			}
+		},
+		"spacing": {
+			"default": {
+				"value": "{spacing.lg}",
+				"type": "spacing"
+			},
+			"right": {
+				"value": "{spacing.lg}+70px",
+				"type": "spacing"
+			}
+		},
+		"border": {
+			"width": {
+				"value": "1px",
+				"type": "borderWidth"
+			},
+			"radius": {
+				"value": "4px",
+				"type": "borderRadius"
+			},
+			"color": {
+				"value": "{color.extended.neutral.90}",
+				"type": "borderColor"
+			}
+		}
+	}
+}

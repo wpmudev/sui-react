@@ -1,0 +1,42 @@
+@use "../../../_utils/tokens" as *;
+
+$sui-button-size: (
+	sm: (
+		width: 68px
+	),
+	md: (
+		width: 74px
+	)
+);
+$sui-button-border: (
+	sm: (
+		width: $button-border-width-sm
+	),
+	md: (
+		width: $button-border-width-md,
+		style: solid,
+		radius: $button-border-radius
+	),
+	lg: (
+		width: $button-border-width-lg
+	)
+);
+$sui-button-spacing: (
+	md: (
+		vertical: $button-spacing-vertical,
+		horizontal: $button-spacing-horizontal
+	)
+);
+$sui-button-font: (
+	md: (
+		size: $button-font-size-md,
+		height: $button-font-height-md,
+		weight: $button-font-weight,
+		spacing: $button-font-spacing-md
+	),
+	sm: (
+		size: $button-font-size-sm,
+		height: $button-font-height-sm,
+		spacing: $button-font-spacing-sm
+	)
+);
