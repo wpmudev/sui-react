@@ -1,0 +1,35 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Input
+/// This function creates styles for main element
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-input($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(input) {
+				width: 100%;
+				max-width: 100%;
+				display: block;
+				margin: 0;
+				padding: $input-spacing-padding-vertical-md $input-spacing-padding-horizontal-md;
+				border: 0;
+				border-radius: $input-border-radius;
+				outline: none;
+				background: $input-bg-default;
+				color: $input-font-color-default;
+				font-size: $input-font-size-md;
+				line-height: $input-font-height-md;
+				letter-spacing: 0;
+				transition: 0.1s ease;
+			}
+		}
+	}
+}

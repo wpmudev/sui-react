@@ -1,0 +1,24 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Helper
+/// This function creates styles for the field helper text
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-helper($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(helper) {
+				display: block;
+				margin: $form-field-helper-margin 0 0;
+				font-size: $form-field-helper-font-size-md;
+				line-height: $form-field-helper-font-height-md;
+				letter-spacing: $form-field-helper-font-spacing-md;
+			}
+		}
+	}
+}
