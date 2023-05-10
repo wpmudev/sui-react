@@ -21,12 +21,6 @@ export default {
 
 // Build story
 export const Grid = ({inline}) => {
-	const boxStyles = {
-		padding: 20,
-		borderRadius: 4,
-		background: '#fff',
-	};
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
