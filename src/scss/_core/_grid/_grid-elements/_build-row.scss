@@ -15,6 +15,7 @@
 @mixin build-row($block) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			flex: 1; // Special fix when inside a box group
 			margin-bottom: map.get($sui-grid-spacing, sm);
 
 			@include media(min-width, md) {
