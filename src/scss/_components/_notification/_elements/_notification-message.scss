@@ -9,6 +9,11 @@
 				font-size: $font-size-default;
 				line-height: $font-height-sm;
 				letter-spacing: $font-spacing-sm;
+
+				a {
+					font-weight: $font-weight-md;
+					text-decoration: none;
+				}
 			}
 		}
 	}

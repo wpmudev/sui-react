@@ -6,8 +6,13 @@
 			@include element(icon) {
 				display: block;
 				flex: 0 0 auto;
-				margin: 0 $spacing-sm;
+				margin: $spacing-sm;
 				margin-left: 0;
+
+				&:before {
+					display: block;
+					margin-top: -1px;
+				}
 			}
 		}
 	}
