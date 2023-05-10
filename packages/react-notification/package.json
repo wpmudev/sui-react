@@ -1,7 +1,7 @@
 {
-  "name": "@wpmudev/compound-elements",
+  "name": "@wpmudev/react-notification",
   "version": "0.0.0",
-  "description": "WPMU DEV Shared UI React sub-package for compound elements",
+  "description": "WPMU DEV Shared UI React Notification Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -12,7 +12,7 @@
     }
   ],
   "license": "GPL-2.0",
-  "main": "lib/compound-elements.js",
+  "main": "lib/react-notification.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -26,7 +26,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wpmudev/sui-react.git",
-    "directory": "packages/compound-elements"
+    "directory": "packages/react-notification"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
@@ -35,8 +35,12 @@
     "url": "https://github.com/wpmudev/sui-react/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
+  "devDependencies": {
+    "@wpmudev/react-utils": "^1.0.0",
+    "react": "^18.2.0"
+  },
   "dependencies": {
-    "@wpmudev/react-dropdown": "^0.0.0",
-    "@wpmudev/react-notification": "^0.0.0"
+    "@wpmudev/react-button": "^0.0.0",
+    "@wpmudev/react-icon-button": "^0.0.0"
   }
 }
