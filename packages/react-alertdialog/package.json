@@ -1,7 +1,7 @@
 {
-  "name": "@wpmudev/react-button",
+  "name": "@wpmudev/react-alertdialog",
   "version": "0.0.0",
-  "description": "WPMU DEV Shared UI React Button Component",
+  "description": "WPMU DEV Shared UI React Alert Dialog Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -12,7 +12,7 @@
     }
   ],
   "license": "GPL-2.0",
-  "main": "lib/react-button.js",
+  "main": "lib/react-alertdialog.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -25,18 +25,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wpmudev/sui-react.git"
+    "url": "git+https://github.com/wpmudev/sui-react.git",
+    "directory": "packages/react-alertdialog"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
-    "url": "https://github.com/wpmudev/sui-docs/issues"
+    "url": "https://github.com/wpmudev/sui-react/issues"
   },
-  "homepage": "https://github.com/wpmudev/sui-docs#readme",
+  "homepage": "https://github.com/wpmudev/sui-react#readme",
   "devDependencies": {
     "@wpmudev/react-utils": "^1.0.0",
-    "react-autocomplete-hint": "^2.0.0",
     "react": "^18.2.0"
   }
 }

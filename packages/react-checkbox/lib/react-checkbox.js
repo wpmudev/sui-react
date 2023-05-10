@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+import { Tick } from './elements/tick.js';
+
 export const Checkbox = ({label, defaultValue = false, isLabelHidden = false, isSmall = false, isDisabled = false}) => {
 	const is = {};
 	const set = {};
@@ -71,9 +73,7 @@ export const Checkbox = ({label, defaultValue = false, isLabelHidden = false, is
 	return (
 		<label {...set.containerProps}>
 			<input {...set.inputProps} />
-			<span {...set.boxProps}>
-				{is.checked && <span className="suicons suicons--check sui-checkbox__icon" />}
-			</span>
+			<Tick {...set.boxProps} />
 			{isLabelHidden ? <span className="sui-screen-reader-only">{label}</span> : label}
 		</label>
 	);

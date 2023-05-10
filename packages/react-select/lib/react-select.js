@@ -1,6 +1,9 @@
 import React, { createElement, Fragment, useState } from 'react';
 import { isUndefined, isEmpty, isFunction } from '@wpmudev/react-utils';
 
+import { Hint } from 'react-autocomplete-hint';
+
+
 // Build "Base Button" component.
 const Select = ({
 	id,
@@ -77,7 +80,7 @@ const Select = ({
 				const optionValue = options[i].value.toLowerCase();
 				
 				if (optionValue.startsWith(searchValue)) {
-				  suggestedText = options[i].value.substring(searchValue.length);
+				  suggestedText = options[i].value;
 				  break;
 				}
 			}
@@ -177,7 +180,7 @@ const Select = ({
 						aria-haspopup='listbox'
 						aria-expanded={is.dropdownOpen}
 					/>
-					{set.suggestedText && <div className="suggestions">{set.suggestedText}</div>}
+					{set.suggestedText && <div className="sui-select__suggestions">{set.suggestedText}</div>}
 					<span className={set.arrowClass} aria-hidden="true"></span>
 				</div>
 				{is.dropdownOpen && set.dropdownHTML}

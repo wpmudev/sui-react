@@ -1,7 +1,7 @@
 {
-  "name": "@wpmudev/react-button",
+  "name": "@wpmudev/simple-elements",
   "version": "0.0.0",
-  "description": "WPMU DEV Shared UI React Button Component",
+  "description": "WPMU DEV Shared UI React sub-package for simple elements",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -12,7 +12,7 @@
     }
   ],
   "license": "GPL-2.0",
-  "main": "lib/react-button.js",
+  "main": "lib/simple-elements.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -25,18 +25,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wpmudev/sui-react.git"
+    "url": "git+https://github.com/wpmudev/sui-react.git",
+    "directory": "packages/simple-elements"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
-    "url": "https://github.com/wpmudev/sui-docs/issues"
+    "url": "https://github.com/wpmudev/sui-react/issues"
   },
-  "homepage": "https://github.com/wpmudev/sui-docs#readme",
-  "devDependencies": {
-    "@wpmudev/react-utils": "^1.0.0",
-    "react-autocomplete-hint": "^2.0.0",
-    "react": "^18.2.0"
+  "homepage": "https://github.com/wpmudev/sui-react#readme",
+  "dependencies": {
+    "@wpmudev/react-avatar": "^0.0.0",
+    "@wpmudev/react-button": "^0.0.0",
+    "@wpmudev/react-icon-button": "^0.0.0",
+    "@wpmudev/react-tag": "^0.0.0"
   }
 }
