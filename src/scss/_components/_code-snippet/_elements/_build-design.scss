@@ -20,14 +20,14 @@
 			pre[class*="language-"]::mozselection,
 			code[class*="language-"]::mozselection {
 				text-shadow: none;
-				background: $code-snippet-color-blue-color;
+				background: $color-primary-50;
 			}
 
 			.token.comment,
 			.token.prolog,
 			.token.doctype,
 			.token.cdata {
-				color: $code-snippet-color-grey-color;
+				color: $color-extended-neutral-70;
 			}
 
 			.token.punctuation,
@@ -36,7 +36,7 @@
 			.token.url,
 			.language-css .token.string,
 			.style .token.string {
-				color: $code-snippet-color-dark-grey-color;
+				color: $color-extended-neutral-10;
 			}
 
 			.token.property,
@@ -46,7 +46,7 @@
 			.token.constant,
 			.token.symbol,
 			.token.deleted {
-				color: $code-snippet-color-dark-blue-color;
+				color: $color-primary-30;
 			}
 
 			.token.selector,
@@ -59,13 +59,13 @@
 			.token.regex,
 			.token.important,
 			.token.variable {
-				color: $code-snippet-color-red-color;
+				color: $color-extended-error-50;
 			}
 
 			.token.atrule,
 			.token.attr-value,
 			.token.keyword {
-				color: $code-snippet-color-blue-color;
+				color: $color-primary-50;
 			}
 
 			.token.entity {
