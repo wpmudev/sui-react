@@ -2,6 +2,7 @@ import React from "react";
 
 // Import modules
 import { Row, Col } from '../lib/react-grid';
+import { Box, BoxGroup } from '@wpmudev/react-box';
 
 // Import documentation
 import docs from './ReactGrid.mdx';
@@ -29,21 +30,27 @@ export const Grid = ({inline}) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<Row align={{xs: inline ? 'inline' : ''}}>
-					<Col>
-						<div style={boxStyles}>
-							<p>Column 1</p>
-						</div>
+				<Row align={{md: inline ? 'inline' : ''}}>
+					<Col size="4">
+						<Box>
+							<BoxGroup>
+								<p>Column 1</p>
+							</BoxGroup>
+						</Box>
 					</Col>
-					<Col>
-						<div style={boxStyles}>
-							<p>Column 2</p>
-						</div>
+					<Col size="4">
+						<Box>
+							<BoxGroup>
+								<p>Column 2</p>
+							</BoxGroup>
+						</Box>
 					</Col>
-					<Col>
-						<div style={boxStyles}>
-							<p>Column 3</p>
-						</div>
+					<Col size="4">
+						<Box>
+							<BoxGroup>
+								<p>Column 3</p>
+							</BoxGroup>
+						</Box>
 					</Col>
 				</Row>
 			</div>
