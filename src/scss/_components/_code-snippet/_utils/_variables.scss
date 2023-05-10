@@ -1,8 +1,5 @@
 @use "../../../_utils/tokens" as *;
 
-$sui-code-snippet-size: (
-	height: 75px,
-);
 $sui-code-snippet-border: (
 	width: $code-snippet-border-width,
 	radius: $code-snippet-border-radius,

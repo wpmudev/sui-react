@@ -1,7 +1,6 @@
 @use "sass:map";
 
-@use "../../../_utils/mixins" as *;
-@use "../_code-snippet-utils/variables" as *;
+@use "../../../_utils/utils" as *;
 
 /// Build Code snippet
 /// This function creates styles for the element
@@ -21,18 +20,14 @@
 			pre[class*="language-"]::mozselection,
 			code[class*="language-"]::mozselection {
 				text-shadow: none;
-				@if map.has-key($sui-code-snippet-color, blue) {
-					background: map.get($sui-code-snippet-color, blue);
-				}
+				background: $code-snippet-color-blue-color;
 			}
 
 			.token.comment,
 			.token.prolog,
 			.token.doctype,
 			.token.cdata {
-				@if map.has-key($sui-code-snippet-color, grey) {
-					color: map.get($sui-code-snippet-color, grey);
-				}
+				color: $code-snippet-color-grey-color;
 			}
 
 			.token.punctuation,
@@ -41,9 +36,7 @@
 			.token.url,
 			.language-css .token.string,
 			.style .token.string {
-				@if map.has-key($sui-code-snippet-color, dark-grey) {
-					color: map.get($sui-code-snippet-color, dark-grey);
-				}
+				color: $code-snippet-color-dark-grey-color;
 			}
 
 			.token.property,
@@ -53,9 +46,7 @@
 			.token.constant,
 			.token.symbol,
 			.token.deleted {
-				@if map.has-key($sui-code-snippet-color, dark-blue) {
-					color: map.get($sui-code-snippet-color, dark-blue);
-				}
+				color: $code-snippet-color-dark-blue-color;
 			}
 
 			.token.selector,
@@ -68,17 +59,13 @@
 			.token.regex,
 			.token.important,
 			.token.variable {
-				@if map.has-key($sui-code-snippet-color, red) {
-					color: map.get($sui-code-snippet-color, red);
-				}
+				color: $code-snippet-color-red-color;
 			}
 
 			.token.atrule,
 			.token.attr-value,
 			.token.keyword {
-				@if map.has-key($sui-code-snippet-color, blue) {
-					color: map.get($sui-code-snippet-color, blue);
-				}
+				color: $code-snippet-color-blue-color;
 			}
 
 			.token.entity {

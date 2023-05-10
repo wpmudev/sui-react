@@ -95,6 +95,10 @@
 				"value": "{color.extended.neutral.90}",
 				"type": "borderColor"
 			}
-		}
+		},
+    "height": {
+      "value": "75px",
+      "type": "sizing"
+    }
 	}
 }

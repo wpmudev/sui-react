@@ -1,4 +1,4 @@
-@use "./_code-snippet-elements/elements" as sui-code-snippet--element;
+@use "./_elements/elements" as sui-code-snippet--element;
 
 @include sui-code-snippet--element.build-code-snippet(code-snippet);
 @include sui-code-snippet--element.build-content(code-snippet);
