@@ -1,24 +1,27 @@
 @use "../../../_utils/utils" as *;
 
-/// Edit Checked State
+/// Edit Disabled State
 ///
 /// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin edit-checked($block) {
+@mixin edit-disabled($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			@include modifier(checked) {
+			@include modifier(disabled) {
+				pointer-events: none;
+				color: $color-extended-neutral-70;
+
 				@include modifies-element(box) {
-					border-color: $checkbox-input-border-color-active;
-					background: $checkbox-input-background-active;
+					border-color: $radio-input-border-color-disabled;
+					background: $radio-input-background-disabled;
 				}
 
 				@include modifies-element(icon) {
-					opacity: 1;
+					background: $radio-icon-color-disabled;
 				}
 			}
 		}

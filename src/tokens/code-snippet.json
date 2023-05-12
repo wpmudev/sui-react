@@ -1,0 +1,66 @@
+{
+	"code-snippet": {
+		"font": {
+			"family": {
+				"value": "{font.family.code}",
+				"type": "fontFamily"
+			},
+			"size": {
+				"xs": {
+					"value": "{font.size.xs}",
+					"type": "fontSizes"
+				},
+				"sm": {
+					"value": "{font.size.xs}+1px",
+					"type": "fontSizes"
+				}
+			},
+			"spacing": {
+				"value": "{font.spacing.default}",
+				"type": "letterSpacing"
+			},
+			"height": {
+				"xs": {
+					"value": "{font.height.xs}",
+					"type": "lineHeights"
+				},
+				"sm": {
+					"value": "{font.height.sm}-4px",
+					"type": "lineHeights"
+				}
+			},
+			"weight": {
+				"value": "400",
+				"type": "fontWeights"
+			}
+		},
+		"spacing": {
+			"default": {
+				"value": "{spacing.lg}",
+				"type": "spacing"
+			},
+			"right": {
+				"value": "{spacing.lg}+70px",
+				"type": "spacing"
+			}
+		},
+		"border": {
+			"width": {
+				"value": "1px",
+				"type": "borderWidth"
+			},
+			"radius": {
+				"value": "4px",
+				"type": "borderRadius"
+			},
+			"color": {
+				"value": "{color.extended.neutral.90}",
+				"type": "borderColor"
+			}
+		},
+    "height": {
+      "value": "75px",
+      "type": "sizing"
+    }
+	}
+}

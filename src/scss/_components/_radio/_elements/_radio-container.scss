@@ -17,15 +17,11 @@
 			position: relative;
 			display: inline-flex;
 			align-items: center;
-			color: $checkbox-font-color-default;
-			font-weight: $checkbox-font-weight;
-			font-size: $checkbox-font-size-md;
-			line-height: $checkbox-font-height-md;
-			letter-spacing: $checkbox-font-spacing;
-
-			* {
-				pointer-events: none;
-			}
+			color: $radio-font-color-default;
+			font-weight: $radio-font-weight;
+			font-size: $radio-font-size-md;
+			line-height: $radio-font-height-md;
+			letter-spacing: $radio-font-spacing;
 		}
 	}
 }

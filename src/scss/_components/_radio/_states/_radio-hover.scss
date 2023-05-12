@@ -1,24 +1,19 @@
 @use "../../../_utils/utils" as *;
 
-/// Edit Checked State
+/// Edit Hover State
 ///
 /// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin edit-checked($block) {
+@mixin edit-hover($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			@include modifier(checked) {
+			@include modifier(hover) {
 				@include modifies-element(box) {
-					border-color: $checkbox-input-border-color-active;
-					background: $checkbox-input-background-active;
-				}
-
-				@include modifies-element(icon) {
-					opacity: 1;
+					border-color: $radio-input-border-color-active;
 				}
 			}
 		}

@@ -12,21 +12,19 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(sm) {
+				font-size: $checkbox-font-size-sm;
+				line-height: $checkbox-font-height-sm;
+
 				@include modifies-element(box) {
-					width: $font-size-md;
-					height: $font-size-md;
-					margin: 0;
+					width: $checkbox-input-size-sm;
+					height: $checkbox-input-size-sm;
+					margin: $checkbox-input-margin-vertical-sm 0;
+					margin-right: $checkbox-input-margin-horizontal-sm;
 				}
 
 				@include modifies-element(icon) {
-					width: $font-size-md;
-					height: $font-size-md;
-					font-size: $font-size-md;
-				}
-
-				@include modifies-element(label) {
-					font-size: $font-size-xs;
-					line-height: $font-height-xs;
+					width: $checkbox-icon-tick-width-sm;
+					height: $checkbox-icon-tick-height-sm;
 				}
 			}
 		}

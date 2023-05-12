@@ -13,12 +13,8 @@
 		@include block($block) {
 			@include modifier(checked) {
 				@include modifies-element(box) {
-					border-color: $checkbox-input-border-color-active;
-					background: $checkbox-input-background-active;
-				}
-
-				@include modifies-element(icon) {
-					opacity: 1;
+					border-color: $radio-input-border-color-active;
+					background: $radio-input-background-active;
 				}
 			}
 		}
