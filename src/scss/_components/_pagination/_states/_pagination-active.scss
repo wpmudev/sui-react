@@ -1,0 +1,26 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Active State
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-active($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(button) {
+				@include modifier(active) {
+					cursor: default;
+					pointer-events: none;
+					background: $color-extended-neutral-90;
+					color: $color-extended-neutral-10;
+				}
+			}
+		}
+	}
+}

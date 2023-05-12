@@ -1,0 +1,47 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Navigation Button
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-button($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(button) {
+				cursor: pointer;
+				width: $font-height-md;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				border-radius: $border-radius-sm;
+				outline: none;
+				background: $color-extended-neutral-100;
+				transition: 0.2s ease;
+				color: $color-extended-neutral-60;
+				font-weight: $font-weight-md;
+				font-size: $font-size-xs;
+				line-height: $font-height-md;
+				letter-spacing: $font-spacing-default;
+				text-align: center;
+
+				&:hover {
+					background: $color-extended-neutral-90;
+					color: $color-extended-neutral-10;
+				}
+
+				&:disabled {
+					cursor: default;
+					pointer-events: none;
+					background: $color-extended-neutral-80;
+					color: $color-extended-neutral-70;
+				}
+			}
+		}
+	}
+}
