@@ -40,10 +40,12 @@
     "url": "https://github.com/wpmudev/sui-docs/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
-  "devDependencies": {
+  "dependencies": {
     "@wpmudev/react-button-icon": "^1.0.0",
     "@wpmudev/react-avatar": "^1.0.0",
-    "@wpmudev/react-utils": "^1.0.0",
+    "@wpmudev/react-utils": "^1.0.0"
+  },
+  "devDependencies": {
     "react": "^18.2.0"
   }
 }
