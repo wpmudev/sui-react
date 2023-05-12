@@ -29,10 +29,10 @@
 				tab-size: 4;
 				hyphens: none;
 				color: $color-extended-neutral-10;
-				font-weight: $code-snippet-font-weight;
-				font-size: $code-snippet-font-height-xs;
-				line-height: $code-snippet-font-height-sm;
-				letter-spacing: $code-snippet-font-spacing;
+				font-weight: $font-weight-default;
+				font-size: $font-size-xs;
+				line-height: 20px;
+				letter-spacing: $font-spacing-default;
 
 				* {
 					font-family: $code-snippet-font-family;
