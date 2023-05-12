@@ -1,0 +1,57 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
+import { Recipient } from '../../../lib/react-recipient';
+import image from '../../images/unreal-person.jpg';
+import dedent from 'dedent';
+
+export const IconRecipientCode = dedent`
+import React from 'react';\n
+import { Recipient } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Recipient userName="Recipient name" userEmail="email@example.com" />;
+}\n
+export default Example;
+`;
+
+export const ImageRecipientCode = dedent`
+import React from 'react';\n
+import { Recipient } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Recipient image={{ src: image, alt: 'image-alt' }} />;
+}\n
+export default Example;
+`;
+
+<Section
+	title="Icon"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>icon</Code> prop to show icon in avatar.
+	</p>
+	<Preview wrapper={true}>
+		<Recipient userName="Recipient name" userEmail="email@example.com" />
+	</Preview>
+	<Snippet language="js">{IconRecipientCode}</Snippet>
+</Section>
+
+<Section
+	title="Image"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>userImage</Code> prop to show image in avatar.
+	</p>
+	<Preview wrapper={true}>
+		<Recipient
+			userName="Recipient name" 
+			userEmail="email@example.com"
+			userImage={{
+				src: image,
+				alt: 'image-alt',
+			}}
+		/>
+	</Preview>
+	<Snippet language="js">{ImageRecipientCode}</Snippet>
+</Section>
