@@ -1,0 +1,30 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Checkbox Box
+/// This function creates styles for the box element
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-box($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(box) {
+				width: $radio-input-size-md;
+				height: $radio-input-size-md;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0;
+				margin-right: $radio-input-spacing;
+				border: 1px solid $radio-input-border-color-default;
+				border-radius: 100%;
+				background: $radio-input-background-default;
+			}
+		}
+	}
+}

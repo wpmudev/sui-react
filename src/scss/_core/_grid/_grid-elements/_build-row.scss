@@ -1,6 +1,7 @@
 @use "sass:map";
 
 // Import main blocks of styles.
+@use "../../../_utils/bem" as *;
 @use "../../../_utils/mixins" as *;
 
 // Import grid variables.
@@ -14,6 +15,7 @@
 @mixin build-row($block) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			flex: 1; // Special fix when inside a box group
 			margin-bottom: map.get($sui-grid-spacing, sm);
 
 			@include media(min-width, md) {

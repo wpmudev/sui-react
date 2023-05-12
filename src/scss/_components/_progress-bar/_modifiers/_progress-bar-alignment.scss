@@ -1,0 +1,48 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Alignment
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-alignment($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(inline) {
+				display: flex;
+				flex-flow: row wrap;
+				align-items: center;
+
+				@include modifies-element(text) {
+					flex: 0 0 auto;
+					margin: 0;
+				}
+
+				@include modifies-element(label) {
+					order: 1;
+					margin-right: 8px;
+				}
+
+				@include modifies-element(value) {
+					order: 3;
+					margin-left: 8px;
+				}
+
+				@include modifies-element(indicator) {
+					min-width: 100px;
+					flex: 1;
+					order: 2;
+				}
+
+				@include modifies-element(action) {
+					width: 100%;
+					order: 4;
+				}
+			}
+		}
+	}
+}

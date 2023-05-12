@@ -1,0 +1,11 @@
+@use "../../../_utils/utils" as *;
+
+@mixin edit-size($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include modifier(lg) {
+				width: 640px;
+			}
+		}
+	}
+}

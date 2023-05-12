@@ -1,0 +1,67 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+@use "../_utils/variables" as *;
+@use "../_utils/colors" as *;
+
+/// Build Tooltip
+/// This function creates styles for the element
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-tooltip($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+
+		// Block wrapper.
+		@include block($block) {
+
+            @include element(content) {
+                min-width: var(--tooltip-width, map.get($sui-tooltip-size, sm, width));
+                opacity: 0;
+                position: absolute;
+                padding: map.get($sui-tooltip-spacing, padding, vertical) map.get($sui-tooltip-spacing, padding, horizontal);
+                border-radius: map.get($sui-tooltip-border, radius);
+                background-color: map.get($sui-tooltip, background);
+                color: map.get($sui-tooltip, color);
+                font-size: map.get($sui-tooltip-font, size);
+                line-height: map.get($sui-tooltip-font, height);
+                letter-spacing: map.get($sui-tooltip-font, spacing);
+                text-align: center;
+                transition: 0.2s;
+                pointer-events: none;
+                white-space: nowrap;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                }
+            }
+
+            @include modifier(custom-width) {
+
+                .sui-#{$block}__content {
+                    white-space: normal;
+
+                    @include media(max-width, sm) {
+                        min-width: var(--tooltip-width-mobile, map.get($sui-tooltip-size, md, width));
+                    }
+                }
+            }
+
+            @include modifier(show) {
+
+                .sui-#{$block}__content {
+                    opacity: 1;
+                    transition: 0.2s;
+                }
+            }
+
+			.sui-button {
+				margin: 0;
+			}
+		}
+	}
+}

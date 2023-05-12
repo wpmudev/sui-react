@@ -1,0 +1,30 @@
+@use "../../../_utils/utils" as *;
+
+/// Edit Size
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-size($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(sm) {
+				font-size: $radio-font-size-sm;
+				line-height: $radio-font-height-sm;
+
+				@include modifies-element(box) {
+					width: $radio-input-size-sm;
+					height: $radio-input-size-sm;
+				}
+
+				@include modifies-element(icon) {
+					width: $radio-icon-size-sm;
+					height: $radio-icon-size-sm;
+				}
+			}
+		}
+	}
+}

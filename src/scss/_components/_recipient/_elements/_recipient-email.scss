@@ -1,0 +1,27 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Recipient Email
+/// This function creates styles for the element
+/// recipient email.
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-email($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+            @include element(email) {
+				font-size: $recipient-name-font-size;
+				height: $recipient-name-font-height;
+				color: $recipient-name-color;
+				padding-left: $recipient-name-padding-horizontal;
+                flex: 1;
+            }
+		}
+	}
+}

@@ -1,0 +1,41 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Switch Element
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-switch($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(switch) {
+				width: 36px;
+				height: 20px;
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				margin: 0;
+				margin-right: 12px;
+				padding: 0;
+				border-radius: 10px;
+				background: #d1d1d1;
+				transition: 0.2s ease;
+
+				&:before {
+					content: "";
+					width: 14px;
+					height: 14px;
+					display: block;
+					margin: 0 3px;
+					border-radius: 50%;
+					background: $color-extended-neutral-100;
+				}
+			}
+		}
+	}
+}

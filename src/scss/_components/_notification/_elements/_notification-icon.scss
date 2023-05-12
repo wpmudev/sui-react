@@ -1,0 +1,19 @@
+@use "../../../_utils/utils" as *;
+
+@mixin build-icon($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include element(icon) {
+				display: block;
+				flex: 0 0 auto;
+				margin: $spacing-sm;
+				margin-left: 0;
+
+				&:before {
+					display: block;
+					margin-top: -1px;
+				}
+			}
+		}
+	}
+}

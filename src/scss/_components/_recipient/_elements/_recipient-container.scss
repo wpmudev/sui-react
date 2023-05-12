@@ -1,0 +1,27 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Recipient Container
+/// This function creates styles for the element
+/// recipient wrapper.
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-container($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: $recipient-container-padding-vertical $recipient-container-padding-horizontal;
+			border: $recipient-container-border-width solid $recipient-container-border-color;
+			border-radius: $recipient-container-border-radius;
+			background: $recipient-container-background-primary;
+		}
+	}
+}

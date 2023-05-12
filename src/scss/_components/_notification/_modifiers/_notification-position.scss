@@ -1,0 +1,25 @@
+@use "../../../_utils/utils" as *;
+
+@mixin edit-position($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include modifier(toast) {
+				width: 360px;
+				position: fixed;
+				top: 32px;
+				left: 50%;
+				transform: translateX(-50%);
+				margin-left: 120px;
+				box-shadow:
+					0 12px 16px $color-shadow-default,
+					0 4px 20px $color-shadow-dark,
+					0 4px 8px $color-shadow-light;
+			}
+
+			@include modifier(inline) {
+				width: 100%;
+				box-shadow: 0 0 0 1px $color-extended-neutral-80;
+			}
+		}
+	}
+}
