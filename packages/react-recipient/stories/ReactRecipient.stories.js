@@ -11,7 +11,7 @@ import image from './images/unreal-person.jpg';
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Simple Elements/Recipient',
+	title: 'SUI/Components/Compound Elements/Recipient',
 	component: Recipient,
 	parameters: {
 		layout: 'fullscreen',
