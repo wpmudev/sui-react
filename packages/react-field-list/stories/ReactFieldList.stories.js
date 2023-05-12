@@ -1,8 +1,7 @@
-import React, { Children, Fragment } from 'react';
+import React from 'react';
 
 // Import required component
 import { FieldList as SuiFieldList } from '../lib/react-field-list';
-import { Box, BoxGroup } from '@wpmudev/react-box';
 
 // Import documentation main page
 import docs from './ReactFieldList.mdx';
@@ -10,7 +9,7 @@ import docs from './ReactFieldList.mdx';
 // Configure default options
 export default {
 	title: 'SUI/Components/Compound Elements/Field List',
-	// component: SuiFieldList,
+	component: SuiFieldList,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -58,7 +57,14 @@ FieldList.args = {
 };
 
 // Set controls for story arguments.
-FieldList.argTypes = {};
+FieldList.argTypes = {
+	label: {
+		name: 'Label'
+	},
+	helper: {
+		name: 'Helper Text'
+	}
+};
 
 // Publish required stories.
 export { FieldList };
