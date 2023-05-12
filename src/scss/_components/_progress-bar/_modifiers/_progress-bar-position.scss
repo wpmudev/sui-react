@@ -1,0 +1,28 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Position
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-position($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(float-left) {
+				width: 80%;
+				float: left;
+			}
+
+			@include modifier(float-right) {
+				width: 20%;
+				float: right;
+				padding-left: 16px;
+				text-align: right;
+			}
+		}
+	}
+}
