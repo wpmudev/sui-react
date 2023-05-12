@@ -8,7 +8,7 @@ import docs from './ReactCodeSnippet.mdx';
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Code Snippet',
+	title: 'SUI/Components/Simple Elements/Code Snippet',
 	component: CodeSnippet,
 	parameters: {
 		layout: 'fullscreen',
