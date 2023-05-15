@@ -56,18 +56,18 @@ export const AlertDialog = ({ modalContent, triggerTimer, triggerContent, ...pro
 		props.dialogClass || ''
 	}`;
 
-	let renderContent, modalSize, initialFocus;
+	let renderContent, isSmall, initialFocus;
 
 	if (!isSlider) {
 		// Not a slider, we can just render the content.
 		renderContent = modalContent;
-		modalSize = props.size;
+		isSmall = props.isSmall;
 		initialFocus = props.initialFocus || false;
 	} else {
 		// Render the content from the given slides.
 		renderContent = modalContent[is.current].render;
 		initialFocus = modalContent[is.current].focus || false;
-		modalSize = modalContent[is.current].size;
+		isSmall = modalContent[is.current].isSmall;
 
 		// Add the slide direction class when provided and we're not closing the modal.
 		if (is.direction && !is.closing) {
@@ -89,7 +89,7 @@ export const AlertDialog = ({ modalContent, triggerTimer, triggerContent, ...pro
 			<AltModal
 				getApplicationNode={getApplicationNode}
 				dialogClass={dialogClass}
-				underlayClass={`sui-alertdialog sui-alertdialog--${modalSize || 'md'} sui-alertdialog--active ${
+				underlayClass={`sui-alertdialog${isSmall ? ' sui-alertdialog--sm' : ''} sui-alertdialog--active ${
 					props.underlayClass || ''
 				}`}
 				includeDefaultStyle={false}

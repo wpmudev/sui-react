@@ -1,0 +1,25 @@
+import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
+import { CodeSnippet } from '../../lib/react-code-snippet';
+import dedent from 'dedent';
+
+export const sampleCode = dedent`
+import React from 'react';\n
+import { CodeSnippet } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <CodeSnippet type="markup" copy={false}>{Sample code}</CodeSnippet>;
+}\n
+export default Example;
+`;
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>Below is the default form of a code snippet, used for most cases.</p>
+	<Preview wrapper={true}>
+		<CodeSnippet language="markup" copy={true}>
+			{`<!-- Code Starts -->
+<div class=”className”>
+	<a href=”#”> Link </a>
+</div>`}
+		</CodeSnippet>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>

@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/react-dropdown": "^0.0.0"
+    "@wpmudev/react-dropdown": "^0.0.0",
+    "@wpmudev/react-notification": "^0.0.0"
   }
 }

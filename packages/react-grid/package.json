@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "devDependencies": {
+    "@wpmudev/react-box": "^0.0.0",
     "react": "^18.2.0"
   }
 }
