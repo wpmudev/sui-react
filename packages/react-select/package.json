@@ -1,5 +1,5 @@
 {
-  "name": "@wpmudev/react-button",
+  "name": "@wpmudev/react-select",
   "version": "0.0.0",
   "description": "WPMU DEV Shared UI React Button Component",
   "keywords": [],
@@ -35,6 +35,7 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "devDependencies": {
+    "@wpmudev/react-checkbox": "^0.0.0",
     "@wpmudev/react-utils": "^1.0.0",
     "react-autocomplete-hint": "^2.0.0",
     "react": "^18.2.0"

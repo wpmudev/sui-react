@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 // Import required component(s).
-import { Select as SuiSelect } from '../lib/react-select';
+import { Select as StandardSelect, SearchSelect, SmartSearchSelect } from '../lib/react-select';
 
 // Import documentation main page.
 import docs from './ReactSelect.mdx';
@@ -34,7 +34,15 @@ const Select = ({ example, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={set.box}>
-					<SuiSelect {...props} />
+					{'select' === example && (
+						<StandardSelect {...props} />
+					)}
+					{'search' === example && (
+						<SearchSelect {...props} />
+					)}
+					{'smart-search' === example && (
+						<SmartSearchSelect {...props} />
+					)}
 				</div>
 			</div>
 		</div>
@@ -48,42 +56,50 @@ Select.args = {
 		{
 			icon: 'settings',
 			id: 'option-1',
-			value: 'Option 1 is the option.',
+			label: 'Option 1 is the option.',
+			isSelected: false
 		},
 		{
 			icon: 'settings',
 			id: 'option-2',
-			value: 'Option 2',
+			label: 'Option 2',
+			isSelected: false
 		},
 		{
 			icon: 'settings',
 			id: 'option-3',
-			value: 'Option 3',
+			label: 'Option 3',
+			isSelected: false
 		},
 		{
 			icon: 'settings',
 			id: 'option-4',
-			value: 'Option 4',
+			label: 'Option 4',
+			isSelected: false
 		},
 		{
 			icon: 'settings',
 			id: 'option-5',
-			value: 'Option 5',
+			label: 'Option 5',
+			isSelected: false
 		},
 		{
 			icon: 'settings',
 			id: 'option-6',
-			value: 'Option 6',
+			label: 'Option 6',
+			isSelected: false
 		},
 		{
 			icon: 'settings',
 			id: 'option-7',
-			value: 'Option 7',
+			label: 'Option 7',
+			isSelected: false
 		},
 		{
 			icon: 'settings',
 			id: 'option-8',
-			value: 'India',
+			label: 'India',
+			isSelected: false
 		}
 	],
 	isError: false,
@@ -100,6 +116,7 @@ Select.argTypes = {
 			options: {
 				'Example: Select': 'select',
 				'Example: Multiselect': 'multi-select',
+				'Example: Search': 'search',
 				'Example: Smartsearch': 'smart-search',
 			},
 		},
@@ -112,7 +129,7 @@ Select.argTypes = {
 	},
 	isSmall: {
 		name: 'Small',
-	},
+	}
 };
 
 // Publish required stories.
