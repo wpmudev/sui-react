@@ -44,7 +44,7 @@ const Dropdown = ({
         </ul>
     );
 
-    if (options.length === 0 && isSmartSearch && selected.length < 2) {
+    if (isSmartSearch && selected.length < 2) {
         set.markup = (
             <div className="sui-select__list">
                 <div className="sui-select__list-empty">Please enter 2 or more characters</div>

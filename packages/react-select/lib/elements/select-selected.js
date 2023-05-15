@@ -26,11 +26,13 @@ const Selected = ({ expanded, dropdownToggle, selected, arrow, ...props }) => {
     );
 };
 
-const SelectedSearch = ({arrow, ...props }) => {
+const SelectedSearch = ({arrow, isSmartSearch, clearSelection, ...props }) => {
 	return (
         <div className="sui-select__selection">
             <Input placeholder="Search" {...props} />
-            <Icon name={arrow}/>
+            {isSmartSearch && <Icon name='search' />}
+            {!isSmartSearch && <Icon name={arrow}/>}
+            {isSmartSearch && <Icon name='close-alt' onClick={ clearSelection }/>}
         </div>
     );
 };

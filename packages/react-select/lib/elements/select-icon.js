@@ -2,7 +2,7 @@ import React from 'react';
 import { isUndefined, isEmpty } from '@wpmudev/react-utils';
 
 // Build "Icon" component.
-const Icon = ({ name }) => {
+const Icon = ({ name, onClick = () => {} }) => {
 	const has = {};
 	const set = {};
 
@@ -25,7 +25,7 @@ const Icon = ({ name }) => {
 	set.class += ' suicons--md';
 
 	return (
-		<span className="sui-select__icon" aria-hidden="true">
+		<span className={`sui-select__icon sui-select__icon--${name}`} onClick={ onClick } aria-hidden="true">
 			<span className={set.class} />
 		</span>
 	);

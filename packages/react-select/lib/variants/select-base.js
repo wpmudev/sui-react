@@ -77,6 +77,10 @@ const Select = ({
 		set.class += ' sui-select--searchable'
 	}
 
+	if (isSmartSearch) {
+		set.class += ' sui-select--smart-search'
+	}
+
 	if (!isEmpty(className)) {
 		set.class += ` ${className}`;
 	}
@@ -112,6 +116,13 @@ const Select = ({
 			handleSearchDropdown(e);
 			set.setSelectedOption(e.target.value);
 		}}),
+		clearSelection: () => {
+			if (!isEmpty(set.setSelectedOption)) {
+				const updatedOptions = options.map(option => ({ ...option, isSelected: false }));
+				set.setOptions(updatedOptions);
+				set.setSelectedOption('');
+			}
+		},
 		isSmartSearch,
 		...props
 	}
