@@ -9,6 +9,7 @@ const Select = ({
 	id,
 	options,
 	className = '',
+	label = '',
 	isDisabled = false,
 	isSmall = false,
 	isReadOnly = false,
@@ -29,7 +30,7 @@ const Select = ({
 	[is.focus, set.focus] = useState(false);
 	[is.dropdownOpen, set.setDropdownOpen] = useState(false);
 	[set.options, set.setOptions] = useState(options);
-	[set.selectedOption, set.setSelectedOption] = useState(options.find(option => option.isSelected));
+	[set.selectedOption, set.setSelectedOption] = useState(label);
 
 	// Properties validation
 	has.id = !isUndefined(id) && !isEmpty(id) ? true : false;
@@ -85,65 +86,7 @@ const Select = ({
 		set.class += ` ${className}`;
 	}
 
-	set.selectProps = {
-		className: set.class,
-		onMouseEnter: (e) => {
-			if (!isReadOnly) set.hover(true);
-
-			if (isFunction(onMouseEnter)) {
-				onMouseEnter(e);
-			}
-		},
-		onMouseDownCapture: () => (!isReadOnly) ? set.focus(true) : {},
-		onMouseUpCapture: () => (!isReadOnly) ? set.focus(true) : {},
-		onMouseLeave: (e) => {
-			if (!isReadOnly) set.hover(false);
-
-			if (isFunction(onMouseLeave)) {
-				onMouseLeave(e);
-			}
-		},
-		onBlurCapture: () => (!isReadOnly) ? set.focus(false) : {},
-	}
-
-	set.headerProps = {
-		expanded: is.dropdownOpen,
-		selected: set.selectedOption,
-		arrow: set.arrow,
-		dropdownToggle: () => set.setDropdownOpen(!is.dropdownOpen),
-		...(isSearchable && { dropdownOptions: set.options }),
-		...(isSearchable && { onChange: (e) => { 
-			handleSearchDropdown(e);
-			set.setSelectedOption(e.target.value);
-		}}),
-		clearSelection: () => {
-			if (!isEmpty(set.setSelectedOption)) {
-				const updatedOptions = options.map(option => ({ ...option, isSelected: false }));
-				set.setOptions(updatedOptions);
-				set.setSelectedOption('');
-			}
-		},
-		isSmartSearch,
-		...props
-	}
-
-	set.dropdownProps = {
-		options: set.options,
-		onEvent: ( id ) => {
-			// Find the index of the object with the matching id
-  			const optionIndex = options.findIndex(option => option.id === id);
-			const updatedOptions = options.map(option => ({ ...option, isSelected: false }));
-			updatedOptions[optionIndex].isSelected = true;
-			set.setOptions(updatedOptions);
-			set.setDropdownOpen(false);
-			set.setSelectedOption(updatedOptions[optionIndex].label);
-		},
-		isSmartSearch,
-		selected: set.selectedOption,
-		...props
-	}
-
-	const handleSearchDropdown = (event) => {
+	set.handleSearchDropdown = (event) => {
 		const searchValue = event.target.value.toLowerCase();
 		const optionsArray = options;
 		
@@ -174,6 +117,77 @@ const Select = ({
 			set.setOptions(formattedOptions);
 		}
 	};
+
+	set.selectProps = {
+		className: set.class,
+		onMouseEnter: (e) => {
+			if (!isReadOnly) set.hover(true);
+
+			if (isFunction(onMouseEnter)) {
+				onMouseEnter(e);
+			}
+		},
+		onMouseDownCapture: () => (!isReadOnly) ? set.focus(true) : {},
+		onMouseUpCapture: () => (!isReadOnly) ? set.focus(true) : {},
+		onMouseLeave: (e) => {
+			if (!isReadOnly) set.hover(false);
+
+			if (isFunction(onMouseLeave)) {
+				onMouseLeave(e);
+			}
+		},
+		onBlurCapture: () => (!isReadOnly) ? set.focus(false) : {},
+	}
+
+	set.headerProps = {
+		expanded: is.dropdownOpen,
+		selected: set.selectedOption,
+		arrow: set.arrow,
+		dropdownToggle: () => set.setDropdownOpen(!is.dropdownOpen),
+		...(isSearchable && { dropdownOptions: set.options }),
+		...(isSearchable && { onChange: (e) => { 
+			set.handleSearchDropdown(e);
+			set.setSelectedOption(e.target.value);
+		}}),
+		clearSelection: () => {
+			if (!isEmpty(set.setSelectedOption)) {
+				const updatedOptions = options.map(option => ({ ...option, isSelected: false }));
+				set.setOptions(updatedOptions);
+				set.setSelectedOption(label);
+			}
+		},
+		isSmartSearch,
+		isMultiselect,
+		...props
+	}
+
+	set.dropdownProps = {
+		options: set.options,
+		onEvent: ( id ) => {
+			if (!isMultiselect) {
+				// Find the index of the object with the matching id
+				const optionIndex = set.options.findIndex(option => option.id === id);
+				const updatedOptions = set.options.map(option => ({ ...option, isSelected: false }));
+				updatedOptions[optionIndex].isSelected = true;
+				set.setOptions(updatedOptions);
+				set.setDropdownOpen(false);
+				set.setSelectedOption(updatedOptions[optionIndex].label);
+			} else {
+				const optionIndex = set.options.findIndex(option => option.id === id);
+				const updatedOptions = [...set.options]; // Create a copy of the original array
+				const isSelected = updatedOptions[optionIndex].isSelected;
+				updatedOptions[optionIndex].isSelected = !isSelected; // Toggle the value of isSelected
+				set.setOptions(updatedOptions);
+				const filteredOptions = updatedOptions.filter(option => option.isSelected === true);
+				const selectedOption = filteredOptions.length > 0 ? filteredOptions : label;
+				set.setSelectedOption(selectedOption);
+			}
+		},
+		isSmartSearch,
+		isMultiselect,
+		selected: set.selectedOption,
+		...props
+	}
 	
 	return (
 		<div {...set.selectProps}>

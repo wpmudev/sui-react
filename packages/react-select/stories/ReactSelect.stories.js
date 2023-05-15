@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 // Import required component(s).
-import { Select as StandardSelect, SearchSelect, SmartSearchSelect } from '../lib/react-select';
+import { Select as StandardSelect, SearchSelect, SmartSearchSelect, MultiSelect } from '../lib/react-select';
 
 // Import documentation main page.
 import docs from './ReactSelect.mdx';
@@ -43,6 +43,9 @@ const Select = ({ example, ...props }) => {
 					{'smart-search' === example && (
 						<SmartSearchSelect {...props} />
 					)}
+					{'multi-select' === example && (
+						<MultiSelect {...props} />
+					)}
 				</div>
 			</div>
 		</div>
@@ -52,6 +55,7 @@ const Select = ({ example, ...props }) => {
 Select.args = {
 	id: "id-1",
 	example: 'select',
+	label: 'Select Country',
 	options: [
 		{
 			icon: 'settings',
