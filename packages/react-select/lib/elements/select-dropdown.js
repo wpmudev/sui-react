@@ -5,7 +5,7 @@ import { Input } from './select-input';
 
 const Dropdown = ({
 	options,
-	onEvent,
+	onEvent = () => {},
 	selectAll = () => {},
 	isSmartSearch = false,
 	isMultiselect = false,
