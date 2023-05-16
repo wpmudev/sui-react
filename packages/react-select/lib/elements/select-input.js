@@ -1,4 +1,4 @@
-import React, { createElement, Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Hint } from 'react-autocomplete-hint';
 
 const InputWithAutoComplete = ({
@@ -20,37 +20,33 @@ const InputWithAutoComplete = ({
 	};
 
 	return (
-		<Fragment>
-			<Hint options={dropdownOptions} allowTabFill={true}>
-				<input
-					type="text"
-					value={inputValue}
-					className="sui-select__input"
-					onClick={dropdownToggle}
-					onChange={handleInputChange}
-					aria-haspopup="listbox"
-					aria-expanded={expanded}
-					{...props}
-				/>
-			</Hint>
-		</Fragment>
+		<Hint options={dropdownOptions} allowTabFill>
+			<input
+				type="text"
+				value={inputValue}
+				className="sui-select__input"
+				onClick={dropdownToggle}
+				onChange={handleInputChange}
+				aria-haspopup="listbox"
+				aria-expanded={expanded}
+				{...props}
+			/>
+		</Hint>
 	);
 };
 
-const Input = ({ dropdownOptions, onChange, ...props }) => {
+const Input = ({ onChange, ...props }) => {
 	const handleInputChange = (event) => {
 		onChange(event);
 	};
 
 	return (
-		<Fragment>
-			<input
-				type="text"
-				className="sui-select__input"
-				onChange={handleInputChange}
-				{...props}
-			/>
-		</Fragment>
+		<input
+			type="text"
+			className="sui-select__input"
+			onChange={handleInputChange}
+			{...props}
+		/>
 	);
 };
 
