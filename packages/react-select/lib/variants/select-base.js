@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { isEmpty, isFunction } from '@wpmudev/react-utils';
+import React, { useState, useEffect, useRef } from 'react';
+import { isEmpty, isFunction, isUndefined } from '@wpmudev/react-utils';
 
+import { SearchDropdown, RemoveAll, SelectAll, RemoveSelection, MultiSelectSearch } from '../utils/functions';
 import { Dropdown } from '../elements/select-dropdown';
 import { Selected, SelectedSearch } from '../elements/select-selected';
 
 const Select = ({
-	id,
+	htmlFor,
 	options,
-	className = '',
-	label = '',
+	className,
+	label = 'Select',
 	isDisabled = false,
 	isSmall = false,
-	isReadOnly = false,
 	isError = false,
 	isMultiselect = false,
 	isSearchable = false,
@@ -20,227 +20,231 @@ const Select = ({
 	onMouseLeave = () => {},
 	...props
 }) => {
-	const [hover, setHover] = useState(false);
-	const [focus, setFocus] = useState(false);
-	const [dropdownOpen, setDropdownOpen] = useState(false);
-	const [selectOptions, setSelectOptions] = useState(options);
-	const [selectedOption, setSelectedOption] = useState(label);
+	const is = {};
+	const has = {};
+	const set = {};
 
-	if (!id || isEmpty(id)) {
+	// Properties validation
+	has.id = !isUndefined(htmlFor) && !isEmpty(htmlFor) ? true : false;
+	has.class = !isUndefined(className) && !isEmpty(className) ? true : false;
+	has.options = !isUndefined(options) && !isEmpty(options) ? true : false;
+
+	if (!has.id) {
 		throw new Error(
 			'Empty parameter is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Input\n\nThe parameter "id" in the "Input" component is required.\n\n'
 		);
 	}
 
-	const classList = ['sui-select'];
+	if (!has.options) {
+		throw new Error(
+			'Empty parameter is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Select\n\nThe parameter "options" in the "Select" component is required and should be array.\n\n'
+		);
+	}
 
+	// Define states.
+	[is.hover, set.hover] = useState(false);
+	[is.focus, set.focus] = useState(false);
+	[is.dropdownOpen, set.dropdownOpen] = useState(false);
+	[is.items, set.items] = useState(options);
+	[is.filteredItems, set.filteredItems] = useState(options);
+	[is.selectedItem, set.selectedItem] = useState(label);
+	
+	// set ref to dropdown.
+	set.dropdownRef = useRef(null);
+
+	// UseEffect function to handle click outside dropdown
+	useEffect(() => {
+		const handleClickOutside = (event) => {
+		  if (set.dropdownRef.current && !set.dropdownRef.current.contains(event.target)) {
+			set.dropdownOpen(false);
+		  }
+		};
+		// Add event listener when the component mounts
+		document.addEventListener('click', handleClickOutside);
+		// Clean up the event listener when the component unmounts
+		return () => {
+		  document.removeEventListener('click', handleClickOutside);
+		};
+	}, []);
+
+	// UseEffect function to handle change in items
+	useEffect(() => {
+		const updatedItems = is.items.map((option) => {
+			const filterItem = is.filteredItems.find((filterOpt) => filterOpt.id === option.id);
+			if (filterItem) {
+				return { ...filterItem };
+			}
+			return option;
+		});
+		const filteredItems = updatedItems.filter(option => option.isSelected);
+		const selectedItem = filteredItems.length > 0 ? filteredItems : label;
+		
+		if (isMultiselect) {
+			set.selectedItem(selectedItem);
+		} else {
+			if (filteredItems.length) {
+				set.selectedItem(selectedItem[0].label);
+			}
+		}
+		set.items(updatedItems);
+	}, [is.filteredItems]);
+
+	// Define main class name
+	set.class = 'sui-select';
+
+	// Define small class name
 	if (isSmall) {
-		classList.push('sui-select--sm');
+		set.class += ' sui-select--sm';
 	}
 
-	if (hover) {
-		classList.push('sui-select--hover');
+	// Define dropdown open class
+	if (is.dropdownOpen) {
+		set.class += ' sui-select--open';
 	}
 
-	if (dropdownOpen) {
-		classList.push('sui-select--open');
-	}
-
-	if (focus) {
-		classList.push('sui-select--focus');
-	}
-
-	if (isError) {
-		classList.push('sui-select--error');
-	}
-
+	// Define class name(s) for states
 	if (isDisabled) {
-		classList.push('sui-select--disabled');
-	}
+		set.class += ' sui-select--disabled';
+	} else {
+		if (is.hover) {
+			set.class += ' sui-select--hover';
+		}
 
+		if (is.focus) {
+			set.class += ' sui-select--focus';
+		}
+
+		if (isError) {
+			set.class += ' sui-select--error';
+		}
+	}	
+
+	// Define multiselect class name	
 	if (isMultiselect) {
-		classList.push('sui-select--multiselect');
+		set.class += ' sui-select--multiselect';
 	}
 
+	// Define searchable class name
 	if (isSearchable) {
-		classList.push('sui-select--searchable');
+		set.class += ' sui-select--searchable';
 	}
 
+	// Define smart search class name
 	if (isSmartSearch) {
-		classList.push('sui-select--smart-search');
+		set.class += ' sui-select--smartsearch';
 	}
 
-	if (!isEmpty(className)) {
-		classList.push(className);
+	// Define custom class name
+	if (has.class) {
+		set.class += ` ${className}`;
 	}
 
+	// Select search function.
 	const handleSearchDropdown = (event) => {
 		const searchValue = event.target.value.toLowerCase();
-		const optionsArray = options;
-
-		setDropdownOpen(true);
-
+		set.dropdownOpen(true);
 		if (isSmartSearch && searchValue.length < 2) {
-			setSelectOptions([]);
+			set.filteredItems([]);
 			return;
 		}
-
-		if (isEmpty(searchValue)) {
-			setSelectOptions(!isSmartSearch ? optionsArray : []);
-		} else {
-			const filteredOptions = optionsArray.filter((option) =>
-				option.label.toLowerCase().startsWith(searchValue)
-			);
-			const formattedOptions = filteredOptions.map((option) => {
-				const index = option.label.toLowerCase().indexOf(searchValue);
-				if (index === -1) {
-					return { ...option, isSelected: false };
-				} else {
-					return {
-						...option,
-						isSelected: false,
-						newLabel:
-							option.label.substring(0, index) +
-							option.label.substring(index + searchValue.length),
-						boldLabel: option.label.substring(
-							0,
-							searchValue.length
-						),
-					};
-				}
-			});
-			setSelectOptions(formattedOptions);
-		}
+		SearchDropdown(searchValue, is.items, set.filteredItems);
 	};
 
+	// Multiselect search function.
+	const handleMultiSelectSearch = (event) => {
+		const searchValue = event.target.value.toLowerCase();
+		set.dropdownOpen(true);
+		MultiSelectSearch(searchValue, is.items, set.filteredItems);
+	}
+
+	// Main wrapper props.
 	const selectProps = {
-		className: classList.join(' '),
+		className: set.class,
+		ref: set.dropdownRef,
 		onMouseEnter: (e) => {
-			if (!isReadOnly) setHover(true);
+			set.hover(true);
 			if (isFunction(onMouseEnter)) {
 				onMouseEnter(e);
 			}
 		},
-		onMouseDownCapture: () => (!isReadOnly ? setFocus(true) : {}),
-		onMouseUpCapture: () => (!isReadOnly ? setFocus(true) : {}),
+		onMouseDownCapture: () => (set.focus(true)),
+		onMouseUpCapture: () => (set.focus(true)),
 		onMouseLeave: (e) => {
-			if (!isReadOnly) setHover(false);
+			set.hover(false);
 
 			if (isFunction(onMouseLeave)) {
 				onMouseLeave(e);
 			}
 		},
-		onBlurCapture: () => (!isReadOnly ? setFocus(false) : {}),
+		onBlurCapture: () => (set.focus(false)),
 	};
 
+	// Header props
 	const headerProps = {
-		expanded: dropdownOpen,
-		selected: selectedOption,
-		arrow: dropdownOpen ? 'chevron-up' : 'chevron-down',
+		htmlFor,
+		expanded: is.dropdownOpen,
+		selected: is.selectedItem,
+		arrow: is.dropdownOpen ? 'chevron-up' : 'chevron-down',
 		selectLabel: label,
-		dropdownToggle: () => setDropdownOpen(!dropdownOpen),
-		...(isSearchable && { dropdownOptions: selectOptions }),
+		dropdownToggle: () => set.dropdownOpen(!is.dropdownOpen),
+		...(isSearchable && { dropdownItems: is.filteredItems }),
 		...(isSearchable && {
 			onChange: (e) => {
 				handleSearchDropdown(e);
-				setSelectedOption(e.target.value);
+				set.selectedItem(e.target.value);
 			},
 		}),
-		clearSelection: () => {
-			if (!isEmpty(setSelectedOption)) {
-				const updatedOptions = options.map((option) => ({
-					...option,
-					isSelected: false,
-				}));
-				setSelectOptions(updatedOptions);
-				setSelectedOption(label);
-			}
-		},
-		isSmartSearch,
-		isMultiselect,
+		clearSelection: () => { RemoveAll(set.selectedItem, is.items, set.filteredItems) },
+		...(isSmartSearch && { isSmartSearch }),
+		...(isMultiselect && { isMultiselect }),
 		...(isMultiselect && {
 			removeSelection: (id) => {
-				const optionIndex = selectOptions.findIndex(
-					(option) => option.id === id
-				);
-				const updatedOptions = [...selectOptions];
-				updatedOptions[optionIndex].isSelected = false;
-				setSelectOptions(updatedOptions);
-				const filteredOptions = updatedOptions.filter(
-					(option) => option.isSelected === true
-				);
-				const selectedOption =
-					filteredOptions.length > 0 ? filteredOptions : label;
-				setSelectedOption(selectedOption);
+				RemoveSelection(id, is.filteredItems, set.filteredItems);
 			},
 		}),
 		...props,
 	};
 
+	// Dropdown props
 	const dropdownProps = {
-		options: selectOptions,
+		options: is.filteredItems,
 		onEvent: (id) => {
+			const optionIndex = is.filteredItems.findIndex(option => option.id === id);
+			const updatedItems = [...is.filteredItems];
+			const isSelected = updatedItems[optionIndex].isSelected;
+
 			if (!isMultiselect) {
-				const optionIndex = selectOptions.findIndex(
-					(option) => option.id === id
-				);
-				const updatedOptions = selectOptions.map((option) => ({
-					...option,
-					isSelected: false,
-				}));
-				updatedOptions[optionIndex].isSelected = true;
-				setSelectOptions(updatedOptions);
-				setDropdownOpen(false);
-				setSelectedOption(updatedOptions[optionIndex].label);
+				updatedItems.forEach(option => option.isSelected = false);
+				updatedItems[optionIndex].isSelected = true;
+				set.filteredItems(updatedItems);
+				set.dropdownOpen(false);
 			} else {
-				const optionIndex = selectOptions.findIndex(
-					(option) => option.id === id
-				);
-				const updatedOptions = [...selectOptions];
-				const isSelected = updatedOptions[optionIndex].isSelected;
-				updatedOptions[optionIndex].isSelected = !isSelected;
-				setSelectOptions(updatedOptions);
-				const filteredOptions = updatedOptions.filter(
-					(option) => option.isSelected === true
-				);
-				const selectedOption =
-					filteredOptions.length > 0 ? filteredOptions : label;
-				setSelectedOption(selectedOption);
+				updatedItems[optionIndex].isSelected = !isSelected;
+				set.filteredItems(updatedItems);
 			}
 		},
-		isSmartSearch,
-		isMultiselect,
+		...(isSmartSearch && { isSmartSearch }),
+		...(isMultiselect && { isMultiselect }),
 		...(isMultiselect && {
 			selectAll: () => {
-				const allSelected = selectOptions.every(
-					(option) => option.isSelected === true
-				);
-				const updatedOptions = selectOptions.map((option) => ({
-					...option,
-					isSelected: !allSelected,
-				}));
-				setSelectOptions(updatedOptions);
-				const filteredOptions = updatedOptions.filter(
-					(option) => option.isSelected === true
-				);
-				const selectedOption =
-					filteredOptions.length > 0 ? filteredOptions : label;
-				setSelectedOption(selectedOption);
+				SelectAll(is.filteredItems, set.filteredItems);
 			},
 		}),
 		...(isMultiselect && {
 			onChange: (e) => {
-				handleSearchDropdown(e);
+				handleMultiSelectSearch(e);
 			},
 		}),
-		selected: selectedOption,
+		selected: is.selectedItem,
 		...props,
 	};
+
+	// Render component
 	return (
-		<div className={classList} {...selectProps}>
+		<div {...selectProps}>
 			{!isSearchable && <Selected {...headerProps} />}
 			{isSearchable && <SelectedSearch {...headerProps} />}
-			{dropdownOpen && <Dropdown {...dropdownProps} />}
+			{is.dropdownOpen && <Dropdown {...dropdownProps} />}
 		</div>
 	);
 };

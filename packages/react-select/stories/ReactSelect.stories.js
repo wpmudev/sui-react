@@ -53,9 +53,9 @@ const Select = ({ example, ...props }) => {
 };
 
 Select.args = {
-	id: "id-1",
 	example: 'select',
-	label: 'Select Country',
+	htmlFor: 'id-1',
+	label: 'Select',
 	options: [
 		{
 			icon: 'settings',
@@ -107,7 +107,6 @@ Select.args = {
 		}
 	],
 	isError: false,
-	isReadOnly: false,
 	isDisabled: false,
 	isSmall: false,
 };
@@ -125,8 +124,23 @@ Select.argTypes = {
 			},
 		},
 	},
+	htmlFor: {
+		name: 'For (select ID)',
+		control: {
+			type: 'text',
+		},
+	},
+	label: {
+		name: 'Label',
+		control: {
+			type: 'text',
+		},
+	},
 	options: {
 		name: 'Options',
+	},
+	isError: {
+		name: 'Error',
 	},
 	isDisabled: {
 		name: 'Disabled',

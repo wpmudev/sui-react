@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Hint } from 'react-autocomplete-hint';
 
 const InputWithAutoComplete = ({
-	expanded,
+	htmlFor,
+	expanded = false,
 	selected = '',
-	dropdownOptions,
-	dropdownToggle,
-	onChange,
+	dropdownItems,
+	dropdownToggle = () => {},
+	onChange = () => {},
 	...props
 }) => {
+
 	const [inputValue, setInputValue] = useState(selected);
 
 	useEffect(() => {
@@ -20,8 +22,9 @@ const InputWithAutoComplete = ({
 	};
 
 	return (
-		<Hint options={dropdownOptions} allowTabFill>
+		<Hint options={dropdownItems} allowTabFill>
 			<input
+				id={htmlFor}
 				type="text"
 				value={inputValue}
 				className="sui-select__input"
@@ -29,25 +32,11 @@ const InputWithAutoComplete = ({
 				onChange={handleInputChange}
 				aria-haspopup="listbox"
 				aria-expanded={expanded}
+				autoComplete="off"
 				{...props}
 			/>
 		</Hint>
 	);
 };
 
-const Input = ({ onChange, ...props }) => {
-	const handleInputChange = (event) => {
-		onChange(event);
-	};
-
-	return (
-		<input
-			type="text"
-			className="sui-select__input"
-			onChange={handleInputChange}
-			{...props}
-		/>
-	);
-};
-
-export { Input, InputWithAutoComplete };
+export { InputWithAutoComplete };

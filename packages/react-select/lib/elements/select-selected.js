@@ -5,14 +5,15 @@ import { InputWithAutoComplete } from './select-input';
 
 // Build "Select Selected" component.
 const Selected = ({
-	expanded,
-	dropdownToggle,
-	selected = '',
+	htmlFor,
+	expanded = false,
+	arrow,
+	selected,
 	selectLabel = '',
-	clearSelection,
 	isMultiselect = false,
 	removeSelection = () => {},
-	arrow,
+	dropdownToggle = () => {},
+	clearSelection = () => {},
 	...props
 }) => {
 	// Prepare the selected content
@@ -29,6 +30,7 @@ const Selected = ({
 
 	return (
 		<div
+			id={htmlFor}
 			className="sui-select__selection"
 			onClick={dropdownToggle}
 			onKeyDown={(e) => {
@@ -50,8 +52,8 @@ const Selected = ({
 	);
 };
 
-const SelectedSearch = ({ arrow, isSmartSearch, clearSelection, ...props }) => {
-	const { selected, selectLabel } = props;
+const SelectedSearch = ({ arrow, isSmartSearch = false, selectLabel = '', clearSelection, ...props }) => {
+	const { selected } = props;
 
 	return (
 		<div className="sui-select__selection">

@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
-import { Checkbox } from '@wpmudev/react-checkbox';
+// import { Checkbox } from '@wpmudev/react-checkbox';
+import { Checkbox } from '../../../react-checkbox/lib/react-checkbox';
 import { Icon } from './select-icon';
-import { Input } from './select-input';
+import { Search } from './multiselect-search';
 
 const Dropdown = ({
 	options,
@@ -18,7 +19,7 @@ const Dropdown = ({
 			// Render message when smart search is enabled but character count is insufficient
 			return (
 				<div className="sui-select__list">
-					<div className="sui-select__list-empty">
+					<div className="sui-select__list--empty">
 						Please enter 2 or more characters
 					</div>
 				</div>
@@ -58,7 +59,7 @@ const Dropdown = ({
 							{...props}
 						>
 							<Fragment>
-								<Icon name={icon} />
+								{icon && <Icon name={icon} />}
 								<span>
 									{boldLabel && <strong>{boldLabel}</strong>}
 									{newLabel}
@@ -73,11 +74,12 @@ const Dropdown = ({
 
 	// Render options for the multiselect dropdown
 	const renderMultiselectOptions = () => {
+		const allSelected = options.every(option => option.isSelected);
 		return (
 			<Fragment>
 				<div className="sui-select__list--search">
 					<Icon name="search" />
-					<Input placeholder="Search" {...props} />
+					<Search placeholder="Search" {...props} />
 				</div>
 				<ul
 					className="sui-select__list"
@@ -86,10 +88,9 @@ const Dropdown = ({
 				>
 					<li
 						className="sui-select__list--option"
-						onClick={selectAll}
 						role="option"
 					>
-						<Checkbox label="Select all" />
+						<Checkbox label="Select all" defaultValue={allSelected} onClick={selectAll} />
 					</li>
 					{options.map(({ id, label, isSelected }) => (
 						<li
@@ -97,7 +98,6 @@ const Dropdown = ({
 							id={id}
 							role="option"
 							className="sui-select__list--option"
-							onClick={() => onEvent(id, isSelected)}
 							onKeyDown={(e) => {
 								if (e.key === 'Enter') {
 									onEvent(id, isSelected);
@@ -108,6 +108,7 @@ const Dropdown = ({
 								id={id}
 								label={label}
 								defaultValue={isSelected}
+								onClick={() => onEvent(id, isSelected)}
 							/>
 						</li>
 					))}
