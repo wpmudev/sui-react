@@ -1,0 +1,42 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Select Disabled
+/// This function creates styles for select disabled state
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin select-disabled($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(disabled) {
+
+                @include modifies-element(selection) {
+                    background: #f2f2f2;
+					pointer-events: none;
+					border: none;
+					color: #aaa;
+                }
+
+                @include modifies-element(input) {
+                    color: #aaa;
+                }
+
+				@include modifies-element(selected-options) {
+					background: #aaa;
+					color: #f2f2f2;
+				}
+
+				@include modifies-element(icon) {
+					pointer-events: none;
+                    color: #aaa;
+				}
+			}
+		}
+	}
+}

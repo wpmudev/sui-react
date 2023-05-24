@@ -1,4 +1,7 @@
 @use "./_elements/elements" as sui-select--element;
 @use "./_modifiers/modifiers" as sui-select--modifier;
+@use "./_states/states" as sui-select--state;
 
 @include sui-select--element.build-container(select);
+@include sui-select--state.select-disabled(select);
+@include sui-select--state.select-error(select);

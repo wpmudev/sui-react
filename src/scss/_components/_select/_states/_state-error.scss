@@ -1,0 +1,38 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Select Error
+/// This function creates styles for select error state
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin select-error($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(error) {
+
+                .sui-select__selection,
+				.sui-select__list--search {
+					border-width: 1px;
+					border-color: #f45c59;
+				}
+                
+				&.sui-select--open,
+				&.sui-select--focus {
+					.sui-select__list,
+					.sui-select__selection,
+					.sui-select__list--search {
+						box-shadow: inset 0 0 1px #f45c59;
+						border-width: 2px;
+						border-color: #f45c59;
+					}
+				}
+			}
+		}
+	}
+}
