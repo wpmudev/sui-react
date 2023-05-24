@@ -1,0 +1,86 @@
+import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
+import { Select } from '../../lib/react-select';
+import dedent from 'dedent';
+
+import States from './Examples/States.mdx';
+import Variants from './Examples/Variants.mdx';
+// import Icon from './Examples/Icon.mdx';
+
+export const sampleCode = dedent`
+import React from 'react';\n
+import { Select } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Select id="unique-id" label="Label" options={options} />;
+}\n
+export default Example;
+`;
+
+export const options = [
+	{
+		id: 'option-1',
+		label: 'Option 1 is the option.',
+		isSelected: false
+	},
+	{
+		id: 'option-2',
+		label: 'Option 2',
+		isSelected: false
+	},
+	{
+		id: 'option-3',
+		label: 'Option 3',
+		isSelected: false
+	},
+	{
+		id: 'option-4',
+		label: 'Option 4',
+		isSelected: false
+	},
+	{
+		id: 'option-5',
+		label: 'Option 5',
+		isSelected: false
+	},
+	{
+		id: 'option-6',
+		label: 'Option 6',
+		isSelected: false
+	},
+	{
+		id: 'option-7',
+		label: 'Option 7',
+		isSelected: false
+	},
+	{
+		id: 'option-8',
+		label: 'India',
+		isSelected: false
+	}
+];
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>Below is the default form of a select, used for most cases.</p>
+	<Preview wrapper={true}>
+		<div style={{ height: '190px' }}>
+			<Select id="select-id-1" label="Select" options={options} />
+		</div>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+<Section style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="States" value="states">
+			<States />
+		</div>
+		<div label="Variants" value="variants">
+			<Variants />
+		</div>
+		{/* <div label="Size" value="size">
+			<Size />
+		</div>
+		<div label="Input with Icon" value="icon">
+			<Icon />
+		</div> */}
+	</Switcher>
+</Section>

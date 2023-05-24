@@ -6,7 +6,7 @@ import { Dropdown } from '../elements/select-dropdown';
 import { Selected, SelectedSearch } from '../elements/select-selected';
 
 const Select = ({
-	htmlFor,
+	id,
 	options,
 	className,
 	label = 'Select',
@@ -25,7 +25,7 @@ const Select = ({
 	const set = {};
 
 	// Properties validation
-	has.id = !isUndefined(htmlFor) && !isEmpty(htmlFor) ? true : false;
+	has.id = !isUndefined(id) && !isEmpty(id) ? true : false;
 	has.class = !isUndefined(className) && !isEmpty(className) ? true : false;
 	has.options = !isUndefined(options) && !isEmpty(options) ? true : false;
 
@@ -181,7 +181,7 @@ const Select = ({
 
 	// Header props
 	const headerProps = {
-		htmlFor,
+		id,
 		expanded: is.dropdownOpen,
 		selected: is.selectedItem,
 		arrow: is.dropdownOpen ? 'chevron-up' : 'chevron-down',

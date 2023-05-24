@@ -54,7 +54,7 @@ const Select = ({ example, ...props }) => {
 
 Select.args = {
 	example: 'select',
-	htmlFor: 'id-1',
+	id: 'id-1',
 	label: 'Select',
 	options: [
 		{
@@ -124,7 +124,7 @@ Select.argTypes = {
 			},
 		},
 	},
-	htmlFor: {
+	id: {
 		name: 'For (select ID)',
 		control: {
 			type: 'text',

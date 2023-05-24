@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Hint } from 'react-autocomplete-hint';
 
 const InputWithAutoComplete = ({
-	htmlFor,
+	id,
 	expanded = false,
 	selected = '',
 	dropdownItems,
@@ -24,7 +24,7 @@ const InputWithAutoComplete = ({
 	return (
 		<Hint options={dropdownItems} allowTabFill>
 			<input
-				id={htmlFor}
+				id={id}
 				type="text"
 				value={inputValue}
 				className="sui-select__input"

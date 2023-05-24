@@ -5,7 +5,7 @@ import { InputWithAutoComplete } from './select-input';
 
 // Build "Select Selected" component.
 const Selected = ({
-	htmlFor,
+	id,
 	expanded = false,
 	arrow,
 	selected,
@@ -30,7 +30,7 @@ const Selected = ({
 
 	return (
 		<div
-			id={htmlFor}
+			id={id}
 			className="sui-select__selection"
 			onClick={dropdownToggle}
 			onKeyDown={(e) => {

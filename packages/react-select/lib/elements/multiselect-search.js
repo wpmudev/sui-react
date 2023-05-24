@@ -1,11 +1,11 @@
-const Search = ({ htmlFor, onChange, ...props }) => {
+const Search = ({ id, onChange, ...props }) => {
 	const handleInputChange = (event) => {
 		onChange(event);
 	};
 
 	return (
 		<input
-			id={htmlFor}
+			id={id}
 			type="text"
 			className="sui-select__input"
 			onChange={handleInputChange}

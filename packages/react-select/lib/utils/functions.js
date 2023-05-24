@@ -1,17 +1,17 @@
 import { isEmpty } from '@wpmudev/react-utils';
 
 // Search for standard dropdown.
-const SearchDropdown = ( searchValue, options, setFilterOptions) => {
+const SearchDropdown = ( searchValue, options, setFilterItems) => {
 	if (isEmpty(searchValue)) {
-		setFilterOptions(options);
+		setFilterItems(options);
 		return;
 	} 
 	
-	const filteredOptions = options.filter((option) =>
+	const filteredItems = options.filter((option) =>
 		option.label.toLowerCase().startsWith(searchValue)
 	);
 
-	const formattedOptions = filteredOptions.map((option) => {
+	const formattedItems = filteredItems.map((option) => {
 		const index = option.label.toLowerCase().indexOf(searchValue);
 		if (index === -1) {
 			return { ...option, isSelected: false };
@@ -30,35 +30,35 @@ const SearchDropdown = ( searchValue, options, setFilterOptions) => {
 		}
 	});
 
-	setFilterOptions(formattedOptions);
+	setFilterItems(formattedItems);
 };
 
 // Search for multiselect options.
-const MultiSelectSearch = ( searchValue, options, setFilterOptions ) => {
+const MultiSelectSearch = ( searchValue, options, setFilterItems ) => {
 	if (isEmpty(searchValue)) {
-		setFilterOptions(options);
+		setFilterItems(options);
 		return;
 	} 
 	
-	const filteredOptions = options.filter((option) =>
+	const filteredItems = options.filter((option) =>
 		option.label.toLowerCase().startsWith(searchValue)
 	);
 
-	setFilterOptions(filteredOptions);
+	setFilterItems(filteredItems);
 };
 
 // Remove all selected options.
-const RemoveAll = ( setSelectedOption, options, setFilterOptions ) => {
+const RemoveAll = ( setSelectedItem, options, setFilterItems ) => {
 	const updatedOptions = options.map((option) => ({
 		...option,
 		isSelected: false,
 	}));
-	setSelectedOption([]);
-	setFilterOptions(updatedOptions);
+	setSelectedItem([]);
+	setFilterItems(updatedOptions);
 };
 
 // Remove single option.
-const RemoveSelection = ( id, options, setFilterOptions ) => {
+const RemoveSelection = ( id, options, setFilterItems ) => {
 	const updatedOptions = options.map(option => {
 		if (option.id === id) {
 			return {
@@ -68,11 +68,11 @@ const RemoveSelection = ( id, options, setFilterOptions ) => {
 		}
 		return option;
 	});
-	setFilterOptions(updatedOptions);
+	setFilterItems(updatedOptions);
 };
 
 // Select all options in dropdown.
-const SelectAll = ( options, setFilterOptions ) => {
+const SelectAll = ( options, setFilterItems ) => {
 	const allSelected = options.every(
 		(option) => option.isSelected === true
 	);
@@ -80,7 +80,7 @@ const SelectAll = ( options, setFilterOptions ) => {
 		...option,
 		isSelected: !allSelected,
 	}));
-	setFilterOptions(updatedOptions);
+	setFilterItems(updatedOptions);
 }
 
 export { SearchDropdown, MultiSelectSearch, RemoveAll, SelectAll, RemoveSelection };
