@@ -82,8 +82,11 @@ const Select = ({
 		if (isMultiselect) {
 			set.selectedItem(selectedItem);
 		} else {
-			if (filteredItems.length) {
-				set.selectedItem(selectedItem[0].label);
+			if (selectedItem.length) {
+				// Select the first item
+  				const item = selectedItem[0];
+				if (item && item.label)
+					set.selectedItem(item.label);
 			}
 		}
 		set.items(updatedItems);
