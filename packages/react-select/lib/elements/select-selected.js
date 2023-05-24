@@ -1,5 +1,5 @@
 import React from 'react';
-import { isArray, isEmpty } from '@wpmudev/react-utils';
+import { isArray } from '@wpmudev/react-utils';
 import { Icon } from './select-icon';
 import { InputWithAutoComplete } from './select-input';
 

@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
-// import { Checkbox } from '@wpmudev/react-checkbox';
-import { Checkbox } from '../../../react-checkbox/lib/react-checkbox';
+import { Checkbox } from '@wpmudev/react-checkbox';
 import { Icon } from './select-icon';
 import { Search } from './multiselect-search';
 

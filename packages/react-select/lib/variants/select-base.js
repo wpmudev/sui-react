@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { isEmpty, isFunction, isUndefined } from '@wpmudev/react-utils';
 
-import { SearchDropdown, RemoveAll, SelectAll, RemoveSelection, MultiSelectSearch } from '../utils/functions';
 import { Dropdown } from '../elements/select-dropdown';
 import { Selected, SelectedSearch } from '../elements/select-selected';
+import { SearchDropdown, RemoveAll, SelectAll, RemoveSelection, MultiSelectSearch } from '../utils/functions';
 
 const Select = ({
 	id,
