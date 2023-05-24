@@ -19,13 +19,13 @@ const Selected = ({
 	// Prepare the selected content
 	const selectedContent = isArray(selected) ? (
 		selected.map(({ label, id }) => (
-			<span className="sui-select--selected-options" key={id} onClick={(event) => event.stopPropagation()}>
+			<span className="sui-select__selected-options" key={id} onClick={(event) => event.stopPropagation()}>
 				{label}
 				<Icon name="close" onClick={() => removeSelection(id)} />
 			</span>
 		))
 	) : (
-		<span className="sui-select--selected">{selected}</span>
+		<span className="sui-select__selected">{selected}</span>
 	);
 
 	return (

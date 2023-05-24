@@ -190,17 +190,18 @@ const Select = ({
 		arrow: is.dropdownOpen ? 'chevron-up' : 'chevron-down',
 		selectLabel: label,
 		dropdownToggle: () => set.dropdownOpen(!is.dropdownOpen),
-		...(isSearchable && { dropdownItems: is.filteredItems }),
-		...(isSearchable && {
+		clearSelection: () => { RemoveAll(set.selectedItem, is.items, set.filteredItems) },
+		...(isSearchable && { 
+			disabled: isDisabled,
+			dropdownItems: is.filteredItems,
 			onChange: (e) => {
 				handleSearchDropdown(e);
 				set.selectedItem(e.target.value);
 			},
 		}),
-		clearSelection: () => { RemoveAll(set.selectedItem, is.items, set.filteredItems) },
 		...(isSmartSearch && { isSmartSearch }),
-		...(isMultiselect && { isMultiselect }),
-		...(isMultiselect && {
+		...(isMultiselect && { 
+			isMultiselect,
 			removeSelection: (id) => {
 				RemoveSelection(id, is.filteredItems, set.filteredItems);
 			},
@@ -211,11 +212,11 @@ const Select = ({
 	// Dropdown props
 	const dropdownProps = {
 		options: is.filteredItems,
+		selected: is.selectedItem,
 		onEvent: (id) => {
 			const optionIndex = is.filteredItems.findIndex(option => option.id === id);
 			const updatedItems = [...is.filteredItems];
 			const isSelected = updatedItems[optionIndex].isSelected;
-
 			if (!isMultiselect) {
 				updatedItems.forEach(option => option.isSelected = false);
 				updatedItems[optionIndex].isSelected = true;
@@ -227,18 +228,15 @@ const Select = ({
 			}
 		},
 		...(isSmartSearch && { isSmartSearch }),
-		...(isMultiselect && { isMultiselect }),
-		...(isMultiselect && {
+		...(isMultiselect && { 
+			isMultiselect,
 			selectAll: () => {
 				SelectAll(is.filteredItems, set.filteredItems);
 			},
-		}),
-		...(isMultiselect && {
 			onChange: (e) => {
 				handleMultiSelectSearch(e);
 			},
 		}),
-		selected: is.selectedItem,
 		...props,
 	};
 
