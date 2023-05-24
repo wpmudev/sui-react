@@ -1,5 +1,5 @@
 import React from 'react';
-import { isArray } from '@wpmudev/react-utils';
+import { isArray, isEmpty } from '@wpmudev/react-utils';
 import { Icon } from './select-icon';
 import { InputWithAutoComplete } from './select-input';
 
@@ -19,7 +19,7 @@ const Selected = ({
 	// Prepare the selected content
 	const selectedContent = isArray(selected) ? (
 		selected.map(({ label, id }) => (
-			<span className="sui-select--selected-options" key={id}>
+			<span className="sui-select--selected-options" key={id} onClick={(event) => event.stopPropagation()}>
 				{label}
 				<Icon name="close" onClick={() => removeSelection(id)} />
 			</span>
@@ -45,7 +45,13 @@ const Selected = ({
 		>
 			{selectedContent}
 			{isMultiselect && selectLabel !== selected && (
-				<Icon name="close-alt" onClick={clearSelection} />
+				<Icon 
+					name="close-alt"
+					onClick={(event) => { 
+						event.stopPropagation();
+						clearSelection();
+					}}
+				/>
 			)}
 			<Icon name={arrow} />
 		</div>
@@ -60,7 +66,7 @@ const SelectedSearch = ({ arrow, isSmartSearch = false, selectLabel = '', clearS
 			<InputWithAutoComplete placeholder="Search" {...props} />
 			{isSmartSearch && <Icon name="search" />}
 			{!isSmartSearch && <Icon name={arrow} />}
-			{isSmartSearch && selectLabel !== selected && (
+			{isSmartSearch && selected.length > 0 && (
 				<Icon name="close-alt" onClick={clearSelection} />
 			)}
 		</div>
