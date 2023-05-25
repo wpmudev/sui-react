@@ -7,7 +7,7 @@ const Search = ({ id, onChange, ...props }) => {
 		<input
 			id={id}
 			type="text"
-			className="sui-select__search"
+			className="sui-select__search--input"
 			onChange={handleInputChange}
 			autoComplete="off"
 			{...props}

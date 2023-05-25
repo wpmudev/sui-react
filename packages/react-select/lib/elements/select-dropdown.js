@@ -76,7 +76,7 @@ const Dropdown = ({
 		const allSelected = options.every(option => option.isSelected);
 		return (
 			<Fragment>
-				<div className="sui-select__dropdown--search">
+				<div className="sui-select__search">
 					<Icon name="search" />
 					<Search placeholder="Search" {...props} />
 				</div>
