@@ -1,0 +1,63 @@
+@use "../../../_utils/utils" as *;
+
+@mixin modify-size($block) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(sm) {
+				@include modifies-element(control) {
+                    font-size: 12px;
+                    line-height: 16px;
+                    padding: 8px 32px 8px 12px;
+                    min-height: 32px;
+                }
+
+                @include modifies-element(input) {
+                    font-size: 12px;
+                    line-height: 16px;
+                    padding: 8px 32px;
+                    min-height: 32px;
+                }
+
+                &.sui-select--multiselect .sui-select__control {
+                    padding-right: 55px;
+                }
+
+                .sui-checkbox {
+                    font-size: 11px;
+                }
+
+                .sui-checkbox__box {
+                    width: 18px;
+                    height: 18px;
+                }
+
+                .sui-select__icon--close-alt {
+                    font-size: 16px;
+                    right: 12px;
+                }
+
+                .sui-select--multiselect .sui-select__icon--close-alt {
+                    right: 34px;
+                }
+
+                .sui-#{$block}__dropdown--option {
+                    font-size: 11px;
+                    padding: 4px 12px;
+                }
+
+                &.sui-select--searchable .sui-select__control {
+                    padding: 0;
+                }
+
+                .sui-select__dropdown--option .sui-select__icon {
+                    padding-right: 6px;
+                }
+
+                .sui-select__icon--search {
+                    left: 10px;
+                    font-size: 16px;
+                }
+			}
+		}
+	}
+}

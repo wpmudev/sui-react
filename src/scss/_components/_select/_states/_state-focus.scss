@@ -15,9 +15,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(focus) {
-                .sui-select__list,
-				.sui-select__control,
-				.sui-select__list--search {
+				@include modifies-element(control) {
 					border-width: 2px;
 					border-color: #286ef1;
 				}

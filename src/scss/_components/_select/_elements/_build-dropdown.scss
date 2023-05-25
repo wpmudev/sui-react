@@ -2,8 +2,8 @@
 
 @use "../../../_utils/utils" as *;
 
-/// Select Error
-/// This function creates styles for select error state
+/// Select Control
+/// This function creates styles for select control
 ///
 /// @type modifier
 /// @author WPMU DEV
@@ -49,55 +49,18 @@
                     border-radius: 4px;
                 }
 
-                @include modifier(search) {
-                    position: relative;
-                    padding: 8px 8px 0;
-                    border-style: solid;
-                    border-bottom: 0;
-                    border-top: 0;
-
-                    .sui-select__icon--search {
-                        font-size: 12px;
-                        position: absolute;
-                        bottom: 10px;
-                        left: 20px;
-                    }
-
-                    .sui-select__input {
-                        border: 1px solid #e6e6e6;
-                        border-radius: 3px;
-                        padding: 8px 12px 8px 32px;
-                        width: 100%;
-                    }
+                @include modifier(option) {
+					font-size: 13px;
+					line-height: 24px;
                 }
-
-                .sui-select__dropdown--option {
-					.sui-checkbox,
-					span {
-						font-size: 13px;
-						line-height: 24px;
-					}
-
-					.sui-checkbox {
-						width: 100%;
-					}
-
-					.sui-select__icon {
-						padding-right: 9px;
-					}
-				}
 			}
 
             @include modifier(open) {
-                .sui-select__dropdown {
-					border-top: 0;
-				}
-
-                .sui-select__dropdown,
-				.sui-select__dropdown--search {
-					border-width: 2px;
+                @include modifies-element(dropdown) {
+                    border-top: 0;
+                    border-width: 2px;
 					border-color: #286ef1;
-				}
+                }
             }
 		}
 	}

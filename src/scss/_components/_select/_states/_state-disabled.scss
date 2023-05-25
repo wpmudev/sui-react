@@ -15,7 +15,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(disabled) {
-
+				pointer-events: none;
                 @include modifies-element(selection) {
                     background: #f2f2f2;
 					pointer-events: none;
@@ -30,6 +30,10 @@
 				@include modifies-element(selected-options) {
 					background: #aaa;
 					color: #f2f2f2;
+
+					.sui-#{$block}__icon {
+						color: #f2f2f2;
+					}
 				}
 
 				@include modifies-element(icon) {

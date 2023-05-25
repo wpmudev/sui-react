@@ -26,6 +26,20 @@
                 cursor: text;
                 outline: none;
             }
+
+            @include element(search) {
+                @include modifier(input) {
+					font-size: 12px;
+					line-height: 16px;
+					width: 100%;
+					cursor: text;
+					outline: none;
+					border: 1px solid #e6e6e6;
+					border-radius: 3px;
+					padding: 8px 12px 8px 32px;
+					width: 100%;
+				}
+            }
 		}
 	}
 }

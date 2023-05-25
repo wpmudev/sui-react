@@ -16,7 +16,7 @@
 		@include block($block) {
 
             @include element(control) {
-                .sui-select__icon {
+                .sui-#{$block}__icon {
                     position: absolute;
                     top: 50%;
                     line-height: normal;
@@ -48,14 +48,31 @@
                 }
             }
 
+            @include element(search) {
+                .sui-#{$block}__icon {
+                    font-size: 12px;
+                    position: absolute;
+                    bottom: 10px;
+                    left: 20px;
+                }
+            }
+
+            @include element(dropdown) {
+                @include modifier(option) {
+                    .sui-#{$block}__icon {
+                        padding-right: 9px;
+                    }
+                }
+            }
+
             @include modifier(multiselect) {
 
-                @include modifies-element(icon--close) {
+                .sui-#{$block}__icon--close {
                     right: 7px;
                     font-size: 10px;
                 }
 
-                @include modifies-element(icon--close-alt) {
+                .sui-#{$block}__icon--close-alt {
                     right: 37px;
                 }
             }

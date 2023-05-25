@@ -17,7 +17,7 @@
 		@include block($block) {
 			@include element(control) {
 				border-width: 1px;
-				border-color: #aaaaaa;
+				border-color: #aaa;
 				border-style: solid;
 				border-radius: 4px;
 				padding: 8px 16px;

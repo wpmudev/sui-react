@@ -15,15 +15,13 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
             @include element(search) {
-                font-size: 12px;
-				line-height: 16px;
-				width: 100%;
-				cursor: text;
-				outline: none;
-                border: 1px solid #e6e6e6;
-                border-radius: 3px;
-                padding: 8px 12px 8px 32px;
-                width: 100%;
+				position: relative;
+                padding: 8px 8px 0;
+                border-style: solid;
+                border-bottom: 0;
+                border-top: 0;
+				border-width: 2px;
+				border-color: #286ef1;
             }
 		}
 	}
