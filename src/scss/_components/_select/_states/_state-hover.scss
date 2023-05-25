@@ -1,0 +1,44 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Select Hover
+/// This function creates styles for select hover state
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin select-hover($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(hover) {
+				@include modifies-element(selection) {
+					border-color: #286ef1;
+				}
+				
+				@include modifies-element(list--search) {
+					border-color: #286ef1;
+				}
+			}
+
+			@include element(dropdown) {
+				@include modifier(option) {
+					&:hover {
+						color: #286ef1;
+					}
+				}
+			}
+
+			@include element(dropdown) {
+				@include modifier(selected) {
+					&:hover {
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,104 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Select Error
+/// This function creates styles for select error state
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-dropdown($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(dropdown) {
+                background: #fff;
+				position: absolute;
+				width: 100%;
+				padding: 8px 0;
+				margin: 0;
+				border-style: solid;
+				border-bottom-left-radius: 4px;
+				border-bottom-right-radius: 4px;
+				max-height: 145px;
+				overflow-y: scroll;
+
+                @include modifier(option) {
+                    display: flex;
+					align-items: center;
+					cursor: pointer;
+					padding: 4px 16px;
+					margin: 0;
+                }
+
+                @include modifier(selected) {
+                    background: #286ef1;
+                    color: #fff;
+                }
+
+                @include modifier(empty) {
+                    padding: 16px;
+                    margin: 0 8px;
+                    font-size: 13px;
+                    line-height: 16px;
+                    letter-spacing: -0.25px;
+                    background: #eaf1fe;
+                    border-radius: 4px;
+                }
+
+                @include modifier(search) {
+                    position: relative;
+                    padding: 8px 8px 0;
+                    border-style: solid;
+                    border-bottom: 0;
+                    border-top: 0;
+
+                    .sui-select__icon--search {
+                        font-size: 12px;
+                        position: absolute;
+                        bottom: 10px;
+                        left: 20px;
+                    }
+
+                    .sui-select__input {
+                        border: 1px solid #e6e6e6;
+                        border-radius: 3px;
+                        padding: 8px 12px 8px 32px;
+                        width: 100%;
+                    }
+                }
+
+                .sui-select__dropdown--option {
+					.sui-checkbox,
+					span {
+						font-size: 13px;
+						line-height: 24px;
+					}
+
+					.sui-checkbox {
+						width: 100%;
+					}
+
+					.sui-select__icon {
+						padding-right: 9px;
+					}
+				}
+			}
+
+            @include modifier(open) {
+                .sui-select__dropdown {
+					border-top: 0;
+				}
+
+                .sui-select__dropdown,
+				.sui-select__dropdown--search {
+					border-width: 2px;
+					border-color: #286ef1;
+				}
+            }
+		}
+	}
+}

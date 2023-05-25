@@ -1,0 +1,64 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Select Icon
+/// This function creates styles for select icon
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-icon($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+
+            @include element(control) {
+                .sui-select__icon {
+                    position: absolute;
+                    top: 50%;
+                    line-height: normal;
+                    transform: translateY(-50%);
+                }
+            }
+
+            @include element(icon) {
+
+                @include modifier(chevron-down, chevron-up) {
+                    right: 16px;
+                }
+
+                @include modifier(search) {
+                    left: 16px;
+                    font-size: 20px;
+                    color: #737373;
+                }
+
+                @include modifier(close-alt) {
+                    font-size: 20px;
+                    pointer-events: all;
+                    color: #aaa;
+                    right: 16px;
+
+                    &:hover {
+                        color: #737373;
+                    }
+                }
+            }
+
+            @include modifier(multiselect) {
+
+                @include modifies-element(icon--close) {
+                    right: 7px;
+                    font-size: 10px;
+                }
+
+                @include modifies-element(icon--close-alt) {
+                    right: 37px;
+                }
+            }
+		}
+	}
+}

@@ -16,21 +16,34 @@
 		@include block($block) {
 			@include modifier(error) {
 
-                .sui-select__selection,
-				.sui-select__list--search {
-					border-width: 1px;
+                @include modifies-element(control) {
+					border-color: #f45c59;
+                }
+
+                @include modifies-element(dropdown--search) {
+                    border-color: #f45c59;
+                }
+
+				@include modifies-element(dropdown) {
 					border-color: #f45c59;
 				}
-                
-				&.sui-select--open,
-				&.sui-select--focus {
-					.sui-select__list,
-					.sui-select__selection,
-					.sui-select__list--search {
+
+				@include modifies-element(input) {
+					box-shadow: inset 0 0 1px #f45c59;
+				}
+
+				&.sui-#{$block}--open,
+				&.sui-#{$block}--focus {
+					@include modifies-element(control) {
 						box-shadow: inset 0 0 1px #f45c59;
-						border-width: 2px;
-						border-color: #f45c59;
 					}
+
+					// .sui-select__dropdown,
+					// .sui-select__control,
+					// .sui-select__dropdown--search {
+					// 	box-shadow: inset 0 0 1px #f45c59;
+					// 	border-width: 2px;
+					// }
 				}
 			}
 		}

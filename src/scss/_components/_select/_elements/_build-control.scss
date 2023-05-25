@@ -1,0 +1,52 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Select Control
+/// This function creates styles for the element
+/// recipient wrapper.
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-control($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(control) {
+				border-width: 1px;
+				border-color: #aaaaaa;
+				border-style: solid;
+				border-radius: 4px;
+				padding: 8px 16px;
+				cursor: pointer;
+				position: relative;
+				min-height: 40px;
+			}
+
+			@include element(selected) {
+				user-select: none;
+			}
+
+			@include modifier(searchable) {
+				@include modifies-element(control) {
+					padding: 0;
+				}
+			}
+
+			@include modifier(smartsearch) {
+				@include modifies-element(input) {
+					padding-left: 44px;
+				}
+			}
+
+			@include modifier(multiselect) {
+				@include modifies-element(control) {
+					padding-right: 60px;
+				}
+			}
+		}
+	}
+}

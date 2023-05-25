@@ -1,0 +1,31 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Select Input
+/// This function creates styles for the select input
+/// recipient wrapper.
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-input($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+            @include element(input) {
+                font-size: 15px;
+                line-height: 24px;
+                padding: 8px 16px;
+                margin: 0;
+                border: 0;
+                border-radius: 4px;
+                width: 100%;
+                cursor: text;
+                outline: none;
+            }
+		}
+	}
+}
