@@ -31,7 +31,7 @@ const Selected = ({
 	return (
 		<div
 			id={id}
-			className="sui-select__selection"
+			className="sui-select__control"
 			onClick={dropdownToggle}
 			onKeyDown={(e) => {
 				if (e.key === 'Enter') {
@@ -62,7 +62,7 @@ const SelectedSearch = ({ arrow, isSmartSearch = false, selectLabel = '', clearS
 	const { selected } = props;
 
 	return (
-		<div className="sui-select__selection">
+		<div className="sui-select__control">
 			<InputWithAutoComplete placeholder="Search" {...props} />
 			{isSmartSearch && <Icon name="search" />}
 			{!isSmartSearch && <Icon name={arrow} />}

@@ -17,8 +17,8 @@ const Dropdown = ({
 		if (isSmartSearch && selected.length < 2) {
 			// Render message when smart search is enabled but character count is insufficient
 			return (
-				<div className="sui-select__list">
-					<div className="sui-select__list--empty">
+				<div className="sui-select__dropdown">
+					<div className="sui-select__dropdown--empty">
 						Please enter 2 or more characters
 					</div>
 				</div>
@@ -28,7 +28,7 @@ const Dropdown = ({
 		// Render regular options
 		return (
 			<ul
-				className="sui-select__list"
+				className="sui-select__dropdown"
 				role="listbox"
 				aria-label="dropdown-options"
 			>
@@ -46,8 +46,8 @@ const Dropdown = ({
 							id={id}
 							role="option"
 							tabIndex="0"
-							className={`sui-select__list--option ${
-								isSelected ? 'sui-select__list--selected' : ''
+							className={`sui-select__dropdown--option ${
+								isSelected ? 'sui-select__dropdown--selected' : ''
 							}`}
 							onClick={() => onEvent(id)}
 							onKeyDown={(e) => {
@@ -76,17 +76,17 @@ const Dropdown = ({
 		const allSelected = options.every(option => option.isSelected);
 		return (
 			<Fragment>
-				<div className="sui-select__list--search">
+				<div className="sui-select__dropdown--search">
 					<Icon name="search" />
 					<Search placeholder="Search" {...props} />
 				</div>
 				<ul
-					className="sui-select__list"
+					className="sui-select__dropdown"
 					role="listbox"
 					aria-label="dropdown-options"
 				>
 					<li
-						className="sui-select__list--option"
+						className="sui-select__dropdown--option"
 						role="option"
 					>
 						<Checkbox label="Select all" defaultValue={allSelected} onClick={selectAll} />
@@ -96,7 +96,7 @@ const Dropdown = ({
 							key={id}
 							id={id}
 							role="option"
-							className="sui-select__list--option"
+							className="sui-select__dropdown--option"
 							onKeyDown={(e) => {
 								if (e.key === 'Enter') {
 									onEvent(id, isSelected);
