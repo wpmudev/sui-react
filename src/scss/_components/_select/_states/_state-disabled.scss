@@ -17,28 +17,28 @@
 			@include modifier(disabled) {
 				pointer-events: none;
                 @include modifies-element(selection) {
-                    background: #f2f2f2;
+                    background: $color-extended-neutral-90;
+					color: $color-extended-neutral-70;
 					pointer-events: none;
 					border: none;
-					color: #aaa;
                 }
 
                 @include modifies-element(input) {
-                    color: #aaa;
+                    color: $color-extended-neutral-70;
                 }
 
 				@include modifies-element(selected-options) {
-					background: #aaa;
-					color: #f2f2f2;
+					background: $color-extended-neutral-70;
+					color: $color-extended-neutral-90;
 
 					.sui-#{$block}__icon {
-						color: #f2f2f2;
+						color: $color-extended-neutral-90;
 					}
 				}
 
 				@include modifies-element(icon) {
+                    color: $color-extended-neutral-70;
 					pointer-events: none;
-                    color: #aaa;
 				}
 			}
 		}

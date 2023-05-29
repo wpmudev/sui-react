@@ -17,25 +17,25 @@
 			@include modifier(error) {
 
                 @include modifies-element(control) {
-					border-color: #f45c59;
+					border-color: $color-extended-error-50;
                 }
 
                 @include modifies-element(search) {
-                    border-color: #f45c59;
+                    border-color: $color-extended-error-50;
                 }
 
 				@include modifies-element(dropdown) {
-					border-color: #f45c59;
+					border-color: $color-extended-error-50;
 				}
 
 				@include modifies-element(input) {
-					box-shadow: inset 0 0 1px #f45c59;
+					box-shadow: inset 0 0 1px $color-extended-error-50;
 				}
 
 				&.sui-#{$block}--open,
 				&.sui-#{$block}--focus {
 					@include modifies-element(control) {
-						box-shadow: inset 0 0 1px #f45c59;
+						box-shadow: inset 0 0 1px $color-extended-error-50;
 					}
 				}
 			}

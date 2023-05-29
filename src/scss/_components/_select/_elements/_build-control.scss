@@ -16,14 +16,14 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(control) {
-				border-width: 1px;
-				border-color: #aaa;
-				border-style: solid;
-				border-radius: 4px;
-				padding: 8px 16px;
-				cursor: pointer;
 				position: relative;
-				min-height: 40px;
+				border-width: $select-control-border-width;
+				border-color: $color-extended-neutral-70;
+				border-style: $select-control-border-style;
+				border-radius: $select-control-border-radius;
+				padding: $select-control-padding-vertical $select-control-padding-horizontal;
+				min-height: $select-control-size-md;
+				cursor: pointer;
 			}
 
 			@include element(selected) {
@@ -32,19 +32,35 @@
 
 			@include modifier(searchable) {
 				@include modifies-element(control) {
-					padding: 0;
+					padding: $select-control-searchable-padding;
 				}
 			}
 
 			@include modifier(smartsearch) {
 				@include modifies-element(input) {
-					padding-left: 44px;
+					padding-left: $select-control-smartsearch-padding-horizontal;
 				}
 			}
 
 			@include modifier(multiselect) {
+				@include modifies-element(selected-options) {
+					position: relative;
+					font-size: $select-control-options-font-size-md;
+					line-height: $select-control-options-font-height-md;
+					font-weight: $select-control-options-font-weight;
+					color: $select-control-options-font-color;
+					background: $color-primary-90;
+					border-radius: $select-control-options-border-radius;
+					padding-top: $select-control-options-padding-vertical;
+					padding-bottom: $select-control-options-padding-vertical;
+					padding-left: $select-control-options-padding-horizontal-left;
+					padding-right: $select-control-options-padding-horizontal-right;
+					margin-right: $select-control-options-margin-horizontal-right;
+					white-space: nowrap;
+				}
+
 				@include modifies-element(control) {
-					padding-right: 60px;
+					padding-right: $select-control-multiselect-padding-horizontal;
 				}
 			}
 		}

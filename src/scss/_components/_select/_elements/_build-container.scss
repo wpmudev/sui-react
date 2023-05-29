@@ -16,21 +16,6 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			position: relative;
-
-			@include modifier(multiselect) {
-				@include modifies-element(selected-options) {
-					position: relative;
-					background: #eaf1fe;
-					border-radius: 4px;
-					font-size: 12px;
-					line-height: 16px;
-					color: #286ef1;
-					font-weight: 500;
-					padding: 4px 24px 4px 8px;
-					margin-right: 4px;
-					white-space: nowrap;
-				}
-			}
 		}
 	}
 }

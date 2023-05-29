@@ -17,7 +17,7 @@
 			@include modifier(focus) {
 				@include modifies-element(control) {
 					border-width: 2px;
-					border-color: #286ef1;
+					border-color: $color-primary-50;
 				}
 			}
 		}

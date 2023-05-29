@@ -14,10 +14,10 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            .sui-checkbox{
-                font-size: 13px;
-                line-height: 24px;
-                width: 100%;
+            .sui-checkbox {
+                font-size: $select-checkbox-font-size-md;
+                line-height: $select-checkbox-font-height-md;
+                width: $select-checkbox-container-size;
             }
 		}
 	}

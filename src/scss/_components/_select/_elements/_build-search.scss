@@ -16,12 +16,12 @@
 		@include block($block) {
             @include element(search) {
 				position: relative;
-                padding: 8px 8px 0;
-                border-style: solid;
-                border-bottom: 0;
+				border-bottom: 0;
                 border-top: 0;
-				border-width: 2px;
-				border-color: #286ef1;
+                padding: $select-search-padding-horizontal $select-search-padding-vertical 0;
+                border-style: $select-search-border-style;
+				border-width: $select-search-border-width;
+				border-color: $select-search-border-color;
             }
 		}
 	}

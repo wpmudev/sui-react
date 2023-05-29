@@ -16,20 +16,20 @@
 		@include block($block) {
 			@include modifier(hover) {
 				@include modifies-element(control) {
-					border-color: #286ef1;
+					border-color: $color-primary-50;
 				}
 			}
 
 			@include element(dropdown) {
 				@include modifier(option) {
 					&:hover {
-						color: #286ef1;
+						color: $color-primary-50;
 					}
 				}
 
 				@include modifier(selected) {
 					&:hover {
-						color: #fff;
+						color: $color-extended-neutral-100;
 					}
 				}
 			}

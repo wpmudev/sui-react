@@ -18,18 +18,18 @@
 			@include modifier(open) {
                 @include modifies-element(control) {
                     border-width: 2px;
-					border-color: #286ef1;
+					border-color: $color-primary-50;
                     border-bottom-left-radius: 0;
 					border-bottom-right-radius: 0;
 					border-bottom: 0;
-					box-shadow: inset 0px -1px 0px #d5e3fd;
+					box-shadow: inset 0px -1px 0px $color-primary-70;
                 }
 
                 @include modifies-element(input) {
                     border-bottom-left-radius: 0;
 					border-bottom-right-radius: 0;
 					border-bottom: 0;
-					box-shadow: inset 0px -1px 0px #d5e3fd;
+					box-shadow: inset 0px -1px 0px $color-primary-70;
                 }
             }
 		}

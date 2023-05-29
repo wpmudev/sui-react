@@ -18,26 +18,30 @@
                     min-height: 32px;
                 }
 
-                &.sui-select--multiselect .sui-select__control {
-                    padding-right: 55px;
+                &.sui-#{$block}--searchable {
+                    .sui-#{$block}__input {
+                        padding-left: 12px;
+                    }
                 }
 
-                .sui-checkbox {
-                    font-size: 11px;
+                &.sui-#{$block}--multiselect {
+                    .sui-#{$block}__control {
+                        padding-right: 55px;
+                        line-height: 24px;
+                    }
                 }
 
-                .sui-checkbox__box {
-                    width: 18px;
-                    height: 18px;
+                &.sui-#{$block}--smartsearch {
+                    .sui-#{$block}__icon--close-alt {
+                        font-size: 16px;
+                        right: 12px;
+                    }
                 }
 
-                .sui-select__icon--close-alt {
-                    font-size: 16px;
-                    right: 12px;
-                }
-
-                .sui-select--multiselect .sui-select__icon--close-alt {
-                    right: 34px;
+                .sui-#{$block}--multiselect {
+                    .sui-#{$block}__icon--close-alt {
+                        right: 34px;
+                    }
                 }
 
                 .sui-#{$block}__dropdown--option {
@@ -45,17 +49,37 @@
                     padding: 4px 12px;
                 }
 
-                &.sui-select--searchable .sui-select__control {
-                    padding: 0;
+                &.sui-#{$block}--searchable {
+                    .sui-#{$block}__control {
+                        padding: 0;
+                    }
                 }
 
-                .sui-select__dropdown--option .sui-select__icon {
-                    padding-right: 6px;
+                .sui-#{$block}__dropdown--option {
+                    .sui-#{$block}__icon {
+                        padding-right: 6px;
+                    }
                 }
 
-                .sui-select__icon--search {
+                .sui-#{$block}__icon--search {
                     left: 10px;
                     font-size: 16px;
+                }
+
+                @include modifies-element(search) {
+                    .sui-#{$block}__icon {
+                        bottom: 5px;
+                        left: 20px;
+                        font-size: 12px;
+                    }
+                }
+
+                .sui-checkbox {
+                    font-size:  $select-checkbox-font-size-sm;
+                    .sui-checkbox__box {
+                        width: $select-checkbox-size-sm;
+                        height: $select-checkbox-size-sm;
+                    }
                 }
 			}
 		}

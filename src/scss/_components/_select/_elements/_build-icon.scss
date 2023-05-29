@@ -33,17 +33,17 @@
                 @include modifier(search) {
                     left: 16px;
                     font-size: 20px;
-                    color: #737373;
+                    color: $color-extended-neutral-60;
                 }
 
                 @include modifier(close-alt) {
                     font-size: 20px;
                     pointer-events: all;
-                    color: #aaa;
+                    color: $color-extended-neutral-70;
                     right: 16px;
 
                     &:hover {
-                        color: #737373;
+                        color: $color-extended-neutral-60;
                     }
                 }
             }
@@ -52,7 +52,7 @@
                 .sui-#{$block}__icon {
                     font-size: 12px;
                     position: absolute;
-                    bottom: 10px;
+                    bottom: 5px;
                     left: 20px;
                 }
             }
