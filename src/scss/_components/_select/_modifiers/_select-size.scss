@@ -5,29 +5,32 @@
 		@include block($block) {
 			@include modifier(sm) {
 				@include modifies-element(control) {
-                    font-size: 12px;
-                    line-height: 16px;
-                    padding: 8px 32px 8px 12px;
-                    min-height: 32px;
+                    font-size: $select-control-options-font-size-md;
+                    line-height: $select-control-options-font-height-md;
+                    padding-top: $select-control-padding-sm-vertical;
+                    padding-bottom: $select-control-padding-sm-vertical;
+                    padding-left: $select-control-padding-sm-horizontal-left;
+                    padding-right: $select-control-padding-sm-horizontal-right;
+                    min-height: $select-control-size-sm;
                 }
 
                 @include modifies-element(input) {
-                    font-size: 12px;
-                    line-height: 16px;
-                    padding: 8px 32px;
-                    min-height: 32px;
+                    font-size: $select-input-default-font-size-sm;
+                    line-height: $select-input-default-font-height-sm;
+                    padding: $select-input-default-padding-vertical $select-input-default-padding-horizontal-md;
+                    min-height: $select-control-size-sm;
                 }
 
                 &.sui-#{$block}--searchable {
                     .sui-#{$block}__input {
-                        padding-left: 12px;
+                        padding-left: $select-input-default-padding-horizontal-xs;
                     }
                 }
 
                 &.sui-#{$block}--multiselect {
                     .sui-#{$block}__control {
                         padding-right: 55px;
-                        line-height: 24px;
+                        line-height: $select-input-default-font-height-md;
                     }
                 }
 

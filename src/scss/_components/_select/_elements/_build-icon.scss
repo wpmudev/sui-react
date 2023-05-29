@@ -26,21 +26,20 @@
 
             @include element(icon) {
 
-                @include modifier(chevron-down, chevron-up) {
+                @include modifier(chevron-down, chevron-up, close-alt) {
                     right: 16px;
                 }
 
                 @include modifier(search) {
                     left: 16px;
-                    font-size: 20px;
+                    font-size: $select-icon-font-size-md;
                     color: $color-extended-neutral-60;
                 }
 
                 @include modifier(close-alt) {
-                    font-size: 20px;
-                    pointer-events: all;
+                    font-size: $select-icon-font-size-md;
                     color: $color-extended-neutral-70;
-                    right: 16px;
+                    pointer-events: all;
 
                     &:hover {
                         color: $color-extended-neutral-60;
@@ -50,7 +49,7 @@
 
             @include element(search) {
                 .sui-#{$block}__icon {
-                    font-size: 12px;
+                    font-size: $select-icon-font-size-sm;
                     position: absolute;
                     bottom: 5px;
                     left: 20px;
@@ -60,7 +59,7 @@
             @include element(dropdown) {
                 @include modifier(option) {
                     .sui-#{$block}__icon {
-                        padding-right: 9px;
+                        padding-right: $select-icon-padding-horizontal;
                     }
                 }
             }
@@ -69,7 +68,7 @@
 
                 .sui-#{$block}__icon--close {
                     right: 7px;
-                    font-size: 10px;
+                    font-size: $select-icon-font-size-xs;
                 }
 
                 .sui-#{$block}__icon--close-alt {

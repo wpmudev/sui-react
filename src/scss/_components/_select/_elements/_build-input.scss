@@ -18,7 +18,7 @@
             @include element(input) {
                 font-size: $select-input-default-font-size-md;
                 line-height: $select-input-default-font-height-md;
-                padding: $select-input-default-padding-vertical $select-input-default-padding-horizontal;
+                padding: $select-input-default-padding-vertical $select-input-default-padding-horizontal-sm;
                 margin: $select-input-default-margin;
                 border-width: $select-input-default-border-width;
                 border-radius: $select-input-default-border-radius;
