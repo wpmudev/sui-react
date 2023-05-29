@@ -32,12 +32,12 @@
 
                 @include modifier(search) {
                     left: 16px;
-                    font-size: $select-icon-font-size-md;
+                    font-size: $select-icon-font-size-lg;
                     color: $color-extended-neutral-60;
                 }
 
                 @include modifier(close-alt) {
-                    font-size: $select-icon-font-size-md;
+                    font-size: $select-icon-font-size-lg;
                     color: $color-extended-neutral-70;
                     pointer-events: all;
 

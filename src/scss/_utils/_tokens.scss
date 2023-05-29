@@ -1,6 +1,6 @@
 
 // Do not edit directly
-// Generated on Mon, 29 May 2023 11:32:57 GMT
+// Generated on Mon, 29 May 2023 12:29:13 GMT
 
 $avatar-container-size-sm: 24px;
 $avatar-container-size-md: 32px;
@@ -398,7 +398,8 @@ $select-control-options-padding-vertical: 4px;
 $select-control-options-padding-horizontal-right: 24px;
 $select-control-options-padding-horizontal-left: 8px;
 $select-control-options-margin-horizontal-right: 4px;
-$select-control-multiselect-padding-horizontal: 60px;
+$select-control-multiselect-padding-md-horizontal: 60px;
+$select-control-multiselect-padding-sm-horizontal: 55px;
 $select-control-smartsearch-padding-horizontal: 44px;
 $select-control-searchable-padding: 0;
 $select-dropdown-container-size-width: 100%;
@@ -409,8 +410,11 @@ $select-dropdown-container-padding-horizontal: 0;
 $select-dropdown-container-padding-vertical: 8px;
 $select-dropdown-container-margin: 0;
 $select-dropdown-option-font-size-md: 13px;
+$select-dropdown-option-font-size-sm: 11px;
 $select-dropdown-option-font-height-md: 24px;
-$select-dropdown-option-padding-horizontal: 16px;
+$select-dropdown-option-padding-horizontal-md: 16px;
+$select-dropdown-option-padding-horizontal-sm: 12px;
+$select-dropdown-option-padding-horizontal-xs: 6px;
 $select-dropdown-option-padding-vertical: 4px;
 $select-dropdown-option-margin: 0;
 $select-dropdown-empty-padding: 16px;
@@ -427,10 +431,16 @@ $select-checkbox-font-size-md: 13px;
 $select-checkbox-font-size-sm: 11px;
 $select-checkbox-font-height-md: 24px;
 $select-checkbox-size-sm: 18px;
-$select-icon-font-size-md: 20px;
+$select-icon-font-size-lg: 20px;
+$select-icon-font-size-md: 16px;
 $select-icon-font-size-sm: 12px;
 $select-icon-font-size-xs: 10px;
 $select-icon-padding-horizontal: 9px;
+$select-icon-close-position-right-md: 34px;
+$select-icon-close-position-right-sm: 12px;
+$select-icon-search-position-left-md: 20px;
+$select-icon-search-position-left-sm: 10px;
+$select-icon-search-position-bottom: 5px;
 $select-input-default-size-width: 100%;
 $select-input-default-font-size-md: 15px;
 $select-input-default-font-size-sm: 12px;

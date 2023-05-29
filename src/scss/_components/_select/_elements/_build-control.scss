@@ -60,7 +60,7 @@
 				}
 
 				@include modifies-element(control) {
-					padding-right: $select-control-multiselect-padding-horizontal;
+					padding-right: $select-control-multiselect-padding-md-horizontal;
 				}
 			}
 		}

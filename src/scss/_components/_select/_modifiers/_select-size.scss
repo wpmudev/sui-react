@@ -29,27 +29,27 @@
 
                 &.sui-#{$block}--multiselect {
                     .sui-#{$block}__control {
-                        padding-right: 55px;
+                        padding-right: $select-control-multiselect-padding-sm-horizontal;
                         line-height: $select-input-default-font-height-md;
                     }
                 }
 
                 &.sui-#{$block}--smartsearch {
                     .sui-#{$block}__icon--close-alt {
-                        font-size: 16px;
-                        right: 12px;
+                        font-size: $select-icon-font-size-md;
+                        right: $select-icon-close-position-right-sm;
                     }
                 }
 
                 .sui-#{$block}--multiselect {
                     .sui-#{$block}__icon--close-alt {
-                        right: 34px;
+                        right: $select-icon-close-position-right-md;
                     }
                 }
 
                 .sui-#{$block}__dropdown--option {
-                    font-size: 11px;
-                    padding: 4px 12px;
+                    font-size: $select-dropdown-option-font-size-sm;
+                    padding: $select-dropdown-option-padding-vertical $select-dropdown-option-padding-horizontal-sm;
                 }
 
                 &.sui-#{$block}--searchable {
@@ -60,20 +60,20 @@
 
                 .sui-#{$block}__dropdown--option {
                     .sui-#{$block}__icon {
-                        padding-right: 6px;
+                        padding-right: $select-dropdown-option-padding-horizontal-xs;
                     }
                 }
 
                 .sui-#{$block}__icon--search {
-                    left: 10px;
-                    font-size: 16px;
+                    font-size: $select-icon-font-size-md;
+                    left: $select-icon-search-position-left-sm;
                 }
 
                 @include modifies-element(search) {
                     .sui-#{$block}__icon {
-                        bottom: 5px;
-                        left: 20px;
-                        font-size: 12px;
+                        font-size: $select-icon-font-size-sm;
+                        left: $select-icon-search-position-left-md;
+                        bottom: $select-icon-search-position-bottom;
                     }
                 }
 
