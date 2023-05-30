@@ -321,6 +321,18 @@
             }
         },
         "icon": {
+            "container": {
+                "position": {
+                    "vertical": {
+                        "value": "50%",
+                        "type": "other"
+                    },
+                    "horizontal": {
+                        "value": "16px",
+                        "type": "other"
+                    }
+                }
+            },
             "font": {
                 "size": {
                     "lg": {
@@ -350,12 +362,20 @@
             "close": {
                 "position": {
                     "right": {
+                        "lg": {
+                            "value": "37px",
+                            "type": "spacing"
+                        },
                         "md": {
                             "value": "34px",
                             "type": "spacing"
                         },
                         "sm": {
                             "value": "12px",
+                            "type": "spacing"
+                        },
+                        "xs": {
+                            "value": "7px",
                             "type": "spacing"
                         }
                     }

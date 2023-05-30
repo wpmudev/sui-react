@@ -18,20 +18,20 @@
             @include element(control) {
                 .sui-#{$block}__icon {
                     position: absolute;
-                    top: 50%;
                     line-height: normal;
-                    transform: translateY(-50%);
+                    top: $select-icon-container-position-vertical;
+                    transform: translateY(-$select-icon-container-position-vertical);
                 }
             }
 
             @include element(icon) {
 
                 @include modifier(chevron-down, chevron-up, close-alt) {
-                    right: 16px;
+                    right: $select-icon-container-position-horizontal;
                 }
 
                 @include modifier(search) {
-                    left: 16px;
+                    left: $select-icon-container-position-horizontal;
                     font-size: $select-icon-font-size-lg;
                     color: $color-extended-neutral-60;
                 }
@@ -51,8 +51,8 @@
                 .sui-#{$block}__icon {
                     font-size: $select-icon-font-size-sm;
                     position: absolute;
-                    bottom: 5px;
-                    left: 20px;
+                    bottom: $select-icon-search-position-bottom;
+                    left: $select-icon-search-position-left-md;
                 }
             }
 
@@ -67,12 +67,12 @@
             @include modifier(multiselect) {
 
                 .sui-#{$block}__icon--close {
-                    right: 7px;
+                    right: $select-icon-close-position-right-xs;
                     font-size: $select-icon-font-size-xs;
                 }
 
                 .sui-#{$block}__icon--close-alt {
-                    right: 37px;
+                    right: $select-icon-close-position-right-lg;
                 }
             }
 		}
