@@ -1,0 +1,25 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Select Focus
+/// This function creates styles for select focus state
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin select-focus($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(focus) {
+				@include modifies-element(control) {
+					border-width: 2px;
+					border-color: $color-primary-50;
+				}
+			}
+		}
+	}
+}
