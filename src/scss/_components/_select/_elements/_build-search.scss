@@ -23,6 +23,13 @@
 				border-width: $select-search-border-width;
 				border-color: $select-search-border-color;
             }
+
+			@include modifier(multiselect) {
+				@include modifies-element(search) {
+					border-top: 0;
+					border-bottom: 0;
+				}
+			}
 		}
 	}
 }
