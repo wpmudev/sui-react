@@ -1,14 +1,18 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { Tick } from './elements/tick.js';
 
-export const Checkbox = ({label, defaultValue = false, isLabelHidden = false, isSmall = false, isDisabled = false}) => {
+export const Checkbox = ({label, defaultValue = false, isLabelHidden = false, isSmall = false, isDisabled = false, ...props}) => {
 	const is = {};
 	const set = {};
 
 	[is.checked, set.checked] = useState(defaultValue);
 	[is.hover, set.hover] = useState(false);
 	[is.focus, set.focus] = useState(false);
+
+	useEffect(() => {
+		set.checked(defaultValue);
+	}, [defaultValue]);
 
 	// Define container props
 	set.containerProps = {
@@ -31,6 +35,7 @@ export const Checkbox = ({label, defaultValue = false, isLabelHidden = false, is
 		checked: is.checked,
 		disabled: isDisabled,
 		onChange: () => set.checked(!is.checked),
+		...props
 	};
 
 	// Define box props
