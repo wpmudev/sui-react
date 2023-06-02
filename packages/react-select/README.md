@@ -1,11 +1,11 @@
-# `@wpmudev/react-button`
+# `@wpmudev/react-select`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactButton = require('@wpmudev/react-button');
+const reactSelect = require('@wpmudev/react-select');
 
 // TODO: DEMONSTRATE API
 ```
