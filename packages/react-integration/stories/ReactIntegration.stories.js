@@ -26,7 +26,7 @@ export const Integration = ({...args}) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: '#fff',
+		background: '#f8f8f8',
 	};
 
 	return (
