@@ -8,6 +8,8 @@ import React, {
 import { Button as SuiButton } from '@wpmudev/react-button';
 import { isEmpty, isUndefined, isFunction } from '@wpmudev/react-utils';
 
+import { Icon } from './elements/tooltip-icon';
+
 // Build "Tooltip" component.
 const Tooltip = ({
 	label,
@@ -46,8 +48,22 @@ const Tooltip = ({
 	// tooltip custom width
 	set.tooltipWidth = {};
 
-	// tooltip type button or text
-	set.tag = 'button' === type ? SuiButton : 'span';
+	// // tooltip type button or text
+	// set.tag = 'button' === type ? SuiButton : 'span';
+
+	// tooltip type button, icon or text.
+	switch (type) {
+		case 'button':
+			set.tag = SuiButton;
+			break;
+		
+		case 'icon':
+			set.tag = Icon;
+			break;
+
+		default:
+			set.tag = 'span';
+	}
 
 	// Custom tooltip width
 	if (is.customWidth) {
