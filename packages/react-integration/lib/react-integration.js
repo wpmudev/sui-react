@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { isUndefined, isEmpty } from '@wpmudev/react-utils';
+import { isUndefined, isEmpty, isFunction } from '@wpmudev/react-utils';
 
-import { Toggle } from "../../react-toggle/lib/react-toggle";
-import { Tooltip } from "../../react-tooltip/lib/react-tooltip";
-import { IconButton } from "../../react-icon-button/lib/react-icon-button";
-import { Tag } from "../../react-tag/lib/react-tag";
+import { Toggle } from "@wpmudev/react-toggle";
+import { Tooltip } from "@wpmudev/react-tooltip";
+import { IconButton } from "@wpmudev/react-icon-button";
+import { Tag } from "@wpmudev/react-tag";
 
-export const Integration = ({ title, description, additionalInfo = '', image, isDisabled = false , isActive = false, isSettings = false, isPro = false }) => {
+export const Integration = ({ title, description, additionalInfo = '', image, isDisabled = false , isActive = false, isSettings = false, isPro = false, onSettingsClick, onClick }) => {
 	const has = {};
 	const set = {};
 
@@ -40,12 +40,33 @@ export const Integration = ({ title, description, additionalInfo = '', image, is
 		defaultValue: has.active,
 		isLabelHidden: true,
 		isDisabled: set.disabled,
-		onClick: () => set.active(!has.active),
+		onClick: (e) => {
+			set.active(!has.active);
+
+			if (isFunction(onClick)) {
+				onClick(e);
+			}
+		},
 		onMouseEnter: () => set.hover(true),
 		onMouseDownCapture: () => set.focus(true),
 		onMouseUpCapture: () => set.focus(true),
 		onMouseLeave: () => set.hover(false),
 		onBlurCapture: () => set.focus(false),
+	}
+
+	// Settings button props.
+	set.settingsProps = {
+		icon: "settings",
+		label: "settings",
+		appearance: "tertiary",
+		color: "black",
+		isSmall: true,
+		isDisabled: set.disabled,
+		onClick: (e) => {
+			if (isFunction(onSettingsClick)) {
+				onSettingsClick(e);
+			}
+		},
 	}
 
 	if (has.active && !isDisabled) {
@@ -70,7 +91,7 @@ export const Integration = ({ title, description, additionalInfo = '', image, is
 			<div className="sui-integration__header">
 				<img src={set.icon.src} alt={set.icon.alt} className="sui-integration__icon" />
 				{isSettings && has.active && (
-					<IconButton icon="settings" label="settings" appearance="tertiary" color="black" isSmall={true} isDisabled={set.disabled} />
+					<IconButton {...set.settingsProps}/>
 				)}
 				<Toggle {...set.toggleProps} />
 			</div>
