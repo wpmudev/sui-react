@@ -15,10 +15,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
             @include element(description) {
-                font-size: 13px;
-                line-height: 24px;
-                color: #505050;
-                margin: 16px 0 0;
+                font-size: $integration-font-size-sm;
+                line-height: $integration-font-height-sm;
+                color: $color-extended-neutral-50;
+                margin: $integration-spacing-margin-vertical 0 0;
             }
 		}
 	}

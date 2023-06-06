@@ -1,4 +1,4 @@
-@use "sass:map";
+    @use "sass:map";
 
 @use "../../../_utils/utils" as *;
 
@@ -16,9 +16,9 @@
 		@include block($block) {
             @include element(title) {
                 display: inline-block;
-                font-size: 18px;
-                line-height: 32px;
-                margin: 0 8px 0 0;
+                font-size: $integration-font-size-md;
+                line-height: $integration-font-height-md;
+                margin: 0 $integration-spacing-margin-horizontal 0 0;
             }
 		}
 	}
