@@ -8,6 +8,12 @@ const Toggle = ({
 	isLabelHidden = false,
 	isDisabled = false,
 	onClick,
+	onMouseEnter,
+	onMouseLeave,
+	onMouseDownCapture,
+	onMouseUpCapture,
+	onBlurCapture,
+	onChange,
 	...props
 }) => {
 	const has = {};
@@ -33,15 +39,41 @@ const Toggle = ({
 	// Define container props
 	set.containerProps = {
 		className: 'sui-toggle',
-		onMouseEnter: () => {
+		onMouseEnter: (e) => {
 			set.hover(true);
+			
+			if (isFunction(onMouseEnter)) {
+				onMouseEnter(e);
+			}
 		},
-		onMouseDownCapture: () => set.focus(true),
-		onMouseUpCapture: () => set.focus(true),
-		onMouseLeave: () => {
+		onMouseDownCapture: (e) => { 
+			set.focus(true);
+
+			if (isFunction(onMouseDownCapture)) {
+				onMouseDownCapture(e);
+			}
+		},
+		onMouseUpCapture: (e) => {
+			set.focus(true);
+
+			if (isFunction(onMouseUpCapture)) {
+				onMouseUpCapture(e);
+			}
+		},
+		onMouseLeave: (e) => {
 			set.hover(false);
+
+			if (isFunction(onMouseLeave)) {
+				onMouseLeave(e);
+			}
 		},
-		onBlurCapture: () => set.focus(false),
+		onBlurCapture: (e) => {
+			set.focus(false);
+
+			if (isFunction(onBlurCapture)) {
+				onBlurCapture(e);
+			}
+		},
 	};
 
 	// Define input props
