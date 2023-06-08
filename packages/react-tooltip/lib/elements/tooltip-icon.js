@@ -11,7 +11,7 @@ const Icon = ({ name, size, ...props }) => {
 
 	if (!has.name) {
 		throw new Error(
-			`Required parameter is empty. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Input\n\nThe "name" parameter in the icon element is required and must not be empty.\n\n`
+			`Required parameter is empty. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Tooltip\n\nThe "name" parameter in the icon element is required and must not be empty.\n\n`
 		);
 	}
 
@@ -30,9 +30,6 @@ const Icon = ({ name, size, ...props }) => {
 			set.class += ' suicons--md';
 			break;
 	}
-
-	// Define integration class.
-	set.class += ' sui-integration__icon';
 
 	return <span className={set.class} aria-hidden="true" {...props} />;
 };

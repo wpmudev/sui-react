@@ -14,6 +14,7 @@ import { Icon } from './elements/tooltip-icon';
 const Tooltip = ({
 	label,
 	type = 'button',
+	icon,
 	className,
 	position = 'top',
 	customWidth,
@@ -38,6 +39,7 @@ const Tooltip = ({
 		!isEmpty(customMobileWidth) && !isUndefined(customMobileWidth);
 	is.children = !isUndefined(children) && !isEmpty(children);
 	is.className = !isUndefined(className) && !isEmpty(className);
+	is.icon = !isUndefined(icon) && !isEmpty(icon);
 
 	// Renders tooltip class name.
 	set.class = 'sui-tooltip';
@@ -48,22 +50,8 @@ const Tooltip = ({
 	// tooltip custom width
 	set.tooltipWidth = {};
 
-	// // tooltip type button or text
-	// set.tag = 'button' === type ? SuiButton : 'span';
-
-	// tooltip type button, icon or text.
-	switch (type) {
-		case 'button':
-			set.tag = SuiButton;
-			break;
-		
-		case 'icon':
-			set.tag = Icon;
-			break;
-
-		default:
-			set.tag = 'span';
-	}
+	// tooltip type button or text
+	set.tag = 'button' === type ? SuiButton : 'span';
 
 	// Custom tooltip width
 	if (is.customWidth) {
@@ -85,6 +73,12 @@ const Tooltip = ({
 
 	// set position
 	set.class += ' sui-tooltip--' + position;
+
+	// set tag for icon
+	if (is.icon) {
+		set.tag = Icon;
+		set.class += ' sui-tooltip__icon';
+	}
 
 	// when escape key is pressed close the tooltip
 	const escFunction = useCallback(
@@ -139,9 +133,10 @@ const Tooltip = ({
 							onMouseLeave(e);
 						}
 					},
+					...(is.icon && { name: icon }),
 					...props,
 				},
-				label
+				!is.icon && label
 			)}
 			{!isUndefined(is.children) &&
 				!isEmpty(is.children) &&
