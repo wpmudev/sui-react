@@ -23,7 +23,7 @@ const Box = ({ title, icon, headerLeft, headerRight, children }) => {
 		<div className={set.class}>
 			{has.title && (
 				<BoxGroup isInline={true}>
-					<Fragment slot="left">
+					<div slot="left">
 						{has.icon && (
 							<span className={`suicons suicons--${icon} suicons--lg sui-box-group__item`} aria-hidden="true" />
 						)}
@@ -33,10 +33,10 @@ const Box = ({ title, icon, headerLeft, headerRight, children }) => {
 							</h2>
 						)}
 						{has.left && headerLeft}
-					</Fragment>
-					<Fragment {...(has.right && {slot: 'right'})}>
+					</div>
+					<div {...(has.right && {slot: 'right'})}>
 						{has.right && headerRight}
-					</Fragment>
+					</div>
 				</BoxGroup>
 			)}
 			{children}

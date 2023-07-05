@@ -12,7 +12,7 @@ import image from './images/unreal-person.jpg';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Compound Elements/Recipient',
-	component: Recipient,
+	component: SuiRecipient,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {

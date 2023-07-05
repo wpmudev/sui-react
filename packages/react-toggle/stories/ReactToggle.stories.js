@@ -10,7 +10,7 @@ import docs from './ReactToggle.mdx';
 // Configure default options
 export default {
 	title: 'SUI/Components/Simple Elements/Toggle',
-	// component: SuiToggle,
+	component: SuiToggle,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {

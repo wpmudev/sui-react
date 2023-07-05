@@ -9,7 +9,7 @@ import docs from './ReactTag.mdx';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Simple Elements/Tag',
-	component: Tag,
+	component: SuiTag,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
