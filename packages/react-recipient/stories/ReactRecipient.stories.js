@@ -100,11 +100,12 @@ Recipient.argTypes = {
 	},
 	appearance: {
 		name: 'Appearance',
+		options: ['primary', 'secondary'],
 		control: {
 			type: 'select',
-			options: {
-				'Primary': 'primary',
-				'Secondary': 'secondary'
+			labels: {
+				primary: 'Primary',
+				secondary: 'Secondary'
 			},
 		},
 	},

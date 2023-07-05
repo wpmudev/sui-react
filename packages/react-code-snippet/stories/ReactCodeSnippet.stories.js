@@ -52,12 +52,13 @@ CodeSnippet.args = {
 CodeSnippet.argTypes = {
 	language: {
 		name: 'Code Language',
+		options: ['markup', 'javascript', 'css'],
 		control: {
 			type: 'select',
-			options: {
-				'Language: HTML': 'markup',
-				'Language: Javascript': 'javascript',
-				'Language: CSS': 'css',
+			labels: {
+				markup: 'Language: HTML',
+				javascript: 'Language: Javascript',
+				css: 'Language: CSS',
 			},
 		},
 	},

@@ -60,38 +60,41 @@ Tag.argTypes = {
 	},
 	design: {
 		name: 'Design',
+		options: ['', 'outlined'],
 		control: {
 			type: 'select',
-			options: {
-				'Design: Solid': '',
-				'Design: Outlined': 'outlined',
+			labels: {
+				'': 'Design: Solid',
+				outlined: 'Design: Outlined',
 			},
 		},
 	},
 	color: {
 		name: 'Color',
+		options: ['', 'blue', 'navy', 'yellow', 'red', 'green', 'black', 'white'],
 		control: {
 			type: 'select',
-			options: {
-				'Color: Default': '',
-				'Color: Blue (Information)': 'blue',
-				'Color: Navy Blue': 'navy',
-				'Color: Yellow (Warning)': 'yellow',
-				'Color: Red (Error)': 'red',
-				'Color: Green (Success)': 'green',
-				'Color: Black': 'black',
-				'Color: White': 'white',
+			labels: {
+				'': 'Color: Default',
+				blue: 'Color: Blue (Information)',
+				navy: 'Color: Navy Blue',
+				yellow: 'Color: Yellow (Warning)',
+				red: 'Color: Red (Error)',
+				green: 'Color: Green (Success)',
+				black: 'Color: Black',
+				white: 'Color: White',
 			},
 		},
 	},
 	style: {
 		name: 'Style',
+		options: ['', 'multiline', 'truncated'],
 		control: {
 			type: 'select',
-			options: {
-				'Style: Default': '',
-				'Style: Multiline': 'multiline',
-				'Style: Truncated': 'truncated',
+			labels: {
+				'': 'Style: Default',
+				multiline: 'Style: Multiline',
+				truncated: 'Style: Truncated',
 			},
 		},
 	},
