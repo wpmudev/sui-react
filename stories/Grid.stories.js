@@ -22,6 +22,12 @@ export default {
 	},
 };
 
+// List alignment options.
+const Options = {
+	Stacked: 'stacked',
+	Inline: 'inline',
+};
+
 // Build "Grid" story.
 const Grid = ({
 	size,
@@ -124,12 +130,6 @@ Grid.argTypes = {
 			options: Options,
 		},
 	},
-};
-
-// List alignment options.
-const Options = {
-	Stacked: 'stacked',
-	Inline: 'inline',
 };
 
 // Publish required stories.
