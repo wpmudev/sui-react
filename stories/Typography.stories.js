@@ -41,15 +41,23 @@ const Typography = ({
 			content = <Heading type={sizeHeading}>{children}</Heading>;
 			break;
 
-		case 'subtitle':
+		case 'label':
 			content = (
-				<Subtitle small={'small' === sizeSubtitle ? true : false}>
+				<label className={`sui-${style}`}>
 					{children}
-				</Subtitle>
+				</label>
 			);
 			break;
 
-		case 'caption':
+		case 'tag':
+		case 'helper':
+			content = (
+				<span className={`sui-${style}`}>
+					{children}
+				</span>
+			);
+			break;
+
 		case 'overline':
 			content = <p className={`sui-${style}`}>{children}</p>;
 			break;
@@ -82,7 +90,7 @@ Typography.args = {
 Typography.argTypes = {
 	style: {
 		name: 'Text Style',
-		options: ['heading', 'subtitle', 'paragraph', 'label', 'help-text', 'overline', 'tag'],
+		options: ['heading', 'subtitle', 'paragraph', 'label', 'helper', 'overline', 'tag'],
 		control: {
 			type: 'select',
 			labels: {
@@ -90,7 +98,7 @@ Typography.argTypes = {
 				subtitle: 'Subtitle',
 				paragraph: 'Paragraph',
 				label: 'Label',
-				'help-text': 'Help Text',
+				'helper': 'Help Text',
 				overline: 'Overline',
 				tag: 'Tag',
 			},
@@ -167,14 +175,6 @@ const Heading = ({ type, children }) => {
 	const setType = ' sui-heading--' + type;
 
 	return <h1 {...(hasType && { className: setType })}>{children}</h1>;
-};
-
-// Build "Subtitle" component.
-const Subtitle = ({ small, children }) => {
-	const isSmall = 'boolean' === typeof small && small;
-	const setSmall = isSmall ? ' sui-subtitle--sm' : '';
-
-	return <h2 className={`sui-subtitle${setSmall}`}>{children}</h2>;
 };
 
 // Build "Paragraph" component.

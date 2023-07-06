@@ -78,28 +78,24 @@
 		}
 	}
 
-	@include block(subtitle) {
+	@include block(label) {
 		margin: 0;
 		padding: 0;
 		border: 0;
-		font-size: $subtitle-md-font-size;
-		font-weight: $subtitle-font-weight;
-		line-height: $subtitle-font-height;
-		letter-spacing: $subtitle-font-spacing;
-
-		@include modifier(sm) {
-			font-size: $subtitle-sm-font-size;
-		}
+		font-size: $label-font-size;
+		font-weight: $label-font-weight;
+		line-height: $label-font-height;
+		letter-spacing: $label-font-spacing;
 	}
 
-	@include block(caption) {
+	@include block(helper) {
 		margin: 0;
 		padding: 0;
 		border: 0;
-		font-size: $caption-font-size;
-		font-weight: $caption-font-weight;
-		line-height: $caption-font-height;
-		letter-spacing: $caption-font-spacing;
+		font-size: $helper-font-size;
+		font-weight: $helper-font-weight;
+		line-height: $helper-font-height;
+		letter-spacing: $helper-font-spacing;
 	}
 
 	@include block(overline) {
@@ -111,5 +107,15 @@
 		line-height: $overline-font-height;
 		letter-spacing: $overline-font-spacing;
 		text-transform: uppercase;
+	}
+
+	@include block(tag) {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: $tag-font-size;
+		font-weight: $tag-font-weight;
+		line-height: $tag-font-height;
+		letter-spacing: $tag-font-spacing;
 	}
 }

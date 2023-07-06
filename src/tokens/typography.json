@@ -127,7 +127,7 @@
 			"type": "letterSpacing"
 		}
 	},
-	"help-text": {
+	"helper": {
 		"font-size": {
 			"value": "{font.size.sm} - 1px",
 			"type": "fontSizes"

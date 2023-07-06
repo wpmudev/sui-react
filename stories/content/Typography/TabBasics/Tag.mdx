@@ -2,21 +2,21 @@ import { Section, Code, Snippet, Preview } from '@wpmudev/storybook';
 import dedent from 'dedent';
 
 export const sampleCode = dedent`
-<p class="sui-caption">
+<span class="sui-tag">
 	The quick brown fox jumps over the lazy dog.
-</p>
+</span>
 `;
 
 <Section title="Usage" style={{ paddingRight: 0, paddingLeft: 0 }}>
 	<p>
-		Captions are legend text commonly placed below an image or other media.
-		To get that, add <Code>sui-caption</Code> class name as shown in the
+		Tags are used to highlight specific bits of information and warnings.
+		To get that, add <Code>sui-tag</Code> class name as shown in the
 		example below.
 	</p>
 	<Preview wrapper={true}>
-		<p className="sui-caption" style={{ margin: 0 }}>
+		<span className="sui-tag" style={{ margin: 0 }}>
 			The quick brown fox jumps over the lazy dog.
-		</p>
+		</span>
 	</Preview>
 	<Snippet language="html">{sampleCode}</Snippet>
 </Section>
