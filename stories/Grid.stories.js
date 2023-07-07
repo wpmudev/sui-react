@@ -105,7 +105,7 @@ Grid.argTypes = {
 		},
 	},
 	alignSmall: {
-		name: 'Alignment (≥ 783px)',
+		name: 'Alignment (≥ 600px)',
 		options: Options,
 		control: {
 			type: 'inline-radio',
