@@ -41,15 +41,23 @@ const Typography = ({
 			content = <Heading type={sizeHeading}>{children}</Heading>;
 			break;
 
-		case 'subtitle':
+		case 'label':
 			content = (
-				<Subtitle small={'small' === sizeSubtitle ? true : false}>
+				<label className={`sui-${style}`}>
 					{children}
-				</Subtitle>
+				</label>
 			);
 			break;
 
-		case 'caption':
+		case 'tag':
+		case 'helper':
+			content = (
+				<span className={`sui-${style}`}>
+					{children}
+				</span>
+			);
+			break;
+
 		case 'overline':
 			content = <p className={`sui-${style}`}>{children}</p>;
 			break;
@@ -82,27 +90,31 @@ Typography.args = {
 Typography.argTypes = {
 	style: {
 		name: 'Text Style',
+		options: ['heading', 'subtitle', 'paragraph', 'label', 'helper', 'overline', 'tag'],
 		control: {
 			type: 'select',
-			options: {
-				Heading: 'heading',
-				Subtitle: 'subtitle',
-				Paragraph: 'paragraph',
-				Caption: 'caption',
-				Overline: 'overline',
+			labels: {
+				heading: 'Heading',
+				subtitle: 'Subtitle',
+				paragraph: 'Paragraph',
+				label: 'Label',
+				'helper': 'Help Text',
+				overline: 'Overline',
+				tag: 'Tag',
 			},
 		},
 	},
 	sizeHeading: {
 		name: 'Heading Size',
+		options: ['h1', 'h2', 'h3', 'h4', 'h5'],
 		control: {
 			type: 'select',
-			options: {
-				'Heading 1': 'h1',
-				'Heading 2': 'h2',
-				'Heading 3': 'h3',
-				'Heading 4': 'h4',
-				'Heading 5': 'h5',
+			labels: {
+				h1: 'Heading 1',
+				h2: 'Heading 2',
+				h3: 'Heading 3',
+				h4: 'Heading 4',
+				h5: 'Heading 5',
 			},
 		},
 		if: {
@@ -112,11 +124,12 @@ Typography.argTypes = {
 	},
 	sizeSubtitle: {
 		name: 'Font Size',
+		options: ['normal', 'small'],
 		control: {
 			type: 'inline-radio',
-			options: {
-				Normal: 'normal',
-				Small: 'small',
+			labels: {
+				normal: 'Normal',
+				small: 'Small',
 			},
 		},
 		if: {
@@ -126,11 +139,12 @@ Typography.argTypes = {
 	},
 	sizeBody: {
 		name: 'Font Size',
+		options: ['normal', 'small'],
 		control: {
 			type: 'inline-radio',
 			options: {
-				Normal: 'normal',
-				Small: 'small',
+				normal: 'Normal',
+				small: 'Small',
 			},
 		},
 		if: {
@@ -140,12 +154,13 @@ Typography.argTypes = {
 	},
 	align: {
 		name: 'Alignment',
+		options: ['left', 'center', 'right'],
 		control: {
 			type: 'inline-radio',
-			options: {
-				Left: 'left',
-				Center: 'center',
-				Right: 'right',
+			labels: {
+				left: 'Left',
+				center: 'Center',
+				right: 'Right',
 			},
 		},
 	},
@@ -160,14 +175,6 @@ const Heading = ({ type, children }) => {
 	const setType = ' sui-heading--' + type;
 
 	return <h1 {...(hasType && { className: setType })}>{children}</h1>;
-};
-
-// Build "Subtitle" component.
-const Subtitle = ({ small, children }) => {
-	const isSmall = 'boolean' === typeof small && small;
-	const setSmall = isSmall ? ' sui-subtitle--sm' : '';
-
-	return <h2 className={`sui-subtitle${setSmall}`}>{children}</h2>;
 };
 
 // Build "Paragraph" component.
