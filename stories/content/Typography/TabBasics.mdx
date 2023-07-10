@@ -1,9 +1,10 @@
 import { Section, Switcher } from '@wpmudev/storybook';
 
-import Subtitle from './TabBasics/Subtitle.mdx';
+import Label from './TabBasics/Label.mdx';
 import Paragraph from './TabBasics/Paragraph.mdx';
-import Caption from './TabBasics/Caption.mdx';
+import Tag from './TabBasics/Tag.mdx';
 import Overline from './TabBasics/Overline.mdx';
+import Helper from './TabBasics/Helper.mdx';
 
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>
@@ -19,17 +20,20 @@ import Overline from './TabBasics/Overline.mdx';
 
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<Switcher>
-		<div label="Subtitle" value="subtitle">
-			<Subtitle />
+		<div label="Label" value="label">
+			<Label />
 		</div>
 		<div label="Paragraph" value="paragraph">
 			<Paragraph />
 		</div>
-		<div label="Caption" value="caption">
-			<Caption />
+		<div label="Tag" value="tag">
+			<Tag />
 		</div>
 		<div label="Overline" value="overline">
 			<Overline />
+		</div>
+		<div label="Helper" value="helper">
+			<Helper />
 		</div>
 	</Switcher>
 </Section>
