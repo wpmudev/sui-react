@@ -111,13 +111,14 @@ Button.args = {
 Button.argTypes = {
 	example: {
 		name: 'Example',
+		options: ['link', 'button', 'button-load', 'label-icon'],
 		control: {
 			type: 'select',
-			options: {
-				'Example: Link': 'link',
-				'Example: Button': 'button',
-				'Example: Loading': 'button-load',
-				'Example: Label + Icon': 'label-icon',
+			labels: {
+				link: 'Example: Link',
+				button: 'Example: Button',
+				'button-load': 'Example: Loading',
+				'label-icon': 'Example: Label + Icon',
 			},
 		},
 	},
@@ -133,9 +134,9 @@ Button.argTypes = {
 	},
 	target: {
 		name: 'Target',
+		options: ['_self', '_blank'],
 		control: {
-			type: 'select',
-			options: ['_self', '_blank'],
+			type: 'select'
 		},
 		if: {
 			arg: 'example',
@@ -154,13 +155,14 @@ Button.argTypes = {
 	},
 	appearance: {
 		name: 'Appearance',
+		options: ['', 'primary', 'secondary', 'tertiary'],
 		control: {
 			type: 'select',
-			options: {
-				'-': '',
-				Primary: 'primary',
-				Secondary: 'secondary',
-				Tertiary: 'tertiary',
+			labels: {
+				'': '-',
+				primary: 'Primary',
+				secondary: 'Secondary',
+				tertiary: 'Tertiary',
 			},
 		},
 		if: {
@@ -170,15 +172,16 @@ Button.argTypes = {
 	},
 	color: {
 		name: 'Color',
+		options: ['', 'blue', 'black', 'red', 'navy', 'white'],
 		control: {
 			type: 'select',
-			options: {
-				'-': '',
-				Blue: 'blue',
-				Black: 'black',
-				Red: 'red',
-				Navy: 'navy',
-				White: 'white',
+			labels: {
+				'': '-',
+				blue: 'Blue',
+				black: 'Black',
+				red: 'Red',
+				navy: 'Navy',
+				white: 'White',
 			},
 		},
 		if: {

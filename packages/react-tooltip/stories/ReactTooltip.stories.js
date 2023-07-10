@@ -9,7 +9,7 @@ import docs from './ReactTooltip.mdx';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Simple Elements/Tooltip',
-	component: Tooltip,
+	component: SuiTooltip,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -113,12 +113,13 @@ Tooltip.args = {
 Tooltip.argTypes = {
 	example: {
 		name: 'Example',
+		options: ['link', 'button', 'text'],
 		control: {
 			type: 'select',
-			options: {
-				'Example: Link': 'link',
-				'Example: Button': 'button',
-				'Example: Text': 'text',
+			labels: {
+				link: 'Example: Link',
+				button: 'Example: Button',
+				text: 'Example: Text',
 			},
 		},
 	},
@@ -137,9 +138,9 @@ Tooltip.argTypes = {
 	},
 	target: {
 		name: 'Target',
+		options: ['_self', '_blank'],
 		control: {
 			type: 'select',
-			options: ['_self', '_blank'],
 		},
 		if: {
 			arg: 'example',
@@ -148,21 +149,22 @@ Tooltip.argTypes = {
 	},
 	position: {
 		name: 'Position',
+		options: ['top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right',	'left',	'left-top',	'left-bottom', 'right', 'right-top', 'right-bottom'],
 		control: {
 			type: 'select',
-			options: {
-				Top: 'top',
-				'Top Left': 'top-left',
-				'Top Right': 'top-right',
-				Bottom: 'bottom',
-				'Bottom Left': 'bottom-left',
-				'Bottom Right': 'bottom-right',
-				Left: 'left',
-				'Left Top': 'left-top',
-				'Left Bottom': 'left-bottom',
-				Right: 'right',
-				'Right Top': 'right-top',
-				'Right Bottom': 'right-bottom',
+			labels: {
+				top: 'Top',
+				'top-left': 'Top Left',
+				'top-right': 'Top Right',
+				bottom: 'Bottom',
+				'bottom-left': 'Bottom Left',
+				'bottom-right': 'Bottom Right',
+				left: 'Left',
+				'left-top': 'Left Top',
+				'left-bottom': 'Left Bottom',
+				right: 'Right',
+				'right-top': 'Right Top',
+				'right-bottom': 'Right Bottom',
 			},
 		},
 	},

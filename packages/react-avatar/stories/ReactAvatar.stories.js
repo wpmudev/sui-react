@@ -12,7 +12,7 @@ import image from './images/unreal-person.jpg';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Simple Elements/Avatar',
-	component: Avatar,
+	component: SuiAvatar,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -59,11 +59,12 @@ Avatar.args = {
 Avatar.argTypes = {
 	example: {
 		name: 'Example',
+		options: ['icon', 'image'],
 		control: {
 			type: 'select',
-			options: {
-				'Example: Icon Avatar': 'icon',
-				'Example: Image Avatar': 'image'
+			labels: {
+				icon: 'Example: Icon Avatar',
+				image: 'Example: Image Avatar'
 			},
 		},
 	},
@@ -77,14 +78,15 @@ Avatar.argTypes = {
 	},
 	status: {
 		name: 'Status',
+		options: ['none', 'confirmed', 'awaiting', 'not-accepted', 'not-connected'],
 		control: {
 			type: 'select',
-			options: {
-				'Status: None': '',
-				'Status: Confirmed': 'confirmed',
-				'Status: Awaiting': 'awaiting',
-				'Status: Not Accepted': 'not-accepted',
-				'Status: Not Connected': 'not-connected',
+			labels: {
+				none: 'Status: None',
+				confirmed: 'Status: Confirmed',
+				awaiting: 'Status: Awaiting',
+				'not-accepted': 'Status: Not Accepted',
+				'not-connected': 'Status: Not Connected',
 			},
 		},
 	},

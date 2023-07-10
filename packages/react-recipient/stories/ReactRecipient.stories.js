@@ -12,7 +12,7 @@ import image from './images/unreal-person.jpg';
 // Configure default options.
 export default {
 	title: 'SUI/Components/Compound Elements/Recipient',
-	component: Recipient,
+	component: SuiRecipient,
 	parameters: {
 		layout: 'fullscreen',
 		docs: {
@@ -100,11 +100,12 @@ Recipient.argTypes = {
 	},
 	appearance: {
 		name: 'Appearance',
+		options: ['primary', 'secondary'],
 		control: {
 			type: 'select',
-			options: {
-				'Primary': 'primary',
-				'Secondary': 'secondary'
+			labels: {
+				primary: 'Primary',
+				secondary: 'Secondary'
 			},
 		},
 	},
