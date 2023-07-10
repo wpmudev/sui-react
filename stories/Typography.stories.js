@@ -142,7 +142,7 @@ Typography.argTypes = {
 		options: ['normal', 'small'],
 		control: {
 			type: 'inline-radio',
-			labels: {
+			options: {
 				normal: 'Normal',
 				small: 'Small',
 			},

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Unstyled } from '@storybook/blocks';
 
 // Import documentation main page.
 import docs from './content/Colors/Main.mdx';
@@ -345,8 +344,6 @@ Colors.argTypes = {
 		},
 	},
 };
-
-
 
 // Publish required stories.
 export { Colors };

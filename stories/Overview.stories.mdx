@@ -1,6 +1,5 @@
 import { Meta } from '@storybook/addon-docs';
 import { Page } from '@wpmudev/storybook';
-import { Unstyled } from '@storybook/blocks';
 
 import Installation from './content/Overview/Installation.mdx';
 import Usage from './content/Overview/Usage.mdx';
@@ -9,22 +8,20 @@ import '../src/scss/sui-css.scss';
 
 <Meta title="SUI/CSS Framework/Overview" />
 
-<Unstyled>
-	<Page.Tabs
-		title="CSS Framework"
-		subtitle={
-			<>
-				Get started with Shared UI Design System's CSS Framework, which
-				contains a wide range of shorthand utility classes to adjust an
-				element's appearance in your plugin.
-			</>
-		}
-	>
-		<div id="installation" label="Installation">
-			<Installation />
-		</div>
-		<div id="usage" label="Usage">
-			<Usage />
-		</div>
-	</Page.Tabs>
-</Unstyled>
+<Page.Tabs
+	title="CSS Framework"
+	subtitle={
+		<>
+			Get started with Shared UI Design System's CSS Framework, which
+			contains a wide range of shorthand utility classes to adjust an
+			element's appearance in your plugin.
+		</>
+	}
+>
+	<div id="installation" label="Installation">
+		<Installation />
+	</div>
+	<div id="usage" label="Usage">
+		<Usage />
+	</div>
+</Page.Tabs>
