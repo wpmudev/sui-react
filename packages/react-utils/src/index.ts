@@ -1,9 +1,51 @@
+import classnames from 'classnames';
+
 const isNil = (element) => {
 	if (null == element) {
 		return true;
 	}
 
 	return false;
+};
+
+/**
+ * Generate classnames
+ *
+ * @param {string} base
+ * @param {Record<string, string | boolean>} variants
+ * @param {string} extraClassNames extra class names
+ *
+ * @return {string} classnames
+ */
+const generateCN = (base: string, variants = {}, extraClassNames = '') => {
+	// append variant's class name
+	const classes = Object.keys(variants).map((attr) => ({
+		[`${base}--${attr}`]: !!variants[attr],
+	}));
+
+	return classnames(base, classes, extraClassNames);
+};
+
+/**
+ * Returns the content if the condition is true, otherwise returns undefined.
+ *
+ * @param {boolean} condition - Condition to match.
+ * @param {any} content - The content to return if the condition is true.
+ * @param {any} fallback - The fallback to return
+ *
+ * @return {any|undefined} - The content or undefined.
+ */
+export const condContent = (
+	condition,
+	content = null,
+	fallback = undefined
+) => {
+	// use condition as content if passed
+	if (isNull(content)) {
+		content = condition;
+	}
+
+	return !!condition ? content : fallback;
 };
 
 const isNull = (element) => {
@@ -14,9 +56,7 @@ const isNull = (element) => {
 	return false;
 };
 
-const isUndefined = (element) => {
-	return void 0 === element;
-};
+const isUndefined = (element) => 'undefined' === typeof element;
 
 const isObject = (element) => {
 	const isObject = 'object' === typeof element;
@@ -69,7 +109,7 @@ const isEmpty = (element) => {
 };
 
 const isFunction = (element) => {
-	return element && {}.toString.call(element) === '[object Function]';
+	return 'function' === typeof element;
 };
 
 const isString = (element) => {
@@ -92,4 +132,5 @@ export {
 	isEmpty,
 	isFunction,
 	isString,
+	generateCN,
 };
