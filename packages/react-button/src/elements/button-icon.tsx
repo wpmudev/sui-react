@@ -1,4 +1,4 @@
-import React, { memo } from "react"
+import React from "react"
 import { isUndefined, isEmpty, generateCN } from "@wpmudev/react-utils"
 
 interface ButtonIconProps {

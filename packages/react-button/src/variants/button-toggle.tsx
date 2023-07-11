@@ -36,7 +36,7 @@ const ToggleButton = ({
 	}
 
 	// Define button states.
-	const [isChecked, setIsChecked] = useState(isSelected)
+	const [isChecked, setIsChecked] = useState<boolean>(isSelected)
 
 	// Define button actions.
 	const handleChange = useCallback(() => {
