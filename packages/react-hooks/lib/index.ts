@@ -1,10 +1,10 @@
 import { useCallback, useState } from "react"
 
 export interface InteractionTypes {
-	onMouseEnter?: (e: MouseEvent) => void
-	onMouseLeave?: (e: MouseEvent) => void
-	onMouseDownCapture?: (e: MouseEvent) => void
-	onMouseUpCapture?: (e: MouseEvent) => void
+	onMouseEnter?: (e: MouseEvent | unknown) => void
+	onMouseLeave?: (e: MouseEvent | unknown) => void
+	onMouseDownCapture?: (e: MouseEvent | unknown) => void
+	onMouseUpCapture?: (e: MouseEvent | unknown) => void
 	onFocus?: (e: FocusEvent) => void
 	onBlur?: (e: FocusEvent) => void
 	onBlurCapture?: (e: FocusEvent) => void
@@ -65,7 +65,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onMouseEnterCallback = useCallback(
-		(e: MouseEvent) => toggleHover(true, onMouseEnter, e),
+		(e: MouseEvent | unknown) => toggleHover(true, onMouseEnter, e),
 		[onMouseEnter, toggleHover],
 	)
 
@@ -75,7 +75,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onMouseLeaveCallback = useCallback(
-		(e: MouseEvent) => toggleHover(false, onMouseLeave, e),
+		(e: MouseEvent | unknown) => toggleHover(false, onMouseLeave, e),
 		[onMouseLeave, toggleHover],
 	)
 
@@ -85,7 +85,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onMouseDownCaptureCallback = useCallback(
-		(e: MouseEvent) => toggleFocus(false, onMouseDownCapture, e),
+		(e: MouseEvent | unknown) => toggleFocus(false, onMouseDownCapture, e),
 		[onMouseDownCapture, toggleFocus],
 	)
 
@@ -95,7 +95,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onMouseUpCaptureCallback = useCallback(
-		(e: MouseEvent) => toggleFocus(true, onMouseUpCapture, e),
+		(e: MouseEvent | unknown) => toggleFocus(true, onMouseUpCapture, e),
 		[onMouseUpCapture, toggleFocus],
 	)
 
@@ -105,7 +105,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onBlurCaptureCallback = useCallback(
-		(e: MouseEvent) => toggleHover(false, onBlurCapture, e),
+		(e: MouseEvent | unknown) => toggleHover(false, onBlurCapture, e),
 		[onBlurCapture, toggleHover],
 	)
 
@@ -115,7 +115,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onBlurCallback = useCallback(
-		(e: MouseEvent) => toggleFocus(false, onBlur, e),
+		(e: MouseEvent | unknown) => toggleFocus(false, onBlur, e),
 		[onBlur, toggleFocus],
 	)
 
@@ -125,7 +125,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onFocusCallback = useCallback(
-		(e: MouseEvent) => toggleFocus(true, onFocus, e),
+		(e: MouseEvent | unknown) => toggleFocus(true, onFocus, e),
 		[onFocus, toggleFocus],
 	)
 
