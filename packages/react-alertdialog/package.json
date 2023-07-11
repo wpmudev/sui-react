@@ -12,13 +12,13 @@
     }
   ],
   "license": "GPL-2.0",
-  "main": "lib/react-alertdialog.js",
+  "main": "src/react-alertdialog.js",
   "directories": {
-    "lib": "lib",
+    "src": "src",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "src"
   ],
   "publishConfig": {
     "access": "public"
