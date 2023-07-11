@@ -12,6 +12,11 @@
 					display: block;
 				}
 			}
+			@include modifier(is-icon) {
+				.sui-#{$block-name}__icon {
+					padding: 0;
+				}
+			}
 		}
 	}
 }
