@@ -1,9 +1,10 @@
 import React from 'react';
-import { isUndefined, isEmpty } from '@wpmudev/react-utils';
+import { generateCN } from '@wpmudev/react-utils';
 
 // Import required component(s).
-import { Button as Base } from './button-base';
+import { Button as Base } from './button';
 import { Loader } from '../elements/button-loader';
+import { LoadingButtonPropsTypes } from '../types';
 
 // Build "Loading Button" component.
 const LoadingButton = ({
@@ -11,19 +12,19 @@ const LoadingButton = ({
 	className,
 	children,
 	...props
-}) => {
-	const set = {};
-
-	// Define button class.
-	set.class = isLoading ? 'sui-button--loading' : '';
-
-	if (!isUndefined(className) && !isEmpty(className)) {
-		set.class += isLoading ? ' ' + className : className;
-	}
+}: LoadingButtonPropsTypes) => {
+	// Generate class names
+	const classNames = generateCN(
+		'sui-button',
+		{
+			loading: isLoading,
+		},
+		className ?? ''
+	);
 
 	return (
 		<Base
-			className={set.class}
+			className={classNames}
 			aria-live="polite"
 			aria-busy={isLoading}
 			{...props}
