@@ -3,4 +3,7 @@ import { Button } from './variants/button-standard';
 import { LoadingButton } from './variants/button-loading';
 import { ToggleButton } from './variants/button-toggle';
 
-export { Button, LoadingButton, ToggleButton };
+// types
+import { ButtonPropsType } from './types';
+
+export { Button, LoadingButton, ToggleButton, ButtonPropsType };
