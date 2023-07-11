@@ -79,9 +79,12 @@ const Button = ({ example, ...props }) => {
 								return (
 									<StandardButton
 										icon="chevron-left"
+										iconOnly={true}
 										onClick={() => console.log("Go to prev step.")}
 										{...props}
-									/>
+									>
+										Previous
+									</StandardButton>
 								)
 							default:
 								return (
