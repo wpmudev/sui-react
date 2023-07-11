@@ -670,6 +670,10 @@
 		},
 		"extended": {
 			"neutral": {
+				"0": {
+					"value": "#000000",
+					"type": "color"
+				},
 				"10": {
 					"value": "#1A1A1A",
 					"type": "color"
