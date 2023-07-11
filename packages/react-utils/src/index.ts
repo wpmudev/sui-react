@@ -1,12 +1,12 @@
-import classnames from 'classnames';
+import classnames from "classnames"
 
 const isNil = (element) => {
 	if (null == element) {
-		return true;
+		return true
 	}
 
-	return false;
-};
+	return false
+}
 
 /**
  * Generate classnames
@@ -17,14 +17,14 @@ const isNil = (element) => {
  *
  * @return {string} classnames
  */
-const generateCN = (base: string, variants = {}, extraClassNames = '') => {
+const generateCN = (base: string, variants = {}, extraClassNames = "") => {
 	// append variant's class name
 	const classes = Object.keys(variants).map((attr) => ({
 		[`${base}--${attr}`]: !!variants[attr],
-	}));
+	}))
 
-	return classnames(base, classes, extraClassNames);
-};
+	return classnames(base, classes, extraClassNames)
+}
 
 /**
  * Returns the content if the condition is true, otherwise returns undefined.
@@ -38,87 +38,87 @@ const generateCN = (base: string, variants = {}, extraClassNames = '') => {
 export const condContent = (
 	condition,
 	content = null,
-	fallback = undefined
+	fallback = undefined,
 ) => {
 	// use condition as content if passed
 	if (isNull(content)) {
-		content = condition;
+		content = condition
 	}
 
-	return !!condition ? content : fallback;
-};
+	return !!condition ? content : fallback
+}
 
 const isNull = (element) => {
 	if (null === element) {
-		return true;
+		return true
 	}
 
-	return false;
-};
+	return false
+}
 
-const isUndefined = (element) => 'undefined' === typeof element;
+const isUndefined = (element) => "undefined" === typeof element
 
 const isObject = (element) => {
-	const isObject = 'object' === typeof element;
-	const isArray = Array.isArray(element);
+	const isObject = "object" === typeof element
+	const isArray = Array.isArray(element)
 
 	if (isObject && !isArray) {
-		return true;
+		return true
 	}
 
-	return false;
-};
+	return false
+}
 
 const isArray = (element) => {
-	const isObject = 'object' === typeof element;
-	const isArray = Array.isArray(element);
+	const isObject = "object" === typeof element
+	const isArray = Array.isArray(element)
 
 	if (isObject && isArray) {
-		return true;
+		return true
 	}
 
-	return false;
-};
+	return false
+}
 
 const isBoolean = (element) => {
-	if ('boolean' === typeof element) {
-		return true;
+	if ("boolean" === typeof element) {
+		return true
 	}
 
-	return false;
-};
+	return false
+}
 
 const isNumber = (element) => {
-	if ('number' === typeof element) {
-		return true;
+	if ("number" === typeof element) {
+		return true
 	} else {
 		if (!Number.isNaN(element)) {
-			return true;
+			return true
 		}
 	}
 
-	return false;
-};
+	return false
+}
 
 const isEmpty = (element) => {
-	if ('' !== element) {
-		return false;
+	if ("" !== element) {
+		return false
 	}
 
-	return true;
-};
+	return true
+}
 
 const isFunction = (element) => {
-	return 'function' === typeof element;
-};
+	return "function" === typeof element
+}
 
 const isString = (element) => {
-	if ('string' === typeof element) {
-		return true;
+	if ("string" === typeof element) {
+		return true
 	}
 
-	return false;
-};
+	return false
+}
 
 // Publish required function(s).
 export {
@@ -133,4 +133,4 @@ export {
 	isFunction,
 	isString,
 	generateCN,
-};
+}
