@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import { isEmpty, isUndefined } from "@wpmudev/react-utils";
+import React, { Fragment } from 'react';
+import { isEmpty, isUndefined } from '@wpmudev/react-utils';
 
 import { BoxGroup } from './box-group';
 
@@ -12,7 +12,8 @@ const Box = ({ title, icon, headerLeft, headerRight, children }) => {
 	has.title = !isUndefined(title) && !isEmpty(title) ? true : false;
 	has.icon = !isUndefined(icon) && !isEmpty(icon) ? true : false;
 	has.left = !isUndefined(headerRight) && !isEmpty(headerLeft) ? true : false;
-	has.right = !isUndefined(headerRight) && !isEmpty(headerRight) ? true : false;
+	has.right =
+		!isUndefined(headerRight) && !isEmpty(headerRight) ? true : false;
 
 	console.log(`${!isUndefined(headerRight)}`);
 
@@ -25,7 +26,10 @@ const Box = ({ title, icon, headerLeft, headerRight, children }) => {
 				<BoxGroup isInline={true}>
 					<div slot="left">
 						{has.icon && (
-							<span className={`suicons suicons--${icon} suicons--lg sui-box-group__item`} aria-hidden="true" />
+							<span
+								className={`suicons suicons--${icon} suicons--lg sui-box-group__item`}
+								aria-hidden="true"
+							/>
 						)}
 						{has.title && (
 							<h2 className="sui-heading sui-heading--h3 sui-box-group__item">
@@ -34,7 +38,7 @@ const Box = ({ title, icon, headerLeft, headerRight, children }) => {
 						)}
 						{has.left && headerLeft}
 					</div>
-					<div {...(has.right && {slot: 'right'})}>
+					<div {...(has.right && { slot: 'right' })}>
 						{has.right && headerRight}
 					</div>
 				</BoxGroup>
@@ -42,7 +46,7 @@ const Box = ({ title, icon, headerLeft, headerRight, children }) => {
 			{children}
 		</div>
 	);
-}
+};
 
 // Publish component(s)
-export { Box }
+export { Box };
