@@ -176,13 +176,6 @@ $colors-high-contrast: (
 							border-color: $value;
 							background: $value;
 
-							&.sui-#{$block-name}--hover {
-								@if $name != white {
-									border-color: tint($value, 40%);
-									background: tint($value, 40%);
-								}
-							}
-
 							&.sui-#{$block-name}--focus {
 								border-color: $value;
 								outline: 2px solid $value;
