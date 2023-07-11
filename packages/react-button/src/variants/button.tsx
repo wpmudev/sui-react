@@ -31,6 +31,7 @@ const Button = forwardRef<
 		iconLead,
 		iconTrail,
 		children,
+		...restProps
 	} = props;
 
 	// base className
@@ -66,7 +67,7 @@ const Button = forwardRef<
 		disabled: isDisabled,
 		// interaction methods
 		...(interactionMethods ?? {}),
-		...props,
+		...restProps,
 	};
 
 	// Root tag

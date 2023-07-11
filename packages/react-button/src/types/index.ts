@@ -10,7 +10,7 @@ export interface ButtonPropsType
 	// Link URL for the button
 	href: string;
 	// Optional target window or frame to open the link
-	target?: string;
+	target?: '_blank' | '_self';
 	// Optional associated form element for the button
 	htmlFor?: string;
 	// Appearance style of the button

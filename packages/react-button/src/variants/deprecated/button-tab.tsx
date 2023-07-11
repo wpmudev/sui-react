@@ -107,6 +107,7 @@
 // 	}
 //
 // 	if (has.disabled && disabled) {
+
 // 		set.class += ' sui-button--disabled';
 // 	}
 //
