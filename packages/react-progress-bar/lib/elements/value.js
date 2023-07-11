@@ -1,5 +1,5 @@
 import React from 'react';
-import { isUndefined, isEmpty, isNumber } from '@wpmudev/react-utils/lib/react-utils';
+import { isUndefined, isEmpty, isNumber } from '@wpmudev/react-utils';
 
 // Build "value" element
 const Value = ({ value, className }) => {
@@ -29,7 +29,7 @@ const Value = ({ value, className }) => {
 			{value}%
 		</span>
 	);
-}
+};
 
 // Publish component(s)
-export { Value }
+export { Value };

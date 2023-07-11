@@ -1,5 +1,5 @@
 import React from 'react';
-import { isUndefined, isEmpty } from '@wpmudev/react-utils/lib/react-utils';
+import { isUndefined, isEmpty } from '@wpmudev/react-utils';
 
 // Build "label" element
 const Label = ({ className, children }) => {
@@ -22,7 +22,7 @@ const Label = ({ className, children }) => {
 			{children}
 		</span>
 	);
-}
+};
 
 // Publish component(s)
-export { Label }
+export { Label };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { isUndefined, isEmpty, isFunction } from '@wpmudev/react-utils/lib/react-utils';
+import { isUndefined, isEmpty, isFunction } from '@wpmudev/react-utils';
 
 // Import required components
 import { Label } from './elements/label';
@@ -15,7 +15,7 @@ const ProgressBar = ({
 	isInline = false,
 	hasValue = false,
 	hasAction = false,
-	onClick
+	onClick,
 }) => {
 	const has = {};
 	const set = {};
@@ -47,12 +47,21 @@ const ProgressBar = ({
 	return (
 		<div className={set.class}>
 			{has.label && (
-				<Label className={`sui-progress-bar${has.float ? '--float-left' : '__label'}`}>
+				<Label
+					className={`sui-progress-bar${
+						has.float ? '--float-left' : '__label'
+					}`}
+				>
 					{label}
 				</Label>
 			)}
 			{hasValue && (
-				<Value value={value} className={`sui-progress-bar${has.float ? '--float-right' : '__value'}`} />
+				<Value
+					value={value}
+					className={`sui-progress-bar${
+						has.float ? '--float-right' : '__value'
+					}`}
+				/>
 			)}
 			<Indicator value={value} />
 			{hasAction && (
@@ -60,14 +69,17 @@ const ProgressBar = ({
 					<Button
 						appearance="tertiary"
 						color="blue"
-						{...(isFunction(onClick) && {onClick: (e) => onClick(e)})}>
+						{...(isFunction(onClick) && {
+							onClick: (e) => onClick(e),
+						})}
+					>
 						Cancel
 					</Button>
 				</div>
 			)}
 		</div>
 	);
-}
+};
 
 // Publish component(s)
-export { ProgressBar }
+export { ProgressBar };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { isNumber } from '@wpmudev/react-utils/lib/react-utils';
+import { isNumber } from '@wpmudev/react-utils';
 
 // Build "indicator" element
 const Indicator = ({ value, ...args }) => {
@@ -23,11 +23,12 @@ const Indicator = ({ value, ...args }) => {
 			className="sui-progress-bar__indicator"
 			{...(has.value && { value: value })}
 			max="100"
-			{...args}>
+			{...args}
+		>
 			{has.value && `${value}% Complete`}
 		</progress>
 	);
-}
+};
 
 // Publish component(s)
-export { Indicator }
+export { Indicator };
