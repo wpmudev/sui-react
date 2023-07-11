@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react"
 
 // Import required component.
-import { Tooltip as SuiTooltip } from '../lib/react-tooltip';
+import { Tooltip as SuiTooltip } from "../src"
 
 // Import documentation main page.
-import docs from './ReactTooltip.mdx';
+import docs from "./ReactTooltip.mdx"
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Simple Elements/Tooltip',
+	title: "SUI/Components/Simple Elements/Tooltip",
 	component: SuiTooltip,
 	parameters: {
-		layout: 'fullscreen',
+		layout: "fullscreen",
 		docs: {
 			page: docs,
 		},
 	},
-};
+}
 
 // Build "Tooltip" story.
 const Tooltip = ({
@@ -33,26 +33,26 @@ const Tooltip = ({
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: color !== 'white' ? '#fff' : '#333',
-	};
+		background: color !== "white" ? "#fff" : "#333",
+	}
 
-	const set = {};
+	const set = {}
 
-	set.content = 'Tooltip text';
+	set.content = "Tooltip text"
 
-	const props = {};
+	const props = {}
 
-	props.appearance = appearance;
+	props.appearance = appearance
 
-	if ('link' === example) {
-		set.content = 'Tooltip link';
+	if ("link" === example) {
+		set.content = "Tooltip link"
 	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{'button' === example && (
+					{"button" === example && (
 						<SuiTooltip
 							label={label}
 							appearance="primary"
@@ -60,13 +60,13 @@ const Tooltip = ({
 							position={position}
 							customWidth={customWidth}
 							customMobileWidth={customMobileWidth}
-							onClick={() => console.log('Button Clicked.')}
+							onClick={() => console.log("Button Clicked.")}
 						>
 							{set.content}
 						</SuiTooltip>
 					)}
 
-					{'text' === example && (
+					{"text" === example && (
 						<SuiTooltip
 							type="text"
 							label={label}
@@ -78,7 +78,7 @@ const Tooltip = ({
 						</SuiTooltip>
 					)}
 
-					{'link' === example && (
+					{"link" === example && (
 						<SuiTooltip
 							href={href}
 							target={target}
@@ -95,92 +95,105 @@ const Tooltip = ({
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 // Set story arguments.
 Tooltip.args = {
-	example: 'button',
-	href: '',
-	target: '_blank',
-	label: 'Button',
-	position: 'top',
-	customWidth: '',
-	customMobileWidth: '',
-};
+	example: "button",
+	href: "",
+	target: "_blank",
+	label: "Button",
+	position: "top",
+	customWidth: "",
+	customMobileWidth: "",
+}
 
 // Set controls for story arguments.
 Tooltip.argTypes = {
 	example: {
-		name: 'Example',
-		options: ['link', 'button', 'text'],
+		name: "Example",
+		options: ["link", "button", "text"],
 		control: {
-			type: 'select',
+			type: "select",
 			labels: {
-				link: 'Example: Link',
-				button: 'Example: Button',
-				text: 'Example: Text',
+				link: "Example: Link",
+				button: "Example: Button",
+				text: "Example: Text",
 			},
 		},
 	},
 	label: {
-		name: 'Label',
+		name: "Label",
 	},
 	href: {
-		name: 'Link',
+		name: "Link",
 		control: {
-			type: 'text',
+			type: "text",
 		},
 		if: {
-			arg: 'example',
-			eq: 'link',
+			arg: "example",
+			eq: "link",
 		},
 	},
 	target: {
-		name: 'Target',
-		options: ['_self', '_blank'],
+		name: "Target",
+		options: ["_self", "_blank"],
 		control: {
-			type: 'select',
+			type: "select",
 		},
 		if: {
-			arg: 'example',
-			eq: 'link',
+			arg: "example",
+			eq: "link",
 		},
 	},
 	position: {
-		name: 'Position',
-		options: ['top', 'top-left', 'top-right', 'bottom', 'bottom-left', 'bottom-right',	'left',	'left-top',	'left-bottom', 'right', 'right-top', 'right-bottom'],
+		name: "Position",
+		options: [
+			"top",
+			"top-left",
+			"top-right",
+			"bottom",
+			"bottom-left",
+			"bottom-right",
+			"left",
+			"left-top",
+			"left-bottom",
+			"right",
+			"right-top",
+			"right-bottom",
+		],
 		control: {
-			type: 'select',
+			type: "select",
 			labels: {
-				top: 'Top',
-				'top-left': 'Top Left',
-				'top-right': 'Top Right',
-				bottom: 'Bottom',
-				'bottom-left': 'Bottom Left',
-				'bottom-right': 'Bottom Right',
-				left: 'Left',
-				'left-top': 'Left Top',
-				'left-bottom': 'Left Bottom',
-				right: 'Right',
-				'right-top': 'Right Top',
-				'right-bottom': 'Right Bottom',
+				top: "Top",
+				"top-left": "Top Left",
+				"top-right": "Top Right",
+				bottom: "Bottom",
+				"bottom-left": "Bottom Left",
+				"bottom-right": "Bottom Right",
+				left: "Left",
+				"left-top": "Left Top",
+				"left-bottom": "Left Bottom",
+				right: "Right",
+				"right-top": "Right Top",
+				"right-bottom": "Right Bottom",
 			},
 		},
 	},
 	customWidth: {
-		name: 'Custom Width',
+		name: "Custom Width",
 		control: {
-			type: 'number',
+			type: "number",
 		},
 	},
 	customMobileWidth: {
-		name: 'Custom Width (Mobile)',
+		name: "Custom Width (Mobile)",
 		control: {
-			type: 'number',
+			type: "number",
 		},
 	},
-};
+}
 
 // Publish required stories.
-export { Tooltip };
+export { Tooltip }
