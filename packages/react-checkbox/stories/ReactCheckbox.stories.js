@@ -1,30 +1,30 @@
-import React from 'react';
+import React from "react"
 
 // Import required modules
-import { Checkbox as SuiCheckbox } from '../lib/react-checkbox';
+import { Checkbox as SuiCheckbox } from "../src"
 
 // Import documentation
-import docs from './ReactCheckbox.mdx';
+import docs from "./ReactCheckbox.mdx"
 
 // Default settings
 export default {
-	title: 'SUI/Components/Form Elements/Checkbox',
+	title: "SUI/Components/Form Elements/Checkbox",
 	component: SuiCheckbox,
 	parameters: {
-		layout: 'fullscreen',
+		layout: "fullscreen",
 		docs: {
 			page: docs,
 		},
 	},
-};
+}
 
 // Build story
-export const Checkbox = ({...args}) => {
+export const Checkbox = ({ ...args }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: '#fff',
-	};
+		background: "#fff",
+	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
@@ -34,22 +34,22 @@ export const Checkbox = ({...args}) => {
 				</div>
 			</div>
 		</div>
-	);
+	)
 }
 
 // Story props defaults
 Checkbox.args = {
-	label: 'Checkbox label',
+	label: "Checkbox label",
 	isLabelHidden: false,
 	isSmall: false,
 	isDisabled: false,
-};
+}
 
 // Story props settings
 Checkbox.argTypes = {
 	defaultValue: {
 		table: {
-			disable: true
-		}
-	}
-};
+			disable: true,
+		},
+	},
+}
