@@ -1,33 +1,30 @@
-import React from 'react';
+import React from "react"
 
 // Import required component.
-import { Input as SuiInput } from '../lib/react-input';
+import { Input as SuiInput } from "../src"
 
 // Import documentation main page.
-import docs from './ReactInput.mdx';
+import docs from "./ReactInput.mdx"
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Form Elements/Input',
+	title: "SUI/Components/Form Elements/Input",
 	component: SuiInput,
 	parameters: {
-		layout: 'fullscreen',
+		layout: "fullscreen",
 		docs: {
 			page: docs,
 		},
 	},
-};
+}
 
 // Build "Input" story.
-const Input = ({
-	example,
-	...args
-}) => {
+const Input = ({ example, ...args }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: '#fff',
-	};
+		background: "#fff",
+	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
@@ -37,81 +34,91 @@ const Input = ({
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 // Set story arguments.
 Input.args = {
-	example: 'standard',
-	type: 'text',
-	id: 'myCustomId',
-	defaultValue: 'Hello World',
-	isMultiline: false,
+	example: "standard",
+	type: "text",
+	id: "myCustomId",
+	defaultValue: "Hello World",
+	icon: "",
+	iconPosition: "",
+	isMultiLine: false,
 	isSmall: false,
 	isError: false,
 	isReadOnly: true,
 	isDisabled: false,
-};
+}
 
 // Set controls for story arguments.
 Input.argTypes = {
 	example: {
-		name: 'Example',
+		name: "Example",
+		options: ["standard", "readonly"],
 		control: {
-			type: 'select',
-			options: {
-				'Example: Standard': 'standard',
-				'Example: Read Only': 'readonly',
+			type: "select",
+			labels: {
+				standard: "Example: Standard",
+				readonly: "Example: Read Only",
 			},
 		},
 	},
 	type: {
-		name: 'Type',
+		name: "Type",
+		options: ["text", "email", "password", "number", "search", "tel", "url"],
 		control: {
-			type: 'select',
-			options: ['text', 'email', 'password', 'number', 'search', 'tel', 'url']
-		}
+			type: "select",
+		},
 	},
 	id: {
-		name: 'ID',
-		control: 'text'
+		name: "ID",
+		control: "text",
 	},
 	defaultValue: {
-		name: 'Value',
+		name: "Value",
 	},
 	isMultiline: {
-		name: 'Multi Line',
-		control: 'boolean'
+		name: "Multi Line",
+		control: "boolean",
 	},
 	isSmall: {
-		name: 'Small',
-		control: 'boolean'
+		name: "Small",
+		control: "boolean",
 	},
 	isError: {
-		name: 'Error',
-		control: 'boolean',
+		name: "Error",
+		control: "boolean",
 		if: {
-			arg: 'example',
-			eq: 'standard'
-		}
+			arg: "example",
+			eq: "standard",
+		},
+	},
+	iconPosition: {
+		name: "Icon Position",
+		options: ["start", "end"],
+		control: {
+			type: "select",
+		},
 	},
 	isReadOnly: {
-		name: 'Read Only',
-		control: 'boolean',
+		name: "Read Only",
+		control: "boolean",
 		if: {
-			arg: 'example',
-			eq: 'readonly'
-		}
+			arg: "example",
+			eq: "readonly",
+		},
 	},
 	isDisabled: {
-		name: 'Disabled',
-		control: 'boolean',
+		name: "Disabled",
+		control: "boolean",
 		if: {
-			arg: 'example',
-			eq: 'standard'
-		}
+			arg: "example",
+			eq: "standard",
+		},
 	},
-};
+}
 
 // Publish required stories.
-export { Input };
+export { Input }
