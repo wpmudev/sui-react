@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 // Import required component(s).
-import { Button as StandardButton, LoadingButton } from '../lib/react-button';
+import { Button as StandardButton, LoadingButton } from '../src';
 
 // Import documentation main page.
 import docs from './ReactButton.mdx';
@@ -136,7 +136,7 @@ Button.argTypes = {
 		name: 'Target',
 		options: ['_self', '_blank'],
 		control: {
-			type: 'select'
+			type: 'select',
 		},
 		if: {
 			arg: 'example',
