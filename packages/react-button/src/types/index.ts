@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react"
 
 // Base button props
 export interface ButtonPropsType
@@ -6,39 +6,39 @@ export interface ButtonPropsType
 		HTMLButtonElement | HTMLAnchorElement | HTMLLabelElement
 	> {
 	// Optional CSS class name for the button
-	className?: string;
+	className?: string
 	// Link URL for the button
-	href: string;
+	href: string
 	// Optional target window or frame to open the link
-	target?: '_blank' | '_self';
+	target?: "_blank" | "_self"
 	// Optional associated form element for the button
-	htmlFor?: string;
+	htmlFor?: string
 	// Appearance style of the button
-	appearance: string;
+	appearance: string
 	// Color of the button
-	color: string;
+	color: string
 	// Optional flag to make the button small
-	isSmall?: boolean;
+	isSmall?: boolean
 	// Optional flag to disable the button
-	isDisabled?: boolean;
+	isDisabled?: boolean
 	// Optional flag to unwrap the button from its container
-	isUnwrapped?: boolean;
-	// Optional icon to be displayed before the button text
-	iconLead?: string;
-	// Optional icon to be displayed after the button text
-	iconTrail?: string;
+	isUnwrapped?: boolean
+	// Optional icon to be displayed
+	icon?: string
+	// Optional icon position to be displayed before or after text
+	iconPosition: "start" | "end"
 	// The content of the button (e.g., text or other React components)
-	children?: React.ReactNode;
+	children?: React.ReactNode
 }
 
 // Loading button props
 export interface LoadingButtonPropsTypes extends ButtonPropsType {
 	// Loading state for button
-	isLoading: boolean;
+	isLoading: boolean
 }
 
 // Toggle button
 export interface ToggleButtonPropsTypes extends ButtonPropsType {
 	// button checkbox selected
-	isSelected: boolean;
+	isSelected: boolean
 }

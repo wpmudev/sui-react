@@ -1,17 +1,17 @@
-import React, { forwardRef } from 'react';
-import { InteractionTypes, useInteraction } from '@wpmudev/react-hooks';
+import React, { forwardRef } from "react"
+import { InteractionTypes, useInteraction } from "@wpmudev/react-hooks"
 
 import {
 	isUndefined,
-	isEmpty,
 	condContent,
 	generateCN,
-} from '@wpmudev/react-utils';
+	isEmpty,
+} from "@wpmudev/react-utils"
 
 // Import required component(s).
-import { Label } from '../elements/button-label';
-import { Icon } from '../elements/button-icon';
-import { ButtonPropsType } from '../types';
+import { Label } from "../elements/button-label"
+import { Icon } from "../elements/button-icon"
+import { ButtonPropsType } from "../types"
 
 // Build "Base Button" component.
 const Button = forwardRef<
@@ -28,14 +28,14 @@ const Button = forwardRef<
 		isDisabled = false,
 		isUnwrapped = false,
 		className,
-		iconLead,
-		iconTrail,
 		children,
+		icon,
+		iconPosition = "start",
 		...restProps
-	} = props;
+	} = props
 
 	// base className
-	const baseClassName: string = 'sui-button';
+	const baseClassName: string = "sui-button"
 
 	// Manage interaction methods
 	const [isHovered, isFocused, interactionMethods] = useInteraction({
@@ -43,10 +43,11 @@ const Button = forwardRef<
 		onMouseLeave: props?.onMouseLeave,
 		onFocus: props?.onFocus,
 		onBlur: props?.onBlur,
-	});
+	})
 
-	const isLink = !isUndefined(href);
-	const label = !isUndefined(htmlFor);
+	const isLink = !isUndefined(href)
+	const label = !isUndefined(htmlFor)
+	const hasIcon = !isEmpty(icon ?? "")
 
 	// Classname based on the attributes
 	const attrClasses = {
@@ -54,39 +55,42 @@ const Button = forwardRef<
 		hover: isHovered,
 		focus: isFocused,
 		disabled: isDisabled,
+		"is-icon": hasIcon && isUndefined(children),
 		[`${appearance}-${color}`]: !!appearance && !!color,
-	};
+	}
 
 	const attrs = {
-		ref: ref,
+		ref,
 		href: condContent(isLink, href),
-		target: condContent(target, target || '_blank'),
+		target: condContent(target, target || "_blank"),
 		htmlFor: condContent(label),
 		// classname
-		className: generateCN(baseClassName, attrClasses, className ?? ''),
+		className: generateCN(baseClassName, attrClasses, className ?? ""),
 		disabled: isDisabled,
 		// interaction methods
 		...(interactionMethods ?? {}),
 		...restProps,
-	};
+	}
 
 	// Root tag
-	let TagName: string = isLink ? 'a' : 'button';
+	let TagName: string = isLink ? "a" : "button"
 
 	// Render as label
 	if (htmlFor) {
-		TagName = 'label';
+		TagName = "label"
 	}
 
 	return (
 		<TagName {...attrs}>
-			{!isEmpty(iconLead ?? '') && <Icon name={iconLead} />}
+			{hasIcon && "start" === iconPosition && <Icon name={icon ?? ""} />}
 			{isUnwrapped && children}
 			{!isUnwrapped && <Label>{children}</Label>}
-			{!isEmpty(iconTrail ?? '') && <Icon name={iconTrail} />}
+			{hasIcon && "end" === iconPosition && <Icon name={icon ?? ""} />}
 		</TagName>
-	);
-});
+	)
+})
+
+Button.displayName = "Button"
 
 // Publish required component(s).
-export { Button };
+export { Button }

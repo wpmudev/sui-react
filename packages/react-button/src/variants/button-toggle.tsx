@@ -1,14 +1,14 @@
-import React, { Fragment, useCallback, useState } from 'react';
+import React, { Fragment, useCallback, useState } from "react"
 import {
 	isUndefined,
 	isEmpty,
 	isFunction,
 	generateCN,
-} from '@wpmudev/react-utils';
+} from "@wpmudev/react-utils"
 
 // Import required component(s).
-import { Button as Base } from './button';
-import { ToggleButtonPropsTypes } from '../types';
+import { Button as Base } from "./button"
+import { ToggleButtonPropsTypes } from "../types"
 
 // Build "Loading Button" component.
 const ToggleButton = ({
@@ -20,50 +20,50 @@ const ToggleButton = ({
 	isDisabled = false,
 	isSelected = false,
 	className,
-	iconLead,
-	iconTrail,
+	icon,
+	iconPosition = "start",
 	children,
 	onClick,
 	...props
 }: ToggleButtonPropsTypes) => {
-	const isLink = !isUndefined(href);
-	const isLabel = !isUndefined(htmlFor) && !isEmpty(htmlFor);
+	const isLink = !isUndefined(href)
+	const isLabel = !isUndefined(htmlFor) && !isEmpty(htmlFor)
 
 	if (isLink) {
 		throw new Error(
-			`Invalid parameter. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Button\n\nThe parameter "href" is not supported by this component since toggle elements cannot be a link. Use default or label button instead.`
-		);
+			`Invalid parameter. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Button\n\nThe parameter "href" is not supported by this component since toggle elements cannot be a link. Use default or label button instead.`,
+		)
 	}
 
 	// Define button states.
-	const [isChecked, setIsChecked] = useState(isSelected);
+	const [isChecked, setIsChecked] = useState(isSelected)
 
 	// Define button actions.
 	const handleChange = useCallback(() => {
-		setIsChecked(!isChecked);
-	}, [isChecked]);
+		setIsChecked(!isChecked)
+	}, [isChecked])
 
 	// Create button classes
 	const classNames = generateCN(
-		'sui-button',
+		"sui-button",
 		{
 			selected: isSelected,
 		},
-		className
-	);
+		className,
+	)
 
 	return (
 		<Base
-			{...(isLabel && { htmlFor: htmlFor })}
+			{...(isLabel && { htmlFor })}
 			appearance={appearance}
 			color={color}
 			isSmall={!!isSmall}
 			isDisabled={!!isDisabled}
-			iconLead={iconLead ?? ''}
-			iconTrail={iconTrail ?? ''}
+			icon={icon ?? ""}
+			iconPosition={iconPosition}
 			className={classNames}
-			{...(isFunction(onClick) && { onClick: onClick })}
-			{...(!isLabel && { 'aria-pressed': isSelected })}
+			{...(isFunction(onClick) && { onClick })}
+			{...(!isLabel && { "aria-pressed": isSelected })}
 			{...(!isLabel && { ...props })}
 		>
 			{isLabel && (
@@ -83,8 +83,8 @@ const ToggleButton = ({
 			)}
 			{!isLabel && children}
 		</Base>
-	);
-};
+	)
+}
 
 // Publish required component(s).
-export { ToggleButton };
+export { ToggleButton }
