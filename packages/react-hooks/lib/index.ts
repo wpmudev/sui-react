@@ -38,23 +38,26 @@ const useInteraction = ({
 	/**
 	 * Toggle hover state
 	 */
-	const toggleHover = useCallback((state, callback, event) => {
-		setIsHovered(state)
+	const toggleHover = useCallback(
+		(state, event = null, callback = false) => {
+			setIsHovered(state)
 
-		// execute callback
-		if (callback) {
-			callback(event)
-		}
-	}, [])
+			// execute callback
+			if ("function" === typeof callback) {
+				callback(event)
+			}
+		},
+		[isHovered],
+	)
 
 	/**
 	 * Toggle focus state
 	 */
-	const toggleFocus = useCallback((state, callback, event) => {
+	const toggleFocus = useCallback((state, event = null, callback = false) => {
 		setIsFocused(state)
 
 		// execute callback
-		if (callback) {
+		if ("function" === typeof callback) {
 			callback(event)
 		}
 	}, [])
@@ -65,7 +68,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onMouseEnterCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleHover(true, onMouseEnter, e),
+		(e: MouseEvent | unknown) => toggleHover(true, e, onMouseEnter),
 		[onMouseEnter, toggleHover],
 	)
 
@@ -75,7 +78,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onMouseLeaveCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleHover(false, onMouseLeave, e),
+		(e: MouseEvent | unknown) => toggleHover(false, e, onMouseLeave),
 		[onMouseLeave, toggleHover],
 	)
 
@@ -85,7 +88,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onMouseDownCaptureCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleFocus(false, onMouseDownCapture, e),
+		(e: MouseEvent | unknown) => toggleFocus(false, e, onMouseDownCapture),
 		[onMouseDownCapture, toggleFocus],
 	)
 
@@ -95,7 +98,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onMouseUpCaptureCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleFocus(true, onMouseUpCapture, e),
+		(e: MouseEvent | unknown) => toggleFocus(true, e, onMouseUpCapture),
 		[onMouseUpCapture, toggleFocus],
 	)
 
@@ -105,7 +108,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onBlurCaptureCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleHover(false, onBlurCapture, e),
+		(e: MouseEvent | unknown) => toggleHover(false, e, onBlurCapture),
 		[onBlurCapture, toggleHover],
 	)
 
@@ -115,7 +118,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onBlurCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleFocus(false, onBlur, e),
+		(e: MouseEvent | unknown) => toggleFocus(false, e, onBlur),
 		[onBlur, toggleFocus],
 	)
 
@@ -125,7 +128,7 @@ const useInteraction = ({
 	 * @type {(e: Event) => void}
 	 */
 	const onFocusCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleFocus(true, onFocus, e),
+		(e: MouseEvent | unknown) => toggleFocus(true, e, onFocus),
 		[onFocus, toggleFocus],
 	)
 
@@ -141,6 +144,8 @@ const useInteraction = ({
 			onBlur: onBlurCallback,
 			onBlurCapture: onBlurCaptureCallback,
 		},
+		toggleHover,
+		toggleFocus,
 	] as const
 }
 
