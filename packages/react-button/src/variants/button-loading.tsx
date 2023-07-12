@@ -7,12 +7,12 @@ import { Loader } from "../elements/button-loader"
 import { LoadingButtonPropsTypes } from "../types"
 
 // Build "Loading Button" component.
-const LoadingButton = ({
+const LoadingButton: React.FC<LoadingButtonPropsTypes> = ({
 	isLoading = false,
 	className,
 	children,
 	...props
-}: LoadingButtonPropsTypes) => {
+}) => {
 	// Generate class names
 	const classNames = generateCN(
 		"sui-button",

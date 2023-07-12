@@ -5,7 +5,7 @@ import { Button as Base } from "./button"
 import { ButtonPropsType } from "../types"
 
 // Build "Standard Button" component.
-const Button = ({ children, ...props }: ButtonPropsType) => {
+const Button: React.FC<ButtonPropsType> = ({ children, ...props }) => {
 	return <Base {...props}>{children}</Base>
 }
 

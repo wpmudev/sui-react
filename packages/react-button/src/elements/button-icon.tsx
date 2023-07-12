@@ -11,7 +11,7 @@ interface ButtonIconProps {
 }
 
 // Build "Icon" component.
-const Icon = ({ name = "" }: ButtonIconProps) => {
+const Icon: React.FC<ButtonIconProps> = ({ name = "" }) => {
 	const hasIcon = !isUndefined(name) && !isEmpty(name ?? "")
 
 	if (!hasIcon) {

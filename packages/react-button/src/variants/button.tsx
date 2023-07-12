@@ -13,10 +13,12 @@ import { Label } from "../elements/button-label"
 import { Icon } from "../elements/button-icon"
 import { ButtonPropsType } from "../types"
 
+type ButtonProps = ButtonPropsType & InteractionTypes
+
 // Build "Base Button" component.
-const Button = forwardRef<
+const Button: React.FC<ButtonProps> = forwardRef<
 	HTMLButtonElement | HTMLLinkElement | HTMLLabelElement,
-	ButtonPropsType & InteractionTypes
+	ButtonProps
 >((props, ref) => {
 	const {
 		href,

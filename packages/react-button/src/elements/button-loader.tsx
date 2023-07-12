@@ -11,7 +11,7 @@ interface ButtonLoaderProps {
 }
 
 // Build "Loader" component.
-const Loader = ({ children }: ButtonLoaderProps) => {
+const Loader: React.FC<ButtonLoaderProps> = ({ children }) => {
 	const className = generateCN("suicons", {
 		md: true,
 		"spinner-alt": true,

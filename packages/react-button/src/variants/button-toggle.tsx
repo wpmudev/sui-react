@@ -11,7 +11,7 @@ import { Button as Base } from "./button"
 import { ToggleButtonPropsTypes } from "../types"
 
 // Build "Loading Button" component.
-const ToggleButton = ({
+const ToggleButton: React.FC<ToggleButtonPropsTypes> = ({
 	href,
 	htmlFor,
 	appearance,
@@ -25,7 +25,7 @@ const ToggleButton = ({
 	children,
 	onClick,
 	...props
-}: ToggleButtonPropsTypes) => {
+}) => {
 	const isLink = !isUndefined(href)
 	const isLabel = !isUndefined(htmlFor) && !isEmpty(htmlFor)
 
@@ -60,7 +60,7 @@ const ToggleButton = ({
 			isSmall={!!isSmall}
 			isDisabled={!!isDisabled}
 			icon={icon ?? ""}
-			iconPosition={iconPosition}
+			iconPosition={iconPosition ?? "start"}
 			className={classNames}
 			{...(isFunction(onClick) && { onClick })}
 			{...(!isLabel && { "aria-pressed": isSelected })}

@@ -23,7 +23,7 @@ interface ButtonLabelProps {
 }
 
 // Build "Label" component.
-const Label = ({ hidden = false, children }: ButtonLabelProps) => {
+const Label: React.FC<ButtonLabelProps> = ({ hidden = false, children }) => {
 	// throw exception
 	if (isUndefined(hidden) && !isBoolean(hidden)) {
 		throw new Error(
