@@ -1,23 +1,23 @@
-import React, { Fragment } from 'react';
+import React from "react"
 
 // Import required component
-import { Toggle as SuiToggle } from '../lib/react-toggle';
-import { Box, BoxGroup } from '@wpmudev/react-box';
+import { Toggle as SuiToggle } from "../src"
+import { Box, BoxGroup } from "@wpmudev/react-box"
 
 // Import documentation main page
-import docs from './ReactToggle.mdx';
+import docs from "./ReactToggle.mdx"
 
 // Configure default options
 export default {
-	title: 'SUI/Components/Simple Elements/Toggle',
+	title: "SUI/Components/Simple Elements/Toggle",
 	component: SuiToggle,
 	parameters: {
-		layout: 'fullscreen',
+		layout: "fullscreen",
 		docs: {
 			page: docs,
 		},
 	},
-};
+}
 
 // Build "Toggle" story
 const Toggle = ({ example, ...args }) => {
@@ -31,18 +31,18 @@ const Toggle = ({ example, ...args }) => {
 				</Box>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 // Set story arguments.
 Toggle.args = {
-	label: 'Toggle Label',
+	label: "Toggle Label",
 	isLabelHidden: false,
-	isDisabled: false
-};
+	isDisabled: false,
+}
 
 // Set controls for story arguments.
-Toggle.argTypes = {};
+Toggle.argTypes = {}
 
 // Publish required stories.
-export { Toggle };
+export { Toggle }
