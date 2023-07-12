@@ -6,20 +6,50 @@ import { Label } from "./elements/label"
 import { Helper } from "./elements/helper"
 import { ErrorMessage } from "./elements/error-message"
 
-interface FieldPropTypes {
+/**
+ * Represents the properties for a field component.
+ */
+interface FieldProps {
+	/**
+	 * The unique identifier of the field.
+	 */
 	id: string
+	/**
+	 * The label for the field.
+	 */
 	label: string
+	/**
+	 * The helper text for the field.
+	 */
 	helper: React.ReactNode
+	/**
+	 * The error message or element for the field.
+	 */
 	error: string | React.ReactNode
-	className: string
+	/**
+	 * Optional CSS class name for the field.
+	 */
+	className?: string
+	/**
+	 * Indicates whether the field should be displayed as small or not.
+	 */
 	isSmall: boolean
+	/**
+	 * Indicates whether the field is disabled or not.
+	 */
 	isDisabled: boolean
-	isLabelHidden: false
+	/**
+	 * Indicates whether the label should be hidden or not.
+	 */
+	isLabelHidden: boolean
+	/**
+	 * The content of the field.
+	 */
 	children?: React.ReactNode
 }
 
 // Build form field component
-const Field = ({
+const Field: React.FC<FieldProps> = ({
 	id,
 	label,
 	helper,
@@ -30,7 +60,7 @@ const Field = ({
 	isLabelHidden = false,
 	children,
 	...props
-}: FieldPropTypes) => {
+}) => {
 	// Define error object
 	const errorObj = Object.assign(
 		{
@@ -40,11 +70,7 @@ const Field = ({
 		error,
 	)
 
-	// Props validation
-	// const hasLabel = !isUndefined(label) && !isEmpty(label)
-	// const hasLabel = !isUndefined(helper) && !isEmpty(helper)
-	// const hasClassName = !isUndefined(className) && !isEmpty(className)
-
+	// Generate classnames
 	const classNames = generateCN(
 		"sui-form-field",
 		{
@@ -75,5 +101,4 @@ const Field = ({
 	)
 }
 
-// Publish component(s)
-export { Field, FieldPropTypes }
+export { Field, FieldProps }
