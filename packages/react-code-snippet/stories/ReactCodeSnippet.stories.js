@@ -1,30 +1,30 @@
-import React from 'react';
+import React from "react"
 
 // Import required component.
-import { CodeSnippet as SuiCodeSnippet } from '../lib/react-code-snippet';
+import { CodeSnippet as SuiCodeSnippet } from "../src"
 
 // Import documentation main page.
-import docs from './ReactCodeSnippet.mdx';
+import docs from "./ReactCodeSnippet.mdx"
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Simple Elements/Code Snippet',
+	title: "SUI/Components/Simple Elements/Code Snippet",
 	component: SuiCodeSnippet,
 	parameters: {
-		layout: 'fullscreen',
+		layout: "fullscreen",
 		docs: {
 			page: docs,
 		},
 	},
-};
+}
 
 // Build "Tag" story.
 const CodeSnippet = ({ language, copy, color }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: color !== 'white' ? '#fff' : '#333',
-	};
+		background: color !== "white" ? "#fff" : "#333",
+	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
@@ -39,36 +39,36 @@ const CodeSnippet = ({ language, copy, color }) => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 // Set story arguments.
 CodeSnippet.args = {
-	language: 'markup',
+	language: "markup",
 	copy: true,
-};
+}
 
 // Set controls for story arguments.
 CodeSnippet.argTypes = {
 	language: {
-		name: 'Code Language',
-		options: ['markup', 'javascript', 'css'],
+		name: "Code Language",
+		options: ["markup", "javascript", "css"],
 		control: {
-			type: 'select',
+			type: "select",
 			labels: {
-				markup: 'Language: HTML',
-				javascript: 'Language: Javascript',
-				css: 'Language: CSS',
+				markup: "Language: HTML",
+				javascript: "Language: Javascript",
+				css: "Language: CSS",
 			},
 		},
 	},
 	copy: {
-		name: 'Copy Button',
+		name: "Copy Button",
 		control: {
-			type: 'boolean',
+			type: "boolean",
 		},
 	},
-};
+}
 
 // Publish required stories.
-export { CodeSnippet };
+export { CodeSnippet }
