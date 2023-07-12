@@ -6,21 +6,36 @@ import { Icon } from "./elements/icon-avatar"
 import { Image } from "./elements/image-avatar"
 import { Status } from "./elements/status"
 
-interface AvatarPropTypes extends HTMLProps<HTMLSpanElement> {
+/**
+ * Represents the properties for an avatar component.
+ */
+interface AvatarProps extends HTMLProps<HTMLSpanElement> {
+	/**
+	 * The image source for the avatar.
+	 */
 	image: string
+	/**
+	 * The status of the avatar.
+	 */
 	status: string
+	/**
+	 * Indicates whether the avatar should be displayed as small or not.
+	 */
 	isSmall: boolean
+	/**
+	 * The CSS class name for the avatar.
+	 */
 	className: string
 }
 
 // Build "avatar" component
-const Avatar = ({
+const Avatar: React.FC<AvatarProps> = ({
 	image,
 	status,
 	isSmall = false,
 	className,
 	...props
-}: AvatarPropTypes) => {
+}: AvatarProps) => {
 	// Define image object
 	const imageObj = Object.assign(
 		{
@@ -49,4 +64,4 @@ const Avatar = ({
 }
 
 // Publish required component.
-export { Avatar, AvatarPropTypes }
+export { Avatar, AvatarProps }
