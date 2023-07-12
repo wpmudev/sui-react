@@ -1,13 +1,22 @@
 import React from "react"
 import classnames from "classnames"
 
-interface HelperPropsTypes {
+/**
+ * Represents the properties for a helper component.
+ */
+interface HelperProps {
+	/**
+	 * The unique identifier of the helper.
+	 */
 	id: string
+	/**
+	 * The content of the helper.
+	 */
 	children?: React.ReactNode
 }
 
 // Build field helper text element
-export const Helper = ({ id, children }: HelperPropsTypes) => {
+const Helper: React.FC<HelperProps> = ({ id, children }) => {
 	const classNames = classnames({
 		"sui-form-field__helper": true,
 	})
@@ -18,3 +27,5 @@ export const Helper = ({ id, children }: HelperPropsTypes) => {
 		</span>
 	)
 }
+
+export { Helper, HelperProps }

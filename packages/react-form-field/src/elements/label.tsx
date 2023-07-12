@@ -1,30 +1,45 @@
 import React from "react"
-import { isEmpty, isUndefined } from "@wpmudev/react-utils"
+import classnames from "classnames"
+
+import { isEmpty } from "@wpmudev/react-utils"
+
+/**
+ * Represents the properties for an error message component.
+ */
+interface LabelProps {
+	/**
+	 * The unique identifier of the error message.
+	 */
+	id: string
+	/**
+	 * Hide or show label
+	 */
+	hidden: boolean
+	/**
+	 * The content of the error message.
+	 */
+	children: React.ReactNode
+}
 
 // Build field label element
-export const Label = ({ id, hidden = false, children }) => {
-	const has = {}
-	const set = {}
-
-	// Props validation
-	has.content = !isUndefined(children) && !isEmpty(children) ? true : false
-
-	if (!has.content) {
+const Label: React.FC<LabelProps> = ({ id, hidden = false, children }) => {
+	if (!isEmpty(children ?? "")) {
 		throw new Error(
 			`Empty content is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Form Field\n\nThe "Label" component requires a child element to be passed to it.\n\n`,
 		)
 	}
 
-	// Define main class name(s)
-	if (hidden) {
-		set.class = "sui-screen-reader-only"
-	} else {
-		set.class = "sui-form-field__label"
-	}
+	// Generate classnames
+	const classNames = classnames({
+		"sui-screen-reader-only": hidden,
+		"sui-form-field__label": !hidden,
+	})
 
 	return (
-		<label htmlFor={id} id={`${id}__label`} className={set.class}>
+		<label htmlFor={id} id={`${id}__label`} className={classNames}>
 			{children}
 		</label>
 	)
 }
+
+export { Label, LabelProps }
