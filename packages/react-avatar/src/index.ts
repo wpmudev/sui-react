@@ -1,2 +1,2 @@
-import { Avatar, AvatarPropTypes } from "./react-avatar"
-export { Avatar, AvatarPropTypes }
+import { Avatar, AvatarProps } from "./react-avatar"
+export { Avatar, AvatarProps }
