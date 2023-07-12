@@ -105,6 +105,11 @@ $colors-high-contrast: (
 									shade($value, 5%),
 									shade($value, 40%)
 								);
+								color: if(
+									$name == white,
+									$color-extended-neutral-10,
+									$color-extended-neutral-100
+								);
 							}
 
 							&.sui-#{$block-name}--focus {
@@ -112,6 +117,11 @@ $colors-high-contrast: (
 								outline: 2px solid $value;
 								outline-offset: 2px;
 								background: $value;
+								color: if(
+									$name == white,
+									$color-extended-neutral-10,
+									$color-extended-neutral-100
+								);
 							}
 						}
 					}
