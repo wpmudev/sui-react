@@ -1,2 +1,2 @@
-import { AlertBanner } from "./react-alertbanner"
-export { AlertBanner }
+import { AlertBanner, AlertProps } from "./react-alertbanner"
+export { AlertBanner, AlertProps }

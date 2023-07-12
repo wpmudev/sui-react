@@ -1,15 +1,59 @@
-import React, { Fragment, useState, useEffect } from "react"
+import React, {
+	Fragment,
+	useState,
+	useEffect,
+	HTMLProps,
+	useCallback,
+} from "react"
 import {
 	isUndefined,
 	isEmpty,
 	isNumber,
 	isFunction,
+	generateCN,
 } from "@wpmudev/react-utils"
 
 import { Button } from "@wpmudev/react-button"
-import { IconButton } from "@wpmudev/react-icon-button"
 
-export const AlertBanner = ({
+/**
+ * Represents the properties for an alert component.
+ */
+interface AlertProps extends Pick<HTMLProps<HTMLDivElement>, "onClick"> {
+	/**
+	 * The unique identifier of the alert.
+	 */
+	id: string
+	/**
+	 * The title of the alert.
+	 */
+	title: string
+	/**
+	 * The action text for the alert.
+	 */
+	action: string
+	/**
+	 * The content of the alert.
+	 */
+	children?: React.ReactNode
+	/**
+	 * The state of the alert.
+	 */
+	state: string
+	/**
+	 * The duration (in milliseconds) for the alert to appear.
+	 */
+	timeIn: number
+	/**
+	 * The duration (in milliseconds) for the alert to disappear.
+	 */
+	timeOut: number
+	/**
+	 * Indicates whether the alert is visible or not.
+	 */
+	isVisible: boolean
+}
+
+const AlertBanner: React.FC<AlertProps> = ({
 	id,
 	title,
 	action,
@@ -20,11 +64,7 @@ export const AlertBanner = ({
 	isVisible = false,
 	onClick,
 }) => {
-	const has = {}
-	const is = {}
-	const set = {}
-
-	set.action = Object.assign(
+	const actions = Object.assign(
 		{
 			label: "",
 			href: "",
@@ -34,109 +74,98 @@ export const AlertBanner = ({
 		action,
 	)
 
-	has.id = !isUndefined(id) && !isEmpty(id) ? true : false
-	has.title = !isUndefined(title) && !isEmpty(title) ? true : false
-	has.content = !isUndefined(children) && !isEmpty(children) ? true : false
-	has.timeIn = isNumber(timeIn) && timeIn >= 0 ? true : false
-	has.timeOut = isNumber(timeOut) && timeOut >= 0 ? true : false
-	has.action = !isEmpty(set.action.label) ? true : false
+	// const hasId = !isUndefined(id) && !isEmpty(id)
+	const hasTitle = !isUndefined(title) && !isEmpty(title)
+	const hasContent = !isUndefined(children) && !isEmpty(children)
+	const timeInValue = isNumber(timeIn) && timeIn >= 0
+	const timeOutValue = isNumber(timeOut) && timeOut >= 0
+	const hasAction = !isEmpty(actions.label)
 
-	if (!has.title && !has.content) {
+	if (!hasTitle && !hasContent) {
 		throw new Error(
 			`Empty content is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Alert Banner\n\nThe "Title" and "Children" components require some value to be passed to it.\n\n`,
 		)
 	}
 
 	// Display states
-	;[is.visible, set.visible] = useState(isVisible)
+	const [display, setDisplay] = useState<boolean>(isVisible)
 
 	// Run functions on load
 	useEffect(() => {
-		if (has.timeIn) {
-			setTimeout(() => set.visible(true), timeIn)
+		if (timeInValue) {
+			setTimeout(() => setDisplay(true), timeIn)
 		}
 
-		if (has.timeOut) {
-			setTimeout(() => set.visible(false), timeOut)
+		if (timeOutValue) {
+			setTimeout(() => setDisplay(false), timeOut)
 		}
 	}, [])
 
-	set.class = "sui-alertbanner"
-	set.icon = "suicons"
+	const iconClassName = generateCN("suicons", {
+		"check-alt": ["success"].includes(state),
+		warning: ["warning"].includes(state),
+		error: ["error"].includes(state),
+		info: !["success", "warning", "error"].includes(state),
+		empty: !display,
+	})
 
-	switch (state) {
-		case "success":
-			set.class += " sui-alertbanner--" + state
-			set.icon += " suicons--check-alt"
-			break
-
-		case "warning":
-		case "error":
-			set.class += " sui-alertbanner--" + state
-			set.icon += " suicons--warning"
-			break
-
-		default:
-			set.class += " sui-alertbanner--info"
-			set.icon += " suicons--info-alt"
-			break
+	const attrs = {
+		role: timeInValue ? "alert" : "alertdialog",
+		className: generateCN("sui-alertbanner", {
+			[state ?? "info"]: ["success", "error", "warning", "info"].includes(
+				state,
+			),
+			empty: !display,
+		}),
+		...(!timeInValue && { "aria-modal": true }),
+		...(!timeInValue && { "aria-labelledby": "" }),
+		...(!timeInValue && { "aria-describedby": "" }),
 	}
 
-	set.icon += " suicons--lg"
-	set.icon += " sui-alertbanner__icon"
+	const handleOnClose = useCallback(
+		(e) => {
+			setDisplay(false)
 
-	if (!is.visible) {
-		set.class += " sui-alertbanner--empty"
-	}
-
-	set.props = {
-		role: has.timeIn ? "alert" : "alertdialog",
-		className: set.class,
-		...(!has.timeIn && { "aria-modal": true }),
-		...(!has.timeIn && { "aria-labelledby": "" }),
-		...(!has.timeIn && { "aria-describedby": "" }),
-	}
+			if (onClick) {
+				onClick(e)
+			}
+		},
+		[onClick],
+	)
 
 	return (
-		<div {...set.props}>
-			{is.visible && (
+		<div {...attrs}>
+			{display && (
 				<Fragment>
-					<span className={set.icon} aria-hidden="true" />
-					{has.content && (
+					<span className={iconClassName} aria-hidden="true" />
+					{hasContent && (
 						<span className="sui-alertbanner__content">{children}</span>
 					)}
 					<div className="sui-alertbanner__actions">
-						{has.action && (
+						{hasAction && (
 							<Button
-								{...(!isEmpty(set.action.href) && { href: set.action.href })}
-								{...(!isEmpty(set.action.href) && {
-									target: set.action.target,
+								{...(!isEmpty(actions.href) && { href: actions.href })}
+								{...(!isEmpty(actions.href) && {
+									target: actions.target,
 								})}
 								appearance="secondary"
 								color="blue"
 								isSmall={true}
 								className="sui-alertbanner__action"
-								{...(isFunction(set.action.onClick) && {
-									onClick: set.action.onClick,
+								{...(isFunction(actions.onClick) && {
+									onClick: actions.onClick,
 								})}
 							>
-								{set.action.label}
+								{actions.label}
 							</Button>
 						)}
-						<IconButton
+						<Button
 							icon="close"
-							label="Close"
 							appearance="tertiary"
 							color="black"
 							className="sui-alertbanner__button"
 							isSmall={true}
-							onClick={(e) => {
-								set.visible(false)
-
-								if (isFunction(onClick)) {
-									onClick(e)
-								}
-							}}
+							onClick={handleOnClose}
 						/>
 					</div>
 				</Fragment>
@@ -144,3 +173,5 @@ export const AlertBanner = ({
 		</div>
 	)
 }
+
+export { AlertBanner, AlertProps }
