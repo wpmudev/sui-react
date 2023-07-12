@@ -1,2 +1,2 @@
-import { Announcement, AnnouncementPropTypes } from "./react-announcement"
-export { Announcement, AnnouncementPropTypes }
+import { Announcement, AnnouncementProps } from "./react-announcement"
+export { Announcement, AnnouncementProps }

@@ -16,17 +16,37 @@ import {
 
 import { Button } from "@wpmudev/react-button"
 
-interface AnnouncementPropTypes
-	extends Pick<HTMLProps<HTMLDivElement>, "onClick"> {
+/**
+ * Represents the properties for an announcement component.
+ */
+interface AnnouncementProps extends Pick<HTMLProps<HTMLDivElement>, "onClick"> {
+	/**
+	 * The unique identifier of the announcement.
+	 */
 	id: string
+	/**
+	 * The content of the announcement.
+	 */
 	children?: React.ReactNode
+	/**
+	 * The duration (in milliseconds) for the announcement to appear.
+	 */
 	timeIn: number
+	/**
+	 * The duration (in milliseconds) for the announcement to disappear.
+	 */
 	timeOut: number
+	/**
+	 * Indicates whether the announcement has a dark theme or not.
+	 */
 	isDark: boolean
+	/**
+	 * Indicates whether the announcement is visible or not.
+	 */
 	isVisible: boolean
 }
 
-const Announcement = ({
+const Announcement: React.FC<AnnouncementProps> = ({
 	id,
 	children,
 	timeIn,
@@ -34,7 +54,7 @@ const Announcement = ({
 	isDark = false,
 	isVisible = false,
 	onClick,
-}: AnnouncementPropTypes) => {
+}) => {
 	// generate dynamic ID
 	let uuid = useId()
 
@@ -118,4 +138,4 @@ const Announcement = ({
 	)
 }
 
-export { Announcement, AnnouncementPropTypes }
+export { Announcement, AnnouncementProps }
