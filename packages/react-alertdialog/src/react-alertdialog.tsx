@@ -2,19 +2,34 @@ import React, { useState, useEffect } from "react"
 import AriaModal from "./elements/react-aria-modal"
 import { isNumber } from "@wpmudev/react-utils"
 
-interface AlertDialogPropTypes {
+/**
+ * Represents the properties for an alert dialog component.
+ */
+interface AlertDialogProps {
+	/**
+	 * The content of the modal in the alert dialog.
+	 */
 	modalContent: React.ReactNode
+	/**
+	 * The duration (in milliseconds) for the trigger to appear.
+	 */
 	triggerTimer: number
+	/**
+	 * The content of the trigger in the alert dialog.
+	 */
 	triggerContent: React.ReactNode
+	/**
+	 * Additional props for the alert dialog component.
+	 */
 	[props: string]: any
 }
 
-const AlertDialog = ({
+const AlertDialog: React.FC<AlertDialogProps> = ({
 	modalContent,
 	triggerTimer,
 	triggerContent,
 	...props
-}: AlertDialogPropTypes) => {
+}) => {
 	const is = {}
 	const set = {}
 
