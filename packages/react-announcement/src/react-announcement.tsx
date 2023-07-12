@@ -14,7 +14,7 @@ import {
 	generateCN,
 } from "@wpmudev/react-utils"
 
-import { IconButton } from "@wpmudev/react-icon-button"
+import { Button } from "@wpmudev/react-button"
 
 interface AnnouncementPropTypes
 	extends Pick<HTMLProps<HTMLDivElement>, "onClick"> {
@@ -104,9 +104,8 @@ const Announcement = ({
 					{hasContent && (
 						<span className="sui-announcement__content">{children}</span>
 					)}
-					<IconButton
+					<Button
 						icon="close"
-						label="Close"
 						appearance="tertiary"
 						color="white"
 						className="sui-announcement__button"
