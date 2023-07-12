@@ -1,40 +1,40 @@
-import React from 'react';
+import React from "react"
 
 // Import required component(s)
-import { Dropdown as SuiDropdown } from '../lib/react-dropdown';
+import { Dropdown as SuiDropdown } from "../src"
 
 // Import documentation main page
-import docs from './ReactDropdown.mdx';
+import docs from "./ReactDropdown.mdx"
 
 // Configure default options
 export default {
-	title: 'SUI/Components/Compound Elements/Dropdown',
+	title: "SUI/Components/Compound Elements/Dropdown",
 	component: SuiDropdown,
 	parameters: {
-		layout: 'fullscreen',
+		layout: "fullscreen",
 		docs: {
 			page: docs,
 		},
 	},
-};
+}
 
 // Build story
 export const Dropdown = ({ example, ...props }) => {
-	const set = {};
+	const set = {}
 
 	set.box = {
 		margin: 0,
-		padding: '30px',
-		border: 'white' === props.color ? '1px solid #E6E6E6' : 0,
-		borderRadius: '4px',
-		background: 'white' === props.color ? '#333' : '#fff',
-	};
+		padding: "30px",
+		border: "white" === props.color ? "1px solid #E6E6E6" : 0,
+		borderRadius: "4px",
+		background: "white" === props.color ? "#333" : "#fff",
+	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={set.box}>
-					{'standard' === example && (
+					{"standard" === example && (
 						<SuiDropdown {...props}>
 							<div>Option One</div>
 							<div>Option Two</div>
@@ -43,7 +43,7 @@ export const Dropdown = ({ example, ...props }) => {
 						</SuiDropdown>
 					)}
 
-					{'standard-icon' === example && (
+					{"standard-icon" === example && (
 						<SuiDropdown {...props}>
 							<div icon="plugin-hustle">Option One</div>
 							<div icon="plugin-hustle">Option Two</div>
@@ -52,7 +52,7 @@ export const Dropdown = ({ example, ...props }) => {
 						</SuiDropdown>
 					)}
 
-					{'link-options' === example && (
+					{"link-options" === example && (
 						<SuiDropdown {...props}>
 							<div href="https://wpmudev.com/">Option One</div>
 							<div href="https://wpmudev.com/">Option Two</div>
@@ -61,49 +61,58 @@ export const Dropdown = ({ example, ...props }) => {
 						</SuiDropdown>
 					)}
 
-					{'click-options' === example && (
+					{"click-options" === example && (
 						<SuiDropdown {...props}>
-							<div onClick={() => console.log('Option one selected')}>Option One</div>
-							<div onClick={() => console.log('Option two selected')}>Option Two</div>
-							<div onClick={() => console.log('Option three selected')}>Option Three</div>
-							<div onClick={() => console.log('Option four selected')}>Option Four</div>
+							<div onClick={() => console.log("Option one selected")}>
+								Option One
+							</div>
+							<div onClick={() => console.log("Option two selected")}>
+								Option Two
+							</div>
+							<div onClick={() => console.log("Option three selected")}>
+								Option Three
+							</div>
+							<div onClick={() => console.log("Option four selected")}>
+								Option Four
+							</div>
 						</SuiDropdown>
 					)}
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 Dropdown.args = {
-	example: 'standard',
-	id: 'myUniqueId',
-	label: 'Menu Button',
+	example: "standard",
+	id: "myUniqueId",
+	label: "Menu Button",
 	isSmall: false,
 	hasCta: false,
 	isLabelHidden: false,
-};
+}
 
 Dropdown.argTypes = {
 	example: {
-		name: 'Example',
+		name: "Example",
+		options: ["standard", "standard-icon", "link-options", "click-options"],
 		control: {
-			type: 'select',
+			type: "select",
 			options: {
-				'Example: Standard': 'standard',
-				'Example: Option with icon': 'standard-icon',
-				'Example: Option with link': 'link-options',
-				'Example: Option with action': 'click-options',
+				"Example: Standard": "standard",
+				"Example: Option with icon": "standard-icon",
+				"Example: Option with link": "link-options",
+				"Example: Option with action": "click-options",
 			},
 		},
 	},
 	isSmall: {
-		name: 'Small'
+		name: "Small",
 	},
 	hasCta: {
-		name: 'CTA Button'
+		name: "CTA Button",
 	},
 	isLabelHidden: {
-		name: 'Icon Button'
-	}
-};
+		name: "Icon Button",
+	},
+}
