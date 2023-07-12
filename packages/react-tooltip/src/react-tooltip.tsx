@@ -3,18 +3,50 @@ import { Button as SuiButton } from "@wpmudev/react-button"
 import { generateCN } from "@wpmudev/react-utils"
 import { InteractionTypes, useInteraction } from "@wpmudev/react-hooks"
 
-interface TooltipPropTypes extends HTMLProps<HTMLDivElement> {
+/**
+ * Props for the Tooltip component.
+ */
+interface TooltipProps
+	extends Omit<
+		HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>,
+		"onClick"
+	> {
+	/**
+	 * The text label for the tooltip.
+	 */
 	label: string
-	type: string
-	className: string
-	position: string
-	customWidth: number
-	customMobileWidth: number
+	/**
+	 * Optional type of the tooltip.
+	 */
+	type?: string
+	/**
+	 * Optional additional CSS classes for the tooltip.
+	 */
+	className?: string
+	/**
+	 * Optional position of the tooltip.
+	 */
+	position?: string
+	/**
+	 * Optional custom width of the tooltip.
+	 */
+	customWidth?: number
+	/**
+	 * Optional custom width of the tooltip for mobile devices.
+	 */
+	customMobileWidth?: number
+	/**
+	 * Optional child elements.
+	 */
 	children?: React.ReactNode
+	/**
+	 * Callback function for the click event.
+	 */
+	onClick: () => void
 }
 
 // Build "Tooltip" component.
-const Tooltip = ({
+const Tooltip: React.FC<TooltipProps> = ({
 	label,
 	type = "button",
 	className,
@@ -28,7 +60,7 @@ const Tooltip = ({
 	onFocus = () => {},
 	onBlur = () => {},
 	...props
-}: TooltipPropTypes) => {
+}) => {
 	// use interaction
 	const [isHovered, isFocused, methods, toggleHover] = useInteraction({
 		onMouseEnter,
@@ -80,11 +112,15 @@ const Tooltip = ({
 	}, [escFunction])
 
 	// handle onClick
-	const onClickCallback = useCallback(() => onClick, [onClick])
+	const onClickCallback = useCallback(() => {
+		if (onClick) {
+			onClick()
+		}
+	}, [onClick])
 
 	return (
 		<div className={classNames}>
-			<TagName onClick={onClickCallback} {...props} {...methods}>
+			<TagName {...props} {...methods} onClick={onClickCallback}>
 				{label}
 			</TagName>
 			{!!children && (
@@ -104,4 +140,4 @@ const Tooltip = ({
 }
 
 // Publish required component.
-export { Tooltip, TooltipPropTypes }
+export { Tooltip, TooltipProps }
