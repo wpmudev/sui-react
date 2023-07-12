@@ -8,7 +8,7 @@ export interface ButtonPropsType
 	// Optional CSS class name for the button
 	className?: string
 	// Link URL for the button
-	href: string
+	href?: string
 	// Optional target window or frame to open the link
 	target?: "_blank" | "_self"
 	// Optional associated form element for the button
@@ -26,7 +26,7 @@ export interface ButtonPropsType
 	// Optional icon to be displayed
 	icon?: string
 	// Optional icon position to be displayed before or after text
-	iconPosition: "start" | "end"
+	iconPosition?: "start" | "end"
 	// Optional button with icon only
 	iconOnly?: boolean
 	// The content of the button (e.g., text or other React components)
