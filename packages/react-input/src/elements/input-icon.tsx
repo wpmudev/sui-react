@@ -1,13 +1,23 @@
 import React from "react"
-import { isUndefined, isEmpty, generateCN } from "@wpmudev/react-utils"
 
+import { isEmpty, generateCN } from "@wpmudev/react-utils"
+
+/**
+ * Represents the properties for an icon component.
+ */
 interface IconPropsTypes {
+	/**
+	 * The name of the icon.
+	 */
 	name?: string
-	size?: string
+	/**
+	 * The size of the icon.
+	 */
+	size?: "sm" | "md" | "lg"
 }
 
 // Build "Icon" component.
-const Icon = ({ name = "", size }: IconPropsTypes) => {
+const Icon: React.FC<IconPropsTypes> = ({ name = "", size }) => {
 	// Required parameter(s) validation.
 	if (isEmpty(name ?? "")) {
 		throw new Error(
@@ -20,7 +30,7 @@ const Icon = ({ name = "", size }: IconPropsTypes) => {
 		"suicons",
 		{
 			[name]: true,
-			[size ?? "md"]: ["sm", "md", "lg"].includes(size ?? "md"),
+			[size]: ["sm", "md", "lg"].includes(size ?? "md"),
 			icon: true,
 		},
 		"sui-input__icon",
