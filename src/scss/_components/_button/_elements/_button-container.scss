@@ -47,14 +47,15 @@
 
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block-name) {
+			margin: $button-container-margin-vertical
+				$button-container-margin-horizontal;
+
 			&:first-child {
 				margin-right: 0;
-				margin-left: $button-container-margin-horizontal;
 			}
 
 			&:last-child {
 				margin-left: 0;
-				margin-right: $button-container-margin-horizontal;
 			}
 		}
 	}
