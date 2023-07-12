@@ -1,30 +1,30 @@
-import React from "react";
+import React from "react"
 
 // Import modules
-import { Row, Col } from '../lib/react-grid';
-import { Box, BoxGroup } from '@wpmudev/react-box';
+import { Row, Col } from "../src"
+import { Box, BoxGroup } from "@wpmudev/react-box"
 
 // Import documentation
-import docs from './ReactGrid.mdx';
+import docs from "./ReactGrid.mdx"
 
 // Configure default options
 export default {
-	title: 'SUI/Components/Core Elements/Grid',
+	title: "SUI/Components/Core Elements/Grid",
 	component: Row,
 	parameters: {
-		layout: 'fullscreen',
+		layout: "fullscreen",
 		docs: {
 			page: docs,
 		},
 	},
-};
+}
 
 // Build story
-export const Grid = ({inline}) => {
+export const Grid = ({ inline }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<Row align={{md: inline ? 'inline' : ''}}>
+				<Row align={{ md: inline ? "inline" : "" }}>
 					<Col size="4">
 						<Box>
 							<BoxGroup>
@@ -49,17 +49,17 @@ export const Grid = ({inline}) => {
 				</Row>
 			</div>
 		</div>
-	);
+	)
 }
 
 // Set story arguments
 Grid.args = {
-	inline: true
+	inline: true,
 }
 
 // Set controls for story arguments
 Grid.argTypes = {
 	inline: {
-		name: 'Inline'
-	}
+		name: "Inline",
+	},
 }
