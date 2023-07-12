@@ -10,6 +10,9 @@
 
 				span {
 					display: block;
+					&.suicons--spin {
+						@include animation(spin)
+					}
 				}
 			}
 			@include modifier(is-icon) {
