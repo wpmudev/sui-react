@@ -1,2 +1,2 @@
-import { Toggle, TogglePropTypes } from "./react-toggle"
-export { Toggle, TogglePropTypes }
+import { Toggle, ToggleProps } from "./react-toggle"
+export { Toggle, ToggleProps }

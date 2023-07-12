@@ -8,21 +8,33 @@ import React, {
 import { useInteraction } from "@wpmudev/react-hooks"
 import { isBoolean, generateCN } from "@wpmudev/react-utils"
 
-interface TogglePropTypes extends HTMLProps<HTMLInputElement> {
+/**
+ * Represents the properties for a toggle component.
+ */
+interface ToggleProps extends HTMLProps<HTMLInputElement> {
+	/**
+	 * The label for the toggle component.
+	 */
 	label: string
+	/**
+	 * Indicates whether the label should be hidden or not.
+	 */
 	isLabelHidden: boolean
-	isDisabled: boolean
+	/**
+	 * Indicates whether the toggle component is disabled or not.
+	 */
+	isDisabled?: boolean
 }
 
 // Build "Toggle" component
-const Toggle = ({
+const Toggle: React.FC<ToggleProps> = ({
 	label,
 	defaultValue,
 	isLabelHidden = false,
 	isDisabled = false,
 	onClick = () => {},
 	...props
-}: TogglePropTypes) => {
+}) => {
 	// use id
 	const id = `sui-toggle-${useId()}`
 
@@ -81,7 +93,5 @@ const Toggle = ({
 	)
 }
 
-Toggle.displayName = "Toggle"
-
 // Publish component(s)
-export { Toggle, TogglePropTypes }
+export { Toggle, ToggleProps }
