@@ -1,2 +1,2 @@
-import { Tooltip, TooltipPropTypes } from "./react-tooltip"
-export { Tooltip, TooltipPropTypes }
+import { Tooltip, TooltipProps } from "./react-tooltip"
+export { Tooltip, TooltipProps }
