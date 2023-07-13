@@ -1,5 +1,5 @@
 import React from "react"
-import { isObject, generateCN } from "@wpmudev/react-utils"
+import { isObject, generateCN, isEmpty } from "@wpmudev/react-utils"
 
 // Import required modules
 import { Label } from "./elements/label"
@@ -83,9 +83,11 @@ const Field: React.FC<FieldProps> = ({
 	// Render field
 	return (
 		<div className={classNames} {...props}>
-			<Label id={id} hidden={isLabelHidden}>
-				{label}
-			</Label>
+			{!isEmpty(label ?? "") && (
+				<Label id={id} hidden={isLabelHidden}>
+					{label}
+				</Label>
+			)}
 			{children}
 			{isObject(error) && Object.keys(error).length > 0 && (
 				<ErrorMessage id={id} show={errorObj.state} small={isSmall}>

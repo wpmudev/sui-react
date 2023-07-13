@@ -23,7 +23,7 @@ interface LabelProps {
 
 // Build field label element
 const Label: React.FC<LabelProps> = ({ id, hidden = false, children }) => {
-	if (!isEmpty(children ?? "")) {
+	if (isEmpty(children ?? "")) {
 		throw new Error(
 			`Empty content is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Form Field\n\nThe "Label" component requires a child element to be passed to it.\n\n`,
 		)
