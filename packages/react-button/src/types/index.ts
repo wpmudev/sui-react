@@ -1,4 +1,4 @@
-import React from "react"
+import React, { HTMLProps } from "react"
 
 /**
  * Represents the properties for a button component.
@@ -14,11 +14,11 @@ export interface ButtonPropsType
 	/**
 	 * Link URL for the button.
 	 */
-	href?: string
+	href?: Pick<HTMLProps<HTMLAnchorElement>, "href">
 	/**
 	 * Optional target window or frame to open the link.
 	 */
-	target?: "_blank" | "_self"
+	target?: Pick<HTMLProps<HTMLAnchorElement>, "target">
 	/**
 	 * Optional associated form element for the button.
 	 */
