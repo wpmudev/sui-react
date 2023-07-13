@@ -14,7 +14,7 @@ import {
 } from "@wpmudev/react-utils"
 
 import { Button } from "@wpmudev/react-button"
-import { IconButton } from "@wpmudev/react-icon-button"
+// import { IconButton } from "@wpmudev/react-icon-button"
 
 /*
  * Props for the Notification component.
@@ -192,7 +192,7 @@ const Notification: React.FC<NotificationProps> = ({
 							</Button>
 						)}
 					</div>
-					{isCloseButton && (
+					{/*{isCloseButton && (
 						<IconButton
 							icon="close"
 							label="Close"
@@ -202,7 +202,7 @@ const Notification: React.FC<NotificationProps> = ({
 							isSmall={true}
 							onClick={onClose}
 						/>
-					)}
+					)}*/}
 				</Fragment>
 			)}
 		</div>
