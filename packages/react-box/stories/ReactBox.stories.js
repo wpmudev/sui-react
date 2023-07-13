@@ -3,7 +3,6 @@ import React from "react"
 // Import required component(s)
 import { Box as SuiBox, BoxGroup } from "../src"
 import { Row, Col } from "@wpmudev/react-grid"
-import { Notification } from "@wpmudev/react-notification"
 
 // Import documentation main page
 import docs from "./ReactBox.mdx"
