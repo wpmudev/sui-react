@@ -1,37 +1,37 @@
-import React from 'react';
+import React from "react"
 
 // Import required component
-import { Recipient as SuiRecipient } from '../lib/react-recipient';
+import { Recipient as SuiRecipient } from "../src"
 
 // Import documentation main page
-import docs from './ReactRecipient.mdx';
+import docs from "./ReactRecipient.mdx"
 
 // Import required assets
-import image from './images/unreal-person.jpg';
+import image from "./images/unreal-person.jpg"
 
 // Configure default options.
 export default {
-	title: 'SUI/Components/Compound Elements/Recipient',
+	title: "SUI/Components/Compound Elements/Recipient",
 	component: SuiRecipient,
 	parameters: {
-		layout: 'fullscreen',
+		layout: "fullscreen",
 		docs: {
 			page: docs,
 		},
 	},
-};
+}
 
 // Build "Recipient" story.
 const Recipient = ({ userAvatar, ...props }) => {
-	const set = {};
+	const set = {}
 
 	set.box = {
 		margin: 0,
-		padding: '10px',
-		border: 'white' === props.color ? '1px solid #E6E6E6' : 0,
-		borderRadius: '4px',
-		background: 'white' === props.color ? '#333' : '#fff',
-	};
+		padding: "10px",
+		border: "white" === props.color ? "1px solid #E6E6E6" : 0,
+		borderRadius: "4px",
+		background: "white" === props.color ? "#333" : "#fff",
+	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
@@ -41,75 +41,75 @@ const Recipient = ({ userAvatar, ...props }) => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 // Set story arguments.
 Recipient.args = {
-	appearance: 'primary',
-	userName: 'Recipient Name',
-	userEmail: 'example@email.com',
-	userAvatar: 'icon',
+	appearance: "primary",
+	userName: "Recipient Name",
+	userEmail: "example@email.com",
+	userAvatar: "icon",
 	userConfirmed: true,
 	userImage: {
-		alt: 'Unreal Person avatar image',
+		alt: "Unreal Person avatar image",
 		src: image,
 	},
 	isInvited: false,
-};
+}
 
 // Set controls for story arguments.
 Recipient.argTypes = {
 	userName: {
-		name: 'Recipient name',
+		name: "Recipient name",
 	},
 	userEmail: {
-		name: 'Recipient email',
+		name: "Recipient email",
 	},
 	userAvatar: {
-		name: 'Recipient avatar',
+		name: "Recipient avatar",
 		control: {
-			type: 'inline-radio',
+			type: "inline-radio",
 			options: {
-				Icon: 'icon',
-				Image: 'image',
+				Icon: "icon",
+				Image: "image",
 			},
 		},
 	},
 	userImage: {
-		name: 'Recipient image',
+		name: "Recipient image",
 		control: {
-			type: 'object'
+			type: "object",
 		},
 		if: {
-			arg: 'userAvatar',
-			eq: 'image',
+			arg: "userAvatar",
+			eq: "image",
 		},
 	},
 	userConfirmed: {
-		name: 'Recipient confirmed',
+		name: "Recipient confirmed",
 		control: {
-			type: 'boolean'
-		}
+			type: "boolean",
+		},
 	},
 	isInvited: {
-		name: 'Recipient invited',
+		name: "Recipient invited",
 		control: {
-			type: 'boolean'
-		}
+			type: "boolean",
+		},
 	},
 	appearance: {
-		name: 'Appearance',
-		options: ['primary', 'secondary'],
+		name: "Appearance",
+		options: ["primary", "secondary"],
 		control: {
-			type: 'select',
+			type: "select",
 			labels: {
-				primary: 'Primary',
-				secondary: 'Secondary'
+				primary: "Primary",
+				secondary: "Secondary",
 			},
 		},
 	},
-};
+}
 
 // Publish required stories.
-export { Recipient };
+export { Recipient }
