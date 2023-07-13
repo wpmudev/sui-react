@@ -33,6 +33,30 @@
 			&:last-child {
 				margin-right: 0;
 			}
+
+			@include modifier(is-icon) {
+				min-width: auto;
+				padding: 11px;
+				
+				span {
+					display: block;
+				}
+			}
+		}
+	}
+
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block-name) {
+			margin: $button-container-margin-vertical
+				$button-container-margin-horizontal;
+
+			&:first-child {
+				margin-right: 0;
+			}
+
+			&:last-child {
+				margin-left: 0;
+			}
 		}
 	}
 }

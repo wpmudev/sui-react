@@ -13,6 +13,15 @@
 					padding: $button-icon-padding-vertical-sm
 						$button-icon-padding-horizontal-sm;
 				}
+
+				&.sui-#{$block-name}--is-icon {
+					min-width: auto;
+					padding: 7px;
+					
+					.sui-#{$block-name}__icon {
+						padding: 0;
+					}
+				}
 			}
 		}
 	}
