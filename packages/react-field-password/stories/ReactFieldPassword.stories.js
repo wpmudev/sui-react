@@ -1,34 +1,34 @@
-import React from 'react';
+import React from "react"
 
 // Import required modules
-import { PasswordField as SuiPasswordField, PasswordFieldRef } from '../lib/react-field-password';
+import { PasswordField as SuiPasswordField } from "../src"
 
 // Import documentation
-import docs from './ReactFieldPassword.mdx';
+import docs from "./ReactFieldPassword.mdx"
 
 // Default settings
 export default {
-	title: 'SUI/Components/Form Elements/Password Field',
+	title: "SUI/Components/Form Elements/Password Field",
 	component: SuiPasswordField,
 	parameters: {
-		layout: 'fullscreen',
+		layout: "fullscreen",
 		docs: {
 			page: docs,
 		},
 	},
-};
+}
 
 // Build story
-export const PasswordField = ({buttonType, ...args}) => {
+export const PasswordField = ({ buttonType, ...args }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: '#fff',
-	};
+		background: "#fff",
+	}
 
 	const button = {
 		type: buttonType,
-	};
+	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
@@ -38,16 +38,16 @@ export const PasswordField = ({buttonType, ...args}) => {
 				</div>
 			</div>
 		</div>
-	);
+	)
 }
 
 // Story props defaults
 PasswordField.args = {
-	id: 'myPasswordField',
-	label: 'Password',
-	helper: 'Create a password of minimum 8 characters',
-	errorMessage: 'The password you inserted is not valid',
-	buttonType: 'icon-button',
+	id: "myPasswordField",
+	label: "Password",
+	helper: "Create a password of minimum 8 characters",
+	errorMessage: "The password you inserted is not valid",
+	buttonType: "icon-button",
 	isLabelHidden: false,
 	isError: false,
 	isDisabled: false,
@@ -56,34 +56,34 @@ PasswordField.args = {
 // Story props settings
 PasswordField.argTypes = {
 	id: {
-		name: 'ID',
+		name: "ID",
 	},
 	label: {
-		name: 'Label',
+		name: "Label",
 	},
 	errorMessage: {
-		name: 'Error Message',
+		name: "Error Message",
 	},
 	buttonType: {
-		name: 'Button Style',
+		name: "Button Style",
 		control: {
-			type: 'select',
+			type: "select",
 			options: {
-				'Icon Button (Default)': 'icon-button',
-				'Button': 'standard',
-			}
+				"Icon Button (Default)": "icon-button",
+				Button: "standard",
+			},
 		},
 	},
 	isLabelHidden: {
-		name: 'SR Label',
-		control: 'boolean'
+		name: "SR Label",
+		control: "boolean",
 	},
 	isError: {
-		name: 'Error',
-		control: 'boolean',
+		name: "Error",
+		control: "boolean",
 	},
 	isDisabled: {
-		name: 'Disabled',
-		control: 'boolean',
+		name: "Disabled",
+		control: "boolean",
 	},
 }
