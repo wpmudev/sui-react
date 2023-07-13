@@ -1,6 +1,5 @@
 import React from "react"
-
-import type { TableSectionProps } from "./table"
+import { TableSectionProps } from "./table.types"
 
 // TableFooter component represents the footer section of a table.
 const TableFooter: React.FC<TableSectionProps> = ({ children, ...props }) => {

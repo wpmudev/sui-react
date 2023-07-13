@@ -1,14 +1,5 @@
-import React, { HTMLProps } from "react"
-
-/**
- * Interface representing the properties of a table row.
- */
-interface TableRowProps extends HTMLProps<HTMLTableRowElement> {
-	/**
-	 * Children nodes of the table row.
-	 */
-	children?: React.ReactNode
-}
+import React from "react"
+import { TableRowProps } from "./table.types"
 
 const TableRow: React.FC<TableRowProps> = ({ children, ...props }) => {
 	return (
@@ -19,4 +10,3 @@ const TableRow: React.FC<TableRowProps> = ({ children, ...props }) => {
 }
 
 export { TableRow }
-export type { TableRowProps }

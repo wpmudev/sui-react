@@ -1,2 +1,4 @@
-import { AlertDialog, AlertDialogPropTypes } from "./react-alertdialog"
-export { AlertDialog, AlertDialogPropTypes }
+// export components
+export { AlertDialog } from "./alertdialog"
+// export types
+export type { AlertDialogProps } from "./alertdialog.types"

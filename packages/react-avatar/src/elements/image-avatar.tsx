@@ -1,13 +1,10 @@
 import React, { Fragment } from "react"
-import { isEmpty, isUndefined } from "@wpmudev/react-utils"
 
-interface ImageAvatarPropsTypes {
-	source: string
-	text: string
-}
+import { isEmpty, isUndefined } from "@wpmudev/react-utils"
+import { ImageAvatarProps } from "./image-avatar.types"
 
 // Build "image avatar" element
-const Image = ({ source, text }: ImageAvatarPropsTypes) => {
+const Image: React.FC<ImageAvatarProps> = ({ source, text }) => {
 	// Props validation
 	const hasSrc = !isUndefined(source) && !isEmpty(source)
 	const hasAlt = !isUndefined(text) && !isEmpty(text)

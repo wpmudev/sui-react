@@ -1,24 +1,5 @@
-import React, { HTMLProps } from "react"
-
-/**
- * Interface representing the properties of a table section.
- */
-interface TableSectionProps extends HTMLProps<HTMLTableSectionElement> {
-	/**
-	 * Children nodes of the table section.
-	 */
-	children?: React.ReactNode
-}
-
-/**
- * Interface representing the properties of a table.
- */
-interface TableProps extends HTMLProps<HTMLTableElement> {
-	/**
-	 * Children nodes of the table.
-	 */
-	children?: React.ReactNode
-}
+import React from "react"
+import { TableProps } from "./table.types"
 
 const Table: React.FC<TableProps> = ({ children, ...props }) => {
 	return (
@@ -28,4 +9,4 @@ const Table: React.FC<TableProps> = ({ children, ...props }) => {
 	)
 }
 
-export { Table, TableProps, TableSectionProps }
+export { Table }

@@ -1,9 +1,9 @@
 // Import required component(s).
-import { Button } from "./variants/button-standard"
-import { LoadingButton } from "./variants/button-loading"
-import { ToggleButton } from "./variants/button-toggle"
+export { Button } from "./button-standard"
+export type { ButtonProps } from "./button.types"
 
-// types
-import { ButtonPropsType } from "./types"
+export { LoadingButton } from "./button-loading"
+export type { LoadingButtonProps } from "./button-loading.types"
 
-export { Button, LoadingButton, ToggleButton, ButtonPropsType }
+export { ToggleButton } from "./button-toggle"
+export type { ToggleButtonProps } from "./button-toggle.types"

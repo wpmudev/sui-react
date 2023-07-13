@@ -1,2 +1,2 @@
-import { Tag, TagPropTypes } from "./react-tag"
-export { Tag, TagPropTypes }
+export { Tag } from "./tag"
+export type { TagProps } from "./tag.types"

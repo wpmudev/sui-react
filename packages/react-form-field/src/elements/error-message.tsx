@@ -1,25 +1,9 @@
 import React from "react"
 
-/**
- * Represents the properties for an error message component.
- */
-interface ErrorMessageProps {
-	/**
-	 * The unique identifier of the error message.
-	 */
-	id: string
-	/**
-	 * Indicates whether the error message should be shown or not.
-	 */
-	show: boolean
-	/**
-	 * The content of the error message.
-	 */
-	children: React.ReactNode
-}
+import { FormFieldErrorProps } from "../form-field.types"
 
 // Build field error message element
-const ErrorMessage: React.FC<ErrorMessageProps> = ({
+const ErrorMessage: React.FC<FormFieldErrorProps> = ({
 	id,
 	show = false,
 	children,
@@ -32,4 +16,4 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({
 	</span>
 )
 
-export { ErrorMessage, ErrorMessageProps }
+export { ErrorMessage, FormFieldErrorProps }

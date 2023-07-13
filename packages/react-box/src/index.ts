@@ -1,6 +1,5 @@
 // Get required component(s)
-import { Box, BoxProps } from "./elements/box"
-import { BoxGroup, BoxGroupProps } from "./elements/box-group"
-
-// Publish component(s)
-export { Box, BoxProps, BoxGroup, BoxGroupProps }
+export { Box } from "./box"
+export type { BoxProps } from "./box.types"
+export { BoxGroup } from "./box-group"
+export type { BoxGroupProps } from "./box-group.types"

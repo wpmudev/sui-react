@@ -1,2 +1,2 @@
-import { CodeSnippet, CodeSnippetProps } from "./react-code-snippet"
-export { CodeSnippet, CodeSnippetProps }
+export { CodeSnippet } from "./code-snippet"
+export type { CodeSnippetProps } from "./code-snippet.types"

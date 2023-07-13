@@ -1,4 +1,5 @@
-import { Menu, MenuProps } from "./menu"
-import { MenuItem, MenuItemProps } from "./menu-item"
+export { Menu } from "./menu"
+export { MenuProps } from "./menu.types"
 
-export { Menu, MenuProps, MenuItem, MenuItemProps }
+export { MenuItem } from "./menu-item"
+export type { MenuItemProps } from "./menu-item"

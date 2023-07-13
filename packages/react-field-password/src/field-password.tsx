@@ -1,47 +1,10 @@
-import React, { forwardRef, HTMLProps, useState } from "react"
+import React, { forwardRef, useState } from "react"
 
-import { Field, FieldProps } from "@wpmudev/react-form-field"
+import { Field } from "@wpmudev/react-form-field"
 import { Input } from "@wpmudev/react-input"
-// import { IconButton } from "@wpmudev/react-icon-button"
-import { Button } from "@wpmudev/react-button"
+// import { Button } from "@wpmudev/react-button"
 
-/**
- * Interface representing the properties of a password field.
- */
-interface PasswordFieldProps extends HTMLProps<HTMLDivElement> {
-	/**
-	 * ID of the password field.
-	 */
-	id: string
-	/**
-	 * Label for the password field.
-	 */
-	label?: React.ReactNode
-	/**
-	 * Helper text for the password field.
-	 */
-	helper?: React.ReactNode
-	/**
-	 * Error message for the password field.
-	 */
-	errorMessage?: React.ReactNode
-	/**
-	 * Button text for the password field.
-	 */
-	button?: string
-	/**
-	 * Indicates whether the label should be hidden.
-	 */
-	isLabelHidden?: boolean
-	/**
-	 * Indicates whether there is an error with the field.
-	 */
-	iError?: boolean
-	/**
-	 * Indicates whether the field is disabled.
-	 */
-	isDisabled?: boolean
-}
+import { PasswordFieldProps } from "./field-password.types"
 
 const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 	HTMLInputElement,
@@ -146,4 +109,4 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 
 PasswordField.displayName = "PasswordField"
 
-export { PasswordField, PasswordFieldProps }
+export { PasswordField }

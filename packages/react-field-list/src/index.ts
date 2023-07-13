@@ -1,2 +1,2 @@
-import { FieldList, FieldListProps } from "./react-field-list"
-export { FieldList, FieldListProps }
+export { FieldList } from "./field-list"
+export type { FieldListProps } from "./field-list.types"

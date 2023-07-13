@@ -1,10 +1,7 @@
 import React, { Children } from "react"
 
 import { MenuItem } from "./menu-item"
-
-interface MenuProps {
-	children?: React.ReactNode
-}
+import { MenuProps } from "./menu.types"
 
 // Build menu component
 const Menu: React.FC<MenuProps> = ({ children }) => {
@@ -29,4 +26,4 @@ const Menu: React.FC<MenuProps> = ({ children }) => {
 	)
 }
 
-export { Menu, MenuProps }
+export { Menu }

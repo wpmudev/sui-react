@@ -1,2 +1,2 @@
-import { TextField, TextFieldPropTypes } from "./react-text-field"
-export { TextField, TextFieldPropTypes }
+export { TextField } from "./text-field"
+export type { TextFieldProps } from "./text-field.types"

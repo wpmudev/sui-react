@@ -1,2 +1,2 @@
-import { Input, InputProps } from "./variations/input-base"
-export { Input, InputProps }
+export { Input } from "./input"
+export type { InputProps } from "./input.types"

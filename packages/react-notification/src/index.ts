@@ -1,2 +1,2 @@
-import { Notification, NotificationProps } from "./notification"
-export { Notification, NotificationProps }
+export { Notification } from "./notification"
+export { NotificationProps } from "./notification.types"

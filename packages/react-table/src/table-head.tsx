@@ -1,6 +1,5 @@
 import React from "react"
-
-import type { TableSectionProps } from "./table"
+import { TableSectionProps } from "./table.types"
 
 // TableHead component represents the head section of a table.
 const TableHead: React.FC<TableSectionProps> = ({ children, ...props }) => {

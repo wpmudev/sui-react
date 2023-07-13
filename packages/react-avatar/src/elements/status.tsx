@@ -1,11 +1,9 @@
 import React from "react"
 
-interface StatusPropTypes {
-	status?: string
-}
+import { StatusProps } from "./status.types"
 
 // Build "status" element
-const Status = ({ status }: StatusPropTypes) => {
+const Status: React.FC<StatusProps> = ({ status }) => {
 	const set: any = {}
 
 	set.wrapper = {}

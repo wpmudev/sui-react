@@ -1,16 +1,6 @@
 import React, { HTMLProps } from "react"
 import classnames from "classnames"
-
-/**
- * Interface representing the properties of a table cell.
- */
-interface TableCellProps
-	extends HTMLProps<HTMLTableCellElement | HTMLTableHeaderCellElement> {
-	/**
-	 * Children nodes of the table cell.
-	 */
-	children?: React.ReactNode
-}
+import { TableCellProps } from "./table.types"
 
 const TableCell: React.FC<TableCellProps> = ({
 	children,
@@ -34,4 +24,3 @@ const TableCell: React.FC<TableCellProps> = ({
 }
 
 export { TableCell }
-export type { TableCellProps }
