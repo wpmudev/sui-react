@@ -5,13 +5,13 @@
   "keywords": [],
   "author": "Leighton <2328848+iamleigh@users.noreply.github.com>",
   "license": "GPL-2.0",
-  "main": "lib/react-table.js",
+  "main": "src/react-table.js",
   "directories": {
-    "lib": "lib",
+    "src": "src",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "src"
   ],
   "publishConfig": {
     "access": "public"
