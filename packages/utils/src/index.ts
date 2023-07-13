@@ -118,6 +118,17 @@ const isString = (value: unknown) => "string" === typeof value
  */
 const isEmpty = (value: string) => "" === value
 
+/**
+ * Capitalize text
+ *
+ * @param {string} string Text to be capitalized
+ *
+ * @return {string} Capitalize text
+ */
+const capitalizeText = (string: string) => {
+	return string?.charAt(0)?.toUpperCase() + string?.slice(1)
+}
+
 // Publish required function(s).
 export {
 	isNull,
@@ -131,4 +142,5 @@ export {
 	isString,
 	generateCN,
 	condContent,
+	capitalizeText,
 }
