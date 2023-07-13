@@ -1,17 +1,15 @@
 import React, { Fragment } from "react"
-import { isUndefined, isString } from "@wpmudev/react-utils"
+import { isString } from "@wpmudev/react-utils"
 
 // import { IconButton } from '@wpmudev/react-icon-button';
 
+interface RecipientEmailProps {
+	children?: React.ReactNode
+}
+
 // Build "Button" component.
-const RecipientButton = ({ children, ...props }) => {
-	const is = {}
-
-	// Required parameter(s) validation.
-	is.defined = !isUndefined(children) ? true : false
-	is.string = isString(children) ? true : false
-
-	if (is.defined && !is.string) {
+const RecipientButton: React.FC<RecipientEmailProps> = ({ children }) => {
+	if (!!children && !isString(children)) {
 		throw new Error(
 			`Incorrect parameter type. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Recipient\n\nThe parameter "children" used in the button element is not a string type.\n\n`,
 		)
