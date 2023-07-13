@@ -78,10 +78,13 @@ const Button = ({ example, ...props }) => {
 							case "icon":
 								return (
 									<StandardButton
-										icon="chevron-left"
+										icon="add"
+										iconOnly={true}
 										onClick={() => console.log("Go to prev step.")}
 										{...props}
-									/>
+									>
+										Add
+									</StandardButton>
 								)
 							default:
 								return (

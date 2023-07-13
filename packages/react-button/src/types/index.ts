@@ -27,6 +27,8 @@ export interface ButtonPropsType
 	icon?: string
 	// Optional icon position to be displayed before or after text
 	iconPosition: "start" | "end"
+	// Optional button with icon only
+	iconOnly?: boolean
 	// The content of the button (e.g., text or other React components)
 	children?: React.ReactNode
 }

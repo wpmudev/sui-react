@@ -31,6 +31,7 @@ const Button = forwardRef<
 		children,
 		icon,
 		iconPosition = "start",
+		iconOnly = false,
 		...restProps
 	} = props
 
@@ -55,7 +56,7 @@ const Button = forwardRef<
 		hover: isHovered,
 		focus: isFocused,
 		disabled: isDisabled,
-		"is-icon": hasIcon && isUndefined(children),
+		"is-icon": hasIcon && iconOnly,
 		[`${appearance}-${color}`]: !!appearance && !!color,
 	}
 
@@ -84,7 +85,9 @@ const Button = forwardRef<
 		<TagName {...attrs}>
 			{hasIcon && "start" === iconPosition && <Icon name={icon ?? ""} />}
 			{isUnwrapped && children}
-			{!isUnwrapped && <Label>{children}</Label>}
+			{!isUnwrapped && (
+				<Label {...(iconOnly && { hidden: true })}>{children}</Label>
+			)}
 			{hasIcon && "end" === iconPosition && <Icon name={icon ?? ""} />}
 		</TagName>
 	)

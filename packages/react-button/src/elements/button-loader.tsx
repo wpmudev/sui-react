@@ -14,7 +14,7 @@ interface ButtonLoaderProps {
 const Loader = ({ children }: ButtonLoaderProps) => {
 	const className = generateCN("suicons", {
 		md: true,
-		spinner: true,
+		"spinner-alt": true,
 		// icon animation
 		spin: true,
 	})
