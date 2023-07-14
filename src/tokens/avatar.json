@@ -20,9 +20,17 @@
           "value": "100%",
           "type": "borderRadius"
         }
+      },
+      "background": {
+        "value": "{color.extended.neutral.90}",
+        "type": "color"
       }
     },
     "icon": {
+      "color": {
+        "value": "{color.extended.neutral.10}",
+        "type": "color"
+      },
       "size": {
         "sm": {
           "value": "14px",
@@ -82,6 +90,10 @@
           "value": "14px",
           "type": "sizing"
         }
+      },
+      "background": {
+        "value": "{color.extended.neutral.100}",
+        "type": "color"
       }
     }
   }
