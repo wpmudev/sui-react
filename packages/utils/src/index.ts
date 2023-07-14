@@ -113,10 +113,10 @@ const isString = (value: unknown) => "string" === typeof value
 /**
  * Check if string is empty
  *
- * @param {string} value string to be checked
+ * @param {string | undefined} value string to be checked
  * @return {boolean} Returns true if string is blank
  */
-const isEmpty = (value: string) => "" === value
+const isEmpty = (value: string | undefined) => "" === value
 
 /**
  * Capitalize text
