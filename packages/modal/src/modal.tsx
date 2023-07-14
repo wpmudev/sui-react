@@ -1,19 +1,26 @@
 import React from "react"
-import {
-	isUndefined,
-	isEmpty,
-	isNumber,
-	isObject,
-	isFunction,
-} from "@wpmudev/react-utils"
+
+import { isEmpty, isFunction } from "@wpmudev/react-utils"
 
 // Import required module(s)
 import { AlertDialog } from "@wpmudev/react-alertdialog"
 import { Box, BoxGroup } from "@wpmudev/react-box"
 // import { IconButton } from "@wpmudev/react-icon-button"
 
+interface ModalProps {
+	id?: string
+	title?: string
+	icon?: Record<string, any>[]
+	isSmall?: boolean
+	content?: Function
+	footer?: Function
+	timer?: number
+	trigger?: Function
+	onClick?: Function
+}
+
 // Build modal component
-const Modal = ({
+const Modal: React.FC<ModalProps> = ({
 	id,
 	title,
 	icon,
@@ -25,74 +32,44 @@ const Modal = ({
 	onClick,
 	...props
 }) => {
-	const has = {}
-	const set = {}
-
-	// Props validation
-	has.id = !isUndefined(id) && !isEmpty(id) ? true : false
-	has.title = !isUndefined(title) && !isEmpty(title) ? true : false
-	has.icon = !isUndefined(icon) && !isEmpty(icon) ? true : false
-	has.timer = isNumber(timer) && timer > 0 ? true : false
-
-	if (!has.id) {
+	// Not valid id? return error
+	if (isEmpty(id ?? "")) {
 		throw new Error(
 			`Empty content is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Modal\n\nThe "ID" argument requires some value to be passed to it.\n\n`,
 		)
 	}
 
-	if (!has.title) {
+	// Not valid title? return error
+	if (isEmpty(title ?? "")) {
 		throw new Error(
 			`Empty content is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Modal\n\nThe "title" argument requires some value to be passed to it.\n\n`,
 		)
 	}
 
-	// Define icon object
-	set.icon = Object.assign(
-		{
-			name: has.icon && isObject(icon) ? "" : icon,
-			color: "",
-			class: "suicons", // Define icon main class
-		},
-		has.icon && isObject(icon) ? icon : "",
-	)
+	// // Define icon object
+	// const iconProps = {
+	// 	name: !!icon && isObject(icon) ? "" : icon,
+	// 	color: "",
+	// 	class: "suicons", // Define icon main class
+	// 	...(isObject(icon) ? icon : {}),
+	// }
 
-	// Re-validate icon prop
-	has.icon =
-		!isUndefined(set.icon.name) && !isEmpty(set.icon.name) ? true : false
-
-	// Define icon color
-	switch (set.icon.color) {
-		case "blue":
-			set.icon.class += " sui-color-primary--50"
-			break
-
-		case "green":
-			set.icon.class += " sui-color-success--50"
-			break
-
-		case "yellow":
-			set.icon.class += " sui-color-warning--50"
-			break
-
-		case "red":
-			set.icon.class += " sui-color-error--50"
-			break
-
-		default:
-			// do nothing
-			break
-	}
-
-	// Define icon size
-	set.icon.class += " suicons--lg"
+	// // icon classes
+	// const iconClassName = classnames({
+	// 	"sui-color-primary--50": "blue" === color,
+	// 	"sui-color-success--50": "green" === color,
+	// 	"sui-color-warning--50": "yellow" === color,
+	// 	"sui-color-error--50": "red" === color,
+	//  "suicons--lg": true
+	// })
 
 	// Define modal content
-	set.content = ({ closeModal }) => {
+	const modalContent = ({ closeModal }) => {
 		return (
 			<Box>
 				<BoxGroup>
 					<div slot="left">
-						{has.icon && (
+						{!!icon && (
 							<span
 								className={`${set.icon.class} suicons--${set.icon.name} sui-box-group__item`}
 								aria-hidden="true"
@@ -134,17 +111,17 @@ const Modal = ({
 	}
 
 	// Define alert dialog props
-	set.props = {
+	const attrs = {
 		dialogId: id,
 		titleText: `${id}__title`,
-		isSmall: isSmall,
-		...(has.timer && { triggerTimer: timer }),
-		...(isFunction(trigger) && { triggerContent: trigger }),
-		modalContent: set.content,
+		isSmall,
+		triggerTimer: !!timer ? timer : undefined,
+		triggerContent: isFunction(trigger) ? timer : undefined,
+		modalContent,
 		...props,
 	}
 
-	return <AlertDialog {...set.props} />
+	return <AlertDialog {...attrs} />
 }
 
 // Publish component(s)
