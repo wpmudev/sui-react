@@ -1,4 +1,4 @@
-# `@wpmudev/react-utils`
+# `@wpmudev/react-icon`
 
 > TODO: description
 
