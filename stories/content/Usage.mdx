@@ -43,6 +43,27 @@ import dedent from 'ts-dedent';
 
 <Section
 	title={{
+		content: "SVG Component",
+		small: true,
+	}}
+	border={ true }
+	contained={ true }>
+	<List>
+		<div label={
+			<>Install the <Code small={ true }> @wpmudev/sui-icons </Code> and @wpmudev/react-icon packages then import the icon in component you want in your component, as follow:</>
+		} />
+	</List>
+	<Snippet>
+		{ dedent`
+import { ArrowUp } from @wpmudev/react-icon;
+
+const TestComponent = () => <ArrowUp/>;
+	`}
+	</Snippet>
+</Section>
+
+<Section
+	title={{
 		content: "Icons Font - Ideal when you want to include all icons at once",
 		small: true,
 	}}

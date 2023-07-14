@@ -21,6 +21,7 @@
       "url": "https://iamleigh.com"
     }
   ],
+  "main": "src/components/index.ts",
   "input": "./src",
   "output": "./dist",
   "directories": {

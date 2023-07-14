@@ -1,18 +1,20 @@
-import React, { useState, Fragment, Children } from "react";
+import React, { Fragment, Children } from "react"
 
 // Import required components.
-import dedent from "dedent";
-import { Tag, Code } from '@wpmudev/storybook';
-import docs from './IconsPack.mdx';
+import dedent from "dedent"
+import { Tag, Code } from "@wpmudev/storybook"
+import docs from "./IconsPack.mdx"
 
 // Import required styles.
-import '../dist/css/sui-icons.css';
-import './styles/icons-pack.scss';
+import "../dist/css/sui-icons.css"
+import "./styles/icons-pack.scss"
+
+import { capitalizeText } from "@wpmudev/react-utils"
 
 export default {
-	title: 'SUI/Icons Pack',
+	title: "SUI/Icons Pack",
 	parameters: {
-		layout: 'fullscreen',
+		layout: "fullscreen",
 		docs: {
 			page: docs,
 		},
@@ -20,550 +22,559 @@ export default {
 			disabled: true,
 		},
 	},
-};
+}
 
 const Page = ({ category, search }) => {
-	const groups = Object.keys( ListIcons ).map( ( group, groupIndex ) => {
-		const catName = ListIcons[ group ].name;
-		const objIcons = ListIcons[ group ].icons;
+	const groups = Object.keys(ListIcons).map((group, groupIndex) => {
+		const catName = ListIcons[group].name
+		const objIcons = ListIcons[group].icons
+
 		const filteredobjIcons =
-			( 0 !== search.trim().length ) ?
-				Object.entries(objIcons).reduce((newObj, [key, val]) => {
-					const name = val.name.toLowerCase();
-					if (name.includes(search.toLowerCase())) {
-						newObj[key] = val;
-					}
-					return newObj;
-				}, {})
-				: objIcons;
+			0 !== search.trim().length
+				? Object.entries(objIcons).reduce((newObj, [key, val]) => {
+						const name = val.name.toLowerCase()
+						if (name.includes(search.toLowerCase())) {
+							newObj[key] = val
+						}
+						return newObj
+				  }, {})
+				: objIcons
 
-		const icons = Children.map( Object.keys( filteredobjIcons ), ( icon, iconIndex ) => {
+		const icons = Children.map(
+			Object.keys(filteredobjIcons),
+			(icon, iconIndex) => {
+				return (
+					<Fragment>
+						{("all" === category || group === category) && (
+							<li key={`${groupIndex}--${iconIndex}`}>
+								<div className="csb-icons__content">
+									<IconsCard
+										category={catName}
+										name={objIcons[icon].name}
+										alt={objIcons[icon].alt}
+										checked={objIcons[icon].checked}
+										id={icon}
+									/>
+								</div>
+							</li>
+						)}
+					</Fragment>
+				)
+			},
+		)
 
-			return (
-				<Fragment>
-					{( 'all' === category || group === category ) && (
-						<li key={`${ groupIndex }--${ iconIndex }`}>
-							<div className="csb-icons__content">
-								<IconsCard
-									category={ catName }
-									name={ objIcons[icon].name }
-									alt={ objIcons[icon].alt }
-									checked={ objIcons[icon].checked }
-									id={ icon } />
-							</div>
-						</li>
-					)}
-				</Fragment>
-			);
-		});
-
-		return (
-			<Fragment key={ groupIndex }>
-				{ icons }
-			</Fragment>
-		);
-	} );
+		return <Fragment key={groupIndex}>{icons}</Fragment>
+	})
 
 	return (
 		<div className="sui-layout sui-layout--spacing sui-layout--justify">
 			<div className="sui-layout__content">
-				<ul className="csb-icons">
-					{ groups }
-				</ul>
+				<ul className="csb-icons">{groups}</ul>
 			</div>
 		</div>
-	);
+	)
 }
 
 const IconsCard = ({ category, name, alt, checked, id }) => {
-	const hasTagAlternative = 'boolean' === typeof alt;
-	const hasTagChecked = 'boolean' === typeof checked;
+	const hasTagAlternative = "boolean" === typeof alt
+	const hasTagChecked = "boolean" === typeof checked
 
-	const sample = dedent`
-<span class="suicons suicons--${ id }" aria-hidden="true"></span>
-	`;
+	const camelCased = (id ?? "").replace(/-([a-z])/g, function (g) {
+		return g[1].toUpperCase()
+	})
+
+	const sample = dedent`<span class="suicons suicons--${id}" aria-hidden="true"></span>`
+
+	const compSample = dedent`<${capitalizeText(camelCased)}/>`
 
 	return (
 		<div className="csb-icon">
 			<div className="csb-icon__preview">
-				{( hasTagAlternative || hasTagChecked ) && (
+				{(hasTagAlternative || hasTagChecked) && (
 					<div className="csb-icon__preview-mode">
-						{( hasTagAlternative && alt ) && <Tag color="yellow">Alternative</Tag> }
-						{ hasTagChecked && (
+						{hasTagAlternative && alt && <Tag color="yellow">Alternative</Tag>}
+						{hasTagChecked && (
 							<Fragment>
-								{ checked
-									? <Tag color="green" light={ true }>Check</Tag>
-									: <Tag light={ true }>Uncheck</Tag>
-								}
+								{checked ? (
+									<Tag color="green" light={true}>
+										Check
+									</Tag>
+								) : (
+									<Tag light={true}>Uncheck</Tag>
+								)}
 							</Fragment>
 						)}
 					</div>
 				)}
 				<div className="csb-icon__preview-icon">
-					<span
-						className={`suicons suicons--${ id }`}
-						style={{ fontSize: 64 }} />
+					<span className={`suicons suicons--${id}`} style={{ fontSize: 64 }} />
 				</div>
 			</div>
 
 			<div className="csb-icon__data">
 				<h2 className="csb-icon__category">
-					{ category } / <span className="csb-icon__name">{ name }</span>
+					{category} / <span className="csb-icon__name">{name}</span>
 				</h2>
 
 				<div className="csb-icon__data-block">
 					<h3 className="csb-icon__data-title">SVG Name</h3>
-					<Code theme="ghost" fullWidth={ true }>{ id }</Code>
+					<Code theme="ghost" fullWidth={true}>
+						{id}
+					</Code>
 				</div>
 
 				<div className="csb-icon__data-block">
 					<h3 className="csb-icon__data-title">HTML Code</h3>
-					<Code
-						fullWidth={ true }
-						className="csb-icon__code">
-						{ sample }
+					<Code fullWidth={true} className="csb-icon__code">
+						{sample}
+					</Code>
+				</div>
+				<div className="csb-icon__data-block">
+					<h3 className="csb-icon__data-title">React Component</h3>
+					<Code fullWidth={true} className="csb-icon__code">
+						{compSample}
 					</Code>
 				</div>
 			</div>
 		</div>
-	);
+	)
 }
 
 const ListIcons = {
-	'products': {
-		name: 'Products',
+	products: {
+		name: "Products",
 		icons: {
-			'plugin-beehive': {
-				name: 'Beehive'
+			"plugin-beehive": {
+				name: "Beehive",
 			},
-			'plugin-blc': {
-				name: 'BLC'
+			"plugin-blc": {
+				name: "BLC",
 			},
-			'plugin-branda': {
-				name: 'Branda'
+			"plugin-branda": {
+				name: "Branda",
 			},
-			'plugin-dashboard': {
-				name: 'Dashboard'
+			"plugin-dashboard": {
+				name: "Dashboard",
 			},
-			'plugin-defender': {
-				name: 'Defender'
+			"plugin-defender": {
+				name: "Defender",
 			},
-			'plugin-forminator': {
-				name: 'Forminator'
+			"plugin-forminator": {
+				name: "Forminator",
 			},
-			'plugin-hummingbird': {
-				name: 'Hummingbird'
+			"plugin-hummingbird": {
+				name: "Hummingbird",
 			},
-			'plugin-hustle': {
-				name: 'Hustle'
+			"plugin-hustle": {
+				name: "Hustle",
 			},
-			'plugin-ivt': {
-				name: 'IVT'
+			"plugin-ivt": {
+				name: "IVT",
 			},
-			'plugin-shipper': {
-				name: 'Shipper'
+			"plugin-shipper": {
+				name: "Shipper",
 			},
-			'plugin-smartcrawl': {
-				name: 'SmartCrawl'
+			"plugin-smartcrawl": {
+				name: "SmartCrawl",
 			},
-			'plugin-smush': {
-				name: 'Smush'
+			"plugin-smush": {
+				name: "Smush",
 			},
-			'plugin-snapshot': {
-				name: 'Snapshot'
+			"plugin-snapshot": {
+				name: "Snapshot",
 			},
-			'hub': {
-				name: 'The Hub'
+			hub: {
+				name: "The Hub",
 			},
-			'logo': {
-				name: 'WPMU DEV'
+			logo: {
+				name: "WPMU DEV",
 			},
 		},
 	},
-	'summary-box': {
-		name: 'Summary Box',
+	"summary-box": {
+		name: "Summary Box",
 		icons: {
-			'chart': {
-				name: 'Chart',
+			chart: {
+				name: "Chart",
 			},
-			'chart-alt': {
-				name: 'Chart',
+			"chart-alt": {
+				name: "Chart",
 				alt: true,
 			},
-			'video': {
-				name: 'Video',
+			video: {
+				name: "Video",
 			},
-			'link': {
-				name: 'Link',
+			link: {
+				name: "Link",
 			},
-			'shield': {
-				name: 'Shield',
+			shield: {
+				name: "Shield",
 				checked: false,
 			},
-			'shield-check': {
-				name: 'Shield',
+			"shield-check": {
+				name: "Shield",
 				checked: true,
 			},
-			'form': {
-				name: 'Form',
+			form: {
+				name: "Form",
 			},
-			'performance': {
-				name: 'Performance',
+			performance: {
+				name: "Performance",
 			},
-			'email': {
-				name: 'Email',
+			email: {
+				name: "Email",
 			},
-			'package': {
-				name: 'Package',
+			package: {
+				name: "Package",
 				checked: false,
 			},
-			'package-check': {
-				name: 'Package',
+			"package-check": {
+				name: "Package",
 				checked: true,
 			},
-			'cloud': {
-				name: 'Cloud',
+			cloud: {
+				name: "Cloud",
 			},
 		},
 	},
-	'status': {
-		name: 'Status',
+	status: {
+		name: "Status",
 		icons: {
-			'check': {
-				name: 'Check',
+			check: {
+				name: "Check",
 			},
-			'check-alt': {
-				name: 'Check',
+			"check-alt": {
+				name: "Check",
 				alt: true,
 			},
-			'info': {
-				name: 'Info',
+			info: {
+				name: "Info",
 			},
-			'info-alt': {
-				name: 'Info',
+			"info-alt": {
+				name: "Info",
 				alt: true,
 			},
-			'question': {
-				name: 'Question',
+			question: {
+				name: "Question",
 			},
-			'warning': {
-				name: 'Warning',
+			warning: {
+				name: "Warning",
 			},
 		},
 	},
-	'action': {
-		name: 'Action',
+	action: {
+		name: "Action",
 		icons: {
-			'close': {
-				name: 'Close',
+			close: {
+				name: "Close",
 			},
-			'close-alt': {
-				name: 'Close',
+			"close-alt": {
+				name: "Close",
 				alt: true,
 			},
-			'add': {
-				name: 'Add',
+			add: {
+				name: "Add",
 			},
-			'upload': {
-				name: 'Upload',
+			upload: {
+				name: "Upload",
 			},
-			'compress': {
-				name: 'Compress',
+			compress: {
+				name: "Compress",
 			},
-			'settings': {
-				name: 'Settings',
+			settings: {
+				name: "Settings",
 			},
-			'refresh': {
-				name: 'Refresh',
+			refresh: {
+				name: "Refresh",
 			},
-			'trash': {
-				name: 'Trash',
+			trash: {
+				name: "Trash",
 			},
-			'trash-alt': {
-				name: 'Trash',
+			"trash-alt": {
+				name: "Trash",
 				alt: true,
 			},
-			'fullscreen': {
-				name: 'Fullscreen',
+			fullscreen: {
+				name: "Fullscreen",
 			},
-			'stop': {
-				name: 'Stop',
+			stop: {
+				name: "Stop",
 			},
-			'save': {
-				name: 'Save',
+			save: {
+				name: "Save",
 			},
-			'cloud-add': {
-				name: 'Cloud (Add)',
+			"cloud-add": {
+				name: "Cloud (Add)",
 			},
-			'more': {
-				name: 'More',
+			more: {
+				name: "More",
 			},
-			'download': {
-				name: 'Download',
+			download: {
+				name: "Download",
 			},
-			'filter': {
-				name: 'Filter',
+			filter: {
+				name: "Filter",
 			},
-			'power-off': {
-				name: 'Power Off',
+			"power-off": {
+				name: "Power Off",
 			},
-			'show': {
-				name: 'Show',
+			show: {
+				name: "Show",
 			},
-			'hide': {
-				name: 'Hide',
+			hide: {
+				name: "Hide",
 			},
-			'lock': {
-				name: 'Lock',
+			lock: {
+				name: "Lock",
 			},
-			'lock-alt': {
-				name: 'Lock',
+			"lock-alt": {
+				name: "Lock",
 				alt: true,
 			},
-			'submit': {
-				name: 'Submit',
+			submit: {
+				name: "Submit",
 			},
-			'roadmap': {
-				name: 'Roadmap',
+			roadmap: {
+				name: "Roadmap",
 			},
 		},
 	},
-	'state': {
-		name: 'State',
+	state: {
+		name: "State",
 		icons: {
-			'spinner': {
-				name: 'Spinner',
+			spinner: {
+				name: "Spinner",
 			},
-			'spinner-alt': {
-				name: 'Spinner',
+			"spinner-alt": {
+				name: "Spinner",
 				alt: true,
 			},
-			'grip': {
-				name: 'Grip',
+			grip: {
+				name: "Grip",
 			},
 		},
 	},
-	'navigation': {
-		name: 'Navigation',
+	navigation: {
+		name: "Navigation",
 		icons: {
-			'arrow-up': {
-				name: 'Arrow Up',
+			"arrow-up": {
+				name: "Arrow Up",
 			},
-			'arrow-down': {
-				name: 'Arrow Down',
+			"arrow-down": {
+				name: "Arrow Down",
 			},
-			'arrow-left': {
-				name: 'Arrow Left',
+			"arrow-left": {
+				name: "Arrow Left",
 			},
-			'arrow-right': {
-				name: 'Arrow Right',
+			"arrow-right": {
+				name: "Arrow Right",
 			},
-			'chevron-up': {
-				name: 'Chevron Up',
+			"chevron-up": {
+				name: "Chevron Up",
 			},
-			'chevron-down': {
-				name: 'Chevron Down',
+			"chevron-down": {
+				name: "Chevron Down",
 			},
-			'chevron-left': {
-				name: 'Chevron Left',
+			"chevron-left": {
+				name: "Chevron Left",
 			},
-			'chevron-right': {
-				name: 'Chevron Right',
+			"chevron-right": {
+				name: "Chevron Right",
 			},
-			'caret-up': {
-				name: 'Caret Up',
+			"caret-up": {
+				name: "Caret Up",
 			},
-			'caret-down': {
-				name: 'Caret Down',
+			"caret-down": {
+				name: "Caret Down",
 			},
-			'caret-left': {
-				name: 'Caret Left',
+			"caret-left": {
+				name: "Caret Left",
 			},
-			'caret-right': {
-				name: 'Caret Right',
+			"caret-right": {
+				name: "Caret Right",
 			},
-			'rotate-left': {
-				name: 'Rotate Left',
+			"rotate-left": {
+				name: "Rotate Left",
 			},
-			'rotate-right': {
-				name: 'Rotate Right',
+			"rotate-right": {
+				name: "Rotate Right",
 			},
-			'exit': {
-				name: 'Exit',
+			exit: {
+				name: "Exit",
 			},
 		},
 	},
-	'social': {
-		name: 'Social Media',
+	social: {
+		name: "Social Media",
 		icons: {
-			'facebook': {
-				name: 'Facebook',
+			facebook: {
+				name: "Facebook",
 			},
-			'instagram': {
-				name: 'Instagram',
+			instagram: {
+				name: "Instagram",
 			},
-			'twitter': {
-				name: 'Twitter',
+			twitter: {
+				name: "Twitter",
 			},
 		},
 	},
-	'global': {
-		name: 'Global',
+	global: {
+		name: "Global",
 		icons: {
-			'image': {
-				name: 'Image',
+			image: {
+				name: "Image",
 			},
-			'globe': {
-				name: 'Globe',
+			globe: {
+				name: "Globe",
 			},
-			'docs': {
-				name: 'Documentation',
+			docs: {
+				name: "Documentation",
 			},
-			'plugin': {
-				name: 'Plugin',
+			plugin: {
+				name: "Plugin",
 			},
-			'tutorials': {
-				name: 'Tutorials',
+			tutorials: {
+				name: "Tutorials",
 			},
-			'menu': {
-				name: 'Menu',
+			menu: {
+				name: "Menu",
 			},
-			'user': {
-				name: 'User',
+			user: {
+				name: "User",
 			},
-			'user-alt': {
-				name: 'User',
+			"user-alt": {
+				name: "User",
 				alt: true,
 			},
-			'search': {
-				name: 'Search',
+			search: {
+				name: "Search",
 			},
-			'calendar': {
-				name: 'Calendar',
+			calendar: {
+				name: "Calendar",
 			},
-			'folder-open': {
-				name: 'Folder (Open)',
+			"folder-open": {
+				name: "Folder (Open)",
 			},
-			'folder-close': {
-				name: 'Folder (Close)',
+			"folder-close": {
+				name: "Folder (Close)",
 			},
-			'file': {
-				name: 'File',
+			file: {
+				name: "File",
 				checked: false,
 			},
-			'file-check': {
-				name: 'File',
+			"file-check": {
+				name: "File",
 				checked: true,
 			},
-			'config': {
-				name: 'Config',
+			config: {
+				name: "Config",
 			},
-			'images': {
-				name: 'Images',
+			images: {
+				name: "Images",
 			},
-			'desktop': {
-				name: 'Desktop',
+			desktop: {
+				name: "Desktop",
 			},
-			'mobile': {
-				name: 'Mobile',
+			mobile: {
+				name: "Mobile",
 			},
-			'file-zip': {
-				name: 'File Zip',
+			"file-zip": {
+				name: "File Zip",
 			},
-			'edit': {
-				name: 'Edit (Pen Line)',
+			edit: {
+				name: "Edit (Pen Line)",
 			},
-			'like': {
-				name: 'Like',
+			like: {
+				name: "Like",
 			},
-			'like-alt': {
-				name: 'Like',
+			"like-alt": {
+				name: "Like",
 				alt: true,
 			},
-			'dislike': {
-				name: 'Dislike',
+			dislike: {
+				name: "Dislike",
 			},
-			'dislike-alt': {
-				name: 'Dislike',
+			"dislike-alt": {
+				name: "Dislike",
 				alt: true,
 			},
-			'lifesaver': {
-				name: 'Lifesaver (Life Ring)',
+			lifesaver: {
+				name: "Lifesaver (Life Ring)",
 			},
-			'compress-alt': {
-				name: 'Compress',
+			"compress-alt": {
+				name: "Compress",
 				alt: true,
 			},
-			'file-code': {
-				name: 'File Code',
+			"file-code": {
+				name: "File Code",
 			},
-			'server': {
-				name: 'Server',
+			server: {
+				name: "Server",
 			},
-			'code': {
-				name: 'Code',
+			code: {
+				name: "Code",
 			},
-			'cart': {
-				name: 'Cart',
+			cart: {
+				name: "Cart",
 			},
-			'emoji': {
-				name: 'Emoji',
+			emoji: {
+				name: "Emoji",
 			},
-			'tools': {
-				name: 'Tools (Settings Wrench)',
+			tools: {
+				name: "Tools (Settings Wrench)",
 			},
-			'bell': {
-				name: 'Bell (Notification)',
+			bell: {
+				name: "Bell (Notification)",
 			},
-			'rss': {
-				name: 'RSS (Feed)',
+			rss: {
+				name: "RSS (Feed)",
 			},
-			'external-link': {
-				name: 'External Link',
+			"external-link": {
+				name: "External Link",
 			},
-			'key': {
-				name: 'Key',
+			key: {
+				name: "Key",
 			},
-			'copy': {
-				name: 'Copy',
+			copy: {
+				name: "Copy",
 			},
-			'tag': {
-				name: 'Label Tag',
+			tag: {
+				name: "Label Tag",
 			},
-			'clock': {
-				name: 'Clock (Time)',
+			clock: {
+				name: "Clock (Time)",
 			},
 		},
 	},
 }
 
-Page.storyName = 'Icons Pack';
+Page.storyName = "Icons Pack"
 Page.args = {
-	category: 'all',
-	search: ''
+	category: "all",
+	search: "",
 }
 Page.argTypes = {
 	category: {
-		name: 'Category',
+		name: "Category",
 		control: {
-			type: 'select',
+			type: "select",
 			options: {
-				'All Categories': 'all',
-				Products: 'products',
-				'Summary Box': 'summary-box',
-				Status: 'status',
-				Action: 'action',
-				State: 'state',
-				Navigation: 'navigation',
-				'Social Media': 'social',
-				Global: 'global',
+				"All Categories": "all",
+				Products: "products",
+				"Summary Box": "summary-box",
+				Status: "status",
+				Action: "action",
+				State: "state",
+				Navigation: "navigation",
+				"Social Media": "social",
+				Global: "global",
 			},
 		},
 	},
 	search: {
-		name: 'Keyword Search',
+		name: "Keyword Search",
 		control: {
-			type: 'text',
+			type: "text",
 		},
 	},
 }
