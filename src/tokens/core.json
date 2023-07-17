@@ -843,7 +843,7 @@
 				"type": "fontWeights"
 			},
 			"md": {
-				"value": "600",
+				"value": "500",
 				"type": "fontWeights"
 			},
 			"lg": {
@@ -909,7 +909,7 @@
 		},
 		"spacing": {
 			"sm": {
-				"value": "1px",
+				"value": "0.1px",
 				"type": "letterSpacing"
 			},
 			"md": {
