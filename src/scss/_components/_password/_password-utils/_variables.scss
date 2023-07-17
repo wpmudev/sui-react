@@ -1,0 +1,14 @@
+@use "../../../_utils/tokens" as *;
+
+$sui-password-font: (
+	sm: (
+		size: $password-font-size-sm,
+		height: $password-font-height-sm,
+	),
+	md: (
+		size: $password-font-size-md,
+	),
+	lg: (
+		size: $password-font-size-lg,
+	),
+);
