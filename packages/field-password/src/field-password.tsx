@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from "react"
-
+import { generateCN } from "../../utils/src"
 import { Field } from "@wpmudev/react-form-field"
 import { Input } from "../../input/src"
 import { Button } from "../../button/src"
@@ -39,6 +39,7 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 			helper,
 			error,
 			isLabelHidden,
+			isSmall,
 		}
 
 		// Input settings
@@ -58,7 +59,7 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 		}
 
 		// Button settings
-		const buttonProps = Object.assign({
+		const buttonProps = {
 			label: isVisible ? "Hide" : "Show",
 			appearance: "secondary",
 			color: "black",
@@ -72,11 +73,16 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 				iconSize: isSmall ? "md" : "lg",
 			}),
 			isSmall,
+		}
+
+		const classNames = generateCN("sui-password", {
+			password: true,
+			icon: button.type === "icon-button" ? true : false,
 		})
 
 		return (
 			<Field {...fieldAttrs}>
-				<div className="sui-password">
+				<div className={classNames}>
 					<Input {...inputAttrs} />
 					<Button {...buttonProps}>{buttonProps.label}</Button>
 				</div>
