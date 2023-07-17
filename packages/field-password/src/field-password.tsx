@@ -17,6 +17,7 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 		errorMessage,
 		button = { type: "" },
 		isLabelHidden = false,
+		isSmall = false,
 		isError = false,
 		isDisabled = false,
 		...props
@@ -52,57 +53,32 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 				const getValue = document.getElementById(id).value
 				setHasValue(getValue.length > 0)
 			},
+			isSmall,
 			...props,
 		}
 
 		// Button settings
-		const buttonProps = Object.assign(
-			{
-				type: "icon-button",
-				showLabel: "Show",
-				hideLabel: "Hide",
+		const buttonProps = Object.assign({
+			label: isVisible ? "Hide" : "Show",
+			appearance: "secondary",
+			color: "black",
+			className: "sui-password__button",
+			isDisabled: isDisabled || !hasValue ? true : false,
+			onClick: () => setVisible(!isVisible),
+			...(button.type === "icon-button" && {
 				icon: isVisible ? "hide" : "show",
 				appearance: "tertiary",
 				iconOnly: true,
-				iconSize: "lg",
-				color: "black",
-				className: "sui-password__button",
-				isSmall: true,
-				isDisabled: isDisabled || !hasValue ? true : false,
-				onClick: () => setVisible(!isVisible),
-				html: "",
-			},
-			button,
-		)
-
-		// Render button appearance
-		// switch (button.type) {
-		// 	case "standard":
-		// 		buttonProps.html = (
-		// 			<Button appearance="secondary" {...buttonProps.props}>
-		// 				{isVisible ? buttonProps.hideLabel : buttonProps.showLabel}
-		// 			</Button>
-		// 		)
-		// 		break
-
-		// 	default:
-		// 		buttonProps.html = (
-		// 			<IconButton
-		// 				appearance="tertiary"
-		// 				icon={buttonProps.icon}
-		// 				label={isVisible ? buttonProps.hideLabel : buttonProps.showLabel}
-		// 				{...buttonProps.props}
-		// 			/>
-		// 		)
-		// 		break
-		// }
+				iconSize: isSmall ? "md" : "lg",
+			}),
+			isSmall,
+		})
 
 		return (
 			<Field {...fieldAttrs}>
 				<div className="sui-password">
 					<Input {...inputAttrs} />
-					<Button {...buttonProps} />
-					{/*{set.button.html}*/}
+					<Button {...buttonProps}>{buttonProps.label}</Button>
 				</div>
 			</Field>
 		)

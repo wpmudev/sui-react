@@ -29,6 +29,10 @@ interface PasswordFieldProps extends HTMLProps<HTMLDivElement> {
 	 */
 	isLabelHidden?: boolean
 	/**
+	 * Indicates the size of the field.
+	 */
+	isSmall?: boolean
+	/**
 	 * Indicates whether there is an error with the field.
 	 */
 	isError?: boolean
