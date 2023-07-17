@@ -38,7 +38,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				onMouseLeave = () => {},
 				onChange,
 				icon,
-				iconPosition = "start",
+				iconPosition,
 				...props
 			},
 			ref,
@@ -96,6 +96,8 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 					focus: isFocused && !isReadOnly,
 					filled: hasValue,
 					"has-icon": !isEmpty(icon),
+					"icon-start": !isEmpty(iconPosition) && "start" === iconPosition,
+					"icon-end": !isEmpty(iconPosition) && "end" === iconPosition,
 					error: isError,
 					disabled: isDisabled,
 					// Define multiline class name

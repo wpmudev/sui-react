@@ -52,6 +52,10 @@ interface ButtonProps
 	 */
 	iconPosition?: "start" | "end"
 	/**
+	 * Optional icon size to be sm | md | lg.
+	 */
+	iconSize?: "start" | "end"
+	/**
 	 * The content of the button (e.g., text or other React components).
 	 */
 	children?: React.ReactNode

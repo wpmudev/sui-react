@@ -23,7 +23,7 @@ interface PasswordFieldProps extends HTMLProps<HTMLDivElement> {
 	/**
 	 * Button text for the password field.
 	 */
-	button?: string
+	button?: { type: string }
 	/**
 	 * Indicates whether the label should be hidden.
 	 */
@@ -31,7 +31,7 @@ interface PasswordFieldProps extends HTMLProps<HTMLDivElement> {
 	/**
 	 * Indicates whether there is an error with the field.
 	 */
-	iError?: boolean
+	isError?: boolean
 	/**
 	 * Indicates whether the field is disabled.
 	 */

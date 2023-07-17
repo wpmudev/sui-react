@@ -11,7 +11,7 @@ interface ButtonIconProps {
 }
 
 // Build "Icon" component.
-const Icon: React.FC<ButtonIconProps> = ({ name = "" }) => {
+const Icon: React.FC<ButtonIconProps> = ({ name = "", size }) => {
 	const hasIcon = !isUndefined(name) && !isEmpty(name ?? "")
 
 	if (!hasIcon) {
@@ -22,7 +22,7 @@ const Icon: React.FC<ButtonIconProps> = ({ name = "" }) => {
 
 	const classNames = generateCN("suicons", {
 		[name]: !isEmpty(name),
-		md: true,
+		[size]: true,
 	})
 
 	return (

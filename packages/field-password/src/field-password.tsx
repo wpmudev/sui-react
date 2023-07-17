@@ -2,7 +2,7 @@ import React, { forwardRef, useState } from "react"
 
 import { Field } from "@wpmudev/react-form-field"
 import { Input } from "@wpmudev/react-input"
-// import { Button } from "@wpmudev/react-button"
+import { Button } from "../../button/src/button"
 
 import { PasswordFieldProps } from "./field-password.types"
 
@@ -15,7 +15,7 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 		label,
 		helper,
 		errorMessage,
-		button,
+		button = { type: "" },
 		isLabelHidden = false,
 		isError = false,
 		isDisabled = false,
@@ -47,6 +47,7 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 			inputClass: "sui-password__input",
 			isError,
 			isDisabled,
+			iconPosition: "end",
 			onKeyUp: () => {
 				const getValue = document.getElementById(id).value
 				setHasValue(getValue.length > 0)
@@ -55,42 +56,42 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 		}
 
 		// Button settings
-		// set.button = Object.assign(
-		// 	{
-		// 		type: "icon-button",
-		// 		showLabel: "Show",
-		// 		hideLabel: "Hide",
-		// 		icon: is.visible ? "hide" : "show",
-		// 		props: {
-		// 			color: "black",
-		// 			className: "sui-password__button",
-		// 			isSmall: true,
-		// 			isDisabled: isDisabled || !is.filled ? true : false,
-		// 			onClick: () => set.visibility(!is.visible),
-		// 		},
-		// 		html: "",
-		// 	},
-		// 	button,
-		// )
-		//
-		// // Render button appearance
-		// switch (set.button.type) {
+		const buttonProps = Object.assign(
+			{
+				type: "icon-button",
+				showLabel: "Show",
+				hideLabel: "Hide",
+				icon: isVisible ? "hide" : "show",
+				appearance: "tertiary",
+				iconOnly: true,
+				iconSize: "lg",
+				color: "black",
+				className: "sui-password__button",
+				isSmall: true,
+				isDisabled: isDisabled || !hasValue ? true : false,
+				onClick: () => setVisible(!isVisible),
+				html: "",
+			},
+			button,
+		)
+
+		// Render button appearance
+		// switch (button.type) {
 		// 	case "standard":
-		// 		set.button.props.appearance = "secondary"
-		// 		set.button.html = (
-		// 			<Button {...set.button.props}>
-		// 				{is.visible ? set.button.hideLabel : set.button.showLabel}
+		// 		buttonProps.html = (
+		// 			<Button appearance="secondary" {...buttonProps.props}>
+		// 				{isVisible ? buttonProps.hideLabel : buttonProps.showLabel}
 		// 			</Button>
 		// 		)
 		// 		break
-		//
+
 		// 	default:
-		// 		set.button.props.appearance = "tertiary"
-		// 		set.button.html = (
+		// 		buttonProps.html = (
 		// 			<IconButton
-		// 				icon={set.button.icon}
-		// 				label={is.visible ? set.button.hideLabel : set.button.showLabel}
-		// 				{...set.button.props}
+		// 				appearance="tertiary"
+		// 				icon={buttonProps.icon}
+		// 				label={isVisible ? buttonProps.hideLabel : buttonProps.showLabel}
+		// 				{...buttonProps.props}
 		// 			/>
 		// 		)
 		// 		break
@@ -100,6 +101,7 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 			<Field {...fieldAttrs}>
 				<div className="sui-password">
 					<Input {...inputAttrs} />
+					<Button {...buttonProps} />
 					{/*{set.button.html}*/}
 				</div>
 			</Field>
