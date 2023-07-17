@@ -12,7 +12,7 @@ import {
 	isFunction,
 	generateCN,
 	condContent,
-} from "@wpmudev/react-utils"
+} from "../../utils/src"
 import { useInteraction } from "@wpmudev/react-hooks"
 
 import { Icon } from "./elements/input-icon"
@@ -125,7 +125,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			const attrs = {
 				id,
 				ref,
-				type: condContent(isMultiLine, inputType),
+				type: condContent(!isMultiLine, inputType),
 				placeholder: condContent(hasPlaceholder, placeholder),
 				readOnly: condContent(isReadOnly, true),
 				disabled: condContent(isDisabled, true),

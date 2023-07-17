@@ -1,8 +1,8 @@
 import React, { forwardRef, useState } from "react"
 
 import { Field } from "@wpmudev/react-form-field"
-import { Input } from "@wpmudev/react-input"
-import { Button } from "../../button/src/button"
+import { Input } from "../../input/src"
+import { Button } from "../../button/src"
 
 import { PasswordFieldProps } from "./field-password.types"
 
