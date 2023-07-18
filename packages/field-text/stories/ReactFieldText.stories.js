@@ -56,9 +56,9 @@ TextField.args = {
 TextField.argTypes = {
 	type: {
 		name: "Type",
+		options: ["text", "email", "password", "number", "search", "tel", "url"],
 		control: {
 			type: "select",
-			options: ["text", "email", "password", "number", "search", "tel", "url"],
 		},
 		if: {
 			arg: "isMultiLine",
