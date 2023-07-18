@@ -3,9 +3,9 @@ import { isEmpty, generateCN } from "@wpmudev/react-utils"
 
 import { Avatar } from "@wpmudev/react-avatar"
 
-import { RecipientName } from "./name-recipient"
-import { RecipientEmail } from "./email-recipient"
-import { RecipientButton } from "./button-recipient"
+import { RecipientName } from "./recipient-name"
+import { RecipientEmail } from "./recipient-email"
+import { RecipientButton } from "./recipient-button"
 
 interface RecipientProps extends HTMLProps<HTMLDivElement> {
 	userName?: string
