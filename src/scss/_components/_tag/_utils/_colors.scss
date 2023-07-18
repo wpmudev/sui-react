@@ -10,3 +10,8 @@ $colors: (
 	black: $color-extended-neutral-10,
 	navy: $color-primary-30,
 );
+
+$colors-high-contrast: (
+	default: $color-extended-neutral-0,
+	white: $color-extended-neutral-100,
+);
