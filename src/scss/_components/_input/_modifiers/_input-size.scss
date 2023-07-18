@@ -20,6 +20,20 @@
 					font-size: $input-font-size-sm;
 					line-height: $input-font-height-sm;
 				}
+
+				// if input has icon
+				&.sui-#{$block}--icon-end {
+					.sui-input__input {
+						padding-right: 35px;
+					}
+				}
+
+				// if input has icon
+				&.sui-#{$block}--icon-start {
+					.sui-input__input {
+						padding-left: 35px;
+					}
+				}
 			}
 
 			@include modifier(multiline) {
