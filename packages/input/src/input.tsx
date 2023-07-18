@@ -142,11 +142,11 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			return (
 				<div className={classNames}>
 					{icon && !isMultiLine && "start" === iconPosition && (
-						<Icon name={icon ?? ""} />
+						<Icon name={icon ?? ""} size={isSmall ? "md" : "lg"} />
 					)}
 					<TagName {...attrs}></TagName>
 					{icon && !isMultiLine && "end" === iconPosition && (
-						<Icon name={icon ?? ""} />
+						<Icon name={icon ?? ""} size={isSmall ? "md" : "lg"} />
 					)}
 				</div>
 			)
