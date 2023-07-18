@@ -1,12 +1,13 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useRef } from "react"
 
 // Import required component
-import { Modal as SuiModal } from "../lib/react-modal"
+import { Modal as SuiModal, ModalBody } from "../src"
 import { Box, BoxGroup } from "@wpmudev/react-box"
 import { Button } from "@wpmudev/react-button"
 
 // Import documentation main page
 import docs from "./ReactModal.mdx"
+import { ModalHeader } from "../src"
 
 // Configure default options
 export default {
@@ -61,11 +62,26 @@ const Modal = ({ example, ...args }) => {
 		background: "#fff",
 	}
 
+	const ref = useRef(null)
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiModal {...args} />
+					<SuiModal {...args} ref={ref}>
+						<ModalHeader title="Something" />
+						<ModalBody>SOMETHING</ModalBody>
+					</SuiModal>
+					<Button
+						appearance="primary"
+						color="blue"
+						onClick={() => {
+							console.log("ref", ref)
+							ref.current.openModal()
+						}}
+					>
+						Open modal
+					</Button>
 				</div>
 			</div>
 		</div>
