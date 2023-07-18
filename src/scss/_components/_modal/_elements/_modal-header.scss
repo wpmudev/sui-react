@@ -1,0 +1,24 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Action
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-header($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(header) {
+				align-items: center;
+				background: white;
+				border-radius: 16px 16px 0 0;
+				display: flex;
+				justify-content: space-between;
+			}
+		}
+	}
+}

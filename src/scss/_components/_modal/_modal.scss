@@ -1,0 +1,11 @@
+@use "./_elements/elements" as sui-modal--element;
+@use "./_modifiers/modifiers" as sui-modal--modifier;
+
+@include sui-modal--element.build-overlay(modal);
+@include sui-modal--element.build-container(modal);
+@include sui-modal--element.build-header(modal);
+@include sui-modal--element.build-body(modal);
+
+@include sui-modal--modifier.edit-is-open(modal);
+//@include sui-modal--modifier.edit-position(progress-bar);
+//@include sui-modal--modifier.edit-alignment(progress-bar);
