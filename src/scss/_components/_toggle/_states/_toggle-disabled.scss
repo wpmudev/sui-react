@@ -1,0 +1,30 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// State: Disabled
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-disabled($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(disabled) {
+				cursor: default;
+				pointer-events: none;
+
+				@include modifies-element(switch) {
+					background: $color-extended-neutral-80;
+
+					&:before {
+						background: $color-extended-neutral-70;
+					}
+				}
+			}
+		}
+	}
+}

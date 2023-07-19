@@ -1,0 +1,108 @@
+{
+  "radio": {
+    "input": {
+      "size": {
+        "sm": {
+          "value": "16px",
+          "type": "sizing"
+        },
+        "md": {
+          "value": "20px",
+          "type": "sizing"
+        }
+      },
+      "spacing": {
+        "value": "{spacing.md}",
+        "type": "spacing"
+      },
+      "border": {
+        "color": {
+          "default": {
+            "value": "{color.extended.neutral.70}",
+            "type": "color"
+          },
+          "active": {
+            "value": "{color.primary.50}",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "{color.extended.neutral.80}",
+            "type": "color"
+          }
+        }
+      },
+      "background": {
+        "default": {
+          "value": "{color.extended.neutral.100}",
+          "type": "color"
+        },
+        "active": {
+          "value": "{color.primary.50}",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "{color.extended.neutral.80}",
+          "type": "color"
+        }
+      }
+    },
+    "icon": {
+      "size": {
+        "sm": {
+          "value": "6px",
+          "type": "sizing"
+        },
+        "md": {
+          "value": "8px",
+          "type": "sizing"
+        }
+      },
+      "color": {
+        "default": {
+          "value": "{color.extended.neutral.100}",
+          "type": "color"
+        },
+        "disabled": {
+          "value": "{color.extended.neutral.70}",
+          "type": "color"
+        }
+      }
+    },
+    "font": {
+      "weight": {
+        "value": "{font.weight.default}",
+        "type": "fontWeights"
+      },
+      "size": {
+        "sm": {
+          "value": "{font.size.xs}",
+          "type": "fontSizes"
+        },
+        "md": {
+          "value": "{font.size.default}",
+          "type": "fontSizes"
+        }
+      },
+      "height": {
+        "sm": {
+          "value": "{font.height.xs}",
+          "type": "lineHeights"
+        },
+        "md": {
+          "value": "{font.height.sm}",
+          "type": "lineHeights"
+        }
+      },
+      "spacing": {
+        "value": "{font.spacing.default}",
+        "type": "letterSpacing"
+      },
+      "color": {
+        "default": {
+          "value": "{color.extended.neutral.10}",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

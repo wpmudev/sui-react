@@ -1,0 +1,33 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// State: Focus
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-focus($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(focus) {
+				@include modifies-element(switch) {
+					outline: 2px solid #d1d1d1;
+					outline-offset: 2px;
+					background: #d1d1d1;
+				}
+			}
+
+			@include modifier(checked-focus) {
+				@include modifies-element(switch) {
+					outline: 2px solid $color-primary-50;
+					outline-offset: 2px;
+					background: $color-primary-50;
+				}
+			}
+		}
+	}
+}

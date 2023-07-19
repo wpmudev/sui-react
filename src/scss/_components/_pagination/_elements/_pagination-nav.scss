@@ -1,0 +1,28 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Navigation Group
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-nav($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(nav) {
+				display: flex;
+				flex-flow: row wrap;
+				align-items: center;
+				justify-content: flex-end;
+				padding: 0;
+				margin: 0;
+				margin-left: auto;
+				list-style: none;
+			}
+		}
+	}
+}

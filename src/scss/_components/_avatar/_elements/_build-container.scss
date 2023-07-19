@@ -1,0 +1,37 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Avatar Container
+/// This function creates styles for the element
+/// avatar wrapper.
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-container($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			width: $avatar-container-size-md;
+			height: $avatar-container-size-md;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+            position: relative;
+			border-radius: $avatar-container-border-radius;
+			background: $avatar-container-background;
+			letter-spacing: 0;
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: 'dark') {
+		@include block($block) {
+			box-shadow: 0 0 0 $avatar-container-border-width $color-extended-neutral-10;
+		}
+	}
+}

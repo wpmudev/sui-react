@@ -1,0 +1,28 @@
+@use "../../../_utils/utils" as *;
+
+@mixin build-option($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include element(option) {
+				cursor: pointer;
+				user-select: none;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				margin: $spacing-sm 0;
+				padding: 0 12px;
+				border: 0;
+				background: transparent;
+				color: $color-extended-neutral-10;
+				font-size: $font-size-sm;
+				line-height: $font-height-sm;
+				text-decoration: none;
+				transition: 0.2s ease;
+
+				&:hover {
+					background: $color-extended-neutral-90;
+				}
+			}
+		}
+	}
+}

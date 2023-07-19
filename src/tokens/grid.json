@@ -16,7 +16,7 @@
 		},
 		"breakpoint": {
 			"sm": {
-				"value": "783px",
+				"value": "600px",
 				"type": "sizing"
 			},
 			"md": {

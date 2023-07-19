@@ -1,0 +1,25 @@
+@use "../../../_utils/utils" as *;
+
+@mixin build-icon($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include element(icon) {
+				display: block;
+				padding: $button-icon-padding-vertical-md
+					$button-icon-padding-horizontal-md;
+
+				span {
+					display: block;
+					&.suicons--spin {
+						@include animation(spin)
+					}
+				}
+			}
+			@include modifier(is-icon) {
+				.sui-#{$block-name}__icon {
+					padding: 0;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Recipient Theme
+/// This function creates styles for the element
+/// recipient theme.
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-theme($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+            @include modifier(secondary) {
+                background: $recipient-container-background-secondary;
+				border-width: 0;
+            }
+		}
+	}
+}

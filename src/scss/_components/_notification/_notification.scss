@@ -1,0 +1,17 @@
+@use "./_elements/elements" as sui-notification--element;
+@use "./_modifiers/modifiers" as sui-notification--modifier;
+@use "./_states/states" as sui-notification--state;
+
+@include sui-notification--element.build-container(notification);
+@include sui-notification--element.build-icon(notification);
+@include sui-notification--element.build-content(notification);
+@include sui-notification--element.build-title(notification);
+@include sui-notification--element.build-message(notification);
+@include sui-notification--element.build-action(notification);
+@include sui-notification--element.build-button(notification);
+
+@include sui-notification--modifier.edit-position(notification);
+@include sui-notification--modifier.edit-size(notification);
+@include sui-notification--modifier.edit-states(notification);
+
+@include sui-notification--state.edit-empty(notification);

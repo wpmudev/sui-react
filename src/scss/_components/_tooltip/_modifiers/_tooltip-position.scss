@@ -1,0 +1,297 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+@use "../_utils/variables" as *;
+@use "../_utils/mixins" as *;
+
+/// Build Tooltip Position
+/// This function creates styles for the element
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-position($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+
+		// Block wrapper.
+		@include block($block) {
+
+            @include modifier(top) {
+
+                @include modifies-element(content) {
+                    left: 50%;
+                    bottom: 100%;
+                    margin-bottom: map.get($sui-tooltip-spacing, margin);
+                    transform: translateX(-50%);
+
+                    &:after {
+                        @include equilateral-triangle(down, 6px, #333);
+                        left: 50%;
+                        bottom: -6px;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
+            @include modifier(top-left) {
+
+                @include modifies-element(content) {
+                    left: 0;
+                    bottom: 100%;
+                    margin-bottom: map.get($sui-tooltip-spacing, margin);
+                    transform: translateX(0);
+
+                    &:after {
+                        @include equilateral-triangle(down, 6px, #333);
+                        left: 8px;
+                        bottom: -6px;
+                    }
+                }
+            }
+
+            @include modifier(top-right) {
+
+                @include modifies-element(content) {
+                    right: 0;
+                    bottom: 100%;
+                    margin-bottom: map.get($sui-tooltip-spacing, margin);
+
+                    &:after {
+                        @include equilateral-triangle(down, 6px, #333);
+                        right: 8px;
+                        bottom: -6px;
+                    }
+                }
+            }
+
+            @include modifier(bottom) {
+
+                @include modifies-element(content) {
+                    top: 100%;
+                    left: 50%;
+                    margin-top: map.get($sui-tooltip-spacing, margin);
+                    transform: translateX(-50%);
+
+                    &:after {
+                        @include equilateral-triangle(up, 6px, #333);
+                        top: -6px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
+            @include modifier(bottom-left) {
+
+                @include modifies-element(content) {
+                    top: 100%;
+                    left: 0;
+                    margin-top: map.get($sui-tooltip-spacing, margin);
+
+                    &:after {
+                        @include equilateral-triangle(up, 6px, #333);
+                        top: -6px;
+                        left: 8px;
+                    }
+                }
+            }
+
+            @include modifier(bottom-right) {
+
+                @include modifies-element(content) {
+                    top: 100%;
+                    right: 0;
+                    margin-top: map.get($sui-tooltip-spacing, margin);
+
+                    &:after {
+                        @include equilateral-triangle(up, 6px, #333);
+                        top: -6px;
+                        right: 8px;
+                    }
+                }
+            }
+
+            @include modifier(left) {
+
+                @include modifies-element(content) {
+                    top: 50%;
+                    right: calc(100% + map.get($sui-tooltip-spacing, margin));
+                    transform: translateY(-50%);
+
+                    &:after {
+                        right: -6px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        @include equilateral-triangle(right, 6px, #333);
+                    }
+                }
+            }
+
+            @include modifier(left-top) {
+
+                @include modifies-element(content) {
+                    top: 0;
+                    right: calc(100% + map.get($sui-tooltip-spacing, margin));
+
+                    &:after {
+                        right: -6px;
+                        top: 8px;
+                        @include equilateral-triangle(right, 6px, #333);
+                    }
+                }
+            }
+
+            @include modifier(left-bottom) {
+
+                @include modifies-element(content) {
+                    bottom: 0;
+                    right: calc(100% + map.get($sui-tooltip-spacing, margin));
+
+                    &:after {
+                        right: -6px;
+                        bottom: 8px;
+                        @include equilateral-triangle(right, 6px, #333);
+                    }
+                }
+            }
+
+            @include modifier(right) {
+
+                @include modifies-element(content) {
+                    top: 50%;
+                    left: calc(100% + map.get($sui-tooltip-spacing, margin));
+                    transform: translateY(-50%);
+
+                    &:after {
+                        left: -6px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        @include equilateral-triangle(left, 6px, #333);
+                    }
+                }
+            }
+
+            @include modifier(right-top) {
+
+                @include modifies-element(content) {
+                    top: 0;
+                    left: calc(100% + map.get($sui-tooltip-spacing, margin));
+
+                    &:after {
+                        left: -6px;
+                        top: 8px;
+                        @include equilateral-triangle(left, 6px, #333);
+                    }
+                }
+            }
+
+            @include modifier(right-bottom) {
+
+                @include modifies-element(content) {
+                    bottom: 0;
+                    left: calc(100% + map.get($sui-tooltip-spacing, margin));
+
+                    &:after {
+                        left: -6px;
+                        bottom: 8px;
+                        @include equilateral-triangle(left, 6px, #333);
+                    }
+                }
+            }
+
+            @include modifier(icon) {
+                line-height: 1;
+    
+                &.sui-#{$block}--top-left {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            left: 2px;
+                            bottom: -5px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--top-right {
+    
+                    .sui-#{$block}__content {
+
+                        &:after {
+                            right: 2px;
+                            bottom: -5px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--bottom-left {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            top: -5px;
+                            left: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--bottom-right {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            top: -5px;
+                            right: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--left-top {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            right: -5px;
+                            top: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--left-bottom {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            right: -5px;
+                            bottom: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--right-top {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            left: -5px;
+                            top: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--right-bottom {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            left: -5px;
+                            bottom: 2px;
+                        }
+                    }
+                }
+            }
+		}
+	}
+}

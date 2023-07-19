@@ -1,0 +1,17 @@
+@use "../../../_utils/utils" as *;
+
+@mixin build-content($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include element(content) {
+				display: block;
+				flex: 1;
+				margin: 0 $spacing-sm;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}

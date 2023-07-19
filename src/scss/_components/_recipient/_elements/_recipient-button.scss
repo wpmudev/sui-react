@@ -1,0 +1,31 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Recipient Button
+/// This function creates styles for the element
+/// recipient button.
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-button($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+            @include element(button) {
+                margin: 0 $recipient-button-margin-horizontal;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+            }
+		}
+	}
+}
