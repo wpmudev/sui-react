@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from "react"
-import { generateCN } from "@wpmudev/utils"
+import { generateCN } from "@wpmudev/react-utils"
 import { Field } from "@wpmudev/react-form-field"
 import { Input } from "@wpmudev/react-input"
 import { Button } from "@wpmudev/react-button"
