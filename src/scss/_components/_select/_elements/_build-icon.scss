@@ -1,0 +1,80 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Select Icon
+/// This function creates styles for select icon
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-icon($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+
+            @include element(control) {
+                .sui-#{$block}__icon {
+                    position: absolute;
+                    line-height: normal;
+                    top: $select-icon-container-position-vertical;
+                    transform: translateY(-$select-icon-container-position-vertical);
+                }
+            }
+
+            @include element(icon) {
+
+                @include modifier(chevron-down, chevron-up, close-alt) {
+                    right: $select-icon-container-position-horizontal;
+                }
+
+                @include modifier(search) {
+                    left: $select-icon-container-position-horizontal;
+                    font-size: $select-icon-font-size-lg;
+                    color: $color-extended-neutral-60;
+                }
+
+                @include modifier(close-alt) {
+                    font-size: $select-icon-font-size-lg;
+                    color: $color-extended-neutral-70;
+                    pointer-events: all;
+
+                    &:hover {
+                        color: $color-extended-neutral-60;
+                    }
+                }
+            }
+
+            @include element(search) {
+                .sui-#{$block}__icon {
+                    font-size: $select-icon-font-size-sm;
+                    position: absolute;
+                    bottom: $select-icon-search-position-bottom;
+                    left: $select-icon-search-position-left-md;
+                }
+            }
+
+            @include element(dropdown) {
+                @include modifier(option) {
+                    .sui-#{$block}__icon {
+                        padding-right: $select-icon-padding-horizontal;
+                    }
+                }
+            }
+
+            @include modifier(multiselect) {
+
+                .sui-#{$block}__icon--close {
+                    right: $select-icon-close-position-right-xs;
+                    font-size: $select-icon-font-size-xs;
+                }
+
+                .sui-#{$block}__icon--close-alt {
+                    right: $select-icon-close-position-right-lg;
+                }
+            }
+		}
+	}
+}

@@ -1,0 +1,35 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Select Search
+/// This function creates styles for select search
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-search($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+            @include element(search) {
+				position: relative;
+				border-bottom: 0;
+                border-top: 0;
+                padding: $select-search-padding-horizontal $select-search-padding-vertical 0;
+                border-style: $select-search-border-style;
+				border-width: $select-search-border-width;
+				border-color: $select-search-border-color;
+            }
+
+			@include modifier(multiselect) {
+				@include modifies-element(search) {
+					border-top: 0;
+					border-bottom: 0;
+				}
+			}
+		}
+	}
+}

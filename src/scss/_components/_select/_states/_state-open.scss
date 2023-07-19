@@ -1,0 +1,37 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Select Open
+/// This function creates styles for the select open state
+/// recipient wrapper.
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin select-open($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(open) {
+                @include modifies-element(control) {
+                    border-width: 2px;
+					border-color: $color-primary-50;
+                    border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
+					border-bottom: 0;
+					box-shadow: inset 0px -1px 0px $color-primary-70;
+                }
+
+                @include modifies-element(input) {
+                    border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
+					border-bottom: 0;
+					box-shadow: inset 0px -1px 0px $color-primary-70;
+                }
+            }
+		}
+	}
+}
