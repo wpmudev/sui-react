@@ -1,0 +1,44 @@
+{
+  "name": "@wpmudev/react-box",
+  "version": "0.0.0",
+  "description": "WPMU DEV Shared UI React Box Component",
+  "keywords": [],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "license": "GPL-2.0",
+  "main": "src/index.ts",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-react.git",
+    "directory": "packages/react-box"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/sui-react/issues"
+  },
+  "homepage": "https://github.com/wpmudev/sui-react#readme",
+  "devDependencies": {
+    "@wpmudev/react-grid": "^0.0.0",
+    "@wpmudev/react-notification": "^0.0.0",
+    "@wpmudev/react-utils": "^1.0.0",
+    "react": "^18.2.0"
+  }
+}

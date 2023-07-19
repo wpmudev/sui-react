@@ -38,7 +38,6 @@
   "dependencies": {
     "@wpmudev/react-avatar": "^0.0.0",
     "@wpmudev/react-button": "^0.0.0",
-    "@wpmudev/react-icon-button": "^0.0.0",
     "@wpmudev/react-tag": "^0.0.0"
   }
 }

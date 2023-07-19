@@ -9,7 +9,7 @@ module.exports = {
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
-		'@storybook/addon-postcss',
+		'@storybook/addon-styling',
 	],
 	webpackFinal: async (config, { configType }) => {
 		// Add SASS support.
@@ -21,8 +21,13 @@ module.exports = {
 
 		return config;
 	},
-	framework: '@storybook/react',
+	framework: {
+		name: "@storybook/react-webpack5",
+		options: {}
+	},
 	core: {
-		builder: '@storybook/builder-webpack5',
+		builder: {
+			name: '@storybook/builder-webpack5',
+		}
 	},
 };

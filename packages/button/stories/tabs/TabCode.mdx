@@ -1,0 +1,153 @@
+import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
+
+import ButtonAnatomy from '../images/anatomy.png';
+import ButtonEmphasis from '../images/emphasis.png';
+import ButtonEmphasisPrimaryRight from '../images/emphasis-primary-right.png';
+import ButtonEmphasisPrimaryWrong from '../images/emphasis-primary-wrong.png';
+import ButtonEmphasisIconRight from '../images/emphasis-icon-right.png';
+import ButtonEmphasisIconWrong from '../images/emphasis-icon-wrong.png';
+
+<Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
+	<p>
+		Install the <Code small={true}>Button</Code> package as an individual
+		component or follow the Overview page instructions to get the complete
+		SUI Components package.
+	</p>
+</Section>
+
+<Section title="Shared props" border={true}>
+	<p>
+		All button variants (Button, LoadingButton and ToggleButton) share the
+		following props.
+	</p>
+	<Section
+		title={{ content: 'href', tag: 'string', small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Provides a url for buttons being used as a link.</p>
+	</Section>
+	<Section
+		title={{ content: 'htmlFor', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Reflects the value of the for content property used on labels.</p>
+	</Section>
+	<Section
+		title={{ content: 'appearance', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			The base styling to apply. It is empty by default to allow you keep
+			the markup and base styles but customize it in case is necessary.
+		</p>
+		<p>Allowed options:</p>
+		<List>
+			<span
+				label={
+					<>
+						<Code small={true}>primary</Code>: Solid button.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>secondary</Code>: Outlined button.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>tertiary</Code>: Text button.
+					</>
+				}
+			/>
+		</List>
+	</Section>
+	<Section
+		title={{ content: 'color', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Choose the set of colors to complement the button appearance.</p>
+		<p>Allowed options:</p>
+		<List>
+			<span label={<Code small={true}>blue</Code>} />
+			<span label={<Code small={true}>black</Code>} />
+			<span label={<Code small={true}>red</Code>} />
+			<span label={<Code small={true}>navy</Code>} />
+			<span label={<Code small={true}>white</Code>} />
+		</List>
+	</Section>
+	<Section
+		title={{ content: 'isSmall', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Set if the button is small.</p>
+	</Section>
+	<Section
+		title={{ content: 'isDisabled', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Set if the button is disabled.</p>
+	</Section>
+	<Section
+		title={{ content: 'className', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Add a class name to the button.</p>
+	</Section>
+	<Section
+		title={{ content: 'icon', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Button icon name</p>
+	</Section>
+	<Section
+		title={{ content: 'iconPosition', tag: 'string', small: true }}
+		style={{
+			paddingTop: 0,
+			paddingBottom: 0,
+			paddingLeft: 20,
+			paddingRight: 0,
+		}}
+	>
+		<p>Icon position. expected values: "start" | "end" </p>
+	</Section>
+</Section>
+
+<Section title="Loading button props" contained={true} border={true}>
+	<p>
+		The <Code small={true}>LoadingButton</Code> accepts all the shared props
+		and an optional <Code small={true}>isLoading</Code> prop.
+	</p>
+	<Section
+		title={{ content: 'isLoading', tag: 'boolean', small: true }}
+		style={{
+			paddingTop: 10,
+			paddingBottom: 0,
+			paddingLeft: 20,
+			paddingRight: 0,
+		}}
+	>
+		<p>Conditionally shows a spinner over the top of a button.</p>
+	</Section>
+</Section>
+
+<Section title="Toggle button props" contained={true}>
+	<p>
+		The <Code small={true}>ToggleButton</Code> accepts all the shared props
+		and an optional <Code small={true}>isSelected</Code> prop.
+	</p>
+	<Section
+		title={{ content: 'isSelected', tag: 'boolean', small: true }}
+		style={{
+			paddingTop: 10,
+			paddingBottom: 0,
+			paddingLeft: 20,
+			paddingRight: 0,
+		}}
+	>
+		<p>Change the style to indicate the button is selected.</p>
+	</Section>
+</Section>
