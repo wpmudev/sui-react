@@ -1,0 +1,26 @@
+import { Source } from '@storybook/addon-docs';
+import { Page } from '@wpmudev/storybook';
+
+import TabUsage from './tabs/TabUsage.mdx';
+import TabCode from './tabs/TabCode.mdx';
+import TabExamples from './tabs/TabExamples.mdx';
+
+<Page.Tabs
+	title="Select"
+	subtitle={
+		<>
+			The Select element is use to create a drop-down list. This element is most often used in a form, to collect user input. Select inputs let users select a predefined value from a list of options
+		</>
+	}
+	status="draft"
+>
+	<div id="usage" label="Usage">
+		<TabUsage />
+	</div>
+    <div id="code" label="Code">
+		<TabCode />
+	</div>
+	<div id="examples" label="Examples">
+		<TabExamples />
+	</div>
+</Page.Tabs>

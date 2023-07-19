@@ -1,0 +1,97 @@
+import { Section, Row, Col, List } from '@wpmudev/storybook';
+
+import SelectAnatomy from '../images/anatomy-select.png';
+import ExpandedAnatomy from '../images/anatomy-expanded.png';
+import MultiSelectAnatomy from '../images/anatomy-multiselect.png';
+
+<Section contained={true} border={true} style={{ paddingTop: 0 }}>
+	<p>
+		The select element is used for a drop-down list. It's commonly used in forms to get user input. Select inputs allow users to choose from a set of options.
+	</p>
+</Section>
+
+<Section title="Anatomy - Select" contained={true} border={true}>
+	<img
+		src={SelectAnatomy}
+		alt="Select anatomy"
+		style={{ marginBottom: 20 }}
+	/>
+	<List>
+		<span
+			label={
+				<>
+					<strong>Value:</strong> The pre-defined value of the select dropdown.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Icon:</strong> Icon show the status if Drop-down list is open or close.
+				</>
+			}
+		/>
+	</List>
+</Section>
+
+<Section title="Anatomy - Expanded" contained={true} border={true}>
+	<img
+		src={ExpandedAnatomy}
+		alt="Expanded anatomy"
+		style={{ marginBottom: 20 }}
+	/>
+	<List>
+		<span
+			label={
+				<>
+					<strong>Text Input Field:</strong> The field where users click in to receive the suggestions they can choose from. Once selected, the user's choices are then shown in the field.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Options:</strong> Contains the list of all selectable items. These can be grouped into sub-categories under headings.
+				</>
+			}
+		/>
+	</List>
+</Section>
+
+<Section title="Anatomy - Multiselect" contained={true} border={true}>
+	<img
+		src={MultiSelectAnatomy}
+		alt="Multiselect anatomy"
+		style={{ marginBottom: 20 }}
+	/>
+	<List>
+		<span
+			label={
+				<>
+					<strong>Text Input Field:</strong> The field where users click in to receive the suggestions they can choose from. Once selected, the user's choices are then shown in the field.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Options:</strong> Contains the list of all selectable items. These can be grouped into sub-categories under headings.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Search:</strong> The field where user can search for selectable items.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Clear all:</strong> This clears everything in the Selected option field. It only appears when a user has selected at least one option.
+				</>
+			}
+		/>
+	</List>
+</Section>

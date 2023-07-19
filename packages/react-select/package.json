@@ -1,0 +1,43 @@
+{
+  "name": "@wpmudev/react-select",
+  "version": "0.0.0",
+  "description": "WPMU DEV Shared UI React Select Component",
+  "keywords": [],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Pawan Kumar",
+      "email": "40248406+creador-dev@users.noreply.github.com",
+      "url": "https://creador.dev/"
+    }
+  ],
+  "license": "GPL-2.0",
+  "main": "lib/react-select.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-react.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/sui-docs/issues"
+  },
+  "homepage": "https://github.com/wpmudev/sui-docs#readme",
+  "devDependencies": {
+    "@wpmudev/react-checkbox": "^0.0.0",
+    "@wpmudev/react-utils": "^1.0.0",
+    "react-autocomplete-hint": "^2.0.0",
+    "react": "^18.2.0"
+  }
+}

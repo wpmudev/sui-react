@@ -1,0 +1,100 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
+import { Select } from '../../../lib/react-select';
+import dedent from 'dedent';
+
+export const DisabledSelectCode = dedent`
+import React from 'react';\n
+import { Select } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Select id="unique-id" label="Select" isDisabled={true} options={options} />;
+}\n
+export default Example;
+`;
+
+export const ErrorInputCode = dedent`
+import React from 'react';\n
+import { Input } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Select id="unique-id" label="Select" isError={true} options={options} />;
+}\n
+export default Example;
+`;
+
+export const options = [
+	{
+		id: 'option-1',
+		label: 'Option 1 is the option.',
+		isSelected: false
+	},
+	{
+		id: 'option-2',
+		label: 'Option 2',
+		isSelected: false
+	},
+	{
+		id: 'option-3',
+		label: 'Option 3',
+		isSelected: false
+	},
+	{
+		id: 'option-4',
+		label: 'Option 4',
+		isSelected: false
+	},
+	{
+		id: 'option-5',
+		label: 'Option 5',
+		isSelected: false
+	},
+	{
+		id: 'option-6',
+		label: 'Option 6',
+		isSelected: false
+	},
+	{
+		id: 'option-7',
+		label: 'Option 7',
+		isSelected: false
+	},
+	{
+		id: 'option-8',
+		label: 'India',
+		isSelected: false
+	}
+];
+
+<Section
+	title="Disabled"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isDisabled</Code> prop to disable a select
+		that is not usable.
+	</p>
+	<Preview wrapper={true}>
+		<div style={{ height: '190px' }}>
+			<Select id="select-id-1" label="Select" isDisabled={true} options={options} />
+		</div>
+	</Preview>
+	<Snippet language="js">{DisabledSelectCode}</Snippet>
+</Section>
+
+<Section
+	title="Error"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>errorMessage</Code> prop to show the error in
+		the field.
+	</p>
+	<Preview wrapper={true}>
+		<div style={{ height: '190px' }}>
+			<Select id="select-id-2" label="Select" isError={true} options={options} />
+		</div>
+	</Preview>
+	<Snippet language="js">{ErrorInputCode}</Snippet>
+</Section>
