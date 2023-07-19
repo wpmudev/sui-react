@@ -1,0 +1,22 @@
+import { Section, Code, Snippet, Preview } from '@wpmudev/storybook';
+import dedent from 'dedent';
+
+export const sampleCode = dedent`
+<span class="sui-helper">
+	The quick brown fox jumps over the lazy dog.
+</span>
+`;
+
+<Section title="Usage" style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p>
+		Commonly use helper in the form field, adding the{' '}
+		<Code>sui-helper</Code> class name in any tag, but preferably
+		following the proper content hierarchy.
+	</p>
+	<Preview wrapper={true}>
+		<span className="sui-helper" style={{ margin: 0, marginBottom: 10 }}>
+			The quick brown fox jumps over the lazy dog.
+		</span>
+	</Preview>
+	<Snippet language="html">{sampleCode}</Snippet>
+</Section>

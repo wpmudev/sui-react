@@ -22,6 +22,13 @@ export default {
 	},
 };
 
+// List alignment options.
+const Options = ['stacked', 'inline'];
+const Labels = {
+	stacked: 'Stacked',
+	inline: 'Inline',
+};
+
 // Build "Grid" story.
 const Grid = ({
 	size,
@@ -91,45 +98,44 @@ Grid.argTypes = {
 	},
 	alignDefault: {
 		name: 'Alignment (Default)',
+		options: Options,
 		control: {
 			type: 'inline-radio',
-			options: Options,
+			labels: Labels
 		},
 	},
 	alignSmall: {
-		name: 'Alignment (≥ 783px)',
+		name: 'Alignment (≥ 600px)',
+		options: Options,
 		control: {
 			type: 'inline-radio',
-			options: Options,
+			labels: Labels
 		},
 	},
 	alignMedium: {
 		name: 'Alignment (≥ 1024px)',
+		options: Options,
 		control: {
 			type: 'inline-radio',
-			options: Options,
+			labels: Labels
 		},
 	},
 	alignLarge: {
 		name: 'Alignment (≥ 1200px)',
+		options: Options,
 		control: {
 			type: 'inline-radio',
-			options: Options,
+			labels: Labels
 		},
 	},
 	alignExtraLarge: {
 		name: 'Alignment (≥ 1600px)',
+		options: Options,
 		control: {
 			type: 'inline-radio',
-			options: Options,
+			labels: Labels
 		},
 	},
-};
-
-// List alignment options.
-const Options = {
-	Stacked: 'stacked',
-	Inline: 'inline',
 };
 
 // Publish required stories.

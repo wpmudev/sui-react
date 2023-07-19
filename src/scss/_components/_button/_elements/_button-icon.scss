@@ -10,6 +10,14 @@
 
 				span {
 					display: block;
+					&.suicons--spin {
+						@include animation(spin)
+					}
+				}
+			}
+			@include modifier(is-icon) {
+				.sui-#{$block-name}__icon {
+					padding: 0;
 				}
 			}
 		}

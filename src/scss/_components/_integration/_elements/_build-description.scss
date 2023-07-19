@@ -1,0 +1,25 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Description
+/// This function creates styles for the integration description
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-description($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+            @include element(description) {
+                font-size: $integration-font-size-sm;
+                line-height: $integration-font-height-sm;
+                color: $color-extended-neutral-50;
+                margin: $integration-spacing-margin-vertical 0 0;
+            }
+		}
+	}
+}

@@ -24,4 +24,12 @@
 			letter-spacing: $radio-font-spacing;
 		}
 	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			color: $color-extended-neutral-0;
+		}
+	}
 }
