@@ -12,7 +12,7 @@ import {
 	isFunction,
 	generateCN,
 	condContent,
-} from "../../utils/src"
+} from "@wpmudev/utils"
 import { useInteraction } from "@wpmudev/react-hooks"
 
 import { Icon } from "./elements/input-icon"
