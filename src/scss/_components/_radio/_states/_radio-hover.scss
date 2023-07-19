@@ -18,4 +18,16 @@
 			}
 		}
 	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(hover) {
+				@include modifies-element(box) {
+					border-color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
 }
