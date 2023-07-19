@@ -32,3 +32,8 @@
 @function shade($color, $percentage) {
 	@return mix(black, $color, $percentage);
 }
+
+// Returns pi value.
+@function pi() {
+	@return 3.14159265359;
+}

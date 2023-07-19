@@ -1,0 +1,48 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_score-utils/variables" as *;
+@use "../_score-utils/colors" as *;
+@use "../_score-utils/animation" as *;
+
+/// Build SVG
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-svg($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			
+			// svg wrapper
+			svg {
+                height: 100%;
+				transform: rotate(-90deg);
+				transform-origin: center;
+            }
+
+			circle {
+                fill: none;
+
+				&:first-child {
+					stroke: map.get($sui-score-design, default, stroke);
+				}
+
+				&:last-child {
+					stroke: map.get($sui-score-design, success, stroke);
+				}
+            }
+
+			@include modifier(lg) {
+                circle {
+                    stroke-width: map.get($sui-score-stroke, lg, width);
+                }
+            }
+		}
+	}
+}

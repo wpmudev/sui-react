@@ -1,0 +1,17 @@
+@use "../../../_utils/tokens" as *;
+
+$sui-score-design: (
+	success: (
+		stroke: $score-color-green,
+	),
+	warning: (
+		stroke: $score-color-yellow,
+	),
+	error: (
+		stroke: $score-color-red,
+	),
+	default: (
+		stroke: $score-color-grey,
+		color: $score-color-black
+	)
+);

@@ -1,0 +1,34 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_score-utils/colors" as *;
+
+/// Build Score design
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-design($block) {
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: light) {
+		// Block wrapper.
+		@include block($block) {
+			// Element color
+			@each $color, $states in $sui-score-design {
+				&.sui-#{$block}--#{$color} {
+					stroke: map.get($sui-score-design, $color, stroke);
+
+					circle {
+						&:last-child {
+							@if map.has-key($sui-score-design, $color, stroke) {
+								stroke: map.get($sui-score-design, $color, stroke);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

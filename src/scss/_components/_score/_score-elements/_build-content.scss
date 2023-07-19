@@ -1,0 +1,64 @@
+@use "sass:map";
+
+@use "../../../_utils/mixins" as *;
+@use "../_score-utils/colors" as *;
+@use "../_score-utils/variables" as *;
+
+/// Build Label
+/// This function creates styles for the button
+/// label element.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-content($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(content) {
+				@if map.has-key($sui-score-font, sm, size) {
+                	font-size: map.get($sui-score-font, sm, size);
+				}
+				@if map.has-key($sui-score-font, sm, weight) {
+                	font-weight: map.get($sui-score-font, sm, weight);
+				}
+				color: map.get($sui-score-design, default, color);
+				margin-left: map.get($sui-score-spacing, vertical);
+			}
+
+			@include modifier(lg) {
+				
+				.sui-#{$block}--content {
+					@if map.has-key($sui-score-font, lg, size) {
+						font-size: map.get($sui-score-font, lg, size);
+					}
+					@if map.has-key($sui-score-font, lg, height) {
+						line-height: map.get($sui-score-font, lg, height);
+					}
+					@if map.has-key($sui-score-font, lg, weight) {
+						font-weight: map.get($sui-score-font, lg, weight);
+					}
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    margin: 0;
+					@if map.has-key($sui-score-content-size, width) {
+						max-width: map.get($sui-score-content-size, width);
+					}
+                }
+
+				.sui-#{$block}--percentage {
+					@if map.has-key($sui-score-font, md, size) {
+						font-size: map.get($sui-score-font, md, size);
+					}
+					@if map.has-key($sui-score-font, md, height) {
+						line-height: map.get($sui-score-font, md, height);
+					}
+				}
+			}
+		}
+	}
+}
