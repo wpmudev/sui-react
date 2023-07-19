@@ -1,8 +1,8 @@
 import React, { useEffect, useCallback, CSSProperties } from "react"
 import { Button as SuiButton } from "@wpmudev/react-button"
 import { generateCN } from "@wpmudev/react-utils"
-
 import { InteractionTypes, useInteraction } from "@wpmudev/react-hooks"
+
 import { TooltipProps } from "./tooltip.types"
 
 // Build "Tooltip" component.

@@ -41,8 +41,11 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "devDependencies": {
-    "@wpmudev/react-button": "^1.0.0",
-    "@wpmudev/react-utils": "^1.0.0",
     "react": "^18.2.0"
+  },
+  "dependencies": {
+    "@wpmudev/react-button": "0.0.0",
+    "@wpmudev/react-utils": "^1.0.0",
+    "@wpmudev/react-hooks": "1.0.0"
   }
 }
