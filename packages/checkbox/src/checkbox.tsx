@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useId, useState } from "react"
+import React, { forwardRef, useCallback, useEffect, useId, useState } from "react"
 
 import { useInteraction } from "@wpmudev/react-hooks"
 import { generateCN } from "@wpmudev/react-utils"
@@ -28,6 +28,10 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 		ref,
 	) => {
 		const [isChecked, setIsChecked] = useState<boolean>(defaultValue ?? false)
+
+		useEffect(() => {
+			setIsChecked(defaultValue)
+		}, [defaultValue])
 
 		// dynamic ID
 		const id = useId()
