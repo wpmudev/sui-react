@@ -20,7 +20,7 @@
 
             @include modifier(top) {
 
-                .sui-#{$block}__content {
+                @include modifies-element(content) {
                     left: 50%;
                     bottom: 100%;
                     margin-bottom: map.get($sui-tooltip-spacing, margin);
@@ -37,7 +37,7 @@
 
             @include modifier(top-left) {
 
-                .sui-#{$block}__content {
+                @include modifies-element(content) {
                     left: 0;
                     bottom: 100%;
                     margin-bottom: map.get($sui-tooltip-spacing, margin);
@@ -53,7 +53,7 @@
 
             @include modifier(top-right) {
 
-                .sui-#{$block}__content {
+                @include modifies-element(content) {
                     right: 0;
                     bottom: 100%;
                     margin-bottom: map.get($sui-tooltip-spacing, margin);
@@ -68,7 +68,7 @@
 
             @include modifier(bottom) {
 
-                .sui-#{$block}__content {
+                @include modifies-element(content) {
                     top: 100%;
                     left: 50%;
                     margin-top: map.get($sui-tooltip-spacing, margin);
@@ -85,7 +85,7 @@
 
             @include modifier(bottom-left) {
 
-                .sui-#{$block}__content {
+                @include modifies-element(content) {
                     top: 100%;
                     left: 0;
                     margin-top: map.get($sui-tooltip-spacing, margin);
@@ -100,7 +100,7 @@
 
             @include modifier(bottom-right) {
 
-                .sui-#{$block}__content {
+                @include modifies-element(content) {
                     top: 100%;
                     right: 0;
                     margin-top: map.get($sui-tooltip-spacing, margin);
@@ -115,7 +115,7 @@
 
             @include modifier(left) {
 
-                .sui-#{$block}__content {
+                @include modifies-element(content) {
                     top: 50%;
                     right: calc(100% + map.get($sui-tooltip-spacing, margin));
                     transform: translateY(-50%);
@@ -131,7 +131,7 @@
 
             @include modifier(left-top) {
 
-                .sui-#{$block}__content {
+                @include modifies-element(content) {
                     top: 0;
                     right: calc(100% + map.get($sui-tooltip-spacing, margin));
 
@@ -145,7 +145,7 @@
 
             @include modifier(left-bottom) {
 
-                .sui-#{$block}__content {
+                @include modifies-element(content) {
                     bottom: 0;
                     right: calc(100% + map.get($sui-tooltip-spacing, margin));
 
@@ -159,7 +159,7 @@
 
             @include modifier(right) {
 
-                .sui-#{$block}__content {
+                @include modifies-element(content) {
                     top: 50%;
                     left: calc(100% + map.get($sui-tooltip-spacing, margin));
                     transform: translateY(-50%);
@@ -175,7 +175,7 @@
 
             @include modifier(right-top) {
 
-                .sui-#{$block}__content {
+                @include modifies-element(content) {
                     top: 0;
                     left: calc(100% + map.get($sui-tooltip-spacing, margin));
 
@@ -189,7 +189,7 @@
 
             @include modifier(right-bottom) {
 
-                .sui-#{$block}__content {
+                @include modifies-element(content) {
                     bottom: 0;
                     left: calc(100% + map.get($sui-tooltip-spacing, margin));
 
@@ -197,6 +197,98 @@
                         left: -6px;
                         bottom: 8px;
                         @include equilateral-triangle(left, 6px, #333);
+                    }
+                }
+            }
+
+            @include modifier(icon) {
+                line-height: 1;
+    
+                &.sui-#{$block}--top-left {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            left: 2px;
+                            bottom: -5px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--top-right {
+    
+                    .sui-#{$block}__content {
+
+                        &:after {
+                            right: 2px;
+                            bottom: -5px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--bottom-left {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            top: -5px;
+                            left: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--bottom-right {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            top: -5px;
+                            right: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--left-top {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            right: -5px;
+                            top: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--left-bottom {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            right: -5px;
+                            bottom: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--right-top {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            left: -5px;
+                            top: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--right-bottom {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            left: -5px;
+                            bottom: 2px;
+                        }
                     }
                 }
             }
