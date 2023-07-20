@@ -1,24 +1,12 @@
 import React from "react"
 
 // Import required component
-import { SegmentedGroup as Group } from "../lib/react-segmented-group"
+import { SegmentedGroup as Group } from "../src"
 import { Button } from "@wpmudev/react-segmented-button"
 import { Box, BoxGroup } from "@wpmudev/react-box"
 
 // Import documentation main page
 import docs from "./ReactSegmentedGroup.mdx"
-
-// Configure default options
-export default {
-	title: "SUI/Components/Compound Elements/Segmented Group",
-	component: Group,
-	parameters: {
-		layout: "fullscreen",
-		docs: {
-			page: docs,
-		},
-	},
-}
 
 // Build "Field List" story
 const SegmentedGroup = ({ isLabelHidden, isSmall, ...args }) => {
@@ -55,6 +43,18 @@ SegmentedGroup.argTypes = {
 	},
 	isSmall: {
 		name: "Small Button",
+	},
+}
+
+// Configure default options
+export default {
+	title: "SUI/Components/Compound Elements/Segmented Group",
+	component: Group,
+	parameters: {
+		layout: "fullscreen",
+		docs: {
+			page: docs,
+		},
 	},
 }
 

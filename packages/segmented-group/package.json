@@ -12,13 +12,13 @@
     }
   ],
   "license": "GPL-2.0",
-  "main": "lib/react-segmented-group.js",
+  "main": "src/index.ts",
   "directories": {
-    "lib": "lib",
+    "src": "src",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "src"
   ],
   "publishConfig": {
     "access": "public"
@@ -40,6 +40,7 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@wpmudev/react-segmented-button": "^0.0.0"
+    "@wpmudev/react-segmented-button": "^0.0.0",
+    "@wpmudev/react-utils": "^1.0.0"
   }
 }
