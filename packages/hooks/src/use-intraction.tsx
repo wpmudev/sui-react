@@ -18,7 +18,7 @@ interface InteractionTypes
  *
  * @param {InteractionTypes} methods Interaction methods
  */
-const useInteraction = (methods: InteractionTypes) => {
+const useInteraction = (methods: InteractionTypes | Object) => {
 	const [isHovered, setIsHovered] = useState<boolean>(false)
 	const [isFocused, setIsFocused] = useState<boolean>(false)
 
