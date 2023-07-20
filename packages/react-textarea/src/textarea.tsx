@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useCallback, useState } from "react"
 import {
 	isEmpty,
 	isFunction,
@@ -25,12 +25,6 @@ const Textarea: React.FC<TextareaProps> = ({
 }) => {
 	const [currentValue, setCurrentValue] = useState(value)
 
-	// if input has icon.
-	// if (is.lead || is.trail) {
-	// 	set.class += " sui-input__icon"
-	// 	set.class += is.trail ? " sui-input__icon--right" : " sui-input__icon--left"
-	// }
-
 	const classNames = generateCN(
 		"sui-input sui-textarea",
 		{
@@ -40,6 +34,16 @@ const Textarea: React.FC<TextareaProps> = ({
 			sm: isSmall,
 		},
 		className,
+	)
+
+	const handleOnChange = useCallback(
+		(e) => {
+			setCurrentValue(e.target.value)
+			if (isFunction(onChange)) {
+				onChange(e)
+			}
+		},
+		[onChange],
 	)
 
 	return (
@@ -52,12 +56,7 @@ const Textarea: React.FC<TextareaProps> = ({
 					aria-labelledby={condContent(labelId)}
 					aria-describedby={condContent(labelId)}
 					disabled={isDisabled}
-					onChange={(e) => {
-						setCurrentValue(e.target.value)
-						if (isFunction(onChange)) {
-							onChange(e)
-						}
-					}}
+					onChange={handleOnChange}
 					{...props}
 				/>
 				<label className="sui-input__label" htmlFor={id} id={labelId}>
