@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component.
-import { Score as SuiScore } from "../lib/react-score"
+import { Score as SuiScore } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactScore.mdx"
