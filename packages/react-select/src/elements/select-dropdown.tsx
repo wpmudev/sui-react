@@ -1,17 +1,36 @@
-import React, { Fragment } from 'react';
-import { Checkbox } from '@wpmudev/react-checkbox';
-import { Icon } from './select-icon';
-import { Search } from './multiselect-search';
+import React, { Fragment, HTMLProps, useCallback } from "react"
+import { Checkbox } from "@wpmudev/react-checkbox"
+import { Icon } from "./select-icon"
+import { Search } from "./multiselect-search"
 
-const Dropdown = ({
+interface SelectDropdownProps
+	extends Omit<HTMLProps<HTMLOListElement>, "selected"> {
+	options: Record<string, any>[]
+	onEvent?: (id: string) => {}
+	selectAll?: () => {}
+	isSmartSearch?: boolean
+	isMultiSelect?: boolean
+	selected?: string
+}
+
+const Dropdown: React.FC<SelectDropdownProps> = ({
 	options,
 	onEvent = () => {},
 	selectAll = () => {},
 	isSmartSearch = false,
 	isMultiselect = false,
-	selected = '',
+	selected = "",
 	...props
 }) => {
+	const onSelect = useCallback(
+		(e, id: string) => {
+			if (e.key === "Enter" && onEvent) {
+				onEvent(id)
+			}
+		},
+		[onEvent],
+	)
+
 	// Render options for the dropdown
 	const renderOptions = () => {
 		if (isSmartSearch && selected.length < 2) {
@@ -22,7 +41,7 @@ const Dropdown = ({
 						Please enter 2 or more characters
 					</div>
 				</div>
-			);
+			)
 		}
 
 		// Render regular options
@@ -39,7 +58,7 @@ const Dropdown = ({
 						label,
 						isSelected,
 						newLabel = label,
-						boldLabel = '',
+						boldLabel = "",
 					}) => (
 						<li
 							key={id}
@@ -47,14 +66,10 @@ const Dropdown = ({
 							role="option"
 							tabIndex="0"
 							className={`sui-select__dropdown--option ${
-								isSelected ? 'sui-select__dropdown--selected' : ''
+								isSelected ? "sui-select__dropdown--selected" : ""
 							}`}
-							onClick={() => onEvent(id)}
-							onKeyDown={(e) => {
-								if (e.key === 'Enter') {
-									onEvent(id);
-								}
-							}}
+							onClick={(e) => onSelect(e, id)}
+							onKeyDown={(e) => onSelect(e, id)}
 							{...props}
 						>
 							<Fragment>
@@ -65,15 +80,15 @@ const Dropdown = ({
 								</span>
 							</Fragment>
 						</li>
-					)
+					),
 				)}
 			</ul>
-		);
-	};
+		)
+	}
 
 	// Render options for the multiselect dropdown
 	const renderMultiselectOptions = () => {
-		const allSelected = options.every(option => option.isSelected);
+		const allSelected = options.every((option) => option.isSelected)
 		return (
 			<Fragment>
 				<div className="sui-select__search">
@@ -85,11 +100,12 @@ const Dropdown = ({
 					role="listbox"
 					aria-label="dropdown-options"
 				>
-					<li
-						className="sui-select__dropdown--option"
-						role="option"
-					>
-						<Checkbox label="Select all" defaultValue={allSelected} onClick={selectAll} />
+					<li className="sui-select__dropdown--option" role="option">
+						<Checkbox
+							label="Select all"
+							defaultValue={allSelected}
+							onClick={selectAll}
+						/>
 					</li>
 					{options.map(({ id, label, isSelected }) => (
 						<li
@@ -97,31 +113,28 @@ const Dropdown = ({
 							id={id}
 							role="option"
 							className="sui-select__dropdown--option"
-							onKeyDown={(e) => {
-								if (e.key === 'Enter') {
-									onEvent(id, isSelected);
-								}
-							}}
+							onClick={(e) => onSelect(e, id)}
+							onKeyDown={(e) => onSelect(e, id)}
 						>
 							<Checkbox
 								id={id}
 								label={label}
 								defaultValue={isSelected}
-								onClick={() => onEvent(id, isSelected)}
+								onClick={(e) => onSelect(e, id)}
 							/>
 						</li>
 					))}
 				</ul>
 			</Fragment>
-		);
-	};
+		)
+	}
 
 	// Render the appropriate dropdown options based on isMultiselect
 	return (
 		<Fragment>
 			{isMultiselect ? renderMultiselectOptions() : renderOptions()}
 		</Fragment>
-	);
-};
+	)
+}
 
-export { Dropdown };
+export { Dropdown }
