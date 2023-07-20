@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@use "../../../_utils/mixins" as *;
+@use "../../../_utils/utils" as *;
 @use "../_score-utils/colors" as *;
 @use "../_score-utils/variables" as *;
 
@@ -29,7 +29,7 @@
 			}
 
 			@include modifier(lg) {
-				
+
 				.sui-#{$block}--content {
 					@if map.has-key($sui-score-font, lg, size) {
 						font-size: map.get($sui-score-font, lg, size);

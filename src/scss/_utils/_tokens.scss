@@ -1,9 +1,10 @@
 
 // Do not edit directly
-// Generated on Tue, 11 Jul 2023 11:07:20 GMT
+// Generated on Thu, 20 Jul 2023 01:22:58 GMT
 
 $avatar-container-size-sm: 24px;
 $avatar-container-size-md: 32px;
+$avatar-container-border-width: 1px;
 $avatar-container-border-radius: 100%;
 $avatar-container-background: #f2f2f2;
 $avatar-icon-color: #1a1a1a;
@@ -334,25 +335,22 @@ $input-border-radius: 4px;
 $input-bg-default: #ffffff;
 $input-bg-disabled: #f2f2f2;
 $input-bg-readonly: #f8f8f8;
+$integration-font-size-md: 18px;
+$integration-font-size-sm: 13px;
+$integration-font-height-md: 32px;
+$integration-font-height-sm: 24px;
+$integration-border-width: 1px;
+$integration-border-radius: 4px*2;
+$integration-spacing-padding: 8px*3;
+$integration-spacing-margin-vertical: 16px;
+$integration-spacing-margin-horizontal: 8px;
+$integration-disabled-opacity: 0.5;
 $layout-content-width: 1600px;
 $layout-spacing-main-sm: -20px;
 $layout-spacing-main-md: -10px;
 $layout-spacing-content-sm: 8px*2;
 $layout-spacing-content-md: 8px*3;
 $layout-spacing-content-lg: 8px*4;
-$score-font-size-sm: 14px;
-$score-font-size-md: 24px;
-$score-font-size-lg: 40px;
-$score-font-height-md: 16px;
-$score-font-height-lg: 48px;
-$score-font-weight-normal: 500;
-$score-font-weight-bold: 700;
-$score-color-black: #1a1a1a;
-$score-color-green: #18bb4b;
-$score-color-grey: #f2f2f2;
-$score-color-yellow: #ffcc20;
-$score-color-red: #f45c59;
-$score-spacing-vertical: 8px;
 $radio-input-size-sm: 16px;
 $radio-input-size-md: 20px;
 $radio-input-spacing: 8px;
@@ -390,6 +388,19 @@ $recipient-email-font-weight: 500;
 $recipient-email-font-height: 24px;
 $recipient-email-color: #1a1a1a;
 $recipient-email-padding-horizontal: 8px;
+$score-font-size-sm: 14px;
+$score-font-size-md: 24px;
+$score-font-size-lg: 40px;
+$score-font-height-md: 16px;
+$score-font-height-lg: 48px;
+$score-font-weight-normal: 500;
+$score-font-weight-bold: 700;
+$score-color-black: #1a1a1a;
+$score-color-green: #18bb4b;
+$score-color-grey: #f2f2f2;
+$score-color-yellow: #ffcc20;
+$score-color-red: #f45c59;
+$score-spacing-vertical: 8px;
 $select-control-size-md: 40px;
 $select-control-size-sm: 32px;
 $select-control-padding-md-vertical: 8px;
