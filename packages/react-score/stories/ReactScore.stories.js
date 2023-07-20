@@ -1,22 +1,10 @@
-import React from 'react';
+import React from "react"
 
 // Import required component.
-import { Score as SuiScore } from '../lib/react-score';
+import { Score as SuiScore } from "../lib/react-score"
 
 // Import documentation main page.
-import docs from './ReactScore.mdx';
-
-// Configure default options.
-export default {
-	title: 'SUI/Components/Score',
-	component: Score,
-	parameters: {
-		layout: 'fullscreen',
-		docs: {
-			page: docs,
-		},
-	},
-};
+import docs from "./ReactScore.mdx"
 
 // Build "Score" story.
 const Score = ({
@@ -31,8 +19,8 @@ const Score = ({
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: color !== 'white' ? '#fff' : '#333',
-	};
+		background: color !== "white" ? "#fff" : "#333",
+	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
@@ -49,66 +37,78 @@ const Score = ({
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 // Set story arguments.
 Score.args = {
 	bar: 55,
 	value: 55,
-	content: '',
+	content: "",
 	isPercentage: false,
-	state: 'warning',
+	state: "warning",
 	isSmall: true,
-};
+}
 
 // Set controls for story arguments.
 Score.argTypes = {
 	bar: {
-		name: 'Circle Bar',
-		description: 'The score circle.',
+		name: "Circle Bar",
+		description: "The score circle.",
 		control: {
-			type: 'range',
+			type: "range",
 			min: 0,
 			max: 100,
 			step: 1,
 		},
 	},
 	value: {
-		name: 'Score Value',
-		description: 'The score value to display.',
-		control: 'number',
+		name: "Score Value",
+		description: "The score value to display.",
+		control: "number",
 	},
 	content: {
-		name: 'Content',
-		description: 'The score content to display.',
-		control: 'text',
+		name: "Content",
+		description: "The score content to display.",
+		control: "text",
 		if: {
-			arg: 'isSmall',
+			arg: "isSmall",
 			eq: true,
 		},
 	},
 	isPercentage: {
-		name: 'Show Percentage',
-		description: 'The percentage to display.',
+		name: "Show Percentage",
+		description: "The percentage to display.",
 	},
 	state: {
-		name: 'Type',
-		description: 'The scores color variation according to type.',
+		name: "Type",
+		description: "The scores color variation according to type.",
 		control: {
-			type: 'select',
+			type: "select",
 			options: {
-				'Type: Error': 'error',
-				'Type: Warning': 'warning',
-				'Type: Success': 'success',
+				"Type: Error": "error",
+				"Type: Warning": "warning",
+				"Type: Success": "success",
 			},
 		},
 	},
 	isSmall: {
-		name: 'Small',
-		description: 'The scores component size.',
+		name: "Small",
+		description: "The scores component size.",
 	},
-};
+}
+
+// Configure default options.
+export default {
+	title: "SUI/Components/Score",
+	component: Score,
+	parameters: {
+		layout: "fullscreen",
+		docs: {
+			page: docs,
+		},
+	},
+}
 
 // Publish required stories.
-export { Score };
+export { Score }
