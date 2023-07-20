@@ -35,11 +35,10 @@
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/react-icon-button": "^1.0.0",
-    "@wpmudev/react-tooltip": "^1.0.0",
+    "@wpmudev/react-tooltip": "^0.0.0",
     "@wpmudev/react-toggle": "^1.0.0",
     "@wpmudev/react-utils": "^1.0.0",
-    "@wpmudev/react-tag": "^1.0.0"
+    "@wpmudev/react-tag": "^0.0.0"
   },
   "devDependencies": {
     "react": "^18.2.0"
