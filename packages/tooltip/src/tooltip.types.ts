@@ -11,7 +11,7 @@ interface TooltipProps
 	/**
 	 * The text label for the tooltip.
 	 */
-	label: string
+	label?: string
 	/**
 	 * Optional type of the tooltip.
 	 */
@@ -39,7 +39,7 @@ interface TooltipProps
 	/**
 	 * Callback function for the click event.
 	 */
-	onClick: () => void
+	onClick?: () => void
 }
 
 export { TooltipProps }
