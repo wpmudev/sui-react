@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component
-import { Button } from "../lib/react-segmented-button"
+import { SegmentedButton as Button } from "../src"
 import { Box, BoxGroup } from "@wpmudev/react-box"
 
 // Import documentation main page
