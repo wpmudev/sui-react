@@ -10,27 +10,27 @@ interface TagProps extends Omit<HTMLProps<HTMLSpanElement>, "style"> {
 	/**
 	 * Design of the tag.
 	 */
-	design: string
+	design?: string
 	/**
 	 * Color of the tag.
 	 */
-	color: string
+	color?: string
 	/**
 	 * Custom style for the tag.
 	 */
-	style: string
+	style?: string
 	/**
 	 * Additional CSS class name for the tag.
 	 */
-	className: string
+	className?: string
 	/**
 	 * Indicates whether the tag should be displayed in a small size.
 	 */
-	isSmall: boolean
+	isSmall?: boolean
 	/**
 	 * Indicates whether the tag text should be in uppercase.
 	 */
-	isUppercase: boolean
+	isUppercase?: boolean
 	/**
 	 * Children nodes of the tag.
 	 */
