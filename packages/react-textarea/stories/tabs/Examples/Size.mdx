@@ -1,5 +1,5 @@
 import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
-import { Textarea } from '../../../lib/react-textarea';
+import { Textarea } from '../../../src';
 import dedent from 'dedent';
 
 export const SmallTextareaCode = dedent`
@@ -24,7 +24,7 @@ export default Example;
 		<Textarea
 			id="textarea-id-4"
 			placeholder="Placeholder"
-			description="This is a description." 
+			description="This is a description."
 			descriptionId="desc-id"
 			isSmall={true}
 		/>
