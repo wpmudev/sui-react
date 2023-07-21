@@ -1,38 +1,8 @@
 import React, { forwardRef, Fragment } from "react"
 
-/**
- * Interface representing the properties of an icon component.
- */
-export interface IconProps {
-	/**
-	 * Custom element type to be used for rendering the icon.
-	 */
-	as?: string
-	/**
-	 * Additional CSS class name for the icon.
-	 */
-	className?: string
-	/**
-	 * Svg title
-	 */
-	title?: string
-	/**
-	 * View box attribute for the icon.
-	 */
-	viewBox?: string
-	/**
-	 * SVG icon height
-	 */
-	height?: number
-	/**
-	 * SVG icon width
-	 */
-	width?: number
-	/**
-	 * Children nodes of the icon.
-	 */
-	children?: React.ReactNode
-}
+import { generateCN, isEmpty } from "@wpmudev/react-utils"
+
+import { IconProps } from "./icon.types"
 
 /**
  * Default icon configuration.
@@ -57,10 +27,22 @@ const Icon = forwardRef<"svg", IconProps>(
 			viewBox = params?.viewBox,
 			height = params.height,
 			width = params.width,
+			color = "",
+			size = "",
 			...props
 		},
 		ref,
 	) => {
+		// Add variations to the classnames
+		className = generateCN(
+			"sui-icon",
+			{
+				[color]: !isEmpty(color),
+				[size]: !isEmpty(size),
+			},
+			className,
+		)
+
 		// SVG props
 		const svgProps = {
 			ref,

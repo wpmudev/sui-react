@@ -4,24 +4,8 @@
 import React, { Children, forwardRef } from "react"
 import { isEmpty } from "@wpmudev/react-utils"
 
-import { Icon, IconProps } from "./icon"
-
-interface IconBuildParams {
-	/**
-	 * The icon `svg` viewBox.
-	 *
-	 * @default "0 0 24 24"
-	 */
-	viewBox?: string
-	/**
-	 * SVG icon title
-	 */
-	title?: string
-	/**
-	 * Default props automatically passed to the component; overridable.
-	 */
-	defaultProps?: IconProps
-}
+import { Icon } from "./icon"
+import { IconBuildParams, IconProps } from "./icon.types"
 
 /**
  * Generate an icon component based on the provided options.
