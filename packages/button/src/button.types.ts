@@ -26,11 +26,11 @@ interface ButtonProps
 	/**
 	 * Appearance style of the button.
 	 */
-	appearance: string
+	appearance?: string
 	/**
 	 * Color of the button.
 	 */
-	color: string
+	color?: string
 	/**
 	 * Optional flag to make the button small.
 	 */
