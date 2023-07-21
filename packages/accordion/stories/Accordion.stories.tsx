@@ -9,7 +9,7 @@ import { Accordion as SuiAccordion, AccordionItem } from "../src"
 import docs from "./Accordion.mdx"
 
 // Build "Accordion" story.
-const Accordion = ({ color }: any) => {
+const Accordion = ({ color, state }: any) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -20,8 +20,8 @@ const Accordion = ({ color }: any) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiAccordion>
-						<AccordionItem title="Accordion Title 1 ">
+					<SuiAccordion state={state}>
+						<AccordionItem title="Accordion Title 1">
 							Lorem Ipsum is simply dummy text of the printing and typesetting
 							industry. Lorem Ipsum has been the industry standard dummy text
 							ever since the 1500s, when an unknown printer took a galley of
@@ -90,59 +90,16 @@ const Accordion = ({ color }: any) => {
 
 // Set story arguments.
 Accordion.args = {
-	bar: 55,
-	value: 55,
-	content: "",
-	isPercentage: false,
-	state: "warning",
-	isSmall: true,
+	state: "",
 }
 
 // Set controls for story arguments.
 Accordion.argTypes = {
-	bar: {
-		name: "Circle Bar",
-		description: "The score circle.",
-		control: {
-			type: "range",
-			min: 0,
-			max: 100,
-			step: 1,
-		},
-	},
-	value: {
-		name: "Score Value",
-		description: "The score value to display.",
-		control: "number",
-	},
-	content: {
-		name: "Content",
-		description: "The score content to display.",
-		control: "text",
-		if: {
-			arg: "isSmall",
-			eq: true,
-		},
-	},
-	isPercentage: {
-		name: "Show Percentage",
-		description: "The percentage to display.",
-	},
 	state: {
-		name: "Type",
-		description: "The scores color variation according to type.",
+		options: ["neutral", "informative", "success", "warning", "critical"],
 		control: {
 			type: "select",
-			options: {
-				"Type: Error": "error",
-				"Type: Warning": "warning",
-				"Type: Success": "success",
-			},
 		},
-	},
-	isSmall: {
-		name: "Small",
-		description: "The scores component size.",
 	},
 }
 
