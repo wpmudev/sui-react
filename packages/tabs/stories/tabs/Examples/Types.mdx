@@ -1,5 +1,5 @@
 import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
-import { Accordion } from '../../../src';
+import { Tab } from '../../../src';
 import dedent from 'dedent';
 
 export const NumberScoreCode = dedent`
@@ -28,7 +28,7 @@ export default Example;
 >
 	<p>Number type is used to show the value of the task.</p>
 	<Preview wrapper={true}>
-		<Accordion bar={50} value="295" isPercentage={false} />
+		<Tab bar={50} value="295" isPercentage={false} />
 	</Preview>
 	<Snippet language="js">{NumberScoreCode}</Snippet>
 </Section>
@@ -43,7 +43,7 @@ export default Example;
 		Percentage score is used to measure the progress of the particular task.
 	</p>
 	<Preview wrapper={true}>
-		<Accordion bar={95} />
+		<Tab bar={95} />
 	</Preview>
 	<Snippet language="js">{PercentageScoreCode}</Snippet>
 </Section>
