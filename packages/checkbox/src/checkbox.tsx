@@ -1,16 +1,23 @@
-import React, { forwardRef, useCallback, useEffect, useId, useState } from "react"
-
+import React, {
+	forwardRef,
+	useCallback,
+	useEffect,
+	useId,
+	useState,
+} from "react"
 import { useInteraction } from "@wpmudev/react-hooks"
 import { generateCN } from "@wpmudev/react-utils"
-
 import { Tick } from "./elements/tick"
 import { CheckboxProps } from "./checkbox.types"
 
 /**
  * Checkbox
  *
- * React component used in forms when a user needs to select
+ * A React component used in forms when a user needs to select
  * multiple values from several options.
+ *
+ * @param {CheckboxProps} props - Props for the Checkbox component.
+ * @return {React.FC} The Checkbox component.
  */
 const Checkbox: React.FC<CheckboxProps> = forwardRef<
 	HTMLInputElement,
@@ -27,22 +34,26 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 		}: CheckboxProps,
 		ref,
 	) => {
+		// State to manage the checked state of the checkbox
 		const [isChecked, setIsChecked] = useState<boolean>(defaultValue ?? false)
 
+		// Set the initial state based on the default value
 		useEffect(() => {
 			setIsChecked(defaultValue)
 		}, [defaultValue])
 
-		// dynamic ID
+		// Generate a dynamic ID for the checkbox
 		const id = useId()
-		// interaction method
+
+		// Interaction methods for handling hover and focus
 		const [isHovered, isFocused, interactionMethods] = useInteraction({})
 
+		// Callback function for handling checkbox state changes
 		const handleOnChange = useCallback(() => {
 			setIsChecked(!isChecked)
 		}, [isChecked])
 
-		// Define box props
+		// Props for the box element representing the checkbox
 		const boxProps = {
 			tabIndex: "-1",
 			className: "sui-checkbox__box",
@@ -62,6 +73,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 				})}
 				onMouseEnter={interactionMethods.onMouseEnter}
 			>
+				{/* Hidden input element to track the checkbox state */}
 				<input
 					ref={ref}
 					id={id}
@@ -70,7 +82,9 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 					disabled={isDisabled}
 					onChange={handleOnChange}
 				/>
+				{/* Custom tick element for the checkbox */}
 				<Tick {...boxProps} />
+				{/* Render the label */}
 				{isLabelHidden ? (
 					<span className="sui-screen-reader-only">{label}</span>
 				) : (
@@ -81,6 +95,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 	},
 )
 
+// Display name for the Checkbox component (used for debugging purposes)
 Checkbox.displayName = "Checkbox"
 
 export { Checkbox }
