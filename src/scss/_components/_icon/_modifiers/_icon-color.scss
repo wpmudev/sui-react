@@ -1,0 +1,33 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Icons Colors
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block-name - Main block name
+@mixin build-color($block) {
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(neutral) {
+				color: var(--neutral-grey-dark-60737373, #737373);
+			}
+			@include modifier(informative) {
+				color: var(--primary-blue-base-50286-ef-1, #286EF1);
+			}
+			@include modifier(success) {
+				color: var(--status-green-success-base-5018-bb-4-b, #18BB4B);
+			}
+			@include modifier(warning) {
+				color: var(--status-yellow-warning-base-50-ffcc-20, #FFCC20);
+			}
+			@include modifier(critical) {
+				color: var(--status-red-error-base-50-f-45-c-59, #F45C59);
+			}
+		}
+	}
+}
