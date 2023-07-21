@@ -8,7 +8,7 @@ import { Accordion as SuiAccordion, AccordionItem } from "../src"
 // Import documentation main page.
 import docs from "./Accordion.mdx"
 
-// Build "Accordion" story.
+// Build "Tab" story.
 const Accordion = ({ color, state }: any) => {
 	const boxStyles = {
 		padding: 20,
@@ -21,7 +21,7 @@ const Accordion = ({ color, state }: any) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<SuiAccordion state={state}>
-						<AccordionItem title="Accordion Title 1">
+						<AccordionItem title="Tab Title 1">
 							Lorem Ipsum is simply dummy text of the printing and typesetting
 							industry. Lorem Ipsum has been the industry standard dummy text
 							ever since the 1500s, when an unknown printer took a galley of
@@ -34,7 +34,7 @@ const Accordion = ({ color, state }: any) => {
 							Lorem Ipsum.
 						</AccordionItem>
 						<AccordionItem
-							title="Accordion Title 2"
+							title="Tab Title 2"
 							description="Supportive description for the accordion item"
 						>
 							Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -49,7 +49,7 @@ const Accordion = ({ color, state }: any) => {
 							Lorem Ipsum.
 						</AccordionItem>
 						<AccordionItem
-							title="Accordion Title 3"
+							title="Tab Title 3"
 							description="Supportive description for the accordion item"
 							icon={<InfoAlt />}
 						>
@@ -65,7 +65,7 @@ const Accordion = ({ color, state }: any) => {
 							Lorem Ipsum.
 						</AccordionItem>
 						<AccordionItem
-							title="Accordion Title 4"
+							title="Tab Title 4"
 							description="Supportive description for the accordion item"
 							hasCheckbox={true}
 							icon={<InfoAlt />}
