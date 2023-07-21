@@ -13,7 +13,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(body) {
-				background: white;
+				padding: 32px;
 			}
 		}
 	}
