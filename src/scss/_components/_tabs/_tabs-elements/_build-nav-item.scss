@@ -1,0 +1,51 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+//@use "../_score-utils/variables" as *;
+//@use "../_score-utils/colors" as *;
+//@use "../_score-utils/animation" as *;
+
+/// Build Accordion item
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-nav-item($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(nav-item) {
+                align-items: center;
+                background-color: white;
+                border: none;
+                border-bottom: 4px solid transparent;
+                color: var(--neutral-grey-base-50505050, #505050);
+                cursor: pointer;
+                display: flex;
+                font: 500 15px/24px $font-family-default;
+                gap: 4px;
+                padding: 28px 16px;
+                max-height: 80px;
+
+                &:hover {
+                    background: var(--primary-blue-light-90-eaf-1-fe, #EAF1FE);
+                    border-bottom: 4px solid var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
+                }
+
+                &:focus {
+                    background: var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
+                    border-bottom: 4px solid var(--primary-blue-base-50286-ef-1, #286EF1);
+                }
+
+            }
+
+            @include element(nav-icon) {
+
+            }
+        }
+    }
+}

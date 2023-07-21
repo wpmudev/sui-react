@@ -1,0 +1,11 @@
+@use "./_tabs-elements/elements" as sui-tab--element;
+@use "./_tabs-modifiers/modifiers" as sui-tab--modifier;
+@use "./_states/states" as sui-tab--state;
+
+@include sui-tab--element.build-container(tab);
+@include sui-tab--element.build-nav-item(tab);
+@include sui-tab--element.build-nav(tab);
+@include sui-tab--element.build-panel-item(tab);
+
+@include sui-tab--state.edit-active(tab);
+//@include sui-tab--state.(tab);

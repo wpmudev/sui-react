@@ -1,0 +1,28 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+//@use "../_score-utils/variables" as *;
+//@use "../_score-utils/colors" as *;
+//@use "../_score-utils/animation" as *;
+
+/// Build Accordion item
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-nav($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(nav) {
+                align-items: center;
+                border-bottom: 1px solid var(--neutral-grey-light-80-e-6-e-6-e-6, #E6E6E6);
+                display: flex;
+            }
+        }
+    }
+}
