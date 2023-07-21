@@ -8,3 +8,4 @@
 @include sui-accordion--element.build-panel(accordion);
 
 @include sui-accordion--state.edit-expanded(accordion);
+@include sui-accordion--state.edit-states(accordion);
