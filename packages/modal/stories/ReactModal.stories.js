@@ -1,13 +1,11 @@
-import React, { Fragment, useRef } from "react"
+import React, { useRef } from "react"
 
 // Import required component
-import { Modal as SuiModal, ModalBody } from "../src"
-import { Box, BoxGroup } from "@wpmudev/react-box"
+import { Modal as SuiModal, ModalBody, ModalFooter, ModalHeader } from "../src"
 import { Button } from "@wpmudev/react-button"
 
 // Import documentation main page
 import docs from "./ReactModal.mdx"
-import { ModalHeader } from "../src"
 
 // Configure default options
 export default {
@@ -19,39 +17,6 @@ export default {
 			page: docs,
 		},
 	},
-}
-
-const triggerContent = ({ openModal }) => {
-	return (
-		<Button appearance="primary" color="blue" onClick={openModal}>
-			Save Configs
-		</Button>
-	)
-}
-
-const modalContent = () => {
-	return (
-		<BoxGroup>
-			<p style={{ margin: 0 }}>
-				Are you sure you want to apply the Default config config to this site?
-				We recommend you have a backup available as your existing settings
-				configuration will be overridden.
-			</p>
-		</BoxGroup>
-	)
-}
-
-const modalFooter = ({ closeModal }) => {
-	return (
-		<Fragment>
-			<Button appearance="secondary" color="black" onClick={closeModal}>
-				Cancel
-			</Button>
-			<Button appearance="primary" color="blue" onClick={closeModal}>
-				Apply
-			</Button>
-		</Fragment>
-	)
 }
 
 // Build "Modal" story
@@ -69,18 +34,43 @@ const Modal = ({ example, ...args }) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<SuiModal {...args} ref={ref}>
-						<ModalHeader title="Something" />
-						<ModalBody>SOMETHING</ModalBody>
+						<ModalHeader title="Apply Config">
+							Choose the audience you want to send form data to.
+						</ModalHeader>
+						<ModalBody>
+							Are you sure you want to apply the Default config config to this
+							site? We recommend you have a backup available as your existing
+							settings configuration will be overridden.
+						</ModalBody>
+						<ModalFooter hasSep={true}>
+							<Button
+								appearance="secondary"
+								color="blue"
+								isSmall={true}
+								onClick={() => ref.current.closeModal()}
+							>
+								Cancel
+							</Button>
+							<Button
+								appearance="primary"
+								color="blue"
+								isSmall={true}
+								onClick={() => {
+									console.log("Submitted")
+								}}
+							>
+								Apply
+							</Button>
+						</ModalFooter>
 					</SuiModal>
 					<Button
 						appearance="primary"
 						color="blue"
 						onClick={() => {
-							console.log("ref", ref)
 							ref.current.openModal()
 						}}
 					>
-						Open modal
+						Apply Config
 					</Button>
 				</div>
 			</div>
@@ -91,44 +81,38 @@ const Modal = ({ example, ...args }) => {
 // Set story arguments.
 Modal.args = {
 	id: "uniqueId",
-	title: "Apply config",
 	icon: {
 		name: "info-alt",
 		color: "blue",
 	},
-	isSmall: true,
-	timer: 0,
-	trigger: triggerContent,
-	content: modalContent,
-	footer: modalFooter,
+	size: "sm",
+	variant: "simple",
+	// isSmall: true,
+	// timer: 0,
+	// trigger: triggerContent,
+	// content: modalContent,
+	// footer: modalFooter,
 }
 
 // Set controls for story arguments.
 Modal.argTypes = {
-	title: {
-		name: "Title",
-	},
 	icon: {
 		name: "Icon",
 	},
-	timer: {
-		table: {
-			disable: true,
+	size: {
+		options: ["sm", "lg"],
+		control: {
+			type: "select",
+			labels: {
+				sm: "Small (sm)",
+				lg: "Large (lg)",
+			},
 		},
 	},
-	trigger: {
-		table: {
-			disable: true,
-		},
-	},
-	content: {
-		table: {
-			disable: true,
-		},
-	},
-	footer: {
-		table: {
-			disable: true,
+	variant: {
+		options: ["simple", "advanced", "app-connect"],
+		control: {
+			type: "select",
 		},
 	},
 }

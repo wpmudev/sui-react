@@ -1,25 +1,50 @@
-import React from "react"
-import { AddIcon } from "@wpmudev/sui-icons"
+import React, { useContext } from "react"
+import { Bell } from "@wpmudev/sui-icons"
+import { isEmpty } from "@wpmudev/react-utils"
+import { Button } from "@wpmudev/react-button"
+import { useValidateProps } from "@wpmudev/react-hooks"
+
+import { ModalContext } from "./modal"
 
 interface ModalHeaderProps {
 	title: string
-	desc?: React.ReactNode
+	children?: React.ReactNode
 }
 
-const ModalHeader: React.FC<ModalHeaderProps> = ({ title = "", desc = "" }) => {
+const ModalHeader: React.FC<ModalHeaderProps> = ({ title = "", children }) => {
+	const ctx = useContext(ModalContext)
+
+	// validate props
+	useValidateProps({ component: ModalHeader, propsToCheck: { title } })
+
 	return (
-		<div className="sui-modal__header">
-			<div className="sui-modal__header-icon" slot="left">
-				<AddIcon />
+		<header className="sui-modal__header">
+			<div className="sui-modal__header-actions">
+				<Bell slot="left" className="sui-modal__header-actions-icon" />
+				{!isEmpty(title ?? "") && "app-connect" !== ctx?.variant && (
+					<h4>{title}</h4>
+				)}
+				<Button
+					className="sui-modal__header-actions-close"
+					icon="close"
+					onClick={"closeModal" in ctx ? ctx.closeModal : () => {}}
+					isSmall={true}
+					iconOnly={true}
+					slot="right"
+				/>
 			</div>
-			<div className="sui-modal__header-info">
-				<h2>{title}</h2>
-				<div className="sui-modal__header-info-content">{!!desc && desc}</div>
-			</div>
-			<div className="sui-modal__header-close" slot="right">
-				X
-			</div>
-		</div>
+			{"app-connect" === ctx?.variant && (
+				<div className="sui-modal__header-info">
+					<h3>{title}</h3>
+					{!!children && (
+						<div className="sui-modal__header-info-content">{children}</div>
+					)}
+					<figure className="sui-modal__header-logo">
+						<img src="https://placehold.co/200x200" alt="App logo" />
+					</figure>
+				</div>
+			)}
+		</header>
 	)
 }
 
