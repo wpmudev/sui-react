@@ -1,0 +1,32 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+//@use "../_score-utils/variables" as *;
+//@use "../_score-utils/colors" as *;
+//@use "../_score-utils/animation" as *;
+
+/// Build Accordion item
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-panel($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(panel) {
+                display: none;
+                padding: 0 32px 32px 32px;
+            }
+
+            @include modifier(expanded) {
+                display: block;
+                background: yellow;
+            }
+        }
+    }
+}

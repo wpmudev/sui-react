@@ -1,0 +1,10 @@
+@use "./_accordion-elements/elements" as sui-accordion--element;
+@use "./_accordion-modifiers/modifiers" as sui-accordion--modifier;
+@use "./_states/states" as sui-accordion--state;
+
+@include sui-accordion--element.build-container(accordion);
+@include sui-accordion--element.build-item(accordion);
+@include sui-accordion--element.build-header(accordion);
+@include sui-accordion--element.build-panel(accordion);
+
+@include sui-accordion--state.edit-expanded(accordion);
