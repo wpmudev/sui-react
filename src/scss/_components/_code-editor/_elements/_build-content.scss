@@ -1,0 +1,60 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Content
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-content($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            // line numbers
+            .line-numbers-rows {
+                background: var(--neutral-grey-dark-60737373, #737373);
+                bottom: -2px;
+                overflow: hidden;
+                top: -2px;
+            }
+
+            .module-theme-default pre[class*="language-"] {
+                border-radius: 0;
+                margin: 0;
+                overflow: visible;
+                padding-bottom: 0;
+                padding-top: 0;
+                top: -0.2px;
+            }
+
+            code {
+                direction: ltr;
+                position: relative;
+                z-index: 1;
+                margin: 0;
+                padding: 0;
+                background: transparent;
+                text-align: left;
+                white-space: pre;
+                word-spacing: normal;
+                word-break: normal;
+                tab-size: 4;
+                hyphens: none;
+                color: $color-extended-neutral-10;
+                font-weight: $font-weight-default;
+                font-size: $font-size-xs;
+                line-height: 20px;
+                letter-spacing: $font-spacing-default;
+
+                * {
+                    font-family: $code-snippet-font-family;
+                }
+            }
+        }
+    }
+}
