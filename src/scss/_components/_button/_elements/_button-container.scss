@@ -9,8 +9,8 @@
 			display: inline-flex;
 			flex-flow: row wrap;
 			justify-content: center;
-			margin: $button-container-margin-vertical
-				$button-container-margin-horizontal;
+//			margin: $button-container-margin-vertical
+//				$button-container-margin-horizontal;
 			padding: $button-container-padding-vertical
 				$button-container-padding-horizontal;
 			border-width: $button-container-border-width;
@@ -37,7 +37,7 @@
 			@include modifier(is-icon) {
 				min-width: auto;
 				padding: 11px;
-				
+
 				span {
 					display: block;
 				}
