@@ -3,15 +3,31 @@
 @mixin build-container($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
-			display: flex;
 			align-items: flex-start;
-			margin: 0;
-			padding: $spacing-md $spacing-lg;
+			background: $color-extended-neutral-100;
+			box-shadow: 0 0 0 1px #E6E6E6;
 			border-width: 0;
 			border-left-width: 4px;
 			border-style: solid;
 			border-radius: $border-radius-md;
-			background: $color-extended-neutral-100;
+			display: flex;
+			align-items: flex-start;
+			margin: 0;
+			padding: $spacing-md $spacing-lg;
+
+			@include element(renderer) {
+				position: fixed;
+				top: 30px;
+				left: 50%;
+				transform: translate(-50%, 0);
+				padding: 10px;
+				z-index: 999;
+
+				.sui-notification {
+					box-shadow: 0 4px 8px 0 rgba(115, 115, 115, 0.05), 0 4px 20px 0 rgba(115, 115, 115, 0.10), 0 12px 16px 0 rgba(115, 115, 115, 0.08);
+					margin: 10px auto 0 auto;
+				}
+			}
 		}
 	}
 }

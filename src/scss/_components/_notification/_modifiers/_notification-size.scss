@@ -3,6 +3,8 @@
 @mixin edit-size($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
+			width: 360px;
+
 			@include modifier(lg) {
 				width: 640px;
 			}

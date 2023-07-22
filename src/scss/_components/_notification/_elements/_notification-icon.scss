@@ -6,8 +6,7 @@
 			@include element(icon) {
 				display: block;
 				flex: 0 0 auto;
-				margin: $spacing-sm;
-				margin-left: 0;
+				margin: $spacing-sm $spacing-sm $spacing-sm 0;
 
 				&:before {
 					display: block;
