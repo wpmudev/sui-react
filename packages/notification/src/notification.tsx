@@ -1,157 +1,111 @@
-import React, { Fragment, useState, useEffect, useCallback } from "react"
-import {
-	isUndefined,
-	isEmpty,
-	isNumber,
-	isFunction,
-	generateCN,
-} from "@wpmudev/react-utils"
+import React, { useState, useEffect, useId, useCallback } from "react"
+import { generateCN, isEmpty } from "@wpmudev/react-utils"
 
 import { Button } from "@wpmudev/react-button"
 import { NotificationProps } from "./notification.types"
-// import { IconButton } from "@wpmudev/react-icon-button"
+
+import * as Icons from "@wpmudev/sui-icons"
+import { useNotifications } from "./use-notification"
 
 const Notification: React.FC<NotificationProps> = ({
 	id,
 	title,
+	desc,
 	action,
-	children,
-	state,
-	timeIn,
-	timeOut,
-	isSmall = true,
-	isInline = false,
-	isVisible = false,
-	isCloseButton = false,
-	onClick,
+	icon,
+	iconState,
+	isInline = true,
+	isDismissible,
+	size,
+	variation,
+	timeout = 5000,
 }) => {
-	// default state
-	state = state ?? "info"
+	const [isVisible, setIsVisible] = useState(true)
+	const notifications = useNotifications()
 
-	const defaultActions = {
-		label: "",
-		href: "",
-		target: "_blank",
-		onClick: () => {},
-	}
+	// Create notification ID
+	const uniqueId = useId()
+	const notificationId = `sui-notification-${uniqueId}`
 
-	const actions = {
-		...defaultActions,
-		...action,
-	}
-
-	// const hasId = !isUndefined(id) && !isEmpty(id)
-	const hasTitle = !isUndefined(title) && !isEmpty(title)
-	const hasContent = !isUndefined(children) && !isEmpty(children)
-	const hasTimeIn = isNumber(timeIn) && timeIn > 0
-	const hasTimeout = isNumber(timeOut) && timeOut > 0
-	const hasAction = !isEmpty(actions.label)
-
-	if (!hasTitle && !hasContent) {
-		throw new Error(
-			`Empty content is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Notification\n\nThe "Title" and "Children" components require some value to be passed to it.\n\n`,
-		)
-	}
-
-	// Display states
-	const [display, setDisplay] = useState<boolean>(isVisible)
-
-	// Run functions on load
 	useEffect(() => {
-		if (hasTimeIn) {
-			setTimeout(() => setDisplay(true), timeIn)
+		if (!isInline && !isDismissible) {
+			setTimeout(() => {
+				notifications.remove(id)
+			}, timeout ?? 5000)
 		}
+	}, [id, isInline, notifications, timeout])
 
-		if (hasTimeout) {
-			setTimeout(() => setDisplay(false), timeOut)
+	/**
+	 * Hide notification when click on dismiss button
+	 *
+	 * @type {() => void}
+	 */
+	const onClose = useCallback(() => {
+		if (isInline) {
+			setIsVisible(false)
+		} else {
+			notifications.remove(id)
 		}
-	}, [hasTimeIn, hasTimeout, timeIn, timeOut])
+	}, [id, isInline, notifications])
+
+	// do not render
+	if (!isVisible) return null
 
 	// generate classnames
 	const classNames = generateCN("sui-notification", {
 		inline: isInline,
-		toast: !isInline,
-		empty: !isVisible,
-		lg: !isSmall,
-		[state]: ["success", "warning", "error", "info"].includes(state),
+		[size]: !isEmpty(size ?? ""),
+		[variation]: ["success", "warning", "error", "info"].includes(
+			variation ?? "",
+		),
 	})
 
-	// generate icon classnames
-	const iconClassNames = generateCN(
-		"suicons",
-		{
-			"check-alt": ["success"].includes(state),
-			warning: ["warning", "error"].includes(state),
-			alt: !["warning", "error", "success"].includes(state),
-		},
-		"sui-notification__icon",
-	)
-
-	const wrapperAttrs = {
-		role: hasTimeIn ? "alert" : "alertdialog",
-		className: classNames,
-		...(!hasTimeIn && { "aria-modal": true }),
-		...(!hasTimeIn && { "aria-labelledby": "" }),
-		...(!hasTimeIn && { "aria-describedby": "" }),
-	}
-
-	// on close
-	const onClose = useCallback(
-		(e) => {
-			setDisplay(false)
-
-			if (onClick) {
-				onClick(e)
-			}
-		},
-		[onClick],
-	)
+	// Get SVG Icon
+	const Icon = Icons?.[icon]
 
 	return (
-		<div {...wrapperAttrs}>
-			{display && (
-				<Fragment>
-					<span className={iconClassNames} aria-hidden="true" />
-					<div className="sui-notification__content">
-						{hasTitle && (
-							<span className="sui-notification__title">{title}</span>
-						)}
-						{hasContent && (
-							<span className="sui-notification__message">{children}</span>
-						)}
-						{hasAction && (
-							<Button
-								{...(!isEmpty(actions.href) && { href: actions.href })}
-								{...(!isEmpty(actions.href) && {
-									target: actions.target,
-								})}
-								appearance="secondary"
-								color="blue"
-								isSmall={true}
-								className="sui-notification__action"
-								{...(isFunction(actions.onClick) && {
-									onClick: actions.onClick,
-								})}
-							>
-								{actions.label}
-							</Button>
-						)}
-					</div>
-					{/*{isCloseButton && (
-						<IconButton
-							icon="close"
-							label="Close"
-							appearance="tertiary"
-							color="black"
-							className="sui-notification__button"
-							isSmall={true}
-							onClick={onClose}
-						/>
-					)}*/}
-				</Fragment>
+		<div
+			id={notificationId}
+			className={classNames}
+			role="alert"
+			aria-labelledby={`${notificationId}-title`}
+			aria-describedby={`${notificationId}-desc`}
+		>
+			{!!Icon && (
+				<Icon size="md" color={iconState} className="sui-notification__icon" />
+			)}
+			<div className="sui-notification__content">
+				{!!title && (
+					<span
+						className="sui-notification__title"
+						id={`${notificationId}-title`}
+					>
+						{title}
+					</span>
+				)}
+				{!!desc && (
+					<span
+						className="sui-notification__message"
+						id={`${notificationId}-desc`}
+					>
+						{desc}
+					</span>
+				)}
+				{!!action && <div className="sui-notification__action">{action}</div>}
+			</div>
+			{isDismissible && (
+				<Button
+					className="sui-modal__header-actions-close"
+					icon="close"
+					isSmall={true}
+					iconOnly={true}
+					onClick={onClose}
+				/>
 			)}
 		</div>
 	)
 }
+
+Notification.displayName = "Notification"
 
 export { Notification }

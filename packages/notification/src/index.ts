@@ -1,2 +1,4 @@
 export { Notification } from "./notification"
-export { NotificationProps } from "./notification.types"
+export { NotificationRenderer } from "./notification-renderer"
+
+export type { NotificationProps } from "./notification.types"

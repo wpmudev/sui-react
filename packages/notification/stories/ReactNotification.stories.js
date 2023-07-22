@@ -1,10 +1,12 @@
-import React, { useState, useEffect, Fragment } from "react"
+import React from "react"
 
 // Import required component(s)
-import { Notification as SuiNotification } from "../src"
+import { Notification as SuiNotification, NotificationRenderer } from "../src"
 
 // Import documentation main page
 import docs from "./ReactNotification.mdx"
+import { Button } from "@wpmudev/react-button"
+import { useNotifications } from "../src/use-notification"
 
 // Configure default options
 export default {
@@ -18,6 +20,131 @@ export default {
 	},
 }
 
+const demos = [
+	{
+		title: "Default",
+		button: {},
+		options: {
+			title: "Notification Title",
+			desc: "This is notification message.",
+			icon: "CheckAlt",
+		},
+	},
+	{
+		title: "Informative",
+		button: {},
+		options: {
+			title: "Notification Title",
+			desc: "This is notification message.",
+			icon: "InfoAlt",
+			variation: "info",
+		},
+	},
+	{
+		title: "Success",
+		button: {},
+		options: {
+			title: "Notification Title",
+			desc: "This is notification message.",
+			action: (
+				<Button
+					className="csb-banner__cta"
+					appearance="secondary"
+					color="blue"
+					isSmall={true}
+				>
+					Action
+				</Button>
+			),
+			variation: "success",
+			icon: "CheckAlt",
+		},
+	},
+	{
+		title: "Warning",
+		button: {},
+		options: {
+			title: "Notification Title",
+			desc: "This is notification message.",
+			action: (
+				<Button
+					className="csb-banner__cta"
+					appearance="secondary"
+					color="blue"
+					isSmall={true}
+				>
+					Action
+				</Button>
+			),
+			variation: "warning",
+			icon: "CheckAlt",
+		},
+	},
+	{
+		title: "Error",
+		button: {},
+		options: {
+			title: "Notification Title",
+			desc: "This is notification message.",
+			action: (
+				<Button
+					className="csb-banner__cta"
+					appearance="secondary"
+					color="blue"
+					isSmall={true}
+				>
+					Action
+				</Button>
+			),
+			variation: "error",
+			icon: "InfoAlt",
+		},
+	},
+	{
+		title: "Dismissible",
+		button: {},
+		options: {
+			title: "Notification Title",
+			desc: "This is notification message.",
+			action: (
+				<Button
+					className="csb-banner__cta"
+					appearance="secondary"
+					color="blue"
+					isSmall={true}
+				>
+					Action
+				</Button>
+			),
+			variation: "info",
+			icon: "InfoAlt",
+			isDismissible: true,
+		},
+	},
+	{
+		title: "Large + Dismissible",
+		button: {},
+		options: {
+			title: "Notification Title",
+			desc: "This is notification message.",
+			action: (
+				<Button
+					className="csb-banner__cta"
+					appearance="secondary"
+					color="blue"
+					isSmall={true}
+				>
+					Action
+				</Button>
+			),
+			icon: "InfoAlt",
+			variation: "info",
+			isDismissible: true,
+			size: "lg",
+		},
+	},
+]
+
 // Build story
 export const Notification = ({ example, ...props }) => {
 	const box = {
@@ -28,29 +155,37 @@ export const Notification = ({ example, ...props }) => {
 		background: "#fff",
 	}
 
+	const notification = useNotifications()
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
+			<NotificationRenderer />
 			<div className="sui-layout__content">
-				{"toast" === example && <SuiNotification {...props} />}
-
 				<div style={box}>
-					<p>
-						Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
-						nibh, ut fermentum massa justo sit amet risus. Praesent commodo
-						cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-						lacus vel augue laoreet rutrum faucibus dolor auctor. Cum sociis
-						natoque penatibus et magnis dis parturient montes, nascetur
-						ridiculus mus. Donec sed odio dui.
-					</p>
-					<p>
-						Cum sociis natoque penatibus et magnis dis parturient montes,
-						nascetur ridiculus mus. Nulla vitae elit libero, a pharetra augue.
-						Maecenas sed diam eget risus varius blandit sit amet non magna.
-						Nullam quis risus eget urna mollis ornare vel eu leo.
-					</p>
-					{"inline" === example && (
-						<SuiNotification isInline={true} isVisible={true} {...props} />
-					)}
+					<h2>Toast Notifications</h2>
+					{demos.map((demo, index) => (
+						<Button
+							key={index}
+							appearance="secondary"
+							color="blue"
+							isSmall={true}
+							onClick={() => {
+								notification.push(demo.options)
+							}}
+							{...demo.button}
+						>
+							{demo.title}
+						</Button>
+					))}
+				</div>
+				<div style={box}>
+					<h2>Inline Notifications</h2>
+					{demos.map((demo, index) => (
+						<div>
+							<h4>{demo.title}</h4>
+							<SuiNotification {...demo.options} key={index} />
+						</div>
+					))}
 				</div>
 			</div>
 		</div>
@@ -67,10 +202,6 @@ Notification.args = {
 		target: "_blank",
 		onClick: "",
 	},
-	state: "",
-	isSmall: true,
-	isVisible: true,
-	isCloseButton: false,
 }
 
 Notification.argTypes = {
@@ -100,13 +231,5 @@ Notification.argTypes = {
 		table: {
 			disable: true,
 		},
-	},
-	isVisible: {
-		table: {
-			disable: true,
-		},
-	},
-	isCloseButton: {
-		name: "Show Button",
 	},
 }
