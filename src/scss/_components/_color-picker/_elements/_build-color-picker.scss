@@ -1,0 +1,30 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Color picker
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-color-picker($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+
+			pre {
+				min-height: $code-snippet-height;
+				overflow: auto;
+				margin: 0;
+				padding: $code-snippet-spacing-default;
+				border: $code-snippet-border-width solid $code-snippet-border-color;
+				border-radius: $code-snippet-border-radius;
+				background: $color-extended-neutral-95;
+			}
+		}
+	}
+}
