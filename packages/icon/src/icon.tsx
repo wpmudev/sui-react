@@ -29,6 +29,7 @@ const Icon = forwardRef<"svg", IconProps>(
 			width = params.width,
 			color = "",
 			size = "",
+			onClick,
 			...props
 		},
 		ref,
@@ -51,6 +52,7 @@ const Icon = forwardRef<"svg", IconProps>(
 			viewBox,
 			height,
 			width,
+			onClick,
 		}
 
 		// Set the path for the icon (either from props or the default path)

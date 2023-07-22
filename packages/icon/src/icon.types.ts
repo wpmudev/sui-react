@@ -37,6 +37,12 @@ interface IconProps {
 	 */
 	color?: "" | "neutral" | "informative" | "success" | "warning" | "critical"
 	/**
+	 * When click on icon
+	 *
+	 * @return {{}}
+	 */
+	onClick?: () => void
+	/**
 	 * Children nodes of the icon.
 	 */
 	children?: React.ReactNode
