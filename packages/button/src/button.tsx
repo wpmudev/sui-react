@@ -28,6 +28,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			appearance,
 			color,
 			isSmall = false,
+			isFullWidth = false,
 			isDisabled = false,
 			isUnwrapped = false,
 			className,
@@ -60,6 +61,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			hover: isHovered,
 			focus: isFocused,
 			disabled: isDisabled,
+			"full-width": isFullWidth,
 			"is-icon": hasIcon && iconOnly,
 			[`${appearance}-${color}`]: !!appearance && !!color,
 		}

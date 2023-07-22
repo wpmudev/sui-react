@@ -36,6 +36,10 @@ interface ButtonProps
 	 */
 	isSmall?: boolean
 	/**
+	 * Optional flag to make the button full width.
+	 */
+	isFullWidth?: boolean
+	/**
 	 * Optional flag to disable the button.
 	 */
 	isDisabled?: boolean
