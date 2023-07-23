@@ -1,10 +1,18 @@
-import React, { useContext, useId } from "react"
+import React, { useId } from "react"
 
 import { generateCN } from "@wpmudev/react-utils"
 
 import { TreeViewProps } from "./tree-view.types"
-import { TreeViewContext, TreeViewProvider } from "./tree-view-context"
+import { TreeViewProvider } from "./tree-view-context"
 
+/**
+ * TreeView Component
+ *
+ * A tree view component that renders a hierarchical tree structure.
+ *
+ * @param {TreeViewProps} props - Component props
+ * @return {JSX.Element} - JSX Element representing the TreeView component
+ */
 const TreeView: React.FC<TreeViewProps> = ({
 	className = "",
 	children,
@@ -18,6 +26,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 
 	return (
 		<TreeViewProvider value={{ allowCheck, showIcons, id: treeViewId }}>
+			{/* TreeView component renders a tree structure with a list */}
 			<nav className={classNames}>
 				<ul role="tree">{children}</ul>
 			</nav>

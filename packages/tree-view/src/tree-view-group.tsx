@@ -1,11 +1,17 @@
 import React, { useState } from "react"
-
 import { generateCN } from "@wpmudev/react-utils"
-
 import { TreeViewGroupProps } from "./tree-view.types"
 import { TreeViewItem } from "./tree-view-item"
 import { TreeViewInfo } from "./tree-view-info"
 
+/**
+ * TreeViewGroup Component
+ *
+ * A component that represents a group in the tree view.
+ *
+ * @param {TreeViewGroupProps} props - Component props
+ * @return {JSX.Element} - JSX Element representing the TreeViewGroup component
+ */
 const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 	icon,
 	title = "",
@@ -20,6 +26,7 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 
 	return (
 		<TreeViewItem isExpanded={isOpen} isGroup={true}>
+			{/* TreeViewInfo represents the group header with expand/collapse functionality */}
 			<TreeViewInfo
 				isExpanded={isOpen}
 				onClick={() => setIsOpen(!isOpen)}
@@ -30,6 +37,7 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 				{title}
 			</TreeViewInfo>
 			<ul role="group" aria-label={title} className={classNames}>
+				{/* Render child items within the group */}
 				{children}
 			</ul>
 		</TreeViewItem>
