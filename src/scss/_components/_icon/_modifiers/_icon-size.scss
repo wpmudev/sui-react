@@ -11,6 +11,10 @@
 	// THEME: Light.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			@include modifier(xsm) {
+				height: 12px;
+				width: 12px;
+			}
 			@include modifier(sm) {
 				height: 16px;
 				width: 16px;
