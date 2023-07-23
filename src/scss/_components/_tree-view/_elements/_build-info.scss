@@ -1,0 +1,62 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Code snippet
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-info($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(info) {
+				align-items: center;
+				border-radius: 8px;
+				cursor: pointer;
+				display: flex;
+				margin-bottom: 4px;
+				padding: 8px;
+
+				&:hover {
+					background: var(--neutral-grey-light-95-f-8-f-8-f-8, #F8F8F8);
+				}
+
+				&:focus {
+					background: var(--neutral-grey-light-90-f-2-f-2-f-2, #F2F2F2);
+					box-shadow: 0 0 0 2px #1A1A1A;
+				}
+
+				@include modifier(active) {
+					background: var(--neutral-grey-light-90-f-2-f-2-f-2, #F2F2F2);
+				}
+			}
+
+			@include element(info-icon) {
+				margin: 0 4px;
+			}
+
+			@include element(info-title) {
+				align-items: center;
+				display: flex;
+				margin-left: 8px;
+
+				span {
+					margin-left: 4px;
+				}
+			}
+
+			@include element(info-check) {
+				align-items: center;
+				display: flex;
+				margin-left: 8px;
+				width: 20px;
+			}
+		}
+	}
+}
