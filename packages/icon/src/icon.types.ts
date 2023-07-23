@@ -31,7 +31,7 @@ interface IconProps {
 	/**
 	 * SVG icon size
 	 */
-	size?: "sm" | "md" | "lg" | "xl"
+	size?: "xms" | "sm" | "md" | "lg" | "xl"
 	/**
 	 * SVG icon state (color)
 	 */
