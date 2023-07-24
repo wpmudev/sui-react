@@ -17,6 +17,11 @@
       "name": "Leighton Sapir",
       "email": "2328848+iamleigh@users.noreply.github.com",
       "url": "https://iamleigh.com"
+    },
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
     }
   ],
   "publishConfig": {
@@ -38,7 +43,7 @@
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "workspaces": [
-    "packages/*"
+    "packages/**/*"
   ],
   "devDependencies": {
     "@babel/core": "^7.18.9",

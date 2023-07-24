@@ -1,5 +1,5 @@
 import { HTMLProps, useCallback, useState } from "react"
-import { isFunction } from "@wpmudev/react-utils"
+import { isFunction } from "@wpmudev/sui-utils"
 
 interface InteractionTypes
 	extends Pick<

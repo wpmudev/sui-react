@@ -1,5 +1,5 @@
-// Importing the isEmpty function from "@wpmudev/react-utils"
-import { isEmpty } from "@wpmudev/react-utils"
+// Importing the isEmpty function from "@wpmudev/sui-utils"
+import { isEmpty } from "@wpmudev/sui-utils"
 import { ComponentType, FC } from "react"
 
 // Interface to define the props expected by the useError hook
