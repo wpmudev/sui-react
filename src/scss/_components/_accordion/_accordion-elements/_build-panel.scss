@@ -27,4 +27,17 @@
             }
         }
     }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(panel) {
+                @include modifier(content) {
+                    border: $accordion-border-width solid $color-extended-neutral-0;
+                }
+            }
+        }
+    }
 }

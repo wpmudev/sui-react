@@ -7,9 +7,25 @@
 ///
 /// @param {String} $block - Main block name
 @mixin edit-expanded($block) {
+
     // DIR: Left to right.
     // THEME: None.
     @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(item) {
+                @include modifier(expanded) {
+
+                    .sui-#{$block}__panel {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Light.
+    @include sui-class($rtl: false, $theme: light) {
         @include block($block) {
             @include element(item) {
                 @include modifier(expanded) {
@@ -19,7 +35,6 @@
 
                     .sui-#{$block}__panel {
                         background: $color-extended-neutral-95;
-                        display: block;
                     }
                 }
             }
