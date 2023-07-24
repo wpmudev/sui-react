@@ -1,9 +1,15 @@
 import React from "react"
+import { Button } from "../../button/src"
 
 import { InfoAlt } from "@wpmudev/sui-icons"
 
 // Import required component.
-import { Accordion as SuiAccordion, AccordionItem } from "../src"
+import {
+	Accordion as SuiAccordion,
+	AccordionItem,
+	AccordionItemBody,
+	AccordionItemFooter,
+} from "../src"
 
 // Import documentation main page.
 import docs from "./Accordion.mdx"
@@ -22,47 +28,67 @@ const Accordion = ({ color, state }: any) => {
 				<div style={boxStyles}>
 					<SuiAccordion state={state}>
 						<AccordionItem title="Tab Title 1">
-							Lorem Ipsum is simply dummy text of the printing and typesetting
-							industry. Lorem Ipsum has been the industry standard dummy text
-							ever since the 1500s, when an unknown printer took a galley of
-							type and scrambled it to make a type specimen book. It has
-							survived not only five centuries, but also the leap into
-							electronic typesetting, remaining essentially unchanged. It was
-							popularised in the 1960s with the release of Letraset sheets
-							containing Lorem Ipsum passages, and more recently with desktop
-							publishing software like Aldus PageMaker including versions of
-							Lorem Ipsum.
+							<AccordionItemBody>
+								<p>
+									Lorem Ipsum is simply dummy text of the printing and
+									typesetting industry. Lorem Ipsum has been the industry
+									standard dummy text ever since the 1500s, when an unknown
+									printer took a galley of type and scrambled it to make a type
+									specimen book. It has survived not only five centuries, but
+									also the leap into electronic typesetting, remaining
+									essentially unchanged. It was popularised in the 1960s with
+									the release of Letraset sheets containing Lorem Ipsum
+									passages, and more recently with desktop publishing software
+									like Aldus PageMaker including versions of Lorem Ipsum.
+								</p>
+							</AccordionItemBody>
+							<AccordionItemFooter>
+								<Button color="black" appearance="secondary">
+									Secondary
+								</Button>
+								<Button color="blue" appearance="primary">
+									Primary
+								</Button>
+							</AccordionItemFooter>
 						</AccordionItem>
 						<AccordionItem
 							title="Tab Title 2"
 							description="Supportive description for the accordion item"
 						>
-							Lorem Ipsum is simply dummy text of the printing and typesetting
-							industry. Lorem Ipsum has been the industry standard dummy text
-							ever since the 1500s, when an unknown printer took a galley of
-							type and scrambled it to make a type specimen book. It has
-							survived not only five centuries, but also the leap into
-							electronic typesetting, remaining essentially unchanged. It was
-							popularised in the 1960s with the release of Letraset sheets
-							containing Lorem Ipsum passages, and more recently with desktop
-							publishing software like Aldus PageMaker including versions of
-							Lorem Ipsum.
+							<AccordionItemBody>
+								<p>
+									Lorem Ipsum is simply dummy text of the printing and
+									typesetting industry. Lorem Ipsum has been the industry
+									standard dummy text ever since the 1500s, when an unknown
+									printer took a galley of type and scrambled it to make a type
+									specimen book. It has survived not only five centuries, but
+									also the leap into electronic typesetting, remaining
+									essentially unchanged. It was popularised in the 1960s with
+									the release of Letraset sheets containing Lorem Ipsum
+									passages, and more recently with desktop publishing software
+									like Aldus PageMaker including versions of Lorem Ipsum.
+								</p>
+							</AccordionItemBody>
 						</AccordionItem>
 						<AccordionItem
 							title="Tab Title 3"
 							description="Supportive description for the accordion item"
 							icon={<InfoAlt />}
 						>
-							Lorem Ipsum is simply dummy text of the printing and typesetting
-							industry. Lorem Ipsum has been the industry standard dummy text
-							ever since the 1500s, when an unknown printer took a galley of
-							type and scrambled it to make a type specimen book. It has
-							survived not only five centuries, but also the leap into
-							electronic typesetting, remaining essentially unchanged. It was
-							popularised in the 1960s with the release of Letraset sheets
-							containing Lorem Ipsum passages, and more recently with desktop
-							publishing software like Aldus PageMaker including versions of
-							Lorem Ipsum.
+							<AccordionItemBody>
+								<p>
+									Lorem Ipsum is simply dummy text of the printing and
+									typesetting industry. Lorem Ipsum has been the industry
+									standard dummy text ever since the 1500s, when an unknown
+									printer took a galley of type and scrambled it to make a type
+									specimen book. It has survived not only five centuries, but
+									also the leap into electronic typesetting, remaining
+									essentially unchanged. It was popularised in the 1960s with
+									the release of Letraset sheets containing Lorem Ipsum
+									passages, and more recently with desktop publishing software
+									like Aldus PageMaker including versions of Lorem Ipsum.
+								</p>
+							</AccordionItemBody>
 						</AccordionItem>
 						<AccordionItem
 							title="Tab Title 4"
@@ -70,16 +96,20 @@ const Accordion = ({ color, state }: any) => {
 							hasCheckbox={true}
 							icon={<InfoAlt />}
 						>
-							Lorem Ipsum is simply dummy text of the printing and typesetting
-							industry. Lorem Ipsum has been the industry standard dummy text
-							ever since the 1500s, when an unknown printer took a galley of
-							type and scrambled it to make a type specimen book. It has
-							survived not only five centuries, but also the leap into
-							electronic typesetting, remaining essentially unchanged. It was
-							popularised in the 1960s with the release of Letraset sheets
-							containing Lorem Ipsum passages, and more recently with desktop
-							publishing software like Aldus PageMaker including versions of
-							Lorem Ipsum.
+							<AccordionItemBody>
+								<p>
+									Lorem Ipsum is simply dummy text of the printing and
+									typesetting industry. Lorem Ipsum has been the industry
+									standard dummy text ever since the 1500s, when an unknown
+									printer took a galley of type and scrambled it to make a type
+									specimen book. It has survived not only five centuries, but
+									also the leap into electronic typesetting, remaining
+									essentially unchanged. It was popularised in the 1960s with
+									the release of Letraset sheets containing Lorem Ipsum
+									passages, and more recently with desktop publishing software
+									like Aldus PageMaker including versions of Lorem Ipsum.
+								</p>
+							</AccordionItemBody>
 						</AccordionItem>
 					</SuiAccordion>
 				</div>
@@ -96,9 +126,17 @@ Accordion.args = {
 // Set controls for story arguments.
 Accordion.argTypes = {
 	state: {
-		options: ["neutral", "informative", "success", "warning", "critical"],
+		options: ["", "neutral", "informative", "success", "warning", "critical"],
 		control: {
 			type: "select",
+			labels: {
+				"": "None",
+				neutral: "Neutral",
+				informative: "Informative",
+				success: "Success",
+				warning: "Warning",
+				critical: "Critical",
+			},
 		},
 	},
 }
