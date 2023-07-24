@@ -14,11 +14,11 @@
             @include element(item) {
                 @include modifier(expanded) {
                     .sui-#{$block}__header {
-                        background: var(--neutral-grey-light-95-f-8-f-8-f-8, #F8F8F8);
+                        background: $color-extended-neutral-95;
                     }
 
                     .sui-#{$block}__panel {
-                        background: var(--neutral-grey-light-95-f-8-f-8-f-8, #F8F8F8);
+                        background: $color-extended-neutral-95;
                         display: block;
                     }
                 }

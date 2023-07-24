@@ -17,12 +17,13 @@
         @include block($block) {
             @include element(panel) {
                 display: none;
-                padding: 0 32px 32px 32px;
-            }
+                padding: 0 $accordion-spacing-md $accordion-spacing-md $accordion-spacing-md;
 
-            @include modifier(expanded) {
-                display: block;
-                background: yellow;
+                @include modifier(content) {
+                    box-shadow: $accordion-content-shadow;
+                    border-radius: $accordion-border-radius-xs;
+                    overflow: hidden;
+                }
             }
         }
     }

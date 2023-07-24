@@ -20,34 +20,35 @@
                 cursor: pointer;
                 display: flex;
                 justify-content: space-between;
-                padding: 16px 32px;
-            }
-
-            @include element(header-info) {
-                align-items: baseline;
-                display: flex;
-                gap: 8px;
-            }
-
-            @include element(header-actions) {
-                align-items: center;
-                display: inline-flex;
-                align-self: flex-start;
+                padding: $accordion-spacing-xs $accordion-spacing-md;
 
                 svg {
                     color: $color-extended-neutral-60;
                 }
             }
 
+            @include element(header-info) {
+                align-items: baseline;
+                display: flex;
+                gap: $accordion-info-gap;
+            }
+
+            @include element(header-actions) {
+                align-items: center;
+                display: inline-flex;
+                align-self: flex-start;
+            }
+
             @include element(header-title) {
                 h2 {
-                    font: 700 15px/24px $font-family-default;
+                    font-size: $font-size-default;
+                    line-height: $font-height-sm;
+                    font-weight: $accordion-font-weight;
                     margin: 0;
                 }
 
                 p {
                     margin: 0;
-                    font: 400 15px/24px $font-family-default;
                 }
             }
         }

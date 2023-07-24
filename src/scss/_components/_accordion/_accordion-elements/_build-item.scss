@@ -16,10 +16,49 @@
         // Block wrapper.
         @include block($block) {
             @include element(item) {
-                border-top: 1px solid var(--neutral-grey-light-80-e-6-e-6-e-6, #E6E6E6);
+                border-top: $accordion-border-width solid $accordion-border-color;
 
                 &:first-child {
                     border: none;
+                }
+
+                p {
+                    &:first-child {
+                        margin-top: 0;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                @include modifier(body, footer) {
+                    > .sui-box {
+                        border: none;
+                        border-radius: 0;
+                        .sui-box-group {
+                            margin: 0;
+                        }
+                    }
+                }
+
+                @include modifier(body) {
+                    > .sui-box {
+                        .sui-box-group {
+                            padding-top: $accordion-spacing-md;
+                            padding-bottom: $accordion-spacing-md;
+                        }
+                    }
+                }
+
+                @include modifier(footer) {
+                    > .sui-box {
+                        .sui-box-group {
+                            padding-top: $accordion-spacing-sm;
+                            padding-bottom: $accordion-spacing-sm;
+                            border-top: $accordion-border-width solid $accordion-border-color;
+                        }
+                    }
                 }
             }
         }

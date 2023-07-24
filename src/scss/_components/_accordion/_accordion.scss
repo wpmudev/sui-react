@@ -1,5 +1,4 @@
 @use "./_accordion-elements/elements" as sui-accordion--element;
-@use "./_accordion-modifiers/modifiers" as sui-accordion--modifier;
 @use "./_states/states" as sui-accordion--state;
 
 @include sui-accordion--element.build-container(accordion);
