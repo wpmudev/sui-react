@@ -7,7 +7,7 @@ const AccordionItemFooter: React.FC<{
 	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
 }> = ({ children }) => {
 	return (
-		<div className="sui-accordion__footer">
+		<div className="sui-accordion__item--footer">
 			<Box>
 				<BoxGroup isInline={false}>{children}</BoxGroup>
 			</Box>

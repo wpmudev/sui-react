@@ -7,9 +7,9 @@ const AccordionItemBody: React.FC<{
 	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
 }> = ({ children }) => {
 	return (
-		<div className="sui-accordion__body">
+		<div className="sui-accordion__item--body">
 			<Box>
-				<BoxGroup isInline={false}>{children}</BoxGroup>
+				<BoxGroup isInline={false} className="sui-accordion--body">{children}</BoxGroup>
 			</Box>
 		</div>
 	)

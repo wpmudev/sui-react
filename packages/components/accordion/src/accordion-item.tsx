@@ -93,7 +93,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				aria-labelledby={accordionId}
 				className="sui-accordion__panel"
 			>
-				{children}
+				<div className="sui-accordion__panel--content">{children}</div>
 			</div>
 		</div>
 	)
