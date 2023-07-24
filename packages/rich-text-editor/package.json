@@ -1,5 +1,5 @@
 {
-  "name": "@wpmudev/react-tree-view",
+  "name": "@wpmudev/react-rich-text-editor",
   "version": "0.0.0",
   "private": true,
   "description": "WPMU DEV Shared UI React Code Editor Component",
@@ -50,6 +50,7 @@
     "@wpmudev/react-utils": "^1.0.0",
     "react": "^18.2.0",
     "prismjs": "^1.29.0",
-    "react-prism-editor": "^1.1.2"
+    "react-prism-editor": "^1.1.2",
+    "react-rte" : "0.16.5"
   }
 }
