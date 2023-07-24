@@ -9,7 +9,7 @@ import docs from "./IconsPack.mdx"
 import "../dist/css/sui-icons.css"
 import "./styles/icons-pack.scss"
 
-import { capitalizeText } from "@wpmudev/react-utils"
+import { capitalizeText } from "@wpmudev/sui-utils"
 
 export default {
 	title: "SUI/Icons Pack",
