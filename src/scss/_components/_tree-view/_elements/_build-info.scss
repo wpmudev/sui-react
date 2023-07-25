@@ -46,6 +46,28 @@
 		}
 	}
 
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+
+			@include element(info-title) {
+				margin-right: $treeview-spacing-sm;
+				margin-left: 0;
+
+				.sui-#{$block}__info-icon {
+					margin: 0 $treeview-spacing-xs 0 $treeview-spacing-sm;
+				}
+			}
+
+			@include element(info-check) {
+				margin-left: 0;
+				margin-right: $treeview-spacing-sm;
+			}
+		}
+	}
+
 	// DIR: Left to right.
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
