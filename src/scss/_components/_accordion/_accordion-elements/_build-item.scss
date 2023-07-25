@@ -17,9 +17,17 @@
         @include block($block) {
             @include element(item) {
                 border-top: $accordion-border-width solid $accordion-border-color;
+                overflow: hidden;
 
                 &:first-child {
                     border: none;
+                    border-top-left-radius: $accordion-border-radius-xs;
+                    border-top-right-radius: $accordion-border-radius-xs;
+                }
+
+                &:last-child {
+                    border-bottom-right-radius: $accordion-border-radius-xs;
+                    border-bottom-left-radius: $accordion-border-radius-xs;
                 }
 
                 p {

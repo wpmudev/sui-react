@@ -8,3 +8,6 @@
 
 @include sui-accordion--state.edit-expanded(accordion);
 @include sui-accordion--state.edit-states(accordion);
+@include sui-accordion--state.state-hover(accordion);
+@include sui-accordion--state.state-focus(accordion);
+@include sui-accordion--state.state-disabled(accordion);
