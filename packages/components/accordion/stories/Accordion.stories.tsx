@@ -1,5 +1,5 @@
 import React from "react"
-import { Button } from "../../button/src"
+import { Button } from "@wpmudev/sui-button"
 
 import { InfoAlt } from "@wpmudev/sui-icons"
 
