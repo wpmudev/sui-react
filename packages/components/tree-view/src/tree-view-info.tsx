@@ -1,4 +1,5 @@
 import React, { useCallback, useContext } from "react"
+import { useInteraction } from "@wpmudev/sui-hooks"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Checkbox } from "@wpmudev/sui-checkbox"
@@ -25,10 +26,15 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	isGroup = false,
 	onClick = () => {},
 }) => {
+	// Manage interaction methods
+	const [isHovered, isFocused, interactionMethods] = useInteraction({})
+
 	// Generate class names
 	const classNames = generateCN("sui-tree-view__info", {
 		active: isExpanded,
 		disabled: isDisabled,
+		hover: isHovered,
+		focus: isFocused,
 	})
 
 	// Get the tree view context to access configuration
@@ -59,7 +65,13 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	}, [])
 
 	return (
-		<div role="button" className={classNames} onClick={onClick} id={id}>
+		<div
+			role="button"
+			className={classNames}
+			onClick={onClick}
+			id={id}
+			{...(interactionMethods ?? {})}
+		>
 			{isGroup && <TickIcon size="sm" className="sui-tree-view__info-icon" />}
 			{ctx?.allowCheck && (
 				<div className="sui-tree-view__info-check">
