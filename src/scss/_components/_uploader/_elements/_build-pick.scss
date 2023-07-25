@@ -1,0 +1,43 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build file pick element
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-pick($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(pick) {
+                align-items: center;
+                background: var(--neutral-grey-95-f-8-f-8-f-8, #F8F8F8);
+                border: 1px dashed var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
+                border-radius: 4px;
+                cursor: pointer;
+                display: inline-flex;
+                gap: 8px;
+                min-width: 74px;
+                max-width: 100%;
+                padding: 8px 12px;
+
+                span {
+                    color: var(--neutral-grey-60737373, #737373);
+                    font: 500 15px/24px $font-family-default;
+                }
+            }
+
+            @include element(pick-icon) {
+                align-items: center;
+                display: flex;
+                margin-left: 4px;
+            }
+        }
+    }
+}
