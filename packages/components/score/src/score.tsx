@@ -57,4 +57,4 @@ const Score: React.FC<ScoreProps> = ({
 }
 
 // Publish required component.
-export { Score, ScoreProps }
+export { Score }

@@ -16,4 +16,4 @@ const ErrorMessage: React.FC<FormFieldErrorProps> = ({
 	</span>
 )
 
-export { ErrorMessage, FormFieldErrorProps }
+export { ErrorMessage }

@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component
-import { Field } from "../src"
+import { FormField as SUIFormField } from "../src"
 
 // Import documentation main page
 import docs from "./ReactFormField.mdx"
@@ -32,7 +32,7 @@ export const FormField = ({ example, ...args }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={set.box}>
-					<Field {...args}>
+					<SUIFormField {...args}>
 						{"input" === example && (
 							<input
 								id={args.id}
@@ -49,7 +49,7 @@ export const FormField = ({ example, ...args }) => {
 								2
 							</radiogroup>
 						)}
-					</Field>
+					</SUIFormField>
 				</div>
 			</div>
 		</div>

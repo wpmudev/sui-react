@@ -1,6 +1,6 @@
 import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
-import { CodeEditor } from '../../src';
 import dedent from 'dedent';
+import { RichTextEditor } from '../RichTextEditor.stories';
 
 export const sampleCode = dedent`
 import React from 'react';\n
@@ -14,12 +14,7 @@ export default Example;
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>Below is the default form of a code snippet, used for most cases.</p>
 	<Preview wrapper={true}>
-		<CodeEditor language="markup" copy={true}>
-			{`<!-- Code Starts -->
-<div class=”className”>
-	<a href=”#”> Link </a>
-</div>`}
-		</CodeEditor>
+		<RichTextEditor></RichTextEditor>
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>

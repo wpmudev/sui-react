@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from "react"
 
-import { Field } from "@wpmudev/sui-form-field"
+import { FormField } from "@wpmudev/sui-form-field"
 import { Input } from "@wpmudev/sui-input"
 // import { Button } from "@wpmudev/sui-button"
 
@@ -97,12 +97,12 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 		// }
 
 		return (
-			<Field {...fieldAttrs}>
+			<FormField {...fieldAttrs}>
 				<div className="sui-password">
 					<Input {...inputAttrs} />
 					{/*{set.button.html}*/}
 				</div>
-			</Field>
+			</FormField>
 		)
 	},
 )

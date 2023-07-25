@@ -2,10 +2,10 @@ import React from "react"
 import classnames from "classnames"
 
 import { isEmpty } from "@wpmudev/sui-utils"
-import { FormFielLabelProps } from "../form-field.types"
+import { FormFieldLabelProps } from "../form-field.types"
 
 // Build field label element
-const Label: React.FC<FormFielLabelProps> = ({
+const Label: React.FC<FormFieldLabelProps> = ({
 	id,
 	hidden = false,
 	children,

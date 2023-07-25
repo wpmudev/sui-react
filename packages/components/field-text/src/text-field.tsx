@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react"
 
-import { Field } from "@wpmudev/sui-form-field"
+import { FormField } from "@wpmudev/sui-form-field"
 import { Input } from "@wpmudev/sui-input"
 
 import { TextFieldProps } from "./text-field.types"
@@ -29,7 +29,7 @@ const TextField: React.FC<TextFieldProps> = forwardRef<
 		})
 
 		return (
-			<Field
+			<FormField
 				id={id}
 				label={label}
 				helper={helper}
@@ -46,11 +46,11 @@ const TextField: React.FC<TextFieldProps> = forwardRef<
 					isDisabled={isDisabled}
 					{...props}
 				/>
-			</Field>
+			</FormField>
 		)
 	},
 )
 
 TextField.displayName = "TextField"
 
-export { TextField, TextFieldProps }
+export { TextField }

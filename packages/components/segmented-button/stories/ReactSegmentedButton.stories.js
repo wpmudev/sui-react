@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component
-import { SegmentedButton as Button } from "../src"
+import { SegmentedButton as SButton } from "../src"
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 
 // Import documentation main page
@@ -26,7 +26,7 @@ const SegmentedButton = ({ example, children, ...args }) => {
 			<div className="sui-layout__content">
 				<Box>
 					<BoxGroup isInline={false}>
-						<Button {...args}>{children}</Button>
+						<SButton {...args}>{children}</SButton>
 					</BoxGroup>
 				</Box>
 			</div>
