@@ -28,7 +28,13 @@ interface TreeViewItemProps extends TreeViewProps {
 interface TreeViewGroupProps
 	extends Pick<
 		TreeViewItemProps,
-		"isGroup" | "isExpanded" | "id" | "icon" | "isDisabled"
+		| "isGroup"
+		| "isExpanded"
+		| "id"
+		| "icon"
+		| "isDisabled"
+		| "className"
+		| "title"
 	> {
 	children?: React.ReactNode
 }
