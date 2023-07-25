@@ -1,5 +1,13 @@
 @use "../../../_utils/utils" as *;
 
+$colors: (
+	neutral: $color-extended-neutral-60,
+    informative: $color-primary-50,
+	success: $color-extended-success-50,
+    warning: $color-extended-warning-50,
+	critical: $color-extended-error-50,
+);
+
 /// Edit Focus State
 ///
 /// @type modifier
@@ -11,20 +19,12 @@
     // THEME: None.
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
-            @include modifier(neutral) {
-                border-left: solid 4px var(--neutral-grey-dark-60737373, #737373);
-            }
-            @include modifier(informative) {
-                border-left: solid 4px var(--primary-blue-base-50286-ef-1, #286EF1);
-            }
-            @include modifier(success) {
-                border-left: solid 4px var(--status-green-success-base-5018-bb-4-b, #18BB4B);
-            }
-            @include modifier(warning) {
-                border-left: solid 4px var(--status-yellow-warning-base-50-ffcc-20, #FFCC20);
-            }
-            @include modifier(critical) {
-                border-left: solid 4px var(--status-red-error-base-50-f-45-c-59, #F45C59);
+            @each $name, $value in $colors {
+                $modifier-name: #{$name};
+
+                @include modifier($modifier-name) {
+                    border-left: solid $accordion-status-border-width $value;
+                }
             }
         }
     }

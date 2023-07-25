@@ -1,9 +1,6 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-//@use "../_score-utils/variables" as *;
-//@use "../_score-utils/colors" as *;
-//@use "../_score-utils/animation" as *;
 
 /// Build Accordion container
 /// This function creates styles for the element
@@ -18,9 +15,18 @@
     @include sui-class($rtl: false, $theme: null) {
         // Block wrapper.
         @include block($block) {
-            border: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
-            border-radius: 10px;
+            border: $accordion-border-width solid $accordion-border-color;
+            border-radius: $accordion-border-radius-sm;
             overflow: hidden;
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            border-color: $color-extended-neutral-0;
         }
     }
 }

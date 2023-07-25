@@ -1,11 +1,8 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-//@use "../_score-utils/variables" as *;
-//@use "../_score-utils/colors" as *;
-//@use "../_score-utils/animation" as *;
 
-/// Build Accordion item
+/// Build Accordion header
 /// This function creates styles for the element
 /// main wrapper.
 /// @type block
@@ -23,34 +20,52 @@
                 cursor: pointer;
                 display: flex;
                 justify-content: space-between;
-                padding: 16px 32px;
+                padding: $accordion-spacing-xs;
+
+                svg {
+                    color: $color-extended-neutral-60;
+                }
+
+                @include media(min-width, sm) {
+                    padding: $accordion-spacing-xs $accordion-spacing-md;
+                }
             }
 
             @include element(header-info) {
                 align-items: baseline;
                 display: flex;
-                gap: 8px;
+                gap: $accordion-info-gap;
             }
 
             @include element(header-actions) {
                 align-items: center;
                 display: inline-flex;
                 align-self: flex-start;
-
-                svg {
-                    color: $color-extended-neutral-60;
-                }
             }
 
             @include element(header-title) {
                 h2 {
-                    font: 700 15px/24px $font-family-default;
+                    font-size: $font-size-default;
+                    line-height: $font-height-sm;
+                    font-weight: $accordion-font-weight;
                     margin: 0;
                 }
 
                 p {
                     margin: 0;
-                    font: 400 15px/24px $font-family-default;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(header) {
+                svg {
+                    color: $color-extended-neutral-0;
                 }
             }
         }
