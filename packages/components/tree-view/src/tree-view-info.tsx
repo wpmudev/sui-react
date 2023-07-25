@@ -60,7 +60,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 
 	return (
 		<div role="button" className={classNames} onClick={onClick} id={id}>
-			{isGroup && <TickIcon size="xsm" className="sui-tree-view__info-icon" />}
+			{isGroup && <TickIcon size="sm" className="sui-tree-view__info-icon" />}
 			{ctx?.allowCheck && (
 				<div className="sui-tree-view__info-check">
 					{/* Render the Checkbox component for item selection */}
