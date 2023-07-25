@@ -65,7 +65,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				aria-expanded={isExpanded}
 				aria-controls={accordionPanelId}
 				className="sui-accordion__header"
-				onMouseDown={toggle}
+				onClick={toggle}
 			>
 				{/* Content of the accordion item's header */}
 				<div className="sui-accordion__header-info">
