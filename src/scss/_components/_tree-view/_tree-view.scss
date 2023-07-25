@@ -3,7 +3,9 @@
 
 @include sui-tree-view--element.build-tree-view(tree-view);
 @include sui-tree-view--element.build-group(tree-view);
-@include sui-tree-view--element.build-item(tree-view);
 @include sui-tree-view--element.build-info(tree-view);
 
-@include sui-tree-view--state.edit-disabled(tree-view);
+@include sui-tree-view--state.state-disabled(tree-view);
+@include sui-tree-view--state.state-hover(tree-view);
+@include sui-tree-view--state.state-focus(tree-view);
+@include sui-tree-view--state.state-active(tree-view);

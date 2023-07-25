@@ -1,0 +1,66 @@
+{
+    "treeview": {
+        "size": {
+            "md": {
+                "value": "20px",
+                "type": "width"
+            }
+        },
+        "border": {
+            "radius": {
+                "value": "{border.radius.md}",
+                "type": "borderRadius"
+            }
+        },
+        "spacing": {
+            "md": {
+                "value": "{spacing.md}*3",
+                "type": "spacing"
+            },
+            "sm": {
+                "value": "{spacing.md}",
+                "type": "spacing"
+            },
+            "xs": {
+                "value": "{spacing.sm}",
+                "type": "spacing"
+            }
+        },
+        "state": {
+            "disabled": {
+                "color": {
+                    "value": "#aaa",
+                    "type": "color"
+                }
+            },
+            "hover": {
+                "background": {
+                    "value": "#F8F8F8",
+                    "type": "color"
+                }
+            },
+            "active": {
+                "background": {
+                    "value": "#F2F2F2",
+                    "type": "color"
+                }
+            },
+            "focus": {
+                "background": {
+                    "value": "#F8F8F8",
+                    "type": "color"
+                },
+                "shadow": {
+                    "width": {
+                        "value": "2px",
+                        "type": "width"
+                    },
+                    "color": {
+                        "value": "#1A1A1A",
+                        "type": "color"
+                    }
+                }
+            }
+        }
+    }
+}

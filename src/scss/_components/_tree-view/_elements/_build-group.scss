@@ -15,7 +15,7 @@
         // Block wrapper.
         @include block($block) {
             @include element(group) {
-                padding-left: 24px;
+                padding-left: $treeview-spacing-md;
             }
         }
     }
