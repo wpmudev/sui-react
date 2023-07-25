@@ -99,13 +99,14 @@ Select.args = {
 Select.argTypes = {
 	example: {
 		name: "Example",
+		options: ["select", "multi-select", "search", "smart-search"],
 		control: {
 			type: "select",
-			options: {
-				"Example: Select": "select",
-				"Example: Multiselect": "multi-select",
-				"Example: Search": "search",
-				"Example: Smartsearch": "smart-search",
+			labels: {
+				select: "Example: Select",
+				"multi-select": "Example: Multiselect",
+				search: "Example: Search",
+				"smart-search": "Example: Smartsearch",
 			},
 		},
 	},

@@ -3,7 +3,7 @@ import React from "react"
 /**
  * Represents the properties for a field component.
  */
-interface FieldProps {
+interface FormFieldProps {
 	/**
 	 * The unique identifier of the field.
 	 */
@@ -15,11 +15,11 @@ interface FieldProps {
 	/**
 	 * The helper text for the field.
 	 */
-	helper: React.ReactNode
+	helper?: React.ReactNode
 	/**
 	 * The error message or element for the field.
 	 */
-	error: string | React.ReactNode
+	error?: string | React.ReactNode
 	/**
 	 * Optional CSS class name for the field.
 	 */
@@ -27,15 +27,15 @@ interface FieldProps {
 	/**
 	 * Indicates whether the field should be displayed as small or not.
 	 */
-	isSmall: boolean
+	isSmall?: boolean
 	/**
 	 * Indicates whether the field is disabled or not.
 	 */
-	isDisabled: boolean
+	isDisabled?: boolean
 	/**
 	 * Indicates whether the label should be hidden or not.
 	 */
-	isLabelHidden: boolean
+	isLabelHidden?: boolean
 	/**
 	 * The content of the field.
 	 */
@@ -77,7 +77,7 @@ interface FormFieldHelperProps {
 /**
  * Represents the properties for an error message component.
  */
-interface FormFielLabelProps {
+interface FormFieldLabelProps {
 	/**
 	 * The unique identifier of the error message.
 	 */
@@ -93,8 +93,8 @@ interface FormFielLabelProps {
 }
 
 export {
-	FieldProps,
+	FormFieldProps,
 	FormFieldErrorProps,
 	FormFieldHelperProps,
-	FormFielLabelProps,
+	FormFieldLabelProps,
 }

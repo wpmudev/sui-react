@@ -1,25 +1,40 @@
-import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
-import { CodeEditor } from '../../src';
-import dedent from 'dedent';
-
-export const sampleCode = dedent`
-import React from 'react';\n
-import { CodeSnippet } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <CodeSnippet type="markup" copy={false}>{Sample code}</CodeSnippet>;
-}\n
-export default Example;
-`;
+import { Section, Preview, Snippet } from '@wpmudev/storybook';
+import { TreeView } from '../TreeView.stories';
+import { TreeViewGroup, TreeViewItem } from '../../src';
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>Below is the default form of a code snippet, used for most cases.</p>
+	<p>Below is the default form of a tree view, used for most cases.</p>
 	<Preview wrapper={true}>
-		<CodeEditor language="markup" copy={true}>
-			{`<!-- Code Starts -->
-<div class=”className”>
-	<a href=”#”> Link </a>
-</div>`}
-		</CodeEditor>
+		<TreeView>
+			<TreeViewGroup id="group-1" title="Tree Group">
+				<TreeViewGroup id="group-2" title="Tree Group" isDisabled={true}>
+					<TreeViewItem id="item-1">Tree Item</TreeViewItem>
+					<TreeViewItem id="item-2">Tree Item</TreeViewItem>
+					<TreeViewItem id="item-3">Tree Item</TreeViewItem>
+					<TreeViewGroup id="group-4" title="Tree Group">
+						<TreeViewItem id="item-4">Tree Item</TreeViewItem>
+						<TreeViewItem id="item-5">Tree Item</TreeViewItem>
+						<TreeViewItem id="item-6">Tree Item</TreeViewItem>
+					</TreeViewGroup>
+				</TreeViewGroup>
+				<TreeViewItem id="item-7">Tree Item</TreeViewItem>
+				<TreeViewItem id="item-8">Tree Item</TreeViewItem>
+				<TreeViewItem id="item-9">Tree Item</TreeViewItem>
+				<TreeViewGroup id="group-5" title="Tree Group">
+					<TreeViewItem id="item-10">Tree Item</TreeViewItem>
+					<TreeViewItem id="item-11">Tree Item</TreeViewItem>
+					<TreeViewItem id="item-12">Tree Item</TreeViewItem>
+				</TreeViewGroup>
+				<TreeViewGroup id="group-6" title="Tree Group">
+					<TreeViewItem id="item-13">Tree Item</TreeViewItem>
+					<TreeViewItem id="item-14">Tree Item</TreeViewItem>
+					<TreeViewItem id="item-15">Tree Item</TreeViewItem>
+				</TreeViewGroup>
+				<TreeViewItem id="item-16" isDisabled={true}>
+					Tree Item
+				</TreeViewItem>
+				<TreeViewItem id="item-17">Tree Item</TreeViewItem>
+			</TreeViewGroup>
+		</TreeView>
 	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
 </Section>

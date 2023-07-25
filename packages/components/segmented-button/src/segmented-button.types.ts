@@ -1,4 +1,5 @@
 import { ToggleButtonProps } from "@wpmudev/sui-button"
+import React from "react"
 
 /**
  * This interface defines the props for the SegmentedButton component.

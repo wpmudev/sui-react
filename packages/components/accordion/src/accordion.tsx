@@ -22,4 +22,4 @@ const Accordion: React.FC<AccordionProps> = ({
 }
 
 // Export the Accordion component along with the AccordionProps type
-export { Accordion, AccordionProps }
+export { Accordion }

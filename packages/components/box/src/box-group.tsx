@@ -32,4 +32,4 @@ const BoxGroup: React.FC<BoxGroupProps> = ({ isInline = true, children }) => {
 }
 
 // Publish component(s)
-export { BoxGroup, BoxGroupProps }
+export { BoxGroup }

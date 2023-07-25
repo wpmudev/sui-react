@@ -6,10 +6,10 @@ import { Label } from "./elements/label"
 import { Helper } from "./elements/helper"
 import { ErrorMessage } from "./elements/error-message"
 
-import { FieldProps } from "./form-field.types"
+import { FormFieldProps } from "./form-field.types"
 
 // Build form field component
-const Field: React.FC<FieldProps> = ({
+const FormField: React.FC<FormFieldProps> = ({
 	id,
 	label,
 	helper,
@@ -44,7 +44,7 @@ const Field: React.FC<FieldProps> = ({
 	return (
 		<div className={classNames} {...props}>
 			{!isEmpty(label ?? "") && (
-				<Label id={id} hidden={isLabelHidden}>
+				<Label id={id} hidden={isLabelHidden ?? false}>
 					{label}
 				</Label>
 			)}
@@ -63,4 +63,4 @@ const Field: React.FC<FieldProps> = ({
 	)
 }
 
-export { Field }
+export { FormField }

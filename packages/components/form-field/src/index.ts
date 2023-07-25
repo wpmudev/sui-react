@@ -1,8 +1,8 @@
-export { Field } from "./form-field"
+export { FormField } from "./form-field"
 // types
 export type {
-	FieldProps,
+	FormFieldProps,
 	FormFieldHelperProps,
 	FormFieldErrorProps,
-	FormFielLabelProps,
+	FormFieldLabelProps,
 } from "./form-field.types"

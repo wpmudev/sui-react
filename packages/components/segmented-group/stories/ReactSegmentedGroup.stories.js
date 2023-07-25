@@ -2,7 +2,7 @@ import React from "react"
 
 // Import required component
 import { SegmentedGroup as Group } from "../src"
-import { Button } from "@wpmudev/sui-segmented-button"
+import { Button } from "@wpmudev/sui-button"
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 
 // Import documentation main page
