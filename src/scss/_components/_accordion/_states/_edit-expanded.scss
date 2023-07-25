@@ -14,8 +14,12 @@
         @include block($block) {
             @include element(item) {
                 @include modifier(expanded) {
+                    .sui-#{$block}__header {
+                        background: $color-extended-neutral-95;
+                    }
 
                     .sui-#{$block}__panel {
+                        background: $color-extended-neutral-95;
                         display: block;
                     }
                 }
@@ -24,17 +28,17 @@
     }
 
     // DIR: Left to right.
-    // THEME: Light.
-    @include sui-class($rtl: false, $theme: light) {
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
         @include block($block) {
             @include element(item) {
                 @include modifier(expanded) {
                     .sui-#{$block}__header {
-                        background: $color-extended-neutral-95;
+                        background: transparent;
                     }
 
                     .sui-#{$block}__panel {
-                        background: $color-extended-neutral-95;
+                        background: transparent;
                     }
                 }
             }

@@ -17,7 +17,11 @@
         @include block($block) {
             @include element(panel) {
                 display: none;
-                padding: 0 $accordion-spacing-md $accordion-spacing-md $accordion-spacing-md;
+                padding: 0 $accordion-spacing-xs $accordion-spacing-xs $accordion-spacing-xs;
+
+                @include media(min-width, sm) {
+                    padding: 0 $accordion-spacing-md $accordion-spacing-md $accordion-spacing-md;
+                }
 
                 @include modifier(content) {
                     box-shadow: $accordion-content-shadow;
