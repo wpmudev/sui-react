@@ -1,4 +1,5 @@
 import React, { useCallback, useId, useState } from "react"
+import { useInteraction } from "@wpmudev/sui-hooks"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
@@ -29,6 +30,9 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const accordionId = `sui-accordion-${uniqueId}`
 	const accordionPanelId = `sui-accordion-panel-${uniqueId}`
 
+	// Manage interaction methods
+	const [isHovered, isFocused, interactionMethods] = useInteraction({})
+
 	// When checkbox clicked
 	const onCheckClick = useCallback(
 		(e) => {
@@ -55,8 +59,11 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 		<div
 			className={generateCN("sui-accordion__item", {
 				expanded: isExpanded,
+				hover: isHovered,
+				focus: isFocused,
 				disabled: isDisabled,
 			})}
+			{...(interactionMethods ?? {})}
 		>
 			<div
 				tabIndex={-1}
@@ -65,14 +72,16 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				aria-expanded={isExpanded}
 				aria-controls={accordionPanelId}
 				className="sui-accordion__header"
-				onMouseDown={toggle}
+				onClick={toggle}
 			>
 				{/* Content of the accordion item's header */}
 				<div className="sui-accordion__header-info">
 					{(!!hasCheckbox || !!icon) && (
 						<div className="sui-accordion__header-actions">
 							{/* Checkbox component to display if the accordion item has a checkbox */}
-							{hasCheckbox && <Checkbox onClick={onCheckClick} />}
+							{hasCheckbox && (
+								<Checkbox onClick={onCheckClick} isDisabled={isDisabled} />
+							)}
 							{!!icon && icon}
 						</div>
 					)}
@@ -93,7 +102,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				aria-labelledby={accordionId}
 				className="sui-accordion__panel"
 			>
-				{children}
+				<div className="sui-accordion__panel--content">{children}</div>
 			</div>
 		</div>
 	)
