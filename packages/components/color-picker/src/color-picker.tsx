@@ -43,34 +43,39 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	}, [onChange, tempColor])
 
 	// Handle color picker close
-	const closeColorPicker = useCallback(() => {
-		// Close picker
-		setShowPicker(false)
-		// Reset color to prop value
-		setTempColor(color)
-	}, [color])
+	const closeColorPicker = useCallback(
+		(e) => {
+			e.stopPropagation()
+			// Reset color to prop value
+			setTempColor("")
+		},
+		[color],
+	)
 
 	return (
 		<div className="sui-color-picker">
 			{/* Color display box */}
-			<div className="sui-color-picker__input">
-				<div
-					role="button"
-					className="sui-color-picker__input-preview"
-					onMouseDown={() => setShowPicker(true)}
-				>
+			<div
+				role="button"
+				tabIndex={0}
+				className="sui-color-picker__input"
+				onMouseDown={() => setShowPicker(!showPicker)}
+			>
+				<div className="sui-color-picker__input-preview">
 					<span
 						className="sui-color-picker__input-preview-icon"
 						aria-hidden={true}
-						style={{ backgroundColor: tempColor }}
+						style={{
+							backgroundColor: tempColor ? tempColor : "rgba(0,0,0,0.5)",
+						}}
 					/>
 					<span className="sui-color-picker__input-preview-code">
 						{tempColor}
 					</span>
 				</div>
-				{showPicker && (
+				{tempColor && (
 					<CloseAlt
-						size="sm"
+						size="md"
 						className="sui-color-picker__input-close"
 						onClick={closeColorPicker}
 					/>
@@ -84,19 +89,22 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 				>
 					{/* The ChromePicker component from react-color */}
 					<ChromePicker
+						className="sui-color-picker__palette"
 						color={tempColor}
 						onChange={handleColorChange}
 						styles={{ default: { body: { padding: "12px 0" } } }}
 					/>
-					<Button
-						appearance="secondary"
-						color="black"
-						isSmall={true}
-						isFullWidth={true}
-						onClick={handleColorApply}
-					>
-						Apply
-					</Button>
+					<div>
+						<Button
+							appearance="secondary"
+							color="black"
+							isSmall={true}
+							isFullWidth={true}
+							onClick={handleColorApply}
+						>
+							Apply
+						</Button>
+					</div>
 				</div>
 			)}
 		</div>

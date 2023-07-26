@@ -37,9 +37,9 @@ const ColorPicker = ({ color, ...props }) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<SuiColorPicker
-						{...props}
 						color={currentColor}
 						onChange={setCurrentColor}
+						{...props}
 					/>
 				</div>
 			</div>
