@@ -7,5 +7,7 @@
 @include sui-tab--element.build-nav(tab);
 @include sui-tab--element.build-panel-item(tab);
 
+@include sui-tab--state.state-disabled(tab);
+@include sui-tab--state.state-hover(tab);
+@include sui-tab--state.state-focus(tab);
 @include sui-tab--state.edit-active(tab);
-//@include sui-tab--state.(tab);

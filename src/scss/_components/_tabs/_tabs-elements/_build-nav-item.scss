@@ -30,17 +30,6 @@
                 gap: 4px;
                 padding: 28px 16px;
                 max-height: 80px;
-
-                &:hover {
-                    background: var(--primary-blue-light-90-eaf-1-fe, #EAF1FE);
-                    border-bottom: 4px solid var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
-                }
-
-                &:focus {
-                    background: var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
-                    border-bottom: 4px solid var(--primary-blue-base-50286-ef-1, #286EF1);
-                }
-
             }
 
             @include element(nav-icon) {
