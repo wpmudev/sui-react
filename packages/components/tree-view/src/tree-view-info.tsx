@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from "react"
 import { useInteraction } from "@wpmudev/sui-hooks"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import * as Icons from "@wpmudev/sui-icons"
 
@@ -65,10 +65,13 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	}, [])
 
 	return (
+		// eslint-disable-next-line jsx-a11y/click-events-have-key-events
 		<div
+			tabIndex={isDisabled ? -1 : 0}
 			role="button"
 			className={classNames}
 			onClick={onClick}
+			onKeyDown={(e) => handleOnKeyDown(e, onClick)}
 			id={id}
 			{...(interactionMethods ?? {})}
 		>
