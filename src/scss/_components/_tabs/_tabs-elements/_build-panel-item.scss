@@ -20,7 +20,7 @@
         @include block($block) {
             @include element(panel-item) {
                 display: none;
-                padding: 24px 16px;
+                padding: 32px;
             }
 
             @include modifier(expanded) {

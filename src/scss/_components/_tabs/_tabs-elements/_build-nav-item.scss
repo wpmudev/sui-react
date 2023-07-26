@@ -30,10 +30,22 @@
                 gap: 4px;
                 padding: 28px 16px;
                 max-height: 80px;
+                white-space: nowrap;
             }
+        }
+    }
 
-            @include element(nav-icon) {
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(nav-item) {
+                color: $color-extended-neutral-0;
 
+                svg {
+                    color: $color-extended-neutral-0;
+                }
             }
         }
     }
