@@ -1,10 +1,10 @@
 import React from "react"
 
 // Import required component(s)
-import { Pagination as SuiPagination } from "../lib/pagination"
+import { Pagination as SuiPagination } from "../src/pagination"
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 
-import { PaginationProps } from "../lib/pagination.types"
+import { PaginationProps } from "../src/pagination.types"
 
 // Import documentation main page
 import docs from "./ReactPagination.mdx"

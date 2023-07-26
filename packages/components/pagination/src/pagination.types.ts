@@ -48,4 +48,4 @@ interface PaginationProps {
 	paginationContent?: (obj: UnknownObject) => React.ReactElement
 }
 
-export { PaginationProps }
+export type { PaginationProps }
