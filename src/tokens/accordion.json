@@ -9,11 +9,11 @@
         "header": {
             "spacing": {
                 "vertical": {
-                    "value": "16px",
+                    "value": "{spacing.lg}",
                     "type": "spacing"
                 },
                 "horizontal": {
-                    "value": "32px",
+                    "value": "{spacing.lg}*2",
                     "type": "spacing"
                 }
             }
@@ -26,7 +26,7 @@
         },
         "spacing": {
             "md": {
-                "value": "32px",
+                "value": "{spacing.lg}*2",
                 "type": "spacing"
             },
             "sm": {
@@ -34,7 +34,7 @@
                 "type": "spacing"
             },
             "xs": {
-                "value": "16px",
+                "value": "{spacing.lg}",
                 "type": "spacing"
             }
         },
@@ -44,7 +44,7 @@
                 "type": "borderColor"
             },
             "width": {
-                "value": "1px",
+                "value": "{border.width.sm}",
                 "type": "borderWidth"
             },
             "radius": {
@@ -53,7 +53,7 @@
                     "type": "borderRadius"
                 },
                 "xs": {
-                    "value": "8px",
+                    "value": "{border.radius.md}",
                     "type": "borderRadius"
                 }
             }
@@ -68,7 +68,7 @@
         },
         "content": {
             "shadow": {
-                "value": "0px 2px 1px 0px rgba(115, 115, 115, 0.05), 0px 1px 2px 0px rgba(115, 115, 115, 0.05)",
+                "value": "0px 2px 1px 0px {color.shadow.light}, 0px 1px 2px 0px {color.shadow.light}",
                 "type": "boxShadow"
             }
         },
