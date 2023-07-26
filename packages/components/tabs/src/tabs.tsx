@@ -3,7 +3,7 @@ import React from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 
-import { TabProvider } from "./tab-context"
+import { TabProvider } from "./elements/tab-context"
 import { TabsProps } from "./tabs.types"
 
 // Define the Accordion component as a functional component (React.FC)

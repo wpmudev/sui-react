@@ -4,7 +4,7 @@ import React, { useContext } from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { TabContext } from "./tab-context"
-import { TabContextProps, TabPanelItemProps } from "./tabs.types"
+import { TabContextProps, TabPanelItemProps } from "../tabs.types"
 
 // Define the TabPanelItem component as a functional component
 const TabPanelItem: React.FC<TabPanelItemProps> = ({ children, id }) => {

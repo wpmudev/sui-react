@@ -6,7 +6,7 @@ import React, {
 	ReactNode,
 } from "react"
 
-import { TabNavProps } from "./tabs.types"
+import { TabNavProps } from "../tabs.types"
 
 /**
  * TabNav

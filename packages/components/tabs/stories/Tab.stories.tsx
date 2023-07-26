@@ -41,10 +41,13 @@ const Tabs = ({ color, state }: any) => {
 							>
 								Smush Pro
 							</TabNavItem>
-							<TabNavItem>
-								CDN <Tag isSmall={true}>Pro</Tag>
+							<TabNavItem isDisabled={true}>
+								CDN{" "}
+								<Tag design="outlined" color="black" isSmall={true}>
+									Pro
+								</Tag>
 							</TabNavItem>
-							<TabNavItem>Local Webp</TabNavItem>
+							<TabNavItem isDisabled={true}>Local Webp</TabNavItem>
 						</TabNav>
 						<TabPanel>
 							<TabPanelItem>
