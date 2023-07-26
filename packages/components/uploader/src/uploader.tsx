@@ -4,8 +4,8 @@ import { FormField } from "@wpmudev/sui-form-field"
 
 // import type
 import { UploaderProps } from "./uploader.types"
-import { UploaderFile } from "./uploader.file"
-import { UploaderButton } from "./uploader.button"
+import { UploaderFile } from "./uploader-file"
+import { UploaderButton } from "./uploader-button"
 
 // The Uploader component displays a file uploader with drag-and-drop support and file previews.
 const Uploader: React.FC<UploaderProps> = ({
