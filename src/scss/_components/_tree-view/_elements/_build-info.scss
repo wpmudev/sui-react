@@ -31,9 +31,14 @@
 			@include element(info-title) {
 				align-items: center;
 				display: flex;
-				margin-left: $treeview-spacing-sm;
-				.sui-tree-view__info-icon {
-					margin: 0 $treeview-spacing-sm 0 $treeview-spacing-xs;
+				margin-left: $treeview-spacing-xs;
+
+				span {
+					margin-left: $treeview-spacing-xs;
+				}
+
+				.sui-#{$block}__info-icon {
+					margin: 0 $treeview-spacing-xs;
 				}
 			}
 
@@ -53,11 +58,12 @@
 		@include block($block) {
 
 			@include element(info-title) {
-				margin-right: $treeview-spacing-sm;
+				margin-right: $treeview-spacing-xs;
 				margin-left: 0;
 
-				.sui-#{$block}__info-icon {
-					margin: 0 $treeview-spacing-xs 0 $treeview-spacing-sm;
+				span {
+					margin-left: 0;
+					margin-right: $treeview-spacing-xs;
 				}
 			}
 

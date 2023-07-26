@@ -29,25 +29,25 @@
         "state": {
             "disabled": {
                 "color": {
-                    "value": "#aaa",
+                    "value": "{color.extended.neutral.70}",
                     "type": "color"
                 }
             },
             "hover": {
                 "background": {
-                    "value": "#F8F8F8",
+                    "value": "{color.extended.neutral.95}",
                     "type": "color"
                 }
             },
             "active": {
                 "background": {
-                    "value": "#F2F2F2",
+                    "value": "{color.extended.neutral.90}",
                     "type": "color"
                 }
             },
             "focus": {
                 "background": {
-                    "value": "#F8F8F8",
+                    "value": "{color.extended.neutral.95}",
                     "type": "color"
                 },
                 "shadow": {
@@ -56,7 +56,7 @@
                         "type": "width"
                     },
                     "color": {
-                        "value": "#1A1A1A",
+                        "value": "{color.extended.neutral.10}",
                         "type": "color"
                     }
                 }

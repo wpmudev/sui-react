@@ -1,18 +1,18 @@
 
 // Do not edit directly
-// Generated on Tue, 25 Jul 2023 11:27:39 GMT
+// Generated on Wed, 26 Jul 2023 04:06:17 GMT
 
 $accordion-font-weight: 500;
 $accordion-header-spacing-vertical: 16px;
-$accordion-header-spacing-horizontal: 32px;
+$accordion-header-spacing-horizontal: 16px*2;
 $accordion-info-gap: 4px;
-$accordion-spacing-md: 32px;
+$accordion-spacing-md: 16px*2;
 $accordion-spacing-sm: 24px;
 $accordion-spacing-xs: 16px;
 $accordion-border-color: #e6e6e6;
 $accordion-border-width: 1px;
 $accordion-border-radius-sm: 10px;
-$accordion-border-radius-xs: 8px;
+$accordion-border-radius-xs: 4px*2;
 $accordion-status-border-width: 4px;
 $accordion-content-shadow: 0px 2px 1px 0px rgba(115, 115, 115, 0.05), 0px 1px 2px 0px rgba(115, 115, 115, 0.05);
 $accordion-state-hover-background: #f8f8f8;
@@ -548,12 +548,12 @@ $treeview-border-radius: 4px*2;
 $treeview-spacing-md: 8px*3;
 $treeview-spacing-sm: 8px;
 $treeview-spacing-xs: 4px;
-$treeview-state-disabled-color: #aaa;
-$treeview-state-hover-background: #F8F8F8;
-$treeview-state-active-background: #F2F2F2;
-$treeview-state-focus-background: #F8F8F8;
+$treeview-state-disabled-color: #aaaaaa;
+$treeview-state-hover-background: #f8f8f8;
+$treeview-state-active-background: #f2f2f2;
+$treeview-state-focus-background: #f8f8f8;
 $treeview-state-focus-shadow-width: 2px;
-$treeview-state-focus-shadow-color: #1A1A1A;
+$treeview-state-focus-shadow-color: #1a1a1a;
 $heading-one-font-size: 40px;
 $heading-one-font-height: 48px;
 $heading-one-font-spacing: 0px;
