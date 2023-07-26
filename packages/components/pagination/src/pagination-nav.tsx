@@ -1,5 +1,6 @@
 import React from "react"
 
+// build navigation markup
 export const PaginationNav = ({ ...properties }) => {
 	return (
 		properties.pagesArray.length > 1 && (

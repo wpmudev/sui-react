@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react"
 
+// import required module(s)
 import { PaginationProps } from "./pagination.types"
 import { PaginationNav } from "./pagination-nav"
 import { PaginationResults } from "./pagination-results"
@@ -16,9 +17,9 @@ export const Pagination: React.FC<PaginationProps> = ({
 	children,
 	paginationContent,
 }) => {
+	// build pagination elements (pages)
 	const componentWrapper = children
 	let componentChildren: React.ReactElement[] = []
-
 	if (componentWrapper?.props?.children) {
 		const { children: wrapperChildren } = componentWrapper.props
 		if (Array.isArray(wrapperChildren)) {
@@ -27,14 +28,15 @@ export const Pagination: React.FC<PaginationProps> = ({
 			componentChildren = [wrapperChildren]
 		}
 	}
-
 	const childElements = [...componentChildren],
 		elements = childElements.length,
 		pages =
 			elements / limit > Math.floor(elements / limit)
 				? Math.floor(elements / limit) + 1
-				: elements / limit,
-		[pagesArray, setPagesArray] = useState<(number | void)[]>([]),
+				: elements / limit
+
+	// pagination state variables
+	const [pagesArray, setPagesArray] = useState<(number | void)[]>([]),
 		[selectedPage, setSelectedPage] = useState(1),
 		[startIndex, setStartIndex] = useState(0),
 		[endIndex, setEndIndex] = useState(pages >= 5 ? 5 : pages),
@@ -42,6 +44,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 		[elementsStartIndex, setElementsStartIndex] = useState(0),
 		[elementsEndIndex, setElementsEndIndex] = useState(limit)
 
+	// decrements startIndex and endIndex upon page change
 	const decrementIndexes = useCallback(() => {
 		if (selectedPage - 1 <= startIndex + 1 && startIndex !== 0) {
 			setStartIndex(startIndex - 1)
@@ -49,6 +52,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 		}
 	}, [selectedPage, startIndex, endIndex])
 
+	// increments startIndex and endIndex upon page change
 	const incrementIndexes = useCallback(() => {
 		if (selectedPage + 1 >= endIndex && endIndex !== pages) {
 			setStartIndex(startIndex + 1)
@@ -56,12 +60,14 @@ export const Pagination: React.FC<PaginationProps> = ({
 		}
 	}, [selectedPage, startIndex, endIndex, pages])
 
+	// updates the list of page numbers based on available pages.
 	useEffect(() => {
 		const pageNumbers: number[] = []
 		for (let i = 1; i <= pages; ++i) pageNumbers.push(i)
 		setPagesArray(pageNumbers)
 	}, [pages])
 
+	// changes indexes when page changes
 	useEffect(() => {
 		if (selectedPage >= endIndex) incrementIndexes()
 
@@ -75,6 +81,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 		selectedPage,
 	])
 
+	// changes elements start and end index upon page or limit change
 	useEffect(() => {
 		if (selectedPage !== 1) {
 			setElementsStartIndex(selectedPage * limit - limit)
@@ -88,6 +95,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 		setEndIndex(pages >= 5 ? 5 : pages)
 	}
 
+	// functions to handle navigation
 	const handleSkipToLastPage = () => {
 		setSelectedPage(pages)
 		setStartIndex(pages >= 5 ? pages - 5 : 0)
@@ -127,10 +135,11 @@ export const Pagination: React.FC<PaginationProps> = ({
 		setEndIndex(pages - endIndex >= 5 ? endIndex + 5 : pages)
 	}
 
-	const handlePageClick = async (page: number) => {
+	const handlePageClick = (page: number) => {
 		setSelectedPage(page)
 		setPageClickCounter(pageClickCounter + 1)
 	}
+
 	const properties = {
 		componentWrapper,
 		childElements,
@@ -157,6 +166,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 		elements,
 	}
 
+	// use paginationContent prop if provided
 	if (paginationContent) return <>{paginationContent({ ...properties })}</>
 
 	return (
