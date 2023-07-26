@@ -21,19 +21,18 @@
                 box-shadow: 0 0 0 2px #286EF1;
                 display: flex;
                 justify-content: space-between;
-                max-width: 220px;
-                padding: 8px 12px;
+                max-width: 240px;
+                padding: 8px 12px 8px 8px;
+                cursor: pointer;
             }
 
             @include element(input-preview) {
                 align-items: center;
-                cursor: pointer;
                 display: inline-flex;
                 gap: 8px;
             }
 
             @include element(input-preview-icon) {
-                background: red;
                 border-radius: 50px;
                 height: 24px;
                 width: 24px;
@@ -45,6 +44,27 @@
 
             @include element(input-close) {
                 cursor: pointer;
+                color: #aaa;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            color: $color-extended-neutral-0;
+            @include element(input) {
+                box-shadow: 0 0 0 1px $color-extended-neutral-0;
+            }
+
+            @include element(input-preview-icon) {
+                border: 1px solid $color-extended-neutral-0;
+            }
+
+            @include element(input-close) {
+                color: $color-extended-neutral-0;
             }
         }
     }
