@@ -11,6 +11,7 @@ import { TableToolbar } from "./table-toolbar"
  *
  * @param {TableProps} props             - The properties for the Table component.
  * @param {ReactNode}  props.children    - The children nodes of the table.
+ * @param {boolean}    props.hasToolbar  - Display Toolbar when true.
  * @param {string}     props.ariaLabel   - ARIA label for the table (default: empty string).
  * @param {boolean}    props.allowCheck  - Determines if the table allows checkable rows with checkboxes.
  * @param {boolean}    props.isDraggable - Determines if the table supports drag-and-drop reordering of rows.
