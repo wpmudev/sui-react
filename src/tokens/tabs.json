@@ -103,6 +103,44 @@
                 "value": "{color.extended.neutral.70}",
                 "type": "color"
             }
+        },
+        "arrow": {
+            "size": {
+                "width": {
+                    "value": "48px",
+                    "type": "sizing"
+                },
+                "height": {
+                    "value": "100%",
+                    "type": "sizing"
+                }
+            },
+            "color": {
+                "value": "{color.extended.neutral.70}",
+                "type": "color"
+            },
+            "hover": {
+                "color": {
+                    "value": "{color.extended.neutral.10}",
+                    "type": "color"
+                },
+                "background": {
+                    "value": "{color.extended.neutral.100}",
+                    "type": "color"
+                }
+            },
+            "left": {
+                "background": {
+                    "value": "linear-gradient(90deg, #FFF 0%, #FFF 71.63%, rgba(248, 248, 248, 0.00) 100%)",
+                    "type": "color"
+                }
+            },
+            "right": {
+                "background": {
+                    "value": "linear-gradient(270deg, #FFF 0%, #FFF 71.63%, rgba(248, 248, 248, 0.00) 100%)",
+                    "type": "color"
+                }
+            }
         }
     }
 }

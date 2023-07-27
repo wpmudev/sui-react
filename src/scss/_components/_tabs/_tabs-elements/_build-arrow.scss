@@ -17,26 +17,26 @@
         @include block($block) {
             @include element(arrow) {
                 position: absolute;
-                height: 100%;
+                height: $tabs-arrow-size-height;
                 top: 0;
                 cursor: pointer;
-                width: 48px;
+                width: $tabs-arrow-size-width;
                 border: none;
-                color: #aaa;
+                color: $tabs-arrow-color;
 
                 &:hover {
-                    background: var(--neutral-grey-light-100-ffffff, #FFF);
-                    color: #1a1a1a;
+                    background: $tabs-arrow-hover-background;
+                    color: $tabs-arrow-hover-color;
                 }
 
                 @include modifier(left) {
                     left: 0;
-                    background: linear-gradient(90deg, #FFF 0%, #FFF 71.63%, rgba(248, 248, 248, 0.00) 100%);
+                    background: $tabs-arrow-left-background;
                 }
 
                 @include modifier(right) {
                     right: 0;
-                    background: linear-gradient(270deg, #FFF 0%, #FFF 71.63%, rgba(248, 248, 248, 0.00) 100%);
+                    background: $tabs-arrow-right-background;
                 }
             }
         }
