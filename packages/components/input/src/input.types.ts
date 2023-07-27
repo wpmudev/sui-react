@@ -13,47 +13,47 @@ interface InputProps extends HTMLProps<HTMLInputElement>, InteractionTypes {
 	/**
 	 * The type of the input element.
 	 */
-	type: string
+	type?: string
 	/**
 	 * The placeholder text for the input element.
 	 */
-	placeholder: string
+	placeholder?: string
 	/**
 	 * The unique identifier for the input element.
 	 */
-	id: string
+	id?: string
 	/**
 	 * The CSS class name for the input element.
 	 */
-	className: string
+	className?: string
 	/**
 	 * The CSS class name for the input element's input field.
 	 */
-	inputClass: string
+	inputClass?: string
 	/**
 	 * Specifies whether the input element is a multiline input.
 	 */
-	isMultiLine: boolean
+	isMultiLine?: boolean
 	/**
 	 * Specifies whether the input element is small in size.
 	 */
-	isSmall: boolean
+	isSmall?: boolean
 	/**
 	 * Specifies whether the input element is read-only.
 	 */
-	isReadOnly: boolean
+	isReadOnly?: boolean
 	/**
 	 * Specifies whether the input element has an error.
 	 */
-	isError: boolean
+	isError?: boolean
 	/**
 	 * Specifies whether the input element is disabled.
 	 */
-	isDisabled: boolean
+	isDisabled?: boolean
 	/**
 	 * The callback function for handling input changes.
 	 */
-	onChange: (
+	onChange?: (
 		event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => void
 	/**
@@ -63,7 +63,7 @@ interface InputProps extends HTMLProps<HTMLInputElement>, InteractionTypes {
 	/**
 	 * Optional icon position to be displayed before or after text.
 	 */
-	iconPosition: "start" | "end"
+	iconPosition?: "start" | "end"
 }
 
 export { InputProps }

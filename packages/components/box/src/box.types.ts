@@ -7,19 +7,19 @@ interface BoxProps {
 	/**
 	 * The title of the box.
 	 */
-	title: string
+	title?: string
 	/**
 	 * The icon for the box.
 	 */
-	icon: string
+	icon?: string
 	/**
 	 * The content for the left header section of the box.
 	 */
-	headerLeft: string
+	headerLeft?: string
 	/**
 	 * The content for the right header section of the box.
 	 */
-	headerRight: string
+	headerRight?: string
 	/**
 	 * The content of the box.
 	 */

@@ -1,6 +1,6 @@
 import React, { useCallback } from "react"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { DropdownOptionProps } from "./dropdown-option.types"
+import { DropdownOptionProps } from "./dropdown.types"
 
 /**
  * Represents a dropdown option item.

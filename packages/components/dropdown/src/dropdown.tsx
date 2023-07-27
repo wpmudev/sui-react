@@ -1,17 +1,11 @@
-import React, {
-	Children,
-	useRef,
-	useState,
-	useCallback,
-	useId,
-	useEffect,
-} from "react"
-import { generateCN } from "@wpmudev/sui-utils"
+import React, { Children, useRef, useState, useCallback, useId } from "react"
 
+import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
+import { useOuterClick } from "@wpmudev/sui-hooks"
 
-import { DropdownOption, DropdownOptionProps } from "./dropdown-option"
-import { DropdownProps } from "./dropdown.types"
+import { DropdownOption } from "./dropdown-option"
+import { DropdownProps, DropdownOptionProps } from "./dropdown.types"
 
 const Dropdown: React.FC<DropdownProps> = ({
 	id,
@@ -22,7 +16,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 	current,
 	children,
 }) => {
-	const ref = useRef<HTMLDivElement>(null)
+	const ref = useRef<HTMLDivElement | null>(null)
 	let uuid = `sui-dropdown-${useId()}`
 
 	// use id from prop list if exists
@@ -33,21 +27,9 @@ const Dropdown: React.FC<DropdownProps> = ({
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const [active, setActive] = useState<number>(current ?? 0)
 
-	// Close dropdown when click outside of it
-	const handleOutsideClick = useCallback((e) => {
-		if (ref && !ref?.current?.contains(e.target)) {
-			setIsOpen(false)
-		}
-	}, [])
-
-	// Toggle dropdown based on the clicks
-	useEffect(() => {
-		document.addEventListener("mousedown", handleOutsideClick)
-
-		return () => {
-			document.removeEventListener("mousedown", handleOutsideClick)
-		}
-	}, [handleOutsideClick])
+	useOuterClick(ref, () => {
+		setIsOpen(false)
+	})
 
 	const wrapperClasses = generateCN("sui-dropdown", {
 		sm: isSmall,
@@ -55,7 +37,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 	})
 
 	const onOptionSelect = useCallback(
-		(option: DropdownOptionTypes, index: number) => {
+		(option: DropdownOptionProps, index: number) => {
 			setIsOpen(false)
 			setActive(index)
 		},
@@ -64,9 +46,12 @@ const Dropdown: React.FC<DropdownProps> = ({
 
 	return (
 		<div
+			role="button"
+			tabIndex={0}
 			ref={ref}
 			className={wrapperClasses}
 			onClick={(e) => e.stopPropagation()}
+			onKeyDown={() => {}}
 		>
 			<Button
 				icon="menu"
@@ -87,6 +72,11 @@ const Dropdown: React.FC<DropdownProps> = ({
 				className="sui-dropdown__menu"
 				{...(label && { "aria-labelledby": `${uuid}__label` })}
 				onClick={() => setIsOpen(false)}
+				onKeyDown={(e) =>
+					handleOnKeyDown(e, () => {
+						setIsOpen(false)
+					})
+				}
 			>
 				{Children.map(children, (option: DropdownOptionProps, index) => (
 					<DropdownOption
@@ -95,7 +85,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 						index={index}
 						isActive={index === active}
 						onSelect={onOptionSelect}
-						{...(option.props ?? {})}
+						{...(option?.props ?? {})}
 					/>
 				))}
 				{hasCta && (

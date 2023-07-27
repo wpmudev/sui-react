@@ -1,7 +1,7 @@
 import React, { useCallback, useId, useState } from "react"
 import { useInteraction } from "@wpmudev/sui-hooks"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
 import { Checkbox } from "@wpmudev/sui-checkbox"
 
@@ -66,13 +66,17 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			{...(interactionMethods ?? {})}
 		>
 			<div
-				tabIndex={-1}
+				tabIndex={0}
 				role="button"
 				id={accordionId}
 				aria-expanded={isExpanded}
 				aria-controls={accordionPanelId}
 				className="sui-accordion__header"
 				onClick={toggle}
+				onKeyDown={(e) => {
+					e.stopPropagation()
+					handleOnKeyDown(e, toggle)
+				}}
 			>
 				{/* Content of the accordion item's header */}
 				<div className="sui-accordion__header-info">
@@ -80,7 +84,10 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 						<div className="sui-accordion__header-actions">
 							{/* Checkbox component to display if the accordion item has a checkbox */}
 							{hasCheckbox && (
-								<Checkbox onClick={onCheckClick} isDisabled={isDisabled} />
+								<Checkbox
+									onClick={onCheckClick}
+									isDisabled={isDisabled ?? false}
+								/>
 							)}
 							{!!icon && icon}
 						</div>
