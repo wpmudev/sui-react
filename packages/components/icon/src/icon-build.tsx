@@ -25,7 +25,13 @@ const iconBuild = (path: string | string[], options: IconBuildParams) => {
 	// Create a new icon component using forwardRef
 	const Renderer = forwardRef<"svg", IconProps>((props, ref) => (
 		<Icon ref={ref} viewBox={viewBox} {...defaultProps} {...props}>
-			{!isSinglePath ? path : <path fill="currentColor" d={path as string} />}
+			{!isSinglePath && "string" !== typeof path ? (
+				path?.map((p, index) => (
+					<path key={index} fill="currentColor" d={p as string} />
+				))
+			) : (
+				<path fill="currentColor" d={path as string} />
+			)}
 		</Icon>
 	))
 
