@@ -30,6 +30,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 			isLabelHidden = false,
 			isSmall = false,
 			isDisabled = false,
+			onChange = () => {},
 			...props
 		}: CheckboxProps,
 		ref,
@@ -39,7 +40,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 
 		// Set the initial state based on the default value
 		useEffect(() => {
-			setIsChecked(defaultValue)
+			setIsChecked(defaultValue ?? false)
 		}, [defaultValue])
 
 		// Generate a dynamic ID for the checkbox
@@ -49,9 +50,16 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 		const [isHovered, isFocused, interactionMethods] = useInteraction({})
 
 		// Callback function for handling checkbox state changes
-		const handleOnChange = useCallback(() => {
-			setIsChecked(!isChecked)
-		}, [isChecked])
+		const handleOnChange = useCallback(
+			(e) => {
+				setIsChecked(!isChecked)
+
+				if (!!onChange) {
+					onChange(e)
+				}
+			},
+			[isChecked, onChange],
+		)
 
 		// Props for the box element representing the checkbox
 		const boxProps = {
