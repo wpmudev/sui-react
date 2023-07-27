@@ -51,6 +51,14 @@ const Tabs = ({ color, state }: any) => {
 							<TabNavItem isDisabled={true}>Local Webp</TabNavItem>
 							<TabNavItem isDisabled={true}>Local Webp</TabNavItem>
 							<TabNavItem>Local Webp</TabNavItem>
+							<TabNavItem>Local Webp</TabNavItem>
+							<TabNavItem>Local Webp</TabNavItem>
+							<TabNavItem>Local Webp</TabNavItem>
+							<TabNavItem>Local Webp</TabNavItem>
+							<TabNavItem>Local Webp</TabNavItem>
+							<TabNavItem>Local Webp</TabNavItem>
+							<TabNavItem>Local Webp</TabNavItem>
+							<TabNavItem>Local Webp</TabNavItem>
 						</TabNav>
 						<TabPanel>
 							<TabPanelItem>
@@ -120,19 +128,10 @@ const Tabs = ({ color, state }: any) => {
 }
 
 // Set story arguments.
-Tabs.args = {
-	state: "",
-}
+Tabs.args = {}
 
 // Set controls for story arguments.
-Tabs.argTypes = {
-	state: {
-		options: ["neutral", "informative", "success", "warning", "critical"],
-		control: {
-			type: "select",
-		},
-	},
-}
+Tabs.argTypes = {}
 
 // Configure default options.
 export default {
