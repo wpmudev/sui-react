@@ -1,0 +1,62 @@
+
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+//@use "../_score-utils/variables" as *;
+//@use "../_score-utils/colors" as *;
+//@use "../_score-utils/animation" as *;
+
+/// Build table row
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-table-row($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(row) {
+                box-shadow: 0 -1px 0 0 #E6E6E6, 0 -1px 0 0 #E6E6E6;
+                position: relative;
+
+                @include modifier(expanded) {
+                    background: var(--neutral-grey-95-f-8-f-8-f-8, #F8F8F8);
+                }
+
+                @include modifier(content) {
+                    background: var(--neutral-grey-95-f-8-f-8-f-8, #F8F8F8);
+                    box-shadow: none;
+                    display: none;
+
+                    td {
+                        padding: 0 32px 32px 32px;
+                    }
+                }
+
+                @include modifier(content-expanded) {
+                    display: table-row;
+                }
+
+                &[draggable="true"]{
+//                    background: red;
+                }
+
+                &[draggable="false"]{
+//                    background: yellow;
+                }
+
+                .sortable-chosen {
+                    background-color: greenyellow;
+                }
+
+                .sortable-ghost {
+                    background-color: rebeccapurple;
+                }
+            }
+        }
+    }
+}

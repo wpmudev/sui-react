@@ -1,0 +1,50 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+//@use "../_score-utils/variables" as *;
+//@use "../_score-utils/colors" as *;
+//@use "../_score-utils/animation" as *;
+
+/// Build Table body
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-table-toolbar($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include element(toolbar) {
+            }
+
+            @include element(toolbar-header) {
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+                padding: 16px 32px;
+            }
+
+            @include element(toolbar-body) {
+                background: var(--neutral-grey-95-f-8-f-8-f-8, #F8F8F8);
+                border-top: solid 1px #E6E6E6;
+                display: none;
+                padding: 32px;
+
+                @include modifier(expanded) {
+                    display: block;
+                }
+            }
+
+            @include element(toolbar-header-actions) {
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
