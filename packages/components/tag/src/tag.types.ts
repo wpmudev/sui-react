@@ -37,4 +37,4 @@ interface TagProps extends Omit<HTMLProps<HTMLSpanElement>, "style"> {
 	children?: React.ReactNode
 }
 
-export { TagProps }
+export type { TagProps }

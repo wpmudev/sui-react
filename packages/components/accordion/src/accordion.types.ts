@@ -27,4 +27,4 @@ interface AccordionItemProps extends AccordionCheckboxProps {
 	state?: "" | "neutral" | "informative" | "success" | "warning" | "critical" // The semantic types for the accordion
 }
 
-export { AccordionItemProps, AccordionProps }
+export type { AccordionItemProps, AccordionProps }

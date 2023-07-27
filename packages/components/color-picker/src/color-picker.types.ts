@@ -16,4 +16,4 @@ interface ColorPickerColorProps {
 	hex: string
 }
 
-export { ColorPickerProps, ColorPickerColorProps }
+export type { ColorPickerProps, ColorPickerColorProps }

@@ -65,4 +65,4 @@ interface ButtonProps
 	iconOnly?: boolean
 }
 
-export { ButtonProps }
+export type { ButtonProps }

@@ -14,4 +14,4 @@ interface BoxGroupProps {
 	children?: React.ReactNode
 }
 
-export { BoxGroupProps }
+export type { BoxGroupProps }

@@ -22,4 +22,4 @@ interface CodeSnippetProps {
 	children?: React.ReactNode
 }
 
-export { CodeSnippetProps }
+export type { CodeSnippetProps }

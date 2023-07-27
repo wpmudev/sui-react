@@ -92,7 +92,7 @@ interface FormFieldLabelProps {
 	children: React.ReactNode
 }
 
-export {
+export type {
 	FormFieldProps,
 	FormFieldErrorProps,
 	FormFieldHelperProps,

@@ -36,4 +36,4 @@ interface TextFieldProps {
 	isDisabled: boolean
 }
 
-export { TextFieldProps }
+export type { TextFieldProps }

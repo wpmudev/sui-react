@@ -139,7 +139,7 @@ interface TableContextProviderProps {
 	children: React.ReactNode // children components to be wrapped by the context provider
 }
 
-export {
+export type {
 	TableProps,
 	TableSectionProps,
 	TableCellProps,

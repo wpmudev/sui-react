@@ -18,4 +18,4 @@ interface ToggleProps extends HTMLProps<HTMLInputElement> {
 	isDisabled?: boolean
 }
 
-export { ToggleProps }
+export type { ToggleProps }

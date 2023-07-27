@@ -22,4 +22,4 @@ interface AlertDialogProps {
 	[props: string]: any
 }
 
-export { AlertDialogProps }
+export type { AlertDialogProps }

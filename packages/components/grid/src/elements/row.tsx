@@ -1,23 +1,6 @@
 import React from "react"
 
-/**
- * Represents the alignment options for a row component.
- */
-type RowAlignments = "xs" | "sm" | "md" | "lg" | "xl"
-
-/**
- * Represents the properties for a row component.
- */
-interface RowProps {
-	/**
-	 * The alignment of the row.
-	 */
-	align?: Record<RowAlignments, string>[]
-	/**
-	 * The content of the row.
-	 */
-	children?: React.ReactNode
-}
+import { RowProps } from "./row.type"
 
 const Row: React.FC<RowProps> = ({ align, children }) => {
 	const expectedAligns = {
@@ -48,4 +31,4 @@ const Row: React.FC<RowProps> = ({ align, children }) => {
 	return <div className={classNames}>{children}</div>
 }
 
-export { Row, RowProps }
+export { Row }

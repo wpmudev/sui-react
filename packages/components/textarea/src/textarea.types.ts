@@ -42,4 +42,4 @@ interface TextareaProps extends HTMLProps<HTMLTextAreaElement> {
 	onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-export { TextareaProps }
+export type { TextareaProps }

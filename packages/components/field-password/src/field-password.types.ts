@@ -38,4 +38,4 @@ interface PasswordFieldProps extends HTMLProps<HTMLDivElement> {
 	isDisabled?: boolean
 }
 
-export { PasswordFieldProps }
+export type { PasswordFieldProps }

@@ -22,4 +22,4 @@ interface SegmentedButtonProps extends ToggleButtonProps {
 	isLabelHidden?: boolean
 }
 
-export { SegmentedButtonProps }
+export type { SegmentedButtonProps }

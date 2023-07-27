@@ -6,4 +6,4 @@ interface SegmentedGroupProps extends HTMLProps<HTMLDivElement> {
 	children?: React.ReactNode
 }
 
-export { SegmentedGroupProps }
+export type { SegmentedGroupProps }

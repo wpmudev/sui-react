@@ -69,7 +69,7 @@ interface TabNavItemProps {
 // Interface definition for the TabProviderProps
 interface TabProviderProps extends Omit<ProviderProps<any>, "value"> {}
 
-export {
+export type {
 	TabsProps,
 	TabContextProps,
 	TabNavProps,

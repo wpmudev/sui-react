@@ -66,4 +66,4 @@ interface NotificationProps1
 	isCloseButton?: boolean
 }
 
-export { NotificationProps }
+export type { NotificationProps }

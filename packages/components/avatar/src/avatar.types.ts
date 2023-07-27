@@ -22,4 +22,4 @@ interface AvatarProps extends HTMLProps<HTMLSpanElement> {
 	className: string
 }
 
-export { AvatarProps }
+export type { AvatarProps }

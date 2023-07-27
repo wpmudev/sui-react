@@ -37,4 +37,4 @@ interface AlertProps extends Pick<HTMLProps<HTMLDivElement>, "onClick"> {
 	isVisible: boolean
 }
 
-export { AlertProps }
+export type { AlertProps }

@@ -33,4 +33,4 @@ interface RadioProps {
 	isDisabled: boolean
 }
 
-export { RadioProps }
+export type { RadioProps }

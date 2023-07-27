@@ -24,4 +24,4 @@ interface MenuItemProps extends HTMLProps<HTMLSpanElement | HTMLAnchorElement> {
 	children?: React.ReactNode
 }
 
-export { MenuProps, MenuItemProps }
+export type { MenuProps, MenuItemProps }

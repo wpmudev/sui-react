@@ -18,4 +18,4 @@ interface FieldListProps {
 	children?: React.ReactNode
 }
 
-export { FieldListProps }
+export type { FieldListProps }

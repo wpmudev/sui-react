@@ -84,4 +84,4 @@ interface DropdownOptionItemProps extends DropdownOptionProps {
 	onSelect: (option: DropdownOptionProps, index: number) => void
 }
 
-export { DropdownProps, DropdownOptionProps, DropdownOptionItemProps }
+export type { DropdownProps, DropdownOptionProps, DropdownOptionItemProps }
