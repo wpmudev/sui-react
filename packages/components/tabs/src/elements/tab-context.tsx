@@ -1,5 +1,5 @@
 import React, { createContext, FC, useCallback, useId, useState } from "react"
-import { TabContextProps, TabProviderProps } from "./tabs.types"
+import { TabContextProps, TabProviderProps } from "../tabs.types"
 
 // Create a TabContext using createContext with an initial value of null
 const TabContext = createContext<TabContextProps | null>(null)

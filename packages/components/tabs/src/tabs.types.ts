@@ -64,6 +64,7 @@ interface TabNavItemProps {
 	icon?: React.ReactNode | never // An optional icon to display with the tab item.
 	stateIcon?: "InfoAlt" | "CheckAlt" | never
 	stateIconColor?: Pick<"color", IconProps> | never
+	isDisabled?: Boolean
 }
 
 // Interface definition for the TabProviderProps

@@ -1,5 +1,5 @@
 import React, { Children, cloneElement, isValidElement, ReactNode } from "react"
-import { TabPanelProps } from "./tabs.types"
+import { TabPanelProps } from "../tabs.types"
 
 /**
  * TabPanel
