@@ -47,17 +47,6 @@ const Tabs = ({ color, state }: any) => {
 									Pro
 								</Tag>
 							</TabNavItem>
-							<TabNavItem isDisabled={true}>Local Webp</TabNavItem>
-							<TabNavItem isDisabled={true}>Local Webp</TabNavItem>
-							<TabNavItem isDisabled={true}>Local Webp</TabNavItem>
-							<TabNavItem>Local Webp</TabNavItem>
-							<TabNavItem>Local Webp</TabNavItem>
-							<TabNavItem>Local Webp</TabNavItem>
-							<TabNavItem>Local Webp</TabNavItem>
-							<TabNavItem>Local Webp</TabNavItem>
-							<TabNavItem>Local Webp</TabNavItem>
-							<TabNavItem>Local Webp</TabNavItem>
-							<TabNavItem>Local Webp</TabNavItem>
 							<TabNavItem>Local Webp</TabNavItem>
 						</TabNav>
 						<TabPanel>
