@@ -1,0 +1,7 @@
+@use "./_elements/elements" as sui-segmented-control--element;
+@use "./_modifiers/modifiers" as sui-segmented-control--modifier;
+
+@include sui-segmented-control--element.build-segmented-control(segmented-control);
+@include sui-segmented-control--element.build-segmented-control-button(segmented-control);
+
+@include sui-segmented-control--modifier.build-segmented-control-disabled(segmented-control);
