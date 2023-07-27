@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component
-import { SegmentedControl as SControl } from "../src"
+import { SegmentedControl as SControl, SegmentedControlButton } from "../src"
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 
 // Import documentation main page
@@ -26,7 +26,17 @@ const SegmentedControl = ({ example, children, ...args }) => {
 			<div className="sui-layout__content">
 				<Box>
 					<BoxGroup isInline={false}>
-						<SControl {...args}>{children}</SControl>
+						<SControl {...args}>
+							<SegmentedControlButton value="icon-only" icon="Filter" />
+							<SegmentedControlButton value="1">UPI</SegmentedControlButton>
+							<SegmentedControlButton value="2">Visa</SegmentedControlButton>
+							<SegmentedControlButton value="3" icon="Bell">
+								MasterCard
+							</SegmentedControlButton>
+							<SegmentedControlButton value="4" isDisabled={true}>
+								PayPal
+							</SegmentedControlButton>
+						</SControl>
 					</BoxGroup>
 				</Box>
 			</div>
@@ -36,41 +46,14 @@ const SegmentedControl = ({ example, children, ...args }) => {
 
 // Set story arguments.
 SegmentedControl.args = {
-	icon: "desktop",
-	children: "Toggle Button",
-	isFirst: false,
-	isLast: false,
-	isLabelHidden: false,
-	isSmall: false,
+	isFullWidth: false,
 }
 
 // Set controls for story arguments.
 SegmentedControl.argTypes = {
-	icon: {
-		name: "Icon",
-	},
-	children: {
-		name: "Label",
-	},
-	isFirst: {
-		name: "First Button",
-		if: {
-			arg: "isLast",
-			eq: false,
-		},
-	},
-	isLast: {
-		name: "Last Button",
-		if: {
-			arg: "isFirst",
-			eq: false,
-		},
-	},
-	isLabelHidden: {
-		name: "Hide Label",
-	},
-	isSmall: {
-		name: "Small Button",
+	isFullWidth: {
+		name: "Full width",
+		type: "boolean",
 	},
 }
 
