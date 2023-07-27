@@ -1,11 +1,8 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-//@use "../_score-utils/variables" as *;
-//@use "../_score-utils/colors" as *;
-//@use "../_score-utils/animation" as *;
 
-/// Build Accordion item
+/// Build Nav
 /// This function creates styles for the element
 /// main wrapper.
 /// @type block
@@ -20,42 +17,17 @@
         @include block($block) {
             @include element(nav) {
                 position: relative;
-                border-bottom: 1px solid var(--neutral-grey-light-80-e-6-e-6-e-6, #E6E6E6);
+                border-bottom: $tabs-border-width solid $tabs-border-color;
+            }
 
-                .sui-tab__navitems {
-                    display: flex;
-                    align-items: center;
-                    overflow: scroll;
-                    scroll-behavior: smooth;
-                    
-                    &::-webkit-scrollbar{
-                        display: none;
-                    }
-                }
-
-                .sui-tab__arrow {
-                    position: absolute;
-                    height: 100%;
-                    top: 0;
-                    cursor: pointer;
-                    width: 48px;
-                    border: none;
-                    color: #aaa;
-
-                    &:hover {
-                        background: var(--neutral-grey-light-100-ffffff, #FFF);
-                        color: #1a1a1a;
-                    }
-                }
-
-                .sui-tab__arrow--left {
-                    left: 0;
-                    background: linear-gradient(90deg, #FFF 0%, #FFF 71.63%, rgba(248, 248, 248, 0.00) 100%);
-                }
-
-                .sui-tab__arrow--right {
-                    right: 0;
-                    background: linear-gradient(270deg, #FFF 0%, #FFF 71.63%, rgba(248, 248, 248, 0.00) 100%);
+            @include element(navitems) {
+                display: flex;
+                align-items: center;
+                overflow: scroll;
+                scroll-behavior: smooth;
+                
+                &::-webkit-scrollbar {
+                    display: none;
                 }
             }
         }
@@ -67,16 +39,7 @@
         // Block wrapper.
         @include block($block) {
             @include element(nav) {
-                border-bottom: 1px solid $color-extended-neutral-0;
-
-                .sui-tab__arrow {
-                    background: $color-extended-neutral-100;
-                    color: $color-extended-neutral-0;
-
-                    &:hover {
-                        color: $color-extended-neutral-0;
-                    }
-                }
+                border-color: $color-extended-neutral-0;
             }
         }
     }

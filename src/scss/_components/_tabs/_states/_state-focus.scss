@@ -14,9 +14,9 @@
 
             @include element(nav-item) {
                 @include modifier(focus) {
-                    color: var(--neutral-grey-base-50505050, #1a1a1a);
-                    background: var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
-                    border-bottom: 4px solid var(--primary-blue-base-50286-ef-1, #286EF1);
+                    color: $tabs-color-focus-color;
+                    background: $tabs-color-focus-background;
+                    border-color: $tabs-color-focus-border-color;
                 }
             }
         }
@@ -31,7 +31,7 @@
                 @include modifier(focus) {
                     color: $color-extended-neutral-0;
                     background: transparent;
-                    border-bottom: 4px solid $color-extended-neutral-0;
+                    border-color: $color-extended-neutral-0;
                 }
             }
         }

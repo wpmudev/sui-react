@@ -1,11 +1,8 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-//@use "../_score-utils/variables" as *;
-//@use "../_score-utils/colors" as *;
-//@use "../_score-utils/animation" as *;
 
-/// Build Accordion item
+/// Build Panel item
 /// This function creates styles for the element
 /// main wrapper.
 /// @type block
@@ -20,12 +17,7 @@
         @include block($block) {
             @include element(panel-item) {
                 display: none;
-                padding: 32px;
-            }
-
-            @include modifier(expanded) {
-                display: block;
-                background: yellow;
+                padding: $tabs-panel-spacing;
             }
         }
     }

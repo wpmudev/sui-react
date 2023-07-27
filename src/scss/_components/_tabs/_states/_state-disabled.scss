@@ -16,15 +16,15 @@
                 @include modifier(disabled) {
                     pointer-events: none;
                     user-select: none;
-                    color: #aaa;
+                    color: $tabs-color-disabled;
 
                     svg {
-                        color: #aaa;
+                        color: $tabs-color-disabled;
                     }
 
                     .sui-tag {
-                        color: #aaa;
-                        border-color: #aaa;
+                        color: $tabs-color-disabled;
+                        border-color: $tabs-color-disabled;
                     }
                 }
             }

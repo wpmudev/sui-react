@@ -15,7 +15,7 @@
             @include element(nav-item) {
                 @include modifier(hover) {
                     background: var(--primary-blue-light-90-eaf-1-fe, #EAF1FE);
-                    border-bottom: 4px solid var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
+                    border-color: var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
                 }
             }
         }
@@ -29,7 +29,7 @@
             @include element(nav-item) {
                 @include modifier(hover) {
                     background: transparent;
-                    border-bottom: 4px solid $color-extended-neutral-0;
+                    border-color: $color-extended-neutral-0;
                 }
             }
         }
