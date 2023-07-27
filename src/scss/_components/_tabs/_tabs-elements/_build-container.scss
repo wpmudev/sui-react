@@ -1,11 +1,8 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-//@use "../_score-utils/variables" as *;
-//@use "../_score-utils/colors" as *;
-//@use "../_score-utils/animation" as *;
 
-/// Build Accordion container
+/// Build Tabs container
 /// This function creates styles for the element
 /// main wrapper.
 /// @type block
@@ -18,9 +15,11 @@
     @include sui-class($rtl: false, $theme: null) {
         // Block wrapper.
         @include block($block) {
-            background: white;
-            border: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
-            border-radius: 4px;
+            background: $color-extended-neutral-100;
+            border: $tabs-border-width solid $tabs-border-color;
+            border-radius: $tabs-border-radius;
+            box-shadow: 0px 2px 5px 0px $tabs-shadow-light, 0px 8px 17px 0px $tabs-shadow-medium, 0px 36px 80px 0px $tabs-shadow-dark;
+            overflow: hidden;
         }
     }
 }
