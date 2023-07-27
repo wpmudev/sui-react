@@ -13,7 +13,7 @@ const Accordion: React.FC<AccordionProps> = ({
 	// Generate CSS class names for the Accordion component
 	const classNames = generateCN(
 		"sui-accordion",
-		{ [state]: !isEmpty(state ?? "") },
+		state && { [state]: !isEmpty(state ?? "") },
 		className,
 	)
 

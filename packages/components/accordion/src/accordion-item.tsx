@@ -34,8 +34,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const [isHovered, isFocused, interactionMethods] = useInteraction({})
 
 	// When checkbox clicked
-	const onCheckClick = useCallback(
-		(e) => {
+	const onCheckBoxChange = useCallback(
+		(e: React.ChangeEvent<HTMLInputElement>) => {
 			e.stopPropagation()
 			e.preventDefault()
 
@@ -85,7 +85,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 							{/* Checkbox component to display if the accordion item has a checkbox */}
 							{hasCheckbox && (
 								<Checkbox
-									onClick={onCheckClick}
+									onChange={onCheckBoxChange}
 									isDisabled={isDisabled ?? false}
 								/>
 							)}
@@ -99,7 +99,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				</div>
 				{/* Icon component to display a chevron icon */}
 				<div className="sui-accordion__header-icon">
-					<Icon height="16px" width="16px" />
+					<Icon height={16} width={16} />
 				</div>
 			</div>
 			{/* Content of the accordion item's panel */}

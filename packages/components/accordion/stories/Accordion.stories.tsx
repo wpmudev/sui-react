@@ -140,20 +140,14 @@ const Accordion = ({ color, state }: any) => {
 	)
 }
 
-// Set story arguments.
-Accordion.args = {
-	state: "",
-}
-
 // Set controls for story arguments.
 Accordion.argTypes = {
 	state: {
 		name: "Status",
-		options: ["", "neutral", "informative", "success", "warning", "critical"],
+		options: ["neutral", "informative", "success", "warning", "critical"],
 		control: {
 			type: "select",
 			labels: {
-				"": "None",
 				neutral: "Neutral",
 				informative: "Informative",
 				success: "Success",
