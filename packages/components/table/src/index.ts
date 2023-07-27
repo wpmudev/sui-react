@@ -7,6 +7,9 @@ export { TableFooter } from "./table-footer"
 export { TableCell } from "./table-cell"
 
 // export table types
-export type { TableProps, TableSectionProps } from "./table"
-export type { TableCellProps } from "./table-cell"
-export type { TableRowProps } from "./table-row"
+export type {
+	TableSectionProps,
+	TableRowProps,
+	TableCellProps,
+	TableProps,
+} from "./table.types"
