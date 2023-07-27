@@ -2,20 +2,29 @@
 
 @use "../../../_utils/utils" as *;
 
-/// Build Segmented control
+/// Build Segmented control label
 /// This function creates styles for the element
 /// main wrapper.
 /// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-segmented-control($block) {
+@mixin build-segmented-control-label($block) {
     // DIR: Left to right.
     // THEME: None.
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
-            align-items: center;
-            display: flex;
+            @include element(label) {
+                align-items: center;
+                border: 1px solid #E6E6E6;
+                border-right: 0;
+                cursor: pointer;
+                display: flex;
+                font: 500 13px/24px $font-family-default;
+                gap: 8px;
+                min-height: 42px;
+                padding: 8px 16px;
+            }
         }
     }
 

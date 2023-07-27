@@ -1,0 +1,25 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build active
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block-name - Main block name
+@mixin build-segmented-control-active($block) {
+    // DIR: Left to right.
+    // THEME: Light.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(label) {
+                @include modifier(active) {
+                    border-color: var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
+                    background-color: var(--primary-blue-light-90-eaf-1-fe, #EAF1FE);
+                    color: var(--primary-blue-base-50286-ef-1, #286EF1);
+                }
+            }
+        }
+    }
+}

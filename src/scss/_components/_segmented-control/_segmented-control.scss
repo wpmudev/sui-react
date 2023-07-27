@@ -3,5 +3,11 @@
 
 @include sui-segmented-control--element.build-segmented-control(segmented-control);
 @include sui-segmented-control--element.build-segmented-control-button(segmented-control);
+@include sui-segmented-control--element.build-segmented-control-input(segmented-control);
+@include sui-segmented-control--element.build-segmented-control-label(segmented-control);
 
+@include sui-segmented-control--modifier.build-segmented-control-hover(segmented-control);
+@include sui-segmented-control--modifier.build-segmented-control-active(segmented-control);
+@include sui-segmented-control--modifier.build-segmented-control-focus(segmented-control);
 @include sui-segmented-control--modifier.build-segmented-control-disabled(segmented-control);
+@include sui-segmented-control--modifier.build-segmented-control-full-width(segmented-control);

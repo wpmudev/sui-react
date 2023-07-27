@@ -1,0 +1,24 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build focus
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block-name - Main block name
+@mixin build-segmented-control-focus($block) {
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(label) {
+				@include modifier(focus) {
+					border: 2px solid #505050;
+					color: var(--neutral-grey-dark-60737373, #737373);
+				}
+			}
+		}
+	}
+}
