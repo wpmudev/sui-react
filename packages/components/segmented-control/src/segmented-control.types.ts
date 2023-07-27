@@ -2,7 +2,6 @@ import React from "react"
 
 /**
  * This interface defines the props for the SegmentedButton component.
- * It extends the ToggleButtonProps type to inherit toggle button props.
  */
 interface SegmentedControlProps {
 	// An optional icon to be displayed within the segmented control.
