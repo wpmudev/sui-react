@@ -7,8 +7,11 @@ import React, {
 	useEffect,
 	useState,
 	useRef,
+	useCallback,
 } from "react"
 import { ChevronLeft, ChevronRight } from "@wpmudev/sui-icons"
+
+import { useDetectRTL } from "../../../../hooks/src/index"
 
 import { TabNavProps } from "../tabs.types"
 
@@ -25,16 +28,24 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 	const navRef = useRef<HTMLDivElement | null>(null)
 	const [isScrollableRight, setIsScrollableRight] = useState(false)
 	const [isScrollableLeft, setIsScrollableLeft] = useState(false)
+	const isRTL = useDetectRTL()
 
-	const handleScroll = () => {
+	const handleScroll = useCallback(() => {
 		if (navRef.current) {
 			const navElement = navRef.current
+			const navLeft = Math.abs(navElement.scrollLeft)
 			setIsScrollableRight(
-				navElement.scrollLeft < navElement.scrollWidth - navElement.clientWidth,
+				isRTL
+					? navLeft > 0
+					: navLeft < navElement.scrollWidth - navElement.clientWidth,
 			)
-			setIsScrollableLeft(navElement.scrollLeft > 0)
+			setIsScrollableLeft(
+				isRTL
+					? navLeft < navElement.scrollWidth - navElement.clientWidth
+					: navLeft > 0,
+			)
 		}
-	}
+	}, [isRTL])
 
 	const handleScrollRight = () => {
 		if (navRef.current) {
@@ -63,7 +74,7 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 				navRef.current.removeEventListener("scroll", handleScroll)
 			}
 		}
-	}, [])
+	}, [handleScroll])
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -77,7 +88,7 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 		return () => {
 			window.removeEventListener("resize", handleResize)
 		}
-	}, [])
+	}, [handleScroll])
 
 	return (
 		<div className="sui-tab__nav" role="tablist" aria-orientation="horizontal">
