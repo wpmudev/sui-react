@@ -14,6 +14,7 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			position: relative;
 			@include element(input) {
 				width: 100%;
 				max-width: 100%;
@@ -29,6 +30,48 @@
 				line-height: $input-font-height-md;
 				letter-spacing: 0;
 				transition: 0.1s ease;
+			}
+
+			@include modifier('icon-end') {
+				@include modifies-element(input) {
+					padding-right: 44px;
+				}
+			}
+
+			@include modifier('icon-start') {
+				@include modifies-element(input) {
+					padding-left: 44px;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include modifier('icon-end') {
+				@include modifies-element(input) {
+					padding-left: 44px;
+					padding-right: $input-spacing-padding-horizontal-md;
+				}
+			}
+
+			@include modifier('icon-start') {
+				@include modifies-element(input) {
+					padding-right: 44px;
+					padding-left: $input-spacing-padding-horizontal-md;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: 'dark') {
+		@include block($block) {
+			@include element(input) {
+				color:  $color-extended-neutral-0;
 			}
 		}
 	}

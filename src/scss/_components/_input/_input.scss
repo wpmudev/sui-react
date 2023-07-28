@@ -4,6 +4,7 @@
 
 @include sui-input--element.build-container(input);
 @include sui-input--element.build-input(input);
+@include sui-input--element.build-icon(input);
 
 @include sui-input--modifier.edit-size(input);
 @include sui-input--modifier.has-icon(input);

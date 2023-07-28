@@ -24,9 +24,21 @@
 				right: 0;
 				left: 0;
 				bottom: 0;
-				border: $input-border-width-sm $input-border-style $input-border-color-default;
+				border-width: $input-border-width-sm;
+				border-style: $input-border-style;
+				border-color: $input-border-color-default;
 				border-radius: $input-border-radius;
 				transition: 0.1s ease;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: 'dark') {
+		@include block($block) {
+			&:before {
+				border-color: $color-extended-neutral-0;
 			}
 		}
 	}
