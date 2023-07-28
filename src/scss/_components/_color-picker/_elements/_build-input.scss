@@ -41,6 +41,9 @@
                 border-radius: 50px;
                 height: 24px;
                 width: 24px;
+                background-position: center;
+                background-size: 10px;
+                border: 1px solid rgba(26, 26, 26, 0.1);
             }
 
             @include element(input-preview-code) {
