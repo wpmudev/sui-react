@@ -9,7 +9,7 @@ interface ColProps {
 	/**
 	 * The size of the column.
 	 */
-	size: string
+	size: number | string
 	/**
 	 * The content of the column.
 	 */
