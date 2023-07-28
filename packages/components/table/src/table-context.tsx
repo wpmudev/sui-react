@@ -1,0 +1,112 @@
+import React, { createContext, FC, useCallback, useState } from "react"
+
+import {
+	TableContextProps,
+	TableContextProviderProps,
+	TableExpectedAction,
+	TableToolbarFilterTypes,
+} from "./table.types"
+
+// create the table context
+const TableContext = createContext<TableContextProps | null>(null)
+
+// table context provider to provide the context to its children
+const TableContextProvider: FC<TableContextProviderProps> = ({
+	children,
+	props = {},
+}) => {
+	// state to store filtered values
+	const [filterValues, setFilterValues] = useState<
+		Record<string, Pick<TableToolbarFilterTypes, "id" | "value">>[]
+	>([])
+
+	// state for selected rows
+	const [selected, setSelected] = useState<Array<number | string>>([])
+	// state for table rows
+	const [rows, setRows] = useState<Record<string, any>[]>([])
+	// state to force collapse in drag-and-drop reordering
+	const [forceCollapse, setForceCollapse] = useState(false)
+
+	// function to handle row selection in the table
+	const onSelect = useCallback(
+		(id: number | string, isChecked = false, isSelectAll) => {
+			// add or remove the selected row based on the current selection status
+			let tempSelected: Array<number | string> = [...selected]
+
+			switch (true) {
+				// select all checkbox changed
+				case typeof isSelectAll !== "undefined":
+					tempSelected = (isChecked ? rows : []) as Array<number | string>
+					break
+				// table row checkbox checked
+				case isChecked:
+					tempSelected.push(id)
+					break
+				// table row checkbox unchecked
+				default:
+					tempSelected.splice(tempSelected.indexOf(id), 1)
+			}
+
+			setSelected(tempSelected)
+		},
+		[rows, selected],
+	)
+
+	// set a filter value in the table context.
+	const setFilter = useCallback(
+		(id: string, val: string | number) => {
+			setFilterValues({
+				...filterValues,
+				[id]: val,
+			})
+		},
+		[filterValues],
+	)
+
+	// trigger an action in the table context.
+	const triggerAction = useCallback(
+		(action: TableExpectedAction, data: unknown) => {
+			props?.onAction(action, data)
+		},
+		[props],
+	)
+
+	// apply the filters
+	const applyFilters = useCallback(() => {
+		triggerAction("apply-filters", filterValues)
+	}, [filterValues, triggerAction])
+
+	// clear the filters
+	const clearFilters = useCallback(() => {
+		setFilterValues([])
+		triggerAction("apply-filters", [])
+	}, [triggerAction])
+
+	// provide the table context to its children with the appropriate values
+	return (
+		<TableContext.Provider
+			value={{
+				...props,
+				triggerAction,
+				// table rows
+				rows,
+				setRows,
+				// table selected rows
+				selected,
+				onSelect,
+				// force-collapse all table rows
+				forceCollapse,
+				setForceCollapse,
+				// filtered values
+				filterValues,
+				setFilter,
+				applyFilters,
+				clearFilters,
+			}}
+		>
+			{children}
+		</TableContext.Provider>
+	)
+}
+
+export { TableContext, TableContextProvider }

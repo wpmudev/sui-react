@@ -1,0 +1,81 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
+import { Tab } from '../../../src';
+import dedent from 'dedent';
+
+export const SuccessScoreCode = dedent`
+import React from 'react';\n
+import { Score } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Score bar={95} state="success" />;
+}\n
+export default Example;
+`;
+
+export const WarningScoreCode = dedent`
+import React from 'react';\n
+import { Score } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Score bar={55} state="warning" />;
+}\n
+export default Example;
+`;
+
+export const ErrorScoreCode = dedent`
+import React from 'react';\n
+import { Score } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Score bar={15} state="error" />;
+}\n
+export default Example;
+`;
+
+<Section
+	title="Success"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>state</Code> prop to success. If{' '}
+		<Code small={true}>state</Code> is not set then it will auto set for
+		value range 61-100.
+	</p>
+	<Preview wrapper={true}>
+		<Tab bar={95} state="success" />
+	</Preview>
+	<Snippet language="js">{SuccessScoreCode}</Snippet>
+</Section>
+
+<Section
+	title="Warning"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>state</Code> prop to warning. If{' '}
+		<Code small={true}>state</Code> is not set then it will auto set for
+		value range 35-60.
+	</p>
+	<Preview wrapper={true}>
+		<Tab bar={50} state="warning" />
+	</Preview>
+	<Snippet language="js">{WarningScoreCode}</Snippet>
+</Section>
+
+<Section
+	title="Error"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>state</Code> prop to error. If{' '}
+		<Code small={true}>state</Code> is not set then it will auto set for
+		value range 0-34.
+	</p>
+	<Preview wrapper={true}>
+		<Tab bar={15} state="error" />
+	</Preview>
+	<Snippet language="js">{ErrorScoreCode}</Snippet>
+</Section>

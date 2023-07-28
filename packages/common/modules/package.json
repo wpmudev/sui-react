@@ -1,0 +1,43 @@
+{
+  "name": "@wpmudev/sui-modules",
+  "version": "0.0.0",
+  "description": "WPMU DEV Shared UI React sub-package for simple elements",
+  "keywords": [],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "license": "GPL-2.0",
+  "main": "src/index.ts",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-react.git",
+    "directory": "packages/simple-elements"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/sui-react/issues"
+  },
+  "homepage": "https://github.com/wpmudev/sui-react#readme",
+  "dependencies": {
+    "@wpmudev/sui-avatar": "^0.0.0",
+    "@wpmudev/sui-button": "^0.0.0",
+    "@wpmudev/sui-tag": "^0.0.0"
+  }
+}

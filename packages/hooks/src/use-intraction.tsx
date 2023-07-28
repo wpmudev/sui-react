@@ -1,5 +1,5 @@
 import { HTMLProps, useCallback, useState } from "react"
-import { isFunction } from "@wpmudev/react-utils"
+import { isFunction } from "@wpmudev/sui-utils"
 
 interface InteractionTypes
 	extends Pick<
@@ -18,7 +18,7 @@ interface InteractionTypes
  *
  * @param {InteractionTypes} methods Interaction methods
  */
-const useInteraction = (methods: InteractionTypes) => {
+const useInteraction = (methods: InteractionTypes | Object) => {
 	const [isHovered, setIsHovered] = useState<boolean>(false)
 	const [isFocused, setIsFocused] = useState<boolean>(false)
 

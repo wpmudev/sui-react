@@ -129,6 +129,23 @@ const capitalizeText = (string: string) => {
 	return string?.charAt(0)?.toUpperCase() + string?.slice(1)
 }
 
+/**
+ * Use this for onKeyDown callback when making a div or span element clickable
+ *
+ * @param {KeyboardEvent} event
+ * @param {() => void}    callback
+ */
+const handleOnKeyDown = (
+	event: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
+	callback?: (() => void) | undefined,
+) => {
+	if (event.key === "Enter" || event.key === " ") {
+		if (callback) {
+			callback()
+		}
+	}
+}
+
 // Publish required function(s).
 export {
 	isNull,
@@ -143,4 +160,5 @@ export {
 	generateCN,
 	condContent,
 	capitalizeText,
+	handleOnKeyDown,
 }

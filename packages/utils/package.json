@@ -1,6 +1,6 @@
 {
-  "name": "@wpmudev/react-utils",
-  "version": "1.0.0",
+  "name": "@wpmudev/sui-utils",
+  "version": "0.0.0",
   "private": true,
   "description": "WPMU DEV Shared UI React Global Functions",
   "keywords": [],

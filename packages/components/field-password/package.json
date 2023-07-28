@@ -1,0 +1,45 @@
+{
+  "name": "@wpmudev/sui-field-password",
+  "version": "0.0.0",
+  "description": "WPMU DEV Shared UI React Password Field",
+  "keywords": [],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "license": "GPL-2.0",
+  "main": "src/index.ts",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-react.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/sui-react/issues"
+  },
+  "homepage": "https://github.com/wpmudev/sui-react#readme",
+  "devDependencies": {
+    "react": "^18.2.0"
+  },
+  "dependencies": {
+    "@wpmudev/sui-button": "^0.0.0",
+    "@wpmudev/sui-form-field": "^0.0.0",
+    "@wpmudev/sui-input": "^0.0.0"
+  }
+}

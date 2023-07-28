@@ -1,7 +1,7 @@
-'use strict';
+"use strict"
 
-const reactUtils = require('..');
+const reactUtils = require("..")
 
-describe('@wpmudev/react-utils', () => {
-	it('needs tests');
-});
+describe("@wpmudev/sui-utils", () => {
+	it("needs tests")
+})

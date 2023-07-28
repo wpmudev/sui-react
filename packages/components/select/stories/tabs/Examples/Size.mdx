@@ -1,0 +1,72 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
+import { Select } from '../../../src';
+import dedent from 'dedent';
+
+export const SmallSelectCode = dedent`
+import React from 'react';\n
+import { Select } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Select id="select-id-1" label="Select" options={options} isSmall={true} />;
+}\n
+export default Example;
+`;
+
+export const options = [
+	{
+		id: 'option-1',
+		label: 'Option 1 is the option.',
+		isSelected: false
+	},
+	{
+		id: 'option-2',
+		label: 'Option 2',
+		isSelected: false
+	},
+	{
+		id: 'option-3',
+		label: 'Option 3',
+		isSelected: false
+	},
+	{
+		id: 'option-4',
+		label: 'Option 4',
+		isSelected: false
+	},
+	{
+		id: 'option-5',
+		label: 'Option 5',
+		isSelected: false
+	},
+	{
+		id: 'option-6',
+		label: 'Option 6',
+		isSelected: false
+	},
+	{
+		id: 'option-7',
+		label: 'Option 7',
+		isSelected: false
+	},
+	{
+		id: 'option-8',
+		label: 'India',
+		isSelected: false
+	}
+];
+
+<Section
+	title="Small"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isSmall</Code> prop to reduce the select
+		height, fitting with the design context.
+	</p>
+	<Preview wrapper={true}>
+		<div style={{ height: '190px' }}>
+			<Select id="select-id-1" label="Select" options={options} isSmall={true} />
+		</div>
+	</Preview>
+	<Snippet language="js">{SmallSelectCode}</Snippet>
+</Section>

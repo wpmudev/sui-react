@@ -1,0 +1,40 @@
+import { Section, Row, Col, List } from '@wpmudev/storybook';
+
+import TextareaAnatomy from '../images/anatomy.png';
+
+<Section contained={true} border={true} style={{ paddingTop: 0 }}>
+	<p>
+		A textarea allows users to enter a larger amount of text than a regular text input field. It is often used for inputting longer messages, comments, or reviews on web pages.
+	</p>
+</Section>
+
+<Section title="Anatomy" contained={true} border={true}>
+	<img
+		src={TextareaAnatomy}
+		alt="Textarea anatomy"
+		style={{ marginBottom: 20 }}
+	/>
+	<List>
+		<span
+			label={
+				<>
+					<strong>Textarea:</strong> A textarea is a multi-line text input field.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Placeholder:</strong> There will be a placeholder when the input ha no value set.
+				</>
+			}
+		/>
+		<span
+			label={
+				<>
+					<strong>Help Text:</strong> Help text is an overall description about the input field.
+				</>
+			}
+		/>
+	</List>
+</Section>

@@ -1,0 +1,55 @@
+import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
+
+<Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
+	<p>
+		Install the <Code small={true}>Select</Code> package as an individual
+		component or follow the Overview page instructions to get the complete
+		SUI Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+	<p>Select component have the following props.</p>
+	<Section
+		title={{ content: 'label', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Reflects the default value of the select field.</p>
+	</Section>
+	<Section
+		title={{ content: 'id', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Add a unique id to the select.</p>
+	</Section>
+	<Section
+		title={{ content: 'className', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Add a class name to the input.</p>
+	</Section>
+	<Section
+		title={{ content: 'options', tag: 'array', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Reflects the selectable items in the dropdown.</p>
+	</Section>
+	<Section
+		title={{ content: 'isSmall', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Set if the select is small.</p>
+	</Section>
+	<Section
+		title={{ content: 'isError', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Set if the select has error.</p>
+	</Section>
+	<Section
+		title={{ content: 'isDisabled', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Set if the select is disabled.</p>
+	</Section>
+</Section>
