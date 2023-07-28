@@ -1,7 +1,7 @@
 {
-  "name": "@wpmudev/sui-segmented-group",
+  "name": "@wpmudev/sui-segmented-control",
   "version": "0.0.0",
-  "description": "WPMU DEV Shared UI React Segmented Group",
+  "description": "WPMU DEV Shared UI React Segmented Control",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -26,7 +26,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wpmudev/sui-react.git",
-    "directory": "packages/react-segmented-group"
+    "directory": "packages/react-segmented-button"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
@@ -40,7 +40,7 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@wpmudev/sui-segmented-button": "^0.0.0",
+    "@wpmudev/sui-button": "^0.0.0",
     "@wpmudev/sui-utils": "^0.0.0"
   }
 }

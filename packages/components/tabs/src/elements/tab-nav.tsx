@@ -4,16 +4,15 @@ import React, {
 	FC,
 	isValidElement,
 	ReactNode,
-	useEffect,
-	useState,
-	useRef,
 	useCallback,
+	useEffect,
+	useRef,
+	useState,
 } from "react"
 import { ChevronLeft, ChevronRight } from "@wpmudev/sui-icons"
 
 import { useDetectRTL } from "../../../../hooks/src/index"
-
-import { TabNavProps } from "../tabs.types"
+import { TabNavProps, TabNavScrollDirection } from "../tabs.types"
 
 /**
  * TabNav
@@ -25,60 +24,55 @@ import { TabNavProps } from "../tabs.types"
  * @return {JSX.Element} The TabNav component.
  */
 const TabNav: FC<TabNavProps> = ({ children }) => {
+	const [isScrollableRight, setIsScrollableRight] = useState<boolean>(false)
+	const [isScrollableLeft, setIsScrollableLeft] = useState<boolean>(false)
+
 	const navRef = useRef<HTMLDivElement | null>(null)
-	const [isScrollableRight, setIsScrollableRight] = useState(false)
-	const [isScrollableLeft, setIsScrollableLeft] = useState(false)
+
+	// use RTL detector
 	const isRTL = useDetectRTL()
 
+	// Scroll information from the navRef, if available
+	const { scrollLeft, scrollWidth, clientWidth } = navRef?.current ?? {}
+
+	// Function to handle scroll events and determine scrollability
 	const handleScroll = useCallback(() => {
-		if (navRef.current) {
-			const navElement = navRef.current
-			const navLeft = Math.abs(navElement.scrollLeft)
-			setIsScrollableRight(
-				isRTL
-					? navLeft > 0
-					: navLeft < navElement.scrollWidth - navElement.clientWidth,
-			)
-			setIsScrollableLeft(
-				isRTL
-					? navLeft < navElement.scrollWidth - navElement.clientWidth
-					: navLeft > 0,
-			)
+		if (!navRef.current) {
+			return
 		}
-	}, [isRTL])
 
-	const handleScrollRight = () => {
-		if (navRef.current) {
-			navRef.current.scrollLeft += 100 // Adjust the scroll distance as needed
-		}
+		const navLeft = Math.abs(scrollLeft)
+
+		setIsScrollableRight(
+			isRTL ? navLeft > 0 : navLeft < scrollWidth - clientWidth,
+		)
+		setIsScrollableLeft(
+			isRTL ? navLeft < scrollWidth - clientWidth : navLeft > 0,
+		)
+	}, [clientWidth, isRTL, scrollLeft, scrollWidth])
+
+	// Adjust the scroll distance as needed
+	const scrollNav = (dir: TabNavScrollDirection) => {
+		navRef.current.scrollLeft =
+			dir === "left" ? scrollLeft - 100 : scrollLeft + 100
 	}
 
-	const handleScrollLeft = () => {
-		if (navRef.current) {
-			navRef.current.scrollLeft -= 100 // Adjust the scroll distance as needed
-		}
-	}
-
+	// Check if content is scrollable on mount and add scroll event listener
 	useEffect(() => {
-		// Check if content is scrollable on mount
 		handleScroll()
-
-		// Add event listener to check if content is scrollable on scroll
-		if (navRef.current) {
-			navRef.current.addEventListener("scroll", handleScroll)
-		}
+		navRef?.current?.addEventListener("scroll", handleScroll)
 
 		// Clean up the event listener when the component unmounts
 		return () => {
-			if (navRef.current) {
-				navRef.current.removeEventListener("scroll", handleScroll)
+			if (!!navRef?.current) {
+				navRef?.current?.removeEventListener("scroll", handleScroll)
 			}
 		}
 	}, [handleScroll])
 
+	// Recalculate scrollable states on window resize
 	useEffect(() => {
 		const handleResize = () => {
-			// Recalculate scrollable states on window resize
 			handleScroll()
 		}
 
@@ -95,7 +89,7 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 			{isScrollableLeft && (
 				<button
 					className="sui-tab__arrow sui-tab__arrow--left"
-					onClick={handleScrollLeft}
+					onClick={() => scrollNav("left")}
 				>
 					<ChevronLeft size="sm" />
 				</button>
@@ -112,7 +106,7 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 			{isScrollableRight && (
 				<button
 					className="sui-tab__arrow sui-tab__arrow--right"
-					onClick={handleScrollRight}
+					onClick={() => scrollNav("right")}
 				>
 					<ChevronRight size="sm" />
 				</button>

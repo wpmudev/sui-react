@@ -70,6 +70,9 @@ interface TabNavItemProps {
 // Interface definition for the TabProviderProps
 interface TabProviderProps extends Omit<ProviderProps<any>, "value"> {}
 
+// Nav scroll directions
+type TabNavScrollDirection = "right" | "left"
+
 export {
 	TabsProps,
 	TabContextProps,
@@ -78,4 +81,5 @@ export {
 	TabProviderProps,
 	TabPanelProps,
 	TabPanelItemProps,
+	TabNavScrollDirection,
 }

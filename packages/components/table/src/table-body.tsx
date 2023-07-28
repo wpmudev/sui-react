@@ -1,7 +1,10 @@
 import React, {
 	Children,
 	forwardRef,
+	Fragment,
 	HTMLProps,
+	ReactNode,
+	useCallback,
 	useContext,
 	useEffect,
 	useState,
@@ -18,23 +21,29 @@ import { TableContext } from "./table-context"
  * @param {TableSectionProps} props - The properties for the TableBody component.
  * @return {JSX.Element} The JSX representation of the TableBody component.
  */
-const TableBody: React.FC<TableSectionProps> = ({ children, ...props }) => {
+const TableBody: React.FC<TableSectionProps> = (props) => {
+	const { children } = props
 	// State to keep track of the table rows
-	const [el, setEl] = useState<React.ReactNode[]>(Children.toArray(children))
-	const [rows, setRows] = useState<number[]>([])
+	const [el, setEl] = useState<ReactNode[]>(Children.toArray(children))
+	const [rows, setRows] = useState<Record<string, any>[]>([])
+
+	// Table context
 	const ctx = useContext(TableContext)
 
 	// Effect to update the rows array when children change
 	useEffect(() => {
-		const d = React.Children.toArray(children).map(
-			(row: React.ReactNode) => row.props.id,
-		)
-		setRows(d)
+		setRows(Children.toArray(children).map((row: ReactNode) => row.props.id))
 	}, [children])
 
 	// Effect to update the TableContext's rows when the rows array changes
 	useEffect(() => {
 		ctx?.setRows(rows)
+	}, [ctx, rows])
+
+	// When dragging finished
+	const onSortEnd = useCallback(() => {
+		ctx?.setForceCollapse(false)
+		ctx?.triggerAction("resort", rows)
 	}, [ctx, rows])
 
 	// If the table is not draggable, render the TableBodyTag with children
@@ -51,10 +60,10 @@ const TableBody: React.FC<TableSectionProps> = ({ children, ...props }) => {
 			animation={150}
 			handle=".sui-table__cell--drag"
 			onStart={() => ctx?.setForceCollapse(true)}
-			onEnd={() => ctx?.setForceCollapse(false)}
+			onEnd={onSortEnd}
 		>
 			{el.map((item) => (
-				<React.Fragment key={item.props.id}>{item}</React.Fragment>
+				<Fragment key={item.props.id}>{item}</Fragment>
 			))}
 		</Sortable>
 	)
