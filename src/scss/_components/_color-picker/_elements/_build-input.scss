@@ -14,22 +14,27 @@
     @include sui-class($rtl: false, $theme: null) {
         // Block wrapper.
         @include block($block) {
-            @include element(input) {
-                align-items: center;
-                background: var(--neutral-grey-light-100-ffffff, #FFF);
-                border-radius: 4px;
-                box-shadow: 0 0 0 2px #286EF1;
-                display: flex;
-                justify-content: space-between;
+            @include element(color) {
+                position: relative;
                 max-width: 240px;
-                padding: 8px 12px 8px 8px;
-                cursor: pointer;
+            }
+
+            .sui-input__input {
+                padding: 8px 40px;
+            }
+
+            @include element(input-preview, clear, button) {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
             }
 
             @include element(input-preview) {
                 align-items: center;
                 display: inline-flex;
                 gap: 8px;
+                left: 8px;
+                cursor: pointer;
             }
 
             @include element(input-preview-icon) {
@@ -42,9 +47,14 @@
                 font: 400 15px/24px $font-family-default
             }
 
-            @include element(input-close) {
+            @include element(clear) {
                 cursor: pointer;
                 color: #aaa;
+                right: 8px;
+            }
+
+            @include element(button) {
+                right: 8px;
             }
         }
     }
