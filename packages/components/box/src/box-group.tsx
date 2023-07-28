@@ -7,7 +7,7 @@ import { BoxGroupProps } from "./box-group.types"
 const BoxGroup: React.FC<BoxGroupProps> = ({ isInline = true, children }) => {
 	// Build content based in slots
 	const slots = Children.map(children, (child, index) => {
-		const { slot, children: content } = child.props ?? {}
+		const { slot, children: content } = child?.props ?? {}
 
 		if (isObject(child) && ["left", "right"].includes(slot ?? "")) {
 			return (
@@ -23,7 +23,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({ isInline = true, children }) => {
 		return <Fragment key={`sui-box-group--${index}`}>{child}</Fragment>
 	})
 
-	// generate classnames
+	// Generate classnames
 	const classNames = generateCN("sui-box-group", {
 		inline: isInline,
 	})

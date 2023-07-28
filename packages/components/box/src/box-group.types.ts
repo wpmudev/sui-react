@@ -11,7 +11,7 @@ interface BoxGroupProps {
 	/**
 	 * The content of the box group.
 	 */
-	children?: React.ReactNode
+	children?: JSX.Element | JSX.Element[]
 }
 
-export { BoxGroupProps }
+export type { BoxGroupProps }
