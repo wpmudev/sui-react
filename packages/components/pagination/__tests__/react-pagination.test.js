@@ -1,7 +1,7 @@
-'use strict';
+"use strict"
 
-const reactPagination = require('../lib/react-pagination');
+const reactPagination = require("../lib/pagination")
 
-describe('@wpmudev/react-pagination', () => {
-    it('needs tests');
-});
+describe("@wpmudev/pagination", () => {
+	it("needs tests")
+})

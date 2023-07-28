@@ -13,3 +13,6 @@ export { useValidateProps } from "./use-validate-props"
 
 // drag and drop hook
 export { useDragAndDrop } from "./use-drag-and-drop"
+
+// isRTL hook
+export { useDetectRTL } from "./use-rtl-detect"

@@ -1,8 +1,8 @@
 import React, { forwardRef, useState } from "react"
-
+import { generateCN } from "@wpmudev/sui-utils"
 import { FormField } from "@wpmudev/sui-form-field"
 import { Input } from "@wpmudev/sui-input"
-// import { Button } from "@wpmudev/sui-button"
+import { Button } from "@wpmudev/sui-button"
 
 import { PasswordFieldProps } from "./field-password.types"
 
@@ -15,8 +15,9 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 		label,
 		helper,
 		errorMessage,
-		button,
+		button = { type: "" },
 		isLabelHidden = false,
+		isSmall = false,
 		isError = false,
 		isDisabled = false,
 		...props
@@ -38,6 +39,7 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 			helper,
 			error,
 			isLabelHidden,
+			isSmall,
 		}
 
 		// Input settings
@@ -47,60 +49,42 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 			inputClass: "sui-password__input",
 			isError,
 			isDisabled,
+			iconPosition: "end",
 			onKeyUp: () => {
 				const getValue = document.getElementById(id).value
 				setHasValue(getValue.length > 0)
 			},
+			isSmall,
 			...props,
 		}
 
 		// Button settings
-		// set.button = Object.assign(
-		// 	{
-		// 		type: "icon-button",
-		// 		showLabel: "Show",
-		// 		hideLabel: "Hide",
-		// 		icon: is.visible ? "hide" : "show",
-		// 		props: {
-		// 			color: "black",
-		// 			className: "sui-password__button",
-		// 			isSmall: true,
-		// 			isDisabled: isDisabled || !is.filled ? true : false,
-		// 			onClick: () => set.visibility(!is.visible),
-		// 		},
-		// 		html: "",
-		// 	},
-		// 	button,
-		// )
-		//
-		// // Render button appearance
-		// switch (set.button.type) {
-		// 	case "standard":
-		// 		set.button.props.appearance = "secondary"
-		// 		set.button.html = (
-		// 			<Button {...set.button.props}>
-		// 				{is.visible ? set.button.hideLabel : set.button.showLabel}
-		// 			</Button>
-		// 		)
-		// 		break
-		//
-		// 	default:
-		// 		set.button.props.appearance = "tertiary"
-		// 		set.button.html = (
-		// 			<IconButton
-		// 				icon={set.button.icon}
-		// 				label={is.visible ? set.button.hideLabel : set.button.showLabel}
-		// 				{...set.button.props}
-		// 			/>
-		// 		)
-		// 		break
-		// }
+		const buttonProps = {
+			label: isVisible ? "Hide" : "Show",
+			appearance: "secondary",
+			color: "black",
+			className: "sui-password__button",
+			isDisabled: isDisabled || !hasValue ? true : false,
+			onClick: () => setVisible(!isVisible),
+			...(button.type === "icon-button" && {
+				icon: isVisible ? "hide" : "show",
+				appearance: "tertiary",
+				iconOnly: true,
+				iconSize: isSmall ? "md" : "lg",
+			}),
+			isSmall,
+		}
+
+		const classNames = generateCN("sui-password", {
+			password: true,
+			icon: button.type === "icon-button" ? true : false,
+		})
 
 		return (
 			<FormField {...fieldAttrs}>
 				<div className="sui-password">
 					<Input {...inputAttrs} />
-					{/*{set.button.html}*/}
+					<Button {...buttonProps}>{buttonProps.label}</Button>
 				</div>
 			</FormField>
 		)

@@ -26,7 +26,7 @@ const Tabs = ({ color, state }: any) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiTab state={state}>
+					<SuiTab>
 						<TabNav>
 							<TabNavItem icon={<Calendar size="sm" />}>
 								Image Compression
@@ -41,8 +41,11 @@ const Tabs = ({ color, state }: any) => {
 							>
 								Smush Pro
 							</TabNavItem>
-							<TabNavItem>
-								CDN <Tag isSmall={true}>Pro</Tag>
+							<TabNavItem isDisabled={true}>
+								CDN{" "}
+								<Tag design="outlined" color="black" isSmall={true}>
+									Pro
+								</Tag>
 							</TabNavItem>
 							<TabNavItem>Local Webp</TabNavItem>
 						</TabNav>
@@ -114,19 +117,10 @@ const Tabs = ({ color, state }: any) => {
 }
 
 // Set story arguments.
-Tabs.args = {
-	state: "",
-}
+Tabs.args = {}
 
 // Set controls for story arguments.
-Tabs.argTypes = {
-	state: {
-		options: ["neutral", "informative", "success", "warning", "critical"],
-		control: {
-			type: "select",
-		},
-	},
-}
+Tabs.argTypes = {}
 
 // Configure default options.
 export default {
