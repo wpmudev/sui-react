@@ -9,3 +9,5 @@
 @include sui-button-modifier.modify-color(button);
 @include sui-button-modifier.modify-loading(button);
 @include sui-button-modifier.modify-disabled(button);
+@include sui-button-modifier.modify-full-width(button);
+@include sui-button-modifier.modify-is-icon(button);

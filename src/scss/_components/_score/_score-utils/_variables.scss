@@ -1,0 +1,38 @@
+@use "../../../_utils/tokens" as *;
+
+$sui-score-size: (
+	sm: (
+		height: 32px
+	),
+	lg: (
+		height: 150px
+	)
+);
+$sui-score-content-size: (
+    width: 90px
+);
+$sui-score-spacing: (
+	vertical: $score-spacing-vertical
+);
+$sui-score-font: (
+    lg: (
+        size: $score-font-size-lg,
+		height: $score-font-height-lg,
+		weight: $score-font-weight-bold
+    ),
+	md: (
+		size: $score-font-size-md,
+		height: $score-font-height-md,
+		weight: $score-font-weight-bold
+	),
+	sm: (
+		size: $score-font-size-sm,
+		height: $score-font-height-md,
+		weight: $score-font-weight-normal
+	)
+);
+$sui-score-stroke: (
+	lg: (
+		width: 10px
+	)
+)

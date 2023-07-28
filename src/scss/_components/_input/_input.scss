@@ -7,6 +7,7 @@
 @include sui-input--element.build-icon(input);
 
 @include sui-input--modifier.edit-size(input);
+@include sui-input--modifier.has-icon(input);
 
 @include sui-input--state.edit-hover(input);
 @include sui-input--state.edit-focus(input);

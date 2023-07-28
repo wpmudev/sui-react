@@ -1,0 +1,51 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+/// Build Input
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-input($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(input) {
+                align-items: center;
+                background: var(--neutral-grey-light-100-ffffff, #FFF);
+                border-radius: 4px;
+                box-shadow: 0 0 0 2px #286EF1;
+                display: flex;
+                justify-content: space-between;
+                max-width: 220px;
+                padding: 8px 12px;
+            }
+
+            @include element(input-preview) {
+                align-items: center;
+                cursor: pointer;
+                display: inline-flex;
+                gap: 8px;
+            }
+
+            @include element(input-preview-icon) {
+                background: red;
+                border-radius: 50px;
+                height: 24px;
+                width: 24px;
+            }
+
+            @include element(input-preview-code) {
+                font: 400 15px/24px $font-family-default
+            }
+
+            @include element(input-close) {
+                cursor: pointer;
+            }
+        }
+    }
+}

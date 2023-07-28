@@ -1,0 +1,97 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Accordion item
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-item($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(item) {
+                border-top: $accordion-border-width solid $accordion-border-color;
+                overflow: hidden;
+
+                &:first-child {
+                    border: none;
+                    border-top-left-radius: $accordion-border-radius-xs;
+                    border-top-right-radius: $accordion-border-radius-xs;
+                }
+
+                &:last-child {
+                    border-bottom-right-radius: $accordion-border-radius-xs;
+                    border-bottom-left-radius: $accordion-border-radius-xs;
+                }
+
+                p {
+                    &:first-child {
+                        margin-top: 0;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                @include modifier(body) {
+                    > .sui-box {
+                        .sui-box-group {
+                            padding-top: $accordion-spacing-md;
+                            padding-bottom: $accordion-spacing-md;
+                        }
+                    }
+                }
+
+                @include modifier(footer) {
+                    > .sui-box {
+                        .sui-box-group {
+                            padding-top: $accordion-spacing-sm;
+                            padding-bottom: $accordion-spacing-sm;
+                            border-top: $accordion-border-width solid $accordion-border-color;
+                        }
+                    }
+                }
+
+                @include modifier(body, footer) {
+                    > .sui-box {
+                        border: none;
+                        border-radius: 0;
+                        .sui-box-group {
+                            margin: 0;
+
+                            @include media(max-width, sm) {
+                                padding: $accordion-spacing-xs;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(item) {
+                border-color: $color-extended-neutral-0;
+
+                @include modifier(footer) {
+                    > .sui-box {
+                        .sui-box-group {
+                            border-color: $color-extended-neutral-0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

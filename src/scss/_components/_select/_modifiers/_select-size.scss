@@ -1,0 +1,90 @@
+@use "../../../_utils/utils" as *;
+
+@mixin modify-size($block) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(sm) {
+				@include modifies-element(control) {
+                    font-size: $select-control-options-font-size-md;
+                    line-height: $select-control-options-font-height-md;
+                    padding-top: $select-control-padding-sm-vertical;
+                    padding-bottom: $select-control-padding-sm-vertical;
+                    padding-left: $select-control-padding-sm-horizontal-left;
+                    padding-right: $select-control-padding-sm-horizontal-right;
+                    min-height: $select-control-size-sm;
+                }
+
+                @include modifies-element(input) {
+                    font-size: $select-input-default-font-size-sm;
+                    line-height: $select-input-default-font-height-sm;
+                    padding: $select-input-default-padding-vertical $select-input-default-padding-horizontal-md;
+                    min-height: $select-control-size-sm;
+                }
+
+                &.sui-#{$block}--searchable {
+                    .sui-#{$block}__input {
+                        padding-left: $select-input-default-padding-horizontal-xs;
+                    }
+                }
+
+                &.sui-#{$block}--multiselect {
+                    .sui-#{$block}__control {
+                        padding-right: $select-control-multiselect-padding-sm-horizontal;
+                        line-height: $select-input-default-font-height-md;
+                    }
+                }
+
+                &.sui-#{$block}--smartsearch {
+                    .sui-#{$block}__icon--close-alt {
+                        font-size: $select-icon-font-size-md;
+                        right: $select-icon-close-position-right-sm;
+                    }
+                }
+
+                .sui-#{$block}--multiselect {
+                    .sui-#{$block}__icon--close-alt {
+                        right: $select-icon-close-position-right-md;
+                    }
+                }
+
+                .sui-#{$block}__dropdown--option {
+                    font-size: $select-dropdown-option-font-size-sm;
+                    padding: $select-dropdown-option-padding-vertical $select-dropdown-option-padding-horizontal-sm;
+                }
+
+                &.sui-#{$block}--searchable {
+                    .sui-#{$block}__control {
+                        padding: 0;
+                    }
+                }
+
+                .sui-#{$block}__dropdown--option {
+                    .sui-#{$block}__icon {
+                        padding-right: $select-dropdown-option-padding-horizontal-xs;
+                    }
+                }
+
+                .sui-#{$block}__icon--search {
+                    font-size: $select-icon-font-size-md;
+                    left: $select-icon-search-position-left-sm;
+                }
+
+                @include modifies-element(search) {
+                    .sui-#{$block}__icon {
+                        font-size: $select-icon-font-size-sm;
+                        left: $select-icon-search-position-left-md;
+                        bottom: $select-icon-search-position-bottom;
+                    }
+                }
+
+                .sui-checkbox {
+                    font-size:  $select-checkbox-font-size-sm;
+                    .sui-checkbox__box {
+                        width: $select-checkbox-size-sm;
+                        height: $select-checkbox-size-sm;
+                    }
+                }
+			}
+		}
+	}
+}

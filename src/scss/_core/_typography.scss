@@ -119,3 +119,30 @@
 		letter-spacing: $tag-font-spacing;
 	}
 }
+
+// Theme: None
+// RTL: True
+// Set dark color for global elements
+@include sui-class($rtl: true, $theme: false) {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	p {
+		font-family: $font-family-default;
+	}
+}
+
+// Theme: Dark
+// Set dark color for global elements
+@include sui-class($rtl: false, $theme: dark) {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	p {
+		color: $color-extended-neutral-0;
+	}
+}

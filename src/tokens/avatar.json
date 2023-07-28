@@ -12,6 +12,10 @@
         }
       },
       "border": {
+        "width": {
+          "value": "1px",
+          "type": "borderWidth"
+        },
         "radius": {
           "value": "100%",
           "type": "borderRadius"

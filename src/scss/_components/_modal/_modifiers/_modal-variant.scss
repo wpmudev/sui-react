@@ -1,0 +1,47 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Alignment
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-variant($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // by default variant is "simple"
+        @include block($block) {
+            // variant: advanced
+            @include modifier(advanced) {
+                @include modifies-element(container) {
+                    padding: 0;
+                }
+                @include modifies-element(header) {
+                    border-bottom: 1px solid var(--neutral-grey-light-80-e-6-e-6-e-6, #E6E6E6);
+                    padding: 24px 32px;
+                }
+                @include modifies-element(footer) {
+                    border-top: 1px solid var(--neutral-grey-light-80-e-6-e-6-e-6, #E6E6E6);
+                    padding: 24px 32px;
+                }
+            }
+
+            // variant: app-connect
+            @include modifier(app-connect) {
+                @include modifies-element(header) {
+                    align-items: baseline;
+
+                    @include modifies-element(header-info) {
+                        text-align: center;
+                    }
+                }
+
+                @include modifies-element(body) {
+                    padding: 24px 32px 24px 32px;
+                }
+            }
+        }
+    }
+}

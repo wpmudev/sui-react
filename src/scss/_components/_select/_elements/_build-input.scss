@@ -1,0 +1,49 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Select Input
+/// This function creates styles for the select input
+/// recipient wrapper.
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-input($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+            @include element(input) {
+                font-size: $select-input-default-font-size-md;
+                line-height: $select-input-default-font-height-md;
+                padding: $select-input-default-padding-vertical $select-input-default-padding-horizontal-sm;
+                margin: $select-input-default-margin;
+                border-width: $select-input-default-border-width;
+                border-radius: $select-input-default-border-radius;
+                width: $select-input-default-size-width;
+                cursor: text;
+                outline: none;
+            }
+
+            @include element(search) {
+                @include modifier(input) {
+					font-size: $select-input-search-font-size-md;
+					line-height: $select-input-search-font-height-md;
+					width: $select-input-default-size-width;
+					border-width: $select-input-search-border-width;
+					border-style: $select-input-search-border-style;
+					border-color: $select-input-search-border-color;
+					border-radius: $select-input-search-border-radius;
+					padding-top: $select-input-search-padding-vertical;
+					padding-right: $select-input-search-padding-horizontal-right;
+					padding-bottom: $select-input-search-padding-vertical;
+					padding-left: $select-input-search-padding-horizontal-left;
+					cursor: text;
+					outline: none;
+				}
+            }
+		}
+	}
+}

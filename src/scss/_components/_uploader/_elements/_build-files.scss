@@ -1,0 +1,59 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build file preview section
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-files($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(files) {
+            }
+
+            @include element(files-item) {
+                align-items: center;
+                border-radius: 4px;
+                background: var(--neutral-grey-light-95-f-8-f-8-f-8, #F8F8F8);
+                display: flex;
+                gap: 8px;
+                margin-top: 4px;
+            }
+
+            @include element(files-item-icon) {
+                margin-left: 12px;
+            }
+
+            @include element(files-item-image) {
+                background-color: lightgray;
+                background-position: 50%;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border-radius: 4px;
+                display: inline-flex;
+                height: 37px;
+                width: 37px;
+            }
+
+            @include element(files-item-preview) {
+                align-items: center;
+                display: inline-flex;
+                padding: 2px;
+            }
+
+            @include element(files-item-name) {
+                font: $font-weight-default 15px/24px $font-family-default;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+}

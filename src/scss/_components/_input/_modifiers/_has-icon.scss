@@ -1,0 +1,31 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Edit Size
+/// This function modifies elements styles based on the input element
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin has-icon($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(has-icon) {
+				align-items: center;
+				display: flex;
+
+				@include modifies-element(input) {
+					padding-left: 8px;
+				}
+
+				@include modifies-element(icon) {
+					margin-left: 8px;
+				}
+			}
+		}
+	}
+}

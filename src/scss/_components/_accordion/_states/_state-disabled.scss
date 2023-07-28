@@ -1,0 +1,29 @@
+@use "../../../_utils/utils" as *;
+
+/// Disabled State
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin state-disabled($block) {
+
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(item) {
+                @include modifier(disabled) {
+                    box-shadow: none;
+                    color: $accordion-state-disabled-color;
+                    pointer-events: none;
+                    user-select: none;
+
+                    h2, svg {
+                        color: $accordion-state-disabled-color;
+                    }
+                }
+            }
+        }
+    }
+}

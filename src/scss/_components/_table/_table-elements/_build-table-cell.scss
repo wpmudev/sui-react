@@ -1,0 +1,48 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+//@use "../_score-utils/variables" as *;
+//@use "../_score-utils/colors" as *;
+//@use "../_score-utils/animation" as *;
+
+/// Build Table cell
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-table-cell($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(cell) {
+                border: none;
+                padding: 16px;
+                text-align: left;
+
+                @include modifier(drag) {
+                    cursor: grab;
+                    position: absolute;
+                    top: 50%;
+                    left: 1%;
+                    transform: translate(0, -8px);
+                }
+
+                @include modifier(actions) {
+                    text-align: right;
+                }
+
+                &:first-child {
+                    padding-left: 32px;
+                }
+
+                &:last-child {
+                    padding-right: 32px;
+                }
+            }
+        }
+    }
+}

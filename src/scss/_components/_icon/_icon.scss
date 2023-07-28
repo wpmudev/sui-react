@@ -1,0 +1,7 @@
+@use "./_elements/elements" as sui-icon--element;
+@use "./_modifiers/modifiers" as sui-icon--modifier;
+
+@include sui-icon--element.build-container(icon);
+
+@include sui-icon--modifier.build-color(icon);
+@include sui-icon--modifier.build-size(icon);
