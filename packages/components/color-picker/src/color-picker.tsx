@@ -6,6 +6,8 @@ import { CloseAlt } from "@wpmudev/sui-icons"
 import { Button } from "../../button/src"
 import { Input } from "@wpmudev/sui-input"
 
+import PreviewImage from "./static/opaque.png"
+
 /**
  * ColorPicker Component
  *
@@ -79,10 +81,11 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ color = "", onChange }) => {
 					<span
 						className="sui-color-picker__input-preview-icon"
 						aria-hidden={true}
-						style={{
-							backgroundImage:
-								"url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAQAAAAngNWGAAAAFElEQVR42mNkIBIwjiocVTiqEAQAJNYAFd868w4AAAAASUVORK5CYII=)",
-						}}
+						style={
+							tempColor
+								? { backgroundColor: tempColor }
+								: { backgroundImage: `url(${PreviewImage})` }
+						}
 					/>
 				</div>
 				{tempColor ? (
