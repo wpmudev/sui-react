@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef } from "react"
+import React, { useRef } from "react"
 
 import { isEmpty } from "@wpmudev/sui-utils"
 
@@ -6,32 +6,28 @@ import { TableProps } from "./table.types"
 import { TableContextProvider } from "./table-context"
 import { TableToolbar } from "./table-toolbar"
 
-/**
- * The Table component represents a table with optional features like checkable rows and drag-and-drop support.
- *
- * @param {TableProps} props             - The properties for the Table component.
- * @param {ReactNode}  props.children    - The children nodes of the table.
- * @param {boolean}    props.hasToolbar  - Display Toolbar when true.
- * @param {string}     props.ariaLabel   - ARIA label for the table (default: empty string).
- * @param {boolean}    props.allowCheck  - Determines if the table allows checkable rows with checkboxes.
- * @param {boolean}    props.isDraggable - Determines if the table supports drag-and-drop reordering of rows.
- * @return {JSX.Element} The JSX representation of the Table component.
- */
+// Table component to display a table with optional toolbar and context
 const Table: React.FC<TableProps> = ({
 	children,
 	hasToolbar = true,
 	ariaLabel = "",
 	allowCheck,
 	isDraggable,
+	filters,
+	onAction,
+	bulkActions,
 	...props
 }) => {
 	// Reference to the table element
 	const ref = useRef<HTMLTableElement | null>(null)
 
+	// Render the TableContextProvider to provide context with optional props
 	return (
-		// TableContextProvider to provide context
-		<TableContextProvider value={{ allowCheck, isDraggable }}>
+		<TableContextProvider
+			props={{ allowCheck, isDraggable, filters, onAction, bulkActions }}
+		>
 			<div className="sui-table">
+				{/* Render the TableToolbar component if hasToolbar is true */}
 				{hasToolbar && <TableToolbar />}
 				<table
 					{...props}

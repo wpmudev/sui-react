@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 
 // Import required component
 import {
@@ -13,10 +13,10 @@ import {
 import { Tag } from "@wpmudev/sui-tag"
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 import { Button } from "@wpmudev/sui-button"
+import { Pagination } from "@wpmudev/sui-pagination"
 
 // Import documentation main page
 import docs from "./ReactTable.mdx"
-import { TableToolbar } from "../src/table-toolbar"
 
 // Configure default options
 export default {
@@ -121,6 +121,20 @@ const records = [
 	},
 ]
 
+// Array numbers from 1 to n.
+const createList = (topNumber: number) => {
+	const listNumbers = []
+	topNumber = topNumber + 1
+
+	for (let i = 1; i < topNumber; i++) {
+		listNumbers.push(i)
+	}
+
+	return listNumbers
+}
+
+const items = createList(100)
+
 // Build "Field List" story
 const Table = ({ example, ...args }) => {
 	const action = (id, content) => {
@@ -155,7 +169,12 @@ const Table = ({ example, ...args }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<SUITable {...args}>
+				<SUITable
+					{...args}
+					onAction={(actionType, data) => {
+						console.log("ACTION FIRED:", actionType, data)
+					}}
+				>
 					<TableHead>
 						<TableRow actions={() => null}>
 							<TableCell isHeading={true}>ID</TableCell>
@@ -184,7 +203,18 @@ const Table = ({ example, ...args }) => {
 					</TableBody>
 					<TableFooter>
 						<TableRow id="0">
-							<TableCell>FOOTER</TableCell>
+							<TableCell>
+								<Pagination limit={5}>
+									{
+										// @todo: need improvement
+									}
+									<ul style={{ display: "none" }}>
+										{items.map((item, key) => (
+											<li key={key}>Item #{item}</li>
+										))}
+									</ul>
+								</Pagination>
+							</TableCell>
 						</TableRow>
 					</TableFooter>
 				</SUITable>
@@ -198,10 +228,99 @@ Table.args = {
 	allowCheck: true,
 	isDraggable: true,
 	hasToolbar: true,
+	ariaLabel: "",
+	bulkActions: [
+		{
+			id: "option-1",
+			label: "Option 1",
+		},
+		{
+			id: "option-2",
+			label: "Option 2",
+		},
+	],
+	filters: [
+		{
+			id: "sort-by",
+			type: "select",
+			title: "Sort By",
+			value: "id",
+			// Select component props
+			props: {
+				id: "sort-by",
+				isSmall: true,
+				options: [
+					{
+						id: "id",
+						label: "ID",
+					},
+					{
+						id: "form-name",
+						label: "Form name",
+					},
+					{
+						id: "status",
+						label: "Status",
+					},
+					{
+						id: "last-submission",
+						label: "Last Submission",
+					},
+				],
+			},
+		},
+		{
+			id: "lockout-type",
+			type: "select",
+			title: "Lockout type",
+			value: "option-1",
+			// Select component props
+			props: {
+				id: "lockout-type",
+				isSmall: true,
+				options: [
+					{
+						id: "option-1",
+						label: "Option 1 is the option.",
+					},
+					{
+						id: "option-2",
+						label: "Option 2",
+					},
+				],
+			},
+		},
+		{
+			id: "ip-address",
+			type: "text",
+			title: "IP Address",
+			value: "1",
+			// Input component props
+			props: {
+				isSmall: true,
+			},
+		},
+		{
+			id: "banned-status",
+			type: "text",
+			title: "Banned status",
+			value: "1",
+			// Input component props
+			props: {
+				isSmall: true,
+			},
+		},
+	],
 }
 
 // Set controls for story arguments.
 Table.argTypes = {
+	ariaLabel: {
+		name: "Aria Label",
+		control: {
+			type: "text",
+		},
+	},
 	allowCheck: {
 		name: "Allow select",
 		control: "boolean",
@@ -213,6 +332,12 @@ Table.argTypes = {
 	hasToolbar: {
 		name: "Toolbar",
 		control: "boolean",
+	},
+	bulkActions: {
+		name: "Bulk Actions",
+	},
+	filters: {
+		name: "Filters",
 	},
 }
 
