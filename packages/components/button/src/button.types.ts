@@ -5,7 +5,7 @@ import React, { HTMLProps } from "react"
  */
 interface ButtonProps
 	extends React.HTMLAttributes<
-		HTMLButtonElement | HTMLAnchorElement | HTMLLabelElement
+		HTMLButtonElement | HTMLAnchorElement | HTMLInputElement
 	> {
 	/**
 	 * Optional CSS class name for the button.
@@ -65,4 +65,4 @@ interface ButtonProps
 	iconOnly?: boolean
 }
 
-export { ButtonProps }
+export type { ButtonProps }

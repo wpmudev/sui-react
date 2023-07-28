@@ -1,4 +1,3 @@
-// Import required component(s).
 export { Button } from "./button-standard"
 export type { ButtonProps } from "./button.types"
 
