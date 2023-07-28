@@ -1,0 +1,37 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Segmented control
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-segmented-control($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            align-items: center;
+            display: flex;
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: None.
+    //	@include sui-class($rtl: true, $theme: null) {
+    //		@include block($block) {
+    //			&:first-child {
+    //				margin-left: $tag-margin-horizontal;
+    //				margin-right: 0;
+    //			}
+    //
+    //			&:last-child {
+    //				margin-right: $tag-margin-horizontal;
+    //				margin-left: 0;
+    //			}
+    //		}
+    //	}
+}

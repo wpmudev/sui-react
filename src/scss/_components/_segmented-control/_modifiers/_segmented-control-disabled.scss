@@ -1,0 +1,27 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build disabled
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block-name - Main block name
+@mixin build-segmented-control-disabled($block) {
+    // DIR: Left to right.
+    // THEME: Light.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(label) {
+                @include modifier(disabled) {
+                    border-radius: 0 4px 4px 0;
+                    border: 1px solid var(--neutral-grey-light-80-e-6-e-6-e-6, #E6E6E6);
+                    background: var(--neutral-grey-light-90-f-2-f-2-f-2, #F2F2F2);
+                    color: var(--neutral-grey-light-70-aaaaaa, #AAA);
+                    cursor: default;
+                }
+            }
+        }
+    }
+}

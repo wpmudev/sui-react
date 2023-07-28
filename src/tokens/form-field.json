@@ -70,7 +70,7 @@
 						"type": "fontSizes"
 					},
           "md": {
-						"value": "{font.size.md}",
+						"value": "{font.size.default}",
 						"type": "fontSizes"
 					}
 				},
