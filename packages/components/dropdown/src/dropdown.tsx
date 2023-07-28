@@ -1,20 +1,20 @@
-import React, { Children, useRef, useState, useCallback, useId } from "react"
+import React, { useRef, useState, useCallback, useId } from "react"
 
 import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 import { useOuterClick } from "@wpmudev/sui-hooks"
+import { Menu, MenuItem, MenuGroup } from "@wpmudev/sui-menu"
 
-import { DropdownOption } from "./dropdown-option"
 import { DropdownProps, DropdownOptionProps } from "./dropdown.types"
 
 const Dropdown: React.FC<DropdownProps> = ({
 	id,
 	label,
-	hasCta,
 	isSmall,
 	isLabelHidden,
 	current,
 	children,
+	menu,
 }) => {
 	const ref = useRef<HTMLDivElement | null>(null)
 	let uuid = `sui-dropdown-${useId()}`
@@ -43,6 +43,24 @@ const Dropdown: React.FC<DropdownProps> = ({
 		},
 		[],
 	)
+
+	const renderMenus = (menus) => {
+		return (menus || [])?.map((menuItem, index) => {
+			// its a group item
+			if (!!menuItem.menus) {
+				return (
+					<MenuGroup key={index} title={menuItem.label}>
+						{renderMenus(menuItem.menus)}
+					</MenuGroup>
+				)
+			}
+			return (
+				<MenuItem key={index} {...menuItem.props}>
+					{menuItem.label}
+				</MenuItem>
+			)
+		})
+	}
 
 	return (
 		<div
@@ -78,28 +96,8 @@ const Dropdown: React.FC<DropdownProps> = ({
 					})
 				}
 			>
-				{Children.map(children, (option: DropdownOptionProps, index) => (
-					<DropdownOption
-						key={index}
-						id={uuid}
-						index={index}
-						isActive={index === active}
-						onSelect={onOptionSelect}
-						{...(option?.props ?? {})}
-					/>
-				))}
-				{hasCta && (
-					<div className="sui-dropdown__cta">
-						<Button
-							appearance="primary"
-							color="blue"
-							iconLead="hub"
-							isSmall={true}
-						>
-							Unlock bonus features
-						</Button>
-					</div>
-				)}
+				{!!menu && <Menu>{renderMenus(menu)}</Menu>}
+				{children}
 			</div>
 		</div>
 	)

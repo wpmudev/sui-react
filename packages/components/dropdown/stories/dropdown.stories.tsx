@@ -2,6 +2,7 @@ import React from "react"
 
 // Import required component(s)
 import { Dropdown as SuiDropdown } from "../src"
+import { Button } from "@wpmudev/sui-button"
 
 // Import documentation main page
 import docs from "./ReactDropdown.mdx"
@@ -34,49 +35,51 @@ export const Dropdown = ({ example, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={set.box}>
-					{"standard" === example && (
-						<SuiDropdown {...props}>
-							<div>Option One</div>
-							<div>Option Two</div>
-							<div>Option Three</div>
-							<div>Option Four</div>
-						</SuiDropdown>
-					)}
-
-					{"standard-icon" === example && (
-						<SuiDropdown {...props}>
-							<div icon="plugin-hustle">Option One</div>
-							<div icon="plugin-hustle">Option Two</div>
-							<div icon="plugin-hustle">Option Three</div>
-							<div icon="plugin-hustle">Option Four</div>
-						</SuiDropdown>
-					)}
-
-					{"link-options" === example && (
-						<SuiDropdown {...props}>
-							<div href="https://wpmudev.com/">Option One</div>
-							<div href="https://wpmudev.com/">Option Two</div>
-							<div href="https://wpmudev.com/">Option Three</div>
-							<div href="https://wpmudev.com/">Option Four</div>
-						</SuiDropdown>
-					)}
-
-					{"click-options" === example && (
-						<SuiDropdown {...props}>
-							<div onClick={() => console.log("Option one selected")}>
-								Option One
-							</div>
-							<div onClick={() => console.log("Option two selected")}>
-								Option Two
-							</div>
-							<div onClick={() => console.log("Option three selected")}>
-								Option Three
-							</div>
-							<div onClick={() => console.log("Option four selected")}>
-								Option Four
-							</div>
-						</SuiDropdown>
-					)}
+					<SuiDropdown
+						{...props}
+						menu={[
+							{
+								id: "group-1",
+								label: "Extra Optimization",
+								menus: [
+									{
+										id: "menu-2",
+										label: "Uptime Monitoring",
+										props: {
+											icon: "CheckAlt",
+										},
+									},
+									{
+										id: "menu-2",
+										label: "Site management tools",
+										props: {},
+									},
+								],
+							},
+							{
+								id: "group-2",
+								label: "Performance",
+								menus: [
+									{
+										id: "menu-2",
+										label: "Uptime Monitoring",
+										props: {},
+									},
+									{
+										id: "menu-2",
+										label: "Site management tools",
+										props: {},
+									},
+								],
+							},
+						]}
+					>
+						<div style={{ display: "flex", justifyContent: "center" }}>
+							<Button appearance="primary" color="blue" isSmall={true}>
+								Unlock bonus features
+							</Button>
+						</div>
+					</SuiDropdown>
 				</div>
 			</div>
 		</div>
