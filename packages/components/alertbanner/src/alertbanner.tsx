@@ -1,51 +1,42 @@
 import React, { Fragment, useState, useEffect, useCallback } from "react"
 
-import {
-	isUndefined,
-	isEmpty,
-	isNumber,
-	isFunction,
-	generateCN,
-} from "@wpmudev/sui-utils"
+import { isEmpty, isFunction, generateCN } from "@wpmudev/sui-utils"
 
 import { Button } from "@wpmudev/sui-button"
 import { AlertProps } from "./alertbanner.types"
 
 const AlertBanner: React.FC<AlertProps> = ({
-	id,
 	title,
 	action,
 	children,
-	state,
+	state = "info",
 	timeIn,
 	timeOut,
 	isVisible = false,
-	onClick,
+	onClose,
 }) => {
 	const actions = Object.assign(
 		{
 			label: "",
 			href: "",
 			target: "_blank",
-			onClick: "",
+			onClick: () => null,
 		},
 		action,
 	)
 
-	// const hasId = !isUndefined(id) && !isEmpty(id)
-	const hasTitle = !isUndefined(title) && !isEmpty(title)
-	const hasContent = !isUndefined(children) && !isEmpty(children)
-	const timeInValue = isNumber(timeIn) && timeIn >= 0
-	const timeOutValue = isNumber(timeOut) && timeOut >= 0
+	const hasTitle = title && !isEmpty(title)
+	const timeInValue = timeIn && timeIn >= 0
+	const timeOutValue = timeOut && timeOut >= 0
 	const hasAction = !isEmpty(actions.label)
 
-	if (!hasTitle && !hasContent) {
+	if (!hasTitle && !children) {
 		throw new Error(
 			`Empty content is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Alert Banner\n\nThe "Title" and "Children" components require some value to be passed to it.\n\n`,
 		)
 	}
 
-	// Display states
+	// Display state
 	const [display, setDisplay] = useState<boolean>(isVisible)
 
 	// Run functions on load
@@ -57,13 +48,11 @@ const AlertBanner: React.FC<AlertProps> = ({
 		if (timeOutValue) {
 			setTimeout(() => setDisplay(false), timeOut)
 		}
-	}, [])
+	}, [timeInValue, timeOutValue, setDisplay, timeIn, timeOut])
 
 	const iconClassName = generateCN("suicons", {
-		"check-alt": ["success"].includes(state),
-		warning: ["warning"].includes(state),
-		error: ["error"].includes(state),
-		info: !["success", "warning", "error"].includes(state),
+		"check-alt": "success" === state,
+		[state]: ["warning", "error", "info"].includes(state),
 		empty: !display,
 	})
 
@@ -81,14 +70,14 @@ const AlertBanner: React.FC<AlertProps> = ({
 	}
 
 	const handleOnClose = useCallback(
-		(e) => {
+		(e: React.MouseEvent<HTMLButtonElement>) => {
 			setDisplay(false)
 
-			if (onClick) {
-				onClick(e)
+			if (onClose) {
+				onClose(e)
 			}
 		},
-		[onClick],
+		[onClose],
 	)
 
 	return (
@@ -96,14 +85,14 @@ const AlertBanner: React.FC<AlertProps> = ({
 			{display && (
 				<Fragment>
 					<span className={iconClassName} aria-hidden="true" />
-					{hasContent && (
+					{children && (
 						<span className="sui-alertbanner__content">{children}</span>
 					)}
 					<div className="sui-alertbanner__actions">
 						{hasAction && (
 							<Button
 								{...(!isEmpty(actions.href) && { href: actions.href })}
-								{...(!isEmpty(actions.href) && {
+								{...(!isEmpty(actions.target) && {
 									target: actions.target,
 								})}
 								appearance="secondary"

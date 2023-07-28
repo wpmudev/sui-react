@@ -24,7 +24,7 @@ export const AlertBanner = ({ ...props }) => {
 	return (
 		<Fragment>
 			<div className="sui-layout">
-				<SuiAlertBanner appearance="info" isVisible={true} {...props}>
+				<SuiAlertBanner state="success" isVisible={true} {...props}>
 					<strong>Important!</strong> This is example content for information.{" "}
 					<a href="@wpmudev/alertbanner/stories/ReactAlertBanner.stories#">
 						Add link
@@ -52,17 +52,13 @@ export const AlertBanner = ({ ...props }) => {
 	)
 }
 
-AlertBanner.args = {
-	state: "",
-}
-
 AlertBanner.argTypes = {
 	state: {
 		name: "Status",
 		control: {
 			type: "select",
 			options: {
-				Default: "",
+				Default: "info",
 				Success: "success",
 				Warning: "warning",
 				Error: "error",

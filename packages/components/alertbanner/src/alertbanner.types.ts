@@ -2,19 +2,20 @@ import React, { HTMLProps } from "react"
 /**
  * Represents the properties for an alert component.
  */
-interface AlertProps extends Pick<HTMLProps<HTMLDivElement>, "onClick"> {
-	/**
-	 * The unique identifier of the alert.
-	 */
-	id: string
+interface AlertProps {
 	/**
 	 * The title of the alert.
 	 */
-	title: string
+	title?: string
 	/**
 	 * The action text for the alert.
 	 */
-	action: string
+	action?: {
+		label?: string
+		href?: Pick<HTMLProps<HTMLAnchorElement>, "href">
+		target?: Pick<HTMLProps<HTMLAnchorElement>, "target">
+		onClick?: () => unknown
+	}
 	/**
 	 * The content of the alert.
 	 */
@@ -22,19 +23,23 @@ interface AlertProps extends Pick<HTMLProps<HTMLDivElement>, "onClick"> {
 	/**
 	 * The state of the alert.
 	 */
-	state: string
+	state?: "success" | "warning" | "error" | "info"
 	/**
 	 * The duration (in milliseconds) for the alert to appear.
 	 */
-	timeIn: number
+	timeIn?: number
 	/**
 	 * The duration (in milliseconds) for the alert to disappear.
 	 */
-	timeOut: number
+	timeOut?: number
 	/**
 	 * Indicates whether the alert is visible or not.
 	 */
 	isVisible: boolean
+	/**
+	 * Callback function when the alert gets closed
+	 */
+	onClose?: (e: React.MouseEvent<HTMLButtonElement>) => unknown
 }
 
-export { AlertProps }
+export type { AlertProps }
