@@ -3,7 +3,8 @@ import { ChromePicker } from "react-color"
 
 import { ColorPickerProps, ColorPickerColorProps } from "./color-picker.types"
 import { CloseAlt } from "@wpmudev/sui-icons"
-import { Button } from "@wpmudev/sui-button"
+import { Button } from "../../button/src"
+import { Input } from "@wpmudev/sui-input"
 
 /**
  * ColorPicker Component
@@ -14,10 +15,7 @@ import { Button } from "@wpmudev/sui-button"
  * @param {CodeEditorProps} props - Component props
  * @return {JSX.Element} - JSX Element representing the CodeEditor component
  */
-const ColorPicker: React.FC<ColorPickerProps> = ({
-	color = "#f0f0f0",
-	onChange,
-}) => {
+const ColorPicker: React.FC<ColorPickerProps> = ({ color = "", onChange }) => {
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
 	const [tempColor, setTempColor] = useState(color)
@@ -52,33 +50,60 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 		[color],
 	)
 
+	// Handle input color change
+	const inputColorChange = useCallback(
+		(e) => {
+			const inputValue = e.target.value
+			setTempColor(inputValue)
+		},
+		[tempColor],
+	)
+
 	return (
 		<div className="sui-color-picker">
 			{/* Color display box */}
-			<div
-				role="button"
-				tabIndex={0}
-				className="sui-color-picker__input"
-				onMouseDown={() => setShowPicker(!showPicker)}
-			>
-				<div className="sui-color-picker__input-preview">
+			<div className="sui-color-picker__color">
+				<Input
+					id="color-picker"
+					value={tempColor}
+					onChange={inputColorChange}
+					placeholder="Select color"
+				/>
+
+				<div
+					role="button"
+					tabIndex={0}
+					className="sui-color-picker__input-preview"
+					onMouseDown={() => setShowPicker(!showPicker)}
+				>
 					<span
 						className="sui-color-picker__input-preview-icon"
 						aria-hidden={true}
 						style={{
-							backgroundColor: tempColor ? tempColor : "rgba(0,0,0,0.5)",
+							backgroundImage:
+								"url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAQAAAAngNWGAAAAFElEQVR42mNkIBIwjiocVTiqEAQAJNYAFd868w4AAAAASUVORK5CYII=)",
 						}}
 					/>
-					<span className="sui-color-picker__input-preview-code">
-						{tempColor}
-					</span>
 				</div>
-				{tempColor && (
-					<CloseAlt
-						size="md"
-						className="sui-color-picker__input-close"
+				{tempColor ? (
+					<Button
+						className="sui-color-picker__clear"
+						icon="close-alt"
+						iconOnly={true}
+						iconSize="lg"
 						onClick={closeColorPicker}
+						isSmall={true}
 					/>
+				) : (
+					<Button
+						className="sui-color-picker__button"
+						appearance="tertiary"
+						color="blue"
+						isSmall={true}
+						onClick={() => setShowPicker(!showPicker)}
+					>
+						Select
+					</Button>
 				)}
 			</div>
 			{/* Conditionally render the color picker */}
