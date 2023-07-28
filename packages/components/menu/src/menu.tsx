@@ -1,29 +1,11 @@
-import React, { Children } from "react"
+import React from "react"
 
-import { MenuItem } from "./menu-item"
 import { MenuProps } from "./menu.types"
 
-// Build menu component
+// Define the Menu component
 const Menu: React.FC<MenuProps> = ({ children }) => {
-	// get last item
-	const lastItem = children.length - 1
-
-	return (
-		<ul className="sui-menu">
-			{Children.map(children, (item, index) => (
-				<li className="sui-menu__list">
-					<MenuItem key={index} {...item.props}>
-						{item.props.label}
-					</MenuItem>
-					{index !== lastItem && (
-						<span className="sui-menu__break" aria-hidden="true" tabIndex="-1">
-							|
-						</span>
-					)}
-				</li>
-			))}
-		</ul>
-	)
+	// Render the Menu component with the provided children
+	return <nav className="sui-menu">{children}</nav>
 }
 
 export { Menu }
