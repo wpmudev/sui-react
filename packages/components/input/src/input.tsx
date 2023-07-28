@@ -38,7 +38,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				onMouseLeave = () => {},
 				onChange,
 				icon,
-				iconPosition = "start",
+				iconPosition,
 				...props
 			},
 			ref,
@@ -96,6 +96,8 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 					focus: isFocused && !isReadOnly,
 					filled: hasValue,
 					"has-icon": !isEmpty(icon),
+					"icon-start": !isEmpty(iconPosition) && "start" === iconPosition,
+					"icon-end": !isEmpty(iconPosition) && "end" === iconPosition,
 					error: isError,
 					disabled: isDisabled,
 					// Define multiline class name
@@ -123,7 +125,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			const attrs = {
 				id,
 				ref,
-				type: condContent(isMultiLine, inputType),
+				type: condContent(!isMultiLine, inputType),
 				placeholder: condContent(hasPlaceholder, placeholder),
 				readOnly: condContent(isReadOnly, true),
 				disabled: condContent(isDisabled, true),
@@ -140,11 +142,11 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			return (
 				<div className={classNames}>
 					{icon && !isMultiLine && "start" === iconPosition && (
-						<Icon name={icon ?? ""} />
+						<Icon name={icon ?? ""} size={isSmall ? "md" : "lg"} />
 					)}
 					<TagName {...attrs}></TagName>
 					{icon && !isMultiLine && "end" === iconPosition && (
-						<Icon name={icon ?? ""} />
+						<Icon name={icon ?? ""} size={isSmall ? "md" : "lg"} />
 					)}
 				</div>
 			)

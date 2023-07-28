@@ -48,13 +48,13 @@ interface SelectBaseProps
 	 * It is of type Pick<InteractionTypes, "onMouseEnter">, which means it selects
 	 * the "onMouseEnter" property from the "InteractionTypes" type.
 	 */
-	onMouseEnter: Pick<InteractionTypes, "onMouseEnter">
+	onMouseEnter?: Pick<InteractionTypes, "onMouseEnter">
 	/**
 	 * Event handler for mouse leave event.
 	 * It is of type Pick<InteractionTypes, "onMouseLeave">, which means it selects
 	 * the "onMouseLeave" property from the "InteractionTypes" type.
 	 */
-	onMouseLeave: Pick<InteractionTypes, "onMouseLeave">
+	onMouseLeave?: Pick<InteractionTypes, "onMouseLeave">
 }
 
 const Select: React.FC<SelectBaseProps> = ({
@@ -241,4 +241,4 @@ const Select: React.FC<SelectBaseProps> = ({
 	)
 }
 
-export { Select }
+export { Select, SelectBaseProps }

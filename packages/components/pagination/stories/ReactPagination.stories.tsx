@@ -1,8 +1,10 @@
 import React from "react"
 
 // Import required component(s)
-import { Pagination as SuiPagination } from "../lib/react-pagination"
+import { Pagination as SuiPagination } from "../src/pagination"
 import { Box, BoxGroup } from "@wpmudev/sui-box"
+
+import { PaginationProps } from "../src/pagination.types"
 
 // Import documentation main page
 import docs from "./ReactPagination.mdx"
@@ -19,9 +21,9 @@ export default {
 }
 
 // Build "Pagination" story
-export const Pagination = (args) => {
+export const Pagination = (args: PaginationProps): React.ReactNode => {
 	// Array numbers from 1 to n.
-	const createList = (topNumber) => {
+	const createList = (topNumber: number) => {
 		const listNumbers = []
 		topNumber = topNumber + 1
 

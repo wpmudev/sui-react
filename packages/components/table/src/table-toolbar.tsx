@@ -1,53 +1,74 @@
-import React, { useId, useState } from "react"
+import React, {
+	Fragment,
+	useCallback,
+	useContext,
+	useId,
+	useState,
+} from "react"
 import { TableSectionProps } from "./table.types"
 
 import { Button } from "@wpmudev/sui-button"
-import { Box, BoxGroup } from "@wpmudev/sui-box"
-import { generateCN } from "@wpmudev/sui-utils"
 import { Input } from "@wpmudev/sui-input"
+import { Select } from "@wpmudev/sui-select"
+
+import { TableToolbarContent } from "./table-toolbar-content"
+import { TableContext } from "./table-context"
+import { isEmpty } from "@wpmudev/storybook/lib/utils"
 
 /**
  * TableToolbar component represents the toolbar section of a table.
  *
- * @param {TableSectionProps} props            - The properties for the TableToolbar component.
- * @param {React.ReactNode}   props.children   - The content of the table toolbar.
- * @param {boolean}           props.hasActions - Determines if the toolbar has additional actions.
- * @param {any}               props...         - Additional props for the TableToolbar component.
+ * @param {TableSectionProps} props    - The properties for the TableToolbar component.
+ * @param {any}               props... - Additional props for the TableToolbar component.
  * @return {JSX.Element} The JSX representation of the TableToolbar component.
  */
-const TableToolbar: React.FC<TableSectionProps> = ({
-	children,
-	hasActions = false,
-	...props
-}) => {
+const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 	// State for expansion of the toolbar content
-	const [isExpanded, setIsExpanded] = useState(false)
+	const [isExpanded, setIsExpanded] = useState<boolean>(false)
+	const [bulkAction, setBulkAction] = useState<string>("")
 
 	// Generate unique IDs for accessibility
 	const uniqueId = useId()
 	const filterBtnId = `sui-table-toolbar-filter-${uniqueId}`
 	const bodyId = `sui-table-toolbar-body-${uniqueId}`
+	const bulkDropdown = `sui-table-toolbar-bulk-${uniqueId}`
 
-	// filter options
-	// const options = [
-	// 	{
-	// 		id: "option-1",
-	// 		label: "Option 1 is the option.",
-	// 		isSelected: false,
-	// 	},
-	// 	{
-	// 		id: "option-2",
-	// 		label: "Option 2",
-	// 		isSelected: false,
-	// 	},
-	// ]
+	const ctx = useContext(TableContext)
+
+	const onSearch = useCallback(
+		(e) => {
+			ctx?.triggerAction("search-item", e.target.value)
+		},
+		[ctx],
+	)
+
+	const onApplyBulkAction = useCallback(() => {
+		ctx?.triggerAction("bulk-action", bulkAction)
+	}, [bulkAction, ctx])
 
 	return (
 		<div className="sui-table__toolbar">
 			<div className="sui-table__toolbar-header">
 				<div className="sui-table__toolbar-header-bulk">
-					[BULK ACTIONS GOES HERE...]
-					{/*<Select id="select-id-1" label="Select" options={options} />*/}
+					{!!ctx?.bulkActions && (
+						<Fragment>
+							<Select
+								id={bulkDropdown}
+								isSmall={true}
+								options={ctx?.bulkActions}
+								onChange={(e) => setBulkAction(e?.target?.value)}
+							/>
+							<Button
+								appearance="primary"
+								color="black"
+								isSmall={true}
+								isDisabled={isEmpty(bulkAction ?? "")}
+								onClick={onApplyBulkAction}
+							>
+								Apply
+							</Button>
+						</Fragment>
+					)}
 				</div>
 				<div className="sui-table__toolbar-header-actions">
 					<div>
@@ -55,6 +76,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 							id="input-id-4"
 							label="Label"
 							placeholder="Search"
+							onChange={onSearch}
 							isSmall={true}
 						/>
 					</div>
@@ -72,17 +94,11 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 					</Button>
 				</div>
 			</div>
-			<div
+			<TableToolbarContent
 				id={bodyId}
-				aria-labelledby={filterBtnId}
-				className={generateCN("sui-table__toolbar-body", {
-					expanded: isExpanded,
-				})}
-			>
-				<Box>
-					<BoxGroup isInline={false}>Nothing to see here yet.... :/</BoxGroup>
-				</Box>
-			</div>
+				filterBtnId={filterBtnId}
+				isExpanded={isExpanded}
+			/>
 		</div>
 	)
 }

@@ -4,7 +4,7 @@ import { isEmpty, generateCN } from "@wpmudev/sui-utils"
 import { IconPropsTypes } from "./input-icon.type"
 
 // Build "Icon" component.
-const Icon: React.FC<IconPropsTypes> = ({ name = "", size }) => {
+const Icon: React.FC<IconPropsTypes> = ({ name = "", size = "lg" }) => {
 	// Required parameter(s) validation.
 	if (isEmpty(name ?? "")) {
 		throw new Error(
