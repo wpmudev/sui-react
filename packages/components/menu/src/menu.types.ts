@@ -3,6 +3,8 @@ import React, { HTMLProps } from "react"
  * Props for Menu component.
  */
 interface MenuProps {
+	/** Additional class name(s) to be applied to the Menu. */
+	className?: string
 	/** Children elements to be rendered inside the Menu. */
 	children?: React.ReactNode
 }

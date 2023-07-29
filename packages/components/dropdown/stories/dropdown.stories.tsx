@@ -37,6 +37,9 @@ export const Dropdown = ({ example, ...props }) => {
 				<div style={set.box}>
 					<SuiDropdown
 						{...props}
+						onMenuClick={(id, e) => {
+							console.log("DEBUG: Menu Item Clicked", id, e)
+						}}
 						menu={[
 							{
 								id: "group-1",
@@ -74,10 +77,34 @@ export const Dropdown = ({ example, ...props }) => {
 							},
 						]}
 					>
-						<div style={{ display: "flex", justifyContent: "center" }}>
-							<Button appearance="primary" color="blue" isSmall={true}>
+						<div
+							style={{
+								display: "flex",
+								justifyContent: "center",
+								padding: "8px 24px",
+							}}
+						>
+							<Button
+								appearance="primary"
+								icon="package"
+								color="blue"
+								isSmall={true}
+								isFullWidth={true}
+							>
 								Unlock bonus features
 							</Button>
+						</div>
+					</SuiDropdown>
+					<br />
+					<SuiDropdown {...props}>
+						<div
+							style={{
+								display: "flex",
+								justifyContent: "center",
+								padding: "8px 24px",
+							}}
+						>
+							CUSTOM CONTENT ONLY
 						</div>
 					</SuiDropdown>
 				</div>
@@ -87,35 +114,22 @@ export const Dropdown = ({ example, ...props }) => {
 }
 
 Dropdown.args = {
-	example: "standard",
 	id: "myUniqueId",
 	label: "Menu Button",
 	isSmall: false,
-	hasCta: false,
 	isLabelHidden: false,
+	onMenuClick: () => {},
 }
 
 Dropdown.argTypes = {
-	example: {
-		name: "Example",
-		options: ["standard", "standard-icon", "link-options", "click-options"],
-		control: {
-			type: "select",
-			options: {
-				"Example: Standard": "standard",
-				"Example: Option with icon": "standard-icon",
-				"Example: Option with link": "link-options",
-				"Example: Option with action": "click-options",
-			},
-		},
-	},
 	isSmall: {
 		name: "Small",
 	},
-	hasCta: {
-		name: "CTA Button",
-	},
 	isLabelHidden: {
 		name: "Icon Button",
+	},
+	onMenuClick: {
+		name: "onMenuClick",
+		type: Function,
 	},
 }
