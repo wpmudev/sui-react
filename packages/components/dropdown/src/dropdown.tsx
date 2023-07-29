@@ -1,10 +1,6 @@
 import React, { useRef, useState, useId } from "react"
 
-import {
-	generateCN,
-	handleEventDefault,
-	handleOnKeyDown,
-} from "@wpmudev/sui-utils"
+import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 import { useOuterClick } from "@wpmudev/sui-hooks"
 import { Menu, MenuItem, MenuGroup } from "@wpmudev/sui-menu"
@@ -73,14 +69,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 	}
 
 	return (
-		<div
-			role="button"
-			tabIndex={0}
-			ref={ref}
-			className={wrapperClasses}
-			onClick={(e) => handleEventDefault(e, true)}
-			onKeyDown={(e) => handleEventDefault(e, true)}
-		>
+		<div ref={ref} className={wrapperClasses}>
 			<Button
 				icon="menu"
 				iconPosition="start"
@@ -100,12 +89,6 @@ const Dropdown: React.FC<DropdownProps> = ({
 				role="listbox"
 				className="sui-dropdown__menu"
 				{...(label && { "aria-labelledby": `${id}__label` })}
-				onClick={() => setIsOpen(false)}
-				onKeyDown={(e) =>
-					handleOnKeyDown(e, () => {
-						setIsOpen(false)
-					})
-				}
 			>
 				{/* Render the dropdown menu items */}
 				{!!menu && (
