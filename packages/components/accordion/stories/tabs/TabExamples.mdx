@@ -1,29 +1,135 @@
-import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
-import { Accordion } from '../../src';
-import dedent from 'dedent';
-import Types from './Examples/Types.mdx';
-import States from './Examples/States.mdx';
-import Size from './Examples/Size.mdx';
+import { Section, Switcher, Preview, Snippet } from "@wpmudev/storybook"
+import {
+	Accordion,
+	AccordionItem,
+	AccordionItemBody,
+	AccordionItemFooter,
+} from "../../src"
+import { Button } from "@wpmudev/sui-button"
+import dedent from "dedent"
+import Types from "./Examples/Types.mdx"
+import States from "./Examples/States.mdx"
+import Size from "./Examples/Size.mdx"
 
 export const sampleCode = dedent`
-import React from 'react';\n
-import { Score } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Score bar={55} />;
-}\n
-export default Example;
-`;
+<Accordion>
+   <AccordionItem title="Accordion 1">
+    <AccordionItemBody>
+     <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting
+      industry.
+     </p>
+    </AccordionItemBody>
+      </AccordionItem>
+      <AccordionItem
+       title="Accordion 2"
+      >
+       <AccordionItemBody>
+        <p>
+         Lorem Ipsum is simply dummy text of the printing and typesetting
+         industry.
+        </p>
+       </AccordionItemBody>
+      </AccordionItem>
+   <AccordionItem title="Accordion with desscription" description="Lorem Ipsum is simply dummy text">
+    <AccordionItemBody>
+     <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting
+      industry.
+     </p>
+    </AccordionItemBody>
+      </AccordionItem>
+   <AccordionItem title="Accordion with Footer" >
+    <AccordionItemBody>
+     <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting
+      industry.
+     </p>
+    </AccordionItemBody>
+    <AccordionItemFooter>
+     <Button color="black" appearance="secondary">
+      Secondary
+     </Button>
+     <Button color="blue" appearance="primary">
+      Primary
+     </Button>
+    </AccordionItemFooter>
+      </AccordionItem>
+      <AccordionItem
+       title="Disabled Accordion"
+       isDisabled={true}
+      >
+       <AccordionItemBody>
+        <p>
+         Lorem Ipsum is simply dummy text of the printing and typesetting
+         industry.
+        </p>
+       </AccordionItemBody>
+      </AccordionItem>
+     </Accordion>
+`
 
-<Section contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		Below is the default form of a button, used for most cases; it is not
-		impactful enough to represent the primary action in a container but
-		necessary in some scenarios.
-	</p>
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Accordion Example</p>
 	<Preview wrapper={true}>
-		<Accordion bar={95} />
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+		<Accordion>
+			<AccordionItem title="Accordion 1">
+				<AccordionItemBody>
+					<p>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry.
+					</p>
+				</AccordionItemBody>
+    		</AccordionItem>
+    		<AccordionItem
+    			title="Accordion 2"
+    		>
+    			<AccordionItemBody>
+    				<p>
+    					Lorem Ipsum is simply dummy text of the printing and typesetting
+    					industry.
+    				</p>
+    			</AccordionItemBody>
+    		</AccordionItem>
+			<AccordionItem title="Accordion with desscription" description="Lorem Ipsum is simply dummy text">
+				<AccordionItemBody>
+					<p>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry.
+					</p>
+				</AccordionItemBody>
+    		</AccordionItem>
+			<AccordionItem title="Accordion with Footer" >
+				<AccordionItemBody>
+					<p>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry.
+					</p>
+				</AccordionItemBody>
+				<AccordionItemFooter>
+					<Button color="black" appearance="secondary">
+						Secondary
+					</Button>
+					<Button color="blue" appearance="primary">
+						Primary
+					</Button>
+				</AccordionItemFooter>
+    		</AccordionItem>
+    		<AccordionItem
+    			title="Disabled Accordion"
+    			isDisabled={true}
+    		>
+    			<AccordionItemBody>
+    				<p>
+    					Lorem Ipsum is simply dummy text of the printing and typesetting
+    					industry.
+    				</p>
+    			</AccordionItemBody>
+    		</AccordionItem>
+    	</Accordion>
+    </Preview>
+    <Snippet language="js">{sampleCode}</Snippet>
+
 </Section>
 
 <Section style={{ paddingTop: 0 }}>
