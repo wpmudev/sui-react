@@ -6,14 +6,14 @@
 			@include element(menu) {
 				width: 300px;
 				max-height: 300px;
-				overflow-y: scroll;
+				overflow-y: auto;
 				z-index: 100;
 				position: absolute;
 				top: 100%;
 				left: 0;
 				display: none;
 				margin: $spacing-md 0 0;
-				padding: $spacing-sm 0;
+				padding: $spacing-md 0;
 				border-radius: $border-radius-sm;
 				background: $color-extended-neutral-100;
 				box-shadow:
