@@ -5,6 +5,9 @@ import {
 	condContent,
 	generateCN,
 } from "@wpmudev/sui-utils"
+
+import { useInteraction } from "@wpmudev/sui-hooks"
+
 import { TextareaProps } from "./textarea.types"
 
 // Build "Textarea" component.
@@ -24,14 +27,17 @@ const Textarea: React.FC<TextareaProps> = ({
 	...props
 }) => {
 	const [currentValue, setCurrentValue] = useState(value)
+	const [isHovered, isFocused, methods] = useInteraction({})
 
 	const classNames = generateCN(
-		"sui-input sui-textarea",
+		"sui-textarea",
 		{
-			error: !isEmpty(errorMessage ?? ""),
+			errored: !isEmpty(errorMessage ?? ""),
 			disabled: isDisabled,
 			filled: !!currentValue,
 			sm: isSmall,
+			hover: isHovered,
+			focus: isFocused,
 		},
 		className,
 	)
@@ -48,29 +54,30 @@ const Textarea: React.FC<TextareaProps> = ({
 
 	return (
 		<div className={classNames}>
-			<div className="sui-input__wrapper">
+			<div className="sui-textarea__wrapper">
 				<textarea
 					id={id ?? ""}
-					className="sui-input__field"
+					className="sui-textarea__field"
 					value={currentValue}
 					aria-labelledby={condContent(labelId)}
 					aria-describedby={condContent(labelId)}
 					disabled={isDisabled}
 					onChange={handleOnChange}
 					{...props}
+					{...methods}
 				/>
-				<label className="sui-input__label" htmlFor={id} id={labelId}>
+				<label className="sui-textarea__label" htmlFor={id} id={labelId}>
 					{label}
 				</label>
 			</div>
-			{isEmpty(errorMessage ?? "") && (
-				<span className="sui-input__error-message" role="alert" id={errorId}>
+			{!isEmpty(errorMessage ?? "") && (
+				<span className="sui-textarea__error-message" role="alert" id={errorId}>
 					{errorMessage}
 				</span>
 			)}
-			{!isEmpty(description ?? "") && (
+			{!isEmpty(description ?? "") && isEmpty(errorMessage ?? "") && (
 				<span
-					className="sui-input__description"
+					className="sui-textarea__description"
 					id={descriptionId + errorId ? ` ${errorId}` : ""}
 				>
 					{description}

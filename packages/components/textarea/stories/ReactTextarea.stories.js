@@ -14,6 +14,7 @@ const Textarea = ({
 	size,
 	isSmall,
 	isDisabled,
+	errorMessage,
 }) => {
 	const boxStyles = {
 		padding: 20,
@@ -29,19 +30,18 @@ const Textarea = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{"textarea" === example && (
-						<SuiTextarea
-							id="textarea-default"
-							rows="4"
-							placeholder="Placeholder"
-							description={description}
-							descriptionId="desc-id"
-							isSmall={isSmall}
-							isDisabled={isDisabled}
-						/>
-					)}
+					<SuiTextarea
+						id="textarea-default"
+						rows="4"
+						placeholder="Placeholder"
+						description={description}
+						descriptionId="desc-id"
+						isSmall={isSmall}
+						isDisabled={isDisabled}
+						errorMessage={errorMessage}
+					/>
 
-					{"textarea-error" === example && (
+					{/*	{"textarea-error" === example && (
 						<SuiTextarea
 							id="textarea-default"
 							rows="4"
@@ -53,7 +53,7 @@ const Textarea = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						/>
-					)}
+					)}*/}
 				</div>
 			</div>
 		</div>
@@ -62,24 +62,14 @@ const Textarea = ({
 
 // Set story arguments.
 Textarea.args = {
-	example: "textarea",
 	description: "Help text",
 	isSmall: false,
 	isDisabled: false,
+	errorMessage: "",
 }
 
 // Set controls for story arguments.
 Textarea.argTypes = {
-	example: {
-		name: "Example",
-		control: {
-			type: "select",
-			options: {
-				"Example: Basic Textarea": "textarea",
-				"Example: Textarea with error": "textarea-error",
-			},
-		},
-	},
 	description: {
 		name: "Description",
 	},
@@ -88,6 +78,12 @@ Textarea.argTypes = {
 	},
 	isDisabled: {
 		name: "Disabled",
+	},
+	errorMessage: {
+		name: "Error Message",
+		control: {
+			type: "text",
+		},
 	},
 }
 
