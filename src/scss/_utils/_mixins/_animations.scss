@@ -15,6 +15,15 @@
 	}
 }
 
+@keyframes indeterminate-progress-bar {
+	from {
+		left: -50%;
+	}
+	to {
+		left: 100%;
+	}
+}
+
 @mixin animation($name, $duration: null) {
 	@if $name == spin {
 		animation-name: spin;
@@ -25,5 +34,11 @@
 		}
 		animation-iteration-count: infinite;
 		animation-timing-function: linear;
+	}
+
+	@if ( $name == indeterminate-progress-bar ) {
+		animation-duration: 3s;
+		animation-iteration-count: infinite;
+		animation-name: indeterminate-progress-bar;
 	}
 }
