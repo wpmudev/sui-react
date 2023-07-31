@@ -1,3 +1,4 @@
+import { MouseEvent, KeyboardEvent } from "react"
 import classnames from "classnames"
 
 /**
@@ -146,6 +147,27 @@ const handleOnKeyDown = (
 	}
 }
 
+/**
+ * Handles common event operations like stopping propagation and preventing default behavior.
+ *
+ * @param {MouseEvent<unknown> | KeyboardEvent<unknown>} e               - The event object.
+ * @param {boolean}                                      stopPropagation - If true, stops the event from further propagation in the event chain.
+ * @param {boolean}                                      preventDefault  - If true, prevents the default behavior associated with the event.
+ */
+const handleEventDefault = (
+	e: MouseEvent<unknown> | KeyboardEvent<unknown>,
+	stopPropagation?: boolean,
+	preventDefault?: boolean,
+) => {
+	if (stopPropagation) {
+		e?.stopPropagation()
+	}
+
+	if (preventDefault) {
+		e?.preventDefault()
+	}
+}
+
 // Publish required function(s).
 export {
 	isNull,
@@ -161,4 +183,5 @@ export {
 	condContent,
 	capitalizeText,
 	handleOnKeyDown,
+	handleEventDefault,
 }
