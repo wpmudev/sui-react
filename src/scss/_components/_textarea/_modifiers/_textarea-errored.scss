@@ -1,0 +1,26 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build textarea errored
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block-name - Main block name
+@mixin build-errored($block-name) {
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include modifier(errored) {
+				@include modifies-element(field) {
+					border: 1px solid var(--status-red-error-base-50-f-45-c-59, #F45C59);
+				}
+				@include modifies-element(error-message) {
+					color: #F45C59;
+				}
+			}
+		}
+	}
+}

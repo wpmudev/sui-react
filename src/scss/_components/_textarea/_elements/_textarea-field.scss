@@ -1,0 +1,26 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Container
+/// This function creates styles for the password container
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-field($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(field) {
+				border: 1px solid var(--neutral-grey-70-aaaaaa, #AAA);
+				border-radius: 4px;
+				font-size: 15px;
+				padding: 8px 16px;
+				width: 100%;
+			}
+		}
+	}
+}
