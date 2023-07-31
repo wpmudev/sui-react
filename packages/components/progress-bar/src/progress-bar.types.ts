@@ -35,7 +35,7 @@ interface ProgressBarProps {
 	/**
 	 * Callback function when the progress bar is clicked.
 	 */
-	onClick: () => void
+	onClick: (e) => void
 }
 
 export { ProgressBarProps }

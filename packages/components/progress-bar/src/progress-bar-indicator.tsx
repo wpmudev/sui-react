@@ -3,7 +3,9 @@ import { isFunction, generateCN } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 
 // Import required components
-// import { Indicator } from "./elements/indicator"
+import { Label } from "./elements/label"
+import { Value } from "./elements/value"
+import { Indicator } from "./elements/indicator"
 
 import { ProgressBarProps } from "./progress-bar.types"
 
@@ -13,13 +15,17 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	value,
 	size,
 	isInline = false,
-	allowCancel = false,
-	isIndeterminate = false,
+	hasValue = false,
+	hasAction = false,
 	onClick,
-	sm = "",
 	className = "",
 }) => {
-	// generate classnames
+	const has = {}
+
+	// Props validation
+	// has.label = !isUndefined(label) && !isEmpty(label) ? true : false
+	// has.float = !isInline && hasValue ? true : false
+
 	const classNames = generateCN(
 		"sui-progress-bar",
 		{
@@ -30,40 +36,19 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 		className,
 	)
 
-	const attrs: Record<string, any> = {}
-
-	// attributes to pass
-	if (!isIndeterminate) {
-		attrs.style = { width: `${value}%` }
-	}
+	const labelClass = `sui-progress-bar${!!label ? "--float-left" : "__label"}`
 
 	return (
 		<div className={classNames}>
-			<div className="sui-progress-bar__header">
-				{!!label && (
-					<span className="sui-progress-bar__header-text" aria-hidden={true}>
-						{label}
-					</span>
-				)}
-				{!!value && (
-					<span className="sui-progress-bar__header-value" aria-hidden={true}>
-						{value}%
-					</span>
-				)}
-			</div>
-			<div
-				className={generateCN("sui-progress-bar__indicator", {
-					indeterminate: isIndeterminate,
-				})}
-			>
-				<span
-					className={generateCN("sui-progress-bar__indicator-bar", {
-						indeterminate: isIndeterminate,
-					})}
-					{...attrs}
+			{!!label && <Label className={labelClass}>{label}</Label>}
+			{hasValue && (
+				<Value
+					value={value}
+					className={`sui-progress-bar${!!label ? "--float-right" : "__value"}`}
 				/>
-			</div>
-			{allowCancel && (
+			)}
+			<Indicator value={value} />
+			{hasAction && (
 				<div className="sui-progress-bar__action">
 					<Button
 						appearance="tertiary"

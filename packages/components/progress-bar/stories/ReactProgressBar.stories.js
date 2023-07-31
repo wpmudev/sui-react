@@ -38,10 +38,9 @@ const ProgressBar = ({ example, ...args }) => {
 ProgressBar.args = {
 	label: "Loading Data...",
 	value: 50,
-	size: "",
-	isInline: false,
-	hasValue: true,
-	hasAction: false,
+	size: "sm",
+	allowCancel: true,
+	isIndeterminate: true,
 }
 
 // Set controls for story arguments
@@ -58,24 +57,21 @@ ProgressBar.argTypes = {
 		},
 	},
 	size: {
-		size: "Size",
+		name: "Size",
+		options: ["sm", "lg"],
 		control: {
 			type: "select",
-			options: {
-				"Size: Small": "sm",
-				"Size: Default": "",
-				"Size: Large": "lg",
+			labels: {
+				sm: "Small (sm)",
+				lg: "Large (lg)",
 			},
 		},
 	},
-	isInline: {
-		name: "Inline",
+	allowCancel: {
+		name: "Allow Cancel",
 	},
-	hasValue: {
-		name: "Show Value",
-	},
-	hasAction: {
-		name: "Show Action",
+	isIndeterminate: {
+		name: "Indeterminate",
 	},
 }
 
