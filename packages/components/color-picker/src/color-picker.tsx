@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react"
-import { ChromePicker } from "react-color"
 
 import { ColorPickerProps, ColorPickerColorProps } from "./color-picker.types"
-import { CloseAlt } from "@wpmudev/sui-icons"
-import { Button } from "../../button/src"
+import { Button } from "@wpmudev/sui-button"
 import { Input } from "@wpmudev/sui-input"
 
 import PreviewImage from "./static/opaque.png"
+
+import Picker from "./elements/picker"
 
 /**
  * ColorPicker Component
@@ -17,7 +17,8 @@ import PreviewImage from "./static/opaque.png"
  * @param {CodeEditorProps} props - Component props
  * @return {JSX.Element} - JSX Element representing the CodeEditor component
  */
-const ColorPicker: React.FC<ColorPickerProps> = ({ color = "", onChange }) => {
+
+const ColorPicker: React.FC<ColorPickerProps> = ({ color = "", onChange, ...props }) => {
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
 	const [tempColor, setTempColor] = useState(color)
@@ -30,9 +31,10 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ color = "", onChange }) => {
 	}, [color])
 
 	// Function to handle color change and call the parent component's onChange function
-	const handleColorChange = useCallback(({ hex }: ColorPickerColorProps) => {
-		setTempColor(hex)
-	}, [])
+	const handleColorChange = useCallback(
+		(colorCode: String) => setTempColor(colorCode),
+		[],
+	)
 
 	// Function to handle color apply and call the parent component's onApply function
 	const handleColorApply = useCallback(() => {
@@ -46,7 +48,6 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ color = "", onChange }) => {
 	const closeColorPicker = useCallback(
 		(e) => {
 			e.stopPropagation()
-			// Reset color to prop value
 			setTempColor("")
 		},
 		[color],
@@ -63,13 +64,13 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ color = "", onChange }) => {
 
 	return (
 		<div className="sui-color-picker">
-			{/* Color display box */}
 			<div className="sui-color-picker__color">
 				<Input
 					id="color-picker"
 					value={tempColor}
 					onChange={inputColorChange}
 					placeholder="Select color"
+					onClick={() => setShowPicker(true)}
 				/>
 
 				<div
@@ -88,52 +89,31 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ color = "", onChange }) => {
 						}
 					/>
 				</div>
-				{tempColor ? (
-					<Button
-						className="sui-color-picker__clear"
-						icon="close-alt"
-						iconOnly={true}
-						iconSize="lg"
-						onClick={closeColorPicker}
-						isSmall={true}
-					/>
-				) : (
-					<Button
-						className="sui-color-picker__button"
-						appearance="tertiary"
-						color="blue"
-						isSmall={true}
-						onClick={() => setShowPicker(!showPicker)}
-					>
-						Select
-					</Button>
-				)}
-			</div>
-			{/* Conditionally render the color picker */}
-			{showPicker && (
-				<div
-					className="sui-color-picker__popover"
-					style={{ position: "absolute", zIndex: "2" }}
+				<Button
+					className={`sui-color-picker__${tempColor ? "clear" : "button"}`}
+					{...(tempColor && {
+						icon: "close-alt",
+						iconOnly: true,
+						iconSize: "lg",
+						onClick: closeColorPicker,
+					})}
+					{...(!tempColor && {
+						appearance: "tertiary",
+						color: "blue",
+						onClick: () => setShowPicker(!showPicker),
+					})}
+					isSmall={true}
 				>
-					{/* The ChromePicker component from react-color */}
-					<ChromePicker
-						className="sui-color-picker__palette"
-						color={tempColor}
-						onChange={handleColorChange}
-						styles={{ default: { body: { padding: "12px 0" } } }}
-					/>
-					<div>
-						<Button
-							appearance="secondary"
-							color="black"
-							isSmall={true}
-							isFullWidth={true}
-							onClick={handleColorApply}
-						>
-							Apply
-						</Button>
-					</div>
-				</div>
+					{tempColor ? "Clear" : "Select"}
+				</Button>
+			</div>
+			{showPicker && (
+				<Picker
+					color={tempColor}
+					onColorChange={handleColorChange}
+					onApplyButton={handleColorApply}
+					{...props}
+				/>
 			)}
 		</div>
 	)
