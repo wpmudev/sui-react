@@ -15,15 +15,99 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
+			.sui-color-picker__saturation {
+				height: 120px;
+				position: relative;
+				margin: 0 0 12px;
+				border-radius: 8px;
+				overflow: hidden;
+			}
 
-			pre {
-				min-height: $code-snippet-height;
-				overflow: auto;
-				margin: 0;
-				padding: $code-snippet-spacing-default;
-				border: $code-snippet-border-width solid $code-snippet-border-color;
-				border-radius: $code-snippet-border-radius;
-				background: $color-extended-neutral-95;
+			.sui-color-picker__hue {
+				border-radius: 8px;
+				overflow: hidden;
+				height: 8px;
+				background: rgba(0, 0, 0, 0.1);
+				position: relative;
+				margin: 12px 0;
+			}
+
+			.sui-color-picker__alpha {
+				border-radius: 8px;
+				overflow: hidden;
+				height: 8px;
+				background: rgba(0, 0, 0, 0.1);
+				position: relative;
+				margin: 12px 0;
+			}
+
+			.sui-color-picker__pointer {
+				border: 2px solid #fff;
+				cursor: pointer;
+				width: 10px;
+				height: 10px;
+				border-radius: 100%;
+				margin-top: -1px;
+				filter: drop-shadow(0px 0px 1px rgba(26, 26, 26, 0.22));
+			}
+
+			.sui-color-picker__fields {
+				display: flex;
+				gap: 4px;
+				margin: 12px 0;
+			}
+
+			.sui-color-picker__fields--select {
+				padding: 6px 4px;
+				border: none;
+				cursor: pointer;
+				font-size: 13px;
+				line-height: 16px;
+			}
+
+			.sui-color-picker__fields--input {
+				display: flex;
+
+				&:focus-within {
+					box-shadow: 0px 0px 0px 2px #286EF1;
+					border-radius: 8px;
+				}
+
+				input {
+					font-size: 13px;
+					line-height: 16px;
+					color: #1a1a1a;
+					padding: 6px 8px;
+					border: 1px solid #e6e6e6;
+					width: 100%;
+					outline: none;
+
+					&:first-child {
+						border-top-left-radius: 8px;
+						border-bottom-left-radius: 8px;
+					}
+
+					&:last-child {
+						border-top-right-radius: 8px;
+						border-bottom-right-radius: 8px;
+					}
+
+					/* Chrome, Safari, Edge, Opera */
+					&::-webkit-outer-spin-button,
+					&::-webkit-inner-spin-button {
+						-webkit-appearance: none;
+						margin: 0;
+					}
+
+					/* Firefox */
+					&[type=number] {
+						-moz-appearance: textfield;
+					}
+				}
+
+				.sui-color-picker__fields--hex {
+					flex: 0 0 150px;
+				}
 			}
 		}
 	}

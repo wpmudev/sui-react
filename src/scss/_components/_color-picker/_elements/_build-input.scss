@@ -54,6 +54,10 @@
                 cursor: pointer;
                 color: #aaa;
                 right: 8px;
+
+                &:hover {
+                    color: #737373
+                }
             }
 
             @include element(button) {
