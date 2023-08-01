@@ -67,6 +67,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({ color = "", onChange, ...prop
 			<div className="sui-color-picker__color">
 				<Input
 					id="color-picker"
+					className="sui-color-picker__color--code"
 					value={tempColor}
 					onChange={inputColorChange}
 					placeholder="Select color"
