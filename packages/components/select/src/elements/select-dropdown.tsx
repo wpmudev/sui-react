@@ -18,7 +18,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	onEvent = () => {},
 	selectAll = () => {},
 	isSmartSearch = false,
-	isMultiselect = false,
+	isMultiSelect = false,
 	selected = "",
 	...props
 }) => {
@@ -104,7 +104,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						<Checkbox
 							label="Select all"
 							defaultValue={allSelected}
-							onClick={selectAll}
+							onChange={selectAll}
 						/>
 					</li>
 					{options.map(({ id, label, isSelected }) => (
@@ -113,14 +113,14 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							id={id}
 							role="option"
 							className="sui-select__dropdown--option"
-							onClick={(e) => onSelect(e, id)}
+							// onClick={(e) => onSelect(e, id)}
 							onKeyDown={(e) => onSelect(e, id)}
 						>
 							<Checkbox
 								id={id}
 								label={label}
 								defaultValue={isSelected}
-								onClick={(e) => onSelect(e, id)}
+								onChange={(e) => onSelect(e, id)}
 							/>
 						</li>
 					))}
@@ -129,10 +129,10 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		)
 	}
 
-	// Render the appropriate dropdown options based on isMultiselect
+	// Render the appropriate dropdown options based on isMultiSelect
 	return (
 		<Fragment>
-			{isMultiselect ? renderMultiselectOptions() : renderOptions()}
+			{isMultiSelect ? renderMultiselectOptions() : renderOptions()}
 		</Fragment>
 	)
 }

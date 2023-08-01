@@ -9,7 +9,7 @@ interface SelectSelectedProps extends HTMLProps<HTMLDivElement> {
 	arrow?: string
 	selected?: boolean
 	selectLabel?: string
-	isMultiselect?: boolean
+	isMultiSelect?: boolean
 	removeSelection: (selectedId: any) => {}
 	dropdownToggle: () => {}
 	clearSelection: () => {}
@@ -22,7 +22,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	arrow,
 	selected,
 	selectLabel = "",
-	isMultiselect = false,
+	isMultiSelect = false,
 	removeSelection = () => {},
 	dropdownToggle = () => {},
 	clearSelection = () => {},
@@ -68,7 +68,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 			{...props}
 		>
 			{selectedContent}
-			{isMultiselect && selectLabel !== selected && (
+			{isMultiSelect && selectLabel !== selected && (
 				<Icon name="close-alt" onClick={onClearSelection} />
 			)}
 			<Icon name={arrow ?? ""} />

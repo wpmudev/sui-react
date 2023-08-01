@@ -73,7 +73,7 @@ const isObject = (value: unknown) => {
  *
  * @return {boolean} returns True if value is an object type
  */
-const isArray = (value: unknown) => !!(isObject(value) && Array.isArray(value))
+const isArray = (value: unknown): boolean => Array.isArray(value)
 
 /**
  * Check if value is boolean type
