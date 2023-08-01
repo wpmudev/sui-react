@@ -24,7 +24,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 }) => {
 	const onSelect = useCallback(
 		(e, id: string) => {
-			if (e.key === "Enter" && onEvent) {
+			if ((!e.key || (!!e.key && e.key === "Enter")) && onEvent) {
 				onEvent(id)
 			}
 		},
