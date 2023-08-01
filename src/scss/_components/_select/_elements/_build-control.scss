@@ -65,4 +65,18 @@
 			}
 		}
 	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+
+			@include modifier(multiselect) {
+				@include modifies-element(selected-options) {
+					color: $color-extended-neutral-100;
+					background: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
 }

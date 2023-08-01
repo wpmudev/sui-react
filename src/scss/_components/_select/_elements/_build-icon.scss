@@ -50,6 +50,7 @@
             @include element(search) {
                 .sui-#{$block}__icon {
                     font-size: $select-icon-font-size-sm;
+                    line-height: 1;
                     position: absolute;
                     bottom: $select-icon-search-position-bottom;
                     left: $select-icon-search-position-left-md;
@@ -60,6 +61,7 @@
                 @include modifier(option) {
                     .sui-#{$block}__icon {
                         padding-right: $select-icon-padding-horizontal;
+                        line-height: 1;
                     }
                 }
             }
@@ -73,6 +75,24 @@
 
                 .sui-#{$block}__icon--close-alt {
                     right: $select-icon-close-position-right-lg;
+                }
+            }
+		}
+	}
+
+    // DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+
+            @include element(icon) {
+
+                @include modifier(search) {
+                    color: $color-extended-neutral-0;
+                }
+
+                @include modifier(close-alt) {
+                    color: $color-extended-neutral-0;
                 }
             }
 		}

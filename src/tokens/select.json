@@ -328,7 +328,7 @@
                         "type": "other"
                     },
                     "horizontal": {
-                        "value": "16px",
+                        "value": "12px",
                         "type": "other"
                     }
                 }
@@ -355,7 +355,7 @@
             },
             "padding": {
                 "horizontal": {
-                    "value": "9px",
+                    "value": "8px",
                     "type": "spacing"
                 }
             },
@@ -394,7 +394,7 @@
                         }
                     },
                     "bottom": {
-                        "value": "5px",
+                        "value": "9px",
                         "type": "spacing"
                     }
                 }
