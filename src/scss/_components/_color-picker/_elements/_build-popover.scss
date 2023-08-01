@@ -16,19 +16,14 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(popover) {
-				min-width: 280px;
-				background-color: white;
-				border-radius: 8px;
-				box-shadow: 0 4px 8px 0 rgba(115, 115, 115, 0.05), 0 4px 20px 0 rgba(115, 115, 115, 0.10), 0 12px 16px 0 rgba(115, 115, 115, 0.08);
-				padding: 12px;
-				margin-top: 5px;
-				max-width: 280px;
-
-				.chrome-picker {
-					box-shadow: none !important;
-					width: 100% !important;
-					max-width: 256px;
-				}
+				position: absolute;
+				z-index: 2;
+				background-color: $colorpicker-picker-background;
+				border-radius: $colorpicker-picker-border-radius;
+				box-shadow: 0 4px 8px 0 $color-shadow-light, 0 4px 20px 0 $color-shadow-default, 0 12px 16px 0 $color-shadow-dark;
+				padding: $colorpicker-spacing-sm;
+				margin-top: $colorpicker-picker-spacing-margin;
+				max-width: $colorpicker-picker-size-width;
 			}
 		}
 	}
@@ -39,7 +34,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(popover) {
-                border: 1px solid $color-extended-neutral-0;
+                border: $colorpicker-border-width-xs solid $color-extended-neutral-0;
 			}
 		}
 	}

@@ -15,98 +15,145 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-			.sui-color-picker__saturation {
-				height: 120px;
-				position: relative;
-				margin: 0 0 12px;
-				border-radius: 8px;
+
+			@include element(saturation, hue, alpha) {
+				border-radius: $colorpicker-border-radius-sm;
+				background: $colorpicker-color-shadow-dark;
 				overflow: hidden;
 			}
 
-			.sui-color-picker__hue {
-				border-radius: 8px;
-				overflow: hidden;
-				height: 8px;
-				background: rgba(0, 0, 0, 0.1);
+			@include element(saturation) {
 				position: relative;
-				margin: 12px 0;
+				height: $colorpicker-saturation-height;
+				margin: 0 0 $colorpicker-spacing-sm;
 			}
 
-			.sui-color-picker__alpha {
-				border-radius: 8px;
-				overflow: hidden;
-				height: 8px;
-				background: rgba(0, 0, 0, 0.1);
+			@include element(hue, alpha) {
 				position: relative;
-				margin: 12px 0;
+				height: $colorpicker-size-height;
+				margin: $colorpicker-spacing-sm 0;
 			}
 
-			.sui-color-picker__pointer {
-				border: 2px solid #fff;
+			@include element(pointer) {
+				border: $colorpicker-border-width-sm solid $color-extended-neutral-100;
 				cursor: pointer;
-				width: 10px;
-				height: 10px;
+				width: $colorpicker-pointer-size;
+				height: $colorpicker-pointer-size;
 				border-radius: 100%;
-				margin-top: -1px;
-				filter: drop-shadow(0px 0px 1px rgba(26, 26, 26, 0.22));
+				margin-top: $colorpicker-pointer-spacing-vertical;
+				filter: drop-shadow(0px 0px $colorpicker-pointer-filter-width $colorpicker-pointer-filter-color);
 			}
 
-			.sui-color-picker__fields {
+			@include element(fields) {
 				display: flex;
-				gap: 4px;
-				margin: 12px 0;
-			}
+				gap: $colorpicker-fields-gap-sm;
+				margin: $colorpicker-fields-spacing-vertical 0;
 
-			.sui-color-picker__fields--select {
-				padding: 6px 4px;
-				border: none;
-				cursor: pointer;
-				font-size: 13px;
-				line-height: 16px;
-			}
-
-			.sui-color-picker__fields--input {
-				display: flex;
-
-				&:focus-within {
-					box-shadow: 0px 0px 0px 2px #286EF1;
-					border-radius: 8px;
+				@include modifier(select) {
+					padding: $colorpicker-fields-select-spacing-vertical $colorpicker-fields-select-spacing-horizontal;
+					border: none;
+					cursor: pointer;
+					font-size: $colorpicker-fields-font-size;
+					line-height: $colorpicker-fields-font-height;
 				}
 
-				input {
-					font-size: 13px;
-					line-height: 16px;
-					color: #1a1a1a;
-					padding: 6px 8px;
-					border: 1px solid #e6e6e6;
-					width: 100%;
-					outline: none;
-
-					&:first-child {
-						border-top-left-radius: 8px;
-						border-bottom-left-radius: 8px;
-					}
-
-					&:last-child {
-						border-top-right-radius: 8px;
-						border-bottom-right-radius: 8px;
-					}
-
-					/* Chrome, Safari, Edge, Opera */
-					&::-webkit-outer-spin-button,
-					&::-webkit-inner-spin-button {
-						-webkit-appearance: none;
-						margin: 0;
-					}
-
-					/* Firefox */
-					&[type=number] {
-						-moz-appearance: textfield;
-					}
+				@include modifier(hex) {
+					flex: 0 0 $colorpicker-fields-hex-width;
 				}
 
-				.sui-color-picker__fields--hex {
-					flex: 0 0 150px;
+				@include modifier(input) {
+					display: flex;
+
+					&:focus-within {
+						box-shadow: 0px 0px 0px $colorpicker-fields-input-focus-width $colorpicker-fields-input-focus-color;
+						border-radius: $colorpicker-border-radius-sm;
+					}
+
+					input {
+						font-size: $colorpicker-fields-font-size;
+						line-height: $colorpicker-fields-font-height;
+						color: $colorpicker-fields-font-color;
+						padding: $colorpicker-fields-input-spacing-vertical $colorpicker-fields-input-spacing-horizontal;
+						border: $colorpicker-border-width-xs solid $colorpicker-fields-input-border-color;
+						width: 100%;
+						outline: none;
+
+						&:first-child {
+							border-top-left-radius: $colorpicker-border-radius-sm;
+							border-bottom-left-radius: $colorpicker-border-radius-sm;
+						}
+
+						&:last-child {
+							border-top-right-radius: $colorpicker-border-radius-sm;
+							border-bottom-right-radius: $colorpicker-border-radius-sm;
+						}
+
+						/* Chrome, Safari, Edge, Opera */
+						&::-webkit-outer-spin-button,
+						&::-webkit-inner-spin-button {
+							-webkit-appearance: none;
+							margin: 0;
+						}
+
+						/* Firefox */
+						&[type=number] {
+							-moz-appearance: textfield;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+
+			@include element(fields) {
+
+				@include modifier(input) {
+
+					&:focus-within {
+						box-shadow: 0px 0px 0px $colorpicker-fields-input-focus-width $color-extended-neutral-0;
+					}
+
+					input {
+						color: $color-extended-neutral-0;
+						border-color:$color-extended-neutral-0;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+
+			@include element(fields) {
+
+				@include modifier(input) {
+
+					input {
+
+						&:first-child {
+							border-top-right-radius:  $colorpicker-border-radius-sm;
+							border-bottom-right-radius:  $colorpicker-border-radius-sm;
+							border-top-left-radius: 0;
+							border-bottom-left-radius: 0;
+						}
+
+						&:last-child {
+							border-top-left-radius:  $colorpicker-border-radius-sm;
+							border-bottom-left-radius:  $colorpicker-border-radius-sm;
+							border-top-right-radius: 0;
+							border-bottom-right-radius: 0;
+						}
+					}
 				}
 			}
 		}

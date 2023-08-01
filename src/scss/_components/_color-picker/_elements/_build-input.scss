@@ -16,11 +16,11 @@
         @include block($block) {
             @include element(color) {
                 position: relative;
-                max-width: 240px;
+                max-width: $colorpicker-size-width;
             }
 
             .sui-input__input {
-                padding: 8px 40px;
+                padding: $colorpicker-spacing-xs $colorpicker-spacing-lg;
             }
 
             @include element(input-preview, clear, button) {
@@ -32,36 +32,37 @@
             @include element(input-preview) {
                 align-items: center;
                 display: inline-flex;
-                gap: 8px;
-                left: 8px;
+                gap: $colorpicker-fields-gap-md;
+                left: $colorpicker-position;
                 cursor: pointer;
             }
 
             @include element(input-preview-icon) {
-                border-radius: 50px;
-                height: 24px;
-                width: 24px;
+                border-radius: 100%;
+                height: $colorpicker-preview-size;
+                width: $colorpicker-preview-size;
                 background-position: center;
-                background-size: 10px;
-                border: 1px solid rgba(26, 26, 26, 0.1);
+                background-size: $colorpicker-preview-background-size;
+                border: $colorpicker-border-width-xs solid $colorpicker-preview-border-color;
             }
 
             @include element(input-preview-code) {
-                font: 400 15px/24px $font-family-default
+                font-size: $font-size-default;
+                line-height: $font-size-sm;
             }
 
             @include element(clear) {
                 cursor: pointer;
-                color: #aaa;
-                right: 8px;
+                color: $colorpicker-clear-color-default;
+                right: $colorpicker-position;
 
                 &:hover {
-                    color: #737373
+                    color: $colorpicker-clear-color-hover;
                 }
             }
 
             @include element(button) {
-                right: 8px;
+                right: $colorpicker-position;
             }
         }
     }
@@ -73,15 +74,41 @@
         @include block($block) {
             color: $color-extended-neutral-0;
             @include element(input) {
-                box-shadow: 0 0 0 1px $color-extended-neutral-0;
+                box-shadow: 0 0 0 $colorpicker-border-width-xs $color-extended-neutral-0;
             }
 
             @include element(input-preview-icon) {
-                border: 1px solid $color-extended-neutral-0;
+                border: $colorpicker-border-width-xs solid $color-extended-neutral-0;
             }
 
             @include element(input-close) {
                 color: $color-extended-neutral-0;
+            }
+
+            @include element(clear) {
+                color: $color-extended-neutral-0;
+            }
+        }
+    }
+
+    // DIR: Right to left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(clear) {
+                left: $colorpicker-position;
+                right: unset;
+            }
+
+            @include element(input-preview) {
+                left: unset;
+                right: $colorpicker-position;
+            }
+
+            @include element(button) {
+                left: $colorpicker-position;
+                right: unset;
             }
         }
     }
