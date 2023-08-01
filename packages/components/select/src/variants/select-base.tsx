@@ -177,6 +177,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		selected: selectedItem,
 		arrow: isDropdownOpen ? "chevron-up" : "chevron-down",
 		selectLabel: label,
+		isSmall,
 		dropdownToggle: () => setIsDropdownOpen(!isDropdownOpen),
 		clearSelection: () => {
 			RemoveAll(setSelectedItems, items, setFilteredItems)
@@ -203,6 +204,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	const dropdownProps = {
 		options: filteredItems,
 		selected: selectedItem,
+		isSmall,
 		onEvent: (optionId) => {
 			const optionIndex = filteredItems.findIndex(
 				(option) => option.id === optionId,
