@@ -9,6 +9,7 @@ interface SelectDropdownProps
 	onEvent?: (id: string) => {}
 	selectAll?: () => {}
 	isSmartSearch?: boolean
+	isSmall?: boolean
 	isMultiSelect?: boolean
 	selected?: string
 }
@@ -18,6 +19,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	onEvent = () => {},
 	selectAll = () => {},
 	isSmartSearch = false,
+	isSmall = false,
 	isMultiSelect = false,
 	selected = "",
 	...props
@@ -73,7 +75,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							{...props}
 						>
 							<Fragment>
-								{icon && <Icon name={icon} />}
+								{icon && <Icon name={icon} size={isSmall ? "sm" : "md"} />}
 								<span>
 									{boldLabel && <strong>{boldLabel}</strong>}
 									{newLabel}
@@ -92,7 +94,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		return (
 			<Fragment>
 				<div className="sui-select__search">
-					<Icon name="search" />
+					<Icon name="search" size="md" />
 					<Search placeholder="Search" {...props} />
 				</div>
 				<ul
