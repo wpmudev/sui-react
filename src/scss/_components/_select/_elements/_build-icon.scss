@@ -80,6 +80,55 @@
 		}
 	}
 
+    // DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+
+            @include element(icon) {
+
+                @include modifier(chevron-down, chevron-up, close-alt) {
+                    left: $select-icon-container-position-horizontal;
+                    right: unset;
+                }
+
+                @include modifier(search) {
+                    left: unset;
+                    right: $select-icon-container-position-horizontal;
+                }
+            }
+
+            @include element(search) {
+                .sui-#{$block}__icon {
+                    right: $select-icon-search-position-left-md;
+                    left: unset;
+                }
+            }
+
+            @include element(dropdown) {
+                @include modifier(option) {
+                    .sui-#{$block}__icon {
+                        padding-left: $select-icon-padding-horizontal;
+                        padding-right: 0;
+                    }
+                }
+            }
+
+            @include modifier(multiselect) {
+
+                .sui-#{$block}__icon--close {
+                    left: $select-icon-close-position-right-xs;
+                    right: unset;
+                }
+
+                .sui-#{$block}__icon--close-alt {
+                    left: $select-icon-close-position-right-lg;
+                    right: unset;
+                }
+            }
+		}
+	}
+
     // DIR: Left to right.
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {

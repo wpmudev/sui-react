@@ -45,6 +45,7 @@
 			@include modifier(multiselect) {
 				@include modifies-element(selected-options) {
 					position: relative;
+					display: inline-block;
 					font-size: $select-control-options-font-size-md;
 					line-height: $select-control-options-font-height-md;
 					font-weight: $select-control-options-font-weight;
@@ -66,10 +67,43 @@
 		}
 	}
 
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+
+			@include modifier(smartsearch) {
+				@include modifies-element(input) {
+					padding-right: $select-control-smartsearch-padding-horizontal;
+					padding-left: $select-control-padding-md-horizontal;
+				}
+			}
+
+			@include modifier(multiselect) {
+				@include modifies-element(selected-options) {
+					padding-left: $select-control-options-padding-horizontal-right;
+					padding-right: $select-control-options-padding-horizontal-left;
+					margin-left: $select-control-options-margin-horizontal-right;
+					margin-right: 0;
+				}
+
+				@include modifies-element(control) {
+					padding-left: $select-control-multiselect-padding-md-horizontal;
+					padding-right: $select-control-padding-md-horizontal;
+				}
+			}
+		}
+	}
+
 	// DIR: Left to right.
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
+
+			@include element(control) {
+				border-color: $color-extended-neutral-0;
+				color: $color-extended-neutral-0;
+			}
 
 			@include modifier(multiselect) {
 				@include modifies-element(selected-options) {
