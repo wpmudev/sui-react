@@ -56,7 +56,7 @@ interface ButtonProps
 	 */
 	iconPosition?: "start" | "end"
 	/**
-	 * Optional icon size to be sm | md | lg.
+	 * Optional icon size to be displayed.
 	 */
 	iconSize?: "sm" | "md" | "lg"
 	/**

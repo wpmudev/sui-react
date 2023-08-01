@@ -37,9 +37,9 @@ const ColorPicker = ({ color, ...props }) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<SuiColorPicker
-						{...props}
 						color={currentColor}
 						onChange={setCurrentColor}
+						{...props}
 					/>
 				</div>
 			</div>
@@ -50,6 +50,7 @@ const ColorPicker = ({ color, ...props }) => {
 // Set story arguments.
 ColorPicker.args = {
 	color: "#FFFFFF",
+	type: "hex",
 }
 
 // Set controls for story arguments.
@@ -58,6 +59,14 @@ ColorPicker.argTypes = {
 		name: "Color",
 		control: {
 			type: "text",
+		},
+	},
+	type: {
+		name: "Color Type",
+		options: ["hex", "rgb"],
+		control: {
+			type: "select",
+			labels: { hex: "Hex", rgb: "RGB" },
 		},
 	},
 }
