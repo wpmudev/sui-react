@@ -35,4 +35,30 @@
 			}
 		}
 	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(hover) {
+				@include modifies-element(control) {
+					border-color: $color-extended-neutral-0;
+				}
+			}
+
+			@include element(dropdown) {
+				@include modifier(option) {
+					&:hover {
+						color: $color-extended-neutral-0;
+					}
+				}
+
+				@include modifier(selected) {
+					&:hover {
+						color: $color-extended-neutral-100;
+					}
+				}
+			}
+		}
+	}
 }

@@ -32,4 +32,14 @@
 			}
 		}
 	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+            @include element(search) {
+				border-color: $color-extended-neutral-0;
+            }
+		}
+	}
 }

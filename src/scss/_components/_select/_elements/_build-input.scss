@@ -46,4 +46,31 @@
             }
 		}
 	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+
+            @include element(search) {
+                @include modifier(input) {
+					padding-right: $select-input-search-padding-horizontal-left;
+					padding-left: $select-input-search-padding-horizontal-right;
+				}
+            }
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+
+            @include element(search) {
+                @include modifier(input) {
+					border-color: $color-extended-neutral-0;
+				}
+            }
+		}
+	}
 }
