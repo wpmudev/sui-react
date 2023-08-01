@@ -1,10 +1,9 @@
-import React, { useState, useCallback, useEffect } from "react"
+import React, { useState, useCallback, useEffect, useRef } from "react"
 import { ColorPickerProps } from "../color-picker.types"
 import { CustomPicker, ColorResult } from "react-color"
 import { Saturation, Hue, Alpha } from "react-color/lib/components/common"
 import tinycolor from "tinycolor2"
 import { Button } from "@wpmudev/sui-button"
-import { isEmpty } from "@wpmudev/sui-utils"
 
 // convert color format to supported object.
 const colorToColorObject = (color: string): ColorResult => {
@@ -41,6 +40,9 @@ const Picker: React.FC<ColorPickerProps> = ({
 
 	// format Hex | RGB for color dropdown
 	const [selectedFormat, setSelectedFormat] = useState<String>(type)
+
+	// Create a ref for the input element
+	const inputRef = useRef<HTMLInputElement | null>(null);
 
 	// when selected color updates update all corresponding values
 	useEffect(() => {
@@ -84,9 +86,15 @@ const Picker: React.FC<ColorPickerProps> = ({
 	const handleRGBInputChange = useCallback(
 		(event: React.ChangeEvent<HTMLInputElement>) => {
 			const { name, value } = event.target
+			let inputVal = parseInt(value, 10)
+			if (isNaN(inputVal) || inputVal < 0) {
+				inputVal = 0
+			} else if (inputVal > 255) {
+				inputVal = 255
+			}
 			setSelectedColor((prevColor: ColorResult) => ({
 				...prevColor,
-				rgb: { ...prevColor.rgb, [name]: parseInt(value, 10) },
+				rgb: { ...prevColor.rgb, [name]: inputVal },
 			}))
 		},
 		[],
@@ -108,6 +116,15 @@ const Picker: React.FC<ColorPickerProps> = ({
 		},
 		[],
 	)
+
+	// Attach a click event handler to the input field
+	const handleInputKeyDown = useCallback(() => {
+		// Move the cursor one character before the end
+		if (inputRef.current) {
+			const valueLength = inputRef.current.value.length
+			inputRef.current.setSelectionRange(valueLength - 1, valueLength - 1)
+		}
+	}, [])
 
 	return (
 		<div className="sui-color-picker__popover">
@@ -189,6 +206,7 @@ const Picker: React.FC<ColorPickerProps> = ({
 							</React.Fragment>
 						)}
 						<input
+							ref={inputRef}
 							type="text"
 							min="1"
 							step="1"
@@ -196,6 +214,7 @@ const Picker: React.FC<ColorPickerProps> = ({
 							pattern="[0-9]+"
 							value={`${Math.round(alpha * 100)}%`}
 							onChange={handleAlphaChange}
+							onKeyDown={handleInputKeyDown}
 						/>
 					</div>
 				</div>
