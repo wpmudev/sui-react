@@ -42,7 +42,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 				<Icon
 					name="close"
 					size="sm"
-					onClick={() => removeSelection(selectedId)}
+					onClick={() => removeSelection(id)}
 				/>
 			</span>
 		))
