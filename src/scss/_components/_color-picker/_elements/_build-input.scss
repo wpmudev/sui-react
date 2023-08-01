@@ -14,37 +14,101 @@
     @include sui-class($rtl: false, $theme: null) {
         // Block wrapper.
         @include block($block) {
-            @include element(input) {
-                align-items: center;
-                background: var(--neutral-grey-light-100-ffffff, #FFF);
-                border-radius: 4px;
-                box-shadow: 0 0 0 2px #286EF1;
-                display: flex;
-                justify-content: space-between;
-                max-width: 220px;
-                padding: 8px 12px;
+            @include element(color) {
+                position: relative;
+                max-width: $colorpicker-size-width;
+            }
+
+            .sui-input__input {
+                padding: $colorpicker-spacing-xs $colorpicker-spacing-lg;
+            }
+
+            @include element(input-preview, clear, button) {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
             }
 
             @include element(input-preview) {
                 align-items: center;
-                cursor: pointer;
                 display: inline-flex;
-                gap: 8px;
+                gap: $colorpicker-fields-gap-md;
+                left: $colorpicker-position;
+                cursor: pointer;
             }
 
             @include element(input-preview-icon) {
-                background: red;
-                border-radius: 50px;
-                height: 24px;
-                width: 24px;
+                border-radius: 100%;
+                height: $colorpicker-preview-size;
+                width: $colorpicker-preview-size;
+                background-position: center;
+                background-size: $colorpicker-preview-background-size;
+                border: $colorpicker-border-width-xs solid $colorpicker-preview-border-color;
             }
 
             @include element(input-preview-code) {
-                font: 400 15px/24px $font-family-default
+                font-size: $font-size-default;
+                line-height: $font-size-sm;
+            }
+
+            @include element(clear) {
+                cursor: pointer;
+                color: $colorpicker-clear-color-default;
+                right: $colorpicker-position;
+
+                &:hover {
+                    color: $colorpicker-clear-color-hover;
+                }
+            }
+
+            @include element(button) {
+                right: $colorpicker-position;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            color: $color-extended-neutral-0;
+            @include element(input) {
+                box-shadow: 0 0 0 $colorpicker-border-width-xs $color-extended-neutral-0;
+            }
+
+            @include element(input-preview-icon) {
+                border: $colorpicker-border-width-xs solid $color-extended-neutral-0;
             }
 
             @include element(input-close) {
-                cursor: pointer;
+                color: $color-extended-neutral-0;
+            }
+
+            @include element(clear) {
+                color: $color-extended-neutral-0;
+            }
+        }
+    }
+
+    // DIR: Right to left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(clear) {
+                left: $colorpicker-position;
+                right: unset;
+            }
+
+            @include element(input-preview) {
+                left: unset;
+                right: $colorpicker-position;
+            }
+
+            @include element(button) {
+                left: $colorpicker-position;
+                right: unset;
             }
         }
     }
