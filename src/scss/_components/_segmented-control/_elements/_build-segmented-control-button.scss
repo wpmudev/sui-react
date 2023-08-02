@@ -17,34 +17,40 @@
 		@include block($block) {
 			@include element(button) {
 				&:first-child {
-					.sui-segmented-control__label {
-						border-radius: 4px 0 0 4px;
+					.sui-#{$block}__label {
+						border-radius: $segmented-border-radius 0 0 $segmented-border-radius;
 					}
 				}
 
 				&:last-child {
-					.sui-segmented-control__label {
-						border-radius: 0 4px 4px 0;
-						border-right: 1px solid #E6E6E6;
+					.sui-#{$block}__label {
+						border-radius: 0 $segmented-border-radius $segmented-border-radius 0;
+						border-right-width: $segmented-border-width;
 					}
 				}
 			}
 		}
 	}
 
-	// DIR: Left to right.
+	// DIR: Right to left.
 	// THEME: None.
-//	@include sui-class($rtl: true, $theme: null) {
-//		@include block($block) {
-//			&:first-child {
-//				margin-left: $tag-margin-horizontal;
-//				margin-right: 0;
-//			}
-//
-//			&:last-child {
-//				margin-right: $tag-margin-horizontal;
-//				margin-left: 0;
-//			}
-//		}
-//	}
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(button) {
+				&:first-child {
+					.sui-#{$block}__label {
+						border-radius: 0 $segmented-border-radius $segmented-border-radius 0;
+						border-right-width: $segmented-border-width;
+					}
+				}
+
+				&:last-child {
+					.sui-#{$block}__label {
+						border-radius: $segmented-border-radius 0 0 $segmented-border-radius;
+						border-right-width: 0;
+					}
+				}
+			}
+		}
+	}
 }

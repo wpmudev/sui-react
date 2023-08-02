@@ -16,31 +16,37 @@
         @include block($block) {
             @include element(label) {
                 align-items: center;
-                border: 1px solid #E6E6E6;
-                border-right: 0;
+                border: $segmented-border-width solid $segmented-border-color;
+                border-right-width: 0;
                 cursor: pointer;
                 display: flex;
-                font: 500 13px/24px $font-family-default;
-                gap: 8px;
-                min-height: 42px;
-                padding: 8px 16px;
+                font-size: $segmented-font-size;
+                font-weight: $segmented-font-weight;
+                gap: $segmented-spacing-vertical;
+                min-height: $segmented-size-height;
+                padding: $segmented-spacing-vertical $segmented-spacing-horizontal;
             }
         }
     }
 
     // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            @include element(label) {
+                border-color: $color-extended-neutral-0;
+                color: $color-extended-neutral-0;
+            }
+        }
+    }
+
+    // DIR: Right to left.
     // THEME: None.
-    //	@include sui-class($rtl: true, $theme: null) {
-    //		@include block($block) {
-    //			&:first-child {
-    //				margin-left: $tag-margin-horizontal;
-    //				margin-right: 0;
-    //			}
-    //
-    //			&:last-child {
-    //				margin-right: $tag-margin-horizontal;
-    //				margin-left: 0;
-    //			}
-    //		}
-    //	}
+    @include sui-class($rtl: true, $theme: null) {
+        @include block($block) {
+            @include element(label) {
+                border-right-width: 0;
+            }
+        }
+    }
 }
