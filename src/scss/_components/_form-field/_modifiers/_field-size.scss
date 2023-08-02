@@ -17,7 +17,6 @@
 			@include modifier(sm) {
 				@include modifies-element(label) {
 					font-size: $form-field-label-font-size-sm;
-					line-height: $form-field-label-font-height-sm;
 					letter-spacing: $form-field-label-font-spacing-sm;
 				}
 

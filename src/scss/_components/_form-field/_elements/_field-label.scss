@@ -13,6 +13,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(label) {
+				display: block;
 				margin: 0 0 $form-field-label-margin;
 				font-weight: $form-field-label-font-weight;
 				font-size: $form-field-label-font-size-md;

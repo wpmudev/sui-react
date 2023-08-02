@@ -3,9 +3,6 @@
 
 @include sui-uploader--element.build-files(uploader);
 @include sui-uploader--element.build-input(uploader);
-@include sui-uploader--element.build-preview(uploader);
 @include sui-uploader--element.build-uploader(uploader);
+@include sui-uploader--element.build-button(uploader);
 @include sui-uploader--element.build-pick(uploader);
-
-//
-//@include sui-uploader--state.edit-disabled(uploader);

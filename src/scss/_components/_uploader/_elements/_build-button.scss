@@ -9,13 +9,15 @@
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-uploader($block) {
+@mixin build-button($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-			max-width: $uploader-size-width;
+			@include element(button) {
+                margin: 0;
+            }
 		}
 	}
 }
