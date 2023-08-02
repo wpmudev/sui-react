@@ -79,7 +79,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 					focus: isFocused,
 					checked: isChecked,
 				})}
-				onMouseEnter={interactionMethods.onMouseEnter}
+				{...interactionMethods}
 			>
 				{/* Hidden input element to track the checkbox state */}
 				<input
