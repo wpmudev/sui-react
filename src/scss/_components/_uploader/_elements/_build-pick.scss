@@ -16,27 +16,37 @@
         // Block wrapper.
         @include block($block) {
             @include element(pick) {
-                align-items: center;
-                background: var(--neutral-grey-95-f-8-f-8-f-8, #F8F8F8);
-                border: 1px dashed var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
-                border-radius: 4px;
-                cursor: pointer;
                 display: inline-flex;
-                gap: 8px;
-                min-width: 74px;
-                max-width: 100%;
-                padding: 8px 12px;
+                align-items: center;
+                cursor: pointer;
+                background: $color-extended-neutral-95;
+                border: $uploader-border-width dashed $uploader-border-color;
+                border-radius: $uploader-border-radius;
+                gap: $uploader-spacing-vertical;
+                padding: $uploader-spacing-vertical $uploader-spacing-horizontal;
+                color: $uploader-font-color;
 
-                span {
-                    color: var(--neutral-grey-60737373, #737373);
-                    font: 500 15px/24px $font-family-default;
+                @include modifier(label) {
+                    font-weight: $font-weight-md;
+                }
+
+                @include modifier(icon) {
+                    align-items: center;
+                    display: flex;
+                    margin-left: $uploader-icon-spacing-horizontal;
                 }
             }
+        }
+    }
 
-            @include element(pick-icon) {
-                align-items: center;
-                display: flex;
-                margin-left: 4px;
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(pick) {
+                border-color: $color-extended-neutral-0;
+                color: $color-extended-neutral-0;
             }
         }
     }
