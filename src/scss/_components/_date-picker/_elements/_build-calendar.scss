@@ -15,6 +15,27 @@
     @include sui-class($rtl: false, $theme: null) {
         // Block wrapper.
         @include block($block) {
+
+            @include element(button) {
+                cursor: pointer;
+                border-radius: 12px;
+                background: var(--neutral-grey-90-f-2-f-2-f-2, #F2F2F2);
+                color: var(--neutral-grey-101-a-1-a-1-a, #1A1A1A);
+                font-size: 13px;
+                line-height: 16px;
+                display: inline-flex;
+                margin-right: 10px;
+                padding: 4px 8px;
+
+                &:last-child {
+                    margin: 0;
+                }
+
+                &:hover {
+                    background-color: #AAA;
+                }
+            }
+
             @include element(calendars) {
                 display: flex;
             }
@@ -33,12 +54,11 @@
                 color: var(--neutral-grey-60737373, #737373);
                 background: var(--neutral-grey-95-f-8-f-8-f-8, #F8F8F8);
                 display: flex;
-                gap: 5px;
             }
 
             @include element(calendar-weekday) {
-                padding: 10px;
-                width: 35px;
+                padding: 12px;
+                width: 40px;
                 text-align: center;
             }
 
@@ -47,14 +67,46 @@
                 align-items: center;
                 color: var(--neutral-grey-60737373, #737373);
                 display: flex;
-                gap: 5px;
                 flex-wrap: wrap;
             }
 
-            @include element(calendar-day) {
-                padding: 10px;
-                width: 35px;
-                text-align: center;
+            @include element(calendar-list) {
+                border-top: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
+                overflow-y: auto;
+                max-height: 248px;
+
+                li {
+                    list-style: none;
+                    padding: 4px 16px;
+
+                    span {
+                        color: var(--neutral-grey-50505050, #505050);
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            @include element(calendar-nav) {
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 16px;
+            }
+
+            @include element(calendar-nav-item) {
+                align-items: center;
+                cursor: pointer;
+                display: flex;
+            }
+
+            @include element(calendar-dropdown-btn) {
+                font-size: 13px;
+                font-weight: 500;
+                align-items: center;
+                display: flex;
+                gap: 8px;
+                padding: 0 16px;
+                justify-content: space-between;
             }
         }
     }

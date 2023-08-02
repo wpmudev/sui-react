@@ -5,3 +5,7 @@
 @include sui-date-picker--element.build-header(date-picker);
 @include sui-date-picker--element.build-footer(date-picker);
 @include sui-date-picker--element.build-calendar(date-picker);
+@include sui-date-picker--element.build-popover(date-picker);
+@include sui-date-picker--element.build-input(date-picker);
+@include sui-date-picker--element.build-day(date-picker);
+@include sui-date-picker--element.build-range(date-picker);

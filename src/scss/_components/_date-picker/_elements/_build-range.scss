@@ -1,0 +1,41 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Range
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-range($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(range) {
+                display: flex;
+                gap: 8px;
+            }
+
+            @include element(range-button) {
+                background: var(--neutral-grey-90-f-2-f-2-f-2, #F2F2F2);
+                border-radius: 12px;
+                cursor: pointer;
+                font: 500 13px/16px $font-family-default;
+                padding: 4px 8px;
+
+                @include modifier(active) {
+                    color: #FFF;
+                    background: var(--primary-blue-base-50286-ef-1, #286EF1);
+                }
+
+                @include modifier(focus) {
+                    border: solid 2px #000;
+                }
+            }
+        }
+    }
+}

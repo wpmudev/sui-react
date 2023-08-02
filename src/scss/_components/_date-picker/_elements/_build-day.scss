@@ -1,0 +1,66 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build day
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-day($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(day) {
+                font: $font-weight-md 13px/20px $font-family-default;
+                margin: 4px 0;
+                text-align: center;
+                width: 40px;
+
+                @include modifier(disabled) {
+                    color: var(--neutral-grey-70-aaaaaa, #AAA);
+                    background-color: white;
+                }
+
+                @include modifier(filled) {
+                    span {
+                        color: #FFFFFF;
+                        background: var(--primary-blue-base-50286-ef-1, #286EF1);
+                    }
+                }
+
+                @include modifier(outlined) {
+                    span {
+                        border: solid 1px #286EF1;
+                        color: #286EF1;
+                    }
+                }
+
+                @include modifier(highlighted) {
+                    background: var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
+                }
+
+                @include modifier(start) {
+                    border-radius: 20px 0 0 20px;;
+                }
+
+                @include modifier(end) {
+                    border-radius: 0 20px 20px 0;
+                }
+            }
+
+            @include element(day-title) {
+                border-radius: 20px;
+                align-items: center;
+                display: inline-flex;
+                height: 32px;
+                justify-content: center;
+                width: 32px;
+            }
+        }
+    }
+}
