@@ -7,6 +7,7 @@ import React, { HTMLProps } from "react"
 interface AccordionProps extends HTMLProps<HTMLDivElement> {
 	/** Additional CSS class name for styling the score component. */
 	className?: string
+	state?: "" | "neutral" | "informative" | "success" | "warning" | "critical" // The semantic types for the accordion
 }
 
 type AccordionCheckboxProps =
@@ -24,7 +25,6 @@ interface AccordionItemProps extends AccordionCheckboxProps {
 	icon?: React.ReactNode // An optional icon to be displayed in the accordion item.
 	isExpanded?: boolean // Indicates whether the accordion item is initially expanded.
 	isDisabled?: boolean // Indicates whether the accordion item is disabled and cannot be interacted with.
-	state?: "" | "neutral" | "informative" | "success" | "warning" | "critical" // The semantic types for the accordion
 }
 
 export { AccordionItemProps, AccordionProps }
