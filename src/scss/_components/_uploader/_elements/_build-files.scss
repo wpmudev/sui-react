@@ -66,8 +66,10 @@
         // Block wrapper.
         @include block($block) {
 
-            @include element(files) {
+            @include element(file) {
                 color: $color-extended-neutral-0;
+                background: $color-extended-neutral-100;
+                border: $uploader-border-width solid $color-extended-neutral-0;
             }
         }
     }
