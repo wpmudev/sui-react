@@ -1,0 +1,61 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build calendar
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-calendar($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(calendars) {
+                display: flex;
+            }
+
+            @include element(calendar-month) {
+                font-size: 13px;
+                flex: 1;
+
+                &:first-child {
+                    border-right: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
+                }
+            }
+
+            @include element(calendar-weekdays) {
+                align-items: center;
+                color: var(--neutral-grey-60737373, #737373);
+                background: var(--neutral-grey-95-f-8-f-8-f-8, #F8F8F8);
+                display: flex;
+                gap: 5px;
+            }
+
+            @include element(calendar-weekday) {
+                padding: 10px;
+                width: 35px;
+                text-align: center;
+            }
+
+            @include element(calendar-days) {
+                background: white;
+                align-items: center;
+                color: var(--neutral-grey-60737373, #737373);
+                display: flex;
+                gap: 5px;
+                flex-wrap: wrap;
+            }
+
+            @include element(calendar-day) {
+                padding: 10px;
+                width: 35px;
+                text-align: center;
+            }
+        }
+    }
+}

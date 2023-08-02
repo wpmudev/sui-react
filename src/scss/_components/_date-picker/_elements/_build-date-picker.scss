@@ -1,0 +1,23 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Date Picker
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-date-picker($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			background: white;
+			box-shadow: 0 2px 4px 0 rgba(115, 115, 115, 0.10), 0 1px 16px 0 rgba(115, 115, 115, 0.05), 0 6px 12px 0 rgba(115, 115, 115, 0.08);
+			max-width: 560px;
+		}
+	}
+}

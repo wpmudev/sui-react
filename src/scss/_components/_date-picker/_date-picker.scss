@@ -1,0 +1,7 @@
+@use "./_elements/elements" as sui-date-picker--element;
+
+@include sui-date-picker--element.build-date-picker(date-picker);
+@include sui-date-picker--element.build-content(date-picker);
+@include sui-date-picker--element.build-header(date-picker);
+@include sui-date-picker--element.build-footer(date-picker);
+@include sui-date-picker--element.build-calendar(date-picker);
