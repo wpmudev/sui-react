@@ -6,134 +6,212 @@ import {
 	isBefore,
 	addDays,
 	isSameDay,
-	isWithinRange,
+	isWithinInterval,
 	isSameMonth,
 	addMonths,
+	subYears,
 	parse,
 	isValid,
 	min,
 	max,
+	format,
 } from "date-fns"
 
-export const identity = <T>(x: T) => x
-
-export const chunks = <T>(array: ReadonlyArray<T>, size: number): T[][] =>
-	Array.from({ length: Math.ceil(array.length / size) }, (_v, i) =>
-		array.slice(i * size, i * size + size),
+/**
+ * Splits an array of data into chunks of the specified size.
+ *
+ * @template T The type of data in the array.
+ * @param {ReadonlyArray<T>} data      The array of data to be split into chunks.
+ * @param {number}           chunkSize The size of each chunk.
+ * @return {T[][]} An array of arrays, each representing a chunk of data.
+ */
+export const splitMonthsIntoChunks = <T>(
+	data: ReadonlyArray<T>,
+	chunkSize: number,
+): T[][] =>
+	Array.from({ length: Math.ceil(data.length / chunkSize) }, (value, index) =>
+		// Slice the original array to get the chunk for the current index.
+		data.slice(index * chunkSize, index * chunkSize + chunkSize),
 	)
 
-export const combine = (...args: any[]): string =>
-	args.filter(identity).join(" ")
-
-// Date
-export const getDaysInMonth = (date: Date) => {
+/**
+ * Generates an array of dates representing the days within a week based on the provided date.
+ *
+ * @param {Date} date The date to be used for generating the days array.
+ * @return {Date[]} An array of dates representing the days within a week.
+ */
+export const generateDaysArray = (date: Date) => {
+	// Get the first day of the week of the provided date.
 	const startWeek = startOfWeek(startOfMonth(date))
+
+	// Get the last day of the week of the provided date.
 	const endWeek = endOfWeek(endOfMonth(date))
+
+	// Initialize an empty array to hold the days.
 	const days = []
+
+	// Loop from the startWeek to the endWeek, adding each date to the days array.
 	for (let curr = startWeek; isBefore(curr, endWeek); ) {
 		days.push(curr)
+		// Move to the next day.
 		curr = addDays(curr, 1)
 	}
+
+	// Return the array of days.
 	return days
 }
 
-export const isStartOfRange = ({ startDate }: any, day: Date) =>
+/**
+ * Checks if a given day is the start of the selected range.
+ *
+ * @param {any}  startDate - The start date of the selected range (if available).
+ * @param {Date} day       - The date to check.
+ * @return {boolean} - True if the given day is the start of the range, false otherwise.
+ */
+export const checkIfStartOfRange = ({ startDate }: any, day: Date) =>
 	(startDate && isSameDay(day, startDate)) as boolean
 
-export const isEndOfRange = ({ endDate }: any, day: Date) =>
+/**
+ * Checks if a given day is the end of the selected range.
+ *
+ * @param {any}  endDate - The end date of the selected range (if available).
+ * @param {Date} day     - The date to check.
+ * @return {boolean} - True if the given day is the end of the range, false otherwise.
+ */
+export const checkIsEndOfSelectedRange = ({ endDate }: any, day: Date) =>
 	(endDate && isSameDay(day, endDate)) as boolean
 
-export const inDateRange = ({ startDate, endDate }: any, day: Date) =>
+/**
+ * Checks if a given day is within the selected range (inclusive of start and end dates).
+ *
+ * @param {Object} selectedRange           - An object containing 'startDate' and 'endDate'.
+ * @param          selectedRange.startDate
+ * @param          selectedRange.endDate
+ * @param {Date}   day                     - The date to check if it falls within the selected range.
+ * @return {boolean} - True if the given day is within the selected range, false otherwise.
+ */
+export const checkIsInSelectedRange = (
+	{ startDate, endDate }: any,
+	day: Date,
+) =>
 	(startDate &&
 		endDate &&
-		(isWithinRange(day, startDate, endDate) ||
+		// Check if the day is within the interval defined by startDate and endDate.
+		(isWithinInterval(day, {
+			start: startDate,
+			end: endDate,
+		}) ||
+			// Check if the day is the same as the startDate or endDate.
 			isSameDay(day, startDate) ||
 			isSameDay(day, endDate))) as boolean
 
-export const isRangeSameDay = ({ startDate, endDate }: any) => {
+/**
+ * Checks if the selected range consists of the same day.
+ *
+ * @param {any} selectedRange - An object containing 'startDate' and 'endDate'.
+ * @return {boolean} - True if the selected range consists of the same day, false otherwise.
+ */
+export const checkIsSelectedRangeSameDay = ({ startDate, endDate }: any) => {
 	if (startDate && endDate) {
+		// If both startDate and endDate are defined, check if they are the same day.
 		return isSameDay(startDate, endDate)
 	}
+	// If either startDate or endDate is missing, the range cannot consist of the same day.
 	return false
 }
 
 type Falsy = false | null | undefined | 0 | ""
 
-export const parseOptionalDate = (
-	date: Date | string | Falsy,
-	defaultValue: Date,
-) => {
+/**
+ * Parses a Date or date string and returns the parsed Date if valid, or the defaultValue if invalid or falsy.
+ *
+ * @param {Date|string|Falsy} date         - The Date or date string to be parsed.
+ * @param {Date}              defaultValue - The default value to be returned if the parsing fails or the input is falsy.
+ * @return {Date} - The parsed Date if valid, or the defaultValue if invalid or falsy.
+ */
+export const parseDate = (date: Date | string | Falsy, defaultValue: Date) => {
 	if (date) {
+		// Attempt to parse the provided date using date-fns parse function.
 		const parsed = parse(date)
-		if (isValid(parsed)) return parsed
+		// Check if the parsed date is valid.
+		if (isValid(parsed)) {
+			// If the parsed date is valid, return it.
+			return parsed
+		}
 	}
+	// If the input date is falsy or the parsing fails, return the defaultValue.
 	return defaultValue
 }
 
-export const getValidatedMonths = (
-	range: any,
-	minDate: Date,
-	maxDate: Date,
-) => {
+/**
+ * Gets the start and end months of the given range, constrained by the minDate and maxDate.
+ *
+ * @param {Object} range   - An object containing 'startDate' and 'endDate' properties.
+ * @param {Date}   minDate - The minimum allowed date for the range.
+ * @param {Date}   maxDate - The maximum allowed date for the range.
+ * @return {Array<Date>} - An array containing the start and end months of the range, constrained by minDate and maxDate.
+ */
+export const getMonths = (range: any, minDate: Date, maxDate: Date) => {
 	const { startDate, endDate } = range
 	if (startDate && endDate) {
+		// Constrain the startDate to be the maximum of the actual startDate and minDate.
 		const newStart = max(startDate, minDate)
+		// Constrain the endDate to be the minimum of the actual endDate and maxDate.
 		const newEnd = min(endDate, maxDate)
 
+		// Return an array with the newStart and newEnd (or next month if newStart and newEnd are in the same month).
 		return [
 			newStart,
 			isSameMonth(newStart, newEnd) ? addMonths(newStart, 1) : newEnd,
 		]
 	}
+	// If either startDate or endDate is missing, return the original startDate and endDate (could be null or undefined).
 	return [startDate, endDate]
 }
 
-import {
-	addDays,
-	startOfWeek,
-	endOfWeek,
-	addWeeks,
-	startOfMonth,
-	endOfMonth,
-	addMonths,
-} from "date-fns"
+export const CURRENT_DATE = new Date()
 
-const getDefaultRanges = (date: Date): any[] => [
+/**
+ * An array of predefined date ranges based on the current date.
+ *
+ * @param {Date} date - The current date to use as a base for the predefined ranges.
+ * @return {Array} - An array containing predefined date ranges with label, startDate, and endDate properties.
+ */
+export const predefinedRanges = ((date: Date): any[] => [
 	{
 		label: "Today",
 		startDate: date,
 		endDate: date,
 	},
 	{
-		label: "Yesterday",
-		startDate: addDays(date, -1),
-		endDate: addDays(date, -1),
+		label: "Tomorrow",
+		startDate: addDays(date, 1),
+		endDate: addDays(date, 1),
 	},
 	{
-		label: "This Week",
+		label: "1 Week",
 		startDate: startOfWeek(date),
 		endDate: endOfWeek(date),
 	},
 	{
-		label: "Last Week",
-		startDate: startOfWeek(addWeeks(date, -1)),
-		endDate: endOfWeek(addWeeks(date, -1)),
-	},
-	{
-		label: "Last 7 Days",
-		startDate: addWeeks(date, -1),
-		endDate: date,
-	},
-	{
-		label: "This Month",
+		label: "30 days",
 		startDate: startOfMonth(date),
 		endDate: endOfMonth(date),
 	},
 	{
-		label: "Last Month",
-		startDate: startOfMonth(addMonths(date, -1)),
-		endDate: endOfMonth(addMonths(date, -1)),
+		label: "Custom",
+		startDate: startOfMonth(addMonths(date, 1)),
+		endDate: endOfMonth(addMonths(date, 1)),
 	},
-]
+])(CURRENT_DATE)
 
-export const defaultRanges = getDefaultRanges(new Date())
+export const switchLists = {
+	months: Array(12)
+		.fill(null)
+		.map((_v, index) => format(CURRENT_DATE.setMonth(index), "MMMM")),
+	// max 30 years
+	years: Array(30)
+		.fill(null)
+		.map((_v, i) => format(subYears(CURRENT_DATE, i), "yyyy"))
+		.reverse(),
+}

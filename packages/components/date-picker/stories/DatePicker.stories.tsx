@@ -30,7 +30,11 @@ const DatePicker = ({ language, copy, color }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiDatePicker language={language} copy={copy}>
+					<SuiDatePicker
+						onChange={(date) => {
+							console.log("changed", date)
+						}}
+					>
 						DISPLAY RANGE PICKER
 					</SuiDatePicker>
 				</div>
