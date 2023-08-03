@@ -1,7 +1,0 @@
-@use "./_elements/elements" as sui-alertdialog--element;
-@use "./_modifiers/modifiers" as sui-alertdialog--modifier;
-
-@include sui-alertdialog--element.build-container(alertdialog);
-@include sui-alertdialog--element.build-content(alertdialog);
-
-@include sui-alertdialog--modifier.edit-size(alertdialog);
