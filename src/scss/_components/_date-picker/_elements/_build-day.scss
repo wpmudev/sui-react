@@ -16,13 +16,21 @@
         // Block wrapper.
         @include block($block) {
             @include element(day) {
+                cursor: pointer;
                 font: $font-weight-md 13px/20px $font-family-default;
                 margin: 4px 0;
                 text-align: center;
                 width: 40px;
 
+                @include modifier(hover){
+                    span {
+                        background: var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
+                    }
+                }
+
                 @include modifier(disabled) {
                     color: var(--neutral-grey-70-aaaaaa, #AAA);
+                    cursor: default;
                     background-color: white;
                 }
 

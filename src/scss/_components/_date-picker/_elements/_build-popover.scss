@@ -20,6 +20,8 @@
                box-shadow: 0 2px 4px 0 rgba(115, 115, 115, 0.10), 0 1px 16px 0 rgba(115, 115, 115, 0.05), 0 6px 12px 0 rgba(115, 115, 115, 0.08);
                display: none;
                margin-top: 2px;
+               position: absolute;
+               width: auto;
 
                @include modifier(open) {
                    display: block;

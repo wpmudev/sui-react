@@ -10,12 +10,42 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-date-picker($block) {
-	// DIR: Left to right.
-	// THEME: None.
-	@include sui-class($rtl: false, $theme: null) {
-		// Block wrapper.
-		@include block($block) {
-			max-width: 560px;
-		}
-	}
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include modifier(single) {
+                max-width: 285px;
+
+                .sui-date-picker__calendar-list {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 5px;
+                    padding: 10px 0;
+
+                    &-item {
+                        border-radius: 20px;
+                        display: inline-flex;
+
+                        &--active {
+                            background: var(--primary-blue-base-50286-ef-1, #286EF1);
+
+                            span {
+                                color: white;
+                            }
+                        }
+
+                        &:hover {
+                            background: var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
+                        }
+                    }
+                }
+            }
+
+            @include modifier(range) {
+                max-width: 560px;
+            }
+        }
+    }
 }

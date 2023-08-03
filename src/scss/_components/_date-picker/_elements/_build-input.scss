@@ -16,7 +16,17 @@
         // Block wrapper.
         @include block($block) {
             @include element(input) {
-                max-width: 160px;
+                max-width: 280px;
+
+                @include modifier(single) {
+                    max-width: 196px;
+                }
+
+                @include modifier(disabled) {
+                    cursor: default;
+                    pointer-events: none;
+                    opacity: 0.5;
+                }
             }
         }
     }

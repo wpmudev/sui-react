@@ -18,6 +18,7 @@
             @include element(range) {
                 display: flex;
                 gap: 8px;
+                overflow: auto;
             }
 
             @include element(range-button) {
@@ -26,6 +27,7 @@
                 cursor: pointer;
                 font: 500 13px/16px $font-family-default;
                 padding: 4px 8px;
+                white-space: nowrap;
 
                 @include modifier(active) {
                     color: #FFF;

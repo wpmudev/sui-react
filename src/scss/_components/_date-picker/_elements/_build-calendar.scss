@@ -15,34 +15,19 @@
     @include sui-class($rtl: false, $theme: null) {
         // Block wrapper.
         @include block($block) {
-
-            @include element(button) {
-                cursor: pointer;
-                border-radius: 12px;
-                background: var(--neutral-grey-90-f-2-f-2-f-2, #F2F2F2);
-                color: var(--neutral-grey-101-a-1-a-1-a, #1A1A1A);
-                font-size: 13px;
-                line-height: 16px;
-                display: inline-flex;
-                margin-right: 10px;
-                padding: 4px 8px;
-
-                &:last-child {
-                    margin: 0;
-                }
-
-                &:hover {
-                    background-color: #AAA;
-                }
-            }
-
             @include element(calendars) {
-                display: flex;
+                display: block;
+
+                @include media(min-width, sm) {
+                    display: flex;
+                }
             }
 
             @include element(calendar-month) {
                 font-size: 13px;
                 flex: 1;
+                max-width: 285px;
+                width: 100%;
 
                 &:first-child {
                     border-right: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
@@ -74,15 +59,20 @@
                 border-top: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
                 overflow-y: auto;
                 max-height: 248px;
+            }
 
-                li {
-                    list-style: none;
-                    padding: 4px 16px;
+            @include element(calendar-list-item) {
+                list-style: none;
+                padding: 4px 16px;
 
+                @include modifier(active) {
                     span {
-                        color: var(--neutral-grey-50505050, #505050);
-                        cursor: pointer;
+                        color: var(--primary-blue-base-50286-ef-1, #286EF1);
                     }
+                }
+
+                span {
+                    cursor: pointer;
                 }
             }
 
