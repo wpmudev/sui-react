@@ -25,10 +25,10 @@
 
                 @include modifier(drag) {
                     cursor: grab;
+                    left: 0;
                     position: absolute;
                     top: 50%;
-                    left: 1%;
-                    transform: translate(0, -8px);
+                    transform: translate(50%, -8px);
                 }
 
                 @include modifier(actions) {

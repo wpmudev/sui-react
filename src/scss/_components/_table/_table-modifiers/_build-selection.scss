@@ -16,8 +16,8 @@
         @include block($block) {
             @include element(cell) {
                 @include modifier(selection) {
-                    max-width: 32px;
                     text-align: center;
+                    width: 0;
                 }
             }
         }

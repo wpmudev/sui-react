@@ -35,8 +35,8 @@
             }
 
             @include element(toolbar-body) {
-                background: var(--neutral-grey-95-f-8-f-8-f-8, #F8F8F8);
-                border-top: solid 1px #E6E6E6;
+                // background: var(--neutral-grey-95-f-8-f-8-f-8, #F8F8F8);
+                // border-top: solid 1px #E6E6E6;
                 display: none;
                 padding: 32px;
 
@@ -48,6 +48,7 @@
             @include element(toolbar-header-actions) {
                 align-items: center;
                 display: flex;
+                gap: 16px;
                 justify-content: space-between;
             }
         }
