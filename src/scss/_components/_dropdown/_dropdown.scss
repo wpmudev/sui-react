@@ -7,6 +7,7 @@
 @include sui-dropdown--element.build-option(dropdown);
 @include sui-dropdown--element.build-cta(dropdown);
 
-@include sui-dropdown--modifier.edit-size(dropdown);
+@include sui-dropdown--modifier.modify-size(dropdown);
+@include sui-dropdown--modifier.modify-direction(dropdown);
 
 @include sui-dropdown--state.edit-open(dropdown);

@@ -5,7 +5,6 @@
 		@include block($block-name) {
 			@include element(menu) {
 				width: 300px;
-				max-height: 300px;
 				overflow-y: auto;
 				z-index: 100;
 				position: absolute;
@@ -20,6 +19,10 @@
 					0 6px 12px rgba(115, 115, 115, 0.08),
 					0 1px 16px rgba(115, 115, 115, 0.05),
 					0 2px 4px rgba(115, 115, 115, 0.1);
+
+				@include modifier(fixed-height) {
+					max-height: 300px;
+				}
 			}
 		}
 	}
