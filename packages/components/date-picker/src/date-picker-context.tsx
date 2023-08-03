@@ -47,8 +47,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		definedRanges = predefinedRanges,
 		isDisabled,
 	} = props
-
-	const [isOpen, setIsOpen] = useState<boolean>(true)
+	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const [listType, setListType] = useState<"" | "months" | "years">("months")
 	const [toggleId, setToggleId] = useState<string | symbol>("")
 
