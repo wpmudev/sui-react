@@ -13,6 +13,7 @@ const Table: React.FC<TableProps> = ({
 	ariaLabel = "",
 	allowCheck,
 	isDraggable,
+	filtersPopover,
 	filters,
 	onAction,
 	bulkActions,
@@ -24,7 +25,14 @@ const Table: React.FC<TableProps> = ({
 	// Render the TableContextProvider to provide context with optional props
 	return (
 		<TableContextProvider
-			props={{ allowCheck, isDraggable, filters, onAction, bulkActions }}
+			props={{
+				allowCheck,
+				isDraggable,
+				filters,
+				onAction,
+				bulkActions,
+				filtersPopover,
+			}}
 		>
 			<div className="sui-table">
 				{/* Render the TableToolbar component if hasToolbar is true */}
