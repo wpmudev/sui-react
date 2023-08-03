@@ -15,57 +15,75 @@ import {
 	setYear,
 } from "date-fns"
 
-import { predefinedRanges, getMonths, parseDate, CURRENT_DATE } from "./helpers"
+import { predefinedRanges, getMonths, parseDate } from "./helpers"
 import { CALENDARS } from "./date-picker"
+import {
+	DatePickerContextProps,
+	DatePickerDateRange,
+	DatePickerNavs,
+	DatePickerProps,
+} from "./date-picker.types"
 
-const DatePickerContext = createContext<any>(null)
+const DatePickerContext = createContext<DatePickerContextProps>()
+
+// today's date
+const today = new Date()
 
 /**
  * DatePickerProvider is a context provider component for the date picker.
  * It manages the state and actions related to the date picker component.
  *
- * @param {Object} props - Component props passed to the DatePickerProvider.
+ * @param {DatePickerProps} props - Component props passed to the DatePickerProvider.
  * @return {JSX.Element} - JSX element wrapping the children components.
  */
-const DatePickerProvider: React.FC<any> = (props) => {
+const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 	// Extract the props passed to the component.
 	const {
 		onChange,
-		initialDateRange,
+		defaultValue,
+		defaultRange,
 		minDate,
 		maxDate,
 		definedRanges = predefinedRanges,
+		isDisabled,
 	} = props
 
-	const [isOpen, setIsOpen] = useState<boolean>(false)
+	const [isOpen, setIsOpen] = useState<boolean>(true)
 	const [listType, setListType] = useState<"" | "months" | "years">("months")
 	const [toggleId, setToggleId] = useState<string | symbol>("")
 
 	// Calculate the valid minDate and maxDate to be used in the date range.
-	const minDateValid = parseDate(minDate, subDays(CURRENT_DATE, 10))
-	const maxDateValid = parseDate(maxDate, addYears(CURRENT_DATE, 10))
+	const minDateValid = parseDate(minDate, subDays(today, 10))
+	const maxDateValid = parseDate(maxDate, addYears(today, 10))
 
-	// Get the initial first and second months based on the provided initialDateRange.
+	// Get the initial first and second months based on the provided defaultRange.
 	const [initialFirstMonth, initialSecondMonth] = getMonths(
-		initialDateRange || {},
+		defaultRange || {},
 		minDateValid,
 		maxDateValid,
 	)
 
 	// Initialize state using React hooks.
 	const [dateRange, setDateRange] = useState<any>({
-		...initialDateRange,
+		...defaultRange,
 	})
 	const [hoverDay, setHoverDay] = useState<Date>()
-	const [startMonth, setFirstMonth] = useState<Date>(
-		initialFirstMonth || CURRENT_DATE,
+	const [singleDate, setSingleDate] = useState<Date>(
+		parseDate(defaultValue, today),
 	)
-	const [endMonth, setSecondMonth] = useState<Date>(
+	const [singleMonth, setSingleMonth] = useState<Date>(
+		initialFirstMonth || today,
+	)
+	const [startMonth, setFirstMonth] = useState<Date | string | undefined>(
+		initialFirstMonth || today,
+	)
+	const [endMonth, setSecondMonth] = useState<Date | string | undefined>(
 		initialSecondMonth || addMonths(startMonth, 1),
 	)
 
 	// Extract startDate and endDate from the dateRange state.
 	const { startDate, endDate } = dateRange
+	const isSingle = "single" === props?.type
 
 	// Handler to set the first month with validation.
 	const setFirstMonthValidated = (date: Date) => {
@@ -82,7 +100,7 @@ const DatePickerProvider: React.FC<any> = (props) => {
 	}
 
 	// Handler to set the date range with validation.
-	const setDateRangeValidated = (range: any) => {
+	const setDateRangeValidated = (range: DatePickerDateRange) => {
 		let { startDate: newStart, endDate: newEnd } = range
 
 		if (newStart && newEnd) {
@@ -109,13 +127,21 @@ const DatePickerProvider: React.FC<any> = (props) => {
 			onChange(emptyRange)
 
 			// Reset the startMonth and endMonth to the current month and next month, respectively.
-			setFirstMonth(CURRENT_DATE)
+			setFirstMonth(today)
 			setSecondMonth(addMonths(startMonth, 1))
 		}
 	}
 
 	// Handler for when a day is clicked.
 	const onDayClick = (day: Date) => {
+		// Set single date
+		if (isSingle) {
+			setSingleDate(day)
+			setIsOpen(false)
+			onChange(day)
+			return
+		}
+
 		if (startDate && !endDate && !isBefore(day, startDate)) {
 			// If there's a startDate but no endDate, set the endDate to the clicked day.
 			const newRange = { startDate, endDate: day }
@@ -141,8 +167,14 @@ const DatePickerProvider: React.FC<any> = (props) => {
 		}
 	}
 
-	const jumpToDate = (val: any) => {
+	const jumpToDate = (val: number) => {
 		const firstCalendar = toggleId === CALENDARS.START_MONTH
+
+		// set year for single date
+		if (isSingle) {
+			setSingleMonth(setYear(singleMonth, val))
+			return
+		}
 
 		if ("months" === listType) {
 			setFirstMonth(setMonth(startMonth, firstCalendar ? val : val - 1))
@@ -155,6 +187,16 @@ const DatePickerProvider: React.FC<any> = (props) => {
 
 	// Handler for navigating to the previous/next month.
 	const onMonthNavigate = (marker: any) => {
+		// move to next month
+		if (isSingle) {
+			setSingleMonth(
+				"prev" === marker
+					? subMonths(singleMonth, 1)
+					: addMonths(singleMonth, 1),
+			)
+			return
+		}
+
 		if (marker === CALENDARS.START_MONTH) {
 			// If the startMonth is being navigated, go to the previous month.
 			const firstNew = subMonths(startMonth, 1)
@@ -189,7 +231,7 @@ const DatePickerProvider: React.FC<any> = (props) => {
 	}, [])
 
 	const openToggle = useCallback(
-		(type: "months" | "years", toggleIdStr: string) => {
+		(type: DatePickerNavs, toggleIdStr: string) => {
 			if (toggleIdStr === toggleId && type === listType) {
 				closeToggle()
 			} else {
@@ -218,6 +260,10 @@ const DatePickerProvider: React.FC<any> = (props) => {
 	return (
 		<DatePickerContext.Provider
 			value={{
+				isDisabled,
+				singleDate,
+				isSingle,
+				singleMonth,
 				// popover visibility
 				isOpen,
 				setIsOpen,
@@ -228,8 +274,6 @@ const DatePickerProvider: React.FC<any> = (props) => {
 				dateRange,
 				minDateValid,
 				maxDateValid,
-				minDate,
-				maxDate,
 				definedRanges,
 				startMonth,
 				endMonth,
@@ -240,7 +284,7 @@ const DatePickerProvider: React.FC<any> = (props) => {
 				handlers,
 			}}
 		>
-			{props?.children}
+			{props?.children as React.ReactNode}
 		</DatePickerContext.Provider>
 	)
 }

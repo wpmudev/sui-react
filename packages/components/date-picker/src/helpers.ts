@@ -93,8 +93,8 @@ export const checkIsEndOfSelectedRange = ({ endDate }: any, day: Date) =>
 export const checkIsInSelectedRange = (
 	{ startDate, endDate }: any,
 	day: Date,
-) =>
-	(startDate &&
+) => {
+	return (startDate &&
 		endDate &&
 		// Check if the day is within the interval defined by startDate and endDate.
 		(isWithinInterval(day, {
@@ -104,6 +104,7 @@ export const checkIsInSelectedRange = (
 			// Check if the day is the same as the startDate or endDate.
 			isSameDay(day, startDate) ||
 			isSameDay(day, endDate))) as boolean
+}
 
 /**
  * Checks if the selected range consists of the same day.
@@ -132,7 +133,8 @@ type Falsy = false | null | undefined | 0 | ""
 export const parseDate = (date: Date | string | Falsy, defaultValue: Date) => {
 	if (date) {
 		// Attempt to parse the provided date using date-fns parse function.
-		const parsed = parse(date)
+		const parsed = parse(date, "dd/MM/yyyy", new Date())
+
 		// Check if the parsed date is valid.
 		if (isValid(parsed)) {
 			// If the parsed date is valid, return it.
@@ -169,49 +171,53 @@ export const getMonths = (range: any, minDate: Date, maxDate: Date) => {
 	return [startDate, endDate]
 }
 
-export const CURRENT_DATE = new Date()
-
 /**
  * An array of predefined date ranges based on the current date.
  *
- * @param {Date} date - The current date to use as a base for the predefined ranges.
+ * @param {Date} dateStr - The current date to use as a base for the predefined ranges.
  * @return {Array} - An array containing predefined date ranges with label, startDate, and endDate properties.
  */
-export const predefinedRanges = ((date: Date): any[] => [
+const generateRanges = (dateStr: Date): any[] => [
 	{
 		label: "Today",
-		startDate: date,
-		endDate: date,
+		startDate: dateStr,
+		endDate: dateStr,
 	},
 	{
 		label: "Tomorrow",
-		startDate: addDays(date, 1),
-		endDate: addDays(date, 1),
+		startDate: addDays(dateStr, 1),
+		endDate: addDays(dateStr, 1),
 	},
 	{
 		label: "1 Week",
-		startDate: startOfWeek(date),
-		endDate: endOfWeek(date),
+		startDate: startOfWeek(dateStr),
+		endDate: endOfWeek(dateStr),
 	},
 	{
 		label: "30 days",
-		startDate: startOfMonth(date),
-		endDate: endOfMonth(date),
+		startDate: startOfMonth(dateStr),
+		endDate: endOfMonth(dateStr),
 	},
 	{
 		label: "Custom",
-		startDate: startOfMonth(addMonths(date, 1)),
-		endDate: endOfMonth(addMonths(date, 1)),
+		startDate: null,
+		endDate: null,
 	},
-])(CURRENT_DATE)
+]
 
+// Generate predefined date ranges starting from the current date.
+export const predefinedRanges = generateRanges(new Date())
+
+// Object containing lists of months and years for the date picker dropdowns.
 export const switchLists = {
+	// Array of 12 months' names.
 	months: Array(12)
 		.fill(null)
-		.map((_v, index) => format(CURRENT_DATE.setMonth(index), "MMMM")),
-	// max 30 years
+		.map((_v, index) => format(new Date().setMonth(index), "MMMM")),
+
+	// Array of 30 years, starting from the current year and going back 30 years.
 	years: Array(30)
 		.fill(null)
-		.map((_v, i) => format(subYears(CURRENT_DATE, i), "yyyy"))
+		.map((_v, i) => format(subYears(new Date(), i), "yyyy"))
 		.reverse(),
 }

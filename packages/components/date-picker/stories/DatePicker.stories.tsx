@@ -19,11 +19,11 @@ export default {
 }
 
 // Build "Tag" story.
-const DatePicker = ({ language, copy, color }) => {
+const DatePicker = ({ color, ...props }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		// background: color !== "white" ? "#fff" : "#333",
+		background: color !== "white" ? "#fff" : "#333",
 	}
 
 	return (
@@ -34,6 +34,7 @@ const DatePicker = ({ language, copy, color }) => {
 						onChange={(date) => {
 							console.log("changed", date)
 						}}
+						{...props}
 					>
 						DISPLAY RANGE PICKER
 					</SuiDatePicker>
@@ -45,26 +46,41 @@ const DatePicker = ({ language, copy, color }) => {
 
 // Set story arguments.
 DatePicker.args = {
-	language: "markup",
-	copy: true,
+	type: "markup",
+	minDate: "01/05/2023",
+	maxDate: "30/10/2023",
+	isDisabled: false,
 }
 
 // Set controls for story arguments.
 DatePicker.argTypes = {
-	language: {
-		name: "Code Language",
-		options: ["markup", "javascript", "css"],
+	type: {
+		name: "Type",
+		options: ["single", "range"],
 		control: {
 			type: "select",
 			labels: {
-				markup: "Language: HTML",
-				javascript: "Language: Javascript",
-				css: "Language: CSS",
+				single: "Single DatePicker",
+				range: "Range DatePicker",
 			},
 		},
 	},
-	copy: {
-		name: "Copy Button",
+	minDate: {
+		name: "Min Date",
+		control: {
+			type: "text",
+			description: "dd/MM/yyyy Eg. 01/01/2000",
+		},
+	},
+	maxDate: {
+		name: "Max Date",
+		control: {
+			type: "text",
+			description: "dd/MM/yyyy Eg. 01/01/2000",
+		},
+	},
+	isDisabled: {
+		name: "Disabled",
 		control: {
 			type: "boolean",
 		},

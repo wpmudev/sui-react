@@ -1,5 +1,4 @@
-import React, { useContext } from "react"
-import { differenceInCalendarMonths } from "date-fns"
+import React, { Fragment, useContext } from "react"
 
 import { Button } from "@wpmudev/sui-button"
 import { generateCN } from "@wpmudev/sui-utils"
@@ -8,29 +7,9 @@ import { DatePickerMonth } from "./date-picker-month"
 import { CALENDARS } from "./date-picker"
 import { DatePickerContext } from "./date-picker-context"
 import { DatePickerRange } from "./date-picker-ranges"
-//
-//
-// interface MenuProps {
-// 	dateRange: DateRange
-// 	ranges: DefinedRange[]
-// 	minDate: Date
-// 	maxDate: Date
-// 	startMonth: Date
-// 	endMonth: Date
-// 	setFirstMonth: Setter<Date>
-// 	setSecondMonth: Setter<Date>
-// 	setDateRange: Setter<DateRange>
-// 	helpers: {
-// 		inHoverRange: (day: Date) => boolean
-// 	}
-// 	handlers: {
-// 		onDayClick: (day: Date) => void
-// 		onDayHover: (day: Date) => void
-// 		onMonthNavigate: (marker: symbol, action: NavigationAction) => void
-// 	}
-// }
 
-const DatePickerPopover: React.FunctionComponent<any> = (props: any) => {
+const DatePickerPopover: React.FunctionComponent<any> = () => {
+	// Context of the DatePicker, which contains various state variables and functions
 	const ctx = useContext(DatePickerContext)
 
 	const {
@@ -38,17 +17,12 @@ const DatePickerPopover: React.FunctionComponent<any> = (props: any) => {
 		minDate,
 		maxDate,
 		startMonth,
-		setFirstMonth,
 		endMonth,
-		setSecondMonth,
 		helpers,
 		handlers,
 	} = ctx
 
-	const { startDate, endDate } = ctx?.dateRange
-	const canNavigateCloser =
-		differenceInCalendarMonths(endMonth, startMonth) >= 2
-
+	// Common props passed to the DatePickerMonth components
 	const commonProps = {
 		dateRange,
 		minDate,
@@ -61,44 +35,58 @@ const DatePickerPopover: React.FunctionComponent<any> = (props: any) => {
 		<div
 			className={generateCN("sui-date-picker__popover", { open: ctx.isOpen })}
 		>
-			<div className="sui-date-picker__header">
-				<DatePickerRange />
-			</div>
+			{/* Render the DatePickerRange component in the header (only in non-single mode) */}
+			{!ctx.isSingle && (
+				<div className="sui-date-picker__header">
+					<DatePickerRange />
+				</div>
+			)}
 			<div className="sui-date-picker__body">
 				<div className="sui-date-picker__calendars">
-					<DatePickerMonth
-						{...commonProps}
-						value={startMonth}
-						setValue={setFirstMonth}
-						navState={[true, canNavigateCloser]}
-						marker={CALENDARS.START_MONTH}
-					/>
-					<DatePickerMonth
-						{...commonProps}
-						value={endMonth}
-						setValue={setSecondMonth}
-						navState={[canNavigateCloser, true]}
-						marker={CALENDARS.END_MONTH}
-					/>
+					{ctx.isSingle ? (
+						// Render a single DatePickerMonth component for single-date mode
+						<DatePickerMonth {...commonProps} value={ctx.singleMonth} />
+					) : (
+						// Render two DatePickerMonth components for date range mode
+						<Fragment>
+							<DatePickerMonth
+								{...commonProps}
+								value={startMonth}
+								marker={CALENDARS.START_MONTH}
+							/>
+							<DatePickerMonth
+								{...commonProps}
+								value={endMonth}
+								marker={CALENDARS.END_MONTH}
+							/>
+						</Fragment>
+					)}
 				</div>
 			</div>
-			<div className="sui-date-picker__footer">
-				<div className="sui-date-picker__footer-item">
-					<Button
-						appearance="tertiary"
-						color="black"
-						isSmall={true}
-						onClick={() => ctx.setIsOpen(false)}
-					>
-						Close
-					</Button>
+			{!ctx.isSingle && (
+				<div className="sui-date-picker__footer">
+					<div className="sui-date-picker__footer-item">
+						<Button
+							appearance="tertiary"
+							color="black"
+							isSmall={true}
+							onClick={() => ctx.setIsOpen(false)}
+						>
+							Close
+						</Button>
+					</div>
+					<div className="sui-date-picker__footer-item">
+						<Button
+							appearance="secondary"
+							color="black"
+							isSmall={true}
+							onClick={() => ctx.setIsOpen(false)}
+						>
+							Ok
+						</Button>
+					</div>
 				</div>
-				<div className="sui-date-picker__footer-item">
-					<Button appearance="secondary" color="black" isSmall={true}>
-						Ok
-					</Button>
-				</div>
-			</div>
+			)}
 		</div>
 	)
 }

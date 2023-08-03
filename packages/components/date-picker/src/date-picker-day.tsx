@@ -1,8 +1,10 @@
 import React, { useCallback } from "react"
 
 import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
+import { useInteraction } from "@wpmudev/sui-hooks"
 
 const DatePickerDay: React.FC<any> = ({ value, ...props }) => {
+	// destructure the necessary props for the component
 	const {
 		disabled,
 		filled,
@@ -13,23 +15,28 @@ const DatePickerDay: React.FC<any> = ({ value, ...props }) => {
 		onClick,
 	} = props
 
-	// Generate the classNames for the day cell based on the provided props.
+	// use the useInteraction hook to handle hover and focus states
+	const [isHovered, isFocused, methods] = useInteraction({
+		onMouseEnter: props.onHover,
+	})
+
 	const classNames = generateCN("sui-date-picker__day", {
 		disabled,
-		filled,
+		filled: !disabled && filled,
 		highlighted: !!highlighted && !disabled,
-		outlined: !filled && outlined,
+		outlined: !filled && outlined && !disabled,
+		hover: isHovered && !disabled,
 		start,
 		end,
 	})
 
+	// Callback function to handle click on the day cell
 	const onClickDay = useCallback(() => {
 		if (!disabled && !!onClick) {
-			onClick()
+			onClick() // Call the provided onClick function if the component is not disabled
 		}
 	}, [disabled, onClick])
 
-	// Render the day cell only if the value prop is truthy (i.e., a valid date).
 	return (
 		!!value && (
 			<div
@@ -38,9 +45,9 @@ const DatePickerDay: React.FC<any> = ({ value, ...props }) => {
 				className={classNames}
 				onClick={onClickDay}
 				onKeyDown={(e) => handleOnKeyDown(e, onClickDay)}
-				onMouseEnter={props.onHover}
+				{...methods}
 			>
-				<span className="sui-date-picker__day-title">{value}</span>
+				<span className="sui-date-picker__day-title">{value}</span>{" "}
 			</div>
 		)
 	)
