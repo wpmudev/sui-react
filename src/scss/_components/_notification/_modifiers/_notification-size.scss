@@ -8,6 +8,10 @@
 			@include modifier(lg) {
 				width: 640px;
 			}
+
+			@include modifier(fluid) {
+				width: auto;
+			}
 		}
 	}
 }
