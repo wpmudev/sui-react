@@ -66,7 +66,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			{...(interactionMethods ?? {})}
 		>
 			<div
-				tabIndex={0}
+				tabIndex={isDisabled ? -1 : 0}
 				role="button"
 				id={accordionId}
 				aria-expanded={isExpanded}

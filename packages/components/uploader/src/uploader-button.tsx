@@ -57,16 +57,22 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 				onClick={onClick}
 				onKeyDown={(e) => handleOnKeyDown(e, onClick)}
 			>
-				<span className="sui-uploader__pick-icon">
+				<span className="sui-uploader__pick--icon">
 					<Upload size="sm" />
 				</span>
-				<span>{btnTitle}</span>
+				<span className="sui-uploader__pick--label">{btnTitle}</span>
 			</div>
 		)
 	}
 
 	return (
-		<Button appearance="primary" color="blue" icon="upload" onClick={onClick}>
+		<Button
+			className="sui-uploader__button"
+			appearance="primary"
+			color="blue"
+			icon="upload"
+			onClick={onClick}
+		>
 			{btnTitle}
 		</Button>
 	)
