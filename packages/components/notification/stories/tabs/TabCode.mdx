@@ -1,4 +1,5 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
+import { Section, List, Code, Snippet } from "@wpmudev/storybook"
+import dedent from "dedent"
 
 <Section
 	title="Installation"
@@ -6,7 +7,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 	style={{ paddingTop: 20, paddingBottom: 0 }}
 >
 	<p>
-		Install the <Code small={true}>Accordion</Code> package as an individual
+		Install the <Code small={true}>Notification</Code> package as an individual
 		component or follow the Overview page instructions to get the complete SUI
 		Components package.
 	</p>
@@ -15,111 +16,133 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 <Section title="Props" border={true}>
 
     	<Section
-    		title={{ content: "state*", tag: 'string', small: true }}
+    		title={{ content: "id", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
-    		<p>Sets the semantic type for the accordion</p>
+    		<p>Unique ID for the notification</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "title*", tag: 'React Node', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Title of the notification</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "desc*", tag: 'React Node', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p> Description of the notification  </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "action*", tag: 'React Node', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p> Enables the inclusion of interactive elements, like buttons, to facilitate immediate user actions within the notification   </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "icon*", tag: 'React Node', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p> Custom icon besides the title   </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "size*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p> Size of the notification   </p>
     		<p>
     		Allowed options:
     			<List>
-    				<span label={<Code small={true}>neutral</Code>} />
-    				<span label={<Code small={true}>informative</Code>} />
-    				<span label={<Code small={true}>success</Code>} />
-    				<span label={<Code small={true}>warning</Code>} />
-    				<span label={<Code small={true}>critical</Code>} />
+    				<span label={<Code small={true}>sm</Code>} />
+    				<span label={<Code small={true}>lg</Code>} />
     			</List>
     		</p>
     	</Section>
 
     	<Section
-    		title={{ content: "className*", tag: 'string', small: true }}
+    		title={{ content: "variation*", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
-    		<p>A custom className for the accordion </p>
+    		<p>Size of the notification</p>
+    		<p>
+    		Allowed options:
+    			<List>
+    				<span label={<Code small={true}>info</Code>} />
+    				<span label={<Code small={true}>success</Code>} />
+    				<span label={<Code small={true}>warning</Code>} />
+    				<span label={<Code small={true}>error</Code>} />
+    			</List>
+    		</p>
+    	</Section>
+
+    	<p>
+    		The following props are only relevant for the Notifications added using
+    		<Code small={true}> useNotifications </Code> hook
+    	</p>
+
+    	<Section
+    		title={{ content: "isInline*", tag: "boolean", small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p> Indicates if the notification is displayed inline </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "isDismissible*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p> When set to <Code small={true}>true</Code>, the notification will have a dismissing button  </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "timeout*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p> The amount of time (in ms) that should pass before automatically dismissing the notification.  </p>
     	</Section>
 
 </Section>
 
 <Section
-	title="Sub Components"
+	title="useNotifications Hook"
 	contained={true}
-	style={{ paddingTop: 30, paddingBottom: 0 }}
+	style={{ paddingTop: 30, paddingBottom: 30 }}
 >
-		<p>The Accordion component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+		<p>The <Code small={true}>useNotifications</Code> hook facilitates dynamic addition and removal of Toast notifications.</p>
 
-    <Section title="AccordionItem" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component represents an individual item or section of the accordion and comes with its
-    		own set of props.
-    	</p>
+    	<Snippet language="js">{dedent`const { push, remove } = useNotifcations()`}</Snippet>
 
-    	<Section title={{ content: "title*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Title of the accordion item
-    		</p>
-    	</Section>
+    	<Section
+    		title={{ content: "push", small: false }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p> A function that displays a new toast notification on the screen, it accepts one parameter:</p>
 
-    	<Section title={{ content: "description*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Description of the accordion item
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "isDisabled*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Enables deactivation of the accordion item
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "icon*", tag: 'React Element', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Adds an Icon to the accordion item
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "hasCheckbox*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Displays a checkbox if true
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "onCheck*", tag: 'function', small: true }}   contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Callback function to be executed when the checkbox is clicked
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			The content of the accordion item
-    		</p>
-    	</Section>
-
-
-    </Section>
-
-    	<Section title="AccordionBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component serves as the body content
-    	for each item and also accepts specific props to customize its behavior, it has the following props:
-    	</p>
-
-    		<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    			<p>
-    				The content of the accordion item
-    			</p>
+    		<Section
+    		title={{ content: "options", tag: 'object', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The object keys represent the properties of the Notification component as explained above. </p>
     		</Section>
     	</Section>
 
-    	<Section title="AccordionFooter" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component serves as the body content for each item and also accepts specific props to customize its behavior, it has the following props:
-    	</p>
+    	<Section
+    		title={{ content: "remove",  small: false }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p> A function to dismiss a notification with a specific id, it has one parameter:</p>
 
-    		<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    			<p>
-    				Custom content for the footer
-    			</p>
+    		<Section
+    		title={{ content: "id", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Id of the notification to dismiss</p>
+
     		</Section>
     	</Section>
 
