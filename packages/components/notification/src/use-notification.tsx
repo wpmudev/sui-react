@@ -1,4 +1,4 @@
-import React, { ReactNode, useSyncExternalStore } from "react"
+import { useSyncExternalStore } from "react"
 import { NotificationProps } from "./notification.types"
 
 // counter to generate unique IDs for notifications
