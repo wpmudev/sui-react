@@ -64,6 +64,11 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	hasToolbar?: boolean
 
 	/**
+	 * Display filters in popover
+	 */
+	filtersPopover?: boolean
+
+	/**
 	 * An array of filters that can be used in the table toolbar.
 	 */
 	filters?: Array<TableToolbarFilterText | TableToolbarFilterSelect>
@@ -165,6 +170,11 @@ interface TableContextProps {
 	setRows(rows: Record<string, any>[]): void
 
 	/**
+	 * Display filters in popover
+	 */
+	filtersPopover: Pick<TableProps, "filtersPopover">
+
+	/**
 	 * Filters to be used in the table toolbar.
 	 */
 	filters: Pick<TableProps, "filters">
@@ -233,7 +243,7 @@ interface TableContextProviderProps {
 	 */
 	props: Pick<
 		TableContextProps,
-		"allowCheck" | "isDraggable" | "filters" | "bulkActions"
+		"allowCheck" | "isDraggable" | "filtersPopover" | "filters" | "bulkActions"
 	> &
 		Pick<TableProps, "onAction">
 }

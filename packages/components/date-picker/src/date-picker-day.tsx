@@ -1,7 +1,8 @@
-import React, { useCallback } from "react"
+import React, { useCallback, useContext } from "react"
 
 import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
+import { DatePickerContext } from "./date-picker-context"
 
 const DatePickerDay: React.FC<any> = ({ value, ...props }) => {
 	// destructure the necessary props for the component
@@ -20,10 +21,13 @@ const DatePickerDay: React.FC<any> = ({ value, ...props }) => {
 		onMouseEnter: props.onHover,
 	})
 
+	const ctx = useContext(DatePickerContext)
+	const isSingle = ctx?.isSingle
+
 	const classNames = generateCN("sui-date-picker__day", {
 		disabled,
 		filled: !disabled && filled,
-		highlighted: !!highlighted && !disabled,
+		highlighted: !!highlighted && !disabled && !isSingle,
 		outlined: !filled && outlined && !disabled,
 		hover: isHovered && !disabled,
 		start,

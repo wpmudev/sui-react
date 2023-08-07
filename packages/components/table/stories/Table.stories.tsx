@@ -34,23 +34,19 @@ const records = [
 	{
 		id: 1,
 		title: "Contact Form",
-		tag: <Tag isSmall={true}>Published</Tag>,
+		tag: <Tag>Published</Tag>,
 		submission: "April 20, 2022 11:00 am",
 	},
 	{
 		id: 2,
 		title: "Contact Form",
-		tag: <Tag isSmall={true}>Published</Tag>,
+		tag: <Tag>Published</Tag>,
 		submission: "April 20, 2022 11:00 am",
 	},
 	{
 		id: 3,
 		title: "Contact Form",
-		tag: (
-			<Tag isSmall={true} color="blue">
-				Published
-			</Tag>
-		),
+		tag: <Tag color="blue">Published</Tag>,
 		submission: "April 20, 2022 11:00 am",
 		props: {
 			isExpandable: true,
@@ -68,7 +64,7 @@ const records = [
 	{
 		id: 4,
 		title: "Contact Form",
-		tag: <Tag isSmall={true}>Published</Tag>,
+		tag: <Tag>Published</Tag>,
 		submission: "April 20, 2022 11:00 am",
 		props: {
 			isExpandable: true,
@@ -86,7 +82,7 @@ const records = [
 	{
 		id: 5,
 		title: "Contact Form",
-		tag: <Tag isSmall={true}>Published</Tag>,
+		tag: <Tag>Published</Tag>,
 		submission: "April 20, 2022 11:00 am",
 		props: {
 			isExpandable: true,
@@ -104,7 +100,7 @@ const records = [
 	{
 		id: 6,
 		title: "Contact Form",
-		tag: <Tag isSmall={true}>Published</Tag>,
+		tag: <Tag>Published</Tag>,
 		submission: "April 20, 2022 11:00 am",
 		props: {
 			isExpandable: true,
@@ -311,6 +307,7 @@ Table.args = {
 			},
 		},
 	],
+	filtersPopover: true,
 }
 
 // Set controls for story arguments.
@@ -338,6 +335,12 @@ Table.argTypes = {
 	},
 	filters: {
 		name: "Filters",
+	},
+	filtersPopover: {
+		name: "Filter Popover",
+		control: {
+			type: "boolean",
+		},
 	},
 }
 

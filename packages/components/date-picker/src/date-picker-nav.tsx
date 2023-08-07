@@ -7,7 +7,7 @@ import { CaretDown, ChevronLeft, ChevronRight } from "@wpmudev/sui-icons"
 import { DatePickerContext } from "./date-picker-context"
 import { CALENDARS } from "./date-picker"
 
-const DatePickerNav: React.FC<any> = ({ date, marker, ...props }) => {
+const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 	// Get the context of the DatePicker, which contains helper functions and handlers
 	const ctx = useContext(DatePickerContext)
 

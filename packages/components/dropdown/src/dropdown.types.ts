@@ -39,21 +39,40 @@ interface DropdownProps {
 	 */
 	isLabelHidden?: boolean
 	/**
+	 * Display all content without scroll
+	 */
+	isFixedHeight?: boolean
+	/**
 	 * The current selected value of the dropdown.
 	 */
-	current: number
+	current?: number
 	/**
 	 * Expected type for menu object in array
 	 */
 	menu?: Array<DropdownMenuItemProps | DropdownMenuGroupProps>
 	/**
+	 * Filter button icon
+	 */
+	buttonIcon?: string
+	/**
 	 * On click on Menu Item
 	 */
 	onMenuClick?(id: string | number, e?): void
+	/**
+	 * Dropdown popover direction
+	 */
+	direction?: "" | "left" | "right"
 	/**
 	 * The content of the dropdown.
 	 */
 	children?: React.ReactNode
 }
 
-export { DropdownProps }
+// Type definition for the modal handling functions
+type DropdownRefProps = {
+	open: () => void
+	close: () => void
+	toggle: () => void
+}
+
+export { DropdownProps, DropdownRefProps }

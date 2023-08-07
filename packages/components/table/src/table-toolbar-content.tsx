@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { Fragment, useContext } from "react"
 import { TableToolbarContentProps } from "./table.types"
 
 import { Box, BoxGroup } from "@wpmudev/sui-box"
@@ -27,69 +27,74 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 		return null
 	}
 
-	// @todo: need improvements!
+	const renderField = (filter) => (
+		<FormField id={filter?.id} label={filter?.title} isSmall={true}>
+			{
+				{
+					select: (
+						<Select
+							onChange={(e) => {
+								ctx?.setFilter(filter?.id, e.target.value)
+							}}
+							id={filter?.id}
+							{...filter.props}
+						/>
+					),
+					text: (
+						<Input
+							id={filter?.id}
+							{...filter.props}
+							onChange={(e) => {
+								ctx?.setFilter(filter?.id, e.target.value)
+							}}
+						/>
+					),
+				}[filter.type]
+			}
+		</FormField>
+	)
+
 	return (
 		<div
 			id={id}
 			aria-labelledby={filterBtnId}
 			className={generateCN("sui-table__toolbar-body", {
-				expanded: isExpanded,
+				expanded: isExpanded || !!ctx?.filtersPopover,
 			})}
 		>
+			{ctx?.filtersPopover ? (
+				filters?.map((filter) => renderField(filter))
+			) : (
+				<Box>
+					<BoxGroup>
+						<Row align={{ md: "" }}>
+							{(filters ?? [])?.map((filter, index) => (
+								<Col size={3} key={index}>
+									{renderField(filter)}
+								</Col>
+							))}
+						</Row>
+					</BoxGroup>
+				</Box>
+			)}
 			<Box>
-				<BoxGroup>
-					<Row align={{ md: "inline" }}>
-						{(filters ?? [])?.map((filter, index) => (
-							<Col size={3} key={index}>
-								<FormField id={filter?.id} label={filter?.title} isSmall={true}>
-									{
-										{
-											select: (
-												<Select
-													onChange={(e) => {
-														ctx?.setFilter(filter?.id, e.target.value)
-													}}
-													id={filter?.id}
-													{...filter.props}
-												/>
-											),
-											text: (
-												<Input
-													id={filter?.id}
-													{...filter.props}
-													onChange={(e) => {
-														ctx?.setFilter(filter?.id, e.target.value)
-													}}
-												/>
-											),
-										}[filter.type]
-									}
-								</FormField>
-							</Col>
-						))}
-					</Row>
-				</BoxGroup>
-			</Box>
-			<Box>
-				<BoxGroup>
-					<Button
-						appearance="secondary"
-						color="black"
-						isSmall={true}
-						isDisabled={ctx?.filterValues?.length <= 0}
-					>
-						Clear filters
-					</Button>
-					<Button
-						appearance="primary"
-						color="blue"
-						isSmall={true}
-						isDisabled={ctx?.filterValues?.length <= 0}
-						onClick={() => ctx.triggerAction("apply-filters", ctx.filterValues)}
-					>
-						Apply filters
-					</Button>
-				</BoxGroup>
+				<Button
+					appearance="secondary"
+					color="black"
+					isSmall={true}
+					isDisabled={ctx?.filterValues?.length <= 0}
+				>
+					Clear filters
+				</Button>
+				<Button
+					appearance="primary"
+					color="blue"
+					isSmall={true}
+					isDisabled={ctx?.filterValues?.length <= 0}
+					onClick={() => ctx.triggerAction("apply-filters", ctx.filterValues)}
+				>
+					Apply filters
+				</Button>
 			</Box>
 		</div>
 	)
