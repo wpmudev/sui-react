@@ -1,0 +1,29 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Empty State info
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-info($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(info) {
+				text-align: center;
+
+				h2 {
+					font: $font-weight-lg 24px/32px $font-family-default;
+					margin: 0 0 16px 0;
+				}
+
+				p {
+					font: $font-weight-sm 15px/24px $font-family-default;
+				}
+			}
+		}
+	}
+}
