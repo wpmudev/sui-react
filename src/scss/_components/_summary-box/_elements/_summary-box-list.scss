@@ -1,0 +1,39 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Summary box list
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-list($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(list) {
+			}
+
+			@include element(list-item) {
+				align-items: center;
+				background-color: #f0f0f0;
+				border-radius: 8px;
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 16px;
+				padding: 16px;
+			}
+
+			@include element(list-item-info) {
+				color: var(--neutral-grey-101-a-1-a-1-a, #1A1A1A);
+				font: $font-weight-md 16px/24px $font-family-default;
+			}
+
+			@include element(list-item-status) {
+				display: inline-block;
+				height: 24px;
+			}
+		}
+	}
+}
