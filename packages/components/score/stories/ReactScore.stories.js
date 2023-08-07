@@ -83,12 +83,14 @@ Score.argTypes = {
 	state: {
 		name: "Type",
 		description: "The scores color variation according to type.",
+		options: ["default", "error", "warning", "success"],
 		control: {
 			type: "select",
-			options: {
-				"Type: Error": "error",
-				"Type: Warning": "warning",
-				"Type: Success": "success",
+			labels: {
+				default: "Type: Default",
+				error: "Type: Error",
+				warning: "Type: Warning",
+				success: "Type: Success",
 			},
 		},
 	},
