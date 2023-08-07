@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react"
 
-import { ColorPickerProps, ColorPickerColorProps } from "./color-picker.types"
+import { ColorPickerProps } from "./color-picker.types"
 import { Button } from "@wpmudev/sui-button"
 import { Input } from "@wpmudev/sui-input"
 
@@ -18,7 +18,11 @@ import Picker from "./elements/picker"
  * @return {JSX.Element} - JSX Element representing the CodeEditor component
  */
 
-const ColorPicker: React.FC<ColorPickerProps> = ({ color = "", onChange, ...props }) => {
+const ColorPicker: React.FC<ColorPickerProps> = ({
+	color = "",
+	onChange,
+	...props
+}) => {
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
 	const [tempColor, setTempColor] = useState(color)
