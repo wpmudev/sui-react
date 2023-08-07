@@ -47,6 +47,8 @@ const DatePicker = ({ color, ...props }) => {
 // Set story arguments.
 DatePicker.args = {
 	type: "markup",
+	startDate: "15/07/2023",
+	endDate: "15/09/2023",
 	minDate: "01/05/2023",
 	maxDate: "30/10/2023",
 	isDisabled: false,
@@ -57,12 +59,26 @@ DatePicker.argTypes = {
 	type: {
 		name: "Type",
 		options: ["single", "range"],
+		description:
+			"Specifies the type of DatePicker (e.g., single date, date range)",
 		control: {
 			type: "select",
 			labels: {
 				single: "Single DatePicker",
 				range: "Range DatePicker",
 			},
+		},
+	},
+	startDate: {
+		name: "Start Date",
+		control: {
+			type: "text",
+		},
+	},
+	endDate: {
+		name: "End Date",
+		control: {
+			type: "text",
 		},
 	},
 	minDate: {

@@ -39,10 +39,11 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 
 	// value to be displayed in the input field based on the context state
 	let value = ``
-	if (ctx?.isSingle) {
-		value = format(ctx?.singleDate, formatStr) // Format the single selected date
+
+	if (ctx?.isSingle && !!startDate) {
+		value = `${format(startDate, formatStr)}`
 	} else if (!!startDate && !!endDate) {
-		value = `${format(startDate, formatStr)} - ${format(endDate, formatStr)}` // Format the date range
+		value = `${format(startDate, formatStr)}- ${format(endDate, formatStr)}`
 	}
 
 	return (

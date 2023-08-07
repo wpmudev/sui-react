@@ -19,14 +19,6 @@ interface DatePickerProps {
 	 */
 	className?: string
 	/**
-	 * Default value for the DatePicker (single date mode)
-	 */
-	defaultValue?: string
-	/**
-	 * Default date range for the DatePicker (date range mode)
-	 */
-	defaultRange?: DatePickerDateRange
-	/**
 	 * Minimum selectable date in the DatePicker
 	 */
 	minDate?: string
@@ -39,6 +31,14 @@ interface DatePickerProps {
 	 */
 	isDisabled?: boolean
 	/**
+	 * Start date
+	 */
+	startDate?: string
+	/**
+	 * End Date (applicable only in range mode)
+	 */
+	endDate?: string
+	/**
 	 * Callback function called when the selected date(s) change
 	 *
 	 * @param {string | Date | DatePickerDateRange} value
@@ -47,10 +47,6 @@ interface DatePickerProps {
 }
 interface DatePickerContextProps {
 	/**
-	 * Stores single date
-	 */
-	singleDate: Date
-	/**
 	 * Flag indicating whether the DatePicker is in single date mode
 	 */
 	isSingle: boolean
@@ -58,10 +54,6 @@ interface DatePickerContextProps {
 	 * Flag indicating whether the DatePicker is disabled or not
 	 */
 	isDisabled: boolean
-	/**
-	 * Current month displayed (in single date mode)
-	 */
-	singleMonth: Date
 	/**
 	 * Flag indicating whether the DatePicker is open (visible)
 	 */
@@ -91,10 +83,6 @@ interface DatePickerContextProps {
 	 * Function to close the current toggle element
 	 */
 	closeToggle(): void
-	/**
-	 * Current selected date range (in date range mode)
-	 */
-	dateRange: DatePickerDateRange
 	/**
 	 * Minimum selectable date (converted from the minDate prop)
 	 */

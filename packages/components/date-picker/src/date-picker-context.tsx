@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useState } from "react"
+import React, { createContext, useCallback, useEffect, useState } from "react"
 import {
 	isSameMonth,
 	addYears,
@@ -40,20 +40,26 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 	// Extract the props passed to the component.
 	const {
 		onChange,
-		defaultValue,
-		defaultRange,
 		minDate,
 		maxDate,
 		definedRanges = predefinedRanges,
 		isDisabled,
 	} = props
+
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const [listType, setListType] = useState<"" | "months" | "years">("months")
 	const [toggleId, setToggleId] = useState<string | symbol>("")
 
+	const isSingle = "single" === props?.type
+
 	// Calculate the valid minDate and maxDate to be used in the date range.
 	const minDateValid = parseDate(minDate, subDays(today, 10))
 	const maxDateValid = parseDate(maxDate, addYears(today, 10))
+
+	const defaultRange: DatePickerDateRange = {
+		startDate: parseDate(props?.startDate, today),
+		endDate: parseDate(props?.endDate, today),
+	}
 
 	// Get the initial first and second months based on the provided defaultRange.
 	const [initialFirstMonth, initialSecondMonth] = getMonths(
@@ -67,12 +73,6 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		...defaultRange,
 	})
 	const [hoverDay, setHoverDay] = useState<Date>()
-	const [singleDate, setSingleDate] = useState<Date>(
-		parseDate(defaultValue, today),
-	)
-	const [singleMonth, setSingleMonth] = useState<Date>(
-		initialFirstMonth || today,
-	)
 	const [startMonth, setFirstMonth] = useState<Date | string | undefined>(
 		initialFirstMonth || today,
 	)
@@ -80,9 +80,12 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		initialSecondMonth || addMonths(startMonth, 1),
 	)
 
+	useEffect(() => {
+		setDateRange(defaultRange)
+	}, [props.startDate, props.endDate])
+
 	// Extract startDate and endDate from the dateRange state.
 	const { startDate, endDate } = dateRange
-	const isSingle = "single" === props?.type
 
 	// Handler to set the first month with validation.
 	const setFirstMonthValidated = (date: Date) => {
@@ -133,11 +136,10 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 
 	// Handler for when a day is clicked.
 	const onDayClick = (day: Date) => {
-		// Set single date
+		// Set startDate and close the popover (in single mode)
 		if (isSingle) {
-			setSingleDate(day)
+			setDateRange({ startDate: day, endDate: undefined })
 			setIsOpen(false)
-			onChange(day)
 			return
 		}
 
@@ -171,7 +173,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 
 		// set year for single date
 		if (isSingle) {
-			setSingleMonth(setYear(singleMonth, val))
+			setFirstMonth(setYear(startMonth, val))
 			return
 		}
 
@@ -188,10 +190,8 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 	const onMonthNavigate = (marker: any) => {
 		// move to next month
 		if (isSingle) {
-			setSingleMonth(
-				"prev" === marker
-					? subMonths(singleMonth, 1)
-					: addMonths(singleMonth, 1),
+			setFirstMonth(
+				"prev" === marker ? subMonths(startMonth, 1) : addMonths(startMonth, 1),
 			)
 			return
 		}
@@ -260,10 +260,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		<DatePickerContext.Provider
 			value={{
 				isDisabled,
-				singleDate,
 				isSingle,
-				singleMonth,
-				// popover visibility
 				isOpen,
 				setIsOpen,
 				listType,

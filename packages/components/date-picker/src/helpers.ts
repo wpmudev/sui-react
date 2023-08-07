@@ -155,11 +155,12 @@ export const parseDate = (date: Date | string | Falsy, defaultValue: Date) => {
  */
 export const getMonths = (range: any, minDate: Date, maxDate: Date) => {
 	const { startDate, endDate } = range
+
 	if (startDate && endDate) {
 		// Constrain the startDate to be the maximum of the actual startDate and minDate.
-		const newStart = max(startDate, minDate)
+		const newStart = max([startDate, minDate])
 		// Constrain the endDate to be the minimum of the actual endDate and maxDate.
-		const newEnd = min(endDate, maxDate)
+		const newEnd = min([endDate, maxDate])
 
 		// Return an array with the newStart and newEnd (or next month if newStart and newEnd are in the same month).
 		return [
@@ -167,6 +168,7 @@ export const getMonths = (range: any, minDate: Date, maxDate: Date) => {
 			isSameMonth(newStart, newEnd) ? addMonths(newStart, 1) : newEnd,
 		]
 	}
+
 	// If either startDate or endDate is missing, return the original startDate and endDate (could be null or undefined).
 	return [startDate, endDate]
 }
