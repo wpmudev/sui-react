@@ -1,4 +1,5 @@
-import React from "react"
+import React, { HTMLProps } from "react"
+import { isEmpty } from "@wpmudev/storybook/lib/utils"
 
 /**
  * Represents the alignment options for a row component.
@@ -8,18 +9,19 @@ type RowAlignments = "xs" | "sm" | "md" | "lg" | "xl"
 /**
  * Represents the properties for a row component.
  */
-interface RowProps {
+interface RowProps extends HTMLProps<HTMLDivElement> {
 	/**
 	 * The alignment of the row.
 	 */
 	align?: Record<RowAlignments, string>[]
+	className?: string
 	/**
 	 * The content of the row.
 	 */
 	children?: React.ReactNode
 }
 
-const Row: React.FC<RowProps> = ({ align, children }) => {
+const Row: React.FC<RowProps> = ({ align, className, children, ...props }) => {
 	const expectedAligns = {
 		xs: "",
 		sm: "",
@@ -45,7 +47,15 @@ const Row: React.FC<RowProps> = ({ align, children }) => {
 		}
 	}
 
-	return <div className={classNames}>{children}</div>
+	if (!isEmpty(className ?? "")) {
+		classNames += ` ${className}`
+	}
+
+	return (
+		<div className={classNames} {...props}>
+			{children}
+		</div>
+	)
 }
 
 export { Row, RowProps }
