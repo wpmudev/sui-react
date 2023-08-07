@@ -29,26 +29,53 @@ const Score: React.FC<ScoreProps> = ({
 
 	return (
 		<div className={classNames} {...props}>
-			<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-				<circle strokeWidth="12" cx="50" cy="50" r="42" />
+			<svg
+				viewBox="0 0 100 100"
+				className="sui-score__svg"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<circle
+					strokeWidth="12"
+					cx="50"
+					cy="50"
+					r="42"
+					className="sui-score__circle sui-score__circle--bg"
+				/>
 				<circle
 					strokeWidth="12"
 					cx="50"
 					cy="50"
 					r="42"
 					strokeDasharray="0,3943.4067435231395"
+					className="sui-score__circle sui-score__circle--filled"
 					style={{
 						animation: `3s ease 0s 1 normal forwards running sui${
 							bar ? bar : value
 						}`,
 					}}
 				/>
+				<circle
+					className="sui-score__circle sui-score__circle--inner"
+					strokeWidth="1"
+					stroke="#000"
+					cx="50"
+					cy="50"
+					r="42"
+				/>
+				<circle
+					className="sui-score__circle sui-score__circle--outer"
+					strokeWidth="1"
+					stroke="#000"
+					cx="50"
+					cy="50"
+					r="42"
+				/>
 			</svg>
 			<span className="sui-score--content">
 				{value}
-				{isPercentage && <span className="sui-score--percentage">%</span>}
+				{isPercentage && <span className="sui-score--percentage">%</span>}{" "}
+				{!!content && !!isSmall && content}
 			</span>
-			{!!content && !!isSmall && content}
 			<span className="sui-screen-reader-only" tabIndex="0">
 				Score {value} out of 100
 			</span>
