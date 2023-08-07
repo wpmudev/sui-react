@@ -15,11 +15,11 @@ interface BoxProps {
 	/**
 	 * The content for the left header section of the box.
 	 */
-	headerLeft?: string
+	headerLeft?: string | Record<string, any>[]
 	/**
 	 * The content for the right header section of the box.
 	 */
-	headerRight?: string
+	headerRight?: string | Record<string, any>[]
 	/**
 	 * The content of the box.
 	 */
