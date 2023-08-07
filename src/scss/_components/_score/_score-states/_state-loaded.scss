@@ -1,7 +1,6 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-@use "../_score-utils/colors" as *;
 
 /// Loading Score
 ///
@@ -9,7 +8,7 @@
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-loaded($block) {
+@mixin state-loaded($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {

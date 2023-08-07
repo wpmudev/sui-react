@@ -1,9 +1,21 @@
 @use "sass:map";
-
 @use "../../../_utils/utils" as *;
-@use "../_score-utils/variables" as *;
-@use "../_score-utils/colors" as *;
 @use "../_score-utils/animation" as *;
+
+$sui-score-design: (
+	success: (
+		stroke: $score-color-green,
+	),
+	warning: (
+		stroke: $score-color-yellow,
+	),
+	error: (
+		stroke: $score-color-red,
+	),
+	default: (
+		stroke: $score-color-blue,
+	)
+);
 
 /// Build SVG
 /// This function creates styles for the element
@@ -19,30 +31,72 @@
 		// Block wrapper.
 		@include block($block) {
 
-			// svg wrapper
-			svg {
-                height: 100%;
+			@include element(svg) {
+				height: 100%;
 				transform: rotate(-90deg);
 				transform-origin: center;
-            }
+			}
 
-			circle {
-                fill: none;
+			@include element(circle) {
+				fill: none;
 
-				&:first-child {
-					stroke: map.get($sui-score-design, default, stroke);
+				@include modifier(bg) {
+					stroke: $score-color-grey;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: light) {
+		// Block wrapper.
+		@include block($block) {
+
+			@include element(circle) {
+				@include modifier(inner, outer) {
+					display: none;
+				}
+			}
+
+			@each $color, $states in $sui-score-design {
+				@include modifier($color) {
+					@include modifies-element(circle) {
+						&.sui-#{$block}__circle--filled {
+							stroke: map.get($sui-score-design, $color, stroke);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+
+			@include element(circle) {
+
+				@include modifier(bg) {
+					stroke: $color-extended-neutral-100;
 				}
 
-				&:last-child {
-					stroke: map.get($sui-score-design, success, stroke);
+				@include modifier(filled) {
+					stroke: $color-extended-neutral-0;
 				}
-            }
 
-			@include modifier(lg) {
-                circle {
-                    stroke-width: map.get($sui-score-stroke, lg, width);
-                }
-            }
+				@include modifier(inner) {
+					transform: scale(0.88);
+					transform-origin: center;
+				}
+
+				@include modifier(outer) {
+					transform: scale(1.12);
+					transform-origin: center;
+				}
+			}
 		}
 	}
 }
