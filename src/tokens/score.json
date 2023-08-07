@@ -56,12 +56,38 @@
         "red": {
           "value": "{color.extended.error.50}",
           "type": "color"
+        },
+        "blue": {
+          "value": "{color.primary.50}",
+          "type": "color"
         }
       },
       "spacing": {
         "vertical": {
           "value": "{spacing.md}",
           "type": "spacing"
+        }
+      },
+      "size": {
+        "width": {
+          "value": "90px",
+          "type": "sizing"
+        },
+        "height": {
+          "sm": {
+            "value": "32px",
+            "type": "sizing"
+          },
+          "lg": {
+            "value": "150px",
+            "type": "sizing"
+          }
+        }
+      },
+      "stroke": {
+        "lg": {
+          "value": "10px",
+          "type": "other"
         }
       }
     }

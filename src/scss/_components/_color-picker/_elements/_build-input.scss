@@ -93,7 +93,7 @@
 
     // DIR: Right to left.
     // THEME: None.
-    @include sui-class($rtl: true, $theme: dark) {
+    @include sui-class($rtl: true, $theme: null) {
         // Block wrapper.
         @include block($block) {
             @include element(clear) {
