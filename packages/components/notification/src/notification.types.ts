@@ -10,6 +10,7 @@ interface NotificationProps {
 	desc?: ReactNode // description content of the notification (can be any valid React node)
 	action?: ReactNode // notification action
 	icon?: ReactNode | string // icon to display with the notification (can be a React node or a string)
+	iconState?: string | never // icon state (unused in the current implementation)
 	isInline?: boolean // flag to indicate if the notification is displayed inline
 	isDismissible?: boolean // make notification dismissible
 	timeout?: number // make notification invisible
