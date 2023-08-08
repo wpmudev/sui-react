@@ -20,7 +20,7 @@ export default {
 }
 
 // Build "Tag" story.
-const ColorPicker = ({ color, id, helper, label, ...props }) => {
+const ColorPicker = ({ color, ...props }) => {
 	const [currentColor, setCurrentColor] = useState<string>(color)
 
 	useEffect(() => {
