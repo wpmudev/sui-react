@@ -77,6 +77,10 @@ DatePicker.argTypes = {
 	},
 	endDate: {
 		name: "End Date",
+		if: {
+			arg: "type",
+			eq: "range",
+		},
 		control: {
 			type: "text",
 		},

@@ -26,7 +26,7 @@ const DatePickerList: React.FC<any> = ({ date, height }) => {
 			: Number(val) === getYear(date)
 
 	return (
-		<div className="sui-date-picker__calendar-list" style={{ height }}>
+		<ul className="sui-date-picker__calendar-list" style={{ height }}>
 			{dropdownList.map((name, index) => {
 				const val = "months" === ctx.listType ? index : name
 				return (
@@ -47,7 +47,7 @@ const DatePickerList: React.FC<any> = ({ date, height }) => {
 					</li>
 				)
 			})}
-		</div>
+		</ul>
 	)
 }
 
