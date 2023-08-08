@@ -1,5 +1,5 @@
 import React from "react"
-import { AddIcon } from "@wpmudev/sui-icons"
+import { Add } from "@wpmudev/sui-icons"
 import { generateCN } from "@wpmudev/sui-utils"
 
 interface ModalFooterProps {

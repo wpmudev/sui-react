@@ -1,10 +1,18 @@
 {
-  "name": "@wpmudev/sui-footer",
+  "name": "@wpmudev/sui-setup-banner",
   "version": "0.0.0",
-  "description": "Shared footer UI/UX",
+  "private": true,
+  "description": "WPMU DEV Shared UI Setup Banner Component",
   "keywords": [],
-  "author": "Leighton <2328848+iamleigh@users.noreply.github.com>",
-  "license": "ISC",
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
+    }
+  ],
+  "license": "GPL-2.0",
   "main": "src/index.ts",
   "directories": {
     "src": "src",
@@ -18,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://iamleigh@github.com/wpmudev/sui-docs.git"
+    "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
@@ -28,9 +36,7 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "devDependencies": {
+    "@wpmudev/sui-utils": "^0.0.0",
     "react": "^18.2.0"
-  },
-  "dependencies": {
-    "@wpmudev/sui-menu": "^0.0.0"
   }
 }
