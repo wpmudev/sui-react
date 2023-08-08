@@ -29,6 +29,30 @@
 				line-height: $font-height-md;
 				letter-spacing: $font-spacing-default;
 				text-align: center;
+				user-select: none;
+
+				&:hover {
+					background: $color-extended-neutral-90;
+					color: $color-extended-neutral-10;
+				}
+
+				&:disabled {
+					cursor: default;
+					pointer-events: none;
+					background: $color-extended-neutral-80;
+					color: $color-extended-neutral-70;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(button) {
+				background: $color-extended-neutral-100;
+				color: $color-extended-neutral-0;
 
 				&:hover {
 					background: $color-extended-neutral-90;

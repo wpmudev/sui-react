@@ -1,0 +1,10 @@
+@use "./_elements/elements" as sui-summary-box--element;
+@use "./_modifiers/modifiers" as sui-summary-box--modifier;
+
+@include sui-summary-box--element.build-container(summary-box);
+@include sui-summary-box--element.build-header(summary-box);
+@include sui-summary-box--element.build-body(summary-box);
+@include sui-summary-box--element.build-list(summary-box);
+@include sui-summary-box--element.build-footer(summary-box);
+
+@include sui-summary-box--modifier.modify-size(select);

@@ -1,0 +1,27 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Empty State logo
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-logo($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(logo) {
+				align-items: center;
+				border-radius: 100px;
+				background: var(--neutral-grey-90-f-2-f-2-f-2, #F2F2F2);
+				display: flex;
+				justify-content: center;
+				height: 200px;
+				margin-bottom: 32px;
+				width: 200px;
+			}
+		}
+	}
+}

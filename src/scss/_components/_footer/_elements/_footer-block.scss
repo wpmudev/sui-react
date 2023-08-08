@@ -1,0 +1,22 @@
+
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build block
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-block($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(block) {
+				color: var(--neutral-grey-50505050, #505050);
+				font: $font-weight-sm 13px/20px $font-family-default;
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build background
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-bg($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(bg) {
+				color: rgb(255 255 255 / 39%);
+				display: inline;
+				overflow: hidden;
+				position: absolute;
+				top: -50%;
+				right: 150px;
+				left: auto;
+				opacity: 0.1;
+			}
+
+			@include element(bg-icon) {
+				height: 480px;
+				padding: 64px;
+				width: 480px;
+			}
+		}
+	}
+}
