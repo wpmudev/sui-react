@@ -1,0 +1,50 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build links
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-links($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(links) {
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+
+                &:not(.sui-footer__links--social) {
+                    .sui-footer__links-item:not(:last-child):after {
+                        content: '|';
+                    }
+                }
+            }
+
+            @include element(links-item) {
+                align-items: center;
+                display: inline-flex;
+
+                a {
+                    color: var(--neutral-grey-60737373, #737373);
+                    display: inline-flex;
+                    font-size: 12px;
+                    text-decoration: none;
+                    margin: 0 5px;
+
+                    &:hover {
+                        color: var(--primary-blue-dark-400045-c-4, #0045C4);
+                    }
+
+                    &:focus {
+                        color: var(--primary-blue-dark-400045-c-4, #0045C4);
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
