@@ -23,13 +23,15 @@
                 }
             }
 
+            @include element(calendar-month) {
+                position: relative;
+                font-size: $datepicker-font-size;
+                flex: 1;
+                width: $datepicker-size-width-lg;
+            }
+
             @include modifier(range) {
                 @include modifies-element(calendar-month) {
-                    position: relative;
-                    font-size: $datepicker-font-size;
-                    flex: 1;
-                    width: $datepicker-size-width-lg;
-    
                     &:last-child::before {
                         content: '';
                         position: absolute;
