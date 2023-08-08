@@ -1,4 +1,4 @@
-export { AddIcon } from "./Add"
+export { Add } from "./Add"
 export { ArrowDown } from "./ArrowDown"
 export { ArrowLeft } from "./ArrowLeft"
 export { ArrowRight } from "./ArrowRight"
