@@ -1,19 +1,29 @@
-import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
-import dedent from 'dedent'; import { ColorPicker } from '../ReactColorPicker.stories';
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import dedent from "dedent"
+import { ColorPicker } from "../ReactColorPicker.stories"
 
 export const sampleCode = dedent`
-import React from 'react';\n
-import { CodeSnippet } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <CodeSnippet type="markup" copy={false}>{Sample code}</CodeSnippet>;
-}\n
-export default Example;
-`;
+     <ColorPicker color="#d73d3d"/>
+`
+
+export const RgbTypeCode = dedent`
+     <ColorPicker type="rgb" color="rgba(128, 38, 38, 1)"/>
+`
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>Below is the default form of a code snippet, used for most cases.</p>
-	<Preview wrapper={true}>
-		<ColorPicker/>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+	<p>Below is the default form of a Color Picker with <Code isSmall={true}> HEX</Code> Type:</p>
+	<div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+    	<ColorPicker color="#d73d3d"/>
+	</div>
+    <Snippet language="js">{sampleCode}</Snippet>
+
+</Section>
+
+<Section title="RGB Type" contained={true} style={{ paddingTop: 0 }}>
+
+    <div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+    	<ColorPicker type="rgb" color="rgba(128, 38, 38, 1)" />
+    </div>
+    <Snippet language="js">{RgbTypeCode}</Snippet>
+
 </Section>
