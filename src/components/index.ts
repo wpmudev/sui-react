@@ -39,3 +39,7 @@ export { PluginIVT } from "./PluginIVT"
 export { PluginShipper } from "./PluginShipper"
 export { PluginSmartCrawl } from "./PluginSmartCrawl"
 export { PluginSnapshot } from "./PluginSnapshot"
+// social icons
+export { Facebook } from "./Facebook"
+export { Instagram } from "./Instagram"
+export { Twitter } from "./Twitter"
