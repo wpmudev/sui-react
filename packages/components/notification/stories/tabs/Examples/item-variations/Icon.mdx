@@ -2,12 +2,14 @@ import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
 
 import { Accordion, AccordionItem, AccordionItemBody } from "../../../../src"
 
+import { InfoAlt } from "@wpmudev/sui-icons"
+
 import dedent from "dedent"
 
-export const DisabledCode = dedent`
+export const IconCode = dedent`
 <Accordion>
         <AccordionItem
-            isDisabled={true}
+            icon={<InfoAlt />}
             title="Accordion title"
         >
             <AccordionItemBody>
@@ -21,15 +23,14 @@ export const DisabledCode = dedent`
 `
 
 <Section style={{ paddingTop: 0 }}>
-	<Section title="Disabled" style={{ paddingTop: 0, paddingLeft: 0 }}>
+	<Section title="Icon" style={{ paddingTop: 0, paddingLeft: 0 }}>
 		<p>
-			When <Code small={true}>isDisabled</Code> prop is set to{" "}
-			<Code small={true}>true</Code> the <Code small={true}>AccordionItem</Code>{" "}
-			will be disabled
+			Use the <Code small={true}>icon</Code> prop to add an icon to the{" "}
+			<Code small={true}>AccordionItem</Code>
 		</p>
 		<Preview>
 			<Accordion>
-				<AccordionItem isDisabled={true} title="Disabled Accordion">
+				<AccordionItem icon={<InfoAlt />} title="Accordion title">
 					<AccordionItemBody>
 						<p>
 							Hi, I am accordion content body. you can swap me with your local
@@ -39,6 +40,6 @@ export const DisabledCode = dedent`
 				</AccordionItem>
 			</Accordion>
 		</Preview>
-		<Snippet language="js">{DisabledCode}</Snippet>
+		<Snippet language="js">{IconCode}</Snippet>
 	</Section>
 </Section>

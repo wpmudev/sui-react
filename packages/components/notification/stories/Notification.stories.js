@@ -4,7 +4,7 @@ import React from "react"
 import { Notification as SuiNotification, NotificationRenderer } from "../src"
 
 // Import documentation main page
-import docs from "./ReactNotification.mdx"
+import docs from "./Notification.mdx"
 import { Button } from "@wpmudev/sui-button"
 import { useNotifications } from "../src/use-notification"
 

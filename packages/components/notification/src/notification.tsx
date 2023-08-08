@@ -13,7 +13,6 @@ const Notification: React.FC<NotificationProps> = ({
 	desc,
 	action,
 	icon,
-	iconState,
 	isInline = true,
 	isDismissible,
 	size,
@@ -71,9 +70,7 @@ const Notification: React.FC<NotificationProps> = ({
 			aria-labelledby={`${notificationId}-title`}
 			aria-describedby={`${notificationId}-desc`}
 		>
-			{!!Icon && (
-				<Icon size="md" color={iconState} className="sui-notification__icon" />
-			)}
+			{!!Icon && <Icon size="md" className="sui-notification__icon" />}
 			<div className="sui-notification__content">
 				{!!title && (
 					<span
