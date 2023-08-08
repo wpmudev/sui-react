@@ -16,35 +16,62 @@
         // Block wrapper.
         @include block($block) {
             @include modifier(single) {
-                max-width: 285px;
 
-                .sui-date-picker__calendar-list {
+                @include modifies-element(calendar-list) {
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 5px;
-                    padding: 10px 0;
+                    gap: $datepicker-spacing-xs;
+                    padding: $datepicker-spacing-sm 0;
 
                     &-item {
-                        border-radius: 20px;
+                        border-radius: $datepicker-border-radius-lg;
                         display: inline-flex;
 
                         &--active {
-                            background: var(--primary-blue-base-50286-ef-1, #286EF1);
+                            background: $color-primary-50;
 
                             span {
-                                color: white;
+                                color: $color-extended-neutral-100;
                             }
                         }
 
                         &:hover {
-                            background: var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
+                            background: $color-primary-70;
                         }
                     }
                 }
             }
+        }
+    }
 
-            @include modifier(range) {
-                max-width: 560px;
+     // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include modifier(single) {
+
+                @include modifies-element(calendar-list) {
+
+                    &-item {
+
+                        &--active {
+                            background: $color-extended-neutral-0;
+
+                            span {
+                                color: $color-extended-neutral-100;
+                            }
+                        }
+
+                        &:hover {
+                            background: $color-extended-neutral-0;
+                            
+                            span {
+                                color: $color-extended-neutral-100;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

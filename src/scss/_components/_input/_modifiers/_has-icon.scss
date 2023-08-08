@@ -17,14 +17,6 @@
 			@include modifier(has-icon) {
 				align-items: center;
 				display: flex;
-
-				@include modifies-element(input) {
-					padding-left: 8px;
-				}
-
-				@include modifies-element(icon) {
-					// margin-left: 8px;
-				}
 			}
 		}
 	}

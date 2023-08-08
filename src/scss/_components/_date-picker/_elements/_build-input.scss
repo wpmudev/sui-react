@@ -16,10 +16,8 @@
         // Block wrapper.
         @include block($block) {
             @include element(input) {
-                max-width: 280px;
-
-                @include modifier(single) {
-                    max-width: 196px;
+                input {
+                    color: $color-extended-neutral-10;
                 }
 
                 @include modifier(disabled) {
