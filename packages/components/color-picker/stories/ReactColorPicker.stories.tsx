@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 
 // Import required component.
 import { ColorPicker as SuiColorPicker } from "../src"
+import { FormField } from "@wpmudev/sui-form-field"
 
 // Import documentation main page.
 import docs from "./ReactColorPicker.mdx"
@@ -36,11 +37,13 @@ const ColorPicker = ({ color, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiColorPicker
-						color={currentColor}
-						onChange={setCurrentColor}
-						{...props}
-					/>
+					<FormField id="color-picker" label="Select colour" isSmall={true}>
+						<SuiColorPicker
+							color={currentColor}
+							onChange={setCurrentColor}
+							{...props}
+						/>
+					</FormField>
 				</div>
 			</div>
 		</div>
