@@ -1,0 +1,4 @@
+@use "./_elements/elements" as sui-sidebar--element;
+
+@include sui-sidebar--element.build-container(sidebar);
+@include sui-sidebar--element.build-item(sidebar);

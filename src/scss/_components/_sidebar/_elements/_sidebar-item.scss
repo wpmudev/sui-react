@@ -1,0 +1,65 @@
+
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build item
+///
+/// @type item
+/// @author WPMU DEV
+///
+/// @param {String} $item - Main item name
+@mixin build-item($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(item) {
+				align-items: center;
+				border-radius: 4px;
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 4px;
+				padding: 12px 16px;
+				text-decoration: none;
+
+				@include modifier(active) {
+					background: var(--primary-blue-light-90-eaf-1-fe, #EAF1FE);
+
+					.sui-sidebar__item-info {
+						color: #286EF1
+					}
+				}
+
+				@include modifier(hover) {
+					background: var(--primary-blue-light-90-eaf-1-fe, #EAF1FE);
+
+					.sui-sidebar__item-info {
+						color: #286EF1
+					}
+				}
+
+				@include modifier(focus) {
+					border: 2px solid var(--neutral-grey-50505050, #505050);
+				}
+
+				@include modifier(disabled) {
+					opacity: 0.5;
+					pointer-events: none;
+					user-select: none;
+				}
+			}
+
+			@include element(item-info) {
+				align-items: center;
+				color: var(--neutral-grey-101-a-1-a-1-a, #1A1A1A);
+				display: flex;
+				font: $font-weight-md 15px/24px $font-family-default;
+				gap: 8px;
+			}
+
+			@include element(item-action) {
+
+			}
+		}
+	}
+}
