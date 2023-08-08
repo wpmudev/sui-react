@@ -1,36 +1,68 @@
-import { Section, Row, Col, List } from '@wpmudev/storybook';
+import { Section, Row, Col, List } from "@wpmudev/storybook"
 
-import CodeSnippetAnatomy from '../images/anatomy.png';
+import Anatomy from "../images/anatomy.svg"
+import ColorSwatch from "../images/color-swatch.svg"
+import Input from "../images/color-swatch.svg"
+import States from "../images/states.svg"
+import ClearIcon from "../images/clear-icon.svg"
+import ColorOptions from "../images/color-options.svg"
 
-<Section contained={true} border={true} style={{ paddingTop: 0 }}>
-	<p>
-		This element is meant to be used to display code. By default, it will
-		place a copy button on top right of the container, that way users can
-		easily copy snippet content to clipboard.
-	</p>
+<Section title="Anatomy">
+	<Row>
+		<Col>
+    		<h3 style={{marginTop: 0}}>1. Label</h3>
+    		<p>A label to describe the color field.</p>
+
+    		<h3>2. Input</h3>
+    		<p>The input field allows users to enter color values directly, alongside with color picker control to pick a color.</p>
+
+    		<h3>3. Color Swatch</h3>
+    		<p>Color swatch provides a visual preview of the selected color.</p>
+
+    	</Col>
+    	<Col>
+    		<img src={Anatomy} alt="Anatomy" />
+    	</Col>
+    </Row>
+
+    <Row>
+    	<Col>
+    		<h2>Input</h2>
+    		<img src={Input} alt="Input" />
+    		<h3>1. Color picker control</h3>
+    		<h3>2. Color value</h3>
+    		<h3>3. Reset icon</h3>
+    	</Col>
+    	<Col>
+    		<h2>Color swatch</h2>
+    		<img src={ColorSwatch} alt="Color Swatch" />
+    		<h3>1. Color are</h3>
+    		<h3>2. Hue slider</h3>
+    		<h3>3. Opacity slider</h3>
+    		<h3>4. Color value control</h3>
+    		<h3>5. Apply button</h3>
+    	</Col>
+    </Row>
+
 </Section>
 
-<Section title="Anatomy" contained={true} border={true}>
-	<img
-		src={CodeSnippetAnatomy}
-		alt="Code snippet anatomy"
-		style={{ marginBottom: 20 }}
-	/>
-	<List>
-		<span
-			label={
-				<>
-					<strong>Snippet Text:</strong> Line or a block of codes.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Copy button:</strong> A copy button to copy the
-					code.
-				</>
-			}
-		/>
-	</List>
+<Section title="States">
+	<p>Generally, Color input states are similar to the <a target="_blank" href="/?path=/docs/sui-components-forms-input--docs">input field</a>.</p>
+
+    <img src={States} alt="States" />
+
+</Section>
+
+<Section title="Clear selected color">
+	<p>Clear icon “x” will have a simple darker colour on both hover and clicked states.</p>
+
+    <img src={ClearIcon} alt="Clear Icon Colors" />
+
+</Section>
+
+<Section title="Color options">
+	<p>Clear icon “x” will have a simple darker colour on both hover and clicked states.</p>
+
+    <img src={ColorOptions} alt="Clear Icon Colors" />
+
 </Section>

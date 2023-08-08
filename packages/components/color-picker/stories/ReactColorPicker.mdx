@@ -1,25 +1,26 @@
-import { Source } from '@storybook/addon-docs';
-import { Page } from '@wpmudev/storybook';
-import { Unstyled } from '@storybook/blocks';
+import { Source } from "@storybook/addon-docs"
+import { Page } from "@wpmudev/storybook"
+import { Unstyled } from "@storybook/blocks"
 
-import TabUsage from './tabs/TabUsage.mdx';
-import TabCode from './tabs/TabCode.mdx';
-import TabExamples from './tabs/TabExamples.mdx';
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
 
 <Unstyled>
 	<Page.Tabs
-		title="Code Editor"
-		subtitle={<>Use code editors blocks to show the code as examples.</>}
-		status="draft"
-	>
-		<div id="usage" label="Usage">
-			<TabUsage />
-		</div>
-		<div id="code" label="Code">
-			<TabCode />
-		</div>
-		<div id="examples" label="Examples">
-			<TabExamples />
-		</div>
-	</Page.Tabs>
+		title="Color Picker"
+		subtitle="A color picker enables users to select and apply colors in a consistent and efficient manner."
+    	status="draft"
+    >
+    	<div id="usage" label="Usage">
+    		<TabUsage />
+    	</div>
+    	<div id="code" label="Code">
+    		<TabCode />
+    	</div>
+    	<div id="examples" label="Examples">
+    		<TabExamples />
+    	</div>
+    </Page.Tabs>
+
 </Unstyled>
