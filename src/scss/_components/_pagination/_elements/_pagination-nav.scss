@@ -25,4 +25,15 @@
 			}
 		}
 	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(nav) {
+				margin-right: auto;
+				margin-left: 0;
+			}
+		}
+	}
 }
