@@ -1,0 +1,24 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build subtitle
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-subtitle($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(subtitle) {
+				color: white;
+				font: $font-weight-md 13px/20px $font-family-default;
+				letter-spacing: 1px;
+				margin-bottom: 24px;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
