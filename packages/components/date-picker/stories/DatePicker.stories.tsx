@@ -46,7 +46,7 @@ const DatePicker = ({ color, ...props }) => {
 
 // Set story arguments.
 DatePicker.args = {
-	type: "markup",
+	type: "single",
 	startDate: "15/07/2023",
 	endDate: "15/09/2023",
 	minDate: "01/05/2023",
