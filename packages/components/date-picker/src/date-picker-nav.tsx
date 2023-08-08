@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from "react"
 import { format } from "date-fns"
 
 import { handleOnKeyDown } from "@wpmudev/sui-utils"
-import { CaretDown, ChevronLeft, ChevronRight } from "@wpmudev/sui-icons"
+import { Button } from "@wpmudev/sui-button"
 
 import { DatePickerContext } from "./date-picker-context"
 import { CALENDARS } from "./date-picker"
@@ -29,35 +29,46 @@ const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 
 	// Render the navigation elements for the date picker (previous month, current month/year dropdown, and next month).
 	return (
-		<div className="sui-date-picker__calendar-nav">
+		<div className="sui-date-picker__nav">
 			{/* Render the previous month navigation element */}
 			{(CALENDARS.START_MONTH === marker || ctx?.isSingle) && (
-				<div className="sui-date-picker__calendar-nav-item">
-					<ChevronLeft size="sm" onClick={() => onNavClick("prev")} />
+				<div>
+					<Button
+						icon="chevron-left"
+						appearance="tertiary"
+						color="black"
+						iconOnly={true}
+						onClick={() => onNavClick("prev")}
+					>
+						Previous month
+					</Button>
 				</div>
 			)}
 			{/* Render the month dropdown element (only in non-single mode) */}
 			{!ctx?.isSingle && (
-				<div className="sui-date-picker__calendar-nav-item">
-					<div
-						className="sui-date-picker__calendar-dropdown-btn"
-						role="button"
-						tabIndex={0}
+				<div>
+					<Button
+						className="sui-date-picker__nav--btn"
+						appearance="tertiary"
+						color="black"
+						icon="caret-down"
+						iconPosition="end"
 						onClick={() => openToggle("months", marker)}
 						onKeyDown={() => openToggle("months", marker)}
 					>
 						{/* Display the current month name */}
 						{format(date, "MMMM")}
-						<CaretDown size="sm" /> {/* Render a caret down icon */}
-					</div>
+					</Button>
 				</div>
 			)}
 			{/* Year dropdown element */}
-			<div className="sui-date-picker__calendar-nav-item">
-				<div
-					className="sui-date-picker__calendar-dropdown-btn"
-					role="button"
-					tabIndex={0}
+			<div>
+				<Button
+					className="sui-date-picker__nav--btn"
+					appearance="tertiary"
+					color="black"
+					icon="caret-down"
+					iconPosition="end"
 					onClick={() => ctx.openToggle("years", marker)}
 					onKeyDown={(e) =>
 						handleOnKeyDown(e, () => ctx.openToggle("years", marker))
@@ -65,13 +76,20 @@ const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 				>
 					{/* Display the current month and year */}
 					{ctx.isSingle && format(date, "MMMM")} {format(date, "yyyy")}
-					<CaretDown size="sm" />
-				</div>
+				</Button>
 			</div>
 			{/* Render the next month navigation element */}
 			{(CALENDARS.END_MONTH === marker || ctx.isSingle) && (
-				<div className="sui-date-picker__calendar-nav-item">
-					<ChevronRight size="sm" onClick={() => onNavClick("next")} />
+				<div>
+					<Button
+						appearance="tertiary"
+						color="black"
+						icon="chevron-right"
+						iconOnly={true}
+						onClick={() => onNavClick("next")}
+					>
+						Next month
+					</Button>
 				</div>
 			)}
 		</div>

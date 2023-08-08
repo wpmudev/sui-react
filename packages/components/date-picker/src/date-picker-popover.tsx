@@ -65,7 +65,7 @@ const DatePickerPopover: React.FunctionComponent<any> = () => {
 			</div>
 			{!ctx.isSingle && (
 				<div className="sui-date-picker__footer">
-					<div className="sui-date-picker__footer-item">
+					<div className="sui-date-picker__footer--item">
 						<Button
 							appearance="tertiary"
 							color="black"
@@ -75,7 +75,7 @@ const DatePickerPopover: React.FunctionComponent<any> = () => {
 							Close
 						</Button>
 					</div>
-					<div className="sui-date-picker__footer-item">
+					<div className="sui-date-picker__footer--item">
 						<Button
 							appearance="secondary"
 							color="black"
