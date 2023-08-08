@@ -23,80 +23,141 @@
                 }
             }
 
-            @include element(calendar-month) {
-                font-size: 13px;
-                flex: 1;
-                max-width: 285px;
-                width: 100%;
-
-                &:first-child {
-                    border-right: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
+            @include modifier(range) {
+                @include modifies-element(calendar-month) {
+                    position: relative;
+                    font-size: $datepicker-font-size;
+                    flex: 1;
+                    width: $datepicker-size-width-lg;
+    
+                    &:last-child::before {
+                        content: '';
+                        position: absolute;
+                        width: $border-width-sm;
+                        height: 100%;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        background: $color-extended-neutral-80;
+                        z-index: 1;
+                    }
                 }
             }
 
             @include element(calendar-weekdays) {
                 align-items: center;
-                color: var(--neutral-grey-60737373, #737373);
-                background: var(--neutral-grey-95-f-8-f-8-f-8, #F8F8F8);
+                color: $color-extended-neutral-60;
+                background: $color-extended-neutral-95;
                 display: flex;
             }
 
             @include element(calendar-weekday) {
-                padding: 12px;
-                width: 40px;
+                padding: $datepicker-spacing-md;
+                width: $datepicker-size-width-md;
                 text-align: center;
             }
 
             @include element(calendar-days) {
-                background: white;
+                background: $color-extended-neutral-100;
                 align-items: center;
-                color: var(--neutral-grey-60737373, #737373);
+                color: $color-extended-neutral-50;
                 display: flex;
                 flex-wrap: wrap;
             }
 
             @include element(calendar-list) {
-                border-top: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
+                border-top: $border-width-sm solid $color-extended-neutral-80;
+                max-height: $datepicker-size-height-lg;
                 overflow-y: auto;
-                max-height: 248px;
+                margin: 0;
             }
 
             @include element(calendar-list-item) {
                 list-style: none;
-                padding: 4px 16px;
-
+                
                 @include modifier(active) {
                     span {
-                        color: var(--primary-blue-base-50286-ef-1, #286EF1);
+                        color: $color-primary-50;
                     }
                 }
 
                 span {
+                    display: inline-block;
+                    padding: $spacing-sm $spacing-lg;
                     cursor: pointer;
                 }
             }
 
-            @include element(calendar-nav) {
+            @include element(nav) {
                 align-items: center;
                 display: flex;
                 justify-content: space-between;
-                padding: 10px 16px;
+                padding: $spacing-md $datepicker-spacing-xs;
+                color: $color-extended-neutral-10;
+
+                @include modifier(btn) {
+                    font-size: $datepicker-font-size;
+                    font-weight: $font-weight-md;
+                }
+            }
+        }
+    }
+
+    // DIR: Right to left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include modifier(range) {
+                @include modifies-element(calendar-month) {
+                    &:last-child::before {
+                        left: auto;
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include modifier(range) {
+                @include modifies-element(calendar-month) {
+                    &:last-child::before {
+                        background: $color-extended-neutral-0;
+                    }
+                }
             }
 
-            @include element(calendar-nav-item) {
-                align-items: center;
-                cursor: pointer;
-                display: flex;
+            @include element(calendar-weekdays) {
+                color: $color-extended-neutral-0;
+                background: $color-extended-neutral-100;
+                border-top: $border-width-sm solid $color-extended-neutral-0;
+                border-bottom: $border-width-sm solid $color-extended-neutral-0;
             }
 
-            @include element(calendar-dropdown-btn) {
-                font-size: 13px;
-                font-weight: 500;
-                align-items: center;
-                display: flex;
-                gap: 8px;
-                padding: 0 16px;
-                justify-content: space-between;
+            @include element(calendar-days) {
+                color: $color-extended-neutral-0;
+            }
+
+            @include element(calendar-list) {
+                border-top: $border-width-sm solid $color-extended-neutral-0;
+            }
+
+            @include element(calendar-list-item) {
+
+                span {
+                    color: $color-extended-neutral-0;
+                }
+            }
+
+            @include element(nav) {
+                color: $color-extended-neutral-0;
             }
         }
     }

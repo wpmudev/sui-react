@@ -17,25 +17,51 @@
         @include block($block) {
             @include element(range) {
                 display: flex;
-                gap: 8px;
+                gap: $spacing-md;
                 overflow: auto;
             }
 
             @include element(range-button) {
-                background: var(--neutral-grey-90-f-2-f-2-f-2, #F2F2F2);
-                border-radius: 12px;
-                cursor: pointer;
-                font: 500 13px/16px $font-family-default;
-                padding: 4px 8px;
+                background: $color-extended-neutral-90;
+                border-radius: $border-radius-lg;
+                font-size: $datepicker-font-size;
+                line-height: $datepicker-font-height-sm;
+                font-weight: $font-weight-md;
+                padding: $spacing-sm $spacing-md;
                 white-space: nowrap;
+                color: $color-extended-neutral-10;
+                cursor: pointer;
 
                 @include modifier(active) {
-                    color: #FFF;
-                    background: var(--primary-blue-base-50286-ef-1, #286EF1);
+                    color: $color-extended-neutral-100;
+                    background: $color-primary-50;
                 }
 
                 @include modifier(focus) {
-                    border: solid 2px #000;
+                    border: $border-width-md solid $color-extended-neutral-0;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include element(range-button) {
+                background: $color-extended-neutral-100;
+                color: $color-extended-neutral-0;
+                border: $border-width-sm solid $color-extended-neutral-0;
+
+                @include modifier(active) {
+                    color: $color-extended-neutral-100;
+                    background: $color-extended-neutral-0;
+                }
+
+                @include modifier(focus) {
+                    border: $border-width-md solid $color-extended-neutral-0;
                 }
             }
         }

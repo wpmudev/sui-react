@@ -16,58 +16,149 @@
         // Block wrapper.
         @include block($block) {
             @include element(day) {
+                font-size: $datepicker-font-size;
+                line-height: $datepicker-font-height-md;
+                font-weight: $font-weight-md;
                 cursor: pointer;
-                font: $font-weight-md 13px/20px $font-family-default;
-                margin: 4px 0;
+                margin: $spacing-sm 0;
                 text-align: center;
-                width: 40px;
+                width: $datepicker-size-width-md;
+                position: relative;
+                z-index: 0;
 
                 @include modifier(hover){
                     span {
-                        background: var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
+                        background: $color-primary-70;
                     }
                 }
 
                 @include modifier(disabled) {
-                    color: var(--neutral-grey-70-aaaaaa, #AAA);
+                    background-color: $color-extended-neutral-100;
+                    color: $color-extended-neutral-70;
                     cursor: default;
-                    background-color: white;
                 }
 
                 @include modifier(filled) {
                     span {
-                        color: #FFFFFF;
-                        background: var(--primary-blue-base-50286-ef-1, #286EF1);
+                        color: $color-extended-neutral-100;
+                        background: $color-primary-50;
                     }
                 }
 
                 @include modifier(outlined) {
                     span {
-                        border: solid 1px #286EF1;
-                        color: #286EF1;
+                        border: $border-width-sm solid $color-primary-50;
+                        color: $color-primary-50;
                     }
                 }
 
                 @include modifier(highlighted) {
-                    background: var(--primary-blue-light-70-d-5-e-3-fd, #D5E3FD);
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        z-index: -1;
+                        width: 100%;
+                        height: 100%;
+                        left: 0;
+                        background: $color-primary-70;
+                    }
+                }
+
+                @include modifier(start, end) {
+                    &:after {
+                        width: 90%;
+                    }
                 }
 
                 @include modifier(start) {
-                    border-radius: 20px 0 0 20px;;
+                    &:after {
+                        right: 0;
+                        left: auto;
+                        border-radius: $datepicker-border-radius-lg 0 0 $datepicker-border-radius-lg;
+                    }
                 }
 
                 @include modifier(end) {
-                    border-radius: 0 20px 20px 0;
+                    &:after {
+                        border-radius: 0 $datepicker-border-radius-lg $datepicker-border-radius-lg 0;
+                    }
                 }
             }
 
             @include element(day-title) {
-                border-radius: 20px;
+                position: relative;
+                border-radius: $datepicker-border-radius-lg;
                 align-items: center;
                 display: inline-flex;
-                height: 32px;
+                height: $datepicker-size-height-sm;
                 justify-content: center;
-                width: 32px;
+                width: $datepicker-size-width-sm;
+            }
+        }
+    }
+
+    // DIR: Right to left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(day) {
+
+                @include modifier(start) {
+                    &:after {
+                        right: auto;
+                        left: 0;
+                        border-radius: 0 $datepicker-border-radius-lg $datepicker-border-radius-lg 0;
+                    }
+                }
+
+                @include modifier(end) {
+                    &:after {
+                        right: 0;
+                        left: auto;
+                        border-radius: $datepicker-border-radius-lg 0 0 $datepicker-border-radius-lg;
+                    }
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(day) {
+
+                @include modifier(hover){
+                    span {
+                        background: $color-extended-neutral-0;
+                        color: $color-extended-neutral-100;
+                    }
+                }
+
+                @include modifier(filled) {
+                    span {
+                        color: $color-extended-neutral-100;
+                        background: $color-extended-neutral-0;
+                    }
+                }
+
+                @include modifier(outlined) {
+                    span {
+                        border: $border-width-sm solid $color-extended-neutral-0;
+                        color: $color-extended-neutral-0;
+                    }
+                }
+
+                @include modifier(highlighted) {
+                    &:after {
+                        background: transparent;
+                        border-top: $border-width-sm solid $color-extended-neutral-0;
+                        border-bottom: $border-width-sm solid $color-extended-neutral-0;
+                        top: -$border-width-sm;
+                    }
+                }
             }
         }
     }

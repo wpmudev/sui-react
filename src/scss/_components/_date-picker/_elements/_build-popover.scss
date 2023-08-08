@@ -15,18 +15,57 @@
     @include sui-class($rtl: false, $theme: null) {
         // Block wrapper.
         @include block($block) {
-           @include element(popover) {
-               background: white;
-               box-shadow: 0 2px 4px 0 rgba(115, 115, 115, 0.10), 0 1px 16px 0 rgba(115, 115, 115, 0.05), 0 6px 12px 0 rgba(115, 115, 115, 0.08);
+            @include element(popover) {
+               background: $color-extended-neutral-100;
+               box-shadow: 0 2px 4px 0 $color-shadow-dark, 0 1px 16px 0 $color-shadow-light, 0 6px 12px 0 $color-shadow-default;
                display: none;
-               margin-top: 2px;
+               margin-top: $datepicker-spacing-default;
                position: absolute;
                width: auto;
+               border-radius: $border-radius-md;
+               overflow: hidden;
 
-               @include modifier(open) {
-                   display: block;
-               }
-           }
+                @include modifier(open) {
+                    display: block;
+                }
+            }
+
+            @include element(header, footer) {
+                display: flex;
+                padding: $spacing-lg;
+            }
+
+            @include element(footer) {
+                border-top: $border-width-sm solid $color-extended-neutral-80;
+                gap: $spacing-md;
+                justify-content: end;
+            }
+
+            @include element(header) {
+                border-bottom: $border-width-sm solid $color-extended-neutral-80;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(popover) {
+               box-shadow: none;
+               border: $border-width-sm solid $color-extended-neutral-0;
+            }
+
+            @include element(footer) {
+                border-top: $border-width-sm solid $color-extended-neutral-0;
+            }
+
+            @include element(header) {
+                border-bottom: $border-width-sm solid $color-extended-neutral-0;
+            }
         }
     }
 }
