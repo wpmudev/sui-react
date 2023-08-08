@@ -1,28 +1,36 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Section, Snippet, Code } from "@wpmudev/storybook"
 import dedent from "dedent"
-import { ColorPicker } from "../ReactColorPicker.stories"
+import { ColorPicker } from "../../src"
+import { FormField } from "@wpmudev/sui-form-field"
 
 export const sampleCode = dedent`
-     <ColorPicker color="#d73d3d"/>
+    <FormField id="color-picker" label="Select colour" isSmall={true}>
+       <ColorPicker color="#d73d3d"/>
+    </FormField>
 `
 
 export const RgbTypeCode = dedent`
-     <ColorPicker type="rgb" color="rgba(128, 38, 38, 1)"/>
+    <FormField id="color-picker" label="Select colour" isSmall={true}>
+       <ColorPicker type="rgb" color="rgba(128, 38, 38, 1)"/>
+    </FormField>
 `
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>Below is the default form of a Color Picker with <Code isSmall={true}> HEX</Code> Type:</p>
+	<p>Below is the default form of a Color Picker with <Code isSmall={true}> hex</Code> Type:</p>
 	<div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
-    	<ColorPicker color="#d73d3d"/>
+		<FormField id="color-picker" label="Select colour" isSmall={true}>
+    		<ColorPicker color="#d73d3d"/>
+		</FormField>
 	</div>
     <Snippet language="js">{sampleCode}</Snippet>
 
 </Section>
 
 <Section title="RGB Type" contained={true} style={{ paddingTop: 0 }}>
-
     <div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
-    	<ColorPicker type="rgb" color="rgba(128, 38, 38, 1)" />
+		<FormField id="color-picker" label="Select colour" isSmall={true}>
+    		<ColorPicker type="rgb" color="rgba(128, 38, 38, 1)" />
+		</FormField>
     </div>
     <Snippet language="js">{RgbTypeCode}</Snippet>
 
