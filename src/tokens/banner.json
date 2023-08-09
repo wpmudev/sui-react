@@ -44,10 +44,6 @@
             "md": {
                 "value": "48px",
                 "type": "spacing"
-            },
-            "lg": {
-                "value": "64px",
-                "type": "spacing"
             }
         },
         "size": {
@@ -56,7 +52,7 @@
                 "type": "sizing"
             },
             "md": {
-                "value": "480px",
+                "value": "420px",
                 "type": "sizing"
             },
             "lg": {
@@ -70,6 +66,10 @@
                 "type": "color"
             },
             "position": {
+                "xs": {
+                    "value": "5px",
+                    "type": "other"
+                },
                 "sm": {
                     "value": "-200px",
                     "type": "other"
@@ -78,6 +78,10 @@
                     "value": "150px",
                     "type": "other"
                 }
+            },
+            "size": {
+                "value": "40px",
+                "type": "sizing"
             }
         }
     }

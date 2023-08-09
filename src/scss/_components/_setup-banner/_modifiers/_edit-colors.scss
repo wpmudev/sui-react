@@ -1,0 +1,23 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build background
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-colors($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(smush) {
+                background: linear-gradient(270deg, #2F1D4D 0%, rgba(47, 29, 77, 1) 100%);
+                @include modifies-element(info-logo) {
+                    background-color: #2DC4E0;
+                }
+            }
+		}
+	}
+}

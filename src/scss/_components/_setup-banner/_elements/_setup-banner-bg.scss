@@ -17,25 +17,23 @@
 				display: inline;
 				overflow: hidden;
 				position: absolute;
-				top: -50%;
+				top: 50%;
+				transform: translateY(-50%);
 				right: $banner-bg-position-md;
 				left: auto;
 				opacity: 0.1;
 				pointer-events: none;
 
-				@include media(max-width, md) {
+				@include media(max-width, sm) {
 					right: $banner-bg-position-sm;
-					transform: translateY(-50%);
-					top: 50%;
 				}
 			}
 
 			@include element(bg-icon) {
 				height: $banner-size-md;
-				padding: $banner-spacing-lg;
 				width: $banner-size-md;
 
-				@include media(max-width, md) {
+				@include media(max-width, sm) {
 					width: $banner-size-sm;
 					height: $banner-size-sm;
 					padding: 0;
@@ -52,7 +50,7 @@
 				left: $banner-bg-position-md;
 				right: auto;
 
-				@include media(max-width, md) {
+				@include media(max-width, sm) {
 					left: $banner-bg-position-sm;
 					right: auto; 
 				}
