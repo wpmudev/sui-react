@@ -45,6 +45,12 @@
                 border-bottom: $border-width-sm solid $color-extended-neutral-80;
                 align-items: center;
                 justify-content: center;
+
+                @include media(md, max-width) {
+                    max-width: $datepicker-size-width-lg;
+                    padding-right: 0;
+                    padding-left: 0;
+                }
             }
         }
     }
