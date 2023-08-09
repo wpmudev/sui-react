@@ -11,19 +11,7 @@ interface SetupBannerProps {
 	/**
 	 * Subtitle or additional information for the banner.
 	 */
-	subTitle?: string
-	/**
-	 * Background color for the banner.
-	 */
-	bgColor?: string
-	/**
-	 * Icon name to be displayed in the banner.
-	 */
-	icon?: string
-	/**
-	 * Background color for the icon container
-	 */
-	iconBGColor?: string
+	type?: string
 	/**
 	 * Description or content for the banner
 	 */

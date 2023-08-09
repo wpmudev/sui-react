@@ -12,15 +12,61 @@ import { SetupBannerProps } from "./setup-banner.types"
  * @return {JSX.Element} - The rendered SetupBanner component.
  */
 const SetupBanner: React.FC<SetupBannerProps> = ({
+	type = "smush",
 	title,
-	subTitle = "Quick Setup",
-	bgColor,
-	icon,
-	iconBGColor,
 	className,
 	description,
 }) => {
-	const classNames = generateCN("sui-setup-banner", {}, className)
+	const classNames = generateCN(
+		"sui-setup-banner",
+		{
+			[type]: true,
+		},
+		className,
+	)
+	let icon
+
+	// set data value based on plugin name
+	switch (type) {
+		case "defender":
+			icon = "PluginDefender"
+			break
+
+		case "snapshot":
+			icon = "PluginSnapshot"
+			break
+
+		case "hummingbird":
+			icon = "PluginHummingbird"
+			break
+
+		case "forminator":
+			icon = "PluginForminator"
+			break
+
+		case "beehive":
+			icon = "PluginBeehive"
+			break
+
+		case "hustle":
+			icon = "PluginHustle"
+			break
+
+		case "smartcrawl":
+			icon = "PluginSmartCrawl"
+			break
+
+		case "shipper":
+			icon = "PluginShipper"
+			break
+
+		case "branda":
+			icon = "PluginBranda"
+			break
+
+		default:
+			icon = "PluginSmush"
+	}
 
 	// Dynamically determine the IconTag based on the provided icon prop.
 	let IconTag = null
@@ -29,32 +75,20 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 	}
 
 	return (
-		<div
-			className={classNames}
-			style={{
-				background: `${bgColor ? bgColor : "#1a1a1a"}`,
-			}}
-		>
+		<div className={classNames}>
 			{IconTag && (
 				<div className="sui-setup-banner__bg">
 					<IconTag className="sui-setup-banner__bg-icon" />
 				</div>
 			)}
-			{!!subTitle && (
-				<div className="sui-setup-banner__subtitle">{subTitle}</div>
-			)}
+			<div className="sui-setup-banner__subtitle">Quick Setup</div>
 			<div className="sui-setup-banner__info">
 				{!!IconTag && (
-					<div
-						className="sui-setup-banner__info-logo"
-						style={{
-							backgroundColor: `${iconBGColor ? iconBGColor : "#f0f0f0"}`,
-						}}
-					>
+					<div className="sui-setup-banner__info-logo">
 						<IconTag fill="#FFFFFF" />
 					</div>
 				)}
-				<h2 className="sui-setup-banner__info-title">{title}</h2>
+				{!!title && <h2 className="sui-setup-banner__info-title">{title}</h2>}
 			</div>
 			{!!description && (
 				<div className="sui-setup-banner__description">{description}</div>
