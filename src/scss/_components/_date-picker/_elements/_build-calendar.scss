@@ -28,6 +28,12 @@
                 font-size: $datepicker-font-size;
                 flex: 1;
                 width: $datepicker-size-width-lg;
+
+                @include media(max-width, sm) {
+                    &:last-child {
+                        border-top: $border-width-sm solid $color-extended-neutral-80;
+                    }
+                }
             }
 
             @include modifier(range) {
@@ -42,6 +48,10 @@
                         bottom: 0;
                         background: $color-extended-neutral-80;
                         z-index: 1;
+
+                        @include media(max-width, sm) {
+                            content: unset;
+                        }
                     }
                 }
             }
@@ -152,9 +162,17 @@
             }
 
             @include element(calendar-list-item) {
-
                 span {
                     color: $color-extended-neutral-0;
+                }
+            }
+
+            @include element(calendar-month) {
+
+                @include media(max-width, sm) {
+                    &:last-child {
+                        border-top: $border-width-sm solid $color-extended-neutral-0;
+                    }
                 }
             }
 

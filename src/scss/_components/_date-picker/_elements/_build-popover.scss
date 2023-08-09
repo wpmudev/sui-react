@@ -46,7 +46,7 @@
                 align-items: center;
                 justify-content: center;
 
-                @include media(md, max-width) {
+                @include media(max-width, sm) {
                     max-width: $datepicker-size-width-lg;
                     padding-right: 0;
                     padding-left: 0;
