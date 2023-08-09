@@ -33,8 +33,8 @@ const TreeView = ({ color, ...props }) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<SuiTreeView {...props}>
-						<TreeViewGroup id="group-1" title="Tree Group">
-							<TreeViewGroup id="group-2" title="Tree Group" isDisabled={true}>
+						<TreeViewGroup icon="Bell" id="group-1" title="Tree Group">
+							<TreeViewGroup id="group-2" title="Tree Group">
 								<TreeViewItem id="item-1">Tree Item</TreeViewItem>
 								<TreeViewItem id="item-2">Tree Item</TreeViewItem>
 								<TreeViewItem id="item-3">Tree Item</TreeViewItem>
