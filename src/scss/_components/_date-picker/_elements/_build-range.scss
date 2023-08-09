@@ -19,6 +19,17 @@
                 display: flex;
                 gap: $spacing-md;
                 overflow: auto;
+                -ms-overflow-style: none; /* for Internet Explorer, Edge */
+                scrollbar-width: none; /* for Firefox */
+
+                &::-webkit-scrollbar {
+                    display: none; /* for Chrome, Safari, and Opera */
+                }
+                
+                @include media(max-width, sm) {
+                    padding-left: $spacing-lg;
+                    padding-right: $spacing-lg;
+                }
             }
 
             @include element(range-button) {
