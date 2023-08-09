@@ -6,7 +6,7 @@ import { TreeView as SuiTreeView } from "../src"
 // Import documentation main page.
 import docs from "./TreeView.mdx"
 import { TreeViewGroup } from "../src/tree-view-group"
-import { TreeViewItem, TreeViewItemGroup } from "../src/tree-view-item"
+import { TreeViewItem } from "../src/tree-view-item"
 
 // Configure default options.
 export default {
