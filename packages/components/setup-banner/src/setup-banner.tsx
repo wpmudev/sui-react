@@ -35,6 +35,7 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 				background: `${bgColor ? bgColor : "#1a1a1a"}`,
 			}}
 		>
+			<div className="sui-setup-banner__setup">Quick setup</div>
 			{IconTag && (
 				<div className="sui-setup-banner__bg">
 					<IconTag className="sui-setup-banner__bg-icon" />
