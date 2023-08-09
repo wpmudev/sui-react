@@ -19,7 +19,9 @@
 
 				h2 {
 					color: $color-extended-neutral-100;
-					font: $font-weight-lg 40px/48px $font-family-default;
+					font-weight: $font-weight-lg;
+					font-size: $banner-font-size-lg;
+					line-height: $banner-font-height-lg;
 					margin: 0;
 				}
 			}

@@ -2,12 +2,24 @@
     "banner": {
         "font": {
             "size": {
-                "value": "13px",
-                "type": "fontSizes"
+                "sm": {
+                    "value": "13px",
+                    "type": "fontSizes"
+                },
+                "lg": {
+                    "value": "40px",
+                    "type": "fontSizes"
+                }
             },
             "height": {
-                "value": "20px",
-                "type": "lineHeights"
+                "sm": {
+                    "value": "20px",
+                    "type": "lineHeights"
+                },
+                "lg": {
+                    "value": "48px",
+                    "type": "lineHeights"
+                }
             },
             "spacing": {
                 "value": "1px",
