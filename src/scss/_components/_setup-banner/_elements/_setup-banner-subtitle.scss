@@ -13,10 +13,12 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(subtitle) {
-				color: white;
-				font: $font-weight-md 13px/20px $font-family-default;
-				letter-spacing: 1px;
-				margin-bottom: 24px;
+				color: $color-extended-neutral-100;
+				font-size: $banner-font-size;
+				line-height: $banner-font-height;
+				font-weight: $font-weight-md;
+				letter-spacing: $banner-font-spacing;
+				margin-bottom: $banner-spacing-sm;
 				text-transform: uppercase;
 			}
 		}

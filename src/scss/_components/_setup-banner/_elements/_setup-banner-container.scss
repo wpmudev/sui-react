@@ -13,8 +13,13 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			overflow: hidden;
-			padding: 48px 46px;
+			padding: $banner-spacing-md;
 			position: relative;
+
+			@include media(max-width, md) {
+				padding-left: $spacing-lg;
+				padding-right: $spacing-lg;
+			}
 		}
 	}
 }

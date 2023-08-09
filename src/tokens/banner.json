@@ -1,0 +1,72 @@
+{
+    "banner": {
+        "font": {
+            "size": {
+                "value": "13px",
+                "type": "fontSizes"
+            },
+            "height": {
+                "value": "20px",
+                "type": "lineHeights"
+            },
+            "spacing": {
+                "value": "1px",
+                "type": "fontSpacing"
+            }
+        },
+        "border": {
+            "radius": {
+                "value": "16px",
+                "type": "borderRadius"
+            }
+        },
+        "spacing": {
+            "xs": {
+                "value": "12px",
+                "type": "spacing"
+            },
+            "sm": {
+                "value": "24px",
+                "type": "spacing"
+            },
+            "md": {
+                "value": "48px",
+                "type": "spacing"
+            },
+            "lg": {
+                "value": "64px",
+                "type": "spacing"
+            }
+        },
+        "size": {
+            "sm": {
+                "value": "420px",
+                "type": "sizing"
+            },
+            "md": {
+                "value": "480px",
+                "type": "sizing"
+            },
+            "lg": {
+                "value": "784px",
+                "type": "sizing"
+            }
+        },
+        "bg": {
+            "color": {
+                "value": "rgb(255 255 255 / 39%)",
+                "type": "color"
+            },
+            "position": {
+                "sm": {
+                    "value": "-200px",
+                    "type": "other"
+                },
+                "md": {
+                    "value": "150px",
+                    "type": "other"
+                }
+            }
+        }
+    }
+}

@@ -13,8 +13,9 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(description) {
-				color: white;
-				margin-top: 16px;
+				color: $color-extended-neutral-100;
+				margin-top: $spacing-lg;
+				max-width: $banner-size-lg;
 			}
 		}
 	}
