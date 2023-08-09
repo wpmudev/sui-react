@@ -5,15 +5,18 @@ import { Tag } from "@wpmudev/sui-tag"
 // Import required component
 import { Sidebar as SuiSidebar, SidebarItem } from "../src"
 
+// Import documentation main page.
+import docs from "./Sidebar.mdx"
+
 // Configure default options
 export default {
 	title: "SUI/Components/Advanced/Sidebar",
 	component: SuiSidebar,
 	parameters: {
 		layout: "fullscreen",
-		// docs: {
-		// 	page: docs,
-		// },
+		docs: {
+			page: docs,
+		},
 	},
 }
 

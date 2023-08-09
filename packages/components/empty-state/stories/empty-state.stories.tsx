@@ -94,7 +94,7 @@ EmptyState.argTypes = {
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Core/Empty State",
+	title: "SUI/Components/Advanced/Empty State",
 	component: EmptyState,
 	parameters: {
 		layout: "fullscreen",

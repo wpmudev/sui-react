@@ -131,58 +131,11 @@ const SummaryBox = ({ color }) => {
 SummaryBox.args = {}
 
 // Set controls for story arguments.
-SummaryBox.argTypes = {
-	bar: {
-		name: "Circle Bar",
-		description: "The SummaryBox circle.",
-		control: {
-			type: "range",
-			min: 0,
-			max: 100,
-			step: 1,
-		},
-	},
-	value: {
-		name: "SummaryBox Value",
-		description: "The SummaryBox value to display.",
-		control: "number",
-	},
-	content: {
-		name: "Content",
-		description: "The SummaryBox content to display.",
-		control: "text",
-		if: {
-			arg: "isSmall",
-			eq: true,
-		},
-	},
-	isPercentage: {
-		name: "Show Percentage",
-		description: "The percentage to display.",
-	},
-	state: {
-		name: "Type",
-		description: "The SummaryBoxs color variation according to type.",
-		options: ["default", "error", "warning", "success"],
-		control: {
-			type: "select",
-			labels: {
-				default: "Type: Default",
-				error: "Type: Error",
-				warning: "Type: Warning",
-				success: "Type: Success",
-			},
-		},
-	},
-	isSmall: {
-		name: "Small",
-		description: "The SummaryBoxs component size.",
-	},
-}
+SummaryBox.argTypes = {}
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Core/SummaryBox",
+	title: "SUI/Components/Advanced/Summary Box",
 	component: SummaryBox,
 	parameters: {
 		layout: "fullscreen",

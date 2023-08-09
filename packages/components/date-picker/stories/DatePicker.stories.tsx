@@ -8,7 +8,7 @@ import docs from "./DatePicker.mdx"
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Core/Date Picker",
+	title: "SUI/Components/Advanced/Date Picker",
 	component: SuiDatePicker,
 	parameters: {
 		layout: "fullscreen",
