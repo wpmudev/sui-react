@@ -5,6 +5,19 @@ import * as Icons from "@wpmudev/sui-icons"
 
 import { SetupBannerProps } from "./setup-banner.types"
 
+export const PluginsIcons: Record<string, any> = {
+	smush: "PluginSmush",
+	defender: "PluginDefender",
+	snapshot: "PluginSnapshot",
+	hummingbird: "PluginHummingbird",
+	forminator: "PluginForminator",
+	beehive: "PluginBeehive",
+	hustle: "PluginHustle",
+	smartcrawl: "PluginSmartCrawl",
+	shipper: "PluginShipper",
+	branda: "PluginSmush",
+}
+
 /**
  * SetupBanner renders a banner with optional icon and description.
  *
@@ -24,49 +37,8 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 		},
 		className,
 	)
-	let icon = "PluginSmush"
 
-	// set data value based on plugin name
-	switch (type) {
-		case "defender":
-			icon = "PluginDefender"
-			break
-
-		case "snapshot":
-			icon = "PluginSnapshot"
-			break
-
-		case "hummingbird":
-			icon = "PluginHummingbird"
-			break
-
-		case "forminator":
-			icon = "PluginForminator"
-			break
-
-		case "beehive":
-			icon = "PluginBeehive"
-			break
-
-		case "hustle":
-			icon = "PluginHustle"
-			break
-
-		case "smartcrawl":
-			icon = "PluginSmartCrawl"
-			break
-
-		case "shipper":
-			icon = "PluginShipper"
-			break
-
-		case "branda":
-			icon = "PluginBranda"
-			break
-
-		default:
-			icon = "PluginSmush"
-	}
+	const icon: string = PluginsIcons?.[type] ?? "Plugin"
 
 	// Dynamically determine the IconTag based on the provided icon prop.
 	let IconTag = null

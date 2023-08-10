@@ -84,7 +84,7 @@ SetupBanner.argTypes = {
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Core/Setup Banner",
+	title: "SUI/Components/Collections/Setup Banner",
 	component: SetupBanner,
 	parameters: {
 		layout: "fullscreen",
