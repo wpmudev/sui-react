@@ -26,6 +26,7 @@ export { Upload } from "./Upload"
 export { Grip } from "./Grip"
 export { Filter } from "./Filter"
 // plugin icons
+export { Plugin } from "./Plugin"
 export { PluginDefender } from "./PluginDefender"
 export { PluginSmush } from "./PluginSmush"
 export { PluginBeehive } from "./PluginBeehive"
