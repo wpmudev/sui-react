@@ -1,7 +1,5 @@
 @use "./_elements/elements" as sui-empty-state--element;
 
 @include sui-empty-state--element.build-container(empty-state);
-@include sui-empty-state--element.build-actions(empty-state);
-@include sui-empty-state--element.build-info(empty-state);
 @include sui-empty-state--element.build-logo(empty-state);
 
