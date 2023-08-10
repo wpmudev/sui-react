@@ -118,10 +118,8 @@
                 background: $color-secondary-branda-variant-50;
             }
 
-            @include modifier(smush, defender, snapshot, hummingbird, forminator, beehive, hustle, smartcrawl, shipper, branda){
-                @include modifies-element(bg) {
-                    color: $color-alpha-white-10;
-                }
+            @include element(bg) {
+                color: $color-alpha-white-10;
             }
 		}
 	}
