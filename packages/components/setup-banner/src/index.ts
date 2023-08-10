@@ -1,2 +1,2 @@
-export { SetupBanner } from "./setup-banner"
-export type { SetupBannerProps } from "./setup-banner.types"
+export { SetupBanner, PluginsIcons } from "./setup-banner"
+export type { SetupBannerProps, SetupBannerTypes } from "./setup-banner.types"

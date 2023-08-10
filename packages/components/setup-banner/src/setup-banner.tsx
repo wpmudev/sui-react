@@ -5,7 +5,7 @@ import * as Icons from "@wpmudev/sui-icons"
 
 import { SetupBannerProps, SetupBannerTypes } from "./setup-banner.types"
 
-export const PluginsIcons: Record<SetupBannerTypes, any> = {
+export const PluginsIcons: Record<SetupBannerTypes, string> = {
 	smush: "PluginSmush",
 	defender: "PluginDefender",
 	snapshot: "PluginSnapshot",
