@@ -12,11 +12,36 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			align-items: center;
-			background-color: white;
+			background-color: $color-extended-neutral-100;
 			display: flex;
 			flex-direction: column;
-			padding: 64px;
+			padding: $emptystate-spacing-lg;
+			text-align: center;
+
+			[class^="sui-heading--"] {
+				margin: 0 0 $spacing-lg;
+			}
+
+			p {
+				margin: $spacing-lg 0;
+
+				&:last-child {
+					margin-bottom: $spacing-md;
+				}
+			}
+
+			@include media(max-width, sm) {
+				padding: $emptystate-spacing-md $emptystate-spacing-sm;
+
+				button {
+					width: 100%;
+					margin: 0;
+					
+					&:last-child {
+						margin-top: $spacing-lg;
+					}
+				}
+			}
 		}
 	}
 }

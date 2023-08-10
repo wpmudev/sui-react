@@ -13,14 +13,8 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(logo) {
-				align-items: center;
-				border-radius: 100px;
-				background: var(--neutral-grey-90-f-2-f-2-f-2, #F2F2F2);
-				display: flex;
-				justify-content: center;
-				height: 200px;
-				margin-bottom: 32px;
-				width: 200px;
+				margin-bottom: $emptystate-spacing-md;
+				line-height: 0;
 			}
 		}
 	}
