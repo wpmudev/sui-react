@@ -24,7 +24,7 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 		},
 		className,
 	)
-	let icon
+	let icon = "PluginSmush"
 
 	// set data value based on plugin name
 	switch (type) {

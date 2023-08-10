@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react"
+import React from "react"
 
 // Import required component.
 import { SetupBanner as SuiSetupBanner } from "../src"
@@ -7,87 +7,18 @@ import { SetupBanner as SuiSetupBanner } from "../src"
 import docs from "./SetupBanner.mdx"
 
 // Build "SetupBanner" story.
-const SetupBanner = ({ color, type }) => {
+const SetupBanner = ({ color, ...props }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
 		background: color !== "white" ? "#fff" : "#333",
-	}
-	let plugin = {}
-
-	// set data value based on plugin name
-	switch (type) {
-		case "smush":
-			plugin = {
-				title: "Smush",
-			}
-			break
-
-		case "defender":
-			plugin = {
-				title: "Defender",
-			}
-			break
-
-		case "snapshot":
-			plugin = {
-				title: "Snapshot",
-			}
-			break
-
-		case "hummingbird":
-			plugin = {
-				title: "Hummingbird",
-			}
-			break
-
-		case "forminator":
-			plugin = {
-				title: "Forminator",
-			}
-			break
-
-		case "beehive":
-			plugin = {
-				title: "Beehive",
-			}
-			break
-
-		case "hustle":
-			plugin = {
-				title: "Hustle",
-			}
-			break
-
-		case "smartcrawl":
-			plugin = {
-				title: "Smartcrawl",
-			}
-			break
-
-		case "shipper":
-			plugin = {
-				title: "Shipper",
-			}
-			break
-
-		case "branda":
-			plugin = {
-				title: "Branda",
-			}
-			break
-
-		default:
 	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiSetupBanner
-						description="Welcome to Smush. The only tool you need to optimize your imeges. Before getting to it, let’s start with simple plugin setup. The recommended settings are pre-enabled by default, but you can adjust it after the setup."
-						{...plugin}
-					/>
+					<SuiSetupBanner {...props} />
 				</div>
 			</div>
 		</div>
@@ -97,10 +28,27 @@ const SetupBanner = ({ color, type }) => {
 // Set story arguments.
 SetupBanner.args = {
 	type: "smush",
+	title: "Smush",
+	description:
+		"Welcome to Smush. The only tool you need to optimize your images. Before getting to it, let’s start with simple plugin setup. The recommended settings are pre-enabled by default, but you can adjust it after the setup.",
 }
 
 // Set controls for story arguments.
 SetupBanner.argTypes = {
+	title: {
+		name: "Title",
+		description: "Plugin banner title.",
+		control: {
+			type: "text",
+		},
+	},
+	description: {
+		name: "Description",
+		description: "Plugin banner description.",
+		control: {
+			type: "text",
+		},
+	},
 	type: {
 		name: "Type",
 		description: "Select the plugin banner.",
