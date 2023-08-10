@@ -25,6 +25,10 @@
                 "value": "5px",
                 "type": "spacing"
             },
+            "sm": {
+                "value": "10px",
+                "type": "spacing"
+            },
             "md": {
                 "value": "12px",
                 "type": "spacing"

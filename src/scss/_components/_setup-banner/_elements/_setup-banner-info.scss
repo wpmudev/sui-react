@@ -15,19 +15,21 @@
 			@include element(info) {
 				align-items: center;
 				display: flex;
-				gap: 16px;
+				gap: $spacing-lg;
 
 				h2 {
-					color: white;
-					font: $font-weight-lg 40px/48px $font-family-default;
+					color: $color-extended-neutral-100;
+					font-weight: $font-weight-lg;
+					font-size: $banner-font-size-lg;
+					line-height: $banner-font-height-lg;
 					margin: 0;
 				}
 			}
 
 			@include element(info-logo) {
-				border-radius: 16px;
+				border-radius: $banner-border-radius;
 				display: inline-flex;
-				padding: 12px;
+				padding: $banner-spacing-xs;
 			}
 		}
 	}
