@@ -9,7 +9,7 @@ import docs from "./ReactColorPicker.mdx"
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Core/Color Picker",
+	title: "SUI/Components/Advanced/Color Picker",
 	component: SuiColorPicker,
 	parameters: {
 		layout: "fullscreen",

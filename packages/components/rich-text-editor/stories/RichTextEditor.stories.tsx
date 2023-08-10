@@ -8,7 +8,7 @@ import docs from "./RichTextEditor.mdx"
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Core/Rich Text Editor",
+	title: "SUI/Components/Advanced/Rich Text Editor",
 	component: SuiRichTextEditor,
 	parameters: {
 		layout: "fullscreen",

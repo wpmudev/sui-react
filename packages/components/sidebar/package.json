@@ -1,18 +1,10 @@
 {
-  "name": "@wpmudev/sui-tabs",
+  "name": "@wpmudev/sui-sidebar",
   "version": "0.0.0",
-  "private": true,
-  "description": "WPMU DEV Shared UI React Tab Component",
+  "description": "Shared sidebar UI/UX",
   "keywords": [],
-  "author": "WPMU DEV (https://wpmudev.com)",
-  "contributors": [
-    {
-      "name": "Govind Kumar",
-      "email": "gkprmr@gmail.com",
-      "url": "https://govind.js.org"
-    }
-  ],
-  "license": "GPL-2.0",
+  "author": "Govind <gkprmr@gmail.com>",
+  "license": "ISC",
   "main": "src/index.ts",
   "directories": {
     "src": "src",
@@ -26,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wpmudev/sui-react.git"
+    "url": "git+https://iamleigh@github.com/wpmudev/sui-docs.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
@@ -36,7 +28,9 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "devDependencies": {
-    "@wpmudev/sui-utils": "^0.0.0",
     "react": "^18.2.0"
+  },
+  "dependencies": {
+    "@wpmudev/sui-menu": "^0.0.0"
   }
 }

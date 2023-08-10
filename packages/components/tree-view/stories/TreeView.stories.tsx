@@ -10,7 +10,7 @@ import { TreeViewItem } from "../src/tree-view-item"
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Core/Tree View",
+	title: "SUI/Components/Advanced/Tree View",
 	component: SuiTreeView,
 	parameters: {
 		layout: "fullscreen",
