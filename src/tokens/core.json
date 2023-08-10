@@ -778,6 +778,18 @@
 				}
 			}
 		},
+		"alpha": {
+			"white": {
+				"10": {
+					"value": "rgba(255, 255, 255, 0.1)",
+					"type": "color"
+				},
+				"30": {
+					"value": "rgba(255, 255, 255, 0.3)",
+					"type": "color"
+				} 
+			}
+		},
 		"shadow": {
 			"light": {
 				"value": "rgba(115, 115, 115, 0.05)",
