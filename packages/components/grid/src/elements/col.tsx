@@ -1,21 +1,7 @@
 import React from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
-
-/**
- * Represents the properties for a column component.
- */
-interface ColProps {
-	/**
-	 * The size of the column.
-	 */
-	size: number | string
-	className: string
-	/**
-	 * The content of the column.
-	 */
-	children?: React.ReactNode
-}
+import { ColProps } from "../grid.types"
 
 const Col: React.FC<ColProps> = ({ size, children, className }) => {
 	const classNames = generateCN(
