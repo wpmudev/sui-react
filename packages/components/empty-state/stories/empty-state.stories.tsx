@@ -4,13 +4,14 @@ import React from "react"
 import { EmptyState as SuiEmptyState } from "../src"
 import { Button } from "@wpmudev/sui-button"
 import { Row } from "@wpmudev/sui-grid"
+
 import svgImage from "./images/empty-state.svg"
 
 // Import documentation main page.
 import docs from "./EmptyState.mdx"
 
 // Build "EmptyState" story.
-const EmptyState = ({ title, content, ...props}) => {
+const EmptyState = ({ title, content, ...props }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -25,7 +26,7 @@ const EmptyState = ({ title, content, ...props}) => {
 							<h3 className="sui-heading--h3">{title}</h3>
 							<p>{content}</p>
 						</Row>
-						<Row align={{ md: "inline" }}>
+						<Row align={{ md: "center" }}>
 							<Button appearance="secondary" color="blue" isSmall={true}>
 								Primary
 							</Button>
