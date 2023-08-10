@@ -1,5 +1,17 @@
 import React from "react"
 
+type SetupBannerTypes =
+	| "smush"
+	| "defender"
+	| "snapshot"
+	| "hummingbird"
+	| "forminator"
+	| "beehive"
+	| "hustle"
+	| "smartcrawl"
+	| "shipper"
+	| "branda"
+
 /**
  * SetupBannerProps interface defines the props accepted by the SetupBanner component.
  */
@@ -11,7 +23,7 @@ interface SetupBannerProps {
 	/**
 	 * Subtitle or additional information for the banner.
 	 */
-	type?: string
+	type?: SetupBannerTypes
 	/**
 	 * Description or content for the banner
 	 */
@@ -22,4 +34,4 @@ interface SetupBannerProps {
 	className?: string
 }
 
-export { SetupBannerProps }
+export { SetupBannerProps, SetupBannerTypes }

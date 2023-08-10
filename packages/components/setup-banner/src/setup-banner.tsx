@@ -3,9 +3,9 @@ import React from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 import * as Icons from "@wpmudev/sui-icons"
 
-import { SetupBannerProps } from "./setup-banner.types"
+import { SetupBannerProps, SetupBannerTypes } from "./setup-banner.types"
 
-export const PluginsIcons: Record<string, any> = {
+export const PluginsIcons: Record<SetupBannerTypes, any> = {
 	smush: "PluginSmush",
 	defender: "PluginDefender",
 	snapshot: "PluginSnapshot",
