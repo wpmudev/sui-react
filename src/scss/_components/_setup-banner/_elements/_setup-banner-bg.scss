@@ -21,8 +21,8 @@
 				transform: translateY(-50%);
 				right: $banner-bg-position-md;
 				left: auto;
-				opacity: 0.1;
 				pointer-events: none;
+				z-index: -1;
 
 				@include media(max-width, sm) {
 					right: $banner-bg-position-sm;
