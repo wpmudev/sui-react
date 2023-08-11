@@ -12,8 +12,6 @@ import { EmptyStateProps } from "./empty-state.types"
  * @return {React.ReactNode} The EmptyState component.
  */
 const EmptyState: React.FC<EmptyStateProps> = ({
-	title,
-	content,
 	logo,
 	className,
 	children,
@@ -31,11 +29,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 					{isImg ? <img src={logo as string} alt="LOGO" /> : logo}
 				</div>
 			)}
-			<div className="sui-empty-state__info">
-				<h2>{title}</h2>
-				<p>{content}</p>
-			</div>
-			<div className="sui-empty-state__actions">{children}</div>
+			{children}
 		</div>
 	)
 }

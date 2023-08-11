@@ -8,7 +8,7 @@ import docs from "./ReactCodeEditor.mdx"
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Core/Code Editor",
+	title: "SUI/Components/Advanced/Code Editor",
 	component: SuiCodeEditor,
 	parameters: {
 		layout: "fullscreen",

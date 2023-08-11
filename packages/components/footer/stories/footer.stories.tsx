@@ -3,15 +3,17 @@ import React, { Fragment } from "react"
 // Import required component
 import { Footer as SuiFooter } from "../src"
 
+import docs from "./Footer.mdx"
+
 // Configure default options
 export default {
-	title: "SUI/Components/Advanced/Footer",
+	title: "SUI/Components/Collections/Footer",
 	component: SuiFooter,
 	parameters: {
 		layout: "fullscreen",
-		// docs: {
-		// 	page: docs,
-		// },
+		docs: {
+			page: docs,
+		},
 	},
 }
 
