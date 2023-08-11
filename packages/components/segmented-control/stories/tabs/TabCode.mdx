@@ -77,12 +77,6 @@ import { Section, Code } from "@wpmudev/storybook"
     		</p>
     	</Section>
 
-    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			The child elements to be rendered inside
-    		</p>
-    	</Section>
-
     	<Section title={{ content: "ariaLabel*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			Button label for accessibility purposes
@@ -92,6 +86,12 @@ import { Section, Code } from "@wpmudev/storybook"
     	<Section title={{ content: "isDisabled*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			When set to <Code isSmall={true}>true</Code>, the button will be disabled
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The child elements to be rendered inside
     		</p>
     	</Section>
     </Section>

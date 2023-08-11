@@ -26,7 +26,7 @@ const SegmentedControl = ({ example, children, ...args }) => {
 			<div className="sui-layout__content">
 				<Box>
 					<BoxGroup isInline={false}>
-						<SControl onChange={(newValue) => alert(newValue)} {...args}>
+						<SControl {...args}>
 							<SegmentedControlButton value="icon-only" icon="Filter" />
 							<SegmentedControlButton value="1">UPI</SegmentedControlButton>
 							<SegmentedControlButton value="2">Visa</SegmentedControlButton>
