@@ -1,4 +1,4 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
+import { Section, Code } from "@wpmudev/storybook"
 
 <Section
 	title="Installation"
@@ -6,36 +6,50 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 	style={{ paddingTop: 20, paddingBottom: 0 }}
 >
 	<p>
-		Install the <Code small={true}>Accordion</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
+		Install the <Code small={true}>SegmentedControl</Code> package as an
+		individual component or follow the Overview page instructions to get the
+		complete SUI Components package.
 	</p>
 </Section>
 
 <Section title="Props" border={true}>
 
     	<Section
-    		title={{ content: "state*", tag: 'string', small: true }}
+    		title={{ content: "name", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
-    		<p>Sets the semantic type for the accordion</p>
-    		<p>
-    		Allowed options:
-    			<List>
-    				<span label={<Code small={true}>neutral</Code>} />
-    				<span label={<Code small={true}>informative</Code>} />
-    				<span label={<Code small={true}>success</Code>} />
-    				<span label={<Code small={true}>warning</Code>} />
-    				<span label={<Code small={true}>critical</Code>} />
-    			</List>
-    		</p>
+    		<p>Name of the radio input elements.</p>
+    		<p>Under the hood of the segmented control component, the options are input radio elements</p>
     	</Section>
 
     	<Section
-    		title={{ content: "className*", tag: 'string', small: true }}
+    		title={{ content: "defaultValue*", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
-    		<p>A custom className for the accordion </p>
+    		<p>The default selected value.</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "onChange*", tag: 'function', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>A callback function triggered when the value of the segmented control changes. the first parameter is the new selected value</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "isFullWidth*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>A boolean indicating whether the segmented control should take full width</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "children", tag: "React Node", small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>
+    			The child elements to be rendered inside the segmented control these are the individual segments.
+    		</p>
     	</Section>
 
 </Section>
@@ -45,82 +59,41 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 	contained={true}
 	style={{ paddingTop: 30, paddingBottom: 0 }}
 >
-		<p>The Accordion component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
 
-    <Section title="AccordionItem" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <Section title="SegmentedControlButton" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     	<p>
-    		This component represents an individual item or section of the accordion and comes with its
-    		own set of props.
+    		This component represents an individual item or button for the segmented control component.
     	</p>
 
-    	<Section title={{ content: "title*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "value", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
-    			Title of the accordion item
+    			The value associated with the button
     		</p>
     	</Section>
 
-    	<Section title={{ content: "description*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "icon*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
-    			Description of the accordion item
+    			An optional Custom icon for the button, you can check the available icons on [sui-icons](https://github.com/wpmudev/sui-icons) package.
     		</p>
     	</Section>
 
-    	<Section title={{ content: "isDisabled*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
-    			Enables deactivation of the accordion item
+    			The child elements to be rendered inside
     		</p>
     	</Section>
 
-    	<Section title={{ content: "icon*", tag: 'React Element', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "ariaLabel*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
-    			Adds an Icon to the accordion item
+    			Button label for accessibility purposes
     		</p>
     	</Section>
 
-    	<Section title={{ content: "hasCheckbox*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "isDisabled*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
-    			Displays a checkbox if true
+    			When set to <Code isSmall={true}>true</Code>, the button will be disabled
     		</p>
     	</Section>
-
-    	<Section title={{ content: "onCheck*", tag: 'function', small: true }}   contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Callback function to be executed when the checkbox is clicked
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			The content of the accordion item
-    		</p>
-    	</Section>
-
-
     </Section>
-
-    	<Section title="AccordionBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component serves as the body content
-    	for each item and also accepts specific props to customize its behavior, it has the following props:
-    	</p>
-
-    		<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    			<p>
-    				The content of the accordion item
-    			</p>
-    		</Section>
-    	</Section>
-
-    	<Section title="AccordionFooter" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component serves as the body content for each item and also accepts specific props to customize its behavior, it has the following props:
-    	</p>
-
-    		<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    			<p>
-    				Custom content for the footer
-    			</p>
-    		</Section>
-    	</Section>
 
 </Section>
