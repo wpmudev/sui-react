@@ -25,7 +25,13 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 	children,
 }) => {
 	// Generate class names
-	const classNames = generateCN("sui-code-editor", {}, className ?? "")
+	const classNames = generateCN(
+		"sui-code-editor",
+		{
+			numbers: displayLineNumbers,
+		},
+		className ?? "",
+	)
 	const [isCopied, setIsCopied] = useState<boolean>(false)
 
 	const [code, setCode] = React.useState("")
@@ -47,7 +53,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 		<div className={classNames}>
 			<div className="sui-code-editor__header">
 				{/* Display filename if available */}
-				<span className="sui-code-editor__header-title">
+				<span className="sui-code-editor__header--title">
 					{!!filename ? filename : ""}
 				</span>
 				{allowCopy && (
