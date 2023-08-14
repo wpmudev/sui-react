@@ -25,6 +25,7 @@ export { LockAlt } from "./LockAlt"
 export { Upload } from "./Upload"
 export { Grip } from "./Grip"
 export { Filter } from "./Filter"
+export { SpinnerAlt } from "./SpinnerAlt"
 // plugin icons
 export { Plugin } from "./Plugin"
 export { PluginDefender } from "./PluginDefender"
