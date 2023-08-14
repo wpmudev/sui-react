@@ -8,7 +8,7 @@ import docs from "./Uploader.mdx"
 
 // Configure default options
 export default {
-	title: "SUI/Components/Core/Uploader",
+	title: "SUI/Components/Advanced/Uploader",
 	component: SuiUploader,
 	parameters: {
 		layout: "fullscreen",

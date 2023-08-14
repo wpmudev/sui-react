@@ -1,25 +1,8 @@
-import React, { HTMLProps } from "react"
-import { isEmpty } from "@wpmudev/storybook/lib/utils"
+import React from "react"
 
-/**
- * Represents the alignment options for a row component.
- */
-type RowAlignments = "xs" | "sm" | "md" | "lg" | "xl"
+import { isEmpty } from "@wpmudev/sui-utils"
 
-/**
- * Represents the properties for a row component.
- */
-interface RowProps extends HTMLProps<HTMLDivElement> {
-	/**
-	 * The alignment of the row.
-	 */
-	align?: Record<RowAlignments, string>[]
-	className?: string
-	/**
-	 * The content of the row.
-	 */
-	children?: React.ReactNode
-}
+import { RowProps } from "../grid.types"
 
 const Row: React.FC<RowProps> = ({ align, className, children, ...props }) => {
 	const expectedAligns = {
