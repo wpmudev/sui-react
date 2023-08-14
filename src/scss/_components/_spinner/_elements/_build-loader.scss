@@ -1,0 +1,39 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+
+/// Build Loader
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-loader($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include element(loader) {
+                display: inline-flex;
+            }
+
+            @include element(loader-icon) {
+                animation: spin 2s infinite linear;
+                box-shadow: 0 0 0 3px #fff inset, 0 0 0 10px #E6E6E6 inset;
+                border-radius: 50%;
+
+                &.sui-icon--sm {
+                    box-shadow: 0 0 0 1px #fff inset, 0 0 0 3px #E6E6E6 inset;
+                }
+
+                &.sui-icon--md {
+                    box-shadow: 0 0 0 2px #fff inset, 0 0 0 5px #E6E6E6 inset;
+                }
+            }
+        }
+    }
+}
