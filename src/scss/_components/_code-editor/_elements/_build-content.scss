@@ -15,45 +15,120 @@
     @include sui-class($rtl: false, $theme: null) {
         // Block wrapper.
         @include block($block) {
+
+            @include element(content) {
+                padding: 0;
+                position: relative;
+            }
+
+            &:first-child {
+                .line-numbers-rows {
+                    border-bottom-left-radius: $border-radius-md;
+                }
+
+                .module-theme-default pre[class*="language-"] {
+                    border-bottom-left-radius: $border-radius-md;
+                }
+
+                &.sui-#{$block}--numbers {
+                    .module-theme-default pre[class*="language-"] {
+                        border-bottom-left-radius: 0;
+                    }
+                }
+            }
+
+            &:last-child {
+                .module-theme-default pre[class*="language-"] {
+                    border-bottom-right-radius: $border-radius-md;
+                }
+            }
+
+            
+            
             // line numbers
             .line-numbers-rows {
-                background: var(--neutral-grey-dark-60737373, #737373);
-                bottom: -2px;
+                background: $color-extended-neutral-60;
+                bottom: 0;
                 overflow: hidden;
-                top: -2px;
+                top: 0;
+                border: none;
+                left: $code-editor-position-left;
+                width: $code-editor-size-width;
+                padding-top: $spacing-lg;
+                font-size: $code-editor-font-size-default;
+                line-height: $code-editor-font-height-default;
+                
+                > span:before {
+                    color: $color-extended-neutral-100;
+                    padding-right: $spacing-lg;
+                }
             }
 
             .module-theme-default pre[class*="language-"] {
-                border-radius: 0;
-                margin: 0;
-                overflow: visible;
-                padding-bottom: 0;
-                padding-top: 0;
-                top: -0.2px;
+                position: unset;
+                font-weight: $font-weight-default;
+                font-size: $code-editor-font-size-default;
+                min-height: $code-snippet-height;
+				overflow: auto;
+				margin: 0;
+				padding: $spacing-lg;
+				border: $code-snippet-border-width solid $code-snippet-border-color;
+				background: $color-extended-neutral-95;
+                border: $border-width-sm solid $color-extended-neutral-80;
+                outline: none;
+            
+                > code {
+                    position: unset;
+                    z-index: 1;
+                    margin: 0;
+                    padding: 0;
+                    background: transparent;
+                    text-align: left;
+                    white-space: pre;
+                    word-spacing: normal;
+                    word-break: normal;
+                    tab-size: 4;
+                    hyphens: none;
+                    color: $color-extended-neutral-10;
+    
+                    * {
+                        font-family: $code-snippet-font-family;
+                    }
+                }
+            
             }
 
-            code {
-                direction: ltr;
-                position: relative;
-                z-index: 1;
-                margin: 0;
-                padding: 0;
-                background: transparent;
-                text-align: left;
-                white-space: pre;
-                word-spacing: normal;
-                word-break: normal;
-                tab-size: 4;
-                hyphens: none;
-                color: $color-extended-neutral-10;
-                font-weight: $font-weight-default;
-                font-size: $font-size-xs;
-                line-height: 20px;
-                letter-spacing: $font-spacing-default;
-
-                * {
-                    font-family: $code-snippet-font-family;
+            @include modifier(numbers) {
+                @include modifies-element(content) {
+                    margin-left: $code-editor-spacing-lg;
                 }
+
+                .module-theme-default pre[class*="language-"] {
+                    border-left: 0;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+
+            // line numbers
+            .line-numbers-rows {
+                background: $color-extended-neutral-0;
+            }
+
+            .module-theme-default pre[class*="language-"] {
+				background: $color-extended-neutral-100;
+                border: $border-width-sm solid $color-extended-neutral-0;
+            
+                > code {
+                    color: $color-extended-neutral-0;
+                }
+            
             }
         }
     }

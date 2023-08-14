@@ -17,22 +17,50 @@
         @include block($block) {
             @include element(header) {
                 align-items: center;
-                background: var(--neutral-grey-light-90-f-2-f-2-f-2, #F2F2F2);
-                border-radius: 10px 10px 0 0;
-                border-bottom: 1px solid var(--neutral-grey-light-80-e-6-e-6-e-6, #E6E6E6);
+                background: $color-extended-neutral-90;
+                border: $border-width-sm solid $color-extended-neutral-80;
+                border-bottom: 0;
                 display: flex;
                 justify-content: space-between;
-                padding: 4px 16px;
+                padding: $spacing-sm $spacing-lg;
+
+                @include modifier(title) {
+                    color: $color-extended-neutral-10;
+                    display: inline-block;
+                    font-size: $code-editor-font-size-default;
+                    font-weight: $font-weight-md;
+                    line-height: $code-editor-font-height-default;
+                    margin: $spacing-sm 0;
+                }
             }
 
-            @include element(header-title) {
-                color: var(--neutral-grey-dark-101-a-1-a-1-a, #1A1A1A);
-                display: inline-block;
-                font-size: 13px;
-                font-style: normal;
-                font-weight: 500;
-                line-height: 20px;
-                margin: 4px 0;
+            &:first-child {
+                .sui-#{$block}__header {
+                    border-top-left-radius: $border-radius-md;
+                }
+            }
+
+            &:last-child {
+                .sui-#{$block}__header {
+                    border-top-right-radius: $border-radius-md;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(header) {
+                background: $color-extended-neutral-100;
+                border: $border-width-sm solid $color-extended-neutral-0;
+                border-bottom: 0;
+
+                @include modifier(title) {
+                    color: $color-extended-neutral-0;
+                }
             }
         }
     }
