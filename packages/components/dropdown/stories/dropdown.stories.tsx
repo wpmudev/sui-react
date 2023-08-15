@@ -114,7 +114,6 @@ export const Dropdown = ({ example, ...props }) => {
 }
 
 Dropdown.args = {
-	id: "myUniqueId",
 	label: "Menu Button",
 	isSmall: false,
 	isLabelHidden: false,
