@@ -54,18 +54,31 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
     		title={{ content: "menu*", tag: 'array', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
-    		<p>The menu items to be rendered, each item is an object that could be either a Menu Group or a Menu Item. </p>
+    		<p>The menu items to be rendered, each item is an object that could be either a <strong>Menu Group</strong> or a <strong>Menu Item</strong>. </p>
 
-<Section
+    		<Section
     			title={{ content: "Menu Item",small: true }}
     			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     		>
     			<p>The menu Item object has the following properties </p>
-
-    			id: a string, unique id for the menu item
-    			label
-    			props
-
+    		<List>
+    			<span label={
+    				<>
+    					<Code small={true}>id</Code> a unique id for the item
+    				</>
+    				} />
+    			<span label={
+    				<>
+    					<Code small={true}>label</Code>  represents the item title
+    				</>
+    				} />
+    			<span label={
+    				<>
+    					<Code small={true}>props</Code> An object representing the props of the <a href="/docs/sui-components-core-menu--docs" target="_blank">Menu component</a> with the exception of <Code small={true}> children </Code>
+    				</>
+    				}
+    			/>
+    		</List>
 
     		</Section>
 
@@ -75,11 +88,25 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
     		>
     			<p>The menu group object has the following properties </p>
 
-    			id
-    			label
-    			menus
+    		<List>
+    			<span label={
+    				<>
+    					<Code small={true}>id</Code> a unique id for the group
+    				</>
+    			} />
 
+    			<span label={
+    					<>
+    						<Code small={true}>label</Code> represents the group title
+    					</>
+    			} />
 
+    			<span label={
+    					<>
+    						<Code small={true}>menus</Code> An array of menu items
+    					</>
+    			} />
+    		</List>
     		</Section>
     	</Section>
 
