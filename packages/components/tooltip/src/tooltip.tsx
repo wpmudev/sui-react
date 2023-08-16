@@ -30,7 +30,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	} as InteractionTypes)
 
 	type TooltipAttrsTypes = {
-		styles?: React.CSSProperties
+		style?: React.CSSProperties
 	}
 
 	const attrs: TooltipAttrsTypes = {}
@@ -47,9 +47,11 @@ const Tooltip: React.FC<TooltipProps> = ({
 
 	// Custom tooltip width
 	if (customWidth || customMobileWidth) {
-		attrs.styles = {
-			"--tooltip-width": `${customWidth}px`,
-			"--tooltip-width-mobile": `${customWidth}px`,
+		attrs.style = {
+			...(customWidth && { "--tooltip-width": `${customWidth}px` }),
+			...(customMobileWidth && {
+				"--tooltip-width-mobile": `${customMobileWidth}px`,
+			}),
 		} as CSSProperties
 	}
 

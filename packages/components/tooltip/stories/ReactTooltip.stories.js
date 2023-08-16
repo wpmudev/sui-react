@@ -23,6 +23,7 @@ const Tooltip = ({
 	example,
 	label,
 	href,
+	tootlipText,
 	target,
 	appearance,
 	position,
@@ -38,7 +39,7 @@ const Tooltip = ({
 
 	const set = {}
 
-	set.content = "Tooltip text"
+	set.content = tootlipText
 
 	const props = {}
 
@@ -101,6 +102,7 @@ const Tooltip = ({
 // Set story arguments.
 Tooltip.args = {
 	example: "button",
+	tootlipText: "Tooltip text",
 	href: "",
 	target: "_blank",
 	label: "Button",
