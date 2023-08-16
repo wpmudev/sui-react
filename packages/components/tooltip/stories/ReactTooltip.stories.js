@@ -45,10 +45,6 @@ const Tooltip = ({
 
 	props.appearance = appearance
 
-	if ("link" === example) {
-		set.content = "Tooltip link"
-	}
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
@@ -125,8 +121,14 @@ Tooltip.argTypes = {
 			},
 		},
 	},
+	tootlipText: {
+		name: "Tooltip Text",
+	},
 	label: {
 		name: "Label",
+		control: {
+			type: "text",
+		},
 	},
 	href: {
 		name: "Link",
