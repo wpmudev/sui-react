@@ -40,7 +40,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
     		title={{ content: "isFixedHeight*", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
-    		<p>Whether the dorpdown has a fixed height with a scroll bar for overflow or it adapts its height.  </p>
+    		<p>Whether the dorpdown has a fixed height with a scroll bar for overflow or it adapts its height to the content.  </p>
     	</Section>
 
     	<Section
@@ -48,6 +48,49 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>The current selected value </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "children*", tag: 'React Node', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The content that goes inside the Dropdown </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "direction*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Dropdown popover location: <Code small={true}>left</Code> or <Code small={true}> right</Code> </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "buttonIcon*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The Drop down button icon name.</p>
+    		<p> You can check available icons on <a href="https://github.com/wpmudev/sui-icons" target="_blank"> sui-icon</a> package</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "onMenuClick*", tag: 'function', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>A callback function to be invoked when an item is clicked, it has the following parameters in order: </p>
+    		<List>
+    			<span label={
+    				<>
+    					<Code small={true}>id</Code>
+    					 The clicked element id
+    				</>
+    				} />
+    			<span label={
+    				<>
+    					<Code small={true}>event</Code>
+    					 The click event object
+    				</>
+    				} />
+    		</List>
     	</Section>
 
     	<Section
@@ -88,25 +131,25 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
     		>
     			<p>The menu group object has the following properties </p>
 
-    		<List>
-    			<span label={
-    				<>
-    					<Code small={true}>id</Code> a unique id for the group
-    				</>
-    			} />
+    			<List>
+    				<span label={
+    					<>
+    						<Code small={true}>id</Code> a unique id for the group
+    					</>
+    				} />
 
-    			<span label={
+    				<span label={
     					<>
     						<Code small={true}>label</Code> represents the group title
     					</>
-    			} />
+    				} />
 
-    			<span label={
+    				<span label={
     					<>
     						<Code small={true}>menus</Code> An array of menu items
     					</>
-    			} />
-    		</List>
+    				} />
+    			</List>
     		</Section>
     	</Section>
 

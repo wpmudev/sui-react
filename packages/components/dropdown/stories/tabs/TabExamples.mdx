@@ -1,1 +1,38 @@
-Examples.
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import dedent from "dedent"
+
+export const sampleCode = dedent`
+     <Accordion>
+      <AccordionItem title="Accordion title">
+        <AccordionItemBody>
+          <p>
+            Hi, I am accordion content body. you can swap me with your local component.
+          </p>
+        </AccordionItemBody>
+        </AccordionItem>
+        <AccordionItem
+          title="Accordion title"
+        >
+          <AccordionItemBody>
+            <p>
+              Hi, I am accordion content body. you can swap me with your local component.
+            </p>
+          </AccordionItemBody>
+        </AccordionItem>
+      <AccordionItem
+          title="Accordion title"
+        >
+          <AccordionItemBody>
+            <p>
+              Hi, I am accordion content body. you can swap me with your local component.
+            </p>
+          </AccordionItemBody>
+        </AccordionItem>
+    </Accordion>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>A Basic Accordion Example</p>
+	<Preview wrapper={true}>Hello</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
