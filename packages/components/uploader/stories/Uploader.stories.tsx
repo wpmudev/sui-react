@@ -38,9 +38,6 @@ export const Uploader = ({ ...props }) => {
 						helper: "Upload files",
 						isSmall: true,
 					}}
-					onChange={(files) => {
-						console.log("files", files)
-					}}
 				/>
 			</div>
 		</Fragment>

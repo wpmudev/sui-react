@@ -1,0 +1,59 @@
+import { Section, Code } from "@wpmudev/storybook"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Uploader</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+
+    	<Section
+    		title={{ content: "title*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Upload Button Title</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "multiple*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>When set to <Code isSmall={true}> true </Code>, the component will allow for multiple files selection </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "accept*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The allowed <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept" target="_blank"> file types</a> to upload.</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "allowDragAndDrop*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>When set to <Code isSmall={true}> true </Code>, Users will be able to use drag and drop to upload files </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "fieldAttrs*", tag: 'object', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The Form Field attributes, the keys represent the props of the <a href="/?path=/docs/sui-components-forms-form-field--docs" target="_blank"> FormField</a> component </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "onChange*", tag: 'function', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>A callback function to be invoked when a file is uploaded, the first parameter is an <Code isSmall={true}> array </Code> of the uploaded files objects</p>
+    	</Section>
+
+</Section>
