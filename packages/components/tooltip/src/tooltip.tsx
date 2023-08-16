@@ -82,8 +82,8 @@ const Tooltip: React.FC<TooltipProps> = ({
 	}, [onClick])
 
 	return (
-		<div className={classNames}>
-			<TagName {...props} {...methods} onClick={onClickCallback}>
+		<div className={classNames} {...methods}>
+			<TagName {...props} onClick={onClickCallback}>
 				{label}
 			</TagName>
 			{!!children && (
