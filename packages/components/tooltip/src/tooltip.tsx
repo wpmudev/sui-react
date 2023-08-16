@@ -38,6 +38,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	const classNames = generateCN("sui-tooltip", {
 		// Add show hide class based on tooltip open
 		show: isHovered,
+		focus: isFocused,
 		"custom-width": !!customWidth,
 		[position]: true,
 	})
