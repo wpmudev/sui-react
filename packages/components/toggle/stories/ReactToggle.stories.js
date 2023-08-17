@@ -37,12 +37,39 @@ const Toggle = ({ example, ...args }) => {
 // Set story arguments.
 Toggle.args = {
 	label: "Toggle Label",
+	description:
+		"Toggle description goes here. Lorem Ipsum is simply dummy text of the printing and typesetting industry it has been the industry's Standard.",
 	isLabelHidden: false,
 	isDisabled: false,
 }
 
 // Set controls for story arguments.
-Toggle.argTypes = {}
+Toggle.argTypes = {
+	label: {
+		name: "Label",
+		control: {
+			type: "text",
+		},
+	},
+	description: {
+		name: "Description",
+		control: {
+			type: "text",
+		},
+	},
+	isLabelHidden: {
+		name: "Label hidden",
+		control: {
+			type: "boolean",
+		},
+	},
+	isDisabled: {
+		name: "Disabled",
+		control: {
+			type: "boolean",
+		},
+	},
+}
 
 // Publish required stories.
 export { Toggle }
