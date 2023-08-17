@@ -23,10 +23,6 @@
                 align-items: center;
                 margin-bottom: $integration-spacing-margin-horizontal;
             }
-
-            @include element(header) {
-                justify-content: space-between;
-            }
 		}
 	}
 }
