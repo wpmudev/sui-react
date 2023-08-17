@@ -89,6 +89,18 @@ const Tooltip = ({
 							{set.content}
 						</SuiTooltip>
 					)}
+					{"icon" === example && (
+						<SuiTooltip
+							label={label}
+							type="icon"
+							name="info"
+							position={position}
+							customWidth={customWidth}
+							customMobileWidth={customMobileWidth}
+						>
+							{set.content}
+						</SuiTooltip>
+					)}
 				</div>
 			</div>
 		</div>
@@ -111,13 +123,14 @@ Tooltip.args = {
 Tooltip.argTypes = {
 	example: {
 		name: "Example",
-		options: ["link", "button", "text"],
+		options: ["link", "button", "text", "icon"],
 		control: {
 			type: "select",
 			labels: {
 				link: "Example: Link",
 				button: "Example: Button",
 				text: "Example: Text",
+				icon: "Example: Icon",
 			},
 		},
 	},

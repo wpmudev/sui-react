@@ -3,12 +3,19 @@ import { Button as SuiButton } from "@wpmudev/sui-button"
 import { generateCN } from "@wpmudev/sui-utils"
 import { InteractionTypes, useInteraction } from "@wpmudev/sui-hooks"
 
+import { Icon } from "./elements/tooltip-icon"
 import { TooltipProps } from "./tooltip.types"
+
+export const TagNames: Record<string, any> = {
+	button: SuiButton,
+	icon: Icon,
+}
 
 // Build "Tooltip" component.
 const Tooltip: React.FC<TooltipProps> = ({
 	label,
 	type = "button",
+	iconName = "info",
 	className,
 	position = "top",
 	customWidth,
@@ -44,7 +51,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	})
 
 	// tooltip type button or text
-	const TagName: string | React.FC = "button" === type ? SuiButton : "span"
+	const TagName: string | React.FC = TagNames?.[type] ?? ""
 
 	// Custom tooltip width
 	if (customWidth || customMobileWidth) {
