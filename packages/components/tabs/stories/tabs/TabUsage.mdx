@@ -1,41 +1,16 @@
-import { Section, Row, Col, List } from '@wpmudev/storybook';
+import { Section, Row, Col, List } from "@wpmudev/storybook"
 
-import ScoreAnatomy from '../images/anatomy.png';
+import Example from "../images/example.svg"
+import Anatomy from "../images/anatomy.svg"
 
-<Section contained={true} border={true} style={{ paddingTop: 0 }}>
-	<p>
-		The Tab displays the data that is collected for an indicator for a
-		ratings version and the resulting risk score. It makes easier for
-		End-user to understand without any technical knowlege.
-	</p>
+<Section title="Example" border={true} style={{ paddingTop: 0 }}>
+	<img src={Example} alt="Tabs Example" />
 </Section>
 
-<Section title="Anatomy" contained={true} border={true}>
-	<img src={ScoreAnatomy} alt="Tab anatomy" style={{ marginBottom: 20 }} />
-	<List>
-		<span
-			label={
-				<>
-					<strong>Progress Track:</strong> The track is a fixed length
-					of the progress bar where the progress indicator runs.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Progress Indicator:</strong> The progress indicator
-					indicates how much the process has been made.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Value:</strong> The value of a progress bar provides
-					information about the Tab.
-				</>
-			}
-		/>
-	</List>
+<Section title="Anatomy">
+	<img src={Anatomy} alt="Tabs Anatomy" />
+	<div style={{ paddingTop: 30 }}>
+		<p>1. Tab Item List</p>
+		<p>2. Tab Navigation</p>
+	</div>
 </Section>
