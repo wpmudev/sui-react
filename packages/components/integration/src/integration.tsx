@@ -4,6 +4,7 @@ import { Toggle } from "@wpmudev/sui-toggle"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { Tag } from "@wpmudev/sui-tag"
 import { useInteraction } from "@wpmudev/sui-hooks"
+import { Button } from "@wpmudev/sui-button"
 
 import { IntegrationProps } from "./integration.types"
 
@@ -13,7 +14,7 @@ const Integration: React.FC<IntegrationProps> = ({
 	additionalInfo = "",
 	image,
 	isDisabled = false,
-	isActive = false,
+	active = false,
 	isSettings = false,
 	isPro = false,
 	onSettingsClick,
@@ -32,12 +33,12 @@ const Integration: React.FC<IntegrationProps> = ({
 
 	// Define component states
 	// const [state, setState] = useState()
-	const [isActive, setIsActive] = useState(isActive)
+	const [isActive, setIsActive] = useState(active)
 
 	// Define container props
 	const classNames = generateCN("sui-integration", {
 		active: isActive && !isDisabled,
-		disabled: isDisabled,
+		disabled: isDisabled || isPro,
 		hover: !isDisabled && !isPro && isHovered,
 		focus: !isDisabled && !isPro && isFocused,
 	})
@@ -58,35 +59,32 @@ const Integration: React.FC<IntegrationProps> = ({
 	}
 
 	// Settings button props.
-	// const settingsProps = {
-	// 	icon: "settings",
-	// 	label: "settings",
-	// 	appearance: "tertiary",
-	// 	color: "black",
-	// 	isSmall: true,
-	// 	isDisabled,
-	// 	onClick: (e) => {
-	// 		if (isFunction(onSettingsClick)) {
-	// 			onSettingsClick(e)
-	// 		}
-	// 	},
-	// }
-
-	// if (isDisabled || isPro) {
-	// 	set.disabled = true
-	// }
+	const settingsProps = {
+		icon: "settings",
+		label: "settings",
+		appearance: "tertiary",
+		color: "black",
+		iconOnly: true,
+		isSmall: true,
+		isDisabled,
+		onClick: (e) => {
+			if (isFunction(onSettingsClick)) {
+				onSettingsClick(e)
+			}
+		},
+	}
 
 	return (
 		<div className={classNames}>
 			<div className="sui-integration__header">
 				<img src={icon.src} alt={icon.alt} className="sui-integration__icon" />
-				{/*{isSettings && has.active && (*/}
-				{/*	<IconButton {...settingsProps}/>*/}
-				{/*)}*/}
+				{isSettings && isActive && <Button {...settingsProps} />}
 				<Toggle {...toggleProps} />
 			</div>
 			<div className="sui-integration__info">
-				{!!title && <h3 className="sui-integration__title">{title}</h3>}
+				{!!title && (
+					<h3 className="sui-heading--h4 sui-integration__title">{title}</h3>
+				)}
 				{!!additionalInfo && (
 					<Tooltip type="icon" icon="info" customWidth={160}>
 						{additionalInfo}
