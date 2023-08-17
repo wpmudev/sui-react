@@ -18,6 +18,7 @@
 		@include block($block) {
 			position: relative;
 	        display: inline-block;
+			line-height: normal;
 		}
 	}
 
