@@ -8,6 +8,7 @@ import { TooltipProps } from "./tooltip.types"
 
 export const TagNames: Record<string, any> = {
 	button: SuiButton,
+	text: "span",
 	icon: Icon,
 }
 
