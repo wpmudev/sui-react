@@ -19,9 +19,6 @@ const Integration: React.FC<IntegrationProps> = ({
 	onSettingsClick,
 	onClick,
 }) => {
-	// const has = {}
-	// const set = {}
-
 	// Define image object
 	const icon = Object.assign(
 		{
@@ -30,13 +27,6 @@ const Integration: React.FC<IntegrationProps> = ({
 		},
 		image,
 	)
-
-	// Props validation
-	// has.title = !isUndefined(title) && !isEmpty(title) ? true : false
-	// has.description =
-	// 	!isUndefined(description) && !isEmpty(description) ? true : false
-	// has.additionalInfo =
-	// 	!isUndefined(additionalInfo) && !isEmpty(additionalInfo) ? true : false
 
 	const [isHovered, isFocused, methods] = useInteraction({})
 
@@ -47,7 +37,7 @@ const Integration: React.FC<IntegrationProps> = ({
 	// Define container props
 	const classNames = generateCN("sui-integration", {
 		active: isActive && !isDisabled,
-		disabled: isDisabled || isPro,
+		disabled: isDisabled,
 		hover: !isDisabled && !isPro && isHovered,
 		focus: !isDisabled && !isPro && isFocused,
 	})
