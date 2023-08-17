@@ -25,7 +25,7 @@
             }
 
             @include element(info) {
-                gap: 8px;
+                gap: $integration-spacing-margin-horizontal;
             }
 		}
 	}
