@@ -15,7 +15,8 @@
 		@include block($block) {
 			@include modifier(hidden-label) {
 				@include modifies-element(switch) {
-					margin-right: 0;
+					position: unset;
+					margin: 0;
 				}
 			}
 		}
