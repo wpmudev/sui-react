@@ -2,9 +2,9 @@
 @use "./_states/states" as sui-integration--state;
 
 @include sui-integration--element.build-container(integration);
-@include sui-integration--element.build-icon(integration);
 @include sui-integration--element.build-title(integration);
 @include sui-integration--element.build-description(integration);
+
 @include sui-integration--state.edit-active(integration);
 @include sui-integration--state.edit-hover(integration);
 @include sui-integration--state.edit-focus(integration);
