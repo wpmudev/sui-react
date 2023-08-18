@@ -4,7 +4,7 @@
 
 @include sui-toggle--element.build-container(toggle);
 @include sui-toggle--element.build-switch(toggle);
-@include sui-toggle--element.build-label(toggle);
+@include sui-toggle--element.build-content(toggle);
 
 @include sui-toggle--modifier.edit-aria(toggle);
 
