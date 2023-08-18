@@ -1,81 +1,49 @@
-import React, {
-	forwardRef,
-	useCallback,
-	useEffect,
-	useId,
-	useState,
-} from "react"
+import React, { forwardRef, useCallback, useId } from "react"
+
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { SelectorProps } from "./selector.types"
-import { Option } from "./selector.option"
 
-/**
- * Selector
- *
- * A React component used in forms when a user needs to select
- * multiple values from several options.
- *
- * @param {SelectorProps} props - Props for the Checkbox component.
- * @return {React.FC} The Checkbox component.
- */
-const Selector: React.FC<SelectorProps> = forwardRef<HTMLInputElement, any>(
+import { SelectorOption } from "./selector.option"
+import { SelectorProps } from "./selector.types"
+
+const Selector: React.FC<SelectorProps> = forwardRef<
+	HTMLInputElement,
+	SelectorProps
+>(
 	(
 		{
 			label,
+			name,
+			value = "",
+			isChecked = false,
+			isDisabled = false,
 			defaultValue = false,
-			isLabelHidden = false,
 			alignment = "",
 			variation = "",
-			// icon = "",
-			// iconImg = "",
-			// title = "",
-			// description = "",
-			// imgUrl = "",
-			isDisabled = false,
 			onChange = () => {},
 			...props
 		}: SelectorProps,
 		ref,
 	) => {
-		// State to manage the checked state of the checkbox
-		const [isChecked, setIsChecked] = useState<boolean>(defaultValue ?? false)
-
-		// Set the initial state based on the default value
-		useEffect(() => {
-			setIsChecked(defaultValue ?? false)
-		}, [defaultValue])
-
 		// Generate a dynamic ID for the checkbox
 		const id = useId()
 
 		// Interaction methods for handling hover and focus
 		const [isHovered, isFocused, interactionMethods] = useInteraction({})
 
-		// Callback function for handling checkbox state changes
+		// Callback function to handle onChange event of the radio input
 		const handleOnChange = useCallback(
-			(e) => {
-				setIsChecked(!isChecked)
-
-				if (!!onChange) {
-					onChange(e)
-				}
+			(e: React.ChangeEvent<HTMLInputElement>) => {
+				onChange(e.target.checked, value, name)
 			},
-			[isChecked, onChange],
+			[name, onChange, value],
 		)
-
-		// Props for the box element representing the checkbox
-		const boxProps = {
-			tabIndex: "-1",
-			className: "sui-selector__box",
-			"aria-hidden": true,
-		}
 
 		return (
 			<label
 				htmlFor={id}
+				tabIndex={isDisabled ? -1 : 0}
 				className={generateCN("sui-selector", {
-					"hidden-label": isLabelHidden,
 					disabled: isDisabled,
 					hover: isHovered,
 					focus: isFocused,
@@ -83,35 +51,34 @@ const Selector: React.FC<SelectorProps> = forwardRef<HTMLInputElement, any>(
 					[alignment]: !isEmpty(alignment ?? ""),
 					[variation]: !isEmpty(variation ?? ""),
 				})}
-				{...interactionMethods}
+				{...interactionMethods} // Spread interaction methods onto the label element
 			>
-				{/* Hidden input element to track the checkbox state */}
+				{/* Hidden radio input */}
 				<input
 					ref={ref}
 					id={id}
-					type="checkbox"
-					className="sui-screen-reader-only"
+					name={name}
+					type="radio"
+					tabIndex={isDisabled ? -1 : 0}
+					checked={isChecked}
+					aria-checked={isChecked}
+					className="sui-screen-reader-only" // Hide the input element from the screen
 					disabled={isDisabled}
 					onChange={handleOnChange}
 				/>
-				<Option
+				<SelectorOption
 					{...props}
 					isChecked={isChecked}
-					alignment={alignment}
-					variation={variation}
+					alignment={alignment ?? "left"}
+					variation={variation ?? "default"}
 				/>
-				{/* Render the label */}
-				{/*{isLabelHidden ? (
-					<span className="sui-screen-reader-only">{label}</span>
-				) : (
-					label
-				)}*/}
+				{label && <span className="sui-screen-reader-only">{label}</span>}
 			</label>
 		)
 	},
 )
 
-// Display name for the Checkbox component (used for debugging purposes)
-Selector.displayName = "Checkbox"
+// Display name for the Selector component (used for debugging purposes)
+Selector.displayName = "Selector"
 
 export { Selector }

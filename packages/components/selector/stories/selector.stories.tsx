@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 // Import required modules
 import { Selector as SuiSelector } from "../src"
@@ -18,19 +18,55 @@ export default {
 	},
 }
 
+const options = [
+	{
+		name: "sui-selector-button",
+		value: 1,
+	},
+	{
+		name: "sui-selector-button",
+		value: 2,
+	},
+	{
+		name: "sui-selector-button",
+		value: 3,
+	},
+	{
+		name: "sui-selector-button",
+		value: 4,
+	},
+]
+
 // Build story
 export const Selector = ({ ...args }) => {
+	const [val, setVal] = useState("")
+
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
 		// background: "#fff",
+		display: "flex",
+		gap: "20px",
+	}
+
+	const onChange = (isChecked, value, name) => {
+		setVal(value)
 	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiSelector {...args} />
+					{options.map((option, index) => (
+						<SuiSelector
+							key={index}
+							name={option.name}
+							value={option.value}
+							onChange={onChange}
+							isChecked={val === option.value}
+							{...args}
+						/>
+					))}
 				</div>
 			</div>
 		</div>
@@ -39,25 +75,58 @@ export const Selector = ({ ...args }) => {
 
 // Story props defaults
 Selector.args = {
-	label: "Selector label",
-	isDisabled: false,
-	icon: "CheckAlt",
 	title: "Option Title",
+	iconOrBrandUrl: "d",
+	variation: "default",
+	alignment: "left",
 	description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
 	imageUrl: "https://placehold.co/200x100.png",
+	allowRemove: false,
+	isDisabled: false,
 }
 
 // Story props settings
 Selector.argTypes = {
-	defaultValue: {
-		table: {
-			disable: true,
-		},
-	},
-	icon: {
-		name: "Icon",
+	title: {
+		name: "Title",
 		control: {
 			type: "text",
+		},
+	},
+	allowRemove: {
+		name: "Allow Remove",
+		control: {
+			type: "boolean",
+		},
+	},
+	isDisabled: {
+		name: "Disabled",
+		control: {
+			type: "boolean",
+		},
+	},
+	variation: {
+		name: "Variation",
+		options: ["default", "icon-only", "compound", "image"],
+		control: {
+			type: "select",
+			labels: {
+				default: "Default",
+				"icon-only": "Icon Only",
+				compound: "Compound",
+				image: "image",
+			},
+		},
+	},
+	alignment: {
+		name: "Alignment",
+		options: ["left", "center"],
+		control: {
+			type: "select",
+			labels: {
+				left: "left",
+				center: "center",
+			},
 		},
 	},
 }
