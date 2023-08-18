@@ -23,6 +23,10 @@
                 align-items: center;
                 margin-bottom: $integration-spacing-margin-horizontal;
             }
+
+            @include element(info) {
+                gap: $integration-spacing-margin-horizontal;
+            }
 		}
 	}
 }

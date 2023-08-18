@@ -15,17 +15,39 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(switch) {
-					outline: 2px solid #d1d1d1;
-					outline-offset: 2px;
-					background: #d1d1d1;
+					outline: $border-width-md solid $color-extended-neutral-80;
+					outline-offset: $border-width-md;
+					background: $color-extended-neutral-80;
 				}
 			}
 
 			@include modifier(checked-focus) {
 				@include modifies-element(switch) {
-					outline: 2px solid $color-primary-50;
-					outline-offset: 2px;
+					outline: $border-width-md solid $color-primary-50;
+					outline-offset: $border-width-md;
 					background: $color-primary-50;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(focus) {
+				@include modifies-element(switch) {
+					outline: $border-width-md solid $color-extended-neutral-0;
+					outline-offset: $border-width-md;
+					background: $color-extended-neutral-100;
+				}
+			}
+
+			@include modifier(checked-focus) {
+				@include modifies-element(switch) {
+					outline: $border-width-md solid $color-extended-neutral-0;
+					outline-offset: $border-width-md;
+					background: $color-extended-neutral-0;
 				}
 			}
 		}
