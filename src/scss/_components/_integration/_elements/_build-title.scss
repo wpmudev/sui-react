@@ -16,9 +16,11 @@
 		@include block($block) {
             @include element(title) {
                 display: inline-block;
-                font-size: $integration-font-size-md;
-                line-height: $integration-font-height-md;
-                margin: 0 $integration-spacing-margin-horizontal 0 0;
+                margin: 0;
+            }
+
+            .sui-tag {
+                margin: 0;
             }
 		}
 	}
