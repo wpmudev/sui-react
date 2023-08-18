@@ -43,7 +43,7 @@ interface DatePickerProps {
 	 *
 	 * @param {string | Date | DatePickerDateRange} value
 	 */
-	onChange(value: string | Date | DatePickerDateRange): void
+	onChange: (value: string | Date | DatePickerDateRange) => void
 }
 interface DatePickerContextProps {
 	/**

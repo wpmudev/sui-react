@@ -1,36 +1,111 @@
-import { Section, Row, Col, List } from '@wpmudev/storybook';
+import { Section, Row, Col } from "@wpmudev/storybook"
 
-import CodeSnippetAnatomy from '../images/anatomy.png';
+import Overview from "../images/overview.svg"
+import Anatomy from "../images/anatomy.svg"
+import CalendarSingle from "../images/calendar-single.svg"
+import CalendarRange from "../images/calendar-range.svg"
+import Spacing from "../images/spacing.svg"
+import States from "../images/states.svg"
+import Types from "../images/types.svg"
+import StatesSingle from "../images/states-single.svg"
+import StatesRange from "../images/states-range.svg"
 
-<Section contained={true} border={true} style={{ paddingTop: 0 }}>
-	<p>
-		This element is meant to be used to display code. By default, it will
-		place a copy button on top right of the container, that way users can
-		easily copy snippet content to clipboard.
-	</p>
+<Section border={true} style={{ paddingTop: 0 }}>
+	<img src={Overview} alt="Date picker Overview" />
 </Section>
 
-<Section title="Anatomy" contained={true} border={true}>
-	<img
-		src={CodeSnippetAnatomy}
-		alt="Code snippet anatomy"
-		style={{ marginBottom: 20 }}
-	/>
-	<List>
-		<span
-			label={
-				<>
-					<strong>Snippet Text:</strong> Line or a block of codes.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Copy button:</strong> A copy button to copy the
-					code.
-				</>
-			}
-		/>
-	</List>
+<Section title="Anatomy">
+	<Row>
+		<Col>
+			<h3 style={{marginTop: 0}}>1. Input</h3>
+			<p>Date picker uses <a href="/?path=/docs/sui-components-forms-input--docs" target="_blank">input component</a> for initial state.</p>
+
+    		<h3>2. Calendar</h3>
+    		<p>The main part of the date picker is the calendar itself. It displays the days, weeks, and months for the user to select the desired date(s). The calendar can be shown in various formats, such as a monthly view, a weekly view, or even a single day view.</p>
+    	</Col>
+    	<Col size="4">
+    		<img
+    			src={Anatomy}
+    			alt="Date Picker Anatomy"
+    			style={{ marginBottom: 20 }}
+    		/>
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Calendar - Single">
+	<Row>
+		<Col>
+			<h3 style={{marginTop: 0}}>1. Navigation Controls</h3>
+			<p>To navigate between months or years, the date picker often includes navigation controls. These can be in the form of arrow buttons that allow users to move forward or backward of the shown month.</p>
+
+    		<h3>2. Month/Year Header</h3>
+    		<p>The header section of the date picker typically shows the currently displayed month and year. It helps users quickly identify the time period being shown and provides a way to switch to a different month.</p>
+
+    		<h3>3. Day Cells</h3>
+    		<p>The individual cells within the calendar grid represent each days of the week.</p>
+
+    		<h3>4. Date Cells</h3>
+    		<p>The individual cells within the calendar grid represent each date of the month. These cells have  interactive variations to display the date’s status.</p>
+    	</Col>
+    	<Col size="4">
+    		<img
+    			src={CalendarSingle}
+    			alt="Date Picker single calendar"
+    			style={{ marginBottom: 20 }}
+    		/>
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Calendar - Range">
+	<Row>
+		<Col>
+			<h3 style={{marginTop: 0}}>1. Quick controls</h3>
+			<p>It helps users quickly identify the time period and provides a way to select them in a single click.</p>
+
+    		<h3>2. Range Selection</h3>
+    		<p>The date picker supports selecting a range of dates. To facilitate this, it might include additional interactive elements, such as a start and end date input fields or a draggable selection handle.</p>
+
+    		<h3>3. Actions</h3>
+    		<p>The date picker may have buttons or actions associated with it. For example, it might include "Cancel" and "Apply" buttons to confirm or cancel the selected date(s) or a "Clear" button to remove any existing selection.</p>
+
+
+    	</Col>
+    	<Col size="4">
+    		<img
+    			src={CalendarRange}
+    			alt="Date Picker Range calendar"
+    			style={{ marginBottom: 20 }}
+    		/>
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Spacing" style={{ paddingTop: 0 }}>
+	<img src={Spacing} alt="Date Picker spacing" />
+</Section>
+
+<Section title="States" style={{ paddingTop: 0 }}>
+	<p>
+		The input behaviour simply follows the same states that Input has. There
+		will be displayed a calendar on popover when the input is on the focus
+		state.
+	</p>
+	<img src={States} alt="Date Picker states" />
+</Section>
+
+<Section title="Types" style={{ paddingTop: 0 }}>
+	<img src={Types} alt="Date Picker states" />
+</Section>
+
+<Section title="States on Single Calendar" style={{ paddingTop: 0 }}>
+	<img src={StatesSingle} alt="Date picker states on single calendar" />
+</Section>
+
+<Section title="States on Range Calendar" style={{ paddingTop: 0 }}>
+	<img src={StatesRange} alt="Date picker states on range calendar" />
 </Section>
