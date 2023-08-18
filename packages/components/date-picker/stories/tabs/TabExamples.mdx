@@ -7,7 +7,7 @@ export const sampleCode = dedent`
 `
 
 export const rangeCode = dedent`
-    <DatePicker type="single" startDate="15/08/2023" endDate="21/08/2023" />
+    <DatePicker type="range" startDate="15/08/2023" endDate="21/08/2023" />
 `
 
 export const disabledCode = dedent`
@@ -25,7 +25,7 @@ export const disabledCode = dedent`
 
 <Section title="Range Type Calendar" contained={true} style={{ paddingTop: 0 }}>
 	<div className="sui-wrap sui-theme--light" style={{marginBottom: "20px", position: "relative", zIndex: 2, width: "400px"}}>
-    	<DatePicker type="range" startDate="15/08/2023" endDate="21/08/2023" />
+    	<DatePicker type="range" startDate="15/08/2023" endDate="21/08/2023" onChange={console.log}/>
 	</div>
     <Snippet language="js">{rangeCode}</Snippet>
 
