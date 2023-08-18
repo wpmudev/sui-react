@@ -9,6 +9,10 @@ interface ToggleProps extends HTMLProps<HTMLInputElement> {
 	 */
 	label: string
 	/**
+	 * The description for the toggle component.
+	 */
+	description: string
+	/**
 	 * Indicates whether the label should be hidden or not.
 	 */
 	isLabelHidden: boolean

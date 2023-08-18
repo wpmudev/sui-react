@@ -8,6 +8,7 @@ import { ToggleProps } from "./toggle.types"
 // Build "Toggle" component
 const Toggle: React.FC<ToggleProps> = ({
 	label,
+	description,
 	defaultValue,
 	isLabelHidden = false,
 	isDisabled = false,
@@ -18,7 +19,7 @@ const Toggle: React.FC<ToggleProps> = ({
 	const id = `sui-toggle-${useId()}`
 
 	const [state, setState] = useState<boolean>(defaultValue as boolean)
-	const [isFocused, isHovered, methods] = useInteraction({})
+	const [isHovered, isFocused, methods] = useInteraction({})
 
 	useEffect(() => {
 		if (!isBoolean(defaultValue)) {
@@ -46,8 +47,8 @@ const Toggle: React.FC<ToggleProps> = ({
 			disabled: isDisabled,
 			hover: !state && isHovered,
 			focus: !state && isFocused,
-			"checked-hover": isHovered,
-			"checked-focus": isFocused,
+			"checked-hover": state && isHovered,
+			"checked-focus": state && isFocused,
 		}),
 		...methods,
 	}
@@ -67,7 +68,8 @@ const Toggle: React.FC<ToggleProps> = ({
 			<input {...inputProps} id={id} />
 			<span tabIndex={-1} className="sui-toggle__switch" aria-hidden={true} />
 			{isLabelHidden && <span className="sui-screen-reader-only">{label}</span>}
-			{!isLabelHidden && label}
+			{!isLabelHidden && <span className="sui-toggle__label">{label}</span>}
+			{description && <p className="sui-toggle__description">{description}</p>}
 		</label>
 	)
 }
