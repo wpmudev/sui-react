@@ -3,12 +3,20 @@ import { Button as SuiButton } from "@wpmudev/sui-button"
 import { generateCN } from "@wpmudev/sui-utils"
 import { InteractionTypes, useInteraction } from "@wpmudev/sui-hooks"
 
+import { Icon } from "./elements/tooltip-icon"
 import { TooltipProps } from "./tooltip.types"
+
+export const TagNames: Record<string, any> = {
+	button: SuiButton,
+	text: "span",
+	icon: Icon,
+}
 
 // Build "Tooltip" component.
 const Tooltip: React.FC<TooltipProps> = ({
 	label,
 	type = "button",
+	iconName = "info",
 	className,
 	position = "top",
 	customWidth,
@@ -30,7 +38,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	} as InteractionTypes)
 
 	type TooltipAttrsTypes = {
-		styles?: React.CSSProperties
+		style?: React.CSSProperties
 	}
 
 	const attrs: TooltipAttrsTypes = {}
@@ -38,18 +46,21 @@ const Tooltip: React.FC<TooltipProps> = ({
 	const classNames = generateCN("sui-tooltip", {
 		// Add show hide class based on tooltip open
 		show: isHovered,
+		focus: isFocused,
 		"custom-width": !!customWidth,
 		[position]: true,
 	})
 
 	// tooltip type button or text
-	const TagName: string | React.FC = "button" === type ? SuiButton : "span"
+	const TagName: string | React.FC = TagNames?.[type] ?? ""
 
 	// Custom tooltip width
 	if (customWidth || customMobileWidth) {
-		attrs.styles = {
-			"--tooltip-width": `${customWidth}px`,
-			"--tooltip-width-mobile": `${customWidth}px`,
+		attrs.style = {
+			...(customWidth && { "--tooltip-width": `${customWidth}px` }),
+			...(customMobileWidth && {
+				"--tooltip-width-mobile": `${customMobileWidth}px`,
+			}),
 		} as CSSProperties
 	}
 
@@ -79,8 +90,8 @@ const Tooltip: React.FC<TooltipProps> = ({
 	}, [onClick])
 
 	return (
-		<div className={classNames}>
-			<TagName {...props} {...methods} onClick={onClickCallback}>
+		<div className={classNames} {...methods}>
+			<TagName {...props} onClick={onClickCallback}>
 				{label}
 			</TagName>
 			{!!children && (
