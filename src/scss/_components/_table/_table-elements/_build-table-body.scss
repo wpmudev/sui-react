@@ -19,6 +19,17 @@
         // Block wrapper.
         @include block($block) {
             @include element(body) {
+                .sui-#{$block}__row {
+                    cursor: pointer;
+                }
+            }
+
+            @include modifier(stripe) {
+                @include modifies-element(body) {
+                    .sui-#{$block}__row:nth-child(odd) {
+                        background: $color-extended-neutral-95;
+                    }
+                }
             }
         }
     }
