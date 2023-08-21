@@ -20,7 +20,29 @@
                 position: relative;
             }
 
-            @include element(overlay) {
+            @include element(overlay){
+                background-color: $color-alpha-white-90;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+    
+                @include modifier(dark) {
+                    background-color: #1A1A1AB2;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include element(overlay){
+                background-color: #1A1A1A;
             }
         }
     }

@@ -12,13 +12,11 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-
             @include modifier(lg) {
 
-            }
-
-            @include element(loader-icon) {
-                @include modifier(lg) {
+                @include modifies-element(loader) {
+                    width: 36px;
+                    height: 36px;
                 }
             }
 		}

@@ -1,6 +1,6 @@
 
 // Do not edit directly
-// Generated on Thu, 17 Aug 2023 04:18:19 GMT
+// Generated on Fri, 18 Aug 2023 12:31:07 GMT
 
 $accordion-font-weight: 500;
 $accordion-header-spacing-vertical: 16px;
@@ -335,6 +335,7 @@ $color-extended-error-70: #fccecd;
 $color-extended-error-90: #feefee;
 $color-alpha-white-10: rgba(255, 255, 255, 0.1);
 $color-alpha-white-30: rgba(255, 255, 255, 0.3);
+$color-alpha-white-90: rgba(255, 255, 255, 0.9);
 $color-shadow-light: rgba(115, 115, 115, 0.05);
 $color-shadow-default: rgba(115, 115, 115, 0.08);
 $color-shadow-dark: rgba(115, 115, 115, 0.1);
@@ -616,6 +617,10 @@ $select-search-border-color: #286ef1;
 $select-search-border-style: solid;
 $select-search-padding-horizontal: 8px;
 $select-search-padding-vertical: 8px;
+$spinner-size-height-lg: 36px;
+$spinner-size-height-md: 18px;
+$spinner-size-weight-lg: 36px;
+$spinner-size-weight-md: 18px;
 $tabs-border-width: 1px;
 $tabs-border-color: #e6e6e6;
 $tabs-border-radius: 4px;
@@ -665,7 +670,7 @@ $tag-font-size: 12px - 2px;
 $tag-font-spacing: 0px;
 $tag-font-height: 16px - 4px;
 $tag-font-weight: 700;
-$toggle-spacing-xs: 3px;
+$toggle-spacing-xs: 2px;
 $toggle-spacing-lg: 48px;
 $toggle-size-width-sm: 14px;
 $toggle-size-width-md: 36px;

@@ -1,0 +1,26 @@
+{
+    "spinner": {
+        "size": {
+            "height": {
+                "lg": {
+                    "value": "36px",
+                    "type": "sizing"
+                },
+                "md": {
+                    "value": "18px",
+                    "type": "sizing"
+                }
+            },
+            "weight": {
+                "lg": {
+                    "value": "36px",
+                    "type": "sizing"
+                },
+                "md": {
+                    "value": "18px",
+                    "type": "sizing"
+                }
+            }
+        }
+    }
+}

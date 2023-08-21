@@ -6,7 +6,6 @@
 @include sui-spinner--element.build-overlay(spinner);
 @include sui-spinner--element.build-fake(spinner);
 
-@include sui-spinner--modifier.edit-colors(spinner);
 @include sui-spinner--modifier.edit-size(spinner);
 @include sui-spinner--modifier.edit-absolute(spinner);
 

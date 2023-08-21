@@ -14,9 +14,8 @@
         @include block($block) {
             @include modifier(absolute) {
 				display: inline-block;
-                background-color: red;
 
-				.sui-spinner__loader {
+				@include modifies-element(loader) {
                     position: absolute;
                     top: 50%;
                     left: 50%;
