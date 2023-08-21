@@ -15,6 +15,10 @@
 			border: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
 			background: var(--neutral-base-white, #FFF);
 			border-radius: 8px;
+
+			@include element(quick-actions) {
+				margin-left: 16px;
+			}
 		}
 	}
 }

@@ -8,32 +8,50 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-list($block) {
-	// DIR: Left to right.
-	// THEME: None.
-	@include sui-class($rtl: false, $theme: null) {
-		@include block($block) {
-			@include element(list) {
-			}
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(list) {
+            }
 
-			@include element(list-item) {
-				align-items: center;
-				background-color: #f0f0f0;
-				border-radius: 8px;
-				display: flex;
-				justify-content: space-between;
-				margin-bottom: 16px;
-				padding: 16px;
-			}
+            @include element(list-item) {
+                align-items: center;
+                background-color: #f0f0f0;
+                border-radius: 8px;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 16px;
+                padding: 16px;
 
-			@include element(list-item-info) {
-				color: var(--neutral-grey-101-a-1-a-1-a, #1A1A1A);
-				font: $font-weight-md 16px/24px $font-family-default;
-			}
+                @include modifier(hover) {
+                    // not working
+                    .sui-summary-box__list-item-info > a {
+                        color: #286ef1;
+                    }
+                }
 
-			@include element(list-item-status) {
-				display: inline-block;
-				height: 24px;
-			}
-		}
-	}
+                @include modifier(focus) {
+                    outline: solid 1px black;
+                }
+            }
+
+            @include element(list-item-info) {
+                align-items: center;
+                color: var(--neutral-grey-101-a-1-a-1-a, #1A1A1A);
+                display: flex;
+                font: $font-weight-md 16px/24px $font-family-default;
+                gap: 8px;
+
+                a {
+                    color: var(--neutral-grey-dark-101-a-1-a-1-a, #1A1A1A);
+                }
+            }
+
+            @include element(list-item-status) {
+                display: inline-block;
+                height: 24px;
+            }
+        }
+    }
 }

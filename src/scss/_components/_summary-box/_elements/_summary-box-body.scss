@@ -17,8 +17,11 @@
 			}
 
 			@include element(body-content) {
+				align-items: center;
 				background-color: #f0f0f0;
 				border-radius: 8px;
+				display: flex;
+				justify-content: center;
 			}
 		}
 	}
