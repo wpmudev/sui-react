@@ -51,6 +51,16 @@
                     }
                 }
             }
+
+            @include modifier(dark) {
+                @include modifies-element(icon--background) {
+                    stroke: $color-alpha-white-30;
+                }
+
+                @include modifies-element(icon--stroke) {
+                    stroke: $color-extended-neutral-100;
+                }
+            }
         }
     }
 
