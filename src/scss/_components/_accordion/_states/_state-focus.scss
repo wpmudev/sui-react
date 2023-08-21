@@ -14,7 +14,6 @@
         @include block($block) {
             @include element(item) {
                 @include modifier(focus) {
-                    border-top: 0;
                     &::after {
                         position: absolute;
                         content: '';
