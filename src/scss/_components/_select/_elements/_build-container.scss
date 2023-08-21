@@ -16,7 +16,6 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			position: relative;
-			z-index: 0;
 		}
 	}
 }

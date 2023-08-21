@@ -18,8 +18,8 @@
 				@include modifies-element(control) {
 					position: relative;
 					&::after {
-						border: 2px solid $color-primary-50;
-						border-radius: 4px;
+						border: $border-width-md solid $color-primary-50;
+						border-radius: $select-control-border-radius;
 					}
 				}
 			}
