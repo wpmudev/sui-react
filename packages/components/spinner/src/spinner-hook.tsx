@@ -42,13 +42,25 @@ const useSpinner = (
 			// Render the spinner using React's createRoot API
 			createRoot(fakeDiv!).render(
 				<Fragment>
-					<div className="sui-spinner__overlay" />
+					<div
+						className={`sui-spinner__overlay sui-spinner__overlay--${color}`}
+					/>
 					<Spinner color={color} size={size} isAbsolute={true} />
 				</Fragment>,
 			)
 
 			// Append the fake spinner to the targetRef's DOM
 			targetRef.current.appendChild(fakeDiv)
+		}
+
+		return () => {
+			if (fakeDiv) {
+				const spinnerDiv = document.getElementById(spinnerId)
+				if (!!spinnerDiv?.parentNode) {
+					targetRef.current.removeChild(spinnerDiv)
+					targetRef.current.classList.remove("sui-spinner__wrapper")
+				}
+			}
 		}
 	}, [color, size, targetRef, isVisible, spinnerId])
 
