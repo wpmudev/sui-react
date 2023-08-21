@@ -15,6 +15,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 	const classNames = generateCN("sui-spinner", {
 		absolute: isAbsolute,
 		[size]: !isEmpty(size ?? ""),
+		dark: !isEmpty(color) && "dark" === color,
 	})
 
 	return (
