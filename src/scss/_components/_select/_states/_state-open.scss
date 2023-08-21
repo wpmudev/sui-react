@@ -16,19 +16,22 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(open) {
+				z-index: 1;
                 @include modifies-element(control) {
-                    border-width: 2px;
-					border-color: $color-primary-50;
-                    border-bottom-left-radius: 0;
-					border-bottom-right-radius: 0;
-					border-bottom: 0;
+					border-bottom-color: transparent;
 					box-shadow: inset 0px -1px 0px $color-primary-70;
+					&::after {
+						border: $border-width-md solid $color-primary-50;
+						border-bottom-left-radius: 0;
+						border-bottom-right-radius: 0;
+						border-bottom: 0;
+					}
                 }
 
                 @include modifies-element(input) {
                     border-bottom-left-radius: 0;
 					border-bottom-right-radius: 0;
-					border-bottom: 0;
+					border-bottom-color: transparent;
 					box-shadow: inset 0px -1px 0px $color-primary-70;
                 }
             }
@@ -41,7 +44,9 @@
 		@include block($block) {
 			@include modifier(open) {
                 @include modifies-element(control) {
-					border-color: $color-extended-neutral-0;
+					&::after {
+						border-color: $color-extended-neutral-0;
+					}
 					box-shadow: inset 0px -1px 0px $color-extended-neutral-0;
                 }
 

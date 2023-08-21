@@ -11,7 +11,7 @@
 @include sui-select--element.build-checkbox(select);
 @include sui-select--state.select-disabled(select);
 @include sui-select--state.select-focus(select);
-@include sui-select--state.select-open(select);
 @include sui-select--state.select-hover(select);
+@include sui-select--state.select-open(select);
 @include sui-select--state.select-error(select);
 @include sui-select--modifier.modify-size(select);
