@@ -44,6 +44,11 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	children?: React.ReactNode
 
 	/**
+	 * Stripe table style.
+	 */
+	type?: string
+
+	/**
 	 * ARIA label for the table.
 	 */
 	ariaLabel?: string

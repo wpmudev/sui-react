@@ -221,6 +221,7 @@ const Table = ({ example, ...args }) => {
 
 // Set story arguments.
 Table.args = {
+	type: "",
 	allowCheck: true,
 	isDraggable: true,
 	hasToolbar: true,
@@ -312,6 +313,17 @@ Table.args = {
 
 // Set controls for story arguments.
 Table.argTypes = {
+	type: {
+		name: "Type",
+		options: ["", "stripe"],
+		control: {
+			type: "select",
+			labels: {
+				"": "Default",
+				stripe: "Stripe",
+			},
+		},
+	},
 	ariaLabel: {
 		name: "Aria Label",
 		control: {
