@@ -1,4 +1,3 @@
-// @todo: Add types for components and improve styling
 import React from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"

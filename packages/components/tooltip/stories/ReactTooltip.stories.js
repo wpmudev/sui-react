@@ -23,6 +23,7 @@ const Tooltip = ({
 	example,
 	label,
 	href,
+	tootlipText,
 	target,
 	appearance,
 	position,
@@ -38,15 +39,11 @@ const Tooltip = ({
 
 	const set = {}
 
-	set.content = "Tooltip text"
+	set.content = tootlipText
 
 	const props = {}
 
 	props.appearance = appearance
-
-	if ("link" === example) {
-		set.content = "Tooltip link"
-	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
@@ -92,6 +89,18 @@ const Tooltip = ({
 							{set.content}
 						</SuiTooltip>
 					)}
+					{"icon" === example && (
+						<SuiTooltip
+							label={label}
+							type="icon"
+							name="info"
+							position={position}
+							customWidth={customWidth}
+							customMobileWidth={customMobileWidth}
+						>
+							{set.content}
+						</SuiTooltip>
+					)}
 				</div>
 			</div>
 		</div>
@@ -101,6 +110,7 @@ const Tooltip = ({
 // Set story arguments.
 Tooltip.args = {
 	example: "button",
+	tootlipText: "Tooltip text",
 	href: "",
 	target: "_blank",
 	label: "Button",
@@ -113,18 +123,25 @@ Tooltip.args = {
 Tooltip.argTypes = {
 	example: {
 		name: "Example",
-		options: ["link", "button", "text"],
+		options: ["link", "button", "text", "icon"],
 		control: {
 			type: "select",
 			labels: {
 				link: "Example: Link",
 				button: "Example: Button",
 				text: "Example: Text",
+				icon: "Example: Icon",
 			},
 		},
 	},
+	tootlipText: {
+		name: "Tooltip Text",
+	},
 	label: {
 		name: "Label",
+		control: {
+			type: "text",
+		},
 	},
 	href: {
 		name: "Link",
