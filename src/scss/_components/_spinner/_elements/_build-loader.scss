@@ -18,20 +18,57 @@
         @include block($block) {
 
             @include element(loader) {
-                display: inline-flex;
+                width: $spinner-size-width-md;
+                height: $spinner-size-height-md;
             }
 
-            @include element(loader-icon) {
-                animation: spin 2s infinite linear;
-                box-shadow: 0 0 0 3px #fff inset, 0 0 0 10px #E6E6E6 inset;
-                border-radius: 50%;
+            @include element(icon) {
+                fill: $color-alpha-black-0;
+                stroke: $color-primary-50;
 
-                &.sui-icon--sm {
-                    box-shadow: 0 0 0 1px #fff inset, 0 0 0 3px #E6E6E6 inset;
+                @include modifier(background, stroke) {
+                    stroke-width: $spinner-stroke-width-lg;
+                    stroke-dasharray: $spinner-stroke-dasharray $spinner-stroke-dasharray;
+                    stroke-linecap: butt;
                 }
 
-                &.sui-icon--md {
-                    box-shadow: 0 0 0 2px #fff inset, 0 0 0 5px #E6E6E6 inset;
+                @include modifier(background) {
+                    stroke: $color-extended-neutral-80;
+                }
+
+                @include modifier(stroke) {
+                    stroke-dashoffset: $spinner-stroke-dashoffset;
+                    animation: init-stroke 0.8s linear infinite;
+                    transform-origin: center;
+                } 
+                
+                @keyframes init-stroke {
+                    0% {
+                        transform: rotate(0deg);
+                    }
+                    100% {
+                        transform: rotate(360deg);
+                    }
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include element(icon) {
+                stroke: $color-extended-neutral-0;
+
+                @include modifier(background) {
+                    stroke: $color-extended-neutral-100;
+                }
+
+                @include modifier(stroke) {
+                    stroke-width: $spinner-stroke-width-md;
                 }
             }
         }
