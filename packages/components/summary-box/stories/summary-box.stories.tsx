@@ -31,7 +31,8 @@ const SummaryBox = ({ color }) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<SuiSummaryBox
-						title="Test"
+						icon="performance"
+						title="Performance Summary"
 						primaryActions={[
 							<SegmentedControl
 								key={0}
@@ -39,8 +40,8 @@ const SummaryBox = ({ color }) => {
 								defaultValue={mode}
 								onChange={(type: string) => setMode(type ?? "")}
 							>
-								<SegmentedControlButton value="visual" icon="Filter" />
-								<SegmentedControlButton value="code" icon="Filter" />
+								<SegmentedControlButton value="visual" icon="Mobile" />
+								<SegmentedControlButton value="code" icon="Desktop" />
 							</SegmentedControl>,
 						]}
 						secondaryActions={[
@@ -67,19 +68,36 @@ const SummaryBox = ({ color }) => {
 							summaryItems={[
 								<SummaryBoxItem
 									key={0}
-									title="Test 1"
-									description="fdsfsdf"
+									title="Browser Caching"
+									description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
 									actionIcon="InfoAlt"
 									actionState="green"
 								/>,
 								<SummaryBoxItem
 									key={1}
-									title="Test 1"
+									title="Gzip compression"
 									titleUrl={"google.com"}
-									description="fdsfsdf"
+									description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+									actionIcon={false}
+									actionTitle="10.33%"
+									actionState="green"
 								/>,
-								<SummaryBoxItem key={2} title="Test 1" description="fdsfsdf" />,
-								<SummaryBoxItem key={3} title="Test 1" description="fdsfsdf" />,
+								<SummaryBoxItem
+									key={2}
+									title="Assets Optimization"
+									description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+									actionIcon="CheckAlt"
+									actionTitle="10.33%"
+									actionState="success"
+								/>,
+								<SummaryBoxItem
+									key={3}
+									title="Assets Optimization"
+									description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+									actionIcon="CheckAlt"
+									actionTitle="10.33%"
+									actionState="success"
+								/>,
 							]}
 						>
 							<div
@@ -89,6 +107,7 @@ const SummaryBox = ({ color }) => {
 									textAlign: "center",
 									flexDirection: "column",
 									justifyContent: "center",
+									gap: "10px",
 								}}
 							>
 								<Score
@@ -102,7 +121,9 @@ const SummaryBox = ({ color }) => {
 								<h4 style={{ display: "inline", margin: 0 }}>
 									Desktop Site Performance Score
 								</h4>
-								<p>Last Checked : May 14, 2023 at 08:24am</p>
+								<p style={{ padding: 0, margin: 0 }}>
+									Last Checked : May 14, 2023 at 08:24am
+								</p>
 							</div>
 						</SummaryBoxBody>
 						<SummaryFooterBody>

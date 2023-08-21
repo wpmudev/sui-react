@@ -15,7 +15,7 @@ interface BoxProps {
 	/**
 	 * The content for the left header section of the box.
 	 */
-	headerLeft?: string | Record<string, any>[]
+	headerLeft?: string | Record<string, any>[] | React.ReactNode
 	/**
 	 * The content for the right header section of the box.
 	 */

@@ -2,7 +2,7 @@ import React from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 import { Box } from "@wpmudev/sui-box"
-import * as Icons from "@wpmudev/sui-icons"
+// import * as Icons from "@wpmudev/sui-icons"
 
 import { SummaryBoxProps } from "./summary-box.types"
 
@@ -33,12 +33,16 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	}
 
 	// Determine the icon to be used.
-	attrs.icon = Icons?.[icon ?? ""] ?? "bell"
+	attrs.icon = icon ?? ""
 
 	return (
 		<Box
 			{...attrs}
-			headerLeft={primaryActions ?? []} // Display primary actions in the header left.
+			headerLeft={
+				<div className="sui-summary-box__quick-actions">
+					{primaryActions ?? []}
+				</div>
+			} // Display primary actions in the header left.
 			headerRight={secondaryActions ?? []} // Display secondary actions in the header right.
 		>
 			{children}

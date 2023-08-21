@@ -47,8 +47,8 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 		<Row className={classNames} {...methods}>
 			<div className="sui-summary-box__list-item-info">
 				{!isEmpty(titleUrl) ? <a href={titleUrl}>{title}</a> : title}
-				{!isEmpty(description) && (
-					<Tooltip type="span" label="(info-icon)" position="top">
+				{!isEmpty(description ?? "") && (
+					<Tooltip label="(info)" type="text" position="top">
 						{description}
 					</Tooltip>
 				)}
