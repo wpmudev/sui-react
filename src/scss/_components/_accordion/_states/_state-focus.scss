@@ -14,9 +14,17 @@
         @include block($block) {
             @include element(item) {
                 @include modifier(focus) {
-                    box-shadow: 0px 0px 0px $accordion-state-focus-spacing $accordion-state-focus-color;
                     border-top: 0;
-                    margin: $accordion-state-focus-spacing;
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        left: 0;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        border: $accordion-state-focus-spacing solid $accordion-state-focus-color;
+                        pointer-events: none;
+                    }
                 }
             }
         }

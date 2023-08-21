@@ -18,14 +18,20 @@
             @include element(item) {
                 border-top: $accordion-border-width solid $accordion-border-color;
                 overflow: hidden;
+                position: relative;
 
                 &:first-child {
                     border: none;
+                }
+
+                &:first-child,
+                &:first-child::after {
                     border-top-left-radius: $accordion-border-radius-xs;
                     border-top-right-radius: $accordion-border-radius-xs;
                 }
 
-                &:last-child {
+                &:last-child,
+                &:last-child::after {
                     border-bottom-right-radius: $accordion-border-radius-xs;
                     border-bottom-left-radius: $accordion-border-radius-xs;
                 }
