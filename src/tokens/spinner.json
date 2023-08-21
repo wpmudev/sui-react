@@ -11,7 +11,7 @@
                     "type": "sizing"
                 }
             },
-            "weight": {
+            "width": {
                 "lg": {
                     "value": "36px",
                     "type": "sizing"
@@ -20,6 +20,26 @@
                     "value": "18px",
                     "type": "sizing"
                 }
+            }
+        },
+        "stroke": {
+            "width": {
+                "md": {
+                    "value": "8px",
+                    "type": "other"
+                },
+                "lg": {
+                    "value": "12px",
+                    "type": "other"
+                }
+            },
+            "dashoffset": {
+                "value": "200",
+                "type": "other"
+            },
+            "dasharray": {
+                "value": "276.4608",
+                "type": "other"
             }
         }
     }

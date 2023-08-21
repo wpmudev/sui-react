@@ -20,7 +20,7 @@
                 position: relative;
             }
 
-            @include element(overlay){
+            @include element(overlay) {
                 background-color: $color-alpha-white-90;
                 position: absolute;
                 top: 0;
@@ -29,7 +29,7 @@
                 right: 0;
     
                 @include modifier(dark) {
-                    background-color: #1A1A1AB2;
+                    background-color: $color-alpha-black-70;
                 }
             }
         }
@@ -41,8 +41,8 @@
         // Block wrapper.
         @include block($block) {
 
-            @include element(overlay){
-                background-color: #1A1A1A;
+            @include element(overlay) {
+                background-color: $color-extended-neutral-10;
             }
         }
     }

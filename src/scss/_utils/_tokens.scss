@@ -1,6 +1,6 @@
 
 // Do not edit directly
-// Generated on Fri, 18 Aug 2023 12:31:07 GMT
+// Generated on Mon, 21 Aug 2023 03:53:16 GMT
 
 $accordion-font-weight: 500;
 $accordion-header-spacing-vertical: 16px;
@@ -336,6 +336,8 @@ $color-extended-error-90: #feefee;
 $color-alpha-white-10: rgba(255, 255, 255, 0.1);
 $color-alpha-white-30: rgba(255, 255, 255, 0.3);
 $color-alpha-white-90: rgba(255, 255, 255, 0.9);
+$color-alpha-black-0: rgba(0, 0, 0, 0);
+$color-alpha-black-70: rgba(26, 26, 26, 0.7);
 $color-shadow-light: rgba(115, 115, 115, 0.05);
 $color-shadow-default: rgba(115, 115, 115, 0.08);
 $color-shadow-dark: rgba(115, 115, 115, 0.1);
@@ -619,8 +621,12 @@ $select-search-padding-horizontal: 8px;
 $select-search-padding-vertical: 8px;
 $spinner-size-height-lg: 36px;
 $spinner-size-height-md: 18px;
-$spinner-size-weight-lg: 36px;
-$spinner-size-weight-md: 18px;
+$spinner-size-width-lg: 36px;
+$spinner-size-width-md: 18px;
+$spinner-stroke-width-md: 8px;
+$spinner-stroke-width-lg: 12px;
+$spinner-stroke-dashoffset: 200;
+$spinner-stroke-dasharray: 276.4608;
 $tabs-border-width: 1px;
 $tabs-border-color: #e6e6e6;
 $tabs-border-radius: 4px;

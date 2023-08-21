@@ -792,6 +792,16 @@
 					"value": "rgba(255, 255, 255, 0.9)",
 					"type": "color"
 				}
+			},
+			"black": {
+				"0": {
+					"value": "rgba(0, 0, 0, 0)",
+					"type": "color"
+				},
+				"70": {
+					"value": "rgba(26, 26, 26, 0.7)",
+					"type": "color"
+				}
 			}
 		},
 		"shadow": {
