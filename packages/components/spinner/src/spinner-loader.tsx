@@ -1,6 +1,5 @@
 import React from "react"
 
-import { SpinnerAlt } from "@wpmudev/sui-icons"
 import { isEmpty } from "@wpmudev/sui-utils"
 
 import { SpinnerLoaderProps } from "./spinner.types"
@@ -27,7 +26,21 @@ const SpinnerLoader = ({ size, color }: SpinnerLoaderProps) => {
 	// Render the SpinnerLoader component
 	return (
 		<div className="sui-spinner__loader">
-			<SpinnerAlt className="sui-spinner__loader-icon" {...attrs} />
+			<svg className="sui-spinner__icon" viewBox="0 0 100 100">
+				<title>loading</title>
+				<circle
+					className="sui-spinner__icon--background"
+					cx="50%"
+					cy="50%"
+					r="44"
+				></circle>
+				<circle
+					className="sui-spinner__icon--stroke"
+					cx="50%"
+					cy="50%"
+					r="44"
+				></circle>
+			</svg>
 		</div>
 	)
 }
