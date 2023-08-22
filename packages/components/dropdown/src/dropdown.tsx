@@ -31,7 +31,7 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 			label,
 			className,
 			isSmall,
-			isLabelHidden,
+			iconOnly,
 			isFixedHeight = true,
 			current,
 			children,
@@ -102,7 +102,7 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 			<div ref={dropdownRef} className={wrapperClasses}>
 				<Button
 					icon={buttonIcon ?? "menu"}
-					iconOnly={isLabelHidden}
+					iconOnly={iconOnly}
 					iconPosition="start"
 					color="black"
 					appearance="secondary"

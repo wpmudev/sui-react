@@ -41,7 +41,7 @@ interface DropdownProps {
 	/**
 	 * Indicates whether the label should be hidden or not.
 	 */
-	isLabelHidden?: boolean
+	iconOnly?: boolean
 	/**
 	 * Display all content without scroll
 	 */
