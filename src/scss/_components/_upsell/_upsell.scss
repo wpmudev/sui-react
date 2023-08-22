@@ -1,0 +1,12 @@
+@use "./_elements/elements" as sui-upsell--element;
+@use "./_modifiers/modifiers" as sui-upsell--modifier;
+
+@include sui-upsell--element.build-container(upsell);
+@include sui-upsell--element.build-header(upsell);
+@include sui-upsell--element.build-body(upsell);
+@include sui-upsell--element.build-footer(upsell);
+@include sui-upsell--element.build-features(upsell);
+@include sui-upsell--element.build-icon(upsell);
+
+@include sui-upsell--modifier.edit-variation(upsell);
+@include sui-upsell--modifier.edit-size(upsell);

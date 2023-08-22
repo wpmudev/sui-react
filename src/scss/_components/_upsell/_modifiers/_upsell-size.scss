@@ -1,0 +1,25 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Size
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-size($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include modifier(lg) {
+                min-width: 727px;
+
+                .sui-upsell__features {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    }
+}

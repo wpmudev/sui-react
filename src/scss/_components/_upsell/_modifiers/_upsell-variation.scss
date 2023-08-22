@@ -1,0 +1,105 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Variation
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-variation($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include modifier(hummingbird) {
+                background: var(--secondary-hummingbird-variant-light-90-e-8-eff-0, #E8EFF0);
+                border: 1px solid var(--secondary-hummingbird-variant-light-70-bbd-0-d-2, #BBD0D2);
+
+                @include modifies-element(icon) {
+                    background-color: #FF8E3C;
+                }
+            }
+            @include modifier(smush) {
+                background: var(--secondary-smush-general-light-90-eaf-9-fc, #EAF9FC);
+                border: 1px solid var(--secondary-smush-general-light-70-c-0-edf-6, #C0EDF6);
+
+                @include modifies-element(icon) {
+                    background-color: #2DC4E0;
+                }
+            }
+            @include modifier(snapshot) {
+                background: var(--secondary-snapshot-general-light-90-d-7-e-1-f-4, #D7E1F4);
+                border: 1px solid var(--secondary-snapshot-general-light-7087-a-6-de, #87A6DE);
+
+                @include modifies-element(icon) {
+                    background-color: #1A325E;
+                }
+            }
+            @include modifier(smartcrawl) {
+                background: var(--secondary-smart-crawl-variant-light-70-eff-2-f-3, #EFF2F3);
+                border: 1px solid var(--secondary-smart-crawl-variant-base-50-d-7-dee-0, #D7DEE0);
+
+                @include modifies-element(icon) {
+                    background-color: #DE240A;
+                }
+            }
+            @include modifier(shipper) {
+                background: var(--secondary-shipper-variant-light-90-e-8-f-8-fd, #E8F8FD);
+                border: 1px solid var(--secondary-shipper-variant-light-70-b-9-e-9-f-9, #B9E9F9);
+
+                @include modifies-element(icon) {
+                    background-color: #7B5499;
+                }
+            }
+            @include modifier(ivt) {
+                background: var(--secondary-ivt-general-light-90-eafbea, #EAFBEA);
+                border: 1px solid var(--secondary-ivt-general-light-70-c-1-f-2-c-0, #C1F2C0);
+
+                @include modifies-element(icon) {
+                    background-color: #65DE63;
+                }
+            }
+            @include modifier(hustle) {
+                background: var(--secondary-hustle-variant-light-90-fff-8-eb, #FFF8EB);
+                border: 1px solid var(--secondary-hustle-variant-light-70-ffeac-2, #FFEAC2);
+
+                @include modifies-element(icon) {
+                    background-color: #1A1A1A;
+                }
+            }
+            @include modifier(forminator) {
+                background: var(--secondary-forminator-variant-light-70-f-5-f-1-e-6, #F5F1E6);
+                border: 1px solid var(--secondary-forminator-variant-base-50-e-8-e-0-c-9, #E8E0C9);
+
+                @include modifies-element(icon) {
+                    background-color: #1F2852;
+                }
+            }
+            @include modifier(defender) {
+                background: var(--secondary-defender-variant-light-90-fff-3-ea, #FFF3EA);
+                border: 1px solid var(--secondary-defender-variant-light-70-fedac-0, #FEDAC0);
+
+                @include modifies-element(icon) {
+                    background-color: #FA822C;
+                }
+            }
+            @include modifier(branda) {
+                background: var(--secondary-branda-variant-light-90-e-8-e-8-e-8, #E8E8E8);
+                border: 1px solid var(--secondary-branda-variant-light-70-bababa, #BABABA);
+
+                @include modifies-element(icon) {
+                    background-color: #FF8184;
+                }
+            }
+            @include modifier(beehive) {
+                background: var(--secondary-beehive-variant-light-90-fffbef, #FFFBEF);
+                border: 1px solid var(--secondary-beehive-variant-light-70-fff-2-cf, #FFF2CF);
+
+                @include modifies-element(icon) {
+                    background-color: #013AA9;
+                }
+            }
+        }
+    }
+}
