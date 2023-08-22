@@ -3,7 +3,7 @@
  */
 import { ReactNode } from "react"
 
-// interface definition for the NotificationProps
+// interface definition for the Alert Banner
 interface AlertBannerProps {
 	/**
 	 * Alert Banner content

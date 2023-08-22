@@ -116,7 +116,7 @@ export const Dropdown = ({ example, ...props }) => {
 Dropdown.args = {
 	label: "Menu Button",
 	isSmall: false,
-	isLabelHidden: false,
+	iconOnly: false,
 	onMenuClick: () => {},
 }
 
@@ -124,7 +124,7 @@ Dropdown.argTypes = {
 	isSmall: {
 		name: "Small",
 	},
-	isLabelHidden: {
+	iconOnly: {
 		name: "Icon Button",
 	},
 	onMenuClick: {

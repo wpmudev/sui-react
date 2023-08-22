@@ -29,8 +29,9 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 	(
 		{
 			label,
+			className,
 			isSmall,
-			isLabelHidden,
+			iconOnly,
 			isFixedHeight = true,
 			current,
 			children,
@@ -62,10 +63,14 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 		}))
 
 		// Generate classes for the dropdown's wrapper based on the component's props.
-		const wrapperClasses = generateCN("sui-dropdown", {
-			sm: isSmall,
-			open: isOpen,
-		})
+		const wrapperClasses = generateCN(
+			"sui-dropdown",
+			{
+				sm: isSmall,
+				open: isOpen,
+			},
+			className,
+		)
 
 		// Function to recursively render menu items and groups.
 		const renderMenus = (menus) => {
@@ -97,15 +102,15 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 			<div ref={dropdownRef} className={wrapperClasses}>
 				<Button
 					icon={buttonIcon ?? "menu"}
+					iconOnly={iconOnly}
 					iconPosition="start"
 					color="black"
 					appearance="secondary"
-					isSmall={true}
+					isSmall={isSmall}
 					aria-activedescendant={isOpen ? `${id}-${current}` : ""}
 					onClick={() => setIsOpen(!isOpen)}
 				>
-					{/* Show label if 'isLabelHidden' prop is not true */}
-					{!isLabelHidden ? label : undefined}
+					{label}
 				</Button>
 				<div
 					id={id}
