@@ -27,6 +27,10 @@ interface DropdownProps {
 	 */
 	label?: string
 	/**
+	 * The custom class name for the dropdown.
+	 */
+	className?: string
+	/**
 	 * Indicates whether the dropdown has a call-to-action button.
 	 */
 	hasCta?: boolean
@@ -37,7 +41,7 @@ interface DropdownProps {
 	/**
 	 * Indicates whether the label should be hidden or not.
 	 */
-	isLabelHidden?: boolean
+	iconOnly?: boolean
 	/**
 	 * Display all content without scroll
 	 */
