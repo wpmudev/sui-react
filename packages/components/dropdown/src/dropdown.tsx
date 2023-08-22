@@ -102,15 +102,15 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 			<div ref={dropdownRef} className={wrapperClasses}>
 				<Button
 					icon={buttonIcon ?? "menu"}
+					iconOnly={isLabelHidden}
 					iconPosition="start"
 					color="black"
 					appearance="secondary"
-					isSmall={true}
+					isSmall={isSmall}
 					aria-activedescendant={isOpen ? `${id}-${current}` : ""}
 					onClick={() => setIsOpen(!isOpen)}
 				>
-					{/* Show label if 'isLabelHidden' prop is not true */}
-					{!isLabelHidden ? label : undefined}
+					{label}
 				</Button>
 				<div
 					id={id}
