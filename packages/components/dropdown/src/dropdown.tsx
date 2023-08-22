@@ -29,6 +29,7 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 	(
 		{
 			label,
+			className,
 			isSmall,
 			isLabelHidden,
 			isFixedHeight = true,
@@ -62,10 +63,14 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 		}))
 
 		// Generate classes for the dropdown's wrapper based on the component's props.
-		const wrapperClasses = generateCN("sui-dropdown", {
-			sm: isSmall,
-			open: isOpen,
-		})
+		const wrapperClasses = generateCN(
+			"sui-dropdown",
+			{
+				sm: isSmall,
+				open: isOpen,
+			},
+			className,
+		)
 
 		// Function to recursively render menu items and groups.
 		const renderMenus = (menus) => {
