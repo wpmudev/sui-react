@@ -21,16 +21,30 @@
             }
 
             @include element(group-title) {
-                color: var(--neutral-grey-60737373, #737373);
+                color: $color-extended-neutral-60;
                 display: block;
-                font: $font-weight-md 13px/20px $font-family-default;
-                letter-spacing: 1px;
-                padding: 8px 24px;
+                font-size: $menu-font-size-default;
+                line-height: $menu-font-height-default;
+                font-weight: $font-weight-md;
+                letter-spacing: $font-spacing-xxl;
+                padding: $spacing-md $menu-spacing-horizontal;
                 text-transform: uppercase;
             }
 
             @include element(group-items) {
                 margin: 0;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include element(group-title) {
+                color: $color-extended-neutral-0;
             }
         }
     }

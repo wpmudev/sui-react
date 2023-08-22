@@ -1,0 +1,24 @@
+{
+    "menu": {
+        "spacing": {
+            "horizontal": {
+                "value": "24px",
+                "type": "spacing"
+            }
+        },
+        "font": {
+            "size": {
+                "default": {
+                    "value": "13px",
+                    "type": "fontSizes"
+                }
+            },
+            "height": {
+                "default": {
+                    "value": "20px",
+                    "type": "fontSizes"
+                }
+            }
+        }
+    }
+}

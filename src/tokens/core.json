@@ -942,6 +942,10 @@
 				"value": "0.2px",
 				"type": "letterSpacing"
 			},
+			"xxl": {
+				"value": "1px",
+				"type": "letterSpacing"
+			},
 			"default": {
 				"value": "0px",
 				"type": "letterSpacing"
