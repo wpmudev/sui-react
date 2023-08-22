@@ -32,14 +32,21 @@
             }
 
             @include element(toolbar-body) {
-                // background: var(--neutral-grey-95-f-8-f-8-f-8, #F8F8F8);
-                // border-top: solid 1px #E6E6E6;
                 display: none;
                 padding: 32px;
+
+                @include modifier(inline) {
+                    background: #F8F8F8;
+                    border-top: 1px solid #E6E6E6;
+                }
 
                 @include modifier(expanded) {
                     display: block;
                 }
+            }
+
+            @include element(toolbar-filter) {
+                margin: 0;
             }
 
             @include element(toolbar-header-actions) {
