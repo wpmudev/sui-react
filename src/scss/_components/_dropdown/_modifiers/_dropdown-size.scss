@@ -5,7 +5,7 @@
 		@include block($block-name) {
 			@include modifier(sm) {
 				@include modifies-element(menu) {
-					width: 240px;
+					width: $dropdown-size-width-sm;
 				}
 
 				@include modifies-element(option) {
