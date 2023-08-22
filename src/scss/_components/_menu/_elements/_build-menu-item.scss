@@ -17,15 +17,26 @@
         @include block($block) {
             @include element(item) {
                 align-items: center;
-                color: #505050;
+                color: $color-extended-neutral-50;
                 cursor: pointer;
                 display: flex;
-                font: 500 15px/24px $font-family-default;
-                gap: 8px;
+                font-weight: $font-weight-md;
+                gap: $spacing-md;
                 list-style: none;
                 margin: 0;
-                padding: 8px 24px;
+                padding: $spacing-md $menu-spacing-horizontal;
                 width: 100%;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(item) {
+                color: $color-extended-neutral-0;
             }
         }
     }

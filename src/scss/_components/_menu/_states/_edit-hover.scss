@@ -13,7 +13,20 @@
         @include block($block) {
             @include element(item) {
                 @include modifier(hover) {
-                    background-color: #F2F2F2;
+                    background-color: $color-extended-neutral-90;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            @include element(item) {
+                @include modifier(hover) {
+                    background-color: $color-extended-neutral-0;
+                    color: $color-extended-neutral-100;
                 }
             }
         }

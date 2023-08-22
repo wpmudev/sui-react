@@ -20,6 +20,8 @@
                 @include modifies-element(control) {
 					border-bottom-color: transparent;
 					box-shadow: inset 0px -1px 0px $color-primary-70;
+					border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
 					&::after {
 						border: $border-width-md solid $color-primary-50;
 						border-bottom-left-radius: 0;
