@@ -65,6 +65,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 						<Fragment>
 							<Select
 								id={bulkDropdown}
+								className="sui-table__toolbar-actions"
 								isSmall={true}
 								options={ctx?.bulkActions}
 								onChange={(e) => setBulkAction(e?.target?.value)}
@@ -84,6 +85,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 				<div className="sui-table__toolbar-header-actions">
 					<Input
 						id="input-id-4"
+						className="sui-table__toolbar-search"
 						label="Label"
 						placeholder="Search"
 						onChange={onSearch}

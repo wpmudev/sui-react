@@ -67,7 +67,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 			) : (
 				<Box>
 					<BoxGroup>
-						<Row align={{ md: "" }}>
+						<Row align={{ sm: "inline" }}>
 							{(filters ?? [])?.map((filter, index) => (
 								<Col size={3} key={index}>
 									{renderField(filter)}
