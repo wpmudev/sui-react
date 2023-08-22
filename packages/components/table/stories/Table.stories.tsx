@@ -34,13 +34,13 @@ const records = [
 	{
 		id: 1,
 		title: "Contact Form",
-		tag: <Tag>Published</Tag>,
+		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
 	},
 	{
 		id: 2,
 		title: "Contact Form",
-		tag: <Tag>Published</Tag>,
+		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
 	},
 	{
@@ -64,7 +64,7 @@ const records = [
 	{
 		id: 4,
 		title: "Contact Form",
-		tag: <Tag>Published</Tag>,
+		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
 		props: {
 			isExpandable: true,
@@ -82,7 +82,7 @@ const records = [
 	{
 		id: 5,
 		title: "Contact Form",
-		tag: <Tag>Published</Tag>,
+		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
 		props: {
 			isExpandable: true,
@@ -100,7 +100,7 @@ const records = [
 	{
 		id: 6,
 		title: "Contact Form",
-		tag: <Tag>Published</Tag>,
+		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
 		props: {
 			isExpandable: true,
@@ -139,21 +139,20 @@ const Table = ({ example, ...args }) => {
 				style={{
 					alignItems: "center",
 					display: "flex",
-					gap: "2px",
 					justifyContent: "end",
 				}}
 			>
 				<Button
 					icon="edit"
 					color="black"
-					appearance="secondary"
+					appearance="tertiary"
 					isSmall={true}
 					iconOnly={true}
 				/>
 				<Button
 					icon="settings"
 					color="black"
-					appearance="secondary"
+					appearance="tertiary"
 					isSmall={true}
 					iconOnly={true}
 				/>

@@ -54,6 +54,28 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 		</FormField>
 	)
 
+	const renderFiltersCta = () => (
+		<div style={{ textAlign: "right" }}>
+			<Button
+				appearance="secondary"
+				color="black"
+				isSmall={true}
+				isDisabled={ctx?.filterValues?.length <= 0}
+			>
+				Clear filters
+			</Button>
+			<Button
+				appearance="primary"
+				color="blue"
+				isSmall={true}
+				isDisabled={ctx?.filterValues?.length <= 0}
+				onClick={() => ctx.triggerAction("apply-filters", ctx.filterValues)}
+			>
+				Apply filters
+			</Button>
+		</div>
+	)
+
 	return (
 		<div
 			id={id}
@@ -64,7 +86,10 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 			})}
 		>
 			{ctx?.filtersPopover ? (
-				filters?.map((filter) => renderField(filter))
+				<>
+					{filters?.map((filter) => renderField(filter))}
+					{renderFiltersCta()}
+				</>
 			) : (
 				<Box>
 					<BoxGroup>
@@ -76,26 +101,8 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 							))}
 						</Row>
 					</BoxGroup>
-					<BoxGroup isInline={false}>
-						<div style={{ textAlign: "right" }}>
-							<Button
-								appearance="secondary"
-								color="black"
-								isSmall={true}
-								isDisabled={ctx?.filterValues?.length <= 0}
-							>
-								Clear filters
-							</Button>
-							<Button
-								appearance="primary"
-								color="blue"
-								isSmall={true}
-								isDisabled={ctx?.filterValues?.length <= 0}
-								onClick={() => ctx.triggerAction("apply-filters", ctx.filterValues)}
-							>
-								Apply filters
-							</Button>
-						</div>
+					<BoxGroup isInline={false} isFooter={true}>
+						{renderFiltersCta()}
 					</BoxGroup>
 				</Box>
 			)}

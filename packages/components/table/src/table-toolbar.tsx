@@ -97,6 +97,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 							className="sui-table__toolbar-filter"
 							buttonIcon="filter"
 							direction="left"
+							isSmall={true}
 							isFixedHeight={false}
 							onMenuClick={(id, e) => {
 								console.log("DEBUG: Menu Item Clicked", id, e)
