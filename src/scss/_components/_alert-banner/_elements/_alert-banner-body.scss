@@ -1,0 +1,46 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Body
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-body($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(body) {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                @include media(min-width, sm) {
+                    align-items: center;
+                    display: flex;
+                    flex: 1;
+                    flex-direction: row;
+                }
+            }
+
+            @include element(body-content) {
+                flex: 1;
+            }
+
+            @include element(body-actions) {
+                align-items: center;
+                display: flex;
+            }
+
+            @include modifier(plugin-upsell) {
+                color: #FFF;
+            }
+
+            @include modifier(hub-upsell) {
+                color: #FFF;
+            }
+        }
+    }
+}
