@@ -1,21 +1,22 @@
+@use "sass:math";
 @use "../../../_utils/utils" as *;
 
-/// Edit Focus
+/// Build Body
 ///
-/// @type modifier
+/// @type element
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin edit-focus($block) {
+@mixin build-body($block) {
     // DIR: Left to right.
     // THEME: None.
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
-            @include element(info) {
-                @include modifier(disabled) {
-                    opacity: 0.5;
-                    pointer-events: none;
-                    user-select: none;
+            @include element(body) {
+                margin-bottom: 24px;
+
+                p {
+                    margin: 0;
                 }
             }
         }

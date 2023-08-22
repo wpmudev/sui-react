@@ -24,17 +24,17 @@
 				},
         "size": {
 					"sm": {
-						"value": "{font.size.default}",
+						"value": "13px",
 						"type": "fontSizes"
 					},
           "md": {
-						"value": "{font.size.md}",
+						"value": "{font.size.default}",
 						"type": "fontSizes"
 					}
 				},
         "height": {
           "sm": {
-						"value": "{font.height.xs}",
+						"value": "20px",
 						"type": "letterSpacing"
 					},
           "md": {

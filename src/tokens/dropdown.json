@@ -1,0 +1,28 @@
+{
+    "dropdown": {
+        "size": {
+            "width": {
+                "sm": {
+                    "value": "240px",
+                    "type": "sizing"
+                },
+                "md": {
+                    "value": "300px",
+                    "type": "sizing"
+                }
+            },
+            "height": {
+                "md": {
+                    "value": "300px",
+                    "type": "sizing"
+                }
+            }
+        },
+        "spacing": {
+            "default": {
+                "value": "12px",
+                "type": "spacing"
+            }
+        }
+    }
+}

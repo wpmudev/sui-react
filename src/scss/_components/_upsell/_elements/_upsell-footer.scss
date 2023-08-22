@@ -1,21 +1,21 @@
-@use "sass:map";
-
+@use "sass:math";
 @use "../../../_utils/utils" as *;
-/// Build Group
-/// This function creates styles for the element
-/// main wrapper.
-/// @type block
+
+/// Build Footer
+///
+/// @type element
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-input($block) {
+@mixin build-footer($block) {
     // DIR: Left to right.
     // THEME: None.
     @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
         @include block($block) {
-            @include element(input) {
-                display: none;
+            @include element(footer) {
+                align-items: center;
+                display: flex;
+                gap: 8px;
             }
         }
     }

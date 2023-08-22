@@ -1,10 +1,12 @@
 @use "../../../_utils/utils" as *;
 
 @mixin build-menu($block-name) {
+	// DIR: Left to right.
+    // THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			@include element(menu) {
-				width: 300px;
+				width: $dropdown-size-width-md;
 				overflow-y: auto;
 				z-index: 100;
 				position: absolute;
@@ -13,16 +15,37 @@
 				display: none;
 				margin: $spacing-md 0 0;
 				padding: $spacing-md 0;
-				border-radius: $border-radius-sm;
+				border-radius: $border-radius-md;
 				background: $color-extended-neutral-100;
 				box-shadow:
-					0 6px 12px rgba(115, 115, 115, 0.08),
-					0 1px 16px rgba(115, 115, 115, 0.05),
-					0 2px 4px rgba(115, 115, 115, 0.1);
+					0 6px 12px $color-shadow-default,
+					0 1px 16px $color-shadow-light,
+					0 2px 4px $color-shadow-dark;
 
 				@include modifier(fixed-height) {
-					max-height: 300px;
+					max-height: $dropdown-size-height-md;
 				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+    // THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block-name) {
+			@include element(menu) {
+				right: 0;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+    // THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block-name) {
+			@include element(menu) {
+				box-shadow: none;
+				border: $border-width-sm solid $color-extended-neutral-0;
 			}
 		}
 	}
