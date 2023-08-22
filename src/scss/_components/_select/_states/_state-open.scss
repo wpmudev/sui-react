@@ -46,6 +46,7 @@
 		@include block($block) {
 			@include modifier(open) {
                 @include modifies-element(control) {
+					border-bottom-color: transparent;
 					&::after {
 						border-color: $color-extended-neutral-0;
 					}
