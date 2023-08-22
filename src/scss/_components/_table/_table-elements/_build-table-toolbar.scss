@@ -1,9 +1,6 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-//@use "../_score-utils/variables" as *;
-//@use "../_score-utils/colors" as *;
-//@use "../_score-utils/animation" as *;
 
 /// Build Table body
 /// This function creates styles for the element
@@ -46,7 +43,9 @@
             }
 
             @include element(toolbar-filter) {
-                margin: 0;
+                .sui-button {
+                    margin: 0;
+                }
             }
 
             @include element(toolbar-header-actions) {

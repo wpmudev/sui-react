@@ -14,6 +14,21 @@
 		@include block($block) {
 			margin: #{$spacing-lg * 2} 0;
 			padding: 0 #{$spacing-lg * 2};
+
+			@include modifier(header, footer) {
+				padding: 24px #{$spacing-lg * 2};
+				margin: 0;
+			}
+
+			@include modifier(footer) {
+				margin-top: -8px;
+				border-top: $border-width-sm solid $color-extended-neutral-80;
+			}
+
+			@include modifier(header) {
+				margin-bottom: -8px;
+				border-bottom: $border-width-sm solid $color-extended-neutral-80;
+			}
 		}
 	}
 }
