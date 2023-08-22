@@ -94,6 +94,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 					{ctx?.filtersPopover ? (
 						<Dropdown
 							label="Filter"
+							className="sui-table__toolbar-filter"
 							buttonIcon="filter"
 							direction="left"
 							isFixedHeight={false}
@@ -106,6 +107,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 					) : (
 						<Button
 							id={filterBtnId}
+							className="sui-table__toolbar-filter"
 							icon="filter"
 							color="black"
 							appearance="secondary"

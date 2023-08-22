@@ -60,6 +60,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 			aria-labelledby={filterBtnId}
 			className={generateCN("sui-table__toolbar-body", {
 				expanded: isExpanded || !!ctx?.filtersPopover,
+				inline: !ctx?.filtersPopover,
 			})}
 		>
 			{ctx?.filtersPopover ? (
@@ -75,27 +76,29 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 							))}
 						</Row>
 					</BoxGroup>
+					<BoxGroup isInline={false}>
+						<div style={{ textAlign: "right" }}>
+							<Button
+								appearance="secondary"
+								color="black"
+								isSmall={true}
+								isDisabled={ctx?.filterValues?.length <= 0}
+							>
+								Clear filters
+							</Button>
+							<Button
+								appearance="primary"
+								color="blue"
+								isSmall={true}
+								isDisabled={ctx?.filterValues?.length <= 0}
+								onClick={() => ctx.triggerAction("apply-filters", ctx.filterValues)}
+							>
+								Apply filters
+							</Button>
+						</div>
+					</BoxGroup>
 				</Box>
 			)}
-			<Box>
-				<Button
-					appearance="secondary"
-					color="black"
-					isSmall={true}
-					isDisabled={ctx?.filterValues?.length <= 0}
-				>
-					Clear filters
-				</Button>
-				<Button
-					appearance="primary"
-					color="blue"
-					isSmall={true}
-					isDisabled={ctx?.filterValues?.length <= 0}
-					onClick={() => ctx.triggerAction("apply-filters", ctx.filterValues)}
-				>
-					Apply filters
-				</Button>
-			</Box>
 		</div>
 	)
 }
