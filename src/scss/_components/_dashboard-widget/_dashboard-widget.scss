@@ -1,0 +1,9 @@
+@use "./_elements/elements" as sui-dashboard-widget--element;
+@use "./_modifiers/modifiers" as sui-dashboard-widget--modifier;
+
+@include sui-dashboard-widget--element.build-container(dashboard-widget);
+@include sui-dashboard-widget--element.build-header(dashboard-widget);
+@include sui-dashboard-widget--element.build-body(dashboard-widget);
+@include sui-dashboard-widget--element.build-footer(dashboard-widget);
+
+//@include sui-dashboard-widget--modifier.edit-size(dashboard-widget);
