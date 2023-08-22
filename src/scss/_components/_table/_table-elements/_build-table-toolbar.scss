@@ -19,9 +19,6 @@
         // Block wrapper.
         @include block($block) {
 
-            @include element(toolbar) {
-            }
-
             @include element(toolbar-header) {
                 align-items: center;
                 display: flex;
@@ -48,8 +45,12 @@
             @include element(toolbar-header-actions) {
                 align-items: center;
                 display: flex;
-                gap: 16px;
+                gap: 8px;
                 justify-content: space-between;
+            }
+
+            @include element(toolbar-actions, toolbar-search) {
+                min-width: 185px;
             }
         }
     }
