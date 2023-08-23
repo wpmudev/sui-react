@@ -9,6 +9,7 @@ import { TableToolbar } from "./table-toolbar"
 // Table component to display a table with optional toolbar and context
 const Table: React.FC<TableProps> = ({
 	children,
+	type = "",
 	hasToolbar = true,
 	ariaLabel = "",
 	allowCheck,
@@ -23,6 +24,12 @@ const Table: React.FC<TableProps> = ({
 }) => {
 	// Reference to the table element
 	const ref = useRef<HTMLTableElement | null>(null)
+
+	// Define tag design
+	// Limited to: solid (default) and outlined
+	const classNames = generateCN("sui-table", {
+		[type]: !isEmpty(type ?? ""),
+	})
 
 	// Render the TableContextProvider to provide context with optional props
 	return (

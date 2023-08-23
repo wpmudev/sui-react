@@ -65,6 +65,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 						<Fragment>
 							<Select
 								id={bulkDropdown}
+								className="sui-table__toolbar-actions"
 								isSmall={true}
 								options={ctx?.bulkActions}
 								onChange={(e) => setBulkAction(e?.target?.value)}
@@ -84,6 +85,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 				<div className="sui-table__toolbar-header-actions">
 					<Input
 						id="input-id-4"
+						className="sui-table__toolbar-search"
 						label="Label"
 						placeholder="Search"
 						onChange={onSearch}
@@ -92,8 +94,10 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 					{ctx?.filtersPopover ? (
 						<Dropdown
 							label="Filter"
+							className="sui-table__toolbar-filter"
 							buttonIcon="filter"
 							direction="left"
+							isSmall={true}
 							isFixedHeight={false}
 							onMenuClick={(id, e) => {
 								console.log("DEBUG: Menu Item Clicked", id, e)
@@ -104,6 +108,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 					) : (
 						<Button
 							id={filterBtnId}
+							className="sui-table__toolbar-filter"
 							icon="filter"
 							color="black"
 							appearance="secondary"
