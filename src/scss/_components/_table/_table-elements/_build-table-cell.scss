@@ -1,9 +1,6 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-//@use "../_score-utils/variables" as *;
-//@use "../_score-utils/colors" as *;
-//@use "../_score-utils/animation" as *;
 
 /// Build Table cell
 /// This function creates styles for the element
@@ -20,7 +17,7 @@
         @include block($block) {
             @include element(cell) {
                 border: none;
-                padding: 16px;
+                padding: $spacing-lg;
                 text-align: left;
 
                 @include modifier(drag) {
@@ -28,19 +25,58 @@
                     left: 0;
                     position: absolute;
                     top: 50%;
-                    transform: translate(50%, -8px);
+                    transform: translate(50%, -$spacing-md);
                 }
 
                 @include modifier(actions) {
                     text-align: right;
+
+                    .sui-button {
+                        margin: 0 $spacing-sm;
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
                 }
 
                 &:first-child {
-                    padding-left: 32px;
+                    padding-left: $spacing-xxl;
+                    padding-right: $spacing-md;
                 }
 
                 &:last-child {
-                    padding-right: 32px;
+                    padding-right: $spacing-xxl;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: true, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(cell) {
+
+                @include modifier(drag) {
+                    right: 0;
+                    left: auto;
+                    transform: translate(-50%, -$spacing-md);
+                }
+
+                &:first-child {
+                    padding-right: $spacing-xxl;
+                    padding-left: $spacing-md;
+                }
+
+                &:last-child {
+                    padding-right: $spacing-lg;
+                    padding-left: $spacing-xxl;
                 }
             }
         }

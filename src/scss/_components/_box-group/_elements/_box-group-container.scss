@@ -14,6 +14,36 @@
 		@include block($block) {
 			margin: #{$spacing-lg * 2} 0;
 			padding: 0 #{$spacing-lg * 2};
+
+			@include modifier(header, footer) {
+				padding: #{$spacing-lg + 8px} #{$spacing-lg * 2};
+				margin: 0;
+			}
+
+			@include modifier(footer) {
+				margin-top: -$spacing-md;
+				border-top: $border-width-sm solid $color-extended-neutral-80;
+			}
+
+			@include modifier(header) {
+				margin-bottom: -$spacing-md;
+				border-bottom: $border-width-sm solid $color-extended-neutral-80;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+
+			@include modifier(footer) {
+				border-top-color: $color-extended-neutral-0;
+			}
+
+			@include modifier(header) {
+				border-bottom-color: $color-extended-neutral-0;
+			}
 		}
 	}
 }

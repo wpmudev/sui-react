@@ -87,4 +87,67 @@
 			}
 		}
 	}
+
+    @include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include modifier(sm) {
+				@include modifies-element(control) {
+                    padding-right: $select-control-padding-sm-horizontal-left;
+                    padding-left: $select-control-padding-sm-horizontal-right;
+                }
+
+                &.sui-#{$block}--searchable {
+                    .sui-#{$block}__control {
+                        padding: 0;
+                    }
+                    
+                    .sui-#{$block}__input {
+                        padding-right: $select-control-padding-sm-horizontal-left;
+                    }
+                }
+
+                &.sui-#{$block}--multiselect {
+                    .sui-#{$block}__control {
+                        padding-left: $select-control-multiselect-padding-sm-horizontal;
+                    }
+                }
+
+                &.sui-#{$block}--smartsearch {
+                    .sui-#{$block}__input {
+                        padding-right: $select-input-default-padding-horizontal-md;
+                    }
+                    
+                    .sui-#{$block}__icon--close-alt {
+                        right: unset;
+                        left: $select-icon-close-position-right-sm;
+                    }
+                }
+
+                .sui-#{$block}--multiselect {
+                    .sui-#{$block}__icon--close-alt {
+                        right: unset;
+                        left: $select-icon-close-position-right-md;
+                    }
+                }
+
+                .sui-#{$block}__dropdown--option {
+                    .sui-#{$block}__icon {
+                        padding-left: $select-dropdown-option-padding-horizontal-xs;
+                    }
+                }
+
+                .sui-#{$block}__icon--search {
+                    left: unset;
+                    right: $select-icon-search-position-left-sm;
+                }
+
+                @include modifies-element(search) {
+                    .sui-#{$block}__icon {
+                        left: unset;
+                        right: $select-icon-search-position-left-md;
+                    }
+                }
+			}
+		}
+	}
 }

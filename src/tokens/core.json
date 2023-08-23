@@ -834,6 +834,16 @@
 			"value": "16px",
 			"type": "spacing",
 			"description": "16 points grid system."
+		},
+		"xl": {
+			"value": "24px",
+			"type": "spacing",
+			"description": "24 points grid system."
+		},
+		"xxl": {
+			"value": "32px",
+			"type": "spacing",
+			"description": "32 points grid system."
 		}
 	},
 	"border": {

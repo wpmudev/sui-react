@@ -1,9 +1,6 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-//@use "../_score-utils/variables" as *;
-//@use "../_score-utils/colors" as *;
-//@use "../_score-utils/animation" as *;
 
 /// Build Table container
 /// This function creates styles for the element
@@ -18,10 +15,11 @@
     @include sui-class($rtl: false, $theme: null) {
         // Block wrapper.
         @include block($block) {
-            border-radius: 8px;
-            background: var(--neutral-base-white, #FFF);
-            border: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
-
+            border-radius: $border-radius-md;
+            background: $color-extended-neutral-100;
+            border: $border-width-sm solid $color-extended-neutral-80;
+            overflow: hidden;
+            
             // @todo: improve
             @include element(table) {
                 width: 100%;
@@ -35,6 +33,15 @@
                 border-left: 0;
                 border-right: 0;
             }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            border-color: $color-extended-neutral-0;
         }
     }
 }
