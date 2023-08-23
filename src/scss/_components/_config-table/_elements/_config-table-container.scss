@@ -21,6 +21,12 @@
             @include modifier(focus) {
                 color: var(--color-primary-blue-10, #000714);
             }
+
+            @include element(title) {
+                align-items: center;
+                display: flex;
+                gap: 8px;
+            }
         }
     }
 }
