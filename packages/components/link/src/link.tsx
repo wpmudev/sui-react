@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN, handleEventDefault } from "@wpmudev/sui-utils"
+import { generateCN, handleEventDefault, isEmpty } from "@wpmudev/sui-utils"
 import { ExternalLink } from "@wpmudev/sui-icons"
 import { useInteraction } from "@wpmudev/sui-hooks"
 
@@ -9,6 +9,7 @@ import { LinkProps } from "./link.types"
 // Link component represents a clickable link element with optional features
 // like inline display, external link indication, and more.
 const Link: React.FC<LinkProps> = ({
+	theme = "primary",
 	as = "a",
 	className = "",
 	isInline = false,
@@ -22,7 +23,7 @@ const Link: React.FC<LinkProps> = ({
 	const TagName = as ?? "a"
 
 	// Use the useInteraction hook to track hover and focus states
-	const [hovered, focused, methods] = useInteraction({})
+	const [hover, focus, methods] = useInteraction({})
 
 	// Generate CSS class names for the link
 	const classNames = generateCN(
@@ -30,8 +31,9 @@ const Link: React.FC<LinkProps> = ({
 		{
 			inline: isInline,
 			disabled: isDisabled,
-			hovered,
-			focused,
+			hover,
+			focus,
+			[theme]: !isEmpty(theme ?? true),
 		},
 		className,
 	)

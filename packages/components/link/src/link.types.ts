@@ -6,6 +6,9 @@ import { ElementType } from "react"
  * It is used to define the set of properties that can be passed to the Link component.
  */
 interface LinkProps extends Omit<HTMLAnchorElement, "className"> {
+	/** Theme of the link. */
+	theme?: string
+
 	as?: ElementType
 
 	/** Additional CSS classes to apply to the link. */
