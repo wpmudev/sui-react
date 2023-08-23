@@ -6,6 +6,9 @@ import HeaderVariations from "../images/header-variations.svg"
 import Body from "../images/body.svg"
 import Footer from "../images/footer.svg"
 import Spacing from "../images/spacing.svg"
+import Size from "../images/size.svg"
+import MaxHeight from "../images/max-height.svg"
+import Examples from "../images/examples.svg"
 
 <Section style={{ paddingTop: 20 }}>
 	<img src={Overview} alt="Overview" style={{ marginBottom: 20 }} />
@@ -49,4 +52,30 @@ import Spacing from "../images/spacing.svg"
 
 <Section title="Spacing">
 	<img src={Spacing} alt="Modal Spacing" />
+</Section>
+
+<Section title="Size">
+	<img src={Size} alt="Modal Size" />
+</Section>
+
+<Section title="Maximum Height">
+	<p>
+		The modal body will be scrollable when the modal content exceeds the screen
+		size fixing the modal header and footer.
+	</p>
+	<img src={MaxHeight} alt="Modal Maximum Height " />
+</Section>
+
+<Section title="Examples">
+	<img src={Examples} alt="Modal Examples" />
+
+    <h3 style={{marginTop: 30}}>1. Simple dialog</h3>
+    <p>Simple dialogs are commonly used to display confirmation messages. They typically include a header, where the presence of an icon is optional. Depending on the content of the dialog, appropriate actions should be used.</p>
+
+    <h3>2. Advanced dislog</h3>
+    <p>Advanced dialogs are utilised when the body contains extensive content such as forms and other lengthy information. When the modal body exceeds the screen size, an advanced dialog is employed with a fixed header and footer.</p>
+
+    <h3>3. App connect</h3>
+    <p>We use App-connect dialog when user needs to connect third party apps with WPMU DEV plugins. It can be used for add-ons as well.</p>
+
 </Section>
