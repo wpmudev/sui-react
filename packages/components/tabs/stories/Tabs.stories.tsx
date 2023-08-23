@@ -10,7 +10,7 @@ import {
 } from "../src"
 
 // Import documentation main page.
-import docs from "./Tab.mdx"
+import docs from "./Tabs.mdx"
 import { InfoAlt, Bell, Calendar } from "@wpmudev/sui-icons"
 import { Tag } from "@wpmudev/sui-tag"
 

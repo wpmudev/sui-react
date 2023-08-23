@@ -1,16 +1,16 @@
 import React from "react"
 
 // Import required component(s)
-import { Upsell as SuiUpsell } from "../src"
+import { UpsellNotice as SuiUpsellNotice } from "../src"
 import { Button } from "@wpmudev/sui-button"
 
 // Import documentation main page
-import docs from "./upsell.mdx"
+import docs from "./upsell-notice.mdx"
 
 // Configure default options
 export default {
-	title: "SUI/Components/Collections/Upsell",
-	component: SuiUpsell,
+	title: "SUI/Components/Collections/UpsellNotice",
+	component: SuiUpsellNotice,
 	parameters: {
 		layout: "fullscreen",
 		docs: {
@@ -21,7 +21,7 @@ export default {
 
 // Build story
 // eslint-disable-next-line react/prop-types
-export const Upsell = ({ example, ...props }) => {
+export const UpsellNotice = ({ example, ...props }) => {
 	const box = {
 		display: "flex",
 		flexDirection: "column",
@@ -50,7 +50,7 @@ export const Upsell = ({ example, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={box}>
-					<SuiUpsell
+					<SuiUpsellNotice
 						{...props}
 						actions={actions}
 						features={[
@@ -66,12 +66,12 @@ export const Upsell = ({ example, ...props }) => {
 	)
 }
 
-Upsell.args = {
+UpsellNotice.args = {
 	description:
 		"Get our full WordPress performance optimization suite with Hummingbird Pro and the additional benefits of WPMU DEV membership. Get yours today now Lorem ipsum Lorem Ipsum.",
 }
 
-Upsell.argTypes = {
+UpsellNotice.argTypes = {
 	title: {
 		name: "Title",
 		control: {
