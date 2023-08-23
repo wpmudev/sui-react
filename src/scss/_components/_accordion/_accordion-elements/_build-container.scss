@@ -18,6 +18,15 @@
             border: $accordion-border-width solid $accordion-border-color;
             border-radius: $accordion-border-radius-sm;
             overflow: hidden;
+
+            @include modifier(no-border-radius) {
+                border-radius: 0;
+            }
+
+            @include modifier(no-side-borders) {
+                border-left: 0;
+                border-right: 0;
+            }
         }
     }
 
