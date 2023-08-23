@@ -16,9 +16,19 @@
 		@include block($block) {
 			@include modifier(disabled) {
 				cursor: pointer;
-				opacity: 0.5;
+				color: $color-extended-neutral-70;
 				pointer-events: none;
 				user-select: none;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(disabled) {
+				color: $color-extended-neutral-70;
 			}
 		}
 	}

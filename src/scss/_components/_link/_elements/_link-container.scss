@@ -13,14 +13,24 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             align-items: center;
-            color: var(--color-primary-blue-50-base, #0059FF);
+            color: $color-primary-50;
             display: inline-flex;
-            gap: 4px;
+            gap: $spacing-sm;
             text-decoration: underline;
+            outline-color: $color-primary-50;
 
             @include modifier(focus) {
-                color: var(--color-primary-blue-10, #000714);
+                color: $color-primary-10;
             }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            color: $color-extended-neutral-100;
+            outline-color: $color-extended-neutral-100
         }
     }
 }
