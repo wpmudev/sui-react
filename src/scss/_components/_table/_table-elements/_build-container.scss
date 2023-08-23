@@ -26,6 +26,15 @@
             @include element(table) {
                 width: 100%;
             }
+
+            @include modifier(no-border-radius) {
+                border-radius: 0;
+            }
+
+            @include modifier(no-side-borders) {
+                border-left: 0;
+                border-right: 0;
+            }
         }
     }
 }
