@@ -9,7 +9,7 @@ import docs from "./alert-banner.mdx"
 
 // Configure default options
 export default {
-	title: "SUI/Components/Advanced/AlertBanner",
+	title: "SUI/Components/Advanced/Alert Banner",
 	component: SuiAlertBanner,
 	parameters: {
 		layout: "fullscreen",
