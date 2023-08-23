@@ -8,16 +8,16 @@ import { Button } from "@wpmudev/sui-button"
 import docs from "./upsell-notice.mdx"
 
 // Configure default options
-// export default {
-// 	title: "SUI/Components/Advanced/UpsellNotice",
-// 	component: SuiUpsellNotice,
-// 	parameters: {
-// 		layout: "fullscreen",
-// 		docs: {
-// 			page: docs,
-// 		},
-// 	},
-// }
+export default {
+	title: "SUI/Components/Advanced/UpsellNotice",
+	component: SuiUpsellNotice,
+	parameters: {
+		layout: "fullscreen",
+		docs: {
+			page: docs,
+		},
+	},
+}
 
 // Build story
 // eslint-disable-next-line react/prop-types
