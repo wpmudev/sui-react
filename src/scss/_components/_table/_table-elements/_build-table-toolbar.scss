@@ -75,7 +75,7 @@
                 .sui-#{$block}__toolbar-cta {
                     border-top: $border-width-sm solid $color-extended-neutral-80;
                     padding: $spacing-lg $spacing-xl 0;
-                    margin: $spacing-xl -$spacing-xl 0;
+                    margin: $spacing-xl #{-$spacing-xl} 0;
                 }
             }
 
