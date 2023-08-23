@@ -16,17 +16,17 @@
 			padding: 0 #{$spacing-lg * 2};
 
 			@include modifier(header, footer) {
-				padding: 24px #{$spacing-lg * 2};
+				padding: #{$spacing-lg + 8px} #{$spacing-lg * 2};
 				margin: 0;
 			}
 
 			@include modifier(footer) {
-				margin-top: -8px;
+				margin-top: -$spacing-md;
 				border-top: $border-width-sm solid $color-extended-neutral-80;
 			}
 
 			@include modifier(header) {
-				margin-bottom: -8px;
+				margin-bottom: -$spacing-md;
 				border-bottom: $border-width-sm solid $color-extended-neutral-80;
 			}
 		}
