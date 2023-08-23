@@ -18,16 +18,23 @@ export default {
 }
 
 // Build story
-export const Link = ({ example, ...props }) => {
+export const Link = ({ example, ...props }, { globals: { theme } }) => {
+	let backgroundColor = "#fff"
+
+	if ("secondary" === props?.theme) {
+		backgroundColor = "#0059FF"
+	}
+
+	if ("dark" === theme && "secondary" === props?.theme) {
+		backgroundColor = "#000"
+	}
+
 	const box = {
-		display: "flex",
-		flexDirection: "column",
-		gap: "8px",
 		margin: "0 0 20px",
 		padding: "30px",
 		border: "1px solid #E6E6E6",
 		borderRadius: "4px",
-		// background: "#fff",
+		background: backgroundColor,
 	}
 
 	return (
@@ -42,6 +49,7 @@ export const Link = ({ example, ...props }) => {
 }
 
 Link.args = {
+	theme: "primary",
 	href: "#",
 	as: "a",
 	isInline: false,
@@ -51,6 +59,17 @@ Link.args = {
 }
 
 Link.argTypes = {
+	theme: {
+		name: "Theme",
+		options: ["primary", "secondary"],
+		control: {
+			type: "select",
+			labels: {
+				primary: "Theme: Primary",
+				secondary: "Theme: Secondary",
+			},
+		},
+	},
 	as: {
 		name: "As",
 		control: {
