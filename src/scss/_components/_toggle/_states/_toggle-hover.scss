@@ -21,7 +21,7 @@
 
 			@include modifier(checked-hover) {
 				@include modifies-element(switch) {
-					background: $color-primary-30;
+					background: $color-primary-40;
 				}
 			}
 		}

@@ -2,23 +2,23 @@
 	"color": {
 		"primary": {
 			"10": {
-				"value": "#081630",
+				"value": "#000714",
 				"type": "color"
 			},
-			"30": {
-				"value": "#184291",
+			"40": {
+				"value": "#0045C4",
 				"type": "color"
 			},
 			"50": {
-				"value": "#286EF1",
+				"value": "#0059FF",
 				"type": "color"
 			},
-			"70": {
-				"value": "#D5E3FD",
+			"80": {
+				"value": "#B0CCFF",
 				"type": "color"
 			},
 			"90": {
-				"value": "#D5E3FD",
+				"value": "#EBF2FF",
 				"type": "color"
 			}
 		},
