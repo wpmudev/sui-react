@@ -1,9 +1,6 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-//@use "../_score-utils/variables" as *;
-//@use "../_score-utils/colors" as *;
-//@use "../_score-utils/animation" as *;
 
 /// Build Table cell
 /// This function creates styles for the element
@@ -49,10 +46,37 @@
 
                 &:first-child {
                     padding-left: 32px;
+                    padding-right: 8px;
                 }
 
                 &:last-child {
                     padding-right: 32px;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: true, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(cell) {
+
+                @include modifier(drag) {
+                    right: 0;
+                    left: auto;
+                    transform: translate(-50%, -8px);
+                }
+
+                &:first-child {
+                    padding-right: 32px;
+                    padding-left: 8px;
+                }
+
+                &:last-child {
+                    padding-right: 16px;
+                    padding-left: 32px;
                 }
             }
         }

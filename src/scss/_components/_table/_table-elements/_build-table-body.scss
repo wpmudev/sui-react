@@ -1,9 +1,6 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-//@use "../_score-utils/variables" as *;
-//@use "../_score-utils/colors" as *;
-//@use "../_score-utils/animation" as *;
 
 /// Build Table body
 /// This function creates styles for the element
@@ -22,12 +19,47 @@
                 .sui-#{$block}__row {
                     cursor: pointer;
                 }
+
+                td {
+                    color: $color-extended-neutral-60;
+                    
+                    strong {
+                        font-weight: 500;
+                        color: $color-extended-neutral-10;
+                    }
+                }
             }
 
             @include modifier(stripe) {
                 @include modifies-element(body) {
                     .sui-#{$block}__row:nth-child(odd) {
                         background: $color-extended-neutral-95;
+                    }
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(body) {
+
+                td {
+                    color: $color-extended-neutral-0;
+                    
+                    strong {
+                        color: $color-extended-neutral-0;
+                    }
+                }
+            }
+
+            @include modifier(stripe) {
+                @include modifies-element(body) {
+                    .sui-#{$block}__row:nth-child(odd) {
+                        background: $color-extended-neutral-100;
                     }
                 }
             }

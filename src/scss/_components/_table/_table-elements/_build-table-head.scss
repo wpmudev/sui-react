@@ -1,9 +1,6 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-//@use "../_score-utils/variables" as *;
-//@use "../_score-utils/colors" as *;
-//@use "../_score-utils/animation" as *;
 
 /// Build Table head
 /// This function creates styles for the element
@@ -18,8 +15,24 @@
     @include sui-class($rtl: false, $theme: null) {
         // Block wrapper.
         @include block($block) {
-            @include element(nav) {
+            @include element(head) {
+                td, th {
+                    font-weight: 500;
+                    color: $color-extended-neutral-10;
+                }
+            }
+        }
+    }
 
+     // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(head) {
+                td, th {
+                    color: $color-extended-neutral-0;
+                }
             }
         }
     }

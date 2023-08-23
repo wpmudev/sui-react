@@ -42,21 +42,64 @@
                 }
             }
 
+            @include element(toolbar-cta) {
+                text-align: right;
+            }
+
             @include element(toolbar-filter) {
-                .sui-button {
+                margin: 0;
+
+                .sui-dropdown__menu {
+                    width: 320px;
+                }
+
+                > .sui-button {
                     margin: 0;
+                }
+
+                .sui-#{$block}__toolbar-body {
+                    padding: 16px 24px;
+                }
+
+                .sui-#{$block}__toolbar-cta {
+                    border-top: $border-width-sm solid $color-extended-neutral-80;
+                    padding: 16px 24px 0;
+                    margin: 24px -24px 0;
                 }
             }
 
             @include element(toolbar-header-actions) {
                 align-items: center;
                 display: flex;
-                gap: 8px;
+                gap: 16px;
                 justify-content: space-between;
             }
 
             @include element(toolbar-actions, toolbar-search) {
                 min-width: 185px;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include element(toolbar-body) {
+
+                @include modifier(inline) {
+                    background: $color-extended-neutral-100;
+                    border-top-color: $color-extended-neutral-0;
+                }
+            }
+
+            @include element(toolbar-filter) {
+
+                .sui-#{$block}__toolbar-cta {
+                    border-top-color: $color-extended-neutral-0;
+                }
             }
         }
     }
