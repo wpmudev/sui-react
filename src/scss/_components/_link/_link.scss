@@ -1,0 +1,7 @@
+@use "./_elements/elements" as sui-link--element;
+@use "./_modifiers/modifiers" as sui-link--modifier;
+
+@include sui-link--element.build-container(link);
+
+@include sui-link--modifier.edit-disabled(link);
+@include sui-link--modifier.edit-inline(link);
