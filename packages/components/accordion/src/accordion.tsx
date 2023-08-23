@@ -8,12 +8,18 @@ import { AccordionProps } from "./accordion.types"
 const Accordion: React.FC<AccordionProps> = ({
 	className,
 	state,
+	noBorderRadius = false,
+	noSideBorders = false,
 	...props
 }) => {
 	// Generate CSS class names for the Accordion component
 	const classNames = generateCN(
 		"sui-accordion",
-		{ [state]: !isEmpty(state ?? "") },
+		{
+			[state]: !isEmpty(state ?? ""),
+			"no-border-radius": noBorderRadius,
+			"no-side-borders": noSideBorders,
+		},
 		className,
 	)
 
