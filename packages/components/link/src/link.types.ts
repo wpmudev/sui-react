@@ -1,9 +1,13 @@
+import { ElementType } from "react"
+
 /**
  * LinkProps is an interface that extends the HTMLAnchorElement interface
  * while allowing additional properties specific to the Link component.
  * It is used to define the set of properties that can be passed to the Link component.
  */
 interface LinkProps extends Omit<HTMLAnchorElement, "className"> {
+	as?: ElementType
+
 	/** Additional CSS classes to apply to the link. */
 	className?: string
 

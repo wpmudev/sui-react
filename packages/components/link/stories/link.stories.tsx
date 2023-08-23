@@ -1,14 +1,7 @@
-import React, { Fragment, useState } from "react"
+import React from "react"
 
 // Import required component(s)
 import { Link as SuiLink } from "../src"
-import { Button } from "@wpmudev/sui-button"
-import { Notification } from "@wpmudev/sui-notification"
-import {
-	Accordion,
-	AccordionItem,
-	AccordionItemBody,
-} from "@wpmudev/sui-accordion"
 
 // Import documentation main page
 import docs from "./link.mdx"
