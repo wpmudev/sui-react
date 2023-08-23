@@ -29,7 +29,9 @@
                 }
 
                 @include modifier(actions) {
-                    text-align: right;
+                    align-items: center;
+                    display: flex;
+                    justify-content: flex-end;
 
                     .sui-button {
                         margin: 0 $spacing-sm;

@@ -1,0 +1,32 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Container
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-container($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            align-items: center;
+            color: var(--color-primary-blue-50-base, #0059FF);
+            display: inline-flex;
+            gap: 4px;
+            text-decoration: underline;
+
+            @include modifier(focus) {
+                color: var(--color-primary-blue-10, #000714);
+            }
+
+            @include element(title) {
+                align-items: center;
+                display: flex;
+                gap: 8px;
+            }
+        }
+    }
+}
