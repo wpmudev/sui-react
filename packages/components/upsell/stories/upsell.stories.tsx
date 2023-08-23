@@ -9,7 +9,7 @@ import docs from "./upsell.mdx"
 
 // Configure default options
 export default {
-	title: "SUI/Components/Advanced/Upsell",
+	title: "SUI/Components/Collections/Upsell",
 	component: SuiUpsell,
 	parameters: {
 		layout: "fullscreen",
