@@ -189,8 +189,12 @@ const Table = ({ example, ...args }) => {
 									return action(id, content)
 								}}
 							>
-								<TableCell>#{record.id}</TableCell>
-								<TableCell>{record.title}</TableCell>
+								<TableCell>
+									<strong>#{record.id}</strong>
+								</TableCell>
+								<TableCell>
+									<strong>{record.title}</strong>
+								</TableCell>
 								<TableCell>{record.tag}</TableCell>
 								<TableCell>{record.submission}</TableCell>
 							</TableRow>

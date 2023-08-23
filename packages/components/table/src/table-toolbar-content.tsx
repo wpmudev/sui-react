@@ -54,28 +54,6 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 		</FormField>
 	)
 
-	const renderFiltersCta = () => (
-		<div style={{ textAlign: "right" }}>
-			<Button
-				appearance="secondary"
-				color="black"
-				isSmall={true}
-				isDisabled={ctx?.filterValues?.length <= 0}
-			>
-				Clear filters
-			</Button>
-			<Button
-				appearance="primary"
-				color="blue"
-				isSmall={true}
-				isDisabled={ctx?.filterValues?.length <= 0}
-				onClick={() => ctx.triggerAction("apply-filters", ctx.filterValues)}
-			>
-				Apply filters
-			</Button>
-		</div>
-	)
-
 	return (
 		<div
 			id={id}
@@ -88,7 +66,27 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 			{ctx?.filtersPopover ? (
 				<>
 					{filters?.map((filter) => renderField(filter))}
-					{renderFiltersCta()}
+					<div className="sui-table__toolbar-cta">
+						<Button
+							appearance="tertiary"
+							color="black"
+							isSmall={true}
+							isDisabled={ctx?.filterValues?.length <= 0}
+						>
+							Clear filters
+						</Button>
+						<Button
+							appearance="secondary"
+							color="black"
+							isSmall={true}
+							isDisabled={ctx?.filterValues?.length <= 0}
+							onClick={() =>
+								ctx.triggerAction("apply-filters", ctx.filterValues)
+							}
+						>
+							Apply filters
+						</Button>
+					</div>
 				</>
 			) : (
 				<Box>
@@ -102,7 +100,27 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 						</Row>
 					</BoxGroup>
 					<BoxGroup isInline={false} isFooter={true}>
-						{renderFiltersCta()}
+						<div className="sui-table__toolbar-cta">
+							<Button
+								appearance="secondary"
+								color="black"
+								isSmall={true}
+								isDisabled={ctx?.filterValues?.length <= 0}
+							>
+								Clear filters
+							</Button>
+							<Button
+								appearance="primary"
+								color="blue"
+								isSmall={true}
+								isDisabled={ctx?.filterValues?.length <= 0}
+								onClick={() =>
+									ctx.triggerAction("apply-filters", ctx.filterValues)
+								}
+							>
+								Apply filters
+							</Button>
+						</div>
 					</BoxGroup>
 				</Box>
 			)}
