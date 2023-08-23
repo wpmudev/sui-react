@@ -17,9 +17,22 @@
             display: inline-flex;
             gap: $spacing-sm;
             text-decoration: underline;
+            box-shadow: none;
 
-            @include modifier(focus) {
-                color: $color-primary-10;
+            @include modifier(secondary) {
+                color: $color-extended-neutral-100;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            color: $color-extended-neutral-0;
+
+            @include modifier(secondary) {
+                color: $color-extended-neutral-100;
             }
         }
     }
