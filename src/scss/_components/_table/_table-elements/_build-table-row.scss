@@ -17,7 +17,7 @@
         // Block wrapper.
         @include block($block) {
             @include element(row) {
-                box-shadow: 0 -1px 0 0 #E6E6E6, 0 -1px 0 0 #E6E6E6;
+                box-shadow: 0 -1px 0 0 $color-extended-neutral-80, 0 -1px 0 0 $color-extended-neutral-80;
                 position: relative;
                 background: $color-extended-neutral-100;
 
@@ -30,7 +30,7 @@
                     display: none;
 
                     td {
-                        padding: 0 32px 32px 32px;
+                        padding: 0 $spacing-xxl $spacing-xxl $spacing-xxl;
                     }
                 }
 

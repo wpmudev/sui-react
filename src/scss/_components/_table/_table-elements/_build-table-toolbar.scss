@@ -20,21 +20,32 @@
                 align-items: center;
                 display: flex;
                 justify-content: space-between;
-                padding: 16px 32px;
+                padding: $spacing-lg $spacing-xxl;
+
+                @include media(max-width, sm) {
+                    flex-direction: column;
+                    gap: $spacing-lg;
+                    align-items: flex-start;
+                    padding: $spacing-lg;
+                }
             }
 
             @include element(toolbar-header-bulk) {
                 align-items: center;
                 display: flex;
+
+                @include media(max-width, sm) {
+                    width: 100%;
+                }
             }
 
             @include element(toolbar-body) {
                 display: none;
-                padding: 32px;
+                padding: $spacing-xxl;
 
                 @include modifier(inline) {
-                    background: #F8F8F8;
-                    border-top: 1px solid #E6E6E6;
+                    background: $color-extended-neutral-95;
+                    border-top: $border-width-sm solid $color-extended-neutral-80;
                 }
 
                 @include modifier(expanded) {
@@ -50,7 +61,7 @@
                 margin: 0;
 
                 .sui-dropdown__menu {
-                    width: 320px;
+                    width: $table-width-md;
                 }
 
                 > .sui-button {
@@ -58,25 +69,33 @@
                 }
 
                 .sui-#{$block}__toolbar-body {
-                    padding: 16px 24px;
+                    padding: $spacing-lg $spacing-xl;
                 }
 
                 .sui-#{$block}__toolbar-cta {
                     border-top: $border-width-sm solid $color-extended-neutral-80;
-                    padding: 16px 24px 0;
-                    margin: 24px -24px 0;
+                    padding: $spacing-lg $spacing-xl 0;
+                    margin: $spacing-xl -$spacing-xl 0;
                 }
             }
 
             @include element(toolbar-header-actions) {
                 align-items: center;
                 display: flex;
-                gap: 16px;
+                gap: $spacing-lg;
                 justify-content: space-between;
+
+                @include media(max-width, sm) {
+                    width: 100%;
+                }
             }
 
             @include element(toolbar-actions, toolbar-search) {
-                min-width: 185px;
+                min-width: $table-width-sm;
+
+                @include media(max-width, sm) {
+                    flex: 1;
+                }
             }
         }
     }
@@ -99,6 +118,25 @@
 
                 .sui-#{$block}__toolbar-cta {
                     border-top-color: $color-extended-neutral-0;
+                }
+            }
+        }
+    }
+
+    // DIR: Right to left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include element(toolbar-filter) {
+                > .sui-button {
+                    margin: 0;
+                }
+
+                .sui-dropdown__menu {
+                    left: 0;
+                    right: auto;
                 }
             }
         }

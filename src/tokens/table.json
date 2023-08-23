@@ -1,0 +1,14 @@
+{
+    "table": {
+        "width": {
+            "sm": {
+                "value": "185px",
+                "type": "sizing"
+            },
+            "md": {
+                "value": "320px",
+                "type": "sizing"
+            }
+        }
+    }
+}

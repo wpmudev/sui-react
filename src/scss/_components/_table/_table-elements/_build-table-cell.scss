@@ -17,7 +17,7 @@
         @include block($block) {
             @include element(cell) {
                 border: none;
-                padding: 16px;
+                padding: $spacing-lg;
                 text-align: left;
 
                 @include modifier(drag) {
@@ -25,14 +25,14 @@
                     left: 0;
                     position: absolute;
                     top: 50%;
-                    transform: translate(50%, -8px);
+                    transform: translate(50%, -$spacing-md);
                 }
 
                 @include modifier(actions) {
                     text-align: right;
 
                     .sui-button {
-                        margin: 0 4px;
+                        margin: 0 $spacing-sm;
 
                         &:first-child {
                             margin-left: 0;
@@ -45,12 +45,12 @@
                 }
 
                 &:first-child {
-                    padding-left: 32px;
-                    padding-right: 8px;
+                    padding-left: $spacing-xxl;
+                    padding-right: $spacing-md;
                 }
 
                 &:last-child {
-                    padding-right: 32px;
+                    padding-right: $spacing-xxl;
                 }
             }
         }
@@ -66,17 +66,17 @@
                 @include modifier(drag) {
                     right: 0;
                     left: auto;
-                    transform: translate(-50%, -8px);
+                    transform: translate(-50%, -$spacing-md);
                 }
 
                 &:first-child {
-                    padding-right: 32px;
-                    padding-left: 8px;
+                    padding-right: $spacing-xxl;
+                    padding-left: $spacing-md;
                 }
 
                 &:last-child {
-                    padding-right: 16px;
-                    padding-left: 32px;
+                    padding-right: $spacing-lg;
+                    padding-left: $spacing-xxl;
                 }
             }
         }
