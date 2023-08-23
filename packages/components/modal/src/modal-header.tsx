@@ -27,6 +27,8 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({ title = "", children }) => {
 				<Button
 					className="sui-modal__header-actions-close"
 					icon="close"
+					appearance="tertiary"
+					color="black"
 					onClick={"closeModal" in ctx ? ctx.closeModal : () => {}}
 					isSmall={true}
 					iconOnly={true}

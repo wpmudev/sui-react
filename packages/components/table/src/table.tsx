@@ -20,6 +20,7 @@ const Table: React.FC<TableProps> = ({
 	bulkActions,
 	noBorderRadius,
 	noSideBorder,
+	isStripped = false,
 	...props
 }) => {
 	// Reference to the table element
@@ -28,7 +29,9 @@ const Table: React.FC<TableProps> = ({
 	// Define tag design
 	// Limited to: solid (default) and outlined
 	const classNames = generateCN("sui-table", {
-		[type]: !isEmpty(type ?? ""),
+		"no-border-radius": noBorderRadius,
+		"no-side-borders": noSideBorder,
+		stripe: isStripped,
 	})
 
 	// Render the TableContextProvider to provide context with optional props
@@ -43,12 +46,7 @@ const Table: React.FC<TableProps> = ({
 				filtersPopover,
 			}}
 		>
-			<div
-				className={generateCN("sui-table", {
-					"no-border-radius": noBorderRadius,
-					"no-side-borders": noSideBorder,
-				})}
-			>
+			<div className={classNames}>
 				{/* Render the TableToolbar component if hasToolbar is true */}
 				{hasToolbar && <TableToolbar />}
 				<table

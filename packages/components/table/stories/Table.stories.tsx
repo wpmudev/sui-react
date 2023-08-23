@@ -312,6 +312,7 @@ Table.args = {
 		},
 	],
 	filtersPopover: true,
+	isStripped: false,
 }
 
 // Set controls for story arguments.
@@ -353,6 +354,12 @@ Table.argTypes = {
 	},
 	filtersPopover: {
 		name: "Filter Popover",
+		control: {
+			type: "boolean",
+		},
+	},
+	isStripped: {
+		name: "Stripe",
 		control: {
 			type: "boolean",
 		},

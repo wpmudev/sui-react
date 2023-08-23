@@ -42,7 +42,7 @@ const Modal = ({ example, ...args }) => {
 							site? We recommend you have a backup available as your existing
 							settings configuration will be overridden.
 						</ModalBody>
-						<ModalFooter hasSep={true}>
+						<ModalFooter>
 							<Button
 								appearance="secondary"
 								color="blue"
