@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
 
-import { isEmpty } from "@wpmudev/sui-utils"
+import { isEmpty, generateCN } from "@wpmudev/sui-utils"
 
 import { TableProps } from "./table.types"
 import { TableContextProvider } from "./table-context"
@@ -17,6 +17,8 @@ const Table: React.FC<TableProps> = ({
 	filters,
 	onAction,
 	bulkActions,
+	noBorderRadius,
+	noSideBorder,
 	...props
 }) => {
 	// Reference to the table element
@@ -34,7 +36,12 @@ const Table: React.FC<TableProps> = ({
 				filtersPopover,
 			}}
 		>
-			<div className="sui-table">
+			<div
+				className={generateCN("sui-table", {
+					"no-border-radius": noBorderRadius,
+					"no-side-borders": noSideBorder,
+				})}
+			>
 				{/* Render the TableToolbar component if hasToolbar is true */}
 				{hasToolbar && <TableToolbar />}
 				<table

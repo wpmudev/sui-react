@@ -64,6 +64,16 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	hasToolbar?: boolean
 
 	/**
+	 * Remove border-radius when true
+	 */
+	noBorderRadius?: boolean
+
+	/**
+	 * Remove border from sides
+	 */
+	noSideBorder?: boolean
+
+	/**
 	 * Display filters in popover
 	 */
 	filtersPopover?: boolean
