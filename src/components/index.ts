@@ -30,6 +30,7 @@ export { SpinnerAlt } from "./SpinnerAlt"
 export { Mobile } from "./Mobile"
 export { Desktop } from "./Desktop"
 export { Performance } from "./Performance"
+export { ExternalLink } from "./ExternalLink"
 // plugin icons
 export { Plugin } from "./Plugin"
 export { PluginDefender } from "./PluginDefender"
