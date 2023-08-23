@@ -6,9 +6,7 @@ import { SelectBaseProps } from "@wpmudev/sui-select"
 /**
  * Interface representing the properties of a table section.
  */
-interface TableSectionProps extends HTMLProps<HTMLTableSectionElement> {
-	isStripped?: boolean
-}
+interface TableSectionProps extends HTMLProps<HTMLTableSectionElement> {}
 
 /**
  * Interface representing the types of filters that can be used in the table toolbar.
@@ -94,6 +92,11 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	 * An array of bulk actions available in the table toolbar.
 	 */
 	bulkActions?: Record<Pick<SelectBaseProps, "options">, any>[]
+
+	/**
+	 * Display table row in stripped design
+	 */
+	isStripped?: boolean
 
 	/**
 	 * Callback function triggered when a row is checked/unchecked (used in checkable tables).

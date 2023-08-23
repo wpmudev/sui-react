@@ -11,8 +11,6 @@ import React, {
 } from "react"
 import { ReactSortable as Sortable } from "react-sortablejs"
 
-import { generateCN } from "@wpmudev/sui-utils"
-
 import { TableSectionProps } from "./table.types"
 import { TableContext } from "./table-context"
 
@@ -76,13 +74,7 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 const TableBodyTag = forwardRef<
 	HTMLTableSectionElement,
 	HTMLProps<HTMLTableSectionElement>
->((props, ref) => (
-	<tbody
-		ref={ref}
-		{...props}
-		className={generateCN("sui-table__body", { stripped: props?.isStripped })}
-	/>
-))
+>((props, ref) => <tbody ref={ref} {...props} className="sui-table__body" />)
 
 TableBodyTag.displayName = "TableBodyTag"
 
