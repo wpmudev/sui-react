@@ -106,7 +106,7 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	/**
 	 * Callback function triggered when an action is performed in the table toolbar.
 	 */
-	onAction(action: TableExpectedAction, data: unknown): void
+	onAction?(action: TableExpectedAction, data: unknown): void
 }
 
 /**
@@ -127,7 +127,7 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 	/**
 	 * The unique ID of the table row.
 	 */
-	id: number | string
+	id?: number | string
 
 	/**
 	 * Determines if the row is under the table header.
