@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useCallback } from "react"
 
 import {
 	Table,
@@ -8,24 +8,41 @@ import {
 	TableRow,
 } from "@wpmudev/sui-table"
 import { Button } from "@wpmudev/sui-button"
-import { Box, BoxGroup } from "@wpmudev/sui-box"
+import { Box } from "@wpmudev/sui-box"
+import { isEmpty } from "@wpmudev/sui-utils"
+import { Tooltip } from "@wpmudev/sui-tooltip"
 
-import { LinkProps } from "./config-table.types"
+import {
+	ConfigActionTypes,
+	ConfigId,
+	ConfigTableTypes,
+} from "./config-table.types"
+import { ConfigTableDetails } from "./config-table-details"
 
-// Link component represents a clickable link element with optional features
-// like inline display, external link indication, and more.
-const ConfigTable: React.FC<LinkProps> = ({
-	as = "a",
+// Render options to be displayed in a table.
+const ConfigTable: React.FC<ConfigTableTypes> = ({
 	className = "",
-	isInline = false,
-	isDisabled,
-	isExternal,
-	hasExternalIcon,
-	children,
 	configs,
-	...props
+	onActionClick,
 }) => {
+	/**
+	 * Render config options inside table content
+	 *
+	 * @param {Record<string, any>} config
+	 * @return {JSX.Element} Expand content
+	 */
 	const renderExpandContent = (config) => {
+		let options = []
+
+		// Build options to render in the table
+		Object.values(config.config.strings).forEach((string) => {
+			options = [
+				...options,
+				// Split string by new line and exclude blank
+				...string[0].split("\n").filter((opt) => !isEmpty(opt)),
+			]
+		})
+
 		return (
 			<Box className="sui-config-table__details">
 				<div className="sui-config-table__details-header">
@@ -37,16 +54,18 @@ const ConfigTable: React.FC<LinkProps> = ({
 					</p>
 				</div>
 				<div className="sui-config-table__details-body">
-					<Table hasToolbar={false} onAction={(actionType, data) => null}>
+					<Table hasToolbar={false} isStripped={true}>
 						<TableBody>
-							{[...configs, ...configs, ...configs, ...configs].map(
-								(config, index) => (
-									<TableRow key={index} id={config.id}>
-										<TableCell>{config.name}</TableCell>
-										<TableCell>N/A</TableCell>
+							{options.map((option: Record<string, any>, index: number) => {
+								const chunks = option.split("-")
+
+								return (
+									<TableRow key={index} id={option.id}>
+										<TableCell>{chunks[0]}</TableCell>
+										<TableCell>{chunks[1]}</TableCell>
 									</TableRow>
-								),
-							)}
+								)
+							})}
 						</TableBody>
 					</Table>
 				</div>
@@ -54,13 +73,23 @@ const ConfigTable: React.FC<LinkProps> = ({
 		)
 	}
 
+	/**
+	 * Handle an action click.
+	 *
+	 * @param {ConfigId}          configId - The configuration ID.
+	 * @param {ConfigActionTypes} type     - The action type.
+	 */
+	const actionClick = useCallback(
+		(configId, type) => {
+			if (onActionClick) {
+				onActionClick(configId, type)
+			}
+		},
+		[onActionClick],
+	)
+
 	return (
-		<Table
-			hasToolbar={false}
-			onAction={(actionType, data) => {
-				console.log("ACTION FIRED:", actionType, data)
-			}}
-		>
+		<Table className={className} hasToolbar={false}>
 			<TableHead>
 				<TableRow actions={() => null}>
 					<TableCell isHeading={true}>Config</TableCell>
@@ -74,26 +103,48 @@ const ConfigTable: React.FC<LinkProps> = ({
 						key={index}
 						id={config.id}
 						isExpandable={true}
-						expandableContent={renderExpandContent(config)}
-						actions={({ id, content }) => {
-							return (
-								<Fragment>
-									<a href="#">Action</a>
-									<Button
-										icon="settings"
-										isSmall={true}
-										color="black"
-										iconOnly={true}
-										appearance="tertiary"
-									/>
-									{content}
-								</Fragment>
-							)
-						}}
+						expandableContent={<ConfigTableDetails config={config} />}
+						actions={({ content }) => (
+							<Fragment>
+								<Button
+									isSmall={true}
+									color="blue"
+									appearance="tertiary"
+									onClick={(e) => {
+										e.preventDefault()
+										actionClick(config.id, "configure")
+									}}
+								>
+									Apply
+								</Button>
+								<Button
+									icon="settings"
+									isSmall={true}
+									iconOnly={true}
+									color="black"
+									appearance="tertiary"
+									onClick={(e) => {
+										e.preventDefault()
+										actionClick(config.id, "configure")
+									}}
+								/>
+								{content}
+							</Fragment>
+						)}
 					>
-						<TableCell>{config.name}</TableCell>
-						<TableCell>N/A</TableCell>
-						<TableCell>N/A</TableCell>
+						<TableCell>
+							<div className="sui-config-table__title">
+								<strong>{config.name}</strong>
+								{!isEmpty(config.description ?? "") && (
+									<Tooltip type="icon" name="info" customWidth={160}>
+										{config.description}
+									</Tooltip>
+								)}
+							</div>
+						</TableCell>
+						{/* Make these dynamic */}
+						<TableCell>May 21, 2022 @ 6:00 pm</TableCell>
+						<TableCell>May 21, 2022 @ 6:00 pm</TableCell>
 					</TableRow>
 				))}
 			</TableBody>

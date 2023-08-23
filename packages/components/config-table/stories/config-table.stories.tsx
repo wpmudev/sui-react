@@ -107,50 +107,6 @@ export const ConfigTable = ({ example, ...props }) => {
 	)
 }
 
-ConfigTable.args = {
-	href: "#",
-	as: "a",
-	isInline: false,
-	isDisabled: false,
-	isExternal: false,
-	hasExternalIcon: false,
-}
+ConfigTable.args = {}
 
-ConfigTable.argTypes = {
-	as: {
-		name: "As",
-		control: {
-			type: "text",
-		},
-	},
-	isInline: {
-		name: "isInline",
-		control: {
-			type: "boolean",
-		},
-	},
-	isDisabled: {
-		name: "isDisabled",
-		control: {
-			type: "boolean",
-		},
-	},
-	isExternal: {
-		name: "isExternal",
-		control: {
-			type: "boolean",
-		},
-	},
-	hasExternalIcon: {
-		name: "hasExternalIcon",
-		control: {
-			type: "boolean",
-		},
-	},
-	className: {
-		name: "className",
-		control: {
-			type: "text",
-		},
-	},
-}
+ConfigTable.argTypes = {}
