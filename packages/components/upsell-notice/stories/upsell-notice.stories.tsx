@@ -9,7 +9,7 @@ import docs from "./upsell-notice.mdx"
 
 // Configure default options
 export default {
-	title: "SUI/Components/Advanced/UpsellNotice",
+	title: "SUI/Components/Collections/UpsellNotice",
 	component: SuiUpsellNotice,
 	parameters: {
 		layout: "fullscreen",
