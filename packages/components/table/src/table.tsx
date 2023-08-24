@@ -21,6 +21,7 @@ const Table: React.FC<TableProps> = ({
 	noBorderRadius,
 	noSideBorder,
 	isStripped = false,
+	stickyCols = false,
 	...props
 }) => {
 	// Reference to the table element
@@ -32,6 +33,7 @@ const Table: React.FC<TableProps> = ({
 		"no-border-radius": noBorderRadius,
 		"no-side-borders": noSideBorder,
 		stripe: isStripped,
+		sticky: stickyCols,
 	})
 
 	// Render the TableContextProvider to provide context with optional props
@@ -44,6 +46,7 @@ const Table: React.FC<TableProps> = ({
 				onAction,
 				bulkActions,
 				filtersPopover,
+				stickyCols,
 			}}
 		>
 			<div className={classNames}>

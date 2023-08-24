@@ -112,13 +112,31 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 /**
  * Interface representing the properties of a table cell.
  */
-interface TableCellProps
-	extends HTMLProps<HTMLTableCellElement | HTMLTableHeaderCellElement> {
+type TableCellBaseProps = {
 	/**
 	 * Children nodes of the table cell.
 	 */
 	children?: React.ReactNode
-}
+	/**
+	 * Render table cell as header cell "th"
+	 */
+	isHeading?: boolean
+	/**
+	 * Make cell sticky
+	 */
+	isSticky?: boolean
+} & Omit<HTMLProps<HTMLTableCellElement | HTMLTableHeaderCellElement>, "id">
+
+type TableCellWithSortingProps = {
+	isSortable: true
+	id?: string
+} & TableCellBaseProps
+
+type TableCellWithoutSortingProps = {
+	isSortable?: boolean
+} & TableCellBaseProps
+
+type TableCellProps = TableCellWithSortingProps | TableCellWithoutSortingProps
 
 /**
  * Interface representing the properties of a table row.
@@ -159,6 +177,7 @@ type TableExpectedAction =
 	| "search-item"
 	| "bulk-action"
 	| "resort"
+	| "column-sort"
 
 /**
  * Interface for the table context.
@@ -168,6 +187,11 @@ interface TableContextProps {
 	 * Allows row selection with checkboxes.
 	 */
 	allowCheck?: boolean
+
+	/**
+	 * Make columns sticky
+	 */
+	stickyCols?: boolean
 
 	/**
 	 * Supports drag-and-drop reordering.
@@ -263,7 +287,12 @@ interface TableContextProviderProps {
 	 */
 	props: Pick<
 		TableContextProps,
-		"allowCheck" | "isDraggable" | "filtersPopover" | "filters" | "bulkActions"
+		| "allowCheck"
+		| "isDraggable"
+		| "filtersPopover"
+		| "filters"
+		| "bulkActions"
+		| "stickyCols"
 	> &
 		Pick<TableProps, "onAction">
 }

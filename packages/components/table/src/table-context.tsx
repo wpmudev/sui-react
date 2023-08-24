@@ -10,6 +10,11 @@ import {
 // create the table context
 const TableContext = createContext<TableContextProps | null>(null)
 
+export type TableSortBy = {
+	column: string
+	order: "asc" | "desc"
+}
+
 // table context provider to provide the context to its children
 const TableContextProvider: FC<TableContextProviderProps> = ({
 	children,
@@ -26,6 +31,10 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 	const [rows, setRows] = useState<Record<string, any>[]>([])
 	// state to force collapse in drag-and-drop reordering
 	const [forceCollapse, setForceCollapse] = useState(false)
+	const [sortBy, setSortBy] = useState<TableSortBy>({
+		column: "",
+		order: "asc",
+	})
 
 	// function to handle row selection in the table
 	const onSelect = useCallback(
@@ -66,7 +75,7 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 	// trigger an action in the table context.
 	const triggerAction = useCallback(
 		(action: TableExpectedAction, data: unknown) => {
-			props?.onAction(action, data)
+			props?.onAction?.(action, data)
 		},
 		[props],
 	)
@@ -100,6 +109,9 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 				// filtered values
 				filterValues,
 				setFilter,
+				// column sorting
+				sortBy,
+				setSortBy,
 				applyFilters,
 				clearFilters,
 			}}

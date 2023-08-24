@@ -8,6 +8,7 @@ import React, {
 	useId,
 	useState,
 } from "react"
+
 import { TableRowProps } from "./table.types"
 
 import { Checkbox } from "@wpmudev/sui-checkbox"
@@ -116,8 +117,14 @@ const TableRow: React.FC<TableRowProps> = ({
 	children = Children.toArray(children).map((child, index) => {
 		const p: Record<string, any> = { hasDragIcon: false, colSpan: undefined }
 
-		if (0 === index && ctx?.isDraggable && !isUnderHeader) {
-			p.hasDragIcon = true
+		if (0 === index) {
+			// Make column sticky
+			p.isSticky = !!ctx?.stickyCols
+
+			// Add drag icon
+			if (!ctx?.allowCheck && !isUnderFooter) {
+				p.hasDragIcon = true
+			}
 		}
 
 		if (isUnderFooter) {
@@ -147,13 +154,20 @@ const TableRow: React.FC<TableRowProps> = ({
 				{...a11yProps}
 			>
 				{ctx?.allowCheck && !isUnderFooter && (
-					<TableCell className="sui-table__cell--selection">
+					<TableCell
+						className="sui-table__cell--selection"
+						isSticky={!!ctx?.stickyCols}
+						hasDragIcon={ctx?.isDraggable && !isUnderHeader}
+					>
 						<Checkbox onChange={onCheckToggle} defaultValue={isChecked} />
 					</TableCell>
 				)}
 				{children}
 				{(!!actions || toggleBtn) && !isUnderFooter && (
-					<TableCell className="sui-table__cell--actions">
+					<TableCell
+						className="sui-table__cell--actions"
+						isSticky={!!ctx?.stickyCols}
+					>
 						{!!actions && actions({ id, content: toggleBtn })}
 						{!actions && toggleBtn}
 					</TableCell>

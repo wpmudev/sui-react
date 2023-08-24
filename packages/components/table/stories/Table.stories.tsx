@@ -166,16 +166,25 @@ const Table = ({ example, ...args }) => {
 			<div className="sui-layout__content">
 				<SUITable
 					{...args}
+					stickyCols={true}
 					onAction={(actionType, data) => {
 						console.log("ACTION FIRED:", actionType, data)
 					}}
 				>
 					<TableHead>
 						<TableRow actions={() => null}>
-							<TableCell isHeading={true}>ID</TableCell>
-							<TableCell isHeading={true}>Form name</TableCell>
-							<TableCell isHeading={true}>Status</TableCell>
-							<TableCell isHeading={true}>Last Submission</TableCell>
+							<TableCell isHeading={true} isSortable={false}>
+								ID
+							</TableCell>
+							<TableCell isHeading={true} isSortable={true}>
+								Form name
+							</TableCell>
+							<TableCell isHeading={true} id="tag" isSortable={true}>
+								Status
+							</TableCell>
+							<TableCell isHeading={true} id="submission" isSortable={true}>
+								Last Submission
+							</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
