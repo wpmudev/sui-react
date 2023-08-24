@@ -16,7 +16,7 @@ export const ModalContext = createContext<ModalContextProps | null>(null)
 
 // Build modal
 const Modal = forwardRef<ModalActionsProps, ModalProps>(
-	({ id, size = "sm", icon, children, variant = "simple", ...props }, ref) => {
+	({ id, size = "sm", children, variant = "simple", ...props }, ref) => {
 		// State to track whether the modal is open or not
 		const [isOpen, setIsOpen] = useState<boolean>(false)
 
