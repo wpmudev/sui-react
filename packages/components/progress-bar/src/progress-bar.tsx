@@ -16,7 +16,6 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	allowCancel = false,
 	isIndeterminate = false,
 	onClick,
-	sm = "",
 	className = "",
 }) => {
 	// generate classnames
