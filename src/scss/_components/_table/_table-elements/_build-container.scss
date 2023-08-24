@@ -20,10 +20,14 @@
             border: $border-width-sm solid $color-extended-neutral-80;
             overflow: auto;
 
+            @include element(wrapper) {
+                overflow-y: scroll;
+                padding: 1px;
+            }
+
             // @todo: improve
             @include element(table) {
                 width: 100%;
-                overflow: auto;
                 position: relative;
             }
 

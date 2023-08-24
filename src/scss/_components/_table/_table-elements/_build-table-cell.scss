@@ -79,6 +79,15 @@
                         right: 0;
                     }
                 }
+
+                @include modifier(trim) {
+                    div { 
+                        max-width: 380px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
             }
 
             @include element(cell-btn) {
