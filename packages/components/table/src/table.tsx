@@ -73,7 +73,7 @@ const Table: React.FC<TableProps> = ({
 					// Set the aria-label attribute if ariaLabel is provided and not empty
 					{...(!isEmpty(ariaLabel ?? "") && { "aria-label": ariaLabel })}
 				>
-					{children.filter(
+					{childrenArray.filter(
 						({ type: cType }) => componentToExclude !== cType.name,
 					)}
 				</table>
