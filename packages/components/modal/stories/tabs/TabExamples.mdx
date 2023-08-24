@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Section, Snippet } from "@wpmudev/storybook"
 import { Modal, ModalHeader, ModalFooter, ModalBody } from "../../src"
 import dedent from "dedent"
 import { Button } from "@wpmudev/sui-button"
@@ -120,98 +120,158 @@ export const SimpleModal = () => {
 
 }
 
-<Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Simple Dialog</p>
-	<div className="sui-wrap sui-theme--light" >
-    	<SimpleModal />
-    	<div style={{ marginTop: "20px" }}>
-    		<Snippet language="js">{simpleCode}</Snippet>
-    	</div>
-    </div>
-
-</Section>
-
 export const advancedCode = dedent`
-    Replace This
-`
+    export const AdvancedModal = () => {
+
+    const ref = useRef();
+
+    return (
+        <>
+            <Modal id="advanced-modal" ref={ref}>
+
+                <ModalHeader title="Submit Button" />
+
+                <ModalBody>
+                    <FormField label="Button Text">
+                        <Input id="button-text" placeholder="Enter Text" />
+                    </FormField>
+                    <FormField label="Button Processing Text" helper="This text will appear as button text while the quiz is being submitted.">
+                        <Input id="button-processing-text" placeholder="Sending..." />
+                    </FormField>
+                    <hr />
+                    <FormField label="Custom CSS Class" helper='These will be output as you see them here. To add multiple classes, separate them with a space. For example, "form-submit-btn button" will add two classes "form-submit-btn" and "button".'>
+                        <Input id="custom-css-class" placeholder="Eg., form-submit-btn" />
+                    </FormField>
+                </ModalBody>
+
+                <ModalFooter>
+                    <Button
+                        appearance="tertiary"
+                        color="black"
+                        isSmall={true}
+                        onClick={() => ref.current.closeModal()}
+                    >
+                        Tertiary
+                    </Button>
+                    <Button
+                        appearance="secondary"
+                        color="black"
+                        isSmall={true}
+                        onClick={() => ref.current.closeModal()}
+                    >
+                        Secondary
+                    </Button>
+
+                    <Button
+                        appearance="primary"
+                        color="blue"
+                        isSmall={true}
+                        onClick={() => {
+                            console.log("Submitted")
+                        }}
+                    >
+                        Primary
+                    </Button>
+                </ModalFooter>
+            </Modal>
+
+                <Button
+                    appearance="primary"
+                    color="blue"
+                    onClick={() => {
+                        ref.current.openModal()
+                    }}
+                >
+                    Open form
+                </Button>
+        </>
+    )
+
+} `
 
 export const AdvancedModal = () => {
 
     const ref = useRef();
 
     return (
-    	<>
-    		<Modal id="advanced-modal" ref={ref}>
+        <>
+            <Modal id="advanced-modal" ref={ref}>
 
-    			<ModalHeader title="Submit Button" />
+                <ModalHeader title="Submit Button" />
 
-    			<ModalBody>
-    				<FormField label="Button Text">
-    					<Input id="button-text" placeholder="Enter Text" />
-    				</FormField>
-    				<FormField label="Button Processing Text" helper="This text will appear as button text while the quiz is being submitted.">
-    					<Input id="button-processing-text" placeholder="Sending..." />
-    				</FormField>
-    				<hr />
-    				<FormField label="Custom CSS Class" helper={`These will be output as you see them here. To add multiple classes, separate them with a space. For example, "form-submit-btn button" will add two classes "form-submit-btn" and "button".`}>
-    					<Input id="custom-css-class" placeholder="Eg., form-submit-btn" />
-    				</FormField>
-    			</ModalBody>
+                <ModalBody>
+                    <FormField label="Button Text">
+                        <Input id="button-text" placeholder="Enter Text" />
+                    </FormField>
+                    <FormField label="Button Processing Text" helper="This text will appear as button text while the quiz is being submitted.">
+                        <Input id="button-processing-text" placeholder="Sending..." />
+                    </FormField>
+                    <hr />
+                    <FormField label="Custom CSS Class" helper='These will be output as you see them here. To add multiple classes, separate them with a space. For example, "form-submit-btn button" will add two classes "form-submit-btn" and "button".'>
+                        <Input id="custom-css-class" placeholder="Eg., form-submit-btn" />
+                    </FormField>
+                </ModalBody>
 
-    			<ModalFooter>
-    			    <Button
-    					appearance="secondary"
-    					color="blue"
-    					isSmall={true}
-    					onClick={() => ref.current.closeModal()}
-    				>
-    					Secondary
-    				</Button>
-    				<Button
-    					appearance="secondary"
-    					color="blue"
-    					isSmall={true}
-    					onClick={() => ref.current.closeModal()}
-    				>
-    					Secondary
-    				</Button>
+                <ModalFooter>
+                    <Button
+                        appearance="tertiary"
+                        color="black"
+                        isSmall={true}
+                        onClick={() => ref.current.closeModal()}
+                    >
+                        Tertiary
+                    </Button>
+                    <Button
+                        appearance="secondary"
+                        color="black"
+                        isSmall={true}
+                        onClick={() => ref.current.closeModal()}
+                    >
+                        Secondary
+                    </Button>
 
-    				<Button
-    					appearance="primary"
-    					color="blue"
-    					isSmall={true}
-    					onClick={() => {
-    						console.log("Submitted")
-    					}}
-    				>
-    					Primary
-    				</Button>
-    			</ModalFooter>
-    		</Modal>
+                    <Button
+                        appearance="primary"
+                        color="blue"
+                        isSmall={true}
+                        onClick={() => {
+                            console.log("Submitted")
+                        }}
+                    >
+                        Primary
+                    </Button>
+                </ModalFooter>
+            </Modal>
 
-    			<Button
-    				appearance="primary"
-    				color="blue"
-    				onClick={() => {
-    					ref.current.openModal()
-    				}}
-    			>
-    				Open form
-    			</Button>
-    	</>
+                <Button
+                    appearance="primary"
+                    color="blue"
+                    onClick={() => {
+                        ref.current.openModal()
+                    }}
+                >
+                    Open form
+                </Button>
+        </>
     )
 
 }
 
-<Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Advanced Dialog</p>
-	<div className="sui-wrap sui-theme--light">
+<Section title="Simple Dialog" contained={true} style={{ paddingTop: 30 }}>
+	<p>Simple dialogs are commonly used to display confirmation messages.</p>
+	<div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+		<SimpleModal />
+	</div>
+	<Snippet language="js">{simpleCode}</Snippet>
+</Section>
 
-    	<AdvancedModal />
-
-    	<div style={{ marginTop: "20px" }}>
-    		<Snippet language="js">{advancedCode}</Snippet>
-    	</div>
-    </div>
-
+<Section title="Advanced Dialog" contained={true} style={{ paddingTop: 30 }}>
+	<p>
+		Advanced dialogs are utilised when the body contains extensive content such
+		as forms and other lengthy information.
+	</p>
+	<div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+		<AdvancedModal />
+	</div>
+	<Snippet language="js">{advancedCode}</Snippet>
 </Section>
