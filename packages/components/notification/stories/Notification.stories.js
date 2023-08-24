@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 
 // Import required component(s)
 import { Notification as SuiNotification, NotificationRenderer } from "../src"
@@ -146,13 +146,34 @@ const demos = [
 ]
 
 // Build story
-export const Notification = ({ example, ...props }) => {
+export const Notification = ({
+	example,
+	title,
+	message,
+	action,
+	isInline = false,
+	size,
+	isDismissible,
+	icon,
+	variation,
+	...props
+}) => {
 	const box = {
 		margin: "0 0 20px",
 		padding: "30px",
 		border: "1px solid #E6E6E6",
 		borderRadius: "4px",
 		background: "#fff",
+	}
+
+	const options = {
+		title,
+		message,
+		action,
+		size,
+		isDismissible,
+		icon,
+		variation,
 	}
 
 	const notification = useNotifications()
@@ -162,30 +183,30 @@ export const Notification = ({ example, ...props }) => {
 			<NotificationRenderer />
 			<div className="sui-layout__content">
 				<div style={box}>
-					<h2>Toast Notifications</h2>
-					{demos.map((demo, index) => (
-						<Button
-							key={index}
-							appearance="secondary"
-							color="blue"
-							isSmall={true}
-							onClick={() => {
-								notification.push(demo.options)
-							}}
-							{...demo.button}
-						>
-							{demo.title}
-						</Button>
-					))}
-				</div>
-				<div style={box}>
-					<h2>Inline Notifications</h2>
-					{demos.map((demo, index) => (
-						<div>
-							<h4>{demo.title}</h4>
-							<SuiNotification {...demo.options} key={index} />
-						</div>
-					))}
+					{!isInline ? (
+						<Fragment>
+							<h2 style={{ marginTop: 0 }}>Toast Notifications</h2>
+							<div>
+								<Button
+									appearance="secondary"
+									color="blue"
+									isSmall={true}
+									onClick={() => {
+										notification.push(options)
+									}}
+								>
+									Open
+								</Button>
+							</div>
+						</Fragment>
+					) : (
+						<Fragment>
+							<h2 style={{ marginTop: 0 }}>Inline Notifications</h2>
+							<div>
+								<SuiNotification {...options} />
+							</div>
+						</Fragment>
+					)}
 				</div>
 			</div>
 		</div>
@@ -193,43 +214,79 @@ export const Notification = ({ example, ...props }) => {
 }
 
 Notification.args = {
-	example: "toast",
+	variation: "",
 	title: "Toast title",
-	children: "This is a toast message.",
-	action: {
-		label: "Action",
-		href: "",
-		target: "_blank",
-		onClick: "",
-	},
+	message: "This is a toast message.",
+	isInline: false,
+	isDismissible: true,
+	size: "lg",
+	icon: "InfoAlt",
+	action: (
+		<Button
+			className="csb-banner__cta"
+			appearance="secondary"
+			color="blue"
+			isSmall={true}
+		>
+			Action
+		</Button>
+	),
 }
 
 Notification.argTypes = {
-	example: {
-		name: "Example",
+	variation: {
+		name: "Variation",
+		options: ["", "info", "success", "warning", "error"],
 		control: {
 			type: "select",
-			options: {
-				"Example: Toast": "toast",
-				"Example: Inline Notice": "inline",
+			labels: {
+				"": "Variation: Default",
+				info: "Variation: Informative",
+				success: "Variation: Success",
+				warning: "Variation: Warning",
+				error: "Variation: Error",
 			},
 		},
 	},
-	state: {
-		name: "State",
+	icon: {
+		name: "Icon",
 		control: {
-			type: "select",
-			options: {
-				Informative: "",
-				Success: "success",
-				Warning: "warning",
-				Error: "error",
-			},
+			type: "text",
 		},
 	},
 	isInline: {
-		table: {
-			disable: true,
+		name: "Inline Notifications",
+		control: {
+			type: "boolean",
+		},
+	},
+	isDismissible: {
+		name: "Dismissible",
+		control: {
+			type: "boolean",
+		},
+	},
+	size: {
+		name: "Size",
+		options: ["", "lg"],
+		control: {
+			type: "select",
+			labels: {
+				"": "Default",
+				lg: "Large",
+			},
+		},
+	},
+	title: {
+		name: "Title",
+		control: {
+			type: "text",
+		},
+	},
+	message: {
+		name: "Message",
+		control: {
+			type: "text",
 		},
 	},
 }
