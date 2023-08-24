@@ -7,6 +7,11 @@ import React, { HTMLProps } from "react"
 interface AccordionProps extends HTMLProps<HTMLDivElement> {
 	/** Additional CSS class name for styling the score component. */
 	className?: string
+	/** Remove border-radius when true */
+	noBorderRadius?: boolean
+	/** Remove side borders */
+	noSideBorders?: boolean
+	/** Accordion state */
 	state?: "" | "neutral" | "informative" | "success" | "warning" | "critical" // The semantic types for the accordion
 }
 

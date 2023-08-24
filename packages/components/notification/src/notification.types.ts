@@ -7,7 +7,7 @@ import { ReactNode } from "react"
 interface NotificationProps {
 	id: string // unique ID for the notification
 	title?: ReactNode // title content of the notification (can be any valid React node)
-	desc?: ReactNode // description content of the notification (can be any valid React node)
+	message?: ReactNode // message content of the notification (can be any valid React node)
 	action?: ReactNode // notification action
 	icon?: ReactNode | string // icon to display with the notification (can be a React node or a string)
 	iconState?: string | never // icon state (unused in the current implementation)

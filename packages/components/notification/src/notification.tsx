@@ -10,7 +10,7 @@ import { useNotifications } from "./use-notification"
 const Notification: React.FC<NotificationProps> = ({
 	id,
 	title,
-	desc,
+	message,
 	action,
 	icon,
 	isInline = true,
@@ -68,7 +68,7 @@ const Notification: React.FC<NotificationProps> = ({
 			className={classNames}
 			role="alert"
 			aria-labelledby={`${notificationId}-title`}
-			aria-describedby={`${notificationId}-desc`}
+			aria-describedby={`${notificationId}-message`}
 		>
 			{!!Icon && <Icon size="md" className="sui-notification__icon" />}
 			<div className="sui-notification__content">
@@ -80,12 +80,12 @@ const Notification: React.FC<NotificationProps> = ({
 						{title}
 					</span>
 				)}
-				{!!desc && (
+				{!!message && (
 					<span
 						className="sui-notification__message"
-						id={`${notificationId}-desc`}
+						id={`${notificationId}-message`}
 					>
-						{desc}
+						{message}
 					</span>
 				)}
 				{!!action && <div className="sui-notification__action">{action}</div>}
@@ -94,6 +94,8 @@ const Notification: React.FC<NotificationProps> = ({
 				<Button
 					className="sui-modal__header-actions-close"
 					icon="close"
+					appearance="tertiary"
+					color="black"
 					isSmall={true}
 					iconOnly={true}
 					onClick={onClose}

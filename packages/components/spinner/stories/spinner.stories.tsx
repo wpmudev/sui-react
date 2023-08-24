@@ -29,17 +29,12 @@ const Spinner = ({ example, children, ...args }) => {
 		size: args.size,
 	})
 
-	React.useEffect(() => {
-		console.log("Inside useEffect CB", boxRef.current)
-	}, [])
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div
 				className="sui-layout__content"
 				style={{ backgroundColor: "white", padding: "20px 40px" }}
 			>
-				{`// @todo: please improve this demo page + add both ways in doc`}
 				<h3>Two ways to use spinner</h3>
 				<h5>
 					1. Using useSpinner hook: Use this method when you want to block
@@ -95,10 +90,10 @@ Spinner.argTypes = {
 	},
 	size: {
 		name: "Size",
-		options: ["sm", "md", "lg"],
+		options: ["", "lg"],
 		control: {
 			type: "select",
-			labels: { sm: "Small - sm", md: "Medium - md", lg: "Large - lg" },
+			labels: { "": "Default", lg: "Large - lg" },
 		},
 	},
 	color: {

@@ -37,6 +37,8 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 		cols.reverse()
 	}
 
+	console.log("cols", cols, summaryItems)
+
 	return (
 		<BoxGroup isInline={true}>
 			<Row align={{ md: "inline" }} className={classNames}>

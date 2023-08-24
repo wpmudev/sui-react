@@ -44,6 +44,11 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	children?: React.ReactNode
 
 	/**
+	 * Stripe table style.
+	 */
+	type?: string
+
+	/**
 	 * ARIA label for the table.
 	 */
 	ariaLabel?: string
@@ -64,6 +69,16 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	hasToolbar?: boolean
 
 	/**
+	 * Remove border-radius when true
+	 */
+	noBorderRadius?: boolean
+
+	/**
+	 * Remove border from sides
+	 */
+	noSideBorder?: boolean
+
+	/**
 	 * Display filters in popover
 	 */
 	filtersPopover?: boolean
@@ -79,14 +94,19 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	bulkActions?: Record<Pick<SelectBaseProps, "options">, any>[]
 
 	/**
+	 * Display table row in stripped design
+	 */
+	isStripped?: boolean
+
+	/**
 	 * Callback function triggered when a row is checked/unchecked (used in checkable tables).
 	 */
-	onCheck: () => void
+	onCheck?: () => void
 
 	/**
 	 * Callback function triggered when an action is performed in the table toolbar.
 	 */
-	onAction(action: TableExpectedAction, data: unknown): void
+	onAction?(action: TableExpectedAction, data: unknown): void
 }
 
 /**
@@ -107,7 +127,7 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 	/**
 	 * The unique ID of the table row.
 	 */
-	id: number | string
+	id?: number | string
 
 	/**
 	 * Determines if the row is under the table header.

@@ -60,14 +60,38 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 			aria-labelledby={filterBtnId}
 			className={generateCN("sui-table__toolbar-body", {
 				expanded: isExpanded || !!ctx?.filtersPopover,
+				inline: !ctx?.filtersPopover,
 			})}
 		>
 			{ctx?.filtersPopover ? (
-				filters?.map((filter) => renderField(filter))
+				<>
+					{filters?.map((filter) => renderField(filter))}
+					<div className="sui-table__toolbar-cta">
+						<Button
+							appearance="tertiary"
+							color="black"
+							isSmall={true}
+							isDisabled={ctx?.filterValues?.length <= 0}
+						>
+							Clear filters
+						</Button>
+						<Button
+							appearance="secondary"
+							color="black"
+							isSmall={true}
+							isDisabled={ctx?.filterValues?.length <= 0}
+							onClick={() =>
+								ctx.triggerAction("apply-filters", ctx.filterValues)
+							}
+						>
+							Apply filters
+						</Button>
+					</div>
+				</>
 			) : (
 				<Box>
 					<BoxGroup>
-						<Row align={{ md: "" }}>
+						<Row align={{ sm: "inline" }}>
 							{(filters ?? [])?.map((filter, index) => (
 								<Col size={3} key={index}>
 									{renderField(filter)}
@@ -75,27 +99,31 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 							))}
 						</Row>
 					</BoxGroup>
+					<BoxGroup isInline={false} isFooter={true}>
+						<div className="sui-table__toolbar-cta">
+							<Button
+								appearance="secondary"
+								color="black"
+								isSmall={true}
+								isDisabled={ctx?.filterValues?.length <= 0}
+							>
+								Clear filters
+							</Button>
+							<Button
+								appearance="primary"
+								color="blue"
+								isSmall={true}
+								isDisabled={ctx?.filterValues?.length <= 0}
+								onClick={() =>
+									ctx.triggerAction("apply-filters", ctx.filterValues)
+								}
+							>
+								Apply filters
+							</Button>
+						</div>
+					</BoxGroup>
 				</Box>
 			)}
-			<Box>
-				<Button
-					appearance="secondary"
-					color="black"
-					isSmall={true}
-					isDisabled={ctx?.filterValues?.length <= 0}
-				>
-					Clear filters
-				</Button>
-				<Button
-					appearance="primary"
-					color="blue"
-					isSmall={true}
-					isDisabled={ctx?.filterValues?.length <= 0}
-					onClick={() => ctx.triggerAction("apply-filters", ctx.filterValues)}
-				>
-					Apply filters
-				</Button>
-			</Box>
 		</div>
 	)
 }
