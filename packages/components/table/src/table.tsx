@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, Children as RChild } from "react"
 
 import { isEmpty, generateCN } from "@wpmudev/sui-utils"
 
@@ -36,6 +36,16 @@ const Table: React.FC<TableProps> = ({
 		sticky: stickyCols,
 	})
 
+	// Component name to exclude from the children array
+	const componentToExclude = "TableFooter"
+	// Convert the children to an array
+	const childrenArray = RChild.toArray(children)
+
+	// Find the footer component within the array of children
+	const TFooter = childrenArray.find(
+		({ type: childType }) => childType.name === componentToExclude,
+	)
+
 	// Render the TableContextProvider to provide context with optional props
 	return (
 		<TableContextProvider
@@ -63,8 +73,11 @@ const Table: React.FC<TableProps> = ({
 					// Set the aria-label attribute if ariaLabel is provided and not empty
 					{...(!isEmpty(ariaLabel ?? "") && { "aria-label": ariaLabel })}
 				>
-					{children}
+					{children.filter(
+						({ type: cType }) => componentToExclude !== cType.name,
+					)}
 				</table>
+				{!!TFooter && TFooter}
 			</div>
 		</TableContextProvider>
 	)
