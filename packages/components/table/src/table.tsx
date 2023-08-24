@@ -62,21 +62,23 @@ const Table: React.FC<TableProps> = ({
 			<div className={classNames}>
 				{/* Render the TableToolbar component if hasToolbar is true */}
 				{hasToolbar && <TableToolbar />}
-				<table
-					{...props}
-					className="sui-table__table"
-					ref={ref}
-					role="grid"
-					tabIndex={-1}
-					cellSpacing="0"
-					cellPadding="0"
-					// Set the aria-label attribute if ariaLabel is provided and not empty
-					{...(!isEmpty(ariaLabel ?? "") && { "aria-label": ariaLabel })}
-				>
-					{children.filter(
-						({ type: cType }) => componentToExclude !== cType.name,
-					)}
-				</table>
+				<div className="sui-table__wrapper">
+					<table
+						{...props}
+						className="sui-table__table"
+						ref={ref}
+						role="grid"
+						tabIndex={-1}
+						cellSpacing="0"
+						cellPadding="0"
+						// Set the aria-label attribute if ariaLabel is provided and not empty
+						{...(!isEmpty(ariaLabel ?? "") && { "aria-label": ariaLabel })}
+					>
+						{children.filter(
+							({ type: cType }) => componentToExclude !== cType.name,
+						)}
+					</table>
+				</div>
 				{!!TFooter && TFooter}
 			</div>
 		</TableContextProvider>

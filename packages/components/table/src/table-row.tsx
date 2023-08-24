@@ -13,7 +13,7 @@ import { TableRowProps } from "./table.types"
 
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { useInteraction } from "@wpmudev/sui-hooks"
-import { generateCN } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 
 import { TableCell } from "./table-cell"
@@ -41,6 +41,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	isUnderHeader = false,
 	isExpandable = false,
 	expandableContent = null,
+	status,
 	isUnderFooter = false,
 	...props
 }) => {
@@ -86,6 +87,7 @@ const TableRow: React.FC<TableRowProps> = ({
 		hover: !isUnderFooter && !isUnderHeader && isHovered,
 		expandable: isExpandable,
 		expanded: isExpanded,
+		[status]: !isEmpty(status ?? ""),
 	})
 
 	// Generate toggle button
@@ -128,6 +130,7 @@ const TableRow: React.FC<TableRowProps> = ({
 		}
 
 		if (isUnderFooter) {
+			p.isSticky = false
 			p.hasDragIcon = false
 			p.colSpan = "100%"
 		}

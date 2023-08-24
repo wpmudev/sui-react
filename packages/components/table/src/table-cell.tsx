@@ -30,6 +30,7 @@ const TableCell: React.FC<TableCellProps> = ({
 	hasDragIcon = false,
 	isSortable = false,
 	isSticky = false,
+	isTrim = false,
 	...props
 }) => {
 	// Define element tag name based on whether it's a heading cell (th) or a regular cell (td).
@@ -84,7 +85,7 @@ const TableCell: React.FC<TableCellProps> = ({
 		<TagName
 			className={generateCN(
 				"sui-table__cell",
-				{ sortable: isSortable, sticky: isSticky },
+				{ sortable: isSortable, sticky: isSticky, trim: isTrim },
 				className,
 			)}
 			{...(isHeading ? { scope: "col" } : {})}
