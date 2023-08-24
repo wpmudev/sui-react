@@ -17,8 +17,11 @@
         @include block($block) {
             @include element(cell) {
                 border: none;
+                overflow: hidden;
                 padding: $spacing-lg;
                 text-align: left;
+                text-overflow: ellipsis;
+                white-space: nowrap;
 
                 @include modifier(drag) {
                     cursor: grab;
@@ -53,6 +56,40 @@
 
                 &:last-child {
                     padding-right: $spacing-xxl;
+                }
+
+                @include modifier(sticky) {
+                    background-color: white;
+                    border-right: 2px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
+                    left: calc( 70px - 2px);
+                    position: sticky;
+                    width: 100px;
+
+                    &.sui-table__cell--selection {
+                        border-right: 0;
+                        left: 0;
+                    }
+
+                    &.sui-table__cell--actions {
+                        border-right: 0;
+                        border-left: 2px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
+                        left: auto;
+                        // @todo: need to make this dynamic!!
+                        min-width: 150px;
+                        right: 0;
+                    }
+                }
+            }
+
+            @include element(cell-btn) {
+                align-items: center;
+                cursor: pointer;
+                display: inline-flex;
+                gap: 6px;
+
+                @include modifier(focused) {
+                    border-radius: 4px;
+                    box-shadow: 0 0 0 2px #286EF1;
                 }
             }
         }
