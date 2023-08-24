@@ -6,10 +6,8 @@
 			@include element(title) {
 				display: block;
 				margin: $spacing-sm 0;
-				font-weight: $font-weight-lg;
+				font-weight: $font-weight-md;
 				font-size: $font-size-md;
-				line-height: $font-height-sm;
-				letter-spacing: $font-spacing-md;
 			}
 		}
 	}

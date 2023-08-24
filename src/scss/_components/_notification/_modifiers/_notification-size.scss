@@ -3,14 +3,21 @@
 @mixin edit-size($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
-			width: 360px;
+			width: $notification-size-width-md;
 
 			@include modifier(lg) {
-				width: 640px;
+				width: $notification-size-width-lg;
+
+				@include media(max-width, sm) {
+					width: $notification-size-width-md;
+				}
 			}
 
-			@include modifier(fluid) {
-				width: auto;
+			@include modifier(inline) {
+				@include media(max-width, sm) {
+					max-width: $notification-size-width-md;
+					width: 100%;
+				}
 			}
 		}
 	}

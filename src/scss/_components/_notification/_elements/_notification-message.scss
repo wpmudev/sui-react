@@ -6,13 +6,10 @@
             @include element(message) {
                 display: block;
                 margin: $spacing-sm 0;
-                font-family: $font-family-default;
-                font-size: $font-size-default;
-                line-height: $font-height-sm;
 
                 a {
-                    font-weight: $font-weight-md;
                     text-decoration: none;
+                    cursor: pointer;
                 }
             }
         }

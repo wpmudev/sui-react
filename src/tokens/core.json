@@ -855,6 +855,10 @@
 			"md": {
 				"value": "2px",
 				"type": "borderWidth"
+			},
+			"xl": {
+				"value": "4px",
+				"type": "borderWidth"
 			}
 		},
 		"radius": {

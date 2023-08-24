@@ -4,14 +4,15 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			@include element(icon) {
-				display: block;
-				flex: 0 0 auto;
-				margin: $spacing-sm $spacing-sm $spacing-sm 0;
+				margin: $spacing-sm $spacing-md $spacing-sm 0;
+			}
+		}
+	}
 
-				&:before {
-					display: block;
-					margin-top: -1px;
-				}
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block-name) {
+			@include element(icon) {
+				margin: $spacing-sm 0 $spacing-sm $spacing-md;
 			}
 		}
 	}
