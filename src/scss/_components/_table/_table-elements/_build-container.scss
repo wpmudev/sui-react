@@ -22,7 +22,7 @@
 
             @include element(wrapper) {
                 overflow-y: scroll;
-                padding: 1px;
+                padding-top: 1px;
             }
 
             // @todo: improve
