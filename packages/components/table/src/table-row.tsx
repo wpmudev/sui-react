@@ -182,6 +182,7 @@ const TableRow: React.FC<TableRowProps> = ({
 					className={generateCN("sui-table__row", {
 						content: true,
 						"content-expanded": isExpanded,
+						[status]: !isEmpty(status ?? ""),
 					})}
 					id={rowContentId}
 					aria-labelledby={rowId}

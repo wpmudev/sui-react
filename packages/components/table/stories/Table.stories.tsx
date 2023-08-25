@@ -33,7 +33,7 @@ export default {
 const records = [
 	{
 		id: 1,
-		title: "Contact Form Contact Form Contact Form Contact Form Contact Form Contact Form Contact Form Contact Form Contact Form",
+		title: "Contact Form this is a example of long text with trim enabled.",
 		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
 		status: "info",
