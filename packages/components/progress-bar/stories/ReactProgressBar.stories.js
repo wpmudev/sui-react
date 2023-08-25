@@ -41,6 +41,8 @@ ProgressBar.args = {
 	size: "sm",
 	allowCancel: true,
 	isIndeterminate: true,
+	hasValue: false,
+	isInline: false,
 }
 
 // Set controls for story arguments
