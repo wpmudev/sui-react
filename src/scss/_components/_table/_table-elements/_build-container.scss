@@ -29,6 +29,7 @@
             @include element(table) {
                 width: 100%;
                 position: relative;
+                border-collapse: collapse;
             }
 
             @include modifier(no-border-radius) {

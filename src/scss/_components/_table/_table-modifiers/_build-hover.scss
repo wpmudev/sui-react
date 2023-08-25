@@ -17,6 +17,10 @@
             @include element(row) {
                 @include modifier(hover) {
                     background: $color-extended-neutral-95;
+
+                    .sui-#{$block}__cell--sticky {
+                        background: $color-extended-neutral-95;
+                    }
                 }
             }
         }
