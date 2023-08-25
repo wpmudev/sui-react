@@ -13,6 +13,10 @@
 				}
 			}
 
+			@include modifier(fluid) {
+				width: 100%;
+			}
+
 			@include modifier(inline) {
 				@include media(max-width, sm) {
 					max-width: $notification-size-width-md;

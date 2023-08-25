@@ -26,6 +26,22 @@
                     }
                 }
             }
+
+            @include modifier(no-border-radius) {
+                .sui-#{$block}__item--focus {
+                    &:first-child,
+                    &:first-child::after {
+                        border-top-left-radius: 0;
+                        border-top-right-radius: 0;
+                    }
+
+                    &:last-child,
+                    &:last-child::after {
+                        border-bottom-right-radius: 0;
+                        border-bottom-left-radius: 0;
+                    }
+                }
+            }
         }
     }
 }
