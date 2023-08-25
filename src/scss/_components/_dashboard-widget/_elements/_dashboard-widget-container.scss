@@ -13,10 +13,10 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             align-items: flex-start;
-            background-color: #FFF;
-            border-radius: 16px;
-            max-width: 440px;
-            padding: 24px;
+            background-color: $color-extended-neutral-100;
+            border-radius: $border-radius-lg;
+            max-width: $dashboard-size-width-lg;
+            padding: $spacing-xl;
         }
     }
 
@@ -25,7 +25,8 @@
     @include sui-class($rtl: false, $theme: dark) {
         @include block($block) {
             color: $color-extended-neutral-0;
-            border: $border-width-sm solid $color-extended-neutral-0;
+            outline: $border-width-sm solid $color-extended-neutral-0;
+            outline-offset: $border-width-sm;
         }
     }
 }

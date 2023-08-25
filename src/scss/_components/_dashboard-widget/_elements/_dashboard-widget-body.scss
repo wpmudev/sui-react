@@ -13,7 +13,7 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             @include element(body) {
-                margin: 24px -24px;
+                margin: $spacing-xl -#{$spacing-xl};
 
                 p {
                     margin: 0;

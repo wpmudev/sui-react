@@ -1,0 +1,20 @@
+{
+    "dashboard": {
+        "size": {
+            "width": {
+                "lg": {
+                    "value": "440px",
+                    "type": "sizing"
+                }
+            }
+        },
+        "font": {
+            "size": {
+                "sm": {
+                    "value": "13px",
+                    "type": "fontSizes"
+                }
+            }
+        }
+    }
+}
