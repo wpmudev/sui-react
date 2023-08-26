@@ -13,10 +13,22 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             @include element(footer) {
+                font-size: $dashboard-font-size-sm;
+                color: $color-extended-neutral-50;
                 align-items: center;
                 display: flex;
-                gap: 8px;
+                gap: $spacing-md;
                 justify-content: space-between;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            @include element(footer) {
+                color: $color-extended-neutral-0;
             }
         }
     }

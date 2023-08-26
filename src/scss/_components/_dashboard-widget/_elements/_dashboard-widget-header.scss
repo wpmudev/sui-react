@@ -12,32 +12,36 @@
     // THEME: None.
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
-            @include element(header) {
-
-            }
-
             @include element(header-title) {
                 align-items: center;
                 display: flex;
-                gap: 16px;
+                gap: $spacing-md;
                 justify-content: space-between;
             }
 
             @include element(header-info) {
                 align-items: center;
                 display: flex;
-                gap: 8px;
+                gap: $spacing-md;
+                color: $color-extended-neutral-10;
 
-                h3 {
-                    font: $font-weight-md 18px/28px $font-family-default;
+                h4 {
+                    font-weight: $font-weight-lg;
                     margin: 0;
                 }
             }
 
             @include element(header-desc) {
-                color: var(--neutral-grey-50505050, #505050);
-                font: $font-weight-sm 15px/24px $font-family-default;
-                margin-top: 8px;
+                color: $color-extended-neutral-50;
+                margin-top: $spacing-md;
+
+                p {
+                    margin-top: 0;
+                }
+
+                .sui-notification {
+                    margin: $spacing-xl 0;
+                }
             }
         }
     }
