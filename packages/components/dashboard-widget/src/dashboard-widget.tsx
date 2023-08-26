@@ -47,6 +47,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	// Prepare attributes for the tag component
 	const tagAttrs = {
 		design: "outlined",
+		color: "black",
 		...tagProps,
 	}
 
@@ -58,10 +59,10 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 						{/* Display the icon if available */}
 						{IconTag && <IconTag size="md" />}
 						{/* Display the title and optional tag */}
-						<h3 className="sui-dashboard-widget__header-title">
+						<h4 className="sui-heading--h4 sui-dashboard-widget__header-title">
 							{title ?? "Title of Upsell"}
 							{tag && <Tag {...(tagAttrs ?? {})}>{tag}</Tag>}
-						</h3>
+						</h4>
 					</div>
 					{/* Display collapse/expand button if allowed */}
 					{canCollapse && (

@@ -95,7 +95,7 @@ DashboardWidget.args = {
 				icon="InfoAlt"
 				variation="info"
 				size="fluid"
-				desc="11 events logged in the past 7 days."
+				message="11 events logged in the past 7 days."
 			/>
 		</Fragment>
 	),
