@@ -29,22 +29,36 @@ const tag = (
 // Build footer story
 const Sidebar = ({}) => {
 	return (
-		<div style={{ maxWidth: "400px", padding: "30px 0" }}>
-			<SuiSidebar>
-				<SidebarItem action={tag} title="Sidebar item" url="#" />
-				<SidebarItem
-					isActive={true}
-					action={tag}
-					title="Sidebar Item (active)"
-					url="#"
-				/>
-				<SidebarItem action={tag} title="Sidebar item" url="#" />
-				<SidebarItem
-					isDisabled={true}
-					title="Sidebar item (disabled)"
-					url="#"
-				/>
-			</SuiSidebar>
+		<div
+			style={{
+				marginTop: "30px",
+				padding: "30px",
+				backgroundColor: "white",
+			}}
+		>
+			<div
+				style={{
+					backgroundColor: "white",
+				}}
+			>
+				<SuiSidebar>
+					<SidebarItem action={tag} title="Sidebar item" url="#" icon="Bell" />
+					<SidebarItem
+						isActive={true}
+						action={tag}
+						title="Sidebar Item (active)"
+						url="#"
+						icon="Bell"
+					/>
+					<SidebarItem action={tag} title="Sidebar item" url="#" />
+					<SidebarItem
+						isDisabled={true}
+						title="Sidebar item (disabled)"
+						url="#"
+						icon="Bell"
+					/>
+				</SuiSidebar>
+			</div>
 		</div>
 	)
 }

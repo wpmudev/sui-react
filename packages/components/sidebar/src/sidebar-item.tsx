@@ -37,7 +37,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 	// Determine the IconTag based on the provided icon value.
 	let IconTag = null
 	if (!isEmpty(icon)) {
-		IconTag = Icons?.[icon]
+		IconTag = Icons?.[icon ?? ""]
 	}
 
 	// Return JSX structure representing the SidebarItem.
@@ -51,7 +51,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 		>
 			{/* Display item info, including optional icon and title */}
 			<div className="sui-sidebar__item-info">
-				{IconTag && <IconTag size="sm" />}
+				{IconTag && (
+					<IconTag
+						size="sm"
+						color={(isHovered && !isFocused) || isActive ? "informative" : ""}
+					/>
+				)}
 				<span>{title}</span>
 			</div>
 
