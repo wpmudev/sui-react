@@ -19,6 +19,8 @@ import { TableContext } from "./table-context"
  * @param {boolean}        props.hasDragIcon - Determines if the cell should display a drag icon (Grip icon).
  * @param {boolean}        props.isSortable  - Makes cell sortable
  * @param {boolean}        props.isSticky    - Freeze first and last columns
+ * @param {boolean}        props.isTrim      - Trim table cell content when there isn't enough space
+ * @param {boolean}        props.isPrimary   - Make column primary (note: only one column can be primary)
  *
  * @return {JSX.Element} The JSX representation of the TableCell component.
  */
@@ -31,6 +33,7 @@ const TableCell: React.FC<TableCellProps> = ({
 	isSortable = false,
 	isSticky = false,
 	isTrim = false,
+	isPrimary = false,
 	...props
 }) => {
 	// Define element tag name based on whether it's a heading cell (th) or a regular cell (td).
@@ -85,7 +88,12 @@ const TableCell: React.FC<TableCellProps> = ({
 		<TagName
 			className={generateCN(
 				"sui-table__cell",
-				{ sortable: isSortable, sticky: isSticky, trim: isTrim },
+				{
+					sortable: isSortable,
+					sticky: isSticky,
+					trim: isTrim,
+					primary: isPrimary,
+				},
 				className,
 			)}
 			{...(isHeading ? { scope: "col" } : {})}

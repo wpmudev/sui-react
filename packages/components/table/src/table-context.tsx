@@ -15,6 +15,11 @@ export type TableSortBy = {
 	order: "asc" | "desc"
 }
 
+export type TableColumnType = {
+	title: string
+	isPrimary?: boolean
+}
+
 // table context provider to provide the context to its children
 const TableContextProvider: FC<TableContextProviderProps> = ({
 	children,
@@ -29,6 +34,7 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 	const [selected, setSelected] = useState<Array<number | string>>([])
 	// state for table rows
 	const [rows, setRows] = useState<Record<string, any>[]>([])
+	const [columns, setColumns] = useState<TableColumnType[]>([])
 	// state to force collapse in drag-and-drop reordering
 	const [forceCollapse, setForceCollapse] = useState(false)
 	const [sortBy, setSortBy] = useState<TableSortBy>({
@@ -100,6 +106,9 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 				// table rows
 				rows,
 				setRows,
+				// table columns
+				columns,
+				setColumns,
 				// table selected rows
 				selected,
 				onSelect,

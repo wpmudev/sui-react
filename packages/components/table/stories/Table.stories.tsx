@@ -53,15 +53,7 @@ const records = [
 		status: "warning",
 		props: {
 			isExpandable: true,
-			expandableContent: (
-				<Box>
-					<BoxGroup isInline={false}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry standard dummy text ever
-						since the 1500s
-					</BoxGroup>
-				</Box>
-			),
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
 		},
 	},
 	{
@@ -72,15 +64,7 @@ const records = [
 		status: "error",
 		props: {
 			isExpandable: true,
-			expandableContent: (
-				<Box>
-					<BoxGroup isInline={false}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry standard dummy text ever
-						since the 1500s
-					</BoxGroup>
-				</Box>
-			),
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
 		},
 	},
 	{
@@ -90,15 +74,7 @@ const records = [
 		submission: "April 20, 2022 11:00 am",
 		props: {
 			isExpandable: true,
-			expandableContent: (
-				<Box>
-					<BoxGroup isInline={false}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry standard dummy text ever
-						since the 1500s
-					</BoxGroup>
-				</Box>
-			),
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
 		},
 	},
 	{
@@ -108,15 +84,7 @@ const records = [
 		submission: "April 20, 2022 11:00 am",
 		props: {
 			isExpandable: true,
-			expandableContent: (
-				<Box>
-					<BoxGroup isInline={false}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry standard dummy text ever
-						since the 1500s
-					</BoxGroup>
-				</Box>
-			),
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
 		},
 	},
 ]
@@ -180,7 +148,7 @@ const Table = ({ example, ...args }) => {
 							<TableCell isHeading={true} isSortable={false}>
 								ID
 							</TableCell>
-							<TableCell isHeading={true} isSortable={true}>
+							<TableCell isHeading={true} isSortable={true} isPrimary={true}>
 								Form name
 							</TableCell>
 							<TableCell isHeading={true} id="tag" isSortable={true}>

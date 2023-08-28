@@ -15,9 +15,11 @@ import { Checkbox } from "@wpmudev/sui-checkbox"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
+import { Box, BoxGroup } from "@wpmudev/sui-box"
 
 import { TableCell } from "./table-cell"
 import { TableContext } from "./table-context"
+import { TableFields } from "./table-fields"
 
 /**
  * TableRow component represents a row within a table.
@@ -115,6 +117,8 @@ const TableRow: React.FC<TableRowProps> = ({
 		numberOfCols += 1
 	}
 
+	const primaryColIndex = ctx?.columns?.findIndex((col) => col.isPrimary)
+
 	// Handle children nodes and add drag icon if needed
 	children = Children.toArray(children).map((child, index) => {
 		const p: Record<string, any> = { hasDragIcon: false, colSpan: undefined }
@@ -133,6 +137,11 @@ const TableRow: React.FC<TableRowProps> = ({
 			p.isSticky = false
 			p.hasDragIcon = false
 			p.colSpan = "100%"
+		}
+
+		// Mark as primary column
+		if (primaryColIndex === index) {
+			p.isPrimary = true
 		}
 
 		return <Fragment key={index}>{cloneElement(child, p)}</Fragment>
@@ -188,7 +197,14 @@ const TableRow: React.FC<TableRowProps> = ({
 					aria-labelledby={rowId}
 					tabIndex={isExpanded ? 0 : -1}
 				>
-					<td colSpan={numberOfCols}>{expandableContent}</td>
+					<td colSpan={numberOfCols}>
+						<Box>
+							<BoxGroup isInline={false}>
+								<TableFields>{children}</TableFields>
+								{expandableContent}
+							</BoxGroup>
+						</Box>
+					</td>
 				</tr>
 			)}
 		</>

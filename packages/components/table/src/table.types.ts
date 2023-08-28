@@ -2,6 +2,7 @@ import React, { HTMLProps } from "react"
 
 import { InputProps } from "@wpmudev/sui-input"
 import { SelectBaseProps } from "@wpmudev/sui-select"
+import { TableColumnType } from "./table-context"
 
 /**
  * Interface representing the properties of a table section.
@@ -130,6 +131,10 @@ type TableCellBaseProps = {
 	 * Make cell text single line and trimmable
 	 */
 	isTrim?: boolean
+	/**
+	 * Make table cell primary
+	 */
+	isPrimary?: boolean
 } & Omit<HTMLProps<HTMLTableCellElement | HTMLTableHeaderCellElement>, "id">
 
 type TableCellWithSortingProps = {
@@ -209,19 +214,29 @@ interface TableContextProps {
 	isDraggable?: boolean
 
 	/**
-	 * Array of table rows with additional data.
-	 */
-	rows: Record<string, any>[]
-
-	/**
 	 * Array of bulk actions available in the table toolbar.
 	 */
 	bulkActions?: Record<Pick<SelectBaseProps, "options">, any>[]
 
 	/**
+	 * Array of table rows with additional data.
+	 */
+	rows: Record<string, any>[]
+
+	/**
 	 * Function to set the table rows.
 	 */
 	setRows(rows: Record<string, any>[]): void
+
+	/**
+	 * Array of table columns
+	 */
+	columns: TableColumnType[]
+
+	/**
+	 * Functions to store columns in state
+	 */
+	setColumns(columns: TableColumnType[]): void
 
 	/**
 	 * Display filters in popover
@@ -327,12 +342,17 @@ interface TableToolbarContentProps {
 	isExpanded: boolean
 }
 
+interface TableFieldsProps {
+	children: React.ReactNode
+}
+
 export {
 	TableProps,
 	TableExpectedAction,
 	TableSectionProps,
 	TableCellProps,
 	TableRowProps,
+	TableFieldsProps,
 	TableContextProps,
 	TableContextProviderProps,
 	TableToolbarContentProps,
