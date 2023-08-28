@@ -29,7 +29,10 @@
             @include element(table) {
                 width: 100%;
                 position: relative;
-                border-collapse: collapse;
+
+                @include modifier(footer) {
+                    border-collapse: collapse;
+                }
             }
 
             @include modifier(no-border-radius) {
@@ -39,6 +42,18 @@
             @include modifier(no-side-borders) {
                 border-left: 0;
                 border-right: 0;
+            }
+        }
+    }
+
+    // DIR: Right top left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            // @todo: improve
+            @include element(table) {
+                margin-right: -1px;
             }
         }
     }

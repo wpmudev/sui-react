@@ -25,7 +25,7 @@
                         top: 0;
                         bottom: 0;
                         left: 0;
-                        width: 4px;
+                        width: $border-width-xl;
                         background: transparent;
                         pointer-events: none;
                     }
@@ -45,6 +45,10 @@
                 @include modifies-element(body) {
                     .sui-#{$block}__row:nth-child(odd) {
                         background: $color-extended-neutral-95;
+
+                        .sui-#{$block}__cell--sticky {
+                            background: $color-extended-neutral-95;
+                        }
                     }
                 }
             }
@@ -71,6 +75,10 @@
                 @include modifies-element(body) {
                     .sui-#{$block}__row:nth-child(odd) {
                         background: $color-extended-neutral-100;
+
+                        .sui-#{$block}__cell--sticky {
+                            background: $color-extended-neutral-100;
+                        }
                     }
                 }
             }

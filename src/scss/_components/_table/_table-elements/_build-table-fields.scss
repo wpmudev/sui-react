@@ -25,25 +25,29 @@
             }
 
             @include element(fields-primary) {
-                color: #000;
-                font: $font-weight-lg 18px/28px $font-family-default;
-                margin-bottom: 24px;
+                color: $color-extended-neutral-0;
+                font-size: $table-font-size-md;
+                line-height: $table-font-height-md;
+                font-weight: $font-weight-lg;
+                margin-bottom: $spacing-xl;
             }
 
             @include element(fields-item) {
                 list-style: none;
-                margin-bottom: 24px;
+                margin-bottom: $spacing-xl;
+            }
+
+            @include element(fields-item-title, fields-item-value) {
+                color: $color-extended-neutral-50;
             }
 
             @include element(fields-item-title) {
-                color: var(--neutral-grey-50505050, #505050);
-                font: $font-weight-md 15px/24px $font-family-default;
-                margin-bottom: 8px;
+                margin-bottom: $spacing-md;
+                font-weight: $font-weight-md;
             }
 
             @include element(fields-item-value) {
-                color: var(--neutral-grey-50505050, #505050);
-                font: $font-weight-sm 15px/24px $font-family-default;
+                color: $color-extended-neutral-50;
                 padding: 0;
             }
         }
