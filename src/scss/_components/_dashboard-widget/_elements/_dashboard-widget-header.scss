@@ -17,6 +17,10 @@
                 display: flex;
                 gap: $spacing-md;
                 justify-content: space-between;
+
+                .sui-tag {
+                    margin: 0;
+                }
             }
 
             @include element(header-info) {

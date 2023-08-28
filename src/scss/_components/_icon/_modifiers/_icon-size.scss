@@ -11,21 +11,21 @@
 	// THEME: Light.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			@include modifier(xsm) {
-				height: 12px;
-				width: 12px;
+			@include modifier(xs) {
+				height: $icon-size-xs;
+				width: $icon-size-xs;
 			}
 			@include modifier(sm) {
-				height: 16px;
-				width: 16px;
+				height: $icon-size-sm;
+				width: $icon-size-sm;
 			}
 			@include modifier(md) {
-				height: 24px;
-				width: 24px;
+				height: $icon-size-md;
+				width: $icon-size-md;
 			}
 			@include modifier(lg) {
-				height: 48px;
-				width: 48px;
+				height: $icon-size-lg;
+				width: $icon-size-lg;
 			}
 			// @todo: add others variations
 		}
