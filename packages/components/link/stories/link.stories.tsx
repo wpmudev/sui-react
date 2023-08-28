@@ -50,8 +50,8 @@ export const Link = ({ example, ...props }, { globals: { theme } }) => {
 
 Link.args = {
 	theme: "primary",
-	href: "#",
-	as: "a",
+	href: "https://google.com",
+	as: "span",
 	isInline: false,
 	isDisabled: false,
 	isExternal: false,
