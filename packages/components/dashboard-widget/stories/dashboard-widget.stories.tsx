@@ -26,7 +26,7 @@ export default {
 
 // Build story
 // eslint-disable-next-line react/prop-types
-export const DashboardWidget = ({ example, ...props }) => {
+export const DashboardWidget = ({ example, icon, ...props }) => {
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
 
 	const box = {
@@ -59,8 +59,6 @@ export const DashboardWidget = ({ example, ...props }) => {
 				<div style={box}>
 					<SuiDashboardWidget
 						{...props}
-						title="Malware Scanning"
-						icon="CheckAlt"
 						actions={actions}
 						isExpanded={isExpanded}
 						onToggle={setIsExpanded}
@@ -103,6 +101,11 @@ DashboardWidget.args = {
 	tagProps: { isSmall: "sm" },
 	canCollapse: false,
 	isDisabled: false,
+	icon: "CheckAlt",
+	statusIcon: "InfoAlt",
+	statusProps: {
+		color: "warning",
+	},
 }
 
 DashboardWidget.argTypes = {
@@ -127,14 +130,32 @@ DashboardWidget.argTypes = {
 			type: "text",
 		},
 	},
+	tagProps: {
+		name: "Tag Props",
+		control: {
+			type: "object",
+		},
+	},
+	statusIcon: {
+		name: "Status",
+		control: {
+			type: "text",
+		},
+	},
+	statusProps: {
+		name: "Status Props",
+		control: {
+			type: "object",
+		},
+	},
 	canCollapse: {
-		name: "canCollapse",
+		name: "Collapse",
 		control: {
 			type: "boolean",
 		},
 	},
 	isDisabled: {
-		name: "isDisabled",
+		name: "Disabled",
 		control: {
 			type: "boolean",
 		},

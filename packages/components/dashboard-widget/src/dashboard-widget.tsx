@@ -19,6 +19,8 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	icon = "",
 	tag,
 	tagProps,
+	statusIcon = "",
+	statusProps,
 	isExpanded = false,
 	isDisabled = false,
 	canCollapse = false,
@@ -44,6 +46,9 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	// Determine the icon component based on the 'icon' prop
 	const IconTag = Icons?.[icon]
 
+	// Determine the icon component based on the 'icon' prop
+	const StatusIcon = Icons?.[statusIcon]
+
 	// Prepare attributes for the tag component
 	const tagAttrs = {
 		design: "outlined",
@@ -62,6 +67,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 						<h4 className="sui-heading--h4 sui-dashboard-widget__header-title">
 							{title ?? "Title of Upsell"}
 							{tag && <Tag {...(tagAttrs ?? {})}>{tag}</Tag>}
+							{statusIcon && <StatusIcon size="sm" {...(statusProps ?? {})} />}
 						</h4>
 					</div>
 					{/* Display collapse/expand button if allowed */}

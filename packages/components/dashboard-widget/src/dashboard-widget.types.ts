@@ -40,6 +40,12 @@ interface DashboardWidgetProps {
 	/** Additional props for the tag component */
 	tagProps?: TagProps
 
+	/** A status associated with the widget */
+	statusIcon?: string
+
+	/** A status color with the widget */
+	statusProps?: object
+
 	/** The content of the widget */
 	children?: ReactNode
 }
