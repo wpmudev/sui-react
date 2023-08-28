@@ -145,21 +145,6 @@
         }
     }
 
-    // DIR: Right to left.
-    // THEME: None.
-    @include sui-class($rtl: true, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(cell) {
-                @include modifier(selection) {
-                    .sui-checkbox__box {
-                        margin-left: 0;
-                    }
-                }
-            }
-        }
-    }
-
     // DIR: Left to right.
     // THEME: Dark.
     @include sui-class($rtl: false, $theme: dark) {
@@ -192,14 +177,30 @@
                     transform: translate(-50%, -$spacing-md);
                 }
 
+                @include modifier(selection) {
+                    .sui-checkbox__box {
+                        margin-left: 0;
+                    }
+                }
+
                 &:first-child {
                     padding-right: $spacing-xxl;
                     padding-left: $spacing-md;
+
+                    @include media(max-width, sm) {
+                        padding-right: $spacing-lg;
+                        padding-left: $spacing-lg;
+                    }
                 }
 
                 &:last-child {
                     padding-right: $spacing-lg;
                     padding-left: $spacing-xxl;
+
+                    @include media(max-width, sm) {
+                        padding-right: $spacing-lg;
+                        padding-left: $spacing-lg;
+                    }
                 }
 
                 @include modifier(sticky) {
@@ -207,6 +208,10 @@
                     left: unset;
                     border-left: $border-width-md solid $color-extended-neutral-80;
                     border-right: 0;
+
+                    @include media(max-width, sm) {
+                        border: none;
+                    }
 
                     &.sui-#{$block}__cell--selection {
                         border-left: 0;
@@ -219,6 +224,20 @@
                         border-right: $border-width-md solid $color-extended-neutral-80;
                         right: auto;
                         left: 0;
+
+                        @include media(max-width, sm) {
+                            border: none;
+                        }
+                    }
+                }
+            }
+
+            @include modifier(draggable) {
+                @include modifies-element(cell) {
+                    &:first-child {
+                        @include media(max-width, sm) {
+                            padding-right: $spacing-xxl;
+                        }
                     }
                 }
             }
