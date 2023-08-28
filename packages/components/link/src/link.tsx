@@ -63,7 +63,7 @@ const Link: React.FC<LinkProps> = ({
 	return (
 		<TagName tabIndex={0} {...methods} {...linkProps}>
 			{children}
-			{hasExternalIcon && isExternal && <ExternalLink />}
+			{hasExternalIcon && isExternal && <ExternalLink size="sm" />}
 		</TagName>
 	)
 }
