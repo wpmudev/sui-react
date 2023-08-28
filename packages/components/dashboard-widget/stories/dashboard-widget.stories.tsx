@@ -27,7 +27,7 @@ export default {
 // Build story
 // eslint-disable-next-line react/prop-types
 export const DashboardWidget = ({ example, icon, ...props }) => {
-	const [isExpanded, setIsExpanded] = useState<boolean>(false)
+	const [isExpanded, setIsExpanded] = useState<boolean>(true)
 
 	const box = {
 		display: "flex",
