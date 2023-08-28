@@ -50,8 +50,8 @@ export const Link = ({ example, ...props }, { globals: { theme } }) => {
 
 Link.args = {
 	theme: "primary",
-	href: "https://google.com",
-	as: "span",
+	href: "https://wpmudev.com",
+	as: "a",
 	isInline: false,
 	isDisabled: false,
 	isExternal: false,
