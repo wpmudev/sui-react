@@ -125,6 +125,11 @@ type TableCellBaseProps = {
 	 * Make cell sticky
 	 */
 	isSticky?: boolean
+
+	/**
+	 * Make cell text single line and trimmable
+	 */
+	isTrim?: boolean
 } & Omit<HTMLProps<HTMLTableCellElement | HTMLTableHeaderCellElement>, "id">
 
 type TableCellWithSortingProps = {
@@ -166,6 +171,11 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 	 * Children nodes of the table row.
 	 */
 	children?: React.ReactNode
+
+	/**
+	 * Status color to appear on the table row.
+	 */
+	status?: string
 }
 
 /**

@@ -33,21 +33,24 @@ export default {
 const records = [
 	{
 		id: 1,
-		title: "Contact Form",
+		title: "Contact Form this is a example of long text with trim enabled.",
 		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
+		status: "info",
 	},
 	{
 		id: 2,
 		title: "Contact Form",
 		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
+		status: "success",
 	},
 	{
 		id: 3,
 		title: "Contact Form",
 		tag: <Tag color="blue">Published</Tag>,
 		submission: "April 20, 2022 11:00 am",
+		status: "warning",
 		props: {
 			isExpandable: true,
 			expandableContent: (
@@ -66,6 +69,7 @@ const records = [
 		title: "Contact Form",
 		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
+		status: "error",
 		props: {
 			isExpandable: true,
 			expandableContent: (
@@ -194,6 +198,7 @@ const Table = ({ example, ...args }) => {
 								id={record.id}
 								isExpandable={record?.props?.isExpandable}
 								expandableContent={record?.props?.expandableContent}
+								status={record?.status}
 								actions={({ id, content }) => {
 									return action(id, content)
 								}}
@@ -201,7 +206,7 @@ const Table = ({ example, ...args }) => {
 								<TableCell>
 									<strong>#{record.id}</strong>
 								</TableCell>
-								<TableCell>
+								<TableCell isTrim={true}>
 									<strong>{record.title}</strong>
 								</TableCell>
 								<TableCell>{record.tag}</TableCell>
