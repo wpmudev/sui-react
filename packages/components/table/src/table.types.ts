@@ -1,4 +1,4 @@
-import React, { HTMLProps } from "react"
+import React, { HTMLProps, RefObject } from "react"
 
 import { InputProps } from "@wpmudev/sui-input"
 import { SelectBaseProps } from "@wpmudev/sui-select"
@@ -319,7 +319,9 @@ interface TableContextProviderProps {
 		| "bulkActions"
 		| "stickyCols"
 	> &
-		Pick<TableProps, "onAction">
+		Pick<TableProps, "onAction"> & {
+			ref: RefObject<HTMLTableElement>
+		}
 }
 
 /**

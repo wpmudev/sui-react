@@ -34,6 +34,7 @@ const Table: React.FC<TableProps> = ({
 		"no-side-borders": noSideBorder,
 		stripe: isStripped,
 		sticky: stickyCols,
+		draggable: isDraggable,
 	})
 
 	// Component name to exclude from the children array
@@ -57,6 +58,7 @@ const Table: React.FC<TableProps> = ({
 				bulkActions,
 				filtersPopover,
 				stickyCols,
+				ref,
 			}}
 		>
 			<div className={classNames}>

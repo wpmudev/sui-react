@@ -1,4 +1,4 @@
-import React from "react"
+import React, { CSSProperties, HTMLProps } from "react"
 
 /**
  * Represents the properties for a box component.
@@ -20,6 +20,10 @@ interface BoxProps {
 	 * The content for the right header section of the box.
 	 */
 	headerRight?: string | Record<string, any>[]
+	/**
+	 * Box styles
+	 */
+	style?: CSSProperties
 	/**
 	 * The content of the box.
 	 */
