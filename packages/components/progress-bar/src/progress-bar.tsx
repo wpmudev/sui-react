@@ -38,29 +38,29 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
 	return (
 		<div className={classNames}>
-			<div className="sui-progress-bar__header">
+			<div className="sui-progress-bar__main">
 				{!!label && (
-					<span className="sui-progress-bar__header-text" aria-hidden={true}>
+					<span className="sui-progress-bar__text" aria-hidden={true}>
 						{label}
 					</span>
 				)}
 				{!!value && (
-					<span className="sui-progress-bar__header-value" aria-hidden={true}>
+					<span className="sui-progress-bar__value" aria-hidden={true}>
 						{value}%
 					</span>
 				)}
-			</div>
-			<div
-				className={generateCN("sui-progress-bar__indicator", {
-					indeterminate: isIndeterminate,
-				})}
-			>
-				<span
-					className={generateCN("sui-progress-bar__indicator-bar", {
+				<div
+					className={generateCN("sui-progress-bar__indicator", {
 						indeterminate: isIndeterminate,
 					})}
-					{...attrs}
-				/>
+				>
+					<span
+						className={generateCN("sui-progress-bar__indicator-bar", {
+							indeterminate: isIndeterminate,
+						})}
+						{...attrs}
+					/>
+				</div>
 			</div>
 			{allowCancel && (
 				<div className="sui-progress-bar__action">

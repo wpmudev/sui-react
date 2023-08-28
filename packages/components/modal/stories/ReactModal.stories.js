@@ -38,9 +38,9 @@ const Modal = ({ example, ...args }) => {
 							Choose the audience you want to send form data to.
 						</ModalHeader>
 						<ModalBody>
-							Are you sure you want to apply the Default config config to this
-							site? We recommend you have a backup available as your existing
-							settings configuration will be overridden.
+							Are you sure you want to apply the Default config to this site? We
+							recommend you have a backup available as your existing settings
+							configuration will be overridden.
 						</ModalBody>
 						<ModalFooter>
 							<Button
