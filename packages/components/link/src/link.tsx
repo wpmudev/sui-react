@@ -1,7 +1,7 @@
 import React from "react"
 
 import { generateCN, handleEventDefault, isEmpty } from "@wpmudev/sui-utils"
-import { Calendar } from "@wpmudev/sui-icons"
+import { ExternalLink } from "@wpmudev/sui-icons"
 import { useInteraction } from "@wpmudev/sui-hooks"
 
 import { LinkProps } from "./link.types"
@@ -63,7 +63,7 @@ const Link: React.FC<LinkProps> = ({
 	return (
 		<TagName tabIndex={0} {...methods} {...linkProps}>
 			{children}
-			{hasExternalIcon && isExternal && <Calendar />}
+			{hasExternalIcon && isExternal && <ExternalLink />}
 		</TagName>
 	)
 }
