@@ -46,6 +46,18 @@
         }
     }
 
+    // DIR: Right top left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            // @todo: improve
+            @include element(table) {
+                margin-right: -1px;
+            }
+        }
+    }
+
     // DIR: Left to right.
     // THEME: Dark.
     @include sui-class($rtl: false, $theme: dark) {

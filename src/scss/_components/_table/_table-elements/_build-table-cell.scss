@@ -84,7 +84,7 @@
                 @include modifier(sticky) {
                     background-color: $color-extended-neutral-100;
                     border-right: $border-width-md solid $color-extended-neutral-80;
-                    left: calc( 70px - $border-width-md);
+                    left: calc(62px - $border-width-md);
                     position: sticky;
                     width: $table-width-xs;
 
@@ -145,6 +145,21 @@
         }
     }
 
+    // DIR: Right to left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(cell) {
+                @include modifier(selection) {
+                    .sui-checkbox__box {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+
     // DIR: Left to right.
     // THEME: Dark.
     @include sui-class($rtl: false, $theme: dark) {
@@ -169,6 +184,7 @@
         // Block wrapper.
         @include block($block) {
             @include element(cell) {
+                text-align: right;
 
                 @include modifier(drag) {
                     right: 0;
@@ -184,6 +200,26 @@
                 &:last-child {
                     padding-right: $spacing-lg;
                     padding-left: $spacing-xxl;
+                }
+
+                @include modifier(sticky) {
+                    right: calc(62px - $border-width-md);
+                    left: unset;
+                    border-left: $border-width-md solid $color-extended-neutral-80;
+                    border-right: 0;
+
+                    &.sui-#{$block}__cell--selection {
+                        border-left: 0;
+                        right: 0;
+                        left: unset;
+                    }
+
+                    &.sui-#{$block}__cell--actions {
+                        border-left: 0;
+                        border-right: $border-width-md solid $color-extended-neutral-80;
+                        right: auto;
+                        left: 0;
+                    }
                 }
             }
         }

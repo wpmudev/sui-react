@@ -86,6 +86,20 @@
                     left: unset;
                 }
             }
+
+            @include modifier(sticky) {
+
+                @include modifies-element(body) {
+                    td {
+                        &:first-child {
+                            &:after {
+                                left: unset;
+                                right: 0;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
