@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 // Import required component
 import {
@@ -105,6 +105,8 @@ const items = createList(100)
 
 // Build "Field List" story
 const Table = ({ example, ...args }) => {
+	const [rows, setRows] = useState(records)
+
 	const action = (id, content) => {
 		return (
 			<div
@@ -140,15 +142,30 @@ const Table = ({ example, ...args }) => {
 					{...args}
 					stickyCols={true}
 					onAction={(actionType, data) => {
-						console.log("ACTION FIRED:", actionType, data)
+						if ("column-sort" === actionType) {
+							const { column, order } = data
+
+							const dRows = [...rows]
+
+							if ("desc" === order) {
+								dRows.sort((a, b) => a[column]?.localeCompare(b[column]))
+							}
+
+							setRows(dRows)
+						}
 					}}
 				>
 					<TableHead>
 						<TableRow actions={() => null}>
-							<TableCell isHeading={true} isSortable={false} isPrimary={true}>
+							<TableCell
+								isHeading={true}
+								isSortable={false}
+								isPrimary={true}
+								id="id"
+							>
 								ID
 							</TableCell>
-							<TableCell isHeading={true} isSortable={true}>
+							<TableCell isHeading={true} isSortable={true} id="title">
 								Form name
 							</TableCell>
 							<TableCell isHeading={true} id="tag" isSortable={true}>
@@ -160,7 +177,7 @@ const Table = ({ example, ...args }) => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{records.map((record, index) => (
+						{rows.map((record, index) => (
 							<TableRow
 								key={index}
 								id={record.id}
