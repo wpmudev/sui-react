@@ -102,7 +102,7 @@ DashboardWidget.args = {
 	canCollapse: false,
 	isDisabled: false,
 	icon: "CheckAlt",
-	statusIcon: "Warning",
+	statusIcon: "InfoAlt",
 	statusProps: {
 		color: "warning",
 	},
