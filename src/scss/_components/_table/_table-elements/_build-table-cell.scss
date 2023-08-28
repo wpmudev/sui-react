@@ -23,11 +23,9 @@
                 text-overflow: ellipsis;
                 white-space: nowrap;
 
-                &:not(.sui-table__cell--primary,.sui-table__cell--actions,.sui-table__cell--selection) {
-                    display: none;
-
-                    @include media(min-width, sm) {
-                        display: table-cell;
+                @include media(max-width, sm){
+                    &:not(:first-child):not(:nth-child(2)):not(:last-child) {
+                        display: none;
                     }
                 }
 
@@ -69,9 +67,14 @@
                 @include modifier(sticky) {
                     background-color: $color-extended-neutral-100;
                     border-right: $border-width-md solid $color-extended-neutral-80;
-                    left: calc(70px - 2px);
+                    left: calc( 70px - 2px);
                     position: sticky;
                     width: 100px;
+
+                    @include media(max-width, sm){
+                        position: unset;
+                        border: none;
+                    }
 
                     &.sui-#{$block}__cell--selection {
                         border-right: 0;
@@ -84,6 +87,10 @@
                         left: auto;
                         right: 0;
                         width: auto;
+
+                        @include media(max-width, sm){
+                            border: none;
+                        }
                     }
                 }
 

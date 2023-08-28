@@ -45,6 +45,10 @@
                 @include modifies-element(body) {
                     .sui-#{$block}__row:nth-child(odd) {
                         background: $color-extended-neutral-95;
+
+                        .sui-#{$block}__cell--sticky {
+                            background: $color-extended-neutral-95;
+                        }
                     }
                 }
             }
@@ -71,6 +75,10 @@
                 @include modifies-element(body) {
                     .sui-#{$block}__row:nth-child(odd) {
                         background: $color-extended-neutral-100;
+
+                        .sui-#{$block}__cell--sticky {
+                            background: $color-extended-neutral-100;
+                        }
                     }
                 }
             }
