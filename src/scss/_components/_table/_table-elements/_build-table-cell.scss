@@ -74,14 +74,13 @@
                         border-right: 0;
                         border-left: $border-width-md solid $color-extended-neutral-80;
                         left: auto;
-                        // @todo: need to make this dynamic!!
-                        min-width: 150px;
                         right: 0;
+                        width: auto;
                     }
                 }
 
                 @include modifier(trim) {
-                    div { 
+                    div {
                         max-width: 380px;
                         white-space: nowrap;
                         overflow: hidden;

@@ -20,7 +20,7 @@
                 box-shadow: 0 -1px 0 0 $color-extended-neutral-80, 0 -1px 0 0 $color-extended-neutral-80;
                 position: relative;
                 background: $color-extended-neutral-100;
-                
+
                 @include modifier(expanded) {
                     .sui-#{$block}__cell--sticky {
                         background: $color-extended-neutral-95;
@@ -34,9 +34,13 @@
                 @include modifier(content) {
                     box-shadow: none;
                     display: none;
+                    position: relative;
 
                     > td {
                         padding: 0 $spacing-xxl $spacing-xxl $spacing-xxl;
+                        position: sticky;
+                        left: 0;
+                        column-span: 4;
                     }
                 }
 
