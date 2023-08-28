@@ -145,10 +145,10 @@ const Table = ({ example, ...args }) => {
 				>
 					<TableHead>
 						<TableRow actions={() => null}>
-							<TableCell isHeading={true} isSortable={false}>
+							<TableCell isHeading={true} isSortable={false} isPrimary={true}>
 								ID
 							</TableCell>
-							<TableCell isHeading={true} isSortable={true} isPrimary={true}>
+							<TableCell isHeading={true} isSortable={true}>
 								Form name
 							</TableCell>
 							<TableCell isHeading={true} id="tag" isSortable={true}>
