@@ -24,6 +24,7 @@
                 white-space: nowrap;
 
                 @include media(max-width, sm){
+                    padding: $spacing-lg $spacing-md;
                     &:not(:first-child):not(:nth-child(2)):not(:last-child) {
                         display: none;
                     }
@@ -35,10 +36,6 @@
                     position: absolute;
                     top: 50%;
                     transform: translate(50%, -$spacing-md);
-
-                    @include media(max-width, sm) {
-                        left: -6px;
-                    }
                 }
 
                 @include modifier(actions) {
@@ -112,6 +109,16 @@
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
+                    }
+                }
+            }
+
+            @include modifier(draggable) {
+                @include modifies-element(cell) {
+                    &:first-child {
+                        @include media(max-width, sm) {
+                            padding-left: $spacing-xxl;
+                        }
                     }
                 }
             }
