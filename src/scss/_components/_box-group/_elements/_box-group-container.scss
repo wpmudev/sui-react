@@ -29,6 +29,11 @@
 				margin-bottom: -$spacing-md;
 				border-bottom: $border-width-sm solid $color-extended-neutral-80;
 			}
+
+			@include media(max-width, sm) {
+				margin: $spacing-lg 0;
+				padding: 0 $spacing-lg;
+			}
 		}
 	}
 

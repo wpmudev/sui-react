@@ -35,6 +35,10 @@
                     position: absolute;
                     top: 50%;
                     transform: translate(50%, -$spacing-md);
+
+                    @include media(max-width, sm) {
+                        left: -6px;
+                    }
                 }
 
                 @include modifier(actions) {
@@ -58,18 +62,26 @@
                 &:first-child {
                     padding-left: $spacing-xxl;
                     padding-right: $spacing-md;
+
+                    @include media(max-width, sm) {
+                        padding-left: $spacing-lg;
+                    }
                 }
 
                 &:last-child {
                     padding-right: $spacing-xxl;
+
+                    @include media(max-width, sm) {
+                        padding-right: $spacing-lg;
+                    }
                 }
 
                 @include modifier(sticky) {
                     background-color: $color-extended-neutral-100;
                     border-right: $border-width-md solid $color-extended-neutral-80;
-                    left: calc( 70px - 2px);
+                    left: calc( 70px - $border-width-md);
                     position: sticky;
-                    width: 100px;
+                    width: $table-width-xs;
 
                     @include media(max-width, sm){
                         position: unset;
@@ -96,7 +108,7 @@
 
                 @include modifier(trim) {
                     div {
-                        max-width: 380px;
+                        max-width: $table-width-lg;
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
@@ -108,11 +120,11 @@
                 align-items: center;
                 cursor: pointer;
                 display: inline-flex;
-                gap: 6px;
+                gap: $table-spacing-sm;
 
                 @include modifier(focused) {
                     border-radius: $border-radius-sm;
-                    box-shadow: 0 0 0 2px #286EF1;
+                    box-shadow: 0 0 0 $border-width-md $color-primary-50;
                 }
             }
         }
