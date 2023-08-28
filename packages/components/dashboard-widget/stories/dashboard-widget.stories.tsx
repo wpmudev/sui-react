@@ -59,8 +59,6 @@ export const DashboardWidget = ({ example, icon, ...props }) => {
 				<div style={box}>
 					<SuiDashboardWidget
 						{...props}
-						title="Malware Scanning"
-						icon={icon}
 						actions={actions}
 						isExpanded={isExpanded}
 						onToggle={setIsExpanded}
@@ -104,6 +102,10 @@ DashboardWidget.args = {
 	canCollapse: false,
 	isDisabled: false,
 	icon: "CheckAlt",
+	statusIcon: "Warning",
+	statusProps: {
+		color: "warning",
+	},
 }
 
 DashboardWidget.argTypes = {
@@ -130,6 +132,18 @@ DashboardWidget.argTypes = {
 	},
 	tagProps: {
 		name: "Tag Props",
+		control: {
+			type: "object",
+		},
+	},
+	statusIcon: {
+		name: "Status",
+		control: {
+			type: "text",
+		},
+	},
+	statusProps: {
+		name: "Status Props",
 		control: {
 			type: "object",
 		},
