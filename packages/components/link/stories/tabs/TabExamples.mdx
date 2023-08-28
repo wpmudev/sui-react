@@ -7,7 +7,7 @@ export const basicCode = dedent`
 `
 
 export const externalCode = dedent`
-    <Link href="https://wpmudev.com" isExternal={true}>External Website Link</Link>
+    <Link href="https://wpmudev.com" isExternal={true} hasExternalIcon={true}>External Website Link</Link>
 `
 
 export const secondaryThemeCode = dedent`
@@ -44,8 +44,8 @@ export const disabledCode = dedent`
 
 <Section title="External Link" contained={true} style={{ paddingTop: 30 }}>
 	<Preview wrapper={true}>
-		<Link href="https://wpmudev.com" isExternal={true}>
-			External Website Link
+		<Link href="https://wpmudev.com" isExternal={true} hasExternalIcon={true}>
+			<>External Website Link</>
 		</Link>
 	</Preview>
 	<Snippet language="js">{externalCode}</Snippet>
