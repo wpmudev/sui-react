@@ -46,12 +46,13 @@ const Link: React.FC<LinkProps> = ({
 
 	// Handle link behavior based on the selected HTML tag
 	if ("a" !== TagName) {
+		const { href } = linkProps
 		linkProps.role = "link"
 		linkProps.onClick = (e) => {
 			// Prevent the default link behavior
 			handleEventDefault(e, false, true)
 			// Open the link in a new tab or the same tab based on 'isExternal'
-			window.open(linkProps.href, isExternal ? "_blank" : "_self")
+			window.open(href, isExternal ? "_blank" : "_top")
 		}
 		// Remove the href attribute if not using 'a' tag
 		delete linkProps.href
