@@ -17,7 +17,7 @@
         @include block($block) {
             @include element(body) {
                 .sui-#{$block}__row {
-                    cursor: pointer;
+                    // cursor: pointer;
 
                     &:after {
                         content: "";

@@ -5,6 +5,7 @@
 @include sui-table--element.build-table-head(table);
 @include sui-table--element.build-table-body(table);
 @include sui-table--element.build-table-row(table);
+@include sui-table--element.build-table-fields(table);
 @include sui-table--element.build-table-cell(table);
 @include sui-table--element.build-table-toolbar(table);
 
