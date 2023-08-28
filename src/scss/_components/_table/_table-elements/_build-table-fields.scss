@@ -26,8 +26,10 @@
 
             @include element(fields-primary) {
                 color: $color-extended-neutral-0;
-                font: $font-weight-lg 18px/28px $font-family-default;
-                margin-bottom: 24px;
+                font-size: $table-font-size-md;
+                line-height: $table-font-height-md;
+                font-weight: $font-weight-lg;
+                margin-bottom: $spacing-xl;
             }
 
             @include element(fields-item) {
