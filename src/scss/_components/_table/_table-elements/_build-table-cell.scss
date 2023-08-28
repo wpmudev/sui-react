@@ -59,24 +59,33 @@
                 }
 
                 @include modifier(sticky) {
-                    background-color: white;
-                    border-right: 2px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
+                    background-color: $color-extended-neutral-100;
+                    border-right: $border-width-md solid $color-extended-neutral-80;
                     left: calc( 70px - 2px);
                     position: sticky;
                     width: 100px;
 
-                    &.sui-table__cell--selection {
+                    &.sui-#{$block}__cell--selection {
                         border-right: 0;
                         left: 0;
                     }
 
-                    &.sui-table__cell--actions {
+                    &.sui-#{$block}__cell--actions {
                         border-right: 0;
-                        border-left: 2px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
+                        border-left: $border-width-md solid $color-extended-neutral-80;
                         left: auto;
                         // @todo: need to make this dynamic!!
                         min-width: 150px;
                         right: 0;
+                    }
+                }
+
+                @include modifier(trim) {
+                    div { 
+                        max-width: 380px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
                 }
             }
@@ -88,8 +97,26 @@
                 gap: 6px;
 
                 @include modifier(focused) {
-                    border-radius: 4px;
+                    border-radius: $border-radius-sm;
                     box-shadow: 0 0 0 2px #286EF1;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(cell) {
+
+                @include modifier(sticky) {
+                    border-color: $color-extended-neutral-0;
+
+                    &.sui-#{$block}__cell--actions {
+                        border-color: $color-extended-neutral-0;
+                    }
                 }
             }
         }

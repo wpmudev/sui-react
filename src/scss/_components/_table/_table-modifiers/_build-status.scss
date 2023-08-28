@@ -1,0 +1,49 @@
+@use "../../../_utils/utils" as *;
+
+@mixin build-status($block) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+            @include element(body) {
+                .sui-#{$block}__row {
+                    @include modifier(info) {
+                        &:after {
+                            background: $color-primary-50;
+                        }
+                    }
+        
+                    @include modifier(success) {
+                        &:after {
+                            background: $color-extended-success-50;
+                        }
+                    }
+        
+                    @include modifier(warning) {
+                        &:after {
+                            background: $color-extended-warning-50;
+                        }
+                    }
+        
+                    @include modifier(error) {
+                        &:after {
+                            background: $color-extended-error-50;
+                        }
+                    }
+                }
+            }
+		}
+	}
+
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(body) {
+                .sui-#{$block}__row {
+                    @include modifier(info, success, warning, error) {
+                        &:after {
+                            background: $color-extended-neutral-0;
+                        }
+                    }
+                }
+			}
+		}
+	}
+}
