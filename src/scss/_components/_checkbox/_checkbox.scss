@@ -10,6 +10,7 @@
 @include sui-checkbox--modifier.edit-aria(checkbox);
 
 @include sui-checkbox--state.edit-checked(checkbox);
+@include sui-checkbox--state.edit-indeterminate(checkbox);
 @include sui-checkbox--state.edit-hover(checkbox);
 @include sui-checkbox--state.edit-focus(checkbox);
 @include sui-checkbox--state.edit-disabled(checkbox);
