@@ -81,7 +81,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 							isSmall={true}
 							isDisabled={ctx?.filterValues?.length <= 0}
 							onClick={() =>
-								ctx.triggerAction("apply-filters", ctx.filterValues)
+								ctx?.triggerAction("apply-filters", ctx?.filterValues)
 							}
 						>
 							Apply filters
@@ -115,7 +115,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 								isSmall={true}
 								isDisabled={ctx?.filterValues?.length <= 0}
 								onClick={() =>
-									ctx.triggerAction("apply-filters", ctx.filterValues)
+									ctx?.triggerAction("apply-filters", ctx?.filterValues)
 								}
 							>
 								Apply filters
