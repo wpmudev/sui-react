@@ -1,0 +1,15 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Link } from "../../src"
+import dedent from "dedent"
+
+export const sampleCode = dedent`
+    <Link>Test Link</Link>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Basic Accordion Example</p>
+	<Preview wrapper={true}>
+		<Link>Test Link</Link>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
