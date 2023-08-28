@@ -105,7 +105,7 @@ const TableCell: React.FC<TableCellProps> = ({
 			)}
 			<div {...sortBtnProps}>
 				<span>{children}</span>
-				{isSortable && <SortIcon size="xsm" />}
+				{isSortable && <SortIcon size="xs" />}
 			</div>
 		</TagName>
 	)

@@ -39,7 +39,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 			{isChecked && (
 				<div className="sui-selector__option-tip">
 					<span>
-						<Icons.CheckAlt size="xsm" />
+						<Icons.CheckAlt size="xs" />
 					</span>
 				</div>
 			)}
