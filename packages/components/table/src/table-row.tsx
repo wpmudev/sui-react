@@ -1,6 +1,7 @@
 import React, {
 	Children,
 	cloneElement,
+	CSSProperties,
 	Fragment,
 	useCallback,
 	useContext,
@@ -32,6 +33,7 @@ import { TableFields } from "./table-fields"
  * @param {boolean}         props.isUnderHeader     - Specifies if the row is under the table header.
  * @param {boolean}         props.isExpandable      - Specifies if the row is expandable.
  * @param {React.ReactNode} props.expandableContent - Content to display when the row is expanded.
+ * @param {string}          props.status            - Table Row status
  * @param {boolean}         props.isUnderFooter     - Specifies if the row is under the table footer.
  * @param {any}             props...                - Additional props for the TableRow component.
  * @return {JSX.Element} The JSX representation of the TableRow component.
@@ -156,8 +158,37 @@ const TableRow: React.FC<TableRowProps> = ({
 		a11yProps["aria-controls"] = rowContentId
 	}
 
+	/**
+	 * Update width state variable for table body content
+	 */
+	// const updateWidth = () => {
+	// 	const tableWrapper = ctx?.ref?.current
+	//
+	// 	// Example: Change background color
+	// 	setTimeout(() => {
+	// 		setStyle({
+	// 			minWidth: `${tableWrapper?.clientWidth - 68}px`,
+	// 			maxWidth: `${tableWrapper?.clientWidth - 68}px`,
+	// 			marginLeft: `${tableWrapper?.scrollLeft}px`,
+	// 		})
+	// 	}, 10) // Adjust the delay as needed
+	// }
+
+	// useEffect(() => {
+	// 	window.addEventListener("resize", updateWidth)
+	// 	window.addEventListener("load", updateWidth)
+	// 	ctx?.ref?.current.addEventListener("scroll", updateWidth)
+	//
+	// 	return () => {
+	// 		window.removeEventListener("resize", updateWidth)
+	// 		window.removeEventListener("load", updateWidth)
+	// 		ctx?.ref?.current.removeEventListener("scroll", updateWidth)
+	// 	}
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, [])
+
 	return (
-		<>
+		<Fragment>
 			<tr
 				role="row"
 				className={classNames}
@@ -207,7 +238,7 @@ const TableRow: React.FC<TableRowProps> = ({
 					</td>
 				</tr>
 			)}
-		</>
+		</Fragment>
 	)
 }
 

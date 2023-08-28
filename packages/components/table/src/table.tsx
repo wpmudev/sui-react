@@ -58,6 +58,7 @@ const Table: React.FC<TableProps> = ({
 				bulkActions,
 				filtersPopover,
 				stickyCols,
+				ref,
 			}}
 		>
 			<div className={classNames}>
