@@ -128,7 +128,7 @@ const TableRow: React.FC<TableRowProps> = ({
 			p.isSticky = !!ctx?.stickyCols
 
 			// Add drag icon
-			if (!ctx?.allowCheck && !isUnderFooter) {
+			if (!ctx?.allowCheck && !isUnderFooter && !isUnderHeader) {
 				p.hasDragIcon = true
 			}
 		}
