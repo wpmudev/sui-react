@@ -9,6 +9,8 @@ import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 import { Tick } from "./elements/tick"
 import { CheckboxProps } from "./checkbox.types"
+import { Check, Dash } from "@wpmudev/sui-icons"
+import { Indeterminate } from "./elements/indeterminate"
 
 /**
  * Checkbox
@@ -30,6 +32,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 			isLabelHidden = false,
 			isSmall = false,
 			isDisabled = false,
+			isIndeterminate = false,
 			onChange = () => {},
 			...props
 		}: CheckboxProps,
@@ -74,6 +77,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 				className={generateCN("sui-checkbox", {
 					"hidden-label": isLabelHidden,
 					disabled: isDisabled,
+					indeterminate: isChecked && isIndeterminate,
 					sm: isSmall,
 					hover: isHovered,
 					focus: isFocused,
@@ -91,7 +95,11 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 					onChange={handleOnChange}
 				/>
 				{/* Custom tick element for the checkbox */}
-				<Tick {...boxProps} />
+				{isIndeterminate ? (
+					<Indeterminate {...boxProps} />
+				) : (
+					<Tick {...boxProps} />
+				)}
 				{/* Render the label */}
 				{isLabelHidden ? (
 					<span className="sui-screen-reader-only">{label}</span>
