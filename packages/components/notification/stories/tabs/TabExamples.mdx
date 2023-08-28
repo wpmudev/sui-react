@@ -23,7 +23,7 @@ export const ToastButton = () => {
 			onClick={() => {
 				notification.push({
 					title: "Toast Title",
-					desc: "This is notification message.",
+					message: "This is notification message.",
 					icon: "CheckAlt",
 				})
 			}}
@@ -43,7 +43,7 @@ export const TimeOutToastButton = () => {
 			onClick={() => {
 				notification.push({
 					title: "Toast Title",
-					desc: "This is notification message.",
+					message: "This is notification message.",
 					icon: "CheckAlt",
 					timeout: 1000,
 				})
@@ -57,7 +57,7 @@ export const TimeOutToastButton = () => {
 export const sampleCode = dedent`
      <Notification
       title="Notification Title"
-      desc="This is notification message."
+      message="This is notification message."
       icon="CheckAlt"
    />
 `
@@ -65,7 +65,7 @@ export const sampleCode = dedent`
 export const DismissCode = dedent`
      <Notification
       title="Notification Title"
-      desc="This is notification message."
+      message="This is notification message."
       icon="CheckAlt"
       isDismissible={true}
    />
@@ -74,7 +74,7 @@ export const DismissCode = dedent`
 export const ActionCode = dedent`
         <Notification
             title="Notification Title"
-            desc="This is notification message."
+            message="This is notification message."
             icon="CheckAlt"
             action={
                   <Button
@@ -102,7 +102,7 @@ export const ToastCode = dedent`
             onClick={() => {
                 notification.push({
                     title: "Notification Title",
-                    desc: "This is notification message.",
+                    message: "This is notification message.",
                     icon: "CheckAlt",
                 })
             }}
@@ -127,7 +127,7 @@ export const TimeOutToastCode = dedent`
             onClick={() => {
                 notification.push({
                     title: "Notification Title",
-                    desc: "This is notification message.",
+                    message: "This is notification message.",
                     icon: "CheckAlt",
                     timeout: 1000
                 })
@@ -145,7 +145,7 @@ export const TimeOutToastCode = dedent`
 	<Preview wrapper={true}>
     	<Notification
     		title="Notification Title"
-    		desc="This is notification message."
+			message="This is notification message."
     		icon="CheckAlt"
     	/>
     </Preview>
@@ -202,7 +202,7 @@ export const TimeOutToastCode = dedent`
 	<Preview wrapper={true}>
 		<Notification
 			title="Notification Title"
-			desc="This is notification message."
+			message="This is notification message."
 			icon="CheckAlt"
 			isDismissible={true}
 		/>
@@ -216,7 +216,7 @@ export const TimeOutToastCode = dedent`
 	<Preview wrapper={true}>
 		<Notification
 			title="Notification Title"
-			desc="This is notification message."
+			message="This is notification message."
 			icon="CheckAlt"
 			action={
 				<Button

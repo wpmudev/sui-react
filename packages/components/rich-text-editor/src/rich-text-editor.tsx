@@ -55,7 +55,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ className = "" }) => {
 						id="notice"
 						icon="InfoAlt"
 						size="fluid"
-						desc="Note: The editor here needs to be created with wp_editor(), and since that is part of the WP ecosystem and can't be used outside of it, we will develop it once this SUI version is ready to use within WordPress."
+						message="Note: The editor here needs to be created with wp_editor(), and since that is part of the WP ecosystem and can't be used outside of it, we will develop it once this SUI version is ready to use within WordPress."
 					/>
 				</div>
 			</div>

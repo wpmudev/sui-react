@@ -26,7 +26,7 @@ const demos = [
 		button: {},
 		options: {
 			title: "Notification Title",
-			desc: "This is notification message.",
+			message: "This is notification message.",
 			icon: "CheckAlt",
 		},
 	},
@@ -35,7 +35,7 @@ const demos = [
 		button: {},
 		options: {
 			title: "Notification Title",
-			desc: "This is notification message.",
+			message: "This is notification message.",
 			icon: "InfoAlt",
 			variation: "info",
 		},
@@ -45,7 +45,7 @@ const demos = [
 		button: {},
 		options: {
 			title: "Notification Title",
-			desc: "This is notification message.",
+			message: "This is notification message.",
 			action: (
 				<Button
 					className="csb-banner__cta"
@@ -65,7 +65,7 @@ const demos = [
 		button: {},
 		options: {
 			title: "Notification Title",
-			desc: "This is notification message.",
+			message: "This is notification message.",
 			action: (
 				<Button
 					className="csb-banner__cta"
@@ -85,7 +85,7 @@ const demos = [
 		button: {},
 		options: {
 			title: "Notification Title",
-			desc: "This is notification message.",
+			message: "This is notification message.",
 			action: (
 				<Button
 					className="csb-banner__cta"
@@ -105,7 +105,7 @@ const demos = [
 		button: {},
 		options: {
 			title: "Notification Title",
-			desc: "This is notification message.",
+			message: "This is notification message.",
 			action: (
 				<Button
 					className="csb-banner__cta"
@@ -126,7 +126,7 @@ const demos = [
 		button: {},
 		options: {
 			title: "Notification Title",
-			desc: "This is notification message.",
+			message: "This is notification message.",
 			action: (
 				<Button
 					className="csb-banner__cta"

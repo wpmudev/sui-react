@@ -132,7 +132,7 @@ const SummaryBox = ({ color }) => {
 								icon="InfoAlt"
 								size="fluid"
 								variation="info"
-								desc={
+								message={
 									<Fragment>
 										Your site performs better than 90 % sites out there. To
 										boost the performance further, check the{" "}
