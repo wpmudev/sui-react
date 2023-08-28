@@ -23,19 +23,9 @@ interface ProgressBarProps {
 	isInline?: boolean
 
 	/**
-	 * Indicates whether the progress bar has a value.
-	 */
-	hasValue?: boolean
-
-	/**
-	 * Indicates whether the progress bar has an action.
-	 */
-	hasAction?: boolean
-
-	/**
 	 * Callback function when the progress bar is clicked.
 	 */
-	onClick: (e) => void
+	onClick?: (e) => void
 }
 
 export { ProgressBarProps }
