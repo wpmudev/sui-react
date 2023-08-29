@@ -31,7 +31,7 @@
 				color: $color-extended-neutral-10;
 				font-weight: $font-weight-default;
 				font-size: $font-size-xs;
-				line-height: 20px;
+				line-height: $code-snippet-font-height-sm;
 				letter-spacing: $font-spacing-default;
 
 				* {

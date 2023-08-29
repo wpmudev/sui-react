@@ -72,7 +72,6 @@
 				overflow: auto;
 				margin: 0;
 				padding: $spacing-lg;
-				border: $code-snippet-border-width solid $code-snippet-border-color;
 				background: $color-extended-neutral-95;
                 border: $border-width-sm solid $color-extended-neutral-80;
                 outline: none;
@@ -129,6 +128,56 @@
                     color: $color-extended-neutral-0;
                 }
             
+            }
+        }
+    }
+
+    // DIR: Right to left.
+    // THEME: Dark.
+    @include sui-class($rtl: true, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+
+            &:first-child {
+                .line-numbers-rows {
+                    border-bottom-right-radius: $border-radius-md;
+                    border-bottom-left-radius: 0;
+                }
+
+                .module-theme-default pre[class*="language-"] {
+                    border-bottom-right-radius: $border-radius-md;
+                    border-bottom-left-radius: 0;
+                }
+
+                &.sui-#{$block}--numbers {
+                    .module-theme-default pre[class*="language-"] {
+                        border-bottom-right-radius: 0;
+                    }
+                }
+            }
+
+            &:last-child {
+                .module-theme-default pre[class*="language-"] {
+                    border-bottom-left-radius: $border-radius-md;
+                    border-bottom-right-radius: 0;
+                }
+            }
+
+            .module-theme-default pre[class*="language-"] {
+				text-align: right;
+            }
+
+            // line numbers
+            .line-numbers-rows {
+                left: unset;
+                right: $code-editor-position-left;
+            }
+
+            @include modifier(numbers) {
+                @include modifies-element(content) {
+                    margin-right: $code-editor-spacing-lg;
+                    margin-left: 0;
+                }
             }
         }
     }

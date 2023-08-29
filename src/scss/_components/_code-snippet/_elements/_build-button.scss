@@ -17,8 +17,8 @@
 		@include block($block) {
 			.sui-tooltip {
 				position: absolute;
-				top: 16px;
-				right: 16px;
+				top: $spacing-lg;
+				right: $spacing-lg;
 
 				.sui-button {
 					margin: 0;
@@ -26,6 +26,18 @@
 					font-size: $code-snippet-font-size-sm;
 					line-height: $code-snippet-font-height-xs;
 				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			.sui-tooltip {
+				left: $spacing-lg;
+				right: unset;
 			}
 		}
 	}

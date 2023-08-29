@@ -21,10 +21,22 @@
 				min-height: $code-snippet-height;
 				overflow: auto;
 				margin: 0;
-				padding: $code-snippet-spacing-default;
-				border: $code-snippet-border-width solid $code-snippet-border-color;
-				border-radius: $code-snippet-border-radius;
+				padding: $spacing-lg;
+				border: $border-width-sm solid $color-extended-neutral-90;
+				border-radius: $border-radius-sm;
 				background: $color-extended-neutral-95;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			pre {
+				border-color: $color-extended-neutral-0;
+				background: $color-extended-neutral-100;
 			}
 		}
 	}

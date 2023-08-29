@@ -35,32 +35,14 @@
 			}
 		},
 		"spacing": {
-			"default": {
-				"value": "{spacing.lg}",
-				"type": "spacing"
-			},
 			"right": {
 				"value": "{spacing.lg}+70px",
 				"type": "spacing"
 			}
 		},
-		"border": {
-			"width": {
-				"value": "1px",
-				"type": "borderWidth"
-			},
-			"radius": {
-				"value": "4px",
-				"type": "borderRadius"
-			},
-			"color": {
-				"value": "{color.extended.neutral.90}",
-				"type": "borderColor"
-			}
-		},
-    "height": {
-      "value": "75px",
-      "type": "sizing"
-    }
+		"height": {
+			"value": "75px",
+			"type": "sizing"
+		}
 	}
 }
