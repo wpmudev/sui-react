@@ -12,26 +12,31 @@
     // THEME: None.
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
+            position: relative;
+            display: block;
             cursor: pointer;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 1px 0 rgba(115, 115, 115, 0.05), 0 1px 2px 0 rgba(115, 115, 115, 0.05);
-            display: inline-block;
+            background-color: $color-extended-neutral-100;
+            border-radius: $border-radius-md;
+            box-shadow: 0 2px 1px 0 $color-shadow-light, 0 1px 2px 0 $color-shadow-light;
+            color: $color-extended-neutral-50;
 
-            @include modifier(hover) {
-                box-shadow: 0 2px 4px 0 rgba(115, 115, 115, 0.10), 0 1px 16px 0 rgba(115, 115, 115, 0.05), 0 6px 12px 0 rgba(115, 115, 115, 0.08);
-            }
-
-            @include modifier(checked) {
-                .sui-selector__option {
-                    outline: 2px solid #0059FF;
-                    position: relative;
-
-                    &-header-icon, &-header-title {
-                        color: #0059FF;
-                    }
+            @include modifier(center) {
+                text-align: center;
+                    
+                @include modifies-element(option-header) {
+                    flex-direction: column;
                 }
             }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            color: $color-extended-neutral-0;
+            border: $border-width-sm solid $color-extended-neutral-0;
+            box-shadow: unset;
         }
     }
 }

@@ -20,6 +20,10 @@
 					padding: 0;
 				}
 			}
+			@include modifier(inline) {
+				border: none;
+				background: unset;
+			}
 		}
 	}
 }
