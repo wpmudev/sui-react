@@ -1,0 +1,25 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Brand
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-brand($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(brand) {
+                align-items: center;
+                display: flex;
+
+                h3 {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

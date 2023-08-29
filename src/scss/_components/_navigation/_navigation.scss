@@ -1,0 +1,9 @@
+@use "./_elements/elements" as sui-navigation--element;
+@use "./_modifiers/modifiers" as sui-navigation--modifier;
+
+@include sui-navigation--element.build-container(navigation);
+@include sui-navigation--element.build-nav(navigation);
+@include sui-navigation--element.build-brand(navigation);
+
+@include sui-navigation--modifier.edit-variation(navigation);
+@include sui-navigation--modifier.edit-center(navigation);
