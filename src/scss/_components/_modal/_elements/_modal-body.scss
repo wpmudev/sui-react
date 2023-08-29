@@ -1,7 +1,7 @@
 @use "sass:math";
 @use "../../../_utils/utils" as *;
 
-/// Build Action
+/// Build Body
 ///
 /// @type element
 /// @author WPMU DEV
@@ -13,7 +13,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(body) {
-				padding: 32px;
+				padding: $spacing-xxl;
 			}
 		}
 	}

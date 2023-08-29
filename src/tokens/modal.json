@@ -1,0 +1,22 @@
+{
+    "modal": {
+        "spacing": {
+            "lg": {
+                "value": "100px",
+                "type": "spacing"
+            }
+        },
+        "size": {
+            "width": {
+                "md": {
+                    "value": "480px",
+                    "type": "sizing"
+                },
+                "lg": {
+                    "value": "720px",
+                    "type": "sizing"
+                }
+            }
+        }
+    }
+}
