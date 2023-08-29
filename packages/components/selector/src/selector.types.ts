@@ -15,6 +15,8 @@ interface SelectorProps
 	isChecked: boolean
 	/** Whether the radio input is disabled */
 	isDisabled?: boolean
+	/** Whether the selector is a pro feature */
+	isPro?: boolean
 	/** Event handler for radio input change */
 	onChange(isChecked: boolean, value: string | number, name: string): void
 	/** The alignment of the Selector component */

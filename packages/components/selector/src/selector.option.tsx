@@ -58,6 +58,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 					/>
 				</div>
 			)}
+			{["icon-only"].includes(variation) && !!tag && tag}
 			{/* Display icon and title/header if either iconOrBrandUrl or title is provided */}
 			{(!!iconOrBrandUrl || !!title) && (
 				<div className="sui-selector__option-header">

@@ -2,6 +2,7 @@ import React, { forwardRef, useCallback, useId } from "react"
 
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { Tag } from "@wpmudev/sui-tag"
 
 import { SelectorOption } from "./selector.option"
 import { SelectorProps } from "./selector.types"
@@ -17,6 +18,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			value = "",
 			isChecked = false,
 			isDisabled = false,
+			isPro = false,
 			defaultValue = false,
 			alignment = "",
 			variation = "",
@@ -44,7 +46,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 				htmlFor={id}
 				tabIndex={isDisabled ? -1 : 0}
 				className={generateCN("sui-selector", {
-					disabled: isDisabled,
+					disabled: isDisabled || isPro,
 					hover: isHovered,
 					focus: isFocused,
 					checked: isChecked,
@@ -71,6 +73,18 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 					isChecked={isChecked}
 					alignment={alignment ?? "left"}
 					variation={variation ?? "default"}
+					{...(isPro && {
+						tag: (
+							<Tag
+								design="outlined"
+								color="black"
+								isSmall={true}
+								isUppercase={true}
+							>
+								Pro
+							</Tag>
+						),
+					})}
 				/>
 				{label && <span className="sui-screen-reader-only">{label}</span>}
 			</label>

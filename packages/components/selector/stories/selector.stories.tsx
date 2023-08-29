@@ -86,12 +86,37 @@ Selector.args = {
 	imageUrl: "https://placehold.co/200x100.png",
 	allowRemove: false,
 	isDisabled: false,
+	isPro: true,
 }
 
 // Story props settings
 Selector.argTypes = {
 	title: {
 		name: "Title",
+		control: {
+			type: "text",
+		},
+	},
+	isPro: {
+		name: "Pro",
+		control: {
+			type: "boolean",
+		},
+	},
+	iconOrBrandUrl: {
+		name: "Icon/Image url",
+		control: {
+			type: "text",
+		},
+	},
+	imageUrl: {
+		name: "Image url",
+		control: {
+			type: "text",
+		},
+	},
+	description: {
+		name: "Description",
 		control: {
 			type: "text",
 		},
@@ -117,7 +142,7 @@ Selector.argTypes = {
 				default: "Default",
 				"icon-only": "Icon Only",
 				compound: "Compound",
-				image: "image",
+				image: "Image",
 			},
 		},
 	},
@@ -127,8 +152,8 @@ Selector.argTypes = {
 		control: {
 			type: "select",
 			labels: {
-				left: "left",
-				center: "center",
+				left: "Left",
+				center: "Center",
 			},
 		},
 	},
