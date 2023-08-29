@@ -1,0 +1,29 @@
+import { Section, Preview, Snippet } from "@wpmudev/storybook"
+
+import { SetupBanner } from "../../../src"
+
+import dedent from "dedent"
+
+export const HummingbirdCode = dedent`
+        <SetupBanner
+            type="hummingbird"
+            title="Hummingbird"
+            description="One central dashboard to monitor, analyze, and optimize the performance of all your websites."
+        />
+`
+
+<Section
+    contained={true}
+    border={true}
+    style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+    <Preview wrapper={true}>
+    	 <SetupBanner
+		    type="hummingbird"
+            title="Hummingbird"
+            description="One central dashboard to monitor, analyze, and optimize the performance of all your websites."
+         />
+    </Preview>
+    <Snippet language="js">{HummingbirdCode}</Snippet>
+
+</Section>

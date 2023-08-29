@@ -1,1 +1,72 @@
-Examples
+import { Section, Switcher, Preview, Snippet } from "@wpmudev/storybook"
+import { SetupBanner } from "../../src"
+import dedent from "dedent"
+
+{/* Import Types */}
+
+import Smush from "./Examples/Smush.mdx"
+import Defender from "./Examples/Defender.mdx"
+import Snapshot from "./Examples/Snapshot.mdx"
+import Hummingbird from "./Examples/Hummingbird.mdx"
+import Forminator from "./Examples/Forminator.mdx"
+import Beehive from "./Examples/Beehive.mdx"
+import Hustle from "./Examples/Hustle.mdx"
+import SmartCrawl from "./Examples/Smartcrawl.mdx"
+import Shipper from "./Examples/Shipper.mdx"
+import Branda from "./Examples/Branda.mdx"
+
+export const basicExampleCode = dedent`
+        <SetupBanner
+            title="Smush"
+            description="Welcome to Smush. The only tool you need to optimize your images. Before getting to it, let’s start with simple plugin setup. The recommended settings are pre-enabled by default, but you can adjust it after the setup."
+        />
+`
+
+<Section
+	title="Basic Setup Banner Example"
+	contained={true}
+	style={{ paddingTop: 30 }}
+>
+	<Preview wrapper={true}>
+		<SetupBanner
+			title="Smush"
+			description="Welcome to Smush. The only tool you need to optimize your images. Before getting to it, let’s start with simple plugin setup. The recommended settings are pre-enabled by default, but you can adjust it after the setup."
+		/>
+	</Preview>
+	<Snippet language="js">{basicExampleCode}</Snippet>
+</Section>
+
+<Section title="Types" contained={true} style={{ paddingTop: 30 }}>
+	<Switcher>
+		<div label="Smush" value="smush">
+			<Smush />
+		</div>
+		<div label="Defender" value="defender">
+			<Defender />
+		</div>
+		<div label="Snapshot" value="snapshot">
+			<Snapshot />
+		</div>
+		<div label="Hummingbird" value="hummingbird">
+			<Hummingbird />
+		</div>
+		<div label="Forminator" value="forminator">
+			<Forminator />
+		</div>
+		<div label="Beehive" value="beehive">
+			<Beehive />
+		</div>
+		<div label="Hustle" value="hustle">
+			<Hustle />
+		</div>
+		<div label="Smartcrawl" value="smartcrawl">
+			<SmartCrawl />
+		</div>
+		<div label="Shipper" value="shipper">
+			<Shipper />
+		</div>
+		<div label="Branda" value="branda">
+			<Branda />
+		</div>
+	</Switcher>
+</Section>

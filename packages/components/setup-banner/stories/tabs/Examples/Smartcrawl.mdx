@@ -1,0 +1,42 @@
+import { Section, Preview, Snippet } from "@wpmudev/storybook"
+
+import { SetupBanner } from "../../../src"
+
+import dedent from "dedent"
+
+export const SmartcrawelCode = dedent`
+        <SetupBanner
+            type="smartcrawl"
+            title="smartcrawl"
+            description={
+                   <p>
+                        No more SEO guesswork and wasted effort that doesn’t bring the
+                        desired results. With SmartCrawl’s automated SEO scanning, detailed
+                        audits/reports, and one-click recommendations, you’ll be on the
+                        fast-track to optimizing your sites for search and ranking higher.
+                    </p>
+            }
+        />
+`
+
+<Section
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<SetupBanner
+			type="smartcrawl"
+			title="smartcrawl"
+			description={
+				<p>
+					No more SEO guesswork and wasted effort that doesn’t bring the desired
+					results. With SmartCrawl’s automated SEO scanning, detailed
+					audits/reports, and one-click recommendations, you’ll be on the
+					fast-track to optimizing your sites for search and ranking higher.
+				</p>
+			}
+		/>
+	</Preview>
+	<Snippet language="js">{SmartcrawelCode}</Snippet>
+</Section>
