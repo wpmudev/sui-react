@@ -39,7 +39,7 @@ const options = [
 ]
 
 // Build story
-export const Selector = ({ ...args }) => {
+export const Selector = ({ variation, ...args }) => {
 	const [val, setVal] = useState("")
 
 	const boxStyles = {
@@ -52,19 +52,22 @@ export const Selector = ({ ...args }) => {
 		setVal(value)
 	}
 
+	const colSize = "icon-only" === variation ? 1 : 3
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<Row align={{ sm: "inline" }}>
 						{options.map((option, index) => (
-							<Col key={`col-${index}`} size="3">
+							<Col key={`col-${index}`} size={colSize}>
 								<SuiSelector
 									key={index}
 									name={option.name}
 									value={option.value}
 									onChange={onChange}
 									isChecked={val === option.value}
+									variation={variation}
 									{...args}
 								/>
 							</Col>
