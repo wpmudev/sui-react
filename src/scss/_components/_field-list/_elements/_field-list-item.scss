@@ -14,10 +14,20 @@
 		@include block($block) {
 			@include element(item) {
 				align-items: center;
-				border-top: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
+				border-top: $border-width-sm solid $color-extended-neutral-80;
 				display: flex;
 				justify-content: space-between;
-				padding: 20px 24px;
+				padding: $fieldlist-spacing-md $spacing-xl;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(item) {
+				border-color: $color-extended-neutral-0;
 			}
 		}
 	}
