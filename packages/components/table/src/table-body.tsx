@@ -56,7 +56,7 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 		<Sortable
 			tag={TableBodyTag}
 			list={el.map((x) => ({ ...x, id: x.props.id, chosen: true }))}
-			setList={(list) => setEl(list.filter((newEl) => !!newEl))}
+			setList={(list) => setEl(list?.filter((newEl) => !!newEl))}
 			animation={150}
 			handle=".sui-table__cell--drag"
 			onStart={() => ctx?.setForceCollapse(true)}
