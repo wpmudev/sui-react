@@ -26,4 +26,15 @@
             }
         }
     }
+
+    // DIR: Right to left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: null) {
+        @include block($block) {
+            @include element(option-delete) {
+                left: 0;
+                right: unset;
+            }
+        }
+    }
 }
