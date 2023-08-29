@@ -1,5 +1,36 @@
 {
     "selector": {
-        
+        "spacing": {
+            "xs": {
+                "value": "3px",
+                "type": "spacing"
+            },
+            "lg": {
+                "value": "12px",
+                "type": "spacing"
+            }
+        },
+        "border": {
+            "width": {
+                "value": "37px",
+                "type": "borderWidth"
+            }
+        },
+        "size": {
+            "width": {
+                "value": "32px",
+                "type": "sizing"
+            }
+        },
+        "font": {
+            "size": {
+                "value": "13px",
+                "type": "fontSizes"
+            },
+            "height": {
+                "value": "20px",
+                "type": "lineHeight"
+            }
+        }
     }
 }

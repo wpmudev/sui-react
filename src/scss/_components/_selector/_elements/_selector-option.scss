@@ -12,69 +12,18 @@
     // THEME: None.
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
-            &--center:not(.sui-selector__option--image) {
-                text-align: center;
 
-                .sui-selector__option-header {
-                    flex-direction: column;
-                }
-
-                &.sui-selector__option--compound {
-                    .sui-selector__option-header {
-                        border: none;
-                    }
-
-                    .sui-selector__option-body-description {
-                        padding-top: 0;
-                        // ugly i know, please improve ;)
-                        margin-top: -2px;
-                    }
-                }
-            }
-
-            &--image {
-
-                .sui-selector__option-header {
-                    border: none;
-                    padding-bottom: 4px;
-                }
-
-                .sui-selector__option-body-description {
-                    padding-top: 8px;
-                }
-            }
-
-            &--icon-only {
-                .sui-selector__option-header {
-                    padding: 24px;
+            @include modifier(icon-only) {
+                @include modifies-element(option-header) {
+                    padding: $spacing-xl;
                     justify-content: center;
                 }
             }
 
-            @include modifier(disabled) {
-                cursor: none;
-                opacity: 0.5;
-                pointer-events: none;
-                user-select: none;
-            }
-
             @include element(option) {
-                border-radius: 8px;
+                border-radius: $spacing-md;
                 overflow: hidden;
                 position: relative;
-            }
-
-            @include element(option-delete) {
-                left: auto;
-                padding: 3px;
-                position: absolute;
-                right: 0;
-                z-index: 1;
-            }
-
-            @include element(option-delete-btn) {
-                background-color: #F45C59;
-                color: white;
             }
 
             @include element(option-tip) {
@@ -82,8 +31,8 @@
                 right: 0;
 
                 span {
-                    color: white;
-                    padding-right: 3px;
+                    color: $color-extended-neutral-100;
+                    padding-right: $selector-spacing-xs;
                     position: relative;
                     z-index: 1;
                 }
@@ -96,18 +45,18 @@
                     right: 0;
                     width: 0;
                     height: 0;
-                    border-left: 37px solid transparent;
-                    border-top: 37px solid #0059FF;
+                    border-left: $selector-border-width solid transparent;
+                    border-top: $selector-border-width solid $color-primary-50;
                     clear: both;
                 }
             }
 
             @include element(option-header) {
                 align-items: center;
-                border-bottom: solid 1px #E6E6E6;
+                border-bottom: $border-width-sm solid $color-extended-neutral-80;
                 display: flex;
-                gap: 8px;
-                padding: 12px 16px;
+                gap: $spacing-md;
+                padding: $selector-spacing-lg $spacing-lg;
             }
 
             @include element(option-header-icon) {
@@ -115,37 +64,23 @@
                 display: inline-flex;
 
                 img {
-                    max-width: 32px;
+                    max-width: $selector-size-width;
                 }
             }
 
             @include element(option-header-title) {
                 align-items: center;
                 display: flex;
-                font: $font-weight-md 15px/24px $font-family-default;
+                font-weight: $font-weight-md;
                 flex: 1;
                 justify-content: space-between;
             }
 
-            @include element(option-body) {
-            }
-
-            @include element(option-body-image) {
-                display: block;
-                border-radius: 4px;
-                padding-bottom: 50%;
-                background-color: lightgray;
-                background-position: 50%;
-                background-size: cover;
-                background-repeat: no-repeat;
-                margin: 4px;
-                width: auto;
-            }
-
             @include element(option-body-description) {
-                color: #505050;
-                font: 400 13px/20px $font-family-default;
-                padding: 16px;
+                color: $color-extended-neutral-50;
+                font-size: $selector-font-size;
+                line-height: $selector-font-height;
+                padding: $spacing-lg;
                 word-wrap: break-word;
                 user-select: none;
             }
