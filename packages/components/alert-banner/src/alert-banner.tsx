@@ -48,7 +48,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	const Icon = Icons?.[iconsList[variation]]
 
 	// Set the dismiss button color and center flag based on variation
-	let dismissBtnColor = "dark"
+	let dismissBtnColor = "black"
 	if (["hub-upsell", "plugin-upsell"].includes(variation ?? "")) {
 		dismissBtnColor = "white"
 		isCenter = true
