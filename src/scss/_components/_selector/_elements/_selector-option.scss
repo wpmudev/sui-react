@@ -32,12 +32,7 @@
                 }
             }
 
-            &--compound {
-                width: 200px;
-            }
-
             &--image {
-                width: 208px;
 
                 .sui-selector__option-header {
                     border: none;
@@ -52,6 +47,7 @@
             &--icon-only {
                 .sui-selector__option-header {
                     padding: 24px;
+                    justify-content: center;
                 }
             }
 
@@ -135,14 +131,15 @@
             }
 
             @include element(option-body-image) {
+                display: block;
                 border-radius: 4px;
-                height: 100px;
+                padding-bottom: 50%;
                 background-color: lightgray;
                 background-position: 50%;
                 background-size: cover;
                 background-repeat: no-repeat;
                 margin: 4px;
-                width: calc(100% - 8px);
+                width: auto;
             }
 
             @include element(option-body-description) {
