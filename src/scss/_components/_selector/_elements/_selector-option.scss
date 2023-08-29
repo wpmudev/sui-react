@@ -53,10 +53,15 @@
 
             @include element(option-header) {
                 align-items: center;
-                border-bottom: $border-width-sm solid $color-extended-neutral-80;
                 display: flex;
                 gap: $spacing-md;
                 padding: $selector-spacing-lg $spacing-lg;
+            }
+
+            @include modifier(compound) {
+                @include modifies-element(option-header) {
+                    border-bottom: $border-width-sm solid $color-extended-neutral-80;
+                }
             }
 
             @include element(option-header-icon) {
@@ -83,6 +88,68 @@
                 padding: $spacing-lg;
                 word-wrap: break-word;
                 user-select: none;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+
+            @include element(option-tip) {
+                
+                .sui-icon {
+                    color: $color-extended-neutral-100;
+                }
+
+                &::after {
+                    border-top-color: $color-extended-neutral-0;
+                }
+            }
+
+            @include modifier(compound) {
+                @include modifies-element(option-header) {
+                    border-bottom-color: $color-extended-neutral-0;
+                }
+            }
+
+            @include element(option-body-description) {
+                color: $color-extended-neutral-0;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: true, $theme: null) {
+        @include block($block) {
+
+            @include element(option-tip) {
+                left: $spacing-sm;
+                right: unset;
+
+                &::after {
+                    border-left: unset;
+                    border-right: $selector-border-width solid transparent;
+                    border-top: $selector-border-width solid $color-primary-50;
+                    transform: rotate(360deg);
+                    right: unset;
+                    left: -#{$spacing-sm};
+                }
+            }
+        }
+    }
+
+    // DIR: Right to left.
+    // THEME: Dark.
+    @include sui-class($rtl: true, $theme: dark) {
+        @include block($block) {
+
+            @include element(option-tip) {
+                &::after {
+                    border-top-color: $color-extended-neutral-0;
+                }
             }
         }
     }
