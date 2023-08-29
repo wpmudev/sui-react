@@ -5,6 +5,7 @@ import { Selector as SuiSelector } from "../src"
 
 // Import documentation
 import docs from "./selector.mdx"
+import { Row, Col } from "@wpmudev/sui-grid"
 
 // Default settings
 export default {
@@ -45,8 +46,6 @@ export const Selector = ({ ...args }) => {
 		padding: 20,
 		borderRadius: 4,
 		// background: "#fff",
-		display: "flex",
-		gap: "20px",
 	}
 
 	const onChange = (isChecked, value, name) => {
@@ -57,16 +56,20 @@ export const Selector = ({ ...args }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{options.map((option, index) => (
-						<SuiSelector
-							key={index}
-							name={option.name}
-							value={option.value}
-							onChange={onChange}
-							isChecked={val === option.value}
-							{...args}
-						/>
-					))}
+					<Row align={{ sm: "inline" }}>
+						{options.map((option, index) => (
+							<Col key={`col-${index}`} size="3">
+								<SuiSelector
+									key={index}
+									name={option.name}
+									value={option.value}
+									onChange={onChange}
+									isChecked={val === option.value}
+									{...args}
+								/>
+							</Col>
+						))}
+					</Row>
 				</div>
 			</div>
 		</div>

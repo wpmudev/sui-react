@@ -82,8 +82,10 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 				["compound", "image"].includes(variation) && (
 					<div className="sui-selector__option-body">
 						{!!imageUrl && "image" === variation && (
-							<div
+							<span
 								className="sui-selector__option-body-image"
+								role="img"
+								aria-label="Option image"
 								style={{
 									backgroundImage: `url('${imageUrl}')`,
 								}}
