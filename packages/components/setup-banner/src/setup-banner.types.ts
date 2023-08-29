@@ -1,16 +1,6 @@
 import React from "react"
 
-type SetupBannerTypes =
-	| "smush"
-	| "defender"
-	| "snapshot"
-	| "hummingbird"
-	| "forminator"
-	| "beehive"
-	| "hustle"
-	| "smartcrawl"
-	| "shipper"
-	| "branda"
+import { PluginsSlug } from "@wpmudev/sui-utils"
 
 /**
  * SetupBannerProps interface defines the props accepted by the SetupBanner component.
@@ -23,7 +13,7 @@ interface SetupBannerProps {
 	/**
 	 * Subtitle or additional information for the banner.
 	 */
-	type?: SetupBannerTypes
+	type?: PluginsSlug
 	/**
 	 * Description or content for the banner
 	 */
@@ -34,4 +24,4 @@ interface SetupBannerProps {
 	className?: string
 }
 
-export { SetupBannerProps, SetupBannerTypes }
+export { SetupBannerProps }

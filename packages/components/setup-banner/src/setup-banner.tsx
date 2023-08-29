@@ -1,22 +1,9 @@
 import React from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { generateCN, PluginsIcons } from "@wpmudev/sui-utils"
 import * as Icons from "@wpmudev/sui-icons"
 
-import { SetupBannerProps, SetupBannerTypes } from "./setup-banner.types"
-
-export const PluginsIcons: Record<SetupBannerTypes, string> = {
-	smush: "PluginSmush",
-	defender: "PluginDefender",
-	snapshot: "PluginSnapshot",
-	hummingbird: "PluginHummingbird",
-	forminator: "PluginForminator",
-	beehive: "PluginBeehive",
-	hustle: "PluginHustle",
-	smartcrawl: "PluginSmartCrawl",
-	shipper: "PluginShipper",
-	branda: "PluginSmush",
-}
+import { SetupBannerProps } from "./setup-banner.types"
 
 /**
  * SetupBanner renders a banner with optional icon and description.
