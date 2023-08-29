@@ -65,6 +65,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			"full-width": isFullWidth,
 			"is-icon": hasIcon && iconOnly,
 			[`${appearance}-${color}`]: !!appearance && !!color,
+			inline: iconOnly && !appearance,
 		}
 
 		const attrs = {

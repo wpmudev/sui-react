@@ -33,7 +33,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 			{copy && (
 				<Tooltip
 					label="Copy"
-					theme="secondary"
+					appearance="secondary"
 					color="black"
 					position="top"
 					aria-label={isCopied ? "Copied" : ""}

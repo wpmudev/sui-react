@@ -59,7 +59,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 				{allowCopy && (
 					<Tooltip
 						label="Copy"
-						theme="secondary"
+						appearance="secondary"
 						color="black"
 						position="top"
 						isSmall={true}

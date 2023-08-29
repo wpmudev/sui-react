@@ -103,7 +103,6 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 						onClick: closeColorPicker,
 					})}
 					{...(!tempColor && {
-						appearance: "tertiary",
 						color: "blue",
 						onClick: () => setShowPicker(!showPicker),
 					})}

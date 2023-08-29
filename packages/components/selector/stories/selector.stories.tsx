@@ -5,6 +5,7 @@ import { Selector as SuiSelector } from "../src"
 
 // Import documentation
 import docs from "./selector.mdx"
+import { Row, Col } from "@wpmudev/sui-grid"
 
 // Default settings
 export default {
@@ -38,35 +39,40 @@ const options = [
 ]
 
 // Build story
-export const Selector = ({ ...args }) => {
+export const Selector = ({ variation, ...args }) => {
 	const [val, setVal] = useState("")
 
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
 		// background: "#fff",
-		display: "flex",
-		gap: "20px",
 	}
 
 	const onChange = (isChecked, value, name) => {
 		setVal(value)
 	}
 
+	const colSize = "icon-only" === variation ? 1 : 3
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{options.map((option, index) => (
-						<SuiSelector
-							key={index}
-							name={option.name}
-							value={option.value}
-							onChange={onChange}
-							isChecked={val === option.value}
-							{...args}
-						/>
-					))}
+					<Row align={{ sm: "inline" }}>
+						{options.map((option, index) => (
+							<Col key={`col-${index}`} size={colSize}>
+								<SuiSelector
+									key={index}
+									name={option.name}
+									value={option.value}
+									onChange={onChange}
+									isChecked={val === option.value}
+									variation={variation}
+									{...args}
+								/>
+							</Col>
+						))}
+					</Row>
 				</div>
 			</div>
 		</div>
@@ -83,12 +89,37 @@ Selector.args = {
 	imageUrl: "https://placehold.co/200x100.png",
 	allowRemove: false,
 	isDisabled: false,
+	isPro: true,
 }
 
 // Story props settings
 Selector.argTypes = {
 	title: {
 		name: "Title",
+		control: {
+			type: "text",
+		},
+	},
+	isPro: {
+		name: "Pro",
+		control: {
+			type: "boolean",
+		},
+	},
+	iconOrBrandUrl: {
+		name: "Icon/Image url",
+		control: {
+			type: "text",
+		},
+	},
+	imageUrl: {
+		name: "Image url",
+		control: {
+			type: "text",
+		},
+	},
+	description: {
+		name: "Description",
 		control: {
 			type: "text",
 		},
@@ -114,7 +145,7 @@ Selector.argTypes = {
 				default: "Default",
 				"icon-only": "Icon Only",
 				compound: "Compound",
-				image: "image",
+				image: "Image",
 			},
 		},
 	},
@@ -124,8 +155,8 @@ Selector.argTypes = {
 		control: {
 			type: "select",
 			labels: {
-				left: "left",
-				center: "center",
+				left: "Left",
+				center: "Center",
 			},
 		},
 	},

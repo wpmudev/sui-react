@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Button } from "@wpmudev/sui-button"
+import { Tooltip } from "@wpmudev/sui-tooltip"
 import { generateCN } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import * as Icons from "@wpmudev/sui-icons"
@@ -46,7 +46,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 			{/* Display a remove button when hovering and allowRemove is true */}
 			{allowRemove && isHovered && (
 				<div className="sui-selector__option-delete">
-					<Button
+					<Tooltip
 						icon="trash"
 						iconSize="sm"
 						appearance="primary"
@@ -55,9 +55,12 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 						isSmall={true}
 						className="sui-selector__option-delete-btn"
 						onClick={() => onRemove}
-					/>
+						position="top-right"
+						customWidth={70}
+					>Remove</Tooltip>
 				</div>
 			)}
+			{["icon-only"].includes(variation) && !!tag && tag}
 			{/* Display icon and title/header if either iconOrBrandUrl or title is provided */}
 			{(!!iconOrBrandUrl || !!title) && (
 				<div className="sui-selector__option-header">
@@ -82,8 +85,10 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 				["compound", "image"].includes(variation) && (
 					<div className="sui-selector__option-body">
 						{!!imageUrl && "image" === variation && (
-							<div
+							<span
 								className="sui-selector__option-body-image"
+								role="img"
+								aria-label="Option image"
 								style={{
 									backgroundImage: `url('${imageUrl}')`,
 								}}
