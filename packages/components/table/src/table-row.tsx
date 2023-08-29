@@ -79,10 +79,13 @@ const TableRow: React.FC<TableRowProps> = ({
 
 	// @todo: need improvement
 	let isChecked = ctx?.selected?.indexOf(parseInt(`${id}`)) > -1
+	let isIndeterminate = false
 
 	// if its select all checkbox
 	if (isUnderHeader) {
-		isChecked = ctx?.rows?.length === ctx?.selected.length
+		const isAllSelected = ctx?.rows?.length === ctx?.selected.length
+		isIndeterminate = ctx?.selected?.length > 0 && !isAllSelected
+		isChecked = isAllSelected
 	}
 
 	// Generate class names
@@ -130,8 +133,21 @@ const TableRow: React.FC<TableRowProps> = ({
 			p.isSticky = !!ctx?.stickyCols
 
 			// Add drag icon
-			if (!ctx?.allowCheck && !isUnderFooter && !isUnderHeader) {
+			if (
+				ctx?.isDraggable &&
+				!ctx?.allowCheck &&
+				!isUnderFooter &&
+				!isUnderHeader
+			) {
 				p.hasDragIcon = true
+			}
+
+			if (!ctx?.allowCheck) {
+				p.style = {
+					left: 0,
+					paddingRight: "16px",
+					...(!ctx?.isDraggable ? { paddingLeft: "32px" } : {}),
+				}
 			}
 		}
 
@@ -202,7 +218,11 @@ const TableRow: React.FC<TableRowProps> = ({
 						isSticky={!!ctx?.stickyCols}
 						hasDragIcon={ctx?.isDraggable && !isUnderHeader}
 					>
-						<Checkbox onChange={onCheckToggle} defaultValue={isChecked} />
+						<Checkbox
+							onChange={onCheckToggle}
+							defaultValue={isChecked}
+							isIndeterminate={isIndeterminate}
+						/>
 					</TableCell>
 				)}
 				{children}

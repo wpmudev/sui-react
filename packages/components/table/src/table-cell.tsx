@@ -21,6 +21,7 @@ import { TableContext } from "./table-context"
  * @param {boolean}        props.isSticky    - Freeze first and last columns
  * @param {boolean}        props.isTrim      - Trim table cell content when there isn't enough space
  * @param {boolean}        props.isPrimary   - Make column primary (note: only one column can be primary)
+ * @param {boolean}        props.style       - CSS
  *
  * @return {JSX.Element} The JSX representation of the TableCell component.
  */
@@ -34,6 +35,7 @@ const TableCell: React.FC<TableCellProps> = ({
 	isSticky = false,
 	isTrim = false,
 	isPrimary = false,
+	style = {},
 	...props
 }) => {
 	// Define element tag name based on whether it's a heading cell (th) or a regular cell (td).
@@ -99,6 +101,7 @@ const TableCell: React.FC<TableCellProps> = ({
 			{...(isHeading ? { scope: "col" } : {})}
 			{...props}
 			role="rowheader"
+			style={style}
 		>
 			{hasDragIcon && (
 				<Icons.Grip className="sui-table__cell--drag" size="sm" />

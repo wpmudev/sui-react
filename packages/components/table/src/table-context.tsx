@@ -58,8 +58,9 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 					tempSelected.push(id)
 					break
 				// table row checkbox unchecked
-				default:
+				case !isChecked:
 					tempSelected.splice(tempSelected.indexOf(id), 1)
+					break
 			}
 
 			setSelected(tempSelected)

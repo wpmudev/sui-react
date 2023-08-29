@@ -1,4 +1,4 @@
-import React, { HTMLProps, RefObject } from "react"
+import React, { CSSProperties, HTMLProps, RefObject } from "react"
 
 import { InputProps } from "@wpmudev/sui-input"
 import { SelectBaseProps } from "@wpmudev/sui-select"
@@ -135,6 +135,10 @@ type TableCellBaseProps = {
 	 * Make table cell primary
 	 */
 	isPrimary?: boolean
+	/**
+	 * Style
+	 */
+	style?: CSSProperties
 } & Omit<HTMLProps<HTMLTableCellElement | HTMLTableHeaderCellElement>, "id">
 
 type TableCellWithSortingProps = {
