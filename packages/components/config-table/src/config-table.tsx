@@ -98,7 +98,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 				</TableRow>
 			</TableHead>
 			<TableBody>
-				{configs.map((config, index) => (
+				{configs?.map((config, index) => (
 					<TableRow
 						key={index}
 						id={config.id}
