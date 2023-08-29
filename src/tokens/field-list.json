@@ -1,0 +1,10 @@
+{
+    "fieldlist": {
+        "spacing": {
+            "md": {
+                "value": "20px",
+                "type": "spacing"
+            }
+        }
+    }
+}
