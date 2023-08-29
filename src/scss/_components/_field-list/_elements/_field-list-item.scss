@@ -1,31 +1,23 @@
 @use "sass:math";
 @use "../../../_utils/utils" as *;
 
-/// Build Row
+/// Build item
 ///
 /// @type element
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-row($block) {
+@mixin build-item($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			@include element(row) {
-				padding: 20px 24px;
-				color: #505050;
-				font-weight: 500;
-
-				&:last-child {
-					border-bottom-width: 0;
-				}
-			}
-
-			@include element(row-inline) {
+			@include element(item) {
+				align-items: center;
+				border-top: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
 				display: flex;
-				flex-flow: row wrap;
 				justify-content: space-between;
+				padding: 20px 24px;
 			}
 		}
 	}
