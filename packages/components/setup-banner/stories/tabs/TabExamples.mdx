@@ -1,4 +1,4 @@
-import { Section, Switcher, Preview, Snippet } from "@wpmudev/storybook"
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
 import { SetupBanner } from "../../src"
 import dedent from "dedent"
 
@@ -36,36 +36,40 @@ export const basicExampleCode = dedent`
 	<Snippet language="js">{basicExampleCode}</Snippet>
 </Section>
 
-<Section title="Types" contained={true} style={{ paddingTop: 30 }}>
+<Section title="Plugin Variations" contained={true} style={{ paddingTop: 30 }}>
+	<p>
+		Use the <Code small={true}> type </Code> to specify the plugin variation you
+		need
+	</p>
 	<Switcher>
-		<div label="Smush" value="smush">
+		<div label="smush" value="smush">
 			<Smush />
 		</div>
-		<div label="Defender" value="defender">
+		<div label="defender" value="defender">
 			<Defender />
 		</div>
-		<div label="Snapshot" value="snapshot">
+		<div label="snapshot" value="snapshot">
 			<Snapshot />
 		</div>
-		<div label="Hummingbird" value="hummingbird">
+		<div label="hummingbird" value="hummingbird">
 			<Hummingbird />
 		</div>
-		<div label="Forminator" value="forminator">
+		<div label="forminator" value="forminator">
 			<Forminator />
 		</div>
-		<div label="Beehive" value="beehive">
+		<div label="beehive" value="beehive">
 			<Beehive />
 		</div>
-		<div label="Hustle" value="hustle">
+		<div label="hustle" value="hustle">
 			<Hustle />
 		</div>
-		<div label="Smartcrawl" value="smartcrawl">
+		<div label="smartcrawl" value="smartcrawl">
 			<SmartCrawl />
 		</div>
-		<div label="Shipper" value="shipper">
+		<div label="shipper" value="shipper">
 			<Shipper />
 		</div>
-		<div label="Branda" value="branda">
+		<div label="branda" value="branda">
 			<Branda />
 		</div>
 	</Switcher>
