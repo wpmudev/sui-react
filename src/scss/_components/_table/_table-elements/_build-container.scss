@@ -21,7 +21,7 @@
             overflow: auto;
 
             @include element(wrapper) {
-                overflow-y: scroll;
+                overflow-y: auto;
                 padding-top: 1px;
             }
 
