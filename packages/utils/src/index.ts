@@ -168,6 +168,31 @@ const handleEventDefault = (
 	}
 }
 
+type PluginsSlug =
+	| "smush"
+	| "defender"
+	| "snapshot"
+	| "hummingbird"
+	| "forminator"
+	| "beehive"
+	| "hustle"
+	| "smartcrawl"
+	| "shipper"
+	| "branda"
+
+const PluginsIcons: Record<PluginsSlug, string> = {
+	smush: "PluginSmush",
+	defender: "PluginDefender",
+	snapshot: "PluginSnapshot",
+	hummingbird: "PluginHummingbird",
+	forminator: "PluginForminator",
+	beehive: "PluginBeehive",
+	hustle: "PluginHustle",
+	smartcrawl: "PluginSmartCrawl",
+	shipper: "PluginShipper",
+	branda: "PluginSmush",
+}
+
 // Publish required function(s).
 export {
 	isNull,
@@ -184,4 +209,6 @@ export {
 	capitalizeText,
 	handleOnKeyDown,
 	handleEventDefault,
+	PluginsSlug,
+	PluginsIcons,
 }
