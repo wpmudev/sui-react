@@ -9,7 +9,6 @@ import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 import { Tick } from "./elements/tick"
 import { CheckboxProps } from "./checkbox.types"
-import { Check, Dash } from "@wpmudev/sui-icons"
 import { Indeterminate } from "./elements/indeterminate"
 
 /**
@@ -77,7 +76,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 				className={generateCN("sui-checkbox", {
 					"hidden-label": isLabelHidden,
 					disabled: isDisabled,
-					indeterminate: isChecked && isIndeterminate,
+					indeterminate: isIndeterminate,
 					sm: isSmall,
 					hover: isHovered,
 					focus: isFocused,
