@@ -55,12 +55,13 @@
                 align-items: center;
                 display: flex;
                 gap: $spacing-md;
-                padding: $selector-spacing-lg $spacing-lg;
+                padding: $spacing-lg;
             }
 
             @include modifier(compound) {
                 @include modifies-element(option-header) {
                     border-bottom: $border-width-sm solid $color-extended-neutral-80;
+                    padding: $selector-spacing-lg $spacing-lg;
                 }
             }
 
