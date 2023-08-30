@@ -42,7 +42,8 @@
                 align-items: center;
                 color: $color-extended-neutral-10;
                 display: flex;
-                font: $font-weight-md 16px/24px $font-family-default;
+                font-weight: $font-weight-md;
+                font-size: $font-size-md;
                 gap: $spacing-md;
 
                 a {
@@ -52,7 +53,7 @@
 
             @include element(list-item-status) {
                 display: inline-block;
-                height: 24px;
+                height: $summary-size-height-md;
             }
         }
     }

@@ -1,5 +1,12 @@
 {
     "summary": {
-        
+        "size": {
+            "height": {
+                "md": {
+                    "value": "24px",
+                    "type": "sizing"
+                }
+            }
+        }
     }
 }
