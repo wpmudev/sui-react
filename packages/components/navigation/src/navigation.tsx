@@ -1,36 +1,34 @@
-import React, { useState, useCallback, Children, useRef } from "react"
+import React, { Children } from "react"
 
-import { generateCN, isEmpty, PluginsIcons } from "@wpmudev/sui-utils"
-import { Button } from "@wpmudev/sui-button"
-import * as Icons from "@wpmudev/sui-icons"
-import { Dropdown, DropdownRefProps } from "@wpmudev/sui-dropdown"
-import { Avatar } from "@wpmudev/sui-avatar"
+import { generateCN } from "@wpmudev/sui-utils"
 
 import { NavigationProps } from "./navigation.types"
 import { NavigationBrand } from "./navigation-brand"
 import { NavigationUser } from "./navigation-user"
 
+// Navigation component
 const Navigation: React.FC<NavigationProps> = ({ children, brand, user }) => {
-	// Generate classnames for the alert banner
+	// Generate CSS class names for the navigation component
 	const classNames = generateCN("sui-navigation", {})
 
 	return (
+		// Render the navigation component
 		<nav className={classNames}>
+			{/* Render the navigation brand component */}
 			<NavigationBrand {...brand} />
 			<ul className="sui-navigation__nav">
+				{/* Map over children components and render each one as a list item */}
 				{Children.map(children, (child, index) => (
 					<li className="sui-navigation__nav-item" key={index}>
 						{child}
 					</li>
 				))}
 			</ul>
-			<div className="sui-navigation__user">
-				<NavigationUser {...user} />
-			</div>
+			{/* Render the navigation user component */}
+			<NavigationUser {...user} />
 		</nav>
 	)
 }
 
-Navigation.displayName = "Navigation"
-
+// Export the Navigation component
 export { Navigation }

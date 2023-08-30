@@ -6,8 +6,10 @@ import { Avatar } from "@wpmudev/sui-avatar"
 import { NavigationUserProps } from "./navigation.types"
 
 const NavigationUser: React.FC<NavigationUserProps> = ({ user, menu }) => {
+	// Create a ref for the user dropdown button
 	const userBtnRef = useRef<DropdownRefProps>()
 
+	// Define the user's avatar button component
 	const userAvatarBtn = (
 		<Avatar
 			status="confirmed"
@@ -17,6 +19,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({ user, menu }) => {
 				alt: "User Avatar",
 			}}
 			onClick={() => {
+				// Toggle the user dropdown when the avatar is clicked
 				userBtnRef?.current?.toggle()
 			}}
 		/>
