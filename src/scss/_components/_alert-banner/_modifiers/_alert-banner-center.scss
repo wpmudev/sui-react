@@ -17,8 +17,8 @@
                 @include modifier(center) {
                     justify-content: center;
 
-                    .sui-alert-banner__body-content {
-                        flex: none;
+                    .sui-#{$block}__body-content {
+                        flex: unset;
                     }
                 }
             }
