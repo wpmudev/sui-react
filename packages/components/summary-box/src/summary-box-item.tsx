@@ -48,7 +48,14 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 			<div className="sui-summary-box__list-item-info">
 				{!isEmpty(titleUrl) ? <a href={titleUrl}>{title}</a> : title}
 				{!isEmpty(description ?? "") && (
-					<Tooltip label="(info)" type="icon" name="info-alt" position="top">
+					<Tooltip
+						label="(info)"
+						type="icon"
+						name="info-alt"
+						position="top"
+						customWidth={300}
+						customMobileWidth={200}
+					>
 						{description}
 					</Tooltip>
 				)}

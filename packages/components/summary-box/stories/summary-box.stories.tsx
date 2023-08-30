@@ -98,24 +98,9 @@ const SummaryBox = ({ color }) => {
 								/>,
 							]}
 						>
-							<div
-								style={{
-									alignItems: "center",
-									display: "flex",
-									textAlign: "center",
-									flexDirection: "column",
-									justifyContent: "center",
-									gap: "8px",
-								}}
-							>
-								<Score bar={95} isSmall={false} value={10} state="success" />
-								<h4 style={{ display: "inline", margin: 0 }}>
-									Desktop Site Performance Score
-								</h4>
-								<p style={{ padding: 0, margin: 0 }}>
-									Last Checked : May 14, 2023 at 08:24am
-								</p>
-							</div>
+							<Score bar={95} isSmall={false} value={10} state="success" />
+							<h4>Desktop Site Performance Score</h4>
+							<p>Last Checked : May 14, 2023 at 08:24am</p>
 						</SummaryBoxBody>
 						<SummaryFooterBody>
 							<Notification
