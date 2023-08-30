@@ -30,4 +30,19 @@
 			}
 		}
 	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(quick-actions) {
+				margin-right: $spacing-lg;
+				margin-left: 0;
+
+				@include media(max-width, sm) {
+					margin-right: 0;
+				}
+			}
+		}
+	}
 }
