@@ -123,6 +123,7 @@ Button.args = {
 	isSmall: false,
 	isLoading: true,
 	isDisabled: false,
+	isResponsive: false,
 }
 
 Button.argTypes = {
@@ -227,6 +228,16 @@ Button.argTypes = {
 		name: "Disabled",
 		control: {
 			type: "boolean",
+		},
+	},
+	isResponsive: {
+		name: "Hide label (Mobile)",
+		control: {
+			type: "boolean",
+		},
+		if: {
+			arg: "example",
+			eq: "label-icon",
 		},
 	},
 }

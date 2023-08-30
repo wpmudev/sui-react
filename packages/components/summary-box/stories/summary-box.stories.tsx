@@ -20,16 +20,10 @@ import { SummaryFooterBody } from "../src/summary-box-footer"
 const SummaryBox = ({ color }) => {
 	const [mode, setMode] = useState<string>("desktop")
 
-	const boxStyles = {
-		padding: 20,
-		borderRadius: 4,
-		// background: color !== "white" ? "#fff" : "#333",
-	}
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={boxStyles}>
+				<div>
 					<SuiSummaryBox
 						icon="performance"
 						title="Performance Summary"
@@ -43,22 +37,26 @@ const SummaryBox = ({ color }) => {
 								<SegmentedControlButton value="visual" icon="Mobile" />
 								<SegmentedControlButton value="code" icon="Desktop" />
 							</SegmentedControl>,
+							<div key={0}>
+								<Button
+									appearance="secondary"
+									icon="bell"
+									color="black"
+									isSmall={true}
+									isResponsive={true}
+								>
+									Clear Cache
+								</Button>
+							</div>,
 						]}
 						secondaryActions={[
-							<Button
-								key={0}
-								appearance="secondary"
-								color="black"
-								isSmall={true}
-							>
-								Clear Cache
-							</Button>,
 							<Button
 								key={2}
 								appearance="primary"
 								icon="add"
 								color="blue"
 								isSmall={true}
+								isFullWidth={true}
 							>
 								New test
 							</Button>,
@@ -100,31 +98,9 @@ const SummaryBox = ({ color }) => {
 								/>,
 							]}
 						>
-							<div
-								style={{
-									alignItems: "center",
-									display: "flex",
-									textAlign: "center",
-									flexDirection: "column",
-									justifyContent: "center",
-									gap: "10px",
-								}}
-							>
-								<Score
-									bar={95}
-									isSmall={false}
-									value={10}
-									state="success"
-									// state={state}
-									// isPercentage={isPercentage}
-								/>
-								<h4 style={{ display: "inline", margin: 0 }}>
-									Desktop Site Performance Score
-								</h4>
-								<p style={{ padding: 0, margin: 0 }}>
-									Last Checked : May 14, 2023 at 08:24am
-								</p>
-							</div>
+							<Score bar={95} isSmall={false} value={10} state="success" />
+							<h4>Desktop Site Performance Score</h4>
+							<p>Last Checked : May 14, 2023 at 08:24am</p>
 						</SummaryBoxBody>
 						<SummaryFooterBody>
 							<Notification
