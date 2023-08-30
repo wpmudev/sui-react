@@ -1,41 +1,76 @@
-import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
-import { Score } from '../../src';
-import dedent from 'dedent';
-import Types from './Examples/Types.mdx';
-import States from './Examples/States.mdx';
-import Size from './Examples/Size.mdx';
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { SetupBanner } from "../../src"
+import dedent from "dedent"
 
-export const sampleCode = dedent`
-import React from 'react';\n
-import { Score } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Score bar={55} />;
-}\n
-export default Example;
-`;
+{/* Import Types */}
 
-<Section contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		Below is the default form of a button, used for most cases; it is not
-		impactful enough to represent the primary action in a container but
-		necessary in some scenarios.
-	</p>
+import Smush from "./Examples/Smush.mdx"
+import Defender from "./Examples/Defender.mdx"
+import Snapshot from "./Examples/Snapshot.mdx"
+import Hummingbird from "./Examples/Hummingbird.mdx"
+import Forminator from "./Examples/Forminator.mdx"
+import Beehive from "./Examples/Beehive.mdx"
+import Hustle from "./Examples/Hustle.mdx"
+import SmartCrawl from "./Examples/Smartcrawl.mdx"
+import Shipper from "./Examples/Shipper.mdx"
+import Branda from "./Examples/Branda.mdx"
+
+export const basicExampleCode = dedent`
+        <SetupBanner
+            title="Smush"
+            description="Welcome to Smush. The only tool you need to optimize your images. Before getting to it, let’s start with simple plugin setup. The recommended settings are pre-enabled by default, but you can adjust it after the setup."
+        />
+`
+
+<Section
+	title="Basic Setup Banner Example"
+	contained={true}
+	style={{ paddingTop: 30 }}
+>
 	<Preview wrapper={true}>
-		<Score bar={95} />
+		<SetupBanner
+			title="Smush"
+			description="Welcome to Smush. The only tool you need to optimize your images. Before getting to it, let’s start with simple plugin setup. The recommended settings are pre-enabled by default, but you can adjust it after the setup."
+		/>
 	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+	<Snippet language="js">{basicExampleCode}</Snippet>
 </Section>
 
-<Section style={{ paddingTop: 0 }}>
+<Section title="Plugin Variations" contained={true} style={{ paddingTop: 30 }}>
+	<p>
+		Use the <Code small={true}> type </Code> to specify the plugin variation you
+		need
+	</p>
 	<Switcher>
-		<div label="Types" value="types">
-			<Types />
+		<div label="smush" value="smush">
+			<Smush />
 		</div>
-		<div label="States" value="states">
-			<States />
+		<div label="defender" value="defender">
+			<Defender />
 		</div>
-		<div label="Size" value="size">
-			<Size />
+		<div label="snapshot" value="snapshot">
+			<Snapshot />
+		</div>
+		<div label="hummingbird" value="hummingbird">
+			<Hummingbird />
+		</div>
+		<div label="forminator" value="forminator">
+			<Forminator />
+		</div>
+		<div label="beehive" value="beehive">
+			<Beehive />
+		</div>
+		<div label="hustle" value="hustle">
+			<Hustle />
+		</div>
+		<div label="smartcrawl" value="smartcrawl">
+			<SmartCrawl />
+		</div>
+		<div label="shipper" value="shipper">
+			<Shipper />
+		</div>
+		<div label="branda" value="branda">
+			<Branda />
 		</div>
 	</Switcher>
 </Section>

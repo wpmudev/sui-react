@@ -1,0 +1,29 @@
+import { Section, Preview, Snippet } from "@wpmudev/storybook"
+
+import { SetupBanner } from "../../../src"
+
+import dedent from "dedent"
+
+export const SnapshotCode = dedent`
+        <SetupBanner
+            type="snapshot"
+            title="Snapshot"
+            description="Tired of backing up your sites manually? Snapshot Pro makes it easy to schedule automatic backups to your preferred frequency."
+        />
+`
+
+<Section
+    contained={true}
+    border={true}
+    style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+    <Preview wrapper={true}>
+    	 <SetupBanner
+		    type="snapshot"
+            title="Snapshot"
+            description="Tired of backing up your sites manually? Snapshot Pro makes it easy to schedule automatic backups to your preferred frequency."
+         />
+    </Preview>
+    <Snippet language="js">{SnapshotCode}</Snippet>
+
+</Section>
