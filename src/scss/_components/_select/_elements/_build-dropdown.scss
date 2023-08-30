@@ -16,7 +16,7 @@
 		@include block($block) {
 			@include element(dropdown) {
 				position: absolute;
-				overflow-y: scroll;
+				overflow-y: auto;
                 background: $color-extended-neutral-100;
 				width: $select-dropdown-container-size-width;
 				padding: $select-dropdown-container-padding-vertical $select-dropdown-container-padding-horizontal;
