@@ -180,17 +180,63 @@ type PluginsSlug =
 	| "shipper"
 	| "branda"
 
-const PluginsIcons: Record<PluginsSlug, string> = {
-	smush: "PluginSmush",
-	defender: "PluginDefender",
-	snapshot: "PluginSnapshot",
-	hummingbird: "PluginHummingbird",
-	forminator: "PluginForminator",
-	beehive: "PluginBeehive",
-	hustle: "PluginHustle",
-	smartcrawl: "PluginSmartCrawl",
-	shipper: "PluginShipper",
-	branda: "PluginSmush",
+type PluginIconTypes = {
+	bg: string
+	color: string
+	icon: string
+}
+
+const PluginsIcons: Record<PluginsSlug, PluginIconTypes> = {
+	smush: {
+		bg: "#2dc4e0",
+		color: "#FFF",
+		icon: "PluginSmush",
+	},
+	defender: {
+		bg: "#282a2c",
+		color: "#FFF",
+		icon: "PluginDefender",
+	},
+	snapshot: {
+		bg: "#1a325e",
+		color: "#FFF",
+		icon: "PluginSnapshot",
+	},
+	hummingbird: {
+		bg: "#ff8e3c",
+		color: "#FFF",
+		icon: "PluginHummingbird",
+	},
+	forminator: {
+		bg: "#1f2852",
+		color: "#FFF",
+		icon: "PluginForminator",
+	},
+	beehive: {
+		bg: "#013aa9",
+		color: "#FFF",
+		icon: "PluginBeehive",
+	},
+	hustle: {
+		bg: "#1a1a1a",
+		color: "#FFF",
+		icon: "PluginHustle",
+	},
+	smartcrawl: {
+		bg: "#de240a",
+		color: "#FFF",
+		icon: "PluginSmartCrawl",
+	},
+	shipper: {
+		bg: "#7b5499",
+		color: "#FFF",
+		icon: "PluginShipper",
+	},
+	branda: {
+		bg: "#ff8184",
+		color: "#FFF",
+		icon: "PluginBranda",
+	},
 }
 
 // Publish required function(s).
@@ -211,4 +257,5 @@ export {
 	handleEventDefault,
 	PluginsSlug,
 	PluginsIcons,
+	PluginIconTypes,
 }

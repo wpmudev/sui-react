@@ -59,9 +59,68 @@ export const Navigation = ({ example, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={box}>
-					<SuiNavigation {...props} actions={actions}>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-						volutpat.
+					<SuiNavigation
+						{...props}
+						actions={actions}
+						brand={{
+							title: "Smush Pro",
+							description: "Description",
+						}}
+						user={{
+							user: {
+								image: "https://avatars.githubusercontent.com/u/14994452?v=4",
+								name: "John doe",
+								email: "john.doe@incsub.com",
+							},
+							menu: [
+								{
+									id: "the-hub",
+									label: "The Hub",
+									props: {
+										icon: "PluginDefender",
+									},
+								},
+								{
+									id: "product-roadmap",
+									label: "Product Roadmap",
+									props: {
+										icon: "PluginSmush",
+									},
+								},
+								{
+									id: "product-roadmap",
+									label: "Unlock Pro features",
+									props: {
+										icon: "PluginSmush",
+									},
+								},
+							],
+						}}
+					>
+						<Button
+							appearance="tertiary"
+							icon="bell"
+							color="black"
+							isSmall={true}
+						>
+							Help
+						</Button>
+						<Button
+							icon="bell"
+							appearance="tertiary"
+							color="black"
+							isSmall={true}
+						>
+							Documentation
+						</Button>
+						<Button
+							icon="plugin-smush"
+							appearance="tertiary"
+							color="black"
+							isSmall={true}
+						>
+							Support Smush
+						</Button>
 					</SuiNavigation>
 				</div>
 			</div>
