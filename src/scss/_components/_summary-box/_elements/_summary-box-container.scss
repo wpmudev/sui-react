@@ -33,7 +33,7 @@
 
 	// DIR: Right to left.
 	// THEME: None.
-	@include sui-class($rtl: false, $theme: null) {
+	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
 			@include element(quick-actions) {
 				margin-right: $spacing-lg;

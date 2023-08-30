@@ -19,7 +19,14 @@
 				border-radius: $border-radius-md;
 				display: flex;
 				justify-content: center;
+				flex-direction: column;
+				text-align: center;
+				gap: $spacing-md;
 				height: 100%;
+
+				* {
+					margin: 0;
+				}
 
 				@include media(max-width, sm) {
 					padding: $spacing-lg;
