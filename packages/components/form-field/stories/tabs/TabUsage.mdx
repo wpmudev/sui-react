@@ -1,0 +1,23 @@
+import { Section, Row, Col } from "@wpmudev/storybook"
+
+import Anatomy from "../images/anatomy.svg"
+
+<Section title="Anatomy">
+	{/* Change the Picture  */}
+	<img src={Anatomy} alt="Form Filed Anatomy" />
+	<h3 style={{marginTop: 30}}>1. Label</h3>
+    <p>The element label provided by the Form Field</p>
+
+    <h3>2. The wrapped element</h3>
+    <p>The form element to be wrapped with the Form Field, an input in this example.  </p>
+
+     <h3>2. Help text</h3>
+    <p>Help text is an overall description about the element, it's also provided by the Form Field  </p>
+
+</Section>
+
+<Section title="With Select Element">
+	<p>Another example of using Form Field is with a Select element</p>
+	{/* Change the Picture  */}
+	<img src={Anatomy} alt="Form Filed Anatomy" />
+</Section>
