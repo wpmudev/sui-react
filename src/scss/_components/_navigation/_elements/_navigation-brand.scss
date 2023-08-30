@@ -15,7 +15,7 @@
             @include element(brand) {
                 align-items: center;
                 display: flex;
-                gap: 16px;
+                gap: $spacing-lg;
 
                 h3 {
                     margin: 0;
@@ -24,19 +24,19 @@
 
             @include element(brand-icon) {
                 align-items: center;
-                background-color: #e5e5e5;
+                background-color: $navigation-brand-icon-background;
                 border-radius: 10px;
                 display: inline-flex;
-                height: 48px;
+                height: $navigation-brand-icon-size-height-lg;
                 justify-content: center;
-                width: 48px;
+                width: $navigation-brand-icon-size-width-lg;
             }
 
             @include element(brand-info) {
                 span {
-                    color: var(--neutral-grey-60737373, var(--color-nutral-grey-60, #737373));
-                    font: $font-weight-md 13px/20px $font-family-default;
-                    letter-spacing: 1px;
+                    color: $navigation-brand-info-font-color;
+                    font: $font-weight-md $navigation-brand-info-font-size/$navigation-brand-info-font-height $font-family-default;
+                    letter-spacing: $navigation-brand-info-font-spacing;
                     text-transform: uppercase;
                 }
             }
