@@ -22,6 +22,17 @@
 						padding: 0;
 					}
 				}
+
+				@include media(max-width, md) {
+					&.sui-#{$block-name}--responsive {
+						min-width: auto;
+						padding: 7px;
+						
+						.sui-#{$block-name}__icon {
+							padding: 0;
+						}
+					}
+				}
 			}
 		}
 	}

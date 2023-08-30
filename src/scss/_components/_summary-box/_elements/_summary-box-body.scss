@@ -12,16 +12,37 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			@include element(body) {
-//				padding: 0 16px;
-			}
 
 			@include element(body-content) {
 				align-items: center;
-				background-color: #f0f0f0;
-				border-radius: 8px;
+				background-color: $color-extended-neutral-95;
+				border-radius: $border-radius-md;
 				display: flex;
 				justify-content: center;
+				flex-direction: column;
+				text-align: center;
+				gap: $spacing-md;
+				height: 100%;
+
+				* {
+					margin: 0;
+				}
+
+				@include media(max-width, sm) {
+					padding: $spacing-lg;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+
+			@include element(body-content) {
+				border: $border-width-sm solid $color-extended-neutral-0;
+				background-color: $color-extended-neutral-100;
 			}
 		}
 	}

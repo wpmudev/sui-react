@@ -13,8 +13,13 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(footer) {
-				padding: 0 32px;
-				margin-bottom: 32px;
+				padding: 0 $spacing-xxl;
+				margin-bottom: $spacing-xxl;
+
+				@include media(max-width, sm) {
+					padding: 0 $spacing-lg;
+					margin-bottom: $spacing-lg;
+				}
 			}
 		}
 	}
