@@ -17,6 +17,7 @@
                 flex: 1;
                 justify-content: flex-end;
                 margin-left: auto;
+                gap: $spacing-md;
             }
 
             @include element(nav-item) {

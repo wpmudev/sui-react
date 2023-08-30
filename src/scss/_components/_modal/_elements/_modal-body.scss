@@ -1,7 +1,7 @@
 @use "sass:math";
 @use "../../../_utils/utils" as *;
 
-/// Build Action
+/// Build Body
 ///
 /// @type element
 /// @author WPMU DEV
@@ -13,7 +13,23 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(body) {
-				padding: 32px;
+				padding: $spacing-xxl;
+				max-height: $modal-size-height-md;
+				overflow-x: scroll;
+
+				@include media(max-width, sm) {
+					padding: $spacing-lg;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(body) {
+				color: $color-extended-neutral-0;
 			}
 		}
 	}

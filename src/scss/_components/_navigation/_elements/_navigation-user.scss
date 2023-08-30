@@ -1,0 +1,32 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build User
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-user($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(user-info) {
+                border-bottom: solid $navigation-user-border-size $navigation-user-border-color;
+                margin-bottom: $navigation-user-border-spacing-margin;
+                padding: $spacing-md $spacing-xl $navigation-user-border-spacing-padding;
+            }
+
+            @include element(user-info-name) {
+                color: $navigation-user-name-font-color;
+                font: $font-weight-md $navigation-user-name-font-size/$navigation-user-name-font-height $font-family-default;
+            }
+
+            @include element(user-info-email) {
+                color: $navigation-user-email-font-color;
+                font: $font-weight-sm $navigation-user-email-font-size/$navigation-user-email-font-height $font-family-default;
+            }
+        }
+    }
+}
