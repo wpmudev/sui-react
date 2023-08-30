@@ -793,13 +793,19 @@
 					"type": "color"
 				}
 			},
+			"grey": {
+				"70": {
+					"value": "rgba(26, 26, 26, 0.7)",
+					"type": "color"
+				},
+				"90": {
+					"value": "rgba(26, 26, 26, 0.9)",
+					"type": "color"
+				}
+			},
 			"black": {
 				"0": {
 					"value": "rgba(0, 0, 0, 0)",
-					"type": "color"
-				},
-				"70": {
-					"value": "rgba(26, 26, 26, 0.7)",
 					"type": "color"
 				}
 			}
@@ -872,6 +878,14 @@
 			},
 			"lg": {
 				"value": "{border.radius.sm}*3",
+				"type": "borderRadius"
+			},
+			"xl": {
+				"value": "{border.radius.sm}*4",
+				"type": "borderRadius"
+			},
+			"xxl": {
+				"value": "{border.radius.sm}*5",
 				"type": "borderRadius"
 			}
 		}
