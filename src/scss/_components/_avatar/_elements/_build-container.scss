@@ -24,6 +24,10 @@
 			border-radius: $avatar-container-border-radius;
 			background: $avatar-container-background;
 			letter-spacing: 0;
+
+			@include modifier(clickable) {
+				cursor: pointer;
+			}
 		}
 	}
 
