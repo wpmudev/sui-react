@@ -43,6 +43,7 @@ const SummaryBox = ({ color }) => {
 									icon="bell"
 									color="black"
 									isSmall={true}
+									isResponsive={true}
 								>
 									Clear Cache
 								</Button>
@@ -104,7 +105,7 @@ const SummaryBox = ({ color }) => {
 									textAlign: "center",
 									flexDirection: "column",
 									justifyContent: "center",
-									gap: "10px",
+									gap: "8px",
 								}}
 							>
 								<Score bar={95} isSmall={false} value={10} state="success" />

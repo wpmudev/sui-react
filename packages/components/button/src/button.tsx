@@ -37,6 +37,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			iconPosition = "start",
 			iconOnly = false,
 			iconSize = "md",
+			isResponsive = false,
 			...restProps
 		},
 		ref,
@@ -66,6 +67,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			"is-icon": hasIcon && iconOnly,
 			[`${appearance}-${color}`]: !!appearance && !!color,
 			inline: iconOnly && !appearance,
+			responsive: isResponsive,
 		}
 
 		const attrs = {
