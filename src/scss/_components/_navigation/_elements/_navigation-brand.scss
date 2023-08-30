@@ -15,11 +15,32 @@
             @include element(brand) {
                 align-items: center;
                 display: flex;
+                gap: 16px;
 
                 h3 {
                     margin: 0;
                 }
             }
+
+            @include element(brand-icon) {
+                align-items: center;
+                background-color: #e5e5e5;
+                border-radius: 10px;
+                display: inline-flex;
+                height: 48px;
+                justify-content: center;
+                width: 48px;
+            }
+
+            @include element(brand-info) {
+                span {
+                    color: var(--neutral-grey-60737373, var(--color-nutral-grey-60, #737373));
+                    font: $font-weight-md 13px/20px $font-family-default;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                }
+            }
         }
+
     }
 }

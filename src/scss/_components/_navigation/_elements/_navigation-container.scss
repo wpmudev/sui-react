@@ -13,8 +13,11 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             align-items: center;
+            background-color: white;
             display: flex;
+            gap: $spacing-lg;
             justify-content: space-between;
+            padding: $spacing-lg $spacing-xxl;
         }
     }
 }
