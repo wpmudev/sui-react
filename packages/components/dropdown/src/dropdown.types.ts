@@ -67,6 +67,10 @@ interface DropdownProps {
 	 */
 	direction?: "" | "left" | "right"
 	/**
+	 * Render custom content on top of the menu items
+	 */
+	renderContentOnTop?: boolean
+	/**
 	 * The content of the dropdown.
 	 */
 	children?: React.ReactNode

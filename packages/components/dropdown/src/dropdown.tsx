@@ -39,6 +39,8 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 			direction,
 			buttonIcon,
 			onMenuClick,
+			trigger = null,
+			renderContentOnTop,
 		}: DropdownProps,
 		ref,
 	) => {
@@ -100,18 +102,22 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 
 		return (
 			<div ref={dropdownRef} className={wrapperClasses}>
-				<Button
-					icon={buttonIcon ?? "menu"}
-					iconOnly={iconOnly}
-					iconPosition="start"
-					color="black"
-					appearance="secondary"
-					isSmall={isSmall}
-					aria-activedescendant={isOpen ? `${id}-${current}` : ""}
-					onClick={() => setIsOpen(!isOpen)}
-				>
-					{label}
-				</Button>
+				{!!trigger ? (
+					trigger
+				) : (
+					<Button
+						icon={buttonIcon ?? "menu"}
+						iconOnly={iconOnly ?? false}
+						iconPosition="start"
+						color="black"
+						appearance="secondary"
+						isSmall={isSmall ?? false}
+						aria-activedescendant={isOpen ? `${id}-${current}` : ""}
+						onClick={() => setIsOpen(!isOpen)}
+					>
+						{label}
+					</Button>
+				)}
 				<div
 					id={id}
 					tabIndex={-1}
@@ -122,12 +128,15 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 					})}
 					{...(label && { "aria-labelledby": `${id}__label` })}
 				>
+					{renderContentOnTop && !!children && (
+						<div className="sui-dropdown__menu-content">{children}</div>
+					)}
 					{/* Render the dropdown menu items */}
 					{!!menu && (
 						<Menu className="sui-dropdown__menu-nav">{renderMenus(menu)}</Menu>
 					)}
 					{/* Render additional children passed to the Dropdown component */}
-					{!!children && (
+					{!!children && !renderContentOnTop && (
 						<div className="sui-dropdown__menu-content">{children}</div>
 					)}
 				</div>
