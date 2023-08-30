@@ -12,7 +12,12 @@ import { SummaryBoxBodyProps } from "./summary-box.types"
  * Body of a summary box. It displays content in two columns:
  * one for the main content and the other for a list of summary items.
  *
- * @returns {JSX.Element} The SummaryBoxBody component.
+ * @param  root0
+ * @param  root0.className
+ * @param  root0.children
+ * @param  root0.summaryItems
+ * @param  root0.reverseBlocks
+ * @return {JSX.Element} The SummaryBoxBody component.
  */
 const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 	className,
@@ -24,11 +29,13 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 
 	// Create two columns to display the main content and the list of summary items.
 	const cols = [
-		<Col size="6" key={0} className="sui-summary-box__body-content">
-			{children}
+		<Col size="6" key={0}>
+			<div className="sui-summary-box__body-content">{children}</div>
 		</Col>,
-		<Col size="6" key={1} className="sui-summary-box__list">
-			{(summaryItems ?? []).map((summary, index) => summary)}
+		<Col size="6" key={1}>
+			<div className="sui-summary-box__list">
+				{(summaryItems ?? []).map((summary, index) => summary)}
+			</div>
 		</Col>,
 	]
 
