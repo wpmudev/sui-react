@@ -89,6 +89,14 @@ AlertBanner.argTypes = {
 		],
 		control: {
 			type: "inline-radio",
+			labels: {
+				informative: "Informative",
+				success: "Success",
+				warning: "Warning",
+				critical: "Critical",
+				"plugin-upsell": "Plugin Upsell",
+				"hub-upsell": "Plugin Hub",
+			},
 		},
 	},
 	displayIcon: {
