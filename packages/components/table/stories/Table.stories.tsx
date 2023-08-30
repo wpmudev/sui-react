@@ -33,23 +33,23 @@ export default {
 const records = [
 	{
 		id: 1,
-		title: "Contact Form this is a example of long text with trim enabled.",
-		tag: <Tag>Draft</Tag>,
+		title: "General Contact Form",
+		tag: "Draft",
 		submission: "April 20, 2022 11:00 am",
 		status: "info",
 	},
 	{
 		id: 2,
-		title: "Contact Form",
-		tag: <Tag>Draft</Tag>,
-		submission: "April 20, 2022 11:00 am",
+		title: "Customer Inquiry Form",
+		tag: "Draft",
+		submission: "March 20, 2021 11:00 am",
 		status: "success",
 	},
 	{
 		id: 3,
-		title: "Contact Form",
-		tag: <Tag color="blue">Published</Tag>,
-		submission: "April 20, 2022 11:00 am",
+		title: "Support Request Form",
+		tag: "Published",
+		submission: "December 09, 2023 11:00 am",
 		status: "warning",
 		props: {
 			isExpandable: true,
@@ -58,9 +58,9 @@ const records = [
 	},
 	{
 		id: 4,
-		title: "Contact Form",
-		tag: <Tag>Draft</Tag>,
-		submission: "April 20, 2022 11:00 am",
+		title: "Feedback Form",
+		tag: "Draft",
+		submission: "September 15, 2022 07:00 am",
 		status: "error",
 		props: {
 			isExpandable: true,
@@ -69,9 +69,9 @@ const records = [
 	},
 	{
 		id: 5,
-		title: "Contact Form",
-		tag: <Tag>Draft</Tag>,
-		submission: "April 20, 2022 11:00 am",
+		title: "Product Inquiry Form",
+		tag: "Draft",
+		submission: "August 20, 2019 01:00 pm",
 		props: {
 			isExpandable: true,
 			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
@@ -79,9 +79,29 @@ const records = [
 	},
 	{
 		id: 6,
-		title: "Contact Form",
-		tag: <Tag>Draft</Tag>,
-		submission: "April 20, 2022 11:00 am",
+		title: "Job Application Form",
+		tag: "Draft",
+		submission: "May 14, 2022 11:00 am",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 7,
+		title: "Event Registration Form",
+		tag: "Draft",
+		submission: "February 14, 2022 11:00 am",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 8,
+		title: "Membership Registration Form",
+		tag: "Draft",
+		submission: "November 02, 2022 11:00 am",
 		props: {
 			isExpandable: true,
 			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
@@ -135,6 +155,8 @@ const Table = ({ example, ...args }) => {
 		)
 	}
 
+	// console.log("rows", rows)
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
@@ -142,17 +164,31 @@ const Table = ({ example, ...args }) => {
 					{...args}
 					stickyCols={true}
 					onAction={(actionType, data) => {
-						if ("column-sort" === actionType) {
-							const { column, order } = data
+						let dRows = [...rows]
 
-							const dRows = [...rows]
+						switch (actionType) {
+							case "search-item":
+								dRows = dRows.filter((item) =>
+									item.title.includes(data as string),
+								)
 
-							if ("desc" === order) {
-								dRows.sort((a, b) => a[column]?.localeCompare(b[column]))
-							}
+								dRows = "" !== data ? dRows : records
+								break
+							case "column-sort":
+								const { column, order } = data
 
-							setRows(dRows)
+								// sort
+								dRows.sort((a, b) =>
+									"desc" === order
+										? b[column]?.localeCompare(a[column])
+										: a[column]?.localeCompare(b[column]),
+								)
+
+								break
 						}
+
+						// set state
+						setRows([...dRows])
 					}}
 				>
 					<TableHead>
@@ -184,9 +220,7 @@ const Table = ({ example, ...args }) => {
 								isExpandable={record?.props?.isExpandable}
 								expandableContent={record?.props?.expandableContent}
 								status={record?.status}
-								actions={({ id, content }) => {
-									return action(id, content)
-								}}
+								actions={({ id, content }) => action(id, content)}
 							>
 								<TableCell>
 									<strong>#{record.id}</strong>
@@ -194,7 +228,11 @@ const Table = ({ example, ...args }) => {
 								<TableCell isTrim={true}>
 									<strong>{record.title}</strong>
 								</TableCell>
-								<TableCell>{record.tag}</TableCell>
+								<TableCell>
+									<Tag color={"Published" === record.tag ? "blue" : "default"}>
+										{record.tag}
+									</Tag>
+								</TableCell>
 								<TableCell>{record.submission}</TableCell>
 							</TableRow>
 						))}
@@ -230,8 +268,8 @@ Table.args = {
 	ariaLabel: "",
 	bulkActions: [
 		{
-			id: "option-1",
-			label: "Option 1",
+			id: "delete",
+			label: "Delete",
 		},
 		{
 			id: "option-2",

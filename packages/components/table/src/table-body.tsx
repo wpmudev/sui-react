@@ -32,6 +32,7 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 
 	// Effect to update the rows array when children change
 	useEffect(() => {
+		setEl(Children.toArray(children))
 		setRows(Children.toArray(children).map((row: ReactNode) => row.props.id))
 	}, [children])
 
@@ -44,6 +45,10 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 	const onSortEnd = useCallback(() => {
 		ctx?.setForceCollapse(false)
 		ctx?.triggerAction("resort", rows)
+		ctx?.setSortBy({
+			column: "",
+			order: "asc",
+		})
 	}, [ctx, rows])
 
 	// If the table is not draggable, render the TableBodyTag with children
