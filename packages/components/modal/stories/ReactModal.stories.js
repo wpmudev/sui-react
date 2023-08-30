@@ -87,19 +87,24 @@ Modal.args = {
 	},
 	size: "sm",
 	variant: "simple",
-	// isSmall: true,
-	// timer: 0,
-	// trigger: triggerContent,
-	// content: modalContent,
-	// footer: modalFooter,
 }
 
 // Set controls for story arguments.
 Modal.argTypes = {
+	id: {
+		name: "Id",
+		control: {
+			type: "text",
+		},
+	},
 	icon: {
 		name: "Icon",
+		control: {
+			type: "object",
+		},
 	},
 	size: {
+		name: "Size",
 		options: ["sm", "lg"],
 		control: {
 			type: "select",
@@ -110,9 +115,15 @@ Modal.argTypes = {
 		},
 	},
 	variant: {
+		name: "Variant",
 		options: ["simple", "advanced", "app-connect"],
 		control: {
 			type: "select",
+			labels: {
+				simple: "Simple",
+				advanced: "Advanced",
+				"app-connect": "App connect",
+			},
 		},
 	},
 }
