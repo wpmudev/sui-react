@@ -14,6 +14,22 @@
 		@include block($block) {
 			@include element(body) {
 				padding: $spacing-xxl;
+				max-height: $modal-size-height-md;
+				overflow-x: scroll;
+
+				@include media(max-width, sm) {
+					padding: $spacing-lg;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(body) {
+				color: $color-extended-neutral-0;
 			}
 		}
 	}

@@ -14,7 +14,7 @@
         @include block($block) {
             align-items: flex-start;
             display: flex;
-            height: 100vh;
+            height: $modal-size-height-xl;
             justify-content: center;
             left: 0;
             overflow: auto;
@@ -24,7 +24,7 @@
             top: 0;
             transition-duration: 0.4s;
             visibility: hidden;
-            width: 100vw;
+            width: $modal-size-width-xl;
             z-index: 999999;
 
             @include element(container) {
@@ -35,6 +35,22 @@
                 position: relative;
                 max-width: $modal-size-width-md;
                 width: 100%;
+
+                @include media(max-width, sm) {
+                    margin: 0 $spacing-lg;
+                    padding: $spacing-lg 0;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            @include element(container) {
+                border: $border-width-sm solid $color-extended-neutral-0;
+                box-shadow: none;
             }
         }
     }

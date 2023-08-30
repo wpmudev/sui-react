@@ -18,17 +18,15 @@
                 @include modifies-element(container) {
                     padding: 0;
                 }
-                
-                @include modifies-element(header, footer) {
-                    padding: $spacing-xl $spacing-xxl;
-                }
 
                 @include modifies-element(header) {
                     border-bottom: $border-width-sm solid $color-extended-neutral-80;
+                    padding: $spacing-xl $spacing-xxl;
                 }
 
                 @include modifies-element(footer) {
                     border-top: $border-width-sm solid $color-extended-neutral-80;
+                    padding: $spacing-xl $spacing-xxl;
                 }
             }
 
@@ -44,6 +42,25 @@
 
                 @include modifies-element(body) {
                     padding: $spacing-xl $spacing-xxl;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // by default variant is "simple"
+        @include block($block) {
+            // variant: advanced
+            @include modifier(advanced) {
+
+                @include modifies-element(header) {
+                    border-color: $color-extended-neutral-0;
+                }
+
+                @include modifies-element(footer) {
+                    border-color: $color-extended-neutral-0;
                 }
             }
         }
