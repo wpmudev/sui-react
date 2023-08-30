@@ -12,12 +12,21 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			border: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
-			background: var(--neutral-base-white, #FFF);
-			border-radius: 8px;
+			border: $border-width-sm solid $color-extended-neutral-80;
+			background: $color-extended-neutral-100;
+			border-radius: $border-radius-md;
 
 			@include element(quick-actions) {
-				margin-left: 16px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex: 1;
+				margin-left: $spacing-lg;
+
+				@include media(max-width, sm) {
+					margin-left: 0;
+					margin-top: $spacing-lg;
+				}
 			}
 		}
 	}

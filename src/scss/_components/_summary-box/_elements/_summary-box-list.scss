@@ -12,45 +12,59 @@
     // THEME: None.
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
-            @include element(list) {
-            }
 
             @include element(list-item) {
                 align-items: center;
-                background-color: #f0f0f0;
-                border-radius: 8px;
+                background-color: $color-extended-neutral-95;
+                border-radius: $border-radius-md;
                 display: flex;
                 justify-content: space-between;
-                margin-bottom: 16px;
-                padding: 16px;
+                margin-bottom: $spacing-lg;
+                padding: $spacing-lg;
+
+                @include media(max-width, sm) {
+                    margin-bottom: $spacing-md;
+                }
 
                 @include modifier(hover) {
                     // not working
                     .sui-summary-box__list-item-info > a {
-                        color: #286ef1;
+                        color: $color-primary-50;
                     }
                 }
 
                 @include modifier(focus) {
-                    outline: solid 1px black;
+                    outline: $border-width-sm solid $color-extended-neutral-60;
                 }
             }
 
             @include element(list-item-info) {
                 align-items: center;
-                color: var(--neutral-grey-101-a-1-a-1-a, #1A1A1A);
+                color: $color-extended-neutral-10;
                 display: flex;
                 font: $font-weight-md 16px/24px $font-family-default;
-                gap: 8px;
+                gap: $spacing-md;
 
                 a {
-                    color: var(--neutral-grey-dark-101-a-1-a-1-a, #1A1A1A);
+                    color: $color-extended-neutral-10;
                 }
             }
 
             @include element(list-item-status) {
                 display: inline-block;
                 height: 24px;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+
+            @include element(list-item) {
+                background-color: $color-extended-neutral-100;
+                outline: $border-width-sm solid $color-extended-neutral-0;
             }
         }
     }

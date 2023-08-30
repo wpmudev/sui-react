@@ -21,7 +21,7 @@
 			@include element(header-info){
 				align-items: center;
 				display: flex;
-				gap: 8px;
+				gap: $spacing-md;
 
 				h2 {
 					margin: 0;
