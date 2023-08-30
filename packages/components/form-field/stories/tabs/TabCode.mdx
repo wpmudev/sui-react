@@ -6,7 +6,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 	style={{ paddingTop: 20, paddingBottom: 0 }}
 >
 	<p>
-		Install the <Code small={true}>Accordion</Code> package as an individual
+		Install the <Code small={true}>FormField</Code> package as an individual
 		component or follow the Overview page instructions to get the complete SUI
 		Components package.
 	</p>
@@ -15,112 +15,72 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 <Section title="Props" border={true}>
 
     	<Section
-    		title={{ content: "state*", tag: 'string', small: true }}
+    		title={{ content: "id", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
-    		<p>Sets the semantic type for the accordion</p>
-    		<p>
-    		Allowed options:
-    			<List>
-    				<span label={<Code small={true}>neutral</Code>} />
-    				<span label={<Code small={true}>informative</Code>} />
-    				<span label={<Code small={true}>success</Code>} />
-    				<span label={<Code small={true}>warning</Code>} />
-    				<span label={<Code small={true}>critical</Code>} />
-    			</List>
-    		</p>
+    		<p>Unique Identifier for the field</p>
+
+    	</Section>
+
+    	<Section
+    		title={{ content: "label", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The text label for the field</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "helper*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Help text for the field</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "error*", tag: 'object', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Error message to be displayed with the field, it has the following properties:</p>
+    		<List>
+    			<span label={<><Code small={true}>state</Code>: Boolean that idicates whether to show the error message or not</>} />
+    			<span label={<><Code small={true}>text</Code>: the actual error text</>} />
+    		</List>
+
+    	</Section>
+
+    	<Section
+    		title={{ content: "isSmall*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Indicates whether the field to be small or not.</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "isDisabled*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Indicates whether the field is disabled or not. </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "isLabelHidden*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Indicates whether the label should be hidden or not. </p>
     	</Section>
 
     	<Section
     		title={{ content: "className*", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
-    		<p>A custom className for the accordion </p>
+    		<p>Custom css class Name(s) </p>
     	</Section>
 
-</Section>
-
-<Section
-	title="Sub Components"
-	contained={true}
-	style={{ paddingTop: 30, paddingBottom: 0 }}
->
-		<p>The Accordion component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
-
-    <Section title="AccordionItem" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component represents an individual item or section of the accordion and comes with its
-    		own set of props.
-    	</p>
-
-    	<Section title={{ content: "title*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Title of the accordion item
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "description*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Description of the accordion item
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "isDisabled*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Enables deactivation of the accordion item
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "icon*", tag: 'React Element', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Adds an Icon to the accordion item
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "hasCheckbox*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Displays a checkbox if true
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "onCheck*", tag: 'function', small: true }}   contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Callback function to be executed when the checkbox is clicked
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			The content of the accordion item
-    		</p>
-    	</Section>
-
-
-    </Section>
-
-    	<Section title="AccordionBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component serves as the body content
-    	for each item and also accepts specific props to customize its behavior, it has the following props:
-    	</p>
-
-    		<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    			<p>
-    				The content of the accordion item
-    			</p>
-    		</Section>
-    	</Section>
-
-    	<Section title="AccordionFooter" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component serves as the body content for each item and also accepts specific props to customize its behavior, it has the following props:
-    	</p>
-
-    		<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    			<p>
-    				Custom content for the footer
-    			</p>
-    		</Section>
+    	<Section
+    		title={{ content: "children*", tag: 'React Node', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The content of the field, it could be any form element </p>
     	</Section>
 
 </Section>
