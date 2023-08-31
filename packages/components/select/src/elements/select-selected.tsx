@@ -32,22 +32,18 @@ const Selected: React.FC<SelectSelectedProps> = ({
 }) => {
 	// Prepare the selected content
 	const selectedContent = isArray(selected) ? (
-		selected.map(({ label, id }) => (
+		selected?.map(({ label, id }) => (
 			<span
 				key={id}
 				className="sui-select__selected-options"
 				onClick={(event) => event.stopPropagation()}
 			>
 				{label}
-				<Icon
-					name="close"
-					size="sm"
-					onClick={() => removeSelection(id)}
-				/>
+				<Icon name="close" size="sm" onClick={() => removeSelection(id)} />
 			</span>
 		))
 	) : (
-		<span className="sui-select__selected">{selected}</span>
+		<span className="sui-select__selected">{selected?.label}</span>
 	)
 
 	const onClearSelection = useCallback(
