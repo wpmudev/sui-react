@@ -20,7 +20,7 @@ export default {
 }
 
 // Build story
-export const AlertBanner = ({ example, ...props }) => {
+export const AlertBanner = ({ example, variation, ...props }) => {
 	const box = {
 		display: "flex",
 		flexDirection: "column",
@@ -29,27 +29,28 @@ export const AlertBanner = ({ example, ...props }) => {
 		padding: "30px",
 		border: "1px solid #E6E6E6",
 		borderRadius: "4px",
-		// background: "#fff",
+		background: "#fff",
 	}
+
+	const theme =
+		"plugin-upsell" === variation || "hub-upsell" === variation ? true : false
 
 	const actions = [
 		<Button
 			key={0}
-			appearance="secondary"
-			color="black"
+			appearance={theme ? "primary" : "secondary"}
+			color={theme ? "white" : "black"}
 			isSmall={true}
 			isFullWidth={true}
-			// onClick={onApplyButton}
 		>
 			Primary
 		</Button>,
 		<Button
 			key={1}
-			appearance="secondary"
-			color="black"
+			appearance="tertiary"
+			color={theme ? "white" : "black"}
 			isSmall={true}
 			isFullWidth={true}
-			// onClick={onApplyButton}
 		>
 			Secondary
 		</Button>,
@@ -59,7 +60,7 @@ export const AlertBanner = ({ example, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={box}>
-					<SuiAlertBanner {...props} actions={actions}>
+					<SuiAlertBanner {...props} variation={variation} actions={actions}>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
 						volutpat.
 					</SuiAlertBanner>
@@ -70,7 +71,7 @@ export const AlertBanner = ({ example, ...props }) => {
 }
 
 AlertBanner.args = {
-	variation: "",
+	variation: "informative",
 	displayIcon: true,
 	isDismissible: true,
 }
@@ -88,6 +89,14 @@ AlertBanner.argTypes = {
 		],
 		control: {
 			type: "inline-radio",
+			labels: {
+				informative: "Informative",
+				success: "Success",
+				warning: "Warning",
+				critical: "Critical",
+				"plugin-upsell": "Plugin Upsell",
+				"hub-upsell": "Plugin Hub",
+			},
 		},
 	},
 	displayIcon: {
