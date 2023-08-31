@@ -14,22 +14,12 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+
+			@include modifier(hide-sm) {
+				@include media(max-width, sm) {
+					display: none;
+				}
+			}
 		}
 	}
-
-	// DIR: Left to right.
-	// THEME: None.
-//	@include sui-class($rtl: true, $theme: null) {
-//		@include block($block) {
-//			&:first-child {
-//				margin-left: $tag-margin-horizontal;
-//				margin-right: 0;
-//			}
-//
-//			&:last-child {
-//				margin-right: $tag-margin-horizontal;
-//				margin-left: 0;
-//			}
-//		}
-//	}
 }
