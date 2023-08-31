@@ -17,6 +17,7 @@ import { SummaryBoxProps } from "./summary-box.types"
 const SummaryBox: React.FC<SummaryBoxProps> = ({
 	title,
 	icon,
+	hideMobileIcon = true,
 	primaryActions = [],
 	secondaryActions = [],
 	className,
@@ -30,6 +31,7 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 		className: classNames,
 		icon: undefined, // The icon will be set later based on the provided icon prop or a default value.
 		isSmall: true, // Set the summary box size to small.
+		hideMobileIcon,
 	}
 
 	// Determine the icon to be used.
@@ -38,6 +40,7 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	return (
 		<Box
 			{...attrs}
+			className="sui-summary-box"
 			headerLeft={
 				<div className="sui-summary-box__quick-actions">
 					{primaryActions ?? []}
