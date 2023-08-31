@@ -68,9 +68,9 @@ interface ButtonProps
 	 */
 	iconOnly?: boolean
 	/**
-	 * Optional flag to make the button full width.
+	 * Optional: handle responsive when true
 	 */
-	isResponsive: boolean
+	isResponsive?: boolean
 }
 
 export { ButtonProps }
