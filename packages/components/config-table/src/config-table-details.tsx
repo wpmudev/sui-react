@@ -22,10 +22,10 @@ const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({ config }) => {
 	return (
 		<Box className="sui-config-table__details">
 			<div className="sui-config-table__details-header">
-				<h3 className="sui-config-table__details-header-title">
+				<h3 className="sui-heading--h5 sui-config-table__details--title">
 					{config?.name}
 				</h3>
-				<p className="sui-config-table__details-header-desc">
+				<p className="sui-config-table__details--content">
 					{config?.description}
 				</p>
 			</div>
