@@ -31,47 +31,47 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	 * @param {Record<string, any>} config
 	 * @return {JSX.Element} Expand content
 	 */
-	const renderExpandContent = (config) => {
-		let options = []
+	// const renderExpandContent = (config) => {
+	// 	let options = []
 
-		// Build options to render in the table
-		Object.values(config.config.strings).forEach((string) => {
-			options = [
-				...options,
-				// Split string by new line and exclude blank
-				...string[0].split("\n").filter((opt) => !isEmpty(opt)),
-			]
-		})
+	// 	// Build options to render in the table
+	// 	Object.values(config.config.strings).forEach((string) => {
+	// 		options = [
+	// 			...options,
+	// 			// Split string by new line and exclude blank
+	// 			...string[0].split("\n").filter((opt) => !isEmpty(opt)),
+	// 		]
+	// 	})
 
-		return (
-			<Box className="sui-config-table__details">
-				<div className="sui-config-table__details-header">
-					<h3 className="sui-config-table__details-header-title">
-						{config.name}
-					</h3>
-					<p className="sui-config-table__details-header-desc">
-						{config.description}
-					</p>
-				</div>
-				<div className="sui-config-table__details-body">
-					<Table hasToolbar={false} isStripped={true}>
-						<TableBody>
-							{options.map((option: Record<string, any>, index: number) => {
-								const chunks = option.split("-")
+	// 	return (
+	// 		<Box className="sui-config-table__details">
+	// 			<div className="sui-config-table__details-header">
+	// 				<h3 className="sui-config-table__details-header-title">
+	// 					{config.name}
+	// 				</h3>
+	// 				<p className="sui-config-table__details-header-desc">
+	// 					{config.description}
+	// 				</p>
+	// 			</div>
+	// 			<div className="sui-config-table__details-body">
+	// 				<Table hasToolbar={false} isStripped={true}>
+	// 					<TableBody>
+	// 						{options.map((option: Record<string, any>, index: number) => {
+	// 							const chunks = option.split("-")
 
-								return (
-									<TableRow key={index} id={option.id}>
-										<TableCell>{chunks[0]}</TableCell>
-										<TableCell>{chunks[1]}</TableCell>
-									</TableRow>
-								)
-							})}
-						</TableBody>
-					</Table>
-				</div>
-			</Box>
-		)
-	}
+	// 							return (
+	// 								<TableRow key={index} id={option.id}>
+	// 									<TableCell>{chunks[0]}</TableCell>
+	// 									<TableCell>{chunks[1]}</TableCell>
+	// 								</TableRow>
+	// 							)
+	// 						})}
+	// 					</TableBody>
+	// 				</Table>
+	// 			</div>
+	// 		</Box>
+	// 	)
+	// }
 
 	/**
 	 * Handle an action click.
@@ -89,7 +89,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	)
 
 	return (
-		<Table className={className} hasToolbar={false}>
+		<Table className={`sui-config-table ${className}`} hasToolbar={false}>
 			<TableHead>
 				<TableRow actions={() => null}>
 					<TableCell isHeading={true} isPrimary={true}>Config</TableCell>

@@ -21,6 +21,7 @@ const Table: React.FC<TableProps> = ({
 	noSideBorder,
 	isStripped = false,
 	stickyCols = false,
+	className = "",
 	...props
 }) => {
 	// Reference to the table element
@@ -28,13 +29,17 @@ const Table: React.FC<TableProps> = ({
 
 	// Define tag design
 	// Limited to: solid (default) and outlined
-	const classNames = generateCN("sui-table", {
-		"no-border-radius": noBorderRadius,
-		"no-side-borders": noSideBorder,
-		stripe: isStripped,
-		sticky: stickyCols,
-		draggable: isDraggable,
-	})
+	const classNames = generateCN(
+		"sui-table",
+		{
+			"no-border-radius": noBorderRadius,
+			"no-side-borders": noSideBorder,
+			stripe: isStripped,
+			sticky: stickyCols,
+			draggable: isDraggable,
+		},
+		className,
+	)
 
 	// Component name to exclude from the children array
 	const componentToExclude = "TableFooter"
