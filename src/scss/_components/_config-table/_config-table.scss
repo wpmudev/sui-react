@@ -1,8 +1,4 @@
 @use "./_elements/elements" as sui-config-table--element;
-@use "./_modifiers/modifiers" as sui-config-table--modifier;
 
 @include sui-config-table--element.build-container(config-table);
 @include sui-config-table--element.build-details(config-table);
-
-//@include sui-config-table--modifier.edit-disabled(link);
-//@include sui-config-table--modifier.edit-inline(link);

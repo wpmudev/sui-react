@@ -28,15 +28,12 @@
                 }
             }
 
-            @include element(details-header-title) {
-                color: $color-extended-neutral-10;
-                font: $font-weight-md 16px/24px $font-family-default;
+            @include modifier(title) {
                 margin: 0;
             }
 
-            @include element(details-header-desc) {
+            @include modifier(content) {
                 color: $color-extended-neutral-50;
-                font: $font-weight-sm 15px/24px $font-family-default;
                 margin: $spacing-md 0 0 0;
             }
         }
