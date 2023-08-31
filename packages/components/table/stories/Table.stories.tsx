@@ -245,10 +245,7 @@ const Table = ({ example, ...args }) => {
 					<TableFooter>
 						<TableRow id="0">
 							<TableCell>
-								<Pagination limit={5}>
-									{
-										// @todo: need improvement
-									}
+								<Pagination limit={5} onChange={(page) => {}}>
 									<ul style={{ display: "none" }}>
 										{items.map((item, key) => (
 											<li key={key}>Item #{item}</li>
