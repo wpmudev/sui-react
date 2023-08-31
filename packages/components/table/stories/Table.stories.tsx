@@ -11,7 +11,6 @@ import {
 } from "../src"
 
 import { Tag } from "@wpmudev/sui-tag"
-import { Box, BoxGroup } from "@wpmudev/sui-box"
 import { Button } from "@wpmudev/sui-button"
 import { Pagination } from "@wpmudev/sui-pagination"
 

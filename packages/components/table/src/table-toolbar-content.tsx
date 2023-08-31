@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react"
+import React, { useContext } from "react"
 import { TableToolbarContentProps } from "./table.types"
 
 import { Box, BoxGroup } from "@wpmudev/sui-box"
@@ -33,9 +33,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 				{
 					select: (
 						<Select
-							onChange={(e) => {
-								ctx?.setFilter(filter?.id, e.target.value)
-							}}
+							onChange={(optionID) => ctx?.setFilter(filter?.id, optionID)}
 							id={filter?.id}
 							{...filter.props}
 						/>
@@ -45,7 +43,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 							id={filter?.id}
 							{...filter.props}
 							onChange={(e) => {
-								ctx?.setFilter(filter?.id, e.target.value)
+								ctx?.setFilter(filter?.id, e.target?.value)
 							}}
 						/>
 					),

@@ -3,7 +3,6 @@ import React, {
 	useCallback,
 	useContext,
 	useId,
-	useRef,
 	useState,
 } from "react"
 import { TableSectionProps } from "./table.types"
@@ -15,7 +14,7 @@ import { Dropdown } from "@wpmudev/sui-dropdown"
 
 import { TableToolbarContent } from "./table-toolbar-content"
 import { TableContext } from "./table-context"
-import { isEmpty } from "@wpmudev/storybook/lib/utils"
+import { isEmpty } from "@wpmudev/sui-utils"
 
 /**
  * TableToolbar component represents the toolbar section of a table.
@@ -68,7 +67,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 								className="sui-table__toolbar-actions"
 								isSmall={true}
 								options={ctx?.bulkActions}
-								onChange={(e) => setBulkAction(e?.target?.value)}
+								onChange={setBulkAction}
 							/>
 							<Button
 								appearance="primary"
