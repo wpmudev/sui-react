@@ -36,7 +36,7 @@
 
 			@include modifier(is-icon) {
 				min-width: auto;
-				padding: 11px;
+				padding: $button-container-padding-horizontal;
 
 				span {
 					display: block;

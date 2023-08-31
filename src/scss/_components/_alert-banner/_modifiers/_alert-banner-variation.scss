@@ -13,22 +13,34 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(success) {
-				background-color: #BAEBC9;
+				background-color: $color-extended-success-70;
 			}
 			@include modifier(informative) {
-				background-color: #D5E3FD;
+				background-color: $color-primary-80;
 			}
 			@include modifier(warning) {
-				background-color: #FFF4CE;
+				background-color: $color-extended-warning-70;
 			}
 			@include modifier(critical) {
-				background-color: #FCCECD;
+				background-color: $color-extended-error-70;
 			}
 			@include modifier(plugin-upsell) {
-				background-color: #184291;
+				background-color: $color-primary-40;
 			}
 			@include modifier(hub-upsell) {
-				background-color: #286EF1;
+				background-color: $color-primary-50;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			background-color: $color-extended-neutral-100;
+
+			@include modifier(plugin-upsell, hub-upsell) {
+				background-color: $color-extended-neutral-0;
 			}
 		}
 	}

@@ -16,13 +16,13 @@
             // variant: sm
             @include modifier(sm) {
                 @include modifies-element(container) {
-                    max-width: 480px;
+                    max-width: $modal-size-width-md;
                 }
             }
             // variant: lg
             @include modifier(lg) {
                 @include modifies-element(container) {
-                    max-width: 720px;
+                    max-width: $modal-size-width-lg;
                 }
             }
         }

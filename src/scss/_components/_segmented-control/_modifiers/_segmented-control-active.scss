@@ -31,6 +31,10 @@
                 @include modifier(active) {
                     background-color: $color-extended-neutral-0;
                     color: $color-extended-neutral-100;
+
+                    .sui-icon {
+                        color: $color-extended-neutral-100;
+                    }
                 }
             }
         }

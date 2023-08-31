@@ -8,18 +8,29 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-overlay($block) {
-  // DIR: Left to right.
-  // THEME: None.
-  @include sui-class($rtl: false, $theme: null) {
-    @include block($block) {
-      @include element(overlay) {
-        background: rgba(51,51,51,.95);
-        bottom: 0;
-        left: 0;
-        position: fixed;
-        right: 0;
-        top: 0;
-      }
-    }
-  }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(overlay) {
+				background: $color-alpha-grey-90;
+				bottom: 0;
+				left: 0;
+				position: fixed;
+				right: 0;
+				top: 0;
+				z-index: 10;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(overlay) {
+				background: $color-alpha-white-90;
+			}
+		}
+	}
 }

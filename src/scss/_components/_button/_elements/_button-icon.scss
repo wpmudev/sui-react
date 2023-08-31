@@ -15,14 +15,37 @@
 					}
 				}
 			}
+			
 			@include modifier(is-icon) {
 				.sui-#{$block-name}__icon {
 					padding: 0;
 				}
 			}
+			
 			@include modifier(inline) {
 				border: none;
 				background: unset;
+			}
+
+			@include modifier(responsive) {
+				@include modifies-element(label) {
+					@include media(max-width, md) {
+						display: none;
+					}
+				}
+				
+				@include media(max-width, md) {
+					min-width: auto;
+					padding: $button-container-padding-horizontal;
+
+					span {
+						display: block;
+					}
+					
+					.sui-#{$block-name}__icon {
+						padding: 0;
+					}
+				}
 			}
 		}
 	}

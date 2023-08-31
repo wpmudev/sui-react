@@ -14,19 +14,23 @@
 		@include block($block) {
 			@include element(header) {
 				align-items: center;
-				background: white;
-				border-radius: 16px 16px 0 0;
-				gap: 16px;
+				background: $color-extended-neutral-100;
+				border-radius: $spacing-lg $spacing-lg 0 0;
+				gap: $spacing-lg;
 				justify-content: space-between;
-				padding: 0 32px;
+				padding: 0 $spacing-xxl;
+
+				@include media(max-width, sm) {
+					padding: 0 $spacing-lg;
+				}
 			}
 
 			@include element(header-actions) {
 				align-items: center;
 				display: flex;
-				gap: 15px;
 				justify-content: space-between;
 				width: 100%;
+				gap: $spacing-lg;
 
 				h4 {
 					flex: 1;
@@ -43,27 +47,44 @@
 
 			// header info content
 			@include element(header-info-content) {
-				margin-top: 8px;
+				margin-top: $spacing-md;
 			}
 
 			@include element(header-logo) {
-				background: var(--neutral-grey-light-100-ffffff, #FFF);
-				border-radius: 24px;
-				box-shadow: 0 4px 8px 0 rgba(115, 115, 115, 0.05), 0 4px 20px 0 rgba(115, 115, 115, 0.10), 0 12px 16px 0 rgba(115, 115, 115, 0.08);
-				height: 64px;
+				background: $color-extended-neutral-100;
+				border-radius: $modal-border-radius;
+				box-shadow: 0 4px 8px 0 $color-shadow-light, 0 4px 20px 0 $color-shadow-dark, 0 12px 16px 0 $color-shadow-default;
+				height: $modal-size-height-xs;
 				left: 0;
 				top: -38px;
 				margin: 0 auto;
 				overflow: hidden;
-				padding: 8px;
+				padding: $spacing-md;
 				position: absolute;
 				right: 0;
-				width: 64px;
+				width: $modal-size-width-xs;
 				z-index: 99;
 
 				img {
-					border-radius: 20px;
+					border-radius: $border-radius-xxl;
 				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+
+			// header info content
+			@include element(header-info-content) {
+				color: $color-extended-neutral-0;
+			}
+
+			@include element(header-logo) {
+				box-shadow: none;
+				border: $border-width-sm solid $color-extended-neutral-0;
 			}
 		}
 	}
