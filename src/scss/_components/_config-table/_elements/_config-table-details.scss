@@ -13,23 +13,31 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             @include element(details) {
-                padding: 32px;
+                padding: $spacing-xxl;
+                
+                @include media(max-width, sm) {
+                    padding: $spacing-lg;
+                }
             }
 
             @include element(details-header) {
-                margin-bottom: 32px;
+                margin-bottom: $spacing-xxl;
+
+                @include media(max-width, sm) {
+                    margin-bottom: $spacing-lg;
+                }
             }
 
             @include element(details-header-title) {
-                color: var(--neutral-grey-101-a-1-a-1-a, #1A1A1A);
+                color: $color-extended-neutral-10;
                 font: $font-weight-md 16px/24px $font-family-default;
                 margin: 0;
             }
 
             @include element(details-header-desc) {
-                color: #505050;
+                color: $color-extended-neutral-50;
                 font: $font-weight-sm 15px/24px $font-family-default;
-                margin: 8px 0 0 0;
+                margin: $spacing-md 0 0 0;
             }
         }
     }

@@ -34,6 +34,10 @@
                 td {
                     color: $color-extended-neutral-60;
 
+                    .suicons {
+                        color: $color-extended-neutral-50;
+                    }
+
                     strong {
                         font-weight: $font-weight-md;
                         color: $color-extended-neutral-10;
@@ -64,6 +68,10 @@
 
                 td {
                     color: $color-extended-neutral-0;
+
+                    .suicons {
+                        color: $color-extended-neutral-0;
+                    }
 
                     strong {
                         color: $color-extended-neutral-0;

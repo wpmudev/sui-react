@@ -13,19 +13,19 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             align-items: center;
-            color: var(--color-primary-blue-50-base, #0059FF);
+            color: $color-primary-50;
             display: inline-flex;
-            gap: 4px;
+            gap: $spacing-sm;
             text-decoration: underline;
 
             @include modifier(focus) {
-                color: var(--color-primary-blue-10, #000714);
+                color: $color-primary-10;
             }
 
             @include element(title) {
                 align-items: center;
                 display: flex;
-                gap: 8px;
+                gap: $spacing-md;
             }
         }
     }

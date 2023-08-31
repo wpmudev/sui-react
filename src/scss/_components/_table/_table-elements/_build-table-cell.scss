@@ -17,10 +17,8 @@
         @include block($block) {
             @include element(cell) {
                 border: none;
-                overflow: hidden;
                 padding: $spacing-lg;
                 text-align: left;
-                text-overflow: ellipsis;
                 white-space: nowrap;
 
                 @include media(max-width, sm){
@@ -112,6 +110,8 @@
                 }
 
                 @include modifier(trim) {
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                     div {
                         max-width: $table-width-lg;
                         white-space: nowrap;

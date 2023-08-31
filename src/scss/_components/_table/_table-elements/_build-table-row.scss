@@ -46,6 +46,13 @@
                             padding: 0 $spacing-lg $spacing-lg $spacing-lg;
                         }
                     }
+
+                    .sui-#{$block}__cell {
+                        @include media(max-width, sm) {
+                            display: table-cell;
+                            white-space: unset;
+                        }
+                    }
                 }
 
                 @include modifier(content-expanded) {
