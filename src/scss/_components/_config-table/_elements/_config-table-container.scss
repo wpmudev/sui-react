@@ -12,15 +12,9 @@
     // THEME: None.
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
-            align-items: center;
-            color: $color-primary-50;
-            display: inline-flex;
-            gap: $spacing-sm;
-            text-decoration: underline;
-
-            @include modifier(focus) {
-                color: $color-primary-10;
-            }
+            border-radius: 0;
+            border-left: 0;
+            border-right: 0;
 
             @include element(title) {
                 align-items: center;
