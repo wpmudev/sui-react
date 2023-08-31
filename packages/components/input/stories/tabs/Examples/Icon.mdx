@@ -1,56 +1,63 @@
-import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
-import { Input } from '../../../src';
-import dedent from 'dedent';
+import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Input } from "../../../src"
+import dedent from "dedent"
+import { FormField } from "@wpmudev/sui-form-field"
 
 export const LeadInputCode = dedent`
-import React from 'react';\n
-import { Button } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Input label="Icon before" iconLead="user" id="input-id-2" placeholder="Placeholder" />;
-}\n
-export default Example;
-`;
+    <FormField label="Label" helper="Help text">
+        <Input
+            icon="user"
+            iconPosition="start"
+            id="input-id-2"
+            placeholder="Placeholder"
+        />
+    </FormField>
+`
 
 export const TrailInputCode = dedent`
-import React from 'react';\n
-import { Input } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Input label="Icon after" iconTrail="user" id="input-id-3" placeholder="Placeholder" />;
-}\n
-export default Example;
-`;
+    <FormField label="Label" helper="Help text">
+        <Input
+            icon="user"
+            iconPosition="end"
+            id="input-id-3"
+            placeholder="Placeholder"
+        />
+    </FormField>
+`
 
 <Section
-	title="Leading"
+	title="Icon on the left"
 	contained={true}
 	border={true}
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
-	<p>Display an icon before the text.</p>
 	<Preview wrapper={true}>
-		<Input
-			label="Icon before"
-			iconLead="user"
-			id="input-id-2"
-			placeholder="Placeholder"
-		/>
+		<FormField label="Label" helper="Help text">
+			<Input
+				icon="user"
+				iconPosition="start"
+				id="input-id-2"
+				placeholder="Placeholder"
+			/>
+		</FormField>
 	</Preview>
 	<Snippet language="js">{LeadInputCode}</Snippet>
 </Section>
 
 <Section
-	title="Trailing"
+	title="Icon on the right"
 	contained={true}
 	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
 >
-	<p>Display an icon after the text.</p>
 	<Preview wrapper={true}>
-		<Input
-			label="Icon after"
-			iconTrail="user"
-			id="input-id-3"
-			placeholder="Placeholder"
-		/>
+		<FormField label="Label" helper="Help text">
+			<Input
+				icon="user"
+				iconPosition="end"
+				id="input-id-3"
+				placeholder="Placeholder"
+			/>
+		</FormField>
 	</Preview>
 	<Snippet language="js">{TrailInputCode}</Snippet>
 </Section>

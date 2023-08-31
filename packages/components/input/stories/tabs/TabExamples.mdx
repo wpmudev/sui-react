@@ -1,24 +1,28 @@
-import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
-import { Input } from '../../src';
-import dedent from 'dedent';
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Input } from "../../src"
+import dedent from "dedent"
+import { FormField } from "@wpmudev/sui-form-field"
 
-import States from './Examples/States.mdx';
-import Size from './Examples/Size.mdx';
-import Icon from './Examples/Icon.mdx';
+import States from "./Examples/States.mdx"
+import Size from "./Examples/Size.mdx"
+import Icon from "./Examples/Icon.mdx"
 
 export const sampleCode = dedent`
-import React from 'react';\n
-import { Input } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Input id="input-id-1" label="Label" placeholder="Placeholder" />;
-}\n
-export default Example;
-`;
+    <FormField label="Label" helper="Help text">
+        <Input id="input-id-1" label="Label" placeholder="Placeholder" />
+    </FormField>
+`
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>Below is the default form of a field, used for most cases.</p>
+	<p>Below is the default form of an input, used for most cases.</p>
+	<p>
+		We wrap the input component in the <Code small={true}>FormField</Code>{" "}
+		component to add the the label, helper text and error messoge.
+	</p>
 	<Preview wrapper={true}>
-		<Input id="input-id-1" label="Label" placeholder="Placeholder" />
+		<FormField label="Label" helper="Help text">
+			<Input id="input-id-1" label="Label" placeholder="Placeholder" />
+		</FormField>
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
