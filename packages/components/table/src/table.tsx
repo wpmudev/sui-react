@@ -9,7 +9,6 @@ import { TableToolbar } from "./table-toolbar"
 // Table component to display a table with optional toolbar and context
 const Table: React.FC<TableProps> = ({
 	children,
-	type = "",
 	hasToolbar = true,
 	ariaLabel = "",
 	allowCheck,

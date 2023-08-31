@@ -92,7 +92,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 		<Table className={className} hasToolbar={false}>
 			<TableHead>
 				<TableRow actions={() => null}>
-					<TableCell isHeading={true}>Config</TableCell>
+					<TableCell isHeading={true} isPrimary={true}>Config</TableCell>
 					<TableCell isHeading={true}>Date Created</TableCell>
 					<TableCell isHeading={true}>Last Applied</TableCell>
 				</TableRow>
@@ -136,7 +136,13 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 							<div className="sui-config-table__title">
 								<strong>{config.name}</strong>
 								{!isEmpty(config.description ?? "") && (
-									<Tooltip type="icon" name="info" customWidth={160}>
+									<Tooltip
+										type="icon"
+										name="info-alt"
+										position="right-bottom"
+										customWidth={160}
+										customMobileWidth={160}
+									>
 										{config.description}
 									</Tooltip>
 								)}
