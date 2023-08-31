@@ -167,14 +167,19 @@ const Table = ({ example, ...args }) => {
 						let dRows = [...rows]
 
 						switch (actionType) {
-							case "search-item":
+							case "apply-filters":
+								console.log("da", data)
+								break
+							case "sort-rows":
+								break
+							case "search-items":
 								dRows = dRows.filter((item) =>
 									item.title.includes(data as string),
 								)
 
 								dRows = "" !== data ? dRows : records
 								break
-							case "column-sort":
+							case "sort-columns":
 								const { column, order } = data
 
 								// sort
@@ -328,9 +333,9 @@ Table.args = {
 			},
 		},
 		{
-			id: "ip-address",
+			id: "status",
 			type: "text",
-			title: "IP Address",
+			title: "Status",
 			value: "1",
 			// Input component props
 			props: {
@@ -338,9 +343,9 @@ Table.args = {
 			},
 		},
 		{
-			id: "banned-status",
+			id: "last-submission",
 			type: "text",
-			title: "Banned status",
+			title: "Last Submission",
 			value: "1",
 			// Input component props
 			props: {

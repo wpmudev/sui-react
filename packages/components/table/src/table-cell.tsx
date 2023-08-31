@@ -63,7 +63,7 @@ const TableCell: React.FC<TableCellProps> = ({
 		const sortData = { column: id, order: "desc" === order ? "asc" : "desc" }
 		setSortBy(sortData)
 		// Pass to parent component
-		triggerAction("column-sort", sortData)
+		triggerAction("sort-columns", sortData)
 	}, [id, order, setSortBy, triggerAction])
 
 	// Default sort icon

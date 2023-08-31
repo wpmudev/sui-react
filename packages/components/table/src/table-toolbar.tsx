@@ -40,7 +40,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 
 	const onSearch = useCallback(
 		(e) => {
-			ctx?.triggerAction("search-item", e.target.value)
+			ctx?.triggerAction("search-items", e.target.value)
 		},
 		[ctx],
 	)

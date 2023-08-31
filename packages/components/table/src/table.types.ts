@@ -193,10 +193,10 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 type TableExpectedAction =
 	| "apply-filters"
 	| "clear-filters"
-	| "search-item"
+	| "search-items"
 	| "bulk-action"
-	| "resort"
-	| "column-sort"
+	| "sort-rows"
+	| "sort-columns"
 
 /**
  * Interface for the table context.
