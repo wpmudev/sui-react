@@ -34,8 +34,6 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				isReadOnly = false,
 				isError = false,
 				isDisabled = false,
-				onMouseEnter = () => {},
-				onMouseLeave = () => {},
 				onChange,
 				icon,
 				iconPosition,

@@ -1,103 +1,110 @@
-import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 
 <Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
 	<p>
 		Install the <Code small={true}>Input</Code> package as an individual
-		component or follow the Overview page instructions to get the complete
-		SUI Components package.
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
 	</p>
 </Section>
 
 <Section title="Props" border={true}>
 	<p>Input component have the following props.</p>
 	<Section
-		title={{ content: 'label', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>Reflects the label of the input field.</p>
-	</Section>
-	<Section
-		title={{ content: 'id', tag: 'string', small: true }}
+		title={{ content: "id", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Add a unique id to the input.</p>
 	</Section>
 	<Section
-		title={{ content: 'className', tag: 'string', small: true }}
+		title={{ content: "className", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Add a class name to the input.</p>
+		<p>Add a class name to the input wrapper.</p>
 	</Section>
 	<Section
-		title={{ content: 'value', tag: 'string', small: true }}
+		title={{ content: "inputClass", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the value of the input field.</p>
+		<p>Add a class name to the input element itself.</p>
 	</Section>
 	<Section
-		title={{ content: 'type', tag: 'string', small: true }}
+		title={{ content: "defaultValue", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>
-			Reflects the type of the input field whether it's text, number etc.
-		</p>
+		<p>Reflects the initial default value of the input field.</p>
 	</Section>
 	<Section
-		title={{ content: 'description', tag: 'string', small: true }}
+		title={{ content: "placeholder", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the description of the input field.</p>
+		<p>Placeholder text to display when the input has no value</p>
 	</Section>
 	<Section
-		title={{ content: 'descriptionId', tag: 'string', small: true }}
+		title={{ content: "isMultiLine", tag: "boolean", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>
-			It helps screen reader to announce the description message of the
-			field.
-		</p>
+		<p>Specifies whether the input element is a multiline input.</p>
 	</Section>
 	<Section
-		title={{ content: 'errorMessage', tag: 'string', small: true }}
+		title={{ content: "isReadOnly", tag: "boolean", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the error message of the input field.</p>
+		<p>Specifies whether the input element is read-only.</p>
 	</Section>
 	<Section
-		title={{ content: 'errorId', tag: 'string', small: true }}
+		title={{ content: "type", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>
-			It helps screen reader to announce the error message of the field.
-		</p>
+		<p>Reflects the type of the input field whether it's text, number etc.</p>
 	</Section>
 	<Section
-		title={{ content: 'isSmall', tag: 'boolean', small: true }}
+		title={{ content: "isError", tag: "boolean", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Specifies whether the input element has an error.</p>
+	</Section>
+	<Section
+		title={{ content: "isSmall", tag: "boolean", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Set if the input is small.</p>
 	</Section>
 	<Section
-		title={{ content: 'isDisabled', tag: 'boolean', small: true }}
+		title={{ content: "isDisabled", tag: "boolean", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Set if the input is disabled.</p>
 	</Section>
 	<Section
-		title={{ content: 'iconLead', tag: 'string', small: true }}
+		title={{ content: "onChange", tag: "function", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Places an icon within the input, before the input's text.</p>
+		<p>The callback function for handling input changes.</p>
 	</Section>
 	<Section
-		title={{ content: 'iconTrail', tag: 'string', small: true }}
+		title={{ content: "icon", tag: "string", small: true }}
 		style={{
 			paddingTop: 0,
-			paddingBottom: 0,
 			paddingLeft: 20,
 			paddingRight: 0,
 		}}
 	>
-		<p>Places an icon within the input, after the input's text.</p>
+		<p>Optional icon position to be displayed before or after text.</p>
 	</Section>
+	<Section
+		title={{ content: "iconPosition", tag: "string", small: true }}
+		style={{
+			paddingTop: 0,
+			paddingLeft: 20,
+			paddingRight: 0,
+		}}
+	>
+		<p>The position of the icon. It has two possible values</p>
+		<List>
+			<span label={<><Code small={true}>start</Code> puts the icon before the text</>} />
+			<span label={<><Code small={true}>end</Code> puts the icon after the text</>} />
+    	</List>
+    </Section>
+
 </Section>
