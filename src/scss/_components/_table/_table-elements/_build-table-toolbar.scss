@@ -16,6 +16,10 @@
         // Block wrapper.
         @include block($block) {
 
+            @include element(toolbar) {
+                border-bottom: $border-width-sm solid $color-extended-neutral-80;
+            }
+
             @include element(toolbar-header) {
                 align-items: center;
                 display: flex;
@@ -105,6 +109,10 @@
     @include sui-class($rtl: false, $theme: dark) {
         // Block wrapper.
         @include block($block) {
+
+            @include element(toolbar) {
+                border-color: $color-extended-neutral-0;
+            }
 
             @include element(toolbar-body) {
 

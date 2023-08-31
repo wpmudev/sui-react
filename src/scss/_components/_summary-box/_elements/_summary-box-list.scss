@@ -13,6 +13,12 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
 
+            @include element(list) {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+
             @include element(list-item) {
                 align-items: center;
                 background-color: $color-extended-neutral-95;
