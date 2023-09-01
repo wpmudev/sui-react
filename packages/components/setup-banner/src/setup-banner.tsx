@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN, PluginsIcons } from "@wpmudev/sui-utils"
+import { generateCN, PluginIconTypes, PluginsIcons } from "@wpmudev/sui-utils"
 import * as Icons from "@wpmudev/sui-icons"
 
 import { SetupBannerProps } from "./setup-banner.types"
@@ -25,12 +25,12 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 		className,
 	)
 
-	const icon: string = PluginsIcons?.[type] ?? "Plugin"
+	const Plugin: PluginIconTypes = PluginsIcons?.[type] ?? "Plugin"
 
 	// Dynamically determine the IconTag based on the provided icon prop.
 	let IconTag = null
-	if (!!icon) {
-		IconTag = Icons?.[icon]
+	if (!!Plugin?.icon) {
+		IconTag = Icons?.[Plugin?.icon]
 	}
 
 	return (
