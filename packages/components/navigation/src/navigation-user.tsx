@@ -26,7 +26,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({ user, menu }) => {
 	)
 
 	return (
-		<div className="sui-navigation__user">
+		<div>
 			<Dropdown
 				ref={userBtnRef}
 				label="Menu Button"
@@ -36,9 +36,9 @@ const NavigationUser: React.FC<NavigationUserProps> = ({ user, menu }) => {
 				renderContentOnTop={true}
 				menu={menu ?? []}
 			>
-				<div className="sui-navigation__user-info">
-					<div className="sui-navigation__user-info-name">{user?.name}</div>
-					<div className="sui-navigation__user-info-email">{user?.email}</div>
+				<div className="sui-navigation__user">
+					<div className="sui-navigation__user--name">{user?.name}</div>
+					<div className="sui-navigation__user--email">{user?.email}</div>
 				</div>
 			</Dropdown>
 		</div>

@@ -13,6 +13,8 @@ import { Button } from "@wpmudev/sui-button"
 import { useOuterClick } from "@wpmudev/sui-hooks"
 import { Menu, MenuItem, MenuGroup } from "@wpmudev/sui-menu"
 
+import { ArrowDown } from "@wpmudev/sui-icon"
+
 import { DropdownProps, DropdownRefProps } from "./dropdown.types"
 
 /**
@@ -41,6 +43,7 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 			onMenuClick,
 			trigger = null,
 			renderContentOnTop,
+			...props
 		}: DropdownProps,
 		ref,
 	) => {
@@ -105,18 +108,21 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 				{!!trigger ? (
 					trigger
 				) : (
-					<Button
-						icon={buttonIcon ?? "menu"}
-						iconOnly={iconOnly ?? false}
-						iconPosition="start"
-						color="black"
-						appearance="secondary"
-						isSmall={isSmall ?? false}
-						aria-activedescendant={isOpen ? `${id}-${current}` : ""}
-						onClick={() => setIsOpen(!isOpen)}
-					>
-						{label}
-					</Button>
+					<div>
+						<Button
+							startIcon={buttonIcon ?? "menu"}
+							iconOnly={iconOnly ?? false}
+							color="black"
+							appearance="secondary"
+							isSmall={isSmall ?? false}
+							aria-activedescendant={isOpen ? `${id}-${current}` : ""}
+							onClick={() => setIsOpen(!isOpen)}
+							{...(!iconOnly && { endIcon: "chevron-down" })}
+							{...props}
+						>
+							{label}
+						</Button>
+					</div>
 				)}
 				<div
 					id={id}

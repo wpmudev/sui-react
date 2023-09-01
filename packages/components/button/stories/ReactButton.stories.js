@@ -66,8 +66,7 @@ const Button = ({ example, ...props }) => {
 											Prev
 										</StandardButton>
 										<StandardButton
-											icon="chevron-right"
-											iconPosition="end"
+											endIcon="chevron-right"
 											onClick={() => console.log("Go to next step.")}
 											{...props}
 										>

@@ -24,14 +24,14 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 	return (
 		<div className="sui-navigation__brand">
 			<div
-				className="sui-navigation__brand-icon"
+				className="sui-navigation__icon"
 				style={{ backgroundColor: PluginIcon?.bg }}
 			>
 				<IconTag fill={PluginIcon?.color} />
 			</div>
-			<div className="sui-navigation__brand-info">
+			<div className="sui-navigation__info">
 				<h3 className="sui-heading--h4">{title}</h3>
-				<span className="">{description}</span>
+				<span className="sui-navigation__info--desc">{description}</span>
 			</div>
 		</div>
 	)
