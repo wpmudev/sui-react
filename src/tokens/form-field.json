@@ -29,10 +29,6 @@
 					}
 				},
         "height": {
-          "sm": {
-						"value": "20px",
-						"type": "letterSpacing"
-					},
           "md": {
 						"value": "{font.height.sm}",
 						"type": "fontSizes"

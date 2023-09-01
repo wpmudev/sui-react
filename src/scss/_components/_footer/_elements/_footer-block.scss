@@ -16,7 +16,8 @@
 			@include element(block) {
 				display: flex;
 				color: $color-extended-neutral-50;
-				font: $font-weight-sm 13px/20px $font-family-default;
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
 			}
 		}
 	}

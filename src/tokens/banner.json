@@ -8,10 +8,6 @@
                 }
             },
             "height": {
-                "sm": {
-                    "value": "20px",
-                    "type": "lineHeights"
-                },
                 "lg": {
                     "value": "48px",
                     "type": "lineHeights"

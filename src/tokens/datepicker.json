@@ -9,10 +9,6 @@
                 "sm": {
                     "value": "16px",
                     "type": "lineHeights"
-                },
-                "md": {
-                    "value": "20px",
-                    "type": "lineHeights"
                 }
             }
         },

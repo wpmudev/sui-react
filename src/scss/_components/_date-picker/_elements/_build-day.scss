@@ -17,7 +17,7 @@
         @include block($block) {
             @include element(day) {
                 font-size: $datepicker-font-size;
-                line-height: $datepicker-font-height-md;
+                line-height: $font-height-xs;
                 font-weight: $font-weight-md;
                 cursor: pointer;
                 margin: $spacing-sm 0;

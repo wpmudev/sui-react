@@ -1,13 +1,5 @@
 {
     "code-editor": {
-        "font": {
-            "height": {
-                "default": {
-                    "value": "20px",
-                    "type": "lineHeights"
-                }
-            }
-        },
         "size": {
             "width": {
                 "value": "40px",
