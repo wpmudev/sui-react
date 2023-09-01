@@ -5,7 +5,6 @@
 @include sui-avatar--element.build-name(recipient);
 @include sui-avatar--element.build-email(recipient);
 @include sui-avatar--element.build-info(recipient);
-@include sui-avatar--element.build-avatar(recipient);
 @include sui-avatar--element.build-button(recipient);
 
 @include sui-avatar--modifier.build-theme(recipient);

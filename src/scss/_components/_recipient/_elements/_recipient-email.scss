@@ -16,11 +16,18 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
             @include element(email) {
-				font-size: $recipient-name-font-size;
-				height: $recipient-name-font-height;
-				color: $recipient-name-color;
-				padding-left: $recipient-name-padding-horizontal;
+				color: $color-extended-neutral-50;
                 flex: 1;
+            }
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+            @include element(email) {
+				color: $color-extended-neutral-0;
             }
 		}
 	}
