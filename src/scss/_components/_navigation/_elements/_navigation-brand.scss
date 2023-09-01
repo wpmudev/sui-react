@@ -22,25 +22,39 @@
                 }
             }
 
-            @include element(brand-icon) {
-                align-items: center;
-                background-color: $navigation-brand-icon-background;
-                border-radius: 10px;
+            @include element(icon) {
                 display: inline-flex;
-                height: $navigation-brand-icon-size-height-lg;
+                align-items: center;
                 justify-content: center;
-                width: $navigation-brand-icon-size-width-lg;
+                background-color: $color-extended-neutral-80;
+                border-radius: $border-radius-xl;
+                height: $navigation-size-height-lg;
+                width: $navigation-size-width-lg;
+
+                @include media(max-width, md) {
+                    height: $navigation-size-height-md;
+                    width: $navigation-size-width-md;
+                    border-radius: $navigation-border-radius-md;
+                }
             }
 
-            @include element(brand-info) {
-                span {
-                    color: $navigation-brand-info-font-color;
-                    font: $font-weight-md $navigation-brand-info-font-size/$navigation-brand-info-font-height $font-family-default;
-                    letter-spacing: $navigation-brand-info-font-spacing;
+            @include element(info) {
+                @include media(max-width, sm) {
+                    display: none;
+                }
+                @include modifier(desc) {
+                    color: $color-extended-neutral-70;
+                    font-size: $navigation-font-size-sm;
+                    line-height: $navigation-font-height-sm;
+                    font-weight: $font-weight-md;
+                    letter-spacing: $font-spacing-xxl;
                     text-transform: uppercase;
+
+                    @include media(max-width, md) {
+                        display: none;
+                    }
                 }
             }
         }
-
     }
 }

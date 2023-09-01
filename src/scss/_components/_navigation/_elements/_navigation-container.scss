@@ -13,11 +13,27 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             align-items: center;
-            background-color: $navigation-color-background;
+            background-color: $color-extended-neutral-100;
             display: flex;
             gap: $spacing-lg;
             justify-content: space-between;
             padding: $spacing-lg $spacing-xxl;
+
+            @include media(max-width, md) {
+                padding: $spacing-xl;
+            }
+            
+            @include media(max-width, sm) {
+                padding: $spacing-lg;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            border: $border-width-sm solid $color-extended-neutral-0;
         }
     }
 }
