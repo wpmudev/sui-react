@@ -68,11 +68,12 @@ Recipient.argTypes = {
 	},
 	userAvatar: {
 		name: "Recipient avatar",
+		options: ["icon", "image"],
 		control: {
 			type: "inline-radio",
-			options: {
-				Icon: "icon",
-				Image: "image",
+			labels: {
+				icon: "Icon",
+				image: "Image",
 			},
 		},
 	},
