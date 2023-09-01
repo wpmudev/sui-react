@@ -21,13 +21,13 @@
             overflow: hidden;
 
             @include element(wrapper) {
-                overflow-y: scroll;
+                overflow-y: auto;
             }
 
             // @todo: improve
             @include element(table) {
-                width: 100%;
                 position: relative;
+                width: 100%;
 
                 @include modifier(footer) {
                     border-collapse: collapse;
