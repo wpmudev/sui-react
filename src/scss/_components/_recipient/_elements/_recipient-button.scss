@@ -15,16 +15,9 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            @include element(button) {
-                margin: 0 $recipient-button-margin-horizontal;
-
-				&:first-child {
-					margin-left: 0;
-				}
-
-				&:last-child {
-					margin-right: 0;
-				}
+            @include element(actions) {
+                display: flex;
+				gap: $spacing-md;
             }
 		}
 	}

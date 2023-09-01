@@ -19,12 +19,25 @@
 				display: flex;
 				align-items: center;
 				flex: 1;
+				gap: $spacing-md;
 			}
 
 			@include element(details) {
-				@include media(max-width, md) {
+				@include media(max-width, sm) {
 					flex-direction: column;
 					align-items: start;
+				}
+			}
+
+			@include element(info) {
+				@include media(max-width, sm) {
+					align-items: flex-start;
+				}
+			}
+
+			@include element(details) {
+				@include media(max-width, sm) {
+					gap: 0;
 				}
 			}
 		}
