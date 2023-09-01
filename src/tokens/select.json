@@ -73,7 +73,7 @@
                     },
                     "height": {
                         "md": {
-                            "value": "{font.height.xs}",
+                            "value": "{font.height.xxs}",
                             "type": "lineHeights"
                         },
                         "sm": {
@@ -247,7 +247,7 @@
                 "font": {
                     "height": {
                         "md": {
-                            "value": "{font.height.xs}",
+                            "value": "{font.height.xxs}",
                             "type": "lineHeights"
                         }
                     },
@@ -461,7 +461,7 @@
                     },
                     "height": {
                         "md": {
-                            "value": "{font.height.xs}",
+                            "value": "{font.height.xxs}",
                             "type": "lineHeights"
                         }
                     }

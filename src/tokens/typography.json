@@ -155,7 +155,7 @@
 			"type": "letterSpacing"
 		},
 		"font-height": {
-			"value": "{font.height.xs} + 4px",
+			"value": "{font.height.xxs} + 4px",
 			"type": "lineHeights"
 		},
 		"font-weight": {
@@ -173,7 +173,7 @@
 			"type": "letterSpacing"
 		},
 		"font-height": {
-			"value": "{font.height.xs} - 4px",
+			"value": "{font.height.xxs} - 4px",
 			"type": "lineHeights"
 		},
 		"font-weight": {

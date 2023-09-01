@@ -944,8 +944,12 @@
 			}
 		},
 		"height": {
-			"xs": {
+			"xxs": {
 				"value": "16px",
+				"type": "lineHeights"
+			},
+			"xs": {
+				"value": "20px",
 				"type": "lineHeights"
 			},
 			"sm": {

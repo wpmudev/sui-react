@@ -21,7 +21,7 @@
 			},
 			"height": {
 				"xs": {
-					"value": "{font.height.xs}",
+					"value": "{font.height.xxs}",
 					"type": "lineHeights"
 				},
 				"sm": {
