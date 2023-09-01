@@ -6,5 +6,4 @@
 @include sui-navigation--element.build-brand(navigation);
 @include sui-navigation--element.build-user(navigation);
 
-@include sui-navigation--modifier.edit-variation(navigation);
 @include sui-navigation--modifier.edit-center(navigation);

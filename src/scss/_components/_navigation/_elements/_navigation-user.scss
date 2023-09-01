@@ -12,20 +12,33 @@
     // THEME: None.
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
-            @include element(user-info) {
-                border-bottom: solid $navigation-user-border-size $navigation-user-border-color;
-                margin-bottom: $navigation-user-border-spacing-margin;
-                padding: $spacing-md $spacing-xl $navigation-user-border-spacing-padding;
+            @include element(user) {
+                border-bottom: $border-width-sm solid $color-extended-neutral-80;
+                margin-bottom: $navigation-spacing-sm;
+                padding: $spacing-md $spacing-lg $navigation-spacing-md $spacing-xl;
+            
+                @include modifier(name) {
+                    color: $color-extended-neutral-10;
+                    font-weight: $font-weight-md;
+                }
+    
+                @include modifier(email) {
+                    color: $color-extended-neutral-60;
+                }
             }
+        }
+    }
 
-            @include element(user-info-name) {
-                color: $navigation-user-name-font-color;
-                font: $font-weight-md $navigation-user-name-font-size/$navigation-user-name-font-height $font-family-default;
-            }
-
-            @include element(user-info-email) {
-                color: $navigation-user-email-font-color;
-                font: $font-weight-sm $navigation-user-email-font-size/$navigation-user-email-font-height $font-family-default;
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            @include element(user) {
+                border-color: $color-extended-neutral-0;
+            
+                @include modifier(name, email) {
+                    color: $color-extended-neutral-0;
+                }
             }
         }
     }

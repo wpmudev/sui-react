@@ -31,6 +31,10 @@
 				@include modifies-element(label) {
 					@include media(max-width, md) {
 						display: none;
+
+						+ .sui-#{$block-name}__icon {
+							display: none;
+						}
 					}
 				}
 				
