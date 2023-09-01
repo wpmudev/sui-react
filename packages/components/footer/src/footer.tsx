@@ -32,7 +32,11 @@ const Footer: React.FC<FooterProps> = ({
 	return (
 		<div className="sui-footer">
 			{blocks.length > 0 && (
-				<div className="sui-footer__group">
+				<div
+					className={`sui-footer__group${
+						blocks.length === 1 ? " sui-footer__group--center" : ""
+					}`}
+				>
 					{(blocks || [])?.map((block, index) => (
 						<div className="sui-footer__block" key={index}>
 							{block}

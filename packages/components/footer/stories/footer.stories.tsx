@@ -23,25 +23,28 @@ const Footer = ({ example }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<SuiFooter
-					renderBlocks={(content: React.ReactNode) => [
-						<Fragment key={0}>
-							Check our{" "}
-							<a href="#" target="_blank" rel="nofollow">
-								All in One WordPress Toolkit
-							</a>
-						</Fragment>,
-						content,
-						<Fragment key={2}>
-							To get the most out of the plugin,{" "}
-							<a href="#" target="_blank" rel="nofollow">
-								see the Help section
-							</a>
-						</Fragment>,
-					]}
+					renderBlocks={
+						"free" === example
+							? () => [
+									<Fragment key={0}>
+										Check our{" "}
+										<a href="#" target="_blank" rel="nofollow">
+											All in One WordPress Toolkit
+										</a>
+									</Fragment>,
+									<Fragment key={2}>
+										To get the most out of the plugin,{" "}
+										<a href="#" target="_blank" rel="nofollow">
+											see the Help section
+										</a>
+									</Fragment>,
+							  ]
+							: (content: React.ReactNode) => [content]
+					}
 					socialLinks={[
 						{
 							url: "#",
-							type: "twitter",
+							type: "facebook",
 						},
 						{
 							url: "#",
@@ -49,7 +52,7 @@ const Footer = ({ example }) => {
 						},
 						{
 							url: "#",
-							type: "facebook",
+							type: "twitter",
 						},
 					]}
 					links={[
@@ -93,10 +96,24 @@ const Footer = ({ example }) => {
 }
 
 // Set story arguments
-Footer.args = {}
+Footer.args = {
+	example: "free",
+}
 
 // Set controls for story arguments
-Footer.argTypes = {}
+Footer.argTypes = {
+	example: {
+		name: "Example",
+		options: ["free", "pro"],
+		control: {
+			type: "select",
+			labels: {
+				free: "Free",
+				pro: "Pro",
+			},
+		},
+	},
+}
 
 // Publish required stories
 export { Footer }
