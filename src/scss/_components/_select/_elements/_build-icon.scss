@@ -49,7 +49,7 @@
 
             @include element(search) {
                 .sui-#{$block}__icon {
-                    font-size: $select-icon-font-size-sm;
+                    font-size: $font-size-xs;
                     line-height: 1;
                     position: absolute;
                     bottom: $select-icon-search-position-bottom;

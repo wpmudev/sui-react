@@ -7,11 +7,11 @@
 			},
 			"size": {
 				"xs": {
-					"value": "{font.size.xs}",
+					"value": "{font.size.xxs}",
 					"type": "fontSizes"
 				},
 				"sm": {
-					"value": "{font.size.xs}+1px",
+					"value": "{font.size.xxs}+1px",
 					"type": "fontSizes"
 				}
 			},

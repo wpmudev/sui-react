@@ -27,7 +27,7 @@
                 @include modifier(title) {
                     color: $color-extended-neutral-10;
                     display: inline-block;
-                    font-size: $code-editor-font-size-default;
+                    font-size: $font-size-xs;
                     font-weight: $font-weight-md;
                     line-height: $code-editor-font-height-default;
                     margin: $spacing-sm 0;

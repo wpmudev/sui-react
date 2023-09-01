@@ -84,7 +84,7 @@
 
             @include element(option-body-description) {
                 color: $color-extended-neutral-50;
-                font-size: $selector-font-size;
+                font-size: $font-size-xs;
                 line-height: $selector-font-height;
                 padding: $spacing-lg;
                 word-wrap: break-word;

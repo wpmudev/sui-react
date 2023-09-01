@@ -12,8 +12,8 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			background: white;
-			padding: 8px 32px;
+			background: $color-extended-neutral-100;
+			padding: $spacing-md $spacing-xxl;
 		}
 	}
 }

@@ -14,13 +14,17 @@
         @include block($block) {
             @include element(group) {
                 align-items: center;
-                border-bottom: solid 1px #E6E6E6;
+                border-bottom: $border-width-sm solid $color-extended-neutral-80;
                 display: flex;
                 justify-content: space-between;
-                padding: 24px 0;
+                padding: $spacing-xl 0;
 
                 &:last-child {
                     border: none;
+                }
+
+                @include modifier(center) {
+                    justify-content: center;
                 }
             }
         }

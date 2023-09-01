@@ -13,7 +13,7 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             @include element(footer) {
-                font-size: $dashboard-font-size-sm;
+                font-size: $font-size-xs;
                 color: $color-extended-neutral-50;
                 align-items: center;
                 display: flex;

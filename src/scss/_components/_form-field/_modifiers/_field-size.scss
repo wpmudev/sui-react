@@ -16,13 +16,13 @@
 
 			@include modifier(sm) {
 				@include modifies-element(label) {
-					font-size: $form-field-label-font-size-sm;
+					font-size: $font-size-xs;
 					line-height: $form-field-label-font-height-sm;
 					letter-spacing: $form-field-label-font-spacing-sm;
 				}
 
 				@include modifies-element(helper) {
-					font-size: $form-field-helper-font-size-sm;
+					font-size: $font-size-xs;
 					line-height: $form-field-helper-font-height-sm;
 					letter-spacing: $form-field-helper-font-spacing-sm;
 				}

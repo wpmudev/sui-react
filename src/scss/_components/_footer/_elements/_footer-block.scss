@@ -14,7 +14,8 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(block) {
-				color: var(--neutral-grey-50505050, #505050);
+				display: flex;
+				color: $color-extended-neutral-50;
 				font: $font-weight-sm 13px/20px $font-family-default;
 			}
 		}

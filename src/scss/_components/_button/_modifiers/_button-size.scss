@@ -5,7 +5,7 @@
 		@include block($block-name) {
 			@include modifier(sm) {
 				min-width: $button-container-size-sm;
-				font-size: $button-label-font-size-sm;
+				font-size: $font-size-xs;
 				line-height: $button-label-font-height-sm;
 				letter-spacing: $button-label-font-spacing-sm;
 

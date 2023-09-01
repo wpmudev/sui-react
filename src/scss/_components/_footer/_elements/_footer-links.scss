@@ -16,6 +16,11 @@
                 align-items: center;
                 display: flex;
                 justify-content: space-between;
+                margin: 0;
+
+                li {
+                    margin: 0;
+                }
 
                 &:not(.sui-footer__links--social) {
                     .sui-footer__links-item:not(:last-child):after {
@@ -29,18 +34,18 @@
                 display: inline-flex;
 
                 a {
-                    color: var(--neutral-grey-60737373, #737373);
-                    display: inline-flex;
+                    color: $color-extended-neutral-60;
+                    display: inline;
                     font-size: 12px;
                     text-decoration: none;
                     margin: 0 5px;
 
-                    &:hover {
-                        color: var(--primary-blue-dark-400045-c-4, #0045C4);
+                    &:hover,
+                    &:focus {
+                        color: $color-primary-40;
                     }
 
                     &:focus {
-                        color: var(--primary-blue-dark-400045-c-4, #0045C4);
                         text-decoration: underline;
                     }
                 }

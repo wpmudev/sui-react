@@ -910,8 +910,12 @@
 			}
 		},
 		"size": {
-			"xs": {
+			"xxs": {
 				"value": "12px",
+				"type": "fontSizes"
+			},
+			"xs": {
+				"value": "13px",
 				"type": "fontSizes"
 			},
 			"sm": {

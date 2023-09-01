@@ -2,10 +2,6 @@
     "banner": {
         "font": {
             "size": {
-                "sm": {
-                    "value": "13px",
-                    "type": "fontSizes"
-                },
                 "lg": {
                     "value": "40px",
                     "type": "fontSizes"

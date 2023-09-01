@@ -17,7 +17,7 @@
       },
 			"size": {
         "sm": {
-					"value": "{font.size.xs}",
+					"value": "{font.size.xxs}",
 					"type": "fontSizes"
 				},
 				"md": {

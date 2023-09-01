@@ -14,7 +14,7 @@
 		@include block($block) {
 			@include element(subtitle) {
 				color: $color-extended-neutral-100;
-				font-size: $banner-font-size-sm;
+				font-size: $font-size-xs;
 				line-height: $banner-font-height-sm;
 				font-weight: $font-weight-md;
 				letter-spacing: $banner-font-spacing;

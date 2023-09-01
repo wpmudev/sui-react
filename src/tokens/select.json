@@ -192,10 +192,6 @@
             "option": {
                 "font": {
                     "size": {
-                        "md": {
-                            "value": "13px",
-                            "type": "fontSizes"
-                        },
                         "sm": {
                             "value": "11px",
                             "type": "fontSizes"
@@ -249,12 +245,6 @@
                     }
                 },
                 "font": {
-                    "size": {
-                        "md": {
-                            "value": "13px",
-                            "type": "fontSizes"
-                        }
-                    },
                     "height": {
                         "md": {
                             "value": "{font.height.xs}",
@@ -297,10 +287,6 @@
             },
             "font": {
 				"size": {
-					"md": {
-						"value": "13px",
-						"type": "fontSizes"
-					},
 					"sm": {
 						"value": "11px",
 						"type": "fontSizes"
@@ -344,7 +330,7 @@
                         "type": "fontSizes"
                     },
                     "sm": {
-                        "value": "{font.size.xs}",
+                        "value": "{font.size.xxs}",
                         "type": "fontSizes"
                     },
                     "xs": {

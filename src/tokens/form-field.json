@@ -23,10 +23,6 @@
 					"type": "fontWeights"
 				},
         "size": {
-					"sm": {
-						"value": "13px",
-						"type": "fontSizes"
-					},
           "md": {
 						"value": "{font.size.default}",
 						"type": "fontSizes"
@@ -66,7 +62,7 @@
 				},
         "size": {
 					"sm": {
-						"value": "{font.size.xs}",
+						"value": "{font.size.xxs}",
 						"type": "fontSizes"
 					},
           "md": {
