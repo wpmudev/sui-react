@@ -14,9 +14,9 @@
         @include block($block) {
             @include element(icon) {
                 align-items: center;
-                border-radius: 14px;
+                border-radius: $upsell-border-radius-md;
                 display: flex;
-                padding: 8px;
+                padding: $spacing-md;
             }
         }
     }

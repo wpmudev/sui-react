@@ -13,15 +13,32 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             @include element(features) {
-
+                display: flex;
+                flex-direction: column;
+                gap: $spacing-lg;
+                row-gap: $spacing-md;
+                margin: $spacing-lg 0 $spacing-xl;
             }
 
             @include element(features-item) {
                 align-items: center;
-                color: var(--text-text-primary, #1A1A1A);
+                color: $color-extended-neutral-10;
                 display: flex;
-                font: $font-weight-md 13px/20px $font-family-default;
-                gap: 8px;
+                font-size: $font-size-xs;
+                line-height: $font-height-xs;
+                font-weight: $font-weight-md;
+                gap: $spacing-md;
+                margin: 0;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            @include element(features-item) {
+                color: $color-extended-neutral-0;
             }
         }
     }
