@@ -22,15 +22,6 @@ export default {
 // Build story
 // eslint-disable-next-line react/prop-types
 export const Upsell = ({ example, ...props }) => {
-	const box = {
-		display: "flex",
-		flexDirection: "column",
-		gap: "8px",
-		margin: "0 0 20px",
-		padding: "30px",
-		border: "1px solid #E6E6E6",
-		borderRadius: "4px",
-	}
 
 	const actions = [
 		<div key={0}>
@@ -54,7 +45,7 @@ export const Upsell = ({ example, ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={box}>
+				<div>
 					<SuiUpsell
 						{...props}
 						actions={actions}
