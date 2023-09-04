@@ -1,0 +1,54 @@
+import { Section, Code } from "@wpmudev/storybook"
+
+import Anatomy from "../images/anatomy.svg"
+import ScreenSizeXLarge from "../images/screen-size-xlarge.svg"
+import ScreenSizeLarge from "../images/screen-size-large.svg"
+import ScreenSizeMedium from "../images/screen-size-medium.svg"
+import ScreenSizeSmall from "../images/screen-size-small.svg"
+
+<Section title="Anatomy" border={true} style={{ paddingTop: 0 }}>
+	<img src={Anatomy} alt="Setup Banner Anatomy" style={{ marginBottom: 20 }} />
+	<h3>1. Quick setup</h3>
+	<h3>2. Plugin icon and name</h3>
+	<h3>3. Plugin description</h3>
+	<h3>4. Plugin thumbnail</h3>
+</Section>
+
+<Section title="Screen size: Xlarge">
+	<img
+		src={ScreenSizeXLarge}
+		alt="Setup Banner on XLarge Screens"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+
+<Section title="Screen size: Large (Default)">
+	<img
+		src={ScreenSizeLarge}
+		alt="Setup Banner on Large Screens ( Default )"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+
+<Section title="Screen size: Medium">
+	<img
+		src={ScreenSizeMedium}
+		alt="Setup Banner on Medium Screens"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+
+<Section title="Screen size: Small">
+	<img
+		src={ScreenSizeSmall}
+		alt="Setup Banner on Small Screens"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+
+<Section title="Plugin Variations">
+	<p>
+		For every plugin we have, <Code small={true}>Setup Banner</Code> has a
+		variation for it, check them out in the examples tab.
+	</p>
+</Section>

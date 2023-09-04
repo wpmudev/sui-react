@@ -1,8 +1,10 @@
 import React from "react"
 
-import { RowProps } from "./row.type"
+import { isEmpty } from "@wpmudev/sui-utils"
 
-const Row: React.FC<RowProps> = ({ align, children }) => {
+import { RowProps } from "../grid.types"
+
+const Row: React.FC<RowProps> = ({ align, className, children, ...props }) => {
 	const expectedAligns = {
 		xs: "",
 		sm: "",
@@ -28,7 +30,15 @@ const Row: React.FC<RowProps> = ({ align, children }) => {
 		}
 	}
 
-	return <div className={classNames}>{children}</div>
+	if (!isEmpty(className ?? "")) {
+		classNames += ` ${className}`
+	}
+
+	return (
+		<div className={classNames} {...props}>
+			{children}
+		</div>
+	)
 }
 
 export { Row }

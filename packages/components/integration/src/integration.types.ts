@@ -20,7 +20,7 @@ interface IntegrationProps {
 	isDisabled?: boolean
 
 	/** Whether the integration is active or not. */
-	isActive?: boolean
+	active?: boolean
 
 	/** Whether the integration has settings or not. */
 	isSettings?: boolean

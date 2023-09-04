@@ -1,5 +1,5 @@
 {
-  "name": "@wpmudev/sui-tab",
+  "name": "@wpmudev/sui-tabs",
   "version": "0.0.0",
   "private": true,
   "description": "WPMU DEV Shared UI React Tab Component",

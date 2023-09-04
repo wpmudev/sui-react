@@ -1,4 +1,10 @@
-import React, { forwardRef, Fragment } from "react"
+import React, {
+	forwardRef,
+	Fragment,
+	Children,
+	cloneElement,
+	ReactNode,
+} from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 
@@ -30,6 +36,7 @@ const Icon = forwardRef<"svg", IconProps>(
 			color = "",
 			size = "",
 			onClick,
+			fill = "currentColor",
 			...props
 		},
 		ref,
@@ -53,10 +60,16 @@ const Icon = forwardRef<"svg", IconProps>(
 			height,
 			width,
 			onClick,
+			fill,
 		}
 
 		// Set the path for the icon (either from props or the default path)
-		const path = (children ?? params.path) as React.ReactNode
+		let path = (children ?? params.path) as ReactNode
+
+		// Add svg props to all paths
+		path = Children.map(path, (child: ReactNode) =>
+			cloneElement(child, { fill }),
+		)
 
 		return (
 			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" {...svgProps}>

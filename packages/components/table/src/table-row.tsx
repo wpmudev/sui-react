@@ -1,6 +1,7 @@
 import React, {
 	Children,
 	cloneElement,
+	CSSProperties,
 	Fragment,
 	useCallback,
 	useContext,
@@ -8,15 +9,18 @@ import React, {
 	useId,
 	useState,
 } from "react"
+
 import { TableRowProps } from "./table.types"
 
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { useInteraction } from "@wpmudev/sui-hooks"
-import { generateCN } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
+import { Box, BoxGroup } from "@wpmudev/sui-box"
 
 import { TableCell } from "./table-cell"
 import { TableContext } from "./table-context"
+import { TableFields } from "./table-fields"
 
 /**
  * TableRow component represents a row within a table.
@@ -29,6 +33,7 @@ import { TableContext } from "./table-context"
  * @param {boolean}         props.isUnderHeader     - Specifies if the row is under the table header.
  * @param {boolean}         props.isExpandable      - Specifies if the row is expandable.
  * @param {React.ReactNode} props.expandableContent - Content to display when the row is expanded.
+ * @param {string}          props.status            - Table Row status
  * @param {boolean}         props.isUnderFooter     - Specifies if the row is under the table footer.
  * @param {any}             props...                - Additional props for the TableRow component.
  * @return {JSX.Element} The JSX representation of the TableRow component.
@@ -40,6 +45,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	isUnderHeader = false,
 	isExpandable = false,
 	expandableContent = null,
+	status,
 	isUnderFooter = false,
 	...props
 }) => {
@@ -73,10 +79,13 @@ const TableRow: React.FC<TableRowProps> = ({
 
 	// @todo: need improvement
 	let isChecked = ctx?.selected?.indexOf(parseInt(`${id}`)) > -1
+	let isIndeterminate = false
 
 	// if its select all checkbox
 	if (isUnderHeader) {
-		isChecked = ctx?.rows?.length === ctx?.selected.length
+		const isAllSelected = ctx?.rows?.length === ctx?.selected.length
+		isIndeterminate = ctx?.selected?.length > 0 && !isAllSelected
+		isChecked = isAllSelected
 	}
 
 	// Generate class names
@@ -85,6 +94,7 @@ const TableRow: React.FC<TableRowProps> = ({
 		hover: !isUnderFooter && !isUnderHeader && isHovered,
 		expandable: isExpandable,
 		expanded: isExpanded,
+		[status]: !isEmpty(status ?? ""),
 	})
 
 	// Generate toggle button
@@ -92,7 +102,7 @@ const TableRow: React.FC<TableRowProps> = ({
 		<Button
 			icon={isExpanded ? "chevron-up" : "chevron-down"}
 			color="black"
-			appearance="secondary"
+			appearance="tertiary"
 			isSmall={true}
 			iconOnly={true}
 			onClick={() => setIsExpanded(!isExpanded)}
@@ -112,17 +122,44 @@ const TableRow: React.FC<TableRowProps> = ({
 		numberOfCols += 1
 	}
 
+	const primaryColIndex = ctx?.columns?.findIndex((col) => col.isPrimary)
+
 	// Handle children nodes and add drag icon if needed
 	children = Children.toArray(children).map((child, index) => {
 		const p: Record<string, any> = { hasDragIcon: false, colSpan: undefined }
 
-		if (0 === index && ctx?.isDraggable && !isUnderHeader) {
-			p.hasDragIcon = true
+		if (0 === index) {
+			// Make column sticky
+			p.isSticky = !!ctx?.stickyCols
+
+			// Add drag icon
+			if (
+				ctx?.isDraggable &&
+				!ctx?.allowCheck &&
+				!isUnderFooter &&
+				!isUnderHeader
+			) {
+				p.hasDragIcon = true
+			}
+
+			if (!ctx?.allowCheck) {
+				p.style = {
+					left: 0,
+					paddingRight: "16px",
+					...(!ctx?.isDraggable ? { paddingLeft: "32px" } : {}),
+				}
+			}
 		}
 
 		if (isUnderFooter) {
+			p.isSticky = false
 			p.hasDragIcon = false
 			p.colSpan = "100%"
+		}
+
+		// Mark as primary column
+		if (primaryColIndex === index) {
+			p.isPrimary = true
 		}
 
 		return <Fragment key={index}>{cloneElement(child, p)}</Fragment>
@@ -137,8 +174,37 @@ const TableRow: React.FC<TableRowProps> = ({
 		a11yProps["aria-controls"] = rowContentId
 	}
 
+	/**
+	 * Update width state variable for table body content
+	 */
+	// const updateWidth = () => {
+	// 	const tableWrapper = ctx?.ref?.current
+	//
+	// 	// Example: Change background color
+	// 	setTimeout(() => {
+	// 		setStyle({
+	// 			minWidth: `${tableWrapper?.clientWidth - 68}px`,
+	// 			maxWidth: `${tableWrapper?.clientWidth - 68}px`,
+	// 			marginLeft: `${tableWrapper?.scrollLeft}px`,
+	// 		})
+	// 	}, 10) // Adjust the delay as needed
+	// }
+
+	// useEffect(() => {
+	// 	window.addEventListener("resize", updateWidth)
+	// 	window.addEventListener("load", updateWidth)
+	// 	ctx?.ref?.current.addEventListener("scroll", updateWidth)
+	//
+	// 	return () => {
+	// 		window.removeEventListener("resize", updateWidth)
+	// 		window.removeEventListener("load", updateWidth)
+	// 		ctx?.ref?.current.removeEventListener("scroll", updateWidth)
+	// 	}
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, [])
+
 	return (
-		<>
+		<Fragment>
 			<tr
 				role="row"
 				className={classNames}
@@ -147,13 +213,24 @@ const TableRow: React.FC<TableRowProps> = ({
 				{...a11yProps}
 			>
 				{ctx?.allowCheck && !isUnderFooter && (
-					<TableCell className="sui-table__cell--selection">
-						<Checkbox onChange={onCheckToggle} defaultValue={isChecked} />
+					<TableCell
+						className="sui-table__cell--selection"
+						isSticky={!!ctx?.stickyCols}
+						hasDragIcon={ctx?.isDraggable && !isUnderHeader}
+					>
+						<Checkbox
+							onChange={onCheckToggle}
+							defaultValue={isChecked}
+							isIndeterminate={isIndeterminate}
+						/>
 					</TableCell>
 				)}
 				{children}
 				{(!!actions || toggleBtn) && !isUnderFooter && (
-					<TableCell className="sui-table__cell--actions">
+					<TableCell
+						className="sui-table__cell--actions"
+						isSticky={!!ctx?.stickyCols}
+					>
 						{!!actions && actions({ id, content: toggleBtn })}
 						{!actions && toggleBtn}
 					</TableCell>
@@ -165,15 +242,23 @@ const TableRow: React.FC<TableRowProps> = ({
 					className={generateCN("sui-table__row", {
 						content: true,
 						"content-expanded": isExpanded,
+						[status]: !isEmpty(status ?? ""),
 					})}
 					id={rowContentId}
 					aria-labelledby={rowId}
 					tabIndex={isExpanded ? 0 : -1}
 				>
-					<td colSpan={numberOfCols}>{expandableContent}</td>
+					<td colSpan={numberOfCols}>
+						<Box>
+							<BoxGroup isInline={false}>
+								<TableFields>{children}</TableFields>
+								{expandableContent}
+							</BoxGroup>
+						</Box>
+					</td>
 				</tr>
 			)}
-		</>
+		</Fragment>
 	)
 }
 

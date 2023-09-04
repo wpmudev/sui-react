@@ -1,5 +1,7 @@
 import React from "react"
 
+import { ToggleProps } from "@wpmudev/sui-toggle"
+
 /**
  * Represents the properties for a field list.
  */
@@ -18,4 +20,22 @@ interface FieldListProps {
 	children?: React.ReactNode
 }
 
-export type { FieldListProps }
+/**
+ * Represents the properties for a field list item.
+ */
+interface FieldListItemProps extends ToggleProps {
+	/**
+	 * The ID for the field list item.
+	 */
+	id: string
+	/**
+	 * Callback function when toggled
+	 */
+	onToggle?(id: string, checked: boolean): void
+	/**
+	 * The content of the field list item.
+	 */
+	children?: React.ReactNode
+}
+
+export type { FieldListProps, FieldListItemProps }

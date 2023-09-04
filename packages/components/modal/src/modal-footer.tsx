@@ -1,22 +1,13 @@
 import React from "react"
-import { AddIcon } from "@wpmudev/sui-icons"
-import { generateCN } from "@wpmudev/sui-utils"
 
+// Props expected by the ModalFooter component.
 interface ModalFooterProps {
+	// ModalFooter content
 	children?: React.ReactNode
-	hasSep?: boolean
 }
 
-const ModalFooter: React.FC<ModalFooterProps> = ({ children, hasSep }) => {
-	return (
-		<footer
-			className={generateCN("sui-modal__footer", {
-				"has-sep": hasSep,
-			})}
-		>
-			{children}
-		</footer>
-	)
+const ModalFooter: React.FC<ModalFooterProps> = ({ children }) => {
+	return <footer className="sui-modal__footer">{children}</footer>
 }
 
 export { ModalFooter, ModalFooterProps }

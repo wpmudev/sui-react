@@ -21,6 +21,7 @@ interface CheckboxProps
 	 * Indicates whether the checkbox is disabled or not.
 	 */
 	isDisabled?: boolean
+	isIndeterminate?: boolean
 	/**
 	 * The default value of the checkbox.
 	 */

@@ -6,6 +6,8 @@ import React from "react"
 interface SegmentedControlProps {
 	// An optional icon to be displayed within the segmented control.
 	icon?: string
+	// Radio button name
+	name: string
 	// The child elements to be rendered inside the segmented control (the individual segments).
 	children?: React.ReactNode
 	// A boolean indicating if this is the first button in the segmented control (optional).
@@ -18,6 +20,8 @@ interface SegmentedControlProps {
 	isFullWidth?: boolean
 	// A callback function triggered when the value of the segmented control changes.
 	onChange(value: string | number): void
+	// Default selected value
+	defaultValue?: string
 }
 
 /**

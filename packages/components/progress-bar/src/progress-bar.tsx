@@ -1,11 +1,9 @@
 import React from "react"
-import { isUndefined, isEmpty, isFunction } from "@wpmudev/sui-utils"
+import { isFunction, generateCN } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 
 // Import required components
-import { Label } from "./elements/label"
-import { Value } from "./elements/value"
-import { Indicator } from "./elements/indicator"
+// import { Indicator } from "./elements/indicator"
 
 import { ProgressBarProps } from "./progress-bar.types"
 
@@ -15,58 +13,56 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	value,
 	size,
 	isInline = false,
-	hasValue = false,
-	hasAction = false,
+	allowCancel = false,
+	isIndeterminate = false,
 	onClick,
+	className = "",
 }) => {
-	const has = {}
-	const set = {}
+	// generate classnames
+	const classNames = generateCN(
+		"sui-progress-bar",
+		{
+			sm: "sm" === size,
+			lg: "lg" === size,
+			inline: isInline,
+		},
+		className,
+	)
 
-	// Props validation
-	has.label = !isUndefined(label) && !isEmpty(label) ? true : false
-	has.float = !isInline && hasValue ? true : false
+	const attrs: Record<string, any> = {}
 
-	// Define main class
-	set.class = "sui-progress-bar"
-
-	// Define element size
-	switch (size) {
-		case "sm":
-		case "lg":
-			set.class += ` sui-progress-bar--${size}`
-			break
-
-		default:
-			// do nothing
-			break
-	}
-
-	// Define element alignment
-	if (isInline) {
-		set.class += " sui-progress-bar--inline"
+	// attributes to pass
+	if (!isIndeterminate) {
+		attrs.style = { width: `${value}%` }
 	}
 
 	return (
-		<div className={set.class}>
-			{has.label && (
-				<Label
-					className={`sui-progress-bar${
-						has.float ? "--float-left" : "__label"
-					}`}
+		<div className={classNames}>
+			<div className="sui-progress-bar__main">
+				{!!label && (
+					<span className="sui-progress-bar__text" aria-hidden={true}>
+						{label}
+					</span>
+				)}
+				{!!value && (
+					<span className="sui-progress-bar__value" aria-hidden={true}>
+						{value}%
+					</span>
+				)}
+				<div
+					className={generateCN("sui-progress-bar__indicator", {
+						indeterminate: isIndeterminate,
+					})}
 				>
-					{label}
-				</Label>
-			)}
-			{hasValue && (
-				<Value
-					value={value}
-					className={`sui-progress-bar${
-						has.float ? "--float-right" : "__value"
-					}`}
-				/>
-			)}
-			<Indicator value={value} />
-			{hasAction && (
+					<span
+						className={generateCN("sui-progress-bar__indicator-bar", {
+							indeterminate: isIndeterminate,
+						})}
+						{...attrs}
+					/>
+				</div>
+			</div>
+			{allowCancel && (
 				<div className="sui-progress-bar__action">
 					<Button
 						appearance="tertiary"

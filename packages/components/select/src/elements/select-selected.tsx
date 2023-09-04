@@ -9,7 +9,8 @@ interface SelectSelectedProps extends HTMLProps<HTMLDivElement> {
 	arrow?: string
 	selected?: boolean
 	selectLabel?: string
-	isMultiselect?: boolean
+	isSmall?: boolean
+	isMultiSelect?: boolean
 	removeSelection: (selectedId: any) => {}
 	dropdownToggle: () => {}
 	clearSelection: () => {}
@@ -22,7 +23,8 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	arrow,
 	selected,
 	selectLabel = "",
-	isMultiselect = false,
+	isMultiSelect = false,
+	isSmall = false,
 	removeSelection = () => {},
 	dropdownToggle = () => {},
 	clearSelection = () => {},
@@ -30,14 +32,18 @@ const Selected: React.FC<SelectSelectedProps> = ({
 }) => {
 	// Prepare the selected content
 	const selectedContent = isArray(selected) ? (
-		selected.map(({ label, id: selectedId }) => (
+		selected.map(({ label, id }) => (
 			<span
 				key={id}
 				className="sui-select__selected-options"
 				onClick={(event) => event.stopPropagation()}
 			>
 				{label}
-				<Icon name="close" onClick={() => removeSelection(selectedId)} />
+				<Icon
+					name="close"
+					size="sm"
+					onClick={() => removeSelection(id)}
+				/>
 			</span>
 		))
 	) : (
@@ -68,16 +74,21 @@ const Selected: React.FC<SelectSelectedProps> = ({
 			{...props}
 		>
 			{selectedContent}
-			{isMultiselect && selectLabel !== selected && (
-				<Icon name="close-alt" onClick={onClearSelection} />
+			{isMultiSelect && selectLabel !== selected && (
+				<Icon
+					name="close-alt"
+					size={isSmall ? "md" : "lg"}
+					onClick={onClearSelection}
+				/>
 			)}
-			<Icon name={arrow ?? ""} />
+			<Icon name={arrow ?? ""} size="md" />
 		</div>
 	)
 }
 
 interface SelectSelectedSearchProps extends HTMLProps<HTMLInputElement> {
 	arrow?: string
+	isSmall?: boolean
 	isSmartSearch?: boolean
 	selectLabel?: string
 	clearSelection: () => {}
@@ -86,6 +97,7 @@ interface SelectSelectedSearchProps extends HTMLProps<HTMLInputElement> {
 const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 	arrow,
 	isSmartSearch = false,
+	isSmall = false,
 	selectLabel = "",
 	clearSelection,
 	...props
@@ -95,10 +107,14 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 	return (
 		<div className="sui-select__control">
 			<InputWithAutoComplete placeholder="Search" {...props} />
-			{isSmartSearch && <Icon name="search" />}
-			{!isSmartSearch && <Icon name={arrow ?? ""} />}
+			{isSmartSearch && <Icon name="search" size={isSmall ? "md" : "lg"} />}
+			{!isSmartSearch && <Icon name={arrow ?? ""} size="md" />}
 			{isSmartSearch && selected.length > 0 && (
-				<Icon name="close-alt" onClick={clearSelection} />
+				<Icon
+					name="close-alt"
+					size={isSmall ? "md" : "lg"}
+					onClick={clearSelection}
+				/>
 			)}
 		</div>
 	)

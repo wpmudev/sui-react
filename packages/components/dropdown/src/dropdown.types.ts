@@ -27,6 +27,10 @@ interface DropdownProps {
 	 */
 	label?: string
 	/**
+	 * The custom class name for the dropdown.
+	 */
+	className?: string
+	/**
 	 * Indicates whether the dropdown has a call-to-action button.
 	 */
 	hasCta?: boolean
@@ -37,23 +41,46 @@ interface DropdownProps {
 	/**
 	 * Indicates whether the label should be hidden or not.
 	 */
-	isLabelHidden?: boolean
+	iconOnly?: boolean
+	/**
+	 * Display all content without scroll
+	 */
+	isFixedHeight?: boolean
 	/**
 	 * The current selected value of the dropdown.
 	 */
-	current: number
+	current?: number
 	/**
 	 * Expected type for menu object in array
 	 */
 	menu?: Array<DropdownMenuItemProps | DropdownMenuGroupProps>
 	/**
+	 * Filter button icon
+	 */
+	buttonIcon?: string
+	/**
 	 * On click on Menu Item
 	 */
 	onMenuClick?(id: string | number, e?): void
+	/**
+	 * Dropdown popover direction
+	 */
+	direction?: "" | "left" | "right"
+	/**
+	 * Render custom content on top of the menu items
+	 */
+	renderContentOnTop?: boolean
 	/**
 	 * The content of the dropdown.
 	 */
 	children?: React.ReactNode
 }
 
-export type { DropdownProps }
+// Type definition for the modal handling functions
+type DropdownRefProps = {
+	open: () => void
+	close: () => void
+	toggle: () => void
+}
+
+export type { DropdownProps, DropdownRefProps }

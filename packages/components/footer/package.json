@@ -1,17 +1,17 @@
 {
   "name": "@wpmudev/sui-footer",
   "version": "0.0.0",
-  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "description": "Shared footer UI/UX",
   "keywords": [],
   "author": "Leighton <2328848+iamleigh@users.noreply.github.com>",
   "license": "ISC",
-  "main": "lib/react-footer.js",
+  "main": "src/index.ts",
   "directories": {
-    "lib": "lib",
+    "src": "src",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "src"
   ],
   "publishConfig": {
     "access": "public"

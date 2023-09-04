@@ -56,7 +56,7 @@ interface ButtonProps
 	 */
 	iconPosition?: "start" | "end"
 	/**
-	 * Optional icon size to be sm | md | lg.
+	 * Optional icon size to be displayed.
 	 */
 	iconSize?: "sm" | "md" | "lg"
 	/**
@@ -67,6 +67,10 @@ interface ButtonProps
 	 * Optional button with icon only
 	 */
 	iconOnly?: boolean
+	/**
+	 * Optional flag to make the button full width.
+	 */
+	isResponsive: boolean
 }
 
 export type { ButtonProps }

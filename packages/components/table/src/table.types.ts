@@ -1,7 +1,8 @@
-import React, { HTMLProps } from "react"
+import React, { CSSProperties, HTMLProps, RefObject } from "react"
 
 import { InputProps } from "@wpmudev/sui-input"
 import { SelectBaseProps } from "@wpmudev/sui-select"
+import { TableColumnType } from "./table-context"
 
 /**
  * Interface representing the properties of a table section.
@@ -44,6 +45,11 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	children?: React.ReactNode
 
 	/**
+	 * Stripe table style.
+	 */
+	type?: string
+
+	/**
 	 * ARIA label for the table.
 	 */
 	ariaLabel?: string
@@ -64,6 +70,21 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	hasToolbar?: boolean
 
 	/**
+	 * Remove border-radius when true
+	 */
+	noBorderRadius?: boolean
+
+	/**
+	 * Remove border from sides
+	 */
+	noSideBorder?: boolean
+
+	/**
+	 * Display filters in popover
+	 */
+	filtersPopover?: boolean
+
+	/**
 	 * An array of filters that can be used in the table toolbar.
 	 */
 	filters?: Array<TableToolbarFilterText | TableToolbarFilterSelect>
@@ -74,26 +95,62 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	bulkActions?: Record<Pick<SelectBaseProps, "options">, any>[]
 
 	/**
+	 * Display table row in stripped design
+	 */
+	isStripped?: boolean
+
+	/**
 	 * Callback function triggered when a row is checked/unchecked (used in checkable tables).
 	 */
-	onCheck: () => void
+	onCheck?: () => void
 
 	/**
 	 * Callback function triggered when an action is performed in the table toolbar.
 	 */
-	onAction(action: TableExpectedAction, data: unknown): void
+	onAction?(action: TableExpectedAction, data: unknown): void
 }
 
 /**
  * Interface representing the properties of a table cell.
  */
-interface TableCellProps
-	extends HTMLProps<HTMLTableCellElement | HTMLTableHeaderCellElement> {
+type TableCellBaseProps = {
 	/**
 	 * Children nodes of the table cell.
 	 */
 	children?: React.ReactNode
-}
+	/**
+	 * Render table cell as header cell "th"
+	 */
+	isHeading?: boolean
+	/**
+	 * Make cell sticky
+	 */
+	isSticky?: boolean
+
+	/**
+	 * Make cell text single line and trimmable
+	 */
+	isTrim?: boolean
+	/**
+	 * Make table cell primary
+	 */
+	isPrimary?: boolean
+	/**
+	 * Style
+	 */
+	style?: CSSProperties
+} & Omit<HTMLProps<HTMLTableCellElement | HTMLTableHeaderCellElement>, "id">
+
+type TableCellWithSortingProps = {
+	isSortable: true
+	id?: string
+} & TableCellBaseProps
+
+type TableCellWithoutSortingProps = {
+	isSortable?: boolean
+} & TableCellBaseProps
+
+type TableCellProps = TableCellWithSortingProps | TableCellWithoutSortingProps
 
 /**
  * Interface representing the properties of a table row.
@@ -102,7 +159,7 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 	/**
 	 * The unique ID of the table row.
 	 */
-	id: number | string
+	id?: number | string
 
 	/**
 	 * Determines if the row is under the table header.
@@ -123,6 +180,11 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 	 * Children nodes of the table row.
 	 */
 	children?: React.ReactNode
+
+	/**
+	 * Status color to appear on the table row.
+	 */
+	status?: string
 }
 
 /**
@@ -134,6 +196,7 @@ type TableExpectedAction =
 	| "search-item"
 	| "bulk-action"
 	| "resort"
+	| "column-sort"
 
 /**
  * Interface for the table context.
@@ -145,14 +208,14 @@ interface TableContextProps {
 	allowCheck?: boolean
 
 	/**
+	 * Make columns sticky
+	 */
+	stickyCols?: boolean
+
+	/**
 	 * Supports drag-and-drop reordering.
 	 */
 	isDraggable?: boolean
-
-	/**
-	 * Array of table rows with additional data.
-	 */
-	rows: Record<string, any>[]
 
 	/**
 	 * Array of bulk actions available in the table toolbar.
@@ -160,9 +223,29 @@ interface TableContextProps {
 	bulkActions?: Record<Pick<SelectBaseProps, "options">, any>[]
 
 	/**
+	 * Array of table rows with additional data.
+	 */
+	rows: Record<string, any>[]
+
+	/**
 	 * Function to set the table rows.
 	 */
 	setRows(rows: Record<string, any>[]): void
+
+	/**
+	 * Array of table columns
+	 */
+	columns: TableColumnType[]
+
+	/**
+	 * Functions to store columns in state
+	 */
+	setColumns(columns: TableColumnType[]): void
+
+	/**
+	 * Display filters in popover
+	 */
+	filtersPopover: Pick<TableProps, "filtersPopover">
 
 	/**
 	 * Filters to be used in the table toolbar.
@@ -233,9 +316,16 @@ interface TableContextProviderProps {
 	 */
 	props: Pick<
 		TableContextProps,
-		"allowCheck" | "isDraggable" | "filters" | "bulkActions"
+		| "allowCheck"
+		| "isDraggable"
+		| "filtersPopover"
+		| "filters"
+		| "bulkActions"
+		| "stickyCols"
 	> &
-		Pick<TableProps, "onAction">
+		Pick<TableProps, "onAction"> & {
+			ref: RefObject<HTMLTableElement>
+		}
 }
 
 /**
@@ -258,12 +348,17 @@ interface TableToolbarContentProps {
 	isExpanded: boolean
 }
 
+interface TableFieldsProps {
+	children: React.ReactNode
+}
+
 export type {
 	TableProps,
 	TableExpectedAction,
 	TableSectionProps,
 	TableCellProps,
 	TableRowProps,
+	TableFieldsProps,
 	TableContextProps,
 	TableContextProviderProps,
 	TableToolbarContentProps,

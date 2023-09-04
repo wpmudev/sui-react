@@ -18,25 +18,30 @@ import { getFileImagePreview, isImageFile } from "./helper"
 const UploaderFile: React.FC<UploaderFileProps> = ({ id, file, onRemove }) => {
 	// @todo: add error variation support
 	return (
-		<div className="sui-uploader__files-item">
-			<div className="sui-uploader__files-item-preview">
+		<div className="sui-uploader__file">
+			<div className="sui-uploader__file--preview">
 				{/* Render image preview if the file is an image, otherwise render a generic file icon */}
 				{isImageFile(file?.type) ? (
 					<span
 						role="img"
-						className="sui-uploader__files-item-image"
+						className="sui-uploader__file--image"
 						style={{
 							backgroundImage: `url(${getFileImagePreview(file)})`,
 						}}
 					/>
 				) : (
-					<FileCheck size="sm" className="sui-uploader__files-item-icon" />
+					<FileCheck size="sm" className="sui-uploader__file--icon" />
 				)}
 			</div>
 			{/* Display the file name */}
-			<span className="sui-uploader__files-item-name">{file?.name}</span>
+			<span className="sui-uploader__file--name">{file?.name}</span>
 			{/* Button to remove the file */}
-			<Button iconOnly={true} icon="close" onClick={() => onRemove(id)} />
+			<Button
+				className="sui-uploader__file--remove"
+				iconOnly={true}
+				icon="close"
+				onClick={() => onRemove(id)}
+			/>
 		</div>
 	)
 }

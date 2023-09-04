@@ -1,13 +1,14 @@
-import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
-import { Button } from '../../src';
-import dedent from 'dedent';
+import { Section, Switcher, Preview, Snippet } from "@wpmudev/storybook"
+import { Button } from "../../src"
 
-import Variants from './Examples/Variants.mdx';
-import Appearance from './Examples/Appearance.mdx';
-import Colors from './Examples/Colors.mdx';
-import States from './Examples/States.mdx';
-import Size from './Examples/Size.mdx';
-import Icon from './Examples/Icon.mdx';
+import dedent from "dedent"
+
+import Variants from "./Examples/Variants.mdx"
+import Appearance from "./Examples/Appearance.mdx"
+import Colors from "./Examples/Colors.mdx"
+import States from "./Examples/States.mdx"
+import Size from "./Examples/Size.mdx"
+import Icon from "./Examples/Icon.mdx"
 
 export const sampleCode = dedent`
 import React from 'react';\n
@@ -16,7 +17,7 @@ const Example() => {
 	return <Button>Button default</Button>;
 }\n
 export default Example;
-`;
+`
 
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>

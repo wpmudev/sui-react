@@ -37,6 +37,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			iconPosition = "start",
 			iconOnly = false,
 			iconSize = "md",
+			isResponsive = false,
 			...restProps
 		},
 		ref,
@@ -65,6 +66,8 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			"full-width": isFullWidth,
 			"is-icon": hasIcon && iconOnly,
 			[`${appearance}-${color}`]: !!appearance && !!color,
+			inline: iconOnly && !appearance,
+			responsive: isResponsive,
 		}
 
 		const attrs = {
@@ -90,12 +93,16 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 
 		return (
 			<TagName {...attrs}>
-				{hasIcon && "start" === iconPosition && <Icon name={icon ?? ""} size={iconSize} />}
+				{hasIcon && "start" === iconPosition && (
+					<Icon name={icon ?? ""} size={iconSize} />
+				)}
 				{isUnwrapped && children}
 				{!isUnwrapped && (
 					<Label {...(iconOnly && { hidden: true })}>{children}</Label>
 				)}
-				{hasIcon && "end" === iconPosition && <Icon name={icon ?? ""} size={iconSize} />}
+				{hasIcon && "end" === iconPosition && (
+					<Icon name={icon ?? ""} size={iconSize} />
+				)}
 			</TagName>
 		)
 	},

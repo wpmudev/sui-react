@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 // Import required component
 import {
@@ -33,90 +33,58 @@ export default {
 const records = [
 	{
 		id: 1,
-		title: "Contact Form",
-		tag: <Tag isSmall={true}>Published</Tag>,
+		title: "Contact Form this is a example of long text with trim enabled.",
+		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
+		status: "info",
 	},
 	{
 		id: 2,
 		title: "Contact Form",
-		tag: <Tag isSmall={true}>Published</Tag>,
+		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
+		status: "success",
 	},
 	{
 		id: 3,
 		title: "Contact Form",
-		tag: (
-			<Tag isSmall={true} color="blue">
-				Published
-			</Tag>
-		),
+		tag: <Tag color="blue">Published</Tag>,
 		submission: "April 20, 2022 11:00 am",
+		status: "warning",
 		props: {
 			isExpandable: true,
-			expandableContent: (
-				<Box>
-					<BoxGroup isInline={false}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry standard dummy text ever
-						since the 1500s
-					</BoxGroup>
-				</Box>
-			),
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
 		},
 	},
 	{
 		id: 4,
 		title: "Contact Form",
-		tag: <Tag isSmall={true}>Published</Tag>,
+		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
+		status: "error",
 		props: {
 			isExpandable: true,
-			expandableContent: (
-				<Box>
-					<BoxGroup isInline={false}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry standard dummy text ever
-						since the 1500s
-					</BoxGroup>
-				</Box>
-			),
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
 		},
 	},
 	{
 		id: 5,
 		title: "Contact Form",
-		tag: <Tag isSmall={true}>Published</Tag>,
+		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
 		props: {
 			isExpandable: true,
-			expandableContent: (
-				<Box>
-					<BoxGroup isInline={false}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry standard dummy text ever
-						since the 1500s
-					</BoxGroup>
-				</Box>
-			),
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
 		},
 	},
 	{
 		id: 6,
 		title: "Contact Form",
-		tag: <Tag isSmall={true}>Published</Tag>,
+		tag: <Tag>Draft</Tag>,
 		submission: "April 20, 2022 11:00 am",
 		props: {
 			isExpandable: true,
-			expandableContent: (
-				<Box>
-					<BoxGroup isInline={false}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry standard dummy text ever
-						since the 1500s
-					</BoxGroup>
-				</Box>
-			),
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
 		},
 	},
 ]
@@ -137,27 +105,28 @@ const items = createList(100)
 
 // Build "Field List" story
 const Table = ({ example, ...args }) => {
+	const [rows, setRows] = useState(records)
+
 	const action = (id, content) => {
 		return (
 			<div
 				style={{
 					alignItems: "center",
 					display: "flex",
-					gap: "2px",
 					justifyContent: "end",
 				}}
 			>
 				<Button
 					icon="edit"
 					color="black"
-					appearance="secondary"
+					appearance="tertiary"
 					isSmall={true}
 					iconOnly={true}
 				/>
 				<Button
 					icon="settings"
 					color="black"
-					appearance="secondary"
+					appearance="tertiary"
 					isSmall={true}
 					iconOnly={true}
 				/>
@@ -171,31 +140,60 @@ const Table = ({ example, ...args }) => {
 			<div className="sui-layout__content">
 				<SUITable
 					{...args}
+					stickyCols={true}
 					onAction={(actionType, data) => {
-						console.log("ACTION FIRED:", actionType, data)
+						if ("column-sort" === actionType) {
+							const { column, order } = data
+
+							const dRows = [...rows]
+
+							if ("desc" === order) {
+								dRows.sort((a, b) => a[column]?.localeCompare(b[column]))
+							}
+
+							setRows(dRows)
+						}
 					}}
 				>
 					<TableHead>
 						<TableRow actions={() => null}>
-							<TableCell isHeading={true}>ID</TableCell>
-							<TableCell isHeading={true}>Form name</TableCell>
-							<TableCell isHeading={true}>Status</TableCell>
-							<TableCell isHeading={true}>Last Submission</TableCell>
+							<TableCell
+								isHeading={true}
+								isSortable={false}
+								isPrimary={true}
+								id="id"
+							>
+								ID
+							</TableCell>
+							<TableCell isHeading={true} isSortable={true} id="title">
+								Form name
+							</TableCell>
+							<TableCell isHeading={true} id="tag" isSortable={true}>
+								Status
+							</TableCell>
+							<TableCell isHeading={true} id="submission" isSortable={true}>
+								Last Submission
+							</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{records.map((record, index) => (
+						{rows.map((record, index) => (
 							<TableRow
 								key={index}
 								id={record.id}
 								isExpandable={record?.props?.isExpandable}
 								expandableContent={record?.props?.expandableContent}
+								status={record?.status}
 								actions={({ id, content }) => {
 									return action(id, content)
 								}}
 							>
-								<TableCell>#{record.id}</TableCell>
-								<TableCell>{record.title}</TableCell>
+								<TableCell>
+									<strong>#{record.id}</strong>
+								</TableCell>
+								<TableCell isTrim={true}>
+									<strong>{record.title}</strong>
+								</TableCell>
 								<TableCell>{record.tag}</TableCell>
 								<TableCell>{record.submission}</TableCell>
 							</TableRow>
@@ -225,6 +223,7 @@ const Table = ({ example, ...args }) => {
 
 // Set story arguments.
 Table.args = {
+	type: "",
 	allowCheck: true,
 	isDraggable: true,
 	hasToolbar: true,
@@ -311,10 +310,23 @@ Table.args = {
 			},
 		},
 	],
+	filtersPopover: true,
+	isStripped: false,
 }
 
 // Set controls for story arguments.
 Table.argTypes = {
+	type: {
+		name: "Type",
+		options: ["", "stripe"],
+		control: {
+			type: "select",
+			labels: {
+				"": "Default",
+				stripe: "Stripe",
+			},
+		},
+	},
 	ariaLabel: {
 		name: "Aria Label",
 		control: {
@@ -338,6 +350,18 @@ Table.argTypes = {
 	},
 	filters: {
 		name: "Filters",
+	},
+	filtersPopover: {
+		name: "Filter Popover",
+		control: {
+			type: "boolean",
+		},
+	},
+	isStripped: {
+		name: "Stripe",
+		control: {
+			type: "boolean",
+		},
 	},
 }
 

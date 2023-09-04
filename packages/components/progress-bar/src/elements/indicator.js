@@ -6,9 +6,6 @@ const Indicator = ({ value, ...args }) => {
 	const has = {}
 	const set = {}
 
-	// Props validation
-	has.value = isNumber(value) ? true : false
-
 	if (!has.value) {
 		throw new Error(
 			`Incorrect parameter type. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Progress Bar\n\nThe parameter "children" used in the value element can only be a number.\n\n`,
@@ -21,7 +18,7 @@ const Indicator = ({ value, ...args }) => {
 	return (
 		<progress
 			className="sui-progress-bar__indicator"
-			{...(has.value && { value: value })}
+			{...(isNumber(value) && { value })}
 			max="100"
 			{...args}
 		>

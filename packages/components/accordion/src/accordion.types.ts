@@ -7,18 +7,29 @@ import React, { HTMLProps } from "react"
 interface AccordionProps extends HTMLProps<HTMLDivElement> {
 	/** Additional CSS class name for styling the accordion component. */
 	className?: string
-	/** Different styles of the accordion. */
-	state?: "neutral" | "informative" | "success" | "warning" | "critical"
+	/** Remove border-radius when true */
+	noBorderRadius?: boolean
+	/** Remove side borders */
+	noSideBorders?: boolean
+	/** Accordion state */
+	state?: "" | "neutral" | "informative" | "success" | "warning" | "critical" // The semantic types for the accordion
 }
 
-// The main prop types for the accordion-item
-type AccordionItemMainProps = {
-	title: string
-	description?: string
-	children?: React.ReactNode
-	icon?: React.ReactNode
-	isExpanded?: boolean
-	isDisabled?: boolean
+type AccordionCheckboxProps =
+	| {
+			onCheck?: Function // Callback function to handle checkbox state changes.
+			hasCheckbox?: true // Indicates whether the accordion item has a checkbox.
+	  }
+	| { onCheck: never; hasCheckBox: false } // If `hasCheckbox` is false, the `onCheck` prop should not be provided.
+
+// The AccordionItemProps interface extends the AccordionCheckboxProps, adding additional props for the AccordionItem component.
+interface AccordionItemProps extends AccordionCheckboxProps {
+	title?: string // The title of the accordion item.
+	description?: string // The description of the accordion item.
+	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
+	icon?: React.ReactNode // An optional icon to be displayed in the accordion item.
+	isExpanded?: boolean // Indicates whether the accordion item is initially expanded.
+	isDisabled?: boolean // Indicates whether the accordion item is disabled and cannot be interacted with.
 }
 
 // Type when hasCheckbox is true

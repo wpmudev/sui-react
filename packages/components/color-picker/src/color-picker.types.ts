@@ -10,10 +10,22 @@ interface ColorPickerProps {
 	 * Callback for color change
 	 */
 	onChange?: (color: any) => void
+	/**
+	 * Color type hex | rgb
+	 */
+	type?: "hex" | "rgb"
+	/**
+	 * Callback for color change
+	 */
+	onColorChange?: (color: any) => string
+	/**
+	 * Callback for color button click
+	 */
+	onApplyButton?: () => void
 }
 
 interface ColorPickerColorProps {
-	hex: string
+	colorCode: string
 }
 
 export type { ColorPickerProps, ColorPickerColorProps }

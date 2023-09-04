@@ -8,7 +8,7 @@ import docs from "./ReactCodeEditor.mdx"
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Core/Code Editor",
+	title: "SUI/Components/Advanced/Code Editor",
 	component: SuiCodeEditor,
 	parameters: {
 		layout: "fullscreen",
@@ -19,11 +19,12 @@ export default {
 }
 
 // Build "Tag" story.
-const CodeEditor = ({ color, ...props }) => {
+const CodeEditor = ({ color, compare, ...props }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
 		background: color !== "white" ? "#fff" : "#333",
+		display: compare ? "flex" : "block",
 	}
 
 	return (
@@ -45,6 +46,23 @@ const MyComponent = ({ name }) => {
 export default MyComponent;
 `}
 					</SuiCodeEditor>
+					{compare && (
+						<SuiCodeEditor {...props}>
+						{`import React from 'react';
+
+const MyComponent = ({ name }) => {
+  return (
+    <div>
+      <h1>Hello, {name}!</h1>
+      <p>This is a basic React functional component.</p>
+    </div>
+  );
+};
+
+export default MyComponent;
+`}
+					</SuiCodeEditor>
+					)}
 				</div>
 			</div>
 		</div>
@@ -58,6 +76,7 @@ CodeEditor.args = {
 	allowCopy: true,
 	displayLineNumbers: true,
 	readOnly: false,
+	compare: false,
 }
 
 // Set controls for story arguments.
@@ -94,6 +113,12 @@ CodeEditor.argTypes = {
 	},
 	readOnly: {
 		name: "Read Only",
+		control: {
+			type: "boolean",
+		},
+	},
+	compare: {
+		name: "Compare Code",
 		control: {
 			type: "boolean",
 		},

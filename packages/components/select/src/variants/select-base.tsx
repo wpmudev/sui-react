@@ -65,7 +65,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	isDisabled = false,
 	isSmall = false,
 	isError = false,
-	isMultiselect = false,
+	isMultiSelect = false,
 	isSearchable = false,
 	isSmartSearch = false,
 	...props
@@ -102,30 +102,31 @@ const Select: React.FC<SelectBaseProps> = ({
 	useOuterClick(ref, () => {
 		setIsDropdownOpen(false)
 	})
-	//
-	// // UseEffect function to handle change in items
-	// useEffect(() => {
-	// 	const updatedItems = items.map((option) => {
-	// 		const filterItem = filteredItems.find(
-	// 			(filterOpt) => filterOpt.id === option.id,
-	// 		)
-	// 		if (filterItem) {
-	// 			return { ...filterItem }
-	// 		}
-	// 		return option
-	// 	})
-	// 	const filteredItemList = updatedItems.filter((option) => option.isSelected)
-	// 	const currentItems = filteredItemList.length > 0 ? filteredItemList : label
-	//
-	// 	if (isMultiselect) {
-	// 		setSelectedItems(currentItems ?? "")
-	// 	} else if (currentItems?.length) {
-	// 		// Select the first item
-	// 		const item = currentItems?.[0]
-	// 		if (item && item.label) setSelectedItems(item.label)
-	// 	}
-	// 	setItems(updatedItems)
-	// }, [filteredItems, isMultiselect, items, label])
+
+	// UseEffect function to handle change in items
+	useEffect(() => {
+		const updatedItems = items.map((option) => {
+			const filterItem = filteredItems.find(
+				(filterOpt) => filterOpt.id === option.id,
+			)
+			if (filterItem) {
+				return { ...filterItem }
+			}
+			return option
+		})
+		const filteredItemList = updatedItems.filter((option) => option?.isSelected)
+		const currentItems = filteredItemList.length > 0 ? filteredItemList : label
+
+		if (isMultiSelect) {
+			setSelectedItems(currentItems ?? "")
+		} else if (currentItems?.length) {
+			// Select the first item
+			const item = currentItems?.[0]
+			if (item && item.label) setSelectedItems(item.label)
+		}
+		setItems(updatedItems)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [filteredItems])
 
 	const classNames = generateCN(
 		"sui-select",
@@ -136,7 +137,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			hover: isHovered,
 			focus: isFocused,
 			error: isError,
-			multiselect: isMultiselect,
+			multiselect: isMultiSelect,
 			searchable: isSearchable,
 			smartsearch: isSmartSearch,
 		},
@@ -176,6 +177,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		selected: selectedItem,
 		arrow: isDropdownOpen ? "chevron-up" : "chevron-down",
 		selectLabel: label,
+		isSmall,
 		dropdownToggle: () => setIsDropdownOpen(!isDropdownOpen),
 		clearSelection: () => {
 			RemoveAll(setSelectedItems, items, setFilteredItems)
@@ -189,8 +191,8 @@ const Select: React.FC<SelectBaseProps> = ({
 			},
 		}),
 		...(isSmartSearch && { isSmartSearch }),
-		...(isMultiselect && {
-			isMultiselect,
+		...(isMultiSelect && {
+			isMultiSelect,
 			removeSelection: (optionId) => {
 				RemoveSelection(optionId, filteredItems, setFilteredItems)
 			},
@@ -202,13 +204,14 @@ const Select: React.FC<SelectBaseProps> = ({
 	const dropdownProps = {
 		options: filteredItems,
 		selected: selectedItem,
+		isSmall,
 		onEvent: (optionId) => {
 			const optionIndex = filteredItems.findIndex(
 				(option) => option.id === optionId,
 			)
 			const updatedItems = [...filteredItems]
 			const isSelected = updatedItems[optionIndex].isSelected
-			if (!isMultiselect) {
+			if (!isMultiSelect) {
 				updatedItems.forEach((option) => (option.isSelected = false))
 				updatedItems[optionIndex].isSelected = true
 				setFilteredItems(updatedItems)
@@ -219,8 +222,8 @@ const Select: React.FC<SelectBaseProps> = ({
 			}
 		},
 		...(isSmartSearch && { isSmartSearch }),
-		...(isMultiselect && {
-			isMultiselect,
+		...(isMultiSelect && {
+			isMultiSelect,
 			selectAll: () => {
 				SelectAll(filteredItems, setFilteredItems)
 			},

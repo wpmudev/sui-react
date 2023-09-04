@@ -14,7 +14,15 @@ interface TagProps extends Omit<HTMLProps<HTMLSpanElement>, "style"> {
 	/**
 	 * Color of the tag.
 	 */
-	color?: string
+	color?:
+		| "default"
+		| "blue"
+		| "yellow"
+		| "red"
+		| "green"
+		| "white"
+		| "black"
+		| "navy"
 	/**
 	 * Custom style for the tag.
 	 */

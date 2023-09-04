@@ -11,6 +11,9 @@ const Box: React.FC<BoxProps> = ({
 	headerLeft,
 	headerRight,
 	children,
+	isSmall,
+	className = "",
+	style = {},
 }) => {
 	// Prop(s) validation
 	const hasTitle = !isUndefined(title) && !isEmpty(title)
@@ -18,10 +21,10 @@ const Box: React.FC<BoxProps> = ({
 	const hasLeft = !isUndefined(headerRight) && !isEmpty(headerLeft)
 	const hasRight = !isUndefined(headerRight) && !isEmpty(headerRight)
 
-	const classNames = generateCN("sui-box", {})
+	const classNames = generateCN("sui-box", { "size-sm": isSmall }, className)
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} style={style ?? {}}>
 			{hasTitle && (
 				<BoxGroup isInline={true}>
 					<div slot="left">
