@@ -23,6 +23,10 @@ const Select = ({ example, ...props }) => {
 		background: "white" === props.color ? "#333" : "#fff",
 	}
 
+	props.onChange = (option) => {
+		console.log("Selected:", option)
+	}
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">

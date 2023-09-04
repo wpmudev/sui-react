@@ -1,7 +1,7 @@
 import React, { useId } from "react"
 
 // Import required component(s)
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import * as Icons from "@wpmudev/sui-icons"
 
@@ -45,9 +45,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 				checked={isActive}
 				value={value}
 				disabled={isDisabled}
-				onChange={() => {
-					onClick()
-				}}
+				onChange={onClick}
 			/>
 			{/* The label element represents the segmented control button. */}
 			<label
@@ -61,6 +59,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 				htmlFor={buttonId}
 				aria-hidden={true}
 				aria-checked={isActive}
+				onKeyDown={(e) => handleOnKeyDown(e, onClick)}
 				{...methods}
 			>
 				{/* Display the icon if provided. */}

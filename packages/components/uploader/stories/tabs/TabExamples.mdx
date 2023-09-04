@@ -1,0 +1,135 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Uploader } from "../../src"
+import dedent from "dedent"
+
+export const basicCode = dedent`
+    <Uploader
+        multiple={false}
+        fieldAttrs={{
+           label: "Upload a file",
+           helper: "Upload files",
+           isSmall: true,
+        }}
+    />
+`
+
+export const multipleCode = dedent`
+    <Uploader
+        fieldAttrs={{
+           label: "Upload files",
+           helper: "You can upload multiple files",
+           isSmall: true,
+        }}
+    />
+`
+
+export const dragDropCode = dedent`
+    <Uploader
+        allowDragAndDrop={false}
+        fieldAttrs={{
+           label: "Upload files",
+           helper: "You can upload multiple files",
+           isSmall: true,
+        }}
+    />
+`
+
+export const onlyImagesCode = dedent`
+    <Uploader
+        accept="image/*"
+        fieldAttrs={{
+           label: "Upload files",
+           helper: "You can upload multiple files",
+           isSmall: true,
+        }}
+    />
+`
+
+export const onlyPdfCode = dedent`
+    <Uploader
+        accept="application/pdf"
+        fieldAttrs={{
+           label: "Upload files",
+           helper: "You can upload multiple files",
+           isSmall: true,
+        }}
+    />
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Basic File Uploader component used for most cases: </p>
+	<Preview wrapper={true}>
+		<Uploader
+			multiple={false}
+			fieldAttrs={{
+				label: "Upload a file",
+				helper: "Click or drag a file to upload",
+				isSmall: true,
+			}}
+		/>
+	</Preview>
+	<Snippet language="js">{basicCode}</Snippet>
+</Section>
+
+<Section title="Multiple files" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<Uploader
+			fieldAttrs={{
+				label: "Upload files",
+				helper: "You can upload multiple files",
+				isSmall: true,
+			}}
+		/>
+	</Preview>
+	<Snippet language="js">{multipleCode}</Snippet>
+</Section>
+
+<Section
+	title="Disabled drag and drop"
+	contained={true}
+	style={{ paddingTop: 30 }}
+>
+	<Preview wrapper={true}>
+		<Uploader
+			allowDragAndDrop={false}
+			fieldAttrs={{
+				label: "Upload files",
+				helper: "You can upload multiple files",
+				isSmall: true,
+			}}
+		/>
+	</Preview>
+	<Snippet language="js">{dragDropCode}</Snippet>
+</Section>
+
+<Section title="Accept only images" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<Uploader
+			accept="image/*"
+			fieldAttrs={{
+				label: "Upload files",
+				helper: "Images only",
+				isSmall: true,
+			}}
+		/>
+	</Preview>
+	<Snippet language="js">{onlyImagesCode}</Snippet>
+</Section>
+
+<Section
+	title="Accept only a specific file extension"
+	contained={true}
+	style={{ paddingTop: 30 }}
+>
+	<Preview wrapper={true}>
+		<Uploader
+			accept="application/pdf"
+			fieldAttrs={{
+				label: "Upload files",
+				helper: "Only pdf files",
+				isSmall: true,
+			}}
+		/>
+	</Preview>
+	<Snippet language="js">{onlyPdfCode}</Snippet>
+</Section>

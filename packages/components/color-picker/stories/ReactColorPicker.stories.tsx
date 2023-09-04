@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react"
 
 // Import required component.
 import { ColorPicker as SuiColorPicker } from "../src"
+import { FormField } from "@wpmudev/sui-form-field"
 
 // Import documentation main page.
 import docs from "./ReactColorPicker.mdx"
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Core/Color Picker",
+	title: "SUI/Components/Advanced/Color Picker",
 	component: SuiColorPicker,
 	parameters: {
 		layout: "fullscreen",
@@ -36,11 +37,13 @@ const ColorPicker = ({ color, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiColorPicker
-						{...props}
-						color={currentColor}
-						onChange={setCurrentColor}
-					/>
+					<FormField id="color-picker" label="Select colour" isSmall={true}>
+						<SuiColorPicker
+							color={currentColor}
+							onChange={setCurrentColor}
+							{...props}
+						/>
+					</FormField>
 				</div>
 			</div>
 		</div>
@@ -50,6 +53,7 @@ const ColorPicker = ({ color, ...props }) => {
 // Set story arguments.
 ColorPicker.args = {
 	color: "#FFFFFF",
+	type: "hex",
 }
 
 // Set controls for story arguments.
@@ -58,6 +62,14 @@ ColorPicker.argTypes = {
 		name: "Color",
 		control: {
 			type: "text",
+		},
+	},
+	type: {
+		name: "Color Type",
+		options: ["hex", "rgb"],
+		control: {
+			type: "select",
+			labels: { hex: "Hex", rgb: "RGB" },
 		},
 	},
 }

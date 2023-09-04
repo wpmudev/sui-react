@@ -52,11 +52,15 @@ interface ButtonProps
 	 */
 	icon?: string
 	/**
-	 * Optional icon position to be displayed before or after text.
+	 * Optional icon to be displayed.
 	 */
-	iconPosition?: "start" | "end"
+	startIcon?: string
 	/**
-	 * Optional icon size to be sm | md | lg.
+	 * Optional icon to be displayed.
+	 */
+	endIcon?: string
+	/**
+	 * Optional icon size to be displayed.
 	 */
 	iconSize?: "sm" | "md" | "lg"
 	/**
@@ -67,6 +71,10 @@ interface ButtonProps
 	 * Optional button with icon only
 	 */
 	iconOnly?: boolean
+	/**
+	 * Optional: handle responsive when true
+	 */
+	isResponsive?: boolean
 }
 
 export type { ButtonProps }

@@ -1,41 +1,114 @@
-import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
-import { Accordion } from '../../src';
-import dedent from 'dedent';
-import Types from './Examples/Types.mdx';
-import States from './Examples/States.mdx';
-import Size from './Examples/Size.mdx';
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Accordion, AccordionItem, AccordionItemBody } from "../../src"
+import dedent from "dedent"
+
+{/* Import Variations */}
+
+import Neutral from "./Examples/states/Neutral.mdx"
+import Informative from "./Examples/states/Informative.mdx"
+import Success from "./Examples/states/Success.mdx"
+import Critical from "./Examples/states/Critical.mdx"
+import Warning from "./Examples/states/Warning.mdx"
+
+{/* Import Variations */}
+
+import Disabled from "./Examples/item-variations/Disabled.mdx"
+import Description from "./Examples/item-variations/Description.mdx"
+import Icon from "./Examples/item-variations/Icon.mdx"
+import Checkbox from "./Examples/item-variations/Checkbox.mdx"
+import Sidebar from "./Examples/item-variations/Footer.mdx"
 
 export const sampleCode = dedent`
-import React from 'react';\n
-import { Score } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Score bar={55} />;
-}\n
-export default Example;
-`;
+     <Accordion>
+      <AccordionItem title="Accordion title">
+        <AccordionItemBody>
+          <p>
+            Hi, I am accordion content body. you can swap me with your local component.
+          </p>
+        </AccordionItemBody>
+        </AccordionItem>
+        <AccordionItem
+          title="Accordion title"
+        >
+          <AccordionItemBody>
+            <p>
+              Hi, I am accordion content body. you can swap me with your local component.
+            </p>
+          </AccordionItemBody>
+        </AccordionItem>
+      <AccordionItem
+          title="Accordion title"
+        >
+          <AccordionItemBody>
+            <p>
+              Hi, I am accordion content body. you can swap me with your local component.
+            </p>
+          </AccordionItemBody>
+        </AccordionItem>
+    </Accordion>
+`
 
-<Section contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		Below is the default form of a button, used for most cases; it is not
-		impactful enough to represent the primary action in a container but
-		necessary in some scenarios.
-	</p>
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Basic Accordion Example</p>
 	<Preview wrapper={true}>
-		<Accordion bar={95} />
+		<Accordion>
+			<AccordionItem title="Accordion title">
+				<AccordionItemBody>
+					<p>
+						Hi, I am accordion content body. you can swap me with your local
+						component.
+					</p>
+				</AccordionItemBody>
+			</AccordionItem>
+			<AccordionItem title="Accordion title">
+				<AccordionItemBody>
+					<p>
+						Hi, I am accordion content body. you can swap me with your local
+						component.
+					</p>
+				</AccordionItemBody>
+			</AccordionItem>
+			<AccordionItem title="Accordion title">
+				<AccordionItemBody>
+					<p>
+						Hi, I am accordion content body. you can swap me with your local
+						component.
+					</p>
+				</AccordionItemBody>
+			</AccordionItem>
+		</Accordion>
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
 
-<Section style={{ paddingTop: 0 }}>
+<Section title="State" style={{ paddingTop: 0 }}>
+	You can change the symentic type of the accordion by changing the{" "}
+	<Code small={true}>state</Code> prop
 	<Switcher>
-		<div label="Types" value="types">
-			<Types />
+		<div label="neutral" value="neutral">
+			<Neutral />
 		</div>
-		<div label="States" value="states">
-			<States />
+		<div label="informative" value="informative">
+			<Informative />
 		</div>
-		<div label="Size" value="size">
-			<Size />
+		<div label="success" value="success">
+			<Success />
+		</div>
+		<div label="warning" value="warning">
+			<Warning />
+		</div>
+		<div label="critical" value="critical">
+			<Critical />
 		</div>
 	</Switcher>
 </Section>
+
+<Disabled />
+
+<Description />
+
+<Icon />
+
+<Checkbox />
+
+[//]: # (<Footer />)

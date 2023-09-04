@@ -38,11 +38,11 @@ const Modal = ({ example, ...args }) => {
 							Choose the audience you want to send form data to.
 						</ModalHeader>
 						<ModalBody>
-							Are you sure you want to apply the Default config config to this
-							site? We recommend you have a backup available as your existing
-							settings configuration will be overridden.
+							Are you sure you want to apply the Default config to this site? We
+							recommend you have a backup available as your existing settings
+							configuration will be overridden.
 						</ModalBody>
-						<ModalFooter hasSep={true}>
+						<ModalFooter>
 							<Button
 								appearance="secondary"
 								color="blue"
@@ -87,19 +87,24 @@ Modal.args = {
 	},
 	size: "sm",
 	variant: "simple",
-	// isSmall: true,
-	// timer: 0,
-	// trigger: triggerContent,
-	// content: modalContent,
-	// footer: modalFooter,
 }
 
 // Set controls for story arguments.
 Modal.argTypes = {
+	id: {
+		name: "Id",
+		control: {
+			type: "text",
+		},
+	},
 	icon: {
 		name: "Icon",
+		control: {
+			type: "object",
+		},
 	},
 	size: {
+		name: "Size",
 		options: ["sm", "lg"],
 		control: {
 			type: "select",
@@ -110,9 +115,15 @@ Modal.argTypes = {
 		},
 	},
 	variant: {
+		name: "Variant",
 		options: ["simple", "advanced", "app-connect"],
 		control: {
 			type: "select",
+			labels: {
+				simple: "Simple",
+				advanced: "Advanced",
+				"app-connect": "App connect",
+			},
 		},
 	},
 }

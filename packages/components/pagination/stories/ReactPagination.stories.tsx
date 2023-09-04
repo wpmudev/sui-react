@@ -10,7 +10,7 @@ import { PaginationProps } from "../src/pagination.types"
 import docs from "./ReactPagination.mdx"
 
 export default {
-	title: "SUI/Components/Core/Pagination",
+	title: "SUI/Components/Advanced/Pagination",
 	component: SuiPagination,
 	parameters: {
 		layout: "fullscreen",

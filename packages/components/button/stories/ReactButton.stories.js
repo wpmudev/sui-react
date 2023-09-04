@@ -66,8 +66,7 @@ const Button = ({ example, ...props }) => {
 											Prev
 										</StandardButton>
 										<StandardButton
-											icon="chevron-right"
-											iconPosition="end"
+											endIcon="chevron-right"
 											onClick={() => console.log("Go to next step.")}
 											{...props}
 										>
@@ -123,6 +122,7 @@ Button.args = {
 	isSmall: false,
 	isLoading: true,
 	isDisabled: false,
+	isResponsive: false,
 }
 
 Button.argTypes = {
@@ -227,6 +227,16 @@ Button.argTypes = {
 		name: "Disabled",
 		control: {
 			type: "boolean",
+		},
+	},
+	isResponsive: {
+		name: "Hide label (Mobile)",
+		control: {
+			type: "boolean",
+		},
+		if: {
+			arg: "example",
+			eq: "label-icon",
 		},
 	},
 }

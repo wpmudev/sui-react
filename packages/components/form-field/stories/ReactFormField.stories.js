@@ -9,7 +9,7 @@ import docs from "./ReactFormField.mdx"
 // Configure default options.
 export default {
 	title: "SUI/Components/Forms/Form Field",
-	component: Field,
+	component: SUIFormField,
 	parameters: {
 		layout: "fullscreen",
 		docs: {

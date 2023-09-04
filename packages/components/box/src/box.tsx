@@ -8,9 +8,13 @@ import { BoxProps } from "./box.types"
 const Box: React.FC<BoxProps> = ({
 	title,
 	icon,
+	hideMobileIcon = false,
 	headerLeft,
 	headerRight,
 	children,
+	isSmall,
+	className = "",
+	style = {},
 }) => {
 	// Prop(s) validation
 	const hasTitle = !isUndefined(title) && !isEmpty(title)
@@ -18,16 +22,25 @@ const Box: React.FC<BoxProps> = ({
 	const hasLeft = !isUndefined(headerRight) && !isEmpty(headerLeft)
 	const hasRight = !isUndefined(headerRight) && !isEmpty(headerRight)
 
-	const classNames = generateCN("sui-box", {})
+	const classNames = generateCN("sui-box", { "size-sm": isSmall }, className)
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} style={style ?? {}}>
 			{hasTitle && (
 				<BoxGroup isInline={true}>
 					<div slot="left">
 						{hasIcon && (
 							<span
-								className={`suicons suicons--${icon} suicons--lg sui-box-group__item`}
+								className={generateCN(
+									"suicons",
+									{
+										[icon]: true,
+										lg: true,
+									},
+									hideMobileIcon
+										? "sui-box-group__item sui-icon--hide-sm"
+										: "sui-box-group__item",
+								)}
 								aria-hidden="true"
 							/>
 						)}

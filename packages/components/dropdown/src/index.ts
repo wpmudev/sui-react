@@ -1,7 +1,2 @@
 export { Dropdown } from "./dropdown"
-export type { DropdownProps } from "./dropdown.types"
-
-export type {
-	DropdownOptionProps,
-	DropdownOptionItemProps,
-} from "./dropdown-option.types"
+export type { DropdownProps, DropdownRefProps } from "./dropdown.types"

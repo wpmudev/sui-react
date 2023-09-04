@@ -8,7 +8,7 @@ import docs from "./RichTextEditor.mdx"
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Core/Rich Text Editor",
+	title: "SUI/Components/Advanced/Rich Text Editor",
 	component: SuiRichTextEditor,
 	parameters: {
 		layout: "fullscreen",
@@ -30,21 +30,7 @@ const RichTextEditor = ({ color, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiRichTextEditor {...props}>
-						{`import React from 'react';
-
-const MyComponent = ({ name }) => {
-  return (
-    <div>
-      <h1>Hello, {name}!</h1>
-      <p>This is a basic React functional component.</p>
-    </div>
-  );
-};
-
-export default MyComponent;
-`}
-					</SuiRichTextEditor>
+					<SuiRichTextEditor {...props}></SuiRichTextEditor>
 				</div>
 			</div>
 		</div>
@@ -52,53 +38,10 @@ export default MyComponent;
 }
 
 // Set story arguments.
-RichTextEditor.args = {
-	filename: "App.js",
-	language: "javascript",
-	allowCopy: true,
-	displayLineNumbers: true,
-	readOnly: false,
-}
+RichTextEditor.args = {}
 
 // Set controls for story arguments.
-RichTextEditor.argTypes = {
-	filename: {
-		name: "Filename",
-		control: {
-			type: "text",
-		},
-	},
-	language: {
-		name: "Code Language",
-		options: ["markup", "javascript", "css"],
-		control: {
-			type: "select",
-			labels: {
-				markup: "Language: HTML",
-				javascript: "Language: Javascript",
-				css: "Language: CSS",
-			},
-		},
-	},
-	allowCopy: {
-		name: "Allow Copy",
-		control: {
-			type: "boolean",
-		},
-	},
-	displayLineNumbers: {
-		name: "Line numbers",
-		control: {
-			type: "boolean",
-		},
-	},
-	readOnly: {
-		name: "Read Only",
-		control: {
-			type: "boolean",
-		},
-	},
-}
+RichTextEditor.argTypes = {}
 
 // Publish required stories.
 export { RichTextEditor }

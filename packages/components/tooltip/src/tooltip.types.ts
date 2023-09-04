@@ -17,6 +17,10 @@ interface TooltipProps
 	 */
 	type?: string
 	/**
+	 * Optional to define icon name of the tooltip.
+	 */
+	iconName?: string
+	/**
 	 * Optional additional CSS classes for the tooltip.
 	 */
 	className?: string

@@ -16,6 +16,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 	pagesToBottom,
 	children,
 	paginationContent,
+	onChange,
 }) => {
 	// build pagination elements (pages)
 	const componentWrapper = children
@@ -66,6 +67,12 @@ export const Pagination: React.FC<PaginationProps> = ({
 		for (let i = 1; i <= pages; ++i) pageNumbers.push(i)
 		setPagesArray(pageNumbers)
 	}, [pages])
+
+	useEffect(() => {
+		if (onChange) {
+			onChange(selectedPage)
+		}
+	}, [onChange, selectedPage])
 
 	// changes indexes when page changes
 	useEffect(() => {

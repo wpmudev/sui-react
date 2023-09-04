@@ -10,10 +10,11 @@ import { TableSectionProps } from "./table.types"
 import { Button } from "@wpmudev/sui-button"
 import { Input } from "@wpmudev/sui-input"
 import { Select } from "@wpmudev/sui-select"
+import { Dropdown } from "@wpmudev/sui-dropdown"
 
 import { TableToolbarContent } from "./table-toolbar-content"
 import { TableContext } from "./table-context"
-import { isEmpty } from "@wpmudev/storybook/lib/utils"
+import { isEmpty } from "@wpmudev/sui-utils"
 
 /**
  * TableToolbar component represents the toolbar section of a table.
@@ -34,10 +35,11 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 	const bulkDropdown = `sui-table-toolbar-bulk-${uniqueId}`
 
 	const ctx = useContext(TableContext)
+	// const dropdownRef = useRef<DropdownRefProps | null>(null)
 
 	const onSearch = useCallback(
 		(e) => {
-			ctx?.triggerAction("search-item", e.target.value)
+			ctx?.triggerAction("search-items", e.target.value)
 		},
 		[ctx],
 	)
@@ -45,6 +47,14 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 	const onApplyBulkAction = useCallback(() => {
 		ctx?.triggerAction("bulk-action", bulkAction)
 	}, [bulkAction, ctx])
+
+	const content = (
+		<TableToolbarContent
+			id={bodyId}
+			filterBtnId={filterBtnId}
+			isExpanded={isExpanded}
+		/>
+	)
 
 	return (
 		<div className="sui-table__toolbar">
@@ -54,9 +64,10 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 						<Fragment>
 							<Select
 								id={bulkDropdown}
+								className="sui-table__toolbar-actions"
 								isSmall={true}
 								options={ctx?.bulkActions}
-								onChange={(e) => setBulkAction(e?.target?.value)}
+								onChange={setBulkAction}
 							/>
 							<Button
 								appearance="primary"
@@ -71,34 +82,46 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 					)}
 				</div>
 				<div className="sui-table__toolbar-header-actions">
-					<div>
-						<Input
-							id="input-id-4"
-							label="Label"
-							placeholder="Search"
-							onChange={onSearch}
-							isSmall={true}
-						/>
-					</div>
-					<Button
-						id={filterBtnId}
-						icon="filter"
-						color="black"
-						appearance="secondary"
+					<Input
+						id="input-id-4"
+						className="sui-table__toolbar-search"
+						label="Label"
+						placeholder="Search"
+						onChange={onSearch}
 						isSmall={true}
-						onClick={() => setIsExpanded(!isExpanded)}
-						aria-controls={bodyId}
-						aria-expanded={isExpanded}
-					>
-						Filter
-					</Button>
+					/>
+					{ctx?.filtersPopover ? (
+						<Dropdown
+							label="Filter"
+							className="sui-table__toolbar-filter"
+							buttonIcon="filter"
+							direction="left"
+							isSmall={true}
+							isFixedHeight={false}
+							onMenuClick={(id, e) => {
+								console.log("DEBUG: Menu Item Clicked", id, e)
+							}}
+						>
+							{content}
+						</Dropdown>
+					) : (
+						<Button
+							id={filterBtnId}
+							className="sui-table__toolbar-filter"
+							icon="filter"
+							color="black"
+							appearance="secondary"
+							isSmall={true}
+							onClick={() => setIsExpanded(!isExpanded)}
+							aria-controls={bodyId}
+							aria-expanded={isExpanded}
+						>
+							Filter
+						</Button>
+					)}
 				</div>
 			</div>
-			<TableToolbarContent
-				id={bodyId}
-				filterBtnId={filterBtnId}
-				isExpanded={isExpanded}
-			/>
+			{!ctx?.filtersPopover && content}
 		</div>
 	)
 }

@@ -1,3 +1,4 @@
+import React, { MouseEvent, KeyboardEvent } from "react"
 import classnames from "classnames"
 
 /**
@@ -72,7 +73,7 @@ const isObject = (value: unknown) => {
  *
  * @return {boolean} returns True if value is an object type
  */
-const isArray = (value: unknown) => !!(isObject(value) && Array.isArray(value))
+const isArray = (value: unknown): boolean => Array.isArray(value)
 
 /**
  * Check if value is boolean type
@@ -146,6 +147,98 @@ const handleOnKeyDown = (
 	}
 }
 
+/**
+ * Handles common event operations like stopping propagation and preventing default behavior.
+ *
+ * @param {MouseEvent<unknown> | KeyboardEvent<unknown>} e               - The event object.
+ * @param {boolean}                                      stopPropagation - If true, stops the event from further propagation in the event chain.
+ * @param {boolean}                                      preventDefault  - If true, prevents the default behavior associated with the event.
+ */
+const handleEventDefault = (
+	e: MouseEvent<unknown> | KeyboardEvent<unknown>,
+	stopPropagation?: boolean,
+	preventDefault?: boolean,
+) => {
+	if (stopPropagation) {
+		e?.stopPropagation()
+	}
+
+	if (preventDefault) {
+		e?.preventDefault()
+	}
+}
+
+type PluginsSlug =
+	| "smush"
+	| "defender"
+	| "snapshot"
+	| "hummingbird"
+	| "forminator"
+	| "beehive"
+	| "hustle"
+	| "smartcrawl"
+	| "shipper"
+	| "branda"
+
+type PluginIconTypes = {
+	bg: string
+	color: string
+	icon: string
+}
+
+const PluginsIcons: Record<PluginsSlug, PluginIconTypes> = {
+	smush: {
+		bg: "#2dc4e0",
+		color: "#FFF",
+		icon: "PluginSmush",
+	},
+	defender: {
+		bg: "#282a2c",
+		color: "#FFF",
+		icon: "PluginDefender",
+	},
+	snapshot: {
+		bg: "#1a325e",
+		color: "#FFF",
+		icon: "PluginSnapshot",
+	},
+	hummingbird: {
+		bg: "#ff8e3c",
+		color: "#FFF",
+		icon: "PluginHummingbird",
+	},
+	forminator: {
+		bg: "#1f2852",
+		color: "#FFF",
+		icon: "PluginForminator",
+	},
+	beehive: {
+		bg: "#013aa9",
+		color: "#FFF",
+		icon: "PluginBeehive",
+	},
+	hustle: {
+		bg: "#1a1a1a",
+		color: "#FFF",
+		icon: "PluginHustle",
+	},
+	smartcrawl: {
+		bg: "#de240a",
+		color: "#FFF",
+		icon: "PluginSmartCrawl",
+	},
+	shipper: {
+		bg: "#7b5499",
+		color: "#FFF",
+		icon: "PluginShipper",
+	},
+	branda: {
+		bg: "#ff8184",
+		color: "#FFF",
+		icon: "PluginBranda",
+	},
+}
+
 // Publish required function(s).
 export {
 	isNull,
@@ -161,4 +254,8 @@ export {
 	condContent,
 	capitalizeText,
 	handleOnKeyDown,
+	handleEventDefault,
+	PluginsSlug,
+	PluginsIcons,
+	PluginIconTypes,
 }

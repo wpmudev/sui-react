@@ -1,0 +1,30 @@
+import { Section, Preview, Snippet } from "@wpmudev/storybook"
+
+import { Notification } from "../../../../src"
+
+import dedent from "dedent"
+
+export const WarningCode = dedent`
+     <Notification
+      title="Notification Title"
+      message="This is notification message."
+      icon="CheckAlt"
+      variation="warning"
+   />
+`
+
+<Section
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Notification
+			variation="warning"
+			title="Notification Title"
+			message="This is notification message."
+			icon="CheckAlt"
+		/>
+	</Preview>
+	<Snippet language="js">{WarningCode}</Snippet>
+</Section>

@@ -4,7 +4,12 @@ import { generateCN, isObject } from "@wpmudev/sui-utils"
 import { BoxGroupProps } from "./box-group.types"
 
 // Create box group component
-const BoxGroup: React.FC<BoxGroupProps> = ({ isInline = true, children }) => {
+const BoxGroup: React.FC<BoxGroupProps> = ({
+	isInline = true,
+	children,
+	isHeader = false,
+	isFooter = false,
+}) => {
 	// Build content based in slots
 	const slots = Children.map(children, (child, index) => {
 		const { slot, children: content } = child?.props ?? {}
@@ -26,6 +31,8 @@ const BoxGroup: React.FC<BoxGroupProps> = ({ isInline = true, children }) => {
 	// Generate classnames
 	const classNames = generateCN("sui-box-group", {
 		inline: isInline,
+		header: isHeader,
+		footer: isFooter,
 	})
 
 	return <div className={classNames}>{slots}</div>

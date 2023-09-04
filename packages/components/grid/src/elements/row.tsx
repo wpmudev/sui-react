@@ -1,25 +1,44 @@
 import React from "react"
 
-import { RowProps, RowAlignments } from "./row.types"
+import { isEmpty } from "@wpmudev/sui-utils"
 
-const Row: React.FC<RowProps> = ({ align, children }) => {
+import { RowProps } from "../grid.types"
+
+const Row: React.FC<RowProps> = ({ align, className, children, ...props }) => {
+	const expectedAligns = {
+		xs: "",
+		sm: "",
+		md: "",
+		lg: "",
+		xl: "",
+		...align,
+	}
+
 	// Define main class
 	let classNames = "sui-row"
 
-	// Add classes based on alignment
-	for (const key in align) {
-		// Check if "key" has the correct type
-		if (align[key as RowAlignments]) {
+	// Define class name based on alignment
+	for (const key in expectedAligns) {
+		// Check if value is not empty
+		if (expectedAligns[key] !== "") {
 			// Check if extra-small key exists & if value is not "stacked"
-			if (key === "xs" && align[key] !== "stacked") {
-				classNames += ` sui-row--${align[key]}`
+			if (key === "xs" && expectedAligns[key] !== "stacked") {
+				classNames += ` sui-row--${expectedAligns[key]}`
 			} else {
-				classNames += ` sui-row-${key}--${align[key as RowAlignments]}`
+				classNames += ` sui-row-${key}--${expectedAligns[key]}`
 			}
 		}
 	}
 
-	return <div className={classNames}>{children}</div>
+	if (!isEmpty(className ?? "")) {
+		classNames += ` ${className}`
+	}
+
+	return (
+		<div className={classNames} {...props}>
+			{children}
+		</div>
+	)
 }
 
-export { Row }
+export { Row, RowProps }

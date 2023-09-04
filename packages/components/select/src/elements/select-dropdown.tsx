@@ -9,6 +9,7 @@ interface SelectDropdownProps
 	onEvent?: (id: string) => {}
 	selectAll?: () => {}
 	isSmartSearch?: boolean
+	isSmall?: boolean
 	isMultiSelect?: boolean
 	selected?: string
 }
@@ -18,13 +19,14 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	onEvent = () => {},
 	selectAll = () => {},
 	isSmartSearch = false,
-	isMultiselect = false,
+	isSmall = false,
+	isMultiSelect = false,
 	selected = "",
 	...props
 }) => {
 	const onSelect = useCallback(
 		(e, id: string) => {
-			if (e.key === "Enter" && onEvent) {
+			if ((!e.key || (!!e.key && e.key === "Enter")) && onEvent) {
 				onEvent(id)
 			}
 		},
@@ -73,7 +75,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							{...props}
 						>
 							<Fragment>
-								{icon && <Icon name={icon} />}
+								{icon && <Icon name={icon} size={isSmall ? "sm" : "md"} />}
 								<span>
 									{boldLabel && <strong>{boldLabel}</strong>}
 									{newLabel}
@@ -92,7 +94,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		return (
 			<Fragment>
 				<div className="sui-select__search">
-					<Icon name="search" />
+					<Icon name="search" size="md" />
 					<Search placeholder="Search" {...props} />
 				</div>
 				<ul
@@ -104,7 +106,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						<Checkbox
 							label="Select all"
 							defaultValue={allSelected}
-							onClick={selectAll}
+							onChange={selectAll}
 						/>
 					</li>
 					{options.map(({ id, label, isSelected }) => (
@@ -113,14 +115,14 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							id={id}
 							role="option"
 							className="sui-select__dropdown--option"
-							onClick={(e) => onSelect(e, id)}
+							// onClick={(e) => onSelect(e, id)}
 							onKeyDown={(e) => onSelect(e, id)}
 						>
 							<Checkbox
 								id={id}
 								label={label}
 								defaultValue={isSelected}
-								onClick={(e) => onSelect(e, id)}
+								onChange={(e) => onSelect(e, id)}
 							/>
 						</li>
 					))}
@@ -129,10 +131,10 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		)
 	}
 
-	// Render the appropriate dropdown options based on isMultiselect
+	// Render the appropriate dropdown options based on isMultiSelect
 	return (
 		<Fragment>
-			{isMultiselect ? renderMultiselectOptions() : renderOptions()}
+			{isMultiSelect ? renderMultiselectOptions() : renderOptions()}
 		</Fragment>
 	)
 }

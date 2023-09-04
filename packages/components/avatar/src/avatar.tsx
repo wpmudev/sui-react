@@ -32,13 +32,14 @@ const Avatar: React.FC<AvatarProps> = ({
 	// Define class name
 	const classNames = generateCN("sui-avatar", {
 		sm: isSmall,
+		clickable: !!props?.onClick,
 	})
 
 	return (
 		<span className={classNames} {...props}>
 			{hasImage && <Image source={imageObj.src} text={imageObj.alt} />}
 			{!hasImage && <Icon />}
-			{hasStatus && <Status status={status} />}
+			{hasStatus && <Status status={status ?? ""} />}
 		</span>
 	)
 }

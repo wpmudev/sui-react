@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 
 // Import required component
 import { FieldList as SuiFieldList } from "../src"
 
 // Import documentation main page
 import docs from "./ReactFieldList.mdx"
+import { FieldListItem } from "../src/field-list-item"
 
 // Configure default options
 export default {
@@ -20,31 +21,30 @@ export default {
 
 // Build "Field List" story
 const FieldList = ({ example, ...args }) => {
-	// Array numbers from 1 to n.
-	const createList = (topNumber) => {
-		const listNumbers = []
-		topNumber = topNumber + 1
-
-		for (let i = 1; i < topNumber; i++) {
-			listNumbers.push(i)
-		}
-
-		return listNumbers
-	}
-
-	const items = createList(4)
+	const [list, setList] = useState({})
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<SuiFieldList {...args}>
-					{items.map((item, key) => (
-						<div
-							key={`sample-${item}--${key}`}
-							id={`sample-${item}--${key}`}
-							label={`Label ${item}`}
-						/>
-					))}
+				<SuiFieldList
+					{...args}
+					onToggle={(id, checked) => {
+						console.log("Toggled", id, checked)
+
+						setList({
+							...list,
+							[id]: checked,
+						})
+					}}
+				>
+					<FieldListItem id="field-1" isChecked={false}>
+						Field 1
+					</FieldListItem>
+					<FieldListItem id="field-2">Field 2</FieldListItem>
+					<FieldListItem id="field-3" isChecked={true}>
+						Field 3
+					</FieldListItem>
+					<FieldListItem id="field-4">Field 4</FieldListItem>
 				</SuiFieldList>
 			</div>
 		</div>

@@ -1,0 +1,61 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Link } from "../../src"
+import dedent from "dedent"
+
+export const basicCode = dedent`
+    <Link href="https://wpmudev.com">Visit our website</Link>
+`
+
+export const externalCode = dedent`
+    <Link href="https://wpmudev.com" isExternal={true} hasExternalIcon={true}>External Website Link</Link>
+`
+
+export const secondaryThemeCode = dedent`
+    <Link theme="secondary" href="https://wpmudev.com">Visit our website</Link>
+`
+
+export const disabledCode = dedent`
+    <Link isDisabled={true} href="https://wpmudev.com">
+        Disabled Link
+    </Link>
+`
+
+<Section title="Basic Link Example" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<Link href="https://wpmudev.com">Visit our website</Link>
+	</Preview>
+	<Snippet language="js">{basicCode}</Snippet>
+</Section>
+
+<Section title="Secondary Theme" contained={true} style={{ paddingTop: 30 }}>
+	<p>
+		In the <Code small={true}> secondary </Code> theme the color of text is
+		white
+	</p>
+	<Preview wrapper={true}>
+		<div style={{ backgroundColor: "#0059FF", padding: "20px" }}>
+			<Link theme="secondary" href="https://wpmudev.com">
+				Visit our website
+			</Link>
+		</div>
+	</Preview>
+	<Snippet language="js">{secondaryThemeCode}</Snippet>
+</Section>
+
+<Section title="External Link" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<Link href="https://wpmudev.com" isExternal={true} hasExternalIcon={true}>
+			<>External Website Link</>
+		</Link>
+	</Preview>
+	<Snippet language="js">{externalCode}</Snippet>
+</Section>
+
+<Section title="Disabled" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<Link isDisabled={true} href="https://wpmudev.com">
+			Disabled Link
+		</Link>
+	</Preview>
+	<Snippet language="js">{disabledCode}</Snippet>
+</Section>

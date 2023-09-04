@@ -34,9 +34,11 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			className,
 			children,
 			icon,
-			iconPosition = "start",
+			startIcon = icon,
+			endIcon = "",
 			iconOnly = false,
 			iconSize = "md",
+			isResponsive = false,
 			...restProps
 		},
 		ref,
@@ -54,7 +56,8 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 
 		const isLink = !isUndefined(href)
 		const label = !isUndefined(htmlFor)
-		const hasIcon = !isEmpty(icon ?? "")
+		const isStartIcon = !isEmpty(startIcon ?? "")
+		const isEndIcon = !isEmpty(endIcon ?? "")
 
 		// Classname based on the attributes
 		const attrClasses = {
@@ -63,8 +66,10 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			focus: isFocused,
 			disabled: isDisabled,
 			"full-width": isFullWidth,
-			"is-icon": hasIcon && iconOnly,
+			"is-icon": (startIcon || endIcon) && iconOnly,
 			[`${appearance}-${color}`]: !!appearance && !!color,
+			inline: iconOnly && !appearance,
+			responsive: isResponsive,
 		}
 
 		const attrs = {
@@ -90,16 +95,12 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 
 		return (
 			<TagName {...attrs}>
-				{hasIcon && "start" === iconPosition && (
-					<Icon name={icon ?? ""} size={iconSize} />
-				)}
+				{isStartIcon && <Icon name={startIcon ?? ""} size={iconSize} />}
 				{isUnwrapped && children}
 				{!isUnwrapped && (
 					<Label {...(iconOnly && { hidden: true })}>{children}</Label>
 				)}
-				{hasIcon && "end" === iconPosition && (
-					<Icon name={icon ?? ""} size={iconSize} />
-				)}
+				{isEndIcon && <Icon name={endIcon ?? ""} size={iconSize} />}
 			</TagName>
 		)
 	},
