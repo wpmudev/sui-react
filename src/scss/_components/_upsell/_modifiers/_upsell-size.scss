@@ -13,11 +13,11 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             @include modifier(lg) {
-                min-width: 727px;
+                max-width: 100%;
 
-                .sui-upsell__features {
-                    display: flex;
+                @include modifies-element(features) {
                     flex-wrap: wrap;
+                    flex-direction: unset;
                 }
             }
         }

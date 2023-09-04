@@ -13,9 +13,9 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             align-items: flex-start;
-            border-radius: 8px;
-            max-width: 440px;
-            padding: 32px;
+            border-radius: $border-radius-md;
+            max-width: $upsell-size-width;
+            padding: $spacing-xl $spacing-lg;
         }
     }
 }

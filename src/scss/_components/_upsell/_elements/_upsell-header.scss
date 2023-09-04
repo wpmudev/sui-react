@@ -15,12 +15,12 @@
             @include element(header) {
                 align-items: center;
                 display: flex;
-                gap: 8px;
-                margin-bottom: 16px;
+                gap: $spacing-md;
+                margin-bottom: $spacing-lg;
             }
 
             @include element(header-title) {
-                font: 500 16px/24px $font-family-default;
+                font-weight: $font-weight-md;
                 margin: 0;
             }
         }

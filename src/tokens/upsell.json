@@ -1,0 +1,18 @@
+{
+    "upsell": {
+        "size": {
+            "width": {
+                "value": "328px",
+                "type": "sizing"
+            }
+        },
+        "border": {
+            "radius": {
+                "md": {
+                    "value": "14px",
+                    "type": "borderRadius"
+                }
+            }
+        }
+    }
+}

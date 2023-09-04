@@ -15,7 +15,7 @@
             @include element(footer) {
                 align-items: center;
                 display: flex;
-                gap: 8px;
+                gap: $spacing-md;
             }
         }
     }
