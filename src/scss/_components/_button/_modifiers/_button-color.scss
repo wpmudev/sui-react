@@ -42,18 +42,22 @@ $colors-high-contrast: (
 									$value,
 									tint($value, 90%)
 								);
-								@if $name == white {
-									color: $color-extended-neutral-10;
-								}
+								color: if(
+									$name == white,
+									$color-extended-neutral-10,
+									$value
+								);
 							}
 
 							&.sui-#{$block-name}--focus {
 								border-color: $value;
 								outline: 1px solid $value;
 								background: transparent;
-								@if $name == white {
-									color: $value;
-								}
+								color: if(
+									$name == white,
+									$color-extended-neutral-10,
+									$value
+								);
 							}
 						} @else if $theme == secondary {
 							border-color: $value;
@@ -66,9 +70,11 @@ $colors-high-contrast: (
 									$value,
 									tint($value, 90%)
 								);
-								@if $name == white {
-									color: $color-extended-neutral-10;
-								}
+								color: if(
+									$name == white,
+									$color-extended-neutral-10,
+									$value
+								);
 							}
 
 							&.sui-#{$block-name}--focus {
@@ -81,9 +87,11 @@ $colors-high-contrast: (
 									$value,
 									tint($value, 90%)
 								);
-								@if $name == white {
-									color: $color-extended-neutral-10;
-								}
+								color: if(
+									$name == white,
+									$color-extended-neutral-10,
+									$value
+								);
 							}
 						} @else {
 							border-color: $value;
