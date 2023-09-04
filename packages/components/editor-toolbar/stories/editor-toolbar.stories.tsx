@@ -11,7 +11,7 @@ import {
 } from "@wpmudev/sui-segmented-control"
 
 // Import documentation main page
-import docs from "./navigation.mdx"
+import docs from "./editor-toolbar.mdx"
 
 // Configure default options
 export default {
