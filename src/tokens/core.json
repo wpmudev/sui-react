@@ -910,8 +910,12 @@
 			}
 		},
 		"size": {
-			"xs": {
+			"xxs": {
 				"value": "12px",
+				"type": "fontSizes"
+			},
+			"xs": {
+				"value": "13px",
 				"type": "fontSizes"
 			},
 			"sm": {
@@ -940,8 +944,12 @@
 			}
 		},
 		"height": {
-			"xs": {
+			"xxs": {
 				"value": "16px",
+				"type": "lineHeights"
+			},
+			"xs": {
+				"value": "20px",
 				"type": "lineHeights"
 			},
 			"sm": {

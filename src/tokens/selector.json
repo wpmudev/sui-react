@@ -21,16 +21,6 @@
                 "value": "32px",
                 "type": "sizing"
             }
-        },
-        "font": {
-            "size": {
-                "value": "13px",
-                "type": "fontSizes"
-            },
-            "height": {
-                "value": "20px",
-                "type": "lineHeight"
-            }
         }
     }
 }

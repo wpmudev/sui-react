@@ -30,7 +30,7 @@
                     display: flex;
 					align-items: center;
 					cursor: pointer;
-                    font-size: $select-dropdown-option-font-size-md;
+                    font-size: $font-size-xs;
 					line-height: $select-dropdown-option-font-height-md;
 					padding: $select-dropdown-option-padding-vertical $select-dropdown-option-padding-horizontal-md;
 					margin: $select-dropdown-option-margin;
@@ -44,7 +44,7 @@
                 @include modifier(empty) {
                     padding: $select-dropdown-empty-padding;
                     margin: $select-dropdown-empty-margin-horizontal $select-dropdown-empty-margin-vertical;
-                    font-size: $select-dropdown-empty-font-size-md;
+                    font-size: $font-size-xs;
                     line-height: $select-dropdown-empty-font-height-md;
                     letter-spacing: $select-dropdown-empty-font-spacing-md;
                     background: $color-primary-90;

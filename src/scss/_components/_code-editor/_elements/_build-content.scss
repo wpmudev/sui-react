@@ -55,8 +55,8 @@
                 left: $code-editor-position-left;
                 width: $code-editor-size-width;
                 padding-top: $spacing-lg;
-                font-size: $code-editor-font-size-default;
-                line-height: $code-editor-font-height-default;
+                font-size: $font-size-xs;
+                line-height: $font-height-xs;
                 
                 > span:before {
                     color: $color-extended-neutral-100;
@@ -67,7 +67,7 @@
             .module-theme-default pre[class*="language-"] {
                 position: unset;
                 font-weight: $font-weight-default;
-                font-size: $code-editor-font-size-default;
+                font-size: $font-size-xs;
                 min-height: $code-snippet-height;
 				overflow: auto;
 				margin: 0;

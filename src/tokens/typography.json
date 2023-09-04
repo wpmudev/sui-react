@@ -155,7 +155,7 @@
 			"type": "letterSpacing"
 		},
 		"font-height": {
-			"value": "{font.height.xs} + 4px",
+			"value": "{font.height.xxs} + 4px",
 			"type": "lineHeights"
 		},
 		"font-weight": {
@@ -165,7 +165,7 @@
 	},
 	"tag": {
 		"font-size": {
-			"value": "{font.size.xs} - 2px",
+			"value": "{font.size.xxs} - 2px",
 			"type": "fontSizes"
 		},
 		"font-spacing": {
@@ -173,7 +173,7 @@
 			"type": "letterSpacing"
 		},
 		"font-height": {
-			"value": "{font.height.xs} - 4px",
+			"value": "{font.height.xxs} - 4px",
 			"type": "lineHeights"
 		},
 		"font-weight": {

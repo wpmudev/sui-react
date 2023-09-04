@@ -7,14 +7,6 @@
                     "type": "sizing"
                 }
             }
-        },
-        "font": {
-            "size": {
-                "sm": {
-                    "value": "13px",
-                    "type": "fontSizes"
-                }
-            }
         }
     }
 }

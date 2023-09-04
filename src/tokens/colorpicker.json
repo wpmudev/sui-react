@@ -121,7 +121,7 @@
                     "type": "fontSizes"
                 },
                 "height": {
-                    "value": "{font.height.xs}",
+                    "value": "{font.height.xxs}",
                     "type": "fontSizes"
                 },
                 "color": {

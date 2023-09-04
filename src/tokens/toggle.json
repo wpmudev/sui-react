@@ -25,10 +25,6 @@
                 "sm": {
                     "value": "14px",
                     "type": "sizing"
-                },
-                "md": {
-                    "value": "20px",
-                    "type": "sizing"
                 }
             }
         },

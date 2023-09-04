@@ -16,7 +16,7 @@
 			@include element(switch) {
 				position: absolute;
 				width: $toggle-size-width-md;
-				height: $toggle-size-height-md;
+				height: $font-height-xs;
 				display: flex;
 				align-items: center;
 				justify-content: flex-start;
