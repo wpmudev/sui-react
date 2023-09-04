@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 
 // Import required component
 import {
@@ -13,6 +13,7 @@ import {
 import { Tag } from "@wpmudev/sui-tag"
 import { Button } from "@wpmudev/sui-button"
 import { Pagination } from "@wpmudev/sui-pagination"
+import { chunkArray } from "@wpmudev/sui-utils"
 
 // Import documentation main page
 import docs from "./ReactTable.mdx"
@@ -29,27 +30,31 @@ export default {
 	},
 }
 
-const records = [
+let records = [
 	{
 		id: 1,
-		title: "General Contact Form",
+		title: "Registration Form",
 		tag: "Draft",
 		submission: "April 20, 2022 11:00 am",
 		status: "info",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
 	},
 	{
 		id: 2,
-		title: "Customer Inquiry Form",
+		title: "Contact Us Form",
 		tag: "Draft",
-		submission: "March 20, 2021 11:00 am",
-		status: "success",
+		submission: "April 21, 2022 10:30 am",
+		status: "info",
 	},
 	{
 		id: 3,
-		title: "Support Request Form",
-		tag: "Published",
-		submission: "December 09, 2023 11:00 am",
-		status: "warning",
+		title: "Feedback Form",
+		tag: "Draft",
+		submission: "April 22, 2022 10:45 am",
+		status: "info",
 		props: {
 			isExpandable: true,
 			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
@@ -57,10 +62,10 @@ const records = [
 	},
 	{
 		id: 4,
-		title: "Feedback Form",
-		tag: "Draft",
-		submission: "September 15, 2022 07:00 am",
-		status: "error",
+		title: "Job Application",
+		tag: "Published",
+		submission: "April 23, 2022 9:15 am",
+		status: "success",
 		props: {
 			isExpandable: true,
 			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
@@ -68,9 +73,10 @@ const records = [
 	},
 	{
 		id: 5,
-		title: "Product Inquiry Form",
+		title: "Subscription Form",
 		tag: "Draft",
-		submission: "August 20, 2019 01:00 pm",
+		submission: "April 24, 2022 3:20 pm",
+		status: "info",
 		props: {
 			isExpandable: true,
 			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
@@ -78,9 +84,10 @@ const records = [
 	},
 	{
 		id: 6,
-		title: "Job Application Form",
-		tag: "Draft",
-		submission: "May 14, 2022 11:00 am",
+		title: "Order Form",
+		tag: "Published",
+		submission: "April 25, 2022 2:00 pm",
+		status: "success",
 		props: {
 			isExpandable: true,
 			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
@@ -88,9 +95,10 @@ const records = [
 	},
 	{
 		id: 7,
-		title: "Event Registration Form",
+		title: "Support Request",
 		tag: "Draft",
-		submission: "February 14, 2022 11:00 am",
+		submission: "April 26, 2022 4:45 pm",
+		status: "info",
 		props: {
 			isExpandable: true,
 			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
@@ -98,33 +106,382 @@ const records = [
 	},
 	{
 		id: 8,
-		title: "Membership Registration Form",
+		title: "Contact Information",
 		tag: "Draft",
-		submission: "November 02, 2022 11:00 am",
+		submission: "April 27, 2022 11:30 am",
+		status: "info",
+	},
+	{
+		id: 9,
+		title: "Event Registration",
+		tag: "Published",
+		submission: "April 28, 2022 5:10 pm",
+		status: "success",
 		props: {
 			isExpandable: true,
 			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
 		},
 	},
+	{
+		id: 10,
+		title: "Survey Form",
+		tag: "Draft",
+		submission: "April 29, 2022 9:50 am",
+		status: "info",
+	},
+	{
+		id: 11,
+		title: "Product Feedback",
+		tag: "Published",
+		submission: "April 30, 2022 3:30 pm",
+		status: "success",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 12,
+		title: "Volunteer Registration",
+		tag: "Published",
+		submission: "May 1, 2022 8:15 am",
+		status: "success",
+	},
+	{
+		id: 13,
+		title: "Application Form",
+		tag: "Draft",
+		submission: "May 2, 2022 7:20 am",
+		status: "info",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 14,
+		title: "Membership Application",
+		tag: "Draft",
+		submission: "May 3, 2022 6:45 pm",
+		status: "info",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 15,
+		title: "Feedback Survey",
+		tag: "Published",
+		submission: "May 4, 2022 5:00 pm",
+		status: "success",
+	},
+	{
+		id: 16,
+		title: "Contact Information Update",
+		tag: "Draft",
+		submission: "May 5, 2022 4:10 pm",
+		status: "info",
+	},
+	{
+		id: 17,
+		title: "Event Feedback",
+		tag: "Published",
+		submission: "May 6, 2022 3:25 pm",
+		status: "success",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 18,
+		title: "Product Inquiry",
+		tag: "Draft",
+		submission: "May 7, 2022 2:40 pm",
+		status: "info",
+	},
+	{
+		id: 19,
+		title: "Customer Support Request",
+		tag: "Published",
+		submission: "May 8, 2022 1:55 pm",
+		status: "success",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 20,
+		title: "Demo Request",
+		tag: "Draft",
+		submission: "May 9, 2022 11:30 am",
+		status: "info",
+	},
+	{
+		id: 21,
+		title: "Quote Request",
+		tag: "Published",
+		submission: "May 10, 2022 10:45 am",
+		status: "success",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 22,
+		title: "Customer Feedback",
+		tag: "Published",
+		submission: "May 11, 2022 9:20 am",
+		status: "success",
+	},
+	{
+		id: 23,
+		title: "Service Inquiry",
+		tag: "Draft",
+		submission: "May 12, 2022 8:00 am",
+		status: "info",
+	},
+	{
+		id: 24,
+		title: "Product Review",
+		tag: "Published",
+		submission: "May 13, 2022 7:30 am",
+		status: "success",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 25,
+		title: "Bug Report",
+		tag: "Draft",
+		submission: "May 14, 2022 6:45 am",
+		status: "info",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 26,
+		title: "Feature Request",
+		tag: "Draft",
+		submission: "May 15, 2022 5:15 am",
+		status: "info",
+	},
+	{
+		id: 27,
+		title: "Partnership Inquiry",
+		tag: "Published",
+		submission: "May 16, 2022 4:30 am",
+		status: "success",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 28,
+		title: "Content Submission",
+		tag: "Draft",
+		submission: "May 17, 2022 3:45 am",
+		status: "info",
+	},
+	{
+		id: 29,
+		title: "Event RSVP",
+		tag: "Published",
+		submission: "May 18, 2022 3:00 am",
+		status: "success",
+	},
+	{
+		id: 30,
+		title: "Product Warranty Claim",
+		tag: "Draft",
+		submission: "May 19, 2022 2:15 am",
+		status: "info",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 31,
+		title: "Technical Support Request",
+		tag: "Published",
+		submission: "May 20, 2022 1:30 am",
+		status: "success",
+	},
+	{
+		id: 32,
+		title: "Survey Feedback",
+		tag: "Draft",
+		submission: "May 21, 2022 12:45 am",
+		status: "info",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 33,
+		title: "Product Recall Request",
+		tag: "Draft",
+		submission: "May 22, 2022 12:00 am",
+		status: "info",
+	},
+	{
+		id: 34,
+		title: "Quote Inquiry",
+		tag: "Published",
+		submission: "May 23, 2022 11:15 pm",
+		status: "success",
+	},
+	{
+		id: 35,
+		title: "Customer Satisfaction Survey",
+		tag: "Draft",
+		submission: "May 24, 2022 10:30 pm",
+		status: "info",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 36,
+		title: "Content Licensing Request",
+		tag: "Draft",
+		submission: "May 25, 2022 9:45 pm",
+		status: "info",
+	},
+	{
+		id: 37,
+		title: "Product Inquiry",
+		tag: "Draft",
+		submission: "May 26, 2022 9:00 pm",
+		status: "info",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 38,
+		title: "Complaint Form",
+		tag: "Draft",
+		submission: "May 27, 2022 8:15 pm",
+		status: "info",
+	},
+	{
+		id: 39,
+		title: "Membership Renewal",
+		tag: "Published",
+		submission: "May 28, 2022 7:30 pm",
+		status: "success",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 40,
+		title: "Product Return Request",
+		tag: "Draft",
+		submission: "May 29, 2022 6:45 pm",
+		status: "info",
+	},
+	{
+		id: 41,
+		title: "Demo Request",
+		tag: "Published",
+		submission: "May 30, 2022 6:00 pm",
+		status: "success",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 42,
+		title: "Quote Request",
+		tag: "Draft",
+		submission: "May 31, 2022 5:15 pm",
+		status: "info",
+	},
+	{
+		id: 43,
+		title: "Customer Feedback",
+		tag: "Draft",
+		submission: "June 1, 2022 4:30 pm",
+		status: "info",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 44,
+		title: "Service Inquiry",
+		tag: "Draft",
+		submission: "June 2, 2022 3:45 pm",
+		status: "info",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 45,
+		title: "Product Review",
+		tag: "Published",
+		submission: "June 3, 2022 3:00 pm",
+		status: "success",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 46,
+		title: "Bug Report",
+		tag: "Published",
+		submission: "June 4, 2022 2:15 pm",
+		status: "success",
+		props: {
+			isExpandable: true,
+			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+		},
+	},
+	{
+		id: 47,
+		title: "Feature Request",
+		tag: "Draft",
+		submission: "June 5, 2022 1:30 pm",
+		status: "info",
+	},
 ]
 
-// Array numbers from 1 to n.
-const createList = (topNumber: number) => {
-	const listNumbers = []
-	topNumber = topNumber + 1
-
-	for (let i = 1; i < topNumber; i++) {
-		listNumbers.push(i)
-	}
-
-	return listNumbers
-}
-
-const items = createList(100)
+const itemsPerPage = 5
+// break array into page chunks
+const tableItems = chunkArray(records, itemsPerPage)
 
 // Build "Field List" story
 const Table = ({ example, ...args }) => {
-	const [rows, setRows] = useState(records)
+	const [rows, setRows] = useState<any>([])
+	const [page, setPage] = useState<number>(1)
+
+	useEffect(() => {
+		setRows(tableItems?.[0])
+	}, [])
+
+	useEffect(() => {
+		setRows(tableItems?.[page - 1])
+	}, [page])
 
 	const action = (id, content) => {
 		return (
@@ -154,8 +511,6 @@ const Table = ({ example, ...args }) => {
 		)
 	}
 
-	// console.log("rows", rows)
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
@@ -166,8 +521,11 @@ const Table = ({ example, ...args }) => {
 						let dRows = [...rows]
 
 						switch (actionType) {
+							case "bulk-action":
 							case "apply-filters":
-								console.log("da", data)
+								alert(
+									`ACTION: ${actionType} \n\nData: \n${JSON.stringify(data)}`,
+								)
 								break
 							case "sort-rows":
 								break
@@ -217,7 +575,7 @@ const Table = ({ example, ...args }) => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{rows.map((record, index) => (
+						{rows?.map((record, index) => (
 							<TableRow
 								key={index}
 								id={record.id}
@@ -244,13 +602,11 @@ const Table = ({ example, ...args }) => {
 					<TableFooter>
 						<TableRow id="0">
 							<TableCell>
-								<Pagination limit={5} onChange={(page) => {}}>
-									<ul style={{ display: "none" }}>
-										{items.map((item, key) => (
-											<li key={key}>Item #{item}</li>
-										))}
-									</ul>
-								</Pagination>
+								<Pagination
+									limit={itemsPerPage}
+									numberOfItems={records.length}
+									onChange={setPage}
+								/>
 							</TableCell>
 						</TableRow>
 					</TableFooter>
@@ -272,8 +628,8 @@ Table.args = {
 			label: "Delete",
 		},
 		{
-			id: "option-2",
-			label: "Option 2",
+			id: "publish",
+			label: "Publish",
 		},
 	],
 	filters: [
