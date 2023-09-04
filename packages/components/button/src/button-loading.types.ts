@@ -10,4 +10,4 @@ interface LoadingButtonProps extends ButtonProps {
 	isLoading: boolean
 }
 
-export { LoadingButtonProps }
+export type { LoadingButtonProps }

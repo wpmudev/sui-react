@@ -20,4 +20,4 @@ interface ModalContextProps
 	extends ModalActionsProps,
 		Pick<ModalProps, "variant" | "size"> {}
 
-export { ModalProps, ModalActionsProps, ModalContextProps }
+export type { ModalProps, ModalActionsProps, ModalContextProps }

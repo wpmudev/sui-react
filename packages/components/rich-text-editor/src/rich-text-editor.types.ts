@@ -34,4 +34,4 @@ interface RichTextEditorProps {
 	children?: React.ReactNode
 }
 
-export { RichTextEditorProps }
+export type { RichTextEditorProps }

@@ -22,4 +22,4 @@ interface BoxGroupProps {
 	isFooter?: boolean
 }
 
-export { BoxGroupProps }
+export type { BoxGroupProps }

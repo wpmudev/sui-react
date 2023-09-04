@@ -28,4 +28,4 @@ interface CheckboxProps
 	defaultValue?: boolean
 }
 
-export { CheckboxProps }
+export type { CheckboxProps }

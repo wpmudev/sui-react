@@ -46,4 +46,4 @@ interface TooltipProps
 	onClick?: () => void
 }
 
-export { TooltipProps }
+export type { TooltipProps }

@@ -16,4 +16,4 @@ const Col: React.FC<ColProps> = ({ size, children, className }) => {
 	return <div className={classNames}>{children}</div>
 }
 
-export { Col, ColProps }
+export { Col }

@@ -28,4 +28,4 @@ interface ProgressBarProps {
 	onClick?: (e) => void
 }
 
-export { ProgressBarProps }
+export type { ProgressBarProps }

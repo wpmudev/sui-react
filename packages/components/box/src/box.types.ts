@@ -42,4 +42,4 @@ interface BoxProps {
 	children?: React.ReactNode
 }
 
-export { BoxProps }
+export type { BoxProps }

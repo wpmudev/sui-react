@@ -65,4 +65,4 @@ interface IconBuildParams {
 	defaultProps?: IconProps
 }
 
-export { IconProps, IconBuildParams }
+export type { IconProps, IconBuildParams }

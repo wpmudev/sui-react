@@ -362,7 +362,7 @@ interface TableFieldsProps {
 	children: React.ReactNode
 }
 
-export {
+export type {
 	TableProps,
 	TableExpectedAction,
 	TableSectionProps,

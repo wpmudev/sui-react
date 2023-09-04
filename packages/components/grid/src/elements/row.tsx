@@ -41,4 +41,4 @@ const Row: React.FC<RowProps> = ({ align, className, children, ...props }) => {
 	)
 }
 
-export { Row, RowProps }
+export { Row }

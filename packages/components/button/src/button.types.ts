@@ -77,4 +77,4 @@ interface ButtonProps
 	isResponsive?: boolean
 }
 
-export { ButtonProps }
+export type { ButtonProps }
