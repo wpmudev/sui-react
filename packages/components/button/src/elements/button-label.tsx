@@ -34,7 +34,7 @@ const Label: React.FC<ButtonLabelProps> = ({ hidden = false, children }) => {
 	return (
 		<Fragment>
 			{hidden && (
-				<span className="sui-screen-reader-only" tabIndex="-1">
+				<span className="sui-screen-reader-only" tabIndex={-1}>
 					{children}
 				</span>
 			)}

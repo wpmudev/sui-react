@@ -12,7 +12,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 }) => {
 	// Build content based in slots
 	const slots = Children.map(children, (child, index) => {
-		const { slot, children: content } = child.props ?? {}
+		const { slot, children: content } = child?.props ?? {}
 
 		if (isObject(child) && ["left", "right"].includes(slot ?? "")) {
 			return (
@@ -28,7 +28,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 		return <Fragment key={`sui-box-group--${index}`}>{child}</Fragment>
 	})
 
-	// generate classnames
+	// Generate classnames
 	const classNames = generateCN("sui-box-group", {
 		inline: isInline,
 		header: isHeader,

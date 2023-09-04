@@ -33,8 +33,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 			isDisabled = false,
 			isIndeterminate = false,
 			onChange = () => {},
-			...props
-		}: CheckboxProps,
+		},
 		ref,
 	) => {
 		// State to manage the checked state of the checkbox
@@ -53,7 +52,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 
 		// Callback function for handling checkbox state changes
 		const handleOnChange = useCallback(
-			(e) => {
+			(e: React.ChangeEvent<HTMLInputElement>) => {
 				setIsChecked(!isChecked)
 
 				if (!!onChange) {
@@ -65,7 +64,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 
 		// Props for the box element representing the checkbox
 		const boxProps = {
-			tabIndex: "-1",
+			tabIndex: -1,
 			className: "sui-checkbox__box",
 			"aria-hidden": true,
 		}

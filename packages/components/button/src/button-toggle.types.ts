@@ -1,4 +1,4 @@
-import { ButtonProps } from "./"
+import { ButtonProps } from "./button.types"
 
 /**
  * Represents the properties for a toggle button component.

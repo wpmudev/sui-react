@@ -1,10 +1,10 @@
-import { HTMLProps } from "react"
+import React from "react"
 
 /**
  * Represents the properties for a checkbox component.
  */
 interface CheckboxProps
-	extends Omit<HTMLProps<HTMLInputElement>, "defaultValue"> {
+	extends Omit<React.HTMLAttributes<HTMLInputElement>, "defaultValue"> {
 	/**
 	 * The label for the checkbox.
 	 */
