@@ -2,7 +2,7 @@
     "upsell": {
         "size": {
             "width": {
-                "value": "328px",
+                "value": "440px",
                 "type": "sizing"
             }
         },
@@ -12,6 +12,12 @@
                     "value": "14px",
                     "type": "borderRadius"
                 }
+            }
+        },
+        "spacing": {
+            "lg": {
+                "value": "40px",
+                "type": "spacing"
             }
         }
     }

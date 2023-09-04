@@ -91,7 +91,7 @@
                 border-color: $color-secondary-defender-variant-70;
 
                 @include modifies-element(icon) {
-                    background-color: $color-secondary-defender-variant-50;
+                    background-color: $color-secondary-defender-general-50;
                 }
             }
 
@@ -112,6 +112,15 @@
                     background-color: $color-secondary-beehive-general-50;
                 }
             }
+        }
+    }
+
+     // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            background: $color-extended-neutral-100;
+            border-color: $color-extended-neutral-0;
         }
     }
 }

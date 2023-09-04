@@ -15,7 +15,16 @@
             align-items: flex-start;
             border-radius: $border-radius-md;
             max-width: $upsell-size-width;
-            padding: $spacing-xl $spacing-lg;
+            padding: $spacing-xxl;
+
+            @include media(max-width, md) {
+                padding: $spacing-xxl $spacing-xl;
+            }
+
+            @include media(max-width, sm) {
+                max-width: 100%;
+                padding: $spacing-xl $spacing-lg;
+            }
         }
     }
 }
