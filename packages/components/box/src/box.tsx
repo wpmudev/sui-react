@@ -8,6 +8,7 @@ import { BoxProps } from "./box.types"
 const Box: React.FC<BoxProps> = ({
 	title,
 	icon,
+	hideMobileIcon = false,
 	headerLeft,
 	headerRight,
 	children,
@@ -30,7 +31,16 @@ const Box: React.FC<BoxProps> = ({
 					<div slot="left">
 						{hasIcon && (
 							<span
-								className={`suicons suicons--${icon} suicons--lg sui-box-group__item`}
+								className={generateCN(
+									"suicons",
+									{
+										[icon]: true,
+										lg: true,
+									},
+									hideMobileIcon
+										? "sui-box-group__item sui-icon--hide-sm"
+										: "sui-box-group__item",
+								)}
 								aria-hidden="true"
 							/>
 						)}

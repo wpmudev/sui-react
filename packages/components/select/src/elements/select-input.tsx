@@ -20,10 +20,10 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	onChange = () => {},
 	...props
 }) => {
-	const [inputValue, setInputValue] = useState(selected)
+	const [option, setOption] = useState(selected)
 
 	useEffect(() => {
-		setInputValue(selected)
+		setOption(selected)
 	}, [selected])
 
 	const handleInputChange = (event) => {
@@ -35,7 +35,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 			<input
 				id={id}
 				type="text"
-				value={inputValue}
+				value={option?.label}
 				className="sui-select__input"
 				onClick={dropdownToggle}
 				onChange={handleInputChange}

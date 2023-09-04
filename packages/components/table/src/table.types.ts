@@ -2,7 +2,7 @@ import React, { CSSProperties, HTMLProps, RefObject } from "react"
 
 import { InputProps } from "@wpmudev/sui-input"
 import { SelectBaseProps } from "@wpmudev/sui-select"
-import { TableColumnType } from "./table-context"
+import { TableColumnType, TableSortBy } from "./table-context"
 
 /**
  * Interface representing the properties of a table section.
@@ -193,10 +193,10 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 type TableExpectedAction =
 	| "apply-filters"
 	| "clear-filters"
-	| "search-item"
+	| "search-items"
 	| "bulk-action"
-	| "resort"
-	| "column-sort"
+	| "sort-rows"
+	| "sort-columns"
 
 /**
  * Interface for the table context.
@@ -261,6 +261,16 @@ interface TableContextProps {
 	 * Function to set the filter value.
 	 */
 	setFilter(id: string, value: string | number): void
+
+	/**
+	 * Contains sort by object
+	 */
+	sortBy: TableSortBy
+
+	/**
+	 * Set sort by data
+	 */
+	setSortBy(data: TableSortBy): void
 
 	/**
 	 * Function to apply the filters.

@@ -51,8 +51,7 @@ const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 						className="sui-date-picker__nav--btn"
 						appearance="tertiary"
 						color="black"
-						icon="caret-down"
-						iconPosition="end"
+						endIcon="caret-down"
 						onClick={() => openToggle("months", marker)}
 						onKeyDown={() => openToggle("months", marker)}
 					>
@@ -67,8 +66,7 @@ const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 					className="sui-date-picker__nav--btn"
 					appearance="tertiary"
 					color="black"
-					icon="caret-down"
-					iconPosition="end"
+					endIcon="caret-down"
 					onClick={() => ctx.openToggle("years", marker)}
 					onKeyDown={(e) =>
 						handleOnKeyDown(e, () => ctx.openToggle("years", marker))

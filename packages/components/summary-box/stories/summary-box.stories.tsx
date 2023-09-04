@@ -27,6 +27,7 @@ const SummaryBox = ({ color }) => {
 					<SuiSummaryBox
 						icon="performance"
 						title="Performance Summary"
+						hideMobileIcon={true}
 						primaryActions={[
 							<SegmentedControl
 								key={0}

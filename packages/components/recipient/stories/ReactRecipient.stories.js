@@ -50,7 +50,7 @@ Recipient.args = {
 	userName: "Recipient Name",
 	userEmail: "example@email.com",
 	userAvatar: "icon",
-	userConfirmed: true,
+	status: "",
 	userImage: {
 		alt: "Unreal Person avatar image",
 		src: image,
@@ -68,11 +68,12 @@ Recipient.argTypes = {
 	},
 	userAvatar: {
 		name: "Recipient avatar",
+		options: ["icon", "image"],
 		control: {
 			type: "inline-radio",
-			options: {
-				Icon: "icon",
-				Image: "image",
+			labels: {
+				icon: "Icon",
+				image: "Image",
 			},
 		},
 	},
@@ -86,10 +87,17 @@ Recipient.argTypes = {
 			eq: "image",
 		},
 	},
-	userConfirmed: {
+	status: {
 		name: "Recipient confirmed",
+		options: ["", "confirmed", "not-accepted", "not-connected"],
 		control: {
-			type: "boolean",
+			type: "select",
+			labels: {
+				"": "None",
+				confirmed: "Success",
+				"not-accepted": "Warning",
+				"not-connected": "Error",
+			},
 		},
 	},
 	isInvited: {

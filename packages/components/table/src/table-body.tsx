@@ -26,13 +26,26 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 	// State to keep track of the table rows
 	const [el, setEl] = useState<ReactNode[]>(Children.toArray(children))
 	const [rows, setRows] = useState<Record<string, any>[]>([])
+	const [action, setAction] = useState("")
 
 	// Table context
 	const ctx = useContext(TableContext)
 
-	// Effect to update the rows array when children change
 	useEffect(() => {
 		setRows(Children.toArray(children).map((row: ReactNode) => row.props.id))
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+
+	// Effect to update the rows array when children change
+	useEffect(() => {
+		if ("sort-rows" === action) {
+			setRows(Children.toArray(children).map((row: ReactNode) => row.props.id))
+			// clear action
+			setAction("")
+		} else {
+			setEl(Children.toArray(children))
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [children])
 
 	// Effect to update the TableContext's rows when the rows array changes
@@ -43,7 +56,14 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 	// When dragging finished
 	const onSortEnd = useCallback(() => {
 		ctx?.setForceCollapse(false)
-		ctx?.triggerAction("resort", rows)
+		ctx?.triggerAction("sort-rows", rows)
+		// set temporary action
+		setAction("sort-rows")
+		// set column order
+		ctx?.setSortBy({
+			column: "",
+			order: "asc",
+		})
 	}, [ctx, rows])
 
 	// If the table is not draggable, render the TableBodyTag with children

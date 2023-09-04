@@ -21,7 +21,6 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
 	isSelected = false,
 	className,
 	icon,
-	iconPosition = "start",
 	children,
 	onClick,
 	...props
@@ -59,8 +58,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
 			color={color}
 			isSmall={!!isSmall}
 			isDisabled={!!isDisabled}
-			icon={icon ?? ""}
-			iconPosition={iconPosition ?? "start"}
+			startIcon={icon ?? ""}
 			className={classNames}
 			{...(isFunction(onClick) && { onClick })}
 			{...(!isLabel && { "aria-pressed": isSelected })}

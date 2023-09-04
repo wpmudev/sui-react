@@ -1,10 +1,5 @@
-import React, {
-	Children,
-	cloneElement,
-	createElement,
-	useContext,
-	useEffect,
-} from "react"
+import React, { Children, cloneElement, useContext, useEffect } from "react"
+
 import { TableSectionProps } from "./table.types"
 import { TableContext } from "./table-context"
 

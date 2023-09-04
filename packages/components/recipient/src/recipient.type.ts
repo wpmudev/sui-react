@@ -19,7 +19,7 @@ interface RecipientProps extends HTMLProps<HTMLDivElement> {
 	/**
 	 * Reflects if the user is confirmed
 	 */
-	userConfirmed?: boolean
+	status?: string
 	/**
 	 * Reflects whether the user is invited or not.
 	 */

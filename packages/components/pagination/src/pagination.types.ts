@@ -46,6 +46,12 @@ interface PaginationProps {
 	 * Overrides pagination return value
 	 */
 	paginationContent?: (obj: UnknownObject) => React.ReactElement
+	/**
+	 * Callback function when page number get changed
+	 *
+	 * @param {number} page
+	 */
+	onChange?(page: number): void
 }
 
 export type { PaginationProps }

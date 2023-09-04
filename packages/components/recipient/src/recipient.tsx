@@ -14,7 +14,7 @@ const Recipient: React.FC<RecipientProps> = ({
 	userName = "",
 	userEmail = "",
 	userImage = "",
-	userConfirmed = false,
+	status = "",
 	isInvited = false,
 	appearance,
 	...props
@@ -30,7 +30,7 @@ const Recipient: React.FC<RecipientProps> = ({
 			<div className="sui-recipient__info">
 				<Avatar
 					className="sui-recipient__avatar"
-					{...(userConfirmed && { status: "confirmed" })}
+					{...(!isEmpty(status) && { status })}
 					{...(!isEmpty(userImage) && { image: userImage })}
 				/>
 				{(!isEmpty(userName) || !isEmpty(userEmail)) && (

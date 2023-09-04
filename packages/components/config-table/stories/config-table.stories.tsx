@@ -83,21 +83,11 @@ const configs = [
 
 // Build story
 export const ConfigTable = ({ example, ...props }) => {
-	const box = {
-		display: "flex",
-		flexDirection: "column",
-		gap: "8px",
-		margin: "0 0 20px",
-		padding: "30px",
-		border: "1px solid #E6E6E6",
-		borderRadius: "4px",
-		// background: "#fff",
-	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={box}>
+				<div>
 					<SuiConfigTable {...props} configs={configs}>
 						Test link
 					</SuiConfigTable>
