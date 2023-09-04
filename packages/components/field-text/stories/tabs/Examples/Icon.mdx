@@ -1,0 +1,63 @@
+import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Input } from "../../../src"
+import dedent from "dedent"
+import { FormField } from "@wpmudev/sui-form-field"
+
+export const LeadInputCode = dedent`
+    <FormField label="Label" helper="Help text">
+        <Input
+            icon="user"
+            iconPosition="start"
+            id="input-id-2"
+            placeholder="Placeholder"
+        />
+    </FormField>
+`
+
+export const TrailInputCode = dedent`
+    <FormField label="Label" helper="Help text">
+        <Input
+            icon="user"
+            iconPosition="end"
+            id="input-id-3"
+            placeholder="Placeholder"
+        />
+    </FormField>
+`
+
+<Section
+	title="Icon on the left"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<FormField label="Label" helper="Help text">
+			<Input
+				icon="user"
+				iconPosition="start"
+				id="input-id-2"
+				placeholder="Placeholder"
+			/>
+		</FormField>
+	</Preview>
+	<Snippet language="js">{LeadInputCode}</Snippet>
+</Section>
+
+<Section
+	title="Icon on the right"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<FormField label="Label" helper="Help text">
+			<Input
+				icon="user"
+				iconPosition="end"
+				id="input-id-3"
+				placeholder="Placeholder"
+			/>
+		</FormField>
+	</Preview>
+	<Snippet language="js">{TrailInputCode}</Snippet>
+</Section>

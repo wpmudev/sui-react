@@ -21,4 +21,4 @@ interface ScoreProps extends HTMLProps<HTMLDivElement> {
 	className?: string
 }
 
-export { ScoreProps }
+export type { ScoreProps }

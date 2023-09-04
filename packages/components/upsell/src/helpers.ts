@@ -2,7 +2,7 @@
 const variationsList = {
 	hummingbird: {
 		icon: "PluginHummingbird",
-		title: "Humminbird Pro",
+		title: "Hummingbird Pro",
 		description:
 			"Get our full WordPress performance optimization suite with Hummingbird Pro and additional benefits of WPMU DEV membership.",
 	},

@@ -38,4 +38,4 @@ interface FieldListItemProps extends ToggleProps {
 	children?: React.ReactNode
 }
 
-export { FieldListProps, FieldListItemProps }
+export type { FieldListProps, FieldListItemProps }

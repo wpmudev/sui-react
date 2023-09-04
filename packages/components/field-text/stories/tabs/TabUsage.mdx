@@ -1,0 +1,56 @@
+import { Section, Row, Col, List } from "@wpmudev/storybook"
+
+import Anatomy from "../images/anatomy.svg"
+import States from "../images/states.svg"
+import Size from "../images/size.svg"
+import Icons from "../images/icons.svg"
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>
+		Input element are used to collect user data on web pages. When a user
+		submits a form, the data they entered into the input elements is sent to the
+		server for processing.
+	</p>
+</Section>
+
+<Section title="Anatomy">
+	<img
+		src={Anatomy}
+		alt="Input anatomy"
+		style={{ marginBottom: 20 }}
+	/>
+	<h3 style={{marginTop: 0}}>1. Label:</h3>
+    <p>A label for the context of Rich text editor.</p>
+
+    <h3>2. Input:</h3>
+    <p> Input is used to create interactive forms to collect users data.</p>
+
+    <h3>3. Placeholder:</h3>
+    <p> There will be a placeholder when the input ha no value set.</p>
+
+    <h3>4. Help Text:</h3>
+    <p> There will be a placeholder when the input ha no value set.</p>
+    <List>
+
+    	<span
+    		label={
+    			<>
+    				<strong>Help Text:</strong> Help text is an overall description about the input field.
+    			</>
+    		}
+    	/>
+    </List>
+
+</Section>
+
+<Section title="States">
+	<img src={States} alt="Input States" />
+</Section>
+
+<Section title="Size">
+	<img src={Size} alt="Input Size" />
+</Section>
+
+<Section title="Icons">
+	<img src={Icons} alt="Input Icons" />
+</Section>

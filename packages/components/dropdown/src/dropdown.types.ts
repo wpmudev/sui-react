@@ -83,4 +83,4 @@ type DropdownRefProps = {
 	toggle: () => void
 }
 
-export { DropdownProps, DropdownRefProps }
+export type { DropdownProps, DropdownRefProps }

@@ -44,4 +44,4 @@ interface MenuGroupProps extends HTMLProps<HTMLUListElement> {
 	children?: React.ReactNode
 }
 
-export { MenuProps, MenuItemProps, MenuGroupProps }
+export type { MenuProps, MenuItemProps, MenuGroupProps }
