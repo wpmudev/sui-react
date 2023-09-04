@@ -14,14 +14,53 @@
         @include block($block) {
             @include element(group) {
                 align-items: center;
-                border-bottom: solid 1px #E6E6E6;
+                border-bottom: $border-width-sm solid $color-extended-neutral-80;
                 display: flex;
                 justify-content: space-between;
-                padding: 24px 0;
+                padding: $spacing-xl 0;
+
+                @include media(max-width, sm) {
+                    padding: $spacing-lg 0;
+                }
 
                 &:last-child {
                     border: none;
                 }
+
+                @include modifier(center) {
+                    justify-content: center;
+                }
+
+                @include modifier(links) {
+                    a {
+                        display: flex;
+                    }
+
+                    @include media(max-width, sm) {
+                        flex-wrap: wrap;
+                    }
+                }
+
+                @include modifier(credits) {
+                    font-size: $font-size-xs;
+				    line-height: $font-height-xs;
+
+                    @include media(max-width, sm) {
+                        flex-direction: column;
+                        text-align: center;
+                        gap: $spacing-md;
+                    }
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            @include element(group) {
+                border-color: $color-extended-neutral-0;
             }
         }
     }

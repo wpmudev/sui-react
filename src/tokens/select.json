@@ -73,7 +73,7 @@
                     },
                     "height": {
                         "md": {
-                            "value": "{font.height.xs}",
+                            "value": "{font.height.xxs}",
                             "type": "lineHeights"
                         },
                         "sm": {
@@ -192,10 +192,6 @@
             "option": {
                 "font": {
                     "size": {
-                        "md": {
-                            "value": "13px",
-                            "type": "fontSizes"
-                        },
                         "sm": {
                             "value": "11px",
                             "type": "fontSizes"
@@ -249,15 +245,9 @@
                     }
                 },
                 "font": {
-                    "size": {
-                        "md": {
-                            "value": "13px",
-                            "type": "fontSizes"
-                        }
-                    },
                     "height": {
                         "md": {
-                            "value": "{font.height.xs}",
+                            "value": "{font.height.xxs}",
                             "type": "lineHeights"
                         }
                     },
@@ -297,10 +287,6 @@
             },
             "font": {
 				"size": {
-					"md": {
-						"value": "13px",
-						"type": "fontSizes"
-					},
 					"sm": {
 						"value": "11px",
 						"type": "fontSizes"
@@ -344,7 +330,7 @@
                         "type": "fontSizes"
                     },
                     "sm": {
-                        "value": "{font.size.xs}",
+                        "value": "{font.size.xxs}",
                         "type": "fontSizes"
                     },
                     "xs": {
@@ -475,7 +461,7 @@
                     },
                     "height": {
                         "md": {
-                            "value": "{font.height.xs}",
+                            "value": "{font.height.xxs}",
                             "type": "lineHeights"
                         }
                     }

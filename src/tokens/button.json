@@ -66,10 +66,6 @@
 					"md": {
 						"value": "{font.size.default}",
 						"type": "fontSizes"
-					},
-					"sm": {
-						"value": "13px",
-						"type": "fontSizes"
 					}
 				},
 				"height": {
@@ -78,7 +74,7 @@
 						"type": "lineHeights"
 					},
 					"sm": {
-						"value": "{font.height.xs}",
+						"value": "{font.height.xxs}",
 						"type": "lineHeights"
 					}
 				},

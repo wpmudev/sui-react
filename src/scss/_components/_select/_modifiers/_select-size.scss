@@ -71,7 +71,7 @@
 
                 @include modifies-element(search) {
                     .sui-#{$block}__icon {
-                        font-size: $select-icon-font-size-sm;
+                        font-size: $font-size-xs;
                         left: $select-icon-search-position-left-md;
                         bottom: $select-icon-search-position-bottom;
                     }
