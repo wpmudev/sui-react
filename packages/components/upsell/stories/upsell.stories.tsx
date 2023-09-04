@@ -30,20 +30,25 @@ export const Upsell = ({ example, ...props }) => {
 		padding: "30px",
 		border: "1px solid #E6E6E6",
 		borderRadius: "4px",
-		// background: "#fff",
 	}
 
 	const actions = [
-		<Button
-			key={0}
-			appearance="secondary"
-			color="black"
-			isSmall={true}
-			// onClick={onApplyButton}
-		>
-			Primary
-		</Button>,
-		<a href="#">Learn more</a>,
+		<div key={0}>
+			<Button appearance="primary" color="black" isSmall={true}>
+				Upgrade now
+			</Button>
+		</div>,
+		<div key={1}>
+			<Button
+				href="#"
+				target="_blank"
+				appearance="tertiary"
+				color="black"
+				isSmall={true}
+			>
+				Learn more
+			</Button>
+		</div>,
 	]
 
 	return (
@@ -67,8 +72,15 @@ export const Upsell = ({ example, ...props }) => {
 }
 
 Upsell.args = {
-	description:
-		"Get our full WordPress performance optimization suite with Hummingbird Pro and the additional benefits of WPMU DEV membership. Get yours today now Lorem ipsum Lorem Ipsum.",
+	description: (
+		<p>
+			Get our full WordPress performance optimization suite with Hummingbird Pro
+			and the additional benefits of WPMU DEV membership. Get yours today now
+			Lorem ipsum Lorem Ipsum.
+		</p>
+	),
+	variation: "hummingbird",
+	size: "sm",
 }
 
 Upsell.argTypes = {
@@ -80,9 +92,6 @@ Upsell.argTypes = {
 	},
 	description: {
 		name: "Description",
-		control: {
-			type: "text",
-		},
 	},
 	variation: {
 		name: "Variation",
@@ -101,6 +110,19 @@ Upsell.argTypes = {
 		],
 		control: {
 			type: "select",
+			labels: {
+				hummingbird: "Hummingbird",
+				smush: "Smush",
+				snapshot: "Snapshot",
+				smartcrawl: "Smartcrawl",
+				shipper: "Shipper",
+				ivt: "Ivt",
+				hustle: "Hustle",
+				forminator: "Forminator",
+				defender: "Defender",
+				branda: "Branda",
+				beehive: "Beehive",
+			},
 		},
 	},
 	size: {
@@ -108,6 +130,10 @@ Upsell.argTypes = {
 		options: ["sm", "lg"],
 		control: {
 			type: "select",
+			labels: {
+				sm: "Small",
+				lg: "Large",
+			},
 		},
 	},
 }
