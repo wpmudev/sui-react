@@ -58,11 +58,57 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 		<p>Indicates whether the text field has an error or not.</p>
 	</Section>
 
-     <Section
+    <Section
 		title={{ content: "isLabelHidden", tag: "boolean", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Indicates whether the label should be hidden or not.</p>
+	</Section>
+
+	<Section
+		title={{ content: "placeholder", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>The placeholder text for the input element.</p>
+	</Section>
+
+	<Section
+		title={{ content: "icon", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Optional icon to be displayed.</p>
+	</Section>
+
+	<Section
+		title={{ content: "iconPosition", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Optional icon position to be displayed before or after text in the input.</p>
+		<List>
+			<span label={<><Code small={true}>start</Code>: To diplay the icon on the left </>} />
+			<span label={<><Code small={true}>end</Code>: To display the icon on the right</>} />
+		</List>
+	</Section>
+
+	<Section
+		title={{ content: "defaultValue", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Optional default value for the input element</p>
+	</Section>
+
+	<Section
+		title={{ content: "onChange", tag: "function", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>The callback function for handling input changes.</p>
+	</Section>
+
+	<Section
+		title={{ content: "className", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Custom CSS className(s) for the field</p>
 	</Section>
 
 </Section>
