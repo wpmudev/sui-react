@@ -35,7 +35,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 
 	// Render options for the dropdown
 	const renderOptions = () => {
-		if (isSmartSearch && selected.length < 2) {
+		if (isSmartSearch && selected?.length < 2) {
 			// Render message when smart search is enabled but character count is insufficient
 			return (
 				<div className="sui-select__dropdown">
@@ -91,6 +91,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	// Render options for the multiselect dropdown
 	const renderMultiselectOptions = () => {
 		const allSelected = options.every((option) => option.isSelected)
+		const isIndeterminate = options.find((option) => option.isSelected)
+
 		return (
 			<Fragment>
 				<div className="sui-select__search">
@@ -105,7 +107,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 					<li className="sui-select__dropdown--option" role="option">
 						<Checkbox
 							label="Select all"
-							defaultValue={allSelected}
+							isChecked={allSelected}
+							isIndeterminate={!allSelected && !!isIndeterminate}
 							onChange={selectAll}
 						/>
 					</li>
@@ -121,7 +124,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							<Checkbox
 								id={id}
 								label={label}
-								defaultValue={isSelected}
+								isChecked={isSelected}
 								onChange={(e) => onSelect(e, id)}
 							/>
 						</li>

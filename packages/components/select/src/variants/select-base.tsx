@@ -29,6 +29,8 @@ interface SelectBaseProps
 	options: Record<string, any>[]
 	/** Additional CSS class name for styling */
 	className?: string
+	/** Current selected option */
+	selected?: Record<string, any> | string
 	/** Label for the select component */
 	label?: string
 	/** Whether the select is disabled or not */
@@ -67,6 +69,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	id,
 	options,
 	className,
+	selected = undefined,
 	label = "Select",
 	isDisabled = false,
 	isSmall = false,
@@ -103,12 +106,16 @@ const Select: React.FC<SelectBaseProps> = ({
 	const [filteredItems, setFilteredItems] = useState(options)
 	const [selectedItem, setSelectedItems] = useState<
 		Record<string, any> | string | undefined
-	>(label)
+	>(selected)
 
 	// Hide dropdown when click outside of it
 	useOuterClick(ref, () => {
 		setIsDropdownOpen(false)
 	})
+
+	useEffect(() => {
+		setSelectedItems(selected)
+	}, [selected])
 
 	// UseEffect function to handle change in items
 	useEffect(() => {

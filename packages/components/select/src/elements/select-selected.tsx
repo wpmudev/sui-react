@@ -113,7 +113,7 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 			<InputWithAutoComplete placeholder="Search" {...props} />
 			{isSmartSearch && <Icon name="search" size={isSmall ? "md" : "lg"} />}
 			{!isSmartSearch && <Icon name={arrow ?? ""} size="md" />}
-			{isSmartSearch && selected.length > 0 && (
+			{isSmartSearch && selected?.length > 0 && (
 				<Icon
 					name="close-alt"
 					size={isSmall ? "md" : "lg"}
