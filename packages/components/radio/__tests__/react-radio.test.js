@@ -1,7 +1,7 @@
-'use strict';
+"use strict"
 
-const reactRadio = require('..');
+const { Radio } = require("../src")
 
-describe('@wpmudev/react-radio', () => {
-    it('needs tests');
-});
+describe("@wpmudev/sui-radio", () => {
+	it("needs tests")
+})
