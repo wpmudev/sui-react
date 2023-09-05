@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { Fragment, useContext } from "react"
 import { TableToolbarContentProps } from "./table.types"
 
 import { Box, BoxGroup } from "@wpmudev/sui-box"
@@ -62,7 +62,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 			})}
 		>
 			{ctx?.filtersPopover ? (
-				<>
+				<Fragment>
 					{filters?.map((filter) => renderField(filter))}
 					<div className="sui-table__toolbar-cta">
 						<Button
@@ -85,7 +85,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 							Apply filters
 						</Button>
 					</div>
-				</>
+				</Fragment>
 			) : (
 				<Box>
 					<BoxGroup>

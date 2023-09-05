@@ -30,7 +30,7 @@ export default {
 	},
 }
 
-let records = [
+const records = [
 	{
 		id: 1,
 		title: "Registration Form",
@@ -663,34 +663,39 @@ Table.args = {
 			},
 		},
 		{
-			id: "lockout-type",
+			id: "form-name",
 			type: "select",
-			title: "Lockout type",
+			title: "Form name",
 			value: "option-1",
 			// Select component props
 			props: {
-				id: "lockout-type",
+				id: "form-name",
 				isSmall: true,
-				options: [
-					{
-						id: "option-1",
-						label: "Option 1 is the option.",
-					},
-					{
-						id: "option-2",
-						label: "Option 2",
-					},
-				],
+				options: records.map((record) => ({
+					id: record.id,
+					label: record.title,
+				})),
 			},
 		},
 		{
 			id: "status",
-			type: "text",
+			type: "select",
 			title: "Status",
 			value: "1",
 			// Input component props
 			props: {
+				id: "sort-by",
 				isSmall: true,
+				options: [
+					{
+						id: "draft",
+						label: "Draft",
+					},
+					{
+						id: "published",
+						label: "Published",
+					},
+				],
 			},
 		},
 		{

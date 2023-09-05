@@ -44,13 +44,13 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 
 	// function to handle row selection in the table
 	const onSelect = useCallback(
-		(id: number | string, isChecked = false, isSelectAll) => {
+		(id: number | string, isChecked = false) => {
 			// add or remove the selected row based on the current selection status
 			let tempSelected: Array<number | string> = [...selected]
 
 			switch (true) {
 				// select all checkbox changed
-				case typeof isSelectAll !== "undefined":
+				case "select-all" === id:
 					tempSelected = (isChecked ? rows : []) as Array<number | string>
 					break
 				// table row checkbox checked

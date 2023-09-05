@@ -65,7 +65,10 @@ const TableRow: React.FC<TableRowProps> = ({
 	const onCheckToggle = useCallback(
 		(e) => {
 			const isChecked = e?.target?.checked ?? false
-			ctx?.onSelect(id ?? "", isChecked, !isUnderHeader ? undefined : isChecked)
+			const checkBoxId: number | string =
+				(isUnderHeader ? "select-all" : id) ?? ""
+
+			ctx?.onSelect(checkBoxId, isChecked)
 		},
 		[ctx, id, isUnderHeader],
 	)
@@ -85,7 +88,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	if (isUnderHeader) {
 		const isAllSelected = ctx?.rows?.length === ctx?.selected.length
 		isIndeterminate = ctx?.selected?.length > 0 && !isAllSelected
-		isChecked = isAllSelected
+		isChecked = isAllSelected && ctx?.selected.length > 0
 	}
 
 	// Generate class names
@@ -220,7 +223,7 @@ const TableRow: React.FC<TableRowProps> = ({
 					>
 						<Checkbox
 							onChange={onCheckToggle}
-							defaultValue={isChecked}
+							isChecked={isChecked}
 							isIndeterminate={isIndeterminate}
 						/>
 					</TableCell>
