@@ -3,7 +3,6 @@ import React, { useState, useEffect, useCallback } from "react"
 // import required module(s)
 import { PaginationProps } from "./pagination.types"
 import { PaginationNav } from "./pagination-nav"
-import page from "@wpmudev/storybook/lib/components/page/page"
 
 const Pagination: React.FC<PaginationProps> = ({
 	limit,
