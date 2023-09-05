@@ -80,11 +80,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 			{ctx?.allowCheck && (
 				<div className="sui-tree-view__info-check">
 					{/* Render the Checkbox component for item selection */}
-					<Checkbox
-						value={id}
-						onChange={onCheckClick}
-						defaultValue={isChecked}
-					/>
+					<Checkbox value={id} onChange={onCheckClick} isChecked={isChecked} />
 				</div>
 			)}
 			<div className="sui-tree-view__info-title">
