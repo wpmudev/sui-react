@@ -4,12 +4,12 @@ import React, {
 	forwardRef,
 	useCallback,
 	useState,
+	useEffect,
 } from "react"
 
 import {
 	isUndefined,
 	isEmpty,
-	isFunction,
 	generateCN,
 	condContent,
 } from "@wpmudev/sui-utils"
@@ -56,6 +56,10 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				)
 			}
 
+			useEffect(() => {
+				setValue(defaultValue)
+			}, [defaultValue])
+
 			// handle on change
 			const handleChange = useCallback(
 				(e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -64,7 +68,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 						setValue(e?.target?.value ?? "")
 					}
 
-					if (isFunction(onChange)) {
+					if (!!onChange) {
 						onChange(e)
 					}
 				},
@@ -72,16 +76,18 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			)
 
 			// flags
-			const hasValue = !isUndefined(value) && !isEmpty(value)
+			const hasValue = !isUndefined(value) && !isEmpty((value ?? "") as string)
 			const hasPlaceholder = !isUndefined(placeholder) && !isEmpty(placeholder)
 			const hasClassInput = !isUndefined(inputClass) && !isEmpty(inputClass)
 
 			// Define input type
-			let inputType = "text"
+			let inputType: string | undefined = "text"
 
 			// expected types
 			if (
-				["email", "number", "password", "search", "tel", "url"].includes(type)
+				["email", "number", "password", "search", "tel", "url"].includes(
+					type as string,
+				)
 			) {
 				inputType = type
 			}

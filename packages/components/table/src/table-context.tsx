@@ -95,7 +95,7 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 	// clear the filters
 	const clearFilters = useCallback(() => {
 		setFilterValues([])
-		triggerAction("apply-filters", [])
+		triggerAction("clear-filters", [])
 	}, [triggerAction])
 
 	// provide the table context to its children with the appropriate values

@@ -472,11 +472,13 @@ const tableItems = chunkArray(records, itemsPerPage)
 
 // Build "Field List" story
 const Table = ({ example, ...args }) => {
-	const [rows, setRows] = useState<any>([])
+	const [tempRows, setTempRows] = useState<Record<string, any>>([])
+	const [rows, setRows] = useState<Record<string, any>>([])
 	const [page, setPage] = useState<number>(1)
 
 	useEffect(() => {
 		setRows(tableItems?.[0])
+		setTempRows(tableItems?.[0])
 	}, [])
 
 	useEffect(() => {
@@ -518,7 +520,7 @@ const Table = ({ example, ...args }) => {
 					{...args}
 					stickyCols={true}
 					onAction={(actionType, data) => {
-						let dRows = [...rows]
+						let dRows: Record<string, any> = [...rows]
 
 						switch (actionType) {
 							case "bulk-action":
@@ -530,11 +532,11 @@ const Table = ({ example, ...args }) => {
 							case "sort-rows":
 								break
 							case "search-items":
-								dRows = dRows.filter((item) =>
+								dRows = tempRows.filter((item) =>
 									item.title.includes(data as string),
 								)
 
-								dRows = "" !== data ? dRows : records
+								dRows = "" !== data ? dRows : tempRows
 								break
 							case "sort-columns":
 								const { column, order } = data

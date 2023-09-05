@@ -36,12 +36,14 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 							onChange={(optionID) => ctx?.setFilter(filter?.id, optionID)}
 							id={filter?.id}
 							{...filter.props}
+							selected={ctx?.filterValues?.[filter?.id]}
 						/>
 					),
 					text: (
 						<Input
 							id={filter?.id}
 							{...filter.props}
+							defaultValue={ctx?.filterValues?.[filter?.id]}
 							onChange={(e) => {
 								ctx?.setFilter(filter?.id, e.target?.value)
 							}}
@@ -50,6 +52,29 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 				}[filter.type]
 			}
 		</FormField>
+	)
+
+	const filterActions = (
+		<div className="sui-table__toolbar-cta">
+			<Button
+				appearance="tertiary"
+				color="black"
+				isSmall={true}
+				isDisabled={ctx?.filterValues?.length <= 0}
+				onClick={() => ctx?.clearFilters()}
+			>
+				Clear filters
+			</Button>
+			<Button
+				appearance="secondary"
+				color="black"
+				isSmall={true}
+				isDisabled={ctx?.filterValues?.length <= 0}
+				onClick={() => ctx?.triggerAction("apply-filters", ctx?.filterValues)}
+			>
+				Apply filters
+			</Button>
+		</div>
 	)
 
 	return (
@@ -64,27 +89,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 			{ctx?.filtersPopover ? (
 				<Fragment>
 					{filters?.map((filter) => renderField(filter))}
-					<div className="sui-table__toolbar-cta">
-						<Button
-							appearance="tertiary"
-							color="black"
-							isSmall={true}
-							isDisabled={ctx?.filterValues?.length <= 0}
-						>
-							Clear filters
-						</Button>
-						<Button
-							appearance="secondary"
-							color="black"
-							isSmall={true}
-							isDisabled={ctx?.filterValues?.length <= 0}
-							onClick={() =>
-								ctx?.triggerAction("apply-filters", ctx?.filterValues)
-							}
-						>
-							Apply filters
-						</Button>
-					</div>
+					{filterActions}
 				</Fragment>
 			) : (
 				<Box>
@@ -98,27 +103,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 						</Row>
 					</BoxGroup>
 					<BoxGroup isInline={false} isFooter={true}>
-						<div className="sui-table__toolbar-cta">
-							<Button
-								appearance="secondary"
-								color="black"
-								isSmall={true}
-								isDisabled={ctx?.filterValues?.length <= 0}
-							>
-								Clear filters
-							</Button>
-							<Button
-								appearance="primary"
-								color="blue"
-								isSmall={true}
-								isDisabled={ctx?.filterValues?.length <= 0}
-								onClick={() =>
-									ctx?.triggerAction("apply-filters", ctx?.filterValues)
-								}
-							>
-								Apply filters
-							</Button>
-						</div>
+						{filterActions}
 					</BoxGroup>
 				</Box>
 			)}
