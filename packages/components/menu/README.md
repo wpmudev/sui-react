@@ -1,11 +1,11 @@
-# `@wpmudev/react-menu`
+# `@wpmudev/sui-menu`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactMenu = require('@wpmudev/react-menu');
+const reactMenu = require('@wpmudev/sui-menu');
 
 // TODO: DEMONSTRATE API
 ```

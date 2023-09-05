@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-const reactRecipient = require('@wpmudev/react-recipient');
+const reactRecipient = require('@wpmudev/sui-recipient');
 
 // TODO: DEMONSTRATE API
 ```

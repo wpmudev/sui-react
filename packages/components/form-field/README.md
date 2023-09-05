@@ -1,11 +1,11 @@
-# `@wpmudev/react-form-field`
+# `@wpmudev/sui-form-field`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactFormField = require('@wpmudev/react-form-field');
+const reactFormField = require('@wpmudev/sui-form-field');
 
 // TODO: DEMONSTRATE API
 ```

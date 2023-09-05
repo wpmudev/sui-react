@@ -1,11 +1,11 @@
-# `@wpmudev/react-input`
+# `@wpmudev/sui-input`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactInput = require('@wpmudev/react-input');
+const reactInput = require('@wpmudev/sui-input');
 
 // TODO: DEMONSTRATE API
 ```

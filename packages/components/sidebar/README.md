@@ -1,11 +1,11 @@
-# `@wpmudev/react-footer`
+# `@wpmudev/sui-footer`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactFooter = require('@wpmudev/react-footer');
+const reactFooter = require('@wpmudev/sui-footer');
 
 // TODO: DEMONSTRATE API
 ```

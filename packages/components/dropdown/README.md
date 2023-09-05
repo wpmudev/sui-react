@@ -1,11 +1,11 @@
-# `@wpmudev/react-dropdown`
+# `@wpmudev/sui-dropdown`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactDropdown = require('@wpmudev/react-dropdown');
+const reactDropdown = require('@wpmudev/sui-dropdown');
 
 // TODO: DEMONSTRATE API
 ```

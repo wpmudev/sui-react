@@ -1,11 +1,11 @@
-# `@wpmudev/react-toggle`
+# `@wpmudev/sui-toggle`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactToggle = require('@wpmudev/react-toggle');
+const reactToggle = require('@wpmudev/sui-toggle');
 
 // TODO: DEMONSTRATE API
 ```

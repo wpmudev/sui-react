@@ -1,11 +1,11 @@
-# `@wpmudev/react-field-list`
+# `@wpmudev/sui-field-list`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactFieldList = require('@wpmudev/react-field-list');
+const reactFieldList = require('@wpmudev/sui-field-list');
 
 // TODO: DEMONSTRATE API
 ```

@@ -1,4 +1,4 @@
-# `@wpmudev/react-notification`
+# `@wpmudev/sui-notification`
 
 > TODO: description
 

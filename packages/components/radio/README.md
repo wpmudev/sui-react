@@ -1,11 +1,11 @@
-# `@wpmudev/react-radio`
+# `@wpmudev/sui-radio`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactRadio = require('@wpmudev/react-radio');
+const reactRadio = require('@wpmudev/sui-radio');
 
 // TODO: DEMONSTRATE API
 ```

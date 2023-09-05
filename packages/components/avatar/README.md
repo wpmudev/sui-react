@@ -1,11 +1,11 @@
-# `@wpmudev/react-avatar`
+# `@wpmudev/sui-avatar`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactAvatar = require('@wpmudev/react-avatar');
+const reactAvatar = require('@wpmudev/sui-avatar');
 
 // TODO: DEMONSTRATE API
 ```

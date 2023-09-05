@@ -1,11 +1,11 @@
-# `@wpmudev/react-checkbox`
+# `@wpmudev/sui-checkbox`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactCheckbox = require('@wpmudev/react-checkbox');
+const reactCheckbox = require('@wpmudev/sui-checkbox');
 
 // TODO: DEMONSTRATE API
 ```

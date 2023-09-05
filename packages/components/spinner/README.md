@@ -1,11 +1,11 @@
-# `@wpmudev/react-segmented-button`
+# `@wpmudev/sui-segmented-button`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactSegmentedButton = require('@wpmudev/react-segmented-button');
+const reactSegmentedButton = require('@wpmudev/sui-segmented-button');
 
 // TODO: DEMONSTRATE API
 ```
