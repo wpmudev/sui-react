@@ -1,5 +1,8 @@
 import React, { Fragment, useContext } from "react"
-import { TableToolbarContentProps } from "./table.types"
+import {
+	TableToolbarContentProps,
+	TableToolbarFilterTypes,
+} from "./table.types"
 
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 import { generateCN } from "@wpmudev/sui-utils"
@@ -27,25 +30,40 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 		return null
 	}
 
-	const renderField = (filter) => (
-		<FormField id={filter?.id} label={filter?.title} isSmall={true}>
+	/**
+	 * Render filter field
+	 *
+	 * @param {TableToolbarFilterTypes} filter
+	 * @param {number}                  index
+	 *
+	 * @return {JSX.Element} FormField
+	 */
+	const renderField = (filter: TableToolbarFilterTypes, index: number) => (
+		<FormField
+			key={index}
+			id={filter?.id ?? ""}
+			label={filter?.title ?? ""}
+			isSmall={true}
+		>
 			{
 				{
 					select: (
 						<Select
-							onChange={(optionID) => ctx?.setFilter(filter?.id, optionID)}
+							onChange={(optionID) =>
+								ctx?.setFilter(filter?.id ?? "", optionID)
+							}
 							id={filter?.id}
-							{...filter.props}
+							{...filter?.props}
 							selected={ctx?.filterValues?.[filter?.id]}
 						/>
 					),
 					text: (
 						<Input
-							id={filter?.id}
-							{...filter.props}
+							id={filter?.id ?? ""}
+							{...filter?.props}
 							defaultValue={ctx?.filterValues?.[filter?.id]}
 							onChange={(e) => {
-								ctx?.setFilter(filter?.id, e.target?.value)
+								ctx?.setFilter(filter?.id ?? "", e.target?.value)
 							}}
 						/>
 					),
@@ -88,7 +106,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 		>
 			{ctx?.filtersPopover ? (
 				<Fragment>
-					{filters?.map((filter) => renderField(filter))}
+					{filters?.map((filter, index) => renderField(filter, index))}
 					{filterActions}
 				</Fragment>
 			) : (
@@ -97,7 +115,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 						<Row align={{ sm: "inline" }}>
 							{(filters ?? [])?.map((filter, index) => (
 								<Col size={3} key={index}>
-									{renderField(filter)}
+									{renderField(filter, index)}
 								</Col>
 							))}
 						</Row>
