@@ -10,7 +10,7 @@ import docs from "./navigation.mdx"
 
 // Configure default options
 export default {
-	title: "SUI/Components/Advanced/Navigation",
+	title: "SUI/Components/Modules/Navigation",
 	component: SuiNavigation,
 	parameters: {
 		layout: "fullscreen",

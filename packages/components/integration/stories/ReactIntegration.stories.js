@@ -11,7 +11,7 @@ import image from "./images/icon.png"
 
 // Default settings
 export default {
-	title: "SUI/Components/Core/Integration",
+	title: "SUI/Components/Modules/Integration",
 	component: SuiIntegration,
 	parameters: {
 		layout: "fullscreen",

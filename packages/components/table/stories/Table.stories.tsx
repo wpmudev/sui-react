@@ -20,7 +20,7 @@ import docs from "./ReactTable.mdx"
 
 // Configure default options
 export default {
-	title: "SUI/Components/Advanced/Table",
+	title: "SUI/Components/Modules/Table",
 	// component: SuiTable,
 	parameters: {
 		layout: "fullscreen",
