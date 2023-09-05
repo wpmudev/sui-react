@@ -1,12 +1,9 @@
 import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
-import { Input } from "../../../src"
+import { TextField } from "../../../src"
 import dedent from "dedent"
-import { FormField } from "@wpmudev/sui-form-field"
 
-export const SmallInputCode = dedent`
-    <FormField label="Label" helper="Help text">
-        <Input id="input-id-4" placeholder="Placeholder" isSmall={true} />
-    </FormField>
+export const SmallTextFieldCode = dedent`
+    <TextField isSmall={true} id="text-field-id-1" placeholder="Small Field" label="Small Field" helper="Help text" />
 `
 
 <Section
@@ -15,9 +12,7 @@ export const SmallInputCode = dedent`
 	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
 >
 	<Preview wrapper={true}>
-		{/* <FormField label="Label" helper="Help text">
-			<Input id="input-id-4" placeholder="Placeholder" isSmall={true} />
-		</FormField> */}
+		<TextField isSmall={true} id="text-field-id-1" placeholder="Small Field" label="Small Field" helper="Help text" />
 	</Preview>
-	<Snippet language="js">{SmallInputCode}</Snippet>
+	<Snippet language="js">{SmallTextFieldCode}</Snippet>
 </Section>

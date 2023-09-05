@@ -3,38 +3,40 @@ import { TextField } from "../../../src"
 import dedent from "dedent"
 
 export const LeadInputCode = dedent`
-    <FormField label="Label" helper="Help text">
-        <Input
-            icon="user"
-            iconPosition="start"
-            id="input-id-2"
-            placeholder="Placeholder"
-        />
-    </FormField>
+   <TextField
+        label="label"
+        helper="Icon to the left"
+        icon="user"
+        iconPosition="start"
+        id="text-field-id-1"
+        placeholder="Placeholder"
+    />
 `
 
 export const TrailInputCode = dedent`
-    <FormField label="Label" helper="Help text">
-        <Input
-            icon="user"
-            iconPosition="end"
-            id="input-id-3"
-            placeholder="Placeholder"
-        />
-    </FormField>
+    <TextField
+        label="label"
+        helper="Icon to the right"
+        icon="user"
+        iconPosition="end"
+        id="text-field-id-1"
+        placeholder="Placeholder"
+    />
 `
 
 <Section
-	title="Icon on the left"
+	title="Icon to the left"
 	contained={true}
 	border={true}
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
 	<Preview wrapper={true}>
 		<TextField
+            label="Label"
+			helper="Icon to the left"
 			icon="user"
 			iconPosition="start"
-			id="input-id-2"
+			id="text-field-id-1"
 			placeholder="Placeholder"
 		/>
 	</Preview>
@@ -42,19 +44,19 @@ export const TrailInputCode = dedent`
 </Section>
 
 <Section
-	title="Icon on the right"
+	title="Icon to the right"
 	contained={true}
 	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
 >
 	<Preview wrapper={true}>
-		{/* <FormField label="Label" helper="Help text">
-			<Input
+            <TextField
+                label="Label"
+                helper="Icon to the right"				
 				icon="user"
 				iconPosition="end"
-				id="input-id-3"
+				id="text-field-id-1"
 				placeholder="Placeholder"
 			/>
-		</FormField> */}
 	</Preview>
 	<Snippet language="js">{TrailInputCode}</Snippet>
 </Section>
