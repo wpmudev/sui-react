@@ -1,0 +1,131 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
+import { Input } from '../../../src';
+import dedent from 'dedent';
+
+export const DisabledInputCode = dedent`
+import React from 'react';\n
+import { Input } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Input id="input-id-1" label="Label" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" isDisabled={true} />;
+}\n
+export default Example;
+`;
+
+export const ValueEnteredInputCode = dedent`
+import React from 'react';\n
+import { Input } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Input id="input-id-1" value="Default" label="Label" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" />;
+}\n
+export default Example;
+`;
+
+export const ReadOnlyInputCode = dedent`
+import React from 'react';\n
+import { Input } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Input id="input-id-1" label="Label" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" readOnly={true} />;
+}\n
+export default Example;
+`;
+
+export const ErrorInputCode = dedent`
+import React from 'react';\n
+import { Input } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Input id="input-id-1" label="Label" errorId="error-id" errorMessage="There is an error." description="This is a description." descriptionId="desc-id" placeholder="Placeholder" />;
+}\n
+export default Example;
+`;
+
+<Section
+	title="Disabled"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isDisabled</Code> prop to disable a input
+		that is not usable.
+	</p>
+	<Preview wrapper={true}>
+		<Input
+			id="input-id-1"
+			label="Label"
+			description="This is a description."
+			descriptionId="desc-id-1"
+			placeholder="Placeholder"
+			isDisabled={true}
+		/>
+	</Preview>
+	<Snippet language="js">{DisabledInputCode}</Snippet>
+</Section>
+
+<Section
+	title="Value Entered"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>value</Code> prop to input to set it's value.
+	</p>
+	<Preview wrapper={true}>
+		<Input
+			id="input-id-2"
+			value="Default"
+			label="Label"
+			description="This is a description."
+			descriptionId="desc-id-2"
+			placeholder="Placeholder"
+			icon="close"
+		/>
+	</Preview>
+	<Snippet language="js">{ValueEnteredInputCode}</Snippet>
+</Section>
+
+<Section
+	title="Read Only"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Add the <Code small={true}>readOnly</Code> prop to set input readonly.
+	</p>
+	<Preview wrapper={true}>
+		<Input
+			id="input-id-3"
+			label="Label"
+			description="This is a description."
+			descriptionId="desc-id-3"
+			placeholder="Placeholder"
+			readOnly={true}
+		/>
+	</Preview>
+	<Snippet language="js">{ReadOnlyInputCode}</Snippet>
+</Section>
+
+<Section
+	title="Error"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>errorMessage</Code> prop to show the error in
+		the field.
+	</p>
+	<Preview wrapper={true}>
+		<Input
+			id="input-id-4"
+			label="Label"
+			errorId="error-id-1"
+			errorMessage="There is an error."
+			description="This is a description."
+			descriptionId="desc-id-4"
+			placeholder="Placeholder"
+		/>
+	</Preview>
+	<Snippet language="js">{ErrorInputCode}</Snippet>
+</Section>
