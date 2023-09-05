@@ -19,11 +19,17 @@ const Toggle: React.FC<ToggleProps> = ({
 	const id = `sui-toggle-${useId()}`
 
 	const [state, setState] = useState<boolean>(defaultValue as boolean)
-	const [isHovered, isFocused, methods] = useInteraction({})
+	const [isHovered, isFocused, methods] = useInteraction({
+		onMouseEnter: props?.onMouseEnter,
+		onMouseLeave: props?.onMouseLeave,
+		onMouseDownCapture: props?.onMouseDownCapture,
+		onBlur: props?.onBlur,
+		onBlurCapture: props?.onBlurCapture,
+	})
 
 	useEffect(() => {
 		if (!isBoolean(defaultValue)) {
-			setState(!!defaultValue)
+			setState(defaultValue)
 		}
 	}, [defaultValue])
 
