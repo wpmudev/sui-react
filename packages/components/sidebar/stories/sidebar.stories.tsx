@@ -7,6 +7,8 @@ import { Sidebar as SuiSidebar, SidebarItem } from "../src"
 
 // Import documentation main page.
 import docs from "./Sidebar.mdx"
+import { Box, BoxGroup } from "@wpmudev/sui-box"
+import { Col, Row } from "@wpmudev/sui-grid"
 
 // Configure default options
 export default {
@@ -29,35 +31,39 @@ const tag = (
 // Build footer story
 const Sidebar = ({}) => {
 	return (
-		<div
-			style={{
-				marginTop: "30px",
-				padding: "30px",
-				backgroundColor: "white",
-			}}
-		>
-			<div
-				style={{
-					backgroundColor: "white",
-				}}
-			>
-				<SuiSidebar>
-					<SidebarItem action={tag} title="Sidebar item" url="#" icon="Bell" />
-					<SidebarItem
-						isActive={true}
-						action={tag}
-						title="Sidebar Item (active)"
-						url="#"
-						icon="Bell"
-					/>
-					<SidebarItem action={tag} title="Sidebar item" url="#" />
-					<SidebarItem
-						isDisabled={true}
-						title="Sidebar item (disabled)"
-						url="#"
-						icon="Bell"
-					/>
-				</SuiSidebar>
+		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
+			<div className="sui-layout__content">
+				<Box>
+					<Row align={{ md: "inline" }}>
+						<Col size="3">
+							<Box>
+								<SuiSidebar>
+									<SidebarItem
+										action={tag}
+										title="Sidebar item"
+										url="#"
+										icon="Bell"
+									/>
+									<SidebarItem
+										isActive={true}
+										action={tag}
+										title="Sidebar Item (active)"
+										url="#"
+										icon="Bell"
+									/>
+									<SidebarItem action={tag} title="Sidebar item" url="#" />
+									<SidebarItem
+										isDisabled={true}
+										title="Sidebar item (disabled)"
+										url="#"
+										icon="Bell"
+									/>
+								</SuiSidebar>
+							</Box>
+						</Col>
+						<Col size="9">This is a side content.</Col>
+					</Row>
+				</Box>
 			</div>
 		</div>
 	)
