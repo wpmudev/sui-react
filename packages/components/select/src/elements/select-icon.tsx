@@ -4,7 +4,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 interface SelectIconProps {
 	name: string
 	size: "sm" | "md" | "lg"
-	onClick?: () => {}
+	onClick?(): void
 }
 
 // Build "Icon" component.

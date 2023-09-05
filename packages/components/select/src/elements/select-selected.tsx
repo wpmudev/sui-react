@@ -32,14 +32,21 @@ const Selected: React.FC<SelectSelectedProps> = ({
 }) => {
 	// Prepare the selected content
 	const selectedContent = isArray(selected) ? (
-		selected?.map(({ label, id }) => (
+		selected?.map(({ label, id: selectorId }) => (
 			<span
-				key={id}
+				key={selectorId}
+				tabIndex={0}
+				role="button"
 				className="sui-select__selected-options"
 				onClick={(event) => event.stopPropagation()}
+				onKeyDown={(event) => event.stopPropagation()}
 			>
 				{label}
-				<Icon name="close" size="sm" onClick={() => removeSelection(id)} />
+				<Icon
+					name="close"
+					size="sm"
+					onClick={() => removeSelection(selectorId)}
+				/>
 			</span>
 		))
 	) : (
@@ -57,6 +64,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	return (
 		<div
 			id={id}
+			role="button"
 			className="sui-select__control"
 			onClick={dropdownToggle}
 			onKeyDown={(e) => {
@@ -64,7 +72,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 					dropdownToggle()
 				}
 			}}
-			tabIndex="0"
+			tabIndex={0}
 			aria-haspopup="listbox"
 			aria-expanded={expanded}
 			{...props}
