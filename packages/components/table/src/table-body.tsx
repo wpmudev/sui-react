@@ -36,15 +36,10 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
-	// Create an array of children ID
-	const childrenIDs = Children.toArray(children).map(
-		(row: ReactNode) => row.props.id,
-	)
-
 	// Effect to update the rows array when children change
 	useEffect(() => {
 		if ("sort-rows" === action) {
-			setRows(childrenIDs)
+			setRows(Children.toArray(children).map((row: ReactNode) => row.props.id))
 			// clear action
 			setAction("")
 		} else {
@@ -55,8 +50,11 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 
 	// Effect to update the TableContext's rows when the rows array changes
 	useEffect(() => {
-		ctx?.setRows(childrenIDs)
-	}, [childrenIDs, ctx, rows])
+		ctx?.setRows(
+			Children.toArray(children).map((row: ReactNode) => row.props.id),
+		)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [children, rows])
 
 	// When dragging finished
 	const onSortEnd = useCallback(() => {
