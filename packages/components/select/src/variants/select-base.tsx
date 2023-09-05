@@ -198,10 +198,12 @@ const Select: React.FC<SelectBaseProps> = ({
 
 		// Create a new array for updatedItems
 		const updatedItems = items.map((item) => {
-			const isSelected = selectedItemsArray.some(
+			const selectedItem = selectedItemsArray.find(
 				(selectedOption) => selectedOption.id === item.id,
 			)
-			return { ...item, isSelected }
+			return selectedItem
+				? { ...item, isSelected: selectedItem.isSelected }
+				: item
 		})
 
 		// Update items state with updatedItems
@@ -282,16 +284,6 @@ const Select: React.FC<SelectBaseProps> = ({
 			{!isSearchable && <Selected {...headerProps} />}
 			{isSearchable && <SelectedSearch {...headerProps} />}
 			{isDropdownOpen && <Dropdown {...dropdownProps} />}
-			<button
-				onClick={() => {
-					selectItems({
-						id: "option-1",
-						isSelected: true,
-					})
-				}}
-			>
-				Test
-			</button>
 		</div>
 	)
 }
