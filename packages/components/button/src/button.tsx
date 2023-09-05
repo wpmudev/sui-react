@@ -74,7 +74,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 
 		const attrs = {
 			ref,
-			href: isLink && href,
+			href: isLink && !!href ? href : undefined,
 			target: target || "_blank",
 			htmlFor: condContent(label),
 			// classname
