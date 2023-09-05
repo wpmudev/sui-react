@@ -13,4 +13,4 @@ interface ImageAvatarProps {
 	text: string
 }
 
-export { ImageAvatarProps }
+export type { ImageAvatarProps }

@@ -35,4 +35,4 @@ interface IntegrationProps {
 	onClick: (e: React.MouseEvent) => void
 }
 
-export { IntegrationProps }
+export type { IntegrationProps }

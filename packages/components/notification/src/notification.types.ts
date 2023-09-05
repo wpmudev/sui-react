@@ -18,4 +18,4 @@ interface NotificationProps {
 	variation?: "info" | "success" | "warning" | "error" // variation type for the notification
 }
 
-export { NotificationProps }
+export type { NotificationProps }

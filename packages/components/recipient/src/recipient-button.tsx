@@ -1,14 +1,17 @@
 import React, { Fragment } from "react"
 import { isString } from "@wpmudev/sui-utils"
 
-// import { IconButton } from '@wpmudev/sui-icon-button';
+import { Tooltip } from '@wpmudev/sui-tooltip';
 
 interface RecipientButtonProps {
 	children?: React.ReactNode
 }
 
 // Build "Button" component.
-const RecipientButton: React.FC<RecipientButtonProps> = ({ children }) => {
+const RecipientButton: React.FC<RecipientButtonProps> = ({
+	children,
+	...props
+}) => {
 	if (!!children && !isString(children)) {
 		throw new Error(
 			`Incorrect parameter type. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Recipient\n\nThe parameter "children" used in the button element is not a string type.\n\n`,
@@ -17,12 +20,15 @@ const RecipientButton: React.FC<RecipientButtonProps> = ({ children }) => {
 
 	return (
 		<Fragment>
-			{/*	<IconButton
+			<Tooltip
 				label={children}
 				appearance="tertiary"
+				iconOnly={true}
 				isSmall={true}
 				{...props}
-			/>*/}
+			>
+				{children}
+			</Tooltip>
 		</Fragment>
 	)
 }

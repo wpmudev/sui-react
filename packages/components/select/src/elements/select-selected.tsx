@@ -32,22 +32,25 @@ const Selected: React.FC<SelectSelectedProps> = ({
 }) => {
 	// Prepare the selected content
 	const selectedContent = isArray(selected) ? (
-		selected.map(({ label, id }) => (
+		selected?.map(({ label, id: selectorId }) => (
 			<span
-				key={id}
+				key={selectorId}
+				tabIndex={0}
+				role="button"
 				className="sui-select__selected-options"
 				onClick={(event) => event.stopPropagation()}
+				onKeyDown={(event) => event.stopPropagation()}
 			>
 				{label}
 				<Icon
 					name="close"
 					size="sm"
-					onClick={() => removeSelection(id)}
+					onClick={() => removeSelection(selectorId)}
 				/>
 			</span>
 		))
 	) : (
-		<span className="sui-select__selected">{selected}</span>
+		<span className="sui-select__selected">{selected?.label}</span>
 	)
 
 	const onClearSelection = useCallback(
@@ -61,6 +64,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	return (
 		<div
 			id={id}
+			role="button"
 			className="sui-select__control"
 			onClick={dropdownToggle}
 			onKeyDown={(e) => {
@@ -68,7 +72,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 					dropdownToggle()
 				}
 			}}
-			tabIndex="0"
+			tabIndex={0}
 			aria-haspopup="listbox"
 			aria-expanded={expanded}
 			{...props}
@@ -109,7 +113,7 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 			<InputWithAutoComplete placeholder="Search" {...props} />
 			{isSmartSearch && <Icon name="search" size={isSmall ? "md" : "lg"} />}
 			{!isSmartSearch && <Icon name={arrow ?? ""} size="md" />}
-			{isSmartSearch && selected.length > 0 && (
+			{isSmartSearch && selected?.length > 0 && (
 				<Icon
 					name="close-alt"
 					size={isSmall ? "md" : "lg"}

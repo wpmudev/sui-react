@@ -1,20 +1,7 @@
 import React from "react"
 
 import { isEmpty, generateCN } from "@wpmudev/sui-utils"
-
-/**
- * Represents the properties for an icon component.
- */
-interface IconPropsTypes {
-	/**
-	 * The name of the icon.
-	 */
-	name?: string
-	/**
-	 * The size of the icon.
-	 */
-	size?: "sm" | "md" | "lg"
-}
+import { IconPropsTypes } from "./input-icon.type"
 
 // Build "Icon" component.
 const Icon: React.FC<IconPropsTypes> = ({ name = "", size = "lg" }) => {
@@ -30,7 +17,7 @@ const Icon: React.FC<IconPropsTypes> = ({ name = "", size = "lg" }) => {
 		"suicons",
 		{
 			[name]: true,
-			[size]: ["sm", "md", "lg"].includes(size ?? "md"),
+			[size || "md"]: ["sm", "md", "lg"].includes(size || "md"),
 			icon: true,
 		},
 		"sui-input__icon",
@@ -40,4 +27,4 @@ const Icon: React.FC<IconPropsTypes> = ({ name = "", size = "lg" }) => {
 }
 
 // Publish required component(s).
-export { Icon, IconPropsTypes }
+export { Icon }

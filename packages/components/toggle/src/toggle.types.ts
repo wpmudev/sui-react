@@ -27,4 +27,4 @@ interface ToggleProps
 	isDisabled?: boolean
 }
 
-export { ToggleProps }
+export type { ToggleProps }

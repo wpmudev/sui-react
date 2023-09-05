@@ -34,4 +34,4 @@ interface CodeEditorProps {
 	children?: React.ReactNode
 }
 
-export { CodeEditorProps }
+export type { CodeEditorProps }

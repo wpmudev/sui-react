@@ -67,7 +67,7 @@ interface TreeViewContextProps
 interface TreeViewProviderProps extends Pick<TreeViewProps, "children"> {}
 
 // Exporting the interfaces
-export {
+export type {
 	TreeViewProps,
 	TreeViewItemProps,
 	TreeViewGroupProps,

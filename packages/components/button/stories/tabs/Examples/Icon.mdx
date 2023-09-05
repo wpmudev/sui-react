@@ -6,7 +6,7 @@ export const LeadButtonCode = dedent`
 import React from 'react';\n
 import { Button } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Button icon="logo" iconPosition="start">Icon before</Button>;
+	return <Button icon="logo">Icon before</Button>;
 }\n
 export default Example;
 `;
@@ -15,7 +15,7 @@ export const TrailButtonCode = dedent`
 import React from 'react';\n
 import { Button } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Button icon="logo" iconPosition="end">Icon after</Button>;
+	return <Button endIcon="logo">Icon after</Button>;
 }\n
 export default Example;
 `;
@@ -40,7 +40,7 @@ export default Example;
 >
 	<p>Display an icon after the text.</p>
 	<Preview wrapper={true}>
-		<Button icon="logo" iconPosition="end">Icon after</Button>
+		<Button endIcon="logo">Icon after</Button>
 	</Preview>
 	<Snippet language="js">{TrailButtonCode}</Snippet>
 </Section>

@@ -41,7 +41,7 @@ const Upsell: React.FC<UpsellProps> = ({
 						</div>
 					</div>
 				)}
-				<h3 className="sui-upsell__header-title">
+				<h3 className="sui-upsell__header-title sui-heading--h5">
 					{/* Use title or default to the title from variationsList */}
 					{title ?? currentVar?.title}
 				</h3>

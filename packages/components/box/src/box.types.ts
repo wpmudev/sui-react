@@ -13,6 +13,10 @@ interface BoxProps {
 	 */
 	icon?: string
 	/**
+	 * Hide icon on the mobile view.
+	 */
+	hideMobileIcon?: Boolean
+	/**
 	 * The content for the left header section of the box.
 	 */
 	headerLeft?: string | Record<string, any>[] | React.ReactNode
@@ -25,9 +29,17 @@ interface BoxProps {
 	 */
 	style?: CSSProperties
 	/**
+	 * Make box small.
+	 */
+	isSmall?: Boolean
+	/**
+	 * Add custom class name to the component.
+	 */
+	className?: String
+	/**
 	 * The content of the box.
 	 */
 	children?: React.ReactNode
 }
 
-export { BoxProps }
+export type { BoxProps }

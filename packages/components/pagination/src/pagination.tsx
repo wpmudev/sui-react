@@ -3,9 +3,8 @@ import React, { useState, useEffect, useCallback } from "react"
 // import required module(s)
 import { PaginationProps } from "./pagination.types"
 import { PaginationNav } from "./pagination-nav"
-import { PaginationResults } from "./pagination-results"
 
-export const Pagination: React.FC<PaginationProps> = ({
+const Pagination: React.FC<PaginationProps> = ({
 	limit,
 	skip,
 	results,
@@ -13,38 +12,22 @@ export const Pagination: React.FC<PaginationProps> = ({
 	previousLabel,
 	nextLabel,
 	skipToLastLabel,
-	pagesToBottom,
-	children,
-	paginationContent,
+	numberOfItems,
+	onChange,
 }) => {
-	// build pagination elements (pages)
-	const componentWrapper = children
-	let componentChildren: React.ReactElement[] = []
-	if (componentWrapper?.props?.children) {
-		const { children: wrapperChildren } = componentWrapper.props
-		if (Array.isArray(wrapperChildren)) {
-			componentChildren = [...wrapperChildren]
-		} else {
-			componentChildren = [wrapperChildren]
-		}
-	}
-	const childElements = [...componentChildren],
-		elements = childElements.length,
-		pages =
-			elements / limit > Math.floor(elements / limit)
-				? Math.floor(elements / limit) + 1
-				: elements / limit
+	// Calculate the number of pages
+	const pages = Math.ceil(numberOfItems / limit)
 
-	// pagination state variables
-	const [pagesArray, setPagesArray] = useState<(number | void)[]>([]),
-		[selectedPage, setSelectedPage] = useState(1),
-		[startIndex, setStartIndex] = useState(0),
-		[endIndex, setEndIndex] = useState(pages >= 5 ? 5 : pages),
-		[pageClickCounter, setPageClickCounter] = useState(0),
-		[elementsStartIndex, setElementsStartIndex] = useState(0),
-		[elementsEndIndex, setElementsEndIndex] = useState(limit)
+	// State variables
+	const [pagesArray, setPagesArray] = useState<number[]>([])
+	const [selectedPage, setSelectedPage] = useState(1)
+	const [startIndex, setStartIndex] = useState(0)
+	const [endIndex, setEndIndex] = useState(Math.min(5, pages))
+	const [pageClickCounter, setPageClickCounter] = useState(0)
+	const [elementsStartIndex, setElementsStartIndex] = useState(0)
+	const [elementsEndIndex, setElementsEndIndex] = useState(limit)
 
-	// decrements startIndex and endIndex upon page change
+	// Decrement startIndex and endIndex upon page change
 	const decrementIndexes = useCallback(() => {
 		if (selectedPage - 1 <= startIndex + 1 && startIndex !== 0) {
 			setStartIndex(startIndex - 1)
@@ -52,7 +35,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 		}
 	}, [selectedPage, startIndex, endIndex])
 
-	// increments startIndex and endIndex upon page change
+	// Increment startIndex and endIndex upon page change
 	const incrementIndexes = useCallback(() => {
 		if (selectedPage + 1 >= endIndex && endIndex !== pages) {
 			setStartIndex(startIndex + 1)
@@ -60,17 +43,22 @@ export const Pagination: React.FC<PaginationProps> = ({
 		}
 	}, [selectedPage, startIndex, endIndex, pages])
 
-	// updates the list of page numbers based on available pages.
+	// Update the list of page numbers based on available pages
 	useEffect(() => {
 		const pageNumbers: number[] = []
 		for (let i = 1; i <= pages; ++i) pageNumbers.push(i)
 		setPagesArray(pageNumbers)
 	}, [pages])
 
-	// changes indexes when page changes
+	useEffect(() => {
+		if (onChange) {
+			onChange(selectedPage)
+		}
+	}, [onChange, selectedPage])
+
+	// Change indexes when page changes
 	useEffect(() => {
 		if (selectedPage >= endIndex) incrementIndexes()
-
 		if (selectedPage <= startIndex + 1) decrementIndexes()
 	}, [
 		pageClickCounter,
@@ -81,7 +69,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 		selectedPage,
 	])
 
-	// changes elements start and end index upon page or limit change
+	// Change elements start and end index upon page or limit change
 	useEffect(() => {
 		if (selectedPage !== 1) {
 			setElementsStartIndex(selectedPage * limit - limit)
@@ -89,19 +77,23 @@ export const Pagination: React.FC<PaginationProps> = ({
 		}
 	}, [selectedPage, limit])
 
+	// Handle navigation functions
+
+	// Go to the first page
 	const handleSkipToFirstPage = () => {
 		setSelectedPage(1)
 		setStartIndex(0)
-		setEndIndex(pages >= 5 ? 5 : pages)
+		setEndIndex(Math.min(5, pages))
 	}
 
-	// functions to handle navigation
+	// Go to the last page
 	const handleSkipToLastPage = () => {
 		setSelectedPage(pages)
-		setStartIndex(pages >= 5 ? pages - 5 : 0)
+		setStartIndex(Math.max(0, pages - 5))
 		setEndIndex(pages)
 	}
 
+	// Go to the previous page
 	const handlePreviousPage = () => {
 		if (selectedPage > 1) {
 			setSelectedPage(selectedPage - 1)
@@ -109,40 +101,40 @@ export const Pagination: React.FC<PaginationProps> = ({
 		decrementIndexes()
 	}
 
+	// Go to the next page
 	const handleNextPage = () => {
 		if (selectedPage < pages) {
-			setSelectedPage(Math.floor(selectedPage) + 1)
+			setSelectedPage(selectedPage + 1)
 		}
-
 		incrementIndexes()
 	}
 
+	// Go to the page before the ellipsis
 	const handlePreviousEllipsis = () => {
-		setSelectedPage(startIndex >= 5 ? endIndex - 6 : endIndex - startIndex - 1)
-		setStartIndex(startIndex >= 5 ? startIndex - 5 : 0)
+		const newStartIndex = Math.max(0, startIndex - 5)
+		setStartIndex(newStartIndex)
 		setEndIndex(startIndex >= 5 ? endIndex - 5 : endIndex - startIndex)
+		setSelectedPage(startIndex >= 5 ? startIndex - 4 : 1)
 	}
 
+	// Go to the page after the ellipsis
 	const handleNextEllipsis = () => {
-		setSelectedPage(
-			pages - endIndex >= 5
-				? startIndex + 7
-				: pages - endIndex + startIndex + 2,
+		const newStartIndex = Math.min(startIndex + 5, pages - 5)
+		setStartIndex(newStartIndex)
+		setEndIndex(
+			startIndex >= 5 ? endIndex + 5 : endIndex + (newStartIndex - startIndex),
 		)
-		setStartIndex(
-			pages - endIndex >= 5 ? startIndex + 5 : pages - endIndex + startIndex,
-		)
-		setEndIndex(pages - endIndex >= 5 ? endIndex + 5 : pages)
+		setSelectedPage(startIndex >= 5 ? startIndex + 6 : newStartIndex + 1)
 	}
 
+	// Handle clicking on a page number
 	const handlePageClick = (page: number) => {
 		setSelectedPage(page)
 		setPageClickCounter(pageClickCounter + 1)
 	}
 
+	// Properties to pass to PaginationNav component
 	const properties = {
-		componentWrapper,
-		childElements,
 		elementsStartIndex,
 		elementsEndIndex,
 		handlePageClick,
@@ -163,17 +155,10 @@ export const Pagination: React.FC<PaginationProps> = ({
 		skipToLastLabel,
 		skip,
 		results,
-		elements,
+		numberOfItems,
 	}
 
-	// use paginationContent prop if provided
-	if (paginationContent) return <>{paginationContent({ ...properties })}</>
-
-	return (
-		<>
-			{pagesToBottom && PaginationResults({ ...properties })}
-			{PaginationNav({ ...properties })}
-			{!pagesToBottom && PaginationResults({ ...properties })}
-		</>
-	)
+	return <PaginationNav {...properties} />
 }
+
+export { Pagination }

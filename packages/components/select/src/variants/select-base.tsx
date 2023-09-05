@@ -29,6 +29,8 @@ interface SelectBaseProps
 	options: Record<string, any>[]
 	/** Additional CSS class name for styling */
 	className?: string
+	/** Current selected option */
+	selected?: Record<string, any> | string
 	/** Label for the select component */
 	label?: string
 	/** Whether the select is disabled or not */
@@ -55,12 +57,19 @@ interface SelectBaseProps
 	 * the "onMouseLeave" property from the "InteractionTypes" type.
 	 */
 	onMouseLeave?: Pick<InteractionTypes, "onMouseLeave">
+	/**
+	 * Pass selected item to parent component
+	 *
+	 * @param {Record<string, any> | Record<string, any>[]} option option or options list
+	 */
+	onChange?(option: Record<string, any> | Record<string, any>[]): void
 }
 
 const Select: React.FC<SelectBaseProps> = ({
 	id,
 	options,
 	className,
+	selected = undefined,
 	label = "Select",
 	isDisabled = false,
 	isSmall = false,
@@ -68,6 +77,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	isMultiSelect = false,
 	isSearchable = false,
 	isSmartSearch = false,
+	onChange,
 	...props
 }) => {
 	if (!id) {
@@ -96,12 +106,16 @@ const Select: React.FC<SelectBaseProps> = ({
 	const [filteredItems, setFilteredItems] = useState(options)
 	const [selectedItem, setSelectedItems] = useState<
 		Record<string, any> | string | undefined
-	>(label)
+	>(selected)
 
 	// Hide dropdown when click outside of it
 	useOuterClick(ref, () => {
 		setIsDropdownOpen(false)
 	})
+
+	useEffect(() => {
+		setSelectedItems(selected)
+	}, [selected])
 
 	// UseEffect function to handle change in items
 	useEffect(() => {
@@ -118,11 +132,11 @@ const Select: React.FC<SelectBaseProps> = ({
 		const currentItems = filteredItemList.length > 0 ? filteredItemList : label
 
 		if (isMultiSelect) {
-			setSelectedItems(currentItems ?? "")
+			updateItem(currentItems ?? "")
 		} else if (currentItems?.length) {
 			// Select the first item
 			const item = currentItems?.[0]
-			if (item && item.label) setSelectedItems(item.label)
+			if (item && item.id) updateItem(item)
 		}
 		setItems(updatedItems)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -170,6 +184,18 @@ const Select: React.FC<SelectBaseProps> = ({
 		// onBlurCapture: () => set.focus(false),
 	}
 
+	/**
+	 * Update Item
+	 *
+	 * @param {string|number|Object} option Option ID or object
+	 */
+	const updateItem = (option) => {
+		setSelectedItems(option)
+		if (onChange) {
+			onChange(option)
+		}
+	}
+
 	// Header props
 	const headerProps = {
 		id,
@@ -180,14 +206,17 @@ const Select: React.FC<SelectBaseProps> = ({
 		isSmall,
 		dropdownToggle: () => setIsDropdownOpen(!isDropdownOpen),
 		clearSelection: () => {
-			RemoveAll(setSelectedItems, items, setFilteredItems)
+			RemoveAll(updateItem, items, setFilteredItems)
 		},
 		...(isSearchable && {
 			disabled: isDisabled,
 			dropdownItems: filteredItems,
 			onChange: (e) => {
 				handleSearchDropdown(e)
-				setSelectedItems(e.target.value)
+				updateItem({
+					...selectedItem,
+					label: e.target.value,
+				})
 			},
 		}),
 		...(isSmartSearch && { isSmartSearch }),

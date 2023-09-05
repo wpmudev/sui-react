@@ -5,7 +5,7 @@ import React, { HTMLProps } from "react"
  * It extends the HTMLProps<HTMLDivElement> type to inherit standard HTML div element props.
  */
 interface AccordionProps extends HTMLProps<HTMLDivElement> {
-	/** Additional CSS class name for styling the score component. */
+	/** Additional CSS class name for styling the accordion component. */
 	className?: string
 	/** Remove border-radius when true */
 	noBorderRadius?: boolean
@@ -32,4 +32,28 @@ interface AccordionItemProps extends AccordionCheckboxProps {
 	isDisabled?: boolean // Indicates whether the accordion item is disabled and cannot be interacted with.
 }
 
-export { AccordionItemProps, AccordionProps }
+// Type when hasCheckbox is true
+type AccordionItemWithCheckbox = {
+	hasCheckbox: true
+	onCheck: (isExpanded: boolean) => unknown
+}
+
+// Type when hasCheckbox is false
+type AccordionItemWithoutCheckbox = {
+	hasCheckbox: false
+	onCheck: never
+}
+
+// Type when hasCheckbox is optional
+type AccordionItemOptionalCheckbox = {
+	hasCheckbox?: boolean
+	onCheck?: never
+}
+
+// Final accordion-item prop types
+type AccordionItemProps =
+	| (AccordionItemWithCheckbox & AccordionItemMainProps)
+	| (AccordionItemWithoutCheckbox & AccordionItemMainProps)
+	| (AccordionItemOptionalCheckbox & AccordionItemMainProps)
+
+export type { AccordionItemProps, AccordionProps }

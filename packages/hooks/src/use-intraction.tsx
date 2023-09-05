@@ -3,7 +3,7 @@ import { isFunction } from "@wpmudev/sui-utils"
 
 interface InteractionTypes
 	extends Pick<
-		HTMLProps<HTMLInputElement>,
+		HTMLProps<HTMLButtonElement | HTMLAnchorElement>,
 		| "onMouseEnter"
 		| "onMouseLeave"
 		| "onMouseDownCapture"

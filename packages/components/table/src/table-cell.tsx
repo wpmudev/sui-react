@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react"
+import React, { Fragment, useCallback, useContext } from "react"
 
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
 import * as Icons from "@wpmudev/sui-icons"
@@ -31,6 +31,7 @@ const TableCell: React.FC<TableCellProps> = ({
 	isHeading,
 	className = "",
 	hasDragIcon = false,
+	isAction = false,
 	isSortable = false,
 	isSticky = false,
 	isTrim = false,
@@ -63,7 +64,7 @@ const TableCell: React.FC<TableCellProps> = ({
 		const sortData = { column: id, order: "desc" === order ? "asc" : "desc" }
 		setSortBy(sortData)
 		// Pass to parent component
-		triggerAction("column-sort", sortData)
+		triggerAction("sort-columns", sortData)
 	}, [id, order, setSortBy, triggerAction])
 
 	// Default sort icon
@@ -106,10 +107,17 @@ const TableCell: React.FC<TableCellProps> = ({
 			{hasDragIcon && (
 				<Icons.Grip className="sui-table__cell--drag" size="sm" />
 			)}
-			<div {...sortBtnProps}>
-				<span>{children}</span>
-				{isSortable && <SortIcon size="xs" />}
-			</div>
+			{!isAction ? (
+				<div {...sortBtnProps}>
+					<span>{children}</span>
+					{isSortable && <SortIcon size="xs" />}
+				</div>
+			) : (
+				<Fragment>
+					{children}
+					{isSortable && <SortIcon size="xs" />}
+				</Fragment>
+			)}
 		</TagName>
 	)
 }

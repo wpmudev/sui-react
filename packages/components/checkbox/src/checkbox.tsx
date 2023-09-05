@@ -27,23 +27,22 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 	(
 		{
 			label,
-			defaultValue = false,
 			isLabelHidden = false,
 			isSmall = false,
 			isDisabled = false,
+			isChecked: propIsChecked = false,
 			isIndeterminate = false,
 			onChange = () => {},
-			...props
-		}: CheckboxProps,
+		},
 		ref,
 	) => {
 		// State to manage the checked state of the checkbox
-		const [isChecked, setIsChecked] = useState<boolean>(defaultValue ?? false)
+		const [isChecked, setIsChecked] = useState<boolean>(propIsChecked ?? false)
 
 		// Set the initial state based on the default value
 		useEffect(() => {
-			setIsChecked(defaultValue ?? false)
-		}, [defaultValue])
+			setIsChecked((propIsChecked || isIndeterminate) ?? false)
+		}, [propIsChecked, isIndeterminate])
 
 		// Generate a dynamic ID for the checkbox
 		const id = useId()
@@ -53,19 +52,18 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 
 		// Callback function for handling checkbox state changes
 		const handleOnChange = useCallback(
-			(e) => {
-				setIsChecked(!isChecked)
-
+			(e: React.ChangeEvent<HTMLInputElement>) => {
+				// setIsChecked(!isChecked && !isIndeterminate)
 				if (!!onChange) {
 					onChange(e)
 				}
 			},
-			[isChecked, onChange],
+			[onChange],
 		)
 
 		// Props for the box element representing the checkbox
 		const boxProps = {
-			tabIndex: "-1",
+			tabIndex: -1,
 			className: "sui-checkbox__box",
 			"aria-hidden": true,
 		}
@@ -91,6 +89,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 					type="checkbox"
 					className="sui-screen-reader-only"
 					disabled={isDisabled}
+					checked={isChecked || isIndeterminate}
 					onChange={handleOnChange}
 				/>
 				{/* Custom tick element for the checkbox */}

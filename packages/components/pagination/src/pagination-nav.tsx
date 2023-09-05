@@ -90,7 +90,7 @@ export const PaginationNav = ({ ...properties }) => {
 								<span
 									className="suicons suicons--more suicons--sm"
 									aria-hidden="true"
-								></span>
+								/>
 							</button>
 						</li>
 					)}
@@ -124,7 +124,7 @@ export const PaginationNav = ({ ...properties }) => {
 									aria-hidden="true"
 									title={properties.skipToLastLabel || "Go to last page"}
 									className="suicons suicons--arrow-skip-forward suicons--sm"
-								></span>
+								/>
 							</button>
 						</li>
 					)}

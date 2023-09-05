@@ -5,7 +5,7 @@ import React, { HTMLProps } from "react"
  */
 interface ButtonProps
 	extends React.HTMLAttributes<
-		HTMLButtonElement | HTMLAnchorElement | HTMLLabelElement
+		HTMLButtonElement | HTMLAnchorElement | HTMLInputElement
 	> {
 	/**
 	 * Optional CSS class name for the button.
@@ -52,9 +52,13 @@ interface ButtonProps
 	 */
 	icon?: string
 	/**
-	 * Optional icon position to be displayed before or after text.
+	 * Optional icon to be displayed.
 	 */
-	iconPosition?: "start" | "end"
+	startIcon?: string
+	/**
+	 * Optional icon to be displayed.
+	 */
+	endIcon?: string
 	/**
 	 * Optional icon size to be displayed.
 	 */
@@ -68,9 +72,9 @@ interface ButtonProps
 	 */
 	iconOnly?: boolean
 	/**
-	 * Optional flag to make the button full width.
+	 * Optional: handle responsive when true
 	 */
-	isResponsive: boolean
+	isResponsive?: boolean
 }
 
-export { ButtonProps }
+export type { ButtonProps }

@@ -41,4 +41,4 @@ interface RowProps extends HTMLProps<HTMLDivElement> {
 	children?: React.ReactNode
 }
 
-export { ColProps, RowProps, RowAlignments }
+export type { ColProps, RowProps, RowAlignments }

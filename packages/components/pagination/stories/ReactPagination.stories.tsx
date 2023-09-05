@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 // Import required component(s)
 import { Pagination as SuiPagination } from "../src/pagination"
 import { Box, BoxGroup } from "@wpmudev/sui-box"
+import { chunkArray } from "@wpmudev/sui-utils"
 
-import { PaginationProps } from "../src/pagination.types"
+import { PaginationProps } from "../src"
 
 // Import documentation main page
 import docs from "./ReactPagination.mdx"
@@ -20,34 +21,141 @@ export default {
 	},
 }
 
+const records = [
+	{
+		id: 1,
+		title: "Registration Form",
+	},
+	{
+		id: 2,
+		title: "Contact Us Form",
+	},
+	{
+		id: 3,
+		title: "Feedback Form",
+	},
+	{
+		id: 4,
+		title: "Job Application",
+	},
+	{
+		id: 5,
+		title: "Subscription Form",
+	},
+	{
+		id: 6,
+		title: "Order Form",
+	},
+	{
+		id: 7,
+		title: "Support Request",
+	},
+	{
+		id: 8,
+		title: "Contact Information",
+		tag: "Draft",
+		submission: "April 27, 2022 11:30 am",
+		status: "info",
+	},
+	{
+		id: 9,
+		title: "Event Registration",
+	},
+	{
+		id: 10,
+		title: "Survey Form",
+	},
+	{
+		id: 11,
+		title: "Product Feedback",
+	},
+	{
+		id: 12,
+		title: "Volunteer Registration",
+	},
+	{
+		id: 13,
+		title: "Application Form",
+	},
+	{
+		id: 14,
+		title: "Membership Application",
+	},
+	{
+		id: 15,
+		title: "Feedback Survey",
+	},
+	{
+		id: 16,
+		title: "Contact Information Update",
+	},
+	{
+		id: 17,
+		title: "Event Feedback",
+	},
+	{
+		id: 18,
+		title: "Product Inquiry",
+	},
+	{
+		id: 19,
+		title: "Customer Support Request",
+	},
+	{
+		id: 20,
+		title: "Demo Request",
+	},
+	{
+		id: 21,
+		title: "Quote Request",
+	},
+	{
+		id: 22,
+		title: "Customer Feedback",
+	},
+	{
+		id: 23,
+		title: "Service Inquiry",
+	},
+	{
+		id: 24,
+		title: "Product Review",
+	},
+]
+
 // Build "Pagination" story
 export const Pagination = (args: PaginationProps): React.ReactNode => {
-	// Array numbers from 1 to n.
-	const createList = (topNumber: number) => {
-		const listNumbers = []
-		topNumber = topNumber + 1
+	const [tableItems, setTableItems] = useState(chunkArray(records, args?.limit))
+	const [rows, setRows] = useState<Record<string, any>>([])
+	const [page, setPage] = useState<number>(1)
 
-		for (let i = 1; i < topNumber; i++) {
-			listNumbers.push(i)
-		}
+	useEffect(() => {
+		setTableItems(chunkArray(records, args?.limit))
+	}, [args.limit])
 
-		return listNumbers
-	}
+	useEffect(() => {
+		setRows(tableItems?.[0])
+	}, [tableItems])
 
-	const items = createList(100)
+	useEffect(() => {
+		setRows(tableItems?.[page - 1])
+	}, [page, tableItems])
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<Box>
 					<BoxGroup isInline={false}>
-						<SuiPagination {...args}>
-							<ul>
-								{items.map((item, key) => (
-									<li key={key}>Item #{item}</li>
-								))}
-							</ul>
-						</SuiPagination>
+						<ul>
+							{rows?.map((record, index) => (
+								<li key={index}>{record.title}</li>
+							))}
+						</ul>
+						<SuiPagination
+							{...args}
+							numberOfItems={records.length}
+							onChange={setPage}
+						/>
 					</BoxGroup>
 				</Box>
 			</div>

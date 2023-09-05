@@ -7,21 +7,14 @@ import { RecipientName } from "./recipient-name"
 import { RecipientEmail } from "./recipient-email"
 import { RecipientButton } from "./recipient-button"
 
-interface RecipientProps extends HTMLProps<HTMLDivElement> {
-	userName?: string
-	userEmail?: string
-	userImage?: string
-	userConfirmed?: boolean
-	isInvited?: boolean
-	appearance?: string
-}
+import { RecipientProps } from "./recipient.type"
 
 // Build "recipient" component
 const Recipient: React.FC<RecipientProps> = ({
 	userName = "",
 	userEmail = "",
 	userImage = "",
-	userConfirmed = false,
+	status = "",
 	isInvited = false,
 	appearance,
 	...props
@@ -37,7 +30,7 @@ const Recipient: React.FC<RecipientProps> = ({
 			<div className="sui-recipient__info">
 				<Avatar
 					className="sui-recipient__avatar"
-					{...(userConfirmed && { status: "confirmed" })}
+					{...(!isEmpty(status) && { status })}
 					{...(!isEmpty(userImage) && { image: userImage })}
 				/>
 				{(!isEmpty(userName) || !isEmpty(userEmail)) && (

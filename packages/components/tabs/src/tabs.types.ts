@@ -63,7 +63,7 @@ interface TabNavItemProps {
 	children?: React.ReactNode // Content of the tab item (can be any valid React node).
 	icon?: React.ReactNode | never // An optional icon to display with the tab item.
 	stateIcon?: "InfoAlt" | "CheckAlt" | never
-	stateIconColor?: Pick<"color", IconProps> | never
+	stateIconColor?: Pick<IconProps, "color"> | never
 	isDisabled?: Boolean
 }
 
@@ -73,7 +73,7 @@ interface TabProviderProps extends Omit<ProviderProps<any>, "value"> {}
 // Nav scroll directions
 type TabNavScrollDirection = "right" | "left"
 
-export {
+export type {
 	TabsProps,
 	TabContextProps,
 	TabNavProps,

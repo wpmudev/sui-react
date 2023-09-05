@@ -14,7 +14,7 @@ import {
 import docs from "./dashboard-widget.mdx"
 
 export default {
-	title: "SUI/Components/Advanced/Dashboard Widget",
+	title: "SUI/Components/Modules/Dashboard Widget",
 	component: SuiDashboardWidget,
 	parameters: {
 		layout: "fullscreen",

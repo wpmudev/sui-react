@@ -8,4 +8,4 @@ interface StatusProps {
 	status?: string
 }
 
-export { StatusProps }
+export type { StatusProps }

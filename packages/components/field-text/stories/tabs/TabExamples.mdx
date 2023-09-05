@@ -7,13 +7,13 @@ import Size from "./Examples/Size.mdx"
 import Icon from "./Examples/Icon.mdx"
 
 export const sampleCode = dedent`
-    <TextField id="form-field-1" label="Label" />
+    <TextField id="form-field-1" label="Label" helper="Help text" />
 `
 
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>Below is the default TextField component, used for most cases.</p>
 	<Preview wrapper={true}>
-		<TextField id="form-field-1" label="Label" helper="help text" />
+		<TextField id="form-field-1" label="Label" helper="Help text" />
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>

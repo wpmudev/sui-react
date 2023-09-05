@@ -66,4 +66,4 @@ interface InputProps extends HTMLProps<HTMLInputElement>, InteractionTypes {
 	iconPosition?: "start" | "end"
 }
 
-export { InputProps }
+export type { InputProps }
