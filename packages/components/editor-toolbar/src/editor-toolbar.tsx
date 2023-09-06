@@ -10,6 +10,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 	actions,
 	children,
 	allowBack = true,
+	alignCenter = false,
 	onBackClick = () => {},
 	onSettingClick = () => {},
 }) => {
@@ -44,24 +45,40 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 		// Render the editor-toolbar component
 		<div className={classNames}>
 			{(!!title || !!allowBack) && (
-				<div className="sui-editor-toolbar__main">
-					{allowBack && (
-						<Button
-							appearance="tertiary"
-							icon="chevron-left"
-							color="black"
-							isSmall={true}
-							iconOnly={true}
-							onClick={onBackClick}
-						/>
-					)}
-					{title && (
-						<div className="sui-editor-toolbar__main-title">{title}</div>
-					)}
+				<div className="sui-editor-toolbar__content--left">
+					<div className="sui-editor-toolbar__main">
+						{allowBack && (
+							<Button
+								appearance="tertiary"
+								icon="chevron-left"
+								color="black"
+								isSmall={true}
+								iconOnly={true}
+								onClick={onBackClick}
+							/>
+						)}
+						{title && (
+							<h3 className="sui-heading--h4 sui-editor-toolbar__main-title">{title}</h3>
+						)}
+					</div>
 				</div>
 			)}
-			<div className="sui-editor-toolbar__body">{children}</div>
-			<div className="sui-editor-toolbar__actions">{actionButtons}</div>
+			{!!children && !!actionButtons && (
+				<div
+					className={generateCN("sui-editor-toolbar__content", {
+						base: false,
+						right: !alignCenter,
+						center: alignCenter,
+					})}
+				>
+					{!!children && (
+						<div className="sui-editor-toolbar__body">{children}</div>
+					)}
+					<div className="sui-editor-toolbar__actions">
+						{!!actionButtons && actionButtons}
+					</div>
+				</div>
+			)}
 		</div>
 	)
 }

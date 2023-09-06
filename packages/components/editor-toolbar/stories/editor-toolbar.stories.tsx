@@ -37,6 +37,7 @@ export const EditorToolbar = ({ example, ...props }) => {
 				icon="save"
 				color="black"
 				isSmall={true}
+				isResponsive={true}
 			>
 				Save Draft
 			</Button>,
@@ -47,6 +48,7 @@ export const EditorToolbar = ({ example, ...props }) => {
 				color="black"
 				isSmall={true}
 				isFullWidth={true}
+				isResponsive={true}
 			>
 				Preview
 			</Button>,
@@ -67,24 +69,28 @@ export const EditorToolbar = ({ example, ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div>
-					<SuiEditorToolbar {...props} actions={actions}>
-						<BoxGroup isInline={true}>
-							<SegmentedControl
-								name="type"
-								defaultValue={editorType}
-								onChange={(t) => setEditorType(t)}
-							>
-								<SegmentedControlButton value="visual">
-									Visual
-								</SegmentedControlButton>
-								<SegmentedControlButton value="code">
-									Code
-								</SegmentedControlButton>
-							</SegmentedControl>
-						</BoxGroup>
-					</SuiEditorToolbar>
-				</div>
+				<SuiEditorToolbar {...props} actions={actions}>
+					<SegmentedControl
+						name="type"
+						defaultValue={editorType}
+						onChange={(t) => setEditorType(t)}
+					>
+						<SegmentedControlButton
+							icon="Desktop"
+							isResponsive={true}
+							value="visual"
+						>
+							Visual
+						</SegmentedControlButton>
+						<SegmentedControlButton
+							icon="Desktop"
+							isResponsive={true}
+							value="code"
+						>
+							Code
+						</SegmentedControlButton>
+					</SegmentedControl>
+				</SuiEditorToolbar>
 			</div>
 		</div>
 	)
@@ -93,15 +99,24 @@ export const EditorToolbar = ({ example, ...props }) => {
 EditorToolbar.args = {
 	title: "",
 	allowBack: true,
+	alignCenter: true,
 }
 
 EditorToolbar.argTypes = {
 	title: {
+		name: "Title",
 		control: {
 			type: "text",
 		},
 	},
 	allowBack: {
+		name: "Back Button",
+		control: {
+			type: "boolean",
+		},
+	},
+	alignCenter: {
+		name: "Center Content",
 		control: {
 			type: "boolean",
 		},

@@ -15,6 +15,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	children,
 	ariaLabel,
 	isDisabled,
+	isResponsive = false,
 	...props
 }) => {
 	// Generate a unique ID for the radio button and set its ID attribute.
@@ -65,7 +66,11 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 				{/* Display the icon if provided. */}
 				{!!IconTag && <IconTag size="sm" />}
 				{/* Display the children (additional content) if provided. */}
-				{!!children && <span>{children}</span>}
+				{!!children && (
+					<span {...(isResponsive && { className: "sui-md-hide" })}>
+						{children}
+					</span>
+				)}
 				{/* Display the ariaLabel if provided for accessibility. */}
 				{!isEmpty(ariaLabel ?? "") && (
 					<span className="screen-reader-text">{ariaLabel}</span>
