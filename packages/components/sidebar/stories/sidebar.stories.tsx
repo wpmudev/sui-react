@@ -3,7 +3,7 @@ import React from "react"
 import { Tag } from "@wpmudev/sui-tag"
 
 // Import required component
-import { Sidebar as SuiSidebar, SidebarItem } from "../src"
+import { Sidebar as SuiSidebar, SidebarItem, SidebarDropdown } from "../src"
 
 // Import documentation main page.
 import docs from "./Sidebar.mdx"
@@ -33,34 +33,46 @@ const Sidebar = ({}) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
+				<SidebarDropdown>
+					<SidebarItem title="Sidebar item" url="#" />
+					<SidebarItem isActive={true} title="Sidebar Item (active)" url="#" />
+					<SidebarItem title="Sidebar item" url="#" />
+					<SidebarItem
+						isDisabled={true}
+						title="Sidebar item (disabled)"
+						url="#"
+					/>
+				</SidebarDropdown>
 				<Box>
-					<Row align={{ md: "inline" }}>
-						<Col size="4">
-							<SuiSidebar>
-								<SidebarItem
-									action={tag}
-									title="Sidebar item"
-									url="#"
-									icon="Bell"
-								/>
-								<SidebarItem
-									isActive={true}
-									action={tag}
-									title="Sidebar Item (active)"
-									url="#"
-									icon="Bell"
-								/>
-								<SidebarItem action={tag} title="Sidebar item" url="#" />
-								<SidebarItem
-									isDisabled={true}
-									title="Sidebar item (disabled)"
-									url="#"
-									icon="Bell"
-								/>
-							</SuiSidebar>
-						</Col>
-						<Col size="8">This is a side content.</Col>
-					</Row>
+					<BoxGroup>
+						<Row align={{ md: "inline" }}>
+							<Col size="3">
+								<SuiSidebar>
+									<SidebarItem
+										action={tag}
+										title="Sidebar item"
+										url="#"
+										icon="Bell"
+									/>
+									<SidebarItem
+										isActive={true}
+										action={tag}
+										title="Sidebar Item (active)"
+										url="#"
+										icon="Bell"
+									/>
+									<SidebarItem action={tag} title="Sidebar item" url="#" />
+									<SidebarItem
+										isDisabled={true}
+										title="Sidebar item (disabled)"
+										url="#"
+										icon="Bell"
+									/>
+								</SuiSidebar>
+							</Col>
+							<Col size="9">This is a side content.</Col>
+						</Row>
+					</BoxGroup>
 				</Box>
 			</div>
 		</div>
