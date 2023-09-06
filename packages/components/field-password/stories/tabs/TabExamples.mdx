@@ -1,1 +1,33 @@
-Examples
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { PasswordField } from "../../src"
+import dedent from "dedent"
+
+import States from "./Examples/States.mdx"
+import Size from "./Examples/Size.mdx"
+import ButtonType from "./Examples/ButtonType.mdx"
+
+export const sampleCode = dedent`
+    <PasswordField id="password-field-id-1" label="Label" helper="Help text" />
+`
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>Below is the default form of a Password Field, used for most cases.</p>
+	<Preview wrapper={true}>
+		<PasswordField id="password-field-id-1" label="Label" helper="Help text" />
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+<Section style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="States" value="states">
+			<States />
+		</div>
+		<div label="Size" value="size">
+			<Size />
+		</div>
+		<div label="Button Type" value="button-type">
+			<ButtonType />
+		</div> 
+	</Switcher>
+</Section>
