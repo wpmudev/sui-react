@@ -13,6 +13,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			max-width: $sidebar-size-width-md;
+
+			@include media(max-width, md) {
+				display: none;
+			}
 		}
 	}
 }

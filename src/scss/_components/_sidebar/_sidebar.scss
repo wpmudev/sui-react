@@ -3,6 +3,8 @@
 
 @include sui-sidebar--element.build-container(sidebar);
 @include sui-sidebar--element.build-item(sidebar);
+@include sui-sidebar--element.build-dropdown(sidebar);
+@include sui-sidebar--element.build-button(sidebar);
 
 @include sui-sidebar--modifier.build-hover(sidebar);
 @include sui-sidebar--modifier.build-focus(sidebar);
