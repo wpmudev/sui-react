@@ -1,0 +1,26 @@
+import { Section, Row, Col } from "@wpmudev/storybook"
+
+import Anatomy from "../images/anatomy.svg"
+import SideImage from "../images/sideimage.svg"
+
+<Section title="{{Title}}" style={{ paddingTop: 20 }}>
+	{/* Image */}
+	<img src={Anatomy} alt="{{Component Name}} Anatomy" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="{{Section with columns and border}}" border={true}>
+	<Row>
+		<Col>
+			{/* Titles with descriptions */}
+    		<h3 style={{marginTop: 0}}>1. Accordion header</h3>
+    		<p>Accordion header contains the section title and chevron icon that expands and collapses accordion content.</p>
+
+    		<h3>2. Expanded content</h3>
+    		<p>Accordion content that is revealed or concealed when the corresponding accordion header is interacted with. It may also contain the footer where generally includes action buttons if necessary.</p>
+
+    	</Col>
+    	<Col size="3">
+    		<img src={SideImage} alt="{{Component Name}} Alt text" />
+    	</Col>
+    </Row>
+</Section>
