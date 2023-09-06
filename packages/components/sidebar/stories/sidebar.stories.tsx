@@ -35,33 +35,31 @@ const Sidebar = ({}) => {
 			<div className="sui-layout__content">
 				<Box>
 					<Row align={{ md: "inline" }}>
-						<Col size="3">
-							<Box>
-								<SuiSidebar>
-									<SidebarItem
-										action={tag}
-										title="Sidebar item"
-										url="#"
-										icon="Bell"
-									/>
-									<SidebarItem
-										isActive={true}
-										action={tag}
-										title="Sidebar Item (active)"
-										url="#"
-										icon="Bell"
-									/>
-									<SidebarItem action={tag} title="Sidebar item" url="#" />
-									<SidebarItem
-										isDisabled={true}
-										title="Sidebar item (disabled)"
-										url="#"
-										icon="Bell"
-									/>
-								</SuiSidebar>
-							</Box>
+						<Col size="4">
+							<SuiSidebar>
+								<SidebarItem
+									action={tag}
+									title="Sidebar item"
+									url="#"
+									icon="Bell"
+								/>
+								<SidebarItem
+									isActive={true}
+									action={tag}
+									title="Sidebar Item (active)"
+									url="#"
+									icon="Bell"
+								/>
+								<SidebarItem action={tag} title="Sidebar item" url="#" />
+								<SidebarItem
+									isDisabled={true}
+									title="Sidebar item (disabled)"
+									url="#"
+									icon="Bell"
+								/>
+							</SuiSidebar>
 						</Col>
-						<Col size="9">This is a side content.</Col>
+						<Col size="8">This is a side content.</Col>
 					</Row>
 				</Box>
 			</div>
