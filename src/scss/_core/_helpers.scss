@@ -16,4 +16,11 @@
 		border: 0;
 		word-wrap: normal !important;
 	}
+
+	// .sui-mobile-hide
+	@include block(md-hide) {
+		@include media(max-width, md) {
+			display: none;
+		}
+	}
 }

@@ -15,11 +15,12 @@
             @include element(main) {
                 align-items: center;
                 display: flex;
+				gap: $spacing-md;
             }
 
             @include element(main-title) {
-                color: var(--color-nutral-grey-10, #1A1A1A);
-                font: $font-weight-lg 18px/28px $font-family-default;
+                color: $color-extended-neutral-10;
+                margin: 0;
             }
         }
     }
