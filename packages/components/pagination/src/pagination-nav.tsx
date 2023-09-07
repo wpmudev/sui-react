@@ -1,4 +1,5 @@
 import React from "react"
+import { Button } from "@wpmudev/sui-button"
 
 type PaginationNavProps = {
 	pagesArray: number[]
@@ -47,43 +48,44 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 				)}
 				<ul className="sui-pagination__nav">
 					<li className="sui-pagination__item">
-						<button
+						<Button
 							className="sui-pagination__button"
-							disabled={selectedPage <= 1}
+							color="black"
+							appearance="tertiary"
+							icon="chevron-left"
+							iconOnly={true}
+							isSmall={true}
+							isDisabled={selectedPage <= 1}
 							onClick={handlePreviousPage}
 						>
-							<span aria-hidden="false" className="sui-screen-reader-only">
-								{previousLabel}
-							</span>
-							<span
-								aria-hidden="true"
-								title={previousLabel}
-								className="suicons suicons--chevron-left suicons--sm"
-							></span>
-						</button>
+							{previousLabel}
+						</Button>
 					</li>
 					{startIndex > 1 && skip && (
 						<li className="sui-pagination__item">
-							<button
+							<Button
 								className="sui-pagination__button"
-								disabled={selectedPage <= 1}
+								color="black"
+								appearance="tertiary"
+								isSmall={true}
+								isDisabled={selectedPage <= 1}
 								onClick={handleSkipToFirstPage}
 							>
 								1
-							</button>
+							</Button>
 						</li>
 					)}
 					{startIndex > 0 && (
 						<li className="sui-pagination__item">
-							<button
+							<Button
+								color="black"
+								appearance="tertiary"
+								icon="more"
+								iconOnly={true}
+								isSmall={true}
 								className="sui-pagination__button"
 								onClick={handlePreviousEllipsis}
-							>
-								<span
-									className="suicons suicons--more suicons--sm"
-									aria-hidden="true"
-								></span>
-							</button>
+							></Button>
 						</li>
 					)}
 					{pagesArray
@@ -96,7 +98,10 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 									key={index}
 									role="tab"
 								>
-									<button
+									<Button
+										color="black"
+										appearance="tertiary"
+										isSmall={true}
 										className={`sui-pagination__button${
 											selectedPage === data
 												? " sui-pagination__button--active"
@@ -105,13 +110,18 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 										onClick={() => handlePageClick(Math.floor(data))}
 									>
 										{data}
-									</button>
+									</Button>
 								</li>
 							)
 						})}
 					{endIndex < pages - 1 && (
 						<li className="sui-pagination__item">
-							<button
+							<Button
+								color="black"
+								appearance="tertiary"
+								icon="more"
+								iconOnly={true}
+								isSmall={true}
 								className="sui-pagination__button"
 								onClick={handleNextEllipsis}
 							>
@@ -119,35 +129,36 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 									className="suicons suicons--more suicons--sm"
 									aria-hidden="true"
 								></span>
-							</button>
+							</Button>
 						</li>
 					)}
 					{endIndex < pages && skip && (
 						<li className="sui-pagination__item">
-							<button
+							<Button
+								color="black"
+								appearance="tertiary"
+								isSmall={true}
 								className="sui-pagination__button"
-								disabled={selectedPage >= pages}
+								isDisabled={selectedPage >= pages}
 								onClick={handleSkipToLastPage}
 							>
 								{pagesArray.length}
-							</button>
+							</Button>
 						</li>
 					)}
 					<li className="sui-pagination__item">
-						<button
+						<Button
 							className="sui-pagination__button"
-							disabled={selectedPage >= pages}
+							color="black"
+							appearance="tertiary"
+							icon="chevron-right"
+							iconOnly={true}
+							isSmall={true}
+							isDisabled={selectedPage >= pages}
 							onClick={handleNextPage}
 						>
-							<span aria-hidden="false" className="sui-screen-reader-only">
-								{nextLabel}
-							</span>
-							<span
-								aria-hidden="true"
-								title={nextLabel}
-								className="suicons suicons--chevron-right suicons--sm"
-							></span>
-						</button>
+							{nextLabel}
+						</Button>
 					</li>
 				</ul>
 			</div>
