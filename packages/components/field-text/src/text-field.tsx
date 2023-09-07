@@ -19,6 +19,12 @@ const TextField: React.FC<TextFieldProps> = forwardRef<
 			isLabelHidden = false,
 			isError = false,
 			isDisabled = false,
+			icon,
+			iconPosition,
+			onChange,
+			placeholder,
+			defaultValue,
+			className,
 			...props
 		},
 		ref,
@@ -37,6 +43,7 @@ const TextField: React.FC<TextFieldProps> = forwardRef<
 				isLabelHidden={isLabelHidden}
 				isSmall={isSmall}
 				isDisabled={isDisabled}
+				className={className}
 			>
 				<Input
 					ref={ref}
@@ -44,6 +51,11 @@ const TextField: React.FC<TextFieldProps> = forwardRef<
 					isSmall={isSmall}
 					isError={isError}
 					isDisabled={isDisabled}
+					onChange={onChange}
+					placeholder={placeholder}
+					defaultValue={defaultValue}
+					icon={icon}
+					iconPosition={iconPosition}
 					{...props}
 				/>
 			</FormField>

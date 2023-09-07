@@ -1,36 +1,25 @@
 import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
-import { Input } from "../../../src"
+import { TextField } from "../../../src"
 import dedent from "dedent"
-import { FormField } from "@wpmudev/sui-form-field"
 
-export const DisabledInputCode = dedent`
-    <FormField isDisabled={true} label="Label" helper="Help text">
-       <Input id="input-id-1" placeholder="Placeholder" isDisabled={true} />
-    </FormField>
+export const DisabledTextField = dedent`
+    <TextField isDisabled={true} id="text-field-id-1" placeholder="Placeholder" label="Label" helper="Help text" />
 `
 
-export const DefaultValueInputCode = dedent`
-    <FormField label="Label" helper="Help text">
-       <Input id="input-id-1" defaultValue="Default Value" placeholder="Placeholder" />
-    </FormField>
+export const DefaultValueTextFieldCode = dedent`
+    <TextField defaultValue="Default Value" id="text-field-id-1" placeholder="Placeholder" label="Label" helper="Help text" />
 `
 
-export const ReadOnlyInputCode = dedent`
-    <FormField label="Label" helper="Help text">
-       <Input id="input-id-3" placeholder="Placeholder" readOnly={true} />
-    </FormField>
+export const ReadOnlyTextFieldCode = dedent`
+    <TextField readOnly={true} defaultValue="Read Only Field" id="text-field-id-1" placeholder="Placeholder" label="Label" helper="Help text" />
 `
 
-export const ErrorInputCode = dedent`
-    <FormField error={{ state: true, text: "Error Message" }} label="Label" helper="Help text">
-       <Input id="input-id-4" isError={true} placeholder="Placeholder" />
-    </FormField>
+export const ErrorTextFieldCode = dedent`
+	<TextField isError={true} errorMessage="Error Message" id="text-field-id-1" placeholder="Placeholder" label="Label" helper="Help text" />
 `
 
 export const multilineCode = dedent`
-    <FormField error={{ state: true, text: "Error Message" }} label="Label" helper="Help text">
-       <Input id="input-id-4" isMultiLine={true} placeholder="Placeholder" />
-    </FormField>
+    <TextField isMultiLine={true} id="text-field-id-1" placeholder="Multiline Text Field" label="Multiline" helper="Help text" />
 `
 
 <Section
@@ -40,18 +29,9 @@ export const multilineCode = dedent`
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
 	<Preview wrapper={true}>
-		<FormField isDisabled={true} label="Label" helper="Help text">
-			<Input
-				id="input-id-1"
-				label="Label"
-				description="This is a description."
-				descriptionId="desc-id-1"
-				placeholder="Placeholder"
-				isDisabled={true}
-			/>
-		</FormField>
+		<TextField isDisabled={true} id="text-field-id-1" placeholder="Placeholder" label="Label" helper="Help text" />
 	</Preview>
-	<Snippet language="js">{DisabledInputCode}</Snippet>
+	<Snippet language="js">{DisabledTextField}</Snippet>
 </Section>
 
 <Section
@@ -61,15 +41,9 @@ export const multilineCode = dedent`
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
 	<Preview wrapper={true}>
-		<FormField label="Label" helper="Help text">
-			<Input
-				id="input-id-2"
-				defaultValue="Default Value"
-				placeholder="Placeholder"
-			/>
-		</FormField>
+		<TextField defaultValue="Default Value" id="text-field-id-1" placeholder="Placeholder" label="Label" helper="Help text" />
 	</Preview>
-	<Snippet language="js">{DefaultValueInputCode}</Snippet>
+	<Snippet language="js">{DefaultValueTextFieldCode}</Snippet>
 </Section>
 
 <Section
@@ -79,11 +53,9 @@ export const multilineCode = dedent`
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
 	<Preview wrapper={true}>
-		<FormField label="Label" helper="Help text">
-			<Input id="input-id-3" placeholder="Placeholder" readOnly={true} />
-		</FormField>
+		<TextField readOnly={true} defaultValue="Read Only Field" id="text-field-id-1" placeholder="Placeholder" label="Label" helper="Help text" />
 	</Preview>
-	<Snippet language="js">{ReadOnlyInputCode}</Snippet>
+	<Snippet language="js">{ReadOnlyTextFieldCode}</Snippet>
 </Section>
 
 <Section
@@ -93,15 +65,9 @@ export const multilineCode = dedent`
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
 	<Preview wrapper={true}>
-		<FormField
-			error={{ state: true, text: "Error Message" }}
-			label="Label"
-			helper="Help text"
-		>
-			<Input id="input-id-4" isError={true} placeholder="Placeholder" />
-		</FormField>
+		<TextField isError={true} errorMessage="Error Message" id="text-field-id-1" placeholder="Placeholder" label="Label" helper="Help text" />
 	</Preview>
-	<Snippet language="js">{ErrorInputCode}</Snippet>
+	<Snippet language="js">{ErrorTextFieldCode}</Snippet>
 </Section>
 
 <Section
@@ -111,9 +77,7 @@ export const multilineCode = dedent`
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
 	<Preview wrapper={true}>
-		<FormField label="Label" helper="Help text">
-			<Input id="input-id-4" isMultiLine={true} placeholder="Placeholder" />
-		</FormField>
+		<TextField isMultiLine={true} id="text-field-id-1" placeholder="Multiline Text Field" label="Multiline" helper="Help text" />
 	</Preview>
 	<Snippet language="js">{multilineCode}</Snippet>
 </Section>
