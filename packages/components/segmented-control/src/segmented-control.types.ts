@@ -32,6 +32,8 @@ interface SegmentedControlButtonProps {
 	value: string | number
 	// A boolean indicating whether the button is disabled (optional).
 	isDisabled?: boolean
+	// A boolean indicating whether the segmented control should hide label in mobile view (optional).
+	isResponsive?: boolean
 	// An optional icon to be displayed within the button.
 	icon?: string
 	// The label for accessibility purposes (optional).
