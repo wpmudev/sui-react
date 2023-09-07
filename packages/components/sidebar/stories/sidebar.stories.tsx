@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { Tag } from "@wpmudev/sui-tag"
 
@@ -28,52 +28,75 @@ const tag = (
 	</Tag>
 )
 
+const items = [
+	{ title: "Option 1", url: "#", icon: "Bell" },
+	{ title: "Option 2", url: "#", icon: "Bell" },
+	{ title: "Option 3", url: "#" },
+	{
+		title: "Option 4 (disabled)",
+		url: "#",
+		icon: "Bell",
+		isDisabled: true,
+	},
+]
+
 // Build footer story
 const Sidebar = ({}) => {
+	const [currentTab, setCurrentTab] = useState<String>("Option 2")
+
+	const handleSidebarItemClick = (option: String) => () => {
+		setCurrentTab(option)
+	}
+
+	const renderSidebarItem = (
+		title: string,
+		url: string,
+		icon?: string,
+		hasAction = false,
+		isDisabled = false,
+	) => (
+		<SidebarItem
+			title={title}
+			url={url}
+			isActive={currentTab === title}
+			onClick={handleSidebarItemClick(title)}
+			icon={icon}
+			action={hasAction ? tag : null}
+			isDisabled={isDisabled}
+		/>
+	)
+
 	return (
-		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
+		<div className="sui-layout">
 			<div className="sui-layout__content">
-				<SidebarDropdown>
-					<SidebarItem title="Sidebar item" url="#" />
-					<SidebarItem isActive={true} title="Sidebar Item (active)" url="#" />
-					<SidebarItem title="Sidebar item" url="#" />
-					<SidebarItem
-						isDisabled={true}
-						title="Sidebar item (disabled)"
-						url="#"
-					/>
-				</SidebarDropdown>
-				<Box>
-					<BoxGroup>
-						<Row align={{ md: "inline" }}>
-							<Col size="3">
-								<SuiSidebar>
-									<SidebarItem
-										action={tag}
-										title="Sidebar item"
-										url="#"
-										icon="Bell"
-									/>
-									<SidebarItem
-										isActive={true}
-										action={tag}
-										title="Sidebar Item (active)"
-										url="#"
-										icon="Bell"
-									/>
-									<SidebarItem action={tag} title="Sidebar item" url="#" />
-									<SidebarItem
-										isDisabled={true}
-										title="Sidebar item (disabled)"
-										url="#"
-										icon="Bell"
-									/>
-								</SuiSidebar>
-							</Col>
-							<Col size="9">This is a side content.</Col>
-						</Row>
-					</BoxGroup>
-				</Box>
+				<BoxGroup>
+					<Row align={{ md: "inline" }}>
+						<Col size="3">
+							<SuiSidebar>
+								{items.map(({ title, url, icon, isDisabled }) =>
+									renderSidebarItem(title, url, icon, true, isDisabled),
+								)}
+							</SuiSidebar>
+							<SidebarDropdown selectedItemName={currentTab}>
+								{items.map(({ title, url, isDisabled }) =>
+									renderSidebarItem(title, url, undefined, false, isDisabled),
+								)}
+							</SidebarDropdown>
+						</Col>
+						<Col size="9">
+							<div
+								style={{
+									background: "white",
+									height: "100%",
+									minHeight: "200px",
+									padding: "25px",
+								}}
+							>
+								<div className="main">{currentTab}</div>
+							</div>
+						</Col>
+					</Row>
+				</BoxGroup>
 			</div>
 		</div>
 	)

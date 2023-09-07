@@ -15,7 +15,7 @@ import { SidebarProps } from "./sidebar.types"
 
 // Build sidebar component
 const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
-	({ className, children, ...props }, ref) => {
+	({ className, selectedItemName, children, ...props }, ref) => {
 		// Create a ref to access the dropdown's outer container element.
 		const dropdownRef = useRef<HTMLDivElement | null>(null)
 
@@ -38,10 +38,31 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 
 		const classNames = generateCN("sui-sidebar__dropdown", {}, className)
 
+		const childrenWithProps = React.Children.map(children, (child) => {
+			if (React.isValidElement(child)) {
+				const existingOnClick = child?.props?.onClick as
+					| undefined
+					| ((e: React.MouseEvent) => void) // Define the type of onClick function
+
+				const newOnClick = (e: React.MouseEvent) => {
+					if (existingOnClick) {
+						existingOnClick(e)
+					}
+					setIsOpen(false)
+				}
+
+				return React.cloneElement(child as React.ReactElement, {
+					onClick: newOnClick,
+				})
+			}
+			return child
+		})
+
 		return (
 			<div ref={dropdownRef} className={classNames}>
 				<div>
 					<Button
+						id={`${id}__label`}
 						className="sui-sidebar__dropdown--button"
 						// aria-activedescendant={isOpen ? `${id}-${current}` : ""}
 						onClick={() => setIsOpen(!isOpen)}
@@ -49,7 +70,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 						isFullWidth={true}
 						{...props}
 					>
-						General
+						{selectedItemName}
 					</Button>
 				</div>
 				{isOpen && (
@@ -58,9 +79,9 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 						tabIndex={-1}
 						role="listbox"
 						className="sui-sidebar__dropdown--list"
-						// {...(label && { "aria-labelledby": `${id}__label` })}
+						aria-labelledby={`${id}__label`}
 					>
-						{children}
+						{childrenWithProps}
 					</div>
 				)}
 			</div>
