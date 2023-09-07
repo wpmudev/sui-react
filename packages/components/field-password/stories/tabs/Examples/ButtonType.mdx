@@ -1,0 +1,34 @@
+import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { PasswordField } from "../../../src"
+import dedent from "dedent"
+
+export const StandardButtonCode = dedent`
+    <PasswordField button="" label="Label" helper="Help text" />
+`
+
+export const IconButtonCode = dedent`
+    <PasswordField label="Label" helper="Help text" />
+`
+
+<Section
+	title="Standard Button ( default ) "
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<PasswordField button={{type: "standard"}} id="password-field-id-1" icon label="Label" helper="Help text" />
+	</Preview>
+	<Snippet language="js">{StandardButtonCode}</Snippet>
+</Section>
+
+<Section
+	title="Icon Button"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<PasswordField button={{type: "icon-button"}} id="password-field-id-1" label="Label" helper="Help text" />
+	</Preview>
+	<Snippet language="js">{IconButtonCode}</Snippet>
+</Section>

@@ -1,0 +1,57 @@
+import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { PasswordField } from "../../../src"
+import dedent from "dedent"
+import { FormField } from "@wpmudev/sui-form-field"
+
+export const DisabledPasswordFieldCode = dedent`
+    <PasswordField
+        isDisabled={true}
+        id="password-field-id-1"
+        label="Label"
+        helper="Help text"
+    />
+`
+
+export const ErrorPasswordFieldCode = dedent`
+    <PasswordField
+        isError={true}
+        errorMessage="Error Message"
+        id="password-field-id-1"
+        label="Label"
+    />
+`
+
+<Section
+	title="Disabled"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<PasswordField
+		    isDisabled={true}
+			id="password-field-id-1"
+			label="Label"
+			helper="Help text"
+		/>
+	</Preview>
+	<Snippet language="js">{DisabledPasswordFieldCode}</Snippet>
+</Section>
+
+<Section
+	title="Error"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<PasswordField
+		    isError={true}
+			errorMessage="Error Message"
+			id="password-field-id-1"
+			label="Label"
+		/>
+	</Preview>
+	<Snippet language="js">{ErrorPasswordFieldCode}</Snippet>
+</Section>
+
