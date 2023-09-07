@@ -15,7 +15,10 @@ import { SidebarProps } from "./sidebar.types"
 
 // Build sidebar component
 const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
-	({ className, selectedItemName, children, ...props }, ref) => {
+	(
+		{ className, selectedItemName = "", children, ...props }: SidebarProps,
+		ref,
+	) => {
 		// Create a ref to access the dropdown's outer container element.
 		const dropdownRef = useRef<HTMLDivElement | null>(null)
 
