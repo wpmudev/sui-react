@@ -2,11 +2,6 @@ import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
 import { BasicCheckbox } from "./Examples/BasicCheckbox"
 import dedent from "dedent"
 
-{/* Import Variations */}
-import Neutral from "./Examples/states/Neutral.mdx"
-import Informative from "./Examples/states/Informative.mdx"
-import Success from "./Examples/states/Success.mdx"
-
 export const sampleCode = dedent`
     <Checkbox label="Checkbox label" onChange={(e)=> setChecked(e.target.checked)}/>
 `
