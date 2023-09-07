@@ -24,4 +24,34 @@
 			}
 		}
 	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(item) {
+				@include modifier(active) {
+					background: $color-extended-neutral-100;
+					outline: $border-width-sm solid $color-extended-neutral-0;
+					
+					.sui-#{$block}__item-info {
+						color: $color-extended-neutral-0;						
+					}
+				}
+			}
+
+			@include element(dropdown) {
+				@include modifier(list) {
+					.sui-#{$block}__item--active {
+						border: none;
+						background: $color-extended-neutral-0;
+
+						.sui-#{$block}__item-info {
+							color: $color-extended-neutral-100;
+						}
+					}
+				}
+			}
+		}
+	}
 }
