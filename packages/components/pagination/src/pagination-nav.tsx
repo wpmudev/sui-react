@@ -2,6 +2,8 @@ import React from "react"
 
 // build navigation markup
 export const PaginationNav = ({ ...properties }) => {
+	console.log(properties.endIndex, properties.pages)
+
 	return (
 		properties.pagesArray.length > 1 && (
 			<div className="sui-pagination">
@@ -11,24 +13,6 @@ export const PaginationNav = ({ ...properties }) => {
 					</span>
 				)}
 				<ul className="sui-pagination__nav">
-					{properties.skip && (
-						<li className="sui-pagination__item">
-							<button
-								className="sui-pagination__button"
-								disabled={properties.selectedPage <= 1}
-								onClick={properties.handleSkipToFirstPage}
-							>
-								<span aria-hidden="false" className="sui-screen-reader-only">
-									{properties.skipToFirstLabel || "Go to first page"}
-								</span>
-								<span
-									aria-hidden="true"
-									title={properties.skipToFirstLabel || "Go to first page"}
-									className="suicons suicons--arrow-skip-back suicons--sm"
-								></span>
-							</button>
-						</li>
-					)}
 					<li className="sui-pagination__item">
 						<button
 							className="sui-pagination__button"
@@ -45,6 +29,17 @@ export const PaginationNav = ({ ...properties }) => {
 							></span>
 						</button>
 					</li>
+					{properties.startIndex > 1 && properties.skip && (
+						<li className="sui-pagination__item">
+							<button
+								className="sui-pagination__button"
+								disabled={properties.selectedPage <= 1}
+								onClick={properties.handleSkipToFirstPage}
+							>
+								1
+							</button>
+						</li>
+					)}
 					{properties.startIndex > 0 && (
 						<li className="sui-pagination__item">
 							<button
@@ -81,7 +76,7 @@ export const PaginationNav = ({ ...properties }) => {
 								</li>
 							)
 						})}
-					{properties.endIndex < properties.pages && (
+					{properties.endIndex < properties.pages - 1 && (
 						<li className="sui-pagination__item">
 							<button
 								className="sui-pagination__button"
@@ -91,6 +86,17 @@ export const PaginationNav = ({ ...properties }) => {
 									className="suicons suicons--more suicons--sm"
 									aria-hidden="true"
 								/>
+							</button>
+						</li>
+					)}
+					{properties.endIndex < properties.pages && properties.skip && (
+						<li className="sui-pagination__item">
+							<button
+								className="sui-pagination__button"
+								disabled={properties.selectedPage >= properties.pages}
+								onClick={properties.handleSkipToLastPage}
+							>
+								{properties.pagesArray.length}
 							</button>
 						</li>
 					)}
@@ -110,24 +116,6 @@ export const PaginationNav = ({ ...properties }) => {
 							></span>
 						</button>
 					</li>
-					{properties.skip && (
-						<li className="sui-pagination__item">
-							<button
-								className="sui-pagination__button"
-								disabled={properties.selectedPage >= properties.pages}
-								onClick={properties.handleSkipToLastPage}
-							>
-								<span aria-hidden="false" className="sui-screen-reader-only">
-									{properties.skipToLastLabel || "Go to last page."}
-								</span>
-								<span
-									aria-hidden="true"
-									title={properties.skipToLastLabel || "Go to last page"}
-									className="suicons suicons--arrow-skip-forward suicons--sm"
-								/>
-							</button>
-						</li>
-					)}
 				</ul>
 			</div>
 		)
