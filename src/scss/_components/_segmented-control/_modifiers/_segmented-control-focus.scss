@@ -15,10 +15,10 @@
 		@include block($block) {
 			@include element(label) {
 				@include modifier(focus) {
-					box-shadow: 0 0 0 2px #505050;
-					color: var(--neutral-grey-dark-60737373, #505050);
+					box-shadow: 0 0 0 $border-width-md $color-extended-neutral-50;
+					color: $color-extended-neutral-60;
 					position: relative;
-					z-index: 2;	
+					z-index: 2;
 				}
 			}
 		}
