@@ -27,6 +27,7 @@
 				position: absolute;
 				background-size: $banner-bg-size;
 				opacity: 0.1;
+				-webkit-mask-image: linear-gradient(to right, $color-extended-neutral-0 50%, transparent 73%);
 			}
 
 			@include media(max-width, sm) {
