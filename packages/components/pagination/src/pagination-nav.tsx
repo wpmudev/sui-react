@@ -1,29 +1,9 @@
 import React from "react"
 import { Button } from "@wpmudev/sui-button"
-
-type PaginationNavProps = {
-	pagesArray: number[]
-	results?: boolean
-	elements: number
-	selectedPage: number
-	handlePreviousPage: () => void
-	handleSkipToFirstPage: () => void
-	handleSkipToLastPage: () => void
-	handlePreviousEllipsis: () => void
-	handlePageClick: (page: number) => void
-	handleNextEllipsis: () => void
-	handleNextPage: () => void
-	previousLabel?: string
-	nextLabel?: string
-	startIndex: number
-	endIndex: number
-	pages: number
-	skip?: boolean
-}
+import { PaginationNavProps } from "./pagination.types"
 
 export const PaginationNav: React.FC<PaginationNavProps> = ({
 	pagesArray,
-	results,
 	elements,
 	selectedPage,
 	handlePreviousPage,
@@ -43,9 +23,6 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 	return (
 		pagesArray.length > 1 && (
 			<div className="sui-pagination">
-				{results && (
-					<span className="sui-pagination__results">{elements} results</span>
-				)}
 				<ul className="sui-pagination__nav">
 					<li className="sui-pagination__item">
 						<Button
@@ -114,7 +91,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 								</li>
 							)
 						})}
-					{endIndex < pages - 1 && (
+					{endIndex < pages && (
 						<li className="sui-pagination__item">
 							<Button
 								color="black"

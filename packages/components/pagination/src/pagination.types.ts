@@ -15,10 +15,6 @@ interface PaginationProps {
 	 */
 	skip?: boolean
 	/**
-	 * When enabled, it shows the total number of results."
-	 */
-	results?: boolean
-	/**
 	 * show the pagination at the bottom of the list
 	 */
 	pagesToBottom?: boolean
@@ -34,6 +30,10 @@ interface PaginationProps {
 	 * "skip to first" button label
 	 */
 	skipToFirstLabel?: string
+	/**
+	 * number of items in a page.
+	 */
+	numberOfItems?: number
 	/**
 	 * "skip to last" button label
 	 */
@@ -54,4 +54,23 @@ interface PaginationProps {
 	onChange?(page: number): void
 }
 
-export type { PaginationProps }
+type PaginationNavProps = {
+	pagesArray: number[]
+	elements: number
+	selectedPage: number
+	handlePreviousPage: () => void
+	handleSkipToFirstPage: () => void
+	handleSkipToLastPage: () => void
+	handlePreviousEllipsis: () => void
+	handlePageClick: (page: number) => void
+	handleNextEllipsis: () => void
+	handleNextPage: () => void
+	previousLabel?: string
+	nextLabel?: string
+	startIndex: number
+	endIndex: number
+	pages: number
+	skip?: boolean
+}
+
+export type { PaginationProps, PaginationNavProps }
