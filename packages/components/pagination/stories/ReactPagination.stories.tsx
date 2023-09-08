@@ -167,8 +167,9 @@ export const Pagination = (args: PaginationProps): React.ReactNode => {
 Pagination.args = {
 	limit: 5,
 	skip: false,
-	results: false,
 	pagesToBottom: false,
+	previousLabel: "Go to previous page",
+	nextLabel: "Go to next page",
 }
 
 // Set controls for story arguments.
@@ -235,7 +236,6 @@ Pagination.argTypes = {
 		description:
 			'By default, the "previous" button will have as label **"Go to previous page"**. You can change that using this property.',
 		table: {
-			category: "Source Language",
 			type: {
 				summary: "string",
 			},
@@ -249,35 +249,6 @@ Pagination.argTypes = {
 		description:
 			'By default, the "next" button will have as label **"Go to next page"**. You can change that using this property.',
 		table: {
-			category: "Source Language",
-			type: {
-				summary: "string",
-			},
-		},
-		control: {
-			type: "text",
-		},
-	},
-	skipToFirstLabel: {
-		name: "First page Button(Label)",
-		description:
-			'By default, the "skip to first" button will have as label **"Go to first page"**. You can change that using this property.',
-		table: {
-			category: "Source Language",
-			type: {
-				summary: "string",
-			},
-		},
-		control: {
-			type: "text",
-		},
-	},
-	skipToLastLabel: {
-		name: "Last page Button(Label)",
-		description:
-			'By default, the "skip to last" button will have as label **"Go to last page"**. You can change that using this property.',
-		table: {
-			category: "Source Language",
 			type: {
 				summary: "string",
 			},

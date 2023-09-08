@@ -91,7 +91,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 								</li>
 							)
 						})}
-					{endIndex < pages && (
+					{endIndex < pages - 1 && (
 						<li className="sui-pagination__item">
 							<Button
 								color="black"
