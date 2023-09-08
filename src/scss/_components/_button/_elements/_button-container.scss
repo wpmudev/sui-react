@@ -25,6 +25,7 @@
 			letter-spacing: $button-label-font-spacing-md;
 			text-decoration: none;
 			transition: 0.1s ease;
+			user-select: none;
 
 			&:first-child {
 				margin-left: 0;

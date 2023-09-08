@@ -14,8 +14,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			display: flex;
-			flex-flow: row wrap;
-			align-items: flex-start;
+			justify-content: flex-end;
 		}
 	}
 }

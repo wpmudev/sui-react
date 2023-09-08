@@ -2,7 +2,6 @@
 @use "./_states/states" as sui-pagination--state;
 
 @include sui-pagination--element.build-container(pagination);
-@include sui-pagination--element.build-results(pagination);
 @include sui-pagination--element.build-nav(pagination);
 @include sui-pagination--element.build-item(pagination);
 @include sui-pagination--element.build-button(pagination);
