@@ -1,4 +1,3 @@
-
 @use "sass:math";
 @use "../../../_utils/utils" as *;
 
@@ -17,6 +16,12 @@
 				@include modifier(focus) {
 					outline: $border-width-md solid $color-extended-neutral-50;
 					box-shadow: none;
+				}
+			}
+
+			@include element(dropdown) {
+				.sui-#{$block}__item--focus {
+					outline: none;
 				}
 			}
 		}
