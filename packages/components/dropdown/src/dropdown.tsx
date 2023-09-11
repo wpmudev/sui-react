@@ -3,8 +3,6 @@ import React, {
 	useState,
 	useId,
 	forwardRef,
-	useEffect,
-	useCallback,
 	useImperativeHandle,
 } from "react"
 
@@ -12,8 +10,6 @@ import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 import { useOuterClick } from "@wpmudev/sui-hooks"
 import { Menu, MenuItem, MenuGroup } from "@wpmudev/sui-menu"
-
-import { ArrowDown } from "@wpmudev/sui-icon"
 
 import { DropdownProps, DropdownRefProps } from "./dropdown.types"
 
