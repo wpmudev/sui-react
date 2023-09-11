@@ -1,64 +1,208 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
+import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 
-<Section
-	title="Installation"
-	contained={true}
-	style={{ paddingTop: 20, paddingBottom: 0 }}
->
+<Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
 	<p>
-		Install the <Code small={true}>[Component Name]</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
+		Install the <Code small={true}>Button</Code> package as an individual
+		component or follow the Overview page instructions to get the complete
+		SUI Components package.
 	</p>
 </Section>
 
-<Section title="Props" border={true}>
+<Section>
+	<p>
+		The Button package provides 3 button components: 
+	</p>
+	<List>
+		<span label={<><Code small={true}> Button </Code> This is the main button component and it is used by the other variations internally</>} />
+		<span label={<><Code small={true}> LoadingButton </Code> A button with a loading state </>} />
+		<span label={<><Code small={true}> ToggleButton </Code> This variation can be used in a group of related options. </>} />
+	</List>
 
-    	<Section
-    		title={{ content: "prop*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p>Sets the semantic type for the accordion</p>
-    		<p>
-    		Allowed options:
-    			<List>
-    				<span label={<Code small={true}>neutral</Code>} />
-    				<span label={<Code small={true}>informative</Code>} />
-    				<span label={<Code small={true}>success</Code>} />
-    				<span label={<Code small={true}>warning</Code>} />
-    				<span label={<Code small={true}>critical</Code>} />
-    			</List>
-    		</p>
-    	</Section>
-
+	<p>
+		All three components share the same props of the base component and each variation has other props as explained below
+	</p>
 </Section>
 
-{/** Use this for sub components */}
-<Section
-	title="Sub Components"
-	contained={true}
-	style={{ paddingTop: 30, paddingBottom: 0 }}
->
-		<p>The [component name] offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+<Section title="Shared props" border={true}>
+	
+	<Section
+		title={{ content: 'href*', tag: 'string', small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Link Url for the button</p>
+	</Section>
+	<Section
+		title={{ content: 'htmlFor*', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Optional associated form element name for the button.</p>
+	</Section>
+	<Section
+		title={{ content: 'appearance*', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			The base styling to apply. It is empty by default to allow you keep
+			the markup and base styles but customize it in case is necessary.
+		</p>
+		<p>Allowed options:</p>
+		<List>
+			<span
+				label={
+					<>
+						<Code small={true}>primary</Code>: Solid button.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>secondary</Code>: Outlined button.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>tertiary</Code>: Text button.
+					</>
+				}
+			/>
+		</List>
+	</Section>
+	<Section
+		title={{ content: 'color*', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Color of the button</p>
+		<p>Allowed options:</p>
+		<List>
+			<span label={<Code small={true}>blue</Code>} />
+			<span label={<Code small={true}>black</Code>} />
+			<span label={<Code small={true}>red</Code>} />
+			<span label={<Code small={true}>navy</Code>} />
+			<span label={<Code small={true}>white</Code>} />
+		</List>
+	</Section>
+	<Section
+		title={{ content: 'isSmall*', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>When set to <Code small={true}>true</Code> the button will be small</p>
+	</Section>
+	<Section
+		title={{ content: 'isDisabled*', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>When set to <Code small={true}>true</Code> the button will be disabled</p>
+	</Section>
+	<Section
+		title={{ content: 'className*', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Custom css className(s) for the button</p>
+	</Section>
+	
+	<Section
+		title={{ content: 'startIcon*', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>An icon to be displayed before the label</p>
+	</Section>
+	<Section
+		title={{ content: 'endIcon*', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>An Icon to be displayed after the label</p>
+	</Section>
+	<Section
+		title={{ content: 'target*', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Optional target window or frame to open the link.</p>
+	</Section>
+	<Section
+		title={{ content: 'isFullWidth*', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>When set to <Code small={true}>true</Code> the button will have a full width</p>
+	</Section>
+	<Section
+		title={{ content: 'isUnwrapped*', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>When set to <Code small={true}>true</Code> the button will be unwrapped from its container</p>
+	</Section>
+	<Section
+		title={{ content: 'icon*', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>An icon to be displayed before the label</p>
+	</Section>
+	<Section
+		title={{ content: 'iconSize*', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>One of the following values to set a size for the icon</p>
+		<List>
+			<span label={<Code small={true}>sm</Code>} />
+            <span label={<Code small={true}>md</Code>} />
+			<span label={<Code small={true}>lg</Code>} />
+		</List>
+	</Section>
+	<Section
+		title={{ content: 'children*', tag: 'React Node', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>The button text or any other React element</p>
+	</Section>
+	<Section
+		title={{ content: 'iconOnly*', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>When set to <Code small={true}> true </Code> the button will display the icon only</p>
+	</Section>
 
-    <Section title="Sub Component" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component represents an individual item or section of the accordion and comes with its
-    		own set of props.
-    	</p>
+	<Section
+		title={{ content: 'isResponsive*', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>When set to <Code small={true}> true </Code> the button will be responsive</p>
+	</Section>
+</Section>
 
-    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			prop description
-    		</p>
-    	</Section>
+<Section title="LoadingButton props" contained={true} border={true}>
+	<p>
+		The <Code small={true}>LoadingButton</Code> accepts all the shared props
+		and an optional <Code small={true}>isLoading</Code> prop.
+	</p>
+	<Section
+		title={{ content: 'isLoading*', tag: 'boolean', small: true }}
+		style={{
+			paddingTop: 10,
+			paddingBottom: 0,
+			paddingLeft: 20,
+			paddingRight: 0,
+		}}
+	>
+		<p> When set to <Code small={true}>true</Code> a spinner will be shown </p>
+	</Section>
+</Section>
 
-    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			prop description
-    		</p>
-    	</Section>
-
-    </Section>
-
+<Section title="ToggleButton props" contained={true}>
+	<p>
+		The <Code small={true}>ToggleButton</Code> accepts all the shared props
+		and an optional <Code small={true}>isSelected</Code> prop.
+	</p>
+	<Section
+		title={{ content: 'isSelected*', tag: 'boolean', small: true }}
+		style={{
+			paddingTop: 10,
+			paddingBottom: 0,
+			paddingLeft: 20,
+			paddingRight: 0,
+		}}
+	>
+		<p>When set to <Code small={true}> true </Code> the style changes to indicate that the button is selected</p>
+	</Section>
 </Section>
