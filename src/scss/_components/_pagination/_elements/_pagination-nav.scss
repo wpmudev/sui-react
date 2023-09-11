@@ -15,24 +15,9 @@
 		@include block($block) {
 			@include element(nav) {
 				display: flex;
-				flex-flow: row wrap;
-				align-items: center;
-				justify-content: flex-end;
-				padding: 0;
 				margin: 0;
-				margin-left: auto;
 				list-style: none;
-			}
-		}
-	}
-
-	// DIR: Right to left.
-	// THEME: None.
-	@include sui-class($rtl: true, $theme: null) {
-		@include block($block) {
-			@include element(nav) {
-				margin-right: auto;
-				margin-left: 0;
+				gap: $spacing-sm;
 			}
 		}
 	}

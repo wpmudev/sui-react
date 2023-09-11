@@ -17,8 +17,8 @@
                 @include modifier(disabled) {
                     pointer-events: none;
                     user-select: none;
-                    background: var(--neutral-grey-light-90-f-2-f-2-f-2, #F2F2F2);
-                    color: var(--neutral-grey-light-70-aaaaaa, #AAA);
+                    background: $color-extended-neutral-90;
+                    color: $color-extended-neutral-70;
                     cursor: default;
                 }
             }

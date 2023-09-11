@@ -14,19 +14,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(item) {
-				display: block;
-				margin: 0 2px;
-				padding: 0;
-				border: 0;
-				list-style: none;
-
-				&:first-child {
-					margin-left: 0;
-				}
-
-				&:last-child {
-					margin-right: 0;
-				}
+				margin: 0;
 			}
 		}
 	}
