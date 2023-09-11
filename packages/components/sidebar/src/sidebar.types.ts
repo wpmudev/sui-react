@@ -10,6 +10,11 @@ interface SidebarProps {
 	className?: string
 
 	/**
+	 * An optional class name to be applied to the Sidebar component.
+	 */
+	selectedItemName?: string
+
+	/**
 	 * Children components to be rendered within the Sidebar.
 	 */
 	children?: React.ReactNode

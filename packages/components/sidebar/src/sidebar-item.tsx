@@ -17,6 +17,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 	action,
 	isActive,
 	isDisabled,
+	onClick = () => {},
 	...props
 }) => {
 	// `useInteraction` returns interaction state and methods.
@@ -48,6 +49,10 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 			{...methods}
 			{...props}
 			tabIndex={isDisabled ? -1 : 0}
+			onClick={(e) => {
+				e.preventDefault()
+				onClick(e)
+			}}
 		>
 			{/* Display item info, including optional icon and title */}
 			<div className="sui-sidebar__item-info">
