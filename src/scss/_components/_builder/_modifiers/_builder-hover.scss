@@ -1,0 +1,21 @@
+@use "../../../_utils/utils" as *;
+
+/// Hover State
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin state-hover($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(field) {
+                @include modifier(hover) {
+                    outline: 4px solid var(--alpha-grey-10, rgba(26, 26, 26, 0.10));
+                }
+            }
+        }
+    }
+}

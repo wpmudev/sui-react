@@ -1,0 +1,23 @@
+
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build wrapper
+///
+/// @type item
+/// @author WPMU DEV
+///
+/// @param {String} $item - Main item name
+@mixin build-wrapper($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(wrapper) {
+				display: flex;
+				gap: 16px;
+				margin-bottom: 16px;
+			}
+		}
+	}
+}

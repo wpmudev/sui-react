@@ -1,0 +1,36 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Button
+///
+/// @type item
+/// @author WPMU DEV
+///
+/// @param {String} $item - Main item name
+@mixin build-button($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(button) {
+                align-items: center;
+                background: rgba(26, 26, 26, 0.00);
+                border: 2px dashed var(--neutral-grey-70-aaaaaa, #AAA);
+                border-radius: 8px;
+                color: var(--neutral-grey-50505050, #505050);
+                cursor: pointer;
+                display: flex;
+                gap: 8px;
+                justify-content: center;
+                margin-top: 16px;
+                padding: 24px;
+                text-decoration: none;
+                width: 100%;
+
+                span {
+                    font: $font-weight-md 15px/24px $font-family-default
+                }
+            }
+        }
+    }
+}
