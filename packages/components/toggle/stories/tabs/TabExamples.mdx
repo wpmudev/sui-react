@@ -1,36 +1,56 @@
 import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src"
+import { Toggle } from "../../src"
 import dedent from "dedent"
 
-{/* Import Variations */}
-import Neutral from "./Examples/states/Neutral.mdx"
-import Informative from "./Examples/states/Informative.mdx"
-import Success from "./Examples/states/Success.mdx"
+
 
 export const sampleCode = dedent`
-    Basic Examples 
+    <Toggle label="Toggle Label" />
+`
+
+export const descriptionCode = dedent`
+    <Toggle 
+        label="Toggle Label" 
+        description=\`
+            Toggle description goes here. Lorem Ipsum 
+            is simply dummy text of the printing and 
+            typesetting industry it has been the 
+            industry's Standard.
+        \`
+    />
+
+`
+
+export const noLabelCode = dedent`
+    <div style={ { display: "flex", justifyContent: "space-between" } }>
+        <span>Pluign Settings</span>
+        <Toggle />
+    </div>
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Basic Accordion Example</p>
+	<p>A basic Toggle example that's used for most cases</p>
 	<Preview wrapper={true}>
-		Basic Example
+		<Toggle label="Toggle Label" />
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
 
-<Section title="State" style={{ paddingTop: 0 }}>
-	Use this if you need to switch between multiple options 
-	<Switcher>
-		<div label="neutral" value="neutral">
-			<Neutral />
-		</div>
-		<div label="informative" value="informative">
-			<Informative />
-		</div>
-		<div label="success" value="success">
-			<Success />
-		</div>
-	</Switcher>
+<Section title="Description" contained={true} style={{ paddingTop: 30 }}>
+	<p>Use the <Code small={true}> description </Code> prop to add a description below the label </p>
+	<Preview wrapper={true}>
+		<Toggle label="Toggle Label" description="Toggle description goes here. Lorem Ipsum is simply dummy text of the printing and typesetting industry it has been the industry's Standard."/>
+	</Preview>
+	<Snippet language="js">{descriptionCode}</Snippet>
 </Section>
 
+<Section title="Without a label" contained={true} style={{ paddingTop: 30 }}>
+	<p>You can also use the <Code small={true}> Toggle </Code> without a label </p>
+	<Preview wrapper={true}>
+		<div style={ { display: "flex", justifyContent: "space-between" } }>
+			<span>Pluign Settings</span>
+			<Toggle />
+		</div>
+	</Preview>
+	<Snippet language="js">{noLabelCode}</Snippet>
+</Section>
