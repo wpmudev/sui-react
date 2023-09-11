@@ -14,57 +14,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(button) {
-				cursor: pointer;
-				width: $font-height-md;
-				margin: 0;
+				min-width: $pagination-size-width-md;
+				height: $pagination-size-height-md;
 				padding: 0;
-				border: 0;
-				border-radius: $border-radius-sm;
-				outline: none;
-				background: $color-extended-neutral-100;
-				transition: 0.2s ease;
-				color: $color-extended-neutral-60;
-				font-weight: $font-weight-md;
-				font-size: $font-size-xs;
-				line-height: $font-height-md;
-				letter-spacing: $font-spacing-default;
-				text-align: center;
-				user-select: none;
-
-				&:hover {
-					background: $color-extended-neutral-90;
-					color: $color-extended-neutral-10;
-				}
-
-				&:disabled {
-					cursor: default;
-					pointer-events: none;
-					background: $color-extended-neutral-80;
-					color: $color-extended-neutral-70;
-				}
-			}
-		}
-	}
-
-	// DIR: Left to right.
-	// THEME: Dark.
-	@include sui-class($rtl: false, $theme: dark) {
-		@include block($block) {
-			@include element(button) {
-				background: $color-extended-neutral-100;
-				color: $color-extended-neutral-0;
-
-				&:hover {
-					background: $color-extended-neutral-90;
-					color: $color-extended-neutral-10;
-				}
-
-				&:disabled {
-					cursor: default;
-					pointer-events: none;
-					background: $color-extended-neutral-80;
-					color: $color-extended-neutral-70;
-				}
+    			align-items: center;
 			}
 		}
 	}
