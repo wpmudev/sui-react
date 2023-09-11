@@ -1,0 +1,74 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Checkbox</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+
+    	<Section
+    		title={{ content: "label*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The text label for the checkbox.</p>
+    		
+    	</Section>
+
+		<Section
+    		title={{ content: "isLabelHidden*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Indicates whether the label should be hidden or not.</p>
+    		
+    	</Section>
+
+		<Section
+    		title={{ content: "isSmall*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Indicates whether the checkbox should be displayed as small or not.</p>
+    		
+    	</Section>
+
+		<Section
+    		title={{ content: "isDisabled*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Indicates whether the checkbox is disabled or not.</p>
+    		
+    	</Section>
+
+		<Section
+    		title={{ content: "isIndeterminate*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Mark checkbox checked as indeterminate, for more information checkout the <a target="_blank" href="/?path=/docs/sui-components-forms-checkbox--docs">Usage Page</a></p>
+    		
+    	</Section>
+
+		<Section
+    		title={{ content: "isChecked*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Default value for the checkbox, when set to <Code small={true}>true</Code> the Checkbox will be checked initially</p>
+    		
+    	</Section>
+
+		<Section
+    		title={{ content: "onChange*", tag: 'function', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>A callback function to be invoked when the checkbox state is changed</p>
+    		
+    	</Section>
+
+</Section>
+
