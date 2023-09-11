@@ -167,13 +167,15 @@ export const Pagination = (args: PaginationProps): React.ReactNode => {
 Pagination.args = {
 	limit: 5,
 	skip: false,
-	results: false,
 	pagesToBottom: false,
+	previousLabel: "Go to previous page",
+	nextLabel: "Go to next page",
 }
 
 // Set controls for story arguments.
 Pagination.argTypes = {
 	limit: {
+		name: "Number of items(per page)",
 		type: {
 			required: true,
 		},
@@ -189,6 +191,7 @@ Pagination.argTypes = {
 		},
 	},
 	skip: {
+		name: "Skip Buttons",
 		description:
 			"Enable this property to show skip buttons on pagination. Those will help you move directly to first and last page.",
 		table: {
@@ -200,18 +203,8 @@ Pagination.argTypes = {
 			type: "boolean",
 		},
 	},
-	results: {
-		description: "When enabled, it shows the total number of results.",
-		table: {
-			type: {
-				summary: "boolean",
-			},
-		},
-		control: {
-			type: "boolean",
-		},
-	},
 	pagesToBottom: {
+		name: "Align to bottom",
 		description:
 			"If you need to show the pagination at the bottom of the list, enable this property.",
 		table: {
@@ -239,10 +232,10 @@ Pagination.argTypes = {
 		},
 	},
 	previousLabel: {
+		name: "Previous Button(Label)",
 		description:
 			'By default, the "previous" button will have as label **"Go to previous page"**. You can change that using this property.',
 		table: {
-			category: "Source Language",
 			type: {
 				summary: "string",
 			},
@@ -252,36 +245,10 @@ Pagination.argTypes = {
 		},
 	},
 	nextLabel: {
+		name: "Next Button(Label)",
 		description:
 			'By default, the "next" button will have as label **"Go to next page"**. You can change that using this property.',
 		table: {
-			category: "Source Language",
-			type: {
-				summary: "string",
-			},
-		},
-		control: {
-			type: "text",
-		},
-	},
-	skipToFirstLabel: {
-		description:
-			'By default, the "skip to first" button will have as label **"Go to first page"**. You can change that using this property.',
-		table: {
-			category: "Source Language",
-			type: {
-				summary: "string",
-			},
-		},
-		control: {
-			type: "text",
-		},
-	},
-	skipToLastLabel: {
-		description:
-			'By default, the "skip to last" button will have as label **"Go to last page"**. You can change that using this property.',
-		table: {
-			category: "Source Language",
 			type: {
 				summary: "string",
 			},

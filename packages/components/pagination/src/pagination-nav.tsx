@@ -1,133 +1,142 @@
 import React from "react"
+import { Button } from "@wpmudev/sui-button"
+import { PaginationNavProps } from "./pagination.types"
 
-// build navigation markup
-export const PaginationNav = ({ ...properties }) => {
+export const PaginationNav: React.FC<PaginationNavProps> = ({
+	pagesArray,
+	elements,
+	selectedPage,
+	handlePreviousPage,
+	handleSkipToFirstPage,
+	handleSkipToLastPage,
+	handlePreviousEllipsis,
+	handlePageClick,
+	handleNextEllipsis,
+	handleNextPage,
+	previousLabel = "Go to previous page",
+	nextLabel = "Go to next page",
+	startIndex,
+	endIndex,
+	pages,
+	skip,
+}) => {
 	return (
-		properties.pagesArray.length > 1 && (
+		pagesArray.length > 1 && (
 			<div className="sui-pagination">
-				{properties.results && (
-					<span className="sui-pagination__results">
-						{properties.elements} results
-					</span>
-				)}
 				<ul className="sui-pagination__nav">
-					{properties.skip && (
-						<li className="sui-pagination__item">
-							<button
-								className="sui-pagination__button"
-								disabled={properties.selectedPage <= 1}
-								onClick={properties.handleSkipToFirstPage}
-							>
-								<span aria-hidden="false" className="sui-screen-reader-only">
-									{properties.skipToFirstLabel || "Go to first page"}
-								</span>
-								<span
-									aria-hidden="true"
-									title={properties.skipToFirstLabel || "Go to first page"}
-									className="suicons suicons--arrow-skip-back suicons--sm"
-								></span>
-							</button>
-						</li>
-					)}
 					<li className="sui-pagination__item">
-						<button
+						<Button
 							className="sui-pagination__button"
-							disabled={properties.selectedPage <= 1}
-							onClick={properties.handlePreviousPage}
+							color="black"
+							appearance="tertiary"
+							icon="chevron-left"
+							iconOnly={true}
+							isSmall={true}
+							isDisabled={selectedPage <= 1}
+							onClick={handlePreviousPage}
 						>
-							<span aria-hidden="false" className="sui-screen-reader-only">
-								{properties.previousLabel || "Go to previous page"}
-							</span>
-							<span
-								aria-hidden="true"
-								title={properties.previousLabel || "Go to previous page"}
-								className="suicons suicons--chevron-left suicons--sm"
-							></span>
-						</button>
+							{previousLabel}
+						</Button>
 					</li>
-					{properties.startIndex > 0 && (
+					{startIndex > 1 && skip && (
 						<li className="sui-pagination__item">
-							<button
+							<Button
 								className="sui-pagination__button"
-								onClick={properties.handlePreviousEllipsis}
+								color="black"
+								appearance="tertiary"
+								isSmall={true}
+								isDisabled={selectedPage <= 1}
+								onClick={handleSkipToFirstPage}
 							>
-								<span
-									className="suicons suicons--more suicons--sm"
-									aria-hidden="true"
-								></span>
-							</button>
+								1
+							</Button>
 						</li>
 					)}
-					{properties.pagesArray
-						?.slice(properties.startIndex, properties.endIndex)
+					{startIndex > 0 && (
+						<li className="sui-pagination__item">
+							<Button
+								color="black"
+								appearance="tertiary"
+								icon="more"
+								iconOnly={true}
+								isSmall={true}
+								className="sui-pagination__button"
+								onClick={handlePreviousEllipsis}
+							></Button>
+						</li>
+					)}
+					{pagesArray
+						?.slice(startIndex, endIndex)
 						?.map((data: number, index: number) => {
 							return (
 								<li
-									aria-selected={properties.selectedPage === data}
+									aria-selected={selectedPage === data}
 									className="sui-pagination__item"
 									key={index}
 									role="tab"
 								>
-									<button
+									<Button
+										color="black"
+										appearance="tertiary"
+										isSmall={true}
 										className={`sui-pagination__button${
-											properties.selectedPage === data
+											selectedPage === data
 												? " sui-pagination__button--active"
 												: ""
 										}`}
-										onClick={() => properties.handlePageClick(Math.floor(data))}
+										onClick={() => handlePageClick(Math.floor(data))}
 									>
 										{data}
-									</button>
+									</Button>
 								</li>
 							)
 						})}
-					{properties.endIndex < properties.pages && (
+					{endIndex < pages - 1 && (
 						<li className="sui-pagination__item">
-							<button
+							<Button
+								color="black"
+								appearance="tertiary"
+								icon="more"
+								iconOnly={true}
+								isSmall={true}
 								className="sui-pagination__button"
-								onClick={properties.handleNextEllipsis}
+								onClick={handleNextEllipsis}
 							>
 								<span
 									className="suicons suicons--more suicons--sm"
 									aria-hidden="true"
-								/>
-							</button>
+								></span>
+							</Button>
+						</li>
+					)}
+					{endIndex < pages && skip && (
+						<li className="sui-pagination__item">
+							<Button
+								color="black"
+								appearance="tertiary"
+								isSmall={true}
+								className="sui-pagination__button"
+								isDisabled={selectedPage >= pages}
+								onClick={handleSkipToLastPage}
+							>
+								{pagesArray.length}
+							</Button>
 						</li>
 					)}
 					<li className="sui-pagination__item">
-						<button
+						<Button
 							className="sui-pagination__button"
-							disabled={properties.selectedPage >= properties.pages}
-							onClick={properties.handleNextPage}
+							color="black"
+							appearance="tertiary"
+							icon="chevron-right"
+							iconOnly={true}
+							isSmall={true}
+							isDisabled={selectedPage >= pages}
+							onClick={handleNextPage}
 						>
-							<span aria-hidden="false" className="sui-screen-reader-only">
-								{properties.nextLabel || "Go to next page."}
-							</span>
-							<span
-								aria-hidden="true"
-								title={properties.nextLabel || "Go to next page."}
-								className="suicons suicons--chevron-right suicons--sm"
-							></span>
-						</button>
+							{nextLabel}
+						</Button>
 					</li>
-					{properties.skip && (
-						<li className="sui-pagination__item">
-							<button
-								className="sui-pagination__button"
-								disabled={properties.selectedPage >= properties.pages}
-								onClick={properties.handleSkipToLastPage}
-							>
-								<span aria-hidden="false" className="sui-screen-reader-only">
-									{properties.skipToLastLabel || "Go to last page."}
-								</span>
-								<span
-									aria-hidden="true"
-									title={properties.skipToLastLabel || "Go to last page"}
-									className="suicons suicons--arrow-skip-forward suicons--sm"
-								/>
-							</button>
-						</li>
-					)}
 				</ul>
 			</div>
 		)

@@ -7,22 +7,24 @@ import { PaginationNav } from "./pagination-nav"
 const Pagination: React.FC<PaginationProps> = ({
 	limit,
 	skip,
-	results,
 	skipToFirstLabel,
 	previousLabel,
 	nextLabel,
 	skipToLastLabel,
-	numberOfItems,
+	numberOfItems = 5,
 	onChange,
 }) => {
 	// Calculate the number of pages
 	const pages = Math.ceil(numberOfItems / limit)
 
+	// Calculate the dynamic value for endIndex based on the condition
+	const newEndIndex = pages <= 5 ? 5 : 3
+
 	// State variables
 	const [pagesArray, setPagesArray] = useState<number[]>([])
 	const [selectedPage, setSelectedPage] = useState(1)
 	const [startIndex, setStartIndex] = useState(0)
-	const [endIndex, setEndIndex] = useState(Math.min(5, pages))
+	const [endIndex, setEndIndex] = useState(Math.min(newEndIndex, pages))
 	const [pageClickCounter, setPageClickCounter] = useState(0)
 	const [elementsStartIndex, setElementsStartIndex] = useState(0)
 	const [elementsEndIndex, setElementsEndIndex] = useState(limit)
@@ -83,13 +85,13 @@ const Pagination: React.FC<PaginationProps> = ({
 	const handleSkipToFirstPage = () => {
 		setSelectedPage(1)
 		setStartIndex(0)
-		setEndIndex(Math.min(5, pages))
+		setEndIndex(Math.min(newEndIndex, pages))
 	}
 
 	// Go to the last page
 	const handleSkipToLastPage = () => {
 		setSelectedPage(pages)
-		setStartIndex(Math.max(0, pages - 5))
+		setStartIndex(Math.max(0, pages - newEndIndex))
 		setEndIndex(pages)
 	}
 
@@ -111,20 +113,35 @@ const Pagination: React.FC<PaginationProps> = ({
 
 	// Go to the page before the ellipsis
 	const handlePreviousEllipsis = () => {
-		const newStartIndex = Math.max(0, startIndex - 5)
+		const newStartIndex = Math.max(0, startIndex - newEndIndex)
 		setStartIndex(newStartIndex)
-		setEndIndex(startIndex >= 5 ? endIndex - 5 : endIndex - startIndex)
-		setSelectedPage(startIndex >= 5 ? startIndex - 4 : 1)
+		setEndIndex(
+			startIndex >= newEndIndex
+				? endIndex - newEndIndex
+				: endIndex - startIndex,
+		)
+		setSelectedPage(
+			startIndex >= newEndIndex ? startIndex - (newEndIndex - 1) : 1,
+		)
 	}
 
 	// Go to the page after the ellipsis
 	const handleNextEllipsis = () => {
-		const newStartIndex = Math.min(startIndex + 5, pages - 5)
+		const newStartIndex = Math.min(
+			startIndex + newEndIndex,
+			pages - newEndIndex,
+		)
 		setStartIndex(newStartIndex)
 		setEndIndex(
-			startIndex >= 5 ? endIndex + 5 : endIndex + (newStartIndex - startIndex),
+			startIndex >= newEndIndex
+				? endIndex + newEndIndex
+				: endIndex + (newStartIndex - startIndex),
 		)
-		setSelectedPage(startIndex >= 5 ? startIndex + 6 : newStartIndex + 1)
+		setSelectedPage(
+			startIndex >= newEndIndex
+				? startIndex + (newEndIndex + 1)
+				: newStartIndex + 1,
+		)
 	}
 
 	// Handle clicking on a page number
@@ -154,7 +171,6 @@ const Pagination: React.FC<PaginationProps> = ({
 		nextLabel,
 		skipToLastLabel,
 		skip,
-		results,
 		numberOfItems,
 	}
 
