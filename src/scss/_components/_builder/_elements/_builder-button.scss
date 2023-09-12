@@ -30,7 +30,17 @@
                 span {
                     font: $font-weight-md 15px/24px $font-family-default
                 }
+
+                @include modifier(hover) {
+                    border-color: #737373;
+                    color: #1A1A1A;
+                }
+
+                &:active {
+                    background: var(--alpha-grey-10, rgba(26, 26, 26, 0.10));
+                }
             }
+
         }
     }
 }
