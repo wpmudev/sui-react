@@ -2,6 +2,8 @@ import React from "react"
 
 import { Input } from "@wpmudev/sui-input"
 
+import { Textarea } from "@wpmudev/sui-textarea"
+
 // Import required component
 import { FormField as SUIFormField } from "../src"
 
@@ -38,8 +40,29 @@ export const FormField = ({ example, ...args }) => {
 						{"input" === example && (
 							<Input
 								id={args.id}
-								placeholder="Input Label"
+								placeholder={args.placeholder}
 								isError={args.error?.state}
+								isSmall={args.isSmall}
+								isDisabled={args.isDisabled}
+								{...(!!args.label && {
+									"aria-labelledby": `${args.id}__label`,
+								})}
+								{...(!!args.helper && {
+									"aria-describedby": `${args.id}__helper`,
+								})}
+								{...(!!args.error?.state && {
+									"aria-errormessage": `${args.id}__error-message`,
+								})}
+							/>
+						)}
+						{"textarea" === example && (
+							<Textarea
+								rows={7}
+								id={args.id}
+								placeholder={args.placeholder}
+								isError={args.error?.state}
+								isSmall={args.isSmall}
+								isDisabled={args.isDisabled}
 								{...(!!args.label && {
 									"aria-labelledby": `${args.id}__label`,
 								})}
@@ -63,6 +86,7 @@ FormField.args = {
 	example: "",
 	id: "myCustomElement",
 	label: "Label",
+	placeholder: "Placeholder",
 	helper: "Helper text",
 	error: {
 		state: false,
@@ -76,12 +100,13 @@ FormField.args = {
 FormField.argTypes = {
 	example: {
 		name: "Example",
-		options: ["", "input"],
+		options: ["", "input", "textarea"],
 		control: {
 			type: "select",
 			labels: {
 				"": "Example: Empty Field",
 				input: "Example: Field + Input",
+				textarea: "Example: Field + Textarea",
 			},
 		},
 	},
@@ -91,6 +116,10 @@ FormField.argTypes = {
 	},
 	label: {
 		name: "Label",
+		type: "string",
+	},
+	placeholder: {
+		name: "Placeholder",
 		type: "string",
 	},
 	helper: {

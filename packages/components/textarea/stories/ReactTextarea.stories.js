@@ -5,52 +5,20 @@ import { Textarea as SuiTextarea } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactTextarea.mdx"
-import { FormField } from "@wpmudev/sui-form-field"
-import { isEmpty } from "@wpmudev/sui-utils"
 
 // Build "Textarea" story.
-const Textarea = ({
-	label = "",
-	description = "",
-	isSmall = false,
-	isDisabled = false,
-	errorMessage = "",
-}) => {
+const Textarea = ({ ...args }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
 		background: "#fff",
 	}
 
-	const error = Object.assign({
-		state: !isEmpty(errorMessage ?? ""),
-		text: errorMessage,
-	})
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<FormField
-						id="textaread-id"
-						label={label}
-						helper={description}
-						isLabelHidden={true}
-						error={error}
-						isSmall={isSmall}
-						isDisabled={isDisabled}
-					>
-						<SuiTextarea
-							id="textarea-default"
-							rows="4"
-							placeholder="Placeholder"
-							description={description}
-							descriptionId="desc-id"
-							isSmall={isSmall}
-							error={error}
-							isDisabled={isDisabled}
-						/>
-					</FormField>
+					<SuiTextarea rows="4" {...args} />
 				</div>
 			</div>
 		</div>
@@ -59,29 +27,34 @@ const Textarea = ({
 
 // Set story arguments.
 Textarea.args = {
-	label: "Label",
-	description: "Help text",
+	id: "textarea",
+	placeholder: "Placeholder",
+	isError: false,
 	isSmall: false,
 	isDisabled: false,
-	errorMessage: "",
 }
 
 // Set controls for story arguments.
 Textarea.argTypes = {
-	description: {
-		name: "Description",
+	id: {
+		name: "ID",
+		type: "string",
+	},
+	placeholder: {
+		name: "Placeholder",
+		type: "string",
+	},
+	isError: {
+		name: "Error",
+		type: "boolean",
 	},
 	isSmall: {
 		name: "Small",
+		type: "boolean",
 	},
 	isDisabled: {
 		name: "Disabled",
-	},
-	errorMessage: {
-		name: "Error Message",
-		control: {
-			type: "text",
-		},
+		type: "boolean",
 	},
 }
 

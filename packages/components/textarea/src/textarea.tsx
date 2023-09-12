@@ -15,9 +15,7 @@ const Textarea: React.FC<TextareaProps> = ({
 	id,
 	className = "",
 	value = "",
-	labelId,
-	descriptionId,
-	errorId,
+	isError = false,
 	isSmall = false,
 	isDisabled = false,
 	onChange = () => {},
@@ -29,7 +27,7 @@ const Textarea: React.FC<TextareaProps> = ({
 	const classNames = generateCN(
 		"sui-textarea",
 		{
-			error: !isEmpty(errorId ?? ""),
+			error: isError,
 			disabled: isDisabled,
 			filled: !!currentValue,
 			sm: isSmall,
@@ -55,8 +53,6 @@ const Textarea: React.FC<TextareaProps> = ({
 				id={id ?? ""}
 				className="sui-textarea__field"
 				value={currentValue}
-				aria-labelledby={condContent(labelId)}
-				aria-describedby={condContent(descriptionId)}
 				disabled={isDisabled}
 				onChange={handleOnChange}
 				{...props}
