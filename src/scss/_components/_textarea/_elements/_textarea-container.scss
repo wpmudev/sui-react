@@ -14,7 +14,8 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			position: relative;
+			line-height: 0;
+			outline: none;
 		}
 	}
 }

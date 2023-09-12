@@ -9,14 +9,21 @@
 ///
 /// @param {String} $block-name - Main block name
 @mixin build-focus($block-name) {
-
 	// DIR: Left to right.
 	// THEME: Dark.
-	@include sui-class($rtl: false, $theme: dark) {
+	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			@include modifier(focus) {
 				@include modifies-element(field) {
-					border: 2px solid var(--primary-blue-base-50286-ef-1, #286EF1);
+					outline: $border-width-md solid $color-primary-50;
+					outline-offset: -#{$border-width-md};
+				}
+
+				&.sui-#{$block-name}--error {
+					@include modifies-element(field) {
+						outline: $border-width-md solid $color-extended-error-50;
+						outline-offset: -#{$border-width-md};
+					}
 				}
 			}
 		}

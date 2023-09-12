@@ -15,10 +15,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(field) {
-				border: 1px solid var(--neutral-grey-70-aaaaaa, #AAA);
-				border-radius: 4px;
-				font-size: 15px;
-				padding: 8px 16px;
+				border: $border-width-sm solid $color-extended-neutral-70;
+				border-radius: $border-radius-sm;
+				font-size: $font-size-default;
+				padding: $spacing-md $spacing-lg;
 				width: 100%;
 			}
 		}

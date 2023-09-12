@@ -15,7 +15,8 @@
 		@include block($block-name) {
 			@include modifier(disabled) {
 				@include modifies-element(field) {
-					background: var(--neutral-grey-90-f-2-f-2-f-2, #F2F2F2);
+					background: $color-extended-neutral-90;
+					outline: none;
 					border: none;
 				}
 			}
