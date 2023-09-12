@@ -1,5 +1,7 @@
 import React from "react"
 
+import { Input } from "@wpmudev/sui-input"
+
 // Import required component
 import { FormField as SUIFormField } from "../src"
 
@@ -34,20 +36,20 @@ export const FormField = ({ example, ...args }) => {
 				<div style={set.box}>
 					<SUIFormField {...args}>
 						{"input" === example && (
-							<input
+							<Input
 								id={args.id}
-								type="text"
-								placeholder="Unstyled input"
-								style={{ display: "block" }}
+								placeholder="Input Label"
+								isError={args.error?.state}
+								{...(!!args.label && {
+									"aria-labelledby": `${args.id}__label`,
+								})}
+								{...(!!args.helper && {
+									"aria-describedby": `${args.id}__helper`,
+								})}
+								{...(!!args.error?.state && {
+									"aria-errormessage": `${args.id}__error-message`,
+								})}
 							/>
-						)}
-						{"radio" === example && (
-							<radiogroup style={{ display: "block" }}>
-								<input type="radio" id="radio1" name="radio" value="1" /> Option
-								1
-								<input type="radio" id="radio2" name="radio" value="2" /> Option
-								2
-							</radiogroup>
 						)}
 					</SUIFormField>
 				</div>
@@ -74,12 +76,12 @@ FormField.args = {
 FormField.argTypes = {
 	example: {
 		name: "Example",
+		options: ["", "input"],
 		control: {
 			type: "select",
-			options: {
-				"Example: Empty Field": "",
-				"Example: Field + Input": "input",
-				"Example: Field + Radio": "radio",
+			labels: {
+				"": "Example: Empty Field",
+				input: "Example: Field + Input",
 			},
 		},
 	},

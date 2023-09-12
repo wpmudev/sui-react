@@ -15,11 +15,8 @@ const Textarea: React.FC<TextareaProps> = ({
 	id,
 	className = "",
 	value = "",
-	label,
 	labelId,
-	description,
 	descriptionId,
-	errorMessage,
 	errorId,
 	isSmall = false,
 	isDisabled = false,
@@ -32,7 +29,7 @@ const Textarea: React.FC<TextareaProps> = ({
 	const classNames = generateCN(
 		"sui-textarea",
 		{
-			errored: !isEmpty(errorMessage ?? ""),
+			error: !isEmpty(errorId ?? ""),
 			disabled: isDisabled,
 			filled: !!currentValue,
 			sm: isSmall,
@@ -54,35 +51,17 @@ const Textarea: React.FC<TextareaProps> = ({
 
 	return (
 		<div className={classNames}>
-			<div className="sui-textarea__wrapper">
-				<textarea
-					id={id ?? ""}
-					className="sui-textarea__field"
-					value={currentValue}
-					aria-labelledby={condContent(labelId)}
-					aria-describedby={condContent(labelId)}
-					disabled={isDisabled}
-					onChange={handleOnChange}
-					{...props}
-					{...methods}
-				/>
-				<label className="sui-textarea__label" htmlFor={id} id={labelId}>
-					{label}
-				</label>
-			</div>
-			{!isEmpty(errorMessage ?? "") && (
-				<span className="sui-textarea__error-message" role="alert" id={errorId}>
-					{errorMessage}
-				</span>
-			)}
-			{!isEmpty(description ?? "") && isEmpty(errorMessage ?? "") && (
-				<span
-					className="sui-textarea__description"
-					id={descriptionId + errorId ? ` ${errorId}` : ""}
-				>
-					{description}
-				</span>
-			)}
+			<textarea
+				id={id ?? ""}
+				className="sui-textarea__field"
+				value={currentValue}
+				aria-labelledby={condContent(labelId)}
+				aria-describedby={condContent(descriptionId)}
+				disabled={isDisabled}
+				onChange={handleOnChange}
+				{...props}
+				{...methods}
+			/>
 		</div>
 	)
 }

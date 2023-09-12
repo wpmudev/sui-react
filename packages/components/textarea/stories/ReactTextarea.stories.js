@@ -5,55 +5,52 @@ import { Textarea as SuiTextarea } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactTextarea.mdx"
+import { FormField } from "@wpmudev/sui-form-field"
+import { isEmpty } from "@wpmudev/sui-utils"
 
 // Build "Textarea" story.
 const Textarea = ({
-	example,
-	description,
-	color,
-	size,
-	isSmall,
-	isDisabled,
-	errorMessage,
+	label = "",
+	description = "",
+	isSmall = false,
+	isDisabled = false,
+	errorMessage = "",
 }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: color !== "white" ? "#fff" : "#333",
+		background: "#fff",
 	}
 
-	const props = {}
-
-	props.color = color
+	const error = Object.assign({
+		state: !isEmpty(errorMessage ?? ""),
+		text: errorMessage,
+	})
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiTextarea
-						id="textarea-default"
-						rows="4"
-						placeholder="Placeholder"
-						description={description}
-						descriptionId="desc-id"
+					<FormField
+						id="textaread-id"
+						label={label}
+						helper={description}
+						isLabelHidden={true}
+						error={error}
 						isSmall={isSmall}
 						isDisabled={isDisabled}
-						errorMessage={errorMessage}
-					/>
-
-					{/*	{"textarea-error" === example && (
+					>
 						<SuiTextarea
 							id="textarea-default"
 							rows="4"
 							placeholder="Placeholder"
 							description={description}
 							descriptionId="desc-id"
-							errorMessage="This is an error."
-							errorId="error-id"
 							isSmall={isSmall}
+							error={error}
 							isDisabled={isDisabled}
 						/>
-					)}*/}
+					</FormField>
 				</div>
 			</div>
 		</div>
@@ -62,6 +59,7 @@ const Textarea = ({
 
 // Set story arguments.
 Textarea.args = {
+	label: "Label",
 	description: "Help text",
 	isSmall: false,
 	isDisabled: false,
