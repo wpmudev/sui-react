@@ -6,59 +6,76 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 	style={{ paddingTop: 20, paddingBottom: 0 }}
 >
 	<p>
-		Install the <Code small={true}>[Component Name]</Code> package as an individual
+		Install the <Code small={true}>Grid</Code> package as an individual
 		component or follow the Overview page instructions to get the complete SUI
 		Components package.
 	</p>
 </Section>
 
-<Section title="Props" border={true}>
 
-    	<Section
-    		title={{ content: "prop*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p>Sets the semantic type for the accordion</p>
-    		<p>
-    		Allowed options:
-    			<List>
-    				<span label={<Code small={true}>neutral</Code>} />
-    				<span label={<Code small={true}>informative</Code>} />
-    				<span label={<Code small={true}>success</Code>} />
-    				<span label={<Code small={true}>warning</Code>} />
-    				<span label={<Code small={true}>critical</Code>} />
-    			</List>
-    		</p>
-    	</Section>
+<Section border={true}>
+    <p> The grid system is composed of two fundamental components: <Code small={true}> Row </Code> and <Code small={true}> Column </Code></p>
+</Section>
+
+<Section title="Row Props" border={true}>
+
+    <Section
+    	title={{ content: "align*", tag: 'object', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Reprsents the alignment options for the row, the object properties accepet the following keys:</p>
+    	<List>
+    		<span label={<Code small={true}>xs</Code>} />
+    		<span label={<Code small={true}>sm</Code>} />
+    		<span label={<Code small={true}>md</Code>} />
+    		<span label={<Code small={true}>lg</Code>} />
+    		<span label={<Code small={true}>xl</Code>} />
+    	</List>	
+
+		Which represent different screen sizes, the value for each, could be either <Code small={true}>inline</Code> or <Code small={true}>stacked</Code>
+		representing the behavior of the column in that particular screen 
+    </Section>
+
+	<Section
+    	title={{ content: "children", tag: 'React Node', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The content of the Row, usually a set of columns </p>
+    	
+    </Section>
+
+	<Section
+    	title={{ content: "className*", tag: 'string', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Additional custom className(s) for the row</p>
+    	
+    </Section>
 
 </Section>
 
-{/** Use this for sub components */}
-<Section
-	title="Sub Components"
-	contained={true}
-	style={{ paddingTop: 30, paddingBottom: 0 }}
->
-		<p>The [component name] offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+<Section title="Column Props" border={true}>
 
-    <Section title="Sub Component" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component represents an individual item or section of the accordion and comes with its
-    		own set of props.
-    	</p>
-
-    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			prop description
-    		</p>
+ 		<p> You can add multiple columns within the row to display content side by side </p>
+    	
+		<Section
+    		title={{ content: "size*", tag: 'number | string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The size of the column</p>
     	</Section>
 
-    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			prop description
-    		</p>
+		<Section
+    		title={{ content: "className*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Additional custom className(s) </p>
     	</Section>
-
-    </Section>
-
+		
+		<Section
+    		title={{ content: "children", tag: 'React Node', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The column's content</p>
+    	</Section>
 </Section>
