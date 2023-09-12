@@ -1,36 +1,49 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src"
+import { Section, Switcher, Preview, Snippet } from "@wpmudev/storybook"
+import { Button } from "../../src"
+
 import dedent from "dedent"
 
-{/* Import Variations */}
-import Neutral from "./Examples/states/Neutral.mdx"
-import Informative from "./Examples/states/Informative.mdx"
-import Success from "./Examples/states/Success.mdx"
+import Variants from "./Examples/Variants.mdx"
+import Appearance from "./Examples/Appearance.mdx"
+import Colors from "./Examples/Colors.mdx"
+import States from "./Examples/States.mdx"
+import Size from "./Examples/Size.mdx"
+import Icon from "./Examples/Icon.mdx"
 
 export const sampleCode = dedent`
-    Basic Examples 
+	<Button>Default button</Button>
 `
 
-<Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Basic Accordion Example</p>
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>
+		This is the most basic form of the Button component
+	</p>
 	<Preview wrapper={true}>
-		Basic Example
+		<Button>Default button</Button>
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
 
-<Section title="State" style={{ paddingTop: 0 }}>
-	Use this if you need to switch between multiple options 
+<Section style={{ paddingTop: 0 }}>
 	<Switcher>
-		<div label="neutral" value="neutral">
-			<Neutral />
+		<div label="Appearance" value="appearance">
+			<Appearance />
 		</div>
-		<div label="informative" value="informative">
-			<Informative />
+		<div label="Colors" value="colors">
+			<Colors />
 		</div>
-		<div label="success" value="success">
-			<Success />
+		<div label="Variants" value="variants">
+			<Variants />
 		</div>
+		<div label="States" value="states">
+			<States />
+		</div>
+		<div label="Size" value="size">
+			<Size />
+		</div>
+		<div label="Button with Icon" value="icon">
+			<Icon />
+		</div>
+		
 	</Switcher>
 </Section>
-
