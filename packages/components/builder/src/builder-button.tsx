@@ -1,15 +1,13 @@
-import React, { useCallback } from "react"
+import React, { FC, useCallback } from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import * as Icons from "@wpmudev/sui-icons"
 
 // Import required element(s)
-import { BuilderBlockProps } from "./builder.types"
+import { BuilderButtonProps } from "./builder.types"
 
-// BuilderBlock component using the BuilderBlockProps interface.
-// This component represents an item within a builder navigation.
-const BuilderButton: React.FC<any> = ({
+const BuilderButton: FC<BuilderButtonProps> = ({
 	icon = "Add",
 	title = "Insert new field",
 	className,

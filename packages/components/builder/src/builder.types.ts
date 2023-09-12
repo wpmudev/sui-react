@@ -8,52 +8,146 @@ interface BuilderProps {
 	 * An optional class name to be applied to the Builder component.
 	 */
 	className?: string
-
+	/**
+	 * Allow add new fields
+	 */
+	allowAddField?: boolean
+	/**
+	 * Mark as true when there is no fields available to render.
+	 */
+	hasNoFields?: boolean
 	/**
 	 * Children components to be rendered within the Builder.
 	 */
 	children?: React.ReactNode
 }
 
-/**
- * Interface defining the props that can be passed to a BuilderBlock component.
- * Extends HTMLProps<HTMLAnchorElement> to include standard HTML anchor element props.
- */
-interface BuilderBlockProps extends HTMLProps<HTMLAnchorElement> {
+interface BuilderButtonProps extends HTMLProps<HTMLAnchorElement> {
 	/**
-	 * The URL associated with the BuilderBlock.
+	 * An optional icon to be displayed within in button.
 	 */
-	url: string
+	icon?: string
+	/**
+	 * The title or text to be displayed.
+	 */
+	title: string
+	/**
+	 * An optional class name to be applied.
+	 */
+	className?: string
+	/**
+	 * Specifies whether the Button is disabled or not.
+	 */
+	isDisabled?: boolean
+	/**
+	 * Make builder item active
+	 */
+	onClick?(): void
+}
+/**
+ * Interface for props that can be passed to the BuilderEmpty component.
+ */
+interface BuilderEmptyProps {
+	/**
+	 * Optional title for the BuilderEmpty component.
+	 */
+	title?: string
 
 	/**
-	 * An optional icon to be displayed within the BuilderBlock.
+	 * Optional CSS class name for styling the BuilderEmpty component.
+	 */
+	className?: string
+}
+
+/**
+ * Interface for props that can be passed to the BuilderField component.
+ */
+interface BuilderFieldProps {
+	/**
+	 * Optional number specifying the column size.
+	 */
+	columnSize?: number
+
+	/**
+	 * Optional string for specifying an icon.
 	 */
 	icon?: string
 
 	/**
-	 * The title or text to be displayed for the BuilderBlock.
+	 * Optional title for the BuilderField component.
 	 */
-	title: string
+	title?: string
 
 	/**
-	 * Make builder item active
+	 * Optional subtitle for the BuilderField component.
 	 */
-	isActive?: boolean
+	subTitle?: string
 
 	/**
-	 * An optional class name to be applied to the BuilderBlock.
+	 * Optional CSS class name for styling the BuilderField component.
 	 */
 	className?: string
 
 	/**
-	 * An optional action component to be displayed alongside the title in the BuilderBlock.
+	 * Optional React node for custom actions.
 	 */
 	action?: React.ReactNode
 
 	/**
-	 * Specifies whether the BuilderBlock is disabled or not.
+	 * Optional URL for an image associated with the field.
 	 */
-	isDisabled?: boolean
+	imgUrl?: string
+
+	/**
+	 * Optional custom content as a React node.
+	 */
+	customContent?: React.ReactNode
+
+	/**
+	 * Optional boolean flag to allow dragging of the field.
+	 */
+	allowDrag?: boolean
+
+	/**
+	 * Optional boolean flag indicating if the field is currently being dragged.
+	 */
+	isDragging?: boolean
+
+	/**
+	 * Optional boolean flag indicating if the field has an error state.
+	 */
+	hasError?: boolean
+
+	/**
+	 * Optional children content as a React node.
+	 */
+	children?: React.ReactNode
+
+	/**
+	 * Optional function to handle click events.
+	 */
+	onClick?: () => void
 }
 
-export { BuilderProps, BuilderBlockProps }
+/**
+ * Interface for props that can be passed to the BuilderWrapper component.
+ */
+interface BuilderWrapperProps {
+	/**
+	 * Optional CSS class name for styling the BuilderWrapper component.
+	 */
+	className?: string
+
+	/**
+	 * Required children content as a React node.
+	 */
+	children: React.ReactNode
+}
+
+export {
+	BuilderProps,
+	BuilderButtonProps,
+	BuilderEmptyProps,
+	BuilderFieldProps,
+	BuilderWrapperProps,
+}

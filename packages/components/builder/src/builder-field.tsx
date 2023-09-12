@@ -1,70 +1,133 @@
-import React from "react"
+import React, { Fragment, useCallback, useState } from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
+
+import { Col } from "@wpmudev/sui-grid"
+import { Button } from "@wpmudev/sui-button"
+
 import * as Icons from "@wpmudev/sui-icons"
 
 // Import required element(s)
-import { BuilderBlockProps } from "./builder.types"
-import { Col } from "@wpmudev/sui-grid"
+import { BuilderFieldProps } from "./builder.types"
 
-// BuilderBlock component using the BuilderBlockProps interface.
-// This component represents an item within a builder navigation.
-const BuilderField: React.FC<BuilderBlockProps> = ({
-	colSize = 1,
+const BuilderField: React.FC<BuilderFieldProps> = ({
+	columnSize = 1,
 	icon = "",
 	title = "",
+	subTitle = "",
 	className,
 	action,
-	isActive,
-	isDisabled,
+	imgUrl,
+	customContent = null,
 	allowDrag = true,
 	isDragging = false,
 	hasError = false,
+	children = null,
 	onClick = () => {},
 	...props
 }) => {
-	// `useInteraction` returns interaction state and methods.
+	// State to manage the expanded/collapsed state of the field
+	const [isExpanded, setIsExpanded] = useState<boolean>(false)
+
+	// Hook for managing interaction state
 	const [isHovered, isFocused, methods] = useInteraction({})
 
-	// Class names based on interaction and disabled state.
+	// Generate class names based on interaction and disabled state
 	const classNames = generateCN(
 		"sui-builder__field",
 		{
-			hover: isHovered && !isDragging && !hasError,
-			focus: isDragging && !hasError,
-			disabled: isDisabled,
-			active: isActive,
+			hover: isHovered && !isDragging,
+			focus: isDragging || isFocused,
 			dragging: isDragging,
 			error: hasError,
+			expanded: isExpanded,
 		},
 		className,
 	)
 
-	// // Determine the IconTag based on the provided icon value.
+	// Determine the IconTag based on the provided icon value
 	let IconTag = null
 
 	if (!isEmpty(icon)) {
 		IconTag = Icons?.[icon ?? ""]
 	}
 
+	// Check if the field has an accordion section
+	const hasAccordion = !!children
+
+	/**
+	 * Render the preview section of the field
+	 *
+	 * @return {JSX.Element} Field icon and title
+	 */
+	const renderPreview = () => {
+		let logo = null
+
+		switch (true) {
+			case !!customContent:
+				return customContent
+			case !isEmpty(imgUrl ?? ""):
+				logo = <img src={imgUrl} alt="Field Preview" />
+				break
+			case !!IconTag:
+				logo = <IconTag size="sm" />
+				break
+		}
+
+		return (
+			<Fragment>
+				<div className="sui-builder__field-info">
+					<div className="sui-builder__field-info-preview">{logo}</div>
+					{!isEmpty(title ?? "") && (
+						<div className="sui-builder__field-info-name">{title}</div>
+					)}
+				</div>
+				{!isEmpty(subTitle ?? "") && (
+					<div className="sui-builder__field-code">{subTitle}</div>
+				)}
+			</Fragment>
+		)
+	}
+
+	// Toggle the accordion section's visibility
+	const toggleBody = useCallback(() => {
+		setIsExpanded(!isExpanded)
+	}, [isExpanded])
+
+	// Render the action buttons
+	const renderActions = () => (
+		<div className="sui-builder__field-actions">
+			{action}
+			{hasAccordion && (
+				<div className="sui-builder__field-actions-item sui-builder__field-actions-item--accordion">
+					<Button
+						startIcon={isExpanded ? "chevron-up" : "chevron-down"}
+						iconOnly={true}
+						color="black"
+						isSmall={true}
+						className="sui-builder__field-toggle-btn"
+						onClick={toggleBody}
+					/>
+				</div>
+			)}
+		</div>
+	)
+
 	return (
-		<Col className={classNames} size={colSize} {...props} {...methods}>
-			<div className="sui-builder__field-info">
+		<Col className={classNames} size={columnSize ?? 1} {...props} {...methods}>
+			<div className="sui-builder__field-header">
 				{allowDrag && (
 					<div className="sui-builder__field-move">
 						<Icons.Grip size="md" />
 					</div>
 				)}
-				{IconTag && (
-					<div className="sui-builder__field-icon">
-						<IconTag size="sm" />
-					</div>
-				)}
-				<div className="sui-builder__field-name">{title}</div>
+				<div className="sui-builder__field-content">{renderPreview()}</div>
+				{renderActions()}
 			</div>
-			<div className="sui-builder__field-code">{`{Code}`}</div>
-			{action && <div className="sui-builder__field-actions">{action}</div>}
+			{hasAccordion && (
+				<div className="sui-builder__field-body">{children}</div>
+			)}
 		</Col>
 	)
 }

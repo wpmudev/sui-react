@@ -1,39 +1,15 @@
 import React, { Children, cloneElement } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
 import { Row } from "@wpmudev/sui-grid"
+import { BuilderWrapperProps } from "./builder.types"
 
-// Import required element(s)
-// import { BuilderWrapperProps } from "./builder.types"
-
-// BuilderWrapper component using the BuilderWrapperProps interface.
-// This component represents an item within a builder navigation.
-const BuilderWrapper: React.FC<any> = ({
-	url = "#",
-	icon = "",
-	title = "",
+const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 	className,
-	action,
-	isActive,
-	isDisabled,
 	children,
-	...props
 }) => {
-	// `useInteraction` returns interaction state and methods.
-	const [isHovered, isFocused, methods] = useInteraction({})
-
 	// Class names based on interaction and disabled state.
-	const classNames = generateCN(
-		"sui-builder__wrapper",
-		{
-			hover: isHovered && !isFocused && !isDisabled,
-			focus: isFocused && !isDisabled,
-			disabled: isDisabled,
-			active: isActive,
-		},
-		className,
-	)
+	const classNames = generateCN("sui-builder__wrapper", {}, className)
 
 	return (
 		<Row className={classNames}>

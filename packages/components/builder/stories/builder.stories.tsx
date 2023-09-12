@@ -6,6 +6,7 @@ import { Tag } from "@wpmudev/sui-tag"
 import { Builder as SuiBuilder, BuilderField, BuilderWrapper } from "../src"
 
 import { Dropdown } from "@wpmudev/sui-dropdown"
+import { Input } from "@wpmudev/sui-input"
 
 // Import documentation main page.
 import docs from "./builder.mdx"
@@ -70,14 +71,16 @@ const Builder = ({}) => {
 						/>
 						<BuilderField
 							action={actionButton}
-							title="Block 2"
+							allowDrag={false}
+							title="No Drag"
 							url="#"
 							icon="Desktop"
 						/>
 						<BuilderField
 							action={actionButton}
-							title="Block 3"
+							title="Image"
 							url="#"
+							imgUrl="https://placehold.co/600x400/EEE/31343C"
 							icon="Desktop"
 						/>
 					</BuilderWrapper>
@@ -100,8 +103,29 @@ const Builder = ({}) => {
 							title="Error Block"
 							hasError={true}
 							url="#"
-							icon="Desktop"
+							icon="Bell"
 						/>
+					</BuilderWrapper>
+					<BuilderWrapper>
+						<BuilderField
+							action={actionButton}
+							title="Block 3"
+							url="#"
+							icon="Desktop"
+							customContent={
+								<Input id="field-input" placeholder="Placeholder" />
+							}
+						/>
+					</BuilderWrapper>
+					<BuilderWrapper>
+						<BuilderField
+							action={actionButton}
+							title="Accordion"
+							url="#"
+							icon="Desktop"
+						>
+							Field body, it can contains any types of element
+						</BuilderField>
 					</BuilderWrapper>
 				</SuiBuilder>
 			</div>
