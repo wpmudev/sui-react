@@ -7,16 +7,28 @@
 /// @type block
 /// @author WPMU DEV
 ///
-/// @param {String} $block-name - Main block name
-@mixin build-error($block-name) {
+/// @param {String} $block - Main block name
+@mixin build-error($block) {
 	// DIR: Left to right.
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: null) {
-		@include block($block-name) {
+		@include block($block) {
 			@include modifier(error) {
 				@include modifies-element(field) {
 					outline: $border-width-sm solid $color-extended-error-50;
 					outline-offset: -#{$border-width-sm};
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(error) {
+				@include modifies-element(field) {
+					outline-color: $color-extended-neutral-0;
 				}
 			}
 		}
