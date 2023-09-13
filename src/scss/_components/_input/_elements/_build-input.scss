@@ -30,6 +30,17 @@
 				line-height: $input-font-height-md;
 				letter-spacing: 0;
 				transition: 0.1s ease;
+
+				@include modifier(allow-clear) {
+					padding-right: 42px;
+				}
+			}
+
+			@include element(input-clear) {
+				cursor: pointer;
+				position: absolute;
+				right: 12px;
+				top: 8px;
 			}
 
 			@include modifier('icon-end') {
