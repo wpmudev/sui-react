@@ -32,6 +32,7 @@ export { Mobile } from "./Mobile"
 export { Desktop } from "./Desktop"
 export { Performance } from "./Performance"
 export { ExternalLink } from "./ExternalLink"
+export { Search } from "./Search"
 // plugin icons
 export { Plugin } from "./Plugin"
 export { PluginDefender } from "./PluginDefender"
