@@ -92,10 +92,10 @@ Spinner.argTypes = {
 	},
 	size: {
 		name: "Size",
-		options: ["", "lg"],
+		options: ["lg", "sm"],
 		control: {
 			type: "select",
-			labels: { "": "Default", lg: "Large - lg" },
+			labels: { sm: "Small", lg: "Large - lg ( default )" },
 		},
 	},
 	color: {
