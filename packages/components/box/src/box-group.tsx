@@ -9,6 +9,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 	children,
 	isHeader = false,
 	isFooter = false,
+	style,
 }) => {
 	// Build content based in slots
 	const slots = Children.map(children, (child, index) => {
@@ -35,7 +36,11 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 		footer: isFooter,
 	})
 
-	return <div className={classNames}>{slots}</div>
+	return (
+		<div className={classNames} style={style}>
+			{slots}
+		</div>
+	)
 }
 
 // Publish component(s)

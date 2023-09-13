@@ -1,4 +1,4 @@
-import React from "react"
+import React, { CSSProperties } from "react"
 
 /**
  * Represents the properties for a box group component.
@@ -20,6 +20,10 @@ interface BoxGroupProps {
 	 * Indicates whether the boxes should be displayed as footer.
 	 */
 	isFooter?: boolean
+	/**
+	 * Box styles
+	 */
+	style?: CSSProperties
 }
 
 export type { BoxGroupProps }
