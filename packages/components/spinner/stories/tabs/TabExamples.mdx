@@ -1,36 +1,51 @@
 import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src"
+import { Spinner } from "../../src"
+import { SpinnerHookExample, SpinnerHookCode } from "./Examples/HookExample"
 import dedent from "dedent"
 
-{/* Import Variations */}
-import Neutral from "./Examples/states/Neutral.mdx"
-import Informative from "./Examples/states/Informative.mdx"
-import Success from "./Examples/states/Success.mdx"
-
 export const sampleCode = dedent`
-    Basic Examples 
+    <Spinner />
+`
+
+export const darkCode = dedent`
+    <Spinner color="dark"/>
+`
+
+export const smallCode = dedent`
+    <Spinner size="sm"/>
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Basic Accordion Example</p>
+	<p>This is the default form of a spinner used in most cases</p>
 	<Preview wrapper={true}>
-		Basic Example
+		<Spinner />
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
 
-<Section title="State" style={{ paddingTop: 0 }}>
-	Use this if you need to switch between multiple options 
-	<Switcher>
-		<div label="neutral" value="neutral">
-			<Neutral />
-		</div>
-		<div label="informative" value="informative">
-			<Informative />
-		</div>
-		<div label="success" value="success">
-			<Success />
-		</div>
-	</Switcher>
+<Section title="Dark Spinner" contained={true} style={{ paddingTop: 30 }}>
+	<p>Use `color="dark"` for dark variation which is meant to be used on dark backgrounds</p>
+	<Preview wrapper={true}>
+		<Spinner color="dark"/>
+	</Preview>
+	<Snippet language="js">{darkCode}</Snippet>
 </Section>
+
+<Section title="Small Spinner" contained={true} style={{ paddingTop: 30 }} border={true}>
+	<p>Use `size="small"` for a smaller spinner</p>
+	<Preview wrapper={true}>
+		<Spinner size="sm"/>
+	</Preview>
+	<Snippet language="js">{smallCode}</Snippet>
+</Section>
+
+<Section title="useSpinner Hook" contained={true} style={{ paddingTop: 30 }} border={true}>
+	<p>Here's an example on how to use the <Code small={true}> useSpinner </Code> hook </p>
+	<Preview wrapper={true}>
+		<SpinnerHookExample />
+	</Preview>
+	<Snippet language="js">{SpinnerHookCode}</Snippet>
+</Section>
+
+
 
