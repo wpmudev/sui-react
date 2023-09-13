@@ -69,7 +69,9 @@ const Spinner = ({ example, children, ...args }) => {
 				<h5>
 					2. Component: use this when you want use spinner as inline element
 				</h5>
-				<SControl {...args} />
+				<div style={ { background: args.color === "dark" ? "rgba(0, 0, 0, 0.7)" : "#fff", padding: 20 } }>
+					<SControl {...args} />
+				</div>
 			</div>
 		</div>
 	)

@@ -24,9 +24,11 @@ export const smallCode = dedent`
 </Section>
 
 <Section title="Dark Spinner" contained={true} style={{ paddingTop: 30 }}>
-	<p>Use `color="dark"` for dark variation which is meant to be used on dark backgrounds</p>
+	<p>Use `color="dark"` for dark variation on dark backgrounds</p>
 	<Preview wrapper={true}>
-		<Spinner color="dark"/>
+		<div style={ { background: "rgba(0, 0, 0, 0.7)", padding: 20 } }>
+			<Spinner color="dark"/>
+		</div>
 	</Preview>
 	<Snippet language="js">{darkCode}</Snippet>
 </Section>
