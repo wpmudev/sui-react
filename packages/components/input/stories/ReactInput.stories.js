@@ -50,6 +50,7 @@ Input.args = {
 	isError: false,
 	isReadOnly: true,
 	isDisabled: false,
+	allowClear: false,
 }
 
 // Set controls for story arguments.
@@ -117,6 +118,10 @@ Input.argTypes = {
 			arg: "example",
 			eq: "standard",
 		},
+	},
+	allowClear: {
+		name: "Allow Clear",
+		control: "boolean",
 	},
 }
 

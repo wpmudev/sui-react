@@ -14,6 +14,7 @@ import {
 	condContent,
 } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
+import { CloseAlt } from "@wpmudev/sui-icons"
 
 import { Icon } from "./elements/input-icon"
 import { InputProps } from "./input.types"
@@ -39,12 +40,13 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				onChange,
 				icon,
 				iconPosition,
+				allowClear = false,
 				...props
 			},
 			ref,
 		) => {
 			// Define states
-			const [value, setValue] = useState(defaultValue)
+			const [value, setValue] = useState<typeof defaultValue>(defaultValue)
 			const [isHovered, isFocused, interactionMethods] = useInteraction({})
 
 			// Properties validation
@@ -74,6 +76,14 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				},
 				[isReadOnly, onChange],
 			)
+
+			// Clear input value
+			const onClear = useCallback(() => {
+				setValue("")
+				if (!!onChange) {
+					onChange("")
+				}
+			}, [onChange])
 
 			// flags
 			const hasValue = !isUndefined(value) && !isEmpty((value ?? "") as string)
@@ -115,7 +125,10 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			// Generate input class names
 			const inputClassNames = generateCN(
 				"sui-input__input",
-				{},
+				{
+					"allow-clear":
+						allowClear && !isEmpty(value as string) && !isMultiLine,
+				},
 				hasClassInput ? inputClass : "",
 			)
 
@@ -153,6 +166,13 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 					<TagName {...attrs}></TagName>
 					{icon && !isMultiLine && "end" === iconPosition && (
 						<Icon name={icon ?? ""} size={isSmall ? "md" : "lg"} />
+					)}
+					{allowClear && !isEmpty(value as string) && !isMultiLine && (
+						<CloseAlt
+							className="sui-input__input-clear"
+							onClick={onClear}
+							color="neutral"
+						/>
 					)}
 				</div>
 			)

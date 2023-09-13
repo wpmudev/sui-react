@@ -54,7 +54,7 @@ interface InputProps extends HTMLProps<HTMLInputElement>, InteractionTypes {
 	 * The callback function for handling input changes.
 	 */
 	onChange?: (
-		event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
+		event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement> | string,
 	) => void
 	/**
 	 * Optional icon to be displayed.
@@ -64,6 +64,10 @@ interface InputProps extends HTMLProps<HTMLInputElement>, InteractionTypes {
 	 * Optional icon position to be displayed before or after text.
 	 */
 	iconPosition?: "start" | "end"
+	/**
+	 * Specifies whether the value can be cleared or not
+	 */
+	allowClear?: boolean
 }
 
 export type { InputProps }
