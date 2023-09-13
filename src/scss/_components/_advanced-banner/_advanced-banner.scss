@@ -1,0 +1,10 @@
+@use "./_elements/elements" as sui-advanced-banner-element;
+@use "./_modifiers/modifiers" as sui-advanced-banner-modifiers;
+
+@include sui-advanced-banner-element.build-container(advanced-banner);
+@include sui-advanced-banner-element.build-info(advanced-banner);
+@include sui-advanced-banner-element.build-graphic(advanced-banner);
+@include sui-advanced-banner-element.build-actions(advanced-banner);
+@include sui-advanced-banner-element.build-cta(advanced-banner);
+
+@include sui-advanced-banner-modifiers.edit-variations(advanced-banner);

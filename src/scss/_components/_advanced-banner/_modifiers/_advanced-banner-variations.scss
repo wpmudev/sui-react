@@ -1,0 +1,67 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// variations
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-variations($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include modifier(hub) {
+                background-color: #0045C4;
+                border: 1px solid var(--color-primary-blue-40, #0045C4);
+
+                @include modifies-element(info-title) {
+                    color: #FFF;
+                }
+
+                @include modifies-element(info-desc) {
+                    color: #FFF;
+                }
+
+                @include modifies-element(info-helper) {
+                    color: var(--color-alpha-white-70, rgba(255, 255, 255, 0.70));
+                }
+            }
+
+            @include modifier(black-friday) {
+                background: linear-gradient(90deg, #222 0%, #383323 48.96%, #514524 100%);
+
+                @include modifies-element(graphic) {
+                    display: flex;
+                    background: var(--status-yellow-warning-base-50-ffcc-20, #FFCC20);
+                    border-radius: 0 0 12px 12px;
+                    height: fit-content;
+                    margin-top: -32px;
+                    padding: 24px 16px;
+                }
+
+                @include modifies-element(graphic-text) {
+                    color: var(--neutral-grey-101-a-1-a-1-a, #1A1A1A);
+                    font: $font-weight-lg 24px/32px $font-family-default;
+
+                    span {
+                        display: block;
+                    }
+                }
+
+                @include modifies-element(info-title) {
+                    color: #FFF;
+                }
+
+                @include modifies-element(info-desc) {
+                    color: #FFF;
+                }
+
+                @include modifies-element(info-helper) {
+                    color: var(--color-alpha-white-70, rgba(255, 255, 255, 0.70));
+                }
+            }
+        }
+    }
+}
