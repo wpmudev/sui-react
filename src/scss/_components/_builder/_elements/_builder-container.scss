@@ -8,12 +8,12 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-container($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            background: #F8F8F8;
-            padding: 20px;
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			background: $color-extended-neutral-95;
+			padding: $spacing-xxl;
+		}
+	}
 }

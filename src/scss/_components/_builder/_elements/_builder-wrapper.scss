@@ -1,4 +1,3 @@
-
 @use "sass:math";
 @use "../../../_utils/utils" as *;
 
@@ -15,8 +14,8 @@
 		@include block($block) {
 			@include element(wrapper) {
 				display: flex;
-				gap: 16px;
-				margin-bottom: 16px;
+				gap: $spacing-lg;
+				margin-bottom: 0;
 			}
 		}
 	}

@@ -8,23 +8,25 @@
 ///
 /// @param {String} $item - Main item name
 @mixin build-empty($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include element(empty) {
-                align-items: center;
-                display: flex;
-                gap: 16px;
-                justify-content: center;
-                flex-direction: column;
-                padding: 24px 0;
-            }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(empty) {
+				align-items: center;
+				display: flex;
+				gap: $spacing-lg;
+				justify-content: center;
+				flex-direction: column;
+				padding: $spacing-xl 0;
+			}
 
-            @include element(empty-title) {
-                color: #737373;
-                font: $font-weight-md 15px/24px $font-family-default;
-            }
-        }
-    }
+			@include element(empty-title) {
+				color: $color-extended-neutral-60;
+				font-size: $font-size-default;
+				line-height: $font-height-sm;
+				font-weight: $font-weight-md;
+			}
+		}
+	}
 }

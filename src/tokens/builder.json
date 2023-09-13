@@ -1,0 +1,14 @@
+{
+	"builder": {
+		"size": {
+			"width": {
+				"value": "32px",
+				"type": "sizing"
+			},
+			"height": {
+				"value": "32px",
+				"type": "sizing"
+			}
+		}
+	}
+}
