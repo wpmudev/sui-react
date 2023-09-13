@@ -33,6 +33,7 @@ export { Desktop } from "./Desktop"
 export { Performance } from "./Performance"
 export { ExternalLink } from "./ExternalLink"
 export { Search } from "./Search"
+export { Tag } from "./Tag"
 // plugin icons
 export { Plugin } from "./Plugin"
 export { PluginDefender } from "./PluginDefender"
