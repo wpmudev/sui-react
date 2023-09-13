@@ -5,24 +5,27 @@ import TabUsage from './tabs/TabUsage.mdx';
 import TabCode from './tabs/TabCode.mdx';
 import TabExamples from './tabs/TabExamples.mdx';
 
-<Page.Tabs
-	title="Score"
-	subtitle={
-		<>
-			These are animated gauges on page load for scoring. You gonna find
-			gauges in three different colors that each represent three different
-			states. Gauges also come in two different sizes, regular and large.
-		</>
-	}
-	status="draft"
->
-	<div id="usage" label="Usage">
-		<TabUsage />
-	</div>
-	<div id="code" label="Code">
-		<TabCode />
-	</div>
-	<div id="examples" label="Examples">
-		<TabExamples />
-	</div>
-</Page.Tabs>
+import { Unstyled } from "@storybook/blocks"
+
+<Unstyled>
+	<Page.Tabs
+		title="Score"
+		subtitle={
+			<>
+				The Score displays the data that is collected for an indicator for a rating version and the resulting risk score. 
+				It makes it easier for end-user to understand without any technical knowledge.
+			</>
+		}
+		status="draft"
+	>
+		<div id="usage" label="Usage">
+			<TabUsage />
+		</div>
+		<div id="code" label="Code">
+			<TabCode />
+		</div>
+		<div id="examples" label="Examples">
+			<TabExamples />
+		</div>
+	</Page.Tabs>
+</Unstyled>
