@@ -9,7 +9,7 @@ import { BuilderEmpty } from "./builder-empty"
 
 // Build builder component
 const Builder: React.FC<BuilderProps> = ({
-	className,
+	className = "",
 	children,
 	allowAddFields = true,
 	hasNoFields = false,
