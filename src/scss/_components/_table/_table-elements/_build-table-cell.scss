@@ -81,7 +81,6 @@
 
                 @include modifier(sticky) {
                     background-color: $color-extended-neutral-100;
-                    border-right: $border-width-md solid $color-extended-neutral-80;
                     left: calc(62px - $border-width-md);
                     position: sticky;
                     width: $table-width-xs;
@@ -96,12 +95,19 @@
                         left: 0;
                     }
 
+                    &.sui-#{$block}__cell--is-sticky-active:not(.sui-#{$block}__cell--selection) {
+                        border-right: $border-width-md solid $color-extended-neutral-80;
+                    }
+
                     &.sui-#{$block}__cell--actions {
                         border-right: 0;
-                        border-left: $border-width-md solid $color-extended-neutral-80;
                         left: auto;
                         right: 0;
                         width: auto;
+
+                        &.sui-#{$block}__cell--is-sticky-active {
+                            border-left: $border-width-md solid $color-extended-neutral-80;
+                        }
 
                         @include media(max-width, sm){
                             border: none;
