@@ -1,10 +1,12 @@
 import React, { useState } from "react"
-import { isFunction, generateCN } from "@wpmudev/sui-utils"
+
 import { Toggle } from "@wpmudev/sui-toggle"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { Tag } from "@wpmudev/sui-tag"
-import { useInteraction } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
+
+import { useInteraction } from "@wpmudev/sui-hooks"
+import { isFunction, generateCN } from "@wpmudev/sui-utils"
 
 import { IntegrationProps } from "./integration.types"
 

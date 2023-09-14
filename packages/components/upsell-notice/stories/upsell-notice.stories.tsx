@@ -3,7 +3,6 @@ import React from "react"
 // Import required component(s)
 import { UpsellNotice as SuiUpsellNotice } from "../src"
 import { Button } from "@wpmudev/sui-button"
-import { Link } from "@wpmudev/sui-link"
 
 // Import documentation main page
 import docs from "./upsell-notice.mdx"
@@ -37,16 +36,22 @@ export const UpsellNotice = ({ example, ...props }) => {
 	const actions = [
 		<Button
 			key={0}
-			appearance="secondary"
-			color="black"
+			appearance={"hub" === props?.variation ? "primary" : "secondary"}
+			color={"hub" === props?.variation ? "blue" : "black"}
 			isSmall={true}
 			// onClick={onApplyButton}
 		>
 			Primary
 		</Button>,
-		<Link href="#" key={1}>
-			Learn More
-		</Link>,
+		<Button
+			key={1}
+			appearance="tertiary"
+			color="black"
+			isSmall={true}
+			// onClick={onApplyButton}
+		>
+			Learn more
+		</Button>,
 	]
 
 	return (
@@ -109,14 +114,8 @@ UpsellNotice.argTypes = {
 			"defender",
 			"branda",
 			"beehive",
+			"hub",
 		],
-		control: {
-			type: "select",
-		},
-	},
-	size: {
-		name: "Size",
-		options: ["sm", "lg"],
 		control: {
 			type: "select",
 		},

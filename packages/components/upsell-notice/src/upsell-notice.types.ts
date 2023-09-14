@@ -32,6 +32,7 @@ interface UpsellNoticeProps {
 		| "defender"
 		| "branda"
 		| "beehive"
+		| "hub"
 }
 
 export { UpsellNoticeProps }
