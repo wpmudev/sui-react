@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component
-import { Search as SuiSearch } from "../src"
+import { Search as SuiSearch, SearchDropdown, SearchDropdownItem } from "../src"
 
 // Import documentation main page
 import docs from "./search.mdx"
@@ -20,13 +20,21 @@ export default {
 
 // Build "Search" story.
 const Search = ({ ...props }) => {
-	const set = {}
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div>
-					<SuiSearch {...props} />
+					<SuiSearch {...props}>
+						<SearchDropdown>
+							<SearchDropdownItem value="Item heading variable">
+								<span>Item heading</span>
+								<span>Variable</span>
+							</SearchDropdownItem>
+							<SearchDropdownItem>Item 2</SearchDropdownItem>
+							<SearchDropdownItem value="Option 3">Option 3</SearchDropdownItem>
+							<SearchDropdownItem value="Option 4">Option 4</SearchDropdownItem>
+						</SearchDropdown>
+					</SuiSearch>
 				</div>
 			</div>
 		</div>
@@ -35,52 +43,32 @@ const Search = ({ ...props }) => {
 
 // Set story arguments.
 Search.args = {
-	example: "icon",
-	status: "",
-	image: {
-		alt: "Unreal Person search image",
+	example: "simple",
+	items: {
+		one: "Option 1",
+		two: "Option 2",
 	},
-	isSmall: false,
 }
 
 // Set controls for story arguments.
 Search.argTypes = {
 	example: {
 		name: "Example",
-		options: ["icon", "image"],
+		options: ["simple", "smartsearch"],
 		control: {
 			type: "select",
 			labels: {
-				icon: "Example: Icon Search",
-				image: "Example: Image Search",
+				simple: "Example: Simple",
+				smartsearch: "Example: Smartsearch",
 			},
 		},
 	},
-	image: {
-		name: "Image",
-		control: "object",
+	items: {
+		name: "Items",
 		if: {
 			arg: "example",
-			eq: "image",
+			eq: "smartsearch",
 		},
-	},
-	status: {
-		name: "Status",
-		options: ["none", "confirmed", "awaiting", "not-accepted", "not-connected"],
-		control: {
-			type: "select",
-			labels: {
-				none: "Status: None",
-				confirmed: "Status: Confirmed",
-				awaiting: "Status: Awaiting",
-				"not-accepted": "Status: Not Accepted",
-				"not-connected": "Status: Not Connected",
-			},
-		},
-	},
-	isSmall: {
-		name: "Small",
-		control: "boolean",
 	},
 }
 

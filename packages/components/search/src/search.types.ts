@@ -8,6 +8,14 @@ interface SearchProps extends HTMLProps<HTMLSpanElement> {
 	 * The CSS class name for the search.
 	 */
 	className?: string
+	/**
+	 * The CSS class name for the search.
+	 */
+	searchValue?: string
+	/**
+	 * The items from which search operartion will be performed.
+	 */
+	items?: Record<string, any>
 }
 
 export type { SearchProps }

@@ -1,4 +1,4 @@
-import React, { useCallback, useId, useState } from "react"
+import React, { ReactElement, useCallback, useId, useState } from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 import { Input } from "@wpmudev/sui-input"
 
@@ -7,15 +7,12 @@ import { SearchProps } from "./search.types"
 // Build "search" component
 const Search: React.FC<SearchProps> = ({
 	id,
-	image,
-	status,
-	isSmall = false,
 	className,
 	defaultValue,
+	children,
 	...props
 }) => {
 	const [value, setValue] = useState(defaultValue ?? "")
-
 	let inputId = useId()
 	inputId = id ?? `sui-search-${inputId}`
 
@@ -30,7 +27,6 @@ const Search: React.FC<SearchProps> = ({
 	return (
 		<div className={classNames} {...props}>
 			<Input
-				className=""
 				id={inputId}
 				tabIndex={-1}
 				icon="search"
@@ -39,7 +35,8 @@ const Search: React.FC<SearchProps> = ({
 				defaultValue={value}
 				allowClear={true}
 			/>
-			<div className="sui-search__popover">POPOVER</div>
+			{children &&
+				React.cloneElement(children as ReactElement, { searchValue: value })}
 		</div>
 	)
 }
