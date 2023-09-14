@@ -1,4 +1,10 @@
-import React, { createContext, FC, useCallback, useState } from "react"
+import React, {
+	createContext,
+	FC,
+	useCallback,
+	useEffect,
+	useState,
+} from "react"
 
 import {
 	TableContextProps,
@@ -37,10 +43,29 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 	const [columns, setColumns] = useState<TableColumnType[]>([])
 	// state to force collapse in drag-and-drop reordering
 	const [forceCollapse, setForceCollapse] = useState(false)
+	const [hasStickyCols, setHasStickyCols] = useState(false)
 	const [sortBy, setSortBy] = useState<TableSortBy>({
 		column: "",
 		order: "asc",
 	})
+
+	const { wrapperRef } = props
+
+	/**
+	 * When wrapper scroll appears make hasStickyCols true
+	 *
+	 * @type {() => void}
+	 */
+	const detectSticky = useCallback(() => {
+		setHasStickyCols(
+			wrapperRef.current?.scrollWidth > wrapperRef.current?.clientWidth,
+		)
+	}, [wrapperRef])
+
+	useEffect(() => {
+		// detect wrapper resize
+		new ResizeObserver(detectSticky).observe(wrapperRef?.current as Element)
+	}, [detectSticky, wrapperRef])
 
 	// function to handle row selection in the table
 	const onSelect = useCallback(
@@ -124,6 +149,9 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 				setSortBy,
 				applyFilters,
 				clearFilters,
+				// sticky columns
+				hasStickyCols,
+				setHasStickyCols,
 			}}
 		>
 			{children}
