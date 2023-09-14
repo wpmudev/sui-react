@@ -10,6 +10,7 @@ const SearchDropdown: React.FC<SearchProps> = ({
 
 	// Filter children based on searchValue
 	useEffect(() => {
+		if (searchValue.length < 2) return
 		const filtered = React.Children.toArray(children).filter((child) => {
 			if (typeof child === "string") {
 				return child.toLowerCase().includes(searchValue.toLowerCase())
@@ -30,7 +31,9 @@ const SearchDropdown: React.FC<SearchProps> = ({
 		setFilteredItems(filtered)
 	}, [searchValue, children])
 
-	return (
+	return searchValue.length < 2 ? (
+		<div>Please enter 2 or more characters</div>
+	) : (
 		<ul className="sui-search__dropdown" {...props}>
 			{filteredItems}
 		</ul>
