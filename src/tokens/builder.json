@@ -9,6 +9,12 @@
 				"value": "32px",
 				"type": "sizing"
 			}
+		},
+		"spacing": {
+			"md": {
+				"value": "20px",
+				"type": "spacing"
+			}
 		}
 	}
 }
