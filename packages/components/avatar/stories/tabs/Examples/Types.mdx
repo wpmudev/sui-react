@@ -3,33 +3,30 @@ import { Avatar } from '../../../src';
 import dedent from 'dedent';
 
 export const IconAvatarCode = dedent`
-import React from 'react';\n
-import { Avatar } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Avatar icon="logo" />;
-}\n
-export default Example;
+<Avatar />
 `;
 
 export const ImageAvatarCode = dedent`
-import React from 'react';\n
-import { Avatar } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Avatar image={{ src: 'https://avatars.githubusercontent.com/u/40248406?v=4', alt: 'image-alt' }} />;
-}\n
-export default Example;
+    <Avatar 
+        image={ 
+                { 
+                    src: 'https://avatars.githubusercontent.com/u/40248406?v=4', 
+                    alt: 'image-alt' 
+                }
+            } 
+    />
 `;
 
 <Section
-	title="Icon"
+	title="Icon ( default )"
 	contained={true}
 	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
 >
 	<p>
-		Set the <Code small={true}>icon</Code> prop to show icon in avatar.
+		When the image is not set, the Avatar will display an icon of a user
 	</p>
 	<Preview wrapper={true}>
-		<Avatar icon="logo" />
+		<Avatar />
 	</Preview>
 	<Snippet language="js">{IconAvatarCode}</Snippet>
 </Section>
