@@ -68,7 +68,11 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 			case !!customContent:
 				return customContent
 			case !isEmpty(imgUrl ?? ""):
-				logo = <img src={imgUrl} alt="Field Preview" />
+				logo = (
+					<span className="sui-builder__preview--image">
+						<img src={imgUrl} alt="Field Preview" />
+					</span>
+				)
 				break
 			case !!IconTag:
 				logo = <IconTag size="sm" />
@@ -78,7 +82,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 		return (
 			<Fragment>
 				<div className="sui-builder__field-info">
-					<div className="sui-builder__field-info-preview">{logo}</div>
+					<div className="sui-builder__preview">{logo}</div>
 					{!isEmpty(title ?? "") && (
 						<div className="sui-builder__field-info-name">{title}</div>
 					)}

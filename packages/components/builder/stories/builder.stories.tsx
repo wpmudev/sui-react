@@ -23,22 +23,16 @@ export default {
 	},
 }
 
-const tag = (
-	<Tag color="black" design="outlined" isSmall={true}>
-		PRO
-	</Tag>
-)
-
 // Build footer story
 const Builder = ({}) => {
 	const actionButton = (
 		<Dropdown
 			buttonIcon="settings"
 			label="Connect features"
+			appearance="tertiary"
 			direction="left"
 			isSmall={true}
 			iconOnly={true}
-			isResponsive={true}
 			onMenuClick={(id, e) => {
 				console.log("DEBUG: Menu Item Clicked", id, e)
 			}}
@@ -66,20 +60,17 @@ const Builder = ({}) => {
 						<BuilderField
 							action={actionButton}
 							title="Block 1"
-							url="#"
 							icon="Desktop"
 						/>
 						<BuilderField
 							action={actionButton}
 							allowDrag={false}
 							title="No Drag"
-							url="#"
 							icon="Desktop"
 						/>
 						<BuilderField
 							action={actionButton}
 							title="Image"
-							url="#"
 							imgUrl="https://placehold.co/600x400/EEE/31343C"
 							icon="Desktop"
 						/>
@@ -90,6 +81,7 @@ const Builder = ({}) => {
 								<Dropdown
 									buttonIcon="settings"
 									label="Connect features"
+									appearance="tertiary"
 									direction="left"
 									isSmall={true}
 									iconOnly={true}
@@ -102,7 +94,6 @@ const Builder = ({}) => {
 							}
 							title="Error Block"
 							hasError={true}
-							url="#"
 							icon="Bell"
 						/>
 					</BuilderWrapper>
@@ -110,10 +101,13 @@ const Builder = ({}) => {
 						<BuilderField
 							action={actionButton}
 							title="Block 3"
-							url="#"
 							icon="Desktop"
 							customContent={
-								<Input id="field-input" placeholder="Placeholder" />
+								<Input
+									id="field-input"
+									isSmall={true}
+									placeholder="Placeholder"
+								/>
 							}
 						/>
 					</BuilderWrapper>
@@ -121,7 +115,6 @@ const Builder = ({}) => {
 						<BuilderField
 							action={actionButton}
 							title="Accordion"
-							url="#"
 							icon="Desktop"
 						>
 							Field body, it can contains any types of element
