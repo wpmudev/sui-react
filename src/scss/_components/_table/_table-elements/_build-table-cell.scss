@@ -107,6 +107,7 @@
 
                         &.sui-#{$block}__cell--is-sticky-active {
                             border-left: $border-width-md solid $color-extended-neutral-80;
+                            border-right: none;
                         }
 
                         @include media(max-width, sm){
