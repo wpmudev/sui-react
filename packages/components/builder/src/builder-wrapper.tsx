@@ -7,12 +7,13 @@ import { BuilderWrapperProps } from "./builder.types"
 const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 	className,
 	children,
+	...props
 }) => {
 	// Class names based on interaction and disabled state.
 	const classNames = generateCN("sui-builder__wrapper", {}, className)
 
 	return (
-		<Row className={classNames}>
+		<Row className={classNames} align={{ md: "inline" }} {...props}>
 			{Children.map(children, (child: React.ReactNode) =>
 				cloneElement(child, {
 					colSize: Children.count(children),

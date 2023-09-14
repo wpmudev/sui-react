@@ -14,7 +14,7 @@ const Builder: React.FC<BuilderProps> = ({
 	allowAddFields = true,
 	hasNoFields = false,
 }) => {
-	const classNames = generateCN("sui-builder", {}, className)
+	const classNames = generateCN("sui-builder", {}, `sui-layout ${className}`)
 	return (
 		<div className={classNames}>
 			<div className="sui-builder__content">

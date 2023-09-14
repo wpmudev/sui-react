@@ -56,21 +56,21 @@ const Builder = ({}) => {
 				<SuiBuilder hasInsertButton={true}>
 					<BuilderWrapper>
 						<BuilderField
-							columnSize={3}
+							columnSize={4}
 							action={actionButton}
 							title="Block 1"
 							subTitle="Field text"
 							icon="Desktop"
 						/>
 						<BuilderField
-							columnSize={3}
+							columnSize={4}
 							action={actionButton}
 							allowDrag={false}
 							title="No Drag"
 							icon="Desktop"
 						/>
 						<BuilderField
-							columnSize={3}
+							columnSize={4}
 							action={actionButton}
 							title="Image"
 							imgUrl="https://placehold.co/600x400/EEE/31343C"
