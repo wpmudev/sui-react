@@ -15,17 +15,8 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(hover) {
-				box-shadow: inset 0 0 0 $integration-border-width $color-primary-50;
-			}
-		}
-	}
-
-	// DIR: Left to right.
-	// THEME: Dark.
-	@include sui-class($rtl: false, $theme: dark) {
-		@include block($block) {
-			@include modifier(hover) {
-				box-shadow: inset 0 0 0 $integration-border-width $color-extended-neutral-0;
+				box-shadow: inset 0 0 0 $integration-border-width
+					$color-primary-50;
 			}
 		}
 	}

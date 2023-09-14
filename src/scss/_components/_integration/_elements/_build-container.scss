@@ -14,19 +14,28 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            padding: $integration-spacing-padding;
-            background: $color-extended-neutral-100;
-            border-radius: $integration-border-radius;
+			padding: $integration-spacing-padding;
+			background: $color-extended-neutral-100;
+			border-radius: $integration-border-radius;
 
-            @include element(header, info) {
-                display: flex;
-                align-items: center;
-                margin-bottom: $integration-spacing-margin-horizontal;
-            }
+			@include element(header, info) {
+				display: flex;
+				align-items: center;
+				margin-bottom: $integration-spacing-margin-horizontal;
+			}
 
-            @include element(info) {
-                gap: $integration-spacing-margin-horizontal;
-            }
+			@include element(info) {
+				gap: $integration-spacing-margin-horizontal;
+			}
+		}
+
+		// DIR: Left to right.
+		// THEME: Dark.
+		@include sui-class($rtl: false, $theme: dark) {
+			@include block($block) {
+				box-shadow: inset 0 0 0 $integration-border-width
+					$color-extended-neutral-0;
+			}
 		}
 	}
 }
