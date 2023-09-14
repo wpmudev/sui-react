@@ -13,9 +13,10 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             @include element(body) {
-                margin-bottom: 24px;
 
                 p {
+                    color: #505050;
+                    font: $font-weight-sm 13px/20px $font-family-default;
                     margin: 0;
                 }
             }

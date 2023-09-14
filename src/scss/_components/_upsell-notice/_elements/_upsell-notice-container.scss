@@ -14,7 +14,6 @@
         @include block($block) {
             align-items: flex-start;
             border-radius: 8px;
-            max-width: 440px;
             padding: 16px;
         }
     }

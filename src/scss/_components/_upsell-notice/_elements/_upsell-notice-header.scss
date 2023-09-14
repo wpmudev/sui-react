@@ -16,11 +16,15 @@
                 align-items: center;
                 display: flex;
                 gap: 8px;
-                margin-bottom: 16px;
+                margin-bottom: 8px;
             }
 
             @include element(header-title) {
+                align-items: center;
+                color: #1A1A1A;
+                display: flex;
                 font: 500 16px/24px $font-family-default;
+                gap: 8px;
                 margin: 0;
             }
         }
