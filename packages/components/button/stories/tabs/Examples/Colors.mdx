@@ -3,48 +3,88 @@ import { Button } from '../../../src';
 import dedent from 'dedent';
 
 export const BlueButtonCode = dedent`
-import React from 'react';\n
-import { Button } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Button color="blue">Blue button</Button>;
-}\n
-export default Example;
+    // primary blue
+    <Button color="blue" appearance="primary">
+        Blue button
+    </Button>
+
+    // secondary blue
+    <Button color="blue" appearance="secondary">
+        Blue button
+    </Button>
+
+    // tertiary blue
+    <Button color="blue" appearance="tertiary">
+        Blue button
+    </Button>
 `;
 
 export const BlackButtonCode = dedent`
-import React from 'react';\n
-import { Button } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Button color="black">Black button</Button>;
-}\n
-export default Example;
+    // primary black
+    <Button color="black" appearance="primary">
+        Blue button
+    </Button>
+
+    // secondary black
+    <Button color="black" appearance="secondary">
+        Blue button
+    </Button>
+
+    // tertiary black
+    <Button color="black" appearance="tertiary">
+        Blue button
+    </Button>
 `;
 
 export const RedButtonCode = dedent`
-import React from 'react';\n
-import { Button } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Button color="red">Red button</Button>;
-}\n
-export default Example;
+    // primary red
+    <Button color="red" appearance="primary">
+        Blue button
+    </Button>
+
+    // secondary red
+    <Button color="red" appearance="secondary">
+        Blue button
+    </Button>
+
+    // tertiary red
+    <Button color="red" appearance="tertiary">
+        Blue button
+    </Button>
 `;
 
 export const NavyButtonCode = dedent`
-import React from 'react';\n
-import { Button } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Button color="navy">Navy button</Button>;
-}\n
-export default Example;
+    // primary navy
+    <Button color="navy" appearance="primary">
+        Blue button
+    </Button>
+
+    // secondary navy
+    <Button color="navy" appearance="secondary">
+        Blue button
+    </Button>
+
+    // tertiary navy
+    <Button color="navy" appearance="tertiary">
+        Blue button
+    </Button>
 `;
 
 export const WhiteButtonCode = dedent`
-import React from 'react';\n
-import { Button } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Button color="white">White button</Button>;
-}\n
-export default Example;
+    // primary white
+    <Button color="white" appearance="primary">
+        Blue button
+    </Button>
+
+    // secondary white
+    <Button color="white" appearance="secondary">
+        Blue button
+    </Button>
+
+    // tertiary white
+    <Button color="white" appearance="tertiary">
+        Blue button
+    </Button>
 `;
 
 <Section
@@ -58,13 +98,13 @@ export default Example;
 		action.
 	</p>
 	<Preview wrapper={true}>
-		<Button color="blue" theme="primary">
+		<Button color="blue" appearance="primary">
 			Blue button
 		</Button>
-		<Button color="blue" theme="secondary">
+		<Button color="blue" appearance="secondary">
 			Blue button
 		</Button>
-		<Button color="blue" theme="tertiary">
+		<Button color="blue" appearance="tertiary">
 			Blue button
 		</Button>
 	</Preview>
@@ -82,13 +122,13 @@ export default Example;
 		depending on its appearance.
 	</p>
 	<Preview wrapper={true}>
-		<Button color="black" theme="primary">
+		<Button color="black" appearance="primary">
 			Black button
 		</Button>
-		<Button color="black" theme="secondary">
+		<Button color="black" appearance="secondary">
 			Black button
 		</Button>
-		<Button color="black" theme="tertiary">
+		<Button color="black" appearance="tertiary">
 			Black button
 		</Button>
 	</Preview>
@@ -107,13 +147,13 @@ export default Example;
 		modals.
 	</p>
 	<Preview wrapper={true}>
-		<Button color="red" theme="primary">
+		<Button color="red" appearance="primary">
 			Red button
 		</Button>
-		<Button color="red" theme="secondary">
+		<Button color="red" appearance="secondary">
 			Red button
 		</Button>
-		<Button color="red" theme="tertiary">
+		<Button color="red" appearance="tertiary">
 			Red button
 		</Button>
 	</Preview>
@@ -128,13 +168,13 @@ export default Example;
 >
 	<p>"The Hub" color button.</p>
 	<Preview wrapper={true}>
-		<Button color="navy" theme="primary">
+		<Button color="navy" appearance="primary">
 			Navy button
 		</Button>
-		<Button color="navy" theme="secondary">
+		<Button color="navy" appearance="secondary">
 			Navy button
 		</Button>
-		<Button color="navy" theme="tertiary">
+		<Button color="navy" appearance="tertiary">
 			Navy button
 		</Button>
 	</Preview>
@@ -152,13 +192,13 @@ export default Example;
 	</p>
 	<Preview wrapper={true}>
 		<div style={{ padding: 30, borderRadius: 4, background: '#333' }}>
-			<Button color="white" theme="primary">
+			<Button color="white" appearance="primary">
 				White button
 			</Button>
-			<Button color="white" theme="secondary">
+			<Button color="white" appearance="secondary">
 				White button
 			</Button>
-			<Button color="white" theme="tertiary">
+			<Button color="white" appearance="tertiary">
 				White button
 			</Button>
 		</div>
