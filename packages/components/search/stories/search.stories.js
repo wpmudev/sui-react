@@ -20,10 +20,16 @@ export default {
 
 // Build "Search" story.
 const Search = ({ example, ...props }) => {
+	const boxStyles = {
+		padding: 20,
+		borderRadius: 4,
+		background: "#fff",
+	}
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div>
+				<div style={boxStyles}>
 					{example === "smartsearch" ? (
 						<SuiSearch {...props}>
 							<SearchDropdown>
@@ -50,6 +56,7 @@ const Search = ({ example, ...props }) => {
 // Set story arguments.
 Search.args = {
 	example: "simple",
+	isDisabled: false,
 }
 
 // Set controls for story arguments.
@@ -63,6 +70,12 @@ Search.argTypes = {
 				simple: "Example: Simple",
 				smartsearch: "Example: Smartsearch",
 			},
+		},
+	},
+	isDisabled: {
+		name: "Disabled",
+		control: {
+			type: "boolean",
 		},
 	},
 }

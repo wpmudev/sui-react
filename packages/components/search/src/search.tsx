@@ -10,6 +10,7 @@ const Search: React.FC<SearchProps> = ({
 	className,
 	defaultValue,
 	children,
+	isDisabled = false,
 	...props
 }) => {
 	const [value, setValue] = useState(defaultValue ?? "")
@@ -34,6 +35,7 @@ const Search: React.FC<SearchProps> = ({
 				onChange={onChange}
 				defaultValue={value}
 				allowClear={true}
+				isDisabled={isDisabled}
 			/>
 			{children &&
 				React.cloneElement(children as ReactElement, { searchValue: value })}
