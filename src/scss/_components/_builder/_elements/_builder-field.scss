@@ -40,6 +40,8 @@
 				flex: 1;
 				gap: $spacing-md;
 				justify-content: space-between;
+				width: 100%;
+				overflow: hidden;
 			}
 
 			@include element(field-info) {
