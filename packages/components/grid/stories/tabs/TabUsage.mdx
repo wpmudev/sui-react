@@ -1,0 +1,80 @@
+import { Section, Row, Col } from "@wpmudev/storybook"
+
+import Grid from "../images/grid.svg"
+import SpacingSystem from "../images/spacing-system.svg"
+import Layout from "../images/layout.svg"
+import ColumnXL from "../images/column-xl.svg"
+import ColumnLg from "../images/column-lg.svg"
+import ColumnMd from "../images/column-md.svg"
+import ColumnSm from "../images/column-sm.svg"
+import Dimensions from "../images/dimensions.svg"
+
+<Section>
+	<Row>
+		<Col style={ { display: "flex", justifyContent: "center", flexDirection: "column"} } >
+    		<h2 style={{marginTop: 0}}>Grids</h2>
+    		<p>SUI uses an 8pt grid system to measure, size, and space the UI elements for consistency across all plugins. Use multiples of 8 to specify the size, padding, and margin of both block and inline items. However, a 4pt grid can also be used depending on the design needs.</p>
+    	</Col>
+    	<Col>
+    		<img src={Grid} alt="Grid" />
+    	</Col>
+    </Row>
+</Section>
+
+<Section border={true}>
+	<Row>
+		<Col style={ { display: "flex", justifyContent: "center", flexDirection: "column"} } >
+    		<h2 style={{marginTop: 0}}>Spacing System</h2>
+    		<p>We use the 8-times table for all components and typography spacing. This forms the basic unit of measurement for spacing. However, there can be used a 4px unit with the design needs.</p>
+    	</Col>
+    	<Col>
+    		<img src={SpacingSystem} alt="Grid Spacing System" />
+    	</Col>
+    </Row>
+</Section>
+
+<Section>
+	<Row>
+		<Col style={ { display: "flex", justifyContent: "center", flexDirection: "column"} } >
+    		<h2 style={{marginTop: 0}}>Layout</h2>
+    		<p>The layout consists of columns, gutters, and margins.</p>
+
+			<h2 style={{marginTop: 0}}>Columns</h2>
+    		<p>For the flexible grid and columns, SUI will have 12 columns on desktop and large screens, whereas it will be followed by 4 columns on small screens.</p>
+    	
+			<h2 style={{marginTop: 0}}>Gutter</h2>
+    		<p>Gutters are fixed width that depends upon the breakpoints.</p>
+		</Col>
+    	<Col style={{ display: "flex", alignItems: "center"}}>
+    		<img src={Layout} alt="Grid Layout" />
+    	</Col>
+    </Row>
+</Section>
+
+<Section border={true}>
+	<Row>
+		<Col style={ { display: "flex", justifyContent: "center", flexDirection: "column"} } >
+			<p>Extra-large Desktop</p>
+    		<img src={ColumnXL} alt="Grid Extra-large Desktop" />
+		</Col>
+    	<Col>
+			<p>Large Desktop</p>
+    		<img src={ColumnLg} alt="Grid Large Desktop" />
+    	</Col>
+	</Row>
+	<Row>	
+		<Col style={ { display: "flex", justifyContent: "center", flexDirection: "column"} } >
+			<p>Tablet</p>
+    		<img src={ColumnMd} alt="Grid Tablet" />
+		</Col>
+    	<Col>
+			<p>Mobile</p>
+    		<img src={ColumnSm} alt="Grid Mobile" />
+    	</Col>
+    </Row>
+</Section>
+
+<Section title="Breakpoint and dimensions">
+	<img src={Dimensions} alt="Grid Dimensions" />
+	<p>The container's maximum width is 1632px. When the screen size is less than the container size, it will stretch with it, and when the screen size is greater than the container size, it will be fixed in width and positioned in the center.</p>
+</Section>
