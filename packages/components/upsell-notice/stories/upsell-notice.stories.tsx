@@ -3,6 +3,7 @@ import React from "react"
 // Import required component(s)
 import { UpsellNotice as SuiUpsellNotice } from "../src"
 import { Button } from "@wpmudev/sui-button"
+import { Link } from "@wpmudev/sui-link"
 
 // Import documentation main page
 import docs from "./upsell-notice.mdx"
@@ -43,7 +44,9 @@ export const UpsellNotice = ({ example, ...props }) => {
 		>
 			Primary
 		</Button>,
-		<a href="#">Learn more</a>,
+		<Link href="#" key={1}>
+			Learn More
+		</Link>,
 	]
 
 	return (
@@ -67,6 +70,8 @@ export const UpsellNotice = ({ example, ...props }) => {
 }
 
 UpsellNotice.args = {
+	title: "Upsell notice",
+	tagTitle: "PRO",
 	description:
 		"Get our full WordPress performance optimization suite with Hummingbird Pro and the additional benefits of WPMU DEV membership. Get yours today now Lorem ipsum Lorem Ipsum.",
 }
@@ -74,6 +79,12 @@ UpsellNotice.args = {
 UpsellNotice.argTypes = {
 	title: {
 		name: "Title",
+		control: {
+			type: "text",
+		},
+	},
+	tagTitle: {
+		name: "Tag Title",
 		control: {
 			type: "text",
 		},

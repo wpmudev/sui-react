@@ -1,9 +1,11 @@
 import { ReactNode } from "react"
 
 // Define the UpsellProps interface to specify the expected props for the Upsell component
-interface UpsellProps {
+interface UpsellNoticeProps {
 	// Optional title of the upsell, can be a string
 	title?: string
+
+	tagTitle?: string
 
 	// Optional description of the upsell, can be any ReactNode
 	description?: ReactNode
@@ -32,4 +34,4 @@ interface UpsellProps {
 		| "beehive"
 }
 
-export { UpsellProps }
+export { UpsellNoticeProps }
