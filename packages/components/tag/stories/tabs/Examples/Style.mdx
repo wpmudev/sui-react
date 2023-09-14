@@ -1,0 +1,39 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
+import { Tag } from '../../../src';
+import dedent from 'dedent';
+
+export const MutilineTagCode = dedent`
+<Tag design="multiline">This is a label.</Tag>
+`;
+
+export const TruncatedTagCode = dedent`
+<Tag design="truncated">This is a label.</Tag>
+`;
+
+<Section
+	title="Multiline"
+	contained={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		When the tag width is insufficient, the text will break in multiple lines
+	</p>
+	<Preview wrapper={true}>
+		<Tag style="multiline">This is a multiline text.</Tag>
+	</Preview>
+	<Snippet language="js">{MutilineTagCode}</Snippet>
+</Section>
+
+<Section
+	title="Truncated"
+	contained={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		When the tag width is insufficient, the text get truncated
+	</p>
+	<Preview wrapper={true}>
+		<Tag style="truncated">This is a truncated text.</Tag>
+	</Preview>
+	<Snippet language="js">{TruncatedTagCode}</Snippet>
+</Section>

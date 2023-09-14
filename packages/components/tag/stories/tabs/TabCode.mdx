@@ -22,7 +22,6 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 			<span label={<Code small={true}>green</Code>} />
 			<span label={<Code small={true}>white</Code>} />
 			<span label={<Code small={true}>black</Code>} />
-			<span label={<Code small={true}>dark blue</Code>} />
 		</List>
 	</Section>
 	<Section
@@ -33,14 +32,14 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 		<p>Allowed options:</p>
 		<List>
 			<span label={<><Code small={true}>solid</Code> The tag will have a solid background</>} />
-			<span label={<><Code small={true}>outlined</Code> The tag will have a trnasparent background</>} />
+			<span label={<><Code small={true}>outlined</Code> The tag will have a transparent background</>} />
 		</List>
 	</Section>
 	<Section
 		title={{ content: 'isSmall', tag: 'boolean', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>When set to <Code small={true}> true </Code> the tag will have a smaller</p>
+		<p>When set to <Code small={true}> true </Code> the tag will have a smaller size</p>
 	</Section>
 	<Section
 		title={{ content: 'isUppercase', tag: 'boolean', small: true }}
@@ -58,10 +57,16 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 		title={{ content: 'style', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Style of the tag, it has two variations: </p>
+		<p>When the available space is unsufficient, the tag could have one of two styles: </p>
 		<List>
-			<span label={<><Code small={true}>multiline</Code> The tag will have a solid background</>} />
-			<span label={<><Code small={true}>truncated</Code> The tag will have a trnasparent background</>} />
+			<span label={<><Code small={true}>multiline</Code> for a multilined text. </>} />
+			<span label={<><Code small={true}>truncated</Code> for a truncated text. </>} />
 		</List>
+	</Section>
+	<Section
+		title={{ content: 'children', tag: 'React Node', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>The content of the tag</p>
 	</Section>
 </Section>
