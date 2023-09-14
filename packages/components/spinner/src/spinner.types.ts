@@ -5,10 +5,6 @@ import { RefObject } from "react"
  */
 interface SpinnerProps {
 	/**
-	 * Reference to the target DOM element
-	 */
-	targetRef?: RefObject<HTMLDivElement | HTMLSpanElement>
-	/**
 	 * Size of the spinner
 	 */
 	size?: "sm" | "lg"
