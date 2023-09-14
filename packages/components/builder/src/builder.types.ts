@@ -11,7 +11,7 @@ interface BuilderProps {
 	/**
 	 * Allow add new fields
 	 */
-	allowAddField?: boolean
+	allowAddFields?: boolean
 	/**
 	 * Mark as true when there is no fields available to render.
 	 */
