@@ -162,6 +162,8 @@ $colors-high-contrast: (
 							&.sui-#{$block-name}--focus {
 								border-color: $value;
 								outline: 1px solid $value;
+								background: transparent;
+								color: inherit;
 								@if $name == white {
 									color: $value;
 								}
