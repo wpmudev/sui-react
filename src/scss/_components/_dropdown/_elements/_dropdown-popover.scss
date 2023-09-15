@@ -1,11 +1,11 @@
 @use "../../../_utils/utils" as *;
 
-@mixin build-menu($block-name) {
+@mixin build-popover($block-name) {
 	// DIR: Left to right.
     // THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
-			@include element(menu) {
+			@include element(popover) {
 				width: $dropdown-size-width-md;
 				overflow-y: auto;
 				z-index: 100;
@@ -33,7 +33,7 @@
     // THEME: None.
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block-name) {
-			@include element(menu) {
+			@include element(popover) {
 				right: 0;
 			}
 		}
@@ -43,7 +43,7 @@
     // THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block-name) {
-			@include element(menu) {
+			@include element(popover) {
 				box-shadow: none;
 				border: $border-width-sm solid $color-extended-neutral-0;
 			}
