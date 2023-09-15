@@ -157,7 +157,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				className: inputClassNames,
 				onChange: handleChange,
 				// Interaction methods
-				...(disableInteractions ? {} : interactionMethods),
+				...(!!disableInteractions ? {} : interactionMethods),
 				// Any additional props
 				...props,
 			}
