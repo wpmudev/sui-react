@@ -13,15 +13,19 @@
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
             @include element(features) {
-
+                margin: 8px 0;
             }
 
             @include element(features-item) {
                 align-items: center;
                 color: var(--text-text-primary, #1A1A1A);
                 display: flex;
-                font: $font-weight-md 13px/20px $font-family-default;
+                font: $font-weight-md 13px/24px $font-family-default;
                 gap: 8px;
+            }
+
+            @include element(features-item-icon) {
+                margin-left: 8px;
             }
         }
     }
