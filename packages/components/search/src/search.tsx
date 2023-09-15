@@ -76,13 +76,13 @@ const Search: React.FC<SearchProps> = ({
 	// Filter options list based on the searched value
 	const filteredOptions = !isFiltered
 		? options
-		: options.filter((option) => option.label.startsWith(value))
+		: options.filter((option) => option.startsWith(value))
 
 	// Select first option when right arrow key is pressed.
 	const onInputKeyDown = useCallback(
 		(e) => {
 			if ("ArrowRight" === e.code) {
-				setValue(filteredOptions?.[0]?.label)
+				setValue(filteredOptions?.[0])
 			}
 		},
 		[filteredOptions],
@@ -92,7 +92,7 @@ const Search: React.FC<SearchProps> = ({
 
 	// Add additional props for smart search
 	if ("smart" === variation) {
-		inputProps.hint = (isFiltered && filteredOptions?.[0]?.label) ?? ""
+		inputProps.hint = (isFiltered && filteredOptions?.[0]) ?? ""
 		inputProps.onFocus = onInputFocus
 		inputProps.onKeyDown = onInputKeyDown
 	}

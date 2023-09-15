@@ -16,7 +16,7 @@ const SearchOptions: React.FC<SearchOptionsProps> = ({
 	const onOptionClick = useCallback(
 		(option) => {
 			setIsPopoverVisible(false)
-			setValue(option?.label)
+			setValue(option)
 		},
 		[setIsPopoverVisible, setValue],
 	)
@@ -35,7 +35,7 @@ const SearchOptions: React.FC<SearchOptionsProps> = ({
 			{options?.map((option, index) => (
 				<SearchOptionItem key={index} option={option} onClick={onOptionClick}>
 					{!isEmpty(value) && <span>{value}</span>}
-					{option?.label.replace(value, "")}
+					{option?.replace(value, "")}
 				</SearchOptionItem>
 			))}
 		</div>

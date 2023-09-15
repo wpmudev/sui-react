@@ -1,9 +1,6 @@
 import React from "react"
 
-type SearchOptionType = {
-	label: string
-	title: string
-}
+type SearchOptionType = string
 
 interface SearchBaseProps {
 	id?: string

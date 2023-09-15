@@ -20,86 +20,25 @@ export default {
 }
 
 const options = [
-	{
-		value: "usa",
-		label: "United States",
-	},
-	{
-		value: "canada",
-		label: "Canada",
-	},
-	{
-		value: "uk",
-		label: "United Kingdom",
-	},
-	{
-		value: "australia",
-		label: "Australia",
-	},
-	{
-		value: "germany",
-		label: "Germany",
-	},
-	{
-		value: "france",
-		label: "France",
-	},
-	{
-		value: "japan",
-		label: "Japan",
-	},
-	{
-		value: "brazil",
-		label: "Brazil",
-	},
-	{
-		value: "india",
-		label: "India",
-	},
-	{
-		value: "china",
-		label: "China",
-	},
-	{
-		value: "south_korea",
-		label: "South Korea",
-	},
-	{
-		value: "mexico",
-		label: "Mexico",
-	},
-	{
-		value: "russia",
-		label: "Russia",
-	},
-	{
-		value: "italy",
-		label: "Italy",
-	},
-	{
-		value: "spain",
-		label: "Spain",
-	},
-	{
-		value: "argentina",
-		label: "Argentina",
-	},
-	{
-		value: "south_africa",
-		label: "South Africa",
-	},
-	{
-		value: "egypt",
-		label: "Egypt",
-	},
-	{
-		value: "turkey",
-		label: "Turkey",
-	},
-	{
-		value: "new_zealand",
-		label: "New Zealand",
-	},
+	"United States",
+	"Canada",
+	"United Kingdom",
+	"Australia",
+	"Germany",
+	"France",
+	"Japan",
+	"Brazil",
+	"India",
+	"China",
+	"South Korea",
+	"Mexico",
+	"Russia",
+	"Italy",
+	"Argentina",
+	"South Africa",
+	"Egypt",
+	"Turkey",
+	"New Zealand",
 ]
 
 // Build "Search" story.
