@@ -14,7 +14,7 @@ const Tag: React.FC<TagProps> = ({
 }) => {
 	const hasDesign = "outlined" === design
 	const hasColor = !isUndefined(color) && !isEmpty(color)
-	const hasStyle = ["multiline", "truncate"].includes(style)
+	const hasStyle = ["multiline", "truncated"].includes(style)
 
 	// Define tag design
 	// Limited to: solid (default) and outlined
