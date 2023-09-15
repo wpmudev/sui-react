@@ -106,8 +106,6 @@ const options = [
 const Search = ({ ...props }) => {
 	const set = {}
 
-	console.log("props", props)
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
