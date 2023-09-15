@@ -1,0 +1,4 @@
+@use "./_search-elements/elements" as sui-search--element;
+
+@include sui-search--element.build-container(search);
+@include sui-search--element.build-popover(search);
