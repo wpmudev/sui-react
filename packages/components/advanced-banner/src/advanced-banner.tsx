@@ -41,7 +41,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 		<div className={classNames}>
 			{"black-friday" === variation && !!discountPercentage && (
 				<div className="sui-advanced-banner__graphic">
-					<div className="sui-advanced-banner__graphic-text">
+					<div className="sui-heading--h3 sui-advanced-banner__graphic-text">
 						<span>{discountPercentage}%</span>
 						<span>OFF</span>
 					</div>
@@ -54,7 +54,9 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 			)}
 			<div className="sui-advanced-banner__info">
 				{!isEmpty(title ?? "") && (
-					<div className="sui-advanced-banner__info-title">{title}</div>
+					<div className="sui-heading--h3 sui-advanced-banner__info-title">
+						{title}
+					</div>
 				)}
 				{!isEmpty(description ?? "") && (
 					<div className="sui-advanced-banner__info-desc">{description}</div>
@@ -70,7 +72,6 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 				<div className="sui-advanced-banner__cta">
 					<Button
 						className="sui-advanced-banner__cta-btn sui-advanced-banner__cta-btn--bf"
-						isSmall={true}
 						onClick={onCTAClick}
 					>
 						{ctaTitle}

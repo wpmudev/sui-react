@@ -37,9 +37,11 @@ const AdvancedBanner = ({ ...props }) => {
 					<Button appearance="primary" color="blue">
 						Primary
 					</Button>
+
 					<Button appearance="secondary" color="blue">
 						Secondary
 					</Button>
+
 					<Button appearance="tertiary" color="blue">
 						Tertiary
 					</Button>
@@ -52,9 +54,11 @@ const AdvancedBanner = ({ ...props }) => {
 					<Button appearance="primary" color="white">
 						Primary
 					</Button>
+
 					<Button appearance="secondary" color="white">
 						Secondary
 					</Button>
+
 					<Button appearance="tertiary" color="white">
 						Tertiary
 					</Button>
@@ -62,19 +66,16 @@ const AdvancedBanner = ({ ...props }) => {
 			)
 			break
 		case "newsletter":
-			// @todo: need improvements!
 			children = (
-				<Box style={{ border: "none" }}>
-					<BoxGroup isInline={true} style={{ margin: 0, padding: 0 }}>
-						<Input
-							id="newsletter-email"
-							placeholder="Enter your email to win today"
-						/>
-						<Button appearance="primary" color="blue">
-							Subscribe now
-						</Button>
-					</BoxGroup>
-				</Box>
+				<Fragment>
+					<Input
+						id="newsletter-email"
+						placeholder="Enter your email to win today"
+					/>
+					<Button appearance="primary" color="blue">
+						Subscribe now
+					</Button>
+				</Fragment>
 			)
 			break
 	}
