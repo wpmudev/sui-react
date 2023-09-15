@@ -84,9 +84,7 @@ const AdvancedBanner = ({ ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div>
-					<SuiAdvancedBanner {...props} variation={props?.example}>
-						{children}
-					</SuiAdvancedBanner>
+					<SuiAdvancedBanner {...props}>{children}</SuiAdvancedBanner>
 				</div>
 			</div>
 		</div>
@@ -95,12 +93,11 @@ const AdvancedBanner = ({ ...props }) => {
 
 // Set story arguments.
 AdvancedBanner.args = {
+	variation: "plugin",
 	title: "This is the example heading for the banner.",
 	description: "This is the example description for the banner. ",
 	helper: "*Only admin users can see this message",
-	example: "plugin",
-	variation: "plugin",
-	discountPercentage: 10,
+	discountPercentage: 50,
 	ctaTitle: "",
 	allowClose: true,
 	imageUrl: TagIcon,
@@ -109,10 +106,34 @@ AdvancedBanner.args = {
 // Set controls for story arguments.
 AdvancedBanner.argTypes = {
 	variation: {
-		name: "Variation [been overridden by Example]",
+		name: "Examples",
 		options: ["plugin", "hub", "newsletter", "black-friday"],
 		control: {
 			type: "select",
+			labels: {
+				plugin: "Example: General Plugins",
+				hub: "Example: Hub",
+				newsletter: "Example: News Letter",
+				"black-friday": "Example: Black Friday",
+			},
+		},
+	},
+	title: {
+		name: "Title",
+		control: {
+			type: "text",
+		},
+	},
+	description: {
+		name: "Description",
+		control: {
+			type: "text",
+		},
+	},
+	helper: {
+		name: "Helper",
+		control: {
+			type: "text",
 		},
 	},
 	allowClose: {
@@ -139,19 +160,6 @@ AdvancedBanner.argTypes = {
 		if: {
 			arg: "example",
 			eq: "black-friday",
-		},
-	},
-	example: {
-		name: "Example",
-		options: ["plugin", "hub", "newsletter", "black-friday"],
-		control: {
-			type: "select",
-			labels: {
-				plugin: "Example: General Plugins",
-				hub: "Example: Hub",
-				newsletter: "Example: News Letter",
-				"black-friday": "Example: Black Friday",
-			},
 		},
 	},
 }
