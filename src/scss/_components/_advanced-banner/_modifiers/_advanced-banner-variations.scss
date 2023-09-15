@@ -8,60 +8,63 @@
 ///
 /// @param {String} $block - Main block name
 @mixin edit-variations($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include modifier(hub) {
-                background-color: #0045C4;
-                border: 1px solid var(--color-primary-blue-40, #0045C4);
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(hub) {
+				background: $color-primary-40;
+				border: $border-width-sm solid $color-primary-40;
+			}
 
-                @include modifies-element(info-title) {
-                    color: #FFF;
-                }
+			@include modifier(black-friday) {
+				background: $advanced-banner-background;
 
-                @include modifies-element(info-desc) {
-                    color: #FFF;
-                }
+				@include modifies-element(graphic) {
+					display: flex;
+					background: $color-extended-warning-50;
+					border-radius: 0 0 $border-radius-lg $border-radius-lg;
+					height: fit-content;
+					margin-top: -#{$spacing-xxl};
+					padding: $spacing-xl $spacing-xl;
+				}
 
-                @include modifies-element(info-helper) {
-                    color: var(--color-alpha-white-70, rgba(255, 255, 255, 0.70));
-                }
-            }
+				@include modifies-element(graphic-text) {
+					color: $color-extended-neutral-10;
+					font-weight: $font-weight-lg;
 
-            @include modifier(black-friday) {
-                background: linear-gradient(90deg, #222 0%, #383323 48.96%, #514524 100%);
+					span {
+						display: block;
+					}
+				}
+			}
 
-                @include modifies-element(graphic) {
-                    display: flex;
-                    background: var(--status-yellow-warning-base-50-ffcc-20, #FFCC20);
-                    border-radius: 0 0 12px 12px;
-                    height: fit-content;
-                    margin-top: -32px;
-                    padding: 24px 16px;
-                }
+			@include modifier(hub, black-friday) {
+				@include modifies-element(info-title, info-desc, info-helper) {
+					color: $color-extended-neutral-100;
+				}
+			}
+		}
+	}
 
-                @include modifies-element(graphic-text) {
-                    color: var(--neutral-grey-101-a-1-a-1-a, #1A1A1A);
-                    font: $font-weight-lg 24px/32px $font-family-default;
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(hub, black-friday) {
+				background: $color-extended-neutral-0;
+				border-color: $color-extended-neutral-0;
+			}
 
-                    span {
-                        display: block;
-                    }
-                }
+			@include modifier(black-friday) {
+				@include modifies-element(graphic) {
+					background: $color-extended-neutral-100;
+				}
 
-                @include modifies-element(info-title) {
-                    color: #FFF;
-                }
-
-                @include modifies-element(info-desc) {
-                    color: #FFF;
-                }
-
-                @include modifies-element(info-helper) {
-                    color: var(--color-alpha-white-70, rgba(255, 255, 255, 0.70));
-                }
-            }
-        }
-    }
+				@include modifies-element(graphic-text) {
+					color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
 }

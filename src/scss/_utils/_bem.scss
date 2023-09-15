@@ -217,24 +217,21 @@ $bem-log: ();
 		@return false;
 	}
 
+	$block-selector: map.get($bem-current-context, block, selector);
 	$selectors: ();
 
 	@each $element in $modified-elements {
-		$sel: map.get($bem-current-context, block, selector) +
-			$bem-element-separator +
-			$element;
-		$selectors: list.append($selectors, $sel, comma);
+		$sel: #{$block-selector}#{$bem-element-separator}#{$element};
+		$selectors: append($selectors, $sel, comma);
 	}
-
-	$selector: selector.nest($selectors...);
 
 	$set-current: set-current-context(
 		"modifies-element",
 		$modified-elements,
-		$selector
+		$selectors
 	);
 
-	@return $selector;
+	@return $selectors;
 }
 
 // -----------------------------------------------------------------------------
