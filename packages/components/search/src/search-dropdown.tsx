@@ -32,7 +32,9 @@ const SearchDropdown: React.FC<SearchProps> = ({
 	}, [searchValue, children])
 
 	return searchValue.length < 2 ? (
-		<div>Please enter 2 or more characters</div>
+		<div className="sui-search__dropdown--empty">
+			Please enter 2 or more characters
+		</div>
 	) : (
 		<ul className="sui-search__dropdown" {...props}>
 			{filteredItems}
