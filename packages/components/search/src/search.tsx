@@ -18,7 +18,7 @@ const Search: React.FC<SearchProps> = ({
 	onChange = () => {},
 	allowClear = true,
 	searchMinChars = 2,
-	searchHint = "Please enter 2 or more characters",
+	searchHint = "Please enter #number# or more characters",
 }) => {
 	const [value, setValue] = useState<string>((defaultValue as string) ?? "")
 	const [isPopoverVisible, setIsPopoverVisible] = useState(false)
@@ -116,7 +116,7 @@ const Search: React.FC<SearchProps> = ({
 				<div className="sui-search__popover">
 					{!isFiltered ? (
 						<div className="sui-search__hint">
-							<span>{searchHint}</span>
+							<span>{searchHint.replace("#number#", searchMinChars)}</span>
 						</div>
 					) : (
 						<SearchOptions
