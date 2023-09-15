@@ -63,7 +63,6 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			}
 
 			useEffect(() => {
-				console.log("defaultValue", defaultValue)
 				setValue(defaultValue)
 			}, [defaultValue])
 
