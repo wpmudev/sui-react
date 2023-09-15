@@ -16,7 +16,6 @@ export const TagNames: Record<string, any> = {
 const Tooltip: React.FC<TooltipProps> = ({
 	label,
 	type = "button",
-	iconName = "info",
 	className,
 	position = "top",
 	customWidth,
@@ -27,6 +26,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	onMouseLeave = () => {},
 	onFocus = () => {},
 	onBlur = () => {},
+	href,
 	...props
 }) => {
 	// use interaction
@@ -91,7 +91,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
 	return (
 		<div className={classNames} {...methods}>
-			<TagName {...props} onClick={onClickCallback}>
+			<TagName {...props} href={href} onClick={onClickCallback}>
 				{label}
 			</TagName>
 			{!!children && (

@@ -57,7 +57,6 @@ const Tooltip = ({
 							position={position}
 							customWidth={customWidth}
 							customMobileWidth={customMobileWidth}
-							onClick={() => console.log("Button Clicked.")}
 						>
 							{set.content}
 						</SuiTooltip>
