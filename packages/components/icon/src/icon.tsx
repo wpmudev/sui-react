@@ -6,7 +6,7 @@ import React, {
 	ReactNode,
 } from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
 
 import { IconProps } from "./icon.types"
 
@@ -52,7 +52,7 @@ const Icon = forwardRef<"svg", IconProps>(
 		)
 
 		// SVG props
-		const svgProps = {
+		const svgProps: Record<string, any> = {
 			ref,
 			className,
 			title,
@@ -61,6 +61,12 @@ const Icon = forwardRef<"svg", IconProps>(
 			width,
 			onClick,
 			fill,
+		}
+
+		// Make icon accessible if onClick prop exists
+		if (!!onClick) {
+			svgProps.tabIndex = 0
+			svgProps.onKeyDown = (e) => handleOnKeyDown(e, onClick)
 		}
 
 		// Set the path for the icon (either from props or the default path)
