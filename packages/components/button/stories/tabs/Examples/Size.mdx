@@ -17,11 +17,10 @@ export default Example;
 	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
 >
 	<p>
-		Set the <Code small={true}>isSmall</Code> prop to reduce the button
-		width and height, fitting with the design context.
+		use the <Code small={true}>isSmall</Code> prop, to make the button smaller.
 	</p>
 	<Preview wrapper={true}>
-		<Button size="sm">Button</Button>
+		<Button isSmall="sm">Small Button</Button>
 	</Preview>
 	<Snippet language="js">{SmallButtonCode}</Snippet>
 </Section>

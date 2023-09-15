@@ -26,6 +26,7 @@ const Table: React.FC<TableProps> = ({
 }) => {
 	// Reference to the table element
 	const ref = useRef<HTMLTableElement | null>(null)
+	const wrapperRef = useRef<HTMLDivElement | null>(null)
 
 	// Define tag design
 	// Limited to: solid (default) and outlined
@@ -63,12 +64,13 @@ const Table: React.FC<TableProps> = ({
 				filtersPopover,
 				stickyCols,
 				ref,
+				wrapperRef,
 			}}
 		>
 			<div className={classNames}>
 				{/* Render the TableToolbar component if hasToolbar is true */}
 				{hasToolbar && <TableToolbar />}
-				<div className="sui-table__wrapper">
+				<div className="sui-table__wrapper" ref={wrapperRef}>
 					<table
 						{...props}
 						className="sui-table__table"

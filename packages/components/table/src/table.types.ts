@@ -335,6 +335,8 @@ interface TableContextProviderProps {
 	> &
 		Pick<TableProps, "onAction"> & {
 			ref: RefObject<HTMLTableElement>
+		} & {
+			wrapperRef: RefObject<HTMLDivElement>
 		}
 }
 

@@ -11,7 +11,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 <Section title="Props" border={true}>
 	<p>Avatar component have the following props.</p>
 	<Section
-		title={{ content: 'status', tag: 'string', small: true }}
+		title={{ content: 'status*', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Reflects the status of the avatar.</p>
@@ -48,27 +48,25 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 		</List>
 	</Section>
 	<Section
-		title={{ content: 'icon', tag: 'string', small: true }}
+		title={{ content: 'isSmall*', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the icon of the avatar.</p>
+		<p>When set to <Code small={true}>true</Code> the avatar will be smaller</p>
 	</Section>
 	<Section
-		title={{ content: 'isSmall', tag: 'string', small: true }}
+		title={{ content: 'image*', tag: 'object', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Set if the avatar is small.</p>
+		<p>Reflects the profile image of the avatar. the object accepts two properties</p>
+		<List>
+			<span label={<><Code>src</Code> The image link</>} />
+			<span label={<><Code>alt</Code> The image alternative text</>} />
+		</List>
 	</Section>
 	<Section
-		title={{ content: 'image', tag: 'string', small: true }}
+		title={{ content: 'className*', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the profile image of the avatar.</p>
-	</Section>
-	<Section
-		title={{ content: 'className', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>Add a class name to the avatar.</p>
+		<p>A custom className(s) for the avatar</p>
 	</Section>
 </Section>

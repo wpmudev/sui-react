@@ -36,14 +36,22 @@ export const UpsellNotice = ({ example, ...props }) => {
 	const actions = [
 		<Button
 			key={0}
-			appearance="secondary"
-			color="black"
+			appearance={"hub" === props?.variation ? "primary" : "secondary"}
+			color={"hub" === props?.variation ? "blue" : "black"}
 			isSmall={true}
 			// onClick={onApplyButton}
 		>
 			Primary
 		</Button>,
-		<a href="#">Learn more</a>,
+		<Button
+			key={1}
+			appearance="tertiary"
+			color="black"
+			isSmall={true}
+			// onClick={onApplyButton}
+		>
+			Learn more
+		</Button>,
 	]
 
 	return (
@@ -67,6 +75,8 @@ export const UpsellNotice = ({ example, ...props }) => {
 }
 
 UpsellNotice.args = {
+	title: "Upsell notice",
+	tagTitle: "PRO",
 	description:
 		"Get our full WordPress performance optimization suite with Hummingbird Pro and the additional benefits of WPMU DEV membership. Get yours today now Lorem ipsum Lorem Ipsum.",
 }
@@ -74,6 +84,12 @@ UpsellNotice.args = {
 UpsellNotice.argTypes = {
 	title: {
 		name: "Title",
+		control: {
+			type: "text",
+		},
+	},
+	tagTitle: {
+		name: "Tag Title",
 		control: {
 			type: "text",
 		},
@@ -98,14 +114,8 @@ UpsellNotice.argTypes = {
 			"defender",
 			"branda",
 			"beehive",
+			"hub",
 		],
-		control: {
-			type: "select",
-		},
-	},
-	size: {
-		name: "Size",
-		options: ["sm", "lg"],
 		control: {
 			type: "select",
 		},

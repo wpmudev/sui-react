@@ -2,6 +2,7 @@ import { Source } from '@storybook/addon-docs';
 import { Page } from '@wpmudev/storybook';
 import { Unstyled } from '@storybook/blocks';
 
+import TabUsage from "./tabs/TabUsage.mdx"
 import TabCode from './tabs/TabCode.mdx';
 import TabExamples from './tabs/TabExamples.mdx';
 
@@ -16,6 +17,9 @@ import TabExamples from './tabs/TabExamples.mdx';
 		}
 		status="draft"
 	>
+		<div id="usage" label="Usage">
+    		<TabUsage />
+    	</div>
 		<div id="code" label="Code">
 			<TabCode />
 		</div>

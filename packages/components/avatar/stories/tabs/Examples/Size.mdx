@@ -3,12 +3,7 @@ import { Avatar } from '../../../src';
 import dedent from 'dedent';
 
 export const SmallAvatarCode = dedent`
-import React from 'react';\n
-import { Avatar } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Avatar isSmall={true} status="confirmed" />;
-}\n
-export default Example;
+<Avatar isSmall={true} status="confirmed" />
 `;
 
 <Section
@@ -18,7 +13,7 @@ export default Example;
 >
 	<p>
 		Set the <Code small={true}>isSmall</Code> prop to reduce the avatar
-		width and height, fitting with the design context.
+		width and height.
 	</p>
 	<Preview wrapper={true}>
 		<Avatar isSmall={true} status="confirmed" />
