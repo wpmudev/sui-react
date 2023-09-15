@@ -15,12 +15,46 @@
 			@include element(cta) {
 				align-items: center;
 				display: flex;
+
+				@include media(max-width, sm) {
+					margin-top: -#{$spacing-md};
+					flex: 1;
+					width: 100%;
+				}
+
+				@include media(min-width, md) {
+					margin-right: -#{$spacing-xl};
+				}
 			}
 
 			@include element(cta-btn) {
 				@include modifier(bf) {
-					background: var(--status-yellow-warning-base-50-ffcc-20, #FFCC20);
-					border: none;
+					font-size: $font-size-xs;
+					letter-spacing: $font-spacing-lg;
+					background: $color-extended-warning-50;
+					text-transform: uppercase;
+
+					&.sui-button--focus {
+						outline: $border-width-md solid
+							$color-extended-warning-50;
+						outline-offset: $border-width-md;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(cta-btn) {
+				@include modifier(bf) {
+					background: $color-extended-neutral-100;
+
+					&.sui-button--focus {
+						outline-color: $color-extended-neutral-100;
+					}
 				}
 			}
 		}
