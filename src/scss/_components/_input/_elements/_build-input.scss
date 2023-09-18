@@ -31,10 +31,6 @@
 				letter-spacing: 0;
 				transition: 0.1s ease;
 				width: 100%;
-
-				@include modifier(allow-clear) {
-					padding-right: 42px;
-				}
 			}
 
 			@include element(input-clear) {
@@ -97,7 +93,7 @@
 
 	// DIR: Left to right.
 	// THEME: None.
-	@include sui-class($rtl: false, $theme: "dark") {
+	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(input, input-clear) {
 				color: $color-extended-neutral-0;

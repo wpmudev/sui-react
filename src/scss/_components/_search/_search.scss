@@ -1,6 +1,9 @@
 @use "./_elements/elements" as sui-search--element;
+@use "./_states/states" as sui-search--state;
 
 @include sui-search--element.build-container(search);
 @include sui-search--element.build-hint(search);
 @include sui-search--element.build-options(search);
 @include sui-search--element.build-input-field(search);
+
+@include sui-search--state.state-disabled(search);

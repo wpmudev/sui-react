@@ -24,6 +24,10 @@
 					background: $input-bg-disabled;
 					color: $input-font-color-disabled;
 				}
+
+				@include modifies-element(icon) {
+					color: $color-extended-neutral-70;
+				}
 			}
 		}
 	}
