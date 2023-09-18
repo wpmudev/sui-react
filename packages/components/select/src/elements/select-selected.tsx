@@ -106,7 +106,11 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 }) => {
 	return (
 		<div className="sui-select__control">
-			<InputWithAutoComplete placeholder="Search" {...props} />
+			<InputWithAutoComplete
+				placeholder="Search"
+				isSmall={isSmall}
+				{...props}
+			/>
 			<Icon name={arrow ?? ""} size="md" />
 		</div>
 	)

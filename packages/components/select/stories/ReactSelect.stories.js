@@ -1,12 +1,7 @@
 import React from "react"
 
 // Import required component(s).
-import {
-	Select as StandardSelect,
-	SearchSelect,
-	SmartSearchSelect,
-	MultiSelect,
-} from "../src"
+import { Select as StandardSelect, SearchSelect, MultiSelect } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactSelect.mdx"
@@ -33,7 +28,6 @@ const Select = ({ example, ...props }) => {
 				<div style={set.box}>
 					{"select" === example && <StandardSelect {...props} />}
 					{"search" === example && <SearchSelect {...props} />}
-					{"smart-search" === example && <SmartSearchSelect {...props} />}
 					{"multi-select" === example && <MultiSelect {...props} />}
 				</div>
 			</div>
@@ -103,14 +97,13 @@ Select.args = {
 Select.argTypes = {
 	example: {
 		name: "Example",
-		options: ["select", "multi-select", "search", "smart-search"],
+		options: ["select", "multi-select", "search"],
 		control: {
 			type: "select",
 			labels: {
 				select: "Example: Select",
 				"multi-select": "Example: Multiselect",
 				search: "Example: Search",
-				"smart-search": "Example: Smartsearch",
 			},
 		},
 	},
