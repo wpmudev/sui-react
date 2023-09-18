@@ -194,9 +194,12 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 						<Button
 							className="sui-input__input-clear"
 							icon="close-alt"
+							color="black"
+							appearance="tertiary"
 							iconOnly={true}
-							iconSize="lg"
+							iconSize={isSmall ? "md" : "lg"}
 							onClick={onClear}
+							isSmall={isSmall}
 							onKeyDown={(e) => handleOnKeyDown(e, onClear)}
 						>
 							Clear
