@@ -16,7 +16,6 @@
 		@include block($block) {
 			position: relative;
 			@include element(input) {
-				width: 100%;
 				max-width: 100%;
 				display: block;
 				margin: 0;
@@ -30,6 +29,7 @@
 				line-height: $input-font-height-md;
 				letter-spacing: 0;
 				transition: 0.1s ease;
+				width: 100%;
 
 				@include modifier(allow-clear) {
 					padding-right: 42px;
@@ -45,13 +45,15 @@
 
 			@include modifier('icon-end') {
 				@include modifies-element(input) {
-					padding-right: 44px;
+					padding-left: 16px;
+					padding-right: $input-spacing-padding-horizontal-md;
 				}
 			}
 
 			@include modifier('icon-start') {
 				@include modifies-element(input) {
-					padding-left: 44px;
+					padding-right: 44px;
+					padding-left: 0;
 				}
 			}
 		}
@@ -63,7 +65,7 @@
 		@include block($block) {
 			@include modifier('icon-end') {
 				@include modifies-element(input) {
-					padding-left: 44px;
+					padding-left: 0;
 					padding-right: $input-spacing-padding-horizontal-md;
 				}
 			}

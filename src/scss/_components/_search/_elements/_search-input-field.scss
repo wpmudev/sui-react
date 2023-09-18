@@ -1,21 +1,22 @@
-@use "sass:map";
-
+@use "sass:math";
 @use "../../../_utils/utils" as *;
 
-/// Build Container
-/// This function creates styles for the password container
+/// Build Input field
 ///
 /// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-error-message($block) {
+@mixin build-input-field($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			font-size: 13px;
-			position: relative;
+			@include element(input-field) {
+				&:before {
+					border: none
+				}
+			}
 		}
 	}
 }

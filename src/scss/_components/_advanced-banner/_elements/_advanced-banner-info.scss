@@ -16,20 +16,27 @@
 				display: flex;
 				flex: 1;
 				flex-direction: column;
-				gap: 8px;
+				gap: $spacing-md;
 			}
 
 			@include element(info-title) {
-				font: $font-weight-lg 24px/32px $font-family-default;
-			}
-
-			@include element(info-actions) {
-				margin-top: 8px;
+				font-weight: $font-weight-lg;
 			}
 
 			@include element(info-helper) {
-				color: var(--neutral-grey-60737373, #737373);
-				font: $font-weight-sm 13px/20px $font-family-default;
+				color: $color-extended-neutral-60;
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(info-helper, info-desc, info-title) {
+				color: $color-extended-neutral-0;
 			}
 		}
 	}

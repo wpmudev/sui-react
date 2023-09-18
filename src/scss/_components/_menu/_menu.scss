@@ -1,8 +1,0 @@
-@use "./_elements/elements" as sui-menu--element;
-@use "./_states/states" as sui-menu--state;
-
-@include sui-menu--element.build-menu-item(menu);
-@include sui-menu--element.build-menu-group(menu);
-
-@include sui-menu--state.edit-disabled(menu);
-@include sui-menu--state.edit-hover(menu);

@@ -11,7 +11,7 @@
     // THEME: None.
     @include sui-class($rtl: false, $theme: null) {
         @include block($block) {
-            @include element(item) {
+            @include element(menu-item) {
                 @include modifier(disabled) {
                     opacity: 0.5;
                     pointer-events: none;

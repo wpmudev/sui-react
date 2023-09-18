@@ -10,3 +10,4 @@
 @include sui-form-field--modifier.edit-size(form-field);
 
 @include sui-form-field--state.edit-error(form-field);
+@include sui-form-field--state.edit-disabled(form-field);
