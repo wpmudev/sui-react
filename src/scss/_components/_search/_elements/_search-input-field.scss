@@ -13,8 +13,12 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(input-field) {
+				.sui-input__input {
+					background: none;
+				}
+
 				&:before {
-					border: none
+					border: none;
 				}
 			}
 		}

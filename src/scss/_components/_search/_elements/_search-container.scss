@@ -12,17 +12,18 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			background-color: white;
-			border: $border-width-sm solid $color-extended-neutral-80;
+			border: $border-width-sm solid $color-extended-neutral-70;
 			border-radius: $border-radius-sm;
 			background: $color-extended-neutral-100;
 
 			@include modifier(hover) {
-				outline: 1px solid var(--primary-blue-base-500059-ff, #0059FF);
+				outline: $border-width-sm solid $color-primary-50;
+				outline-offset: -#{$border-width-sm};
 			}
 
 			@include modifier(focus) {
-				outline: 2px solid var(--primary-blue-base-500059-ff, #0059FF);
+				outline: $border-width-md solid $color-primary-50;
+				outline-offset: -#{$border-width-md};
 			}
 		}
 	}
