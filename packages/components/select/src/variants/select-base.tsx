@@ -189,6 +189,23 @@ const Select: React.FC<SelectBaseProps> = ({
 		}
 	}
 
+	const updateSelected = (optionId: number | string) => {
+		const optionIndex = filteredItems.findIndex(
+			(option) => option.id === optionId,
+		)
+		const updatedItems = [...filteredItems]
+		const isSelected = updatedItems[optionIndex].isSelected
+		if (!isMultiSelect) {
+			updatedItems.forEach((option) => (option.isSelected = false))
+			updatedItems[optionIndex].isSelected = true
+			setFilteredItems(updatedItems)
+			setIsDropdownOpen(false)
+		} else {
+			updatedItems[optionIndex].isSelected = !isSelected
+			setFilteredItems(updatedItems)
+		}
+	}
+
 	// Header props
 	const headerProps = {
 		id,
@@ -211,26 +228,11 @@ const Select: React.FC<SelectBaseProps> = ({
 					label: e.target.value,
 				})
 			},
-			onEvent: (optionId) => {
-				const optionIndex = filteredItems.findIndex(
-					(option) => option.id === optionId,
-				)
-				const updatedItems = [...filteredItems]
-				const isSelected = updatedItems[optionIndex].isSelected
-				if (!isMultiSelect) {
-					updatedItems.forEach((option) => (option.isSelected = false))
-					updatedItems[optionIndex].isSelected = true
-					setFilteredItems(updatedItems)
-					setIsDropdownOpen(false)
-				} else {
-					updatedItems[optionIndex].isSelected = !isSelected
-					setFilteredItems(updatedItems)
-				}
-			},
+			onEvent: (optionId: number | string) => updateSelected(optionId),
 		}),
 		...(isMultiSelect && {
 			isMultiSelect,
-			removeSelection: (optionId) => {
+			removeSelection: (optionId: number | string) => {
 				RemoveSelection(optionId, filteredItems, setFilteredItems)
 			},
 		}),
@@ -242,22 +244,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		options: filteredItems,
 		selected: selectedItem,
 		isSmall,
-		onEvent: (optionId) => {
-			const optionIndex = filteredItems.findIndex(
-				(option) => option.id === optionId,
-			)
-			const updatedItems = [...filteredItems]
-			const isSelected = updatedItems[optionIndex].isSelected
-			if (!isMultiSelect) {
-				updatedItems.forEach((option) => (option.isSelected = false))
-				updatedItems[optionIndex].isSelected = true
-				setFilteredItems(updatedItems)
-				setIsDropdownOpen(false)
-			} else {
-				updatedItems[optionIndex].isSelected = !isSelected
-				setFilteredItems(updatedItems)
-			}
-		},
+		onEvent: (optionId: number | string) => updateSelected(optionId),
 		...(isMultiSelect && {
 			isMultiSelect,
 			selectAll: () => {
