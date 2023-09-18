@@ -19,7 +19,8 @@
 				max-width: 100%;
 				display: block;
 				margin: 0;
-				padding: $input-spacing-padding-vertical-md $input-spacing-padding-horizontal-md;
+				padding: $input-spacing-padding-vertical-md
+					$input-spacing-padding-horizontal-md;
 				border: 0;
 				border-radius: $input-border-radius;
 				outline: none;
@@ -37,20 +38,30 @@
 			}
 
 			@include element(input-clear) {
-				cursor: pointer;
 				position: absolute;
-				right: 12px;
-				top: 8px;
+				right: 0;
+				top: 0;
+				color: $color-extended-neutral-70;
+
+				&.sui-button {
+					background: transparent;
+					border: none;
+					outline: none;
+				}
 			}
 
-			@include modifier('icon-end') {
+			@include element(icon) {
+				color: $color-extended-neutral-60;
+			}
+
+			@include modifier(icon-end) {
 				@include modifies-element(input) {
-					padding-left: 16px;
+					padding-left: $spacing-lg;
 					padding-right: $input-spacing-padding-horizontal-md;
 				}
 			}
 
-			@include modifier('icon-start') {
+			@include modifier(icon-start) {
 				@include modifies-element(input) {
 					padding-right: 44px;
 					padding-left: 0;
@@ -63,28 +74,33 @@
 	// THEME: None.
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
-			@include modifier('icon-end') {
+			@include modifier(icon-end) {
 				@include modifies-element(input) {
 					padding-left: 0;
 					padding-right: $input-spacing-padding-horizontal-md;
 				}
 			}
 
-			@include modifier('icon-start') {
+			@include modifier(icon-start) {
 				@include modifies-element(input) {
 					padding-right: 44px;
 					padding-left: $input-spacing-padding-horizontal-md;
 				}
+			}
+
+			@include element(input-clear) {
+				right: unset;
+				left: 0;
 			}
 		}
 	}
 
 	// DIR: Left to right.
 	// THEME: None.
-	@include sui-class($rtl: false, $theme: 'dark') {
+	@include sui-class($rtl: false, $theme: "dark") {
 		@include block($block) {
-			@include element(input) {
-				color:  $color-extended-neutral-0;
+			@include element(input, input-clear) {
+				color: $color-extended-neutral-0;
 			}
 		}
 	}

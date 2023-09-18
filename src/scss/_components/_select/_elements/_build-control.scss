@@ -21,12 +21,13 @@
 				border-color: $color-extended-neutral-70;
 				border-style: $select-control-border-style;
 				border-radius: $select-control-border-radius;
-				padding: $select-control-padding-md-vertical $select-control-padding-md-horizontal;
+				padding: $select-control-padding-md-vertical
+					$select-control-padding-md-horizontal;
 				min-height: $select-control-size-md;
 				cursor: pointer;
 
 				&::after {
-					content: '';
+					content: "";
 					position: absolute;
 					top: -1px;
 					left: -1px;
@@ -44,12 +45,6 @@
 			@include modifier(searchable) {
 				@include modifies-element(control) {
 					padding: $select-control-searchable-padding;
-				}
-			}
-
-			@include modifier(smartsearch) {
-				@include modifies-element(input) {
-					padding-left: $select-control-smartsearch-padding-horizontal;
 				}
 			}
 
@@ -82,7 +77,6 @@
 	// THEME: None.
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
-
 			@include modifier(smartsearch) {
 				@include modifies-element(input) {
 					padding-right: $select-control-smartsearch-padding-horizontal;
@@ -110,7 +104,6 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-
 			@include element(control) {
 				border-color: $color-extended-neutral-0;
 				color: $color-extended-neutral-0;
