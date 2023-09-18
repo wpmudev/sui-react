@@ -1,60 +1,45 @@
-import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
-import { Tooltip } from '../../src';
-import dedent from 'dedent';
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Tooltip } from "../../src"
+import dedent from "dedent"
+
+import Types from "./Examples/Types.mdx"
+import Position from "./Examples/Position.mdx"
 
 export const sampleCode = dedent`
-import React from 'react';\n
-import { Tooltip } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Tooltip label="Button" appearance="primary" color="black">Button default</Tooltip>;
-}\n
-export default Example;
-`;
+    <Tooltip label="Button Label">Tooltip Text</Tooltip>
+`
 
-export const overflowSampleCode = dedent`
-import React from 'react';\n
-import { Tooltip } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Tooltip label="Button" appearance="primary" color="black" customWidth={200}>When the content is long, it will be wrapped.</Tooltip>;
-}\n
-export default Example;
-`;
+export const customWidth = dedent`
+    <Tooltip customWidth={10} label="Button Text">Custom Width</Tooltip>
+`
 
-<Section contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		Below is the default form of a button, used for most cases, it is not
-		impactful enough to represent the primary action in a container but
-		necessary in some scenarios.
-	</p>
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>The default form of the tooltip component</p>
 	<Preview wrapper={true}>
-		<div style={{ padding: '40px' }}>
-			<Tooltip
-				label="Tooltip"
-				appearance="primary"
-				position="top"
-				color="black"
-			>
-				Default tooltip
-			</Tooltip>
+		<div style={ { padding: 40 } }>
+			<Tooltip label="Button Text">Tooltip Text</Tooltip>
 		</div>
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
 
-<Section title="Overflow" contained={true} style={{ paddingTop: 0 }}>
-	<p>If the tooltip content exceeds the maximum width, it will be wrapped.</p>
+<Section title="Custom Width" contained={true} style={{ paddingTop: 30 }}>
+	<p>Use <Code small={true}> customWidth </Code> prop to set a custom width for the tooltip</p>
 	<Preview wrapper={true}>
-		<div style={{ padding: '40px' }}>
-			<Tooltip
-				label="Overflow"
-				appearance="primary"
-				position="right"
-				color="black"
-				customWidth={200}
-			>
-				When the content is long, it will be wrapped.
-			</Tooltip>
+		<div style={ { padding: 60 } }>
+			<Tooltip customWidth={10} label="Button Text">Custom Width</Tooltip>
 		</div>
 	</Preview>
-	<Snippet language="js">{overflowSampleCode}</Snippet>
+	<Snippet language="js">{customWidth}</Snippet>
+</Section>
+
+<Section style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="Types" value="types">
+			<Types />
+		</div>
+		<div label="Position" value="position">
+			<Position />
+		</div>
+	</Switcher>
 </Section>
