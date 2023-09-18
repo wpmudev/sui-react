@@ -77,13 +77,6 @@
 	// THEME: None.
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
-			@include modifier(smartsearch) {
-				@include modifies-element(input) {
-					padding-right: $select-control-smartsearch-padding-horizontal;
-					padding-left: $select-control-padding-md-horizontal;
-				}
-			}
-
 			@include modifier(multiselect) {
 				@include modifies-element(selected-options) {
 					padding-left: $select-control-options-padding-horizontal-right;

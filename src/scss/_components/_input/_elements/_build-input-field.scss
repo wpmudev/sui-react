@@ -39,11 +39,6 @@
 			}
 
 			@include modifier(icon-end) {
-				@include modifies-element(input-field) {
-					padding-left: 0;
-					padding-right: $input-spacing-lg;
-				}
-
 				@include modifies-element(input-field-hint) {
 					left: $spacing-lg;
 				}
@@ -54,10 +49,6 @@
 			}
 
 			@include modifier(icon-start) {
-				@include modifies-element(input-field) {
-					padding-left: $input-spacing-lg;
-				}
-
 				@include modifies-element(input-field-hint) {
 					left: $input-spacing-lg;
 				}

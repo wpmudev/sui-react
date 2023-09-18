@@ -91,6 +91,12 @@
 					}
 				}
 
+				&.sui-#{$block}--searchable {
+					@include modifies-element(control) {
+						padding: 0;
+					}
+				}
+
 				.sui-#{$block}--multiselect {
 					.sui-#{$block}__icon--close-alt {
 						right: unset;
