@@ -24,47 +24,57 @@
 			}
 
 			@include element(input-field-hint) {
-				color: #AAA;
-				left: 16px;
+				color: $color-extended-neutral-70;
+				left: $spacing-lg;
 				position: absolute;
-				top: 8px;
+				top: $spacing-md;
 			}
 
 			@include element(input-field-text) {
-				color: black;
-				left: 16px;
+				color: $color-extended-neutral-10;
+				left: $spacing-lg;
 				position: absolute;
-				top: 8px;
+				top: $spacing-md;
 				z-index: 1;
 			}
 
-			@include modifier('icon-end') {
+			@include modifier("icon-end") {
 				@include modifies-element(input-field) {
 					padding-left: 0;
-					padding-right: 44px;
+					padding-right: $input-spacing-lg;
 				}
 
 				@include modifies-element(input-field-hint) {
-					left: 16px;
+					left: $spacing-lg;
 				}
 
 				@include modifies-element(input-field-text) {
-					left: 16px;
+					left: $spacing-lg;
 				}
 			}
 
-			@include modifier('icon-start') {
+			@include modifier("icon-start") {
 				@include modifies-element(input-field) {
-					padding-left: 44px;
+					padding-left: $input-spacing-lg;
 				}
 
 				@include modifies-element(input-field-hint) {
-					left: 44px;
+					left: $input-spacing-lg;
 				}
 
 				@include modifies-element(input-field-text) {
-					left: 44px;
+					left: $input-spacing-lg;
 				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include modifies-element(input-field-hint, input-field-text) {
+				display: none;
 			}
 		}
 	}
