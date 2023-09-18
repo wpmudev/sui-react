@@ -6,59 +6,59 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 	style={{ paddingTop: 20, paddingBottom: 0 }}
 >
 	<p>
-		Install the <Code small={true}>[Component Name]</Code> package as an individual
+		Install the <Code small={true}>CodeEditor</Code> package as an individual
 		component or follow the Overview page instructions to get the complete SUI
 		Components package.
 	</p>
 </Section>
 
 <Section title="Props" border={true}>
-
-    	<Section
-    		title={{ content: "prop*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p>Sets the semantic type for the accordion</p>
-    		<p>
-    		Allowed options:
-    			<List>
-    				<span label={<Code small={true}>neutral</Code>} />
-    				<span label={<Code small={true}>informative</Code>} />
-    				<span label={<Code small={true}>success</Code>} />
-    				<span label={<Code small={true}>warning</Code>} />
-    				<span label={<Code small={true}>critical</Code>} />
-    			</List>
-    		</p>
-    	</Section>
-
-</Section>
-
-{/** Use this for sub components */}
-<Section
-	title="Sub Components"
-	contained={true}
-	style={{ paddingTop: 30, paddingBottom: 0 }}
->
-		<p>The [component name] offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
-
-    <Section title="Sub Component" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component represents an individual item or section of the accordion and comes with its
-    		own set of props.
-    	</p>
-
-    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			prop description
-    		</p>
-    	</Section>
-
-    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			prop description
-    		</p>
-    	</Section>
-
+    <Section
+    	title={{ content: "filename*", tag: 'string', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The file name that appears on top of the editor</p>
     </Section>
 
+	<Section
+    	title={{ content: "language*", tag: 'string', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The programming language of the code snippet</p>
+    </Section>
+
+	<Section
+    	title={{ content: "allowCopy*", tag: 'boolean', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}>true</Code>, the code editor will feature a button in the upper-right corner, enabling the copying of code snippet.</p>
+    </Section>
+
+	<Section
+    	title={{ content: "displayLineNumbers*", tag: 'boolean', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>If set to <Code small={true}>true</Code>, the line numbers will appear</p>
+    </Section>
+
+	<Section
+    	title={{ content: "readOnly*", tag: 'boolean', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}>true</Code>, the code snippet won't be editable</p>
+    </Section>
+
+	<Section
+    	title={{ content: "className*", tag: 'string', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Custom css className(s)</p>
+    </Section>
+
+	<Section
+    	title={{ content: "children*", tag: 'React Node', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Content of the code editor, this is the code snippet itself</p>
+    </Section>
 </Section>
