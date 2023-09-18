@@ -1,36 +1,40 @@
 import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src"
+import { AlertBanner } from "../../src"
+import { Button } from "@wpmudev/sui-button"
 import dedent from "dedent"
 
-{/* Import Variations */}
-import Neutral from "./Examples/Neutral.mdx"
-import Informative from "./Examples/Informative.mdx"
-import Success from "./Examples/Success.mdx"
+import Style from "./Examples/Style.mdx"
+import Variations from "./Examples/Variations.mdx"
 
 export const sampleCode = dedent`
-    Basic Examples 
+    <AlertBanner>
+        Hello! This is an example content. 
+        <a href="https://wpmudev.com"> Add link </a> 
+        if necessary.
+    </AlertBanner>
 `
 
-<Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Basic Accordion Example</p>
+<Section contained={true} style={{ paddingTop: 30 }} border={true}>
+	<p> The default form of the Alert Banner component </p>
 	<Preview wrapper={true}>
-		Basic Example
+	<div style={ { padding: 20 } }>
+		<AlertBanner>Hello! This is example content. <a href="https://wpmudev.com"> Add link </a> if necessary.</AlertBanner>
+	</div>
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
 
-<Section title="State" style={{ paddingTop: 0 }}>
-	Use this if you need to switch between multiple options 
+<Section
+	title="Variations & Style"
+	contained={true}
+	style={{ paddingTop: 30 }}
+>
 	<Switcher>
-		<div label="neutral" value="neutral">
-			<Neutral />
+		<div label="Variations" value="variations">
+			<Variations />
 		</div>
-		<div label="informative" value="informative">
-			<Informative />
-		</div>
-		<div label="success" value="success">
-			<Success />
+		<div label="Style" value="style">
+			<Style />
 		</div>
 	</Switcher>
 </Section>
-
