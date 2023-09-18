@@ -80,6 +80,7 @@ export const Navigation = ({ example, ...props }) => {
 									label: "Unlock Pro features",
 									props: {
 										icon: "PluginSmush",
+										variation: "smush",
 									},
 								},
 							],

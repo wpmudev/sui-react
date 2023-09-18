@@ -1,25 +1,39 @@
-import { HTMLProps } from "react"
+import React from "react"
 
-/**
- * Represents the properties for an search component.
- */
-interface SearchProps extends HTMLProps<HTMLSpanElement> {
-	/**
-	 * The CSS class name for the search.
-	 */
+type SearchOptionType = string
+
+interface SearchBaseProps {
+	id?: string
 	className?: string
-	/**
-	 * The CSS class name for the search.
-	 */
-	searchValue?: string
-	/**
-	 * To diable the search field.
-	 */
-	isDisabled?: boolean
-	/**
-	 * The items from which search operartion will be performed.
-	 */
-	items?: Record<string, any>
+	defaultValue?: string
+	onChange?(value: string): void
 }
 
-export type { SearchProps }
+type SearchSmartType = {
+	variation: "smart"
+	options: SearchOptionType[]
+	searchMinChars?: number
+	searchHint?: string
+	allowClear?: boolean
+} & SearchBaseProps
+
+type SearchBasicType = {
+	variation?: "" | "basic"
+} & SearchBaseProps
+
+type SearchProps = SearchSmartType | SearchBasicType
+
+interface SearchOptionItemProps {
+	children?: React.ReactNode
+	option: SearchOptionType
+	onClick(option: SearchOptionType): void
+}
+
+interface SearchOptionsProps {
+	options: SearchOptionType[]
+	value: string
+	setValue(label: string): void
+	setIsPopoverVisible(isVisible: boolean): void
+}
+
+export type { SearchProps, SearchOptionItemProps, SearchOptionsProps }

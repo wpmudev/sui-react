@@ -42,35 +42,118 @@ export const Dropdown = ({ example, ...props }) => {
 						}}
 						menu={[
 							{
-								id: "group-1",
-								label: "Extra Optimization",
+								id: "plugin-variants",
+								label: "Plugin Variations",
 								menus: [
 									{
-										id: "menu-2",
-										label: "Uptime Monitoring",
+										id: "menu-beehive",
+										label: "Beehive",
 										props: {
-											icon: "CheckAlt",
+											icon: "PluginBeehive",
+											variation: "beehive",
 										},
 									},
 									{
-										id: "menu-2",
-										label: "Site management tools",
-										props: {},
+										id: "menu-branda",
+										label: "Branda",
+										props: {
+											icon: "PluginBranda",
+											variation: "branda",
+										},
+									},
+									{
+										id: "menu-defender",
+										label: "Defender",
+										props: {
+											icon: "PluginDefender",
+											variation: "defender",
+										},
+									},
+									{
+										id: "menu-forminator",
+										label: "Forminator",
+										props: {
+											icon: "PluginForminator",
+											variation: "forminator",
+										},
+									},
+									{
+										id: "menu-hummingbird",
+										label: "Hummingbird",
+										props: {
+											icon: "PluginHummingbird",
+											variation: "hummingbird",
+										},
+									},
+									{
+										id: "menu-hustle",
+										label: "Hustle",
+										props: {
+											icon: "PluginHustle",
+											variation: "hustle",
+										},
+									},
+									{
+										id: "menu-shipper",
+										label: "Shipper",
+										props: {
+											icon: "PluginShipper",
+											variation: "shipper",
+										},
+									},
+									{
+										id: "menu-smush",
+										label: "Smush",
+										props: {
+											icon: "PluginSmush",
+											variation: "smush",
+										},
+									},
+									{
+										id: "menu-smartcrawl",
+										label: "SmartCrawl",
+										props: {
+											icon: "PluginSmartCrawl",
+											variation: "smartcrawl",
+										},
+									},
+									{
+										id: "menu-ivt",
+										label: "IVT",
+										props: {
+											icon: "PluginIVT",
+											variation: "ivt",
+										},
 									},
 								],
 							},
 							{
 								id: "group-2",
-								label: "Performance",
+								label: "Web Services",
 								menus: [
 									{
-										id: "menu-2",
-										label: "Uptime Monitoring",
+										id: "domain",
+										label: "DomainName Delight",
 										props: {},
 									},
 									{
-										id: "menu-2",
-										label: "Site management tools",
+										id: "cms",
+										label: "CMS Creation Platter",
+										props: {},
+									},
+									{
+										id: "hosting-hotspot",
+										label: "Hosting Hotspot",
+										props: {},
+									},
+									{
+										id: "seo-smoothie",
+										label: "SEO Smoothie",
+										props: {},
+									},
+									{
+										id: "code-compiler-combo",
+										label: "Code Compiler Combo",
 										props: {},
 									},
 								],

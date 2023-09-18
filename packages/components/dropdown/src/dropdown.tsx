@@ -9,7 +9,10 @@ import React, {
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 import { useOuterClick } from "@wpmudev/sui-hooks"
-import { Menu, MenuItem, MenuGroup } from "@wpmudev/sui-menu"
+
+import { DropdownMenu } from "./dropdown-menu"
+import { DropdownMenuItem } from "./dropdown-menu-item"
+import { DropdownMenuGroup } from "./dropdown-menu-group"
 
 import { DropdownProps, DropdownRefProps } from "./dropdown.types"
 
@@ -19,7 +22,6 @@ import { DropdownProps, DropdownRefProps } from "./dropdown.types"
  * @param {DropdownProps} props - The properties and event handlers for the Dropdown component.
  * @return {JSX.Element} JSX Element representing the Dropdown component.
  */
-
 const Dropdown: React.FC<DropdownProps> = forwardRef<
 	DropdownRefProps,
 	DropdownProps
@@ -79,9 +81,9 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 				// If it's a group item, render the MenuGroup component.
 				if (!!menuItem.menus) {
 					return (
-						<MenuGroup key={index} title={menuItem.label}>
+						<DropdownMenuGroup key={index} title={menuItem.label}>
 							{renderMenus(menuItem.menus)}
-						</MenuGroup>
+						</DropdownMenuGroup>
 					)
 				}
 
@@ -92,9 +94,9 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 
 				// Otherwise, render the MenuItem component.
 				return (
-					<MenuItem key={index} {...menuItem.props}>
+					<DropdownMenuItem key={index} {...menuItem.props}>
 						{menuItem.label}
-					</MenuItem>
+					</DropdownMenuItem>
 				)
 			})
 		}
@@ -124,7 +126,7 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 					id={id}
 					tabIndex={-1}
 					role="listbox"
-					className={generateCN("sui-dropdown__menu", {
+					className={generateCN("sui-dropdown__popover", {
 						[`direction-${direction}`]: !isEmpty(direction ?? ""),
 						"fixed-height": isFixedHeight,
 					})}
@@ -135,7 +137,9 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 					)}
 					{/* Render the dropdown menu items */}
 					{!!menu && (
-						<Menu className="sui-dropdown__menu-nav">{renderMenus(menu)}</Menu>
+						<DropdownMenu className="sui-dropdown__menu-nav">
+							{renderMenus(menu)}
+						</DropdownMenu>
 					)}
 					{/* Render additional children passed to the Dropdown component */}
 					{!!children && !renderContentOnTop && (

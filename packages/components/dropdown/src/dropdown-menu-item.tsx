@@ -4,17 +4,19 @@ import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
 
 import * as Icons from "@wpmudev/sui-icons"
+import { DropdownMenuItemProps } from "./dropdown.types"
 
-import { MenuItemProps } from "./menu.types"
+// import { MenuItemProps } from "./menu.types"
 
 // Define the MenuItem component
-const MenuItem: FC<MenuItemProps> = ({
+const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	icon,
 	href,
 	className = "",
 	children,
 	isDisabled,
 	onClick,
+	variation = "",
 	...props
 }) => {
 	// Use the useInteraction hook to manage hover and focus states
@@ -22,7 +24,7 @@ const MenuItem: FC<MenuItemProps> = ({
 
 	// Generate a unique ID for the menu item and its related elements
 	const id = useId()
-	const menuId = `sui-menu-item-${id}`
+	const menuId = `sui-dropdown-menu-item-${id}`
 	const menuTitleId = `${menuId}-title`
 
 	// Determine the element tag name (either "li" or "a" based on the presence of href)
@@ -33,11 +35,12 @@ const MenuItem: FC<MenuItemProps> = ({
 
 	// Generate class names for the menu item
 	const classNames = generateCN(
-		"sui-menu__item",
+		"sui-dropdown__menu-item",
 		{
 			hover: isHovered,
 			focus: isFocused,
 			disabled: isDisabled,
+			[variation]: !isEmpty(variation),
 		},
 		className,
 	)
@@ -72,10 +75,12 @@ const MenuItem: FC<MenuItemProps> = ({
 			aria-labelledby={menuTitleId}
 			{...btnAttr}
 		>
-			{!!IconTag && <IconTag size="sm" />}
+			{!!IconTag && (
+				<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
+			)}
 			<span id={menuTitleId}>{children}</span>
 		</TagName>
 	)
 }
 
-export { MenuItem }
+export { DropdownMenuItem }

@@ -1,7 +1,8 @@
 import React from "react"
 
 // Import required component
-import { Search as SuiSearch, SearchDropdown, SearchDropdownItem } from "../src"
+import { Search as SuiSearch } from "../src"
+import { FormField } from "@wpmudev/sui-form-field"
 
 // Import documentation main page
 import docs from "./search.mdx"
@@ -18,6 +19,28 @@ export default {
 	},
 }
 
+const options = [
+	"United States",
+	"Canada",
+	"United Kingdom",
+	"Australia",
+	"Germany",
+	"France",
+	"Japan",
+	"Brazil",
+	"India",
+	"China",
+	"South Korea",
+	"Mexico",
+	"Russia",
+	"Italy",
+	"Argentina",
+	"South Africa",
+	"Egypt",
+	"Turkey",
+	"New Zealand",
+]
+
 // Build "Search" story.
 const Search = ({ example, ...props }) => {
 	const boxStyles = {
@@ -29,24 +52,10 @@ const Search = ({ example, ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={boxStyles}>
-					{example === "smartsearch" ? (
-						<SuiSearch {...props}>
-							<SearchDropdown>
-								<SearchDropdownItem value="Item heading variable">
-									<span>Item heading</span>
-									<span>Variable</span>
-								</SearchDropdownItem>
-								<SearchDropdownItem>Item 2</SearchDropdownItem>
-								<SearchDropdownItem>Option 3</SearchDropdownItem>
-								<SearchDropdownItem value="Option 4">
-									Option 4
-								</SearchDropdownItem>
-							</SearchDropdown>
-						</SuiSearch>
-					) : (
-						<SuiSearch {...props}></SuiSearch>
-					)}
+				<div style={{ padding: "20px", backgroundColor: "white" }}>
+					<FormField id="countries-list" label="Select country" isSmall={true}>
+						<SuiSearch {...props} options={options} />
+					</FormField>
 				</div>
 			</div>
 		</div>
@@ -55,27 +64,41 @@ const Search = ({ example, ...props }) => {
 
 // Set story arguments.
 Search.args = {
-	example: "simple",
-	isDisabled: false,
+	variation: "basic",
+	allowClear: true,
+	searchMinChars: 2,
+	defaultValue: "",
 }
 
 // Set controls for story arguments.
 Search.argTypes = {
-	example: {
-		name: "Example",
-		options: ["simple", "smartsearch"],
+	variation: {
+		name: "Variation",
+		options: ["basic", "smart"],
 		control: {
 			type: "select",
 			labels: {
-				simple: "Example: Simple",
-				smartsearch: "Example: Smartsearch",
+				basic: "Basic Search",
+				smart: "Smart Search",
 			},
 		},
 	},
-	isDisabled: {
-		name: "Disabled",
+	defaultValue: {
+		name: "defaultValue",
+		control: {
+			type: "text",
+		},
+	},
+	allowClear: {
+		name: "allowClear",
 		control: {
 			type: "boolean",
+		},
+	},
+	searchMinChars: {
+		name: "searchMinChars",
+		control: {
+			type: "number",
 		},
 	},
 }

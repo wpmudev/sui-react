@@ -1,6 +1,72 @@
 import React, { HTMLProps } from "react"
 
-import { MenuItemProps } from "@wpmudev/sui-menu"
+/**
+ * Props for Menu component.
+ */
+interface DropdownMenuProps {
+	/** Additional class name(s) to be applied to the Menu. */
+	className?: string
+	/** Children elements to be rendered inside the Menu. */
+	children?: React.ReactNode
+}
+
+/**
+ * Props for MenuItem component.
+ */
+interface DropdownMenuItemProps
+	extends HTMLProps<HTMLSpanElement | HTMLAnchorElement | HTMLUListElement> {
+	/**
+	 * URL to navigate to when the item is clicked (if the item is an anchor).
+	 */
+	href?: string
+	/**
+	 * Name of the icon to be displayed with the MenuItem.
+	 */
+	icon?: string
+	/**
+	 * Additional class name(s) to be applied to the MenuItem.
+	 */
+	className?: string
+	/**
+	 * Dropdown menu item variation
+	 */
+	variation?:
+		| "hummingbird"
+		| "smush"
+		| "snapshot"
+		| "smartcrawl"
+		| "shipper"
+		| "ivt"
+		| "hustle"
+		| "forminator"
+		| "defender"
+		| "branda"
+		| "beehive"
+	/**
+	 * Function to be called when the MenuItem is clicked.
+	 *
+	 * @param e The click event object.
+	 */
+	onClick?(e?): void
+	/**
+	 * Children elements to be rendered inside the MenuItem.
+	 */
+	children?: React.ReactNode
+}
+
+/**
+ * Props for MenuGroup component.
+ */
+interface DropdownMenuGroupProps extends HTMLProps<HTMLUListElement> {
+	/** Title of the MenuGroup. */
+	title: string
+	/** URL to navigate to when the MenuGroup is clicked. */
+	href?: string
+	/** Additional class name(s) to be applied to the MenuGroup. */
+	className?: string
+	/** Children elements to be rendered inside the MenuGroup. */
+	children?: React.ReactNode
+}
 
 // Represents the base props for a DropdownMenu component.
 interface DropdownMenuBaseProps {
@@ -9,13 +75,13 @@ interface DropdownMenuBaseProps {
 }
 
 // Props for an individual item within the dropdown menu.
-interface DropdownMenuItemProps extends DropdownMenuBaseProps {
-	props: Omit<MenuItemProps, "children"> // Additional props for the underlying MenuItem component.
+interface MenuItemProps extends DropdownMenuBaseProps {
+	props: Omit<DropdownMenuItemProps, "children"> // Additional props for the underlying MenuItem component.
 }
 
 // Props for a group of dropdown menu items.
-interface DropdownMenuGroupProps extends DropdownMenuBaseProps {
-	menus: Array<DropdownMenuItemProps> // An array of DropdownMenuItemProps representing the items in the group.
+interface MenuGroupProps extends DropdownMenuBaseProps {
+	menus: Array<MenuItemProps> // An array of MenuItemProps representing the items in the group.
 }
 
 /**
@@ -53,7 +119,7 @@ interface DropdownProps {
 	/**
 	 * Expected type for menu object in array
 	 */
-	menu?: Array<DropdownMenuItemProps | DropdownMenuGroupProps>
+	menu?: Array<MenuItemProps | MenuGroupProps>
 	/**
 	 * Filter button icon
 	 */
@@ -83,4 +149,10 @@ type DropdownRefProps = {
 	toggle: () => void
 }
 
-export type { DropdownProps, DropdownRefProps }
+export type {
+	DropdownProps,
+	DropdownRefProps,
+	DropdownMenuGroupProps,
+	DropdownMenuItemProps,
+	DropdownMenuProps,
+}

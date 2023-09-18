@@ -32,6 +32,9 @@ interface TextareaProps extends HTMLProps<HTMLTextAreaElement> {
 	/** ID for the element associated with the textarea's error message. */
 	errorId?: string
 
+	/** When the textarea has errors. */
+	isError?: boolean
+
 	/** Whether the textarea should be displayed in a small size. */
 	isSmall?: boolean
 
