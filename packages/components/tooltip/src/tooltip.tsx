@@ -10,6 +10,7 @@ export const TagNames: Record<string, any> = {
 	button: SuiButton,
 	text: "span",
 	icon: Icon,
+	link: SuiButton
 }
 
 // Build "Tooltip" component.
@@ -48,7 +49,9 @@ const Tooltip: React.FC<TooltipProps> = ({
 		show: isHovered,
 		focus: isFocused,
 		"custom-width": !!customWidth,
-		[position]: true,
+		[position]: true
+	}, {
+		[className]: !!className
 	})
 
 	// tooltip type button or text
