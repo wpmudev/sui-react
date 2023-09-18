@@ -93,14 +93,12 @@ const Selected: React.FC<SelectSelectedProps> = ({
 interface SelectSelectedSearchProps extends HTMLProps<HTMLInputElement> {
 	arrow?: string
 	isSmall?: boolean
-	isSmartSearch?: boolean
 	selectLabel?: string
 	clearSelection: () => {}
 }
 
 const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 	arrow,
-	isSmartSearch = false,
 	isSmall = false,
 	selectLabel = "",
 	clearSelection,
@@ -111,15 +109,7 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 	return (
 		<div className="sui-select__control">
 			<InputWithAutoComplete placeholder="Search" {...props} />
-			{isSmartSearch && <Icon name="search" size={isSmall ? "md" : "lg"} />}
-			{!isSmartSearch && <Icon name={arrow ?? ""} size="md" />}
-			{isSmartSearch && selected?.length > 0 && (
-				<Icon
-					name="close-alt"
-					size={isSmall ? "md" : "lg"}
-					onClick={clearSelection}
-				/>
-			)}
+			<Icon name={arrow ?? ""} size="md" />
 		</div>
 	)
 }

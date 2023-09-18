@@ -43,8 +43,7 @@ interface SelectBaseProps
 	isMultiSelect?: boolean
 	/** Whether the select has a search functionality */
 	isSearchable?: boolean
-	/** Whether the select uses smart search */
-	isSmartSearch?: boolean
+
 	/**
 	 * Event handler for mouse enter event.
 	 * It is of type Pick<InteractionTypes, "onMouseEnter">, which means it selects
@@ -76,7 +75,6 @@ const Select: React.FC<SelectBaseProps> = ({
 	isError = false,
 	isMultiSelect = false,
 	isSearchable = false,
-	isSmartSearch = false,
 	onChange,
 	...props
 }) => {
@@ -153,7 +151,6 @@ const Select: React.FC<SelectBaseProps> = ({
 			error: isError,
 			multiselect: isMultiSelect,
 			searchable: isSearchable,
-			smartsearch: isSmartSearch,
 		},
 		className,
 	)
@@ -162,10 +159,6 @@ const Select: React.FC<SelectBaseProps> = ({
 	const handleSearchDropdown = (event) => {
 		const searchValue = event.target.value.toLowerCase()
 		setIsDropdownOpen(true)
-		if (isSmartSearch && searchValue.length < 2) {
-			setFilteredItems([])
-			return
-		}
 		SearchDropdown(searchValue, items, setFilteredItems)
 	}
 
@@ -219,7 +212,6 @@ const Select: React.FC<SelectBaseProps> = ({
 				})
 			},
 		}),
-		...(isSmartSearch && { isSmartSearch }),
 		...(isMultiSelect && {
 			isMultiSelect,
 			removeSelection: (optionId) => {
@@ -250,7 +242,6 @@ const Select: React.FC<SelectBaseProps> = ({
 				setFilteredItems(updatedItems)
 			}
 		},
-		...(isSmartSearch && { isSmartSearch }),
 		...(isMultiSelect && {
 			isMultiSelect,
 			selectAll: () => {

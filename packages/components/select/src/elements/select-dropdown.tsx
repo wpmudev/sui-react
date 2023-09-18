@@ -8,7 +8,6 @@ interface SelectDropdownProps
 	options: Record<string, any>[]
 	onEvent?: (id: string) => {}
 	selectAll?: () => {}
-	isSmartSearch?: boolean
 	isSmall?: boolean
 	isMultiSelect?: boolean
 	selected?: string
@@ -18,7 +17,6 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	options,
 	onEvent = () => {},
 	selectAll = () => {},
-	isSmartSearch = false,
 	isSmall = false,
 	isMultiSelect = false,
 	selected = "",
@@ -35,17 +33,6 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 
 	// Render options for the dropdown
 	const renderOptions = () => {
-		if (isSmartSearch && selected?.length < 2) {
-			// Render message when smart search is enabled but character count is insufficient
-			return (
-				<div className="sui-select__dropdown">
-					<div className="sui-select__dropdown--empty">
-						Please enter 2 or more characters
-					</div>
-				</div>
-			)
-		}
-
 		// Render regular options
 		return (
 			<ul
