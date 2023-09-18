@@ -211,6 +211,22 @@ const Select: React.FC<SelectBaseProps> = ({
 					label: e.target.value,
 				})
 			},
+			onEvent: (optionId) => {
+				const optionIndex = filteredItems.findIndex(
+					(option) => option.id === optionId,
+				)
+				const updatedItems = [...filteredItems]
+				const isSelected = updatedItems[optionIndex].isSelected
+				if (!isMultiSelect) {
+					updatedItems.forEach((option) => (option.isSelected = false))
+					updatedItems[optionIndex].isSelected = true
+					setFilteredItems(updatedItems)
+					setIsDropdownOpen(false)
+				} else {
+					updatedItems[optionIndex].isSelected = !isSelected
+					setFilteredItems(updatedItems)
+				}
+			},
 		}),
 		...(isMultiSelect && {
 			isMultiSelect,

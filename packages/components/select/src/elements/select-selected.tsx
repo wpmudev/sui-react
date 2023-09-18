@@ -104,8 +104,6 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 	clearSelection,
 	...props
 }) => {
-	const { selected } = props
-
 	return (
 		<div className="sui-select__control">
 			<InputWithAutoComplete placeholder="Search" {...props} />
