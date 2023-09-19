@@ -53,7 +53,7 @@ const Builder = ({}) => {
 					backgroundColor: "white",
 				}}
 			>
-				<SuiBuilder isScrollable={true} hasInsertButton={true}>
+				<SuiBuilder isScrollable={true} allowAddFields={true}>
 					<BuilderWrapper>
 						<BuilderField
 							columnSize={4}
