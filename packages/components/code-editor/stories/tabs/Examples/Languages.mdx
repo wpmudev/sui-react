@@ -22,10 +22,10 @@ export const phpSampleCode = `function recent_posts_shortcode() {
     wp_reset_postdata();
 
     return $output;
+
 }
 
-add_shortcode('recent_posts', 'recent_posts_shortcode');
-`
+add_shortcode('recent_posts', 'recent_posts_shortcode'); `
 
 export const languageCode = dedent`
     <CodeEditor language="php">
@@ -53,20 +53,27 @@ export const languageCode = dedent`
 
         add_shortcode('recent_posts', 'recent_posts_shortcode');
     <CodeEditor language="php">
+
 `
 
-<Section title="Different languages" contained={true} style={{ paddingTop: 30, paddingLeft: 0 }} border={true}>
-	<p>To specify the programming language, use the <Code small={true}>language</Code> prop </p> 
+<Section
+	title="Different languages"
+	contained={true}
+	style={{ paddingTop: 30, paddingLeft: 0 }}
+	border={true}
+>
+	<p>
+		To specify the programming language, use the{" "}
+		<Code small={true}>language</Code> prop{" "}
+	</p>
 	<p>
 		You can choose between the following options:
-		<Code small={true}>html</Code>, 
-		<Code small={true}>css</Code>, 
-		<Code small={true}>JavaScript</Code> and <Code small={true}>php</Code>
+		<Code small={true}>markup</Code>
+		<Code small={true}>css</Code>
+		<Code small={true}>javascript</Code> or <Code small={true}>php</Code>
 	</p>
 	<Preview wrapper={true}>
-		<CodeEditor language="php">
-            {phpSampleCode}
-		</CodeEditor>
+		<CodeEditor language="php">{phpSampleCode}</CodeEditor>
 	</Preview>
 	<Snippet language="js">{languageCode}</Snippet>
 </Section>
