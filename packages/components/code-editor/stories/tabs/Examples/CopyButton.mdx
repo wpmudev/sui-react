@@ -1,0 +1,30 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { CodeEditor } from "../../../src"
+import { sampleCode, reactSampleCode } from "../TabExamples.mdx"
+import dedent from "dedent"
+
+export const hideCopyCode = dedent`
+    <CodeEditor allowCopy={false} language="javascript">
+        import React from 'react';
+
+        const MyComponent = ({ name }) => {
+            return (
+                <div>
+                    <h1>Hello, {name}!</h1>
+                    <p>This is a basic React functional component.</p>
+                </div>
+            );
+        };
+
+        export default MyComponent;
+    </CodeEditor>
+`
+
+<Section title="Hiding the Copy Button" contained={true} style={{ paddingTop: 30, paddingLeft: 0 }} border={true}>
+	<Preview wrapper={true}>
+		<CodeEditor allowCopy={false} language="javascript" >
+            {reactSampleCode}
+		</CodeEditor>
+	</Preview>
+	<Snippet language="js">{hideCopyCode}</Snippet>
+</Section>

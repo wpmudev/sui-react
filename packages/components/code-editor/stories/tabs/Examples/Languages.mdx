@@ -1,0 +1,72 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { CodeEditor } from "../../../src"
+import dedent from "dedent"
+
+export const phpSampleCode = `function recent_posts_shortcode() {
+    $query = new WP_Query(array(
+        'post_type' => 'post',
+        'posts_per_page' => 5,
+        'orderby' => 'date',
+        'order' => 'DESC',
+    ));
+
+    $output = '<ul>';
+    while ($query->have_posts()) {
+        $query->the_post();
+        $title = get_the_title();
+        $link = get_permalink();
+        $date = get_the_date();
+        $output .= "<li><a href='$link'>$title</a> - $date</li>";
+    }
+    $output .= '</ul>';
+    wp_reset_postdata();
+
+    return $output;
+}
+
+add_shortcode('recent_posts', 'recent_posts_shortcode');
+`
+
+export const languageCode = dedent`
+    <CodeEditor language="php">
+        function recent_posts_shortcode() {
+            $query = new WP_Query(array(
+                'post_type' => 'post',
+                'posts_per_page' => 5,
+                'orderby' => 'date',
+                'order' => 'DESC',
+            ));
+
+            $output = '<ul>';
+            while ($query->have_posts()) {
+                $query->the_post();
+                $title = get_the_title();
+                $link = get_permalink();
+                $date = get_the_date();
+                $output .= "<li><a href='$link'>$title</a> - $date</li>";
+            }
+            $output .= '</ul>';
+            wp_reset_postdata();
+
+            return $output;
+        }
+
+        add_shortcode('recent_posts', 'recent_posts_shortcode');
+    <CodeEditor language="php">
+`
+
+<Section title="Different languages" contained={true} style={{ paddingTop: 30, paddingLeft: 0 }} border={true}>
+	<p>To specify the programming language, use the <Code small={true}>language</Code> prop </p> 
+	<p>
+		You can choose between the following options:
+		<Code small={true}>html</Code>, 
+		<Code small={true}>css</Code>, 
+		<Code small={true}>JavaScript</Code> and <Code small={true}>php</Code>
+	</p>
+	<Preview wrapper={true}>
+		<CodeEditor language="php">
+            {phpSampleCode}
+		</CodeEditor>
+	</Preview>
+	<Snippet language="js">{languageCode}</Snippet>
+</Section>
