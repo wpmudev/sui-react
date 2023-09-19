@@ -5,6 +5,7 @@ import React, {
 	useCallback,
 	useState,
 	useEffect,
+	Fragment,
 } from "react"
 
 import {
@@ -12,6 +13,7 @@ import {
 	isEmpty,
 	generateCN,
 	condContent,
+	handleOnKeyDown,
 } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { CloseAlt } from "@wpmudev/sui-icons"
@@ -27,6 +29,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				type,
 				defaultValue,
 				placeholder,
+				hint,
 				id,
 				className,
 				inputClass,
@@ -41,6 +44,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				icon,
 				iconPosition,
 				allowClear = false,
+				disableInteractions = false,
 				...props
 			},
 			ref,
@@ -152,10 +156,12 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				className: inputClassNames,
 				onChange: handleChange,
 				// Interaction methods
-				...interactionMethods,
+				...(!!disableInteractions ? {} : interactionMethods),
 				// Any additional props
 				...props,
 			}
+
+			const hasHintText = !isEmpty(hint ?? "")
 
 			// Render component
 			return (
@@ -163,15 +169,33 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 					{icon && !isMultiLine && "start" === iconPosition && (
 						<Icon name={icon ?? ""} size={isSmall ? "md" : "lg"} />
 					)}
-					<TagName {...attrs}></TagName>
+					<div
+						className={generateCN("sui-input__input-field", {
+							"has-hint": hasHintText,
+						})}
+					>
+						<TagName {...attrs}></TagName>
+						{hasHintText && (
+							<Fragment>
+								{!isEmpty(value as string) && (
+									<div className="sui-input__input-field-text">{value}</div>
+								)}
+								{hasHintText && (
+									<div className="sui-input__input-field-hint">{hint}</div>
+								)}
+							</Fragment>
+						)}
+					</div>
 					{icon && !isMultiLine && "end" === iconPosition && (
 						<Icon name={icon ?? ""} size={isSmall ? "md" : "lg"} />
 					)}
 					{allowClear && !isEmpty(value as string) && !isMultiLine && (
 						<CloseAlt
 							className="sui-input__input-clear"
-							onClick={onClear}
 							color="neutral"
+							tabIndex={0}
+							onClick={onClear}
+							onKeyDown={(e) => handleOnKeyDown(e, onClear)}
 						/>
 					)}
 				</div>

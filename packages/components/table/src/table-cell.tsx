@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback, useContext } from "react"
+import React, { Fragment, useCallback, useContext, useRef } from "react"
 
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
 import * as Icons from "@wpmudev/sui-icons"
@@ -45,7 +45,10 @@ const TableCell: React.FC<TableCellProps> = ({
 	const [hovered, focused, methods] = useInteraction({})
 
 	// Table context
-	const { sortBy, setSortBy, triggerAction } = useContext(TableContext)
+	const { sortBy, setSortBy, triggerAction, hasStickyCols } =
+		useContext(TableContext)
+
+	const ref = useRef<HTMLTableCellElement>()
 
 	const sortBtnClassNames = generateCN("sui-table__cell-btn", {
 		hovered,
@@ -89,6 +92,7 @@ const TableCell: React.FC<TableCellProps> = ({
 
 	return (
 		<TagName
+			ref={ref}
 			className={generateCN(
 				"sui-table__cell",
 				{
@@ -96,6 +100,7 @@ const TableCell: React.FC<TableCellProps> = ({
 					sticky: isSticky,
 					trim: isTrim,
 					primary: isPrimary,
+					"is-sticky-active": hasStickyCols && isSticky,
 				},
 				className,
 			)}

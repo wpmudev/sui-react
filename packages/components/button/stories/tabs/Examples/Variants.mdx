@@ -1,39 +1,21 @@
-import { Section, Snippet, Code } from '@wpmudev/storybook';
+import { Section, Snippet, Preview, Code } from '@wpmudev/storybook';
 import dedent from 'dedent';
-
-export const StandardButtonCode = dedent`
-// from named entry point (to ensure minimum code is brought in)
-import { Button } from '@wpmudev/sui-button/src/variants/button-standard';\n
-// from main entry point
-import { Button } from '@wpmudev/sui-react';
-`;
+import { LoadingButton, ToggleButton } from "../../../src"
 
 export const LoadingButtonCode = dedent`
-// from named entry point (to ensure minimum code is brought in)
-import { LoadingButton } from '@wpmudev/sui-button/src/variants/button-loading';\n
-// from main entry point
-import { LoadingButton } from '@wpmudev/sui-react';
+import { LoadingButton } from '@wpmudev/sui-button';\n
+
+    const App = () => {
+         return <LoadingButton isLoading={true} />
+    }
 `;
 
 export const ToggleButtonCode = dedent`
-// from named entry point (to ensure minimum code is brought in)
-import { ToggleButton } from '@wpmudev/sui-button/src/variants/button-toggle';\n
-// from main entry point
-import { ToggleButton } from '@wpmudev/sui-react';
+import { ToggleButton } from '@wpmudev/sui-button';\n
+    const App = () => {
+        return <ToggleButton isSelected={true} />
+    }
 `;
-
-<Section
-	title="Button (standard button)"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>
-		The most used button component. This button comes in different colors
-		and styles and supports the existing dark mode solution.
-	</p>
-	<Snippet language="js">{StandardButtonCode}</Snippet>
-</Section>
 
 <Section
 	title="Loading button"
@@ -42,14 +24,12 @@ import { ToggleButton } from '@wpmudev/sui-react';
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
 	<p>
-		A small wrapper around the <Code small={true}>Button</Code> that allows
-		you to show a spinner on the button when you set an{' '}
-		<Code small={true}>isLoading</Code> prop to true.
-	</p>
-	<p>
 		<Code small={true}>LoadingButton</Code> applies a spinner based on the
-		appearance props.
+		<Code small={true}> isLoading </Code> prop.
 	</p>
+	<Preview>
+		<LoadingButton isLoading={true} />
+	</Preview>
 	<Snippet language="js">{LoadingButtonCode}</Snippet>
 </Section>
 
@@ -63,5 +43,8 @@ import { ToggleButton } from '@wpmudev/sui-react';
 		or disable the new button state and other ARIA attributes required for
 		its proper functionality.
 	</p>
+	<Preview>
+		<ToggleButton isSelected={true}>Toggle Button</ToggleButton>
+	</Preview>
 	<Snippet language="js">{ToggleButtonCode}</Snippet>
 </Section>

@@ -49,7 +49,7 @@ const FormField: React.FC<FormFieldProps> = ({
 				</Label>
 			)}
 			{children}
-			{isObject(error) && Object.keys(error).length > 0 && (
+			{isObject(error) && Object.keys(error).length > 0 && errorObj.state && (
 				<ErrorMessage id={id} show={errorObj.state} small={isSmall}>
 					{errorObj.text}
 				</ErrorMessage>

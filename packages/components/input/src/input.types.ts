@@ -19,6 +19,10 @@ interface InputProps extends HTMLProps<HTMLInputElement>, InteractionTypes {
 	 */
 	placeholder?: string
 	/**
+	 * Input field hint
+	 */
+	hint?: string
+	/**
 	 * The unique identifier for the input element.
 	 */
 	id?: string
@@ -50,6 +54,10 @@ interface InputProps extends HTMLProps<HTMLInputElement>, InteractionTypes {
 	 * Specifies whether the input element is disabled.
 	 */
 	isDisabled?: boolean
+	/**
+	 * Disables interaction methods
+	 */
+	isInteractionDisabled?: boolean
 	/**
 	 * The callback function for handling input changes.
 	 */

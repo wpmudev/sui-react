@@ -1,12 +1,5 @@
 import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 
-import ButtonAnatomy from '../images/anatomy.png';
-import ButtonEmphasis from '../images/emphasis.png';
-import ButtonEmphasisPrimaryRight from '../images/emphasis-primary-right.png';
-import ButtonEmphasisPrimaryWrong from '../images/emphasis-primary-wrong.png';
-import ButtonEmphasisIconRight from '../images/emphasis-icon-right.png';
-import ButtonEmphasisIconWrong from '../images/emphasis-icon-wrong.png';
-
 <Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
 	<p>
 		Install the <Code small={true}>Button</Code> package as an individual
@@ -15,25 +8,37 @@ import ButtonEmphasisIconWrong from '../images/emphasis-icon-wrong.png';
 	</p>
 </Section>
 
-<Section title="Shared props" border={true}>
+<Section>
 	<p>
-		All button variants (Button, LoadingButton and ToggleButton) share the
-		following props.
+		The Button package provides 3 button components: 
 	</p>
+	<List>
+		<span label={<><Code small={true}> Button </Code> This is the main button component and it is used by the other variations internally</>} />
+		<span label={<><Code small={true}> LoadingButton </Code> A button with a loading state </>} />
+		<span label={<><Code small={true}> ToggleButton </Code> This variation can be used in a group of related options. </>} />
+	</List>
+
+	<p>
+		All three components share the same props of the base component and each variation has other props as explained below
+	</p>
+</Section>
+
+<Section title="Shared props" border={true}>
+	
 	<Section
-		title={{ content: 'href', tag: 'string', small: true }}
+		title={{ content: 'href*', tag: 'string', small: true }}
 		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Provides a url for buttons being used as a link.</p>
+		<p>Link Url for the button</p>
 	</Section>
 	<Section
-		title={{ content: 'htmlFor', tag: 'string', small: true }}
+		title={{ content: 'htmlFor*', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the value of the for content property used on labels.</p>
+		<p>Optional associated form element name for the button.</p>
 	</Section>
 	<Section
-		title={{ content: 'appearance', tag: 'string', small: true }}
+		title={{ content: 'appearance*', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>
@@ -66,10 +71,10 @@ import ButtonEmphasisIconWrong from '../images/emphasis-icon-wrong.png';
 		</List>
 	</Section>
 	<Section
-		title={{ content: 'color', tag: 'string', small: true }}
+		title={{ content: 'color*', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Choose the set of colors to complement the button appearance.</p>
+		<p>Color of the button</p>
 		<p>Allowed options:</p>
 		<List>
 			<span label={<Code small={true}>blue</Code>} />
@@ -80,50 +85,99 @@ import ButtonEmphasisIconWrong from '../images/emphasis-icon-wrong.png';
 		</List>
 	</Section>
 	<Section
-		title={{ content: 'isSmall', tag: 'boolean', small: true }}
+		title={{ content: 'isSmall*', tag: 'boolean', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Set if the button is small.</p>
+		<p>When set to <Code small={true}>true</Code> the button will be small</p>
 	</Section>
 	<Section
-		title={{ content: 'isDisabled', tag: 'boolean', small: true }}
+		title={{ content: 'isDisabled*', tag: 'boolean', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Set if the button is disabled.</p>
+		<p>When set to <Code small={true}>true</Code> the button will be disabled</p>
 	</Section>
 	<Section
-		title={{ content: 'className', tag: 'string', small: true }}
+		title={{ content: 'className*', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Add a class name to the button.</p>
+		<p>Custom css className(s) for the button</p>
+	</Section>
+	
+	<Section
+		title={{ content: 'startIcon*', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>An icon to be displayed before the label</p>
 	</Section>
 	<Section
-		title={{ content: 'icon', tag: 'string', small: true }}
+		title={{ content: 'endIcon*', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Button icon name</p>
+		<p>An Icon to be displayed after the label</p>
 	</Section>
 	<Section
-		title={{ content: 'startIcon', tag: 'string', small: true }}
+		title={{ content: 'target*', tag: 'string', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Button start icon to show icon before label.</p>
+		<p>Optional target window or frame to open the link.</p>
 	</Section>
 	<Section
-		title={{ content: 'endIcon', tag: 'string', small: true }}
+		title={{ content: 'isFullWidth*', tag: 'boolean', small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Button start icon to show icon after label.</p>
+		<p>When set to <Code small={true}>true</Code> the button will have a full width</p>
+	</Section>
+	<Section
+		title={{ content: 'isUnwrapped*', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>When set to <Code small={true}>true</Code> the button will be unwrapped from its container</p>
+	</Section>
+	<Section
+		title={{ content: 'icon*', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>An icon to be displayed before the label</p>
+	</Section>
+	<Section
+		title={{ content: 'iconSize*', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>One of the following values to set a size for the icon</p>
+		<List>
+			<span label={<Code small={true}>sm</Code>} />
+            <span label={<Code small={true}>md</Code>} />
+			<span label={<Code small={true}>lg</Code>} />
+		</List>
+	</Section>
+	<Section
+		title={{ content: 'children*', tag: 'React Node', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>The button text or any other React element</p>
+	</Section>
+	<Section
+		title={{ content: 'iconOnly*', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>When set to <Code small={true}> true </Code> the button will display the icon only</p>
+	</Section>
+
+	<Section
+		title={{ content: 'isResponsive*', tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>When set to <Code small={true}> true </Code> the button will be responsive</p>
 	</Section>
 </Section>
 
-<Section title="Loading button props" contained={true} border={true}>
+<Section title="LoadingButton props" contained={true} border={true}>
 	<p>
 		The <Code small={true}>LoadingButton</Code> accepts all the shared props
 		and an optional <Code small={true}>isLoading</Code> prop.
 	</p>
 	<Section
-		title={{ content: 'isLoading', tag: 'boolean', small: true }}
+		title={{ content: 'isLoading*', tag: 'boolean', small: true }}
 		style={{
 			paddingTop: 10,
 			paddingBottom: 0,
@@ -131,17 +185,17 @@ import ButtonEmphasisIconWrong from '../images/emphasis-icon-wrong.png';
 			paddingRight: 0,
 		}}
 	>
-		<p>Conditionally shows a spinner over the top of a button.</p>
+		<p> When set to <Code small={true}>true</Code> a spinner will be shown </p>
 	</Section>
 </Section>
 
-<Section title="Toggle button props" contained={true}>
+<Section title="ToggleButton props" contained={true}>
 	<p>
 		The <Code small={true}>ToggleButton</Code> accepts all the shared props
 		and an optional <Code small={true}>isSelected</Code> prop.
 	</p>
 	<Section
-		title={{ content: 'isSelected', tag: 'boolean', small: true }}
+		title={{ content: 'isSelected*', tag: 'boolean', small: true }}
 		style={{
 			paddingTop: 10,
 			paddingBottom: 0,
@@ -149,6 +203,6 @@ import ButtonEmphasisIconWrong from '../images/emphasis-icon-wrong.png';
 			paddingRight: 0,
 		}}
 	>
-		<p>Change the style to indicate the button is selected.</p>
+		<p>When set to <Code small={true}> true </Code> the style changes to indicate that the button is selected</p>
 	</Section>
 </Section>

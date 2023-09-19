@@ -1,5 +1,9 @@
 import React from "react"
 
+import { Input } from "@wpmudev/sui-input"
+
+import { Textarea } from "@wpmudev/sui-textarea"
+
 // Import required component
 import { FormField as SUIFormField } from "../src"
 
@@ -34,20 +38,41 @@ export const FormField = ({ example, ...args }) => {
 				<div style={set.box}>
 					<SUIFormField {...args}>
 						{"input" === example && (
-							<input
+							<Input
 								id={args.id}
-								type="text"
-								placeholder="Unstyled input"
-								style={{ display: "block" }}
+								placeholder={args.placeholder}
+								isError={args.error?.state}
+								isSmall={args.isSmall}
+								isDisabled={args.isDisabled}
+								{...(!!args.label && {
+									"aria-labelledby": `${args.id}__label`,
+								})}
+								{...(!!args.helper && {
+									"aria-describedby": `${args.id}__helper`,
+								})}
+								{...(!!args.error?.state && {
+									"aria-errormessage": `${args.id}__error-message`,
+								})}
 							/>
 						)}
-						{"radio" === example && (
-							<radiogroup style={{ display: "block" }}>
-								<input type="radio" id="radio1" name="radio" value="1" /> Option
-								1
-								<input type="radio" id="radio2" name="radio" value="2" /> Option
-								2
-							</radiogroup>
+						{"textarea" === example && (
+							<Textarea
+								rows={7}
+								id={args.id}
+								placeholder={args.placeholder}
+								isError={args.error?.state}
+								isSmall={args.isSmall}
+								isDisabled={args.isDisabled}
+								{...(!!args.label && {
+									"aria-labelledby": `${args.id}__label`,
+								})}
+								{...(!!args.helper && {
+									"aria-describedby": `${args.id}__helper`,
+								})}
+								{...(!!args.error?.state && {
+									"aria-errormessage": `${args.id}__error-message`,
+								})}
+							/>
 						)}
 					</SUIFormField>
 				</div>
@@ -61,6 +86,7 @@ FormField.args = {
 	example: "",
 	id: "myCustomElement",
 	label: "Label",
+	placeholder: "Placeholder",
 	helper: "Helper text",
 	error: {
 		state: false,
@@ -74,12 +100,13 @@ FormField.args = {
 FormField.argTypes = {
 	example: {
 		name: "Example",
+		options: ["", "input", "textarea"],
 		control: {
 			type: "select",
-			options: {
-				"Example: Empty Field": "",
-				"Example: Field + Input": "input",
-				"Example: Field + Radio": "radio",
+			labels: {
+				"": "Example: Empty Field",
+				input: "Example: Field + Input",
+				textarea: "Example: Field + Textarea",
 			},
 		},
 	},
@@ -89,6 +116,10 @@ FormField.argTypes = {
 	},
 	label: {
 		name: "Label",
+		type: "string",
+	},
+	placeholder: {
+		name: "Placeholder",
 		type: "string",
 	},
 	helper: {

@@ -7,53 +7,18 @@ import { Textarea as SuiTextarea } from "../src"
 import docs from "./ReactTextarea.mdx"
 
 // Build "Textarea" story.
-const Textarea = ({
-	example,
-	description,
-	color,
-	size,
-	isSmall,
-	isDisabled,
-	errorMessage,
-}) => {
+const Textarea = ({ ...args }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: color !== "white" ? "#fff" : "#333",
+		background: "#fff",
 	}
-
-	const props = {}
-
-	props.color = color
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiTextarea
-						id="textarea-default"
-						rows="4"
-						placeholder="Placeholder"
-						description={description}
-						descriptionId="desc-id"
-						isSmall={isSmall}
-						isDisabled={isDisabled}
-						errorMessage={errorMessage}
-					/>
-
-					{/*	{"textarea-error" === example && (
-						<SuiTextarea
-							id="textarea-default"
-							rows="4"
-							placeholder="Placeholder"
-							description={description}
-							descriptionId="desc-id"
-							errorMessage="This is an error."
-							errorId="error-id"
-							isSmall={isSmall}
-							isDisabled={isDisabled}
-						/>
-					)}*/}
+					<SuiTextarea rows="4" {...args} />
 				</div>
 			</div>
 		</div>
@@ -62,28 +27,34 @@ const Textarea = ({
 
 // Set story arguments.
 Textarea.args = {
-	description: "Help text",
+	id: "textarea",
+	placeholder: "Placeholder",
+	isError: false,
 	isSmall: false,
 	isDisabled: false,
-	errorMessage: "",
 }
 
 // Set controls for story arguments.
 Textarea.argTypes = {
-	description: {
-		name: "Description",
+	id: {
+		name: "ID",
+		type: "string",
+	},
+	placeholder: {
+		name: "Placeholder",
+		type: "string",
+	},
+	isError: {
+		name: "Error",
+		type: "boolean",
 	},
 	isSmall: {
 		name: "Small",
+		type: "boolean",
 	},
 	isDisabled: {
 		name: "Disabled",
-	},
-	errorMessage: {
-		name: "Error Message",
-		control: {
-			type: "text",
-		},
+		type: "boolean",
 	},
 }
 

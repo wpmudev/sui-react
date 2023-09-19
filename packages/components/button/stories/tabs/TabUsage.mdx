@@ -1,216 +1,110 @@
-import { Section, Row, Col, List } from '@wpmudev/storybook';
+import { Section, Row, Col, Code } from "@wpmudev/storybook"
 
-import ButtonAnatomy from '../images/anatomy.png';
-import ButtonEmphasis from '../images/emphasis.png';
-import ButtonEmphasisPrimaryRight from '../images/emphasis-primary-right.png';
-import ButtonEmphasisPrimaryWrong from '../images/emphasis-primary-wrong.png';
-import ButtonEmphasisIconRight from '../images/emphasis-icon-right.png';
-import ButtonEmphasisIconWrong from '../images/emphasis-icon-wrong.png';
+import Anatomy from "../images/anatomy.svg"
+import Types from "../images/types.svg"
+import Primary from "../images/primary.svg"
+import Secondary from "../images/secondary.svg"
+import Teritiary from "../images/teritiary.svg"
+import Sizes from "../images/sizes.svg"
+import Icon from "../images/icon.svg"
+import IconOnly from "../images/icon-only.svg"
+import MenuButton from "../images/menu-button.svg"
+import Emphasis from "../images/emphasis.svg"
+import CorrectIcon from "../images/correct-icon.svg"
+import WrongIcon from "../images/wrong-icon.svg"
+import CorrectEmphasis from "../images/correct-emphasis.svg"
+import WrongEmphasis from "../images/wrong-emphasis.svg"
 
-<Section contained={true} border={true} style={{ paddingTop: 0 }}>
-	<p>
-		Buttons are triggers for events or actions. They are part of larger
-		components or patterns, such as forms or modal dialogs.
-	</p>
-	<p>Buttons:</p>
-	<List>
-		<span label="Move users through a sequence of screens." />
-		<span label="Act as a call to action (CTA)." />
-		<span label="When used with an icon, they convey meaning more quickly." />
-	</List>
+<Section title="Anatomy" style={{ paddingTop: 20 }}>
+	<img src={Anatomy} alt="Button Anatomy" style={{ marginBottom: 20 }} />
 </Section>
 
-<Section title="Anatomy" contained={true} border={true}>
-	<img
-		src={ButtonAnatomy}
-		alt="Button anatomy"
-		style={{ marginBottom: 20 }}
-	/>
-	<List>
-		<span
-			label={
-				<>
-					<strong>Icon:</strong> Use an icon to convey more meaning.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Label:</strong> Text that indicates the result of
-					selecting the button.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Spacing:</strong> Double-spacing for the sides to
-					highlight it.
-				</>
-			}
-		/>
-	</List>
+<Section title="Basic Variations" style={{ paddingTop: 20 }}>
+	
+	<p>SUI buttons comes with different variations. They can be used with the design needs for the better user experience.</p>
+
+	<Section title="Button Types">
+		<p>Different button types to use with the priority of the action.</p>
+		<img src={Types} alt="Button Types" style={{ marginBottom: 20 }} />
+	</Section>
+
+	<Section title="Button States">
+		<p>Different button states add value to the design and improve the end-user experience.</p>
+		<img src={Primary} alt="Button Primary" style={{ marginBottom: 20 }} />
+		<img src={Secondary} alt="Button Secondary" style={{ marginBottom: 20 }} />
+		<img src={Teritiary} alt="Button Teritiary" style={{ marginBottom: 20 }} />
+	</Section>
+
+	<Section title="Button Size" >
+		<p>The Button has two size variations, <Code small={true}> large </Code> and <Code small={true}>small</Code> </p>
+		<img src={Sizes} alt="Button Sizes" style={{ marginBottom: 20 }} />
+	</Section>
+
+	<Section title="Button + Icon" >
+		<p>Adding an icon to the button provides a visual indication for its functionality.</p>
+		<img src={Icon} alt="Button with an Icon" style={{ marginBottom: 20 }} />
+		
+		<Section title="Usage" contained={true}>
+			<Row>
+				<Col>
+					<img src={CorrectIcon} alt="Button Icon - Correct Use"/>
+					<p>Use single icon inside a button.</p>
+				</Col>
+				<Col>
+					<img src={WrongIcon} alt="Button Icon - Wrong Use"/>
+					<p>Don’t use two icons in the same button.</p>
+				</Col>
+			</Row>
+		</Section>
+	</Section>
+
+	<Section title="Icon Button" >
+		<p>The Icon Button should come with a tooltip to be displayed on hover</p>
+		<img src={IconOnly} alt="Icon Button" style={{ marginBottom: 20 }} />
+	</Section>
+
+	<Section title="Menu Button">
+		<p>The menu button is the only type of button in which two icons are used into a single button.</p>
+		<img src={MenuButton} alt="Menu Button" />
+	</Section>
+
 </Section>
 
-<Section title="Emphasis" contained={true} border={true}>
-	<img
-		src={ButtonEmphasis}
-		alt="Button emphasis"
-		style={{ marginBottom: 20 }}
-	/>
-	<p>
-		A button's level of emphasis helps determine its appearance, typography,
-		and placement.
-	</p>
-</Section>
-
-<Section title="Content Guidelines" contained={true}>
-	<Section
-		title={{ content: 'Multiple buttons', small: true }}
-		contained={true}
-		style={{ paddingLeft: 0, paddingTop: 0, paddingRight: 0 }}
-	>
-		<Row gutter="sm">
-			<Col size="3">
-				<figure
-					style={{
-						display: 'block',
-						margin: 0,
-						padding: 0,
-						border: 0,
-					}}
-					aria-labelledby="multiple-buttons-do"
-				>
-					<img
-						src={ButtonEmphasisPrimaryRight}
-						alt="Usage button guidelines"
-						style={{
-							display: 'block',
-							margin: '0 0 5px',
-							padding: 0,
-							border: '2px solid #18BB4B',
-							borderRadius: 4,
-						}}
-					/>
-					<p
-						id="multiple-buttons-do"
-						style={{
-							padding: '10px 15px',
-							borderRadius: 4,
-							background: '#E8F8ED',
-						}}
-					>
-						<strong>Do:</strong> Use different emphasis buttons
-						while using various in the same row.
-					</p>
-				</figure>
+<Section title="Emphasis" style={{ paddingTop: 20 }}>
+	<p>A button’s level of emphasis helps determine its appearance, typography, and placement.</p>
+	<img src={Emphasis} alt="Button Emphasis" style={{ paddingBottom: 20 }}/>
+	
+	<Section title="Multiple Buttons Usage" contained={true}>
+		<Row>
+			<Col>
+				<img src={CorrectEmphasis} alt="Button Emphasis - Correct Use"/>
+				<p>Use different emphasis button while using multiple buttons.</p>
 			</Col>
-			<Col size="3">
-				<figure
-					style={{
-						display: 'block',
-						margin: 0,
-						padding: 0,
-						border: 0,
-					}}
-					aria-labelledby="multiple-buttons-dont"
-				>
-					<img
-						src={ButtonEmphasisPrimaryWrong}
-						alt="Usage button guidelines"
-						style={{
-							display: 'block',
-							margin: '0 0 5px',
-							padding: 0,
-							border: '2px solid #F45C59',
-							borderRadius: 4,
-						}}
-					/>
-					<p
-						id="multiple-buttons-dont"
-						style={{
-							padding: '10px 15px',
-							borderRadius: 4,
-							background: '#FEEFEE',
-						}}
-					>
-						<strong>Don't:</strong> Use two high-emphasis buttons
-						while using more than one in the same row.
-					</p>
-				</figure>
+			<Col>
+				<img src={WrongEmphasis} alt="Button Emphasis - Wrong Use"/>
+				<p>Do not use two high-emphasis buttons while using multiple buttons.</p>
 			</Col>
 		</Row>
 	</Section>
-	<Section title={{ content: 'Icon', small: true }} style={{ padding: 0 }}>
-		<Row gutter="sm">
-			<Col size="3">
-				<figure
-					style={{
-						display: 'block',
-						margin: 0,
-						padding: 0,
-						border: 0,
-					}}
-					aria-labelledby="icons-do"
-				>
-					<img
-						src={ButtonEmphasisIconRight}
-						alt="Usage button guidelines"
-						style={{
-							display: 'block',
-							margin: '0 0 5px',
-							padding: 0,
-							border: '2px solid #18BB4B',
-							borderRadius: 4,
-						}}
-					/>
-					<p
-						id="icons-do"
-						style={{
-							padding: '10px 15px',
-							borderRadius: 4,
-							background: '#E8F8ED',
-						}}
-					>
-						<strong>Do:</strong> Use a single icon inside a button.
-					</p>
-				</figure>
-			</Col>
-			<Col size="3">
-				<figure
-					style={{
-						display: 'block',
-						margin: 0,
-						padding: 0,
-						border: 0,
-					}}
-					aria-labelledby="icons-dont"
-				>
-					<img
-						src={ButtonEmphasisIconWrong}
-						alt="Usage button guidelines"
-						style={{
-							display: 'block',
-							margin: '0 0 5px',
-							padding: 0,
-							border: '2px solid #F45C59',
-							borderRadius: 4,
-						}}
-					/>
-					<p
-						id="icons-dont"
-						style={{
-							padding: '10px 15px',
-							borderRadius: 4,
-							background: '#FEEFEE',
-						}}
-					>
-						<strong>Don't:</strong> Use two icons on the same
-						button.
-					</p>
-				</figure>
-			</Col>
-		</Row>
-	</Section>
+
 </Section>
+
+
+
+{/* 
+<Section title="{{Section with columns and border}}" border={true}>
+	<Row>
+		<Col>
+			
+    		<h3 style={{marginTop: 0}}>1. Accordion header</h3>
+    		<p>Accordion header contains the section title and chevron icon that expands and collapses accordion content.</p>
+
+    		<h3>2. Expanded content</h3>
+    		<p>Accordion content that is revealed or concealed when the corresponding accordion header is interacted with. It may also contain the footer where generally includes action buttons if necessary.</p>
+
+    	</Col>
+    	<Col size="3">
+    		
+    	</Col>
+    </Row>
+</Section> */}
