@@ -2,12 +2,20 @@
 	"builder": {
 		"size": {
 			"width": {
-				"value": "32px",
-				"type": "sizing"
+				"xs": {
+					"value": "32px",
+					"type": "sizing"
+				},
+				"xxl": {
+					"value": "680px",
+					"type": "sizing"
+				}
 			},
 			"height": {
-				"value": "32px",
-				"type": "sizing"
+				"xs": {
+					"value": "32px",
+					"type": "sizing"
+				}
 			}
 		},
 		"spacing": {

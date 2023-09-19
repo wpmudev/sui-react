@@ -15,9 +15,18 @@
 			background: $color-extended-neutral-95;
 
 			@include element(fields) {
-				padding: $spacing-xxl $spacing-xxl $spacing-sm $spacing-xxl;
+				padding: $spacing-xxl $spacing-xxl $spacing-lg $spacing-xxl;
+
+				&:last-child {
+					padding-bottom: $spacing-xxl;
+				}
+
 				@include media(max-width, md) {
-					padding: $spacing-lg $spacing-lg $spacing-sm $spacing-lg;
+					padding: $spacing-lg;
+
+					&:last-child {
+						padding-bottom: $spacing-lg;
+					}
 				}
 			}
 
@@ -33,7 +42,7 @@
 					overflow-x: auto;
 
 					@include media(max-width, md) {
-						padding-bottom: $spacing-lg;
+						margin-bottom: $spacing-lg;
 					}
 
 					.sui-#{$block}__content {

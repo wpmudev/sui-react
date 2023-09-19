@@ -64,8 +64,8 @@
 				overflow: hidden;
 
 				@include modifier(image) {
-					height: $builder-size-height;
-					width: $builder-size-width;
+					height: $builder-size-height-xs;
+					width: $builder-size-width-xs;
 					img {
 						height: 100%;
 						width: auto;
