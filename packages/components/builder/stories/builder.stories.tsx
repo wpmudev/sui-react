@@ -22,7 +22,7 @@ export default {
 }
 
 // Build footer story
-const Builder = ({}) => {
+const Builder = ({ ...props }) => {
 	const actionButton = (
 		<Dropdown
 			buttonIcon="settings"
@@ -53,7 +53,7 @@ const Builder = ({}) => {
 					backgroundColor: "white",
 				}}
 			>
-				<SuiBuilder isScrollable={true} allowAddFields={true}>
+				<SuiBuilder {...props}>
 					<BuilderWrapper>
 						<BuilderField
 							columnSize={4}
@@ -129,10 +129,33 @@ const Builder = ({}) => {
 }
 
 // Set story arguments
-Builder.args = {}
+Builder.args = {
+	allowAddFields: true,
+	isScrollable: false,
+	hasNoFields: false,
+}
 
 // Set controls for story arguments
-Builder.argTypes = {}
+Builder.argTypes = {
+	allowAddFields: {
+		name: "Allow insert fields",
+		control: {
+			type: "boolean",
+		},
+	},
+	isScrollable: {
+		name: "Scrollable",
+		control: {
+			type: "boolean",
+		},
+	},
+	hasNoFields: {
+		name: "Empty builder",
+		control: {
+			type: "boolean",
+		},
+	},
+}
 
 // Publish required stories
 export { Builder }

@@ -13,14 +13,14 @@ const Builder: React.FC<BuilderProps> = ({
 	children,
 	allowAddFields = true,
 	isScrollable = false,
-	hasNoFields = true,
+	hasNoFields = false,
 }) => {
 	const classNames = generateCN("sui-builder", {}, `sui-layout ${className}`)
 	return (
 		<div className={classNames}>
 			<div
 				className={generateCN("sui-builder__fields", {
-					scrollable: false,
+					scrollable: isScrollable && !hasNoFields,
 				})}
 			>
 				<div className="sui-builder__content">
