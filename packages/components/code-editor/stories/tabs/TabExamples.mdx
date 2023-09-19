@@ -1,17 +1,175 @@
 import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src"
+import { CodeEditor } from "../../src"
 import dedent from "dedent"
 
-export const sampleCode = dedent`
-    Basic Examples 
+export const reactSampleCode = `import React from 'react';
+
+const MyComponent = ({ name }) => {
+    return (
+        <div>
+            <h1>Hello, {name}!</h1>
+            <p>This is a basic React functional component.</p>
+        </div>
+    );
+};
+
+export default MyComponent;
 `
 
-<Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Basic Accordion Example</p>
+export const phpSampleCode = `function recent_posts_shortcode() {
+    $query = new WP_Query(array(
+        'post_type' => 'post',
+        'posts_per_page' => 5,
+        'orderby' => 'date',
+        'order' => 'DESC',
+    ));
+
+    $output = '<ul>';
+    while ($query->have_posts()) {
+        $query->the_post();
+        $title = get_the_title();
+        $link = get_permalink();
+        $date = get_the_date();
+        $output .= "<li><a href='$link'>$title</a> - $date</li>";
+    }
+    $output .= '</ul>';
+    wp_reset_postdata();
+
+    return $output;
+}
+
+add_shortcode('recent_posts', 'recent_posts_shortcode');
+`
+
+export const sampleCode = dedent`
+    <CodeEditor language="javascript">
+        import React from 'react';
+
+        const MyComponent = ({ name }) => {
+            return (
+                <div>
+                    <h1>Hello, {name}!</h1>
+                    <p>This is a basic React functional component.</p>
+                </div>
+            );
+        };
+
+        export default MyComponent;
+    </CodeEditor>
+`
+
+export const hideLinesCode = dedent`
+    <CodeEditor displayLineNumbers={false} language="javascript">
+        import React from 'react';
+
+        const MyComponent = ({ name }) => {
+            return (
+                <div>
+                    <h1>Hello, {name}!</h1>
+                    <p>This is a basic React functional component.</p>
+                </div>
+            );
+        };
+
+        export default MyComponent;
+    </CodeEditor>
+`;
+
+export const readOnlyCode = dedent`
+    <CodeEditor readyOnly={true} language="javascript">
+        import React from 'react';
+
+        const MyComponent = ({ name }) => {
+            return (
+                <div>
+                    <h1>Hello, {name}!</h1>
+                    <p>This is a basic React functional component.</p>
+                </div>
+            );
+        };
+
+        export default MyComponent;
+    </CodeEditor>
+`;
+
+export const hideCopyCode = dedent`
+    <CodeEditor allowCopy={false} language="javascript">
+        import React from 'react';
+
+        const MyComponent = ({ name }) => {
+            return (
+                <div>
+                    <h1>Hello, {name}!</h1>
+                    <p>This is a basic React functional component.</p>
+                </div>
+            );
+        };
+
+        export default MyComponent;
+    </CodeEditor>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }} border={true}>
+	<p>The default form of the CodeEditor component.</p>
+	<p>Please make sure to indicate the "language" property with the appropriate code language to enable accurate syntax highlighting.</p>
 	<Preview wrapper={true}>
-		Basic Example
+		<CodeEditor language="javascript">
+            {reactSampleCode}
+		</CodeEditor>
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
 
+<Section title="Different languages" contained={true} style={{ paddingTop: 30 }} border={true}>
+	<p>To specify the programming language, use the <Code small={true}>language</Code> prop </p> 
+	<p>
+		You can choose between the following options:
+		<Code small={true}>html</Code>, 
+		<Code small={true}>css</Code>, 
+		<Code small={true}>JavaScript</Code> and <Code small={true}>php</Code>
+	</p>
+	<Preview wrapper={true}>
+		<CodeEditor language="php">
+            {phpSampleCode}
+		</CodeEditor>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
 
+<Section title="File Name" contained={true} style={{ paddingTop: 30 }} border={true}>
+	<p> You can specify a filename to appear as a title to the Code Editor </p>
+	<Preview wrapper={true}>
+		<CodeEditor filename="App.js">
+            {reactSampleCode}
+		</CodeEditor>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+<Section title="Hiding the Line Numbers" contained={true} style={{ paddingTop: 30 }} border={true}>
+	<p> To hide the lines' numbers use the prop <Code small={true}>displayLineNumbers=\{false\}</Code>  </p>
+	<Preview wrapper={true}>
+		<CodeEditor displayLineNumbers={false} language="javascript" >
+            {reactSampleCode}
+		</CodeEditor>
+	</Preview>
+	<Snippet language="js">{hideLinesCode}</Snippet>
+</Section>
+
+<Section title="Read Only" contained={true} style={{ paddingTop: 30 }} border={true}>
+	<Preview wrapper={true}>
+		<CodeEditor readOnly={true} language="javascript" >
+            {reactSampleCode}
+		</CodeEditor>
+	</Preview>
+	<Snippet language="js">{readOnlyCode}</Snippet>
+</Section>
+
+<Section title="Hiding the Copy Button" contained={true} style={{ paddingTop: 30 }} border={true}>
+	<Preview wrapper={true}>
+		<CodeEditor allowCopy={false} language="javascript" >
+            {reactSampleCode}
+		</CodeEditor>
+	</Preview>
+	<Snippet language="js">{hideCopyCode}</Snippet>
+</Section>
