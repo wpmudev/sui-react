@@ -1,23 +1,19 @@
-import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 
 <Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
 	<p>
-		Install the <Code small={true}>Code Snippet</Code> package as an
-		individual component or follow the Overview page instructions to get the
-		complete SUI Components package.
+		Install the <Code small={true}>Code Snippet</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
 	</p>
 </Section>
 
 <Section title="Props" border={true}>
-	<p>For code snippets we have the following props:</p>
 	<Section
-		title={{ content: 'language', tag: 'string', small: true }}
+		title={{ content: "language*", tag: "string", small: true }}
 		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>
-			Whether the code that was passed is HTML, CSS or Javascript. By
-			default it is set to HTML.
-		</p>
+		<p>The language for the code snippet for correct code highlighting</p>
 		<p>Allowed options:</p>
 		<List>
 			<span
@@ -44,19 +40,25 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
 		</List>
 	</Section>
 	<Section
-		title={{ content: 'copy', tag: 'string', small: true }}
+		title={{ content: "copy*", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>
-			If set <Code small={true}>true</Code> it will show a copy button to
-			copy the code. By default it is set to
+			If set <Code small={true}>true</Code> it will show a copy button to copy
+			the code. By default it is set to
 			<Code small={true}>true</Code>.
 		</p>
 	</Section>
 	<Section
-		title={{ content: 'className', tag: 'string', small: true }}
+		title={{ content: "className*", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Add a class name to the code snippet.</p>
+	</Section>
+	<Section
+		title={{ content: "children", tag: "React Node", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>The content of the code Snippet</p>
 	</Section>
 </Section>
