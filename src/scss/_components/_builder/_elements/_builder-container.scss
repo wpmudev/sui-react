@@ -15,9 +15,9 @@
 			background: $color-extended-neutral-95;
 
 			@include element(fields) {
-				padding: $spacing-xxl $spacing-xxl 0 $spacing-xxl;
+				padding: $spacing-xxl $spacing-xxl $spacing-sm $spacing-xxl;
 				@include media(max-width, md) {
-					padding: $spacing-lg $spacing-lg 0 $spacing-lg;
+					padding: $spacing-lg $spacing-lg $spacing-sm $spacing-lg;
 				}
 			}
 
