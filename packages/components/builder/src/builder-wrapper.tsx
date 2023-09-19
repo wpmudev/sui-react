@@ -13,7 +13,7 @@ const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 	const classNames = generateCN("sui-builder__wrapper", {}, className)
 
 	return (
-		<Row className={classNames} align={{ md: "inline" }} {...props}>
+		<Row className={classNames} align={{ xs: "inline" }} {...props}>
 			{Children.map(children, (child: React.ReactNode) =>
 				cloneElement(child, {
 					colSize: Children.count(children),

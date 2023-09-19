@@ -17,6 +17,10 @@ interface BuilderProps {
 	 */
 	hasNoFields?: boolean
 	/**
+	 * Allow fields to scroll.
+	 */
+	isScrollable?: boolean
+	/**
 	 * Children components to be rendered within the Builder.
 	 */
 	children?: React.ReactNode
