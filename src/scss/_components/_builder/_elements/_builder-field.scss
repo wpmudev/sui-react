@@ -14,7 +14,7 @@
 		@include block($block) {
 			@include element(field) {
 				background-color: $color-extended-neutral-100;
-				border-radius: $border-radius-sm;
+				border-radius: $border-radius-md;
 				box-shadow: 0 2px 1px 0 $color-shadow-light,
 					0 1px 2px 0 $color-shadow-light;
 				flex: 1;
@@ -25,12 +25,12 @@
 				display: flex;
 				gap: $spacing-md;
 				justify-content: space-between;
-				margin-bottom: $spacing-sm;
 				padding: $builder-spacing-md $spacing-xl;
 				text-decoration: none;
 			}
 
 			@include element(field-body) {
+				border-radius: 0 0 $border-radius-md $border-radius-md;
 				border-top: $border-width-sm solid $color-extended-neutral-80;
 			}
 
@@ -122,6 +122,32 @@
 				margin-left: $spacing-md;
 				position: relative;
 				padding-left: $spacing-md;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(field) {
+				box-shadow: unset;
+				border: $border-width-sm solid $color-extended-neutral-0;
+			}
+
+			@include element(field-body) {
+				border-color: $color-extended-neutral-0;
+				color: $color-extended-neutral-0;
+			}
+
+			@include element(field-info-name, field-code) {
+				color: $color-extended-neutral-0;
+			}
+
+			@include element(field-actions-item) {
+				@include modifier(accordion) {
+					border-color: $color-extended-neutral-0;
+				}
 			}
 		}
 	}

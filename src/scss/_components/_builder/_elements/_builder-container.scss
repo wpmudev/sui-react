@@ -13,7 +13,34 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			background: $color-extended-neutral-95;
-			padding: $spacing-xxl;
+
+			@include element(fields) {
+				padding: $spacing-xxl $spacing-xxl 0 $spacing-xxl;
+				@include media(max-width, md) {
+					padding: $spacing-lg $spacing-lg 0 $spacing-lg;
+				}
+			}
+
+			@include element(footer) {
+				padding: 0 $spacing-xxl $spacing-xxl $spacing-xxl;
+				@include media(max-width, md) {
+					padding: 0 $spacing-lg $spacing-lg $spacing-lg;
+				}
+			}
+
+			@include element(fields) {
+				@include modifier(scrollable) {
+					overflow-x: auto;
+
+					@include media(max-width, md) {
+						padding-bottom: $spacing-lg;
+					}
+
+					.sui-#{$block}__content {
+						min-width: 680px;
+					}
+				}
+			}
 		}
 	}
 }

@@ -33,4 +33,16 @@
 			}
 		}
 	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(button) {
+				background: $color-extended-neutral-100;
+				border-color: $color-extended-neutral-0;
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
 }
