@@ -3,7 +3,7 @@
 @mixin modify-direction($block) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			@include element(menu) {
+			@include element(popover) {
 				@include modifier(direction-left) {
                     left: auto;
                     right: 0;
@@ -14,7 +14,7 @@
 
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
-			@include element(menu) {
+			@include element(popover) {
 				@include modifier(direction-left) {
                     left: 0;
                     right: auto;

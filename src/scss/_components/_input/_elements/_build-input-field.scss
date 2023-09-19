@@ -1,0 +1,71 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Input Field
+/// This function creates styles for main element
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-input-field($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			// if input has icon
+			@include element(input-field) {
+				width: 100%;
+
+				@include modifier(has-hint) {
+					position: relative;
+				}
+			}
+
+			@include element(input-field-hint) {
+				color: #AAA;
+				left: 16px;
+				position: absolute;
+				top: 8px;
+			}
+
+			@include element(input-field-text) {
+				color: black;
+				left: 16px;
+				position: absolute;
+				top: 8px;
+				z-index: 1;
+			}
+
+			@include modifier('icon-end') {
+				@include modifies-element(input-field) {
+					padding-left: 0;
+					padding-right: 44px;
+				}
+
+				@include modifies-element(input-field-hint) {
+					left: 16px;
+				}
+
+				@include modifies-element(input-field-text) {
+					left: 16px;
+				}
+			}
+
+			@include modifier('icon-start') {
+				@include modifies-element(input-field) {
+					padding-left: 44px;
+				}
+
+				@include modifies-element(input-field-hint) {
+					left: 44px;
+				}
+
+				@include modifies-element(input-field-text) {
+					left: 44px;
+				}
+			}
+		}
+	}
+}

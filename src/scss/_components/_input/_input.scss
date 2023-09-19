@@ -3,6 +3,7 @@
 @use "./_states/states" as sui-input--state;
 
 @include sui-input--element.build-container(input);
+@include sui-input--element.build-input-field(input);
 @include sui-input--element.build-input(input);
 @include sui-input--element.build-icon(input);
 

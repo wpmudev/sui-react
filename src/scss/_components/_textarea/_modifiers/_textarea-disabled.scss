@@ -15,8 +15,20 @@
 		@include block($block-name) {
 			@include modifier(disabled) {
 				@include modifies-element(field) {
-					background: var(--neutral-grey-90-f-2-f-2-f-2, #F2F2F2);
-					border: none;
+					background: $color-extended-neutral-90;
+					outline: none;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block-name) {
+			@include modifier(disabled) {
+				@include modifies-element(field) {
+					outline: $border-width-sm solid $color-extended-neutral-0;
 				}
 			}
 		}

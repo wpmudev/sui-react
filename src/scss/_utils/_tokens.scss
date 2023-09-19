@@ -1,24 +1,31 @@
-
 // Do not edit directly
-// Generated on Thu, 14 Sep 2023 04:42:00 GMT
+// Generated on Fri, 15 Sep 2023 07:20:55 GMT
 
 $accordion-font-weight: 500;
 $accordion-header-spacing-vertical: 16px;
-$accordion-header-spacing-horizontal: 16px*2;
+$accordion-header-spacing-horizontal: 16px * 2;
 $accordion-info-gap: 4px;
-$accordion-spacing-md: 16px*2;
+$accordion-spacing-md: 16px * 2;
 $accordion-spacing-sm: 24px;
 $accordion-spacing-xs: 16px;
 $accordion-border-color: #e6e6e6;
 $accordion-border-width: 1px;
 $accordion-border-radius-sm: 10px;
-$accordion-border-radius-xs: 4px*2;
+$accordion-border-radius-xs: 4px * 2;
 $accordion-status-border-width: 4px;
-$accordion-content-shadow: 0px 2px 1px 0px rgba(115, 115, 115, 0.05), 0px 1px 2px 0px rgba(115, 115, 115, 0.05);
+$accordion-content-shadow: 0px 2px 1px 0px rgba(115, 115, 115, 0.05),
+	0px 1px 2px 0px rgba(115, 115, 115, 0.05);
 $accordion-state-hover-background: #f8f8f8;
 $accordion-state-focus-color: #0059ff;
 $accordion-state-focus-spacing: 2px;
 $accordion-state-disabled-color: #aaaaaa;
+$advanced-banner-background: linear-gradient(
+	90deg,
+	#222 0%,
+	#383323 48.96%,
+	#514524 100%
+);
+$advanced-banner-size-width: 260px;
 $avatar-container-size-sm: 24px;
 $avatar-container-size-md: 32px;
 $avatar-container-border-width: 1px;
@@ -122,7 +129,7 @@ $colorpicker-color-shadow-dark: rgba(0, 0, 0, 0.1);
 $colorpicker-border-width-sm: 2px;
 $colorpicker-border-width-xs: 1px;
 $colorpicker-border-radius-md: 10px;
-$colorpicker-border-radius-sm: 4px*2;
+$colorpicker-border-radius-sm: 4px * 2;
 $colorpicker-spacing-lg: 40px;
 $colorpicker-spacing-md: 12px;
 $colorpicker-spacing-sm: 12px;
@@ -329,6 +336,7 @@ $color-extended-error-70: #fccecd;
 $color-extended-error-90: #feefee;
 $color-alpha-white-10: rgba(255, 255, 255, 0.1);
 $color-alpha-white-30: rgba(255, 255, 255, 0.3);
+$color-alpha-white-70: rgba(255, 255, 255, 0.7);
 $color-alpha-white-90: rgba(255, 255, 255, 0.9);
 $color-alpha-grey-10: rgba(26, 26, 26, 0.1);
 $color-alpha-grey-70: rgba(26, 26, 26, 0.7);
@@ -346,10 +354,10 @@ $border-width-sm: 1px;
 $border-width-md: 2px;
 $border-width-xl: 4px;
 $border-radius-sm: 4px;
-$border-radius-md: 4px*2;
-$border-radius-lg: 4px*3;
-$border-radius-xl: 4px*4;
-$border-radius-xxl: 4px*5;
+$border-radius-md: 4px * 2;
+$border-radius-lg: 4px * 3;
+$border-radius-xl: 4px * 4;
+$border-radius-xxl: 4px * 5;
 $font-weight-sm: 400;
 $font-weight-md: 500;
 $font-weight-lg: 700;
@@ -370,9 +378,11 @@ $font-height-lg: 40px;
 $font-height-xl: 48px;
 $font-spacing-sm: 0.1px;
 $font-spacing-md: 0.2px;
+$font-spacing-lg: 0.5px;
 $font-spacing-xxl: 1px;
 $font-spacing-default: 0px;
-$font-family-default: "Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+$font-family-default: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
+	Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 $font-family-code: "Roboto Mono", monospace;
 $dashboard-size-width-lg: 440px;
 $datepicker-font-size: 14px-1px;
@@ -398,8 +408,8 @@ $emptystate-spacing-lg: 64px;
 $fieldlist-spacing-md: 20px;
 $footer-size-width-md: 93px;
 $footer-spacing-md: 45px;
-$form-field-container-margin-sm: 8px*2;
-$form-field-container-margin-md: 8px*3;
+$form-field-container-margin-sm: 8px * 2;
+$form-field-container-margin-md: 8px * 3;
 $form-field-label-margin: 4px;
 $form-field-label-font-weight: 500;
 $form-field-label-font-size-md: 16px-1px;
@@ -435,7 +445,7 @@ $input-font-height-sm: 16px;
 $input-font-height-md: 24px;
 $input-spacing-padding-vertical-sm: 8px;
 $input-spacing-padding-vertical-md: 8px;
-$input-spacing-padding-horizontal-sm: 4px*3;
+$input-spacing-padding-horizontal-sm: 4px * 3;
 $input-spacing-padding-horizontal-md: 16px;
 $input-border-width-sm: 1px;
 $input-border-width-md: 2px;
@@ -453,17 +463,17 @@ $integration-font-size-md: 18px;
 $integration-font-height-md: 32px;
 $integration-font-height-sm: 24px;
 $integration-border-width: 1px;
-$integration-border-radius: 4px*2;
-$integration-spacing-padding: 8px*3;
+$integration-border-radius: 4px * 2;
+$integration-spacing-padding: 8px * 3;
 $integration-spacing-margin-vertical: 16px;
 $integration-spacing-margin-horizontal: 8px;
 $integration-disabled-opacity: 0.5;
 $layout-content-width: 1600px;
 $layout-spacing-main-sm: -20px;
 $layout-spacing-main-md: -10px;
-$layout-spacing-content-sm: 8px*2;
-$layout-spacing-content-md: 8px*3;
-$layout-spacing-content-lg: 8px*4;
+$layout-spacing-content-sm: 8px * 2;
+$layout-spacing-content-md: 8px * 3;
+$layout-spacing-content-lg: 8px * 4;
 $menu-spacing-horizontal: 24px;
 $modal-spacing-lg: 100px;
 $modal-border-radius: 24px;
@@ -671,7 +681,7 @@ $tabs-navitem-spacing-vertical: 26px;
 $tabs-navitem-spacing-horizontal: 16px;
 $tabs-navitem-gap: 4px;
 $tabs-navitem-border-width: 4px;
-$tabs-panel-spacing: 16px*2;
+$tabs-panel-spacing: 16px * 2;
 $tabs-color-active: #0059ff;
 $tabs-color-hover: #0059ff;
 $tabs-color-focus-border-color: #0059ff;
@@ -683,8 +693,18 @@ $tabs-arrow-size-height: 100%;
 $tabs-arrow-color: #aaaaaa;
 $tabs-arrow-hover-color: #1a1a1a;
 $tabs-arrow-hover-background: #ffffff;
-$tabs-arrow-left-background: linear-gradient(90deg, #FFF 0%, #FFF 71.63%, rgba(248, 248, 248, 0.00) 100%);
-$tabs-arrow-right-background: linear-gradient(270deg, #FFF 0%, #FFF 71.63%, rgba(248, 248, 248, 0.00) 100%);
+$tabs-arrow-left-background: linear-gradient(
+	90deg,
+	#fff 0%,
+	#fff 71.63%,
+	rgba(248, 248, 248, 0) 100%
+);
+$tabs-arrow-right-background: linear-gradient(
+	270deg,
+	#fff 0%,
+	#fff 71.63%,
+	rgba(248, 248, 248, 0) 100%
+);
 $tag-font-size-sm: 10px;
 $tag-font-size-md: 12px;
 $tag-font-spacing-sm: -0.1px;
@@ -721,8 +741,8 @@ $tooltip-spacing-margin: 16px-6px;
 $tooltip-size-width-sm: 95px;
 $tooltip-size-width-md: 120px;
 $treeview-size-md: 20px;
-$treeview-border-radius: 4px*2;
-$treeview-spacing-md: 8px*3;
+$treeview-border-radius: 4px * 2;
+$treeview-spacing-md: 8px * 3;
 $treeview-spacing-sm: 8px;
 $treeview-spacing-xs: 4px;
 $treeview-state-disabled-color: #aaaaaa;

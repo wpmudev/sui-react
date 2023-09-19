@@ -3,12 +3,9 @@
 
 @include sui-textarea--element.build-container(textarea);
 @include sui-textarea--element.build-field(textarea);
-@include sui-textarea--element.build-label(textarea);
-@include sui-textarea--element.build-description(textarea);
-@include sui-textarea--element.build-error-message(textarea);
 
 @include sui-textarea--modifier.build-hover(textarea);
 @include sui-textarea--modifier.build-focus(textarea);
 @include sui-textarea--modifier.build-disabled(textarea);
-@include sui-textarea--modifier.build-errored(textarea);
+@include sui-textarea--modifier.build-error(textarea);
 @include sui-textarea--modifier.build-size(textarea);

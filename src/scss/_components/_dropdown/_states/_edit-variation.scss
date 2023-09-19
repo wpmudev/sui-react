@@ -1,0 +1,247 @@
+@use "../../../_utils/utils" as *;
+
+@mixin edit-variation($block) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(menu-item) {
+				@include modifier(hummingbird) {
+					background-color: #E8EFF0;
+
+                    .sui-#{$block}__menu-item-icon {
+                        color: #1F2852;
+                    }
+
+					&.sui-#{$block}__menu-item--hover {
+						background-color: #BBD0D2;
+					}
+                }
+
+				@include modifier(smush) {
+					background-color: #EAF9FC;
+
+					.sui-#{$block}__menu-item-icon {
+						color: #2DC4E0;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background-color: #C0EDF6;
+					}
+				}
+
+				@include modifier(snapshot) {
+					background-color: #D7E1F4;
+
+					.sui-#{$block}__menu-item-icon {
+						color: #1F2852;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background-color: #87A6DE;
+					}
+				}
+
+				@include modifier(smartcrawl) {
+					background-color: #F7F8F9;
+
+					.sui-#{$block}__menu-item-icon {
+						color: #DE240A;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background-color: #EFF2F3;
+					}
+				}
+
+				@include modifier(shipper) {
+					background-color: #E8F8FD;
+
+					.sui-#{$block}__menu-item-icon {
+						color: #7B5499;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background-color: #B9E9F9;
+					}
+				}
+
+				@include modifier(ivt) {
+					background-color: #D9EFF2;
+
+					.sui-#{$block}__menu-item-icon {
+						color: #1C7E1B;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background-color: #8ECED7;
+					}
+				}
+
+				@include modifier(hustle) {
+					background-color: #FFF8EB;
+
+					.sui-#{$block}__menu-item-icon {
+						color: #1F2852;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background-color: #FFEAC2;
+					}
+				}
+
+				@include modifier(forminator) {
+					background-color: #FAF9F4;
+
+					.sui-#{$block}__menu-item-icon {
+						color: #1F2852;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background-color: #F5F1E6;
+					}
+				}
+
+				@include modifier(defender) {
+					background-color: #FFF3EA;
+
+					.sui-#{$block}__menu-item-icon {
+						color: #1F2852;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background-color: #FEDAC0;
+					}
+				}
+
+				@include modifier(branda) {
+					background-color: #FFF2F3;
+
+					.sui-#{$block}__menu-item-icon {
+						color: #FF8184;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background-color: #FFD9DA;
+					}
+				}
+
+				@include modifier(beehive) {
+					background-color: #E6EBF6;
+
+					.sui-#{$block}__menu-item-icon {
+						color: #1F2852;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background-color: #B3C4E5;
+					}
+				}
+			}
+//
+//            @include modifier(hummingbird) {
+//                @include modifies-element(menu-item) {
+//                    background-color red;
+//                }
+//                @include modifies-element(menu-item-icon) {
+//                    color: #1F2852;
+//                }
+//            }
+//
+//            @include modifier(smush) {
+//                @include modifies-element(menu-item) {
+//                    background-color #EAF9FC;
+//                }
+//                @include modifies-element(menu-item-icon) {
+//                    color: #2DC4E0;
+//                }
+//            }
+//
+//            @include modifier(snapshot) {
+//                @include modifies-element(menu-item) {
+//                    background-color #D7E1F4;
+//                }
+//                @include modifies-element(menu-item-icon) {
+//                    color: #1F2852;
+//                }
+//            }
+//
+//            @include modifier(smartcrawl) {
+//                @include modifies-element(menu-item) {
+//                    background-color #F7F8F9;
+//                }
+//                @include modifies-element(menu-item-icon) {
+//                    color: #DE240A;
+//                }
+//            }
+//
+//            @include modifier(shipper) {
+//                @include modifies-element(menu-item) {
+//                    background-color #E8F8FD;
+//                }
+//                @include modifies-element(menu-item-icon) {
+//                    color: #7B5499;
+//                }
+//            }
+//
+//            @include modifier(ivt) {
+//                @include modifies-element(menu-item) {
+//                    background-color #D9EFF2;
+//                }
+//                @include modifies-element(menu-item-icon) {
+//                    color: #1C7E1B;
+//                }
+//            }
+//
+//            @include modifier(hustle) {
+//                @include modifies-element(menu-item) {
+//                    background-color #FFF8EB;
+//                }
+//                @include modifies-element(menu-item-icon) {
+//                    color: #1F2852;
+//                }
+//            }
+//
+//            @include modifier(forminator) {
+//                @include modifies-element(menu-item) {
+//                    background-color #FAF9F4;
+//                }
+//                @include modifies-element(menu-item-icon) {
+//                    color: #1F2852;
+//                }
+//            }
+//
+//            @include modifier(defender) {
+//                @include modifies-element(menu-item) {
+//                    background-color #FFF3EA;
+//                }
+//                @include modifies-element(menu-item-icon) {
+//                    color: #1F2852;
+//                }
+//            }
+//
+//            @include modifier(branda) {
+//                @include modifies-element(menu-item) {
+//                    background-color #FFF2F3;
+//                }
+//                @include modifies-element(menu-item-icon) {
+//                    color: #FF8184;
+//                }
+//            }
+//
+//            @include modifier(beehive) {
+//                @include modifies-element(menu-item) {
+//                    background-color #E6EBF6;
+//                }
+//                @include modifies-element(menu-item-icon) {
+//                    color: #1F2852;
+//                }
+//            }
+		}
+	}
+
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(menu) {
+			}
+		}
+	}
+}

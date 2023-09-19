@@ -7,16 +7,41 @@
 /// @type block
 /// @author WPMU DEV
 ///
-/// @param {String} $block-name - Main block name
-@mixin build-focus($block-name) {
+/// @param {String} $block - Main block name
+@mixin build-focus($block) {
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(focus) {
+				@include modifies-element(field) {
+					outline: $border-width-md solid $color-primary-50;
+					outline-offset: -#{$border-width-md};
+				}
+
+				&.sui-#{$block}--error {
+					@include modifies-element(field) {
+						outline: $border-width-md solid $color-extended-error-50;
+						outline-offset: -#{$border-width-md};
+					}
+				}
+			}
+		}
+	}
 
 	// DIR: Left to right.
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
-		@include block($block-name) {
+		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(field) {
-					border: 2px solid var(--primary-blue-base-50286-ef-1, #286EF1);
+					outline-color: $color-extended-neutral-0;
+				}
+
+				&.sui-#{$block}--error {
+					@include modifies-element(field) {
+						outline-color: $color-extended-neutral-0;
+					}
 				}
 			}
 		}

@@ -4,7 +4,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			@include modifier(open) {
-				@include modifies-element(menu) {
+				@include modifies-element(popover) {
 					display: block;
 				}
 			}

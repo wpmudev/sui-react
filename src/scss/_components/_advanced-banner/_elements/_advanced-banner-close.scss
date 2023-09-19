@@ -1,20 +1,24 @@
-@use "sass:map";
-
+@use "sass:math";
 @use "../../../_utils/utils" as *;
 
-/// Build Container
-/// This function creates styles for the password container
+/// Build Close
 ///
 /// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-label($block) {
+@mixin build-close($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			position: relative;
+			@include element(close) {
+				@include media(max-width, sm) {
+					position: absolute;
+					right: $spacing-xl;
+					top: $spacing-xl;
+				}
+			}
 		}
 	}
 }

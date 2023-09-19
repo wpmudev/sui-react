@@ -138,7 +138,7 @@ $colors-high-contrast: (
 		}
 	}
 
-	@include sui-class($rtl: false, $theme: 'dark') {
+	@include sui-class($rtl: false, $theme: "dark") {
 		@include block($block-name) {
 			@each $theme in $themes {
 				@each $name, $value in $colors-high-contrast {
@@ -158,11 +158,12 @@ $colors-high-contrast: (
 									color: $color-extended-neutral-10;
 								}
 							}
-							
+
 							&.sui-#{$block-name}--focus {
 								border-color: $value;
 								outline: 1px solid $value;
 								background: transparent;
+								color: inherit;
 								@if $name == white {
 									color: $value;
 								}
@@ -196,7 +197,7 @@ $colors-high-contrast: (
 
 							&.sui-#{$block-name}--focus {
 								border-color: $value;
-								outline: 2px solid $value;
+								outline: $border-width-md solid $value;
 								background: $value;
 							}
 						}
