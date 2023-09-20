@@ -28,8 +28,7 @@ const BasicBox = ({ ...props }) => {
 			<div className="sui-layout__content">
 				<div style={{ backgroundColor: "white" }}>
 					<SuiBasicBlock
-						title="Example title"
-						description="This is example of the basic box description content"
+						{...props}
 						headerActions={
 							<Fragment>
 								<Button
