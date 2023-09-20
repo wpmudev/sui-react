@@ -10,24 +10,35 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-header($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(info) {
-                flex: 1 100%;
-                max-width: 240px;
-            }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(info) {
+				flex: 1 100%;
+				max-width: 240px;
+			}
 
-            @include element(info-title) {
-                align-items: center;
-                color: #1A1A1A;
-                display: flex;
-                font: $font-weight-md 16px/24px $font-family-default;
-                gap: 4px;
-                margin-bottom: 4px;
-            }
-        }
-    }
+			@include element(info-title) {
+				align-items: center;
+				color: $color-extended-neutral-10;
+				display: flex;
+				font-weight: $font-weight-md;
+				gap: $spacing-sm;
+				margin-bottom: $spacing-sm;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(info-title) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
 }

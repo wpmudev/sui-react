@@ -10,28 +10,59 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-header($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(header) {
-                display: flex;
-                justify-content: space-between;
-                padding: 32px;
-            }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(header) {
+				padding: $spacing-xxl;
+				border-bottom: $border-width-sm solid $color-extended-neutral-80;
 
-            @include element(header-title) {
-                align-items: center;
-                color: #1A1A1A;
-                font: $font-weight-lg 24px/32px $font-family-default;
-                margin-bottom: 4px;
-            }
+				@include media(max-width, sm) {
+					padding: $spacing-xl;
+				}
+			}
 
-            @include element(header-desc) {
-                color: var(--neutral-grey-50505050, #505050);
-                font: $font-weight-sm 15px/24px $font-family-default;
-            }
-        }
-    }
+			@include element(header-info) {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-wrap: wrap;
+			}
+
+			@include element(header-title) {
+				margin: 0;
+				flex: 1;
+			}
+
+			@include element(header-desc) {
+				margin-top: $spacing-md;
+				color: $color-extended-neutral-50;
+				flex-basis: 100%;
+			}
+
+			@include element(actions) {
+				@include media(max-width, sm) {
+					order: 3;
+					margin-top: $spacing-md;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(header) {
+				border-color: $color-extended-neutral-0;
+			}
+
+			@include element(header-desc) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
 }

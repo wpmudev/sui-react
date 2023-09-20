@@ -15,10 +15,29 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-			border-top: 1px solid #E6E6E6;
 			display: flex;
-			gap: 32px;
-			padding: 32px;
+			gap: $spacing-xxl;
+			padding: $spacing-xxl;
+
+			& + .sui-#{$block} {
+				border-top: $border-width-sm solid $color-extended-neutral-80;
+			}
+
+			@include media(max-width, sm) {
+				flex-direction: column;
+				gap: $spacing-md;
+				padding: $spacing-xl;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			border-color: $color-extended-neutral-0;
+			color: $color-extended-neutral-0;
 		}
 	}
 }
