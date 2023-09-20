@@ -6,7 +6,10 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { SidebarProps } from "./sidebar.types"
 
 // Build sidebar component
-const Sidebar: React.FC<SidebarProps> = ({ className, children }) => {
+const Sidebar: React.FC<Omit<SidebarProps, "selectedItemName">> = ({
+	className,
+	children,
+}) => {
 	const classNames = generateCN("sui-sidebar", {}, className)
 	return <div className={classNames}>{children}</div>
 }

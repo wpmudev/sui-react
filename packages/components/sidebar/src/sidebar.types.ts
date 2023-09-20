@@ -10,7 +10,7 @@ interface SidebarProps {
 	className?: string
 
 	/**
-	 * An optional class name to be applied to the Sidebar component.
+	 * The currently selected item title
 	 */
 	selectedItemName?: string
 
@@ -59,6 +59,11 @@ interface SidebarItemProps extends HTMLProps<HTMLAnchorElement> {
 	 * Specifies whether the SidebarItem is disabled or not.
 	 */
 	isDisabled?: boolean
+
+	/**
+	 * Callback function to be invoked when the item is clicked
+	 */
+	onClick?: Function
 }
 
-export { SidebarProps, SidebarItemProps }
+export type { SidebarProps, SidebarItemProps }
