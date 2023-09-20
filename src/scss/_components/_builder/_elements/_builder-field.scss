@@ -8,101 +8,147 @@
 ///
 /// @param {String} $item - Main item name
 @mixin build-field($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include element(field) {
-                background-color: #FFFFFF;
-                border-radius: 4px;
-                box-shadow: 0 2px 1px 0 rgba(115, 115, 115, 0.05), 0 1px 2px 0 rgba(115, 115, 115, 0.05);
-                flex: 1;
-            }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(field) {
+				background-color: $color-extended-neutral-100;
+				border-radius: $border-radius-md;
+				box-shadow: 0 2px 1px 0 $color-shadow-light,
+					0 1px 2px 0 $color-shadow-light;
+				flex: 1;
+			}
 
-            @include element(field-header) {
-                align-items: center;
-                display: flex;
-                gap: 8px;
-                justify-content: space-between;
-                margin-bottom: 4px;
-                padding: 16px 24px;
-                text-decoration: none;
-            }
+			@include element(field-header) {
+				align-items: center;
+				display: flex;
+				gap: $spacing-md;
+				justify-content: space-between;
+				padding: $builder-spacing-md $spacing-xl;
+				text-decoration: none;
+			}
 
-            @include element(field-body) {
-                border-top: 1px solid var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
-            }
+			@include element(field-body) {
+				border-radius: 0 0 $border-radius-md $border-radius-md;
+				border-top: $border-width-sm solid $color-extended-neutral-80;
+			}
 
-            @include element(field-content) {
-                align-items: center;
-                display: flex;
-                flex: 1;
-                gap: 8px;
-                justify-content: space-between;
-            }
+			@include element(field-content) {
+				align-items: center;
+				display: flex;
+				flex: 1;
+				gap: $spacing-md;
+				justify-content: space-between;
+				width: 100%;
+				overflow: hidden;
+			}
 
-            @include element(field-info) {
-                align-items: center;
-                display: flex;
-                gap: 8px;
-                flex: 1;
-            }
+			@include element(field-info) {
+				align-items: center;
+				display: flex;
+				gap: $spacing-md;
+			}
 
-            @include element(field-move) {
-                align-items: center;
-                color: #AAAAAA;
-                cursor: grab;
-                display: flex;
-            }
+			@include element(field-move) {
+				align-items: center;
+				color: $color-extended-neutral-0;
+				cursor: grab;
+				display: flex;
+			}
 
-            @include element(field-info-preview) {
-                align-items: center;
-                display: flex;
+			@include element(preview) {
+				align-items: center;
+				display: flex;
+				position: relative;
+				overflow: hidden;
 
-                img {
-                    border: solid 1px rgba(26, 26, 26, 0.10);
-                    border-radius: 4px;
-                    max-width: 32px;
-                    max-height: 32px;
-                }
-            }
+				@include modifier(image) {
+					height: $builder-size-height-xs;
+					width: $builder-size-width-xs;
+					img {
+						height: 100%;
+						width: auto;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+						position: absolute;
+						border: $border-width-sm solid $color-alpha-grey-10;
+						border-radius: $border-radius-sm;
+						max-width: unset;
+					}
+				}
+			}
 
-            @include element(field-info-name) {
-                color: var(--neutral-grey-dark-101-a-1-a-1-a, #1A1A1A);
-                font: $font-weight-md 15px/24px $font-family-default;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
+			@include element(field-info-name) {
+				color: $color-extended-neutral-10;
+				font-weight: $font-weight-md;
+				text-wrap: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
+			}
 
-            @include element(field-code) {
-                color: var(--neutral-grey-dark-101-a-1-a-1-a, #888);
-                font: $font-weight-sm 13px/24px $font-family-default;
-                flex: 1;
-            }
+			@include element(field-code) {
+				color: $color-extended-neutral-60;
+				font-size: $font-size-xs;
+				flex: 1;
+				text-wrap: nowrap;
+				text-overflow: ellipsis;
+				text-align: center;
+				overflow: hidden;
+			}
 
-            @include element(field-actions) {
-                align-items: center;
-                display: flex;
-            }
+			@include element(field-actions) {
+				align-items: center;
+				display: flex;
+			}
 
-            @include element(field-actions-item--accordion) {
-                border-left: solid 2px var(--neutral-grey-80-e-6-e-6-e-6, #E6E6E6);
-                margin-left: 15px;
-                padding-left: 15px;
-            }
+			@include element(field-actions-item) {
+				@include modifier(accordion) {
+					border-left: $border-width-md solid
+						$color-extended-neutral-80;
+					margin-left: $spacing-md;
+					padding-left: $spacing-md;
+				}
+			}
 
-            @include element(field-body) {
-                background: var(--color-nutral-base-white, #FFF);
-                display: none;
-                padding: 24px;
-            }
+			@include element(field-body) {
+				background: $color-extended-neutral-100;
+				display: none;
+				padding: $spacing-xl;
+			}
 
-            @include element(field-toggle-btn) {
-                margin-left: 8px;
-                position: relative;
-                padding-left: 8px;
-            }
-        }
-    }
+			@include element(field-toggle-btn) {
+				margin-left: $spacing-md;
+				position: relative;
+				padding-left: $spacing-md;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(field) {
+				box-shadow: unset;
+				border: $border-width-sm solid $color-extended-neutral-0;
+			}
+
+			@include element(field-body) {
+				border-color: $color-extended-neutral-0;
+				color: $color-extended-neutral-0;
+			}
+
+			@include element(field-info-name, field-code) {
+				color: $color-extended-neutral-0;
+			}
+
+			@include element(field-actions-item) {
+				@include modifier(accordion) {
+					border-color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
 }
