@@ -22,7 +22,7 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 	return (
 		<div className={classNames}>
 			<div className="sui-upsell-notice__header">
-				<h3 className="sui-upsell-notice__header-title">
+				<h3 className="sui-upsell-notice__header-title sui-heading--h5">
 					{title ?? "Title of Upsell"}
 					{!isEmpty(tagTitle ?? "") && (
 						<Tag design="outlined" isSmall={true} color="black">
