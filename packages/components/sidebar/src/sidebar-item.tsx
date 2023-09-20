@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useCallback } from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import * as Icons from "@wpmudev/sui-icons"
 
@@ -41,6 +41,16 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 		IconTag = Icons?.[icon ?? ""]
 	}
 
+	const onClickCallback = useCallback(
+		(e) => {
+			e?.preventDefault()
+			if (onClick) {
+				onClick(e)
+			}
+		},
+		[onClick],
+	)
+
 	// Return JSX structure representing the SidebarItem.
 	return (
 		<a
@@ -49,10 +59,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 			{...methods}
 			{...props}
 			tabIndex={isDisabled ? -1 : 0}
-			onClick={(e) => {
-				e.preventDefault()
-				onClick(e)
-			}}
+			onClick={onClickCallback}
+			onKeyDown={(e) => handleOnKeyDown(e, onClickCallback)}
 		>
 			{/* Display item info, including optional icon and title */}
 			<div className="sui-sidebar__item-info">
