@@ -1,33 +1,19 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook";
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src";
-import dedent from "dedent";
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Sidebar, SidebarItem, SidebarDropdown } from "../../src"
+import { BasicSidebar, GeneralSidebarCode } from "./Examples/GeneralSidebar.tsx"
+import dedent from "dedent"
 
-{/* Import Variations */}
-import Neutral from "./Examples/Neutral.mdx"
-import Informative from "./Examples/Informative.mdx"
-import Success from "./Examples/Success.mdx"
-
-export const sampleCode = dedent`
-    Basic Examples 
-`;
-
-<Section contained={true} style={{ paddingTop: 30 }}>
-  <p>Basic Accordion Example</p>
-  <Preview wrapper={true}>Basic Example</Preview>
-  <Snippet language="js">{sampleCode}</Snippet>
-</Section>
-
-<Section title="State" style={{ paddingTop: 0 }}>
-  Use this if you need to switch between multiple options
-  <Switcher>
-    <div label="neutral" value="neutral">
-      <Neutral />
-    </div>
-    <div label="informative" value="informative">
-      <Informative />
-    </div>
-    <div label="success" value="success">
-      <Success />
-    </div>
-  </Switcher>
+<Section style={{ paddingTop: 30 }}>
+	<p>
+		This is a general Sidebar component with all possible variations for the
+		items, you can customize the items to fit your needs.
+	</p>
+	<p>
+		The Sidebar also displays a dropdown on mobile, it has the same menu items
+		that are displayed in desktop.
+	</p>
+	<Preview wrapper={true}>
+		<BasicSidebar />
+	</Preview>
+	<Snippet language="js">{GeneralSidebarCode}</Snippet>
 </Section>

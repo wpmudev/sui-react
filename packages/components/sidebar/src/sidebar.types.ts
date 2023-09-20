@@ -28,7 +28,7 @@ interface SidebarItemProps extends HTMLProps<HTMLAnchorElement> {
 	/**
 	 * The URL associated with the SidebarItem.
 	 */
-	url: string
+	url?: string
 
 	/**
 	 * An optional icon to be displayed within the SidebarItem.

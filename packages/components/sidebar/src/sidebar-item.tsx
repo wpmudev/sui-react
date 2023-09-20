@@ -11,7 +11,7 @@ import { SidebarItemProps } from "./sidebar.types"
 // This component represents an item within a sidebar navigation.
 const SidebarItem: React.FC<SidebarItemProps> = ({
 	url = "#",
-	icon = "Add",
+	icon = "",
 	title = "",
 	className,
 	action,
