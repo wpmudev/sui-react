@@ -11,11 +11,15 @@ interface BuilderProps {
 	/**
 	 * Allow add new fields
 	 */
-	allowAddField?: boolean
+	allowAddFields?: boolean
 	/**
 	 * Mark as true when there is no fields available to render.
 	 */
 	hasNoFields?: boolean
+	/**
+	 * Allow fields to scroll.
+	 */
+	isScrollable?: boolean
 	/**
 	 * Children components to be rendered within the Builder.
 	 */

@@ -3,12 +3,13 @@ import React, { FC, useCallback } from "react"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import * as Icons from "@wpmudev/sui-icons"
+import { Button } from "@wpmudev/sui-button"
 
 // Import required element(s)
 import { BuilderButtonProps } from "./builder.types"
 
 const BuilderButton: FC<BuilderButtonProps> = ({
-	icon = "Add",
+	icon = "add",
 	title = "Insert new field",
 	className,
 	isDisabled = false,
@@ -28,13 +29,6 @@ const BuilderButton: FC<BuilderButtonProps> = ({
 		className,
 	)
 
-	// Determine the IconTag based on the provided icon value.
-	let IconTag = null
-
-	if (!isEmpty(icon)) {
-		IconTag = Icons?.[icon ?? ""]
-	}
-
 	const onButtonClick = useCallback(() => {
 		if (!!onClick) {
 			onClick()
@@ -42,10 +36,14 @@ const BuilderButton: FC<BuilderButtonProps> = ({
 	}, [onClick])
 
 	return (
-		<button className={classNames} {...methods} onClick={onButtonClick}>
-			<IconTag size="sm" />
+		<Button
+			icon={icon}
+			className={classNames}
+			{...methods}
+			onClick={onButtonClick}
+		>
 			{!isEmpty(title ?? "") && <span>{title}</span>}
-		</button>
+		</Button>
 	)
 }
 

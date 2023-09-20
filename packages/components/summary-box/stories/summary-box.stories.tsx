@@ -41,7 +41,7 @@ const SummaryBox = ({ color }) => {
 							<div key={0}>
 								<Button
 									appearance="secondary"
-									icon="bell"
+									icon="trash"
 									color="black"
 									isSmall={true}
 									isResponsive={true}

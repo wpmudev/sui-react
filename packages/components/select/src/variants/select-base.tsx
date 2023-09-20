@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, HTMLProps } from "react"
-import { generateCN } from "@wpmudev/sui-utils"
+import { generateCN, isArray } from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
 	useInteraction,
