@@ -40,7 +40,7 @@ const BasicBox = ({ ...props }) => {
 								>
 									Upload
 								</Button>
-								<Button appearance="secondary" color="blue" isSmall={true}>
+								<Button appearance="primary" color="blue" isSmall={true}>
 									Create new
 								</Button>
 							</Fragment>
@@ -61,14 +61,16 @@ const BasicBox = ({ ...props }) => {
 								another website. Imported user agents will be added to the
 								existing blocklist and allowlist.
 							</p>
-							<Button
-								appearance="secondary"
-								icon="upload"
-								color="black"
-								isSmall={true}
-							>
-								Upload file
-							</Button>
+							<div>
+								<Button
+									appearance="secondary"
+									icon="upload"
+									color="black"
+									isSmall={true}
+								>
+									Upload file
+								</Button>
+							</div>
 						</SettingBlock>
 						<SettingBlock
 							title="Export"

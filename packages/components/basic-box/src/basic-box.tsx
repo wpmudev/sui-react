@@ -35,14 +35,16 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 		<div className={classNames} {...methods}>
 			<div className="sui-basic-box__header">
 				<div className="sui-basic-box__header-info">
-					<div className="sui-basic-box__header-title">{title}</div>
+					<h3 className="sui-basic-box__header-title sui-heading--h3">
+						{title}
+					</h3>
+					<div className="sui-basic-box__actions">
+						{headerActions && headerActions}
+					</div>
 					{description && (
 						<div className="sui-basic-box__header-desc">{description}</div>
 					)}
 				</div>
-				{headerActions && (
-					<div className="sui-basic-box__header-actions">{headerActions}</div>
-				)}
 			</div>
 			<div className="sui-basic-box__body">{children}</div>
 			{!!footerActions && (
