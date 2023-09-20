@@ -1,0 +1,28 @@
+{
+	"builder": {
+		"size": {
+			"width": {
+				"xs": {
+					"value": "32px",
+					"type": "sizing"
+				},
+				"xxl": {
+					"value": "680px",
+					"type": "sizing"
+				}
+			},
+			"height": {
+				"xs": {
+					"value": "32px",
+					"type": "sizing"
+				}
+			}
+		},
+		"spacing": {
+			"md": {
+				"value": "20px",
+				"type": "spacing"
+			}
+		}
+	}
+}

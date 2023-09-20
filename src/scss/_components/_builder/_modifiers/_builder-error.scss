@@ -7,17 +7,29 @@
 ///
 /// @param {String} $block - Main block name
 @mixin state-error($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(field) {
+				@include modifier(error) {
+					box-shadow: 0 2px 4px 0 $color-alpha-grey-05,
+						0 -2px 0 0 $color-extended-error-50 inset;
+				}
+			}
+		}
+	}
 
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include element(field) {
-                @include modifier(error) {
-                    border-radius: 8px;
-                    box-shadow: 0 2px 4px 0 rgba(26, 26, 26, 0.05), 0 -2px 0 0 #F45C59 inset;
-                }
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(field) {
+				@include modifier(error) {
+					box-shadow: 0 2px 4px 0 $color-alpha-grey-05,
+						0 -2px 0 0 $color-extended-neutral-0 inset;
+				}
+			}
+		}
+	}
 }
