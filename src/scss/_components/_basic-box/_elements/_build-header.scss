@@ -1,0 +1,37 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build header
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-header($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(header) {
+                display: flex;
+                justify-content: space-between;
+                padding: 32px;
+            }
+
+            @include element(header-title) {
+                align-items: center;
+                color: #1A1A1A;
+                font: $font-weight-lg 24px/32px $font-family-default;
+                margin-bottom: 4px;
+            }
+
+            @include element(header-desc) {
+                color: var(--neutral-grey-50505050, #505050);
+                font: $font-weight-sm 15px/24px $font-family-default;
+            }
+        }
+    }
+}
