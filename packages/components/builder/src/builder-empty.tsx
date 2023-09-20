@@ -14,7 +14,7 @@ const BuilderEmpty: React.FC<BuilderEmptyProps> = ({
 
 	return (
 		<div className={classNames}>
-			<div className="sui-builder__empty-icon">
+			<div className="sui-builder__empty--icon">
 				<svg
 					width="64"
 					height="64"
@@ -69,7 +69,7 @@ const BuilderEmpty: React.FC<BuilderEmptyProps> = ({
 					</g>
 				</svg>
 			</div>
-			<div className="sui-builder__empty-title">{title}</div>
+			<div className="sui-builder__empty--title">{title}</div>
 		</div>
 	)
 }

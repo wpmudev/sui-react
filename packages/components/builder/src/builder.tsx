@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 
@@ -9,16 +9,23 @@ import { BuilderEmpty } from "./builder-empty"
 
 // Build builder component
 const Builder: React.FC<BuilderProps> = ({
-	className,
+	className = "",
 	children,
 	allowAddFields = true,
+	isScrollable = false,
 	hasNoFields = false,
 }) => {
-	const classNames = generateCN("sui-builder", {}, className)
+	const classNames = generateCN("sui-builder", {}, `sui-layout ${className}`)
 	return (
 		<div className={classNames}>
-			<div className="sui-builder__content">
-				{hasNoFields ? <BuilderEmpty /> : children}
+			<div
+				className={generateCN("sui-builder__fields", {
+					scrollable: isScrollable && !hasNoFields,
+				})}
+			>
+				<div className="sui-builder__content">
+					{hasNoFields ? <BuilderEmpty /> : children}
+				</div>
 			</div>
 			{allowAddFields && (
 				<div className="sui-builder__footer">

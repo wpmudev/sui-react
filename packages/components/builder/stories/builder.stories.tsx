@@ -1,7 +1,5 @@
 import React from "react"
 
-import { Tag } from "@wpmudev/sui-tag"
-
 // Import required component
 import { Builder as SuiBuilder, BuilderField, BuilderWrapper } from "../src"
 
@@ -23,22 +21,16 @@ export default {
 	},
 }
 
-const tag = (
-	<Tag color="black" design="outlined" isSmall={true}>
-		PRO
-	</Tag>
-)
-
 // Build footer story
-const Builder = ({}) => {
+const Builder = ({ ...props }) => {
 	const actionButton = (
 		<Dropdown
 			buttonIcon="settings"
 			label="Connect features"
+			appearance="tertiary"
 			direction="left"
 			isSmall={true}
 			iconOnly={true}
-			isResponsive={true}
 			onMenuClick={(id, e) => {
 				console.log("DEBUG: Menu Item Clicked", id, e)
 			}}
@@ -61,25 +53,26 @@ const Builder = ({}) => {
 					backgroundColor: "white",
 				}}
 			>
-				<SuiBuilder hasInsertButton={true}>
+				<SuiBuilder {...props}>
 					<BuilderWrapper>
 						<BuilderField
+							columnSize={4}
 							action={actionButton}
 							title="Block 1"
-							url="#"
+							subTitle="Field text"
 							icon="Desktop"
 						/>
 						<BuilderField
+							columnSize={4}
 							action={actionButton}
 							allowDrag={false}
 							title="No Drag"
-							url="#"
 							icon="Desktop"
 						/>
 						<BuilderField
+							columnSize={4}
 							action={actionButton}
 							title="Image"
-							url="#"
 							imgUrl="https://placehold.co/600x400/EEE/31343C"
 							icon="Desktop"
 						/>
@@ -90,6 +83,7 @@ const Builder = ({}) => {
 								<Dropdown
 									buttonIcon="settings"
 									label="Connect features"
+									appearance="tertiary"
 									direction="left"
 									isSmall={true}
 									iconOnly={true}
@@ -102,7 +96,6 @@ const Builder = ({}) => {
 							}
 							title="Error Block"
 							hasError={true}
-							url="#"
 							icon="Bell"
 						/>
 					</BuilderWrapper>
@@ -110,10 +103,13 @@ const Builder = ({}) => {
 						<BuilderField
 							action={actionButton}
 							title="Block 3"
-							url="#"
 							icon="Desktop"
 							customContent={
-								<Input id="field-input" placeholder="Placeholder" />
+								<Input
+									id="field-input"
+									isSmall={true}
+									placeholder="Placeholder"
+								/>
 							}
 						/>
 					</BuilderWrapper>
@@ -121,7 +117,6 @@ const Builder = ({}) => {
 						<BuilderField
 							action={actionButton}
 							title="Accordion"
-							url="#"
 							icon="Desktop"
 						>
 							Field body, it can contains any types of element
@@ -134,10 +129,33 @@ const Builder = ({}) => {
 }
 
 // Set story arguments
-Builder.args = {}
+Builder.args = {
+	allowAddFields: true,
+	isScrollable: false,
+	hasNoFields: false,
+}
 
 // Set controls for story arguments
-Builder.argTypes = {}
+Builder.argTypes = {
+	allowAddFields: {
+		name: "Allow insert fields",
+		control: {
+			type: "boolean",
+		},
+	},
+	isScrollable: {
+		name: "Scrollable",
+		control: {
+			type: "boolean",
+		},
+	},
+	hasNoFields: {
+		name: "Empty builder",
+		control: {
+			type: "boolean",
+		},
+	},
+}
 
 // Publish required stories
 export { Builder }

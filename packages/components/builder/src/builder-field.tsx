@@ -12,7 +12,7 @@ import * as Icons from "@wpmudev/sui-icons"
 import { BuilderFieldProps } from "./builder.types"
 
 const BuilderField: React.FC<BuilderFieldProps> = ({
-	columnSize = 1,
+	columnSize = 12,
 	icon = "",
 	title = "",
 	subTitle = "",
@@ -68,7 +68,11 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 			case !!customContent:
 				return customContent
 			case !isEmpty(imgUrl ?? ""):
-				logo = <img src={imgUrl} alt="Field Preview" />
+				logo = (
+					<span className="sui-builder__preview--image">
+						<img src={imgUrl} alt="Field Preview" />
+					</span>
+				)
 				break
 			case !!IconTag:
 				logo = <IconTag size="sm" />
@@ -78,7 +82,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 		return (
 			<Fragment>
 				<div className="sui-builder__field-info">
-					<div className="sui-builder__field-info-preview">{logo}</div>
+					<div className="sui-builder__preview">{logo}</div>
 					{!isEmpty(title ?? "") && (
 						<div className="sui-builder__field-info-name">{title}</div>
 					)}
@@ -115,19 +119,21 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 	)
 
 	return (
-		<Col className={classNames} size={columnSize ?? 1} {...props} {...methods}>
-			<div className="sui-builder__field-header">
-				{allowDrag && (
-					<div className="sui-builder__field-move">
-						<Icons.Grip size="md" />
-					</div>
+		<Col size={columnSize ?? 12} {...props} {...methods}>
+			<div className={classNames}>
+				<div className="sui-builder__field-header">
+					{allowDrag && (
+						<div className="sui-builder__field-move">
+							<Icons.Grip size="md" />
+						</div>
+					)}
+					<div className="sui-builder__field-content">{renderPreview()}</div>
+					{renderActions()}
+				</div>
+				{hasAccordion && (
+					<div className="sui-builder__field-body">{children}</div>
 				)}
-				<div className="sui-builder__field-content">{renderPreview()}</div>
-				{renderActions()}
 			</div>
-			{hasAccordion && (
-				<div className="sui-builder__field-body">{children}</div>
-			)}
 		</Col>
 	)
 }
