@@ -14,6 +14,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	headerActions = null,
 	footerActions = false,
 	className,
+	isPro,
 	children,
 }) => {
 	// Interaction methods
