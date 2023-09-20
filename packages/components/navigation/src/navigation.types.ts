@@ -3,7 +3,7 @@
  */
 import { ReactNode } from "react"
 
-import { MenuItemProps } from "@wpmudev/sui-menu"
+import { DropdownMenuItemProps } from "@wpmudev/sui-dropdown"
 
 // Represents the base props for a DropdownMenu component.
 interface NavigationUserMenuBaseProps {
@@ -22,7 +22,7 @@ interface NavigationUserMenuItemProps extends NavigationUserMenuBaseProps {
 	/*
 	 * Additional props for the underlying MenuItem component.
 	 */
-	props: Omit<MenuItemProps, "children">
+	props: Omit<DropdownMenuItemProps, "children">
 }
 
 // Props for a group of NavigationUser menu items.
