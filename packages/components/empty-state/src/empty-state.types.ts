@@ -7,18 +7,10 @@ import React from "react"
  */
 interface EmptyStateProps {
 	/**
-	 * The title to be displayed in the empty state (optional).
-	 */
-	title?: string
-	/**
 	 * The logo to be displayed in the empty state.
 	 * It can be a string representing the URL of an image or an HTML/SVG element.
 	 */
 	logo?: string | HTMLOrSVGElement
-	/**
-	 * The main content to be displayed in the empty state.
-	 */
-	content: React.ReactNode
 	/**
 	 * CSS class for styling the component
 	 */
@@ -29,4 +21,4 @@ interface EmptyStateProps {
 	children: React.ReactNode
 }
 
-export { EmptyStateProps }
+export type { EmptyStateProps }
