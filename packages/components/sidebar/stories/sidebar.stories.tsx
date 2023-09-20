@@ -29,14 +29,15 @@ const tag = (
 )
 
 const items = [
-	{ title: "Option 1", url: "#", icon: "Bell" },
-	{ title: "Option 2", url: "#", icon: "Bell" },
-	{ title: "Option 3", url: "#" },
+	{ title: "General", url: "#", icon: "Settings", hasAction: false },
+	{ title: "Integrations", url: "#", icon: "Link", hasAction: true },
+	{ title: "Configs", icon: "Config", url: "#", hasAction: true },
 	{
-		title: "Option 4 (disabled)",
+		title: "Data",
 		url: "#",
-		icon: "Bell",
+		icon: "Refresh",
 		isDisabled: true,
+		hasAction: true,
 	},
 ]
 
@@ -73,8 +74,8 @@ const Sidebar = ({}) => {
 					<Row align={{ md: "inline" }}>
 						<Col size="3">
 							<SuiSidebar>
-								{items.map(({ title, url, icon, isDisabled }) =>
-									renderSidebarItem(title, url, icon, true, isDisabled),
+								{items.map(({ title, url, icon, isDisabled, hasAction }) =>
+									renderSidebarItem(title, url, icon, hasAction, isDisabled),
 								)}
 							</SuiSidebar>
 							<SidebarDropdown selectedItemName={currentTab}>
