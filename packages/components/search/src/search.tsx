@@ -112,7 +112,7 @@ const Search: React.FC<SearchProps> = ({
 				defaultValue={value}
 				allowClear={allowClear}
 				disableInteractions={true}
-				isDisabled
+				isDisabled={isDisabled}
 				{...inputProps}
 			/>
 			{isPopoverVisible && "smart" === variation && (

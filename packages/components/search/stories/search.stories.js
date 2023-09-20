@@ -62,7 +62,7 @@ Search.args = {
 	allowClear: true,
 	searchMinChars: 2,
 	defaultValue: "",
-	isDisabled: true,
+	isDisabled: false,
 }
 
 // Set controls for story arguments.
