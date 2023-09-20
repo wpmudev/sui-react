@@ -11,7 +11,7 @@ import docs from "./basic-box.mdx"
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Advanced/Basic Block",
+	title: "SUI/Components/Advanced/Basic Box",
 	component: SuiBasicBlock,
 	parameters: {
 		layout: "fullscreen",
