@@ -1,0 +1,33 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Copy Button
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-header($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(info) {
+                flex: 1 100%;
+                max-width: 240px;
+            }
+
+            @include element(info-title) {
+                align-items: center;
+                color: #1A1A1A;
+                display: flex;
+                font: $font-weight-md 16px/24px $font-family-default;
+                gap: 4px;
+                margin-bottom: 4px;
+            }
+        }
+    }
+}
