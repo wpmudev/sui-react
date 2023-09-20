@@ -8,13 +8,13 @@ interface SettingBlockProps {
 	 * The title of the setting block.
 	 * This prop is required and should be a string.
 	 */
-	title: string
+	title: React.ReactNode
 
 	/**
 	 * An optional description for the setting block.
 	 * It can be a string.
 	 */
-	description?: string
+	description?: React.ReactNode
 
 	/**
 	 * Indicates whether this setting block is for Pro users.
