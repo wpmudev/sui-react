@@ -11,17 +11,22 @@
 				span {
 					display: block;
 					&.suicons--spin {
-						@include animation(spin)
+						@include animation(spin);
 					}
 				}
 			}
-			
+
 			@include modifier(is-icon) {
 				.sui-#{$block-name}__icon {
 					padding: 0;
 				}
+
+				&.sui-#{$block-name}--lg {
+					padding-top: $spacing-md;
+					padding-bottom: $spacing-md;
+				}
 			}
-			
+
 			@include modifier(inline) {
 				border: none;
 				background: unset;
@@ -37,7 +42,7 @@
 						}
 					}
 				}
-				
+
 				@include media(max-width, md) {
 					min-width: auto;
 					padding: $button-container-padding-horizontal;
@@ -45,7 +50,7 @@
 					span {
 						display: block;
 					}
-					
+
 					.sui-#{$block-name}__icon {
 						padding: 0;
 					}
