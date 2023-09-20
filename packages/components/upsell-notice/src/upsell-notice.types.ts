@@ -35,4 +35,4 @@ interface UpsellNoticeProps {
 		| "hub"
 }
 
-export { UpsellNoticeProps }
+export type { UpsellNoticeProps }
