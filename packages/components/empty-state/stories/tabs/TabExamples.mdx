@@ -1,1 +1,73 @@
-Examples
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { EmptyState } from "../../src"
+import { Button } from "@wpmudev/sui-button"
+import { Row } from "@wpmudev/sui-grid"
+import SvgImage from "../images/empty-state.svg"
+import dedent from "dedent"
+
+export const sampleCode = dedent`
+    import SvgImage from "./example-image.svg"
+
+    <EmptyState logo={SvgImage}>
+        <Row>
+            <h3 className="sui-heading--h3">This site has not yet been scanned.</h3>
+            <p>Defender watches and protects your login area for attackers trying to randomly guess login details for your site and locks them out after a set number of failed attempts.</p>
+        </Row>
+
+        <Row align={{ md: "center" }}>
+            <Button appearance="secondary" color="blue" isSmall={true}>
+                <>Primary</>
+            </Button>
+           <Button appearance="primary" color="blue" isSmall={true}>
+                <>Secondary</>
+            </Button>
+        </Row>
+    </EmptyState>
+
+`
+
+export const differentContentCode = dedent`
+    import SvgImage from "./example-image.svg"
+
+    <EmptyState logo={SvgImage}>
+       <h3 className="sui-heading--h3">This page is not available yet</h3>
+    </EmptyState>
+
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>The default form of the EmptyState component</p>
+	<Preview wrapper={true}>
+		<EmptyState logo={SvgImage}>
+            <Row>
+				<h3 className="sui-heading--h3">This site has not yet been scanned.</h3>
+				<p>	Defender watches and protects your login area for attackers trying to randomly guess login details for your site and locks them out after a set number of failed attempts.	</p>
+			</Row>
+
+    		<Row align={{ md: "center" }}>
+    			<Button appearance="secondary" color="blue" isSmall={true}>
+    				<>Primary</>
+    			</Button>
+    			<Button appearance="primary" color="blue" isSmall={true}>
+    				<>Secondary</>
+    			</Button>
+    		</Row>
+        </EmptyState>
+    </Preview>
+    <Snippet language="js">{sampleCode}</Snippet>
+
+</Section>
+
+<Section contained={true} title="Different content">
+	<p>
+		Use the <Code small={true}>children</Code> prop to change the content to fit
+		your needs.
+	</p>
+	<p>In this exmpale the EmptyState only has a title</p>
+	<Preview wrapper={true}>
+		<EmptyState logo={SvgImage}>
+			<h3 className="sui-heading--h3">This page is not available yet</h3>
+		</EmptyState>
+	</Preview>
+	<Snippet language="js">{differentContentCode}</Snippet>
+</Section>

@@ -5,7 +5,7 @@ import { EmptyState as SuiEmptyState } from "../src"
 import { Button } from "@wpmudev/sui-button"
 import { Row } from "@wpmudev/sui-grid"
 
-import svgImage from "./images/empty-state.svg"
+import SvgImage from "./images/empty-state.svg"
 
 // Import documentation main page.
 import docs from "./EmptyState.mdx"
@@ -32,7 +32,7 @@ const EmptyState = ({ children, ...props }) => {
 
 // Set story arguments.
 EmptyState.args = {
-	logo: svgImage,
+	logo: SvgImage,
 	children: (
 		<>
 			<Row>
