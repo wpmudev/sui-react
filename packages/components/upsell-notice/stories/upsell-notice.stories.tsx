@@ -22,34 +22,16 @@ export default {
 // Build story
 // eslint-disable-next-line react/prop-types
 export const UpsellNotice = ({ example, ...props }) => {
-	const box = {
-		display: "flex",
-		flexDirection: "column",
-		gap: "8px",
-		margin: "0 0 20px",
-		padding: "30px",
-		border: "1px solid #E6E6E6",
-		borderRadius: "4px",
-		// background: "#fff",
-	}
-
 	const actions = [
 		<Button
 			key={0}
-			appearance={"hub" === props?.variation ? "primary" : "secondary"}
+			appearance="primary"
 			color={"hub" === props?.variation ? "blue" : "black"}
 			isSmall={true}
-			// onClick={onApplyButton}
 		>
 			Primary
 		</Button>,
-		<Button
-			key={1}
-			appearance="tertiary"
-			color="black"
-			isSmall={true}
-			// onClick={onApplyButton}
-		>
+		<Button key={1} appearance="tertiary" color="black" isSmall={true}>
 			Learn more
 		</Button>,
 	]
@@ -57,7 +39,7 @@ export const UpsellNotice = ({ example, ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={box}>
+				<div>
 					<SuiUpsellNotice
 						{...props}
 						actions={actions}
@@ -77,6 +59,7 @@ export const UpsellNotice = ({ example, ...props }) => {
 UpsellNotice.args = {
 	title: "Upsell notice",
 	tagTitle: "PRO",
+	variation: "hummingbird",
 	description:
 		"Get our full WordPress performance optimization suite with Hummingbird Pro and the additional benefits of WPMU DEV membership. Get yours today now Lorem ipsum Lorem Ipsum.",
 }
@@ -118,6 +101,20 @@ UpsellNotice.argTypes = {
 		],
 		control: {
 			type: "select",
+			labels: {
+				hummingbird: "Hummingbird",
+				smush: "Smush",
+				snapshot: "Snapshot",
+				smartcrawl: "Smartcrawl",
+				shipper: "Shipper",
+				ivt: "Ivt",
+				hustle: "Hustle",
+				forminator: "Forminator",
+				defender: "Defender",
+				branda: "Branda",
+				beehive: "Beehive",
+				hub: "Hub",
+			},
 		},
 	},
 }
