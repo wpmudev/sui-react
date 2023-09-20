@@ -20,6 +20,7 @@ import { CloseAlt } from "@wpmudev/sui-icons"
 
 import { Icon } from "./elements/input-icon"
 import { InputProps } from "./input.types"
+import { Button } from "@wpmudev/sui-button"
 
 // Build input component
 const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
@@ -190,13 +191,19 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 						<Icon name={icon ?? ""} size={isSmall ? "md" : "lg"} />
 					)}
 					{allowClear && !isEmpty(value as string) && !isMultiLine && (
-						<CloseAlt
+						<Button
 							className="sui-input__input-clear"
-							color="neutral"
-							tabIndex={0}
+							icon="close-alt"
+							color="black"
+							appearance="tertiary"
+							iconOnly={true}
+							iconSize={isSmall ? "md" : "lg"}
 							onClick={onClear}
+							isSmall={isSmall}
 							onKeyDown={(e) => handleOnKeyDown(e, onClear)}
-						/>
+						>
+							Clear
+						</Button>
 					)}
 				</div>
 			)

@@ -70,6 +70,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			[`${appearance}-${color}`]: !!appearance && !!color,
 			inline: iconOnly && !appearance,
 			responsive: isResponsive,
+			[iconSize]: iconOnly,
 		}
 
 		const attrs = {

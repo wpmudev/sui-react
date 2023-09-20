@@ -42,9 +42,7 @@ const options = [
 ]
 
 // Build "Search" story.
-const Search = ({ ...props }) => {
-	const set = {}
-
+const Search = ({ example, ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
@@ -64,6 +62,7 @@ Search.args = {
 	allowClear: true,
 	searchMinChars: 2,
 	defaultValue: "",
+	isDisabled: false,
 }
 
 // Set controls for story arguments.
@@ -80,21 +79,27 @@ Search.argTypes = {
 		},
 	},
 	defaultValue: {
-		name: "defaultValue",
+		name: "Default Value",
 		control: {
 			type: "text",
 		},
 	},
 	allowClear: {
-		name: "allowClear",
+		name: "Allow Clear",
 		control: {
 			type: "boolean",
 		},
 	},
 	searchMinChars: {
-		name: "searchMinChars",
+		name: "Minimum characters",
 		control: {
 			type: "number",
+		},
+	},
+	isDisabled: {
+		name: "Disabled",
+		control: {
+			type: "boolean",
 		},
 	},
 }

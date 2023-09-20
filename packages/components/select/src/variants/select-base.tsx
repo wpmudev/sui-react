@@ -43,8 +43,7 @@ interface SelectBaseProps
 	isMultiSelect?: boolean
 	/** Whether the select has a search functionality */
 	isSearchable?: boolean
-	/** Whether the select uses smart search */
-	isSmartSearch?: boolean
+
 	/**
 	 * Event handler for mouse enter event.
 	 * It is of type Pick<InteractionTypes, "onMouseEnter">, which means it selects
@@ -76,7 +75,6 @@ const Select: React.FC<SelectBaseProps> = ({
 	isError = false,
 	isMultiSelect = false,
 	isSearchable = false,
-	isSmartSearch = false,
 	onChange,
 	...props
 }) => {
@@ -153,7 +151,6 @@ const Select: React.FC<SelectBaseProps> = ({
 			error: isError,
 			multiselect: isMultiSelect,
 			searchable: isSearchable,
-			smartsearch: isSmartSearch,
 		},
 		className,
 	)
@@ -162,10 +159,6 @@ const Select: React.FC<SelectBaseProps> = ({
 	const handleSearchDropdown = (event) => {
 		const searchValue = event.target.value.toLowerCase()
 		setIsDropdownOpen(true)
-		if (isSmartSearch && searchValue.length < 2) {
-			setFilteredItems([])
-			return
-		}
 		SearchDropdown(searchValue, items, setFilteredItems)
 	}
 
@@ -196,26 +189,21 @@ const Select: React.FC<SelectBaseProps> = ({
 		}
 	}
 
-	// set selected items on trigger action
-	const selectItems = (selectedOptions) => {
-		// Ensure selectedOptions is always an array
-		const selectedItemsArray = Array.isArray(selectedOptions)
-			? selectedOptions
-			: [selectedOptions]
-
-		// Create a new array for updatedItems
-		const updatedItems = items.map((item) => {
-			const selectedItem = selectedItemsArray.find(
-				(selectedOption) => selectedOption.id === item.id,
-			)
-			return selectedItem
-				? { ...item, isSelected: selectedItem.isSelected }
-				: item
-		})
-
-		// Update items state with updatedItems
-		setItems(updatedItems)
-		setFilteredItems(updatedItems)
+	const updateSelected = (optionId: number | string) => {
+		const optionIndex = filteredItems.findIndex(
+			(option) => option.id === optionId,
+		)
+		const updatedItems = [...filteredItems]
+		const isSelected = updatedItems[optionIndex].isSelected
+		if (!isMultiSelect) {
+			updatedItems.forEach((option) => (option.isSelected = false))
+			updatedItems[optionIndex].isSelected = true
+			setFilteredItems(updatedItems)
+			setIsDropdownOpen(false)
+		} else {
+			updatedItems[optionIndex].isSelected = !isSelected
+			setFilteredItems(updatedItems)
+		}
 	}
 
 	// Header props
@@ -240,11 +228,11 @@ const Select: React.FC<SelectBaseProps> = ({
 					label: e.target.value,
 				})
 			},
+			onEvent: (optionId: number | string) => updateSelected(optionId),
 		}),
-		...(isSmartSearch && { isSmartSearch }),
 		...(isMultiSelect && {
 			isMultiSelect,
-			removeSelection: (optionId) => {
+			removeSelection: (optionId: number | string) => {
 				RemoveSelection(optionId, filteredItems, setFilteredItems)
 			},
 		}),
@@ -256,23 +244,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		options: filteredItems,
 		selected: selectedItem,
 		isSmall,
-		onEvent: (optionId) => {
-			const optionIndex = filteredItems.findIndex(
-				(option) => option.id === optionId,
-			)
-			const updatedItems = [...filteredItems]
-			const isSelected = updatedItems[optionIndex].isSelected
-			if (!isMultiSelect) {
-				updatedItems.forEach((option) => (option.isSelected = false))
-				updatedItems[optionIndex].isSelected = true
-				setFilteredItems(updatedItems)
-				setIsDropdownOpen(false)
-			} else {
-				updatedItems[optionIndex].isSelected = !isSelected
-				setFilteredItems(updatedItems)
-			}
-		},
-		...(isSmartSearch && { isSmartSearch }),
+		onEvent: (optionId: number | string) => updateSelected(optionId),
 		...(isMultiSelect && {
 			isMultiSelect,
 			selectAll: () => {

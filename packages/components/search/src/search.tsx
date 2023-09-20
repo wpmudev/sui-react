@@ -19,6 +19,7 @@ const Search: React.FC<SearchProps> = ({
 	allowClear = true,
 	searchMinChars = 2,
 	searchHint = "Please enter #number# or more characters",
+	isDisabled = false,
 }) => {
 	const [value, setValue] = useState<string>((defaultValue as string) ?? "")
 	const [isPopoverVisible, setIsPopoverVisible] = useState(false)
@@ -42,6 +43,7 @@ const Search: React.FC<SearchProps> = ({
 		{
 			focus: isFocused || isPopoverVisible,
 			hover: isHovered && !isFocused,
+			disabled: isDisabled,
 		},
 		className,
 	)
@@ -110,6 +112,7 @@ const Search: React.FC<SearchProps> = ({
 				defaultValue={value}
 				allowClear={allowClear}
 				disableInteractions={true}
+				isDisabled={isDisabled}
 				{...inputProps}
 			/>
 			{isPopoverVisible && "smart" === variation && (
