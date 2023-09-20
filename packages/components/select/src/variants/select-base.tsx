@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, HTMLProps } from "react"
-import { generateCN } from "@wpmudev/sui-utils"
+import { generateCN, isArray } from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
 	useInteraction,
@@ -194,6 +194,28 @@ const Select: React.FC<SelectBaseProps> = ({
 		if (onChange) {
 			onChange(option)
 		}
+	}
+
+	// set selected items on trigger action
+	const selectItems = (selectedOptions) => {
+		// Ensure selectedOptions is always an array
+		const selectedItemsArray = Array.isArray(selectedOptions)
+			? selectedOptions
+			: [selectedOptions]
+
+		// Create a new array for updatedItems
+		const updatedItems = items.map((item) => {
+			const selectedItem = selectedItemsArray.find(
+				(selectedOption) => selectedOption.id === item.id,
+			)
+			return selectedItem
+				? { ...item, isSelected: selectedItem.isSelected }
+				: item
+		})
+
+		// Update items state with updatedItems
+		setItems(updatedItems)
+		setFilteredItems(updatedItems)
 	}
 
 	// Header props

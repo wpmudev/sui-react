@@ -50,7 +50,9 @@ const Selected: React.FC<SelectSelectedProps> = ({
 			</span>
 		))
 	) : (
-		<span className="sui-select__selected">{selected?.label}</span>
+		<span className="sui-select__selected">
+			{selected?.label ? selected.label : selectLabel}
+		</span>
 	)
 
 	const onClearSelection = useCallback(
