@@ -34,6 +34,93 @@ export const sampleCode = dedent`
             ]}
         />
 `
+export const pluginVariationsMenuExample = dedent`
+        <Dropdown
+            label="Menu Button"
+            menu={[
+                    {
+                        id: "menu-beehive",
+                        label: "Beehive",
+                        props: {
+                            icon: "PluginBeehive",
+                            variation: "beehive",
+                        },
+                    },
+                    {
+                        id: "menu-branda",
+                        label: "Branda",
+                        props: {
+                            icon: "PluginBranda",
+                            variation: "branda",
+                        },
+                    },
+                    {
+                        id: "menu-defender",
+                        label: "Defender",
+                        props: {
+                            icon: "PluginDefender",
+                            variation: "defender",
+                        },
+                    },
+                    {
+                        id: "menu-forminator",
+                        label: "Forminator",
+                        props: {
+                            icon: "PluginForminator",
+                            variation: "forminator",
+                        },
+                    },
+                    {
+                        id: "menu-hummingbird",
+                        label: "Hummingbird",
+                        props: {
+                            icon: "PluginHummingbird",
+                            variation: "hummingbird",
+                        },
+                    },
+                    {
+                        id: "menu-hustle",
+                        label: "Hustle",
+                        props: {
+                            icon: "PluginHustle",
+                            variation: "hustle",
+                        },
+                    },
+                    {
+                        id: "menu-shipper",
+                        label: "Shipper",
+                        props: {
+                            icon: "PluginShipper",
+                            variation: "shipper",
+                        },
+                    },
+                    {
+                        id: "menu-smush",
+                        label: "Smush",
+                        props: {
+                            icon: "PluginSmush",
+                            variation: "smush",
+                        },
+                    },
+                    {
+                        id: "menu-smartcrawl",
+                        label: "SmartCrawl",
+                        props: {
+                            icon: "PluginSmartCrawl",
+                            variation: "smartcrawl",
+                        },
+                    },
+                    {
+                        id: "menu-ivt",
+                        label: "IVT",
+                        props: {
+                            icon: "PluginIVT",
+                            variation: "ivt",
+                        },
+                    },
+                ]}
+        />
+`
 
 export const groupedCode = dedent`
         <Dropdown
@@ -165,6 +252,99 @@ export const smallCode = dedent`
     	/>
     </div>
     <Snippet language="js">{sampleCode}</Snippet>
+
+</Section>
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Menu items with plugin variations</p>
+	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<Dropdown
+			label="Menu Button"
+			menu={[
+				{
+					id: "menu-beehive",
+					label: "Beehive",
+					props: {
+						icon: "PluginBeehive",
+						variation: "beehive",
+					},
+				},
+				{
+					id: "menu-branda",
+					label: "Branda",
+					props: {
+						icon: "PluginBranda",
+						variation: "branda",
+					},
+				},
+				{
+					id: "menu-defender",
+					label: "Defender",
+					props: {
+						icon: "PluginDefender",
+						variation: "defender",
+					},
+				},
+				{
+					id: "menu-forminator",
+					label: "Forminator",
+					props: {
+						icon: "PluginForminator",
+						variation: "forminator",
+					},
+				},
+				{
+					id: "menu-hummingbird",
+					label: "Hummingbird",
+					props: {
+						icon: "PluginHummingbird",
+						variation: "hummingbird",
+					},
+				},
+				{
+					id: "menu-hustle",
+					label: "Hustle",
+					props: {
+						icon: "PluginHustle",
+						variation: "hustle",
+					},
+				},
+				{
+					id: "menu-shipper",
+					label: "Shipper",
+					props: {
+						icon: "PluginShipper",
+						variation: "shipper",
+					},
+				},
+				{
+					id: "menu-smush",
+					label: "Smush",
+					props: {
+						icon: "PluginSmush",
+						variation: "smush",
+					},
+				},
+				{
+					id: "menu-smartcrawl",
+					label: "SmartCrawl",
+					props: {
+						icon: "PluginSmartCrawl",
+						variation: "smartcrawl",
+					},
+				},
+				{
+					id: "menu-ivt",
+					label: "IVT",
+					props: {
+						icon: "PluginIVT",
+						variation: "ivt",
+					},
+				},
+			]}
+		/>
+	</div>
+	<Snippet language="js">{pluginVariationsMenuExample}</Snippet>
 
 </Section>
 
