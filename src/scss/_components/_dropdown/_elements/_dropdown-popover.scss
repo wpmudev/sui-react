@@ -2,7 +2,7 @@
 
 @mixin build-popover($block-name) {
 	// DIR: Left to right.
-    // THEME: None.
+	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			@include element(popover) {
@@ -17,10 +17,9 @@
 				padding: $spacing-md 0;
 				border-radius: $border-radius-md;
 				background: $color-extended-neutral-100;
-				box-shadow:
-					0 6px 12px $color-shadow-default,
-					0 1px 16px $color-shadow-light,
-					0 2px 4px $color-shadow-dark;
+				box-shadow: 0 6px 12px $color-shadow-default,
+					0 1px 16px $color-shadow-light, 0 2px 4px $color-shadow-dark;
+				max-width: $dropdown-size-width-sm;
 
 				@include modifier(fixed-height) {
 					max-height: $dropdown-size-height-md;
@@ -30,7 +29,7 @@
 	}
 
 	// DIR: Right to left.
-    // THEME: None.
+	// THEME: None.
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block-name) {
 			@include element(popover) {
@@ -40,7 +39,7 @@
 	}
 
 	// DIR: Left to right.
-    // THEME: Dark.
+	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block-name) {
 			@include element(popover) {
