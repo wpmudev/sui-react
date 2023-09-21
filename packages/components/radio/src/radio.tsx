@@ -65,7 +65,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			onMouseDownCapture: methods.onMouseDownCapture,
 			onMouseUpCapture: methods.onMouseUpCapture,
 			onMouseLeave: methods.onMouseLeave,
-			onBlur: methods.onBlur,
+			onBlurCapture: methods.onBlurCapture,
 		}
 
 		return (
