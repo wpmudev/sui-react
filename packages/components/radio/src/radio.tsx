@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useId, useState } from "react"
-
+import { Tag } from "@wpmudev/sui-tag"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
@@ -64,7 +64,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 				focus: isFocused,
 				disabled: isDisabled,
 				bg: isBg,
-				selected: checked,
+				checked,
 			}),
 			onMouseEnter: methods.onMouseEnter,
 			onMouseDownCapture: methods.onMouseDownCapture,
@@ -79,7 +79,12 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 				<span {...boxProps}>
 					{checked && <span className="sui-radio__icon" />}
 				</span>
-				<span id={`${uuid}-label`}>{label}</span>
+				<span id={`${uuid}-label`} className="sui-radio__label">
+					{label}
+					<Tag design="outlined" color={checked ? "blue" : "black"}>
+						Recommended
+					</Tag>
+				</span>
 				{description && (
 					<span id={`${uuid}-description`} className="sui-radio__description">
 						{description}
