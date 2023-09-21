@@ -89,14 +89,6 @@ const SummaryBox = ({ color }) => {
 									actionTitle="10.33%"
 									actionState="success"
 								/>,
-								<SummaryBoxItem
-									key={3}
-									title="Assets Optimization"
-									description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-									actionIcon="CheckAlt"
-									actionTitle="10.33%"
-									actionState="success"
-								/>,
 							]}
 						>
 							<Score bar={95} isSmall={false} value={10} state="success" />
