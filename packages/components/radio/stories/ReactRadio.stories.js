@@ -61,7 +61,7 @@ Radio.args = {
 	isSmall: false,
 	isDisabled: false,
 	isInline: true,
-	isBg: false,
+	isBg: true,
 }
 
 // Story props settings
@@ -88,10 +88,18 @@ Radio.argTypes = {
 	tag: {
 		name: "Tag",
 		type: "string",
+		if: {
+			arg: "example",
+			eq: "radiogroup",
+		},
 	},
 	description: {
 		name: "Description",
 		type: "string",
+		if: {
+			arg: "example",
+			eq: "radiogroup",
+		},
 	},
 	isSmall: {
 		name: "Small",
@@ -104,9 +112,17 @@ Radio.argTypes = {
 	isInline: {
 		name: "Inline",
 		type: "boolean",
+		if: {
+			arg: "example",
+			eq: "radiogroup",
+		},
 	},
 	isBg: {
 		name: "Enable Background",
 		type: "boolean",
+		if: {
+			arg: "example",
+			eq: "radiogroup",
+		},
 	},
 }
