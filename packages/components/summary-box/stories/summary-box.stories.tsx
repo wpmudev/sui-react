@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react"
 
 // Import required component.
-import { SummaryBox as SuiSummaryBox } from "../src"
 import {
 	SegmentedControl,
 	SegmentedControlButton,
@@ -12,9 +11,12 @@ import { Score } from "@wpmudev/sui-score"
 
 // Import documentation main page.
 import docs from "./SummaryBox.mdx"
-import { SummaryBoxBody } from "../src/summary-box-body"
-import { SummaryBoxItem } from "../src/summary-box-item"
-import { SummaryFooterBody } from "../src/summary-box-footer"
+import {
+	SummaryBox as SuiSummaryBox,
+	SummaryBoxBody,
+	SummaryBoxItem,
+	SummaryFooterBody,
+} from "../src"
 
 // Build "SummaryBox" story.
 const SummaryBox = ({ color }) => {
