@@ -1,0 +1,14 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { CodeEditor } from "../../../src"
+import { sampleCode, reactSampleCode } from "../TabExamples.mdx"
+import dedent from "dedent"
+
+<Section title="File Name" contained={true} style={{ paddingTop: 30, paddingLeft: 0 }} border={true}>
+	<p> You can specify a filename to appear as a title to the Code Editor </p>
+	<Preview wrapper={true}>
+		<CodeEditor filename="App.js">
+            {reactSampleCode}
+		</CodeEditor>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>

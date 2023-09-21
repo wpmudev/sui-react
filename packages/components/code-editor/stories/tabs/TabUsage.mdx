@@ -1,36 +1,36 @@
-import { Section, Row, Col, List } from '@wpmudev/storybook';
+import { Section, Row, Col } from "@wpmudev/storybook"
 
-import CodeSnippetAnatomy from '../images/anatomy.png';
+import Overview from "../images/overview.svg"
+import Anatomy from "../images/anatomy.svg"
+import Spacing from "../images/spacing.svg"
+import Types from "../images/types.svg"
 
-<Section contained={true} border={true} style={{ paddingTop: 0 }}>
-	<p>
-		This element is meant to be used to display code. By default, it will
-		place a copy button on top right of the container, that way users can
-		easily copy snippet content to clipboard.
-	</p>
+<Section style={{ paddingTop: 20 }}>
+	<img src={Overview} alt="Code Editor Overview" style={{ marginBottom: 20 }} />
 </Section>
 
-<Section title="Anatomy" contained={true} border={true}>
-	<img
-		src={CodeSnippetAnatomy}
-		alt="Code snippet anatomy"
-		style={{ marginBottom: 20 }}
-	/>
-	<List>
-		<span
-			label={
-				<>
-					<strong>Snippet Text:</strong> Line or a block of codes.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Copy button:</strong> A copy button to copy the
-					code.
-				</>
-			}
-		/>
-	</List>
+<Section title="Anatomy">
+	<Row>
+		<Col>
+    		<h3 style={{marginTop: 0}}>1. Header</h3>
+    		<p>Code-editor header is the optional element in code e</p>
+
+    		<h3>2. Line numbers</h3>
+    		<p>Line numbers are typically displayed along the left side of the editor panel, allowing users to easily navigate and reference specific lines of code.</p>
+
+			<h3>2. Editor Panel</h3>
+    		<p>The editor panel is the central area where the code is displayed and edited.</p>
+    	</Col>
+    	<Col>
+    		<img src={Anatomy} alt="Code Editor Anatomy" />
+    	</Col>
+    </Row>
+</Section>
+
+<Section title="Spacing" style={{ paddingTop: 20 }}>
+	<img src={Spacing} alt="Code Editor Spacing" />
+</Section>
+
+<Section title="Types" style={{ paddingTop: 20 }}>
+	<img src={Types} alt="Code Editor Types" />
 </Section>
