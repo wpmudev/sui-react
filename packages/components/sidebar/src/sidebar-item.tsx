@@ -35,6 +35,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 		className,
 	)
 
+	
+
 	// Determine the IconTag based on the provided icon value.
 	let IconTag = null
 	if (!isEmpty(icon)) {
