@@ -3,6 +3,7 @@
 @use "./_states/states" as sui-radio--state;
 
 @include sui-radio--element.build-container(radio);
+@include sui-radio--element.build-radiogroup(radio-group);
 @include sui-radio--element.build-box(radio);
 @include sui-radio--element.build-icon(radio);
 
