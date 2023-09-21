@@ -9,6 +9,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 	(
 		{
 			id,
+			name,
 			label,
 			defaultValue,
 			isChecked = false,
@@ -36,12 +37,13 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			ref,
 			id: uuid,
 			type: "radio",
-			name: `${id}-name`,
+			name: `${name}-name`,
 			value: defaultValue,
 			className: "sui-screen-reader-only",
 			checked,
 			disabled: isDisabled,
 			onChange: handleOnChange,
+			"aria-labelledby": `${uuid}-label`,
 		}
 
 		// Define box props
@@ -54,7 +56,6 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 		// Define container props
 		const containerProps = {
 			className: generateCN("sui-radio", {
-				checked,
 				sm: isSmall,
 				hover: isHovered,
 				focus: isFocused,
@@ -64,16 +65,16 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			onMouseDownCapture: methods.onMouseDownCapture,
 			onMouseUpCapture: methods.onMouseUpCapture,
 			onMouseLeave: methods.onMouseLeave,
-			onBlurCapture: methods.onBlurCapture,
+			onBlur: methods.onBlur,
 		}
 
 		return (
-			<label {...containerProps} htmlFor={id}>
+			<label {...containerProps} htmlFor={uuid}>
 				<input {...inputProps} />
 				<span {...boxProps}>
 					{checked && <span className="sui-radio__icon" />}
 				</span>
-				{label}
+				<span id={`${uuid}-label`}>{label}</span>
 			</label>
 		)
 	},

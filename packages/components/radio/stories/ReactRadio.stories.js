@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required modules
-import { Radio as SuiRadio } from "../src"
+import { Radio as SuiRadio, RadioGroup } from "../src"
 
 // Import documentation
 import docs from "./ReactRadio.mdx"
@@ -19,7 +19,7 @@ export default {
 }
 
 // Build story
-export const Radio = ({ ...args }) => {
+export const Radio = ({ example, isInline, ...args }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -30,7 +30,16 @@ export const Radio = ({ ...args }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiRadio {...args} />
+					{"radiogroup" === example ? (
+						<RadioGroup isInline={isInline}>
+							<SuiRadio {...args} />
+							<SuiRadio {...args} />
+							<SuiRadio {...args} />
+							<SuiRadio {...args} />
+						</RadioGroup>
+					) : (
+						<SuiRadio {...args} />
+					)}
 				</div>
 			</div>
 		</div>
@@ -39,16 +48,45 @@ export const Radio = ({ ...args }) => {
 
 // Story props defaults
 Radio.args = {
+	example: "radiogroup",
+	name: "radio",
 	label: "Radio label",
 	isSmall: false,
 	isDisabled: false,
+	isInline: true,
 }
 
 // Story props settings
 Radio.argTypes = {
-	isChecked: {
-		table: {
-			disable: true,
+	example: {
+		name: "Example",
+		options: ["radio", "radiogroup"],
+		control: {
+			type: "select",
+			labels: {
+				radio: "Radio",
+				radiogroup: "Radio Group",
+			},
 		},
+	},
+	name: {
+		name: "Name",
+		type: "string",
+	},
+	label: {
+		name: "Label",
+		type: "string",
+	},
+	isSmall: {
+		name: "Small",
+		type: "boolean",
+	},
+	isDisabled: {
+		name: "Disabled",
+		type: "boolean",
+	},
+	isInline: {
+		name: "Inline",
+		type: "boolean",
 	},
 }
