@@ -10,13 +10,13 @@ export const TagNames: Record<string, any> = {
 	button: SuiButton,
 	text: "span",
 	icon: Icon,
+	link: SuiButton
 }
 
 // Build "Tooltip" component.
 const Tooltip: React.FC<TooltipProps> = ({
 	label,
 	type = "button",
-	iconName = "info",
 	className,
 	position = "top",
 	customWidth,
@@ -27,6 +27,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	onMouseLeave = () => {},
 	onFocus = () => {},
 	onBlur = () => {},
+	href,
 	...props
 }) => {
 	// use interaction
@@ -48,7 +49,9 @@ const Tooltip: React.FC<TooltipProps> = ({
 		show: isHovered,
 		focus: isFocused,
 		"custom-width": !!customWidth,
-		[position]: true,
+		[position]: true
+	}, {
+		[className]: !!className
 	})
 
 	// tooltip type button or text
@@ -91,7 +94,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
 	return (
 		<div className={classNames} {...methods}>
-			<TagName {...props} onClick={onClickCallback}>
+			<TagName {...props} href={href} onClick={onClickCallback}>
 				{label}
 			</TagName>
 			{!!children && (
