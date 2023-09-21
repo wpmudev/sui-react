@@ -16,6 +16,7 @@
 			user-select: none;
 			position: relative;
 			display: inline-flex;
+			flex-wrap: wrap;
 			align-items: center;
 			color: $radio-font-color-default;
 			font-weight: $radio-font-weight;
