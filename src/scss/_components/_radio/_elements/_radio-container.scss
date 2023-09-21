@@ -37,6 +37,10 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			color: $color-extended-neutral-0;
+
+			@include modifier(bg) {
+				outline-color: $color-extended-neutral-0;
+			}
 		}
 	}
 }
