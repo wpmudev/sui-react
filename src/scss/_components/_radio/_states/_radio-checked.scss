@@ -11,10 +11,16 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			@include modifier(selected) {
+				@include modifies-element(box) {
+					border-color: $radio-input-border-color-active;
+					background: $radio-input-background-active;
+				}
 
-			input:checked + span {
-				border-color: $radio-input-border-color-active;
-				background: $radio-input-background-active;
+				&.sui-#{$block}--bg {
+					outline-color: $color-primary-80;
+					background: $color-primary-90;
+				}
 			}
 		}
 	}

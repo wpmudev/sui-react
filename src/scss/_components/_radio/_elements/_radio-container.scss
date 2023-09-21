@@ -23,6 +23,12 @@
 			font-size: $radio-font-size-md;
 			line-height: $radio-font-height-md;
 			letter-spacing: $radio-font-spacing;
+
+			@include modifier(bg) {
+				padding: $spacing-lg $spacing-xl;
+				border-radius: $border-radius-md;
+				outline: $border-width-sm solid $color-extended-neutral-80;
+			}
 		}
 	}
 
