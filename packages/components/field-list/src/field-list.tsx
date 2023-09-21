@@ -8,7 +8,7 @@ const FieldList: React.FC<FieldListProps> = ({
 	label,
 	helper,
 	children,
-	onToggle,
+	onToggle = () => null,
 }) => {
 	// Callback function to handle item toggling
 	const onChangeItem = useCallback(
