@@ -6,7 +6,7 @@ interface RadioGroupProps {
 	children: ReactNode
 }
 
-const RadioGroup = ({ isInline, children }: RadioGroupProps) => {
+const RadioGroup = ({ isInline = true, children }: RadioGroupProps) => {
 	return (
 		<div
 			className={generateCN("sui-radio-group", { inline: isInline })}
