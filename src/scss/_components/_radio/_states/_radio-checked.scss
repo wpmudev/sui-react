@@ -36,6 +36,7 @@
 				}
 
 				&.sui-#{$block}--bg {
+					outline-color: $color-extended-neutral-0;
 					background: $color-extended-neutral-100;
 				}
 			}
