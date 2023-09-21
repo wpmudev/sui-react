@@ -51,6 +51,8 @@ Radio.args = {
 	example: "radiogroup",
 	name: "radio",
 	label: "Radio label",
+	description:
+		"Lossy compression offers the best compression rate for all type of images and This is recommended for most sites.",
 	isSmall: false,
 	isDisabled: false,
 	isInline: true,
@@ -75,6 +77,10 @@ Radio.argTypes = {
 	},
 	label: {
 		name: "Label",
+		type: "string",
+	},
+	description: {
+		name: "Description",
 		type: "string",
 	},
 	isSmall: {

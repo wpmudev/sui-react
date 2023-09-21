@@ -4,6 +4,7 @@ import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { RadioProps } from "./radio.types"
+import { spawn } from "child_process"
 
 const Radio = forwardRef<HTMLInputElement, RadioProps>(
 	(
@@ -11,6 +12,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			id,
 			name,
 			label,
+			description = "",
 			defaultValue,
 			isChecked = false,
 			isSmall = false,
@@ -44,6 +46,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			disabled: isDisabled,
 			onChange: handleOnChange,
 			"aria-labelledby": `${uuid}-label`,
+			...(description && { "aria-describedby": `${uuid}-description` }),
 		}
 
 		// Define box props
@@ -75,6 +78,11 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 					{checked && <span className="sui-radio__icon" />}
 				</span>
 				<span id={`${uuid}-label`}>{label}</span>
+				{description && (
+					<span id={`${uuid}-description`} className="sui-radio__description">
+						{description}
+					</span>
+				)}
 			</label>
 		)
 	},

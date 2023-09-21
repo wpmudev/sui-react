@@ -8,9 +8,19 @@ interface RadioProps {
 	id: string
 
 	/**
+	 * Name for the radio.
+	 */
+	name: string
+
+	/**
 	 * Label for the radio input.
 	 */
 	label: string
+
+	/**
+	 * Description for the radio input.
+	 */
+	description: string
 
 	/**
 	 * Default value of the radio input.
