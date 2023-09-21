@@ -19,7 +19,7 @@ export default {
 }
 
 // Build story
-export const Radio = ({ example, isInline, ...args }) => {
+export const Radio = ({ example, name, isInline, ...args }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -31,7 +31,13 @@ export const Radio = ({ example, isInline, ...args }) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					{"radiogroup" === example ? (
-						<RadioGroup isInline={isInline}>
+						<RadioGroup
+							isInline={isInline}
+							onChange={() => {
+								console.log("test")
+							}}
+							name={name}
+						>
 							<SuiRadio {...args} />
 							<SuiRadio {...args} />
 						</RadioGroup>
@@ -47,7 +53,7 @@ export const Radio = ({ example, isInline, ...args }) => {
 // Story props defaults
 Radio.args = {
 	example: "radiogroup",
-	name: "radio",
+	name: "countries",
 	label: "Radio label",
 	description:
 		"Lossy compression offers the best compression rate for all type of images and This is recommended for most sites.",

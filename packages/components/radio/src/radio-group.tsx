@@ -6,13 +6,21 @@ interface RadioGroupProps {
 	children: ReactNode
 }
 
-const RadioGroup = ({ isInline = true, children }: RadioGroupProps) => {
+const RadioGroup = ({
+	isInline = true,
+	children,
+	...props
+}: RadioGroupProps) => {
 	return (
 		<div
 			className={generateCN("sui-radio-group", { inline: isInline })}
 			role="radiogroup"
 		>
-			{children}
+			{React.Children.map(children, (child) =>
+				React.cloneElement(child as React.ReactElement<any>, {
+					...props,
+				}),
+			)}
 		</div>
 	)
 }

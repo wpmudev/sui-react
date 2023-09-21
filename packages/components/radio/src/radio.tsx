@@ -9,7 +9,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 	(
 		{
 			id,
-			name,
+			name = "",
 			label,
 			description = "",
 			defaultValue,
@@ -39,7 +39,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			ref,
 			id: uuid,
 			type: "radio",
-			name: `${name}-name`,
+			name,
 			value: defaultValue,
 			className: "sui-screen-reader-only",
 			checked,
