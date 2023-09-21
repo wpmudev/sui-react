@@ -34,8 +34,6 @@ export const Radio = ({ example, isInline, ...args }) => {
 						<RadioGroup isInline={isInline}>
 							<SuiRadio {...args} />
 							<SuiRadio {...args} />
-							<SuiRadio {...args} />
-							<SuiRadio {...args} />
 						</RadioGroup>
 					) : (
 						<SuiRadio {...args} />
@@ -56,6 +54,7 @@ Radio.args = {
 	isSmall: false,
 	isDisabled: false,
 	isInline: true,
+	isBg: false,
 }
 
 // Story props settings
@@ -93,6 +92,10 @@ Radio.argTypes = {
 	},
 	isInline: {
 		name: "Inline",
+		type: "boolean",
+	},
+	isBg: {
+		name: "Enable Background",
 		type: "boolean",
 	},
 }

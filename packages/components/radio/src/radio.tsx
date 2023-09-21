@@ -4,7 +4,6 @@ import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { RadioProps } from "./radio.types"
-import { spawn } from "child_process"
 
 const Radio = forwardRef<HTMLInputElement, RadioProps>(
 	(
