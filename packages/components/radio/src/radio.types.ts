@@ -41,6 +41,11 @@ interface RadioProps {
 	 * Indicates whether the radio input is disabled.
 	 */
 	isDisabled: boolean
+
+	/**
+	 * Indicates whether the radio input background is enabled.
+	 */
+	isBg: boolean
 }
 
 export type { RadioProps }

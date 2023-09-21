@@ -16,6 +16,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			isChecked = false,
 			isSmall = false,
 			isDisabled = false,
+			isBg = false,
 		},
 		ref,
 	) => {
@@ -62,6 +63,8 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 				hover: isHovered,
 				focus: isFocused,
 				disabled: isDisabled,
+				bg: isBg,
+				selected: checked,
 			}),
 			onMouseEnter: methods.onMouseEnter,
 			onMouseDownCapture: methods.onMouseDownCapture,
