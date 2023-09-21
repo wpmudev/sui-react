@@ -23,6 +23,11 @@ interface RadioProps {
 	description: string
 
 	/**
+	 * Tag for the radio input.
+	 */
+	tag: string
+
+	/**
 	 * Default value of the radio input.
 	 */
 	defaultValue: unknown
