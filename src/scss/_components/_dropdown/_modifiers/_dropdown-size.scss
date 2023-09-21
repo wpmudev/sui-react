@@ -4,10 +4,6 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			@include modifier(sm) {
-				@include modifies-element(menu) {
-					width: $dropdown-size-width-sm;
-				}
-
 				@include modifies-element(option) {
 					font-size: $font-size-xxs;
 				}

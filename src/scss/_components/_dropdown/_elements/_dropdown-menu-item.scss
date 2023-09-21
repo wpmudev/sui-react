@@ -37,6 +37,7 @@
 		@include block($block) {
 			@include element(menu-item) {
 				color: $color-extended-neutral-0;
+				background: $color-extended-neutral-100;
 			}
 		}
 	}
