@@ -4,23 +4,16 @@ import dedent from 'dedent';
 
 import Size from './Examples/Size.mdx';
 import Colors from './Examples/Colors.mdx';
-import States from './Examples/States.mdx';
 import Design from './Examples/Design.mdx';
+import Style from './Examples/Style.mdx';
 
 export const sampleCode = dedent`
-import React from 'react';\n
-import { Tag } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Tag>Tag default</Tag>;
-}\n
-export default Example;
+<Tag>Tag default</Tag>
 `;
 
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>
-		Below is the default form of a tag, used for most cases; it is not
-		impactful enough to represent the primary action in a container but
-		necessary in some scenarios.
+		Below is the default form of a tag:
 	</p>
 	<Preview wrapper={true}>
 		<Tag>Default tag</Tag>
@@ -36,11 +29,11 @@ export default Example;
 		<div label="Size" value="size">
 			<Size />
 		</div>
-		<div label="States" value="states">
-			<States />
-		</div>
 		<div label="Design" value="design">
 			<Design />
+		</div>
+		<div label="Style" value="style">
+			<Style />
 		</div>
 	</Switcher>
 </Section>

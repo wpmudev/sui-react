@@ -1,27 +1,63 @@
-import { Section, Row, Col, List } from '@wpmudev/storybook';
+import { Section, Row, Col } from "@wpmudev/storybook"
 
-import TagAnatomy from '../images/anatomy.png';
+import Anatomy from "../images/anatomy.svg"
+import Variations from "../images/variations.svg"
+import Type from "../images/type.svg"
+import Structured from "../images/structured.svg"
+import StructuredBlue from "../images/structured-blue.svg"
+import StructuredBlack from "../images/structured-black.svg"
+import White from "../images/white.svg"
+import Style from "../images/style.svg"
+import Size from "../images/size.svg"
 
-<Section contained={true} border={true} style={{ paddingTop: 0 }}>
-	<p>Tags are used to highlight specific bits of information and warnings.</p>
+<Section title="Anatomy" border={true}>
+	<Row>
+		<Col>
+    		<h3 style={{marginTop: 0}}>1. Text</h3>
+    		<p>A text contextual to the content.</p>
+
+    		<h3>2. Container</h3>
+    		<p>Container to wrap the tag.</p>
+
+			<h3>3. Dismiss icon - Optional</h3>
+
+    	</Col>
+    	<Col size="3">
+    		<img src={Anatomy} alt="Tag anatomy" />
+    	</Col>
+    </Row>
 </Section>
 
-<Section title="Anatomy" contained={true} border={true}>
-	<img src={TagAnatomy} alt="Tag anatomy" style={{ marginBottom: 20 }} />
-	<List>
-		<span
-			label={
-				<>
-					<strong>Text:</strong> A text contextual to the content.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Container:</strong> Container to wrap the tag.
-				</>
-			}
-		/>
-	</List>
+<Section title="Variations" border={true}>
+	<h3>Semantic Variations</h3>
+    <p>Semantic color variation can be used to distinguish between various states of tags.</p>
+	<img src={Variations} alt="Tag Variations" />
+
+	<h3>Dismissible</h3>
+    <p>Dismissible tags are only available on the default size.</p>
+	<img src={Type} alt="Dismissible Tag" />
+
+	<h3>Structured</h3>
+    <p>Structured tags are for specific usecases.</p>
+	<img src={Structured} alt="Structured Tag" />
+
+	<h3>Structured Blue</h3>
+    <p>Structured blue tags are used to indicate beta, coming soon, new, free, and hosting. The typography for Free and Coming Soon will be in uppercase.</p>
+	<img src={StructuredBlue} alt="Structured Blue Tag" />
+
+	<h3>Structured Black</h3>
+    <p>To indicate pro features, a structured black tag is used.</p>
+	<img src={StructuredBlack} alt="Structured Black Tag" />
+
+	<h3>White</h3>
+    <p>If there is a contrast issue with the dark background, the white color tag will be used.</p>
+	<img src={White} alt="White Tag" />
+</Section>
+
+<Section title="Style" border={true}>
+	<img src={Style} alt="Tag Styles" />
+</Section>
+
+<Section title="Size">
+	<img src={Size} alt="Tag Sizes" />
 </Section>
