@@ -1,33 +1,51 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook";
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src";
-import dedent from "dedent";
-
-{/* Import Variations */}
-import Neutral from "./Examples/Neutral.mdx"
-import Informative from "./Examples/Informative.mdx"
-import Success from "./Examples/Success.mdx"
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { FieldList, FieldListItem } from "../../src"
+import dedent from "dedent"
 
 export const sampleCode = dedent`
-    Basic Examples 
-`;
+        <FieldList
+            label="The Filed List Title"
+            helper="Help text goes here"
+            onToggle={(id, checked) => {
+                // Do something with the "id" and "cehcked"
+                console.log(id, checked)
+            }}
+        >
+            <FieldListItem id="field-1" isChecked={false}>
+                Field 1
+            </FieldListItem>
+           
+           <FieldListItem id="field-2">Field 2</FieldListItem>
+              <FieldListItem id="field-3" isChecked={true}>
+                Field 3
+              </FieldListItem>
+           <FieldListItem id="field-4">Field 4</FieldListItem>
+        </FieldList>
+`
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-  <p>Basic Accordion Example</p>
-  <Preview wrapper={true}>Basic Example</Preview>
-  <Snippet language="js">{sampleCode}</Snippet>
-</Section>
-
-<Section title="State" style={{ paddingTop: 0 }}>
-  Use this if you need to switch between multiple options
-  <Switcher>
-    <div label="neutral" value="neutral">
-      <Neutral />
-    </div>
-    <div label="informative" value="informative">
-      <Informative />
-    </div>
-    <div label="success" value="success">
-      <Success />
-    </div>
-  </Switcher>
+	<p>
+		This is a general example of the Field List which you can tweak to fit your
+		needs
+	</p>
+	<Preview wrapper={true}>
+		<FieldList
+			label="The Filed List Title"
+			helper="Help text goes here"
+			onToggle={(id, checked) => {
+				// Do something with the "id" and "cehcked"
+				console.log(id, checked)
+			}}
+		>
+			<FieldListItem id="field-1" isChecked={false}>
+				Field 1
+			</FieldListItem>
+			<FieldListItem id="field-2">Field 2</FieldListItem>
+			<FieldListItem id="field-3" isChecked={true}>
+				Field 3
+			</FieldListItem>
+			<FieldListItem id="field-4">Field 4</FieldListItem>
+		</FieldList>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
