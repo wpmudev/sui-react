@@ -4,8 +4,6 @@ import React, { useState, useCallback, useId } from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { RichTextEditorProps } from "./rich-text-editor.types"
-import { Tooltip } from "@wpmudev/sui-tooltip"
-import { linkTo } from "@storybook/addon-links"
 
 import { FormField } from "@wpmudev/sui-form-field"
 import { Button } from "@wpmudev/sui-button"
