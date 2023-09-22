@@ -40,6 +40,10 @@ interface FieldListItemProps extends ToggleProps {
 	 * The content of the field list item.
 	 */
 	children?: React.ReactNode
+	/**
+	 * Whether the toggle is checked or not
+	 */
+	isChecked?: boolean
 }
 
 export type { FieldListProps, FieldListItemProps }
