@@ -1,5 +1,4 @@
 import React, { forwardRef, useState } from "react"
-import { generateCN } from "@wpmudev/sui-utils"
 import { FormField } from "@wpmudev/sui-form-field"
 import { Input } from "@wpmudev/sui-input"
 import { Button } from "@wpmudev/sui-button"
@@ -55,6 +54,9 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 				setHasValue(getValue.length > 0)
 			},
 			isSmall,
+			...(label && { "aria-labelledby": `${id}-label` }),
+			...(helper && { "aria-describedby": `${id}-helper` }),
+			...(isError && { "aria-errormessage": `${id}-error-message` }),
 			...props,
 		}
 
@@ -74,11 +76,6 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 			}),
 			isSmall,
 		}
-
-		const classNames = generateCN("sui-password", {
-			password: true,
-			icon: button.type === "icon-button" ? true : false,
-		})
 
 		return (
 			<FormField {...fieldAttrs}>

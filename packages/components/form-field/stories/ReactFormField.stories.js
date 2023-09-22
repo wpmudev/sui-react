@@ -45,13 +45,13 @@ export const FormField = ({ example, ...args }) => {
 								isSmall={args.isSmall}
 								isDisabled={args.isDisabled}
 								{...(!!args.label && {
-									"aria-labelledby": `${args.id}__label`,
+									"aria-labelledby": `${args.id}-label`,
 								})}
 								{...(!!args.helper && {
-									"aria-describedby": `${args.id}__helper`,
+									"aria-describedby": `${args.id}-helper`,
 								})}
 								{...(!!args.error?.state && {
-									"aria-errormessage": `${args.id}__error-message`,
+									"aria-errormessage": `${args.id}-error-message`,
 								})}
 							/>
 						)}
