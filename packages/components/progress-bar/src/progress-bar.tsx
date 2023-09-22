@@ -15,6 +15,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	isInline = false,
 	allowCancel = false,
 	isIndeterminate = false,
+	showValue = true,
 	onClick,
 	className = "",
 }) => {
@@ -44,7 +45,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 						{label}
 					</span>
 				)}
-				{!!value && (
+				{!!value && showValue && (
 					<span className="sui-progress-bar__value" aria-hidden={true}>
 						{value}%
 					</span>
