@@ -41,12 +41,12 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 		<div className={classNames}>
 			<div className="sui-progress-bar__main">
 				{!!label && (
-					<span className="sui-progress-bar__text" aria-hidden={true}>
+					<span className="sui-progress-bar__text" aria-live="polite">
 						{label}
 					</span>
 				)}
 				{!!value && showValue && (
-					<span className="sui-progress-bar__value" aria-hidden={true}>
+					<span className="sui-progress-bar__value" aria-live="polite">
 						{value}%
 					</span>
 				)}
