@@ -26,7 +26,23 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 		title={{ content: "userImage*", tag: "object", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>The recipinet's avatar or picture</p>
+		<p>The recipient's avatar or picture, the object has two keys:</p>
+		<List>
+			<span
+				label={
+					<>
+						<Code small={true}>src</Code> The link to the image
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>alt</Code> The image alt. text
+					</>
+				}
+			/>
+		</List>
 	</Section>
 	<Section
 		title={{ content: "appearance*", tag: "string", small: true }}

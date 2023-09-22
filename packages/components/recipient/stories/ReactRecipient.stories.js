@@ -37,7 +37,10 @@ const Recipient = ({ userAvatar, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={set.box}>
-					<SuiRecipient {...props} />
+					<SuiRecipient
+						{...props}
+						userImage={{ alt: "image alt", src: image }}
+					/>
 				</div>
 			</div>
 		</div>
