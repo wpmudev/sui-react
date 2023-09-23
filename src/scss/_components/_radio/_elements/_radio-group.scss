@@ -23,6 +23,21 @@
 					flex-direction: column;
 				}
 			}
+
+			@include modifier(sm) {
+				font-size: $font-size-xs;
+				line-height: $radio-font-height-sm;
+
+				.sui-radio__box {
+					width: $radio-input-size-sm;
+					height: $radio-input-size-sm;
+				}
+
+				.sui-radio__icon {
+					width: $radio-icon-size-sm;
+					height: $radio-icon-size-sm;
+				}
+			}
 		}
 	}
 }

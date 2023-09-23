@@ -12,7 +12,7 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			@include modifier(bg) {
+			@include modifier(block) {
 				@include modifies-element(label) {
 					font-weight: $font-weight-md;
 				}

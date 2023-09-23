@@ -17,7 +17,7 @@
 					background: $radio-input-background-active;
 				}
 
-				&.sui-#{$block}--bg {
+				&.sui-#{$block}--block {
 					outline-color: $color-primary-80;
 					background: $color-primary-90;
 				}
@@ -35,7 +35,7 @@
 					background: $color-extended-neutral-0;
 				}
 
-				&.sui-#{$block}--bg {
+				&.sui-#{$block}--block {
 					outline-color: $color-extended-neutral-0;
 					background: $color-extended-neutral-100;
 				}

@@ -24,7 +24,7 @@
 			line-height: $radio-font-height-md;
 			letter-spacing: $radio-font-spacing;
 
-			@include modifier(bg) {
+			@include modifier(block) {
 				padding: $spacing-lg $spacing-xl;
 				border-radius: $border-radius-md;
 				outline: $border-width-sm solid $color-extended-neutral-80;
@@ -38,7 +38,7 @@
 		@include block($block) {
 			color: $color-extended-neutral-0;
 
-			@include modifier(bg) {
+			@include modifier(block) {
 				outline-color: $color-extended-neutral-0;
 			}
 		}
