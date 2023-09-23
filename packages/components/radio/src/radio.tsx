@@ -1,9 +1,11 @@
-import React, { forwardRef, useCallback, useId, useState } from "react"
+import React, { forwardRef, useCallback, useId } from "react"
+
 import { Tag } from "@wpmudev/sui-tag"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { RadioProps } from "./radio.types"
+import { useRadio } from "./radio-context"
 
 const Radio = forwardRef<HTMLInputElement, RadioProps>(
 	(
@@ -14,6 +16,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			description = "",
 			tag = "",
 			defaultValue,
+			value = "",
 			isChecked = false,
 			isSmall = false,
 			isDisabled = false,
@@ -21,19 +24,24 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 		},
 		ref,
 	) => {
-		const [checked, setChecked] = useState(isChecked)
+		// const [checked, setChecked] = useState(isChecked)
 		const [isHovered, isFocused, methods] = useInteraction({})
 
 		let uuid = `sui-radio-${useId()}`
+
+		const { onChange, current, name, asBlock } = useRadio()
 
 		// use ID from props list if exists
 		if (!!id) {
 			uuid = id
 		}
 
+		// handle on change
 		const handleOnChange = useCallback(() => {
-			setChecked(!checked)
-		}, [checked])
+			onChange(value)
+		}, [onChange, value])
+
+		const checked = value === current
 
 		// Define input props
 		const inputProps = {
@@ -60,22 +68,17 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 		// Define container props
 		const containerProps = {
 			className: generateCN("sui-radio", {
-				sm: isSmall,
+				// sm: isSmall,
 				hover: isHovered,
 				focus: isFocused,
 				disabled: isDisabled,
-				bg: isBg,
+				block: asBlock,
 				checked,
 			}),
-			onMouseEnter: methods.onMouseEnter,
-			onMouseDownCapture: methods.onMouseDownCapture,
-			onMouseUpCapture: methods.onMouseUpCapture,
-			onMouseLeave: methods.onMouseLeave,
-			onBlurCapture: methods.onBlurCapture,
 		}
 
 		return (
-			<label {...containerProps} htmlFor={uuid}>
+			<label {...containerProps} htmlFor={uuid} {...methods}>
 				<input {...inputProps} />
 				<span {...boxProps}>
 					{checked && <span className="sui-radio__icon" />}

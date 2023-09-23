@@ -1,30 +1,48 @@
-import React, { ReactNode } from "react"
+import React, { useEffect, useState } from "react"
+
 import { generateCN } from "@wpmudev/sui-utils"
 
-interface RadioGroupProps {
-	name: string
-	isInline: boolean
-	children: ReactNode
-}
+import { Provider } from "./radio-context"
+import { RadioGroupProps, RadioValueType } from "./radio.types"
 
 const RadioGroup = ({
 	isInline = true,
 	children,
 	name = "",
-	...props
+	defaultValue = "",
+	asBlock = false,
+	isSmall = false,
+	isDisabled = false,
+	onChange = () => {},
 }: RadioGroupProps) => {
+	const [current, setCurrent] = useState<RadioValueType>(defaultValue)
+
+	// update state when default value get changed
+	useEffect(() => {
+		setCurrent(defaultValue)
+	}, [defaultValue])
+
+	const className = generateCN("sui-radio-group", {
+		inline: isInline,
+		sm: isSmall,
+	})
+
 	return (
-		<div
-			className={generateCN("sui-radio-group", { inline: isInline })}
-			role="radiogroup"
-			{...props}
+		<Provider
+			value={{
+				name,
+				current,
+				setCurrent,
+				defaultValue,
+				asBlock,
+				isDisabled,
+				onChange,
+			}}
 		>
-			{React.Children.map(children, (child) =>
-				React.cloneElement(child as React.ReactElement<any>, {
-					name,
-				}),
-			)}
-		</div>
+			<div className={className} role="radiogroup">
+				{children}
+			</div>
+		</Provider>
 	)
 }
 

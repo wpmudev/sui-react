@@ -33,13 +33,15 @@ export const Radio = ({ example, name, isInline, ...args }) => {
 					{"radiogroup" === example ? (
 						<RadioGroup
 							isInline={isInline}
-							onChange={() => {
-								console.log("test")
-							}}
 							name={name}
+							asBlock={args?.asBlock}
+							isSmall={args?.isSmall}
+							onChange={(data) => {
+								console.log("test", data)
+							}}
 						>
-							<SuiRadio {...args} />
-							<SuiRadio {...args} />
+							<SuiRadio value="in" {...args} />
+							<SuiRadio value="usa" {...args} />
 						</RadioGroup>
 					) : (
 						<SuiRadio {...args} />
@@ -61,7 +63,7 @@ Radio.args = {
 	isSmall: false,
 	isDisabled: false,
 	isInline: true,
-	isBg: true,
+	asBlock: true,
 }
 
 // Story props settings
@@ -117,7 +119,7 @@ Radio.argTypes = {
 			eq: "radiogroup",
 		},
 	},
-	isBg: {
+	asBlock: {
 		name: "Enable Background",
 		type: "boolean",
 		if: {
