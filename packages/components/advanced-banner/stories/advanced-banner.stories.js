@@ -10,7 +10,7 @@ import { Box, BoxGroup } from "@wpmudev/sui-box"
 // Import documentation main page
 import docs from "./advanced-banner.mdx"
 
-import TagIcon from "./assets/tag.svg"
+import TagIcon from "./images/tag.svg"
 
 // Configure default options.
 export default {
