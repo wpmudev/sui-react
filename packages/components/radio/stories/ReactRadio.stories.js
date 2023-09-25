@@ -30,22 +30,18 @@ export const Radio = ({ example, name, isInline, ...args }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{"radiogroup" === example ? (
-						<RadioGroup
-							isInline={isInline}
-							name={name}
-							asBlock={args?.asBlock}
-							isSmall={args?.isSmall}
-							onChange={(data) => {
-								console.log("test", data)
-							}}
-						>
-							<SuiRadio value="in" {...args} />
-							<SuiRadio value="usa" {...args} />
-						</RadioGroup>
-					) : (
-						<SuiRadio {...args} />
-					)}
+					<RadioGroup
+						isInline={isInline}
+						name={name}
+						asBlock={args?.asBlock}
+						isSmall={args?.isSmall}
+						onChange={(data) => {
+							console.log("test", data)
+						}}
+					>
+						<SuiRadio value="in" {...args} />
+						<SuiRadio value="usa" {...args} />
+					</RadioGroup>
 				</div>
 			</div>
 		</div>
@@ -54,7 +50,6 @@ export const Radio = ({ example, name, isInline, ...args }) => {
 
 // Story props defaults
 Radio.args = {
-	example: "radiogroup",
 	name: "countries",
 	label: "Radio label",
 	tag: "Recommended",
@@ -68,17 +63,6 @@ Radio.args = {
 
 // Story props settings
 Radio.argTypes = {
-	example: {
-		name: "Example",
-		options: ["radio", "radiogroup"],
-		control: {
-			type: "select",
-			labels: {
-				radio: "Radio",
-				radiogroup: "Radio Group",
-			},
-		},
-	},
 	name: {
 		name: "Name",
 		type: "string",
@@ -90,18 +74,10 @@ Radio.argTypes = {
 	tag: {
 		name: "Tag",
 		type: "string",
-		if: {
-			arg: "example",
-			eq: "radiogroup",
-		},
 	},
 	description: {
 		name: "Description",
 		type: "string",
-		if: {
-			arg: "example",
-			eq: "radiogroup",
-		},
 	},
 	isSmall: {
 		name: "Small",
@@ -114,17 +90,9 @@ Radio.argTypes = {
 	isInline: {
 		name: "Inline",
 		type: "boolean",
-		if: {
-			arg: "example",
-			eq: "radiogroup",
-		},
 	},
 	asBlock: {
 		name: "Enable Background",
 		type: "boolean",
-		if: {
-			arg: "example",
-			eq: "radiogroup",
-		},
 	},
 }

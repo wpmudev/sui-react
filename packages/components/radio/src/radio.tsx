@@ -17,10 +17,8 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			tag = "",
 			defaultValue,
 			value = "",
-			isChecked = false,
 			isSmall = false,
 			isDisabled = false,
-			isBg = false,
 		},
 		ref,
 	) => {
@@ -86,7 +84,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 				<span id={`${uuid}-label`} className="sui-radio__label">
 					{label}
 					{tag && (
-						<Tag design="outlined" color={checked ? "blue" : "black"}>
+						<Tag design="outlined" color="blue" isSmall={isSmall}>
 							{tag}
 						</Tag>
 					)}
