@@ -31,6 +31,18 @@ interface DatePickerProps {
 	 */
 	isDisabled?: boolean
 	/**
+	 * DatePicker aria label message
+	 */
+	labelledby?: string
+	/**
+	 * DatePicker aria describe message
+	 */
+	describedby?: string
+	/**
+	 * DatePicker aria error message
+	 */
+	errormessage?: string
+	/**
 	 * Start date
 	 */
 	startDate?: string
@@ -54,6 +66,10 @@ interface DatePickerContextProps {
 	 * Flag indicating whether the DatePicker is disabled or not
 	 */
 	isDisabled: boolean
+	/**
+	 * Flag indicating whether the DatePicker has error
+	 */
+	isError: boolean
 	/**
 	 * Flag indicating whether the DatePicker is open (visible)
 	 */

@@ -44,6 +44,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		maxDate,
 		definedRanges = predefinedRanges,
 		isDisabled,
+		isError,
 	} = props
 
 	const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -260,6 +261,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		<DatePickerContext.Provider
 			value={{
 				isDisabled,
+				isError,
 				isSingle,
 				isOpen,
 				setIsOpen,

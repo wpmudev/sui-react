@@ -5,6 +5,7 @@ import { DatePicker as SuiDatePicker } from "../src"
 
 // Import documentation main page.
 import docs from "./DatePicker.mdx"
+import { FormField } from "@wpmudev/sui-form-field"
 
 // Configure default options.
 export default {
@@ -30,9 +31,17 @@ const DatePicker = ({ color, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiDatePicker {...props} onChange={console.log}>
-						DISPLAY RANGE PICKER
-					</SuiDatePicker>
+					<FormField id="datepicker" label="Datepicker">
+						<SuiDatePicker
+							{...props}
+							onChange={console.log}
+							labelledby="datepicker-label"
+							describedby="datepicker-description"
+							errormessage="datepicker-error"
+						>
+							DISPLAY RANGE PICKER
+						</SuiDatePicker>
+					</FormField>
 				</div>
 			</div>
 		</div>
@@ -47,6 +56,7 @@ DatePicker.args = {
 	minDate: "01/05/2023",
 	maxDate: "30/10/2023",
 	isDisabled: false,
+	isError: false,
 }
 
 // Set controls for story arguments.
@@ -96,6 +106,12 @@ DatePicker.argTypes = {
 	},
 	isDisabled: {
 		name: "Disabled",
+		control: {
+			type: "boolean",
+		},
+	},
+	isError: {
+		name: "Error",
 		control: {
 			type: "boolean",
 		},

@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect, useId } from "react"
 import { format } from "date-fns"
 
-import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
+import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
 import { Input } from "@wpmudev/sui-input"
 
 import { DatePickerContext } from "./date-picker-context"
@@ -15,6 +15,7 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 		single: ctx?.isSingle,
 		range: !ctx?.isSingle,
 		disabled: ctx?.isDisabled,
+		error: ctx?.isError,
 	})
 
 	useEffect(() => {
@@ -61,6 +62,17 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 				iconPosition="start"
 				readOnly={true}
 				value={value ?? ""}
+				{...(ctx?.isError && { isError: ctx?.isError })}
+				{...(!isEmpty(props?.labelledby ?? "") && {
+					"aria-labelledby": props.labelledby,
+				})}
+				{...(!isEmpty(props?.describedby ?? "") && {
+					"aria-describedby": props.describedby,
+				})}
+				{...(!isEmpty(props?.errormessage ?? "") &&
+					ctx?.isError && {
+						"aria-errormessage": props.errormessage,
+					})}
 			/>
 		</div>
 	)
