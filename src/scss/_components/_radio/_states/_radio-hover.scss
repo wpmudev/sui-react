@@ -16,6 +16,10 @@
 				@include modifies-element(box) {
 					border-color: $radio-input-border-color-active;
 				}
+
+				&.sui-#{$block}--block {
+					background: transparent;
+				}
 			}
 		}
 	}

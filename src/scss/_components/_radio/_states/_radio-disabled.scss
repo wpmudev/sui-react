@@ -24,6 +24,15 @@
 				@include modifies-element(icon) {
 					background: $radio-icon-color-disabled;
 				}
+
+				@include modifies-element(label) {
+					color: $color-extended-neutral-70;
+				}
+
+				&.sui-#{$block}--block {
+					outline-color: $color-extended-neutral-80;
+					background: $color-extended-neutral-95;
+				}
 			}
 		}
 	}

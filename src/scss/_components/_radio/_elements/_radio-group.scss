@@ -14,10 +14,11 @@
 		@include block($block) {
 			display: flex;
 			flex-direction: column;
-			gap: $spacing-lg;
+			gap: $spacing-md;
 
 			@include modifier(inline) {
 				flex-direction: row;
+				gap: $spacing-xl;
 
 				@include media(max-width, md) {
 					flex-direction: column;

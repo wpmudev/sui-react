@@ -9,7 +9,7 @@
 @include sui-radio--element.build-icon(radio);
 @include sui-radio--element.build-radiogroup(radio-group);
 
-@include sui-radio--modifier.edit-size(radio);
+@include sui-radio--modifier.edit-size(radio-group);
 
 @include sui-radio--state.edit-checked(radio);
 @include sui-radio--state.edit-hover(radio);
