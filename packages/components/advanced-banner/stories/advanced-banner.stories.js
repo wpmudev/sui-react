@@ -84,7 +84,14 @@ const AdvancedBanner = ({ ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div>
-					<SuiAdvancedBanner {...props}>{children}</SuiAdvancedBanner>
+					<SuiAdvancedBanner
+						{...props}
+						variation="black-friday"
+						discountPercentage="5"
+						ctaTitle="Buy Now!"
+					>
+						{children}
+					</SuiAdvancedBanner>
 				</div>
 			</div>
 		</div>

@@ -1,21 +1,58 @@
 import { HTMLProps, ReactNode } from "react"
 
 interface AdvancedBannerBasePros extends HTMLProps<HTMLSpanElement> {
+	/**
+	 * Sets the headline text
+	 */
 	title?: ReactNode
+	/**
+	 * Adds an Explanatory text
+	 */
 	description?: ReactNode
+	/**
+	 * Represents the content of the Banner
+	 */
 	children?: ReactNode
+	/**
+	 * >Provides contextual text to enhance user understanding
+	 */
 	helper?: ReactNode
+	/**
+	 * The linkt to the image to be displayed on the banner
+	 */
 	imageUrl?: string
+	/**
+	 * Customizes the display of the Banner
+	 */
 	variation: "plugin" | "hub" | "newsletter" | "black-friday"
 	className?: string
+	/**
+	 * Whether to allow the user to close the component
+	 */
 	allowClose?: boolean
+	/**
+	 * A callback function to be invoked when the component is closed
+	 */
 	onClose?(): void
 }
 
+// Props Specific for the black-friday variation
 type AdvancedBannerBlackFridayProps = {
+	/**
+	 * Black Friday Variation
+	 */
 	variation: "black-friday"
+	/**
+	 * Represents the percentage value of a the discount applied
+	 */
 	discountPercentage?: number
+	/**
+	 * The text of the action button
+	 */
 	ctaTitle?: string
+	/**
+	 * Call back functon to be invoked when the action button is clicked
+	 */
 	onCTAClick?(): void
 } & AdvancedBannerBasePros
 
