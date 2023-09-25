@@ -1,41 +1,300 @@
-import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
-import { Score } from '../../src';
-import dedent from 'dedent';
-import Types from './Examples/Types.mdx';
-import States from './Examples/States.mdx';
-import Size from './Examples/Size.mdx';
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import {
+	SummaryBox,
+	SummaryBoxBody,
+	SummaryBoxItem,
+	SummaryFooterBody,
+} from "../../src"
+import {
+	SegmentedControl,
+	SegmentedControlButton,
+} from "@wpmudev/sui-segmented-control"
+import { Button } from "@wpmudev/sui-button"
+import { Notification } from "@wpmudev/sui-notification"
+import { Score } from "@wpmudev/sui-score"
+
+import dedent from "dedent"
 
 export const sampleCode = dedent`
-import React from 'react';\n
-import { Score } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Score bar={55} />;
-}\n
-export default Example;
-`;
+import { SummaryBox, SummaryBoxBody, SummaryBoxItem, SummaryFooterBody } from "@wpmudev/sui-summary-box"
+import { Button } from "@wpmudev/sui-button"
+import { Notification } from "@wpmudev/sui-notification"
+import { Score } from "@wpmudev/sui-score"
 
-<Section contained={true} style={{ paddingTop: 0 }}>
+    export const SuiSummaryBox = () => {
+
+        return (
+            <SummaryBox
+                icon="performance"
+                title="Performance Summary"
+                hideMobileIcon={true}
+                primaryActions={["Primary Actions Go Here"]}
+                secondaryActions={["Secondary Actions Go Here"]}
+            >
+                <SummaryBoxBody
+                    summaryItems={[
+                        <SummaryBoxItem
+                            key={0}
+                            title="Browser Caching"
+                            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                            actionIcon="InfoAlt"
+                            actionState="green"
+                        />,
+                        <SummaryBoxItem
+                            key={1}
+                            title="Gzip compression"
+                            titleUrl={"google.com"}
+                            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                            actionIcon={false}
+                            actionTitle="10.33%"
+                            actionState="green"
+                        />,
+                        <SummaryBoxItem
+                            key={2}
+                            title="Assets Optimization"
+                            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                            actionIcon="CheckAlt"
+                            actionTitle="10.33%"
+                            actionState="success"
+                        />,
+                    ]}
+                >
+                    The body content
+                </SummaryBoxBody>
+                <SummaryFooterBody>Footer Content</SummaryFooterBody>
+            </SummaryBox>
+        )
+
+} `
+
+export const versatileCode = dedent`
+import { SummaryBox, SummaryBoxBody, SummaryBoxItem, SummaryFooterBody } from "@wpmudev/sui-summary-box"
+import { SegmentedControl, SegmentedControlButton } from "@wpmudev/sui-segmented-control"
+import { Button } from "@wpmudev/sui-button"
+import { Notification } from "@wpmudev/sui-notification"
+import { Score } from "@wpmudev/sui-score"
+
+    export const SuiSummaryBox = () => {
+        return (
+            <SummaryBox
+                icon="performance"
+                title="Performance Summary"
+                hideMobileIcon={true}
+                primaryActions={[
+                    <SegmentedControl key={0} name="type">
+                        <SegmentedControlButton value="visual" icon="Mobile" />
+                        <SegmentedControlButton value="code" icon="Desktop" />
+                    </SegmentedControl>,
+                    <div key={0}>
+                        <Button
+                            appearance="secondary"
+                            icon="trash"
+                            color="black"
+                            isSmall={true}
+                            isResponsive={true}
+                        >
+                            Clear Cache
+                        </Button>
+                    </div>,
+                ]}
+                secondaryActions={[
+                    <Button
+                        key={2}
+                        appearance="primary"
+                        icon="add"
+                        color="blue"
+                        isSmall={true}
+                        isFullWidth={true}
+                    >
+                        New test
+                     </Button>,
+                   ]}
+                >
+                <SummaryBoxBody
+                    summaryItems={[
+                        <SummaryBoxItem
+                            key={0}
+                            title="Browser Caching"
+                            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                            actionIcon="InfoAlt"
+                            actionState="green"
+                        />,
+                        <SummaryBoxItem
+                            key={1}
+                            title="Gzip compression"
+                            titleUrl={"google.com"}
+                            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                            actionIcon={false}
+                            actionTitle="10.33%"
+                            actionState="green"
+                        />,
+                        <SummaryBoxItem
+                            key={2}
+                            title="Assets Optimization"
+                            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                            actionIcon="CheckAlt"
+                            actionTitle="10.33%"
+                            actionState="success"
+                        />,
+                    ]}
+                >
+                    <Score bar={95} isSmall={false} value={10} state="success" />
+                    <h4>Desktop Site Performance Score</h4>
+                    <p>Last Checked : May 14, 2023 at 08:24am</p>
+                </SummaryBoxBody>
+                <SummaryFooterBody>
+                    <Notification
+                        id="notice"
+                        icon="InfoAlt"
+                        size="fluid"
+                        variation="info"
+    				    message={
+                            <>
+                                Your site performs better than 90 % sites out there. To boost the
+                                performance further, check the <a href="#">Pending Audits</a>
+                            </>
+                        }
+                    />
+                </SummaryFooterBody>
+            </SummaryBox>
+        )
+    }
+
+`
+
+<Section style={{ paddingTop: 30 }} border={true}>
 	<p>
-		Below is the default form of a button, used for most cases; it is not
-		impactful enough to represent the primary action in a container but
-		necessary in some scenarios.
+		This is a basic example of the Summary box component that shows its
+		structure in a clear way
 	</p>
 	<Preview wrapper={true}>
-		<Score bar={95} />
+		<SummaryBox
+			icon="performance"
+			title="Performance Summary"
+			hideMobileIcon={true}
+			primaryActions={["Primary Actions Go Here"]}
+			secondaryActions={["Secondary Actions Go Here"]}
+		>
+			<SummaryBoxBody
+				summaryItems={[
+					<SummaryBoxItem
+						key={0}
+						title="Browser Caching"
+						description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+						actionIcon="InfoAlt"
+						actionState="green"
+					/>,
+					<SummaryBoxItem
+						key={1}
+						title="Gzip compression"
+						titleUrl={"google.com"}
+						description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+						actionIcon={false}
+						actionTitle="10.33%"
+						actionState="green"
+					/>,
+					<SummaryBoxItem
+						key={2}
+						title="Assets Optimization"
+						description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+						actionIcon="CheckAlt"
+						actionTitle="10.33%"
+						actionState="success"
+					/>,
+				]}
+			>
+				The body content
+			</SummaryBoxBody>
+			<SummaryFooterBody>Footer Content</SummaryFooterBody>
+		</SummaryBox>
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
 
-<Section style={{ paddingTop: 0 }}>
-	<Switcher>
-		<div label="Types" value="types">
-			<Types />
-		</div>
-		<div label="States" value="states">
-			<States />
-		</div>
-		<div label="Size" value="size">
-			<Size />
-		</div>
-	</Switcher>
+<Section title="More Versatile Example" style={{ paddingTop: 60 }}>
+	<p>This is an example of the Summary Box with a richer content</p>
+	<Preview wrapper={true}>
+		<SummaryBox
+			icon="performance"
+			title="Performance Summary"
+			hideMobileIcon={true}
+			primaryActions={[
+				<SegmentedControl key={0} name="type">
+					<SegmentedControlButton value="visual" icon="Mobile" />
+					<SegmentedControlButton value="code" icon="Desktop" />
+				</SegmentedControl>,
+				<div key={0}>
+					<Button
+						appearance="secondary"
+						icon="trash"
+						color="black"
+						isSmall={true}
+						isResponsive={true}
+					>
+						Clear Cache
+					</Button>
+				</div>,
+			]}
+			secondaryActions={[
+				<Button
+					key={2}
+					appearance="primary"
+					icon="add"
+					color="blue"
+					isSmall={true}
+					isFullWidth={true}
+				>
+					New test
+				</Button>,
+			]}
+		>
+			<SummaryBoxBody
+				summaryItems={[
+					<SummaryBoxItem
+						key={0}
+						title="Browser Caching"
+						description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+						actionIcon="InfoAlt"
+						actionState="green"
+					/>,
+					<SummaryBoxItem
+						key={1}
+						title="Gzip compression"
+						titleUrl={"google.com"}
+						description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+						actionIcon={false}
+						actionTitle="10.33%"
+						actionState="green"
+					/>,
+					<SummaryBoxItem
+						key={2}
+						title="Assets Optimization"
+						description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+						actionIcon="CheckAlt"
+						actionTitle="10.33%"
+						actionState="success"
+					/>,
+				]}
+			>
+				<Score bar={95} isSmall={false} value={10} state="success" />
+				<h4>Desktop Site Performance Score</h4>
+				<p>Last Checked : May 14, 2023 at 08:24am</p>
+			</SummaryBoxBody>
+			<SummaryFooterBody>
+				<Notification
+					id="notice"
+					icon="InfoAlt"
+					size="fluid"
+					variation="info"
+					message={
+						<>
+							Your site performs better than 90 % sites out there. To boost the
+							performance further, check the <a href="#">Pending Audits</a>
+						</>
+					}
+				/>
+			</SummaryFooterBody>
+		</SummaryBox>
+	</Preview>
+	<Snippet language="js">{versatileCode}</Snippet>
 </Section>

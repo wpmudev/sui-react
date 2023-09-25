@@ -1,36 +1,79 @@
-import { Section, Row, Col, List } from '@wpmudev/storybook';
+import { Section, Row, Col, List } from "@wpmudev/storybook"
 
-import CodeSnippetAnatomy from '../images/anatomy.png';
+import Overview from "../images/overview.svg"
+import Anatomy from "../images/anatomy.svg"
+import Spacing from "../images/spacing.svg"
+import Variations from "../images/variations.svg"
+import Copied from "../images/copied.svg"
+import ScrollBar from "../images/scrollbar.svg"
 
-<Section contained={true} border={true} style={{ paddingTop: 0 }}>
-	<p>
-		This element is meant to be used to display code. By default, it will
-		place a copy button on top right of the container, that way users can
-		easily copy snippet content to clipboard.
-	</p>
-</Section>
-
-<Section title="Anatomy" contained={true} border={true}>
+<Section>
 	<img
-		src={CodeSnippetAnatomy}
-		alt="Code snippet anatomy"
+		src={Overview}
+		alt="Code Snippet Overview"
 		style={{ marginBottom: 20 }}
 	/>
-	<List>
-		<span
-			label={
-				<>
-					<strong>Snippet Text:</strong> Line or a block of codes.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Copy button:</strong> A copy button to copy the
-					code.
-				</>
-			}
-		/>
-	</List>
+</Section>
+
+<Section title="Anatomy">
+    <Row>
+		<Col style={ { display: "flex", flexDirection: "column", justifyContent: "center" } } >
+    		<h3 style={{marginTop: 0}}>1. Snippet text</h3>
+    		<p>Line or a block of codes.</p>
+
+    		<h3>2. Copy button</h3>
+    		<p>An optional copy button for copying the code.</p>
+
+    	</Col>
+    	<Col size="4">
+    		<img src={Anatomy} alt="Code Snippet Anatomy" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Spacing">
+	<img src={Spacing} alt="Code Snippet Spacing" />
+</Section>
+
+<Section title="Variations">
+	<img src={Variations} alt="Code Snippet Variations" />
+</Section>
+
+<Section title="States">
+	<Row>
+		<Col
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				justifyContent: "center",
+			}}
+		>
+			<h3 style={{ marginTop: 0 }}>1. Copy Notification</h3>
+			<p>
+				When the code snippet is copied, the user gets notified with a tooltip
+			</p>
+		</Col>
+		<Col>
+			<img src={Copied} alt="Code Snippet Copy Notification" />
+		</Col>
+	</Row>
+	<Row>
+		<Col
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				justifyContent: "center",
+			}}
+		>
+			<h3 style={{ marginTop: 0 }}>1. Horizontal Scroll Bar</h3>
+			<p>
+				When the width doesn't fit the code, the Code snippet will have a
+				Horizontal Bar
+			</p>
+		</Col>
+		<Col>
+			<img src={ScrollBar} alt="Code Snippet Scroll Bar" />
+		</Col>
+	</Row>
 </Section>

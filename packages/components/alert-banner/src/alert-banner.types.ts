@@ -40,6 +40,11 @@ interface AlertBannerProps {
 		| "critical"
 		| "plugin-upsell"
 		| "hub-upsell"
+
+	/**
+	 * Whether to center the banner text or not
+	 */
+	isCenter?: boolean
 }
 
-export { AlertBannerProps }
+export type { AlertBannerProps }

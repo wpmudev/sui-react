@@ -5,13 +5,13 @@ import { EmptyState as SuiEmptyState } from "../src"
 import { Button } from "@wpmudev/sui-button"
 import { Row } from "@wpmudev/sui-grid"
 
-import svgImage from "./images/empty-state.svg"
+import SvgImage from "./images/empty-state.svg"
 
 // Import documentation main page.
 import docs from "./EmptyState.mdx"
 
 // Build "EmptyState" story.
-const EmptyState = ({ title, content, ...props }) => {
+const EmptyState = ({ children, ...props }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -22,18 +22,7 @@ const EmptyState = ({ title, content, ...props }) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<SuiEmptyState {...props}>
-						<Row>
-							<h3 className="sui-heading--h3">{title}</h3>
-							<p>{content}</p>
-						</Row>
-						<Row align={{ md: "center" }}>
-							<Button appearance="secondary" color="blue" isSmall={true}>
-								Primary
-							</Button>
-							<Button appearance="primary" color="blue" isSmall={true}>
-								Secondary
-							</Button>
-						</Row>
+					    {children}
 					</SuiEmptyState>
 				</div>
 			</div>
@@ -43,27 +32,31 @@ const EmptyState = ({ title, content, ...props }) => {
 
 // Set story arguments.
 EmptyState.args = {
-	title: "This site has not yet been scanned.",
-	content:
-		"Defender watches and protects your login area for attackers trying to randomly guess login details for your site and locks them out after a set number of failed attempts.",
-	logo: svgImage,
+	logo: SvgImage,
+	children: (
+		<>
+			<Row>
+				<h3 className="sui-heading--h3">This site has not yet been scanned.</h3>
+				<p>	Defender watches and protects your login area for attackers trying to randomly guess login details for your site and locks them out after a set number of failed attempts.	</p>
+			</Row>
+
+			<Row align={{ md: "center" }}>
+				<Button appearance="secondary" color="blue" isSmall={true}>
+					Primary
+				</Button>
+				<Button appearance="primary" color="blue" isSmall={true}>
+					Secondary
+				</Button>
+			</Row>
+		</>
+	),
 }
 
 // Set controls for story arguments.
 EmptyState.argTypes = {
-	title: {
-		name: "Title",
-		description: "The title of the box.",
-		control: {
-			type: "text",
-		},
-	},
-	content: {
-		name: "Content",
-		description: "The description of the box.",
-		control: {
-			type: "text",
-		},
+	children: {
+		name: "Children",
+		description: "The content of the box",
 	},
 	logo: {
 		name: "Logo",

@@ -1,0 +1,77 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>AlertBanner</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+
+    <Section
+    	title={{ content: "variation*", tag: 'string', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Alert Banner variations</p>
+    	<p>
+    	Allowed options:
+    		<List>
+    			<span label={<Code small={true}>informative</Code>} />
+    			<span label={<Code small={true}>success</Code>} />
+    			<span label={<Code small={true}>warning</Code>} />
+    			<span label={<Code small={true}>critical</Code>} />
+				<span label={<Code small={true}>plugin-upsell</Code>} />
+				<span label={<Code small={true}>hub-upsell</Code>} />
+    		</List>
+    	</p>
+    </Section>
+
+	<Section
+    	title={{ content: "isCenter*", tag: 'boolean', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}>true</Code>, the banner text will be centered </p>
+    </Section>
+
+	<Section
+    	title={{ content: "actions*", tag: 'React Node', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The Banner actions, You can add any react elements to be displayed on the right, this is usually a button or a list of buttons  </p>
+    </Section>
+
+	<Section
+    	title={{ content: "displayIcon*", tag: 'boolean', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}> true </Code>, the banner will have an icon on the left</p>
+    </Section>
+
+	<Section
+    	title={{ content: "isDismissible*", tag: 'boolean', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}> true </Code>, the banner will include a dismiss button</p>
+    </Section>
+
+	 <Section
+    	title={{ content: "onDismiss*", tag: 'function', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A callback function to be invoked when the banner get dismissed</p>
+    </Section>
+
+	<Section
+    	title={{ content: "children*", tag: 'React Node', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Alert Banner content</p>
+    </Section>
+
+</Section>

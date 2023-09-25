@@ -89,7 +89,7 @@ CodeEditor.argTypes = {
 	},
 	language: {
 		name: "Code Language",
-		options: ["markup", "javascript", "css"],
+		options: ["markup", "javascript", "css", "php"],
 		control: {
 			type: "select",
 			labels: {

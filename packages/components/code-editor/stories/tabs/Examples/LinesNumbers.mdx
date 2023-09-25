@@ -1,0 +1,31 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { CodeEditor } from "../../../src"
+import { sampleCode, reactSampleCode } from "../TabExamples.mdx"
+import dedent from "dedent"
+
+export const hideLinesCode = dedent`
+    <CodeEditor displayLineNumbers={false} language="javascript">
+        import React from 'react';
+
+        const MyComponent = ({ name }) => {
+            return (
+                <div>
+                    <h1>Hello, {name}!</h1>
+                    <p>This is a basic React functional component.</p>
+                </div>
+            );
+        };
+
+        export default MyComponent;
+    </CodeEditor>
+`;
+
+<Section title="Hiding the Line Numbers" contained={true} style={{ paddingTop: 30, paddingLeft: 0 }} border={true}>
+	<p> To hide the lines' numbers use the prop <Code small={true}>displayLineNumbers=\{false\}</Code>  </p>
+	<Preview wrapper={true}>
+		<CodeEditor displayLineNumbers={false} language="javascript" >
+            {reactSampleCode}
+		</CodeEditor>
+	</Preview>
+	<Snippet language="js">{hideLinesCode}</Snippet>
+</Section>

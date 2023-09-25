@@ -1,88 +1,33 @@
-import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/storybook';
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 
 <Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
 	<p>
-		Install the <Code small={true}>Tab</Code> package as an individual
-		component or follow the Overview page instructions to get the complete
-		SUI Components package.
+		Install the <Code small={true}>EmptyState</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
 	</p>
 </Section>
 
 <Section title="Props" border={true}>
-	<p>We have the following props for score component.</p>
 	<Section
-		title={{ content: 'bar', tag: 'number', small: true }}
+		title={{ content: "logo*", tag: "string | React Element ", small: true }}
 		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
-		<p>Reflects the circle bar completed of the score.</p>
+		<p> The logo to be displayed, it could be a string or a React element like an SVG </p>
 	</Section>
-	<Section
-		title={{ content: 'value', tag: 'number', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>Reflects the value of the score which will be shown as a text.</p>
-	</Section>
-	<Section
-		title={{ content: 'content', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>Set if the score has text content.</p>
-	</Section>
-	<Section
-		title={{ content: 'state', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>
-			Depending upon the Task's Requirements, Particular task conditions
-			can change the Tab type. It can be an Success, Error or Warning
-			depending upon the task.
-		</p>
-		<p>Allowed options:</p>
-		<List>
-			<span
-				label={
-					<>
-						<Code small={true}>success</Code>: The is default
-						generic color for the Success, Tab value range is
-						61-100.
-					</>
-				}
-			/>
-			<span
-				label={
-					<>
-						<Code small={true}>warning</Code>: The is default
-						generic color for the Warning, Tab value range is
-						35-60.
-					</>
-				}
-			/>
-			<span
-				label={
-					<>
-						<Code small={true}>error</Code>: The is Error color of
-						the Error, Tab value range is 0-34.
-					</>
-				}
-			/>
-		</List>
-	</Section>
-	<Section
-		title={{ content: 'className', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>Add a class name to the score.</p>
-	</Section>
-	<Section
-		title={{ content: 'isPercentage', tag: 'boolean', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>Places an percentage after the score text.</p>
-	</Section>
-	<Section
-		title={{ content: 'isSmall', tag: 'boolean', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>Set if the score is small in size.</p>
-	</Section>
+
+    <Section
+    	title={{ content: "children*", tag: "ReactNode", small: true }}
+    	style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p> The content of the component, it could be any React element </p>
+    </Section>
+
+    <Section
+    	title={{ content: "className?", tag: "ReactNode", small: true }}
+    	style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p> Custom css className(s) </p>
+    </Section>
+
 </Section>

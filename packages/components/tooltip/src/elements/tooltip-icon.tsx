@@ -17,7 +17,7 @@ interface TooltipIconProps {
 }
 
 // Build "Icon" component.
-const Icon: React.FC<TooltipIconProps> = ({ name = "", size = "md" }) => {
+const Icon: React.FC<TooltipIconProps> = ({ name = "tooltip", size = "md" }) => {
 	const hasIcon = !isUndefined(name) && !isEmpty(name ?? "")
 
 	if (!hasIcon) {
