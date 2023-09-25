@@ -84,14 +84,7 @@ const AdvancedBanner = ({ ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div>
-					<SuiAdvancedBanner
-						{...props}
-						variation="black-friday"
-						discountPercentage="5"
-						ctaTitle="Buy Now!"
-					>
-						{children}
-					</SuiAdvancedBanner>
+					<SuiAdvancedBanner {...props}>{children}</SuiAdvancedBanner>
 				</div>
 			</div>
 		</div>
@@ -125,6 +118,16 @@ AdvancedBanner.argTypes = {
 			},
 		},
 	},
+	imageUrl: {
+		name: "Image Url",
+		control: {
+			type: "text",
+		},
+		if: {
+			arg: "variation",
+			neq: "black-friday",
+		},
+	},
 	title: {
 		name: "Title",
 		control: {
@@ -155,7 +158,7 @@ AdvancedBanner.argTypes = {
 			type: "text",
 		},
 		if: {
-			arg: "example",
+			arg: "variation",
 			eq: "black-friday",
 		},
 	},
@@ -165,7 +168,7 @@ AdvancedBanner.argTypes = {
 			type: "text",
 		},
 		if: {
-			arg: "example",
+			arg: "variation",
 			eq: "black-friday",
 		},
 	},
