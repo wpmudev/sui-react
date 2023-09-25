@@ -36,7 +36,7 @@ const Avatar: React.FC<AvatarProps> = ({
 	})
 
 	return (
-		<span className={classNames} {...props}>
+		<span className={classNames} {...props} data-testid="avatar">
 			{hasImage && <Image source={imageObj.src} text={imageObj.alt} />}
 			{!hasImage && <Icon />}
 			{hasStatus && <Status status={status ?? ""} />}
