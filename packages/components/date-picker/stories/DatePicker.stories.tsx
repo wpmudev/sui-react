@@ -20,7 +20,7 @@ export default {
 }
 
 // Build "Tag" story.
-const DatePicker = ({ color, ...props }) => {
+const DatePicker = ({ color, id, ...props }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -31,13 +31,13 @@ const DatePicker = ({ color, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<FormField id="datepicker" label="Datepicker">
+					<FormField id={id} label="Datepicker">
 						<SuiDatePicker
 							{...props}
 							onChange={console.log}
-							labelledby="datepicker-label"
-							describedby="datepicker-description"
-							errormessage="datepicker-error"
+							labelledby={`${id}-label`}
+							describedby={`${id}-description`}
+							errormessage={`${id}-error`}
 						>
 							DISPLAY RANGE PICKER
 						</SuiDatePicker>
@@ -50,6 +50,7 @@ const DatePicker = ({ color, ...props }) => {
 
 // Set story arguments.
 DatePicker.args = {
+	id: "ID",
 	type: "single",
 	startDate: "15/07/2023",
 	endDate: "15/09/2023",

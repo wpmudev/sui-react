@@ -62,7 +62,7 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 				iconPosition="start"
 				readOnly={true}
 				value={value ?? ""}
-				{...(ctx?.isError && { isError: ctx?.isError })}
+				{...(ctx?.isError && { isError: ctx.isError })}
 				{...(!isEmpty(props?.labelledby ?? "") && {
 					"aria-labelledby": props.labelledby,
 				})}
