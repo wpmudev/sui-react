@@ -9,15 +9,15 @@ import Tag from "../stories/images/tag.svg"
 // Build "advanced-banner" component
 const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 	variation = "",
-	imageUrl = "",
-	title = "",
-	description = "",
+	imageUrl = Tag,
+	title = "Banner Title Goes Here",
+	description = "Banner Description Goes Here",
 	children = null,
 	helper = null,
 	discountPercentage = "",
 	allowClose = true,
 	onClose = () => {},
-	// black friday variation props
+	// Black friday variation props
 	ctaTitle = "",
 	onCTAClick = () => {},
 	className,

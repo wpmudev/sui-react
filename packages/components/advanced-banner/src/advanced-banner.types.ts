@@ -25,6 +25,9 @@ interface AdvancedBannerBasePros extends HTMLProps<HTMLSpanElement> {
 	 * Customizes the display of the Banner
 	 */
 	variation: "plugin" | "hub" | "newsletter" | "black-friday"
+	/**
+	 * Custon css className(s)
+	 */
 	className?: string
 	/**
 	 * Whether to allow the user to close the component
@@ -51,7 +54,7 @@ type AdvancedBannerBlackFridayProps = {
 	 */
 	ctaTitle?: string
 	/**
-	 * Call back functon to be invoked when the action button is clicked
+	 * a Call back functon to be invoked when the action button is clicked
 	 */
 	onCTAClick?(): void
 } & AdvancedBannerBasePros
