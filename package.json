@@ -23,6 +23,7 @@
   ],
   "main": "src/components/index.ts",
   "input": "./src",
+  "output": "./dist",
   "directories": {
     "src": "src"
   },
