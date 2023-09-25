@@ -20,7 +20,7 @@ export default {
 }
 
 // Build "Tag" story.
-const ColorPicker = ({ color, ...props }) => {
+const ColorPicker = ({ color, id, ...props }) => {
 	const [currentColor, setCurrentColor] = useState<string>(color)
 
 	useEffect(() => {
@@ -37,8 +37,11 @@ const ColorPicker = ({ color, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<FormField id="color-picker" label="Select colour" isSmall={true}>
+					<FormField id={id} label="Select colour" isSmall={true}>
 						<SuiColorPicker
+							id={id}
+							labelledby={`${id}-label`}
+							errormessage={`${id}-error-message`}
 							color={currentColor}
 							onChange={setCurrentColor}
 							{...props}
@@ -52,12 +55,20 @@ const ColorPicker = ({ color, ...props }) => {
 
 // Set story arguments.
 ColorPicker.args = {
-	color: "#FFFFFF",
+	id: "colorpicker",
+	color: "#ffffff",
 	type: "hex",
+	isError: false,
 }
 
 // Set controls for story arguments.
 ColorPicker.argTypes = {
+	id: {
+		name: "ID",
+		control: {
+			type: "text",
+		},
+	},
 	color: {
 		name: "Color",
 		control: {

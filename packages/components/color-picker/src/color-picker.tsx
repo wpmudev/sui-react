@@ -7,6 +7,7 @@ import { Input } from "@wpmudev/sui-input"
 import PreviewImage from "./static/opaque.png"
 
 import Picker from "./elements/picker"
+import { generateCN } from "@wpmudev/sui-utils"
 
 /**
  * ColorPicker Component
@@ -19,8 +20,14 @@ import Picker from "./elements/picker"
  */
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
+	id = "",
 	color = "",
 	onChange,
+	placeholder = "Select color",
+	isError = false,
+	labelledby = "",
+	describedby = "",
+	errormessage = "",
 	...props
 }) => {
 	// State to manage the visibility of the color picker
@@ -67,15 +74,24 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	)
 
 	return (
-		<div className="sui-color-picker">
+		<div
+			className={generateCN("sui-color-picker", {
+				error: isError,
+			})}
+		>
 			<div className="sui-color-picker__color">
 				<Input
-					id="color-picker"
 					className="sui-color-picker__color--code"
 					value={tempColor}
 					onChange={inputColorChange}
-					placeholder="Select color"
+					placeholder={placeholder}
 					onClick={() => setShowPicker(true)}
+					isError={isError}
+					{...(id && { id })}
+					{...(labelledby && { "aria-labelledby": labelledby })}
+					{...(describedby && { "aria-describedby": describedby })}
+					{...(errormessage &&
+						isError && { "aria-errormessage": errormessage })}
 				/>
 
 				<div

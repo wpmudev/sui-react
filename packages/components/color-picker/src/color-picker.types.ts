@@ -7,6 +7,10 @@ interface ColorPickerProps {
 	 */
 	color?: string
 	/**
+	 * Color picker placeholder
+	 */
+	placeholder?: string
+	/**
 	 * Callback for color change
 	 */
 	onChange?: (color: any) => void
@@ -22,6 +26,26 @@ interface ColorPickerProps {
 	 * Callback for color button click
 	 */
 	onApplyButton?: () => void
+	/**
+	 * Specifies the color picker label id.
+	 */
+	labelledby?: string
+	/**
+	 * Specifies the color picker helper id.
+	 */
+	describedby?: string
+	/**
+	 * Specifies the color picker error id.
+	 */
+	errormessage?: string
+	/**
+	 * Specifies the color picker id.
+	 */
+	id: string
+	/**
+	 * Specifies if the color picker field has errors.
+	 */
+	isError: boolean
 }
 
 interface ColorPickerColorProps {
