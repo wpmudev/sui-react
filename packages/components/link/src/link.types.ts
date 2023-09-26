@@ -1,11 +1,11 @@
-import { ElementType } from "react"
+import React, { ElementType } from "react"
 
 /**
  * LinkProps is an interface that extends the HTMLAnchorElement interface
  * while allowing additional properties specific to the Link component.
  * It is used to define the set of properties that can be passed to the Link component.
  */
-interface LinkProps {
+interface LinkProps extends Partial<Omit<HTMLAnchorElement, "className">> {
 	/**
 	 * Link theme
 	 */
@@ -38,8 +38,7 @@ interface LinkProps {
 	 * If true, an external link icon may be displayed alongside the link text.
 	 */
 	hasExternalIcon?: boolean
-	// Other props like 'href', 'onClick', etc. can be inherited from HTMLAnchorElement.
-	props?: Omit<HTMLAnchorElement, "className">
+	children?: React.ReactNode
 }
 
 export { LinkProps }
