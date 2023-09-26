@@ -9,6 +9,7 @@ const Tag: React.FC<TagProps> = ({
 	className,
 	isSmall = false,
 	isUppercase = false,
+	isDisabled = false,
 	children,
 	...props
 }) => {
@@ -27,6 +28,7 @@ const Tag: React.FC<TagProps> = ({
 			[style]: hasStyle,
 			sm: isSmall,
 			uppercase: isUppercase,
+			disabled: isDisabled,
 		},
 		className,
 	)

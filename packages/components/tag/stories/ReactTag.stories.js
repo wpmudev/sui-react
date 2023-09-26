@@ -49,6 +49,7 @@ Tag.args = {
 	style: "",
 	isUppercase: false,
 	isSmall: false,
+	isDisabled: false,
 }
 
 // Set controls for story arguments.
@@ -104,6 +105,12 @@ Tag.argTypes = {
 	},
 	isSmall: {
 		name: "Small",
+		control: {
+			type: "boolean",
+		},
+	},
+	isDisabled: {
+		name: "Disabled",
 		control: {
 			type: "boolean",
 		},
