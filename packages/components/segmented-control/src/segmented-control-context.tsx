@@ -6,7 +6,7 @@ const SegmentedControlContext =
 	createContext<SegmentedControlContextProps | null>(null)
 
 // Custom hook to access and utilize the SegmentedControlContext.
-const useSegmentedControl = (value) => {
+const useSegmentedControl = (value: string | number) => {
 	// Get the SegmentedControlContext from the nearest Context Provider.
 	const ctx = useContext(SegmentedControlContext)
 

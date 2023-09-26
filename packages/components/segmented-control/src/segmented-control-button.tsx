@@ -33,6 +33,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	const isActive = value === ctxValue
 
 	// Get the appropriate icon component if provided.
+	// @ts-ignore
 	const IconTag = Icons?.[icon ?? ""] ?? null
 
 	return (
@@ -60,6 +61,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 				htmlFor={buttonId}
 				aria-hidden={true}
 				aria-checked={isActive}
+				data-testid="segmented-control-label"
 				onKeyDown={(e) => handleOnKeyDown(e, onClick)}
 				{...methods}
 			>

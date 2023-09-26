@@ -19,7 +19,7 @@ interface SegmentedControlProps {
 	// A boolean indicating whether the segmented control should take full width (optional).
 	isFullWidth?: boolean
 	// A callback function triggered when the value of the segmented control changes.
-	onChange(value: string | number): void
+	onChange?(value: string | number): void
 	// Default selected value
 	defaultValue?: string
 }
