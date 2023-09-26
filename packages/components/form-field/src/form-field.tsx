@@ -51,6 +51,7 @@ const FormField: React.FC<FormFieldProps> = ({
 	const ariaAttrs = {
 		id: fieldId,
 		isSmall,
+		isDisabled,
 		...(!isEmpty(label ?? "") && { "aria-labelledby": `${fieldId}-label` }),
 		...(!!helper && { "aria-describedby": `${fieldId}-helper` }),
 		...(isObject(error) &&

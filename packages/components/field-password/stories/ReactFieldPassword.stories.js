@@ -27,6 +27,7 @@ export const PasswordField = ({
 	helper,
 	errorMessage,
 	isError,
+	isDisabled,
 	...args
 }) => {
 	const boxStyles = {
@@ -51,6 +52,7 @@ export const PasswordField = ({
 		label,
 		helper,
 		error,
+		isDisabled,
 		isSmall: args.isSmall,
 	}
 
