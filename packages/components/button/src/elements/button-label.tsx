@@ -38,7 +38,11 @@ const Label: React.FC<ButtonLabelProps> = ({ hidden = false, children }) => {
 					{children}
 				</span>
 			)}
-			{!hidden && <span className="sui-button__label">{children}</span>}
+			{!hidden && (
+				<span className="sui-button__label" data-testid="button-label">
+					{children}
+				</span>
+			)}
 		</Fragment>
 	)
 }

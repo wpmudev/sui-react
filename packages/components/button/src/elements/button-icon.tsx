@@ -32,7 +32,11 @@ const Icon: React.FC<ButtonIconProps> = ({ name = "", size = "md" }) => {
 	})
 
 	return (
-		<span className="sui-button__icon" aria-hidden="true">
+		<span
+			className="sui-button__icon"
+			aria-hidden="true"
+			data-testid="button-icon"
+		>
 			<span className={classNames} />
 		</span>
 	)
