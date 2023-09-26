@@ -13,14 +13,14 @@ describe("@wpmudev/sui-avatar", () => {
 	})
 
 	// Test if the status is rendered when a status is provided
-	test("renders status", () => {
+	test("Renders status", () => {
 		render(<Avatar status="confirmed" />)
 		const statusElement = screen.getByTestId("avatar-status")
 		expect(statusElement).toBeInTheDocument()
 	})
 
 	// Test if the image avatar and alt text are rendered correctly
-	test("renders image avatar", () => {
+	test("Renders image avatar", () => {
 		const imageUrl = "https://placehold.co/400"
 		const altText = "This is an example alt"
 		render(<Avatar image={{ src: imageUrl, alt: altText }} />)
