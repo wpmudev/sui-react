@@ -19,6 +19,11 @@ interface EditorToolbarProps {
 	actions?(settingButton: ReactNode): ReactNode[]
 
 	/**
+	 * Whether to center the content or keep it aligned to the right
+	 */
+	alignCenter?: boolean
+
+	/**
 	 * Determines whether the back button is allowed in the toolbar.
 	 */
 	allowBack?: boolean
@@ -39,4 +44,4 @@ interface EditorToolbarProps {
 	children?: ReactNode
 }
 
-export { EditorToolbarProps }
+export type { EditorToolbarProps }
