@@ -1,4 +1,4 @@
-import { useCallback, useEffect, RefObject } from "react"
+import React, { useCallback, useEffect, RefObject } from "react"
 
 /**
  * Detect outer click
@@ -13,7 +13,7 @@ const useOuterClick = (ref: RefObject<any>, callback: Function = () => {}) => {
 	 * @type {(event) => void}
 	 */
 	const onPageClick = useCallback(
-		(event) => {
+		(event: DocumentEventMap["click"]) => {
 			if (ref?.current && !ref?.current.contains(event.target)) {
 				callback()
 			}
