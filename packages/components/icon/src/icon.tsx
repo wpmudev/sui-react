@@ -4,6 +4,7 @@ import React, {
 	Children,
 	cloneElement,
 	ReactNode,
+	ReactSVGElement,
 } from "react"
 
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
@@ -66,15 +67,17 @@ const Icon = forwardRef<"svg", IconProps>(
 		// Make icon accessible if onClick prop exists
 		if (!!onClick) {
 			svgProps.tabIndex = 0
-			svgProps.onKeyDown = (e) => handleOnKeyDown(e, onClick)
+			svgProps.onKeyDown = (
+				e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
+			) => handleOnKeyDown(e, onClick)
 		}
 
 		// Set the path for the icon (either from props or the default path)
 		let path = (children ?? params.path) as ReactNode
 
 		// Add svg props to all paths
-		path = Children.map(path, (child: ReactNode) =>
-			cloneElement(child, { fill }),
+		path = Children.map(path, (child) =>
+			cloneElement(child as ReactSVGElement, { fill }),
 		)
 
 		return (

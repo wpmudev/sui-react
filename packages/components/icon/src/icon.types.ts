@@ -33,6 +33,10 @@ interface IconProps {
 	 */
 	size?: "xms" | "sm" | "md" | "lg" | "xl"
 	/**
+	 * SVG fill color
+	 */
+	fill?: ""
+	/**
 	 * SVG icon state (color)
 	 */
 	color?: "" | "neutral" | "informative" | "success" | "warning" | "critical"
