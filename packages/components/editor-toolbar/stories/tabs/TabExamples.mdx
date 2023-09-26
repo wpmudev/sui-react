@@ -1,33 +1,182 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook";
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src";
-import dedent from "dedent";
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { EditorToolbar } from "../../src"
+import { Button } from "@wpmudev/sui-button"
+import {
+	SegmentedControl,
+	SegmentedControlButton,
+} from "@wpmudev/sui-segmented-control"
+import dedent from "dedent"
 
-{/* Import Variations */}
-import Neutral from "./Examples/Neutral.mdx"
-import Informative from "./Examples/Informative.mdx"
-import Success from "./Examples/Success.mdx"
+export const generalCode = dedent`
+import { EditorToolbar } from "@wpmudev/sui-editor-toolbar"
+import { Button } from "@wpmudev/sui-button"
+import {
+	SegmentedControl,
+	SegmentedControlButton,
+} from "@wpmudev/sui-segmented-control"
 
-export const sampleCode = dedent`
-    Basic Examples 
-`;
+    const actions = (settingBtn) => {
+      return [
+         <Button
+           key={0}
+           appearance="tertiary"
+           icon="save"
+           color="black"
+           isSmall={true}
+           isResponsive={true}
+         >
+           Save Draft
+         </Button>,
+         <Button
+           key={1}
+           appearance="secondary"
+           icon="show"
+           color="black"
+           isSmall={true}
+           isFullWidth={true}
+           isResponsive={true}
+         >
+           Preview
+         </Button>,
+    	     <Button
+            key={2}
+            appearance="primary"
+            icon="globe"
+            color="blue"
+            isSmall={true}
+            isFullWidth={true}
+         >
+            Publish
+         </Button>,
+          settingBtn,
+        ]
+    }
 
-<Section contained={true} style={{ paddingTop: 30 }}>
-  <p>Basic Accordion Example</p>
-  <Preview wrapper={true}>Basic Example</Preview>
-  <Snippet language="js">{sampleCode}</Snippet>
+    export const Example = () => {
+      return (
+        <EditorToolbar title="Toolbar Title" actions={actions}>
+          <SegmentedControl name="type">
+            <SegmentedControlButton
+               icon="Desktop"
+               isResponsive={true}
+               value="visual"
+             >
+                Visual
+             </SegmentedControlButton>
+            <SegmentedControlButton icon="Desktop" isResponsive={true} value="code">
+                Code
+            </SegmentedControlButton>
+          </SegmentedControl>
+        </EditorToolbar>
+      )
+    }
+
+`
+
+export const centeredContentCode = dedent`
+<EditorToolbar alignCenter={true} title="Toolbar Title" actions={actions}/>
+`
+
+export const disallowBackCode = dedent`
+<EditorToolbar allowBack={false} title="Toolbar Title" actions={actions}/>
+`
+
+export const actions = (settingBtn) => {
+	return [
+		<Button
+			key={0}
+			appearance="tertiary"
+			icon="save"
+			color="black"
+			isSmall={true}
+			isResponsive={true}
+		>
+			Save Draft
+		</Button>,
+		<Button
+			key={1}
+			appearance="secondary"
+			icon="show"
+			color="black"
+			isSmall={true}
+			isFullWidth={true}
+			isResponsive={true}
+		>
+			Preview
+		</Button>,
+		<Button
+			key={2}
+			appearance="primary"
+			icon="globe"
+			color="blue"
+			isSmall={true}
+			isFullWidth={true}
+		>
+			Publish
+		</Button>,
+		settingBtn,
+	]
+}
+
+<Section contained={false} style={{ paddingTop: 30 }}>
+	<p>Below is a general example of the Editor Toolbar</p>
+	<Preview wrapper={true}>
+		<EditorToolbar title="Toolbar Title" actions={actions}>
+			<SegmentedControl name="type">
+				<SegmentedControlButton
+					icon="Desktop"
+					isResponsive={true}
+					value="visual"
+				>
+					Visual
+				</SegmentedControlButton>
+				<SegmentedControlButton icon="Desktop" isResponsive={true} value="code">
+					Code
+				</SegmentedControlButton>
+			</SegmentedControl>
+		</EditorToolbar>
+	</Preview>
+	<Snippet language="js">{generalCode}</Snippet>
 </Section>
 
-<Section title="State" style={{ paddingTop: 0 }}>
-  Use this if you need to switch between multiple options
-  <Switcher>
-    <div label="neutral" value="neutral">
-      <Neutral />
-    </div>
-    <div label="informative" value="informative">
-      <Informative />
-    </div>
-    <div label="success" value="success">
-      <Success />
-    </div>
-  </Switcher>
+<Section title="Centered Content" contained={false} style={{ paddingTop: 30 }}>
+	<p>Use the prop <Code small={true}>alignCenter=\{true\}</Code> to center the content</p>
+	<Preview wrapper={true}>
+		<EditorToolbar alignCenter={true} title="Toolbar Title" actions={actions}>
+			<SegmentedControl name="type">
+				<SegmentedControlButton
+					icon="Desktop"
+					isResponsive={true}
+					value="visual"
+				>
+					Visual
+				</SegmentedControlButton>
+				<SegmentedControlButton icon="Desktop" isResponsive={true} value="code">
+					Code
+				</SegmentedControlButton>
+			</SegmentedControl>
+		</EditorToolbar>
+	</Preview>
+	<Snippet language="js">{centeredContentCode}</Snippet>
+</Section>
+
+<Section title="Centered Content" contained={false} style={{ paddingTop: 30 }}>
+	<p>Use the prop <Code small={true}>allowBack=\{false\}</Code> to remove the back button</p>
+	<Preview wrapper={true}>
+		<EditorToolbar allowBack={false} title="Toolbar Title" actions={actions}>
+			<SegmentedControl name="type">
+				<SegmentedControlButton
+					icon="Desktop"
+					isResponsive={true}
+					value="visual"
+				>
+					Visual
+				</SegmentedControlButton>
+				<SegmentedControlButton icon="Desktop" isResponsive={true} value="code">
+					Code
+				</SegmentedControlButton>
+			</SegmentedControl>
+		</EditorToolbar>
+	</Preview>
+	<Snippet language="js">{disallowBackCode}</Snippet>
 </Section>

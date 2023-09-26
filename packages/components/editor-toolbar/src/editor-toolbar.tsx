@@ -28,7 +28,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 		/>
 	)
 
-	let actionsList = []
+	let actionsList: React.ReactNode[] = []
 
 	if (!!actions) {
 		actionsList = [...actions(settingButton)]
