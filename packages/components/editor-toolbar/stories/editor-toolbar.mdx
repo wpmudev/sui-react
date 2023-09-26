@@ -1,6 +1,24 @@
+import { Page } from "@wpmudev/storybook"
 import { Unstyled } from "@storybook/blocks"
 
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+
 <Unstyled>
-
-
+	<Page.Tabs
+		title="Editor Toolbar"
+		subtitle="Editor toolbar is used at the top of the editing page replacing the main navigation."
+		status="draft"
+	>
+		<div id="usage" label="Usage">
+			<TabUsage />
+		</div>
+		<div id="code" label="Code">
+			<TabCode />
+		</div>
+		<div id="examples" label="Examples">
+			<TabExamples />
+		</div>
+	</Page.Tabs>
 </Unstyled>
