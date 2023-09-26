@@ -13,9 +13,20 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(box) {
-					outline: 2px solid $radio-input-border-color-active;
-					outline-offset: 2px;
+					outline: $border-width-md solid $color-extended-neutral-50;
+					outline-offset: $border-width-md;
 					border-color: $radio-input-border-color-active;
+				}
+
+				&.sui-#{$block}--checked {
+					@include modifies-element(box) {
+						outline-color: $color-primary-50;
+					}
+				}
+
+				&.sui-#{$block}--block {
+					outline-width: $border-width-md;
+					background: transparent;
 				}
 			}
 		}
@@ -27,7 +38,7 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(box) {
-					outline: 2px solid $color-extended-neutral-0;
+					outline: $border-width-md solid $color-extended-neutral-0;
 					border-color: $color-extended-neutral-0;
 				}
 			}

@@ -16,6 +16,11 @@
 					border-color: $radio-input-border-color-active;
 					background: $radio-input-background-active;
 				}
+
+				&.sui-#{$block}--block {
+					outline-color: $color-primary-80;
+					background: $color-primary-90;
+				}
 			}
 		}
 	}
@@ -28,6 +33,11 @@
 				@include modifies-element(box) {
 					border-color: $color-extended-neutral-0;
 					background: $color-extended-neutral-0;
+				}
+
+				&.sui-#{$block}--block {
+					outline-color: $color-extended-neutral-0;
+					background: $color-extended-neutral-100;
 				}
 			}
 		}

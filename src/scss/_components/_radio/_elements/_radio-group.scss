@@ -1,0 +1,44 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Container
+/// This function creates styles for the main container
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-radiogroup($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			display: flex;
+			flex-direction: column;
+			gap: $spacing-md;
+
+			@include modifier(inline) {
+				flex-direction: row;
+				gap: $spacing-xl;
+
+				@include media(max-width, md) {
+					flex-direction: column;
+				}
+			}
+
+			@include modifier(sm) {
+				font-size: $font-size-xs;
+				line-height: $radio-font-height-sm;
+
+				.sui-radio__box {
+					width: $radio-input-size-sm;
+					height: $radio-input-size-sm;
+				}
+
+				.sui-radio__icon {
+					width: $radio-icon-size-sm;
+					height: $radio-icon-size-sm;
+				}
+			}
+		}
+	}
+}

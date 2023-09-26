@@ -12,7 +12,7 @@
 @mixin build-color($block-name) {
 	// DIR: Left to right.
 	// THEME: Light.
-	@include sui-class($rtl: false, $theme: light) {
+	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			// Variation: Semantic (Solid)
 			@each $name, $value in $colors {
