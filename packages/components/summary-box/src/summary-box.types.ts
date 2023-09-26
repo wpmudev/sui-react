@@ -17,19 +17,27 @@ interface SummaryBoxProps {
 	 */
 	icon?: string
 	/**
+	 * Whether to hide the icon on mobile or not
+	 */
+	hideMobileIcon?: boolean
+	/**
 	 * Primary actions to be displayed in the header left (optional).
 	 * It can be either an array of objects or a string.
 	 */
-	primaryActions?: Record<string, any>[] | string
+	primaryActions?: React.ReactElement[] | string
 	/**
 	 * Secondary actions to be displayed in the header right (optional).
 	 * It can be either an array of objects or a string.
 	 */
-	secondaryActions?: Record<string, any>[] | string
+	secondaryActions?: React.ReactElement[] | string
 	/**
 	 * Additional CSS class names for the summary box element (optional).
 	 */
 	className?: string
+	/**
+	 * Content of the Summary Box
+	 */
+	children?: string
 }
 
 /**
@@ -87,6 +95,10 @@ interface SummaryBoxItemProps extends HTMLProps<HTMLDivElement> {
 	 * Additional CSS class names for the summary item element (optional).
 	 */
 	className?: string
+	/**
+	 * The item action icon
+	 */
+	actionIcon?: string
 }
 
 /**
@@ -105,7 +117,7 @@ interface SummaryFooterBodyProps {
 	children?: React.ReactNode
 }
 
-export {
+export type {
 	SummaryBoxProps,
 	SummaryBoxBodyProps,
 	SummaryBoxItemProps,
