@@ -22,13 +22,13 @@ const Score: React.FC<ScoreProps> = ({
 			warning: !state && 35 <= value && 60 >= value,
 			error: !state && value < 35,
 			// add class based on state type
-			[state]: !!state,
+			[state as string]: !!state,
 		},
 		className,
 	)
 
 	return (
-		<div className={classNames} {...props}>
+		<div className={classNames} {...props} data-testid="score">
 			<svg
 				viewBox="0 0 100 100"
 				className="sui-score__svg"
@@ -76,7 +76,7 @@ const Score: React.FC<ScoreProps> = ({
 				{isPercentage && <span className="sui-score--percentage">%</span>}{" "}
 				{!!content && !!isSmall && content}
 			</span>
-			<span className="sui-screen-reader-only" tabIndex="0">
+			<span className="sui-screen-reader-only" tabIndex={0}>
 				Score {value} out of 100
 			</span>
 		</div>
