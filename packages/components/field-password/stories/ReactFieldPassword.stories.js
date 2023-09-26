@@ -20,7 +20,14 @@ export default {
 }
 
 // Build story
-export const PasswordField = ({ buttonType, ...args }) => {
+export const PasswordField = ({
+	buttonType,
+	label,
+	helper,
+	id,
+	errorMessage,
+	...args
+}) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -34,17 +41,16 @@ export const PasswordField = ({ buttonType, ...args }) => {
 	// Define field error state
 	const error = Object.assign({
 		state: args.isError,
-		text: args.errorMessage,
+		text: errorMessage,
 	})
 
 	// Field settings
 	const fieldAttrs = {
-		id: args.id,
-		label: args.label,
-		helper: args.helper,
-		isLabelHidden: args.isLabelHidden,
-		isSmall: args.isSmall,
+		id,
+		label,
+		helper,
 		error,
+		isSmall: args.isSmall,
 	}
 
 	return (
@@ -52,7 +58,11 @@ export const PasswordField = ({ buttonType, ...args }) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<FormField {...fieldAttrs}>
-						<SuiPasswordField button={button} {...args} />
+						<SuiPasswordField
+							button={button}
+							{...args}
+							placeholder="Password"
+						/>
 					</FormField>
 				</div>
 			</div>
@@ -67,7 +77,6 @@ PasswordField.args = {
 	helper: "Create a password of minimum 8 characters",
 	errorMessage: "The password you inserted is not valid",
 	buttonType: "icon-button",
-	isLabelHidden: false,
 	isError: false,
 	isDisabled: false,
 }
@@ -79,6 +88,9 @@ PasswordField.argTypes = {
 	},
 	label: {
 		name: "Label",
+	},
+	helper: {
+		name: "Helper",
 	},
 	errorMessage: {
 		name: "Error Message",
@@ -93,10 +105,6 @@ PasswordField.argTypes = {
 				standard: "Button",
 			},
 		},
-	},
-	isLabelHidden: {
-		name: "SR Label",
-		control: "boolean",
 	},
 	isError: {
 		name: "Error",
