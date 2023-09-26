@@ -10,11 +10,7 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 >(
 	({
 		id,
-		label,
-		helper,
-		errorMessage,
 		button = { type: "" },
-		isLabelHidden = false,
 		isSmall = false,
 		isError = false,
 		isDisabled = false,
