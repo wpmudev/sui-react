@@ -9,25 +9,9 @@ interface PasswordFieldProps extends HTMLProps<HTMLDivElement> {
 	 */
 	id: string
 	/**
-	 * Label for the password field.
-	 */
-	label?: string
-	/**
-	 * Helper text for the password field.
-	 */
-	helper?: React.ReactNode
-	/**
-	 * Error message for the password field.
-	 */
-	errorMessage?: string | React.ReactNode
-	/**
 	 * Button text for the password field.
 	 */
 	button?: { type: string }
-	/**
-	 * Indicates whether the label should be hidden.
-	 */
-	isLabelHidden?: boolean
 	/**
 	 * Indicates the size of the field.
 	 */

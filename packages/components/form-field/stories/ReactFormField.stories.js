@@ -39,39 +39,19 @@ export const FormField = ({ example, ...args }) => {
 					<SUIFormField {...args}>
 						{"input" === example && (
 							<Input
-								id={args.id}
 								placeholder={args.placeholder}
 								isError={args.error?.state}
 								isSmall={args.isSmall}
 								isDisabled={args.isDisabled}
-								{...(!!args.label && {
-									"aria-labelledby": `${args.id}__label`,
-								})}
-								{...(!!args.helper && {
-									"aria-describedby": `${args.id}__helper`,
-								})}
-								{...(!!args.error?.state && {
-									"aria-errormessage": `${args.id}__error-message`,
-								})}
 							/>
 						)}
 						{"textarea" === example && (
 							<Textarea
 								rows={7}
-								id={args.id}
 								placeholder={args.placeholder}
 								isError={args.error?.state}
 								isSmall={args.isSmall}
 								isDisabled={args.isDisabled}
-								{...(!!args.label && {
-									"aria-labelledby": `${args.id}__label`,
-								})}
-								{...(!!args.helper && {
-									"aria-describedby": `${args.id}__helper`,
-								})}
-								{...(!!args.error?.state && {
-									"aria-errormessage": `${args.id}__error-message`,
-								})}
 							/>
 						)}
 					</SUIFormField>
@@ -84,7 +64,6 @@ export const FormField = ({ example, ...args }) => {
 // Define playground arguments
 FormField.args = {
 	example: "",
-	id: "myCustomElement",
 	label: "Label",
 	placeholder: "Placeholder",
 	helper: "Helper text",

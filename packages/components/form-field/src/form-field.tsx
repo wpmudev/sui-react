@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 import { isObject, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 // Import required modules
@@ -10,7 +10,7 @@ import { FormFieldProps } from "./form-field.types"
 
 // Build form field component
 const FormField: React.FC<FormFieldProps> = ({
-	id,
+	id = "",
 	label,
 	helper,
 	error,
@@ -21,6 +21,13 @@ const FormField: React.FC<FormFieldProps> = ({
 	children,
 	...props
 }) => {
+	// Define a unique id.
+	let fieldId = useId()
+
+	if (!isEmpty(id)) {
+		fieldId = id
+	}
+
 	// Define error object
 	const errorObj = Object.assign(
 		{
@@ -40,22 +47,44 @@ const FormField: React.FC<FormFieldProps> = ({
 		className,
 	)
 
+	// Define aria attributes.
+	const ariaAttrs = {
+		id: fieldId,
+		isSmall,
+		...(!isEmpty(label ?? "") && { "aria-labelledby": `${fieldId}-label` }),
+		...(!!helper && { "aria-describedby": `${fieldId}-helper` }),
+		...(isObject(error) &&
+			Object.keys(error).length > 0 &&
+			errorObj.state && {
+				"aria-errormessage": `${fieldId}-error-message`,
+				isError: true,
+			}),
+	}
+
 	// Render field
 	return (
 		<div className={classNames} {...props}>
 			{!isEmpty(label ?? "") && (
-				<Label id={id} hidden={isLabelHidden ?? false}>
+				<Label id={fieldId} hidden={isLabelHidden ?? false}>
 					{label}
 				</Label>
 			)}
-			{children}
+			{Object.keys(ariaAttrs).length > 0
+				? React.Children.map(children, (child) => {
+						// Pass ariaAttrs as a prop to children
+						if (React.isValidElement(child)) {
+							return React.cloneElement(child, { ...ariaAttrs })
+						}
+						return child
+				  })
+				: children}
 			{isObject(error) && Object.keys(error).length > 0 && errorObj.state && (
-				<ErrorMessage id={id} show={errorObj.state} small={isSmall}>
+				<ErrorMessage id={fieldId} show={errorObj.state} small={isSmall}>
 					{errorObj.text}
 				</ErrorMessage>
 			)}
 			{!!helper && (
-				<Helper id={id} small={isSmall}>
+				<Helper id={fieldId} small={isSmall}>
 					{helper}
 				</Helper>
 			)}
