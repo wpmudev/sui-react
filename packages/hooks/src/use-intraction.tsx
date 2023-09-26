@@ -38,11 +38,8 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 		onBlurCapture,
 	} = methods as InteractionTypes
 
-	type EventType =
-		| FocusEventHandler<HTMLButtonElement | HTMLAnchorElement>
-		| MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>
-		| MouseEvent
-		| undefined
+	// @todo: need type fix
+	type EventType = any
 
 	/**
 	 * Toggle hover state
