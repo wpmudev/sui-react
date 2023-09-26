@@ -4,7 +4,18 @@ import dedent from "dedent"
 import { FormField } from "@wpmudev/sui-form-field"
 
 export const SmallPasswordFieldCode = dedent`
-    <PasswordField isSmall={true} id="password-field-id-1" label="Label" helper="Help text" />
+<FormField
+	id="passwordId"
+	label="Label"
+	helper="Help text"
+	isSmall={true}
+	error={{
+		state: false,
+		text: "Error message",
+	}}
+>
+	<PasswordField id="password-field-id-1" placeholder="Enter your password" />
+</FormField>
 `
 
 <Section
@@ -13,7 +24,21 @@ export const SmallPasswordFieldCode = dedent`
 	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
 >
 	<Preview wrapper={true}>
-	    <PasswordField isSmall={true} id="password-field-id-1" label="Label" helper="Help text" />
+		<FormField
+			id="passwordId"
+			label="Label"
+			helper="Help text"
+			isSmall={true}
+			error={{
+				state: false,
+				text: "Error message",
+			}}
+		>
+			<PasswordField
+				id="password-field-id-1"
+				placeholder="Enter your password"
+			/>
+		</FormField>
 	</Preview>
 	<Snippet language="js">{SmallPasswordFieldCode}</Snippet>
 </Section>

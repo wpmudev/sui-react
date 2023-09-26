@@ -21,11 +21,12 @@ export default {
 
 // Build story
 export const PasswordField = ({
+	id,
 	buttonType,
 	label,
 	helper,
-	id,
 	errorMessage,
+	isError,
 	...args
 }) => {
 	const boxStyles = {
@@ -40,7 +41,7 @@ export const PasswordField = ({
 
 	// Define field error state
 	const error = Object.assign({
-		state: args.isError,
+		state: isError,
 		text: errorMessage,
 	})
 
@@ -58,11 +59,7 @@ export const PasswordField = ({
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<FormField {...fieldAttrs}>
-						<SuiPasswordField
-							button={button}
-							{...args}
-							placeholder="Password"
-						/>
+						<SuiPasswordField button={button} {...args} />
 					</FormField>
 				</div>
 			</div>
@@ -73,18 +70,23 @@ export const PasswordField = ({
 // Story props defaults
 PasswordField.args = {
 	id: "myPasswordField",
+	placeholder: "Enter your password",
 	label: "Password",
 	helper: "Create a password of minimum 8 characters",
 	errorMessage: "The password you inserted is not valid",
 	buttonType: "icon-button",
 	isError: false,
 	isDisabled: false,
+	isSmall: false,
 }
 
 // Story props settings
 PasswordField.argTypes = {
 	id: {
 		name: "ID",
+	},
+	placeholder: {
+		name: "Placeholder",
 	},
 	label: {
 		name: "Label",
@@ -112,6 +114,10 @@ PasswordField.argTypes = {
 	},
 	isDisabled: {
 		name: "Disabled",
+		control: "boolean",
+	},
+	isSmall: {
+		name: "Small",
 		control: "boolean",
 	},
 }

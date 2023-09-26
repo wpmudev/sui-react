@@ -50,11 +50,15 @@ const FormField: React.FC<FormFieldProps> = ({
 	// Define aria attributes.
 	const ariaAttrs = {
 		id: fieldId,
+		isSmall,
 		...(!isEmpty(label ?? "") && { "aria-labelledby": `${fieldId}-label` }),
 		...(!!helper && { "aria-describedby": `${fieldId}-helper` }),
 		...(isObject(error) &&
 			Object.keys(error).length > 0 &&
-			errorObj.state && { "aria-errormessage": `${fieldId}-error-message` }),
+			errorObj.state && {
+				"aria-errormessage": `${fieldId}-error-message`,
+				isError: true,
+			}),
 	}
 
 	// Render field
