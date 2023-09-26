@@ -1,4 +1,5 @@
 import React from "react"
+import { FormField } from "@wpmudev/sui-form-field"
 
 // Import required modules
 import { PasswordField as SuiPasswordField } from "../src"
@@ -30,11 +31,29 @@ export const PasswordField = ({ buttonType, ...args }) => {
 		type: buttonType,
 	}
 
+	// Define field error state
+	const error = Object.assign({
+		state: args.isError,
+		text: args.errorMessage,
+	})
+
+	// Field settings
+	const fieldAttrs = {
+		id: args.id,
+		label: args.label,
+		helper: args.helper,
+		isLabelHidden: args.isLabelHidden,
+		isSmall: args.isSmall,
+		error,
+	}
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiPasswordField button={button} {...args} />
+					<FormField {...fieldAttrs}>
+						<SuiPasswordField button={button} {...args} />
+					</FormField>
 				</div>
 			</div>
 		</div>

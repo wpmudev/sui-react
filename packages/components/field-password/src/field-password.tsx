@@ -1,5 +1,4 @@
 import React, { forwardRef, useState } from "react"
-import { FormField } from "@wpmudev/sui-form-field"
 import { Input } from "@wpmudev/sui-input"
 import { Button } from "@wpmudev/sui-button"
 
@@ -21,25 +20,9 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 		isDisabled = false,
 		...props
 	}) => {
-		// Define field error state
-		const error = Object.assign({
-			state: isError,
-			text: errorMessage,
-		})
-
 		// Define password visibility
 		const [hasValue, setHasValue] = useState(false)
 		const [isVisible, setVisible] = useState(false)
-
-		// Field settings
-		const fieldAttrs = {
-			id,
-			label,
-			helper,
-			error,
-			isLabelHidden,
-			isSmall,
-		}
 
 		// Input settings
 		const inputAttrs = {
@@ -54,9 +37,6 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 				setHasValue(getValue.length > 0)
 			},
 			isSmall,
-			...(label && { "aria-labelledby": `${id}-label` }),
-			...(helper && { "aria-describedby": `${id}-helper` }),
-			...(isError && { "aria-errormessage": `${id}-error-message` }),
 			...props,
 		}
 
@@ -78,12 +58,10 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 		}
 
 		return (
-			<FormField {...fieldAttrs}>
-				<div className="sui-password">
-					<Input {...inputAttrs} />
-					<Button {...buttonProps}>{buttonProps.label}</Button>
-				</div>
-			</FormField>
+			<div className="sui-password">
+				<Input {...inputAttrs} />
+				<Button {...buttonProps}>{buttonProps.label}</Button>
+			</div>
 		)
 	},
 )
