@@ -40,9 +40,9 @@ describe("@wpmudev/sui-checkbox", () => {
 	})
 
 	// Test case for testing the checked prop
-	it("checked works fine", () => {
+	it("isChecked works fine", () => {
 		// Render the Checkbox component with checked set to true
-		render(<Checkbox checked={true} />)
+		render(<Checkbox isChecked={true} />)
 
 		// Get the Checkbox element
 		const checkboxEl = screen.getByTestId("checkbox")
