@@ -114,7 +114,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	}
 
 	return (
-		<div className={classNames} {...methods}>
+		<div className={classNames} {...methods} data-testid="tooltip">
 			{renderTrigger()}
 			{!!children && (
 				<span
