@@ -23,7 +23,7 @@ export default {
 }
 
 // Build component playground
-export const FormField = ({ example, ...args }) => {
+export const FormField = ({ example, type, ...args }) => {
 	const set = {}
 
 	set.box = {
@@ -43,6 +43,7 @@ export const FormField = ({ example, ...args }) => {
 								isError={args.error?.state}
 								isSmall={args.isSmall}
 								isDisabled={args.isDisabled}
+								type={type}
 							/>
 						)}
 						{"textarea" === example && (
@@ -64,6 +65,7 @@ export const FormField = ({ example, ...args }) => {
 // Define playground arguments
 FormField.args = {
 	example: "",
+	type: "text",
 	label: "Label",
 	placeholder: "Placeholder",
 	helper: "Helper text",
@@ -87,6 +89,17 @@ FormField.argTypes = {
 				input: "Example: Field + Input",
 				textarea: "Example: Field + Textarea",
 			},
+		},
+	},
+	type: {
+		name: "Type",
+		options: ["text", "email", "password", "number", "search", "tel", "url"],
+		control: {
+			type: "select",
+		},
+		if: {
+			arg: "example",
+			eq: "input",
 		},
 	},
 	id: {
