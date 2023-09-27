@@ -2,7 +2,6 @@ import React from "react"
 
 // Import required component
 import { Search as SuiSearch } from "../src"
-import { FormField } from "@wpmudev/sui-form-field"
 
 // Import documentation main page
 import docs from "./search.mdx"
@@ -47,9 +46,7 @@ const Search = ({ example, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={{ padding: "20px", backgroundColor: "white" }}>
-					<FormField id="countries-list" label="Select country" isSmall={true}>
-						<SuiSearch {...props} options={options} />
-					</FormField>
+					<SuiSearch {...props} options={options} />
 				</div>
 			</div>
 		</div>
