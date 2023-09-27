@@ -27,25 +27,13 @@ interface ColorPickerProps {
 	 */
 	onApplyButton?: () => void
 	/**
-	 * Specifies the color picker label id.
-	 */
-	labelledby?: string
-	/**
-	 * Specifies the color picker helper id.
-	 */
-	describedby?: string
-	/**
-	 * Specifies the color picker error id.
-	 */
-	errormessage?: string
-	/**
-	 * Specifies the color picker id.
-	 */
-	id: string
-	/**
 	 * Specifies if the color picker field has errors.
 	 */
 	isError: boolean
+	/**
+	 * Specifies if the color picker field is disabled.
+	 */
+	isDisabled: boolean
 }
 
 interface ColorPickerColorProps {
