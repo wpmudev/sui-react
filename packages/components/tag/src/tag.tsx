@@ -34,7 +34,7 @@ const Tag: React.FC<TagProps> = ({
 	)
 
 	return (
-		<span className={classNames} {...props}>
+		<span className={classNames} {...props} data-testid="tag">
 			<span className="sui-tag__label">{children}</span>
 		</span>
 	)
