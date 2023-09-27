@@ -5,6 +5,9 @@ import { render, screen } from "@testing-library/react"
 import { Tooltip } from "../src"
 
 describe("@wpmudev/sui-tooltip", () => {
+	const label = "Tooltip Label"
+	const description = "Tooltip Description"
+
 	// Test case to check if the Tooltip renders correctly
 	it("Renders correctly", () => {
 		// Render the Tooltip component with the provided label and description
