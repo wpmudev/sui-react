@@ -71,6 +71,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 		return (
 			<label
 				htmlFor={id}
+				data-testid="checkbox"
 				className={generateCN("sui-checkbox", {
 					"hidden-label": isLabelHidden,
 					disabled: isDisabled,
