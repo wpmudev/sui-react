@@ -1,33 +1,24 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook";
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src";
-import dedent from "dedent";
-
-{/* Import Variations */}
-import Neutral from "./Examples/Neutral.mdx"
-import Informative from "./Examples/Informative.mdx"
-import Success from "./Examples/Success.mdx"
-
-export const sampleCode = dedent`
-    Basic Examples 
-`;
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import {
+	BasicPagination,
+	BasicExampleCode,
+	SkipButtonsExample,
+	SkipButtonsCode,
+} from "./Examples/Examples"
+import dedent from "dedent"
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-  <p>Basic Accordion Example</p>
-  <Preview wrapper={true}>Basic Example</Preview>
-  <Snippet language="js">{sampleCode}</Snippet>
+	<p>Below is a general example of using pagination</p>
+	<Preview wrapper={true}>
+		<BasicPagination />
+	</Preview>
+	<Snippet language="js">{BasicExampleCode}</Snippet>
 </Section>
 
-<Section title="State" style={{ paddingTop: 0 }}>
-  Use this if you need to switch between multiple options
-  <Switcher>
-    <div label="neutral" value="neutral">
-      <Neutral />
-    </div>
-    <div label="informative" value="informative">
-      <Informative />
-    </div>
-    <div label="success" value="success">
-      <Success />
-    </div>
-  </Switcher>
+<Section title="Skip Buttons" contained={true} style={{ paddingTop: 30 }}>
+	<p>Use the prop <Code small={true}>skip=\{true\}</Code> to allow for skip navigation</p>
+	<Preview wrapper={true}>
+		<SkipButtonsExample />
+	</Preview>
+	<Snippet language="js">{SkipButtonsCode}</Snippet>
 </Section>
