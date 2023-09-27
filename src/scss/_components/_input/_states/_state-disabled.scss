@@ -21,6 +21,7 @@
 
 				@include modifies-element(input) {
 					pointer-events: none;
+					user-select: none;
 					background: $input-bg-disabled;
 					color: $input-font-color-disabled;
 				}
