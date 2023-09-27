@@ -19,6 +19,13 @@ export const CALENDARS: { [key: string]: symbol } = {
 // It accepts a set of props as input, including a className and other possible props.
 const DatePicker: React.FC<DatePickerProps> = ({
 	className = "",
+	type = "single",
+	startDate,
+	endDate,
+	minDate,
+	maxDate,
+	isDisabled,
+	children,
 	...props
 }) => {
 	// Generate class names for the component
@@ -31,11 +38,22 @@ const DatePicker: React.FC<DatePickerProps> = ({
 		className ?? "",
 	)
 
+	// Define aria attributes.
+	const datepickerProps = {
+		type,
+		startDate,
+		endDate,
+		minDate,
+		maxDate,
+		isDisabled,
+		children,
+	}
+
 	return (
 		// Wrap the component with the DatePickerProvider and pass the props down to it
-		<DatePickerProvider {...props}>
+		<DatePickerProvider {...datepickerProps}>
 			<div className={classNames}>
-				<DatePickerInput />
+				<DatePickerInput isDisabled={isDisabled} {...props} />
 				<DatePickerPopover />
 			</div>
 		</DatePickerProvider>
