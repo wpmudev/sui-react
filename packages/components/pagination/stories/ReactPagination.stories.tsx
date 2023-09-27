@@ -167,7 +167,6 @@ export const Pagination = (args: PaginationProps): React.ReactNode => {
 Pagination.args = {
 	limit: 5,
 	skip: false,
-	pagesToBottom: false,
 	previousLabel: "Go to previous page",
 	nextLabel: "Go to next page",
 }
@@ -201,34 +200,6 @@ Pagination.argTypes = {
 		},
 		control: {
 			type: "boolean",
-		},
-	},
-	pagesToBottom: {
-		name: "Align to bottom",
-		description:
-			"If you need to show the pagination at the bottom of the list, enable this property.",
-		table: {
-			type: {
-				summary: "boolean",
-			},
-		},
-		control: {
-			type: "boolean",
-		},
-	},
-	children: {
-		type: {
-			required: true,
-		},
-		description:
-			"Place the content you would like to display inside the component.",
-		table: {
-			type: {
-				summary: "element[]",
-			},
-		},
-		control: {
-			type: null,
 		},
 	},
 	previousLabel: {
