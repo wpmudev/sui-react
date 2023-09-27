@@ -19,7 +19,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 	})
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="spinner">
 			<SpinnerLoader color={color ?? "primary"} size={size ?? "lg"} />
 		</div>
 	)

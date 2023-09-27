@@ -2,11 +2,11 @@ import React, { Fragment, RefObject, useEffect, useId, useState } from "react"
 import { createRoot } from "react-dom/client"
 
 import { Spinner } from "./spinner"
-import { SpinnerHook, SpinnerHookProps } from "./spinner.types"
+import { SpinnerHook, SpinnerProps } from "./spinner.types"
 
 const useSpinner = (
-	targetRef: RefObject<unknown>,
-	{ color, size }: Pick<SpinnerHookProps, "options">,
+	targetRef: RefObject<HTMLDivElement>,
+	{ color, size }: Pick<SpinnerProps, "size" | "color">,
 ): SpinnerHook => {
 	// State to track spinner visibility
 	const [isVisible, setIsVisible] = useState<boolean>(false)
@@ -57,8 +57,8 @@ const useSpinner = (
 			if (fakeDiv) {
 				const spinnerDiv = document.getElementById(spinnerId)
 				if (!!spinnerDiv?.parentNode) {
-					targetRef.current.removeChild(spinnerDiv)
-					targetRef.current.classList.remove("sui-spinner__wrapper")
+					targetRef?.current?.removeChild(spinnerDiv)
+					targetRef?.current?.classList.remove("sui-spinner__wrapper")
 				}
 			}
 		}
