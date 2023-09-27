@@ -15,7 +15,7 @@
 			@include modifier(disabled) {
 				pointer-events: none;
 				user-select: none;
-				@include modifies-element(label) {
+				@include modifies-element(label, helper) {
 					color: $color-extended-neutral-70;
 				}
 			}
