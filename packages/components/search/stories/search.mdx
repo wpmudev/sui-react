@@ -1,17 +1,24 @@
-import { Page } from '@wpmudev/storybook';
-import { Unstyled } from '@storybook/blocks';
+import { Page } from "@wpmudev/storybook"
+import { Unstyled } from "@storybook/blocks"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
 
 <Unstyled>
 	<Page.Tabs
-		title="Search"
-		subtitle={
-			<>
-				An search is a thumbnail that represents a user or organization on
-				the SUI platform.
-			</>
-		}
+		title="Search field"
+		subtitle="Search is an input field that allow users to find and access content or information within the plugin."
 		status="draft"
 	>
-
+		<div id="usage" label="Usage">
+			<TabUsage />
+		</div>
+		<div id="code" label="Code">
+			<TabCode />
+		</div>
+		<div id="examples" label="Examples">
+			<TabExamples />
+		</div>
 	</Page.Tabs>
 </Unstyled>
