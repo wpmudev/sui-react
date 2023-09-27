@@ -32,7 +32,11 @@ const generateCN = (
  *
  * @return {any|undefined} - The content or undefined.
  */
-const condContent = (condition: any, content = null, fallback = undefined) => {
+const condContent = (
+	condition: unknown,
+	content: unknown = null,
+	fallback = undefined,
+) => {
 	// use condition as content if passed
 	if (isNull(content)) {
 		content = condition

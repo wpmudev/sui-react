@@ -69,7 +69,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 
 			// handle on change
 			const handleChange = useCallback(
-				(e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+				(e: React.ChangeEvent<HTMLInputElement>) => {
 					// update value if input isn't read-only
 					if (!isReadOnly) {
 						setValue(e?.target?.value ?? "")
@@ -166,9 +166,13 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 
 			// Render component
 			return (
-				<div className={classNames}>
+				<div className={classNames} data-testid="input">
 					{icon && !isMultiLine && "start" === iconPosition && (
-						<Icon name={icon ?? ""} size={isSmall ? "md" : "lg"} />
+						<Icon
+							name={icon ?? ""}
+							size={isSmall ? "md" : "lg"}
+							position={iconPosition}
+						/>
 					)}
 					<div
 						className={generateCN("sui-input__input-field", {
@@ -188,7 +192,11 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 						)}
 					</div>
 					{icon && !isMultiLine && "end" === iconPosition && (
-						<Icon name={icon ?? ""} size={isSmall ? "md" : "lg"} />
+						<Icon
+							name={icon ?? ""}
+							size={isSmall ? "md" : "lg"}
+							position={iconPosition}
+						/>
 					)}
 					{allowClear && !isEmpty(value as string) && !isMultiLine && (
 						<Button

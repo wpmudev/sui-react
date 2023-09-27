@@ -10,6 +10,10 @@ interface IconPropsTypes {
 	 * The size of the icon.
 	 */
 	size?: "sm" | "md" | "lg"
+	/**
+	 * Icon position
+	 */
+	position: "start" | "end"
 }
 
 export type { IconPropsTypes }
