@@ -1,6 +1,4 @@
 import React, { forwardRef, useState } from "react"
-import { generateCN } from "@wpmudev/sui-utils"
-import { FormField } from "@wpmudev/sui-form-field"
 import { Input } from "@wpmudev/sui-input"
 import { Button } from "@wpmudev/sui-button"
 
@@ -12,35 +10,15 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 >(
 	({
 		id,
-		label,
-		helper,
-		errorMessage,
 		button = { type: "" },
-		isLabelHidden = false,
 		isSmall = false,
 		isError = false,
 		isDisabled = false,
 		...props
 	}) => {
-		// Define field error state
-		const error = Object.assign({
-			state: isError,
-			text: errorMessage,
-		})
-
 		// Define password visibility
 		const [hasValue, setHasValue] = useState(false)
 		const [isVisible, setVisible] = useState(false)
-
-		// Field settings
-		const fieldAttrs = {
-			id,
-			label,
-			helper,
-			error,
-			isLabelHidden,
-			isSmall,
-		}
 
 		// Input settings
 		const inputAttrs = {
@@ -75,18 +53,11 @@ const PasswordField: React.FC<PasswordFieldProps> = forwardRef<
 			isSmall,
 		}
 
-		const classNames = generateCN("sui-password", {
-			password: true,
-			icon: button.type === "icon-button" ? true : false,
-		})
-
 		return (
-			<FormField {...fieldAttrs}>
-				<div className="sui-password">
-					<Input {...inputAttrs} />
-					<Button {...buttonProps}>{buttonProps.label}</Button>
-				</div>
-			</FormField>
+			<div className="sui-password">
+				<Input {...inputAttrs} />
+				<Button {...buttonProps}>{buttonProps.label}</Button>
+			</div>
 		)
 	},
 )

@@ -36,6 +36,10 @@ interface TagProps extends Omit<HTMLProps<HTMLSpanElement>, "style"> {
 	 */
 	isSmall?: boolean
 	/**
+	 * Indicates whether the tag is disabled.
+	 */
+	isDisabled?: boolean
+	/**
 	 * Indicates whether the tag text should be in uppercase.
 	 */
 	isUppercase?: boolean

@@ -1,4 +1,5 @@
 import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { FormField } from "@wpmudev/sui-form-field"
 import { PasswordField } from "../../src"
 import dedent from "dedent"
 
@@ -7,13 +8,33 @@ import Size from "./Examples/Size.mdx"
 import ButtonType from "./Examples/ButtonType.mdx"
 
 export const sampleCode = dedent`
-    <PasswordField id="password-field-id-1" label="Label" helper="Help text" />
+<FormField 
+	id="passwordId" 
+	label="Label" 
+	helper="Help text" 
+	error={{ 
+		state: false, 
+		text: "Error message" 
+	}}
+>
+	<PasswordField placeholder="Enter your password" />
+</FormField>
 `
 
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>Below is the default form of a Password Field, used for most cases.</p>
 	<Preview wrapper={true}>
-		<PasswordField id="password-field-id-1" label="Label" helper="Help text" />
+		<FormField
+			id="passwordId"
+			label="Label"
+			helper="Help text"
+			error={{
+				state: false,
+				text: "Error message",
+			}}
+		>
+			<PasswordField placeholder="Enter your password" />
+		</FormField>
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
@@ -28,6 +49,6 @@ export const sampleCode = dedent`
 		</div>
 		<div label="Button Type" value="button-type">
 			<ButtonType />
-		</div> 
+		</div>
 	</Switcher>
 </Section>

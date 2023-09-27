@@ -10,7 +10,7 @@ const Helper: React.FC<FormFieldHelperProps> = ({ id, children }) => {
 	})
 
 	return (
-		<span id={`${id}__helper`} className={classNames}>
+		<span id={`${id}-helper`} className={classNames}>
 			{children}
 		</span>
 	)

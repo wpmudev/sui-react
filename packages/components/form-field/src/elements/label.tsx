@@ -23,7 +23,7 @@ const Label: React.FC<FormFieldLabelProps> = ({
 	})
 
 	return (
-		<label htmlFor={id} id={`${id}__label`} className={classNames}>
+		<label htmlFor={id} id={`${id}-label`} className={classNames}>
 			{children}
 		</label>
 	)
