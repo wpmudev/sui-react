@@ -1,5 +1,11 @@
-import React, { useId } from "react"
-import { isObject, generateCN, isEmpty } from "@wpmudev/sui-utils"
+import React, {
+	Children,
+	cloneElement,
+	isValidElement,
+	ReactNode,
+	useId,
+} from "react"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 // Import required modules
 import { Label } from "./elements/label"
@@ -28,14 +34,17 @@ const FormField: React.FC<FormFieldProps> = ({
 		fieldId = id
 	}
 
+	const isErrored =
+		"string" === typeof error ? !isEmpty((error as string) ?? "") : !!error
+
 	// Define error object
-	const errorObj = Object.assign(
-		{
-			state: false,
-			text: "",
-		},
-		error,
-	)
+	// const errorObj = Object.assign(
+	// 	{
+	// 		state: false,
+	// 		text: "",
+	// 	},
+	// 	error,
+	// )
 
 	// Generate classnames
 	const classNames = generateCN(
@@ -53,41 +62,33 @@ const FormField: React.FC<FormFieldProps> = ({
 		isSmall,
 		...(!isEmpty(label ?? "") && { "aria-labelledby": `${fieldId}-label` }),
 		...(!!helper && { "aria-describedby": `${fieldId}-helper` }),
-		...(isObject(error) &&
-			Object.keys(error).length > 0 &&
-			errorObj.state && {
-				"aria-errormessage": `${fieldId}-error-message`,
-				isError: true,
-			}),
+		...(isErrored && {
+			"aria-errormessage": `${fieldId}-error-message`,
+			isError: true,
+		}),
 	}
 
 	// Render field
 	return (
-		<div className={classNames} {...props}>
+		<div className={classNames} {...props} data-testid="form-field">
 			{!isEmpty(label ?? "") && (
 				<Label id={fieldId} hidden={isLabelHidden ?? false}>
 					{label}
 				</Label>
 			)}
 			{Object.keys(ariaAttrs).length > 0
-				? React.Children.map(children, (child) => {
-						// Pass ariaAttrs as a prop to children
-						if (React.isValidElement(child)) {
-							return React.cloneElement(child, { ...ariaAttrs })
-						}
-						return child
-				  })
+				? Children.map(children, (child: ReactNode) =>
+						isValidElement(child)
+							? cloneElement(child, { ...ariaAttrs })
+							: child,
+				  )
 				: children}
-			{isObject(error) && Object.keys(error).length > 0 && errorObj.state && (
-				<ErrorMessage id={fieldId} show={errorObj.state} small={isSmall}>
-					{errorObj.text}
+			{isErrored && (
+				<ErrorMessage id={fieldId} show={isErrored}>
+					{error}
 				</ErrorMessage>
 			)}
-			{!!helper && (
-				<Helper id={fieldId} small={isSmall}>
-					{helper}
-				</Helper>
-			)}
+			{!!helper && <Helper id={fieldId}>{helper}</Helper>}
 		</div>
 	)
 }
