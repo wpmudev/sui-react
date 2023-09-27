@@ -1,17 +1,10 @@
 import React, { useEffect, useCallback, CSSProperties } from "react"
-import { Button as SuiButton } from "@wpmudev/sui-button"
-import { generateCN } from "@wpmudev/sui-utils"
+import { Button } from "@wpmudev/sui-button"
+import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { InteractionTypes, useInteraction } from "@wpmudev/sui-hooks"
 
 import { Icon } from "./elements/tooltip-icon"
 import { TooltipProps } from "./tooltip.types"
-
-export const TagNames: Record<string, any> = {
-	button: SuiButton,
-	text: "span",
-	icon: Icon,
-	link: SuiButton
-}
 
 // Build "Tooltip" component.
 const Tooltip: React.FC<TooltipProps> = ({
@@ -44,18 +37,17 @@ const Tooltip: React.FC<TooltipProps> = ({
 
 	const attrs: TooltipAttrsTypes = {}
 
-	const classNames = generateCN("sui-tooltip", {
-		// Add show hide class based on tooltip open
-		show: isHovered,
-		focus: isFocused,
-		"custom-width": !!customWidth,
-		[position]: true
-	}, {
-		[className]: !!className
-	})
-
-	// tooltip type button or text
-	const TagName: string | React.FC = TagNames?.[type] ?? ""
+	const classNames = generateCN(
+		"sui-tooltip",
+		{
+			// Add show hide class based on tooltip open
+			show: isHovered,
+			focus: isFocused,
+			"custom-width": !!customWidth,
+			[position]: true,
+		},
+		className ?? "",
+	)
 
 	// Custom tooltip width
 	if (customWidth || customMobileWidth) {
@@ -92,11 +84,38 @@ const Tooltip: React.FC<TooltipProps> = ({
 		}
 	}, [onClick])
 
+	// Render tooltip trigger
+	const renderTrigger = () => {
+		switch (type) {
+			case "button":
+			case "link":
+				return (
+					<Button {...props} href={href} onClick={onClickCallback}>
+						{label}
+					</Button>
+				)
+			case "text":
+				return (
+					<span
+						{...props}
+						role="button"
+						tabIndex={0}
+						onClick={onClickCallback}
+						onKeyDown={(
+							e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
+						) => handleOnKeyDown(e)}
+					>
+						{label}
+					</span>
+				)
+			case "icon":
+				return <Icon name={props?.icon ?? ""} />
+		}
+	}
+
 	return (
 		<div className={classNames} {...methods}>
-			<TagName {...props} href={href} onClick={onClickCallback}>
-				{label}
-			</TagName>
+			{renderTrigger()}
 			{!!children && (
 				<span
 					className="sui-tooltip__content"
