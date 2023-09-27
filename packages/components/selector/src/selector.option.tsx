@@ -35,7 +35,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 	}
 
 	return (
-		<div className={classNames} {...methods}>
+		<div className={classNames} data-testid="selector-option" {...methods}>
 			{/* Display a checkmark when the option is checked */}
 			{isChecked && (
 				<div className="sui-selector__option-tip">
@@ -46,7 +46,10 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 			)}
 			{/* Display a remove button when hovering and allowRemove is true */}
 			{allowRemove && isHovered && (
-				<div className="sui-selector__option-delete">
+				<div
+					className="sui-selector__option-delete"
+					data-testid="selector-remove"
+				>
 					<Tooltip
 						type="button"
 						icon="trash"
@@ -69,7 +72,10 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 			{(!!iconOrBrandUrl || !!title) && (
 				<div className="sui-selector__option-header">
 					{!!iconOrBrandUrl && (
-						<div className="sui-selector__option-header-icon">
+						<div
+							className="sui-selector__option-header-icon"
+							data-testid="selector-icon"
+						>
 							{isImage && <img src={iconOrBrandUrl} alt="Selector icon" />}
 							{!isImage && !!Icon && (
 								<Icon

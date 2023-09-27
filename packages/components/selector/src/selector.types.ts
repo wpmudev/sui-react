@@ -14,7 +14,7 @@ interface SelectorProps
 	/** The value of the radio input */
 	value: string | number
 	/** Whether the radio input is checked */
-	isChecked: boolean
+	isChecked?: boolean
 	/** Whether the radio input is disabled */
 	isDisabled?: boolean
 	/** Whether the selector is a pro feature */
