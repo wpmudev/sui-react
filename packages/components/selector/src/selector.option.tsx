@@ -25,11 +25,12 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 	const classNames = generateCN("sui-selector__option", {})
 
 	let Icon = null
-	const isImage = iconOrBrandUrl?.indexOf(".") > -1
+	const isImage = (iconOrBrandUrl ?? "")?.indexOf(".") > -1
 
 	// Check if the provided iconOrBrandUrl is an image or an icon reference
 	if (!isImage) {
 		// Look up the appropriate icon based on the provided reference
+		// @ts-ignore
 		Icon = Icons?.[iconOrBrandUrl] ?? null
 	}
 
@@ -47,6 +48,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 			{allowRemove && isHovered && (
 				<div className="sui-selector__option-delete">
 					<Tooltip
+						type="button"
 						icon="trash"
 						iconSize="sm"
 						appearance="primary"
@@ -57,10 +59,12 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 						onClick={() => onRemove}
 						position="top-right"
 						customWidth={70}
-					>Remove</Tooltip>
+					>
+						Remove
+					</Tooltip>
 				</div>
 			)}
-			{["icon-only"].includes(variation) && !!tag && tag}
+			{["icon-only"].includes(variation ?? "") && !!tag && tag}
 			{/* Display icon and title/header if either iconOrBrandUrl or title is provided */}
 			{(!!iconOrBrandUrl || !!title) && (
 				<div className="sui-selector__option-header">
@@ -68,11 +72,13 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 						<div className="sui-selector__option-header-icon">
 							{isImage && <img src={iconOrBrandUrl} alt="Selector icon" />}
 							{!isImage && !!Icon && (
-								<Icon size={["icon-only"].includes(variation) ? "md" : "sm"} />
+								<Icon
+									size={["icon-only"].includes(variation ?? "") ? "md" : "sm"}
+								/>
 							)}
 						</div>
 					)}
-					{!!title && !["icon-only"].includes(variation) && (
+					{!!title && !["icon-only"].includes(variation ?? "") && (
 						<div className="sui-selector__option-header-title">
 							<span>{title}</span>
 							{!!tag && tag}
@@ -82,7 +88,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 			)}
 			{/* Display image and/or description for certain variations */}
 			{(!!imageUrl || !!description) &&
-				["compound", "image"].includes(variation) && (
+				["compound", "image"].includes(variation ?? "") && (
 					<div className="sui-selector__option-body">
 						{!!imageUrl && "image" === variation && (
 							<span

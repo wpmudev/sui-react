@@ -19,9 +19,9 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			isChecked = false,
 			isDisabled = false,
 			isPro = false,
-			defaultValue = false,
-			alignment = "",
-			variation = "",
+			defaultValue = "",
+			alignment = "center",
+			variation = "default",
 			onChange = () => {},
 			...props
 		}: SelectorProps,
