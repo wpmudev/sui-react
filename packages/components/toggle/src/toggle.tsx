@@ -12,7 +12,7 @@ const Toggle: React.FC<ToggleProps> = ({
 	defaultValue,
 	isLabelHidden = false,
 	isDisabled = false,
-	onClick = () => {},
+	onClick,
 	...props
 }) => {
 	// use id
@@ -29,13 +29,13 @@ const Toggle: React.FC<ToggleProps> = ({
 
 	useEffect(() => {
 		if (!isBoolean(defaultValue)) {
-			setState(defaultValue)
+			setState(defaultValue ?? false)
 		}
 	}, [defaultValue])
 
 	// handle on change
 	const handleOnChange = useCallback(
-		(e: MouseEvent) => {
+		(e: React.ChangeEvent<HTMLInputElement>) => {
 			setState(!state)
 
 			if (onClick) {
@@ -65,17 +65,24 @@ const Toggle: React.FC<ToggleProps> = ({
 		className: "sui-screen-reader-only",
 		defaultChecked: state,
 		disabled: isDisabled,
-		onChange: handleOnChange,
 		...props,
 	}
 
 	return (
-		<label {...containerProps} htmlFor={id}>
-			<input {...inputProps} id={id} />
+		<label {...containerProps} htmlFor={id} data-testid="toggle">
+			<input {...inputProps} id={id} onChange={handleOnChange} />
 			<span tabIndex={-1} className="sui-toggle__switch" aria-hidden={true} />
 			{isLabelHidden && <span className="sui-screen-reader-only">{label}</span>}
-			{!isLabelHidden && <span className="sui-toggle__label">{label}</span>}
-			{description && <p className="sui-toggle__description">{description}</p>}
+			{!isLabelHidden && (
+				<span className="sui-toggle__label" data-testid="toggle-label">
+					{label}
+				</span>
+			)}
+			{description && (
+				<p className="sui-toggle__description" data-testid="toggle-description">
+					{description}
+				</p>
+			)}
 		</label>
 	)
 }

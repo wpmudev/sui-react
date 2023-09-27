@@ -1,14 +1,14 @@
-import { HTMLProps } from "react"
+import React, { HTMLProps } from "react"
 
 /**
  * Represents the properties for a toggle component.
  */
 interface ToggleProps
-	extends Omit<HTMLProps<HTMLInputElement>, "defaultValue"> {
+	extends Omit<HTMLProps<HTMLInputElement>, "defaultValue" | "onClick"> {
 	/**
 	 * The label for the toggle component.
 	 */
-	label: string
+	label?: string
 	/**
 	 * The description for the toggle component.
 	 */
@@ -16,15 +16,16 @@ interface ToggleProps
 	/**
 	 * Default value
 	 */
-	defaultValue: boolean
+	defaultValue?: boolean
 	/**
 	 * Indicates whether the label should be hidden or not.
 	 */
-	isLabelHidden: boolean
+	isLabelHidden?: boolean
 	/**
 	 * Indicates whether the toggle component is disabled or not.
 	 */
 	isDisabled?: boolean
+	onClick?(e: React.ChangeEvent<HTMLInputElement>): void
 }
 
 export type { ToggleProps }
