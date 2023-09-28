@@ -57,7 +57,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 						updatedCurrent.splice(index, 1)
 					}
 
-					onChange(updatedCurrent)
+					onChange(e)
 					return updatedCurrent
 				})
 			},
