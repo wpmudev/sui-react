@@ -15,7 +15,7 @@ interface RadioGroupProps {
 	/**
 	 * Indicates whether the radio buttons should be displayed inline.
 	 */
-	isInline: boolean
+	isInline?: boolean
 
 	/**
 	 * The children components rendered inside the radio group.
@@ -25,7 +25,7 @@ interface RadioGroupProps {
 	/**
 	 * A callback function to handle radio button selection changes.
 	 */
-	onChange(value: RadioValueType): void
+	onChange?(value: RadioValueType): void
 
 	/**
 	 * The default value for the radio group (optional).
@@ -66,6 +66,11 @@ interface RadioProps {
 	 * A description or additional information about the radio button (optional).
 	 */
 	description?: string
+
+	/**
+	 * Radio value
+	 */
+	value: string
 
 	/**
 	 * A tag associated with the radio button (optional).

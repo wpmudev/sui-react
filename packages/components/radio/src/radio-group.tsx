@@ -39,7 +39,7 @@ const RadioGroup = ({
 				onChange,
 			}}
 		>
-			<div className={className} role="radiogroup">
+			<div className={className} role="radiogroup" data-testid="radio-group">
 				{children}
 			</div>
 		</Provider>

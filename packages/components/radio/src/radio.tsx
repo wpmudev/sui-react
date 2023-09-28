@@ -9,17 +9,7 @@ import { useRadio } from "./radio-context"
 
 const Radio = forwardRef<HTMLInputElement, RadioProps>(
 	(
-		{
-			id,
-			name = "",
-			label,
-			description = "",
-			tag = "",
-			defaultValue,
-			value = "",
-			isSmall = false,
-			isDisabled = false,
-		},
+		{ id, label, description = "", tag = "", value = "", isDisabled = false },
 		ref,
 	) => {
 		// const [checked, setChecked] = useState(isChecked)
@@ -47,7 +37,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			id: uuid,
 			type: "radio",
 			name,
-			value: defaultValue,
+			value,
 			className: "sui-screen-reader-only",
 			checked,
 			disabled: isDisabled,
@@ -58,7 +48,6 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 
 		// Define box props
 		const boxProps = {
-			tabIndex: "-1",
 			className: "sui-radio__box",
 			"aria-hidden": true,
 		}
@@ -76,9 +65,14 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 		}
 
 		return (
-			<label {...containerProps} htmlFor={uuid} {...methods}>
-				<input {...inputProps} />
-				<span {...boxProps}>
+			<label
+				{...containerProps}
+				htmlFor={uuid}
+				data-testid="radio"
+				{...methods}
+			>
+				<input {...inputProps} data-testid="radio-input" />
+				<span {...boxProps} tabIndex={-1}>
 					{checked && <span className="sui-radio__icon" />}
 				</span>
 				<span id={`${uuid}-label`} className="sui-radio__label">
@@ -87,8 +81,8 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 						<Tag
 							design="outlined"
 							color="blue"
-							isSmall={isSmall}
-							isDisabled={isDisabled}
+							isSmall={false}
+							isDisabled={isDisabled ?? false}
 						>
 							{tag}
 						</Tag>
