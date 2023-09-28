@@ -56,8 +56,8 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 		const containerProps = {
 			className: generateCN("sui-radio", {
 				// sm: isSmall,
-				hover: isHovered,
-				focus: isFocused,
+				hover: isHovered && !checked,
+				focus: isFocused && !checked,
 				disabled: isDisabled,
 				block: asBlock,
 				checked,
