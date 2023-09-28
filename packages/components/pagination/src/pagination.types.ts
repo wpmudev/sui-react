@@ -25,33 +25,25 @@ interface PaginationCommonProps {
  */
 interface PaginationProps extends PaginationCommonProps {
 	/**
+	 * The screen reader text for the previous button
+	 */
+	previousLabel?: string
+	/**
+	 * The screen reader text for the next button
+	 */
+	nextLabel?: string
+	/**
+	 * Whether to display skip buttons or not
+	 */
+	skip?: boolean
+	/**
 	 * Number of items per page
 	 */
 	limit: number
 	/**
-	 * show the pagination at the bottom of the list
-	 */
-	pagesToBottom?: boolean
-	/**
-	 * "skip to first" button label
-	 */
-	skipToFirstLabel?: string
-	/**
 	 * number of items in a page.
 	 */
 	numberOfItems?: number
-	/**
-	 * "skip to last" button label
-	 */
-	skipToLastLabel?: string
-	/**
-	 * children element as wrapper for other children
-	 */
-	children?: React.ReactElement
-	/**
-	 * Overrides pagination return value
-	 */
-	paginationContent?: (obj: UnknownObject) => React.ReactElement
 	/**
 	 * Callback function when page number get changed
 	 *
