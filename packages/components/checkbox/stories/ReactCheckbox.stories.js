@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 // Import required modules
-import { Checkbox as SuiCheckbox } from "../src"
+import { CheckboxGroup, Checkbox as SuiCheckbox } from "../src"
 
 // Import documentation
 import docs from "./ReactCheckbox.mdx"
@@ -19,9 +19,7 @@ export default {
 }
 
 // Build story
-export const Checkbox = ({ ...args }) => {
-	const [isChecked, setIsChecked] = useState(false)
-
+export const Checkbox = ({ example, name, isInline, ...args }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -32,13 +30,67 @@ export const Checkbox = ({ ...args }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiCheckbox
-						{...args}
-						isChecked={isChecked}
-						onChange={(e) => {
-							setIsChecked(e.target.checked)
+					<CheckboxGroup
+						isInline={isInline}
+						name={name}
+						isSmall={args?.isSmall}
+						onChange={(data) => {
+							console.log("test", data)
 						}}
-					/>
+					>
+						<SuiCheckbox value="in" {...args} />
+						<SuiCheckbox value="usa" {...args} />
+						{/* <CheckboxGroup
+							isInline={isInline}
+							name={name}
+							asBlock={args?.asBlock}
+							isSmall={args?.isSmall}
+							onChange={(data) => {
+								console.log("test", data)
+							}}
+						>
+							<SuiCheckbox {...args} isChecked={isChecked} />
+							<SuiCheckbox {...args} isChecked={isChecked} />
+							<CheckboxGroup
+								isInline={isInline}
+								name={name}
+								asBlock={args?.asBlock}
+								isSmall={args?.isSmall}
+								onChange={(data) => {
+									console.log("test", data)
+								}}
+							>
+								<SuiCheckbox
+									{...args}
+									isChecked={isChecked}
+									onChange={(e) => {
+										setIsChecked(e.target.checked)
+									}}
+								/>
+								<SuiCheckbox
+									{...args}
+									isChecked={isChecked}
+									onChange={(e) => {
+										setIsChecked(e.target.checked)
+									}}
+								/>
+							</CheckboxGroup>
+						</CheckboxGroup>
+						<CheckboxGroup
+							isInline={isInline}
+							name={name}
+							asBlock={args?.asBlock}
+							isSmall={args?.isSmall}
+							onChange={(data) => {
+								console.log("test", data)
+							}}
+						>
+							<SuiCheckbox {...args} isChecked={isChecked} />
+							<SuiCheckbox {...args} isChecked={isChecked} />
+						</CheckboxGroup>
+						<SuiCheckbox {...args} isChecked={isChecked} />
+						<SuiCheckbox {...args} isChecked={isChecked} /> */}
+					</CheckboxGroup>
 				</div>
 			</div>
 		</div>
@@ -47,11 +99,14 @@ export const Checkbox = ({ ...args }) => {
 
 // Story props defaults
 Checkbox.args = {
+	example: "single",
+	name: "countries",
 	label: "Checkbox label",
 	isLabelHidden: false,
 	isSmall: false,
 	isDisabled: false,
 	isIndeterminate: false,
+	isInline: false,
 }
 
 // Story props settings
@@ -59,6 +114,24 @@ Checkbox.argTypes = {
 	defaultValue: {
 		table: {
 			disable: true,
+		},
+	},
+	isLabelHidden: {
+		name: "Label Hidden",
+		control: {
+			type: "boolean",
+		},
+	},
+	isSmall: {
+		name: "Small",
+		control: {
+			type: "boolean",
+		},
+	},
+	isDisabled: {
+		name: "Disabled",
+		control: {
+			type: "boolean",
 		},
 	},
 	isIndeterminate: {
