@@ -1,33 +1,59 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook";
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src";
-import dedent from "dedent";
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { SettingBlock } from "../../src"
+import dedent from "dedent"
 
-{/* Import Variations */}
-import Neutral from "./Examples/Neutral.mdx"
-import Informative from "./Examples/Informative.mdx"
-import Success from "./Examples/Success.mdx"
+export const generalExample = dedent`
+    <SettingBlock
+      title="Title"
+      description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+    >
+       The Setting Block Content
+    </SettingBlock>
+`
 
-export const sampleCode = dedent`
-    Basic Examples 
-`;
+export const proExample = dedent`
+    <SettingBlock
+      isPro={true}
+      title="Title"
+      description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+    >
+       The Setting Block Content
+    </SettingBlock>
+`
 
-<Section contained={true} style={{ paddingTop: 30 }}>
-  <p>Basic Accordion Example</p>
-  <Preview wrapper={true}>Basic Example</Preview>
-  <Snippet language="js">{sampleCode}</Snippet>
+<Section style={{ paddingTop: 30 }}>
+	<p>Below is a general example of the Setting Block component</p>
+	<Preview wrapper={true}>
+		<div style={{ background: "#f1f1f1", padding: 25 }}>
+			<div style={{ background: "white" }}>
+				<SettingBlock
+					title="Title"
+					description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+				>
+					The Setting Block Content
+				</SettingBlock>
+			</div>
+		</div>
+	</Preview>
+	<Snippet language="js">{generalExample}</Snippet>
 </Section>
 
-<Section title="State" style={{ paddingTop: 0 }}>
-  Use this if you need to switch between multiple options
-  <Switcher>
-    <div label="neutral" value="neutral">
-      <Neutral />
-    </div>
-    <div label="informative" value="informative">
-      <Informative />
-    </div>
-    <div label="success" value="success">
-      <Success />
-    </div>
-  </Switcher>
+<Section title="Pro variation" style={{ paddingTop: 30 }}>
+	<p>
+		Set the prop <Code small={true}>isPro=\{true\}</Code> to change the variation to the Pro variation
+	</p>
+	<Preview wrapper={true}>
+		<div style={{ background: "#f1f1f1", padding: 25 }}>
+			<div style={{ background: "white" }}>
+				<SettingBlock
+          isPro={true}
+					title="Title"
+					description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+				>
+					The Setting Block Content
+				</SettingBlock>
+			</div>
+		</div>
+	</Preview>
+	<Snippet language="js">{proExample}</Snippet>
 </Section>
