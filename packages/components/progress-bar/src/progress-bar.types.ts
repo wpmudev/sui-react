@@ -23,6 +23,26 @@ interface ProgressBarProps {
 	isInline?: boolean
 
 	/**
+	 * Indicates whether the cancel button should be displayed.
+	 */
+	allowCancel?: boolean
+
+	/**
+	 * Progress bar animation.
+	 */
+	isIndeterminate?: boolean
+
+	/**
+	 * Indicates whether the progress bar value should be displayed.
+	 */
+	showValue?: boolean
+
+	/**
+	 * Custom classname for the progress bar.
+	 */
+	className?: string
+
+	/**
 	 * Callback function when the progress bar is clicked.
 	 */
 	onClick?: (e) => void
