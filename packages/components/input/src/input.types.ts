@@ -25,7 +25,7 @@ interface InputProps extends HTMLProps<HTMLInputElement>, InteractionTypes {
 	/**
 	 * The unique identifier for the input element.
 	 */
-	id?: string
+	id: string
 	/**
 	 * The CSS class name for the input element.
 	 */
@@ -76,6 +76,10 @@ interface InputProps extends HTMLProps<HTMLInputElement>, InteractionTypes {
 	 * Specifies whether the value can be cleared or not
 	 */
 	allowClear?: boolean
+	/**
+	 * Disable interactions such as hover and focus
+	 */
+	disableInteractions?: boolean
 }
 
 export type { InputProps }

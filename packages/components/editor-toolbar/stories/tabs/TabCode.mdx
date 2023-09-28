@@ -1,0 +1,65 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Editor Toolbar</Code> package as an
+		individual component or follow the Overview page instructions to get the
+		complete SUI Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+	<Section
+		title={{ content: "title*", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>The heading text for the Toolbar</p>
+	</Section>
+
+    <Section
+    	title={{ content: "actions*", tag: "Array", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The action buttons to be displayed on the right side of the toolbar </p>
+    </Section>
+
+    <Section
+    	title={{ content: "allowBack*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Whether to display the back button or not </p>
+    </Section>
+
+    <Section
+    	title={{ content: "onBackClick*", tag: "function", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A callback function to be invoked upon clicking the back button</p>
+    </Section>
+
+    <Section
+    	title={{ content: "onSettingClick*", tag: "function", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A callback function to be invoked upon clicking the settings button</p>
+    </Section>
+
+    <Section
+    	title={{ content: "children*", tag: "React Node", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The content to be placed right after the title</p>
+    </Section>
+
+    <Section
+    	title={{ content: "alignCenter*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Whether to center the content or keep it aligned to the right</p>
+    </Section>
+
+</Section>

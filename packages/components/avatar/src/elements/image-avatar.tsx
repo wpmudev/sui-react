@@ -22,8 +22,9 @@ const Image: React.FC<ImageAvatarProps> = ({ source, text }) => {
 				className="sui-avatar__image"
 				style={{ backgroundImage: `url(${source})` }}
 				tabIndex={-1}
+				data-testid="avatar-image"
 			/>
-			<span className="sui-screen-reader-only">
+			<span className="sui-screen-reader-only" data-testid="avatar-image-alt">
 				{hasAlt ? text : "Logged in user avatar"}
 			</span>
 		</Fragment>

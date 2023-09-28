@@ -1,9 +1,11 @@
 import React, { HTMLProps } from "react"
 
+import { ButtonProps } from "@wpmudev/sui-button"
+
 /**
  * Props for the Tooltip component.
  */
-interface TooltipProps
+interface TooltipBaseProps
 	extends Omit<
 		HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>,
 		"onClick"
@@ -45,5 +47,7 @@ interface TooltipProps
 	 */
 	onClick?: () => void
 }
+
+type TooltipProps = TooltipBaseProps & ButtonProps
 
 export type { TooltipProps }

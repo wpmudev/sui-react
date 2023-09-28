@@ -73,7 +73,7 @@ const Builder = ({ ...props }) => {
 							columnSize={4}
 							action={actionButton}
 							title="Image"
-							imgUrl="https://placehold.co/600x400/EEE/31343C"
+							imgUrl="https://placehold.co/40x40/EEE/31343C"
 							icon="Desktop"
 						/>
 					</BuilderWrapper>

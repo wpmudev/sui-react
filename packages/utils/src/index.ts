@@ -5,15 +5,19 @@ import classnames from "classnames"
  * Generate classnames based on the prop vars
  *
  * @param {string}                           base
- * @param {Record<string, string | boolean>} variants
+ * @param {Record<string, any>} variants
  * @param {string}                           extraClassNames extra class names
  *
  * @return {string} classnames
  */
-const generateCN = (base: string, variants = {}, extraClassNames = "") => {
+const generateCN = (
+	base: string,
+	variants: Record<string, any> = {},
+	extraClassNames = "",
+) => {
 	// append variant's class name
-	const classes = Object.keys(variants).map((attr) => ({
-		[`${base}--${attr}`]: !!variants[attr],
+	const classes = Object.keys(variants).map((attr: string) => ({
+		[`${base}--${attr}`]: !!variants?.[attr],
 	}))
 
 	return classnames(base, classes, extraClassNames)
@@ -22,13 +26,17 @@ const generateCN = (base: string, variants = {}, extraClassNames = "") => {
 /**
  * Returns the content if the condition is true, otherwise returns undefined.
  *
- * @param {boolean} condition - Condition to match.
- * @param {any}     content   - The content to return if the condition is true.
- * @param {any}     fallback  - The fallback to return
+ * @param {any} condition - Condition to match.
+ * @param {any} content   - The content to return if the condition is true.
+ * @param {any} fallback  - The fallback to return
  *
  * @return {any|undefined} - The content or undefined.
  */
-const condContent = (condition, content = null, fallback = undefined) => {
+const condContent = (
+	condition: unknown,
+	content: unknown = null,
+	fallback = undefined,
+) => {
 	// use condition as content if passed
 	if (isNull(content)) {
 		content = condition
@@ -117,7 +125,7 @@ const isString = (value: unknown) => "string" === typeof value
  * @param {string | undefined} value string to be checked
  * @return {boolean} Returns true if string is blank
  */
-const isEmpty = (value: string | undefined) => "" === value
+const isEmpty = (value?: string) => "" === value
 
 /**
  * Capitalize text
@@ -168,7 +176,7 @@ const handleEventDefault = (
 	}
 }
 
-type PluginsSlug =
+export type PluginsSlug =
 	| "smush"
 	| "defender"
 	| "snapshot"
@@ -180,7 +188,7 @@ type PluginsSlug =
 	| "shipper"
 	| "branda"
 
-type PluginIconTypes = {
+export type PluginIconTypes = {
 	bg: string
 	color: string
 	icon: string
@@ -247,7 +255,7 @@ const PluginsIcons: Record<PluginsSlug, PluginIconTypes> = {
  *
  * @return {any[][]} - An array of arrays containing the chunks
  */
-const chunkArray = (arr, size) => {
+const chunkArray = (arr: any[], size: number) => {
 	const chunkedArray = []
 
 	// Iterate through the input array, creating chunks of the specified size
@@ -278,8 +286,6 @@ export {
 	capitalizeText,
 	handleOnKeyDown,
 	handleEventDefault,
-	PluginsSlug,
 	PluginsIcons,
-	PluginIconTypes,
 	chunkArray,
 }

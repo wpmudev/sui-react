@@ -10,7 +10,7 @@ import { Box, BoxGroup } from "@wpmudev/sui-box"
 // Import documentation main page
 import docs from "./advanced-banner.mdx"
 
-import TagIcon from "./assets/tag.svg"
+import TagIcon from "./images/tag.svg"
 
 // Configure default options.
 export default {
@@ -118,6 +118,16 @@ AdvancedBanner.argTypes = {
 			},
 		},
 	},
+	imageUrl: {
+		name: "Image Url",
+		control: {
+			type: "text",
+		},
+		if: {
+			arg: "variation",
+			neq: "black-friday",
+		},
+	},
 	title: {
 		name: "Title",
 		control: {
@@ -148,7 +158,7 @@ AdvancedBanner.argTypes = {
 			type: "text",
 		},
 		if: {
-			arg: "example",
+			arg: "variation",
 			eq: "black-friday",
 		},
 	},
@@ -158,7 +168,7 @@ AdvancedBanner.argTypes = {
 			type: "text",
 		},
 		if: {
-			arg: "example",
+			arg: "variation",
 			eq: "black-friday",
 		},
 	},

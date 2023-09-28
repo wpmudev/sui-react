@@ -11,7 +11,7 @@ const createWrapperAndAppendToBody = (wrapperId: string) => {
 
 const usePortal = (wrapperId?: string) => {
 	// State to hold the wrapper element
-	const [wrapperElement, setWrapperElement] = useState<ReactNode | null>(null)
+	const [wrapperElement, setWrapperElement] = useState<Element | null>(null)
 
 	// Use default wrapper if not passed.
 	wrapperId = wrapperId ?? ".sui-wrap"

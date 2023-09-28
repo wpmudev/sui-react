@@ -4,7 +4,11 @@ import { isEmpty, generateCN } from "@wpmudev/sui-utils"
 import { IconPropsTypes } from "./input-icon.type"
 
 // Build "Icon" component.
-const Icon: React.FC<IconPropsTypes> = ({ name = "", size = "lg" }) => {
+const Icon: React.FC<IconPropsTypes> = ({
+	name = "",
+	size = "lg",
+	position = "start",
+}) => {
 	// Required parameter(s) validation.
 	if (isEmpty(name ?? "")) {
 		throw new Error(
@@ -23,7 +27,13 @@ const Icon: React.FC<IconPropsTypes> = ({ name = "", size = "lg" }) => {
 		"sui-input__icon",
 	)
 
-	return <span className={classNames} aria-hidden="true" />
+	return (
+		<span
+			className={classNames}
+			aria-hidden="true"
+			data-testid={`input-icon-${position}`}
+		/>
+	)
 }
 
 // Publish required component(s).

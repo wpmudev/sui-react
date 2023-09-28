@@ -81,6 +81,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			// classname
 			className: generateCN(baseClassName, attrClasses, className ?? ""),
 			disabled: isDisabled,
+			"data-testid": "button",
 			// interaction methods
 			...(interactionMethods ?? {}),
 			...restProps,

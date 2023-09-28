@@ -4,22 +4,23 @@ import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 
 import { AdvancedBannerProps } from "./advanced-banner.types"
+import Tag from "../stories/images/tag.svg"
 
 // Build "advanced-banner" component
 const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
-	className,
 	variation = "",
-	imageUrl = "",
-	title = "",
-	description = "",
+	imageUrl = Tag,
+	title = "Banner Title Goes Here",
+	description = "Banner Description Goes Here",
 	children = null,
 	helper = null,
 	discountPercentage = "",
 	allowClose = true,
 	onClose = () => {},
-	// black friday variation props
+	// Black friday variation props
 	ctaTitle = "",
 	onCTAClick = () => {},
+	className,
 }) => {
 	// Define class name
 	const classNames = generateCN(

@@ -1,4 +1,10 @@
-import { HTMLProps, useCallback, useState } from "react"
+import {
+	FocusEventHandler,
+	HTMLProps,
+	MouseEventHandler,
+	useCallback,
+	useState,
+} from "react"
 import { isFunction } from "@wpmudev/sui-utils"
 
 interface InteractionTypes
@@ -32,15 +38,18 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 		onBlurCapture,
 	} = methods as InteractionTypes
 
+	// @todo: need type fix
+	type EventType = any
+
 	/**
 	 * Toggle hover state
 	 */
 	const toggleHover = useCallback(
-		(state, event = null, callback = (e: any) => {}) => {
+		(state: boolean, event?: EventType, callback = (e: EventType) => {}) => {
 			setIsHovered(state)
 
 			// execute callback
-			if (isFunction(callback)) {
+			if (isFunction(callback) && !!callback) {
 				callback(event)
 			}
 		},
@@ -51,11 +60,11 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 	 * Toggle focus state
 	 */
 	const toggleFocus = useCallback(
-		(state, event = null, callback = (e: any) => {}) => {
+		(state: boolean, event?: EventType, callback = (e: EventType) => {}) => {
 			setIsFocused(state)
 
 			// execute callback
-			if (isFunction(callback)) {
+			if (isFunction(callback) && !!callback) {
 				callback(event)
 			}
 		},
@@ -68,7 +77,13 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 	 * @type {(e: Event) => void}
 	 */
 	const onMouseEnterCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleHover(true, e, onMouseEnter),
+		(e: EventType) =>
+			toggleHover(true, e, (event) => {
+				if (onMouseEnter) {
+					// @ts-ignore
+					onMouseEnter(event)
+				}
+			}),
 		[onMouseEnter, toggleHover],
 	)
 
@@ -78,7 +93,13 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 	 * @type {(e: Event) => void}
 	 */
 	const onMouseLeaveCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleHover(false, e, onMouseLeave),
+		(e: EventType) =>
+			toggleHover(false, e, () => {
+				if (onMouseLeave) {
+					// @ts-ignore
+					onMouseLeave(event)
+				}
+			}),
 		[onMouseLeave, toggleHover],
 	)
 
@@ -88,7 +109,13 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 	 * @type {(e: Event) => void}
 	 */
 	const onMouseDownCaptureCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleFocus(false, e, onMouseDownCapture),
+		(e: EventType) =>
+			toggleFocus(false, e, (event) => {
+				if (onMouseDownCapture) {
+					// @ts-ignore
+					onMouseDownCapture(event)
+				}
+			}),
 		[onMouseDownCapture, toggleFocus],
 	)
 
@@ -98,7 +125,13 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 	 * @type {(e: Event) => void}
 	 */
 	const onMouseUpCaptureCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleFocus(true, e, onMouseUpCapture),
+		(e: EventType) =>
+			toggleFocus(true, e, (event) => {
+				if (onMouseUpCapture) {
+					// @ts-ignore
+					onMouseUpCapture(event)
+				}
+			}),
 		[onMouseUpCapture, toggleFocus],
 	)
 
@@ -108,7 +141,13 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 	 * @type {(e: Event) => void}
 	 */
 	const onBlurCaptureCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleHover(false, e, onBlurCapture),
+		(e: EventType) =>
+			toggleHover(false, e, (event) => {
+				if (onBlurCapture) {
+					// @ts-ignore
+					onBlurCapture(event)
+				}
+			}),
 		[onBlurCapture, toggleHover],
 	)
 
@@ -118,7 +157,13 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 	 * @type {(e: Event) => void}
 	 */
 	const onBlurCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleFocus(false, e, onBlur),
+		(e: EventType) =>
+			toggleFocus(false, e, (event) => {
+				if (onBlur) {
+					// @ts-ignore
+					onBlur(event)
+				}
+			}),
 		[onBlur, toggleFocus],
 	)
 
@@ -128,7 +173,13 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 	 * @type {(e: Event) => void}
 	 */
 	const onFocusCallback = useCallback(
-		(e: MouseEvent | unknown) => toggleFocus(true, e, onFocus),
+		(e: EventType) =>
+			toggleFocus(true, e, (event) => {
+				if (onFocus) {
+					// @ts-ignore
+					onFocus(event)
+				}
+			}),
 		[onFocus, toggleFocus],
 	)
 
@@ -149,4 +200,5 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 	] as const
 }
 
-export { useInteraction, InteractionTypes }
+export { useInteraction }
+export type { InteractionTypes }

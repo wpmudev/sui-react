@@ -1,5 +1,11 @@
-import React from "react"
-import { isObject, generateCN, isEmpty } from "@wpmudev/sui-utils"
+import React, {
+	Children,
+	cloneElement,
+	isValidElement,
+	ReactNode,
+	useId,
+} from "react"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 // Import required modules
 import { Label } from "./elements/label"
@@ -10,7 +16,7 @@ import { FormFieldProps } from "./form-field.types"
 
 // Build form field component
 const FormField: React.FC<FormFieldProps> = ({
-	id,
+	id = "",
 	label,
 	helper,
 	error,
@@ -21,14 +27,24 @@ const FormField: React.FC<FormFieldProps> = ({
 	children,
 	...props
 }) => {
+	// Define a unique id.
+	let fieldId = useId()
+
+	if (!isEmpty(id)) {
+		fieldId = id
+	}
+
+	const isErrored =
+		"string" === typeof error ? !isEmpty((error as string) ?? "") : !!error
+
 	// Define error object
-	const errorObj = Object.assign(
-		{
-			state: false,
-			text: "",
-		},
-		error,
-	)
+	// const errorObj = Object.assign(
+	// 	{
+	// 		state: false,
+	// 		text: "",
+	// 	},
+	// 	error,
+	// )
 
 	// Generate classnames
 	const classNames = generateCN(
@@ -40,25 +56,39 @@ const FormField: React.FC<FormFieldProps> = ({
 		className,
 	)
 
+	// Define aria attributes.
+	const ariaAttrs = {
+		id: fieldId,
+		isSmall,
+		...(!isEmpty(label ?? "") && { "aria-labelledby": `${fieldId}-label` }),
+		...(!!helper && { "aria-describedby": `${fieldId}-helper` }),
+		...(isErrored && {
+			"aria-errormessage": `${fieldId}-error-message`,
+			isError: true,
+		}),
+	}
+
 	// Render field
 	return (
-		<div className={classNames} {...props}>
+		<div className={classNames} {...props} data-testid="form-field">
 			{!isEmpty(label ?? "") && (
-				<Label id={id} hidden={isLabelHidden ?? false}>
+				<Label id={fieldId} hidden={isLabelHidden ?? false}>
 					{label}
 				</Label>
 			)}
-			{children}
-			{isObject(error) && Object.keys(error).length > 0 && errorObj.state && (
-				<ErrorMessage id={id} show={errorObj.state} small={isSmall}>
-					{errorObj.text}
+			{Object.keys(ariaAttrs).length > 0
+				? Children.map(children, (child: ReactNode) =>
+						isValidElement(child)
+							? cloneElement(child, { ...ariaAttrs })
+							: child,
+				  )
+				: children}
+			{isErrored && (
+				<ErrorMessage id={fieldId} show={isErrored}>
+					{error}
 				</ErrorMessage>
 			)}
-			{!!helper && (
-				<Helper id={id} small={isSmall}>
-					{helper}
-				</Helper>
-			)}
+			{!!helper && <Helper id={fieldId}>{helper}</Helper>}
 		</div>
 	)
 }

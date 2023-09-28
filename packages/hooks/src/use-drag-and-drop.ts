@@ -1,5 +1,10 @@
 import { useEffect, useState, RefObject } from "react"
 
+interface UseDragAndDropProps {
+	containerRef: RefObject<HTMLDivElement | null>
+	methods: Record<string, any>
+}
+
 /**
  * Custom hook for adding drag-and-drop functionality to a container element.
  *
@@ -9,21 +14,21 @@ import { useEffect, useState, RefObject } from "react"
  *
  * @return {Array} A boolean state indicating whether an element is being dragged.
  */
-const useDragAndDrop = ({ containerRef, methods }) => {
+const useDragAndDrop = ({ containerRef, methods }: UseDragAndDropProps) => {
 	// State to keep track of the container node
-	const [node, setNode] = useState()
+	const [node, setNode] = useState<RefObject<HTMLDivElement>>()
 
 	// State to indicate whether an element is being dragged
 	const [isDragging, setIsDragging] = useState<boolean>(false)
 
 	useEffect(() => {
 		// Update the node state when the containerRef changes
-		setNode(containerRef?.current)
+		setNode(containerRef as RefObject<HTMLDivElement>)
 	}, [containerRef])
 
 	useEffect(() => {
 		// Event listener for dragover event
-		const onDragOver = (e) => {
+		const onDragOver = (e: MouseEvent) => {
 			e.preventDefault()
 			e.stopPropagation()
 
@@ -37,7 +42,7 @@ const useDragAndDrop = ({ containerRef, methods }) => {
 		}
 
 		// Event listener for drop event
-		const onDrop = (e) => {
+		const onDrop = (e: Event) => {
 			e.preventDefault()
 			e.stopPropagation()
 
@@ -50,14 +55,16 @@ const useDragAndDrop = ({ containerRef, methods }) => {
 			}
 		}
 
+		const current = node?.current as HTMLDivElement
+
 		// Add event listeners when the node is available
-		node?.addEventListener("dragover", onDragOver, false)
-		node?.addEventListener("drop", onDrop, false)
+		current?.addEventListener("dragover", onDragOver, false)
+		current?.addEventListener("drop", onDrop, false)
 
 		// Clean up by removing event listeners when the component unmounts or when the node changes
 		return () => {
-			node?.removeEventListener("dragover", onDragOver, false)
-			node?.removeEventListener("drop", onDrop, false)
+			current?.removeEventListener("dragover", onDragOver, false)
+			current?.removeEventListener("drop", onDrop, false)
 		}
 	}, [containerRef, node, methods])
 

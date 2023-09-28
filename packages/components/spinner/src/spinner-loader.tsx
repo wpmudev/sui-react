@@ -9,7 +9,7 @@ const SpinnerLoader = ({ color }: SpinnerLoaderProps) => {
 	// }
 
 	// Set default attributes for the spinner
-	const attrs: React<string, any> = {
+	const attrs: Record<string, any> = {
 		cx: "50%",
 		cy: "50%",
 		r: 44,

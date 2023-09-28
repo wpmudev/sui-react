@@ -10,7 +10,12 @@ const Label: React.FC<FormFieldLabelProps> = ({
 	hidden = false,
 	children,
 }) => {
-	if (isEmpty(children ?? "")) {
+	const hasContent =
+		"string" === typeof children
+			? !isEmpty((children as string) ?? "")
+			: !!children
+
+	if (!hasContent) {
 		throw new Error(
 			`Empty content is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Form Field\n\nThe "Label" component requires a child element to be passed to it.\n\n`,
 		)
@@ -23,7 +28,7 @@ const Label: React.FC<FormFieldLabelProps> = ({
 	})
 
 	return (
-		<label htmlFor={id} id={`${id}__label`} className={classNames}>
+		<label htmlFor={id} id={`${id}-label`} className={classNames}>
 			{children}
 		</label>
 	)

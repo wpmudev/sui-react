@@ -6,11 +6,11 @@ import { Search } from "./multiselect-search"
 interface SelectDropdownProps
 	extends Omit<HTMLProps<HTMLOListElement>, "selected"> {
 	options: Record<string, any>[]
-	onEvent?: (id: string) => {}
-	selectAll?: () => {}
+	onEvent?: (id: string | number) => void
+	selectAll?: () => void
 	isSmall?: boolean
 	isMultiSelect?: boolean
-	selected?: string
+	selected?: Record<string, any> | string
 }
 
 const Dropdown: React.FC<SelectDropdownProps> = ({

@@ -1,5 +1,11 @@
-import React, { useState, useEffect, useRef, HTMLProps } from "react"
-import { generateCN, isArray } from "@wpmudev/sui-utils"
+import React, {
+	useState,
+	useEffect,
+	useRef,
+	HTMLProps,
+	ChangeEvent,
+} from "react"
+import { generateCN } from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
 	useInteraction,
@@ -22,7 +28,10 @@ import {
  * from the HTMLProps<HTMLDivElement> type.
  */
 interface SelectBaseProps
-	extends Omit<HTMLProps<HTMLDivElement>, "onMouseLeave" | "onMouseEnter"> {
+	extends Omit<
+		HTMLProps<HTMLDivElement>,
+		"onMouseLeave" | "onMouseEnter" | "selected"
+	> {
 	/** Unique ID */
 	id: string
 	/** An array of options for the select */
@@ -156,14 +165,14 @@ const Select: React.FC<SelectBaseProps> = ({
 	)
 
 	// Select search function.
-	const handleSearchDropdown = (event) => {
+	const handleSearchDropdown = (event: ChangeEvent<HTMLInputElement>) => {
 		const searchValue = event.target.value.toLowerCase()
 		setIsDropdownOpen(true)
 		SearchDropdown(searchValue, items, setFilteredItems)
 	}
 
 	// Multiselect search function.
-	const handleMultiSelectSearch = (event) => {
+	const handleMultiSelectSearch = (event: ChangeEvent<HTMLInputElement>) => {
 		const searchValue = event.target.value.toLowerCase()
 		setIsDropdownOpen(true)
 		MultiSelectSearch(searchValue, items, setFilteredItems)
@@ -221,7 +230,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		...(isSearchable && {
 			disabled: isDisabled,
 			dropdownItems: filteredItems,
-			onChange: (e) => {
+			onChange: (e: ChangeEvent<HTMLInputElement>) => {
 				handleSearchDropdown(e)
 				updateItem({
 					...selectedItem,
@@ -244,13 +253,12 @@ const Select: React.FC<SelectBaseProps> = ({
 		options: filteredItems,
 		selected: selectedItem,
 		isSmall,
-		onEvent: (optionId: number | string) => updateSelected(optionId),
 		...(isMultiSelect && {
 			isMultiSelect,
 			selectAll: () => {
 				SelectAll(filteredItems, setFilteredItems)
 			},
-			onChange: (e) => {
+			onChange: (e: ChangeEvent<HTMLInputElement>) => {
 				handleMultiSelectSearch(e)
 			},
 		}),
@@ -262,9 +270,17 @@ const Select: React.FC<SelectBaseProps> = ({
 		<div {...selectProps}>
 			{!isSearchable && <Selected {...headerProps} />}
 			{isSearchable && <SelectedSearch {...headerProps} />}
-			{isDropdownOpen && <Dropdown {...dropdownProps} />}
+			{isDropdownOpen && (
+				<Dropdown
+					{...dropdownProps}
+					onEvent={(optionId: number | string) => {
+						updateSelected(optionId)
+					}}
+				/>
+			)}
 		</div>
 	)
 }
 
-export { Select, SelectBaseProps }
+export { Select }
+export type { SelectBaseProps }

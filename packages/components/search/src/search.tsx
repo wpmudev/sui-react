@@ -100,7 +100,12 @@ const Search: React.FC<SearchProps> = ({
 	}
 
 	return (
-		<div ref={searchRef} className={classNames} {...methods}>
+		<div
+			ref={searchRef}
+			className={classNames}
+			data-testid="search"
+			{...methods}
+		>
 			<Input
 				ref={inputRef}
 				tabIndex={-1}

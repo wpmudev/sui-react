@@ -20,7 +20,14 @@ export default {
 }
 
 // Build "Tag" story.
-const ColorPicker = ({ color, ...props }) => {
+const ColorPicker = ({
+	color,
+	id,
+	isDisabled,
+	isError,
+	errorMessage,
+	...props
+}) => {
 	const [currentColor, setCurrentColor] = useState<string>(color)
 
 	useEffect(() => {
@@ -37,10 +44,20 @@ const ColorPicker = ({ color, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<FormField id="color-picker" label="Select colour" isSmall={true}>
+					<FormField
+						id={id}
+						label="Select colour"
+						isSmall={false}
+						isDisabled={isDisabled}
+						error={{
+							state: isError,
+							text: errorMessage,
+						}}
+					>
 						<SuiColorPicker
 							color={currentColor}
 							onChange={setCurrentColor}
+							isDisabled={isDisabled}
 							{...props}
 						/>
 					</FormField>
@@ -52,17 +69,39 @@ const ColorPicker = ({ color, ...props }) => {
 
 // Set story arguments.
 ColorPicker.args = {
-	color: "#FFFFFF",
+	id: "colorpicker",
+	color: "#ffffff",
 	type: "hex",
+	isError: false,
+	isDisabled: false,
+	errorMessage: "Color field has errors.",
 }
 
 // Set controls for story arguments.
 ColorPicker.argTypes = {
+	id: {
+		name: "ID",
+		control: {
+			type: "text",
+		},
+	},
 	color: {
 		name: "Color",
 		control: {
 			type: "text",
 		},
+	},
+	isError: {
+		name: "Error",
+		control: "boolean",
+	},
+	errorMessage: {
+		name: "Error Message",
+		control: "text",
+	},
+	isDisabled: {
+		name: "Disabled",
+		control: "boolean",
 	},
 	type: {
 		name: "Color Type",

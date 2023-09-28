@@ -1,4 +1,5 @@
 import React from "react"
+import { FormField } from "@wpmudev/sui-form-field"
 
 // Import required component.
 import { DatePicker as SuiDatePicker } from "../src"
@@ -20,7 +21,7 @@ export default {
 }
 
 // Build "Tag" story.
-const DatePicker = ({ color, id, ...props }) => {
+const DatePicker = ({ color, error, isDisabled, ...props }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -31,13 +32,17 @@ const DatePicker = ({ color, id, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<FormField id={id} label="Datepicker">
+					<FormField
+						id="datepicker"
+						label="Datepicker"
+						helper="This is a description"
+						error={error}
+						isDisabled={isDisabled}
+					>
 						<SuiDatePicker
+							isDisabled={isDisabled}
 							{...props}
 							onChange={console.log}
-							labelledby={`${id}-label`}
-							describedby={`${id}-description`}
-							errormessage={`${id}-error`}
 						>
 							DISPLAY RANGE PICKER
 						</SuiDatePicker>
@@ -57,7 +62,10 @@ DatePicker.args = {
 	minDate: "01/05/2023",
 	maxDate: "30/10/2023",
 	isDisabled: false,
-	isError: false,
+	error: {
+		state: false,
+		text: "Datepicker has errors.",
+	},
 }
 
 // Set controls for story arguments.

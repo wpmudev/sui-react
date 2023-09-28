@@ -51,6 +51,10 @@ interface DatePickerProps {
 	 */
 	endDate?: string
 	/**
+	 * children element of a datepicker
+	 */
+	children?: React.ReactNode
+	/**
 	 * Callback function called when the selected date(s) change
 	 *
 	 * @param {string | Date | DatePickerDateRange} value

@@ -4,7 +4,9 @@ import React from "react"
  * Represents the properties for a Selector component.
  */
 interface SelectorProps
-	extends Omit<HTMLInputElement, "name" | "value" | "onChange" | "children"> {
+	extends Partial<
+		Omit<HTMLInputElement, "name" | "value" | "onChange" | "children">
+	> {
 	/** The label text for the radio input */
 	label: string
 	/** The name attribute for the radio input */
@@ -12,13 +14,13 @@ interface SelectorProps
 	/** The value of the radio input */
 	value: string | number
 	/** Whether the radio input is checked */
-	isChecked: boolean
+	isChecked?: boolean
 	/** Whether the radio input is disabled */
 	isDisabled?: boolean
 	/** Whether the selector is a pro feature */
 	isPro?: boolean
 	/** Event handler for radio input change */
-	onChange(isChecked: boolean, value: string | number, name: string): void
+	onChange?(isChecked: boolean, value: string | number, name: string): void
 	/** The alignment of the Selector component */
 	alignment?: "left" | "center"
 	/** The variation style of the Selector component */
@@ -36,7 +38,7 @@ interface SelectorProps
 	/** Whether removal of the Selector is allowed */
 	allowRemove?: boolean
 	/** Event handler for removing the Selector */
-	onRemove(name: string, value: string | number): void
+	onRemove?(name: string, value: string | number): void
 }
 
 interface SelectorOptionProps

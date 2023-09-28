@@ -28,7 +28,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 		/>
 	)
 
-	let actionsList = []
+	let actionsList: React.ReactNode[] = []
 
 	if (!!actions) {
 		actionsList = [...actions(settingButton)]
@@ -58,7 +58,9 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 							/>
 						)}
 						{title && (
-							<h3 className="sui-heading--h4 sui-editor-toolbar__main-title">{title}</h3>
+							<h3 className="sui-heading--h4 sui-editor-toolbar__main-title">
+								{title}
+							</h3>
 						)}
 					</div>
 				</div>

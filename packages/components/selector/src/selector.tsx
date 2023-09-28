@@ -19,9 +19,9 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			isChecked = false,
 			isDisabled = false,
 			isPro = false,
-			defaultValue = false,
-			alignment = "",
-			variation = "",
+			defaultValue = "",
+			alignment = "center",
+			variation = "default",
 			onChange = () => {},
 			...props
 		}: SelectorProps,
@@ -45,6 +45,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			<label
 				htmlFor={id}
 				tabIndex={isDisabled ? -1 : 0}
+				data-testid="selector"
 				className={generateCN("sui-selector", {
 					disabled: isDisabled || isPro,
 					hover: isHovered,
@@ -67,6 +68,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 					className="sui-screen-reader-only" // Hide the input element from the screen
 					disabled={isDisabled}
 					onChange={handleOnChange}
+					data-testid="selector-input"
 				/>
 				<SelectorOption
 					{...props}

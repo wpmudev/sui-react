@@ -1,36 +1,102 @@
+import { ReactNode } from "react"
+
+// Define a type that represents the possible values for a radio button.
+type RadioValueType = string | number | undefined
+
 /**
- * Interface representing the properties of a radio input component.
+ * Define the props for a RadioGroup component.
+ */
+interface RadioGroupProps {
+	/**
+	 * The name of the radio group.
+	 */
+	name: string
+
+	/**
+	 * Indicates whether the radio buttons should be displayed inline.
+	 */
+	isInline?: boolean
+
+	/**
+	 * The children components rendered inside the radio group.
+	 */
+	children: ReactNode
+
+	/**
+	 * A callback function to handle radio button selection changes.
+	 */
+	onChange?(value: RadioValueType): void
+
+	/**
+	 * The default value for the radio group (optional).
+	 */
+	defaultValue?: RadioValueType
+
+	/**
+	 * Indicates whether the radio buttons should be displayed with a smaller size (optional).
+	 */
+	isSmall?: boolean
+
+	/**
+	 * Indicates whether the radio group should be displayed as a block element (optional).
+	 */
+	asBlock?: boolean
+
+	/**
+	 * Indicates whether the radio button is disabled (optional).
+	 */
+	isDisabled?: boolean
+}
+
+/**
+ * Define the props for a Radio component.
  */
 interface RadioProps {
 	/**
-	 * ID of the radio input.
+	 * The unique identifier for the radio button (optional).
 	 */
-	id: string
+	id?: string
 
 	/**
-	 * Label for the radio input.
+	 * The label text for the radio button (optional).
 	 */
-	label: string
+	label?: string
 
 	/**
-	 * Default value of the radio input.
+	 * A description or additional information about the radio button (optional).
 	 */
-	defaultValue: unknown
+	description?: string
 
 	/**
-	 * Indicates whether the radio input is checked.
+	 * Radio value
 	 */
-	isChecked: boolean
+	value: string
 
 	/**
-	 * Indicates whether the radio input should be displayed in a small size.
+	 * A tag associated with the radio button (optional).
 	 */
-	isSmall: boolean
+	tag?: string
 
 	/**
-	 * Indicates whether the radio input is disabled.
+	 * Indicates whether the radio button is disabled (optional).
 	 */
-	isDisabled: boolean
+	isDisabled?: boolean
 }
 
-export type { RadioProps }
+/**
+ * Define the props for the context of a Radio component, which includes properties inherited from RadioGroupProps.
+ */
+interface RadioContextProps
+	extends Omit<RadioGroupProps, "isInline" | "isSmall" | "children"> {
+	/**
+	 * The currently selected value within the radio group (optional).
+	 */
+	current?: RadioValueType
+
+	/**
+	 * A function to set the currently selected value within the radio group.
+	 */
+	setCurrent(value: RadioValueType): void
+}
+
+export type { RadioProps, RadioGroupProps, RadioContextProps, RadioValueType }

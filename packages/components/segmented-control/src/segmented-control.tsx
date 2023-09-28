@@ -69,7 +69,9 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 			}}
 		>
 			{/* Render the segmented control with the provided children inside a div with appropriate class names. */}
-			<div className={classNames}>{children}</div>
+			<div className={classNames} data-testid="segmented-control">
+				{children}
+			</div>
 		</SegmentedControlContext.Provider>
 	)
 }

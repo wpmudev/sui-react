@@ -41,7 +41,7 @@ ProgressBar.args = {
 	size: "sm",
 	allowCancel: true,
 	isIndeterminate: true,
-	hasValue: false,
+	showValue: true,
 	isInline: false,
 }
 
@@ -71,9 +71,27 @@ ProgressBar.argTypes = {
 	},
 	allowCancel: {
 		name: "Allow Cancel",
+		control: {
+			type: "boolean",
+		},
 	},
 	isIndeterminate: {
 		name: "Indeterminate",
+		control: {
+			type: "boolean",
+		},
+	},
+	showValue: {
+		name: "Show value",
+		control: {
+			type: "boolean",
+		},
+	},
+	isInline: {
+		name: "Inline",
+		control: {
+			type: "boolean",
+		},
 	},
 }
 

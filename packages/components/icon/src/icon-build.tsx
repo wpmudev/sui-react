@@ -1,7 +1,7 @@
 /**
  * Interface for generating icon parameters.
  */
-import React, { Children, forwardRef } from "react"
+import React, { Children, forwardRef, ReactNode } from "react"
 import { isEmpty } from "@wpmudev/sui-utils"
 
 import { Icon } from "./icon"
@@ -10,10 +10,13 @@ import { IconBuildParams, IconProps } from "./icon.types"
 /**
  * Generate an icon component based on the provided options.
  *
- * @param {string | string[]} path
- * @param {IconBuildParams}   options
+ * @param {string | string[] | ReactNode[]} path
+ * @param {IconBuildParams}                 options
  */
-const iconBuild = (path: string | string[], options: IconBuildParams) => {
+const iconBuild = (
+	path: string | string[] | ReactNode[],
+	options: IconBuildParams,
+) => {
 	const { viewBox = "0 0 24 24", title, defaultProps = {} } = options
 
 	// Check if the `path` has a single value

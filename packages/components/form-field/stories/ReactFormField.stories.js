@@ -23,7 +23,7 @@ export default {
 }
 
 // Build component playground
-export const FormField = ({ example, ...args }) => {
+export const FormField = ({ example, type, ...args }) => {
 	const set = {}
 
 	set.box = {
@@ -39,39 +39,20 @@ export const FormField = ({ example, ...args }) => {
 					<SUIFormField {...args}>
 						{"input" === example && (
 							<Input
-								id={args.id}
 								placeholder={args.placeholder}
 								isError={args.error?.state}
 								isSmall={args.isSmall}
 								isDisabled={args.isDisabled}
-								{...(!!args.label && {
-									"aria-labelledby": `${args.id}__label`,
-								})}
-								{...(!!args.helper && {
-									"aria-describedby": `${args.id}__helper`,
-								})}
-								{...(!!args.error?.state && {
-									"aria-errormessage": `${args.id}__error-message`,
-								})}
+								type={type}
 							/>
 						)}
 						{"textarea" === example && (
 							<Textarea
 								rows={7}
-								id={args.id}
 								placeholder={args.placeholder}
 								isError={args.error?.state}
 								isSmall={args.isSmall}
 								isDisabled={args.isDisabled}
-								{...(!!args.label && {
-									"aria-labelledby": `${args.id}__label`,
-								})}
-								{...(!!args.helper && {
-									"aria-describedby": `${args.id}__helper`,
-								})}
-								{...(!!args.error?.state && {
-									"aria-errormessage": `${args.id}__error-message`,
-								})}
 							/>
 						)}
 					</SUIFormField>
@@ -84,7 +65,7 @@ export const FormField = ({ example, ...args }) => {
 // Define playground arguments
 FormField.args = {
 	example: "",
-	id: "myCustomElement",
+	type: "text",
 	label: "Label",
 	placeholder: "Placeholder",
 	helper: "Helper text",
@@ -108,6 +89,17 @@ FormField.argTypes = {
 				input: "Example: Field + Input",
 				textarea: "Example: Field + Textarea",
 			},
+		},
+	},
+	type: {
+		name: "Type",
+		options: ["text", "email", "password", "number", "search", "tel", "url"],
+		control: {
+			type: "select",
+		},
+		if: {
+			arg: "example",
+			eq: "input",
 		},
 	},
 	id: {

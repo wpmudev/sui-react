@@ -22,61 +22,33 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
     	</Section>
 
     	<Section
-    		title={{ content: "label*", tag: 'string', small: true }}
+    		title={{ content: "placholder", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
-    		<p> A label for the password field. </p>
+    		<p>A placholder for the password field</p>
     	</Section>
 
-		<Section
-    		title={{ content: "helper", tag: 'ReactNode', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p> Helper text for the password field. </p>
-    	</Section>
-
-		<Section
+    	<Section
     		title={{ content: "button", tag: 'object', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p> Specifies the button type for showing and hiding the password. </p>
-			<p> button is an object that has a single property: <Code small={true}>type</Code> </p>
-			<p> Allowed values for the type property: </p>
-			<List>
-				<span label={<><Code small={true}>icon-button</Code> displays an icon button </>} />
-				<span label={<><Code small={true}>standard</Code> displays a text button instead ( show & hide ) </>} />
-			</List>
+    		<p> button is an object that has a single property: <Code small={true}>type</Code> </p>
+    		<p> Allowed values for the type property: </p>
+    		<List>
+    			<span label={<><Code small={true}>icon-button</Code> displays an icon button </>} />
+    			<span label={<><Code small={true}>standard</Code> displays a text button instead ( show & hide ) </>} />
+    		</List>
     	</Section>
 
-		<Section
-    		title={{ content: "isLabelHidden*", tag: 'boolean', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p> When set to <Code small={true}> true </Code> the label will be hidden </p>
-    	</Section>
-		
-		<Section
+    	<Section
     		title={{ content: "isSmall*", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p> When set to <Code small={true}> true </Code> the field will be smaller </p>
     	</Section>
 
-		<Section
-    		title={{ content: "isError*", tag: 'boolean', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p> When set to true, the input will have a red border and the error message will be displayed </p>
-    	</Section>
-
-		<Section
-    		title={{ content: "errorMessage", tag: 'string | ReactNode', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p> Error message for the password field. </p>
-    	</Section>
-
-		<Section
+    	<Section
     		title={{ content: "isDisabled", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>

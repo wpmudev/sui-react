@@ -38,7 +38,7 @@ const Status: React.FC<StatusProps> = ({ status }) => {
 
 	// Return element
 	return (
-		<span className={set.wrapper.class}>
+		<span className={set.wrapper.class} data-testid="avatar-status">
 			<span className={set.element.class} aria-hidden="true" />
 		</span>
 	)
