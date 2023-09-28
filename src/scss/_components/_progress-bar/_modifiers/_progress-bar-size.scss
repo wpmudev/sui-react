@@ -14,13 +14,13 @@
 		@include block($block) {
 			@include modifier(sm) {
 				@include modifies-element(indicator) {
-					height: $spacing-sm;
+					height: $progress-size-height-xs;
 				}
 			}
 
 			@include modifier(lg) {
 				@include modifies-element(indicator) {
-					height: $spacing-lg;
+					height: $progress-size-height-md;
 				}
 			}
 		}

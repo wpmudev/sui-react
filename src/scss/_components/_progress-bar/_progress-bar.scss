@@ -3,8 +3,8 @@
 
 @include sui-progress-bar--element.build-container(progress-bar);
 @include sui-progress-bar--element.build-main(progress-bar);
-//@include sui-progress-bar--element.build-text(progress-bar);
-//@include sui-progress-bar--element.build-label(progress-bar);
+@include sui-progress-bar--element.build-text(progress-bar);
+
 @include sui-progress-bar--element.build-indicator(progress-bar);
 @include sui-progress-bar--element.build-action(progress-bar);
 

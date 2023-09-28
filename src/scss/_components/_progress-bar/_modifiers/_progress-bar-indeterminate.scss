@@ -8,20 +8,15 @@
 ///
 /// @param {String} $block - Main block name
 @mixin edit-indeterminate($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include modifier(indeterminate) {
-                @include modifies-element(indicator-bar) {
-                    min-height: 16px;
-                }
-
-                @include modifies-element(indicator) {
-                    background-color: red;
-                    @include animation(indeterminate-progress-bar);
-                }
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(indeterminate) {
+				@include modifies-element(indicator-bar) {
+					min-height: $progress-size-height-md;
+				}
+			}
+		}
+	}
 }

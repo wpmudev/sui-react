@@ -20,7 +20,7 @@
 				@include modifies-element(indicator) {
 					flex: 1;
 					order: 1;
-					margin: 0 10px;
+					margin: 0 $spacing-md;
 				}
 
 				@include modifies-element(value) {
