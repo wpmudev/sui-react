@@ -37,15 +37,6 @@ const FormField: React.FC<FormFieldProps> = ({
 	const isErrored =
 		"string" === typeof error ? !isEmpty((error as string) ?? "") : !!error
 
-	// Define error object
-	// const errorObj = Object.assign(
-	// 	{
-	// 		state: false,
-	// 		text: "",
-	// 	},
-	// 	error,
-	// )
-
 	// Generate classnames
 	const classNames = generateCN(
 		"sui-form-field",

@@ -60,10 +60,7 @@ DatePicker.args = {
 	minDate: "01/05/2023",
 	maxDate: "30/10/2023",
 	isDisabled: false,
-	error: {
-		state: false,
-		text: "Datepicker has errors.",
-	},
+	error: "",
 }
 
 // Set controls for story arguments.
@@ -115,6 +112,12 @@ DatePicker.argTypes = {
 		name: "Disabled",
 		control: {
 			type: "boolean",
+		},
+	},
+	error: {
+		name: "Error",
+		control: {
+			type: "text",
 		},
 	},
 }
