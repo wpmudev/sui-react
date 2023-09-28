@@ -151,12 +151,11 @@ $colors-high-contrast: (
 							&.sui-#{$block-name}--hover {
 								@if $name == white {
 									background: tint($value, 90%);
+									color: $color-extended-neutral-10;
 								}
 								@if $name != white {
 									background: none;
-								}
-								@if $name == white {
-									color: $color-extended-neutral-10;
+									border-color: $color-extended-neutral-0;
 								}
 							}
 
