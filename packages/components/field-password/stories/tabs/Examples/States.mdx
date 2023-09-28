@@ -8,12 +8,9 @@ export const DisabledPasswordFieldCode = dedent`
 	id="passwordId"
 	label="Label"
 	helper="Help text"
-	error={{
-		state: false,
-		text: "Error message",
-	}}
+	isDisabled={true}
 >
-	<PasswordField placeholder="Enter your password" isDisabled={true} />
+	<PasswordField placeholder="Enter your password" />
 </FormField>
 `
 
@@ -22,10 +19,7 @@ export const ErrorPasswordFieldCode = dedent`
 	id="passwordId"
 	label="Label"
 	helper="Help text"
-	error={{
-		state: true,
-		text: "Error message",
-	}}
+	error="Error message"
 >
 	<PasswordField placeholder="Enter your password" />
 </FormField>
@@ -42,12 +36,9 @@ export const ErrorPasswordFieldCode = dedent`
 			id="passwordId"
 			label="Label"
 			helper="Help text"
-			error={{
-				state: false,
-				text: "Error message",
-			}}
+			isDisabled={true}
 		>
-			<PasswordField placeholder="Enter your password" isDisabled={true} />
+			<PasswordField placeholder="Enter your password" />
 		</FormField>
 	</Preview>
 	<Snippet language="js">{DisabledPasswordFieldCode}</Snippet>
@@ -64,10 +55,7 @@ export const ErrorPasswordFieldCode = dedent`
 			id="passwordId"
 			label="Label"
 			helper="Help text"
-			error={{
-				state: true,
-				text: "Error message",
-			}}
+			error="Error message"
 		>
 			<PasswordField placeholder="Enter your password" />
 		</FormField>

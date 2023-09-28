@@ -69,10 +69,7 @@ FormField.args = {
 	label: "Label",
 	placeholder: "Placeholder",
 	helper: "Helper text",
-	error: {
-		state: false,
-		text: "Error message",
-	},
+	error: "",
 	className: "myCustomClass",
 	isSmall: false,
 	isDisabled: false,
@@ -119,8 +116,8 @@ FormField.argTypes = {
 		type: "string",
 	},
 	error: {
-		name: "Error Settings",
-		control: "object",
+		name: "Error",
+		control: "text",
 		if: {
 			arg: "example",
 			neq: "",

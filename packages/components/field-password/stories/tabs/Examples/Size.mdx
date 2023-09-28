@@ -9,10 +9,6 @@ export const SmallPasswordFieldCode = dedent`
 	label="Label"
 	helper="Help text"
 	isSmall={true}
-	error={{
-		state: false,
-		text: "Error message",
-	}}
 >
 	<PasswordField placeholder="Enter your password" />
 </FormField>
@@ -24,16 +20,7 @@ export const SmallPasswordFieldCode = dedent`
 	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
 >
 	<Preview wrapper={true}>
-		<FormField
-			id="passwordId"
-			label="Label"
-			helper="Help text"
-			isSmall={true}
-			error={{
-				state: false,
-				text: "Error message",
-			}}
-		>
+		<FormField id="passwordId" label="Label" helper="Help text" isSmall={true}>
 			<PasswordField placeholder="Enter your password" />
 		</FormField>
 	</Preview>

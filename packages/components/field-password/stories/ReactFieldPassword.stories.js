@@ -26,7 +26,7 @@ export const PasswordField = ({
 	label,
 	helper,
 	errorMessage,
-	isError,
+	error,
 	...args
 }) => {
 	const boxStyles = {
@@ -38,12 +38,6 @@ export const PasswordField = ({
 	const button = {
 		type: buttonType,
 	}
-
-	// Define field error state
-	const error = Object.assign({
-		state: isError,
-		text: errorMessage,
-	})
 
 	// Field settings
 	const fieldAttrs = {
@@ -73,9 +67,8 @@ PasswordField.args = {
 	placeholder: "Enter your password",
 	label: "Password",
 	helper: "Create a password of minimum 8 characters",
-	errorMessage: "The password you inserted is not valid",
+	error: "",
 	buttonType: "icon-button",
-	isError: false,
 	isDisabled: false,
 	isSmall: false,
 }
@@ -94,8 +87,8 @@ PasswordField.argTypes = {
 	helper: {
 		name: "Helper",
 	},
-	errorMessage: {
-		name: "Error Message",
+	error: {
+		name: "Error",
 	},
 	buttonType: {
 		name: "Button Style",
@@ -107,10 +100,6 @@ PasswordField.argTypes = {
 				standard: "Button",
 			},
 		},
-	},
-	isError: {
-		name: "Error",
-		control: "boolean",
 	},
 	isDisabled: {
 		name: "Disabled",

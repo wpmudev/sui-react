@@ -1,4 +1,5 @@
 import React from "react"
+import { FormField } from "@wpmudev/sui-form-field"
 
 // Import required component.
 import { Input as SuiInput } from "../src"
@@ -30,7 +31,9 @@ const Input = ({ example, ...args }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiInput {...args} />
+					<FormField>
+						<SuiInput {...args} />
+					</FormField>
 				</div>
 			</div>
 		</div>
@@ -45,15 +48,10 @@ Input.args = {
 	defaultValue: "Hello World",
 	icon: "",
 	iconPosition: "",
-	isMultiLine: false,
 	isSmall: false,
-	isError: false,
 	isReadOnly: true,
 	isDisabled: false,
 	allowClear: false,
-	labelledby: "",
-	describedby: "",
-	errormessage: "",
 }
 
 // Set controls for story arguments.
@@ -83,21 +81,9 @@ Input.argTypes = {
 	defaultValue: {
 		name: "Value",
 	},
-	isMultiline: {
-		name: "Multi Line",
-		control: "boolean",
-	},
 	isSmall: {
 		name: "Small",
 		control: "boolean",
-	},
-	isError: {
-		name: "Error",
-		control: "boolean",
-		if: {
-			arg: "example",
-			eq: "standard",
-		},
 	},
 	iconPosition: {
 		name: "Icon Position",
@@ -125,18 +111,6 @@ Input.argTypes = {
 	allowClear: {
 		name: "Allow Clear",
 		control: "boolean",
-	},
-	labelledby: {
-		name: "Labelled by",
-		control: "text",
-	},
-	describedby: {
-		name: "Described by",
-		control: "text",
-	},
-	errormessage: {
-		name: "Error message",
-		control: "text",
 	},
 }
 
