@@ -1,7 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 
 import "@testing-library/jest-dom"
-import { screen, render } from "@testing-library/react"
+import { screen, render, fireEvent } from "@testing-library/react"
 
 import { Checkbox } from "../src"
 
@@ -16,15 +16,29 @@ describe("@wpmudev/sui-checkbox", () => {
 	})
 
 	// Test case for testing the isDisabled prop
-	it("isDisabled works fine", () => {
+	it("disabled state", () => {
+		const Component = () => {
+			const [checked, setChecked] = useState<boolean>(false)
+
+			return (
+				<Checkbox
+					isDisabled={true}
+					isChecked={checked}
+					onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+						setChecked(e.target.checked)
+					}}
+				/>
+			)
+		}
+
 		// Render the Checkbox component with isDisabled set to true
-		render(<Checkbox isDisabled={true} />)
+		render(<Component />)
 
 		// Get the Checkbox element
-		const checkboxEl = screen.getByTestId("checkbox")
+		const input = screen.getByTestId("checkbox-input")
 
-		// Check if the Checkbox has the correct CSS class when disabled
-		expect(checkboxEl).toHaveClass("sui-checkbox--disabled")
+		fireEvent.click(input)
+		expect(input).not.toBeChecked()
 	})
 
 	// Test case for testing the isIndeterminate prop

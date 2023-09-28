@@ -88,9 +88,10 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
 					ref={ref}
 					id={id}
 					type="checkbox"
+					data-testid="checkbox-input"
 					className="sui-screen-reader-only"
 					disabled={isDisabled}
-					checked={isChecked || isIndeterminate}
+					checked={(isChecked || isIndeterminate) && !isDisabled}
 					onChange={handleOnChange}
 				/>
 				{/* Custom tick element for the checkbox */}
