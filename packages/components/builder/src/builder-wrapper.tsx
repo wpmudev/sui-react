@@ -14,7 +14,7 @@ const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 
 	return (
 		<Row className={classNames} align={{ xs: "inline" }} {...props}>
-			{Children.map(children, (child: React.ReactNode) =>
+			{Children.map(children, (child: any) =>
 				cloneElement(child, {
 					colSize: Children.count(children),
 				} as object),

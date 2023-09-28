@@ -47,9 +47,11 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 	)
 
 	// Determine the IconTag based on the provided icon value
-	let IconTag = null
+	// @ts-ignore
+	let IconTag: string | null = null
 
 	if (!isEmpty(icon)) {
+		// @ts-ignore
 		IconTag = Icons?.[icon ?? ""]
 	}
 
