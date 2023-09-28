@@ -5,7 +5,7 @@ import { Select as Base } from "./select-base"
 
 // Build "Standard Select" component.
 const Select = ({ ...props }) => {
-	return <Base {...props} />
+	return <Base id={props?.id} options={props?.options} {...props} />
 }
 
 // Publish required component(s).
