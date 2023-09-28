@@ -1,0 +1,13 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Accordion, AccordionItem, AccordionItemBody } from "../../src"
+import dedent from "dedent"
+
+export const sampleCode = dedent`
+    Basic Examples 
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Basic Accordion Example</p>
+	<Preview wrapper={true}>Basic Example</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
