@@ -11,11 +11,7 @@ export const sampleCode = dedent`
 <FormField 
 	id="passwordId" 
 	label="Label" 
-	helper="Help text" 
-	error={{ 
-		state: false, 
-		text: "Error message" 
-	}}
+	helper="Help text"
 >
 	<PasswordField placeholder="Enter your password" />
 </FormField>
@@ -24,15 +20,7 @@ export const sampleCode = dedent`
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>Below is the default form of a Password Field, used for most cases.</p>
 	<Preview wrapper={true}>
-		<FormField
-			id="passwordId"
-			label="Label"
-			helper="Help text"
-			error={{
-				state: false,
-				text: "Error message",
-			}}
-		>
+		<FormField id="passwordId" label="Label" helper="Help text">
 			<PasswordField placeholder="Enter your password" />
 		</FormField>
 	</Preview>
