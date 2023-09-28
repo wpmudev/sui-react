@@ -1,10 +1,5 @@
 import React, { useCallback, useState } from "react"
-import {
-	isEmpty,
-	isFunction,
-	condContent,
-	generateCN,
-} from "@wpmudev/sui-utils"
+import { isFunction, generateCN } from "@wpmudev/sui-utils"
 
 import { useInteraction } from "@wpmudev/sui-hooks"
 
@@ -38,9 +33,9 @@ const Textarea: React.FC<TextareaProps> = ({
 	)
 
 	const handleOnChange = useCallback(
-		(e) => {
+		(e: React.ChangeEvent<HTMLTextAreaElement>) => {
 			setCurrentValue(e.target.value)
-			if (isFunction(onChange)) {
+			if (isFunction(onChange) && !!onChange) {
 				onChange(e)
 			}
 		},
@@ -48,13 +43,14 @@ const Textarea: React.FC<TextareaProps> = ({
 	)
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="textarea">
 			<textarea
 				id={id ?? ""}
 				className="sui-textarea__field"
 				value={currentValue}
 				disabled={isDisabled}
 				onChange={handleOnChange}
+				data-testid="textarea-input"
 				{...props}
 				{...methods}
 			/>
