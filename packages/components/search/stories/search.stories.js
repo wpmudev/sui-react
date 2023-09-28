@@ -2,6 +2,7 @@ import React from "react"
 
 // Import required component
 import { Search as SuiSearch } from "../src"
+import { options } from "./options"
 
 // Import documentation main page
 import docs from "./search.mdx"
@@ -17,28 +18,6 @@ export default {
 		},
 	},
 }
-
-const options = [
-	"United States",
-	"Canada",
-	"United Kingdom",
-	"Australia",
-	"Germany",
-	"France",
-	"Japan",
-	"Brazil",
-	"India",
-	"China",
-	"South Korea",
-	"Mexico",
-	"Russia",
-	"Italy",
-	"Argentina",
-	"South Africa",
-	"Egypt",
-	"Turkey",
-	"New Zealand",
-]
 
 // Build "Search" story.
 const Search = ({ example, ...props }) => {
