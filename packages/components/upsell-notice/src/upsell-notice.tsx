@@ -20,7 +20,7 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 	})
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="upsell-notice">
 			<div className="sui-upsell-notice__header">
 				<h3 className="sui-upsell-notice__header-title sui-heading--h5">
 					{title ?? "Title of Upsell"}
@@ -34,7 +34,7 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 			<div className="sui-upsell-notice__body">
 				<p>{description}</p>
 				{features?.length > 0 && (
-					<ul className="sui-upsell-notice__features">
+					<ul className="sui-upsell-notice__features" data-testid="features">
 						{/* Map and render each feature with a checkmark */}
 						{features?.map((feature, index) => (
 							<li key={index} className="sui-upsell-notice__features-item">
@@ -48,7 +48,14 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 					</ul>
 				)}
 			</div>
-			{actions && <div className="sui-upsell-notice__footer">{actions}</div>}
+			{actions && (
+				<div
+					className="sui-upsell-notice__footer"
+					data-testid="upsell-notice-actions"
+				>
+					{actions}
+				</div>
+			)}
 		</div>
 	)
 }
