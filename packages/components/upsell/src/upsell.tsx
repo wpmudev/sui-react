@@ -17,21 +17,22 @@ const Upsell: React.FC<UpsellProps> = ({
 }) => {
 	// Generate classnames for the upsell
 	const classNames = generateCN("sui-upsell", {
-		[variation]: !isEmpty(variation ?? ""),
-		[size]: !isEmpty(size ?? ""),
+		[variation as string]: !isEmpty(variation ?? ""),
+		[size as string]: !isEmpty(size ?? ""),
 	})
 
 	// Get current variation options
 	const currentVar = variationsList[variation]
 
 	// Get the appropriate SVG Icon based on variation
+	// @ts-ignore
 	const Icon = Icons?.[currentVar?.icon ?? ""]
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="upsell">
 			<div className="sui-upsell__header">
 				{Icon && (
-					<div className="sui-upsell__header-icon">
+					<div className="sui-upsell__header-icon" data-testid="upsell-icon">
 						<div
 							className={generateCN("sui-upsell__icon", {
 								[variation]: !isEmpty(variation ?? ""),
@@ -41,16 +42,21 @@ const Upsell: React.FC<UpsellProps> = ({
 						</div>
 					</div>
 				)}
-				<h3 className="sui-upsell__header-title sui-heading--h5">
+				<h3
+					className="sui-upsell__header-title sui-heading--h5"
+					data-testid="upsell-title"
+				>
 					{/* Use title or default to the title from variationsList */}
 					{title ?? currentVar?.title}
 				</h3>
 			</div>
 			<div className="sui-upsell__body">
 				{/* Use description or default to the description from variationsList */}
-				{!isEmpty(description ?? "") ? description : currentVar?.description}
+				{!isEmpty((description ?? "") as string)
+					? description
+					: currentVar?.description}
 				{features?.length > 0 && (
-					<ul className="sui-upsell__features">
+					<ul className="sui-upsell__features" data-testid="features">
 						{/* Map and render each feature with a checkmark */}
 						{features?.map((feature, index) => (
 							<li key={index} className="sui-upsell__features-item">
@@ -61,7 +67,11 @@ const Upsell: React.FC<UpsellProps> = ({
 					</ul>
 				)}
 			</div>
-			{actions && <div className="sui-upsell__footer">{actions}</div>}
+			{actions && (
+				<div className="sui-upsell__footer" data-testid="actions">
+					{actions}
+				</div>
+			)}
 		</div>
 	)
 }
