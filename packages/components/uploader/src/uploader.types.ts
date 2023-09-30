@@ -25,17 +25,12 @@ interface UploaderProps extends Omit<HTMLProps<HTMLInputElement>, "onChange"> {
 	 * Allow drag and drop
 	 */
 	allowDragAndDrop?: boolean
-
-	/**
-	 * Form Field attributes
-	 */
-	fieldAttrs: FormFieldProps
 	/**
 	 * Send the files array to parent component when file uploaded or removed
 	 *
 	 * @param {Record<File, any>[]} file
 	 */
-	onChange: (file: Record<File, any>[]) => void
+	onChange?: (file: Record<File, any>[]) => void
 }
 
 /**

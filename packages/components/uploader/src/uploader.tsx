@@ -26,7 +26,9 @@ const Uploader: React.FC<UploaderProps> = ({
 
 	// Send files to parent component
 	useEffect(() => {
-		onChange(files)
+		if (onChange) {
+			onChange(files)
+		}
 	}, [files, onChange])
 
 	// Callback to handle file selection
@@ -59,7 +61,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	)
 
 	return (
-		<div className="sui-uploader">
+		<div className="sui-uploader" data-testid="uploader">
 			{/* Hidden input field to handle file selection */}
 			<input
 				type="file"
