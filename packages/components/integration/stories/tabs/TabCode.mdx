@@ -28,10 +28,14 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
     </Section>
 
     <Section
-    	title={{ content: "image*", tag: "string", small: true }}
+    	title={{ content: "image*", tag: "object", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
-    	<p>The url for the image that appears on top of the title</p>
+    	<p>This specifies the integration image, the object accespts two keys:</p>
+    	<List>
+    		<span label={<><Code small={true}>alt</Code> Represents the alternative text</>}/>
+    		<span label={<><Code small={true}>src</Code> Represents the image url</>} />
+    	</List>
     </Section>
 
     <Section
