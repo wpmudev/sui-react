@@ -51,7 +51,6 @@ Integration.args = {
 	},
 	isDisabled: false,
 	additionalInfo: "",
-	active: false,
 	isSettings: false,
 	isPro: false,
 }
@@ -68,10 +67,6 @@ Integration.argTypes = {
 	},
 	additionalInfo: {
 		name: "Additional Info",
-	},
-	active: {
-		name: "Active",
-		control: "boolean",
 	},
 	isSettings: {
 		name: "Settings",
