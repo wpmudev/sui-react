@@ -29,6 +29,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 			label,
 			isLabelHidden = false,
 			isDisabled = false,
+			isSmall: propIsSmall = false,
 			value = "",
 			isIndeterminate = false,
 			isChecked: propIsChecked = false,
@@ -39,7 +40,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 		// State to manage the checked state of the checkbox
 		const [isChecked, setIsChecked] = useState<boolean>(propIsChecked ?? false)
 
-		const { onChange, name } = useCheckbox()
+		const { onChange, name, isSmall } = useCheckbox()
 
 		// Set the initial state based on the default value
 		useEffect(() => {
@@ -99,6 +100,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 				focus: isFocused,
 				disabled: isDisabled,
 				checked: isChecked,
+				sm: isSmall || propIsSmall,
 			}),
 		}
 

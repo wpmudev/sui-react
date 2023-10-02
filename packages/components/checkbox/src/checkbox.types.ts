@@ -88,7 +88,7 @@ interface CheckboxProps
  * Define the props for the context of a Checkbox component, which includes properties inherited from CheckboxGroupProps.
  */
 interface CheckboxContextProps
-	extends Omit<CheckboxGroupProps, "isInline" | "isSmall" | "children"> {}
+	extends Omit<CheckboxGroupProps, "isInline" | "children"> {}
 
 export type {
 	CheckboxProps,

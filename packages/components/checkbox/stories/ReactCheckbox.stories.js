@@ -76,6 +76,8 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 							}}
 						>
 							<SuiCheckbox value="in" {...args} />
+							<SuiCheckbox value="uk" {...args} />
+							<SuiCheckbox value="af" {...args} />
 							<SuiCheckbox value="usa" {...args} />
 						</CheckboxGroup>
 					)}
@@ -89,6 +91,8 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 							}}
 						>
 							<SuiCheckbox value="in" {...args} />
+							<SuiCheckbox value="uk" {...args} />
+							<SuiCheckbox value="af" {...args} />
 							<SuiCheckbox value="usa" {...args} />
 						</CheckboxGroup>
 					)}

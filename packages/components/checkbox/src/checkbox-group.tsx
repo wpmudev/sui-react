@@ -24,6 +24,7 @@ const CheckboxGroup = ({
 				name,
 				isDisabled,
 				onChange,
+				isSmall,
 			}}
 		>
 			<ul className={className}>
