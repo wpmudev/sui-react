@@ -28,11 +28,6 @@ interface CheckboxGroupProps {
 	onChange?(value: CheckboxValueType[]): void
 
 	/**
-	 * The default value for the checkbox group (optional).
-	 */
-	defaultValue?: CheckboxValueType[]
-
-	/**
 	 * Indicates whether the checkbox buttons should be displayed with a smaller size (optional).
 	 */
 	isSmall?: boolean
@@ -89,25 +84,4 @@ interface CheckboxProps
 	isIndeterminate?: boolean
 }
 
-/**
- * Define the props for the context of a Checkbox component, which includes properties inherited from CheckboxGroupProps.
- */
-interface CheckboxContextProps
-	extends Omit<CheckboxGroupProps, "isInline" | "isSmall" | "children"> {
-	/**
-	 * The currently selected value within the checkbox group (optional).
-	 */
-	current?: CheckboxValueType[]
-
-	/**
-	 * A function to set the currently selected value within the checkbox group.
-	 */
-	setCurrent(value: CheckboxValueType[]): void
-}
-
-export type {
-	CheckboxProps,
-	CheckboxGroupProps,
-	CheckboxContextProps,
-	CheckboxValueType,
-}
+export type { CheckboxProps, CheckboxGroupProps, CheckboxValueType }

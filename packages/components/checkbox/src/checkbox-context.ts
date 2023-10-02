@@ -16,8 +16,6 @@ const useCheckbox = () => {
 
 	const onChange = useCallback(
 		(value: CheckboxValueType) => {
-			ctx.setCurrent(value)
-
 			if (ctx.onChange) {
 				ctx.onChange(value)
 			}

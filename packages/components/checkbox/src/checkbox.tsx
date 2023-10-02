@@ -1,4 +1,10 @@
-import React, { forwardRef, useCallback, useId } from "react"
+import React, {
+	forwardRef,
+	useCallback,
+	useId,
+	useEffect,
+	useState,
+} from "react"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 import { Tick } from "./elements/tick"
@@ -25,16 +31,26 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 			isDisabled = false,
 			value = "",
 			isIndeterminate = false,
+			isChecked: propIsChecked = false,
+			onChange: propOnchange = () => {},
 		},
 		ref,
 	) => {
+		// State to manage the checked state of the checkbox
+		const [isChecked, setIsChecked] = useState<boolean>(propIsChecked ?? false)
+
+		const { onChange, name } = useCheckbox()
+
+		// Set the initial state based on the default value
+		useEffect(() => {
+			setIsChecked((propIsChecked || isIndeterminate) ?? false)
+		}, [propIsChecked, isIndeterminate, value])
+
 		// Interaction methods for handling hover and focus
 		const [isHovered, isFocused, methods] = useInteraction({})
 
 		// Generate a dynamic ID for the checkbox
 		let uuid = `sui-checkbox-${useId()}`
-
-		const { onChange, current, name, setCurrent } = useCheckbox()
 
 		// use ID from props list if exists
 		if (!!id) {
@@ -42,29 +58,17 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 		}
 
 		// handle on change
-		// Handle checkbox change
 		const handleOnChange = useCallback(
 			(e: React.ChangeEvent<HTMLInputElement>) => {
-				const checked = e.target.checked
+				setIsChecked(e.target.checked)
 
-				setCurrent((prevCurrent) => {
-					const updatedCurrent = [...prevCurrent]
-					const index = updatedCurrent.indexOf(value)
-
-					if (checked && index === -1) {
-						updatedCurrent.push(value)
-					} else if (!checked && index !== -1) {
-						updatedCurrent.splice(index, 1)
-					}
-
+				if (!!onChange) {
 					onChange(e)
-					return updatedCurrent
-				})
+					propOnchange(e)
+				}
 			},
-			[value, onChange, setCurrent],
+			[onChange, propOnchange],
 		)
-
-		const checked = current?.includes(value)
 
 		// Define input props
 		const inputProps = {
@@ -74,7 +78,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 			name,
 			value,
 			className: "sui-screen-reader-only",
-			checked: checked || isIndeterminate,
+			checked: isChecked,
 			disabled: isDisabled,
 			onChange: handleOnChange,
 			"aria-labelledby": `${uuid}-label`,
@@ -94,7 +98,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 				hover: isHovered,
 				focus: isFocused,
 				disabled: isDisabled,
-				checked: checked || isIndeterminate,
+				checked: isChecked,
 			}),
 		}
 

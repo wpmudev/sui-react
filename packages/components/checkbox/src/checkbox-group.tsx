@@ -1,27 +1,18 @@
-import React, {
-	Children,
-	ReactNode,
-	useCallback,
-	useEffect,
-	useState,
-} from "react"
+import React, { Children, ReactNode } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { Provider } from "./checkbox-context"
-import { CheckboxGroupProps, CheckboxValueType } from "./checkbox.types"
+import { CheckboxGroupProps } from "./checkbox.types"
 
 const CheckboxGroup = ({
 	isInline = true,
 	children,
 	name = "",
-	defaultValue = [],
 	isSmall = false,
 	isDisabled = false,
 	onChange = () => {},
 }: CheckboxGroupProps) => {
-	const [current, setCurrent] = useState<CheckboxValueType[]>(defaultValue)
-
 	const className = generateCN("sui-checkbox-group", {
 		inline: isInline,
 		sm: isSmall,
@@ -31,9 +22,6 @@ const CheckboxGroup = ({
 		<Provider
 			value={{
 				name,
-				current,
-				setCurrent,
-				defaultValue,
 				isDisabled,
 				onChange,
 			}}

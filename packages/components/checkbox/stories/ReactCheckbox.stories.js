@@ -30,27 +30,17 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<CheckboxGroup
-						isInline={isInline}
-						name={name}
-						isSmall={args?.isSmall}
-						onChange={(data) => {
-							console.log("test", data)
-						}}
-					>
-						<SuiCheckbox value="in" {...args} />
-						<SuiCheckbox value="usa" {...args} />
-						{/* <CheckboxGroup
+					{"nested" === example && (
+						<CheckboxGroup
 							isInline={isInline}
 							name={name}
-							asBlock={args?.asBlock}
 							isSmall={args?.isSmall}
 							onChange={(data) => {
 								console.log("test", data)
 							}}
 						>
-							<SuiCheckbox {...args} isChecked={isChecked} />
-							<SuiCheckbox {...args} isChecked={isChecked} />
+							<SuiCheckbox value="in" {...args} />
+							<SuiCheckbox value="usa" {...args} isIndeterminate={true} />
 							<CheckboxGroup
 								isInline={isInline}
 								name={name}
@@ -60,37 +50,48 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 									console.log("test", data)
 								}}
 							>
-								<SuiCheckbox
-									{...args}
-									isChecked={isChecked}
-									onChange={(e) => {
-										setIsChecked(e.target.checked)
+								<SuiCheckbox {...args} value="in" />
+								<SuiCheckbox {...args} value="usa" isChecked={true} />
+								<CheckboxGroup
+									isInline={isInline}
+									name={name}
+									isSmall={args?.isSmall}
+									onChange={(data) => {
+										console.log("test", data)
 									}}
-								/>
-								<SuiCheckbox
-									{...args}
-									isChecked={isChecked}
-									onChange={(e) => {
-										setIsChecked(e.target.checked)
-									}}
-								/>
+								>
+									<SuiCheckbox {...args} value="in" isChecked={true} />
+									<SuiCheckbox {...args} value="usa" isChecked={true} />
+								</CheckboxGroup>
 							</CheckboxGroup>
 						</CheckboxGroup>
+					)}
+					{"horizontal" === example && (
 						<CheckboxGroup
-							isInline={isInline}
+							isInline={true}
 							name={name}
-							asBlock={args?.asBlock}
 							isSmall={args?.isSmall}
 							onChange={(data) => {
 								console.log("test", data)
 							}}
 						>
-							<SuiCheckbox {...args} isChecked={isChecked} />
-							<SuiCheckbox {...args} isChecked={isChecked} />
+							<SuiCheckbox value="in" {...args} />
+							<SuiCheckbox value="usa" {...args} />
 						</CheckboxGroup>
-						<SuiCheckbox {...args} isChecked={isChecked} />
-						<SuiCheckbox {...args} isChecked={isChecked} /> */}
-					</CheckboxGroup>
+					)}
+					{"vertical" === example && (
+						<CheckboxGroup
+							isInline={false}
+							name={name}
+							isSmall={args?.isSmall}
+							onChange={(data) => {
+								console.log("test", data)
+							}}
+						>
+							<SuiCheckbox value="in" {...args} />
+							<SuiCheckbox value="usa" {...args} />
+						</CheckboxGroup>
+					)}
 				</div>
 			</div>
 		</div>
@@ -99,7 +100,7 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 
 // Story props defaults
 Checkbox.args = {
-	example: "single",
+	example: "nested",
 	name: "countries",
 	label: "Checkbox label",
 	isLabelHidden: false,
@@ -111,6 +112,18 @@ Checkbox.args = {
 
 // Story props settings
 Checkbox.argTypes = {
+	example: {
+		name: "Example",
+		options: ["nested", "horizontal", "vertical"],
+		control: {
+			type: "select",
+			labels: {
+				nested: "Example: Nested",
+				horizontal: "Example: Horizontal",
+				vertical: "Example: Vertical",
+			},
+		},
+	},
 	defaultValue: {
 		table: {
 			disable: true,
