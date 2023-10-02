@@ -30,20 +30,24 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 	// Dynamically determine the IconTag based on the provided icon prop.
 	let IconTag = null
 	if (!!Plugin?.icon) {
+		// @ts-ignore
 		IconTag = Icons?.[Plugin?.icon]
 	}
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="setup-banner">
 			{IconTag && (
-				<div className="sui-setup-banner__bg">
+				<div className="sui-setup-banner__bg" data-testid="setup-banner-bg">
 					<IconTag className="sui-setup-banner__bg-icon" />
 				</div>
 			)}
 			<div className="sui-setup-banner__subtitle">Quick Setup</div>
 			<div className="sui-setup-banner__info">
 				{!!IconTag && (
-					<div className="sui-setup-banner__info-logo">
+					<div
+						className="sui-setup-banner__info-logo"
+						data-testid="setup-banner-icon"
+					>
 						<IconTag fill="#FFFFFF" />
 					</div>
 				)}
