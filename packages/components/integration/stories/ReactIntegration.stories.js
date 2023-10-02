@@ -68,10 +68,6 @@ Integration.argTypes = {
 	},
 	additionalInfo: {
 		name: "Additional Info",
-		if: {
-			arg: "isDisabled",
-			eq: true,
-		},
 	},
 	active: {
 		name: "Active",
