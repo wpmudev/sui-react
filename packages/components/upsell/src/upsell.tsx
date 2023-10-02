@@ -4,7 +4,7 @@ import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import * as Icons from "@wpmudev/sui-icons"
 
 import { UpsellProps } from "./upsell.types"
-import { Check, PluginHummingbird } from "@wpmudev/sui-icons"
+import { Check } from "@wpmudev/sui-icons"
 import { variationsList } from "./helpers"
 
 const Upsell: React.FC<UpsellProps> = ({
