@@ -25,7 +25,7 @@ interface CheckboxGroupProps {
 	/**
 	 * A callback function to handle checkbox button selection changes.
 	 */
-	onChange?(value: CheckboxValueType[]): void
+	onChange?(value: CheckboxValueType): void
 
 	/**
 	 * Indicates whether the checkbox buttons should be displayed with a smaller size (optional).
@@ -84,4 +84,15 @@ interface CheckboxProps
 	isIndeterminate?: boolean
 }
 
-export type { CheckboxProps, CheckboxGroupProps, CheckboxValueType }
+/**
+ * Define the props for the context of a Checkbox component, which includes properties inherited from CheckboxGroupProps.
+ */
+interface CheckboxContextProps
+	extends Omit<CheckboxGroupProps, "isInline" | "isSmall" | "children"> {}
+
+export type {
+	CheckboxProps,
+	CheckboxGroupProps,
+	CheckboxContextProps,
+	CheckboxValueType,
+}

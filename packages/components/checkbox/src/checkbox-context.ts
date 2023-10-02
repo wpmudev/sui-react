@@ -4,7 +4,6 @@ import { CheckboxContextProps, CheckboxValueType } from "./checkbox.types"
 const CheckboxContext = createContext<CheckboxContextProps>({
 	name: "",
 	onChange(value: CheckboxValueType): void {},
-	setCurrent(value: CheckboxValueType): void {},
 })
 
 const useCheckbox = () => {
