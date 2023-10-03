@@ -4,11 +4,7 @@ import { TableSectionProps } from "./table.types"
 import { TableContext } from "./table-context"
 
 // TableHead component represents the head section of a table.
-const TableHead: React.FC<TableSectionProps> = ({
-	children,
-	hasActions = false,
-	...props
-}) => {
+const TableHead: React.FC<TableSectionProps> = ({ children, ...props }) => {
 	// convert table columns to array
 	const tableCols = Children.toArray(children)
 

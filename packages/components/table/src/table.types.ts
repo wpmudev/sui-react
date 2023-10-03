@@ -40,14 +40,19 @@ interface TableToolbarFilterSelect extends TableToolbarFilterTypes {
  */
 interface TableProps extends HTMLProps<HTMLTableElement> {
 	/**
+	 * Make columns sticky
+	 */
+	stickyCols?: boolean
+
+	/**
+	 * Custom css className(s)
+	 */
+	className?: string
+
+	/**
 	 * Children nodes of the table.
 	 */
 	children?: React.ReactNode
-
-	/**
-	 * Stripe table style.
-	 */
-	type?: string
 
 	/**
 	 * ARIA label for the table.
@@ -100,11 +105,6 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	isStripped?: boolean
 
 	/**
-	 * Callback function triggered when a row is checked/unchecked (used in checkable tables).
-	 */
-	onCheck?: () => void
-
-	/**
 	 * Callback function triggered when an action is performed in the table toolbar.
 	 */
 	onAction?(action: TableExpectedAction, data: unknown): void
@@ -114,6 +114,14 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
  * Interface representing the properties of a table cell.
  */
 type TableCellBaseProps = {
+	/**
+	 * Additional css className(s) for further styling
+	 */
+	className?: string
+	/**
+	 * Determines if the cell should display a drag icon (Grip icon)
+	 */
+	hasDragIcon?: string
 	/**
 	 * Children nodes of the table cell.
 	 */
@@ -167,6 +175,11 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 	isUnderHeader?: boolean
 
 	/**
+	 * Determines if the row is under the table header.
+	 */
+	isUnderFooter?: boolean
+
+	/**
 	 * Determines if the row is expandable (can show additional content when expanded).
 	 */
 	isExpandable?: boolean
@@ -185,6 +198,11 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 	 * Status color to appear on the table row.
 	 */
 	status?: string
+
+	/**
+	 * Specifies if the row is under the table footer
+	 */
+	actions?: string
 }
 
 /**
