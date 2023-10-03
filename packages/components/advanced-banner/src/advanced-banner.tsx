@@ -39,7 +39,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 	}
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="advanced-banner">
 			{"black-friday" === variation && !!discountPercentage && (
 				<div className="sui-advanced-banner__graphic">
 					<div className="sui-heading--h3 sui-advanced-banner__graphic-text">
@@ -54,13 +54,21 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 				</div>
 			)}
 			<div className="sui-advanced-banner__info">
-				{!isEmpty(title ?? "") && (
-					<div className="sui-heading--h3 sui-advanced-banner__info-title">
+				{!!title && (
+					<div
+						className="sui-heading--h3 sui-advanced-banner__info-title"
+						data-testid="advanced-banner-title"
+					>
 						{title}
 					</div>
 				)}
-				{!isEmpty(description ?? "") && (
-					<div className="sui-advanced-banner__info-desc">{description}</div>
+				{!!description && (
+					<div
+						className="sui-advanced-banner__info-desc"
+						data-testid="advanced-banner-desc"
+					>
+						{description}
+					</div>
 				)}
 				{!!children && (
 					<div className="sui-advanced-banner__info-actions">{children}</div>
@@ -80,7 +88,10 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 				</div>
 			)}
 			{allowClose && (
-				<div className="sui-advanced-banner__close">
+				<div
+					className="sui-advanced-banner__close"
+					data-testid="advanced-banner-close"
+				>
 					<Button
 						icon="close"
 						appearance="tertiary"
