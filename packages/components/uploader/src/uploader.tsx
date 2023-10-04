@@ -1,7 +1,5 @@
 import React, { useState, useId, useCallback, useRef, useEffect } from "react"
 
-import { FormField } from "@wpmudev/sui-form-field"
-
 // import type
 import { UploaderProps } from "./uploader.types"
 import { UploaderFile } from "./uploader-file"
@@ -13,7 +11,6 @@ const Uploader: React.FC<UploaderProps> = ({
 	multiple = true,
 	accept = "",
 	allowDragAndDrop = true,
-	fieldAttrs = {},
 	onChange = () => {},
 	...props
 }) => {
@@ -62,48 +59,46 @@ const Uploader: React.FC<UploaderProps> = ({
 	)
 
 	return (
-		<FormField {...fieldAttrs}>
-			<div className="sui-uploader">
-				{/* Hidden input field to handle file selection */}
-				<input
-					type="file"
-					id={uploaderId}
-					ref={ref}
-					onChange={onSelectFile}
-					className="sui-uploader__input"
-					multiple={multiple}
-					accept={accept}
-					hidden={true}
-					{...props}
-				/>
+		<div className="sui-uploader">
+			{/* Hidden input field to handle file selection */}
+			<input
+				type="file"
+				id={uploaderId}
+				ref={ref}
+				onChange={onSelectFile}
+				className="sui-uploader__input"
+				multiple={multiple}
+				accept={accept}
+				hidden={true}
+				{...props}
+			/>
 
-				{/* Render the uploader button when multiple selection is allowed or no files are selected */}
-				{(multiple || (!multiple && files.length <= 0)) && (
-					<UploaderButton
-						btnTitle={btnTitle ?? ""}
-						multiple={multiple ?? false}
-						allowDragAndDrop={allowDragAndDrop ?? false}
-						onClick={openFileSelector}
-						onDrag={onSelectFile}
-					/>
-				)}
-				{/* Render the file previews when there are selected files */}
-				{!!files && files.length > 0 && (
-					<div className="sui-uploader__preview">
-						<div className="sui-uploader__files">
-							{files?.map((file: File, index: number) => (
-								<UploaderFile
-									key={index}
-									id={index}
-									onRemove={onRemoveFile}
-									file={file}
-								/>
-							))}
-						</div>
+			{/* Render the uploader button when multiple selection is allowed or no files are selected */}
+			{(multiple || (!multiple && files.length <= 0)) && (
+				<UploaderButton
+					btnTitle={btnTitle ?? ""}
+					multiple={multiple ?? false}
+					allowDragAndDrop={allowDragAndDrop ?? false}
+					onClick={openFileSelector}
+					onDrag={onSelectFile}
+				/>
+			)}
+			{/* Render the file previews when there are selected files */}
+			{!!files && files.length > 0 && (
+				<div className="sui-uploader__preview">
+					<div className="sui-uploader__files">
+						{files?.map((file: File, index: number) => (
+							<UploaderFile
+								key={index}
+								id={index}
+								onRemove={onRemoveFile}
+								file={file}
+							/>
+						))}
 					</div>
-				)}
-			</div>
-		</FormField>
+				</div>
+			)}
+		</div>
 	)
 }
 
