@@ -19,11 +19,11 @@ interface BoxProps {
 	/**
 	 * The content for the left header section of the box.
 	 */
-	headerLeft?: string | Record<string, any>[] | React.ReactNode
+	headerLeft?: string | React.ReactNode
 	/**
 	 * The content for the right header section of the box.
 	 */
-	headerRight?: string | Record<string, any>[]
+	headerRight?: string | React.ReactNode
 	/**
 	 * Box styles
 	 */
@@ -35,7 +35,7 @@ interface BoxProps {
 	/**
 	 * Add custom class name to the component.
 	 */
-	className?: String
+	className?: string
 	/**
 	 * The content of the box.
 	 */
