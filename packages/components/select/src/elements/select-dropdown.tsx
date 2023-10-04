@@ -1,16 +1,17 @@
-import React, { Fragment, HTMLProps, useCallback } from "react"
+import React, { Fragment, RefObject, useCallback } from "react"
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { Icon } from "./select-icon"
 import { Search } from "./multiselect-search"
 
-interface SelectDropdownProps
-	extends Omit<HTMLProps<HTMLOListElement>, "selected"> {
+interface SelectDropdownProps {
 	options: Record<string, any>[]
 	onEvent?: (id: string | number) => void
 	selectAll?: () => void
 	isSmall?: boolean
 	isMultiSelect?: boolean
 	selected?: Record<string, any> | string
+	ref?: RefObject<HTMLInputElement>
+	onKeyDown?(e?: any): void
 }
 
 const Dropdown: React.FC<SelectDropdownProps> = ({
@@ -23,13 +24,20 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	...props
 }) => {
 	const onSelect = useCallback(
-		(e, id: string) => {
+		(e: any, id: string) => {
 			if ((!e.key || (!!e.key && e.key === "Enter")) && onEvent) {
 				onEvent(id)
 			}
 		},
 		[onEvent],
 	)
+
+	const getOptProps = (id: string) => ({
+		...props,
+		ref: undefined,
+		// onClick: (e: MouseEvent) => onSelect(e, id),
+		// onKeyDown: (e?: KeyboardEventHandler<HTMLLIElement>) => onSelect(e, id),
+	})
 
 	// Render options for the dropdown
 	const renderOptions = () => {
@@ -53,13 +61,11 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							key={id}
 							id={id}
 							role="option"
-							tabIndex="0"
+							tabIndex={0}
 							className={`sui-select__dropdown--option ${
 								isSelected ? "sui-select__dropdown--selected" : ""
 							}`}
-							onClick={(e) => onSelect(e, id)}
-							onKeyDown={(e) => onSelect(e, id)}
-							{...props}
+							{...getOptProps(id)}
 						>
 							<Fragment>
 								{icon && <Icon name={icon} size={isSmall ? "sm" : "md"} />}
@@ -84,7 +90,13 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			<Fragment>
 				<div className="sui-select__search">
 					<Icon name="search" size="md" />
-					<Search placeholder="Search" {...props} />
+					<Search
+						placeholder="Search"
+						{
+							// @ts-ignore
+							...props
+						}
+					/>
 				</div>
 				<ul
 					className="sui-select__dropdown"
