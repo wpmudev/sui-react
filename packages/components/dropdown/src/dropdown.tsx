@@ -4,6 +4,7 @@ import React, {
 	useId,
 	forwardRef,
 	useImperativeHandle,
+	ChangeEvent,
 } from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
@@ -76,7 +77,7 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 		)
 
 		// Function to recursively render menu items and groups.
-		const renderMenus = (menus) => {
+		const renderMenus = (menus: Record<string, any>[]) => {
 			return (menus || [])?.map((menuItem, index) => {
 				// If it's a group item, render the MenuGroup component.
 				if (!!menuItem.menus) {
@@ -89,7 +90,8 @@ const Dropdown: React.FC<DropdownProps> = forwardRef<
 
 				// Bind onClick with onMenuClick prop
 				if (onMenuClick) {
-					menuItem.props.onClick = (e) => onMenuClick(menuItem.id, e)
+					menuItem.props.onClick = (e: ChangeEvent<unknown>) =>
+						onMenuClick(menuItem.id, e)
 				}
 
 				// Otherwise, render the MenuItem component.

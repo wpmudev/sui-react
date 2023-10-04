@@ -28,6 +28,10 @@ interface DropdownMenuItemProps
 	 */
 	className?: string
 	/**
+	 * Makes dropdown disabled
+	 */
+	isDisabled?: boolean
+	/**
 	 * Dropdown menu item variation
 	 */
 	variation?:
@@ -57,7 +61,7 @@ interface DropdownMenuItemProps
 /**
  * Props for MenuGroup component.
  */
-interface DropdownMenuGroupProps extends HTMLProps<HTMLUListElement> {
+interface DropdownMenuGroupProps extends HTMLProps<HTMLLIElement> {
 	/** Title of the MenuGroup. */
 	title: string
 	/** URL to navigate to when the MenuGroup is clicked. */
@@ -140,6 +144,10 @@ interface DropdownProps {
 	 * The content of the dropdown.
 	 */
 	children?: React.ReactNode
+	/**
+	 * Dropdown Trigger
+	 */
+	trigger?: React.ReactNode
 }
 
 // Type definition for the modal handling functions
@@ -155,4 +163,6 @@ export type {
 	DropdownMenuGroupProps,
 	DropdownMenuItemProps,
 	DropdownMenuProps,
+	MenuItemProps,
+	MenuGroupProps,
 }
