@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { DashboardWidget } from "../../../src"
 import {
 	Accordion,
@@ -21,11 +21,15 @@ const actions = [
 	"Automatic scans are running weekly",
 ]
 
-export const DashboardWidgetExample = () => {
+export const DashboardWidgetExample = (props) => {
+	const [isExpanded, setIsExpanded] = useState<boolean>(true)
 	return (
 		<div style={{ backgroundColor: "#f0f0f1", padding: 40 }}>
 			<DashboardWidget
+				{...props}
 				title="Malware Scanning"
+				isExpanded={isExpanded}
+				onToggle={setIsExpanded}
 				description={
 					<>
 						<p>
