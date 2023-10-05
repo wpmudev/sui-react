@@ -25,7 +25,7 @@ const Footer: React.FC<FooterProps> = ({
 	let blocks = []
 
 	if (renderBlocks) {
-		const builtWithText = <span>Made with ︎ by WPMU DEV</span>
+		const builtWithText = <span>Made with ♡ by WPMU DEV</span>
 		blocks = renderBlocks(builtWithText)
 	}
 
