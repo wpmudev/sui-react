@@ -89,6 +89,10 @@ interface NavigationProps {
 	 * Optional: User
 	 */
 	user?: NavigationUserProps
+	/**
+	 * Navigation actions list
+	 */
+	actions?: ReactNode[]
 }
 
 export type { NavigationProps, NavigationBrandProps, NavigationUserProps }
