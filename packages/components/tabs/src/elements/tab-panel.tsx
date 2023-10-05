@@ -18,7 +18,7 @@ const TabPanel: React.FC<TabPanelProps> = ({ children }) => {
 			{Children.map(children, (child: ReactNode, index: number) => {
 				if (isValidElement(child)) {
 					// Clone the child element and add the "id" prop with the current index
-					return cloneElement(child, { id: `${index}` })
+					return cloneElement(child, { id: `${index}` } as object)
 				}
 			})}
 		</div>

@@ -33,7 +33,11 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 	const isRTL = useDetectRTL()
 
 	// Scroll information from the navRef, if available
-	const { scrollLeft, scrollWidth, clientWidth } = navRef?.current ?? {}
+	const {
+		scrollLeft = 0,
+		scrollWidth = 0,
+		clientWidth = 0,
+	} = navRef?.current ?? {}
 
 	// Function to handle scroll events and determine scrollability
 	const handleScroll = useCallback(() => {
@@ -41,7 +45,7 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 			return
 		}
 
-		const navLeft = Math.abs(scrollLeft)
+		const navLeft = Math.abs(scrollLeft ?? 0)
 
 		setIsScrollableRight(
 			isRTL ? navLeft > 0 : navLeft < scrollWidth - clientWidth,
@@ -53,8 +57,11 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 
 	// Adjust the scroll distance as needed
 	const scrollNav = (dir: TabNavScrollDirection) => {
-		navRef.current.scrollLeft =
-			dir === "left" ? scrollLeft - 100 : scrollLeft + 100
+		if (!!navRef.current && "scrollLeft" in navRef?.current) {
+			// @ts-ignore
+			navRef.current.scrollLeft =
+				dir === "left" ? scrollLeft - 100 : scrollLeft + 100
+		}
 	}
 
 	// Check if content is scrollable on mount and add scroll event listener
@@ -99,7 +106,7 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 				{Children.map(children, (child: ReactNode, index: number) => {
 					if (isValidElement(child)) {
 						// Clone the child element and add the "id" prop with the current index
-						return cloneElement(child, { id: `${index}` })
+						return cloneElement(child, { id: `${index}` } as object)
 					}
 				})}
 			</div>
