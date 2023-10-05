@@ -6,7 +6,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 	style={{ paddingTop: 20, paddingBottom: 0 }}
 >
 	<p>
-		Install the <Code small={true}>[Component Name]</Code> package as an individual
+		Install the <Code small={true}>Footer</Code> package as an individual
 		component or follow the Overview page instructions to get the complete SUI
 		Components package.
 	</p>
@@ -15,50 +15,34 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 <Section title="Props" border={true}>
 
     	<Section
-    		title={{ content: "prop*", tag: 'string', small: true }}
+    		title={{ content: "links*", tag: 'array', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
-    		<p>Sets the semantic type for the accordion</p>
-    		<p>
-    		Allowed options:
-    			<List>
-    				<span label={<Code small={true}>neutral</Code>} />
-    				<span label={<Code small={true}>informative</Code>} />
-    				<span label={<Code small={true}>success</Code>} />
-    				<span label={<Code small={true}>warning</Code>} />
-    				<span label={<Code small={true}>critical</Code>} />
-    			</List>
-    		</p>
+    		<p>Links to be displayed in the footer, each item in the array is an object with the following keys</p>
+    		<List>
+    			<span label={<><Code small={true}>url</Code> The url of of the link</>} />
+    			<span label={<><Code small={true}>title</Code> The link text</>} />
+    		</List>
+
     	</Section>
 
-</Section>
+    	<Section
+    		title={{ content: "socialLinks*", tag: 'array', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The social links to be displayed in the footer, each item in the array is an object with the following keys:</p>
+    		<List>
+    			<span label={<><Code small={true}>url</Code> The url to the social account or page</>} />
+    			<span label={<><Code small={true}>type</Code> could be one of three values: facebook, twitter, instagram</>} />
+    		</List>
 
-{/** Use this for sub components */}
-<Section
-	title="Sub Components"
-	contained={true}
-	style={{ paddingTop: 30, paddingBottom: 0 }}
->
-		<p>The [component name] offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
-
-    <Section title="Sub Component" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component represents an individual item or section of the accordion and comes with its
-    		own set of props.
-    	</p>
-
-    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			prop description
-    		</p>
     	</Section>
 
-    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			prop description
-    		</p>
+    	<Section
+    		title={{ content: "renderBlocks*", tag: 'function', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>A function to render additional content for the footer</p>
     	</Section>
-
-    </Section>
 
 </Section>
