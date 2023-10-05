@@ -10,7 +10,7 @@ describe("@wpmudev/sui-config-table", () => {
 		// Render the ConfigTable component with the provided configurations
 		render(<ConfigTable configs={Configs} />)
 		// Ensure that the ConfigTable component is in the document
-		expect(screen.getByTestId("config-table")).toBeInTheDocument()
+		expect(screen.getByTestId("table")).toBeInTheDocument()
 		// Verify that the details of the first configuration are visible
 		expect(screen.getByText(Configs[0].name)).toBeVisible()
 		expect(screen.getByText(Configs[0].description)).toBeVisible()
@@ -20,6 +20,6 @@ describe("@wpmudev/sui-config-table", () => {
 		// Render the ConfigTable component with a custom className
 		render(<ConfigTable configs={Configs} className="__test-class__" />)
 		// Verify that the ConfigTable component has the custom className
-		expect(screen.getByTestId("config-table")).toHaveClass("__test-class__")
+		expect(screen.getByTestId("table")).toHaveClass("__test-class__")
 	})
 })
