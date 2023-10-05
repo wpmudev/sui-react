@@ -1,33 +1,273 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook";
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src";
-import dedent from "dedent";
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Navigation } from "../../src"
+import { Button } from "@wpmudev/sui-button"
+import { Dropdown } from "@wpmudev/sui-dropdown"
+import dedent from "dedent"
 
-{/* Import Variations */}
-import Neutral from "./Examples/Neutral.mdx"
-import Informative from "./Examples/Informative.mdx"
-import Success from "./Examples/Success.mdx"
+export const generalCode = dedent`
+   <Navigation
+      brand={{
+        title: "Smush Pro",
+        description: "Description",
+      }}
+      user={{
+        user: {
+          image: "https://avatars.githubusercontent.com/u/14994452?v=4",
+          name: "John doe",
+          email: "john.doe@incsub.com",
+        },
+        menu: [
+          {
+            id: "the-hub",
+            label: "The Hub",
+            props: {
+              icon: "PluginDefender",
+            },
+          },
+          {
+            id: "product-roadmap",
+            label: "Product Roadmap",
+            props: {
+              icon: "PluginSmush",
+            },
+          },
+          {
+            id: "product-roadmap",
+            label: "Unlock Pro features",
+            props: {
+              icon: "PluginSmush",
+              variation: "smush",
+            },
+          },
+        ],
+      }}
+    >
+      <Button
+        appearance="tertiary"
+        icon="bell"
+        color="black"
+        isSmall={true}
+        isResponsive={true}
+      >
+        Help
+      </Button>
+      <Button
+        icon="bell"
+        appearance="tertiary"
+        color="black"
+        isSmall={true}
+        isResponsive={true}
+      >
+        Documentation
+      </Button>
+      <Button
+        icon="plugin-smush"
+        appearance="tertiary"
+        color="black"
+        isSmall={true}
+        isResponsive={true}
+      >
+        Support Smush
+      </Button>
+      <Dropdown
+        buttonIcon="bell"
+        label="Connect features"
+        direction="left"
+        isSmall={true}
+        isResponsive={true}
+        onMenuClick={(id, e) => {
+           console.log("DEBUG: Menu Item Clicked", id, e)
+        }}
+        menu={[
+          {
+            id: "group-1",
+            label: "Extra Optimization",
+            menus: [
+              {
+                id: "menu-2",
+                label: "Uptime Monitoring",
+                props: {
+                  icon: "CheckAlt",
+                },
+              },
+              {
+                id: "menu-2",
+                label: "Site management tools",
+                props: {},
+              },
+            ],
+          },
+          {
+            id: "group-2",
+            label: "Performance",
+            menus: [
+              {
+                id: "menu-2",
+                label: "Uptime Monitoring",
+                props: {},
+              },
+              {
+                id: "menu-2",
+                label: "Site management tools",
+                props: {},
+              },
+            ],
+          },
+       ]}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            padding: "8px 24px",
+          }}
+        >
+          <Button
+            appearance="primary"
+            icon="package"
+            color="blue"
+            isSmall={true}
+            isFullWidth={true}
+          >
+            Unlock bonus features
+          </Button>
+        </div>
+      </Dropdown>
+    </Navigation>
+`
 
-export const sampleCode = dedent`
-    Basic Examples 
-`;
-
-<Section contained={true} style={{ paddingTop: 30 }}>
-  <p>Basic Accordion Example</p>
-  <Preview wrapper={true}>Basic Example</Preview>
-  <Snippet language="js">{sampleCode}</Snippet>
-</Section>
-
-<Section title="State" style={{ paddingTop: 0 }}>
-  Use this if you need to switch between multiple options
-  <Switcher>
-    <div label="neutral" value="neutral">
-      <Neutral />
-    </div>
-    <div label="informative" value="informative">
-      <Informative />
-    </div>
-    <div label="success" value="success">
-      <Success />
-    </div>
-  </Switcher>
+<Section style={{ paddingTop: 30 }}>
+	<p>Below is a general example of the Navigation component</p>
+	<div className="sui-wrap sui-theme--light" style={{ margin: "50px 0" }}>
+		<Navigation
+			brand={{
+				title: "Smush Pro",
+				description: "Description",
+			}}
+			user={{
+				user: {
+					image: "https://avatars.githubusercontent.com/u/14994452?v=4",
+					name: "John doe",
+					email: "john.doe@incsub.com",
+				},
+				menu: [
+					{
+						id: "the-hub",
+						label: "The Hub",
+						props: {
+							icon: "PluginDefender",
+						},
+					},
+					{
+						id: "product-roadmap",
+						label: "Product Roadmap",
+						props: {
+							icon: "PluginSmush",
+						},
+					},
+					{
+						id: "product-roadmap",
+						label: "Unlock Pro features",
+						props: {
+							icon: "PluginSmush",
+							variation: "smush",
+						},
+					},
+				],
+			}}
+		>
+			<Button
+				appearance="tertiary"
+				icon="bell"
+				color="black"
+				isSmall={true}
+				isResponsive={true}
+			>
+				Help
+			</Button>
+			<Button
+				icon="bell"
+				appearance="tertiary"
+				color="black"
+				isSmall={true}
+				isResponsive={true}
+			>
+				Documentation
+			</Button>
+			<Button
+				icon="plugin-smush"
+				appearance="tertiary"
+				color="black"
+				isSmall={true}
+				isResponsive={true}
+			>
+				Support Smush
+			</Button>
+			<Dropdown
+				buttonIcon="bell"
+				label="Connect features"
+				direction="left"
+				isSmall={true}
+				isResponsive={true}
+				onMenuClick={(id, e) => {
+					console.log("DEBUG: Menu Item Clicked", id, e)
+				}}
+				menu={[
+					{
+						id: "group-1",
+						label: "Extra Optimization",
+						menus: [
+							{
+								id: "menu-2",
+								label: "Uptime Monitoring",
+								props: {
+									icon: "CheckAlt",
+								},
+							},
+							{
+								id: "menu-2",
+								label: "Site management tools",
+								props: {},
+							},
+						],
+					},
+					{
+						id: "group-2",
+						label: "Performance",
+						menus: [
+							{
+								id: "menu-2",
+								label: "Uptime Monitoring",
+								props: {},
+							},
+							{
+								id: "menu-2",
+								label: "Site management tools",
+								props: {},
+							},
+						],
+					},
+				]}
+			>
+				<div
+					style={{
+						display: "flex",
+						justifyContent: "center",
+						padding: "8px 24px",
+					}}
+				>
+					<Button
+						appearance="primary"
+						icon="package"
+						color="blue"
+						isSmall={true}
+						isFullWidth={true}
+					>
+						Unlock bonus features
+					</Button>
+				</div>
+			</Dropdown>
+		</Navigation>
+	</div>
+	<Snippet language="js">{generalCode}</Snippet>
 </Section>
