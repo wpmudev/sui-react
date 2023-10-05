@@ -23,10 +23,7 @@ import { DropdownProps, DropdownRefProps } from "./dropdown.types"
  * @param {DropdownProps} props - The properties and event handlers for the Dropdown component.
  * @return {JSX.Element} JSX Element representing the Dropdown component.
  */
-const Dropdown: React.FC<DropdownProps> = forwardRef<
-	DropdownRefProps,
-	DropdownProps
->(
+const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 	(
 		{
 			label,
