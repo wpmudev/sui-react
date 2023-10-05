@@ -1,4 +1,5 @@
 import React, {
+	ChangeEvent,
 	Fragment,
 	useCallback,
 	useContext,
@@ -38,8 +39,10 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 	// const dropdownRef = useRef<DropdownRefProps | null>(null)
 
 	const onSearch = useCallback(
-		(e) => {
-			ctx?.triggerAction("search-items", e.target.value)
+		(e: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+			if (typeof e !== "string") {
+				ctx?.triggerAction("search-items", e?.target?.value)
+			}
 		},
 		[ctx],
 	)

@@ -35,6 +35,8 @@ interface TableToolbarFilterSelect extends TableToolbarFilterTypes {
 	props: SelectBaseProps // Props for the select input
 }
 
+type TableOnActionType = (action: TableExpectedAction, data: unknown) => void
+
 /**
  * Interface representing the properties of a table.
  */
@@ -92,7 +94,7 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	/**
 	 * An array of filters that can be used in the table toolbar.
 	 */
-	filters?: Array<TableToolbarFilterText | TableToolbarFilterSelect>
+	filters?: TableToolbarFilterText[] | TableToolbarFilterSelect[]
 
 	/**
 	 * An array of bulk actions available in the table toolbar.
@@ -107,7 +109,12 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	/**
 	 * Callback function triggered when an action is performed in the table toolbar.
 	 */
-	onAction?(action: TableExpectedAction, data: unknown): void
+	onAction?: TableOnActionType
+
+	/**
+	 * Make columns sticky
+	 */
+	stickyCols?: boolean
 }
 
 /**
@@ -115,6 +122,7 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
  */
 type TableCellBaseProps = {
 	/**
+<<<<<<< HEAD
 	 * Additional css className(s) for further styling
 	 */
 	className?: string
@@ -122,6 +130,11 @@ type TableCellBaseProps = {
 	 * Determines if the cell should display a drag icon (Grip icon)
 	 */
 	hasDragIcon?: string
+=======
+	 * Table Cell ID
+	 */
+	id?: string
+>>>>>>> ac032a5 (fix(table): code improvements + add unit-test)
 	/**
 	 * Children nodes of the table cell.
 	 */
@@ -147,6 +160,14 @@ type TableCellBaseProps = {
 	 * Style
 	 */
 	style?: CSSProperties
+	/**
+	 * If table cell is under action cell column
+	 */
+	isAction?: boolean
+	/**
+	 * Display drag icon when true
+	 */
+	hasDragIcon?: boolean
 } & Omit<HTMLProps<HTMLTableCellElement | HTMLTableHeaderCellElement>, "id">
 
 type TableCellWithSortingProps = {
@@ -159,6 +180,11 @@ type TableCellWithoutSortingProps = {
 } & TableCellBaseProps
 
 type TableCellProps = TableCellWithSortingProps | TableCellWithoutSortingProps
+
+type TableHeadProps = TableSectionProps & {
+	hasActions?: boolean
+	children: React.ReactElement | React.ReactElement[]
+}
 
 /**
  * Interface representing the properties of a table row.
@@ -175,7 +201,11 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 	isUnderHeader?: boolean
 
 	/**
+<<<<<<< HEAD
 	 * Determines if the row is under the table header.
+=======
+	 * Determines if the tow is under the table footer.
+>>>>>>> ac032a5 (fix(table): code improvements + add unit-test)
 	 */
 	isUnderFooter?: boolean
 
@@ -200,9 +230,15 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 	status?: string
 
 	/**
+<<<<<<< HEAD
 	 * Specifies if the row is under the table footer
 	 */
 	actions?: string
+=======
+	 * Render actions
+	 */
+	actions?(options: Record<string, any>): React.ReactNode
+>>>>>>> ac032a5 (fix(table): code improvements + add unit-test)
 }
 
 /**
@@ -263,17 +299,20 @@ interface TableContextProps {
 	/**
 	 * Display filters in popover
 	 */
-	filtersPopover: Pick<TableProps, "filtersPopover">
+	filtersPopover?: boolean
 
 	/**
 	 * Filters to be used in the table toolbar.
 	 */
-	filters: Pick<TableProps, "filters">
+	filters?: Array<TableToolbarFilterText | TableToolbarFilterSelect>
 
 	/**
 	 * Values of the applied filters.
 	 */
-	filterValues: Record<string, Pick<TableToolbarFilterTypes, "id" | "value">>[]
+	filterValues: Record<
+		string | number,
+		Pick<TableToolbarFilterTypes, "id" | "value">
+	>[]
 
 	/**
 	 * Function to set the filter value.
@@ -283,7 +322,7 @@ interface TableContextProps {
 	/**
 	 * Contains sort by object
 	 */
-	sortBy: TableSortBy
+	sortBy?: TableSortBy
 
 	/**
 	 * Set sort by data
@@ -303,7 +342,7 @@ interface TableContextProps {
 	/**
 	 * Array of selected row IDs.
 	 */
-	selected: Array<number | string>
+	selected: Array<unknown>
 
 	/**
 	 * Function to handle row selection.
@@ -328,6 +367,16 @@ interface TableContextProps {
 	 * Function to trigger an action in the table toolbar.
 	 */
 	triggerAction(action: TableExpectedAction, data: unknown): void
+
+	/**
+	 * Indicates whether hasStickyCols or not.
+	 */
+	hasStickyCols: boolean
+
+	/**
+	 * Function to set the hasStickyCols state.
+	 */
+	setHasStickyCols(hasColumn: boolean): void
 }
 
 /**
@@ -342,20 +391,16 @@ interface TableContextProviderProps {
 	/**
 	 * Props to be provided to the table context.
 	 */
-	props: Pick<
+	props: {
+		ref: RefObject<HTMLTableElement>
+		wrapperRef: RefObject<HTMLDivElement>
+		filtersPopover?: boolean
+		filters?: TableToolbarFilterText[] | TableToolbarFilterSelect[]
+		onAction?: TableOnActionType
+	} & Pick<
 		TableContextProps,
-		| "allowCheck"
-		| "isDraggable"
-		| "filtersPopover"
-		| "filters"
-		| "bulkActions"
-		| "stickyCols"
-	> &
-		Pick<TableProps, "onAction"> & {
-			ref: RefObject<HTMLTableElement>
-		} & {
-			wrapperRef: RefObject<HTMLDivElement>
-		}
+		"allowCheck" | "isDraggable" | "bulkActions" | "stickyCols"
+	>
 }
 
 /**
@@ -387,10 +432,13 @@ export type {
 	TableExpectedAction,
 	TableSectionProps,
 	TableCellProps,
+	TableHeadProps,
 	TableRowProps,
 	TableFieldsProps,
 	TableContextProps,
 	TableContextProviderProps,
 	TableToolbarContentProps,
 	TableToolbarFilterTypes,
+	TableToolbarFilterSelect,
+	TableToolbarFilterText,
 }

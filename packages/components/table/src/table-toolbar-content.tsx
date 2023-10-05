@@ -1,7 +1,8 @@
-import React, { Fragment, useContext } from "react"
+import React, { ChangeEvent, Fragment, useContext } from "react"
 import {
 	TableToolbarContentProps,
-	TableToolbarFilterTypes,
+	TableToolbarFilterSelect,
+	TableToolbarFilterText,
 } from "./table.types"
 
 import { Box, BoxGroup } from "@wpmudev/sui-box"
@@ -33,12 +34,15 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 	/**
 	 * Render filter field
 	 *
-	 * @param {TableToolbarFilterTypes} filter
-	 * @param {number}                  index
+	 * @param {TableToolbarFilterSelect | TableToolbarFilterText} filter
+	 * @param {number}                                            index
 	 *
 	 * @return {JSX.Element} FormField
 	 */
-	const renderField = (filter: TableToolbarFilterTypes, index: number) => (
+	const renderField = (
+		filter: TableToolbarFilterSelect | TableToolbarFilterText,
+		index: number,
+	) => (
 		<FormField
 			key={index}
 			id={filter?.id ?? ""}
@@ -49,21 +53,31 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 				{
 					select: (
 						<Select
-							onChange={(optionID) =>
+							onChange={(optionID: string | number) =>
 								ctx?.setFilter(filter?.id ?? "", optionID)
 							}
 							id={filter?.id}
 							{...filter?.props}
-							selected={ctx?.filterValues?.[filter?.id]}
+							selected={
+								// @ts-ignore
+								ctx?.filterValues?.[filter?.id]
+							}
 						/>
 					),
 					text: (
 						<Input
 							id={filter?.id ?? ""}
-							{...filter?.props}
-							defaultValue={ctx?.filterValues?.[filter?.id]}
-							onChange={(e) => {
-								ctx?.setFilter(filter?.id ?? "", e.target?.value)
+							{...(filter?.props as any)}
+							defaultValue={
+								// @ts-ignore
+								ctx?.filterValues?.[filter?.id]
+							}
+							onChange={(
+								e: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+							) => {
+								if (typeof e !== "string") {
+									ctx?.setFilter(filter?.id ?? "", e.target?.value)
+								}
 							}}
 						/>
 					),
