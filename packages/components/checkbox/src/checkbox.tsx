@@ -20,10 +20,7 @@ import { Indeterminate } from "./elements/indeterminate"
  * @param {CheckboxProps} props - Props for the Checkbox component.
  * @return {React.FC} The Checkbox component.
  */
-const Checkbox: React.FC<CheckboxProps> = forwardRef<
-	HTMLInputElement,
-	CheckboxProps
->(
+const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 	(
 		{
 			label,
