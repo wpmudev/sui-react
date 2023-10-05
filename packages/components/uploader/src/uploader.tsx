@@ -15,7 +15,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	...props
 }) => {
 	// State to keep track of selected files
-	const [files, setFiles] = useState<Record<File, any>[]>([])
+	const [files, setFiles] = useState<Record<string, any>[]>([])
 
 	// Generate a unique ID for the uploader component
 	const uniqueID = useId()
@@ -33,7 +33,7 @@ const Uploader: React.FC<UploaderProps> = ({
 
 	// Callback to handle file selection
 	const onSelectFile = useCallback(
-		(filesOrEvent: unknown | Record<File, any>[]) => {
+		(filesOrEvent: unknown | Record<string, any>[]) => {
 			let { files: selectedFiles } = filesOrEvent?.target ?? {}
 
 			// Use param value directly if the files were passed directly
