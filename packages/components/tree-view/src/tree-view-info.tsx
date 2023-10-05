@@ -52,6 +52,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 
 	// Use the passed icon, if available
 	if (!!icon && !isEmpty(icon ?? "")) {
+		// @ts-ignore
 		ItemIcon = Icons?.[icon ?? ""]
 	}
 
@@ -61,7 +62,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	}
 
 	// Handle check click for checkboxes
-	const onCheckClick = useCallback((e) => {
+	const onCheckClick = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
 		// ctx?.onCheck()
 		setIsChecked(e.target.checked)
 	}, [])
@@ -74,13 +75,14 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 			onClick={onClick}
 			onKeyDown={(e) => handleOnKeyDown(e, onClick)}
 			id={id}
+			data-testid={isGroup ? "" : "tree-view-item-info"}
 			{...(interactionMethods ?? {})}
 		>
 			{isGroup && <TickIcon size="sm" className="sui-tree-view__info-icon" />}
 			{ctx?.allowCheck && (
 				<div className="sui-tree-view__info-check">
 					{/* Render the Checkbox component for item selection */}
-					<Checkbox value={id} onChange={onCheckClick} isChecked={isChecked} />
+					<Checkbox onChange={onCheckClick} isChecked={isChecked} />
 				</div>
 			)}
 			<div className="sui-tree-view__info-title">
