@@ -49,7 +49,6 @@ export const Navigation = ({ example, ...props }) => {
 				<div>
 					<SuiNavigation
 						{...props}
-						actions={actions}
 						brand={{
 							title: "Smush Pro",
 							description: "Description",
