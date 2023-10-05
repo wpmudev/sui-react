@@ -1,0 +1,64 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>[Component Name]</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+
+    	<Section
+    		title={{ content: "prop*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Sets the semantic type for the accordion</p>
+    		<p>
+    		Allowed options:
+    			<List>
+    				<span label={<Code small={true}>neutral</Code>} />
+    				<span label={<Code small={true}>informative</Code>} />
+    				<span label={<Code small={true}>success</Code>} />
+    				<span label={<Code small={true}>warning</Code>} />
+    				<span label={<Code small={true}>critical</Code>} />
+    			</List>
+    		</p>
+    	</Section>
+
+</Section>
+
+{/** Use this for sub components */}
+<Section
+	title="Sub Components"
+	contained={true}
+	style={{ paddingTop: 30, paddingBottom: 0 }}
+>
+		<p>The [component name] offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+
+    <Section title="Sub Component" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents an individual item or section of the accordion and comes with its
+    		own set of props.
+    	</p>
+
+    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			prop description
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			prop description
+    		</p>
+    	</Section>
+
+    </Section>
+
+</Section>
