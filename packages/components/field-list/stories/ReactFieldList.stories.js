@@ -29,8 +29,6 @@ const FieldList = ({ example, ...args }) => {
 				<SuiFieldList
 					{...args}
 					onToggle={(id, checked) => {
-						console.log("Toggled", id, checked)
-
 						setList({
 							...list,
 							[id]: checked,

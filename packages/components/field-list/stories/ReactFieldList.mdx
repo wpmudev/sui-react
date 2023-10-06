@@ -1,13 +1,24 @@
-import { Page, Section } from '@wpmudev/storybook';
-import { Unstyled } from '@storybook/blocks';
+import { Page } from "@wpmudev/storybook"
+import { Unstyled } from "@storybook/blocks"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
 
 <Unstyled>
-	<Section title="Shhh... Not much to see here at the moment, but stay tuned!" contained={true}>
-		<p>
-			Quiet for now, but get ready! Exciting stuff is coming. Our developers are working really hard behind the scenes to make it happen. Stay curious and excited! 🌟👷
-		</p>
-		<p>
-			In the meantime, feel free to explore our demo page for this component.
-		</p>
-	</Section>
+	<Page.Tabs
+		title="Field List"
+		subtitle="This component is to display the list of features to enable or disable."
+		status="draft"
+	>
+		<div id="usage" label="Usage">
+			<TabUsage />
+		</div>
+		<div id="code" label="Code">
+			<TabCode />
+		</div>
+		<div id="examples" label="Examples">
+			<TabExamples />
+		</div>
+	</Page.Tabs>
 </Unstyled>
