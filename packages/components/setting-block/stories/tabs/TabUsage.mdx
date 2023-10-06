@@ -1,0 +1,41 @@
+import { Section, Row, Col } from "@wpmudev/storybook"
+
+import Anatomy from "../images/anatomy.svg"
+import Spacings from "../images/spacings.svg"
+import Types from "../images/types.svg"
+import Examples from "../images/examples.svg"
+
+<Section title="Anatomy" style={{ paddingTop: 20 }}>
+	<img src={Anatomy} alt="Setting Block Anatomy" style={{ marginBottom: 20 }} />
+	<h3>1. Block title</h3>
+	<p>
+		The left column is for setting block the title and description. It gives a
+		glance of the setting block to users.
+	</p>
+
+    <h3>2. Block Option</h3>
+    <p>
+    	Box body is a flexible area where the main content can be inserted. It may include list, table or any type of content that is available for settings.
+    </p>
+
+</Section>
+
+<Section title="Spacings" style={{ paddingTop: 20 }}>
+	<img
+		src={Spacings}
+		alt="Setting Block Anatomy"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+
+<Section title="Types" style={{ paddingTop: 20 }}>
+	<img src={Types} alt="Setting Block Types" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="Examples" style={{ paddingTop: 20 }}>
+	<img
+		src={Examples}
+		alt="Setting Block Examples"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>

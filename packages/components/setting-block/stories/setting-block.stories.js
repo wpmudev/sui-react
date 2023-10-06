@@ -18,32 +18,8 @@ export default {
 	},
 }
 
-const options = [
-	"United States",
-	"Canada",
-	"United Kingdom",
-	"Australia",
-	"Germany",
-	"France",
-	"Japan",
-	"Brazil",
-	"India",
-	"China",
-	"South Korea",
-	"Mexico",
-	"Russia",
-	"Italy",
-	"Argentina",
-	"South Africa",
-	"Egypt",
-	"Turkey",
-	"New Zealand",
-]
-
 // Build "SettingBlock" story.
 const SettingBlock = ({ ...props }) => {
-	const set = {}
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
