@@ -14,7 +14,10 @@ interface IntegrationProps {
 	additionalInfo?: string
 
 	/** URL of the image representing the integration. */
-	image?: string
+	image?: {
+		alt?: "string"
+		src: "string"
+	}
 
 	/** Whether the integration is disabled or not. */
 	isDisabled?: boolean
@@ -29,10 +32,10 @@ interface IntegrationProps {
 	isPro?: boolean
 
 	/** Event handler for when the settings button is clicked. */
-	onSettingsClick: (e: React.MouseEvent) => void
+	onSettingsClick?: (e: React.MouseEvent) => void
 
 	/** Event handler for when the integration is clicked. */
-	onClick: (e: React.MouseEvent) => void
+	onClick?: (e: React.MouseEvent) => void
 }
 
 export type { IntegrationProps }

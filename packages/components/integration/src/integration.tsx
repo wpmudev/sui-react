@@ -88,7 +88,7 @@ const Integration: React.FC<IntegrationProps> = ({
 					<h3 className="sui-heading--h4 sui-integration__title">{title}</h3>
 				)}
 				{!!additionalInfo && (
-					<Tooltip type="icon" name="info" customWidth={160}>
+					<Tooltip type="icon" name="info" icon="info" customWidth={160}>
 						{additionalInfo}
 					</Tooltip>
 				)}
