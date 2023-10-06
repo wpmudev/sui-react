@@ -26,7 +26,7 @@ export default {
 
 // Build story
 // eslint-disable-next-line react/prop-types
-export const DashboardWidget = ({ example, icon, ...props }) => {
+export const DashboardWidget = ({ example, ...props }) => {
 	const [isExpanded, setIsExpanded] = useState<boolean>(true)
 
 	const box = {
@@ -104,7 +104,7 @@ DashboardWidget.args = {
 	icon: "CheckAlt",
 	statusIcon: "InfoAlt",
 	statusProps: {
-		color: "warning",
+		color: "informative",
 	},
 }
 
