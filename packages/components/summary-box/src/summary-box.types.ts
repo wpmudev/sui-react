@@ -1,4 +1,4 @@
-import React, { HTMLProps } from "react"
+import React, { HTMLProps, ReactNode } from "react"
 import { TagProps } from "@wpmudev/sui-tag"
 import { IconProps } from "@wpmudev/sui-icon"
 
@@ -37,7 +37,7 @@ interface SummaryBoxProps {
 	/**
 	 * Content of the Summary Box
 	 */
-	children?: string
+	children?: ReactNode
 }
 
 /**
@@ -85,20 +85,23 @@ interface SummaryBoxItemProps extends HTMLProps<HTMLDivElement> {
 	/**
 	 * The title of the action associated with the summary item (optional).
 	 */
-	actionTitle?: string
+	tagTitle?: string
 	/**
-	 * The state/color of the action associated with the summary item (optional).
-	 * It can be either an object with the `color` property (for TagProps) or an object with the `color` property (for IconProps).
+	 * Tag color
 	 */
-	actionState?: Pick<TagProps, "color"> | Pick<IconProps, "color">
-	/**
-	 * Additional CSS class names for the summary item element (optional).
-	 */
-	className?: string
+	tagColor?: TagProps["color"]
 	/**
 	 * The item action icon
 	 */
 	actionIcon?: string
+	/**
+	 * Action icon color
+	 */
+	actionIconColor?: IconProps["color"]
+	/**
+	 * Additional CSS class names for the summary item element (optional).
+	 */
+	className?: string
 }
 
 /**
