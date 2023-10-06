@@ -12,11 +12,7 @@ import { Box } from "@wpmudev/sui-box"
 import { isEmpty } from "@wpmudev/sui-utils"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 
-import {
-	ConfigActionTypes,
-	ConfigId,
-	ConfigTableTypes,
-} from "./config-table.types"
+import { ConfigTableTypes } from "./config-table.types"
 import { ConfigTableDetails } from "./config-table-details"
 
 // Render options to be displayed in a table.
@@ -92,7 +88,9 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 		<Table className={`sui-config-table ${className}`} hasToolbar={false}>
 			<TableHead>
 				<TableRow actions={() => null}>
-					<TableCell isHeading={true} isPrimary={true}>Config</TableCell>
+					<TableCell isHeading={true} isPrimary={true}>
+						Config
+					</TableCell>
 					<TableCell isHeading={true}>Date Created</TableCell>
 					<TableCell isHeading={true}>Last Applied</TableCell>
 				</TableRow>
