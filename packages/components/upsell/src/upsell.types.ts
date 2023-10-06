@@ -32,4 +32,4 @@ interface UpsellProps {
 		| "beehive"
 }
 
-export { UpsellProps }
+export type { UpsellProps }
