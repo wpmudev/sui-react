@@ -65,10 +65,12 @@ export const Selector = ({ variation, ...args }) => {
 									key={index}
 									name={option.name}
 									value={option.value}
-									onChange={onChange}
+									//onChange={onChange}
 									isChecked={val === option.value}
 									variation={variation}
 									{...args}
+									label="label"
+									onChange={(a, b, c) => console.log(a, b, c)}
 								/>
 							</Col>
 						))}

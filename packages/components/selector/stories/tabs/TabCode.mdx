@@ -13,53 +13,83 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 </Section>
 
 <Section title="Props" border={true}>
+    <Section
+    	title={{ content: "label", tag: 'string', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A label text for the hidden radion input ( For Screen Readers ) </p>
+    </Section>
 
-    	<Section
-    		title={{ content: "prop*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p>Sets the semantic type for the accordion</p>
-    		<p>
-    		Allowed options:
-    			<List>
-    				<span label={<Code small={true}>neutral</Code>} />
-    				<span label={<Code small={true}>informative</Code>} />
-    				<span label={<Code small={true}>success</Code>} />
-    				<span label={<Code small={true}>warning</Code>} />
-    				<span label={<Code small={true}>critical</Code>} />
-    			</List>
-    		</p>
-    	</Section>
+    <Section
+    	title={{ content: "name", tag: 'string', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A label text for screen readers</p>
+    </Section>
 
-</Section>
+    <Section
+    	title={{ content: "value", tag: 'string | number', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Value of the radio input</p>
+    </Section>
 
-{/* * Use this for sub components */}
+    <Section
+    	title={{ content: "isChecked", tag: 'boolean', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Whether the radio input is checked or not</p>
+    </Section>
 
-<Section
-	title="Sub Components"
-	contained={true}
-	style={{ paddingTop: 30, paddingBottom: 0 }}
->
-		<p>The [component name] offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+    <Section
+    	title={{ content: "isDisabled", tag: 'boolean', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Whether the radio input is disabled or not</p>
+    </Section>
 
-    <Section title="Sub Component" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component represents an individual item or section of the accordion and comes with its
-    		own set of props.
-    	</p>
+    <Section
+    	title={{ content: "isPro", tag: 'boolean', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}>true</Code>, the Selector appears in the pro variation</p>
+    </Section>
 
-    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			prop description
-    		</p>
-    	</Section>
+    <Section
+    	title={{ content: "alignment", tag: 'string', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Specifies the alignment of the content, it could be one of two values:</p>
+    	<List>
+    		<span label={<Code small={true}>left</Code>}/>
+    		<span label={<Code small={true}>center</Code>}/>
+    	</List>
+    </Section>
 
-    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			prop description
-    		</p>
-    	</Section>
+    <Section
+    	title={{ content: "variation", tag: 'string', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The component variation style</p>
+    	<p>Allowed options</p>
+    	<List>
+    		<span label={<Code small={true}>default</Code>}/>
+    		<span label={<Code small={true}>icon-only</Code>}/>
+    		<span label={<Code small={true}>compound</Code>}/>
+    		<span label={<Code small={true}>image</Code>}/>
+    	</List>
+    </Section>
 
+     <Section
+    	title={{ content: "onChange", tag: 'function', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A callback function to be invoked upon radio input change, the function has the following parameter </p>
+    	<List>
+    		<span label={<><Code small={true}>isChecked</Code> The new checked value of the input </>}/>
+    		<span label={<><Code small={true}>value</Code> The radio option value </>}/>
+    		<span label={<><Code small={true}>name</Code> The name of the radio input </>}/>
+    	</List>
     </Section>
 
 </Section>
