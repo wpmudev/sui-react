@@ -16,9 +16,6 @@ interface UpsellNoticeProps {
 	// Optional features to be displayed, can be an array of ReactNodes or strings
 	features?: (ReactNode | string)[]
 
-	// Upsell size
-	size?: "sm" | "lg"
-
 	// Optional variation to specify the type of upsell, limited to specific string values
 	variation?:
 		| "hummingbird"
