@@ -1,36 +1,49 @@
-import { Section, Row, Col, List } from '@wpmudev/storybook';
+import { Section, Row, Col, List } from "@wpmudev/storybook"
 
-import CodeSnippetAnatomy from '../images/anatomy.png';
+import Anatomy from "../images/anatomy.svg"
+import Types from "../images/types.svg"
+import Spacing from "../images/spacing.svg"
 
-<Section contained={true} border={true} style={{ paddingTop: 0 }}>
-	<p>
-		This element is meant to be used to display code. By default, it will
-		place a copy button on top right of the container, that way users can
-		easily copy snippet content to clipboard.
-	</p>
+<Section title="Anatomy">
+	<Row>
+		<Col>
+			<h3>1. Label</h3>
+			<p>A label for the context of Rich text editor.</p>
+
+    		<h3>2. Segmented controls</h3>
+    		<p>A segmented control to quickly switch between the visual and code options.</p>
+
+    		<h3>3. Extra button - Optional</h3>
+    		<p>Rich text editor also has extra button that can be used for additional control.</p>
+
+    		<h3>4. Toolbar</h3>
+    		<p>The toolbar contains a collection of formatting options and controls that allow users to apply various text styles and formatting</p>
+
+    		<h3>5. Input text area</h3>
+    		<p>The text input area is where users can enter and edit their text content where they can see and manipulate their text as they apply formatting options.</p>
+
+    		<h3>6. Helper text - Optional</h3>
+    		<p>Rich text editor can have an additional help or description text if necessary.</p>
+    	</Col>
+    	<Col style={{display: "flex", justifyContent: "center", flexDirection: "column" }}>
+    		<img
+    			src={Anatomy}
+    			alt="RichText Editor Anatomy"
+    			style={{ marginBottom: 20 }}
+    		/>
+    	</Col>
+    </Row>
+
 </Section>
 
-<Section title="Anatomy" contained={true} border={true}>
+<Section title="Types">
+	<img src={Types} alt="RichText Editor Types" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="Spacing" style={{ marginBottom: 80 }}>
 	<img
-		src={CodeSnippetAnatomy}
-		alt="Code snippet anatomy"
+		src={Spacing}
+		alt="RichText Editor Spacing"
 		style={{ marginBottom: 20 }}
 	/>
-	<List>
-		<span
-			label={
-				<>
-					<strong>Snippet Text:</strong> Line or a block of codes.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Copy button:</strong> A copy button to copy the
-					code.
-				</>
-			}
-		/>
-	</List>
 </Section>

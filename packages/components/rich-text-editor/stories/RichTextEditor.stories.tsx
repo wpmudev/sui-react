@@ -30,7 +30,7 @@ const RichTextEditor = ({ color, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiRichTextEditor {...props}></SuiRichTextEditor>
+					<SuiRichTextEditor {...props} />
 				</div>
 			</div>
 		</div>
