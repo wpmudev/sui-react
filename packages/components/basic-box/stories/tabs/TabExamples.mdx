@@ -1,0 +1,154 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { BasicBox } from "../../src"
+import { Button } from "@wpmudev/sui-button"
+import { SettingBlock } from "@wpmudev/sui-setting-block"
+import dedent from "dedent"
+
+export const generalExampleCode = dedent`
+    export const Example = () => {
+      <BasicBox
+          title="Heading Text"
+          description="Description text goes here"
+          headerActions={
+            <>
+                <Button
+                  appearance="secondary"
+                  color="black"
+                  isSmall={true}
+                  icon="upload"
+                >
+                  Upload
+                </Button>
+              <Button appearance="primary" color="blue" isSmall={true}>
+                 Create new
+              </Button>
+            </>
+          }
+          footerActions={[
+            "Example of footer content on left",
+            <Button key={0} appearance="primary" color="blue" isSmall={true}>
+               Save changes
+            </Button>,
+          ]}
+        >
+            <SettingBlock
+                title="Import"
+                description="Import your blocklist and allowlist from another website."
+            >
+                <p>
+                  Upload the blocklist and allowlist CSV file exported from another
+                  website. Imported user agents will be added to the existing blocklist
+                  and allowlist.
+                </p>
+                <div>
+                  <Button
+                       appearance="secondary"
+                       icon="upload"
+                       color="black"
+                       isSmall={true}
+                    >
+                      Upload file
+                  </Button>
+                </div>
+            </SettingBlock>
+            <SettingBlock
+                title="Export"
+                description="Export your blocklist and allowlist for use on another website."
+            >
+                <Button
+                    appearance="secondary"
+                    icon="upload"
+                    color="black"
+                    isSmall={true}
+                  >
+                    Export
+                </Button>
+            </SettingBlock>
+      </BasicBox>
+    }
+`
+
+export const proExampleCode = dedent`
+<BasicBox isPro={true} />
+`
+
+export const SuiBasicBox = ({ isPro = false }) => {
+	return (
+		<BasicBox
+			isPro={isPro}
+			title="Heading Text"
+			description="Description text goes here"
+			headerActions={
+				<>
+					<Button
+						appearance="secondary"
+						color="black"
+						isSmall={true}
+						icon="upload"
+					>
+						Upload
+					</Button>
+					<Button appearance="primary" color="blue" isSmall={true}>
+						Create new
+					</Button>
+				</>
+			}
+			footerActions={[
+				"Example of footer content on left",
+				<Button key={0} appearance="primary" color="blue" isSmall={true}>
+					Save changes
+				</Button>,
+			]}
+		>
+			<SettingBlock
+				title="Import"
+				description="Import your blocklist and allowlist from another website."
+			>
+				<p>
+					Upload the blocklist and allowlist CSV file exported from another
+					website. Imported user agents will be added to the existing blocklist
+					and allowlist.
+				</p>
+				<div>
+					<Button
+						appearance="secondary"
+						icon="upload"
+						color="black"
+						isSmall={true}
+					>
+						Upload file
+					</Button>
+				</div>
+			</SettingBlock>
+			<SettingBlock
+				title="Export"
+				description="Export your blocklist and allowlist for use on another website."
+			>
+				<Button
+					appearance="secondary"
+					icon="upload"
+					color="black"
+					isSmall={true}
+				>
+					Export
+				</Button>
+			</SettingBlock>
+		</BasicBox>
+	)
+}
+
+<Section style={{ paddingTop: 30 }}>
+	<p>Below is a general example of the Basic Box component</p>
+	<Preview wrapper={true}>
+		<SuiBasicBox />
+	</Preview>
+	<Snippet language="js">{generalExampleCode}</Snippet>
+</Section>
+
+<Section title="Pro variation">
+  <p>Set the prop <Code small={true}>isPro=\{true\}</Code> to change the variation</p>
+  <Preview wrapper={true}>
+      <SuiBasicBox isPro={true} />
+  </Preview>
+  <Snippet language="js">{proExampleCode}</Snippet>
+</Section>

@@ -1,17 +1,24 @@
-import { Page } from '@wpmudev/storybook';
-import { Unstyled } from '@storybook/blocks';
+import { Page } from "@wpmudev/storybook"
+import { Unstyled } from "@storybook/blocks"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
 
 <Unstyled>
 	<Page.Tabs
-		title="BasicBox"
-		subtitle={
-			<>
-				An basic-box is a thumbnail that represents a user or organization on
-				the SUI platform.
-			</>
-		}
+		title="Basic Box"
+		subtitle="Basic box is a component that is used to display page settings or page content."
 		status="draft"
 	>
-
+		<div id="usage" label="Usage">
+			<TabUsage />
+		</div>
+		<div id="code" label="Code">
+			<TabCode />
+		</div>
+		<div id="examples" label="Examples">
+			<TabExamples />
+		</div>
 	</Page.Tabs>
 </Unstyled>
