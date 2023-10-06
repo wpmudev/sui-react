@@ -83,15 +83,16 @@ const configs = [
 
 // Build story
 export const ConfigTable = ({ example, ...props }) => {
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div>
-					<SuiConfigTable {...props} configs={configs}>
-						Test link
-					</SuiConfigTable>
-				</div>
+				<SuiConfigTable
+					{...props}
+					configs={configs}
+					onActionClick={(id, type) => console.log(id, type)}
+				>
+					Test links
+				</SuiConfigTable>
 			</div>
 		</div>
 	)

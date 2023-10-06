@@ -110,7 +110,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 									appearance="tertiary"
 									onClick={(e) => {
 										e.preventDefault()
-										actionClick(config.id, "configure")
+										actionClick(config.id, "apply")
 									}}
 								>
 									Apply
