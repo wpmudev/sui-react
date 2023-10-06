@@ -22,7 +22,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 }) => {
 	return (
 		pagesArray.length > 1 && (
-			<div className="sui-pagination">
+			<div className="sui-pagination" data-testid="pagination">
 				<ul className="sui-pagination__nav">
 					<li className="sui-pagination__item">
 						<Button
@@ -34,6 +34,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							isSmall={true}
 							isDisabled={selectedPage <= 1}
 							onClick={handlePreviousPage}
+							data-testid="pagination-prev-page"
 						>
 							{previousLabel}
 						</Button>
@@ -85,6 +86,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 												: ""
 										}`}
 										onClick={() => handlePageClick(Math.floor(data))}
+										data-testid="pagination-item"
 									>
 										{data}
 									</Button>
@@ -133,6 +135,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							isSmall={true}
 							isDisabled={selectedPage >= pages}
 							onClick={handleNextPage}
+							data-testid="pagination-next-page"
 						>
 							{nextLabel}
 						</Button>

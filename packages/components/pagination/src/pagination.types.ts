@@ -63,7 +63,7 @@ interface PaginationNavProps extends PaginationCommonProps {
 	/**
 	 * Total number of elements
 	 */
-	elements: number
+	elements?: number
 	/**
 	 * Currently selected page
 	 */
@@ -71,33 +71,33 @@ interface PaginationNavProps extends PaginationCommonProps {
 	/**
 	 * Callback for navigating to the previous page
 	 */
-	handlePreviousPage: () => void
+	handlePreviousPage?: () => void
 	/**
 	 * Callback for skipping to the first page
 	 */
-	handleSkipToFirstPage: () => void
+	handleSkipToFirstPage?: () => void
 	/**
 	 * Callback for skipping to the last page
 	 */
-	handleSkipToLastPage: () => void
+	handleSkipToLastPage?: () => void
 	/**
 	 * Callback for navigating to the previous ellipsis
 	 */
-	handlePreviousEllipsis: () => void
+	handlePreviousEllipsis?: () => void
 	/**
 	 * Callback for clicking on a specific page
 	 *
 	 * @param {number} page - The page number clicked
 	 */
-	handlePageClick: (page: number) => void
+	handlePageClick: (page?: number) => void
 	/**
 	 * Callback for navigating to the next ellipsis
 	 */
-	handleNextEllipsis: () => void
+	handleNextEllipsis?: () => void
 	/**
 	 * Callback for navigating to the next page
 	 */
-	handleNextPage: () => void
+	handleNextPage?: () => void
 	/**
 	 * Start index of the displayed items
 	 */
