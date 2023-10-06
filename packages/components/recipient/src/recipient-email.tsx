@@ -19,4 +19,5 @@ const RecipientEmail: React.FC<RecipientEmailProps> = ({ children }) => {
 	)
 }
 
-export { RecipientEmail, RecipientEmailProps }
+export { RecipientEmail }
+export type { RecipientEmailProps }

@@ -13,7 +13,7 @@ import { RecipientProps } from "./recipient.type"
 const Recipient: React.FC<RecipientProps> = ({
 	userName = "",
 	userEmail = "",
-	userImage = "",
+	userImage,
 	status = "",
 	isInvited = false,
 	appearance,
@@ -22,7 +22,7 @@ const Recipient: React.FC<RecipientProps> = ({
 	// Define recipient class.
 	const className = generateCN("sui-recipient", {
 		// Define recipient appearance.
-		[appearance]: !isEmpty(appearance ?? ""),
+		[appearance as string]: !isEmpty(appearance ?? ""),
 	})
 
 	return (
@@ -31,7 +31,7 @@ const Recipient: React.FC<RecipientProps> = ({
 				<Avatar
 					className="sui-recipient__avatar"
 					{...(!isEmpty(status) && { status })}
-					{...(!isEmpty(userImage) && { image: userImage })}
+					{...(!userImage?.src && { image: userImage })}
 				/>
 				{(!isEmpty(userName) || !isEmpty(userEmail)) && (
 					<div className="sui-recipient__details">
