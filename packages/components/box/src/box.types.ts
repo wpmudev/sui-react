@@ -3,7 +3,8 @@ import React, { CSSProperties, HTMLProps } from "react"
 /**
  * Represents the properties for a box component.
  */
-interface BoxProps {
+interface BoxProps
+	extends Omit<HTMLProps<HTMLDivElement>, "style" | "className"> {
 	/**
 	 * The title of the box.
 	 */
