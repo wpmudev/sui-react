@@ -1,0 +1,87 @@
+import { Section, Row, Col } from "@wpmudev/storybook"
+
+import Pro from "../images/pro.svg"
+import Free from "../images/free.svg"
+import AnatomyFree from "../images/anatomy-free.svg"
+import AnatomyPro from "../images/anatomy-pro.svg"
+import FreeDesktopSpacing from "../images/free-desktop-spacing.svg"
+import FreeTabletSpacing from "../images/free-tablet-spacing.svg"
+import ProMobileSpacing from "../images/pro-mobile-spacing.svg"
+import FreeMobileSpacing from "../images/free-mobile-spacing.svg"
+import HoverState from "../images/hover-state.svg"
+import FocusState from "../images/focus-state.svg"
+
+<Section title="Anatomy - Free" style={{ paddingTop: 20 }}>
+	<img src={AnatomyFree} alt="Footer - Anatomy Free" />
+
+    <Row>
+    	<Col>
+    		<h3>1. Feature One</h3>
+    		<p>This section is used to highlight/make the user aware of the Pro feature/section but not in an upselling manner.</p>
+    		<h3>3. Brand Logo (WPMU Dev)</h3>
+    		<p>Updated logo of WPMU Dev (Black version)</p>
+    		<h3>5. Social Links</h3>
+    		<p>Depending upon the use case, icons can be different. For example, they can replace the icon if the company isn't on some media platform. However, the design will be similar across all the plugins, and those icons will have hyperlinks to the social media account.</p>
+    	</Col>
+    	<Col>
+    		<h2>2. Feature second</h2>
+    		<p>This section is used to highlight the pro/free feature, which should be necessary for the user (Like a tutorial in this case)</p>
+    		<h2>4. links</h2>
+    		<p>We will put Text as links connected with the brand.</p>
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Anatomy - Pro" style={{ paddingTop: 20 }}>
+	<img src={AnatomyPro} alt="Footer Anatomy Pro" />
+
+    <Row>
+    	<Col>
+    		<h3>1. Simple Tagline</h3>
+    		<p>Made with WP tag.</p>
+    		<h3>3. Other links</h3>
+    		<p>We will put Text as links connected with the brand.</p>
+    	</Col>
+    	<Col>
+    		<h2>2. Brand Logo (WPMU Dev)</h2>
+    		<p>Child group is nested under parent group, it can have sub children items.</p>
+    		<h2>4. Social Links</h2>
+    		<p>Depending upon the use case, icons can be different. For example, they can replace the icon if the company isn't on some media platform. However, the design will be similar across all the plugins, and those icons will have hyperlinks to the social media account.</p>
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Spacing Guides" style={{ paddingTop: 20 }}>
+	<h3>Footer Free - Desktop</h3>
+
+    <img src={FreeDesktopSpacing} alt="Footer Free Desktop Spacing"/>
+
+    <h3 style={{ paddingTop: 20 }}>Footer Free - Tablet</h3>
+
+    <img src={FreeTabletSpacing} alt="Footer Free Tablet Spacing" style={{ paddingTop: 20 }} />
+
+    <Row>
+    	<Col style={{ paddingTop: 20 }}>
+    		<h3>Footer Pro - Mobile</h3>
+    		<img src={ProMobileSpacing} alt="Footer Pro Mobile Spacing" />
+    	</Col>
+    	<Col style={{ paddingTop: 20 }}>
+    		<h3>Footer Free - Mobile</h3>
+    		<img src={FreeMobileSpacing} alt="Footer Free Mobile Spacing" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Behaviour" style={{ paddingTop: 20 }}>
+	<h3>Hover State</h3>
+
+    <img src={HoverState} alt="Footer Hover State" />
+
+    <h3>Focus State</h3>
+
+    <img src={FocusState} alt="Footer Focus State" />
+
+</Section>
