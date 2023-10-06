@@ -122,19 +122,13 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
  */
 type TableCellBaseProps = {
 	/**
-<<<<<<< HEAD
 	 * Additional css className(s) for further styling
 	 */
 	className?: string
 	/**
-	 * Determines if the cell should display a drag icon (Grip icon)
-	 */
-	hasDragIcon?: string
-=======
 	 * Table Cell ID
 	 */
 	id?: string
->>>>>>> ac032a5 (fix(table): code improvements + add unit-test)
 	/**
 	 * Children nodes of the table cell.
 	 */
@@ -201,11 +195,7 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 	isUnderHeader?: boolean
 
 	/**
-<<<<<<< HEAD
-	 * Determines if the row is under the table header.
-=======
 	 * Determines if the tow is under the table footer.
->>>>>>> ac032a5 (fix(table): code improvements + add unit-test)
 	 */
 	isUnderFooter?: boolean
 
@@ -230,15 +220,9 @@ interface TableRowProps extends Omit<HTMLProps<HTMLTableRowElement>, "id"> {
 	status?: string
 
 	/**
-<<<<<<< HEAD
 	 * Specifies if the row is under the table footer
 	 */
-	actions?: string
-=======
-	 * Render actions
-	 */
 	actions?(options: Record<string, any>): React.ReactNode
->>>>>>> ac032a5 (fix(table): code improvements + add unit-test)
 }
 
 /**
