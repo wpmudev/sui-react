@@ -2,7 +2,7 @@ import React from "react"
 
 // Import required component
 import { Search as SuiSearch } from "../src"
-import { FormField } from "@wpmudev/sui-form-field"
+import { options } from "./options"
 
 // Import documentation main page
 import docs from "./search.mdx"
@@ -19,37 +19,13 @@ export default {
 	},
 }
 
-const options = [
-	"United States",
-	"Canada",
-	"United Kingdom",
-	"Australia",
-	"Germany",
-	"France",
-	"Japan",
-	"Brazil",
-	"India",
-	"China",
-	"South Korea",
-	"Mexico",
-	"Russia",
-	"Italy",
-	"Argentina",
-	"South Africa",
-	"Egypt",
-	"Turkey",
-	"New Zealand",
-]
-
 // Build "Search" story.
 const Search = ({ example, ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={{ padding: "20px", backgroundColor: "white" }}>
-					<FormField id="countries-list" label="Select country" isSmall={true}>
-						<SuiSearch {...props} options={options} />
-					</FormField>
+					<SuiSearch {...props} options={options} />
 				</div>
 			</div>
 		</div>
