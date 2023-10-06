@@ -15,7 +15,10 @@ interface RecipientProps extends HTMLProps<HTMLDivElement> {
 	/**
 	 * Profile image or avatar
 	 */
-	userImage?: string
+	userImage?: {
+		alt: string
+		src: string
+	}
 	/**
 	 * Reflects if the user is confirmed
 	 */
