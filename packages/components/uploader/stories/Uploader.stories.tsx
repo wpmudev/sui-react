@@ -1,5 +1,7 @@
 import React, { Fragment } from "react"
 
+import { FormField } from "@wpmudev/sui-form-field"
+
 // Import required component(s)
 import { Uploader as SuiUploader } from "../src"
 
@@ -20,6 +22,12 @@ export default {
 
 // Build story
 export const Uploader = ({ ...props }) => {
+	const fieldAttrs = {
+		label: "Upload file",
+		helper: "Upload files",
+		isSmall: true,
+	}
+
 	return (
 		<Fragment>
 			<div
@@ -31,14 +39,9 @@ export const Uploader = ({ ...props }) => {
 					background: "#fff",
 				}}
 			>
-				<SuiUploader
-					{...props}
-					fieldAttrs={{
-						label: "Upload file",
-						helper: "Upload files",
-						isSmall: true,
-					}}
-				/>
+				<FormField id="uploader" {...fieldAttrs}>
+					<SuiUploader {...props} />
+				</FormField>
 			</div>
 		</Fragment>
 	)
