@@ -38,7 +38,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	}
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="progress-bar">
 			<div className="sui-progress-bar__main">
 				{!!label && (
 					<span className="sui-progress-bar__text" aria-live="polite">
@@ -68,7 +68,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 					<Button
 						appearance="tertiary"
 						color="blue"
-						{...(isFunction(onClick) && {
+						{...(onClick && {
 							onClick: (e) => onClick(e),
 						})}
 					>
