@@ -1,11 +1,12 @@
-import React from "react"
+import React, { HTMLProps } from "react"
 
 /**
  * EmptyStateProps Interface
  *
  * Represents the props for the EmptyState component.
  */
-interface EmptyStateProps {
+interface EmptyStateProps
+	extends Omit<HTMLProps<HTMLDivElement>, "className" | "children"> {
 	/**
 	 * The logo to be displayed in the empty state.
 	 * It can be a string representing the URL of an image or an HTML/SVG element.
