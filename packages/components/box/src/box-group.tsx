@@ -37,7 +37,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 	})
 
 	return (
-		<div className={classNames} style={style}>
+		<div className={classNames} style={style} data-testid="box-group">
 			{slots}
 		</div>
 	)
