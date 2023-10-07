@@ -23,7 +23,7 @@ type AccordionCheckboxProps =
 	| { onCheck: never; hasCheckBox: false } // If `hasCheckbox` is false, the `onCheck` prop should not be provided.
 
 // The AccordionItemProps interface extends the AccordionCheckboxProps, adding additional props for the AccordionItem component.
-interface AccordionItemProps extends AccordionCheckboxProps {
+interface AccordionItemBaseProps extends AccordionCheckboxProps {
 	title?: string // The title of the accordion item.
 	description?: string // The description of the accordion item.
 	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
@@ -52,8 +52,8 @@ type AccordionItemOptionalCheckbox = {
 
 // Final accordion-item prop types
 type AccordionItemProps =
-	| (AccordionItemWithCheckbox & AccordionItemMainProps)
-	| (AccordionItemWithoutCheckbox & AccordionItemMainProps)
-	| (AccordionItemOptionalCheckbox & AccordionItemMainProps)
+	| (AccordionItemWithCheckbox & AccordionItemBaseProps)
+	| (AccordionItemWithoutCheckbox & AccordionItemBaseProps)
+	| (AccordionItemOptionalCheckbox & AccordionItemBaseProps)
 
 export type { AccordionItemProps, AccordionProps }
