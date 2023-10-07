@@ -43,7 +43,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 
 	return (
 		// Render the editor-toolbar component
-		<div className={classNames}>
+		<div className={classNames} data-testid="editor-toolbar">
 			{(!!title || !!allowBack) && (
 				<div className="sui-editor-toolbar__content--left">
 					<div className="sui-editor-toolbar__main">
@@ -55,6 +55,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 								isSmall={true}
 								iconOnly={true}
 								onClick={onBackClick}
+								data-testid="editor-toolbar-back-btn"
 							/>
 						)}
 						{title && (
@@ -72,6 +73,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 						right: !alignCenter,
 						center: alignCenter,
 					})}
+					data-testid="editor-toolbar-content"
 				>
 					{!!children && (
 						<div className="sui-editor-toolbar__body">{children}</div>
