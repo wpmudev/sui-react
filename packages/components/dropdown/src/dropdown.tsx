@@ -101,7 +101,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		}
 
 		return (
-			<div ref={dropdownRef} className={wrapperClasses}>
+			<div ref={dropdownRef} className={wrapperClasses} data-testid="dropdown">
 				{!!trigger ? (
 					trigger
 				) : (
