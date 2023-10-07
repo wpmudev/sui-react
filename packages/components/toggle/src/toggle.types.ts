@@ -1,4 +1,4 @@
-import React, { HTMLProps } from "react"
+import React, { HTMLProps, ReactNode } from "react"
 
 /**
  * Represents the properties for a toggle component.
@@ -8,7 +8,7 @@ interface ToggleProps
 	/**
 	 * The label for the toggle component.
 	 */
-	label?: string
+	label?: string | ReactNode
 	/**
 	 * The description for the toggle component.
 	 */
