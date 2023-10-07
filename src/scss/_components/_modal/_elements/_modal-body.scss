@@ -15,7 +15,7 @@
 			@include element(body) {
 				padding: $spacing-xxl;
 				max-height: $modal-size-height-md;
-				overflow-x: scroll;
+				overflow-x: auto;
 
 				@include media(max-width, sm) {
 					padding: $spacing-lg;
