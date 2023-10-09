@@ -39,6 +39,16 @@ interface SelectorProps
 	allowRemove?: boolean
 	/** Event handler for removing the Selector */
 	onRemove?(name: string, value: string | number): void
+	/** Specifiy the color of the tag */
+	tagColor:
+		| "default"
+		| "blue"
+		| "yellow"
+		| "red"
+		| "green"
+		| "white"
+		| "black"
+		| "navy"
 }
 
 interface SelectorOptionProps
@@ -54,6 +64,7 @@ interface SelectorOptionProps
 		| "tag"
 		| "allowRemove"
 		| "onRemove"
+		| "tagColor"
 	> {}
 
-export { SelectorProps, SelectorOptionProps }
+export type { SelectorProps, SelectorOptionProps }

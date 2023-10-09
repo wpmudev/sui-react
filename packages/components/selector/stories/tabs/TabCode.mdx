@@ -116,6 +116,24 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
     </Section>
 
     <Section
+    	title={{ content: "tagColor", tag: 'string', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p> The color variation for the tag </p>
+    	<p> Allowed options </p>
+    	<List>
+    		<span label={<Code small={true}>default</Code>} />
+    		<span label={<Code small={true}>blue</Code>} />
+    		<span label={<Code small={true}>yellow</Code>} />
+    		<span label={<Code small={true}>red</Code>} />
+    		<span label={<Code small={true}>green</Code>} />
+    		<span label={<Code small={true}>white</Code>} />
+    		<span label={<Code small={true}>black</Code>} />
+    		<span label={<Code small={true}>navy</Code>} />
+    	</List>
+    </Section>
+
+    <Section
     	title={{ content: "imageUrl", tag: 'string', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >

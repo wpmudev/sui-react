@@ -92,6 +92,7 @@ Selector.args = {
 	isDisabled: false,
 	isPro: true,
 	tag: "Tag",
+	tagColor: "default",
 }
 
 // Story props settings
@@ -159,6 +160,32 @@ Selector.argTypes = {
 			labels: {
 				left: "Left",
 				center: "Center",
+			},
+		},
+	},
+	tagColor: {
+		name: "Tag Color",
+		options: [
+			"default",
+			"blue",
+			"navy",
+			"yellow",
+			"red",
+			"green",
+			"black",
+			"white",
+		],
+		control: {
+			type: "select",
+			labels: {
+				"": "Default",
+				blue: "Blue (Information)",
+				navy: "Navy Blue",
+				yellow: "Yellow (Warning)",
+				red: "Red (Error)",
+				green: "Green (Success)",
+				black: "Black",
+				white: "White",
 			},
 		},
 	},

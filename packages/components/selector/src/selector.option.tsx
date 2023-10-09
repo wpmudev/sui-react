@@ -3,6 +3,7 @@ import React from "react"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { generateCN } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
+import { Tag } from "@wpmudev/sui-tag"
 import * as Icons from "@wpmudev/sui-icons"
 
 import { SelectorOptionProps } from "./selector.types"
@@ -17,6 +18,8 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 	tag,
 	allowRemove,
 	onRemove,
+	isPro,
+	tagColor,
 }) => {
 	// Custom hook to handle interaction states (hover, focus, etc.)
 	const [isHovered, isFocused, methods] = useInteraction({})
@@ -67,7 +70,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 					</Tooltip>
 				</div>
 			)}
-			{["icon-only"].includes(variation ?? "") && !!tag && tag}
+
 			{/* Display icon and title/header if either iconOrBrandUrl or title is provided */}
 			{(!!iconOrBrandUrl || !!title) && (
 				<div className="sui-selector__option-header">
@@ -87,7 +90,21 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 					{!!title && !["icon-only"].includes(variation ?? "") && (
 						<div className="sui-selector__option-header-title">
 							<span>{title}</span>
-							{!!tag && tag}
+							{isPro && (
+								<Tag
+									design="outlined"
+									color="black"
+									isSmall={true}
+									isUppercase={true}
+								>
+									Pro
+								</Tag>
+							)}
+							{!!tag && !isPro && (
+								<Tag style="truncated" color={tagColor}>
+									{tag}
+								</Tag>
+							)}
 						</div>
 					)}
 				</div>
