@@ -51,7 +51,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 					data-testid="selector-remove"
 				>
 					<Tooltip
-						type="button"
+						type="icon"
 						icon="trash"
 						iconSize="sm"
 						appearance="primary"

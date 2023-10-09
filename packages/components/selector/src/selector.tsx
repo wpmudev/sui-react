@@ -23,6 +23,8 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			alignment = "center",
 			variation = "default",
 			onChange = () => {},
+			onRemove = () => {},
+			allowRemove = false,
 			...props
 		}: SelectorProps,
 		ref,
@@ -72,6 +74,8 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 				/>
 				<SelectorOption
 					{...props}
+					allowRemove={allowRemove}
+					onRemove={onRemove}
 					isChecked={isChecked}
 					alignment={alignment ?? "left"}
 					variation={variation ?? "default"}
