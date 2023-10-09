@@ -49,7 +49,7 @@ const Table: React.FC<TableProps> = ({
 
 	// Find the footer component within the array of children
 	const TFooter = childrenArray.find(
-		({ type: childType }) => childType.name === componentToExclude,
+		({ type: childType }: any) => childType.name === componentToExclude,
 	)
 
 	// Render the TableContextProvider to provide context with optional props
@@ -67,7 +67,7 @@ const Table: React.FC<TableProps> = ({
 				wrapperRef,
 			}}
 		>
-			<div className={classNames}>
+			<div className={classNames} data-testid="table">
 				{/* Render the TableToolbar component if hasToolbar is true */}
 				{hasToolbar && <TableToolbar />}
 				<div className="sui-table__wrapper" ref={wrapperRef}>
@@ -83,7 +83,7 @@ const Table: React.FC<TableProps> = ({
 						{...(!isEmpty(ariaLabel ?? "") && { "aria-label": ariaLabel })}
 					>
 						{childrenArray?.filter(
-							({ type: cType }) => componentToExclude !== cType.name,
+							({ type: cType }: any) => componentToExclude !== cType.name,
 						)}
 					</table>
 				</div>

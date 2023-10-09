@@ -7,7 +7,10 @@ const TableFooter: React.FC<TableSectionProps> = ({ children, ...props }) => {
 		<table className="sui-table__table sui-table__table--footer">
 			<tfoot className="sui-table__footer" {...props}>
 				{Children.toArray(children).map((child: React.ReactNode) =>
-					cloneElement(child, { ...child.props, isUnderFooter: true }),
+					cloneElement(child as React.ReactElement, {
+						...(child as React.ReactElement).props,
+						isUnderFooter: true,
+					}),
 				)}
 			</tfoot>
 		</table>

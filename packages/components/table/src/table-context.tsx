@@ -17,8 +17,8 @@ import {
 const TableContext = createContext<TableContextProps | null>(null)
 
 export type TableSortBy = {
-	column: string
-	order: "asc" | "desc"
+	column?: string
+	order?: "asc" | "desc"
 }
 
 export type TableColumnType = {
@@ -37,7 +37,7 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 	>([])
 
 	// state for selected rows
-	const [selected, setSelected] = useState<Array<number | string>>([])
+	const [selected, setSelected] = useState<Array<unknown>>([])
 	// state for table rows
 	const [rows, setRows] = useState<Record<string, any>[]>([])
 	const [columns, setColumns] = useState<TableColumnType[]>([])
@@ -57,9 +57,10 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 	 * @type {() => void}
 	 */
 	const detectSticky = useCallback(() => {
-		setHasStickyCols(
-			wrapperRef.current?.scrollWidth > wrapperRef.current?.clientWidth,
-		)
+		const { scrollWidth, clientWidth } = wrapperRef?.current ?? {}
+		if (!!scrollWidth && !!clientWidth) {
+			setHasStickyCols(scrollWidth > clientWidth)
+		}
 	}, [wrapperRef])
 
 	useEffect(() => {
@@ -71,12 +72,12 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 	const onSelect = useCallback(
 		(id: number | string, isChecked = false) => {
 			// add or remove the selected row based on the current selection status
-			let tempSelected: Array<number | string> = [...selected]
+			let tempSelected: Array<unknown> = [...selected]
 
 			switch (true) {
 				// select all checkbox changed
 				case "select-all" === id:
-					tempSelected = (isChecked ? rows : []) as Array<number | string>
+					tempSelected = (isChecked ? rows : []) as Array<unknown>
 					break
 				// table row checkbox checked
 				case isChecked:
@@ -107,7 +108,10 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 	// trigger an action in the table context.
 	const triggerAction = useCallback(
 		(action: TableExpectedAction, data: unknown) => {
-			props?.onAction?.(action, data)
+			if (!!props?.onAction) {
+				// @ts-ignore
+				props?.onAction?.(action, data)
+			}
 		},
 		[props],
 	)

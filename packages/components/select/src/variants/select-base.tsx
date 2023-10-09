@@ -70,7 +70,9 @@ interface SelectBaseProps
 	 *
 	 * @param {Record<string, any> | Record<string, any>[]} option option or options list
 	 */
-	onChange?(option: Record<string, any> | Record<string, any>[]): void
+	onChange?(
+		option: Record<string, any> | Record<string, any>[] | string | undefined,
+	): void
 }
 
 const Select: React.FC<SelectBaseProps> = ({
@@ -143,6 +145,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		} else if (currentItems?.length) {
 			// Select the first item
 			const item = currentItems?.[0]
+			// @ts-ignore: improve
 			if (item && item.id) updateItem(item)
 		}
 		setItems(updatedItems)
@@ -191,7 +194,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	 *
 	 * @param {string|number|Object} option Option ID or object
 	 */
-	const updateItem = (option) => {
+	const updateItem = (option: Record<string, any> | string | undefined) => {
 		setSelectedItems(option)
 		if (onChange) {
 			onChange(option)
@@ -233,7 +236,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			onChange: (e: ChangeEvent<HTMLInputElement>) => {
 				handleSearchDropdown(e)
 				updateItem({
-					...selectedItem,
+					...(selectedItem as Record<string, any>),
 					label: e.target.value,
 				})
 			},
@@ -268,9 +271,16 @@ const Select: React.FC<SelectBaseProps> = ({
 	// Render component
 	return (
 		<div {...selectProps}>
-			{!isSearchable && <Selected {...headerProps} />}
-			{isSearchable && <SelectedSearch {...headerProps} />}
+			{!isSearchable && (
+				// @ts-ignore
+				<Selected {...headerProps} />
+			)}
+			{isSearchable && (
+				// @ts-ignore
+				<SelectedSearch {...headerProps} />
+			)}
 			{isDropdownOpen && (
+				// @ts-ignore
 				<Dropdown
 					{...dropdownProps}
 					onEvent={(optionId: number | string) => {

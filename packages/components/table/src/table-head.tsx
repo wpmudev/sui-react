@@ -1,32 +1,48 @@
-import React, { Children, cloneElement, useContext, useEffect } from "react"
+import React, {
+	Children,
+	cloneElement,
+	ReactElement,
+	ReactNode,
+	useContext,
+	useEffect,
+} from "react"
 
-import { TableSectionProps } from "./table.types"
+import { TableHeadProps } from "./table.types"
 import { TableContext } from "./table-context"
 
 // TableHead component represents the head section of a table.
-const TableHead: React.FC<TableSectionProps> = ({ children, ...props }) => {
+const TableHead: React.FC<TableHeadProps> = ({
+	children,
+	hasActions = false,
+	...props
+}) => {
 	// convert table columns to array
-	const tableCols = Children.toArray(children)
+	const tableCols = Children.toArray(children!)
 
-	const { setColumns } = useContext(TableContext)
+	const ctx = useContext(TableContext)
+	const { setColumns } = ctx!
 
 	useEffect(() => {
-		const { children: cols } = children.props
+		if ("props" in children) {
+			const { children: cols } = children?.props ?? {}
 
-		// set columns
-		setColumns(
-			Children.map(cols, (column) => ({
-				title: column.props.children,
-				isPrimary: column.props.isPrimary,
-			})),
-		)
-		// eslint-disable-next-line react-hooks/exhaustive-deps
+			// set columns
+			setColumns(
+				Children.map(cols, (column) => ({
+					title: column.props.children,
+					isPrimary: column.props.isPrimary,
+				})),
+			)
+		}
 	}, [])
 
 	return (
 		<thead className="sui-table__head" {...props}>
-			{tableCols.map((child: React.ReactNode) =>
-				cloneElement(child, { ...child.props, isUnderHeader: true }),
+			{tableCols.map((child: ReactNode) =>
+				cloneElement(child! as ReactElement, {
+					...(child as ReactElement)?.props,
+					isUnderHeader: true,
+				}),
 			)}
 		</thead>
 	)

@@ -1,4 +1,4 @@
-import React, { Children, Fragment } from "react"
+import React, { Children, Fragment, ReactElement } from "react"
 import { generateCN, isObject } from "@wpmudev/sui-utils"
 
 import { BoxGroupProps } from "./box-group.types"
@@ -13,7 +13,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 }) => {
 	// Build content based in slots
 	const slots = Children.map(children, (child, index) => {
-		const { slot, children: content } = child?.props ?? {}
+		const { slot, children: content } = (child as ReactElement)?.props ?? {}
 
 		if (isObject(child) && ["left", "right"].includes(slot ?? "")) {
 			return (
@@ -37,7 +37,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 	})
 
 	return (
-		<div className={classNames} style={style}>
+		<div className={classNames} style={style} data-testid="box-group">
 			{slots}
 		</div>
 	)

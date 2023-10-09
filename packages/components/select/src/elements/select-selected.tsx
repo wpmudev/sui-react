@@ -1,19 +1,28 @@
-import React, { HTMLProps, useCallback } from "react"
+import React, {
+	ChangeEvent,
+	HTMLProps,
+	LegacyRef,
+	MouseEvent,
+	MouseEventHandler,
+	ReactNode,
+	useCallback,
+} from "react"
 import { isArray } from "@wpmudev/sui-utils"
 import { Icon } from "./select-icon"
 import { InputWithAutoComplete } from "./select-input"
 
-interface SelectSelectedProps extends HTMLProps<HTMLDivElement> {
+interface SelectSelectedProps
+	extends Omit<HTMLProps<HTMLDivElement>, "selected"> {
 	id: string
 	expanded?: boolean
 	arrow?: string
-	selected?: boolean
+	selected?: Record<string, any>
 	selectLabel?: string
 	isSmall?: boolean
 	isMultiSelect?: boolean
-	removeSelection: (selectedId: any) => {}
-	dropdownToggle: () => {}
-	clearSelection: () => {}
+	removeSelection?: (optionId: number | string) => void
+	dropdownToggle: () => void
+	clearSelection: () => void
 }
 
 // Build "Select Selected" component.
@@ -32,20 +41,22 @@ const Selected: React.FC<SelectSelectedProps> = ({
 }) => {
 	// Prepare the selected content
 	const selectedContent = isArray(selected) ? (
-		selected?.map(({ label, id: selectorId }) => (
+		selected?.map((selectedItem: Record<string, any>) => (
 			<span
-				key={selectorId}
+				key={selectedItem?.id}
 				tabIndex={0}
 				role="button"
 				className="sui-select__selected-options"
 				onClick={(event) => event.stopPropagation()}
 				onKeyDown={(event) => event.stopPropagation()}
 			>
-				{label}
+				{selectedItem?.label as ReactNode}
 				<Icon
 					name="close"
 					size="sm"
-					onClick={() => removeSelection(selectorId)}
+					{...(!!removeSelection && {
+						onClick: () => removeSelection(selectedItem?.id),
+					})}
 				/>
 			</span>
 		))
@@ -56,8 +67,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	)
 
 	const onClearSelection = useCallback(
-		(event) => {
-			event.stopPropagation()
+		(event: MouseEvent<HTMLSpanElement>) => {
 			clearSelection()
 		},
 		[clearSelection],
@@ -80,7 +90,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 			{...props}
 		>
 			{selectedContent}
-			{isMultiSelect && selectLabel !== selected && (
+			{isMultiSelect && selectLabel !== selected?.label && (
 				<Icon
 					name="close-alt"
 					size={isSmall ? "md" : "lg"}
@@ -92,11 +102,14 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	)
 }
 
-interface SelectSelectedSearchProps extends HTMLProps<HTMLInputElement> {
+interface SelectSelectedSearchProps
+	extends Omit<HTMLProps<HTMLInputElement>, "selected" | "ref" | "onChange"> {
 	arrow?: string
 	isSmall?: boolean
 	selectLabel?: string
-	clearSelection: () => {}
+	clearSelection: () => void
+	// ref?: LegacyRef<HTMLDivElement>
+	onChange?(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void
 }
 
 const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
@@ -110,7 +123,7 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 		<div className="sui-select__control">
 			<InputWithAutoComplete
 				placeholder="Search"
-				isSmall={isSmall}
+				isSmall={isSmall ?? false}
 				{...props}
 			/>
 			<Icon name={arrow ?? ""} size="md" />

@@ -1,9 +1,10 @@
 import React, { Fragment } from "react"
 import { isString } from "@wpmudev/sui-utils"
 
-import { Tooltip } from '@wpmudev/sui-tooltip';
+import { Tooltip, TooltipProps } from "@wpmudev/sui-tooltip"
 
-interface RecipientButtonProps {
+interface RecipientButtonProps extends TooltipProps {
+	className?: string
 	children?: React.ReactNode
 }
 
@@ -19,17 +20,15 @@ const RecipientButton: React.FC<RecipientButtonProps> = ({
 	}
 
 	return (
-		<Fragment>
-			<Tooltip
-				label={children}
-				appearance="tertiary"
-				iconOnly={true}
-				isSmall={true}
-				{...props}
-			>
-				{children}
-			</Tooltip>
-		</Fragment>
+		<Tooltip
+			label={children as string}
+			appearance="tertiary"
+			iconOnly={true}
+			isSmall={true}
+			{...props}
+		>
+			{children}
+		</Tooltip>
 	)
 }
 

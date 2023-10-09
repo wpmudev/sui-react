@@ -42,9 +42,7 @@ const DatePicker = ({ color, error, isDisabled, ...props }) => {
 							isDisabled={isDisabled}
 							{...props}
 							onChange={console.log}
-						>
-							DISPLAY RANGE PICKER
-						</SuiDatePicker>
+						/>
 					</FormField>
 				</div>
 			</div>

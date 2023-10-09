@@ -8,14 +8,15 @@ import { ConfigTableDetailsTypes } from "./config-table.types"
 
 // Render config options inside table content
 const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({ config }) => {
-	let options = []
+	let options: Array<any> = []
 
 	// Build options to render in the table
 	Object.values(config?.config?.strings).forEach((string) => {
 		options = [
 			...options,
 			// Split string by new line and exclude blank
-			...string[0].split("\n").filter((opt) => !isEmpty(opt)),
+			// @ts-ignore
+			...string[0].split("\n").filter((opt: string) => !isEmpty(opt)),
 		]
 	})
 

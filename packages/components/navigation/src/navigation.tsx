@@ -13,7 +13,7 @@ const Navigation: React.FC<NavigationProps> = ({ children, brand, user }) => {
 
 	return (
 		// Render the navigation component
-		<nav className={classNames}>
+		<nav className={classNames} data-testid="navigation">
 			{/* Render the navigation brand component */}
 			<NavigationBrand {...brand} />
 			<ul className="sui-navigation__nav">

@@ -13,7 +13,7 @@ const BuilderEmpty: React.FC<BuilderEmptyProps> = ({
 	const classNames = generateCN("sui-builder__empty", {}, className)
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="builder-empty">
 			<div className="sui-builder__empty--icon">
 				<svg
 					width="64"

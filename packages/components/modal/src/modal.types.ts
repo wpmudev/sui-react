@@ -20,4 +20,26 @@ interface ModalContextProps
 	extends ModalActionsProps,
 		Pick<ModalProps, "variant" | "size"> {}
 
-export type { ModalProps, ModalActionsProps, ModalContextProps }
+interface ModalHeaderProps {
+	title: string
+	children?: React.ReactNode
+}
+
+interface ModalBodyProps {
+	children?: React.ReactNode
+}
+
+// Props expected by the ModalFooter component.
+interface ModalFooterProps {
+	// ModalFooter content
+	children?: React.ReactNode
+}
+
+export type {
+	ModalProps,
+	ModalActionsProps,
+	ModalContextProps,
+	ModalHeaderProps,
+	ModalBodyProps,
+	ModalFooterProps,
+}

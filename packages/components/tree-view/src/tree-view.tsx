@@ -27,7 +27,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 	return (
 		<TreeViewProvider value={{ allowCheck, showIcons, id: treeViewId }}>
 			{/* TreeView component renders a tree structure with a list */}
-			<nav className={classNames}>
+			<nav className={classNames} data-testid="tree-view">
 				<ul role="tree">{children}</ul>
 			</nav>
 		</TreeViewProvider>

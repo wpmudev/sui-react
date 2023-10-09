@@ -18,7 +18,7 @@ import { getFileImagePreview, isImageFile } from "./helper"
 const UploaderFile: React.FC<UploaderFileProps> = ({ id, file, onRemove }) => {
 	// @todo: add error variation support
 	return (
-		<div className="sui-uploader__file">
+		<div className="sui-uploader__file" data-testid="uploader-file">
 			<div className="sui-uploader__file--preview">
 				{/* Render image preview if the file is an image, otherwise render a generic file icon */}
 				{isImageFile(file?.type) ? (

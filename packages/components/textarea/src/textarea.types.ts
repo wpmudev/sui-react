@@ -42,7 +42,7 @@ interface TextareaProps extends HTMLProps<HTMLTextAreaElement> {
 	isDisabled?: boolean
 
 	/** Event handler for the onChange event of the textarea. */
-	onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+	onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
 export type { TextareaProps }

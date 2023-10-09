@@ -4,7 +4,7 @@ import React from "react"
 import { ConfigTable as SuiConfigTable } from "../src"
 
 // Import documentation main page
-import docs from "./config-table.mdx"
+// import docs from "./config-table.mdx"
 
 export default {
 	title: "SUI/Components/Collections/Config Table",
@@ -12,12 +12,12 @@ export default {
 	parameters: {
 		layout: "fullscreen",
 		docs: {
-			page: docs,
+			// page: docs,
 		},
 	},
 }
 
-const configs = [
+export const Configs = [
 	{
 		id: 1,
 		name: "Default config",
@@ -82,15 +82,12 @@ const configs = [
 ]
 
 // Build story
-export const ConfigTable = ({ example, ...props }) => {
-
+export const ConfigTable = ({ ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div>
-					<SuiConfigTable {...props} configs={configs}>
-						Test link
-					</SuiConfigTable>
+					<SuiConfigTable {...props} configs={Configs} />
 				</div>
 			</div>
 		</div>

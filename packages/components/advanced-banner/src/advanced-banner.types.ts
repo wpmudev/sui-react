@@ -44,7 +44,7 @@ type AdvancedBannerBlackFridayProps = {
 	/**
 	 * Black Friday Variation
 	 */
-	variation: "black-friday"
+	variation: "plugin" | "hub" | "newsletter" | "black-friday"
 	/**
 	 * Represents the percentage value of a the discount applied
 	 */

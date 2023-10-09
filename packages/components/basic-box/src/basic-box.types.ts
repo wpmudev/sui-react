@@ -30,6 +30,11 @@ interface BasicBoxProps {
 	children?: React.ReactNode
 
 	/**
+	 * Display "Pro" tag
+	 */
+	isPro?: boolean
+
+	/**
 	 * An optional CSS class name to apply custom styling to the BasicBox.
 	 * Should be a string.
 	 */

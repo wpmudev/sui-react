@@ -50,5 +50,8 @@
     "@wpmudev/sui-utils": "^0.0.0",
     "react": "^18.2.0",
     "prismjs": "^1.29.0"
+  },
+  "dependencies": {
+    "@types/prismjs": "1.26.1"
   }
 }

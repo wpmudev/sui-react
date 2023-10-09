@@ -7,7 +7,7 @@ import { NavigationUserProps } from "./navigation.types"
 
 const NavigationUser: React.FC<NavigationUserProps> = ({ user, menu }) => {
 	// Create a ref for the user dropdown button
-	const userBtnRef = useRef<DropdownRefProps>()
+	const userBtnRef = useRef<DropdownRefProps | null>(null)
 
 	// Define the user's avatar button component
 	const userAvatarBtn = (
@@ -30,7 +30,6 @@ const NavigationUser: React.FC<NavigationUserProps> = ({ user, menu }) => {
 			<Dropdown
 				ref={userBtnRef}
 				label="Menu Button"
-				isLabelHidden={true}
 				direction="left"
 				trigger={userAvatarBtn}
 				renderContentOnTop={true}

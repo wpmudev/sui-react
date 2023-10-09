@@ -26,7 +26,7 @@ import { DatePickerList } from "./date-picker-list"
 const DatePickerMonth: React.FC<any> = ({ value: date, marker }) => {
 	// Get the context of the DatePicker
 	const ctx = useContext(DatePickerContext)
-	const { dateRange, helpers, handlers } = ctx
+	const { dateRange, helpers, handlers } = ctx!
 
 	// Week days labels
 	const WEEK_DAYS = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
@@ -35,7 +35,7 @@ const DatePickerMonth: React.FC<any> = ({ value: date, marker }) => {
 	const monthChunks = splitMonthsIntoChunks(generateDaysArray(date), 7)
 
 	// Reference for the days block element
-	const daysBlockRef = useRef(null)
+	const daysBlockRef = useRef<HTMLDivElement | null>(null)
 
 	// If the current month's date list should be visible in the DatePicker
 	const isListVisible = ctx?.toggleId === marker
@@ -51,8 +51,8 @@ const DatePickerMonth: React.FC<any> = ({ value: date, marker }) => {
 			const disabled =
 				!isSameMonth(date, day) ||
 				!isWithinInterval(day, {
-					start: ctx.minDateValid,
-					end: ctx.maxDateValid,
+					start: ctx?.minDateValid as Date,
+					end: ctx?.maxDateValid as Date,
 				})
 
 			// Check if the day should be highlighted (part of the selected range or in hover range)
@@ -66,7 +66,8 @@ const DatePickerMonth: React.FC<any> = ({ value: date, marker }) => {
 					filled={
 						isStart ||
 						isEnd ||
-						(ctx.isSingle && isSameDay(day, ctx?.singleDate))
+						(ctx?.isSingle &&
+							isSameDay(day, new Date(ctx?.dateRange?.startDate ?? "")))
 					}
 					outlined={isToday(day)}
 					highlighted={highlighted && !isRangeOneDay}

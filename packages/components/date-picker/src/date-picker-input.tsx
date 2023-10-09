@@ -8,7 +8,7 @@ import { DatePickerContext } from "./date-picker-context"
 
 const DatePickerInput: React.FC<any> = ({ ...props }) => {
 	// DatePickerContext to handle the date picker state
-	const ctx = useContext(DatePickerContext)
+	const ctx = useContext(DatePickerContext)!
 
 	// Generate classNames for the input field based on the provided props
 	const classNames = generateCN("sui-date-picker__input", {
@@ -53,6 +53,7 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 			className={classNames}
 			onClick={onInputClick}
 			onKeyDown={(e) => handleOnKeyDown(e, onInputClick)}
+			data-testid="date-picker-input-container"
 		>
 			<Input
 				id={id}

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react"
+import React, { KeyboardEvent, useCallback } from "react"
 
 import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
@@ -35,16 +35,15 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 		className,
 	)
 
-	
-
 	// Determine the IconTag based on the provided icon value.
 	let IconTag = null
 	if (!isEmpty(icon)) {
+		// @ts-ignore
 		IconTag = Icons?.[icon ?? ""]
 	}
 
 	const onClickCallback = useCallback(
-		(e) => {
+		(e: React.MouseEvent<HTMLAnchorElement> | undefined | KeyboardEvent) => {
 			e?.preventDefault()
 			if (onClick) {
 				onClick(e)
@@ -63,6 +62,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 			tabIndex={isDisabled ? -1 : 0}
 			onClick={onClickCallback}
 			onKeyDown={(e) => handleOnKeyDown(e, onClickCallback)}
+			data-testid="sidebar-item"
 		>
 			{/* Display item info, including optional icon and title */}
 			<div className="sui-sidebar__item-info">

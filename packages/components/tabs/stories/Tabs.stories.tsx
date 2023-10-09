@@ -11,7 +11,8 @@ import {
 
 // Import documentation main page.
 import docs from "./Tabs.mdx"
-import { InfoAlt, Bell, Calendar } from "@wpmudev/sui-icons"
+
+import { Bell, Calendar } from "@wpmudev/sui-icons"
 import { Tag } from "@wpmudev/sui-tag"
 
 // Build "Tabs" story.

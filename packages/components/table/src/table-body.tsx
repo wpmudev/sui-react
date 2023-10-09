@@ -3,7 +3,9 @@ import React, {
 	forwardRef,
 	Fragment,
 	HTMLProps,
+	ReactElement,
 	ReactNode,
+	Ref,
 	useCallback,
 	useContext,
 	useEffect,
@@ -24,7 +26,9 @@ import { TableContext } from "./table-context"
 const TableBody: React.FC<TableSectionProps> = (props) => {
 	const { children } = props
 	// State to keep track of the table rows
-	const [el, setEl] = useState<ReactNode[]>(Children.toArray(children))
+	const [el, setEl] = useState<ReactNode | ReactNode[]>(
+		Children.toArray(children),
+	)
 	const [rows, setRows] = useState<Record<string, any>[]>([])
 	const [action, setAction] = useState("")
 
@@ -32,14 +36,20 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 	const ctx = useContext(TableContext)
 
 	useEffect(() => {
-		setRows(Children.toArray(children).map((row: ReactNode) => row.props.id))
+		setRows(
+			Children.toArray(children).map((row) => (row as ReactElement)?.props?.id),
+		)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	// Effect to update the rows array when children change
 	useEffect(() => {
 		if ("sort-rows" === action) {
-			setRows(Children.toArray(children).map((row: ReactNode) => row.props.id))
+			setRows(
+				Children.toArray(children).map(
+					(row) => (row as ReactElement)?.props?.id,
+				),
+			)
 			// clear action
 			setAction("")
 		} else {
@@ -51,7 +61,7 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 	// Effect to update the TableContext's rows when the rows array changes
 	useEffect(() => {
 		ctx?.setRows(
-			Children.toArray(children).map((row: ReactNode) => row.props.id),
+			Children.toArray(children).map((row) => (row as ReactElement)?.props?.id),
 		)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [children, rows])
@@ -71,22 +81,32 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 
 	// If the table is not draggable, render the TableBodyTag with children
 	if (!ctx?.isDraggable) {
-		return <TableBodyTag {...props}>{children}</TableBodyTag>
+		return (
+			<TableBodyTag {...props} ref={props?.ref as Ref<HTMLTableSectionElement>}>
+				{children}
+			</TableBodyTag>
+		)
 	}
 
 	// If the table is draggable, use the Sortable component for drag-and-drop support
 	return (
 		<Sortable
 			tag={TableBodyTag}
-			list={el.map((x) => ({ ...x, id: x.props.id, chosen: true }))}
-			setList={(list) => setEl(list?.filter((newEl) => !!newEl))}
+			list={(el as ReactNode[]).map((x) => ({
+				...(x as object),
+				id: (x as ReactElement).props.id,
+				chosen: true,
+			}))}
+			setList={(list) =>
+				setEl(list?.filter((newEl) => !!newEl) as ReactNode | ReactNode[])
+			}
 			animation={150}
 			handle=".sui-table__cell--drag"
 			onStart={() => ctx?.setForceCollapse(true)}
 			onEnd={onSortEnd}
 		>
-			{el.map((item) => (
-				<Fragment key={item.props.id}>{item}</Fragment>
+			{(el as ReactNode[])?.map((item: ReactNode) => (
+				<Fragment key={(item as ReactElement)?.props?.id}>{item}</Fragment>
 			))}
 		</Sortable>
 	)

@@ -9,7 +9,9 @@ import { InteractionTypes } from "@wpmudev/sui-hooks"
  * @augments {HTMLProps<HTMLInputElement>}
  * @augments {InteractionTypes}
  */
-interface InputProps extends HTMLProps<HTMLInputElement>, InteractionTypes {
+interface InputProps
+	extends Omit<HTMLProps<HTMLInputElement>, "onChange" | "selected">,
+		InteractionTypes {
 	/**
 	 * The type of the input element.
 	 */
@@ -62,7 +64,7 @@ interface InputProps extends HTMLProps<HTMLInputElement>, InteractionTypes {
 	 * The callback function for handling input changes.
 	 */
 	onChange?: (
-		event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement> | string,
+		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string,
 	) => void
 	/**
 	 * Optional icon to be displayed.

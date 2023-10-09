@@ -43,7 +43,8 @@ const TabNavItem: FC<TabNavItemProps> = ({
 	}
 
 	// extract state icon
-	const StateIcon = stateIcons[stateIcon]
+	// @ts-ignore
+	const StateIcon = stateIcons[stateIcon ?? ""]
 
 	// Manage interaction methods
 	const [isHovered, isFocused, interactionMethods] = useInteraction({})

@@ -43,9 +43,9 @@ const items = [
 
 // Build footer story
 const Sidebar = ({}) => {
-	const [currentTab, setCurrentTab] = useState<String>("Option 2")
+	const [currentTab, setCurrentTab] = useState<string>("Option 2")
 
-	const handleSidebarItemClick = (option: String) => () => {
+	const handleSidebarItemClick = (option: string) => () => {
 		setCurrentTab(option)
 	}
 
