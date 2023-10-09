@@ -91,6 +91,7 @@ Selector.args = {
 	allowRemove: false,
 	isDisabled: false,
 	isPro: true,
+	tag: "Tag",
 }
 
 // Story props settings

@@ -25,6 +25,11 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			onChange = () => {},
 			onRemove = () => {},
 			allowRemove = false,
+			tag,
+			iconOrBrandUrl,
+			imageUrl,
+			title,
+			description,
 			...props
 		}: SelectorProps,
 		ref,
@@ -76,7 +81,12 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 					{...props}
 					allowRemove={allowRemove}
 					onRemove={onRemove}
+					tag={tag}
+					iconOrBrandUrl={iconOrBrandUrl}
+					imageUrl={imageUrl}
 					isChecked={isChecked}
+					title={title}
+					description={description}
 					alignment={alignment ?? "left"}
 					variation={variation ?? "default"}
 					{...(isPro && {
