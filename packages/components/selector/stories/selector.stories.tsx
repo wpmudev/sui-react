@@ -40,7 +40,7 @@ const options = [
 
 // Build story
 export const Selector = ({ variation, ...args }) => {
-	const [val, setVal] = useState("")
+	const [val, setVal] = useState<number>()
 
 	const boxStyles = {
 		padding: 20,
@@ -48,7 +48,7 @@ export const Selector = ({ variation, ...args }) => {
 		// background: "#fff",
 	}
 
-	const onChange = (isChecked, value, name) => {
+	const onChange = (_isChecked: boolean, value: number, _name: string) => {
 		setVal(value)
 	}
 
@@ -65,12 +65,11 @@ export const Selector = ({ variation, ...args }) => {
 									key={index}
 									name={option.name}
 									value={option.value}
-									//onChange={onChange}
+									onChange={onChange}
 									isChecked={val === option.value}
 									variation={variation}
 									{...args}
 									label="label"
-									onChange={(a, b, c) => console.log(a, b, c)}
 								/>
 							</Col>
 						))}
