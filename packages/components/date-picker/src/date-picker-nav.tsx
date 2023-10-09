@@ -9,11 +9,11 @@ import { CALENDARS } from "./date-picker"
 
 const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 	// Get the context of the DatePicker, which contains helper functions and handlers
-	const ctx = useContext(DatePickerContext)
+	const ctx = useContext(DatePickerContext)!
 
 	// Extract the required helper functions and handlers from the context
-	const { openToggle } = ctx.helpers
-	const { onMonthNavigate } = ctx.handlers
+	const { openToggle } = ctx?.helpers
+	const { onMonthNavigate } = ctx?.handlers
 
 	// Handle the click event when navigating to the previous or next month/year
 	const onNavClick = useCallback(

@@ -28,11 +28,13 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	children,
 	...props
 }) => {
+	const pickType: string = type ?? "single"
+
 	// Generate class names for the component
 	const classNames = generateCN(
 		"sui-date-picker",
 		{
-			[props?.type]: !isEmpty(props?.type ?? ""),
+			[pickType]: !isEmpty(pickType),
 		},
 		// Append any custom className provided by the parent component
 		className ?? "",
@@ -47,12 +49,13 @@ const DatePicker: React.FC<DatePickerProps> = ({
 		maxDate,
 		isDisabled,
 		children,
+		onChange: props?.onChange,
 	}
 
 	return (
 		// Wrap the component with the DatePickerProvider and pass the props down to it
 		<DatePickerProvider {...datepickerProps}>
-			<div className={classNames}>
+			<div className={classNames} data-testid="date-picker">
 				<DatePickerInput isDisabled={isDisabled} {...props} />
 				<DatePickerPopover />
 			</div>

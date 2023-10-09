@@ -7,11 +7,12 @@ import { DatePickerContext } from "./date-picker-context"
 import { switchLists } from "./helpers"
 
 const DatePickerList: React.FC<any> = ({ date, height }) => {
-	const ctx = useContext(DatePickerContext)
-	const dropdownList = switchLists?.[ctx?.listType] ?? []
+	const ctx = useContext(DatePickerContext)!
+	// @ts-ignore
+	const dropdownList: string[] = switchLists?.[ctx?.listType] ?? []
 
 	const onItemClick = useCallback(
-		(value: string | number) => {
+		(value: number | string) => {
 			// close list
 			ctx.closeToggle()
 			ctx.helpers.jumpToDate(value)
@@ -20,7 +21,7 @@ const DatePickerList: React.FC<any> = ({ date, height }) => {
 	)
 
 	// check if list item is active or not
-	const isActive = (val) =>
+	const isActive = (val: number | string) =>
 		"months" === ctx.listType
 			? getMonth(date) === val
 			: Number(val) === getYear(date)
