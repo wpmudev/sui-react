@@ -1,33 +1,41 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook";
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src";
-import dedent from "dedent";
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Selector } from "../../src"
+import dedent from "dedent"
 
 {/* Import Variations */}
-import Neutral from "./Examples/Neutral.mdx"
-import Informative from "./Examples/Informative.mdx"
-import Success from "./Examples/Success.mdx"
 
-export const sampleCode = dedent`
-    Basic Examples 
-`;
+import Variations from "./Examples/Variations.mdx"
+import Alignment from "./Examples/Alignment.mdx"
+import States from "./Examples/States.mdx"
+
+export const basicCode = dedent`
+  <Selector alignment="center" title="Option 1" iconOrBrandUrl="Bell" />
+`
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-  <p>Basic Accordion Example</p>
-  <Preview wrapper={true}>Basic Example</Preview>
-  <Snippet language="js">{sampleCode}</Snippet>
+	<p>
+		Below is the basic form of the Selector component, we will be displaying one
+		option which represents a single instance of the selector, you can add
+		multiple options as per your needs
+	</p>
+	<Preview wrapper={true}>
+		<div style={{ padding: 50 }}>
+			<Selector alignment="center" title="Option 1" iconOrBrandUrl="Bell" />
+		</div>
+	</Preview>
+	<Snippet language="js">{basicCode}</Snippet>
 </Section>
 
-<Section title="State" style={{ paddingTop: 0 }}>
-  Use this if you need to switch between multiple options
-  <Switcher>
-    <div label="neutral" value="neutral">
-      <Neutral />
-    </div>
-    <div label="informative" value="informative">
-      <Informative />
-    </div>
-    <div label="success" value="success">
-      <Success />
-    </div>
-  </Switcher>
+<Section style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="Variations" value="variations">
+			<Variations />
+		</div>
+		<div label="Alignment" value="alignement">
+			<Alignment />
+		</div>
+		<div label="States" value="states">
+			<States />
+		</div>
+	</Switcher>
 </Section>
