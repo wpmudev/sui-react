@@ -48,7 +48,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 
 	// Determine the IconTag based on the provided icon value
 	// @ts-ignore
-	let IconTag: string | null = null
+	let IconTag: string = ""
 
 	if (!isEmpty(icon)) {
 		// @ts-ignore
@@ -76,7 +76,8 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 					</span>
 				)
 				break
-			case !!IconTag:
+			case !!IconTag && "" !== IconTag:
+				// @ts-ignore
 				logo = <IconTag size="sm" />
 				break
 		}
@@ -114,6 +115,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 						isSmall={true}
 						className="sui-builder__field-toggle-btn"
 						onClick={toggleBody}
+						data-testid="builder-field-toggle"
 					/>
 				</div>
 			)}
@@ -122,10 +124,13 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 
 	return (
 		<Col size={columnSize ?? 12} {...props} {...methods}>
-			<div className={classNames}>
+			<div className={classNames} data-testid="builder-field">
 				<div className="sui-builder__field-header">
 					{allowDrag && (
-						<div className="sui-builder__field-move">
+						<div
+							className="sui-builder__field-move"
+							data-testid="builder-field-drag"
+						>
 							<Icons.Grip size="md" />
 						</div>
 					)}

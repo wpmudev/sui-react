@@ -17,7 +17,7 @@ const Builder: React.FC<BuilderProps> = ({
 }) => {
 	const classNames = generateCN("sui-builder", {}, `sui-layout ${className}`)
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="builder">
 			<div
 				className={generateCN("sui-builder__fields", {
 					scrollable: isScrollable && !hasNoFields,
