@@ -5,7 +5,7 @@ import { ComponentType, FC } from "react"
 // Interface to define the props expected by the useError hook
 interface UseValidatePropsTypes {
 	propsToCheck: any // An array of props to be checked
-	component: ComponentType | FC<unknown> // The component to which the props belong
+	component: ComponentType | FC<any> // The component to which the props belong
 }
 
 // The useError hook is defined as a functional component (FC) with UseValidateProps as its props
