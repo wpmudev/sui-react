@@ -23,22 +23,23 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 	}, [])
 
 	// copy text to clipboard
-	const copyCodes = useCallback((text: string) => {
-		navigator?.clipboard?.writeText(text)
+	const copyCodes = useCallback((text: React.ReactNode) => {
+		navigator?.clipboard?.writeText(text as string)
 		setIsCopied(true)
 	}, [])
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="code-snippet">
 			{copy && (
 				<Tooltip
+					data-testid="code-snippet-copy-btn"
 					label="Copy"
 					appearance="secondary"
 					color="black"
 					position="top"
 					aria-label={isCopied ? "Copied" : ""}
 					onMouseLeave={() => setIsCopied(false)}
-					customWidth="65"
+					customWidth={65}
 					onClick={() => copyCodes(children)}
 				>
 					{isCopied && "Copied"}
