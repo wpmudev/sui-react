@@ -10,7 +10,7 @@ const  AlertBanner: React.FC< AlertBannerProps  > =
 	({
 	children, 
 	variation = "informative", 
-	actions = null,
+	actions = null, 
 	displayIcon = true,
 	isCenter = false, 
 	isDismissible = true,
