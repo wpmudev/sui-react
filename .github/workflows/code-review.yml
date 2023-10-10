@@ -46,12 +46,37 @@ jobs:
       - name: List content
         run: pwd && ls
 
+      - name: Build Docker image
+        run: |
+          docker build -t sui-repos:$GITHUB_SHA
+          mkdir -p ./sui-docs
+          docker save sui-repos:$GITHUB_SHA > ./sui-docs/sui-repos.tar
+
+      - name: Temporarily save docker image
+        uses: actions/upload-artifact@v2
+        with:
+          name: sui-docs
+          path: ./sui-docs
+          retention-days: 1
+
   code-testing:
     needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
+      - name: Retrieve saved Docker image
+        uses: actions/download-artifact@v2
+        with:
+          name: sui-docs
+          path: ./sui-docs
+
+      - name: Docker load
+        run: |
+          cd ./sui-docs
+          docker load < sui-repos.tar
+
       - name: list dir
         run: ls
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -67,8 +92,20 @@ jobs:
     needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
+      - name: Retrieve saved Docker image
+        uses: actions/download-artifact@v2
+        with:
+          name: sui-docs
+          path: ./sui-docs
+
+      - name: Docker load
+        run: |
+          cd ./sui-docs
+          docker load < sui-repos.tar
+
       - name: list dir
         run: ls
+
       - name: Run eslint on changed files
         uses: tj-actions/eslint-changed-files@v21
         with:
