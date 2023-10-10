@@ -20,25 +20,25 @@ jobs:
       - name: Grant execute permission for sui-docs
         run: chmod +x ./sui-docs
 
-      - name: List contents of the 'packages' directory
-        run: ls && cd ./sui-docs/packages
-
       - name: Checkout sui-css repository
         uses: actions/checkout@v3
         with:
           repository: wpmudev/sui-css
+          path: ./sui-docs/packages/sui-css
           ref: development
 
       - name: Checkout sui-icons repository
         uses: actions/checkout@v3
         with:
           repository: wpmudev/sui-icons
+          path: ./sui-docs/packages/sui-icons
           ref: development
 
       - name: Checkout sui-react repository
         uses: actions/checkout@v3
         with:
           repository: wpmudev/sui-react
+          path: ./sui-docs/packages/sui-react
           ref: development
 
       - name: List content
