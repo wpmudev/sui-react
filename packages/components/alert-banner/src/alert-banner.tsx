@@ -17,7 +17,7 @@ const AlertBanner: React.FC< AlertBannerProps  > =
 	onDismiss = () => { },
 }) => {
 	// State to control the visibility of the alert banner
-	const [isVisible, setIsVisible ] = useState<string>( true  )
+	const [ isVisible, setIsVisible ] = useState<string>( true  )
 
 	/**
 	 * Callback function to hide the alert banner when clicking on the dismiss button.
