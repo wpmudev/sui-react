@@ -101,10 +101,10 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: cd ./sui-docs && npm install --force
+        run: npm install --force
 
       - name: Run tests
-        run: cd ./sui-docs && npm run test
+        run: npm run test
 
   code-linting:
 #    needs: [fetch-repos]
