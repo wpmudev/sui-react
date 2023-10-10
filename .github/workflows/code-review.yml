@@ -73,12 +73,12 @@ jobs:
       - name: Grant execute permission for all files
         run: chmod +x .
 
-      - name: Checkout sui-css repository
-        uses: actions/checkout@v3
-        with:
-          repository: wpmudev/sui-css
-          path: ./packages/sui-css
-          ref: development
+#      - name: Checkout sui-css repository
+#        uses: actions/checkout@v3
+#        with:
+#          repository: wpmudev/sui-css
+#          path: ./packages/sui-css
+#          ref: development
 
       - name: Checkout sui-icons repository
         uses: actions/checkout@v3
@@ -126,12 +126,12 @@ jobs:
       - name: Grant execute permission for all files
         run: chmod +x .
 
-      - name: Checkout sui-css repository
-        uses: actions/checkout@v3
-        with:
-          repository: wpmudev/sui-css
-          path: ./packages/sui-css
-          ref: development
+#      - name: Checkout sui-css repository
+#        uses: actions/checkout@v3
+#        with:
+#          repository: wpmudev/sui-css
+#          path: ./packages/sui-css
+#          ref: development
 
       - name: Checkout sui-icons repository
         uses: actions/checkout@v3
