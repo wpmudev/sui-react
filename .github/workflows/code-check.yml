@@ -50,7 +50,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: ./sui-docs npm install
+        run: cd ./sui-docs && npm install
 
       - name: Run tests
-        run: ./sui-docs npm run test
+        run: cd ./sui-docs && npm run test
