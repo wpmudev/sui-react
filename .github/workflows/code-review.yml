@@ -11,9 +11,58 @@ on:
       - master
 
 jobs:
-  fetch-repos:
+#  fetch-repos:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout sui-docs repository
+#        uses: actions/checkout@v3
+#        with:
+#          repository: wpmudev/sui-docs
+#          path: ./sui-docs
+#          ref: development
+#
+#      - name: Grant execute permission for sui-docs
+#        run: chmod +x ./sui-docs
+#
+#      - name: Checkout sui-css repository
+#        uses: actions/checkout@v3
+#        with:
+#         repository: wpmudev/sui-css
+#         path: ./sui-docs/packages/sui-css
+#         ref: development
+#
+#      - name: Checkout sui-icons repository
+#        uses: actions/checkout@v3
+#        with:
+#          repository: wpmudev/sui-icons
+#          path: ./sui-docs/packages/sui-icons
+#          ref: development
+#
+#      - name: Checkout sui-react repository
+#        uses: actions/checkout@v3
+#        with:
+#          path: ./sui-docs/packages/sui-react
+#
+#      - name: List content
+#        run: pwd && ls
+#
+#      - name: Upload artifact
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: sui-docs
+#          path: sui-docs
+#          retention-days: 1
+
+  code-testing:
+    needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
+#      - name: Download repos
+#        uses: actions/download-artifact@v3
+#        with:
+#          name: sui-docs
+#          path: ./sui-docs
+
       - name: Checkout sui-docs repository
         uses: actions/checkout@v3
         with:
@@ -24,12 +73,12 @@ jobs:
       - name: Grant execute permission for sui-docs
         run: chmod +x ./sui-docs
 
-      #     - name: Checkout sui-css repository
-      #       uses: actions/checkout@v3
-      #       with:
-      #         repository: wpmudev/sui-css
-      #         path: ./sui-docs/packages/sui-css
-      #         ref: development
+      - name: Checkout sui-css repository
+        uses: actions/checkout@v3
+        with:
+          repository: wpmudev/sui-css
+          path: ./sui-docs/packages/sui-css
+          ref: development
 
       - name: Checkout sui-icons repository
         uses: actions/checkout@v3
@@ -46,33 +95,6 @@ jobs:
       - name: List content
         run: pwd && ls
 
-#      - name: Build and export
-#        uses: docker/build-push-action@v5
-#        tags: sui-docs:latest
-#        with:
-#          context: ./sui-docs
-#          outputs: type=docker,dest=/tmp/sui-docs.tar
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: sui-docs
-          path: sui-docs
-          retention-days: 1
-
-  code-testing:
-    needs: [fetch-repos]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download repos
-        uses: actions/download-artifact@v3
-        with:
-          name: sui-docs
-          path: ./sui-docs
-
-      - name: list dir
-        run: ls
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -88,14 +110,43 @@ jobs:
     needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
-      - name: Download repos
-        uses: actions/download-artifact@v3
-        with:
-          name: sui-docs
-          path: ./sui-docs
+#      - name: Download repos
+#        uses: actions/download-artifact@v3
+#        with:
+#          name: sui-docs
+#          path: ./sui-docs
 
-      - name: list dir
-        run: ls
+      - name: Checkout sui-docs repository
+        uses: actions/checkout@v3
+        with:
+          repository: wpmudev/sui-docs
+          path: ./sui-docs
+          ref: development
+
+      - name: Grant execute permission for sui-docs
+        run: chmod +x ./sui-docs
+
+      - name: Checkout sui-css repository
+        uses: actions/checkout@v3
+        with:
+          repository: wpmudev/sui-css
+          path: ./sui-docs/packages/sui-css
+          ref: development
+
+      - name: Checkout sui-icons repository
+        uses: actions/checkout@v3
+        with:
+          repository: wpmudev/sui-icons
+          path: ./sui-docs/packages/sui-icons
+          ref: development
+
+      - name: Checkout sui-react repository
+        uses: actions/checkout@v3
+        with:
+          path: ./sui-docs/packages/sui-react
+
+      - name: List content
+        run: pwd && ls
 
       - name: Run eslint on changed files
         uses: tj-actions/eslint-changed-files@v21
