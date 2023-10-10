@@ -91,6 +91,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: ./packages/sui-react
+          fetch-depth: 0
 
       - name: List content
         run: pwd && ls
@@ -144,6 +145,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: ./packages/sui-react
+          fetch-depth: 0
 
       - name: List content
         run: pwd && ls
