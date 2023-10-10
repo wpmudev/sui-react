@@ -50,7 +50,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: cd ./sui-docs && npm cache clean && npm install --force
+        run: cd ./sui-docs && npm install --force
 
       - name: Run tests
         run: cd ./sui-docs && npm run test
