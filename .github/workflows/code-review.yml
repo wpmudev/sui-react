@@ -1,4 +1,4 @@
-name: Run tests
+name: SUI 3 Codes review
 
 on:
   pull_request:
@@ -11,9 +11,8 @@ on:
       - master
 
 jobs:
-  code-testing:
+  fetch-repos:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout sui-docs repository
         uses: actions/checkout@v3
@@ -25,12 +24,12 @@ jobs:
       - name: Grant execute permission for sui-docs
         run: chmod +x ./sui-docs
 
-#      - name: Checkout sui-css repository
-#        uses: actions/checkout@v3
-#        with:
-#          repository: wpmudev/sui-css
-#          path: ./sui-docs/packages/sui-css
-#          ref: development
+      #     - name: Checkout sui-css repository
+      #       uses: actions/checkout@v3
+      #       with:
+      #         repository: wpmudev/sui-css
+      #         path: ./sui-docs/packages/sui-css
+      #         ref: development
 
       - name: Checkout sui-icons repository
         uses: actions/checkout@v3
@@ -47,6 +46,10 @@ jobs:
       - name: List content
         run: pwd && ls
 
+  code-testing:
+    needs: [fetch-repos]
+    runs-on: ubuntu-latest
+    steps:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -57,3 +60,17 @@ jobs:
 
       - name: Run tests
         run: cd ./sui-docs && npm run test
+
+  code-linting:
+    needs: [fetch-repos]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run eslint on changed files
+        uses: tj-actions/eslint-changed-files@v21
+        with:
+          config_path: "./sui-docs/.eslintrc.js"
+          ignore_path: "./sui-docs/.eslintignore"
+          extra_args: "--max-warnings=0"
+          file_extensions: |
+            **/*.ts
+            **/*.tsx
