@@ -48,15 +48,15 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t sui-repos:$GITHUB_SHA
-          mkdir -p ./sui-docs
-          docker save sui-repos:$GITHUB_SHA > ./sui-docs/sui-repos.tar
+          docker build -t sui-repos:$GITHUB_SHA .
+          mkdir -p ./sui-artifacts
+          docker save sui-repos:$GITHUB_SHA > ./sui-artifacts/sui-repos.tar
 
       - name: Temporarily save docker image
         uses: actions/upload-artifact@v2
         with:
-          name: sui-docs
-          path: ./sui-docs
+          name: sui-artifacts
+          path: ./sui-artifacts
           retention-days: 1
 
   code-testing:
@@ -66,7 +66,7 @@ jobs:
       - name: Retrieve saved Docker image
         uses: actions/download-artifact@v2
         with:
-          name: sui-docs
+          name: sui-artifacts
           path: ./sui-docs
 
       - name: Docker load
@@ -95,7 +95,7 @@ jobs:
       - name: Retrieve saved Docker image
         uses: actions/download-artifact@v2
         with:
-          name: sui-docs
+          name: sui-artifacts
           path: ./sui-docs
 
       - name: Docker load
