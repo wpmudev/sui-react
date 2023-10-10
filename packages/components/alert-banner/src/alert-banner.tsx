@@ -9,7 +9,7 @@ import { AlertBannerProps } from "./alert-banner.types"
 const AlertBanner: React.FC< AlertBannerProps  > = 
 	({
 	children, 
-	variation = "informative",
+	variation = "informative", 
 	actions = null,
 	displayIcon = true,
 	isCenter = false,
