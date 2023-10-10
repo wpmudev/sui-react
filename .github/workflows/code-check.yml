@@ -1,0 +1,52 @@
+name: SUI 3 Code Checks
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  setup-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout sui-docs repository
+        uses: actions/checkout@v3
+        with:
+          repository: wpmudev/sui-docs
+          ref: development
+
+      - name: Change directory and list contents of the 'packages' directory
+        run: cd packages && ls
+
+      - name: Checkout sui-css repository
+        uses: actions/checkout@v3
+        with:
+          repository: wpmudev/sui-css
+          ref: development
+
+      - name: Checkout sui-icons repository
+        uses: actions/checkout@v3
+        with:
+          repository: wpmudev/sui-icons
+          ref: development
+
+      - name: Checkout sui-react repository
+        uses: actions/checkout@v3
+        with:
+          repository: wpmudev/sui-react
+          ref: development
+
+      - name: Go back to the root directory
+        run: cd ...
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test
