@@ -14,7 +14,7 @@ const  AlertBanner: React.FC< AlertBannerProps  > =
 	displayIcon = true,
 	isCenter = false, 
 	isDismissible = true,
-	onDismiss = () => { },
+	onDismiss = ( ) => { },
 }) => {
 	// State to control the visibility of the alert banner
 	const [ isVisible, setIsVisible ] = useState<string>( true  )
