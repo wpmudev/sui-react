@@ -133,7 +133,7 @@ jobs:
       - name: Checkout sui-react repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          path: ./packages/sui-react
 
       - name: List content
         run: pwd && ls
