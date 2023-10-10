@@ -69,6 +69,7 @@ jobs:
           repository: wpmudev/sui-docs
           path: .
           ref: development
+          persist-credentials: false
 
       - name: Grant execute permission for all files
         run: chmod +x .
@@ -86,12 +87,13 @@ jobs:
           repository: wpmudev/sui-icons
           path: ./packages/sui-icons
           ref: development
+          persist-credentials: false
 
       - name: Checkout sui-react repository
         uses: actions/checkout@v3
         with:
           path: ./packages/sui-react
-          fetch-depth: 0
+          persist-credentials: false
 
       - name: List content
         run: pwd && ls
@@ -123,6 +125,7 @@ jobs:
           repository: wpmudev/sui-docs
           path: .
           ref: development
+          persist-credentials: false
 
       - name: Grant execute permission for all files
         run: chmod +x .
@@ -140,12 +143,13 @@ jobs:
           repository: wpmudev/sui-icons
           path: ./packages/sui-icons
           ref: development
+          persist-credentials: false
 
       - name: Checkout sui-react repository
         uses: actions/checkout@v3
         with:
           path: ./packages/sui-react
-          fetch-depth: 0
+          persist-credentials: false
 
       - name: List content
         run: pwd && ls
