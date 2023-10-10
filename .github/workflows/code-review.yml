@@ -132,7 +132,7 @@ jobs:
       - name: Determine changed files
         id: changed-files
         run: |
-          echo "name=changed-files::$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})" >> $GITHUB_OUTPUT
+          echo "{changed-files}={$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})}" >> $GITHUB_OUTPUT
         shell: bash
 
       - name: ESLint on changed files
