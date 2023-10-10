@@ -6,7 +6,8 @@ import * as Icons from "@wpmudev/sui-icons"
 
 import { AlertBannerProps } from "./alert-banner.types"
 
-const AlertBanner: React.FC< AlertBannerProps  > = ({
+const AlertBanner: React.FC< AlertBannerProps  > = 
+	({
 	children,
 	variation = "informative",
 	actions = null,
