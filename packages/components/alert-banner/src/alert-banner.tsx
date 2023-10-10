@@ -2,7 +2,7 @@ import React, { useState, useCallback  } from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
-import * as Icons from "@wpmudev/sui-icons"
+import * as Icons from "@wpmudev/sui-icons" 
 
 import { AlertBannerProps  } from "./alert-banner.types"  
 
