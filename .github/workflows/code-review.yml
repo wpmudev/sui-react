@@ -2,6 +2,9 @@ name: SUI 3 Codes review
 
 on:
   pull_request:
+    paths:
+      - '**/*.ts',
+      - '**/*.tsx'
     branches:
       - development
       - master
@@ -69,7 +72,7 @@ jobs:
           repository: wpmudev/sui-docs
           path: .
           ref: development
-          persist-credentials: true
+
 
       - name: Grant execute permission for all files
         run: chmod +x .
@@ -87,13 +90,13 @@ jobs:
           repository: wpmudev/sui-icons
           path: ./packages/sui-icons
           ref: development
-          persist-credentials: true
+
 
       - name: Checkout sui-react repository
         uses: actions/checkout@v3
         with:
           path: ./packages/sui-react
-          persist-credentials: true
+
 
       - name: List content
         run: pwd && ls
@@ -125,7 +128,7 @@ jobs:
           repository: wpmudev/sui-docs
           path: .
           ref: development
-          persist-credentials: true
+
 
       - name: Grant execute permission for all files
         run: chmod +x .
@@ -143,13 +146,12 @@ jobs:
           repository: wpmudev/sui-icons
           path: ./packages/sui-icons
           ref: development
-          persist-credentials: true
+
 
       - name: Checkout sui-react repository
         uses: actions/checkout@v3
         with:
           path: ./packages/sui-react
-          persist-credentials: true
 
       - name: List content
         run: pwd && ls
@@ -162,12 +164,17 @@ jobs:
       - name: Install dependencies
         run: npm install --force
 
-      - name: Run eslint on changed files
-        uses: tj-actions/eslint-changed-files@v21
-        with:
-          config_path: ".eslintrc.js"
-          ignore_path: ".eslintignore"
-          extra_args: "--max-warnings=0"
-          file_extensions: |
-            **/*.ts
-            **/*.tsx
+      - name: Determine changed files
+        id: changed-files
+        run: |
+          echo "::set-output name=changed-files::$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})"
+        shell: bash
+
+      - name: ESLint on changed files
+        run: |
+          changed_files="${{ steps.changed-files.outputs.changed-files }}"
+          if [ -n "$changed_files" ]; then
+            echo "$changed_files" | xargs eslint --config .eslintrc.js
+          else
+            echo "No changed JavaScript files found."
+          fi
