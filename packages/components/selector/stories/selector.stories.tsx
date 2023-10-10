@@ -82,7 +82,7 @@ export const Selector = ({ variation, ...args }) => {
 // Story props defaults
 Selector.args = {
 	title: "Option Title",
-	iconOrBrandUrl: "d",
+	iconOrBrandUrl: "InfoAlt",
 	variation: "default",
 	alignment: "left",
 	description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
