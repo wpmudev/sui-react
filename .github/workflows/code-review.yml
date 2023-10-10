@@ -102,9 +102,10 @@ jobs:
       - name: Eslint Code Check
         run: ./node_modules/.bin/eslint --ext .ts,.tsx ./packages/sui-react/
 
-  env-cleanup:
+  cleanup-env:
     needs: [code-testing, code-linting]
     runs-on: ubuntu-latest
+    if: always()
     steps:
       - name: Delete Artifacts
         uses: geekyeggo/delete-artifact@v1
