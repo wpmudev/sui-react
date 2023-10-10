@@ -10,9 +10,6 @@ on:
       - development
       - master
 
-env:
-  NODE_VERSION: '18'
-
 jobs:
   setup-env:
     runs-on: ubuntu-latest
@@ -70,7 +67,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: $NODE_VERSION
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install --force
@@ -97,10 +94,19 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: $NODE_VERSION
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install --force
 
       - name: Eslint Code Check
         run: ./node_modules/.bin/eslint --ext .ts,.tsx ./packages/sui-react/
+
+  env-cleanup:
+    needs: [code-testing, code-linting]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete Artifacts
+        uses: geekyeggo/delete-artifact@v1
+        with:
+          name: sui-docs
