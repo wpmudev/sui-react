@@ -88,12 +88,10 @@ jobs:
           path: ./packages/sui-icons
           ref: development
 
-
       - name: Checkout sui-react repository
         uses: actions/checkout@v3
         with:
           path: ./packages/sui-react
-
 
       - name: List content
         run: pwd && ls
@@ -143,6 +141,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+
+      - name: Install dependencies
+        run: npm install --force
 
       - name: Eslint Code Check
         run: eslint --ext .ts,.tsx ./packages/sui-react/
