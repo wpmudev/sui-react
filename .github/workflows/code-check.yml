@@ -41,8 +41,8 @@ jobs:
           repository: wpmudev/sui-react
           ref: development
 
-      - name: Go back to the root directory
-        run: ls && cd ..
+      - name: List content
+        run: pwd && ls
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -50,7 +50,7 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run tests
         run: npm run test
