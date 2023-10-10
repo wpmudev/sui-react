@@ -148,8 +148,10 @@ jobs:
 
       - name: ESLint on changed files
         run: |
-          changed_files=$( cd ./packages/sui-react && git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          cd ./packages/sui-react && ls
+          changed_files=$( git diff --name-only ${{ github.event.before }} ${{ github.sha }})
           echo ${changed_files}
+          cd ... && ls
           if [ -n "$changed_files" ]; then
             echo "$changed_files" | xargs eslint --config .eslintrc.js
           else
