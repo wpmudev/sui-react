@@ -1,4 +1,4 @@
-name: SUI 3 Code Checks
+name: Run tests
 
 on:
   push:
