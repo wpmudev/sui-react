@@ -12,7 +12,7 @@ const AlertBanner: React.FC< AlertBannerProps  > =
 	variation = "informative", 
 	actions = null,
 	displayIcon = true,
-	isCenter = false,
+	isCenter = false, 
 	isDismissible = true,
 	onDismiss = () => { },
 }) => {
