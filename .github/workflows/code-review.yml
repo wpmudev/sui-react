@@ -11,58 +11,9 @@ on:
       - master
 
 jobs:
-#  fetch-repos:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout sui-docs repository
-#        uses: actions/checkout@v3
-#        with:
-#          repository: wpmudev/sui-docs
-#          path: ./sui-docs
-#          ref: development
-#
-#      - name: Grant execute permission for sui-docs
-#        run: chmod +x ./sui-docs
-#
-#      - name: Checkout sui-css repository
-#        uses: actions/checkout@v3
-#        with:
-#         repository: wpmudev/sui-css
-#         path: ./sui-docs/packages/sui-css
-#         ref: development
-#
-#      - name: Checkout sui-icons repository
-#        uses: actions/checkout@v3
-#        with:
-#          repository: wpmudev/sui-icons
-#          path: ./sui-docs/packages/sui-icons
-#          ref: development
-#
-#      - name: Checkout sui-react repository
-#        uses: actions/checkout@v3
-#        with:
-#          path: ./sui-docs/packages/sui-react
-#
-#      - name: List content
-#        run: pwd && ls
-#
-#      - name: Upload artifact
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: sui-docs
-#          path: sui-docs
-#          retention-days: 1
-
-  code-testing:
-#    needs: [fetch-repos]
+  fetch-repos:
     runs-on: ubuntu-latest
     steps:
-#      - name: Download repos
-#        uses: actions/download-artifact@v3
-#        with:
-#          name: sui-docs
-#          path: ./sui-docs
-
       - name: Checkout sui-docs repository
         uses: actions/checkout@v3
         with:
@@ -70,16 +21,12 @@ jobs:
           path: .
           ref: development
 
-
-      - name: Grant execute permission for all files
-        run: chmod +x .
-
 #      - name: Checkout sui-css repository
 #        uses: actions/checkout@v3
 #        with:
-#          repository: wpmudev/sui-css
-#          path: ./packages/sui-css
-#          ref: development
+#         repository: wpmudev/sui-css
+#         path: ./packages/sui-css
+#         ref: development
 
       - name: Checkout sui-icons repository
         uses: actions/checkout@v3
@@ -92,6 +39,27 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: ./packages/sui-react
+          fetch-depth: 0
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: sui-docs
+          path: sui-docs
+          retention-days: 1
+
+  code-testing:
+    needs: [fetch-repos]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download repos
+        uses: actions/download-artifact@v3
+        with:
+          name: sui-docs
+          path: .
+
+      - name: Grant execute permission for all files
+        run: chmod +x .
 
       - name: List content
         run: pwd && ls
@@ -108,31 +76,11 @@ jobs:
         run: npm run test
 
   code-linting:
-#    needs: [fetch-repos]
+    needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout sui-docs repository
-        uses: actions/checkout@v3
-        with:
-          repository: wpmudev/sui-docs
-          path: .
-          ref: development
-
-      - name: Checkout sui-icons repository
-        uses: actions/checkout@v3
-        with:
-          repository: wpmudev/sui-icons
-          path: ./packages/sui-icons
-          ref: development
-
       - name: Grant execute permission for all files
         run: chmod +x .
-
-      - name: Checkout sui-react repository
-        uses: actions/checkout@v3
-        with:
-          path: ./packages/sui-react
-          fetch-depth: 0
 
       - name: List content
         run: pwd && ls
