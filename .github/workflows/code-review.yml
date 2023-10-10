@@ -46,9 +46,6 @@ jobs:
       - name: List content
         run: pwd && ls
 
-      - name: Save files to workspace
-        run: mv ./sui-docs $GITHUB_WORKSPACE/sui-docs
-
   code-testing:
     needs: [fetch-repos]
     runs-on: ubuntu-latest
