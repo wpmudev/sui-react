@@ -1,12 +1,17 @@
 name: Run tests
 
 on:
+  pull_request:
+    branches:
+      - development
+      - master
   push:
     branches:
       - development
+      - master
 
 jobs:
-  setup-and-test:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -37,9 +42,7 @@ jobs:
       - name: Checkout sui-react repository
         uses: actions/checkout@v3
         with:
-          repository: wpmudev/sui-react
           path: ./sui-docs/packages/sui-react
-          ref: development
 
       - name: List content
         run: pwd && ls
