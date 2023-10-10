@@ -54,7 +54,7 @@ jobs:
 #          retention-days: 1
 
   code-testing:
-    needs: [fetch-repos]
+#    needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
 #      - name: Download repos
@@ -107,7 +107,7 @@ jobs:
         run: cd ./sui-docs && npm run test
 
   code-linting:
-    needs: [fetch-repos]
+#    needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
 #      - name: Download repos
