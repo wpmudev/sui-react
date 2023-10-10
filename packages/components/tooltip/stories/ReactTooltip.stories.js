@@ -92,7 +92,7 @@ const Tooltip = ({
 						<SuiTooltip
 							label={label}
 							type="icon"
-							name="info"
+							icon="info"
 							position={position}
 							customWidth={customWidth}
 							customMobileWidth={customMobileWidth}
