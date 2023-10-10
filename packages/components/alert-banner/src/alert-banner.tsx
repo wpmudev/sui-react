@@ -38,7 +38,7 @@ const AlertBanner: React.FC< AlertBannerProps  > =
 	})
 
 	// Define a mapping of icons based on variation
-	const iconsList: Record<string, any> = {
+	const iconsList: Record<string, any > = {
 		success: "CheckAlt",
 		informative: "InfoAlt",
 		warning: "InfoAlt",
