@@ -50,12 +50,8 @@ jobs:
     needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
-      - name: Restore files from workspace
-        uses: actions/checkout@v3
-        with:
-          path: ./sui-docs
-        if: always()
-
+      - name: list dir
+        run: ls
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -71,12 +67,8 @@ jobs:
     needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
-      - name: Restore files from workspace
-        uses: actions/checkout@v3
-        with:
-          path: ./sui-docs
-        if: always()
-
+      - name: list dir
+        run: ls
       - name: Run eslint on changed files
         uses: tj-actions/eslint-changed-files@v21
         with:
