@@ -52,7 +52,7 @@ jobs:
           retention-days: 1
 
   code-testing:
-    needs: [fetch-repos]
+    needs: [setup-env]
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
@@ -79,7 +79,7 @@ jobs:
         run: npm run test
 
   code-linting:
-    needs: [fetch-repos]
+    needs: [setup-env]
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
