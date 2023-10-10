@@ -14,10 +14,14 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: wpmudev/sui-docs
+          path: ./sui-docs
           ref: development
 
-      - name: Change directory and list contents of the 'packages' directory
-        run: cd sui-docs/packages && ls
+      - name: Grant execute permission for sui-docs
+        run: chmod +x ./sui-docs
+
+      - name: List contents of the 'packages' directory
+        run: ls && cd ./sui-docs/packages
 
       - name: Checkout sui-css repository
         uses: actions/checkout@v3
