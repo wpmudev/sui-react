@@ -1,4 +1,4 @@
-name: SUI 3 Codes review
+name: Codes review
 
 on:
   pull_request:
@@ -10,8 +10,11 @@ on:
       - development
       - master
 
+env:
+  NODE_VERSION: '18'
+
 jobs:
-  fetch-repos:
+  setup-env:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sui-docs repository
@@ -52,7 +55,7 @@ jobs:
     needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
-      - name: Download repos
+      - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
           name: sui-docs
@@ -67,7 +70,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: $NODE_VERSION
 
       - name: Install dependencies
         run: npm install --force
@@ -79,6 +82,12 @@ jobs:
     needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: sui-docs
+          path: .
+
       - name: Grant execute permission for all files
         run: chmod +x .
 
@@ -88,7 +97,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: $NODE_VERSION
 
       - name: Install dependencies
         run: npm install --force
