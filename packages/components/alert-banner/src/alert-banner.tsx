@@ -25,7 +25,7 @@ const AlertBanner: React.FC< AlertBannerProps  > =
 	const onClose = useCallback(() => {
 		setIsVisible(false)
 		if (!!onDismiss) {
-			onDismiss()
+			onDismiss() 
 		}
 	}, [onDismiss])
 
