@@ -65,7 +65,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install --force
+        run: npm ci
 
       - name: Run tests
         run: npm run test -- --coverage
@@ -87,7 +87,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install --force
+        run: npm ci
 
       - name: Eslint Code Check
         run: ./node_modules/.bin/eslint --ext .ts,.tsx ./packages/sui-react/
