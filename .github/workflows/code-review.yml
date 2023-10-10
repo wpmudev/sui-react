@@ -132,6 +132,7 @@ jobs:
       - name: ESLint on changed files
         run: |
           changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+          echo ${changed_files}
           if [ -n "$changed_files" ]; then
             echo "$changed_files" | xargs eslint --config .eslintrc.js
           else
