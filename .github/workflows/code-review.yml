@@ -135,6 +135,7 @@ jobs:
         with:
           path: ./packages/sui-react
           fetch-depth: 0
+          persist-credentials: true
 
       - name: List content
         run: pwd && ls
