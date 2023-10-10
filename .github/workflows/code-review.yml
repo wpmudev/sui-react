@@ -46,10 +46,19 @@ jobs:
       - name: List content
         run: pwd && ls
 
+      - name: Save files to workspace
+        run: cp -r ./sui-docs $GITHUB_WORKSPACE/sui-docs
+
   code-testing:
     needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
+      - name: Restore files from workspace
+        uses: actions/checkout@v3
+        with:
+          path: ./sui-docs
+        if: always()
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -65,6 +74,12 @@ jobs:
     needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
+      - name: Restore files from workspace
+        uses: actions/checkout@v3
+        with:
+          path: ./sui-docs
+        if: always()
+
       - name: Run eslint on changed files
         uses: tj-actions/eslint-changed-files@v21
         with:
