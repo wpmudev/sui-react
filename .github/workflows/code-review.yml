@@ -135,7 +135,6 @@ jobs:
         with:
           path: ./packages/sui-react
           fetch-depth: 0
-          persist-credentials: true
 
       - name: List content
         run: pwd && ls
@@ -145,31 +144,5 @@ jobs:
         with:
           node-version: '18'
 
-      - run: cd ./packages/sui-react && ls && pwd
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v39
-      # To compare changes between the current commit and the last pushed remote commit set `since_last_remote_commit: true`. e.g
-      # with:
-      #   since_last_remote_commit: true
-
-      - name: List all changed files
-        run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
-
-#      - name: Install dependencies
-#        run: npm install --force
-
-      - run: changed_files=$( git diff --name-only ${{ github.event.before }} ${{ github.sha }})
-      - run: echo ${changed_files}
-      - run: cd ... && ls && pwd
-
-      - name: ESLint on changed files
-        run: |
-          if [ -n "$changed_files" ]; then
-            echo "$changed_files" | xargs eslint --config .eslintrc.js
-          else
-            echo "No changed files found."
-          fi
+      - name: Eslint Code Check
+        run: eslint --ext .ts,.tsx ./packages/sui-react/
