@@ -45,7 +45,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: sui-docs
-          path: sui-docs
+          path: .
           retention-days: 1
 
   code-testing:
