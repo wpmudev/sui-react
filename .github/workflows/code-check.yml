@@ -20,12 +20,12 @@ jobs:
       - name: Grant execute permission for sui-docs
         run: chmod +x ./sui-docs
 
-      - name: Checkout sui-css repository
-        uses: actions/checkout@v3
-        with:
-          repository: wpmudev/sui-css
-          path: ./sui-docs/packages/sui-css
-          ref: development
+#      - name: Checkout sui-css repository
+#        uses: actions/checkout@v3
+#        with:
+#          repository: wpmudev/sui-css
+#          path: ./sui-docs/packages/sui-css
+#          ref: development
 
       - name: Checkout sui-icons repository
         uses: actions/checkout@v3
