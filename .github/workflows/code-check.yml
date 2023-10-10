@@ -17,7 +17,7 @@ jobs:
           ref: development
 
       - name: Change directory and list contents of the 'packages' directory
-        run: cd packages && ls
+        run: cd sui-docs/packages && ls
 
       - name: Checkout sui-css repository
         uses: actions/checkout@v3
