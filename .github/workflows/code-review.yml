@@ -129,18 +129,11 @@ jobs:
       - name: Install dependencies
         run: npm install --force
 
-      - name: Determine changed files
-        id: changed-files
-        run: |
-          changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
-          echo "changed-files=${changed_files}" >> $GITHUB_OUTPUT
-        shell: bash
-
       - name: ESLint on changed files
         run: |
-          changed_files="${{ steps.changed-files.outputs.changed-files }}"
+          changed_files=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
           if [ -n "$changed_files" ]; then
             echo "$changed_files" | xargs eslint --config .eslintrc.js
           else
-            echo "No changed JavaScript files found."
+            echo "No changed files found."
           fi
