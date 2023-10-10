@@ -67,30 +67,30 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: wpmudev/sui-docs
-          path: ./sui-docs
+          path: .
           ref: development
 
-      - name: Grant execute permission for sui-docs
-        run: chmod +x ./sui-docs
+      - name: Grant execute permission for all files
+        run: chmod +x .
 
       - name: Checkout sui-css repository
         uses: actions/checkout@v3
         with:
           repository: wpmudev/sui-css
-          path: ./sui-docs/packages/sui-css
+          path: ./packages/sui-css
           ref: development
 
       - name: Checkout sui-icons repository
         uses: actions/checkout@v3
         with:
           repository: wpmudev/sui-icons
-          path: ./sui-docs/packages/sui-icons
+          path: ./packages/sui-icons
           ref: development
 
       - name: Checkout sui-react repository
         uses: actions/checkout@v3
         with:
-          path: ./sui-docs/packages/sui-react
+          path: ./packages/sui-react
 
       - name: List content
         run: pwd && ls
@@ -120,39 +120,47 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: wpmudev/sui-docs
-          path: ./sui-docs
+          path: .
           ref: development
 
-      - name: Grant execute permission for sui-docs
-        run: chmod +x ./sui-docs
+      - name: Grant execute permission for all files
+        run: chmod +x .
 
       - name: Checkout sui-css repository
         uses: actions/checkout@v3
         with:
           repository: wpmudev/sui-css
-          path: ./sui-docs/packages/sui-css
+          path: ./packages/sui-css
           ref: development
 
       - name: Checkout sui-icons repository
         uses: actions/checkout@v3
         with:
           repository: wpmudev/sui-icons
-          path: ./sui-docs/packages/sui-icons
+          path: ./packages/sui-icons
           ref: development
 
       - name: Checkout sui-react repository
         uses: actions/checkout@v3
         with:
-          path: ./sui-docs/packages/sui-react
+          path: ./packages/sui-react
 
       - name: List content
         run: pwd && ls
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install --force
+
       - name: Run eslint on changed files
         uses: tj-actions/eslint-changed-files@v21
         with:
-          config_path: "./sui-docs/.eslintrc.js"
-          ignore_path: "./sui-docs/.eslintignore"
+          config_path: ".eslintrc.js"
+          ignore_path: ".eslintignore"
           extra_args: "--max-warnings=0"
           file_extensions: |
             **/*.ts
