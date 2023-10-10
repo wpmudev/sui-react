@@ -113,6 +113,23 @@ jobs:
 #    needs: [fetch-repos]
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout sui-docs repository
+        uses: actions/checkout@v3
+        with:
+          repository: wpmudev/sui-docs
+          path: .
+          ref: development
+
+      - name: Checkout sui-icons repository
+        uses: actions/checkout@v3
+        with:
+          repository: wpmudev/sui-icons
+          path: ./packages/sui-icons
+          ref: development
+
+      - name: Grant execute permission for all files
+        run: chmod +x .
+
       - name: Checkout sui-react repository
         uses: actions/checkout@v3
         with:
