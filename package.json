@@ -40,7 +40,7 @@
   },
   "scripts": {
     "build": "gulp",
-    "clean": "clear && git restore .",
+    "clean": "git restore .",
     "prepare": "npm run clean && npm run build",
     "publish:test": "npm run prepare && npm version prerelease --git-tag-version=false && npm pack",
     "publish:patch": "npm run prepare && npm version patch -m \"🚀 Publish Icons Pack %s\" && npm publish",
