@@ -23,6 +23,10 @@ interface SearchBaseProps {
 	 * Disables the input
 	 */
 	isDisabled?: boolean
+	options?: never
+	allowClear?: never
+	searchMinChars?: never
+	searchHint?: never
 }
 
 type SearchSmartType = {

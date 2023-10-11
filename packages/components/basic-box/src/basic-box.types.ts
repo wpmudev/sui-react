@@ -39,11 +39,6 @@ interface BasicBoxProps {
 	 * Should be a string.
 	 */
 	className?: string
-
-	/**
-	 * Sets the type of the box
-	 */
-	isPro?: boolean
 }
 
 export type { BasicBoxProps }

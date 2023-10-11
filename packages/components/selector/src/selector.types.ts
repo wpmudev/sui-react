@@ -56,4 +56,4 @@ interface SelectorOptionProps
 		| "onRemove"
 	> {}
 
-export { SelectorProps, SelectorOptionProps }
+export type { SelectorProps, SelectorOptionProps }

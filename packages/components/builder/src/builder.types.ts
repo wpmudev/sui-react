@@ -148,7 +148,7 @@ interface BuilderWrapperProps {
 	children: React.ReactNode
 }
 
-export {
+export type {
 	BuilderProps,
 	BuilderButtonProps,
 	BuilderEmptyProps,

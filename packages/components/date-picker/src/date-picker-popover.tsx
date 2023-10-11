@@ -34,7 +34,7 @@ const DatePickerPopover: React.FunctionComponent<any> = () => {
 			<div className="sui-date-picker__body">
 				<div className="sui-date-picker__calendars">
 					{ctx?.isSingle ? (
-						// Render a single DatePickerMonth component for single-date mode
+						// Render a single DatePickerMonth component for single-date modowe
 						<DatePickerMonth {...commonProps} value={startMonth} />
 					) : (
 						// Render two DatePickerMonth components for date range mode

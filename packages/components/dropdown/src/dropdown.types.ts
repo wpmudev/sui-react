@@ -1,4 +1,4 @@
-import React, { HTMLProps } from "react"
+import React, { HTMLProps, KeyboardEvent } from "react"
 
 /**
  * Props for Menu component.
@@ -13,8 +13,7 @@ interface DropdownMenuProps {
 /**
  * Props for MenuItem component.
  */
-interface DropdownMenuItemProps
-	extends HTMLProps<HTMLSpanElement | HTMLAnchorElement | HTMLUListElement> {
+interface DropdownMenuItemProps {
 	/**
 	 * URL to navigate to when the item is clicked (if the item is an anchor).
 	 */
@@ -51,7 +50,7 @@ interface DropdownMenuItemProps
 	 *
 	 * @param e The click event object.
 	 */
-	onClick?(e?): void
+	onClick?(e?: KeyboardEvent): void
 	/**
 	 * Children elements to be rendered inside the MenuItem.
 	 */
@@ -131,7 +130,7 @@ interface DropdownProps {
 	/**
 	 * On click on Menu Item
 	 */
-	onMenuClick?(id: string | number, e?): void
+	onMenuClick?(id: string | number, e?: React.ChangeEvent<unknown>): void
 	/**
 	 * Dropdown popover direction
 	 */
