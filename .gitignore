@@ -3,6 +3,7 @@ node_modules
 .npmrc
 .changelog
 .dccache
+dist
 
 # Ignore all error logs.
 *.log
