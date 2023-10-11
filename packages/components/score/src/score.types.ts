@@ -4,7 +4,8 @@ import React, { HTMLProps } from "react"
  * This interface defines the props for the Score component.
  * It extends the HTMLProps<HTMLDivElement> type to inherit standard HTML div element props.
  */
-interface ScoreProps extends HTMLProps<HTMLDivElement> {
+interface ScoreProps
+	extends Omit<HTMLProps<HTMLDivElement>, "className" | "value" | "content"> {
 	/** The length of the score bar to be displayed. */
 	bar: number
 	/** The value to be displayed in the score component. */

@@ -23,7 +23,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -33,7 +33,10 @@
     "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean" : "rm -rf dist",
+    "build" : "npx tsup src --dts",
+    "build:fast": "npx tsup src",
+    "dev": "npm build:fast -- --watch"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-docs/issues"

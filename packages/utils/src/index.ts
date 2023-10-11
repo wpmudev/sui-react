@@ -146,7 +146,8 @@ const capitalizeText = (string: string) => {
  */
 const handleOnKeyDown = (
 	event: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
-	callback?: ((event: KeyboardEvent) => void) | undefined,
+	// @todo: fix <any>
+	callback?: ((event?: any) => void) | undefined,
 ) => {
 	if (event.key === "Enter" || event.key === " ") {
 		if (callback) {

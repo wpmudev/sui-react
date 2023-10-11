@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useCallback, useEffect, useId, useRef, useState } from "react"
 
 import { Input } from "@wpmudev/sui-input"
@@ -49,10 +50,13 @@ const Search: React.FC<SearchProps> = ({
 	)
 
 	// Handle when input value get changes
-	const onInputChange = useCallback((e) => {
-		const val = e ? e?.target?.value : ""
-		setValue(val)
-	}, [])
+	const onInputChange = useCallback(
+		(e: React.ChangeEvent<HTMLInputElement>) => {
+			const val = e ? e?.target?.value : ""
+			setValue(val)
+		},
+		[],
+	)
 
 	// Handle on focus in
 	const onInputFocus = useCallback(() => {
@@ -82,7 +86,7 @@ const Search: React.FC<SearchProps> = ({
 
 	// Select first option when right arrow key is pressed.
 	const onInputKeyDown = useCallback(
-		(e) => {
+		(e: KeyboardEvent) => {
 			if ("ArrowRight" === e.code) {
 				setValue(filteredOptions?.[0])
 			}

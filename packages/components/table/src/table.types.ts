@@ -42,11 +42,6 @@ type TableOnActionType = (action: TableExpectedAction, data: unknown) => void
  */
 interface TableProps extends HTMLProps<HTMLTableElement> {
 	/**
-	 * Make columns sticky
-	 */
-	stickyCols?: boolean
-
-	/**
 	 * Custom css className(s)
 	 */
 	className?: string
@@ -99,7 +94,7 @@ interface TableProps extends HTMLProps<HTMLTableElement> {
 	/**
 	 * An array of bulk actions available in the table toolbar.
 	 */
-	bulkActions?: Record<Pick<SelectBaseProps, "options">, any>[]
+	bulkActions?: Record<string, any>[]
 
 	/**
 	 * Display table row in stripped design
@@ -258,7 +253,7 @@ interface TableContextProps {
 	/**
 	 * Array of bulk actions available in the table toolbar.
 	 */
-	bulkActions?: Record<Pick<SelectBaseProps, "options">, any>[]
+	bulkActions?: Record<string, any>[]
 
 	/**
 	 * Array of table rows with additional data.

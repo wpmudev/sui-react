@@ -40,7 +40,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			trigger = null,
 			renderContentOnTop,
 			...props
-		}: DropdownProps,
+		},
 		ref,
 	) => {
 		// Create a ref to access the dropdown's outer container element.

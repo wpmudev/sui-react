@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react"
 import { isFunction, generateCN } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"

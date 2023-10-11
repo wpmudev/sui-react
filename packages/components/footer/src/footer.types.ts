@@ -33,4 +33,4 @@ interface FooterProps {
 	socialLinks?: FooterSocialLinkType[]
 }
 
-export { FooterProps, FooterLinkType, FooterSocialLinkType }
+export type { FooterProps, FooterLinkType, FooterSocialLinkType }

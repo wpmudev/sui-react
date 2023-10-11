@@ -186,7 +186,7 @@ interface DatePickerContextProps {
 	}
 }
 
-export {
+export type {
 	DatePickerDateRange,
 	DatePickerProps,
 	DatePickerTypes,

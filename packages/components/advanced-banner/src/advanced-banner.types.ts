@@ -1,6 +1,7 @@
 import { HTMLProps, ReactNode } from "react"
 
-interface AdvancedBannerBasePros extends HTMLProps<HTMLSpanElement> {
+interface AdvancedBannerBasePros
+	extends Omit<HTMLProps<HTMLSpanElement>, "title" | "children" | "className"> {
 	/**
 	 * Sets the headline text
 	 */

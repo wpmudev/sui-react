@@ -25,7 +25,7 @@ interface ConfigTableDetailsTypes {
 	config?: ConfigObj
 }
 
-export {
+export type {
 	ConfigTableTypes,
 	ConfigTableDetailsTypes,
 	ConfigId,

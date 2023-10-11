@@ -10,7 +10,18 @@ import { InteractionTypes } from "@wpmudev/sui-hooks"
  * @augments {InteractionTypes}
  */
 interface InputProps
-	extends Omit<HTMLProps<HTMLInputElement>, "onChange" | "selected">,
+	extends Omit<
+			HTMLProps<HTMLInputElement>,
+			| "onChange"
+			| "selected"
+			| "onMouseEnter"
+			| "onMouseLeave"
+			| "onMouseDownCapture"
+			| "onMouseUpCapture"
+			| "onFocus"
+			| "onBlur"
+			| "onBlurCapture"
+		>,
 		InteractionTypes {
 	/**
 	 * The type of the input element.
