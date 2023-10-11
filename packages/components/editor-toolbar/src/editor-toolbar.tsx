@@ -48,14 +48,16 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 				<div className="sui-editor-toolbar__content--left">
 					<div className="sui-editor-toolbar__main">
 						{allowBack && (
-							<Button
-								appearance="tertiary"
-								icon="chevron-left"
-								color="black"
-								isSmall={true}
-								iconOnly={true}
-								onClick={onBackClick}
-							/>
+							<div>
+								<Button
+									appearance="tertiary"
+									icon="chevron-left"
+									color="black"
+									isSmall={true}
+									iconOnly={true}
+									onClick={onBackClick}
+								/>
+							</div>
 						)}
 						{title && (
 							<h3 className="sui-heading--h4 sui-editor-toolbar__main-title">
