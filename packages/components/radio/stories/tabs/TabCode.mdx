@@ -6,59 +6,111 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 	style={{ paddingTop: 20, paddingBottom: 0 }}
 >
 	<p>
-		Install the <Code small={true}>[Component Name]</Code> package as an individual
+		Install the <Code small={true}>Radio</Code> package as an individual
 		component or follow the Overview page instructions to get the complete SUI
 		Components package.
 	</p>
 </Section>
 
 <Section title="Props" border={true}>
+	<Section
+		title={{ content: "id*", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Unique identifier for the radio</p>
+	</Section>
 
-    	<Section
-    		title={{ content: "prop*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p>Sets the semantic type for the accordion</p>
-    		<p>
-    		Allowed options:
-    			<List>
-    				<span label={<Code small={true}>neutral</Code>} />
-    				<span label={<Code small={true}>informative</Code>} />
-    				<span label={<Code small={true}>success</Code>} />
-    				<span label={<Code small={true}>warning</Code>} />
-    				<span label={<Code small={true}>critical</Code>} />
-    			</List>
-    		</p>
-    	</Section>
+    <Section
+    	title={{ content: "label*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The label text for the radio</p>
+    </Section>
+
+    <Section
+    	title={{ content: "description*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Additional information about the radio</p>
+    </Section>
+
+    <Section
+    	title={{ content: "value*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The value of the radio, This value represents the first parameter passed to the <Code small={true}>onChange</Code> function of the RadioGroup component discussted below</p>
+    </Section>
+
+    <Section
+    	title={{ content: "tag*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A tag associated with the radio button, this will appear in the right side of the label</p>
+    </Section>
+
+    <Section
+    	title={{ content: "isDisabled*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Whether to disable the radio or not</p>
+    </Section>
 
 </Section>
 
-{/** Use this for sub components */}
 <Section
-	title="Sub Components"
+	title="RadioGroup"
 	contained={true}
 	style={{ paddingTop: 30, paddingBottom: 0 }}
 >
-		<p>The [component name] offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
-
-    <Section title="Sub Component" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+	<p>Use the <Code small={true}>RadioGroup</Code> as a wrapper for the <Code small={true}>Radio</Code> component to achieve the compound varaition </p>
+	<p>The RadioGroup component has the following props</p>
+	
+	<Section title={{ content: "name", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     	<p>
-    		This component represents an individual item or section of the accordion and comes with its
-    		own set of props.
+    		The name for the RadioGroup
     	</p>
+    </Section>
 
-    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			prop description
-    		</p>
-    	</Section>
+    <Section title={{ content: "isInline*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		When set to <Code small={true}>true</Code> the radio elements will appear inline
+    	</p>
+    </Section>
 
-    	<Section title={{ content: "prop*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			prop description
-    		</p>
-    	</Section>
+    <Section title={{ content: "children", tag: 'ReactNode', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		The content of the RadioGroup
+    	</p>
+    </Section>
 
+    <Section title={{ content: "onChange", tag: 'function', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		A callback function to be invoked upon the selection of one of the radio elements, the first parameter represents the <Code small={true}>value</Code> prop of the selected radio
+    	</p>
+    </Section>
+
+    <Section title={{ content: "defaultValue", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		Represnts the default selected radio value
+    	</p>
+    </Section>
+
+    <Section title={{ content: "isSmall", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		Set this to <Code small={true}>true</Code> if you want to display the group in a smaller size
+    	</p>
+    </Section>
+
+    <Section title={{ content: "isDisabled", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		Set this to <Code small={true}>true</Code> to make all the radio elements within the group non-interactive
+    	</p>
+    </Section>
+
+    <Section title={{ content: "asBlock", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		Whether to display each radio element as a block or not, a block appears as a standalone box with a border
+    	</p>
     </Section>
 
 </Section>
