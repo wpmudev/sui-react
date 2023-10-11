@@ -4,7 +4,10 @@ import React, { HTMLProps, ReactNode } from "react"
  * Represents the properties for a toggle component.
  */
 interface ToggleProps
-	extends Omit<HTMLProps<HTMLInputElement>, "defaultValue" | "onClick"> {
+	extends Omit<
+		HTMLProps<HTMLInputElement>,
+		"defaultValue" | "onClick" | "label"
+	> {
 	/**
 	 * The label for the toggle component.
 	 */

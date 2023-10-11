@@ -54,7 +54,7 @@ interface SegmentedControlContextProps {
 	onClick(value: string | number): void
 }
 
-export {
+export type {
 	SegmentedControlProps,
 	SegmentedControlButtonProps,
 	SegmentedControlContextProps,

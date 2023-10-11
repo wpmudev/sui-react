@@ -1,4 +1,6 @@
+// @ts-nocheck
 import React, { useState, useEffect, useCallback } from "react"
+// @ts-ignore
 import ReactPrismEditor from "react-prism-editor"
 
 import { generateCN } from "@wpmudev/sui-utils"

@@ -50,4 +50,4 @@ interface DashboardWidgetProps {
 	children?: ReactNode
 }
 
-export { DashboardWidgetProps }
+export type { DashboardWidgetProps }

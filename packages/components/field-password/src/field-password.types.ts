@@ -3,7 +3,7 @@ import React, { HTMLProps } from "react"
 /**
  * Interface representing the properties of a password field.
  */
-interface PasswordFieldProps extends HTMLProps<HTMLDivElement> {
+interface PasswordFieldProps extends Omit<HTMLProps<HTMLDivElement>, "id"> {
 	/**
 	 * ID of the password field.
 	 */
