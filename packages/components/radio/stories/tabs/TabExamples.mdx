@@ -1,33 +1,37 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook";
-import { Accordion, AccordionItem, AccordionItemBody } from "../../src";
-import dedent from "dedent";
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { RadioGroup, Radio } from "../../src"
+import dedent from "dedent"
 
 {/* Import Variations */}
-import Neutral from "./Examples/Neutral.mdx"
-import Informative from "./Examples/Informative.mdx"
-import Success from "./Examples/Success.mdx"
+
+import States from "./Examples/States.mdx"
+import Types from "./Examples/Types.mdx"
 
 export const sampleCode = dedent`
-    Basic Examples 
-`;
+  <RadioGroup>
+    <Radio label="Radio Label" value="radio-1" />
+    <Radio label="Radio Label" value="radio-2" />
+  </RadioGroup>
+`
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-  <p>Basic Accordion Example</p>
-  <Preview wrapper={true}>Basic Example</Preview>
-  <Snippet language="js">{sampleCode}</Snippet>
+	<p>Below is the default form of the Radio Component</p>
+	<Preview wrapper={true}>
+		<RadioGroup>
+			<Radio label="Radio Label" value="radio-1" />
+			<Radio label="Radio Label" value="radio-2" />
+		</RadioGroup>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
 </Section>
 
-<Section title="State" style={{ paddingTop: 0 }}>
-  Use this if you need to switch between multiple options
-  <Switcher>
-    <div label="neutral" value="neutral">
-      <Neutral />
-    </div>
-    <div label="informative" value="informative">
-      <Informative />
-    </div>
-    <div label="success" value="success">
-      <Success />
-    </div>
-  </Switcher>
+<Section title="States & Types" style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="States" value="states">
+			<States />
+		</div>
+		<div label="Types" value="types">
+			<Types />
+		</div>
+	</Switcher>
 </Section>
