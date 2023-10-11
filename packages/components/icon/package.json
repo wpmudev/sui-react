@@ -1,7 +1,6 @@
 {
   "name": "@wpmudev/sui-icon",
   "version": "0.0.0",
-  "private": true,
   "description": "WPMU DEV Shared UI React Global Hooks",
   "keywords": [],
   "author": "Leighton <2328848+iamleigh@users.noreply.github.com>",
@@ -12,7 +11,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -22,7 +21,9 @@
     "url": "git+https://github.com/wpmudev/sui-docs.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "npx tsup src --dts",
+    "build:fast": "npx tsup src",
+    "dev": "pnpm build:fast -- --watch"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-docs/issues"

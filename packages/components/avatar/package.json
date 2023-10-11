@@ -1,7 +1,6 @@
 {
   "name": "@wpmudev/sui-avatar",
   "version": "0.0.0",
-  "private": true,
   "description": "WPMU DEV Shared UI React Button Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -10,26 +9,16 @@
       "name": "Leighton Sapir",
       "email": "2328848+iamleigh@users.noreply.github.com",
       "url": "https://iamleigh.com"
-    },
-    {
-      "name": "Pawan Kumar",
-      "email": "40248406+creador-dev@users.noreply.github.com",
-      "url": "https://creador.dev/"
-    },
-    {
-      "name": "Govind Kumar",
-      "email": "gkprmr@gmail.com",
-      "url": "https://govind.js.org/"
     }
   ],
-  "license": "GPL-2.0",
+  "license": "ISC",
   "main": "src/index.ts",
   "directories": {
     "src": "src",
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -39,7 +28,9 @@
     "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "npx tsup src --dts",
+    "build:fast": "npx tsup src",
+    "dev": "pnpm build:fast -- --watch"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-docs/issues"
