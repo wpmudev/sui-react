@@ -1,5 +1,4 @@
 import { HTMLProps } from "react"
-import image from "../stories/images/unreal-person.jpg"
 
 /**
  * Represents the properties for an avatar component.
