@@ -37,7 +37,7 @@
     "clean" : "rm -rf dist",
     "build" : "npx tsup src --dts",
     "build:fast": "npx tsup src",
-    "dev": "pnpm build:fast -- --watch"
+    "dev": "npm build:fast -- --watch"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-docs/issues"
