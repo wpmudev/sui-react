@@ -2,6 +2,7 @@ import React, { Fragment } from "react"
 
 // Import required component(s).
 import { Button as StandardButton, LoadingButton } from "../src"
+import { ButtonProps } from "../src/button.types"
 
 // Import documentation main page.
 import docs from "./ReactButton.mdx"
@@ -19,69 +20,52 @@ export default {
 }
 
 // Build "Button" story.
-const Button = ({ example, ...props }) => {
-	const set = {}
+const Button = ({
+	example,
+	...attributes
+}: {
+	example: string
+	attributes: ButtonProps
+}) => {
+	let content = "Cancel"
 
-	set.content = "Cancel"
-	set.function = () => {
-		let message = "You clicked on a button."
-
-		if ("link" === example) {
-			message = "You clicked on a link."
-		} else if ("button-load" === example) {
-			message = "Changes were saved successfully."
-		}
-
-		console.log(message)
-	}
+	// @ts-ignore
+	const { color } = attributes
 
 	if ("link" === example) {
-		set.content = "Try Pro For Free"
+		content = "Try Pro For Free"
 	} else if ("button-load" === example) {
-		set.content = "Save Settings"
+		content = "Save Settings"
 	}
 
-	set.box = {
+	const boxStyle = {
 		margin: 0,
 		padding: "30px",
-		border: "white" === props.color ? "1px solid #E6E6E6" : 0,
+		border: "white" === color ? "1px solid #E6E6E6" : 0,
 		borderRadius: "4px",
-		background: "white" === props.color ? "#333" : "#fff",
+		background: "white" === color ? "#333" : "#fff",
 	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={set.box}>
+				<div style={boxStyle}>
 					{(() => {
 						switch (example) {
 							case "label-icon":
 								return (
 									<Fragment>
-										<StandardButton
-											icon="chevron-left"
-											onClick={() => console.log("Go to prev step.")}
-											{...props}
-										>
+										<StandardButton icon="chevron-left" {...attributes}>
 											Prev
 										</StandardButton>
-										<StandardButton
-											endIcon="chevron-right"
-											onClick={() => console.log("Go to next step.")}
-											{...props}
-										>
+										<StandardButton endIcon="chevron-right" {...attributes}>
 											Next
 										</StandardButton>
 									</Fragment>
 								)
 							case "icon":
 								return (
-									<StandardButton
-										icon="add"
-										iconOnly={true}
-										onClick={() => console.log("Go to prev step.")}
-										{...props}
-									>
+									<StandardButton icon="add" iconOnly={true} {...attributes}>
 										Add
 									</StandardButton>
 								)
@@ -91,13 +75,14 @@ const Button = ({ example, ...props }) => {
 										{"button-icon" !== example && (
 											<Fragment>
 												{"button-load" === example && (
-													<LoadingButton {...props}>
-														{set.content}
+													// @ts-ignore
+													<LoadingButton {...attributes}>
+														{content}
 													</LoadingButton>
 												)}
 												{"button-load" !== example && (
-													<StandardButton {...props}>
-														{set.content}
+													<StandardButton {...attributes}>
+														{content}
 													</StandardButton>
 												)}
 											</Fragment>
