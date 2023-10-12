@@ -58,6 +58,7 @@
     "@storybook/react": "^7.0.25",
     "@storybook/react-webpack5": "^7.0.25",
     "@storybook/testing-library": "^0.2.0",
+    "@testing-library/jest-dom": "^6.1.4",
     "@wordpress/stylelint-config": "^20.0.2",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
