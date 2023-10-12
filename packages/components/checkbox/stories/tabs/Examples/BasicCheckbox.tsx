@@ -10,7 +10,8 @@ export const BasicCheckbox = ({ ...props }) => {
 			{...props}
 			isChecked={isChecked}
 			onChange={(e) => {
-				setIsChecked(e.target.checked)
+				const inputElement = e.target as HTMLInputElement
+				setIsChecked(inputElement.checked)
 			}}
 		/>
 	)
