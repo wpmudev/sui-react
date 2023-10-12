@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from "react"
-
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 import * as Icons from "@wpmudev/sui-icons"
@@ -36,18 +35,33 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 		[variation as string]: !isEmpty(variation ?? ""),
 	})
 
-	// Define a mapping of icons based on variation
-	const iconsList: Record<string, any> = {
-		success: "CheckAlt",
-		informative: "InfoAlt",
-		warning: "InfoAlt",
-		critical: "InfoAlt",
-	}
+	// Set Icon & iconColor based on "variation" value
+	let Icon
 
-	// Get the appropriate SVG Icon based on variation
-	// eslint-disable-next-line import/namespace
-	// @ts-ignore
-	const Icon = Icons[iconsList?.[variation]]
+	let iconColor: "" | "informative" | "success" | "warning" | "critical"
+
+	switch (variation) {
+		case "success":
+			Icon = Icons.CheckAlt
+			iconColor = "success"
+			break
+		case "informative":
+			Icon = Icons.InfoAlt
+			iconColor = "informative"
+			break
+		case "warning":
+			Icon = Icons.InfoAlt
+			iconColor = "warning"
+			break
+		case "critical":
+			Icon = Icons.InfoAlt
+			iconColor = "critical"
+			break
+		default:
+			Icon = null
+			iconColor = ""
+			break
+	}
 
 	// Set the dismiss button color and center flag based on variation
 	let dismissBtnColor = "black"
@@ -61,7 +75,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 			{/* Render the Icon if available and displayIcon is true */}
 			{Icon && !!displayIcon && (
 				<div className="sui-alert-banner__icon" data-testid="alert-banner-icon">
-					<Icon color={variation} />
+					<Icon color={iconColor} />
 				</div>
 			)}
 			<div
