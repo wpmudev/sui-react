@@ -23,7 +23,7 @@ import {
  * @return {JSX.Element} - JSX Element representing the RichTextEditor component
  */
 const RichTextEditor: React.FC<RichTextEditorProps> = ({ className = "" }) => {
-	const [editorType, setEditorType] = useState<string | number>("visual")
+	const [editorType, setEditorType] = useState<string>("visual")
 	// Generate class names
 	const classNames = generateCN("sui-rich-text-editor", {}, className ?? "")
 	// const [editorValue, setEditorValue] = useState("")
@@ -36,8 +36,8 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ className = "" }) => {
 				<div className="sui-rich-text-editor__header">
 					<SegmentedControl
 						name="type"
-						defaultValue={editorType}
-						onChange={(type) => setEditorType(type)}
+						defaultValue={editorType as string}
+						onChange={(type) => setEditorType(type as string)}
 					>
 						<SegmentedControlButton value="visual">
 							Visual

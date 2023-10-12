@@ -64,6 +64,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				disabled: isDisabled,
 			})}
 			{...(interactionMethods ?? {})}
+			data-testid="accordion-item"
 		>
 			<div
 				tabIndex={isDisabled ? -1 : 0}
@@ -73,6 +74,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				aria-controls={accordionPanelId}
 				className="sui-accordion__header"
 				onClick={toggle}
+				data-testid="accordion-item-button"
 				onKeyDown={(e) => {
 					e.stopPropagation()
 					handleOnKeyDown(e, toggle)
@@ -107,7 +109,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				role="region"
 				id={accordionPanelId}
 				aria-labelledby={accordionId}
-				className="sui-accordion__panel"
+				className={generateCN("sui-accordion__panel", { open: isExpanded })}
+				data-testid="accordion-item-panel"
 			>
 				<div className="sui-accordion__panel--content">{children}</div>
 			</div>

@@ -24,7 +24,11 @@ interface SidebarProps {
  * Interface defining the props that can be passed to a SidebarItem component.
  * Extends HTMLProps<HTMLAnchorElement> to include standard HTML anchor element props.
  */
-interface SidebarItemProps extends HTMLProps<HTMLAnchorElement> {
+interface SidebarItemProps
+	extends Omit<
+		HTMLProps<HTMLAnchorElement>,
+		"action" | "onClick" | "className" | "title"
+	> {
 	/**
 	 * The URL associated with the SidebarItem.
 	 */

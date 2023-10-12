@@ -24,4 +24,4 @@ interface SetupBannerProps {
 	className?: string
 }
 
-export { SetupBannerProps }
+export type { SetupBannerProps }

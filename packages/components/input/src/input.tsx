@@ -208,7 +208,9 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							iconSize={isSmall ? "md" : "lg"}
 							onClick={onClear}
 							isSmall={isSmall}
-							onKeyDown={(e) => handleOnKeyDown(e, onClear)}
+							onKeyDown={(
+								e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
+							) => handleOnKeyDown(e, onClear)}
 						>
 							Clear
 						</Button>

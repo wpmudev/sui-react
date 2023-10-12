@@ -1,8 +1,10 @@
-import React, { HTMLProps, useCallback } from "react"
+import React, { HTMLProps, RefObject, useCallback } from "react"
 
-interface SelectSearchInputProps extends HTMLProps<HTMLInputElement> {
-	id: string
-	onChange?: (event) => {}
+interface SelectSearchInputProps
+	extends Omit<HTMLProps<HTMLInputElement>, "onChange" | "ref" | "onKeyDown"> {
+	id?: string
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+	ref?: RefObject<HTMLInputElement>
 }
 
 const Search: React.FC<SelectSearchInputProps> = ({
@@ -12,7 +14,7 @@ const Search: React.FC<SelectSearchInputProps> = ({
 }) => {
 	// handle on change input
 	const handleInputChange = useCallback(
-		(event) => {
+		(event: React.ChangeEvent<HTMLInputElement>) => {
 			if (onChange) {
 				onChange(event)
 			}

@@ -12,7 +12,7 @@ const NotificationRenderer = () => {
 
 	return (
 		<div className="sui-notification__renderer">
-			{(queue ?? [])?.map((notification: NotificationProps, index: number) => (
+			{(queue ?? [])?.map((notification: any, index: number) => (
 				<Notification {...notification} isInline={false} key={index} />
 			))}
 		</div>

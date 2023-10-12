@@ -1,8 +1,10 @@
 import React, {
+	ChangeEvent,
 	Children,
 	cloneElement,
 	CSSProperties,
 	Fragment,
+	ReactElement,
 	useCallback,
 	useContext,
 	useEffect,
@@ -63,7 +65,7 @@ const TableRow: React.FC<TableRowProps> = ({
 
 	// Handle row checkbox toggle
 	const onCheckToggle = useCallback(
-		(e) => {
+		(e: ChangeEvent<HTMLInputElement>) => {
 			const isChecked = e?.target?.checked ?? false
 			const checkBoxId: number | string =
 				(isUnderHeader ? "select-all" : id) ?? ""
@@ -81,14 +83,14 @@ const TableRow: React.FC<TableRowProps> = ({
 	}, [ctx?.forceCollapse])
 
 	// @todo: need improvement
-	let isChecked = ctx?.selected?.indexOf(parseInt(`${id}`)) > -1
+	let isChecked = (ctx?.selected ?? [])?.indexOf(parseInt(`${id}`)) > -1
 	let isIndeterminate = false
 
 	// if its select all checkbox
 	if (isUnderHeader) {
 		const isAllSelected = ctx?.rows?.length === ctx?.selected.length
-		isIndeterminate = ctx?.selected?.length > 0 && !isAllSelected
-		isChecked = isAllSelected && ctx?.selected.length > 0
+		isIndeterminate = (ctx?.selected ?? [])?.length > 0 && !isAllSelected
+		isChecked = isAllSelected && (ctx?.selected ?? []).length > 0
 	}
 
 	// Generate class names
@@ -97,7 +99,7 @@ const TableRow: React.FC<TableRowProps> = ({
 		hover: !isUnderFooter && !isUnderHeader && isHovered,
 		expandable: isExpandable,
 		expanded: isExpanded,
-		[status]: !isEmpty(status ?? ""),
+		[status as string]: !isEmpty(status ?? ""),
 	})
 
 	// Generate toggle button
@@ -165,7 +167,9 @@ const TableRow: React.FC<TableRowProps> = ({
 			p.isPrimary = true
 		}
 
-		return <Fragment key={index}>{cloneElement(child, p)}</Fragment>
+		return (
+			<Fragment key={index}>{cloneElement(child as ReactElement, p)}</Fragment>
+		)
 	})
 
 	// A11y props for expandable rows
@@ -235,7 +239,8 @@ const TableRow: React.FC<TableRowProps> = ({
 						isSticky={!!ctx?.stickyCols}
 						isAction={true}
 					>
-						{!!actions && actions({ id, content: toggleBtn })}
+						{"function" === typeof actions &&
+							actions({ id, content: toggleBtn })}
 						{!actions && toggleBtn}
 					</TableCell>
 				)}
@@ -246,7 +251,7 @@ const TableRow: React.FC<TableRowProps> = ({
 					className={generateCN("sui-table__row", {
 						content: true,
 						"content-expanded": isExpanded,
-						[status]: !isEmpty(status ?? ""),
+						[status as string]: !isEmpty(status ?? ""),
 					})}
 					id={rowContentId}
 					aria-labelledby={rowId}

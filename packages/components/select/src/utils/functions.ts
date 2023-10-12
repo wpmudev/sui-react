@@ -1,7 +1,11 @@
 import { isEmpty } from "@wpmudev/sui-utils"
 
 // Search for standard dropdown.
-const SearchDropdown = (searchValue, options, setFilterItems) => {
+const SearchDropdown = (
+	searchValue: string,
+	options: Record<string, any>[],
+	setFilterItems: (options: Record<string, any>[]) => void,
+) => {
 	if (isEmpty(searchValue)) {
 		setFilterItems(options)
 		return
@@ -31,7 +35,11 @@ const SearchDropdown = (searchValue, options, setFilterItems) => {
 }
 
 // Search for multiselect options.
-const MultiSelectSearch = (searchValue, options, setFilterItems) => {
+const MultiSelectSearch = (
+	searchValue: string,
+	options: Record<string, any>[],
+	setFilterItems: (options: Record<string, any>[]) => void,
+) => {
 	if (isEmpty(searchValue)) {
 		setFilterItems(options)
 		return
@@ -45,7 +53,11 @@ const MultiSelectSearch = (searchValue, options, setFilterItems) => {
 }
 
 // Remove all selected options.
-const RemoveAll = (setSelectedItem, options, setFilterItems) => {
+const RemoveAll = (
+	setSelectedItem: (options: Record<string, any>[]) => void,
+	options: Record<string, any>[],
+	setFilterItems: (options: Record<string, any>[]) => void,
+) => {
 	const updatedOptions = options.map((option) => ({
 		...option,
 		isSelected: false,
@@ -55,7 +67,11 @@ const RemoveAll = (setSelectedItem, options, setFilterItems) => {
 }
 
 // Remove single option.
-const RemoveSelection = (id, options, setFilterItems) => {
+const RemoveSelection = (
+	id: string | number,
+	options: Record<string, any>[],
+	setFilterItems: (options: Record<string, any>[]) => void,
+) => {
 	const updatedOptions = options.map((option) => {
 		if (option.id === id) {
 			return {
@@ -69,7 +85,10 @@ const RemoveSelection = (id, options, setFilterItems) => {
 }
 
 // Select all options in dropdown.
-const SelectAll = (options, setFilterItems) => {
+const SelectAll = (
+	options: Record<string, any>[],
+	setFilterItems: (options: Record<string, any>[]) => void,
+) => {
 	const allSelected = options.every((option) => option.isSelected === true)
 	const updatedOptions = options.map((option) => ({
 		...option,

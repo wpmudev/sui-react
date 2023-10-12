@@ -1,4 +1,4 @@
-import React, { FC, useId } from "react"
+import React, { FC, Fragment, useId } from "react"
 
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
@@ -28,7 +28,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	const menuTitleId = `${menuId}-title`
 
 	// Determine the element tag name (either "li" or "a" based on the presence of href)
-	let TagName = "li"
+	let TagName: string = "li"
 	if (!!href) {
 		TagName = "a"
 	}
@@ -48,6 +48,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	// Check if an icon is specified and assign it to IconTag
 	let IconTag = null
 	if (!isEmpty(icon ?? "")) {
+		// @ts-ignore
 		IconTag = Icons?.[icon] ?? null
 	}
 
@@ -55,31 +56,35 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	const attrs = {
 		className: classNames,
 		href: !!href ? href : undefined,
+		tabIndex: isDisabled ? -1 : 0,
+		children: (
+			<Fragment>
+				{!!IconTag && (
+					<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
+				)}
+				<span id={menuTitleId}>{children}</span>
+			</Fragment>
+		),
 		...props,
 	}
 
 	// Prepare attributes for a button element if onClick is provided
-	const btnAttr: unknown = {}
+	const btnAttr: Record<string, any> = {}
 	if (!!onClick) {
 		btnAttr.role = "button"
 		btnAttr.onClick = onClick
-		btnAttr.onKeyDown = (e) => handleOnKeyDown(e, onClick)
+		btnAttr.onKeyDown = (
+			e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
+		) => handleOnKeyDown(e, onClick)
 	}
 
 	return (
 		<TagName
-			className={classNames}
 			{...attrs}
 			{...methods}
-			tabIndex={isDisabled ? -1 : 0}
 			aria-labelledby={menuTitleId}
 			{...btnAttr}
-		>
-			{!!IconTag && (
-				<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
-			)}
-			<span id={menuTitleId}>{children}</span>
-		</TagName>
+		/>
 	)
 }
 

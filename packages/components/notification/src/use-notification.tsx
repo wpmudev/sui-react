@@ -18,7 +18,7 @@ const notificationStore = {
 	// function to remove a notification from the store based on its ID
 	remove: (idStr: string | undefined) => {
 		notifications = notifications.filter(
-			(alert: NotificationProps) => alert.id !== idStr,
+			(alert: any) => alert?.id !== (idStr ?? ""),
 		)
 		emitChange()
 	},

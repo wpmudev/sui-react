@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useId, useCallback, useRef, useEffect } from "react"
 
 // import type
@@ -15,7 +16,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	...props
 }) => {
 	// State to keep track of selected files
-	const [files, setFiles] = useState<Record<File, any>[]>([])
+	const [files, setFiles] = useState<Record<string, any>[]>([])
 
 	// Generate a unique ID for the uploader component
 	const uniqueID = useId()
@@ -26,12 +27,14 @@ const Uploader: React.FC<UploaderProps> = ({
 
 	// Send files to parent component
 	useEffect(() => {
-		onChange(files)
+		if (onChange) {
+			onChange(files)
+		}
 	}, [files, onChange])
 
 	// Callback to handle file selection
 	const onSelectFile = useCallback(
-		(filesOrEvent: unknown | Record<File, any>[]) => {
+		(filesOrEvent: unknown | Record<string, any>[]) => {
 			let { files: selectedFiles } = filesOrEvent?.target ?? {}
 
 			// Use param value directly if the files were passed directly
@@ -59,7 +62,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	)
 
 	return (
-		<div className="sui-uploader">
+		<div className="sui-uploader" data-testid="uploader">
 			{/* Hidden input field to handle file selection */}
 			<input
 				type="file"

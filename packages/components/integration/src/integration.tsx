@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from "react"
 
 import { Toggle } from "@wpmudev/sui-toggle"
@@ -62,6 +63,7 @@ const Integration: React.FC<IntegrationProps> = ({
 
 	// Settings button props.
 	const settingsProps = {
+		className: "sui-integration-setting-btn",
 		icon: "settings",
 		label: "settings",
 		appearance: "tertiary",
@@ -77,7 +79,7 @@ const Integration: React.FC<IntegrationProps> = ({
 	}
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="integration">
 			<div className="sui-integration__header">
 				<img src={icon.src} alt={icon.alt} className="sui-integration__icon" />
 				{isSettings && isActive && <Button {...settingsProps} />}

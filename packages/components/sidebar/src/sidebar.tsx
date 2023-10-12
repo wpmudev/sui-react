@@ -11,7 +11,11 @@ const Sidebar: React.FC<Omit<SidebarProps, "selectedItemName">> = ({
 	children,
 }) => {
 	const classNames = generateCN("sui-sidebar", {}, className)
-	return <div className={classNames}>{children}</div>
+	return (
+		<div className={classNames} data-testid="sidebar">
+			{children}
+		</div>
+	)
 }
 
 // Publish component(s)

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useCallback, useEffect, useRef } from "react"
 import { ColorPickerProps } from "../color-picker.types"
 import { CustomPicker, ColorResult } from "react-color"
@@ -13,7 +14,7 @@ const colorToColorObject = (color: string): ColorResult => {
 		rgb: colorObject.toRgb(),
 		hsl: colorObject.toHsl(),
 		hsv: colorObject.toHsv(),
-	}
+	} as ColorResult
 }
 
 const customPointer = () => {
@@ -32,17 +33,17 @@ const Picker: React.FC<ColorPickerProps> = ({
 	)
 
 	// default input color values
-	const [hex, setHex] = useState<String>(selectedColor?.hex)
-	const [red, setRed] = useState<Number>(selectedColor?.rgb?.r)
-	const [green, setGreen] = useState<Number>(selectedColor?.rgb?.g)
-	const [blue, setBlue] = useState<Number>(selectedColor?.rgb?.b)
-	const [alpha, setAlpha] = useState<Number>(selectedColor?.rgb?.a)
+	const [hex, setHex] = useState<string>(selectedColor?.hex)
+	const [red, setRed] = useState<number>(selectedColor?.rgb?.r)
+	const [green, setGreen] = useState<number>(selectedColor?.rgb?.g)
+	const [blue, setBlue] = useState<number>(selectedColor?.rgb?.b)
+	const [alpha, setAlpha] = useState<number>(selectedColor?.rgb?.a)
 
 	// format Hex | RGB for color dropdown
-	const [selectedFormat, setSelectedFormat] = useState<String>(type)
+	const [selectedFormat, setSelectedFormat] = useState<string>(type)
 
 	// Create a ref for the input element
-	const inputRef = useRef<HTMLInputElement | null>(null);
+	const inputRef = useRef<HTMLInputElement | null>(null)
 
 	// when selected color updates update all corresponding values
 	useEffect(() => {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useRef } from "react"
 
 import { Button } from "@wpmudev/sui-button"

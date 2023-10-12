@@ -16,7 +16,7 @@ const Accordion: React.FC<AccordionProps> = ({
 	const classNames = generateCN(
 		"sui-accordion",
 		{
-			[state]: !isEmpty(state ?? ""),
+			[state as string]: !isEmpty(state ?? ""),
 			"no-border-radius": noBorderRadius,
 			"no-side-borders": noSideBorders,
 		},

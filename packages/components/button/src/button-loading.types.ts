@@ -1,4 +1,5 @@
 import { ButtonProps } from "./button.types"
+import React from "react"
 
 /**
  * Represents the properties for a loading button component.

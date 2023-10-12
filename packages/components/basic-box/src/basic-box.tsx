@@ -1,7 +1,5 @@
 import React from "react"
 
-import { Tag } from "@wpmudev/sui-tag"
-
 import { generateCN } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
 
@@ -12,7 +10,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	title,
 	description,
 	headerActions = null,
-	footerActions = false,
+	footerActions = [],
 	className,
 	isPro = false,
 	children,
@@ -32,29 +30,41 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	)
 
 	return (
-		<div className={classNames} {...methods}>
+		<div className={classNames} {...methods} data-testid="basic-box">
 			<div className="sui-basic-box__header">
 				<div className="sui-basic-box__header-info">
-					<h3 className="sui-basic-box__header-title sui-heading--h3">
-						{title}
-					</h3>
+					{!!title && (
+						<h3
+							className="sui-basic-box__header-title sui-heading--h3"
+							data-testid="basic-box-title"
+						>
+							{title}
+						</h3>
+					)}
 					<div className="sui-basic-box__actions">
 						{headerActions && headerActions}
 					</div>
-					{description && (
-						<div className="sui-basic-box__header-desc">{description}</div>
+					{!!description && (
+						<div
+							className="sui-basic-box__header-desc"
+							data-testid="basic-box-description"
+						>
+							{description}
+						</div>
 					)}
 				</div>
 			</div>
-			<div className="sui-basic-box__body">{children}</div>
+			<div className="sui-basic-box__body" data-testid="basic-box-body">
+				{children}
+			</div>
 			{!!footerActions && (
 				<div className="sui-basic-box__footer">
-					{footerActions?.[0] && (
+					{!!footerActions?.[0] && (
 						<div className="sui-basic-box__footer-left">
 							{footerActions?.[0]}
 						</div>
 					)}
-					{footerActions?.[1] && (
+					{!!footerActions?.[1] && (
 						<div className="sui-basic-box__footer-right">
 							{footerActions?.[1]}
 						</div>

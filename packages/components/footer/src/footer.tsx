@@ -3,7 +3,7 @@ import React from "react"
 import { Facebook, Twitter, Instagram } from "@wpmudev/sui-icons"
 
 // Import required element(s)
-import Logo from "./elements/logo.svg"
+// import Logo from "./elements/logo.svg"
 import {
 	FooterLinkType,
 	FooterProps,
@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({
 	socialLinks,
 	renderBlocks,
 }) => {
-	let blocks = []
+	let blocks: React.ReactNode[] = []
 
 	if (renderBlocks) {
 		const builtWithText = <span>Made with ♡ by WPMU DEV</span>
@@ -30,7 +30,7 @@ const Footer: React.FC<FooterProps> = ({
 	}
 
 	return (
-		<div className="sui-footer">
+		<div className="sui-footer" data-testid="footer">
 			{blocks.length > 0 && (
 				<div
 					className={`sui-footer__group sui-footer__group--credits${
@@ -48,38 +48,48 @@ const Footer: React.FC<FooterProps> = ({
 				<div className="sui-footer__block">
 					<a href="#" target="_blank" rel="nofollow">
 						<img
-							src={Logo}
+							// src={Logo}
 							className="sui-footer__block--logo"
 							alt="WPMU DEV"
 						/>
 					</a>
 				</div>
-				<div className="sui-footer__block sui-footer__block--pages">
-					<ul className="sui-footer__links">
-						{(links ?? [])?.map((list: FooterLinkType, index) => (
-							<li key={index} className="sui-footer__links--item">
-								<a href={list.url}>{list.title}</a>
-							</li>
-						))}
-					</ul>
-				</div>
+				{(links ?? []).length > 0 && (
+					<div
+						className="sui-footer__block sui-footer__block--pages"
+						data-testid="footer-links"
+					>
+						<ul className="sui-footer__links">
+							{(links ?? [])?.map((list: FooterLinkType, index) => (
+								<li key={index} className="sui-footer__links--item">
+									<a href={list.url}>{list.title}</a>
+								</li>
+							))}
+						</ul>
+					</div>
+				)}
 				<div className="sui-footer__block">
-					{socialLinks?.length > 0 && (
-						<ul className="sui-footer__links sui-footer__links--social">
-							{socialLinks?.map((socialLink: FooterSocialLinkType, index) => {
-								const SocialIcon = socialIcons[socialLink?.type]
-								return (
-									<li key={index} className="sui-footer__links--item">
-										<a
-											href={socialLink.url}
-											target="_blank"
-											rel="noopener noreferrer"
-										>
-											<SocialIcon size="sm" />
-										</a>
-									</li>
-								)
-							})}
+					{(socialLinks ?? [])?.length > 0 && (
+						<ul
+							className="sui-footer__links sui-footer__links--social"
+							data-testid="footer-social-links"
+						>
+							{(socialLinks ?? [])?.map(
+								(socialLink: FooterSocialLinkType, index) => {
+									const SocialIcon = socialIcons[socialLink?.type]
+									return (
+										<li key={index} className="sui-footer__links--item">
+											<a
+												href={socialLink.url}
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												<SocialIcon size="sm" />
+											</a>
+										</li>
+									)
+								},
+							)}
 						</ul>
 					)}
 				</div>

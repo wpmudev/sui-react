@@ -33,7 +33,7 @@
     "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
-    "format-files": "clear && yarn prettier --write .",
+    "format-files": "clear && npm run prettier --write .",
     "build-css": "clear && lerna run build",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",

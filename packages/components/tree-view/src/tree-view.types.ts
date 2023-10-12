@@ -64,7 +64,9 @@ interface TreeViewContextProps
 /**
  * Represents the properties for the tree view provider component.
  */
-interface TreeViewProviderProps extends Pick<TreeViewProps, "children"> {}
+interface TreeViewProviderProps extends Pick<TreeViewProps, "children"> {
+	value: TreeViewProps | TreeViewContextProps
+}
 
 // Exporting the interfaces
 export type {

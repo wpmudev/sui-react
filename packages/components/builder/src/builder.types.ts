@@ -34,7 +34,7 @@ interface BuilderButtonProps extends HTMLProps<HTMLAnchorElement> {
 	/**
 	 * The title or text to be displayed.
 	 */
-	title: string
+	title?: string
 	/**
 	 * An optional class name to be applied.
 	 */
@@ -148,7 +148,7 @@ interface BuilderWrapperProps {
 	children: React.ReactNode
 }
 
-export {
+export type {
 	BuilderProps,
 	BuilderButtonProps,
 	BuilderEmptyProps,

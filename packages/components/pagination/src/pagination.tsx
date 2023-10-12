@@ -143,8 +143,8 @@ const Pagination: React.FC<PaginationProps> = ({
 	}
 
 	// Handle clicking on a page number
-	const handlePageClick = (page: number) => {
-		setSelectedPage(page)
+	const handlePageClick = (page?: number) => {
+		setSelectedPage(page ?? 1)
 		setPageClickCounter(pageClickCounter + 1)
 	}
 

@@ -19,4 +19,5 @@ const RecipientName: React.FC<RecipientNameProps> = ({ children }) => {
 	)
 }
 
-export { RecipientName, RecipientNameProps }
+export { RecipientName }
+export type { RecipientNameProps }

@@ -22,7 +22,7 @@ const TreeViewProvider: FC<TreeViewProviderProps> = ({ children, value }) => {
 	// @todo: Add logic to handle checked items and make check work!
 
 	return (
-		<TreeViewContext.Provider value={{ ...value }}>
+		<TreeViewContext.Provider value={value as TreeViewContextProps}>
 			{/* Render the tree view component and its descendants */}
 			{children}
 		</TreeViewContext.Provider>
