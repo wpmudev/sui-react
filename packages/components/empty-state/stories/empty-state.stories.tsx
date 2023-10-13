@@ -4,6 +4,7 @@ import React from "react"
 import { EmptyState as SuiEmptyState } from "../src"
 import { Button } from "@wpmudev/sui-button"
 import { Row } from "@wpmudev/sui-grid"
+import { EmptyStateProps } from "../src/empty-state.types"
 
 import SvgImage from "./images/empty-state.svg"
 
@@ -11,7 +12,13 @@ import SvgImage from "./images/empty-state.svg"
 import docs from "./EmptyState.mdx"
 
 // Build "EmptyState" story.
-const EmptyState = ({ children, ...props }) => {
+const EmptyState = ({
+	children,
+	...props
+}: {
+	children: React.ReactNode
+	props: EmptyStateProps
+}) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -21,9 +28,7 @@ const EmptyState = ({ children, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiEmptyState {...props}>
-					    {children}
-					</SuiEmptyState>
+					<SuiEmptyState {...props}>{children}</SuiEmptyState>
 				</div>
 			</div>
 		</div>
@@ -37,7 +42,12 @@ EmptyState.args = {
 		<>
 			<Row>
 				<h3 className="sui-heading--h3">This site has not yet been scanned.</h3>
-				<p>	Defender watches and protects your login area for attackers trying to randomly guess login details for your site and locks them out after a set number of failed attempts.	</p>
+				<p>
+					{" "}
+					Defender watches and protects your login area for attackers trying to
+					randomly guess login details for your site and locks them out after a
+					set number of failed attempts.{" "}
+				</p>
 			</Row>
 
 			<Row align={{ md: "center" }}>
