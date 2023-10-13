@@ -27,6 +27,12 @@ const ColorPicker = ({
 	isError,
 	errorMessage,
 	...props
+}: {
+	color: string
+	id: string
+	isDisabled: boolean
+	isError: boolean
+	errorMessage: string
 }) => {
 	const [currentColor, setCurrentColor] = useState<string>(color)
 
