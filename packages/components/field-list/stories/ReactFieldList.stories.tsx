@@ -20,7 +20,7 @@ export default {
 }
 
 // Build "Field List" story
-const FieldList = ({ example, ...args }) => {
+const FieldList = ({ ...args }: { label: string; helper: string }) => {
 	const [list, setList] = useState({})
 
 	return (
