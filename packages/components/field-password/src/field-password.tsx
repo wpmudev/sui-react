@@ -9,7 +9,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	button = { type: "" },
 	isSmall = false,
 	isError = false,
-	isDisabled = false,
+	isDisabled = true,
 	...props
 }) => {
 	// Define password visibility
