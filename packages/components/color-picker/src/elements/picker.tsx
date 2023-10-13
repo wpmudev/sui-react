@@ -1,5 +1,10 @@
-// @ts-nocheck
-import React, { useState, useCallback, useEffect, useRef } from "react"
+import React, {
+	useState,
+	useCallback,
+	useEffect,
+	useRef,
+	ReactNode,
+} from "react"
 import { ColorPickerProps } from "../color-picker.types"
 import { CustomPicker, ColorResult } from "react-color"
 import { Saturation, Hue, Alpha } from "react-color/lib/components/common"
@@ -7,8 +12,10 @@ import tinycolor from "tinycolor2"
 import { Button } from "@wpmudev/sui-button"
 
 // convert color format to supported object.
-const colorToColorObject = (color: string): ColorResult => {
-	const colorObject = tinycolor(color ?? "#000000")
+const colorToColorObject = (
+	color: ColorResult | tinycolor.ColorInput,
+): ColorResult => {
+	const colorObject = tinycolor((color as tinycolor.ColorInput) ?? "#000000")
 	return {
 		hex: colorObject.toHexString(),
 		rgb: colorObject.toRgb(),
@@ -17,14 +24,14 @@ const colorToColorObject = (color: string): ColorResult => {
 	} as ColorResult
 }
 
-const customPointer = () => {
+const customPointer = (): ReactNode | undefined => {
 	return <div className="sui-color-picker__pointer"></div>
 }
 
 const Picker: React.FC<ColorPickerProps> = ({
 	color = "",
 	type = "hex",
-	onColorChange,
+	onColorChange = () => null,
 	onApplyButton,
 }) => {
 	// selected color value
@@ -37,7 +44,7 @@ const Picker: React.FC<ColorPickerProps> = ({
 	const [red, setRed] = useState<number>(selectedColor?.rgb?.r)
 	const [green, setGreen] = useState<number>(selectedColor?.rgb?.g)
 	const [blue, setBlue] = useState<number>(selectedColor?.rgb?.b)
-	const [alpha, setAlpha] = useState<number>(selectedColor?.rgb?.a)
+	const [alpha, setAlpha] = useState<number | undefined>(selectedColor?.rgb?.a)
 
 	// format Hex | RGB for color dropdown
 	const [selectedFormat, setSelectedFormat] = useState<string>(type)
@@ -62,7 +69,7 @@ const Picker: React.FC<ColorPickerProps> = ({
 
 	// useCallback to memoize the event handlers
 	const handleColorChange = useCallback((newColor: ColorResult) => {
-		const colorObject = colorToColorObject(newColor)
+		const colorObject = colorToColorObject(newColor as ColorResult)
 		setSelectedColor(colorObject)
 	}, [])
 
@@ -133,7 +140,9 @@ const Picker: React.FC<ColorPickerProps> = ({
 				<div className="sui-color-picker__saturation">
 					<Saturation
 						hsl={selectedColor.hsl}
+						//@ts-ignore
 						hsv={selectedColor.hsv}
+						//@ts-ignore
 						pointer={customPointer}
 						onChange={handleColorChange}
 					/>
@@ -141,6 +150,7 @@ const Picker: React.FC<ColorPickerProps> = ({
 				<div className="sui-color-picker__hue">
 					<Hue
 						hsl={selectedColor.hsl}
+						//@ts-ignore
 						pointer={customPointer}
 						onChange={handleColorChange}
 					/>
@@ -149,7 +159,9 @@ const Picker: React.FC<ColorPickerProps> = ({
 					<Alpha
 						rgb={selectedColor.rgb}
 						hsl={selectedColor.hsl}
+						//@ts-ignore
 						hsv={selectedColor.hsv}
+						//@ts-ignore
 						pointer={customPointer}
 						onChange={handleColorChange}
 					/>
@@ -213,7 +225,9 @@ const Picker: React.FC<ColorPickerProps> = ({
 							step="1"
 							max="100"
 							pattern="[0-9]+"
-							value={`${Math.round(alpha * 100)}%`}
+							value={`${Math.round(
+								(alpha !== undefined ? alpha : 100) * 100,
+							)}%`}
 							onChange={handleAlphaChange}
 							onKeyDown={handleInputKeyDown}
 						/>
@@ -235,4 +249,5 @@ const Picker: React.FC<ColorPickerProps> = ({
 	)
 }
 
+//@ts-ignore
 export default CustomPicker(Picker)
