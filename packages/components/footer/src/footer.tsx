@@ -46,7 +46,11 @@ const Footer: React.FC<FooterProps> = ({
 			)}
 			<div className="sui-footer__group sui-footer__group--links">
 				<div className="sui-footer__block">
-					<a href="#" target="_blank" rel="nofollow">
+					<a
+						href="https://wpmudev.com"
+						target="_blank"
+						rel="noreferrer nofollow"
+					>
 						<img
 							// src={Logo}
 							className="sui-footer__block--logo"
