@@ -21,7 +21,7 @@ interface SegmentedControlProps {
 	// A callback function triggered when the value of the segmented control changes.
 	onChange?(value: string | number): void
 	// Default selected value
-	defaultValue?: string
+	defaultValue?: string | number
 }
 
 /**
