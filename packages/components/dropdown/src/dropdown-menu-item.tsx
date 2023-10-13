@@ -48,6 +48,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	// Check if an icon is specified and assign it to IconTag
 	let IconTag = null
 	if (!isEmpty(icon ?? "")) {
+		/*eslint import/namespace: ['error', { allowComputed: true }]*/
 		// @ts-ignore
 		IconTag = Icons?.[icon] ?? null
 	}

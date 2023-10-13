@@ -20,26 +20,21 @@ export default {
 }
 
 // Build story
-export const Dropdown = ({ example, ...props }) => {
-	const set = {}
-
-	set.box = {
+export const Dropdown = ({ color, ...props }: { color: string }) => {
+	const boxStyle = {
 		margin: 0,
 		padding: "30px",
-		border: "white" === props.color ? "1px solid #E6E6E6" : 0,
+		border: "white" === color ? "1px solid #E6E6E6" : 0,
 		borderRadius: "4px",
-		background: "white" === props.color ? "#333" : "#fff",
+		background: "white" === color ? "#333" : "#fff",
 	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={set.box}>
+				<div style={boxStyle}>
 					<SuiDropdown
 						{...props}
-						onMenuClick={(id, e) => {
-							console.log("DEBUG: Menu Item Clicked", id, e)
-						}}
 						menu={[
 							{
 								id: "plugin-variants",
