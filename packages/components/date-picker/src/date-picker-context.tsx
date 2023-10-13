@@ -84,6 +84,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 
 	useEffect(() => {
 		setDateRange(defaultRange)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [props.startDate, props.endDate])
 
 	// Extract startDate and endDate from the dateRange state.
