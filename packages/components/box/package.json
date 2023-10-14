@@ -29,8 +29,8 @@
     "directory": "packages/react-box"
   },
   "scripts": {
-    "clean" : "rm -rf dist",
-    "build" : "npx tsup src --dts",
+    "clean" : "rm -rf dist && rm -rf lib",
+    "build" : "npx tsup",
     "build:fast": "npx tsup src",
     "dev": "npm build:fast -- --watch"
   },
