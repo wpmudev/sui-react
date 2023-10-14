@@ -6,7 +6,7 @@ import { InfoAlt } from "@wpmudev/sui-icons"
 
 describe("@wpmudev/sui-accordion", () => {
 	// Common props for the Accordion component
-	const props = {
+	const accordionProps = {
 		accordionTitle: "__ACCORDION_TITLE__",
 		accordionDesc: "__ACCORDION_DESC__",
 		accordionBody: "__ACCORDION_BODY__",
@@ -16,26 +16,26 @@ describe("@wpmudev/sui-accordion", () => {
 		return (
 			<Accordion state="success" data-testid="accordion">
 				<AccordionItem
-					title={props.accordionTitle}
-					description={props.accordionDesc}
+					title={accordionProps.accordionTitle}
+					description={accordionProps.accordionDesc}
 				>
 					<AccordionItemBody>
-						<p>{props.accordionBody}</p>
+						<p>{accordionProps.accordionBody}</p>
 					</AccordionItemBody>
 				</AccordionItem>
 				<AccordionItem
-					title={props.accordionTitle}
-					description={props.accordionDesc}
+					title={accordionProps.accordionTitle}
+					description={accordionProps.accordionDesc}
 					icon={<InfoAlt />}
 					hasCheckbox={true}
 				>
 					<AccordionItemBody>
-						<p>{props.accordionBody}</p>
+						<p>{accordionProps.accordionBody}</p>
 					</AccordionItemBody>
 				</AccordionItem>
 				<AccordionItem
-					title={props.accordionTitle}
-					description={props.accordionDesc}
+					title={accordionProps.accordionTitle}
+					description={accordionProps.accordionDesc}
 					icon={<InfoAlt />}
 					isDisabled={true}
 				>
@@ -112,9 +112,15 @@ describe("@wpmudev/sui-accordion", () => {
 		render(<AccordionDemo />)
 
 		// Expect the title, description, and children to be present
-		expect(screen.getAllByText(props.accordionTitle)[0]).toBeInTheDocument()
-		expect(screen.getAllByText(props.accordionDesc)[0]).toBeInTheDocument()
-		expect(screen.getAllByText(props.accordionBody)[0]).toBeInTheDocument()
+		expect(
+			screen.getAllByText(accordionProps.accordionTitle)[0],
+		).toBeInTheDocument()
+		expect(
+			screen.getAllByText(accordionProps.accordionDesc)[0],
+		).toBeInTheDocument()
+		expect(
+			screen.getAllByText(accordionProps.accordionBody)[0],
+		).toBeInTheDocument()
 	})
 
 	// Test: Accordion body should be visible when expanded

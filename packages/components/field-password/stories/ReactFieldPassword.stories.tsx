@@ -25,9 +25,18 @@ export const PasswordField = ({
 	buttonType,
 	label,
 	helper,
-	errorMessage,
 	error,
+	isSmall,
+	isDisabled,
 	...args
+}: {
+	id: string
+	buttonType: string
+	label: string
+	helper: string
+	error: string
+	isSmall: boolean
+	isDisabled: boolean
 }) => {
 	const boxStyles = {
 		padding: 20,
@@ -45,7 +54,8 @@ export const PasswordField = ({
 		label,
 		helper,
 		error,
-		isSmall: args.isSmall,
+		isSmall,
+		isDisabled,
 	}
 
 	return (
@@ -53,7 +63,13 @@ export const PasswordField = ({
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<FormField {...fieldAttrs}>
-						<SuiPasswordField button={button} {...args} />
+						<SuiPasswordField
+							{...args}
+							isDisabled={isDisabled}
+							isSmall={isSmall}
+							button={button}
+							id={id}
+						/>
 					</FormField>
 				</div>
 			</div>

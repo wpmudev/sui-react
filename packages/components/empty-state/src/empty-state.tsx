@@ -4,11 +4,10 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { EmptyStateProps } from "./empty-state.types"
 
 /**
- * EmptyState Component
+ * Component for displaying an empty state message with an optional logo.
  *
- * It represents an empty state with a logo, title, content, and optional additional actions.
- *
- * @return {React.ReactNode} The EmptyState component.
+ * @param {EmptyStateProps} props - Component props
+ * @return {JSX.Element} The rendered component.
  */
 const EmptyState: React.FC<EmptyStateProps> = ({
 	logo,

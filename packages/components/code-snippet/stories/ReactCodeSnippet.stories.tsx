@@ -19,7 +19,15 @@ export default {
 }
 
 // Build "Tag" story.
-const CodeSnippet = ({ language, copy, color }) => {
+const CodeSnippet = ({
+	language,
+	copy,
+	color,
+}: {
+	language: string
+	copy: boolean
+	color: string
+}) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
