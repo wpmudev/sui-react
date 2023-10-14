@@ -36,7 +36,9 @@
     "clean" : "rm -rf dist && rm -rf lib",
     "build" : "npx tsup",
     "build:fast": "npx tsup src",
-    "dev": "npm build:fast -- --watch"
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-react/issues"
@@ -48,6 +50,10 @@
     "@wpmudev/sui-utils": "^0.0.0",
     "@wpmudev/sui-tag": "^0.0.0"
   },
+  "peerDependencies": {
+      "react": ">=18"
+  },
+  "clean-package": "../../../../../clean-package.config.json",
   "devDependencies": {
     "react": "^18.2.0"
   }

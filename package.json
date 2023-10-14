@@ -46,6 +46,10 @@
   "workspaces": [
     "packages/**/*"
   ],
+  "peerDependencies": {
+      "react": ">=18"
+  },
+  "clean-package": "../../../../../clean-package.config.json",
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@storybook/addon-actions": "^7.0.25",
