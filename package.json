@@ -27,6 +27,8 @@
   "files": [
     "dist"
   ],
+  "style": "dist/css/sui-css.css",
+  "sass": "dist/scss/sui-css.scss",
   "publishConfig": {
     "access": "public"
   },
