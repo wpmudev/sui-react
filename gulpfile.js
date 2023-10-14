@@ -96,4 +96,4 @@ function copy() {
  * @since 1.0.0
  */
 
-exports.default = gulp.series(compile, copy);
+exports.default = gulp.series(compile);

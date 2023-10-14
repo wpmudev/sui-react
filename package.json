@@ -17,6 +17,11 @@
       "name": "Leighton Sapir",
       "email": "2328848+iamleigh@users.noreply.github.com",
       "url": "https://iamleigh.com"
+    },
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
     }
   ],
   "input": "./src",
@@ -25,10 +30,9 @@
     "src": "src"
   },
   "files": [
-    "dist"
+    "dist/*.css"
   ],
   "style": "dist/css/sui-css.css",
-  "sass": "dist/scss/sui-css.scss",
   "publishConfig": {
     "access": "public"
   },
@@ -37,26 +41,23 @@
     "url": "git+https://github.com/wpmudev/sui-css.git"
   },
   "scripts": {
-    "format-files": "clear && yarn prettier --write .",
+    "format-files": "clear && npm run prettier --write .",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
     "changelog": "npx lerna-changelog",
     "clean": "clear && git restore .",
     "tokens": "style-dictionary build",
-    "build": "yarn tokens && gulp",
-    "prepare": "yarn clean && gulp",
-    "publish:test": "yarn prepare && npm version prerelease --git-tag-version=false && npm pack",
-    "publish:patch": "yarn prepare && npm version patch -m \"📦️ SUI CSS Framework %s\" && npm publish",
-    "publish:minor": "yarn prepare && npm version minor -m \"📦️ SUI CSS Framework %s\" && npm publish",
-    "publish:major": "yarn prepare && npm version major -m \"📦️ SUI CSS Framework %s\" && npm publish"
+    "build": "rm -rf dist && npm run tokens && gulp",
+    "prepare": "npm run clean && gulp",
+    "publish:test": "npm run prepare && npm version prerelease --git-tag-version=false && npm pack",
+    "publish:patch": "npm run prepare && npm version patch -m \"📦️ SUI CSS Framework %s\" && npm publish",
+    "publish:minor": "npm run prepare && npm version minor -m \"📦️ SUI CSS Framework %s\" && npm publish",
+    "publish:major": "npm run prepare && npm version major -m \"📦️ SUI CSS Framework %s\" && npm publish"
   },
   "bugs": {
-    "url": "https://incsub.atlassian.net/browse/SUI"
+    "url": "https://github.com/wpmudev/sui-css"
   },
   "homepage": "https://github.com/wpmudev/sui-css#readme",
-  "workspaces": [
-    "packages/*"
-  ],
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@postcss-plugins/console": "^0.2.5",
