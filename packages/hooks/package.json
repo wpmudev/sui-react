@@ -1,7 +1,6 @@
 {
   "name": "@wpmudev/sui-hooks",
   "version": "0.0.0",
-  "private": true,
   "description": "WPMU DEV Shared UI React Global Hooks",
   "keywords": [],
   "author": "Leighton <2328848+iamleigh@users.noreply.github.com>",

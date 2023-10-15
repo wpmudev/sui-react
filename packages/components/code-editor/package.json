@@ -1,7 +1,6 @@
 {
   "name": "@wpmudev/sui-code-editor",
   "version": "0.0.0",
-  "private": true,
   "description": "WPMU DEV Shared UI React Code Editor Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -53,7 +52,7 @@
   "peerDependencies": {
       "react": ">=18"
   },
-  "clean-package": "../../../../../clean-package.config.json",
+  "clean-package": "../../../postpack.config.json",
   "devDependencies": {
     "@wpmudev/sui-tooltip": "^0.0.0",
     "@wpmudev/sui-utils": "^0.0.0",

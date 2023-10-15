@@ -1,7 +1,6 @@
 {
   "name": "@wpmudev/sui-tooltip",
   "version": "0.0.0",
-  "private": true,
   "description": "WPMU DEV Shared UI React Tooltip Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -53,7 +52,7 @@
   "peerDependencies": {
       "react": ">=18"
   },
-  "clean-package": "../../../../../clean-package.config.json",
+  "clean-package": "../../../postpack.config.json",
   "devDependencies": {
     "react": "^18.2.0"
   },

@@ -46,10 +46,9 @@
   "workspaces": [
     "packages/**/*"
   ],
-  "peerDependencies": {
-      "react": ">=18"
+  "dependencies": {
+    "classnames": "^2.3.2"
   },
-  "clean-package": "../../../../../clean-package.config.json",
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@storybook/addon-actions": "^7.0.25",
@@ -79,6 +78,9 @@
     "style-loader": "^3.3.1",
     "stylelint": "^14.9.1"
   },
+  "peerDependencies": {
+    "react": ">=18"
+  },
   "resolutions": {
     "glob-parent": "^6.0.2",
     "parse-path": "^5.0.0",
@@ -97,8 +99,5 @@
       "documentation": "📝 Documentation",
       "internal": "🏠 Internal"
     }
-  },
-  "dependencies": {
-    "classnames": "^2.3.2"
   }
 }

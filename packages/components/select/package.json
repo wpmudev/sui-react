@@ -47,7 +47,7 @@
   "peerDependencies": {
       "react": ">=18"
   },
-  "clean-package": "../../../../../clean-package.config.json",
+  "clean-package": "../../../postpack.config.json",
   "devDependencies": {
     "@wpmudev/sui-checkbox": "^0.0.0",
     "@wpmudev/sui-utils": "^0.0.0",
