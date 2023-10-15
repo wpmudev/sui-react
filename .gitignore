@@ -1,4 +1,6 @@
 # Ignore error logs.
+dist
+lib
 *.log
 .dccache
 
@@ -9,5 +11,3 @@
 # Miscellaneous.
 node_modules
 .DS_Store
-
-dist
