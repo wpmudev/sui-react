@@ -3,7 +3,6 @@ import React, { useState } from "react"
 // Import required component(s)
 import { EditorToolbar as SuiEditorToolbar } from "../src"
 import { Button } from "@wpmudev/sui-button"
-import { BoxGroup } from "@wpmudev/sui-box"
 
 import {
 	SegmentedControl,
@@ -26,10 +25,10 @@ export default {
 }
 
 // Build story
-export const EditorToolbar = ({ example, ...props }) => {
-	const [editorType, setEditorType] = useState("visual")
+export const EditorToolbar = ({ ...props }) => {
+	const [editorType, setEditorType] = useState<string | number>("visual")
 
-	const actions = (settingBtn) => {
+	const actions = (settingBtn: React.ReactNode) => {
 		return [
 			<Button
 				key={0}

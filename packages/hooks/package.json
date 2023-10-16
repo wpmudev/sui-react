@@ -1,7 +1,6 @@
 {
   "name": "@wpmudev/sui-hooks",
   "version": "0.0.0",
-  "private": true,
   "description": "WPMU DEV Shared UI React Global Hooks",
   "keywords": [],
   "author": "Leighton <2328848+iamleigh@users.noreply.github.com>",
@@ -22,10 +21,12 @@
     "url": "git+https://github.com/wpmudev/sui-docs.git"
   },
   "scripts": {
-    "clean" : "rm -rf dist",
-    "build" : "npx tsup src --dts",
+    "clean" : "rm -rf dist && rm -rf lib",
+    "build" : "npx tsup",
     "build:fast": "npx tsup src",
-    "dev": "npm build:fast -- --watch"
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-docs/issues"

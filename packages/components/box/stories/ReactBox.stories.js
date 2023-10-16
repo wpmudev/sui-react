@@ -20,7 +20,7 @@ export default {
 }
 
 // Build story
-export const Box = ({ example, ...props }) => {
+export const Box = ({ ...props }) => {
 	const styles = {
 		padding: 20,
 		borderRadius: 4,
@@ -51,12 +51,17 @@ Box.args = {
 	title: "Box Label",
 	icon: "hub",
 	headerLeft: [
-		<span className="sui-tag sui-tag--outlined-navy sui-tag--sm sui-tag--uppercase">
+		<span
+			key="1"
+			className="sui-tag sui-tag--outlined-navy sui-tag--sm sui-tag--uppercase"
+		>
 			<span className="sui-tag__label">Pro</span>
 		</span>,
 	],
 	headerRight: [
-		<button className="sui-button sui-button--primary-blue">Run Action</button>,
+		<button key="1" className="sui-button sui-button--primary-blue">
+			Run Action
+		</button>,
 	],
 }
 

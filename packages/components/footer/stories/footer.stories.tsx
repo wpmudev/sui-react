@@ -18,7 +18,7 @@ export default {
 }
 
 // Build footer story
-const Footer = ({ example }) => {
+const Footer = ({ example }: { example: string }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
@@ -28,13 +28,21 @@ const Footer = ({ example }) => {
 							? () => [
 									<Fragment key={0}>
 										Check our{" "}
-										<a href="#" target="_blank" rel="nofollow">
+										<a
+											href="https://wpmudev.com"
+											target="_blank"
+											rel="noreferrer nofollow"
+										>
 											All in One WordPress Toolkit
 										</a>
 									</Fragment>,
 									<Fragment key={2}>
 										To get the most out of the plugin,{" "}
-										<a href="#" target="_blank" rel="nofollow">
+										<a
+											href="https://wpmudev.com"
+											target="_blank"
+											rel="noreferrer nofollow"
+										>
 											see the Help section
 										</a>
 									</Fragment>,

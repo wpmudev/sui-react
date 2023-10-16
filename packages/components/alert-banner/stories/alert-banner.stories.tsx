@@ -3,6 +3,7 @@ import React from "react"
 // Import required component(s)
 import { AlertBanner as SuiAlertBanner } from "../src"
 import { Button } from "@wpmudev/sui-button"
+import { AlertBannerProps } from "../src/alert-banner.types"
 
 // Import documentation main page
 import docs from "./alert-banner.mdx"
@@ -20,10 +21,10 @@ export default {
 }
 
 // Build story
-export const AlertBanner = ({ example, variation, ...props }) => {
+export const AlertBanner = ({ variation, ...props }: AlertBannerProps) => {
 	const box = {
 		display: "flex",
-		flexDirection: "column",
+		"flex-direction": "column",
 		gap: "8px",
 		margin: "0 0 20px",
 		padding: "30px",

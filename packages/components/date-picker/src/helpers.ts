@@ -148,9 +148,9 @@ export const parseDate = (date: Date | string | Falsy, defaultValue?: Date) => {
 /**
  * Gets the start and end months of the given range, constrained by the minDate and maxDate.
  *
- * @param {Object} range   - An object containing 'startDate' and 'endDate' properties.
- * @param {Date|undefined}   minDate - The minimum allowed date for the range.
- * @param {Date|undefined}   maxDate - The maximum allowed date for the range.
+ * @param {Object}         range   - An object containing 'startDate' and 'endDate' properties.
+ * @param {Date|undefined} minDate - The minimum allowed date for the range.
+ * @param {Date|undefined} maxDate - The maximum allowed date for the range.
  * @return {Array<Date>} - An array containing the start and end months of the range, constrained by minDate and maxDate.
  */
 export const getMonths = (range: any, minDate?: Date, maxDate?: Date) => {

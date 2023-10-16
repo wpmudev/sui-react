@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { DashboardWidget } from "../../../src"
+import { DashboardWidgetProps } from "../../../src/dashboard-widget.types"
 import {
 	Accordion,
 	AccordionItem,
@@ -21,7 +22,9 @@ const actions = [
 	"Automatic scans are running weekly",
 ]
 
-export const DashboardWidgetExample = (props) => {
+export const DashboardWidgetExample: React.FunctionComponent<
+	DashboardWidgetProps
+> = (props) => {
 	const [isExpanded, setIsExpanded] = useState<boolean>(true)
 	return (
 		<div style={{ backgroundColor: "#f0f0f1", padding: 40 }}>

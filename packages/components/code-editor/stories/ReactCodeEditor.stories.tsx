@@ -19,11 +19,11 @@ export default {
 }
 
 // Build "Tag" story.
-const CodeEditor = ({ color, compare, ...props }) => {
+const CodeEditor = ({ compare, ...props }: { compare: boolean }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: color !== "white" ? "#fff" : "#333",
+		background: "#ffffff",
 		display: compare ? "flex" : "block",
 	}
 
@@ -48,7 +48,7 @@ export default MyComponent;
 					</SuiCodeEditor>
 					{compare && (
 						<SuiCodeEditor {...props}>
-						{`import React from 'react';
+							{`import React from 'react';
 
 const MyComponent = ({ name }) => {
   return (
@@ -61,7 +61,7 @@ const MyComponent = ({ name }) => {
 
 export default MyComponent;
 `}
-					</SuiCodeEditor>
+						</SuiCodeEditor>
 					)}
 				</div>
 			</div>

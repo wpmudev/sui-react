@@ -21,6 +21,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	onFocus = () => {},
 	onBlur = () => {},
 	href,
+	icon,
 	...props
 }) => {
 	// use interaction
@@ -109,7 +110,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 					</span>
 				)
 			case "icon":
-				return <Icon name={props?.icon ?? ""} />
+				return <Icon name={icon} />
 		}
 	}
 

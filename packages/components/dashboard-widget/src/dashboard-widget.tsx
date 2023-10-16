@@ -44,6 +44,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	}, [isExpanded, onToggle])
 
 	// Determine the icon component based on the 'icon' prop
+	/*eslint import/namespace: ['error', { allowComputed: true }]*/
 	// @ts-ignore
 	const IconTag = Icons?.[icon]
 

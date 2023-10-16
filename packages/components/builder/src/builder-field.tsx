@@ -46,13 +46,13 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 		className,
 	)
 
+	// FOR ICONS WE NEED TO CREATE THEIR TYPE IN SUI-ICONS PACKAGE TO REPLACE ANY TYPE
+
 	// Determine the IconTag based on the provided icon value
-	// @ts-ignore
-	let IconTag: string = ""
+	let Icon: any = null
 
 	if (!isEmpty(icon)) {
-		// @ts-ignore
-		IconTag = Icons?.[icon ?? ""]
+		Icon = (Icons as any)[icon]
 	}
 
 	// Check if the field has an accordion section
@@ -76,9 +76,8 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 					</span>
 				)
 				break
-			case !!IconTag && "" !== IconTag:
-				// @ts-ignore
-				logo = <IconTag size="sm" />
+			case !!Icon && null !== Icon:
+				logo = <Icon size="sm" />
 				break
 		}
 
