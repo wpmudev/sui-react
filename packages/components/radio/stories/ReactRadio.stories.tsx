@@ -41,7 +41,7 @@ export const Radio = ({
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<RadioGroup
-						isInline={false}
+						isInline={isInline}
 						name={name}
 						asBlock={args?.asBlock}
 						isSmall={args?.isSmall}
