@@ -20,7 +20,7 @@ export default {
 }
 
 // Build "Field List" story
-const ProgressBar = ({ example, ...args }) => {
+const ProgressBar = ({ ...args }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
