@@ -40,7 +40,7 @@ const options = [
 
 // Build story
 export const Selector = ({ variation, ...args }) => {
-	const [val, setVal] = useState("")
+	const [val, setVal] = useState<number>()
 
 	const boxStyles = {
 		padding: 20,
@@ -48,7 +48,7 @@ export const Selector = ({ variation, ...args }) => {
 		// background: "#fff",
 	}
 
-	const onChange = (isChecked, value, name) => {
+	const onChange = (_isChecked: boolean, value: number, _name: string) => {
 		setVal(value)
 	}
 
@@ -68,6 +68,7 @@ export const Selector = ({ variation, ...args }) => {
 									onChange={onChange}
 									isChecked={val === option.value}
 									variation={variation}
+									label={option.name}
 									{...args}
 								/>
 							</Col>
@@ -90,6 +91,8 @@ Selector.args = {
 	allowRemove: false,
 	isDisabled: false,
 	isPro: true,
+	tag: "Tag",
+	tagColor: "default",
 }
 
 // Story props settings
@@ -157,6 +160,32 @@ Selector.argTypes = {
 			labels: {
 				left: "Left",
 				center: "Center",
+			},
+		},
+	},
+	tagColor: {
+		name: "Tag Color",
+		options: [
+			"default",
+			"blue",
+			"navy",
+			"yellow",
+			"red",
+			"green",
+			"black",
+			"white",
+		],
+		control: {
+			type: "select",
+			labels: {
+				"": "Default",
+				blue: "Blue (Information)",
+				navy: "Navy Blue",
+				yellow: "Yellow (Warning)",
+				red: "Red (Error)",
+				green: "Green (Success)",
+				black: "Black",
+				white: "White",
 			},
 		},
 	},

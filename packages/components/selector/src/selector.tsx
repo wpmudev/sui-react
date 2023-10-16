@@ -23,6 +23,14 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			alignment = "center",
 			variation = "default",
 			onChange = () => {},
+			onRemove = () => {},
+			allowRemove = false,
+			tag,
+			iconOrBrandUrl,
+			imageUrl,
+			title,
+			description,
+			tagColor,
 			...props
 		}: SelectorProps,
 		ref,
@@ -72,21 +80,18 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 				/>
 				<SelectorOption
 					{...props}
+					tagColor={tagColor}
+					allowRemove={allowRemove}
+					onRemove={onRemove}
+					tag={tag}
+					iconOrBrandUrl={iconOrBrandUrl}
+					imageUrl={imageUrl}
 					isChecked={isChecked}
+					title={title}
+					description={description}
 					alignment={alignment ?? "left"}
 					variation={variation ?? "default"}
-					{...(isPro && {
-						tag: (
-							<Tag
-								design="outlined"
-								color="black"
-								isSmall={true}
-								isUppercase={true}
-							>
-								Pro
-							</Tag>
-						),
-					})}
+					isPro={isPro}
 				/>
 				{label && <span className="sui-screen-reader-only">{label}</span>}
 			</label>
