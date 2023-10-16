@@ -2,12 +2,13 @@ import React from "react"
 
 // Import required component
 import { Recipient as SuiRecipient } from "../src"
+import { RecipientProps } from "../src/recipient.type"
 
 // Import documentation main page
 import docs from "./ReactRecipient.mdx"
 
 // Import required assets
-import image from "./images/unreal-person.jpg"
+import image from "./images/person.png"
 
 // Configure default options.
 export default {
@@ -22,10 +23,8 @@ export default {
 }
 
 // Build "Recipient" story.
-const Recipient = ({ userAvatar, ...props }) => {
-	const set = {}
-
-	set.box = {
+const Recipient = ({ ...props }: RecipientProps) => {
+	const boxStyle = {
 		margin: 0,
 		padding: "10px",
 		border: "white" === props.color ? "1px solid #E6E6E6" : 0,
@@ -36,7 +35,7 @@ const Recipient = ({ userAvatar, ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={set.box}>
+				<div style={boxStyle}>
 					<SuiRecipient
 						{...props}
 						userImage={{ alt: "image alt", src: image }}
@@ -52,7 +51,6 @@ Recipient.args = {
 	appearance: "primary",
 	userName: "Recipient Name",
 	userEmail: "example@email.com",
-	userAvatar: "icon",
 	status: "",
 	userImage: {
 		alt: "Unreal Person avatar image",
@@ -69,25 +67,11 @@ Recipient.argTypes = {
 	userEmail: {
 		name: "Recipient email",
 	},
-	userAvatar: {
-		name: "Recipient avatar",
-		options: ["icon", "image"],
-		control: {
-			type: "inline-radio",
-			labels: {
-				icon: "Icon",
-				image: "Image",
-			},
-		},
-	},
+
 	userImage: {
 		name: "Recipient image",
 		control: {
 			type: "object",
-		},
-		if: {
-			arg: "userAvatar",
-			eq: "image",
 		},
 	},
 	status: {
