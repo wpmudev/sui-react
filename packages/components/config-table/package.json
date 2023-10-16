@@ -50,6 +50,6 @@
   },
   "dependencies": {
     "@wpmudev/sui-button": "^0.0.0",
-    "@wpmudev/sui-table": "1.0.0"
+    "@wpmudev/sui-table": "0.0.0"
   }
 }
