@@ -1,7 +1,12 @@
 import React from "react"
 
 // Import required modules
-import { Radio as SuiRadio, RadioGroup } from "../src"
+import {
+	Radio as SuiRadio,
+	RadioGroup,
+	RadioProps,
+	RadioGroupProps,
+} from "../src"
 
 // Import documentation
 import docs from "./ReactRadio.mdx"
@@ -19,7 +24,12 @@ export default {
 }
 
 // Build story
-export const Radio = ({ example, name, isInline, ...args }) => {
+export const Radio = ({
+	name,
+	isInline,
+	value,
+	...args
+}: RadioProps & RadioGroupProps) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -35,9 +45,6 @@ export const Radio = ({ example, name, isInline, ...args }) => {
 						name={name}
 						asBlock={args?.asBlock}
 						isSmall={args?.isSmall}
-						onChange={(data) => {
-							console.log("test", data)
-						}}
 					>
 						<SuiRadio value="in" {...args} />
 						<SuiRadio value="usa" {...args} />
