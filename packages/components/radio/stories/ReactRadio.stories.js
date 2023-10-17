@@ -40,7 +40,6 @@ export const Radio = ({ example, name, isInline, isSmall, ...args }) => {
 							isInline={isInline}
 							name={name}
 							asBlock={args?.asBlock}
-							isSmall={args?.isSmall}
 							onChange={(data) => {
 								console.log("test", data)
 							}}
