@@ -34,7 +34,7 @@ const TableHead: React.FC<TableHeadProps> = ({
 				})),
 			)
 		}
-	}, [])
+	}, [children, setColumns])
 
 	return (
 		<thead className="sui-table__head" {...props}>

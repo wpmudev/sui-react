@@ -457,8 +457,8 @@ const tableItems = chunkArray(records, itemsPerPage)
 
 // Build "Field List" story
 export const TableExample = ({ ...props }) => {
-	const [tempRows, setTempRows] = useState<Record<string, any>>([])
-	const [rows, setRows] = useState<Record<string, any>>([])
+	const [tempRows, setTempRows] = useState<Record<string, any>[]>([])
+	const [rows, setRows] = useState<Record<string, any>[]>([])
 	const [page, setPage] = useState<number>(1)
 
 	useEffect(() => {
@@ -470,7 +470,7 @@ export const TableExample = ({ ...props }) => {
 		setRows(tableItems?.[page - 1])
 	}, [page])
 
-	const action = (id, content) => {
+	const action = (_id: string, content: React.ReactNode) => {
 		return (
 			<div
 				style={{
@@ -504,26 +504,26 @@ export const TableExample = ({ ...props }) => {
 				<Table
 					stickyCols={true}
 					onAction={(actionType, data) => {
-						let dRows: Record<string, any> = [...rows]
+						let dRows: Record<string, any>[] = [...rows]
 
 						switch (actionType) {
 							case "bulk-action":
 							case "apply-filters":
-								alert(
-									`ACTION: ${actionType} \n\nData: \n${JSON.stringify(data)}`,
-								)
+								// alert(
+								// 	`ACTION: ${actionType} \n\nData: \n${JSON.stringify(data)}`,
+								// )
 								break
 							case "sort-rows":
 								break
 							case "search-items":
-								dRows = tempRows.filter((item) =>
+								dRows = tempRows.filter((item: Record<string, any>) =>
 									item.title.includes(data as string),
 								)
 
-								dRows = "" !== data ? dRows : tempRows
+								dRows = data ? dRows : tempRows
 								break
 							case "sort-columns":
-								const { column, order } = data
+								const { column, order } = data as Record<string, any>
 
 								// sort
 								dRows.sort((a, b) =>
