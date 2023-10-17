@@ -51,7 +51,7 @@
   "dependencies": {
     "@wpmudev/sui-checkbox": "*",
     "@wpmudev/sui-utils": "*",
-    "@wpmudev/input": "*",
+    "@wpmudev/sui-input": "*",
     "react": "^18.2.0"
   }
 }

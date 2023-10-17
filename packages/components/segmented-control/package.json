@@ -44,14 +44,12 @@
     "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "@wpmudev/sui-box": "^1.0.5",
-    "react": "^18.2.0"
-  },
   "dependencies": {
+    "react": "^18.2.0",
     "@wpmudev/sui-button": "*",
     "@wpmudev/sui-utils": "*",
     "@wpmudev/sui-icons": "*",
-    "@wpmudev/sui-hooks": "*"
+    "@wpmudev/sui-hooks": "*",
+    "@wpmudev/sui-box": "*"
   }
 }
