@@ -14,6 +14,16 @@ import { SummaryBoxItemProps } from "./summary-box.types"
  *
  * A React functional component that represents an item in the list of summary items within a summary box.
  *
+ * @param {Object} props                             - The props for the SummaryBoxItem component.
+ * @param {string} [props.title=""]                  - The title of the item.
+ * @param {string} [props.titleUrl=""]               - The URL for the title.
+ * @param {string} [props.description=""]            - A description for the item.
+ * @param {string} props.className                   - Additional CSS classes to apply to the component.
+ * @param {string} [props.tagTitle=""]               - The title for a tag associated with the item.
+ * @param {string} [props.tagColor="default"]        - The color of the tag (e.g., "default", "primary").
+ * @param {string} [props.actionIcon=""]             - An optional action icon for the item.
+ * @param {string} [props.actionIconColor="default"] - The color of the action icon.
+ *
  * @return {JSX.Element} The SummaryBoxItem component.
  */
 const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
@@ -41,6 +51,7 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	// Dynamically determine the IconTag based on the provided actionIcon prop.
 	let IconTag = null
 	if (!!actionIcon) {
+		/*eslint import/namespace: ['error', { allowComputed: true }]*/
 		// @ts-ignore
 		IconTag = Icons?.[actionIcon]
 	}

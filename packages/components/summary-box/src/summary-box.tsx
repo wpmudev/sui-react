@@ -12,6 +12,15 @@ import { SummaryBoxProps } from "./summary-box.types"
  * Component that displays a summary box with a title, icon, primary and secondary actions,
  * and optional additional content.
  *
+ * @param {Object}             props                       - The props for the SummaryBox component.
+ * @param {string}             props.title                 - The title of the summary box.
+ * @param {JSX.Element}        props.icon                  - The icon element to display.
+ * @param {boolean}            [props.hideMobileIcon=true] - Whether to hide the icon on mobile devices.
+ * @param {Array<JSX.Element>} [props.primaryActions=[]]   - An array of primary action elements.
+ * @param {Array<JSX.Element>} [props.secondaryActions=[]] - An array of secondary action elements.
+ * @param {string}             props.className             - Additional CSS classes to apply to the component.
+ * @param {*}                  props.children              - Optional additional content within the summary box.
+ *
  * @return {JSX.Element} The SummaryBox component.
  */
 const SummaryBox: React.FC<SummaryBoxProps> = ({
