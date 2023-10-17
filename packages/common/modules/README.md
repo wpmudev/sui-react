@@ -1,11 +1,11 @@
-# `@wpmudev/simple-elements`
+# `@wpmudev/sui-modules`
 
 > TODO: description
 
 ## Usage
 
 ```
-const simpleElements = require('@wpmudev/simple-elements');
+const modules = require('@wpmudev/sui-modules');
 
 // TODO: DEMONSTRATE API
 ```

@@ -1,11 +1,11 @@
-# `@wpmudev/sui-score`
+# `@wpmudev/sui-tabs`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactButton = require('@wpmudev/sui-score');
+const tabs = require('@wpmudev/sui-tabs');
 
 // TODO: DEMONSTRATE API
 ```
