@@ -7,7 +7,7 @@ import {
 	RadioProps,
 	RadioGroupProps,
 } from "../src"
-
+import { FormField } from "@wpmudev/sui-form-field"
 // Import documentation
 import docs from "./ReactRadio.mdx"
 
@@ -40,15 +40,22 @@ export const Radio = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<RadioGroup
-						isInline={isInline}
-						name={name}
-						asBlock={args?.asBlock}
-						isSmall={args?.isSmall}
+					<FormField
+						id="radio-group"
+						label="Radio Group"
+						helper="This is a description"
 					>
-						<SuiRadio value="in" {...args} />
-						<SuiRadio value="usa" {...args} />
-					</RadioGroup>
+						<RadioGroup
+							isInline={isInline}
+							name={name}
+							asBlock={args?.asBlock}
+							isSmall={args?.isSmall}
+
+						>
+							<SuiRadio value="in" {...args} />
+							<SuiRadio value="usa" {...args} />
+						</RadioGroup>
+					</FormField>
 				</div>
 			</div>
 		</div>
