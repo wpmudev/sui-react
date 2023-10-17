@@ -2,7 +2,6 @@ import React from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 import { Box } from "@wpmudev/sui-box"
-// import * as Icons from "@wpmudev/sui-icons"
 
 import { SummaryBoxProps } from "./summary-box.types"
 

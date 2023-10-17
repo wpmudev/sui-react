@@ -1,10 +1,4 @@
-import {
-	FocusEventHandler,
-	HTMLProps,
-	MouseEventHandler,
-	useCallback,
-	useState,
-} from "react"
+import { HTMLProps, useCallback, useState } from "react"
 import { isFunction } from "@wpmudev/sui-utils"
 
 interface InteractionTypes

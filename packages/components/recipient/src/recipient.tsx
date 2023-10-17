@@ -1,4 +1,4 @@
-import React, { Fragment, HTMLProps } from "react"
+import React, { Fragment } from "react"
 import { isEmpty, generateCN } from "@wpmudev/sui-utils"
 
 import { Avatar } from "@wpmudev/sui-avatar"
