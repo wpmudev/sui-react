@@ -44,7 +44,7 @@
   },
   "clean-package": "../../../postpack.config.json",
   "devDependencies": {
-    "@types/sortablejs": "^1.15.2",
+    "@types/sortablejs": "^1.15.2"
   },
   "dependencies": {
     "react": "^18.2.0",
