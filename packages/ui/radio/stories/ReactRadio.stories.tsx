@@ -99,7 +99,7 @@ Radio.argTypes = {
 		type: "boolean",
 	},
 	asBlock: {
-		name: "Display as a block",
+		name: "Enable Background",
 		type: "boolean",
 	},
 }
