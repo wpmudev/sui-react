@@ -50,4 +50,4 @@ interface TooltipBaseProps
 
 type TooltipProps = TooltipBaseProps & ButtonProps
 
-export type { TooltipProps }
+export type { TooltipProps, TooltipBaseProps }
