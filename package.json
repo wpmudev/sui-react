@@ -30,7 +30,7 @@
     "src": "src"
   },
   "files": [
-    "dist/*.css"
+    "dist"
   ],
   "style": "dist/css/sui-css.css",
   "publishConfig": {
@@ -49,6 +49,8 @@
     "tokens": "style-dictionary build",
     "build": "npm run tokens && gulp",
     "prepare": "npm run clean && gulp",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
     "publish:test": "npm run prepare && npm version prerelease --git-tag-version=false && npm pack",
     "publish:patch": "npm run prepare && npm version patch -m \"📦️ SUI CSS Framework %s\" && npm publish",
     "publish:minor": "npm run prepare && npm version minor -m \"📦️ SUI CSS Framework %s\" && npm publish",
@@ -114,5 +116,6 @@
       "documentation": "📝 Documentation",
       "internal": "🏠 Internal"
     }
-  }
+  },
+  "clean-package": "./postpack.config.json"
 }

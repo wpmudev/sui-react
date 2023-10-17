@@ -1,0 +1,6 @@
+{
+  "remove": ["scripts"],
+  "replace": {
+    "style": "dist/sui-css.css"
+  }
+}
