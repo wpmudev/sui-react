@@ -28,8 +28,8 @@
     "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
-    "clean" : "rm -rf dist && rm -rf lib",
-    "build" : "npx tsup",
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
     "build:fast": "npx tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
@@ -40,11 +40,13 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "peerDependencies": {
-      "react": ">=18"
+    "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "@wpmudev/sui-utils": "^0.0.0",
+  "dependencies": {
+    "@wpmudev/sui-input": "*",
+    "@wpmudev/sui-hooks": "*",
+    "@wpmudev/sui-utils": "*",
     "react": "^18.2.0"
   }
 }

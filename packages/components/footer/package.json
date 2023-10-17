@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Shared footer UI/UX",
   "keywords": [],
-  "author": "Leighton <2328848+iamleigh@users.noreply.github.com>",
+  "author": "WPMU DEV (https://wpmudev.com)",
   "license": "ISC",
   "main": "src/index.ts",
   "directories": {
@@ -21,8 +21,8 @@
     "url": "git+https://iamleigh@github.com/wpmudev/sui-docs.git"
   },
   "scripts": {
-    "clean" : "rm -rf dist && rm -rf lib",
-    "build" : "npx tsup",
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
     "build:fast": "npx tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
@@ -33,10 +33,11 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "peerDependencies": {
-      "react": ">=18"
+    "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "react": "^18.2.0"
+  "dependencies": {
+    "react": "^18.2.0",
+    "@wpmudev/sui-icons": "*"
   }
 }

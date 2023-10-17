@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-select",
-  "version": "0.0.0",
+  "version": "1.0.5",
   "description": "WPMU DEV Shared UI React Select Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -33,8 +33,8 @@
     "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
-    "clean" : "rm -rf dist && rm -rf lib",
-    "build" : "npx tsup",
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
     "build:fast": "npx tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
@@ -45,12 +45,13 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "peerDependencies": {
-      "react": ">=18"
+    "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "@wpmudev/sui-checkbox": "^0.0.0",
-    "@wpmudev/sui-utils": "^0.0.0",
+  "dependencies": {
+    "@wpmudev/sui-checkbox": "*",
+    "@wpmudev/sui-utils": "*",
+    "@wpmudev/input": "*",
     "react": "^18.2.0"
   }
 }

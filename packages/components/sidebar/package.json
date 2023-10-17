@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Shared sidebar UI/UX",
   "keywords": [],
-  "author": "Govind <gkprmr@gmail.com>",
+  "author": "WPMU DEV (https://wpmudev.com)",
   "license": "ISC",
   "main": "src/index.ts",
   "directories": {
@@ -36,7 +36,11 @@
       "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "react": "^18.2.0"
+  "dependencies": {
+    "react": "^18.2.0",
+    "@wpmudev/sui-button": "*",
+    "@wpmudev/sui-hooks": "*",
+    "@wpmudev/sui-utils": "*",
+    "@wpmudev/sui-icons": "*"
   }
 }

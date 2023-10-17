@@ -29,8 +29,8 @@
     "directory": "packages/react-segmented-button"
   },
   "scripts": {
-    "clean" : "rm -rf dist && rm -rf lib",
-    "build" : "npx tsup",
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
     "build:fast": "npx tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
@@ -41,15 +41,12 @@
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "peerDependencies": {
-      "react": ">=18"
+    "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "@wpmudev/sui-box": "^0.0.0",
-    "react": "^18.2.0"
-  },
   "dependencies": {
-    "@wpmudev/sui-button": "^0.0.0",
-    "@wpmudev/sui-utils": "^0.0.0"
+    "@wpmudev/sui-button": "*",
+    "@wpmudev/sui-utils": "*",
+    "react": "^18.2.0"
   }
 }

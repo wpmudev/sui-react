@@ -1,14 +1,14 @@
 {
   "name": "@wpmudev/sui-collections",
   "version": "0.0.0",
-  "description": "WPMU DEV Shared UI React sub-package for simple elements",
+  "description": "WPMU DEV Shared UI React sub-package for collections components",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
     {
-      "name": "Leighton Sapir",
-      "email": "2328848+iamleigh@users.noreply.github.com",
-      "url": "https://iamleigh.com"
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
     }
   ],
   "license": "GPL-2.0",
@@ -29,8 +29,8 @@
     "directory": "packages/simple-elements"
   },
   "scripts": {
-    "clean" : "rm -rf dist && rm -rf lib",
-    "build" : "npx tsup",
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
     "build:fast": "npx tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
@@ -41,8 +41,10 @@
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/sui-avatar": "^0.0.0",
-    "@wpmudev/sui-button": "^0.0.0",
-    "@wpmudev/sui-tag": "^0.0.0"
+    "@wpmudev/sui-footer": "*",
+    "@wpmudev/sui-config-table": "*",
+    "@wpmudev/sui-setup-banner": "*",
+    "@wpmudev/sui-upsell": "*",
+    "@wpmudev/sui-upsell-notice": "*"
   }
 }
