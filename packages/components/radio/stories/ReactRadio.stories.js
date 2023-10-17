@@ -31,7 +31,7 @@ export const Radio = ({ example, name, isInline, ...args }) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<RadioGroup
-						isInline={false}
+						isInline={isInline}
 						name={name}
 						asBlock={args?.asBlock}
 						isSmall={args?.isSmall}
@@ -92,7 +92,7 @@ Radio.argTypes = {
 		type: "boolean",
 	},
 	asBlock: {
-		name: "Display as a block",
+		name: "Enable Background",
 		type: "boolean",
 	},
 }
