@@ -19,7 +19,7 @@ export default {
 }
 
 // Build story
-export const Radio = ({ example, name, isInline, ...args }) => {
+export const Radio = ({ example, name, isInline, isSmall, ...args }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -34,6 +34,7 @@ export const Radio = ({ example, name, isInline, ...args }) => {
 						id="radio-group"
 						label="Radio Group"
 						helper="This is a description"
+						isSmall={isSmall}
 					>
 						<RadioGroup
 							isInline={isInline}
