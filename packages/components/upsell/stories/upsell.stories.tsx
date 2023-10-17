@@ -21,8 +21,7 @@ export default {
 
 // Build story
 // eslint-disable-next-line react/prop-types
-export const Upsell = ({ example, ...props }) => {
-
+export const Upsell = ({ ...props }) => {
 	const actions = [
 		<div key={0}>
 			<Button appearance="primary" color="black" isSmall={true}>
@@ -30,13 +29,7 @@ export const Upsell = ({ example, ...props }) => {
 			</Button>
 		</div>,
 		<div key={1}>
-			<Button
-				href="#"
-				target="_blank"
-				appearance="tertiary"
-				color="black"
-				isSmall={true}
-			>
+			<Button appearance="tertiary" color="black" isSmall={true}>
 				Learn more
 			</Button>
 		</div>,
