@@ -6,7 +6,7 @@ import { Tag, Code } from "@wpmudev/storybook"
 import docs from "./IconsPack.mdx"
 
 // Import required styles.
-//import "../dist/css/sui-icons.css"
+import "../dist/css/sui-icons.css"
 import "./styles/icons-pack.scss"
 
 import { capitalizeText } from "@wpmudev/sui-utils"
