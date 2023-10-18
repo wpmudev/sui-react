@@ -1,7 +1,7 @@
 import React, { Fragment, useCallback } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
-import * as Icons from "@wpmudev/sui-icons"
+import Icons from "@wpmudev/sui-icons"
 import { Tag } from "@wpmudev/sui-tag"
 
 import { DashboardWidgetProps } from "./dashboard-widget.types"
@@ -16,7 +16,7 @@ import { Toggle } from "@wpmudev/sui-toggle"
 const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	title,
 	description = "",
-	icon = "",
+	icon,
 	tag,
 	tagProps,
 	statusIcon = "",
@@ -44,12 +44,9 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	}, [isExpanded, onToggle])
 
 	// Determine the icon component based on the 'icon' prop
-	/*eslint import/namespace: ['error', { allowComputed: true }]*/
-	// @ts-ignore
 	const IconTag = Icons?.[icon]
 
 	// Determine the icon component based on the 'icon' prop
-	// @ts-ignore
 	const StatusIcon = Icons?.[statusIcon]
 
 	// Prepare attributes for the tag component
