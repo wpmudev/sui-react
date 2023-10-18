@@ -19,7 +19,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	icon,
 	tag,
 	tagProps,
-	statusIcon = "",
+	statusIcon,
 	statusProps,
 	isExpanded = true,
 	isDisabled = false,

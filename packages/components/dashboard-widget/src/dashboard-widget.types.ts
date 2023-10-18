@@ -43,7 +43,7 @@ interface DashboardWidgetProps {
 	tagProps?: TagProps
 
 	/** A status associated with the widget */
-	statusIcon?: IconsNamesType
+	statusIcon: IconsNamesType
 
 	/** A status color with the widget */
 	statusProps?: object
