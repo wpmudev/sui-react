@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-utils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Global Functions",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -21,8 +21,8 @@
     "url": "git+https://github.com/wpmudev/sui-docs.git"
   },
   "scripts": {
-    "clean" : "rm -rf dist && rm -rf lib",
-    "build" : "npx tsup",
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
     "build:fast": "npx tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",

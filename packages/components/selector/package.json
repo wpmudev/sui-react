@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-selector",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Selector component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -28,8 +28,8 @@
     "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
-    "clean" : "rm -rf dist && rm -rf lib",
-    "build" : "npx tsup",
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
     "build:fast": "npx tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "peerDependencies": {
-      "react": ">=18"
+    "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
