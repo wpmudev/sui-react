@@ -46,12 +46,10 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 		className,
 	)
 
-	// FOR ICONS WE NEED TO CREATE THEIR TYPE IN SUI-ICONS PACKAGE TO REPLACE ANY TYPE
-
 	// Determine the IconTag based on the provided icon value
 	let Icon: any = null
 
-	if (!isEmpty(icon)) {
+	if (icon) {
 		Icon = Icons[icon]
 	}
 

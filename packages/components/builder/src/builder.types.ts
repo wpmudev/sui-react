@@ -76,7 +76,7 @@ interface BuilderFieldProps {
 	/**
 	 * Optional string for specifying an icon.
 	 */
-	icon: IconsNamesType
+	icon?: IconsNamesType
 
 	/**
 	 * Optional title for the BuilderField component.
