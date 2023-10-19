@@ -45,7 +45,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 	)
 
 	// Determine the IconTag based on the provided icon value
-	let Icon: React.ComponentType<IconProps> | null = null
+	let Icon: React.ComponentType<IconProps>
 
 	if (icon) {
 		Icon = Icons[icon]
