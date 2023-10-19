@@ -33,6 +33,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	const isActive = value === ctxValue
 
 	// Get the appropriate icon component if provided.
+	/*eslint import/namespace: ['error', { allowComputed: true }]*/
 	// @ts-ignore
 	const IconTag = Icons?.[icon ?? ""] ?? null
 

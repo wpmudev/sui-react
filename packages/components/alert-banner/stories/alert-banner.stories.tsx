@@ -42,7 +42,6 @@ export const AlertBanner = ({ variation, ...props }: AlertBannerProps) => {
 			appearance={theme ? "primary" : "secondary"}
 			color={theme ? "white" : "black"}
 			isSmall={true}
-			isFullWidth={true}
 		>
 			Primary
 		</Button>,
@@ -51,7 +50,6 @@ export const AlertBanner = ({ variation, ...props }: AlertBannerProps) => {
 			appearance="tertiary"
 			color={theme ? "white" : "black"}
 			isSmall={true}
-			isFullWidth={true}
 		>
 			Secondary
 		</Button>,

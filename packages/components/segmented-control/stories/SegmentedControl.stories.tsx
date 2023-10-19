@@ -20,13 +20,13 @@ export default {
 }
 
 // Build "Field List" story
-const SegmentedControl = ({ example, children, ...args }) => {
+const SegmentedControl = ({ ...args }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<Box>
 					<BoxGroup isInline={false}>
-						<SControl {...args}>
+						<SControl name="segmented-control-1" {...args}>
 							<SegmentedControlButton value="icon-only" icon="Filter" />
 							<SegmentedControlButton value="1">UPI</SegmentedControlButton>
 							<SegmentedControlButton value="2">Visa</SegmentedControlButton>

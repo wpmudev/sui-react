@@ -1,11 +1,11 @@
-# `@wpmudev/sui-code-snippet`
+# `@wpmudev/sui-rich-text-editor`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactCodeSnippet = require('@wpmudev/sui-code-snippet');
+const TextEditor = require('@wpmudev/sui-rich-text-editor');
 
 // TODO: DEMONSTRATE API
 ```

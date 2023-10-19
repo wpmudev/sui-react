@@ -1,11 +1,11 @@
-# `@wpmudev/sui-segmented-button`
+# `@wpmudev/sui-spinner`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactSegmentedButton = require('@wpmudev/sui-segmented-button');
+const spinner = require('@wpmudev/sui-spinner');
 
 // TODO: DEMONSTRATE API
 ```

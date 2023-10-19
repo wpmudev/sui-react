@@ -1,8 +1,14 @@
 import React from "react"
 
 // Import required modules
-import { Radio as SuiRadio, RadioGroup } from "../src"
+import {
+	Radio as SuiRadio,
+	RadioGroup,
+	RadioProps,
+	RadioGroupProps,
+} from "../src"
 import { FormField } from "@wpmudev/sui-form-field"
+
 // Import documentation
 import docs from "./ReactRadio.mdx"
 
@@ -19,7 +25,13 @@ export default {
 }
 
 // Build story
-export const Radio = ({ example, name, isInline, isSmall, ...args }) => {
+export const Radio = ({
+	name,
+	isInline,
+	isSmall,
+	value,
+	...args
+}: RadioProps & RadioGroupProps) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,

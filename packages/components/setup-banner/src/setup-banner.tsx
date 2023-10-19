@@ -30,6 +30,7 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 	// Dynamically determine the IconTag based on the provided icon prop.
 	let IconTag = null
 	if (!!Plugin?.icon) {
+		/*eslint import/namespace: ['error', { allowComputed: true }]*/
 		// @ts-ignore
 		IconTag = Icons?.[Plugin?.icon]
 	}

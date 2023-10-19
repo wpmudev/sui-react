@@ -6,7 +6,9 @@ import React, { ElementType } from "react"
  * It is used to define the set of properties that can be passed to the Link component.
  */
 interface LinkProps
-	extends Partial<Omit<HTMLAnchorElement, "className" | "children">> {
+	extends Partial<
+		Omit<HTMLAnchorElement, "className" | "children" | "toString">
+	> {
 	/**
 	 * Link theme
 	 */

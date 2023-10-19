@@ -1,11 +1,11 @@
-# `@wpmudev/sui-notification`
+# `@wpmudev/sui-config-table`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactNotification = require('@wpmudev/react-notification');
+const configTable = require('@wpmudev/sui-config-table');
 
 // TODO: DEMONSTRATE API
 ```

@@ -1,0 +1,96 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { ConfigTable } from "../../src"
+import { configs } from "../configs"
+import dedent from "dedent"
+
+export const sampleCode = dedent`
+import { ConfigTable } from "@wpmudev/sui-config-table"
+
+const configs = [
+      {
+        id: 1,
+        name: "Default config",
+        description: "Recommended performance config for every site.",
+        config: {
+          configs: {
+            settings: {
+              advanced: {
+                query_string: false,
+                emoji: false,
+                cart_fragments: false,
+                lazy_load: {
+                  enabled: false,
+                  preload: false,
+                },
+              },
+              gravatar: {
+                enabled: true,
+              },
+              page_cache: {
+                enabled: true,
+                detection: "auto",
+                integrations: {
+                  varnish: false,
+                  opcache: false,
+                },
+                preload: false,
+              },
+              performance: [],
+              rss: {
+                enabled: true,
+                duration: 3600,
+              },
+              settings: {
+                accessible_colors: false,
+                remove_settings: false,
+                remove_data: false,
+                control: true,
+              },
+              uptime: {
+                enabled: false,
+              },
+            },
+          },
+          strings: {
+            advanced: [
+              "Remove query strings from assets - Inactive Remove Emoji JS & CSS files - Inactive Disable WooCommerce cart fragments - Inactive Comments lazy loading - Inactive",
+            ],
+            gravatar: ["Gravatar cache - Active"],
+            page_cache: [
+              "Page cache - Active File change detection - Auto Purge Varnish cache - Inactive Purge OpCache - Inactive Cache preloading - Inactive",
+            ],
+            rss: ["RSS caching - Active"],
+            settings: [
+              "High contrast mode - Inactive Remove settings on uninstall - Inactive Remove data on uninstall - Inactive Cache control in admin bar - Active",
+            ],
+            uptime: ["Uptime - Inactive"],
+          },
+        },
+        plugin: "1081721",
+      },
+    ]
+
+    export const Example() = {
+        return (
+          <ConfigTable
+            configs={configs}
+            onActionClick={(id, type) => console.log(id, type)}
+          />
+        )
+}`
+
+<Section style={{ paddingTop: 30 }}>
+	<p>
+		Below is a general example of the config table which you can tweak to fit
+		your needs
+	</p>
+	<Preview wrapper={true}>
+		<div style={{ padding: 50 }}>
+			<ConfigTable
+				configs={configs}
+				onActionClick={(id, type) => console.log(id, type)}
+			/>
+		</div>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>

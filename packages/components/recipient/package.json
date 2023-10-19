@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-recipient",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Recipient Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -38,8 +38,8 @@
     "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
-    "clean" : "rm -rf dist && rm -rf lib",
-    "build" : "npx tsup",
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
     "build:fast": "npx tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
@@ -50,14 +50,13 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "dependencies": {
-    "@wpmudev/sui-avatar": "^0.0.0",
-    "@wpmudev/sui-utils": "^0.0.0"
+    "react": "^18.2.0",
+    "@wpmudev/sui-avatar": "*",
+    "@wpmudev/sui-utils": "*",
+    "@wpmudev/sui-tooltip": "*"
   },
   "peerDependencies": {
-      "react": ">=18"
+    "react": ">=18"
   },
-  "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "react": "^18.2.0"
-  }
+  "clean-package": "../../../postpack.config.json"
 }

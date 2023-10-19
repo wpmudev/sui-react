@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useId } from "react"
+import React, { useState, useId } from "react"
 // import { default as RTextEditor } from "react-rte"
 
 import { generateCN } from "@wpmudev/sui-utils"

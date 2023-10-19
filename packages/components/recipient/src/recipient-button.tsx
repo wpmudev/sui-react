@@ -1,6 +1,6 @@
-import React, { Fragment } from "react"
-import { isString } from "@wpmudev/sui-utils"
+import React from "react"
 
+import { isString } from "@wpmudev/sui-utils"
 import { Tooltip, TooltipProps } from "@wpmudev/sui-tooltip"
 
 interface RecipientButtonProps extends TooltipProps {

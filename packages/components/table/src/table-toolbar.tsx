@@ -101,9 +101,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 							direction="left"
 							isSmall={true}
 							isFixedHeight={false}
-							onMenuClick={(id, e) => {
-								console.log("DEBUG: Menu Item Clicked", id, e)
-							}}
 						>
 							{content}
 						</Dropdown>

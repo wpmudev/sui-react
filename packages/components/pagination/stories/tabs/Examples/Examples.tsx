@@ -1,10 +1,10 @@
-import { Pagination } from "../../../src"
+import { Pagination, PaginationProps } from "../../../src"
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 import React, { useEffect, useState } from "react"
 import { chunkArray } from "@wpmudev/sui-utils"
 import dedent from "dedent"
 
-const generateRecords = (n) => {
+const generateRecords = (n: number) => {
 	const arrayOfObjects = []
 	for (let i = 1; i <= n; i++) {
 		const object = { id: i, title: "Item" + i }
@@ -16,16 +16,16 @@ const generateRecords = (n) => {
 
 const records = generateRecords(60)
 
-const limit = 3
+const limit = 5
 
-export const BasicPagination = ({ skip = false }) => {
+export const BasicPagination = ({ skip = false }: PaginationProps) => {
 	const [tableItems, setTableItems] = useState(chunkArray(records, limit))
-	const [rows, setRows] = useState([])
+	const [rows, setRows] = useState<Record<string, any>>([])
 	const [page, setPage] = useState(1)
 
 	useEffect(() => {
 		setTableItems(chunkArray(records, limit))
-	}, [limit])
+	}, [])
 
 	useEffect(() => {
 		setRows(tableItems?.[0])
@@ -39,7 +39,7 @@ export const BasicPagination = ({ skip = false }) => {
 		<Box>
 			<BoxGroup isInline={false}>
 				<ul>
-					{rows?.map((record, index) => (
+					{rows?.map((record: Record<string, any>, index: number) => (
 						<li key={index}>{record.title}</li>
 					))}
 				</ul>
@@ -111,7 +111,9 @@ const limit = 3
     }
 `
 
-export const SkipButtonsExample = () => <BasicPagination skip={true} />
+export const SkipButtonsExample = () => (
+	<BasicPagination skip={true} limit={limit} />
+)
 
 export const SkipButtonsCode = dedent`
     <Pagination skip={true} />

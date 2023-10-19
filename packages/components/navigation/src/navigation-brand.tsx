@@ -19,7 +19,9 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 	// Dynamically determine the IconTag based on the provided icon prop.
 	let IconTag = null
 	if (!!PluginIcon) {
+		/*eslint import/namespace: ['error', { allowComputed: true }]*/
 		// @ts-ignore
+		// WE NEED TO WRITE TYPE FOR SUI-ICONS PACKAGE FOR ALL EXPORTED ICONS
 		IconTag = Icons?.[PluginIcon?.icon ?? ""]
 	}
 

@@ -20,7 +20,7 @@ export default {
 }
 
 // Build "Input" story.
-const Input = ({ example, ...args }) => {
+const Input = ({ example, isSmall, isDisabled, ...args }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -31,7 +31,7 @@ const Input = ({ example, ...args }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<FormField>
+					<FormField isSmall={isSmall} isDisabled={isDisabled}>
 						<SuiInput {...args} />
 					</FormField>
 				</div>
