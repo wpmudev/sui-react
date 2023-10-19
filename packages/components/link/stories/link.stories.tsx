@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component(s)
-import { Link as SuiLink } from "../src"
+import { Link as SuiLink, LinkProps } from "../src"
 
 // Import documentation main page
 import docs from "./link.mdx"
@@ -18,16 +18,17 @@ export default {
 }
 
 // Build story
-export const Link = ({ example, ...props }, { globals: { theme } }) => {
+export const Link = ({ ...props }: LinkProps) => {
 	let backgroundColor = "#fff"
 
 	if ("secondary" === props?.theme) {
 		backgroundColor = "#0059FF"
 	}
 
-	if ("dark" === theme && "secondary" === props?.theme) {
-		backgroundColor = "#000"
-	}
+	// No need for global theme in stories
+	// if ("dark" === theme && "secondary" === props?.theme) {
+	// 	backgroundColor = "#000"
+	// }
 
 	const box = {
 		margin: "0 0 20px",

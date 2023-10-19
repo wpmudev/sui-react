@@ -56,7 +56,7 @@ export const Pagination = (args: PaginationProps): React.ReactNode => {
 				<Box>
 					<BoxGroup isInline={false}>
 						<ul>
-							{rows?.map((record, index) => (
+							{rows?.map((record: Record<string, any>, index: number) => (
 								<li key={index}>{record.title}</li>
 							))}
 						</ul>

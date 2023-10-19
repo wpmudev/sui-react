@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component.
-import { Score as SuiScore } from "../src"
+import { Score as SuiScore, ScoreProps } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactScore.mdx"
@@ -15,7 +15,7 @@ const Score = ({
 	isSmall,
 	isPercentage,
 	color,
-}) => {
+}: ScoreProps) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,

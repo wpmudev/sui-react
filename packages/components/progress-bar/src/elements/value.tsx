@@ -1,9 +1,13 @@
 // @ts-nocheck
 import React from "react"
 import { isUndefined, isEmpty, isNumber } from "@wpmudev/sui-utils"
+import { ProgressBarProps } from "../progress-bar.types"
 
 // Build "value" element
-const Value = ({ value, className }) => {
+const Value: React.FC<Pick<ProgressBarProps, "className" | "children">> = ({
+	value,
+	className,
+}) => {
 	const has = {}
 	const set = {}
 

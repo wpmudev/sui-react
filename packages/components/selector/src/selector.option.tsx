@@ -33,6 +33,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 	// Check if the provided iconOrBrandUrl is an image or an icon reference
 	if (!isImage) {
 		// Look up the appropriate icon based on the provided reference
+		/*eslint import/namespace: ['error', { allowComputed: true }]*/
 		// @ts-ignore
 		Icon = Icons?.[iconOrBrandUrl] ?? null
 	}

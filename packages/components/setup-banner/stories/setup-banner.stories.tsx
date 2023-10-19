@@ -1,13 +1,16 @@
 import React from "react"
 
 // Import required component.
-import { SetupBanner as SuiSetupBanner } from "../src"
+import { SetupBannerProps, SetupBanner as SuiSetupBanner } from "../src"
 
 // Import documentation main page.
 import docs from "./SetupBanner.mdx"
 
 // Build "SetupBanner" story.
-const SetupBanner = ({ color, ...props }) => {
+const SetupBanner = ({
+	color,
+	...props
+}: { color: string } & SetupBannerProps) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
