@@ -4,9 +4,9 @@ import classnames from "classnames"
 /**
  * Generate classnames based on the prop vars
  *
- * @param {string}                           base
+ * @param {string}              base
  * @param {Record<string, any>} variants
- * @param {string}                           extraClassNames extra class names
+ * @param {string}              extraClassNames extra class names
  *
  * @return {string} classnames
  */
@@ -190,8 +190,8 @@ export type PluginsSlug =
 	| "branda"
 
 export type PluginIconTypes = {
-	bg: string
-	color: string
+	bg?: string
+	color?: string
 	icon: string
 }
 

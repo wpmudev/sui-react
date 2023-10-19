@@ -5,6 +5,8 @@ import { ReactNode } from "react"
 
 import { DropdownMenuItemProps } from "@wpmudev/sui-dropdown"
 
+import { PluginsSlug } from "@wpmudev/sui-utils"
+
 // Represents the base props for a DropdownMenu component.
 interface NavigationUserMenuBaseProps {
 	/*
@@ -37,7 +39,7 @@ interface NavigationBrandProps {
 	/*
 	 * Optional: Plugin information for the brand.
 	 */
-	plugin?: string
+	plugin?: PluginsSlug
 	/*
 	 * Optional: Title for the brand.
 	 */
