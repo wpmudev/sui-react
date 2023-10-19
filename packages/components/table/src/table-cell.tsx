@@ -1,7 +1,7 @@
 import React, { Fragment, useCallback, useContext, useRef } from "react"
 
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
-import * as Icons from "@wpmudev/sui-icons"
+import Icons from "@wpmudev/sui-icons"
 import { useInteraction } from "@wpmudev/sui-hooks"
 
 import { TableCellProps } from "./table.types"
