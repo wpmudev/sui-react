@@ -3,7 +3,7 @@ import { useInteraction } from "@wpmudev/sui-hooks"
 
 import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { Checkbox } from "@wpmudev/sui-checkbox"
-import * as Icons from "@wpmudev/sui-icons"
+import Icons from "@wpmudev/sui-icons"
 
 import { TreeViewContextProps, TreeViewInfoProps } from "./tree-view.types"
 import { TreeViewContext } from "./tree-view-context"
@@ -51,9 +51,8 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	}
 
 	// Use the passed icon, if available
-	if (!!icon && !isEmpty(icon ?? "")) {
-		// @ts-ignore
-		ItemIcon = Icons?.[icon ?? ""]
+	if (icon) {
+		ItemIcon = Icons[icon]
 	}
 
 	// Replace with lock icon when the item is disabled
