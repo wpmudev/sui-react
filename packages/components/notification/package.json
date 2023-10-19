@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-notification",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Notification Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -18,7 +18,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -29,17 +29,25 @@
     "directory": "packages/react-notification"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:fast": "npx tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-react/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
-  "devDependencies": {
-    "@wpmudev/sui-utils": "^0.0.0",
-    "react": "^18.2.0"
+  "peerDependencies": {
+    "react": ">=18"
   },
+  "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-button": "^0.0.0"
+    "@wpmudev/sui-utils": "*",
+    "@wpmudev/sui-button": "*",
+    "@wpmudev/sui-icons": "*",
+    "react": "^18.2.0"
   }
 }

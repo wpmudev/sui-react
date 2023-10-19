@@ -1,83 +1,76 @@
-import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
-import { Select } from '../../src';
-import dedent from 'dedent';
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Select } from "../../src"
+import dedent from "dedent"
 
-import States from './Examples/States.mdx';
-import Variants from './Examples/Variants.mdx';
-import Size from './Examples/Size.mdx';
+{/* Import Variations */}
 
-export const sampleCode = dedent`
-import React from 'react';\n
-import { Select } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Select id="unique-id" label="Label" options={options} />;
-}\n
-export default Example;
-`;
+import States from "./Examples/States.mdx"
+import Types from "./Examples/Types.mdx"
 
+export const defaultCode = dedent`
+  import { Select } from "@wpmudev/sui-select";
+
+  export const options = [
+    {
+      icon: "settings",
+      id: "option-1",
+      label: "Option 1 is the option.",
+      isSelected: false,
+	  },
+    {
+      icon: "settings",
+      id: "option-2",
+      label: "Option 2",
+      isSelected: false,
+    },
+    {
+      icon: "settings",
+      id: "option-3",
+      label: "Option 3",
+      isSelected: false,
+    },
+  ]
+  
+  export const Example = () => {
+    return <Select id="select-id" options={options} />
+  }
+`
 export const options = [
 	{
-		id: 'option-1',
-		label: 'Option 1 is the option.',
-		isSelected: false
+		icon: "settings",
+		id: "option-1",
+		label: "Option 1 is the option.",
+		isSelected: false,
 	},
 	{
-		id: 'option-2',
-		label: 'Option 2',
-		isSelected: false
+		icon: "settings",
+		id: "option-2",
+		label: "Option 2",
+		isSelected: false,
 	},
 	{
-		id: 'option-3',
-		label: 'Option 3',
-		isSelected: false
+		icon: "settings",
+		id: "option-3",
+		label: "Option 3",
+		isSelected: false,
 	},
-	{
-		id: 'option-4',
-		label: 'Option 4',
-		isSelected: false
-	},
-	{
-		id: 'option-5',
-		label: 'Option 5',
-		isSelected: false
-	},
-	{
-		id: 'option-6',
-		label: 'Option 6',
-		isSelected: false
-	},
-	{
-		id: 'option-7',
-		label: 'Option 7',
-		isSelected: false
-	},
-	{
-		id: 'option-8',
-		label: 'India',
-		isSelected: false
-	}
-];
+]
 
-<Section contained={true} style={{ paddingTop: 0 }}>
-	<p>Below is the default form of a select, used for most cases.</p>
-	<Preview wrapper={true}>
-		<div style={{ height: '190px' }}>
-			<Select id="select-id-1" label="Select" options={options} />
-		</div>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Below is the default form of the select component</p>
+	<div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+		<Select id="select-id" options={options} />
+	</div>
+	<Snippet language="js">{defaultCode}</Snippet>
 </Section>
 
-<Section style={{ paddingTop: 0 }}>
+<Section title="States & Types" style={{ paddingTop: 0 }}>
 	<Switcher>
 		<div label="States" value="states">
 			<States />
 		</div>
-		<div label="Variants" value="variants">
-			<Variants />
-		</div>
-		<div label="Size" value="size">
-			<Size />
+		<div label="Types" value="types">
+			<Types />
 		</div>
 	</Switcher>
 </Section>

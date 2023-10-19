@@ -1,10 +1,9 @@
 {
   "name": "@wpmudev/sui-utils",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Global Functions",
   "keywords": [],
-  "author": "Leighton <2328848+iamleigh@users.noreply.github.com>",
+  "author": "WPMU DEV (https://wpmudev.com)",
   "license": "GPL-2.0",
   "main": "src/index.ts",
   "directories": {
@@ -12,7 +11,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -22,10 +21,16 @@
     "url": "git+https://github.com/wpmudev/sui-docs.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:fast": "npx tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-docs/issues"
   },
-  "homepage": "https://github.com/wpmudev/sui-docs#readme"
+  "homepage": "https://github.com/wpmudev/sui-docs#readme",
+  "clean-package": "../../postpack.config.json"
 }

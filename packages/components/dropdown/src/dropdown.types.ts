@@ -1,4 +1,4 @@
-import React, { HTMLProps } from "react"
+import React, { HTMLProps, KeyboardEvent } from "react"
 
 /**
  * Props for Menu component.
@@ -13,8 +13,7 @@ interface DropdownMenuProps {
 /**
  * Props for MenuItem component.
  */
-interface DropdownMenuItemProps
-	extends HTMLProps<HTMLSpanElement | HTMLAnchorElement | HTMLUListElement> {
+interface DropdownMenuItemProps {
 	/**
 	 * URL to navigate to when the item is clicked (if the item is an anchor).
 	 */
@@ -27,6 +26,10 @@ interface DropdownMenuItemProps
 	 * Additional class name(s) to be applied to the MenuItem.
 	 */
 	className?: string
+	/**
+	 * Makes dropdown disabled
+	 */
+	isDisabled?: boolean
 	/**
 	 * Dropdown menu item variation
 	 */
@@ -47,7 +50,7 @@ interface DropdownMenuItemProps
 	 *
 	 * @param e The click event object.
 	 */
-	onClick?(e?): void
+	onClick?(e?: KeyboardEvent): void
 	/**
 	 * Children elements to be rendered inside the MenuItem.
 	 */
@@ -57,7 +60,7 @@ interface DropdownMenuItemProps
 /**
  * Props for MenuGroup component.
  */
-interface DropdownMenuGroupProps extends HTMLProps<HTMLUListElement> {
+interface DropdownMenuGroupProps extends HTMLProps<HTMLLIElement> {
 	/** Title of the MenuGroup. */
 	title: string
 	/** URL to navigate to when the MenuGroup is clicked. */
@@ -127,7 +130,7 @@ interface DropdownProps {
 	/**
 	 * On click on Menu Item
 	 */
-	onMenuClick?(id: string | number, e?): void
+	onMenuClick?(id: string | number, e?: React.ChangeEvent<unknown>): void
 	/**
 	 * Dropdown popover direction
 	 */
@@ -140,6 +143,10 @@ interface DropdownProps {
 	 * The content of the dropdown.
 	 */
 	children?: React.ReactNode
+	/**
+	 * Dropdown Trigger
+	 */
+	trigger?: React.ReactNode
 }
 
 // Type definition for the modal handling functions
@@ -155,4 +162,6 @@ export type {
 	DropdownMenuGroupProps,
 	DropdownMenuItemProps,
 	DropdownMenuProps,
+	MenuItemProps,
+	MenuGroupProps,
 }

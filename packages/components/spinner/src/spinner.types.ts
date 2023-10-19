@@ -57,4 +57,4 @@ interface SpinnerHook {
 	isVisible: boolean
 }
 
-export { SpinnerProps, SpinnerLoaderProps, SpinnerHookProps, SpinnerHook }
+export type { SpinnerProps, SpinnerLoaderProps, SpinnerHookProps, SpinnerHook }

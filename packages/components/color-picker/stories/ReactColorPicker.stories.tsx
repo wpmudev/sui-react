@@ -27,6 +27,12 @@ const ColorPicker = ({
 	isError,
 	errorMessage,
 	...props
+}: {
+	color: string
+	id: string
+	isDisabled: boolean
+	isError: boolean
+	errorMessage: string
 }) => {
 	const [currentColor, setCurrentColor] = useState<string>(color)
 
@@ -49,10 +55,7 @@ const ColorPicker = ({
 						label="Select colour"
 						isSmall={false}
 						isDisabled={isDisabled}
-						error={{
-							state: isError,
-							text: errorMessage,
-						}}
+						error={errorMessage}
 					>
 						<SuiColorPicker
 							color={currentColor}
@@ -74,7 +77,7 @@ ColorPicker.args = {
 	type: "hex",
 	isError: false,
 	isDisabled: false,
-	errorMessage: "Color field has errors.",
+	errorMessage: "",
 }
 
 // Set controls for story arguments.

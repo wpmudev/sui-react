@@ -1,14 +1,14 @@
 {
   "name": "@wpmudev/sui-core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React sub-package for core elements",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
     {
-      "name": "Leighton Sapir",
-      "email": "2328848+iamleigh@users.noreply.github.com",
-      "url": "https://iamleigh.com"
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
     }
   ],
   "license": "GPL-2.0",
@@ -18,7 +18,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -29,13 +29,34 @@
     "directory": "packages/core-elements"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:fast": "npx tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-react/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/sui-grid": "^0.0.0"
+    "@wpmudev/sui-avatar": "*",
+    "@wpmudev/sui-box": "*",
+    "@wpmudev/sui-button": "*",
+    "@wpmudev/sui-checkbox": "*",
+    "@wpmudev/sui-grid": "*",
+    "@wpmudev/sui-input": "*",
+    "@wpmudev/sui-link": "*",
+    "@wpmudev/sui-icon": "*",
+    "@wpmudev/sui-radio": "*",
+    "@wpmudev/sui-score": "*",
+    "@wpmudev/sui-segmented-control": "*",
+    "@wpmudev/sui-selector": "*",
+    "@wpmudev/sui-spinner": "*",
+    "@wpmudev/sui-tag": "*",
+    "@wpmudev/sui-textarea": "*",
+    "@wpmudev/sui-toggle": "*",
+    "@wpmudev/sui-tooltip": "*"
   }
 }

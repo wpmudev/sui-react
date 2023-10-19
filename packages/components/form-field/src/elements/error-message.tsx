@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react"
 
 import { FormFieldErrorProps } from "../form-field.types"

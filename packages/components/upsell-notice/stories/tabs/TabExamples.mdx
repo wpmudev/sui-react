@@ -1,0 +1,191 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { UpsellNotice } from "../../src"
+import { Button } from "@wpmudev/sui-button"
+import dedent from "dedent"
+
+{/* Import Variations */}
+
+import Hummingbird from "./Examples/Hummingbird.mdx"
+import Smush from "./Examples/Smush.mdx"
+import Snapshot from "./Examples/Snapshot.mdx"
+import Smartcrawl from "./Examples/Smartcrawl.mdx"
+import Shipper from "./Examples/Shipper.mdx"
+import Ivt from "./Examples/Ivt.mdx"
+import Hustle from "./Examples/Hustle.mdx"
+import Forminator from "./Examples/Forminator.mdx"
+import Defender from "./Examples/Defender.mdx"
+import Branda from "./Examples/Branda.mdx"
+import Beehive from "./Examples/Beehive.mdx"
+
+export const generalCode = dedent`
+    <UpsellNotice
+      features={[
+        "Performance Test Reporting",
+        "Uptime monitoring",
+        "Enhanced file minification with CDN",
+        "Database Cleanup notifications",
+      ]}
+      actions={[
+        <div key={0}>
+          <Button appearance="primary" color="black" isSmall={true}>
+            Upgrade now
+          </Button>
+        </div>,
+        <div key={1}>
+          <Button
+            href="#"
+            target="_blank"
+            appearance="tertiary"
+            color="black"
+            isSmall={true}
+          >
+            Learn more
+          </Button>
+        </div>,
+      ]}
+    />
+`
+
+export const tagCode = dedent`
+    <UpsellNotice
+      tagTitle="Pro"
+      features={[
+        "Performance Test Reporting",
+        "Uptime monitoring",
+        "Enhanced file minification with CDN",
+        "Database Cleanup notifications",
+      ]}
+      actions={[
+        <div key={0}>
+          <Button appearance="primary" color="black" isSmall={true}>
+            Upgrade now
+          </Button>
+        </div>,
+        <div key={1}>
+          <Button
+            href="#"
+            target="_blank"
+            appearance="tertiary"
+            color="black"
+            isSmall={true}
+          >
+            Learn more
+          </Button>
+        </div>,
+      ]}
+    />
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Below is the general form of the Upsell Notice component</p>
+	<Preview wrapper={true}>
+		<UpsellNotice
+			title="Upgrade to Smush pro"
+			features={[
+				"Performance Test Reporting",
+				"Uptime monitoring",
+				"Enhanced file minification with CDN",
+				"Database Cleanup notifications",
+			]}
+			actions={[
+				<div key={0}>
+					<Button appearance="primary" color="black" isSmall={true}>
+						Upgrade now
+					</Button>
+				</div>,
+				<div key={1}>
+					<Button
+						href="#"
+						target="_blank"
+						appearance="tertiary"
+						color="black"
+						isSmall={true}
+					>
+						Learn more
+					</Button>
+				</div>,
+			]}
+		/>
+	</Preview>
+	<Snippet language="js">{generalCode}</Snippet>
+</Section>
+
+<Section title="With a Tag" contained={true} style={{ paddingTop: 30 }}>
+	<p>
+		Use the prop <Code small={true}>tagTitle</Code> to display a tag beside the
+		title
+	</p>
+	<Preview wrapper={true}>
+		<UpsellNotice
+			tagTitle="Pro"
+			features={[
+				"Performance Test Reporting",
+				"Uptime monitoring",
+				"Enhanced file minification with CDN",
+				"Database Cleanup notifications",
+			]}
+			actions={[
+				<div key={0}>
+					<Button appearance="primary" color="black" isSmall={true}>
+						Upgrade now
+					</Button>
+				</div>,
+				<div key={1}>
+					<Button
+						href="#"
+						target="_blank"
+						appearance="tertiary"
+						color="black"
+						isSmall={true}
+					>
+						Learn more
+					</Button>
+				</div>,
+			]}
+		/>
+	</Preview>
+	<Snippet language="js">{tagCode}</Snippet>
+</Section>
+
+<Section title="Variations" style={{ paddingTop: 0 }}>
+	Use the <Code small={true}>variation</Code> prop to change the Upsell Notice
+	plugin variation.
+	<Switcher>
+		<div label="hummingbird" value="hummingbird">
+			<Hummingbird />
+		</div>
+		<div label="smush" value="smush">
+			<Smush />
+		</div>
+		<div label="snapshot" value="snapshot">
+			<Snapshot />
+		</div>
+		<div label="smartcrawl" value="smartcrawl">
+			<Smartcrawl />
+		</div>
+		<div label="shipper" value="shipper">
+			<Shipper />
+		</div>
+		<div label="shipper" value="shipper">
+			<Shipper />
+		</div>
+		<div label="ivt" value="ivt">
+			<Ivt />
+		</div>
+		<div label="hustle" value="hustle">
+			<Hustle />
+		</div>
+		<div label="forminator" value="forminator">
+			<Forminator />
+		</div>
+		<div label="defender" value="defender">
+			<Defender />
+		</div>
+		<div label="branda" value="branda">
+			<Branda />
+		</div>
+		<div label="beehive" value="beehive">
+			<Beehive />
+		</div>
+	</Switcher>
+</Section>

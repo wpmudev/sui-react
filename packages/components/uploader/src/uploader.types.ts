@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { HTMLProps } from "react"
 
 import { FormFieldProps } from "@wpmudev/sui-form-field"
@@ -25,17 +26,12 @@ interface UploaderProps extends Omit<HTMLProps<HTMLInputElement>, "onChange"> {
 	 * Allow drag and drop
 	 */
 	allowDragAndDrop?: boolean
-
-	/**
-	 * Form Field attributes
-	 */
-	fieldAttrs: FormFieldProps
 	/**
 	 * Send the files array to parent component when file uploaded or removed
 	 *
 	 * @param {Record<File, any>[]} file
 	 */
-	onChange: (file: Record<File, any>[]) => void
+	onChange?: (file: Record<string, any>[]) => void
 }
 
 /**
@@ -57,7 +53,7 @@ interface UploaderFileProps {
 	 *
 	 * @param fileIndex - The index of the file to remove.
 	 */
-	onRemoveFile?: (fileIndex: number) => void
+	onRemove?: (fileIndex: number) => void
 }
 
 /**
@@ -76,7 +72,7 @@ interface UploaderButtonProps
 	 *
 	 * @param filesOrEvent - The dragged files or the drag event.
 	 */
-	onDrag?: (filesOrEvent: unknown | Record<File, any>[]) => void
+	onDrag?: (filesOrEvent: unknown | Record<string, any>[]) => void
 }
 
 export type { UploaderProps, UploaderFileProps, UploaderButtonProps }

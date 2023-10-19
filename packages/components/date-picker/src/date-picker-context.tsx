@@ -24,7 +24,9 @@ import {
 	DatePickerProps,
 } from "./date-picker.types"
 
-const DatePickerContext = createContext<DatePickerContextProps>()
+const DatePickerContext = createContext<DatePickerContextProps | undefined>(
+	undefined,
+)
 
 // today's date
 const today = new Date()
@@ -73,15 +75,16 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		...defaultRange,
 	})
 	const [hoverDay, setHoverDay] = useState<Date>()
-	const [startMonth, setFirstMonth] = useState<Date | string | undefined>(
+	const [startMonth, setFirstMonth] = useState<Date | number>(
 		initialFirstMonth || today,
 	)
-	const [endMonth, setSecondMonth] = useState<Date | string | undefined>(
+	const [endMonth, setSecondMonth] = useState<Date | number>(
 		initialSecondMonth || addMonths(startMonth, 1),
 	)
 
 	useEffect(() => {
 		setDateRange(defaultRange)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [props.startDate, props.endDate])
 
 	// Extract startDate and endDate from the dateRange state.
@@ -107,13 +110,15 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 
 		if (newStart && newEnd) {
 			// Constrain the startDate and endDate to be within minDateValid and maxDateValid.
-			range.startDate = newStart = max([newStart, minDateValid])
-			range.endDate = newEnd = min([newEnd, maxDateValid])
+			range.startDate = newStart = max([newStart, minDateValid as Date])
+			range.endDate = newEnd = min([newEnd, maxDateValid as Date])
 
 			// Set the date range state.
 			setDateRange(range)
 			// Call the onChange callback with the updated date range.
-			onChange(range)
+			if (onChange) {
+				onChange(range)
+			}
 
 			// Set the startMonth and endMonth states based on the newStart and newEnd.
 			setFirstMonth(newStart)
@@ -126,7 +131,9 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 
 			// Set the date range state and call the onChange callback with the empty range.
 			setDateRange(emptyRange)
-			onChange(emptyRange)
+			if (onChange) {
+				onChange(emptyRange)
+			}
 
 			// Reset the startMonth and endMonth to the current month and next month, respectively.
 			setFirstMonth(today)
@@ -147,7 +154,9 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 			// If there's a startDate but no endDate, set the endDate to the clicked day.
 			const newRange = { startDate, endDate: day }
 			// Call the onChange callback with the updated date range.
-			onChange(newRange)
+			if (onChange) {
+				onChange(newRange)
+			}
 			// Set the date range state.
 			setDateRange(newRange)
 		} else {
@@ -168,21 +177,22 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		}
 	}
 
-	const jumpToDate = (val: number) => {
+	const jumpToDate = (val: number | string) => {
 		const firstCalendar = toggleId === CALENDARS.START_MONTH
+		const value = val as number
 
 		// set year for single date
 		if (isSingle) {
-			setFirstMonth(setYear(startMonth, val))
+			setFirstMonth(setYear(startMonth, value))
 			return
 		}
 
 		if ("months" === listType) {
-			setFirstMonth(setMonth(startMonth, firstCalendar ? val : val - 1))
-			setSecondMonth(setMonth(startMonth, firstCalendar ? val + 1 : val))
+			setFirstMonth(setMonth(startMonth, firstCalendar ? value : value - 1))
+			setSecondMonth(setMonth(startMonth, firstCalendar ? value + 1 : value))
 		} else if ("years" === listType) {
-			setFirstMonth(setYear(startMonth, val))
-			setSecondMonth(addMonths(setYear(startMonth, val), 1))
+			setFirstMonth(setYear(startMonth, value))
+			setSecondMonth(addMonths(setYear(startMonth, value), 1))
 		}
 	}
 

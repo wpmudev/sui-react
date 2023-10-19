@@ -1,11 +1,11 @@
-# `@wpmudev/sui-notification`
+# `@wpmudev/sui-editor-toolbar`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactNotification = require('@wpmudev/sui-notification');
+const editorToolbar = require('@wpmudev/sui-editor-toolbar');
 
 // TODO: DEMONSTRATE API
 ```

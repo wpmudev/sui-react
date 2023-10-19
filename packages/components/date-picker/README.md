@@ -1,11 +1,11 @@
-# `@wpmudev/sui-code-snippet`
+# `@wpmudev/sui-date-picker`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactCodeSnippet = require('@wpmudev/sui-code-snippet');
+const colorPicker = require('@wpmudev/sui-date-picker');
 
 // TODO: DEMONSTRATE API
 ```

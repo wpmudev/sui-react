@@ -1,4 +1,4 @@
-# `@wpmudev/sui-code-snippet`
+# `@wpmudev/sui-tree-view`
 
 > TODO: description
 

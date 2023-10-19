@@ -44,20 +44,21 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	}, [isExpanded, onToggle])
 
 	// Determine the icon component based on the 'icon' prop
+	/*eslint import/namespace: ['error', { allowComputed: true }]*/
+	// @ts-ignore
 	const IconTag = Icons?.[icon]
 
 	// Determine the icon component based on the 'icon' prop
+	// @ts-ignore
 	const StatusIcon = Icons?.[statusIcon]
 
 	// Prepare attributes for the tag component
 	const tagAttrs = {
-		design: "outlined",
-		color: "black",
 		...tagProps,
 	}
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="dashboard-widget">
 			<div className="sui-dashboard-widget__header">
 				<div className="sui-dashboard-widget__header-title">
 					<div className="sui-dashboard-widget__header-info">
@@ -66,13 +67,20 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 						{/* Display the title and optional tag */}
 						<h4 className="sui-heading--h4 sui-dashboard-widget__header-title">
 							{title ?? "Title of Upsell"}
-							{tag && <Tag {...(tagAttrs ?? {})}>{tag}</Tag>}
+							{tag && (
+								<Tag color="black" design="outlined" {...(tagAttrs ?? {})}>
+									{tag}
+								</Tag>
+							)}
 							{statusIcon && <StatusIcon size="sm" {...(statusProps ?? {})} />}
 						</h4>
 					</div>
 					{/* Display collapse/expand button if allowed */}
 					{canCollapse && (
-						<div className="sui-dashboard-widget__header-actions">
+						<div
+							className="sui-dashboard-widget__header-actions"
+							data-testid="dashboard-widget-"
+						>
 							<Toggle
 								isLabelHidden={true}
 								label="Toggle Widget"

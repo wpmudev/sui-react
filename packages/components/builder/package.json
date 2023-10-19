@@ -1,9 +1,16 @@
 {
   "name": "@wpmudev/sui-builder",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Shared builder UI/UX",
   "keywords": [],
-  "author": "Govind <gkprmr@gmail.com>",
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
+    }
+  ],
   "license": "ISC",
   "main": "src/index.ts",
   "directories": {
@@ -11,7 +18,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -21,18 +28,33 @@
     "url": "git+https://iamleigh@github.com/wpmudev/sui-docs.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:fast": "npx tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-docs/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "clean-package": "../../../postpack.config.json",
   "devDependencies": {
-    "@types/sortablejs": "^1.15.2",
-    "react": "^18.2.0"
+    "@types/sortablejs": "^1.15.2"
   },
   "dependencies": {
+    "react": "^18.2.0",
     "react-sortablejs": "^6.1.4",
-    "sortablejs": "^1.15.0"
+    "sortablejs": "^1.15.0",
+    "@wpmudev/sui-utils": "*",
+    "@wpmudev/sui-hooks": "*",
+    "@wpmudev/sui-button": "*",
+    "@wpmudev/sui-grid": "*",
+    "@wpmudev/sui-icons": "*",
+    "@wpmudev/sui-icon": "*"
   }
 }

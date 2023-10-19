@@ -31,12 +31,12 @@ interface EditorToolbarProps {
 	/**
 	 * Callback function to handle the back button click event.
 	 */
-	onBackClick(): void
+	onBackClick?(): void
 
 	/**
 	 * Callback function to handle the setting button click event.
 	 */
-	onSettingClick(): void
+	onSettingClick?(): void
 
 	/**
 	 * Elements to be included in the middle of the toolbar.

@@ -1,9 +1,9 @@
 {
   "name": "@wpmudev/sui-uploader",
-  "version": "0.0.0",
-  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "version": "0.0.1",
+  "description": "WPMU DEV Shared UI React Uploader Component",
   "keywords": [],
-  "author": "Leighton <2328848+iamleigh@users.noreply.github.com>",
+  "author": "WPMU DEV (https://wpmudev.com)",
   "license": "ISC",
   "main": "src/index.ts",
   "directories": {
@@ -11,7 +11,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -21,17 +21,24 @@
     "url": "git+https://iamleigh@github.com/wpmudev/sui-docs.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:fast": "npx tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-docs/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
-  "devDependencies": {
-    "@wpmudev/sui-box": "^0.0.0",
-    "react": "^18.2.0"
+  "peerDependencies": {
+    "react": ">=18"
   },
+  "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-button" : "^0.0.0"
+    "@wpmudev/sui-box": "*",
+    "react": "^18.2.0",
+    "@wpmudev/sui-button": "*"
   }
 }

@@ -1,20 +1,19 @@
 import React from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
-
 import { EmptyStateProps } from "./empty-state.types"
 
 /**
- * EmptyState Component
+ * Component for displaying an empty state message with an optional logo.
  *
- * It represents an empty state with a logo, title, content, and optional additional actions.
- *
- * @return {React.ReactNode} The EmptyState component.
+ * @param {EmptyStateProps} props - Component props
+ * @return {JSX.Element} The rendered component.
  */
 const EmptyState: React.FC<EmptyStateProps> = ({
 	logo,
 	className,
 	children,
+	...props
 }) => {
 	const classNames = generateCN("sui-empty-state", {}, className)
 
@@ -22,7 +21,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 	const isImg = "string" === typeof logo
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} {...props}>
 			{/* Render the logo if provided. If it's an image URL, display it as an <img> element; otherwise, render it as is. */}
 			{!!logo && (
 				<div className="sui-empty-state__logo">

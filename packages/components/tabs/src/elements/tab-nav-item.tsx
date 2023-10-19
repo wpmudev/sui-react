@@ -1,11 +1,12 @@
 // Import necessary modules and types
 import React, { FC, useCallback, useContext } from "react"
+
 import { generateCN } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
+import { InfoAlt, CheckAlt } from "@wpmudev/sui-icons"
 
 import { TabContextProps, TabNavItemProps } from "../tabs.types"
 import { TabContext } from "./tab-context"
-import { InfoAlt, CheckAlt } from "@wpmudev/sui-icons"
 
 // Define the TabNavItem component as a functional component
 const TabNavItem: FC<TabNavItemProps> = ({
@@ -43,7 +44,8 @@ const TabNavItem: FC<TabNavItemProps> = ({
 	}
 
 	// extract state icon
-	const StateIcon = stateIcons[stateIcon]
+	// @ts-ignore
+	const StateIcon = stateIcons[stateIcon ?? ""]
 
 	// Manage interaction methods
 	const [isHovered, isFocused, interactionMethods] = useInteraction({})

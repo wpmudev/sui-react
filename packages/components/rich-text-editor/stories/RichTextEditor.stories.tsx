@@ -19,7 +19,7 @@ export default {
 }
 
 // Build "Tag" story.
-const RichTextEditor = ({ color, ...props }) => {
+const RichTextEditor = ({ color, ...props }: { color: string }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -30,7 +30,7 @@ const RichTextEditor = ({ color, ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiRichTextEditor {...props}></SuiRichTextEditor>
+					<SuiRichTextEditor {...props} />
 				</div>
 			</div>
 		</div>

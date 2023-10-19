@@ -30,7 +30,7 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 	)
 
 	return (
-		<div className={classNames} {...methods}>
+		<div className={classNames} {...methods} data-testid="setting-block">
 			<div className="sui-setting-block__info">
 				<div className="sui-setting-block__info-title sui-heading--h5">
 					{title}

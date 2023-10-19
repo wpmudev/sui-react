@@ -10,7 +10,7 @@ import {
 import { Button as Base } from "./button"
 import { ToggleButtonProps } from "./button-toggle.types"
 
-// Build "Loading Button" component.
+// Build "Toggle Button" component.
 const ToggleButton: React.FC<ToggleButtonProps> = ({
 	href,
 	htmlFor,

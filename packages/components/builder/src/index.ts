@@ -4,7 +4,7 @@ export { BuilderField } from "./builder-field"
 export { BuilderButton } from "./builder-button"
 export { BuilderEmpty } from "./builder-empty"
 
-export {
+export type {
 	BuilderProps,
 	BuilderButtonProps,
 	BuilderEmptyProps,

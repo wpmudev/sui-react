@@ -1,11 +1,11 @@
 import React from "react"
 
 // Import required component(s).
-import { Select as Base } from "./select-base"
+import { Select as Base, SelectBaseProps } from "./select-base"
 
 // Build "Multi Select" component.
-const MultiSelect = ({ ...props }) => {
-	return <Base isMultiSelect={true} {...props} />
+const MultiSelect: React.FC<SelectBaseProps> = ({ ...props }) => {
+	return <Base {...props} isMultiSelect={true} />
 }
 
 // Publish required component(s).

@@ -1,10 +1,10 @@
-import React from "react"
+import React, { MouseEventHandler } from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 
 interface SelectIconProps {
 	name: string
 	size: "sm" | "md" | "lg"
-	onClick?(): void
+	onClick?: MouseEventHandler<HTMLSpanElement>
 }
 
 // Build "Icon" component.

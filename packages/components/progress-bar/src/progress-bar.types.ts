@@ -1,3 +1,5 @@
+import { MouseEventHandler } from "react"
+
 /**
  * Interface representing the properties of a progress bar component.
  */
@@ -45,7 +47,7 @@ interface ProgressBarProps {
 	/**
 	 * Callback function when the progress bar is clicked.
 	 */
-	onClick?: (e) => void
+	onClick?: MouseEventHandler
 }
 
 export type { ProgressBarProps }

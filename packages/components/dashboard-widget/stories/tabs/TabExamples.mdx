@@ -1,0 +1,92 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { DashboardWidgetExample } from "./Examples/Example"
+import {
+	Accordion,
+	AccordionItem,
+	AccordionItemBody,
+} from "@wpmudev/sui-accordion"
+import dedent from "dedent"
+
+export const generalCode = (props = "") => dedent`
+import React from "react"
+import { DashboardWidget } from "@wpmudev/dashboard-widget"
+import {
+	Accordion,
+	AccordionItem,
+	AccordionItemBody,
+} from "@wpmudev/sui-accordion"
+import { Button } from "@wpmudev/sui-button"
+import { Notification } from "@wpmudev/sui-notification"
+
+const actions = [ <Button key={0} appearance="secondary" color="black"
+isSmall={true} > Primary </Button>, "Automatic scans are running weekly", ]
+
+export const DashboardWidgetExample = () => {
+    return (
+        <div style={{ backgroundColor: "#f0f0f1", padding: 40 }}>
+            <DashboardWidget
+                ${props}
+                title="Malware Scanning"
+                description={
+                    <>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry. Lorem Ipsum has been the industry&apos;s standard dummy
+                            text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book.
+                        </p>
+                        <Notification
+                            id="notice"
+                            icon="InfoAlt"
+                            variation="info"
+                            size="fluid"
+                            message="11 events logged in the past 7 days."
+                        />
+                    </>
+                }
+                tag="Tag"
+                icon="CheckAlt"
+                statusIcon="Bell"
+                statusProps={{
+                    color: "success",
+                }}
+                actions={actions}
+            >
+                <Accordion noBorderRadius={true} noSideBorders={true}>
+                    <AccordionItem title="Tab Title 1">
+                        <AccordionItemBody>BODY CONTENT</AccordionItemBody>
+                    </AccordionItem>
+                    <AccordionItem title="Tab Title 1">
+                        <AccordionItemBody>BODY CONTENT</AccordionItemBody>
+                    </AccordionItem>
+                </Accordion>
+            </DashboardWidget>
+        </div>
+    )
+}
+`
+
+<Section style={{ paddingTop: 30 }}>
+	<p>Below is an example of Dashboard Widget with actions</p>
+	<Preview wrapper={true}>
+		<DashboardWidgetExample />
+	</Preview>
+	<Snippet language="js">{generalCode()}</Snippet>
+</Section>
+
+<Section title="Disabled" style={{ paddingTop: 30 }}>
+	<p>Set the prop <Code small={true}>isDisabled=\{true\}</Code> to disable the widget</p>
+	<Preview wrapper={true}>
+		<DashboardWidgetExample isDisabled={true}/>
+	</Preview>
+	<Snippet language="js">{generalCode("isDisable={true}")}</Snippet>
+</Section>
+
+<Section title="Collapse" style={{ paddingTop: 30 }}>
+	<p>Set the prop <Code small={true}>canCollapse=\{true\}</Code> to make the widget collapsable with a toggle button</p>
+	<p> Use the props  <Code small={true}>isExpanded</Code> and <Code small={true}>onToggle</Code> to set and modify the collapsing state</p>
+	<Preview wrapper={true}>
+		<DashboardWidgetExample canCollapse={true}/>
+	</Preview>
+	<Snippet language="js">{generalCode("canCollapse={true}")}</Snippet>
+</Section>

@@ -1,24 +1,42 @@
-import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
-import { Recipient } from '../../../src';
-import dedent from 'dedent';
+import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Recipient } from "../../../src"
+import dedent from "dedent"
 
 export const ConfirmedRecipientCode = dedent`
-import React from 'react';\n
-import { Recipient } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Recipient userName="Recipient name" userEmail="email@example.com" userConfirmed={true} />;
-}\n
-export default Example;
-`;
+    <Recipient
+        status="confirmed"
+        userName="Recipient name" 
+        userEmail="email@example.com" 
+    />
+`
+
+export const NotAcceptedCode = dedent`
+    <Recipient
+        status="not-accepted"
+        userName="Recipient name" 
+        userEmail="email@example.com" 
+    />
+`
+
+export const NotConnectedCode = dedent`
+    <Recipient
+        status="not-connected"
+        userName="Recipient name" 
+        userEmail="email@example.com" 
+    />
+`
 
 export const InvitedRecipientCode = dedent`
-import React from 'react';\n
-import { Recipient } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Recipient userName="Recipient name" userEmail="email@example.com" isInvited={true} />;
-}\n
-export default Example;
-`;
+    <Recipient 
+        isInvited={true} 
+        userName="Recipient name" 
+        userEmail="email@example.com" 
+    />
+`
+
+<Section contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+	To change the recipient status use the prop <Code small={true}>status</Code>
+</Section>
 
 <Section
 	title="Confirmed"
@@ -26,14 +44,46 @@ export default Example;
 	border={true}
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
-	<p>
-		Set the <Code small={true}>userConfirmed</Code> prop to
-		<Code small={true}>true</Code>.
-	</p>
 	<Preview wrapper={true}>
-		<Recipient userName="Recipient name" userEmail="email@example.com" userConfirmed={true} />
+		<Recipient
+			status="confirmed"
+			userName="Recipient name"
+			userEmail="email@example.com"
+		/>
 	</Preview>
 	<Snippet language="js">{ConfirmedRecipientCode}</Snippet>
+</Section>
+
+<Section
+	title="Not Accepted"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Recipient
+			userName="Recipient name"
+			userEmail="email@example.com"
+			status="not-accepted"
+		/>
+	</Preview>
+	<Snippet language="js">{NotAcceptedCode}</Snippet>
+</Section>
+
+<Section
+	title="Not Connected"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Recipient
+			userName="Recipient name"
+			userEmail="email@example.com"
+			status="not-connected"
+		/>
+	</Preview>
+	<Snippet language="js">{NotConnectedCode}</Snippet>
 </Section>
 
 <Section
@@ -44,10 +94,14 @@ export default Example;
 >
 	<p>
 		Set the <Code small={true}>isInvited</Code> prop to
-		<Code small={true}>true</Code>.
+		<Code small={true}>true</Code> to change the recipient state to be "invited"
 	</p>
 	<Preview wrapper={true}>
-		<Recipient userName="Recipient name" userEmail="email@example.com" isInvited={true} />
+		<Recipient
+			userName="Recipient name"
+			userEmail="email@example.com"
+			isInvited={true}
+		/>
 	</Preview>
 	<Snippet language="js">{InvitedRecipientCode}</Snippet>
 </Section>

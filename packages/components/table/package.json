@@ -1,9 +1,9 @@
 {
   "name": "@wpmudev/sui-table",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "WPMU DEV Shared UI Table Component",
   "keywords": [],
-  "author": "Govind <gkprmr@gmail.com>",
+  "author": "WPMU DEV (https://wpmudev.com)",
   "license": "GPL-2.0",
   "main": "src/index.ts",
   "directories": {
@@ -11,7 +11,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -21,19 +21,31 @@
     "url": "git+https://iamleigh@github.com/wpmudev/sui-docs.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:fast": "npx tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-docs/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
-  "devDependencies": {
-    "@wpmudev/sui-box": "^0.0.0",
-    "react": "^18.2.0"
+  "peerDependencies": {
+    "react": ">=18"
   },
+  "clean-package": "../../../postpack.config.json",
   "dependencies": {
+    "react": "^18.2.0",
     "react-sortablejs": "^6.1.4",
     "sortablejs": "^1.15.0",
-    "@types/sortablejs": "^1.15.1"
+    "@types/sortablejs": "^1.15.1",
+    "@wpmudev/sui-box": "*",
+    "@wpmudev/sui-icons": "*",
+    "@wpmudev/sui-utils": "*",
+    "@wpmudev/sui-hooks": "*",
+    "@wpmudev/sui-checkbox": "*",
+    "@wpmudev/sui-button": "*"
   }
 }

@@ -46,11 +46,13 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 		className,
 	)
 
+	// FOR ICONS WE NEED TO CREATE THEIR TYPE IN SUI-ICONS PACKAGE TO REPLACE ANY TYPE
+
 	// Determine the IconTag based on the provided icon value
-	let IconTag = null
+	let Icon: any = null
 
 	if (!isEmpty(icon)) {
-		IconTag = Icons?.[icon ?? ""]
+		Icon = (Icons as any)[icon]
 	}
 
 	// Check if the field has an accordion section
@@ -74,8 +76,8 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 					</span>
 				)
 				break
-			case !!IconTag:
-				logo = <IconTag size="sm" />
+			case !!Icon && null !== Icon:
+				logo = <Icon size="sm" />
 				break
 		}
 
@@ -112,6 +114,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 						isSmall={true}
 						className="sui-builder__field-toggle-btn"
 						onClick={toggleBody}
+						data-testid="builder-field-toggle"
 					/>
 				</div>
 			)}
@@ -120,10 +123,13 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 
 	return (
 		<Col size={columnSize ?? 12} {...props} {...methods}>
-			<div className={classNames}>
+			<div className={classNames} data-testid="builder-field">
 				<div className="sui-builder__field-header">
 					{allowDrag && (
-						<div className="sui-builder__field-move">
+						<div
+							className="sui-builder__field-move"
+							data-testid="builder-field-drag"
+						>
 							<Icons.Grip size="md" />
 						</div>
 					)}

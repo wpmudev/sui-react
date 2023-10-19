@@ -12,12 +12,16 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 }) => {
 	// Icon for the specified plugin or use a default "Plugin" icon.
 	const PluginIcon: PluginIconTypes = !isEmpty(plugin)
-		? PluginsIcons?.[plugin]
+		? // @ts-ignore
+		  PluginsIcons?.[plugin]
 		: { icon: "Plugin" }
 
 	// Dynamically determine the IconTag based on the provided icon prop.
 	let IconTag = null
 	if (!!PluginIcon) {
+		/*eslint import/namespace: ['error', { allowComputed: true }]*/
+		// @ts-ignore
+		// WE NEED TO WRITE TYPE FOR SUI-ICONS PACKAGE FOR ALL EXPORTED ICONS
 		IconTag = Icons?.[PluginIcon?.icon ?? ""]
 	}
 

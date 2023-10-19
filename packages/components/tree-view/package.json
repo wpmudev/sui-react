@@ -1,11 +1,15 @@
 {
   "name": "@wpmudev/sui-tree-view",
-  "version": "0.0.0",
-  "private": true,
-  "description": "WPMU DEV Shared UI React Code Editor Component",
+  "version": "0.0.1",
+  "description": "WPMU DEV Shared UI React Tree View Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
+    },
     {
       "name": "Leighton Sapir",
       "email": "2328848+iamleigh@users.noreply.github.com",
@@ -15,11 +19,6 @@
       "name": "Pawan Kumar",
       "email": "40248406+creador-dev@users.noreply.github.com",
       "url": "https://creador.dev/"
-    },
-    {
-      "name": "Govind Kumar",
-      "email": "gkprmr@gmail.com",
-      "url": "https://govind.js.org/"
     }
   ],
   "license": "GPL-2.0",
@@ -29,7 +28,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -39,17 +38,30 @@
     "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:fast": "npx tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-docs/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "clean-package": "../../../postpack.config.json",
   "devDependencies": {
-    "@wpmudev/sui-tooltip": "^0.0.0",
-    "@wpmudev/sui-utils": "^0.0.0",
     "react": "^18.2.0",
     "prismjs": "^1.29.0",
     "react-prism-editor": "^1.1.2"
+  },
+  "dependencies": {
+    "@wpmudev/sui-tooltip": "*",
+    "@wpmudev/sui-utils": "*",
+    "@wpmudev/sui-hooks": "*",
+    "@wpmudev/sui-checkbox": "*"
   }
 }

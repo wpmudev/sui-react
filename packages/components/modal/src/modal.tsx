@@ -69,6 +69,7 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 					role="dialog"
 					className={classNames}
 					aria-modal={true}
+					data-testid="modal"
 				>
 					<div className={generateCN("sui-modal__container", {})}>
 						{children}

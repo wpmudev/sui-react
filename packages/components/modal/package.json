@@ -1,10 +1,15 @@
 {
   "name": "@wpmudev/sui-modal",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Modal",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org"
+    },
     {
       "name": "Leighton Sapir",
       "email": "2328848+iamleigh@users.noreply.github.com",
@@ -18,7 +23,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -29,18 +34,26 @@
     "directory": "packages/react-modal"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:fast": "npx tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-react/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
-  "devDependencies": {
-    "react": "^18.2.0"
+  "peerDependencies": {
+    "react": ">=18"
   },
+  "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-box": "^0.0.0",
-    "@wpmudev/sui-button": "^0.0.0",
-    "@wpmudev/sui-utils": "^0.0.0"
+    "react": "^18.2.0",
+    "@wpmudev/sui-utils": "*",
+    "@wpmudev/sui-hooks": "*",
+    "@wpmudev/sui-icons": "*",
+    "@wpmudev/sui-button": "*"
   }
 }

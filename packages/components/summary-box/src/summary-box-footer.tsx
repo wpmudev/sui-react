@@ -18,7 +18,11 @@ const SummaryFooterBody: React.FC<SummaryFooterBodyProps> = ({
 	const classNames = generateCN("sui-summary-box__footer", {}, className)
 
 	// Render the SummaryFooterBody component with a div element, applying the specified CSS classes.
-	return <div className={classNames}>{children}</div>
+	return (
+		<div className={classNames} data-testid="summary-box-footer">
+			{children}
+		</div>
+	)
 }
 
 export { SummaryFooterBody }

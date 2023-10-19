@@ -72,24 +72,22 @@ const SummaryBox = ({ color }) => {
 									title="Browser Caching"
 									description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
 									actionIcon="InfoAlt"
-									actionState="green"
 								/>,
 								<SummaryBoxItem
 									key={1}
 									title="Gzip compression"
 									titleUrl={"google.com"}
 									description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-									actionIcon={false}
-									actionTitle="10.33%"
-									actionState="green"
+									tagTitle="10.33%"
+									tagColor="green"
 								/>,
 								<SummaryBoxItem
 									key={2}
 									title="Assets Optimization"
 									description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+									tagTitle="10.33%"
 									actionIcon="CheckAlt"
-									actionTitle="10.33%"
-									actionState="success"
+									actionIconColor="success"
 								/>,
 							]}
 						>

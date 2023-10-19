@@ -18,6 +18,10 @@ interface FieldListProps {
 	 * The content of the field list.
 	 */
 	children?: React.ReactNode
+	/**
+	 * A callback function to be invoked when when one of the fields state changes
+	 */
+	onToggle?: (id: string, checked: boolean) => void
 }
 
 /**
@@ -36,6 +40,10 @@ interface FieldListItemProps extends ToggleProps {
 	 * The content of the field list item.
 	 */
 	children?: React.ReactNode
+	/**
+	 * Whether the toggle is checked or not
+	 */
+	isChecked?: boolean
 }
 
 export type { FieldListProps, FieldListItemProps }

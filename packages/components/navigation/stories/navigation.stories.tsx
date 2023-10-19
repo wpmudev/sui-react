@@ -21,7 +21,7 @@ export default {
 }
 
 // Build story
-export const Navigation = ({ example, ...props }) => {
+export const Navigation = ({ ...props }) => {
 	const actions = [
 		<Button
 			key={0}
@@ -49,7 +49,6 @@ export const Navigation = ({ example, ...props }) => {
 				<div>
 					<SuiNavigation
 						{...props}
-						actions={actions}
 						brand={{
 							title: "Smush Pro",
 							description: "Description",
@@ -118,10 +117,6 @@ export const Navigation = ({ example, ...props }) => {
 							label="Connect features"
 							direction="left"
 							isSmall={true}
-							isResponsive={true}
-							onMenuClick={(id, e) => {
-								console.log("DEBUG: Menu Item Clicked", id, e)
-							}}
 							menu={[
 								{
 									id: "group-1",

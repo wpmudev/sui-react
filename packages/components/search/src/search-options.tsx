@@ -14,7 +14,7 @@ const SearchOptions: React.FC<SearchOptionsProps> = ({
 
 	// Handle option item click
 	const onOptionClick = useCallback(
-		(option) => {
+		(option: string) => {
 			setIsPopoverVisible(false)
 			setValue(option)
 		},

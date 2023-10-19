@@ -84,6 +84,15 @@ interface NavigationProps {
 	 * Optional: Navigation content.
 	 */
 	children?: ReactNode
+
+	/*
+	 * Optional: User
+	 */
+	user?: NavigationUserProps
+	/**
+	 * Navigation actions list
+	 */
+	actions?: ReactNode[]
 }
 
-export { NavigationProps, NavigationBrandProps, NavigationUserProps }
+export type { NavigationProps, NavigationBrandProps, NavigationUserProps }

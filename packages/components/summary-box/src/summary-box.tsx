@@ -2,7 +2,6 @@ import React from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 import { Box } from "@wpmudev/sui-box"
-// import * as Icons from "@wpmudev/sui-icons"
 
 import { SummaryBoxProps } from "./summary-box.types"
 
@@ -29,7 +28,7 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	const attrs = {
 		title,
 		className: classNames,
-		icon: undefined, // The icon will be set later based on the provided icon prop or a default value.
+		icon: "", // The icon will be set later based on the provided icon prop or a default value.
 		isSmall: true, // Set the summary box size to small.
 		hideMobileIcon,
 	}
@@ -40,6 +39,7 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	return (
 		<Box
 			{...attrs}
+			data-testid="summary-box"
 			className="sui-summary-box"
 			headerLeft={
 				<div className="sui-summary-box__quick-actions">

@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-react",
   "description": "Reusable building blocks of our design system based on React.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "GPL-3.0",
   "keywords": [
     "incsub",
@@ -33,7 +33,7 @@
     "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
-    "format-files": "clear && yarn prettier --write .",
+    "format-files": "clear && npm run prettier --write .",
     "build-css": "clear && lerna run build",
     "storybook": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
@@ -46,6 +46,10 @@
   "workspaces": [
     "packages/**/*"
   ],
+  "dependencies": {
+    "@types/dedent": "^0.7.0",
+    "classnames": "^2.3.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@storybook/addon-actions": "^7.0.25",
@@ -58,6 +62,7 @@
     "@storybook/react": "^7.0.25",
     "@storybook/react-webpack5": "^7.0.25",
     "@storybook/testing-library": "^0.2.0",
+    "@testing-library/jest-dom": "^6.1.4",
     "@wordpress/stylelint-config": "^20.0.2",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
@@ -73,6 +78,9 @@
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
     "stylelint": "^14.9.1"
+  },
+  "peerDependencies": {
+    "react": ">=18"
   },
   "resolutions": {
     "glob-parent": "^6.0.2",
@@ -92,8 +100,5 @@
       "documentation": "📝 Documentation",
       "internal": "🏠 Internal"
     }
-  },
-  "dependencies": {
-    "classnames": "^2.3.2"
   }
 }

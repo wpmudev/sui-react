@@ -1,97 +1,215 @@
-import { Section, Row, Col, List } from '@wpmudev/storybook';
+import { Section, Row, Col, List } from "@wpmudev/storybook"
 
-import SelectAnatomy from '../images/anatomy-select.png';
-import ExpandedAnatomy from '../images/anatomy-expanded.png';
-import MultiSelectAnatomy from '../images/anatomy-multiselect.png';
+import SingleAnatomy from "../images/single-anatomy.svg"
+import SingleStates from "../images/single-states.svg"
+import SmartAnatomy from "../images/smart-anatomy.svg"
+import SmartStates from "../images/smart-states.svg"
+import SmartExpanded from "../images/smart-states.svg"
+import ExpandedAnatomy from "../images/expanded-anatomy.svg"
+import ExpandedStates from "../images/expanded-states.svg"
+import MultisekectAnatomy from "../images/multiselect-anatomy.svg"
+import MultiselectStates from "../images/multiselect-states.svg"
+import Sizes from "../images/sizes.svg"
 
-<Section contained={true} border={true} style={{ paddingTop: 0 }}>
-	<p>
-		The select element is used for a drop-down list. It's commonly used in forms to get user input. Select inputs allow users to choose from a set of options.
-	</p>
+<Section title="Single Select" style={{ paddingTop: 20 }}>
+	<h3 style={{color: "#0059FF", paddingTop: 20}}>Anatomy</h3>
+	<Row>
+		<Col size="3">
+    		<img src={SingleAnatomy} alt="Sinlge Select Anatomy" style={{ paddingTop: 20 }}/>
+    	</Col>
+		<Col style={ { display: "flex", justifyContent: "center", flexDirection: "column" } }>
+    		<h3 style={{marginTop: 0}}>1. Value</h3>
+    		<p>Pre-defined value</p>
+
+    		<h3>2. Icon</h3>
+    		<p>Icon show the status if Drop-down list is open or close, if user open the list it will expand the list with chevron-down icon will be replaced with chevron-up</p>
+
+    	</Col>
+    </Row>
+
+    <h3 style={{color: "#0059FF", paddingTop: 20}}>States</h3>
+
+    <img src={SingleStates} alt="Sinlge Select States" style={{ paddingTop: 20 }} />
+
+    <Row style={{ paddingTop: 20 }}>
+    	<Col>
+    		<h3>1. Default</h3>
+    		<p>Default state where the user can use the Select Element.</p>
+
+    		<h3>3. Focus</h3>
+    		<p>There will be a focus state after the user change value of the Select elements.</p>
+
+    		<h3>5. Error</h3>
+    		<p>When the user doesn’t choose the correct value for this element, the user will get Visual feedback of the error.</p>
+
+    	</Col>
+    	<Col>
+    		<h3>2. Hover</h3>
+    		<p>Element switches to this state when users hover over the Select button.</p>
+
+    		<h3>4. Disabled</h3>
+    		<p>When the Toggle is disabled, users are not allowed to use the Select button,</p>
+    	</Col>
+    </Row>
+
 </Section>
 
-<Section title="Anatomy - Select" contained={true} border={true}>
-	<img
-		src={SelectAnatomy}
-		alt="Select anatomy"
-		style={{ marginBottom: 20 }}
-	/>
+<Section title="Smart Search" style={{ paddingTop: 20 }}>
+	<h3 style={{color: "#0059FF", paddingTop: 20}}>Anatomy</h3>
+	<Row>
+		<Col style={ { display: "flex", justifyContent: "center", flexDirection: "column" } }>
+    		<h3 style={{marginTop: 0}}>1. Value</h3>
+    		<p>Pre-defined value</p>
+
+    		<h3>2. Icon</h3>
+    		<p>Icon show the status if Drop-down list is open or close, if user open the list it will expand the list with chevron-down icon will be replaced with chevron-up</p>
+    	</Col>
+
+    	<Col size="3">
+    		<img src={SmartAnatomy} alt="Smart Search Anatomy" style={{ paddingTop: 20 }}/>
+    	</Col>
+    </Row>
+
+    <h3 style={{color: "#0059FF", paddingTop: 20}}>States</h3>
+    <img src={SmartStates} alt="Smart Search States" style={{ paddingTop: 20 }}/>
+
+    <Row>
+    	<Col style={ { display: "flex", justifyContent: "center", flexDirection: "column" } }>
+    		<h3 style={{marginTop: 20}}>1. Default</h3>
+    		<p>The default display state</p>
+
+    		<h3 style={{marginTop: 20}}>3. Disabled</h3>
+    		<p>Represents the state when the select is non-interactive</p>
+
+    		<h3 style={{marginTop: 20}}>5. Remove Selection</h3>
+    		<p>Represents the state where an item has been selected</p>
+
+    		<h3 style={{marginTop: 20}}>7. Focus</h3>
+    		<p>Represents the state Where the select is focused</p>
+    	</Col>
+
+    	<Col size="3">
+    		<h3 style={{marginTop: 20}}>2. Hover</h3>
+    		<p>When the user hovers over the select, it will have a blue border</p>
+
+    		<h3 style={{marginTop: 20}}>4. Selected</h3>
+    		<p>Represents the state where an item has been selected</p>
+
+
+    		<h3 style={{marginTop: 20}}>6. Search</h3>
+    		<p>Represents the state where the user is still typing</p>
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Expand States" style={{ paddingTop: 20 }}>
+    <h3 style={{color: "#0059FF", paddingTop: 20}}>Anatmoy</h3>
+    <Row>
+    	<Col>
+    		<img src={ExpandedAnatomy} alt="Select Expanded Anatomy" />
+    	</Col>
+
+    	<Col style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
+    		<h3>1. Text Input field</h3>
+    		<p>The field where users click in to receive the suggestions they can choose from. Once selected, the user's choices are then shown in the field.</p>
+
+    		<h3>2. Options</h3>
+    		<p>Contains the list of all selectable items. These can be grouped into sub-categories under headings</p>
+    	</Col>
+    </Row>
+
+    <h3 style={ { color: "#0059FF", paddingTop: 20 } }>States</h3>
+    <img src={ExpandedStates} alt="Select Expanded States" />
+    <Row>
+    	<Col>
+    		<h3>1. Expand</h3>
+    		<p>Represent the default state when the select is expanded</p>
+
+    		<h3>3. Expanded + Search</h3>
+    		<p>The expanded state for the search variation</p>
+    	</Col>
+
+    	<Col>
+    		<h3>2. Expanded + Icons</h3>
+    		<p>Expanded State for items with icons</p>
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Multiselect" style={{ paddingTop: 20 }}>
+	  <h3 style={{ color: "#0059FF", paddingTop: 20 }}>Anatomy</h3>
+	  <Row>
+    	<Col style={ { display: "flex", justifyContent: "center", flexDirection: "column" } }>
+    		<img src={MultisekectAnatomy} alt="Multiselect Anatomy" />
+    	</Col>
+
+    	<Col>
+    		<h3>1. Text Input field</h3>
+    		<p>The field where users click in to receive the suggestions they can choose from. Once selected, the user's choices are then shown in the field.</p>
+
+    		<h3>2. Options</h3>
+    		<p>Contains the list of all selectable items. These can be grouped into sub-categories under headings</p>
+
+    		<h3>3. Tag</h3>
+    		<p>Tags show what options have been selected, and can be removed by selecting the adjacent "x"</p>
+
+    		<h3>4. Clear all</h3>
+    		<p>This clears everything in the Selected option field. It only appears when a user has selected at least one option.</p>
+    	</Col>
+    </Row>
+
+    <h3 style={{ color: "#0059FF", paddingTop: 20 }}>States</h3>
+
+    <img src={MultiselectStates} alt="Multiselect States" />
+    <Row>
+    	<Col style={ { display: "flex", justifyContent: "center", flexDirection: "column" } }>
+    		<h3>1. Default</h3>
+    		<p>It’s the default state of Multiselect, where users can add the value when interacting with the component.</p>
+
+    		<h3>3. Filled + hover</h3>
+    		<p>In this Hover state, when the user hovers the mouse pointer over the multi-select field, there will be a 1px Stroke around the Input field.</p>
+
+    		<h3>5. Filled + Active</h3>
+    		<p>When the user is in an Active state, List Expand with the available option and search box. A scroll bar will only appear if the choices are more than Four.</p>
+
+    	</Col>
+
+    	<Col>
+    		<h3>2. Filled</h3>
+    		<p>In this Filled state, the user can see the already filled option.</p>
+
+    		<h3>4. Filled + Focus</h3>
+    		<p>In this Focus state, when the user hovers the mouse pointer over the multi-select field, there will be a 2px Stroke around the Input field.</p>
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Sizes" style={{ paddingTop: 20 }}>
+	<p>In the Select Elements, there are two Different Size, Large and Small.</p>
 	<List>
-		<span
-			label={
-				<>
-					<strong>Value:</strong> The pre-defined value of the select dropdown.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Icon:</strong> Icon show the status if Drop-down list is open or close.
-				</>
-			}
-		/>
+		<span label="Large elements will be use for Large Screen like Desktop." />
+		<span label="Small Elements will be use for Small screen size like tablet, mobile." />
+	</List>
+
+    <img src={Sizes} alt="Select Sizes"/>
+
+</Section>
+
+<Section title="Usecases" style={{ paddingTop: 20 }}>
+	<List>
+		<span label="1. Use concise and descriptive labels so that users clearly know the purpose of the selection. For example, use a 'Save to...' label for a list containing options such as 'Cloud, Local drive, CD'." />
+		<span label="2. Keep options to a single line of text. Use commonly known terms for your" />
+		<span label="3. options, make sure they're clear and direct." />
 	</List>
 </Section>
 
-<Section title="Anatomy - Expanded" contained={true} border={true}>
-	<img
-		src={ExpandedAnatomy}
-		alt="Expanded anatomy"
-		style={{ marginBottom: 20 }}
-	/>
+<Section title="Best Practices" style={{ paddingTop: 20 }}>
 	<List>
-		<span
-			label={
-				<>
-					<strong>Text Input Field:</strong> The field where users click in to receive the suggestions they can choose from. Once selected, the user's choices are then shown in the field.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Options:</strong> Contains the list of all selectable items. These can be grouped into sub-categories under headings.
-				</>
-			}
-		/>
-	</List>
-</Section>
-
-<Section title="Anatomy - Multiselect" contained={true} border={true}>
-	<img
-		src={MultiSelectAnatomy}
-		alt="Multiselect anatomy"
-		style={{ marginBottom: 20 }}
-	/>
-	<List>
-		<span
-			label={
-				<>
-					<strong>Text Input Field:</strong> The field where users click in to receive the suggestions they can choose from. Once selected, the user's choices are then shown in the field.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Options:</strong> Contains the list of all selectable items. These can be grouped into sub-categories under headings.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Search:</strong> The field where user can search for selectable items.
-				</>
-			}
-		/>
-		<span
-			label={
-				<>
-					<strong>Clear all:</strong> This clears everything in the Selected option field. It only appears when a user has selected at least one option.
-				</>
-			}
-		/>
+		<span label="1. Order your list of options in a way that will make the most sense to the user." />
+		<span label="2. Remove options that rarely get used." />
+		<span label="3. Don't overwhelm the user with too many options." />
 	</List>
 </Section>

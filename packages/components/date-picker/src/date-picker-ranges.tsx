@@ -4,15 +4,19 @@ import { isSameDay } from "date-fns"
 import { handleOnKeyDown, generateCN } from "@wpmudev/sui-utils"
 
 import { DatePickerContext } from "./date-picker-context"
+import { DatePickerDateRange } from "./date-picker.types"
 
 /**
  * Compare two date ranges and check if they are the same range.
  *
- * @param {Object} first  - object containing startDate and endDate properties.
- * @param {Object} second - object containing startDate and endDate properties.
+ * @param {DatePickerDateRange} first  - object containing startDate and endDate properties.
+ * @param {DatePickerDateRange} second - object containing startDate and endDate properties.
  * @return {boolean} - if the ranges have the same start and end dates, false otherwise.
  */
-const isSameRange = (first, second) => {
+const isSameRange = (
+	first: DatePickerDateRange,
+	second: DatePickerDateRange,
+) => {
 	// startDate and endDate from the first range object
 	const { startDate: fStart, endDate: fEnd } = first
 	//startDate and endDate from the second range object
@@ -31,11 +35,11 @@ const isSameRange = (first, second) => {
 
 const DatePickerRange = ({}) => {
 	// context of the DatePicker
-	const ctx = useContext(DatePickerContext)
+	const ctx = useContext(DatePickerContext)!
 
 	// Click event for selecting a date range
 	const onRangeClick = useCallback(
-		(data) => {
+		(data: DatePickerDateRange) => {
 			ctx?.setDateRangeValidated(data)
 		},
 		[ctx],
@@ -43,13 +47,13 @@ const DatePickerRange = ({}) => {
 
 	return (
 		<div className="sui-date-picker__range">
-			{ctx?.definedRanges.map((range, index) => (
+			{ctx?.definedRanges?.map((range, index) => (
 				<div
 					key={index}
 					tabIndex={0}
 					role="button"
 					className={generateCN("sui-date-picker__range-button", {
-						active: isSameRange(range, ctx.dateRange),
+						active: isSameRange(range, ctx?.dateRange as DatePickerDateRange),
 					})}
 					onClick={() => onRangeClick(range)}
 					onKeyDown={(e) =>

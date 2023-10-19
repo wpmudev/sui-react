@@ -15,17 +15,18 @@ const Box: React.FC<BoxProps> = ({
 	isSmall,
 	className = "",
 	style = {},
+	...props
 }) => {
 	// Prop(s) validation
 	const hasTitle = !isUndefined(title) && !isEmpty(title)
 	const hasIcon = !isUndefined(icon) && !isEmpty(icon)
-	const hasLeft = !isUndefined(headerRight) && !isEmpty(headerLeft)
-	const hasRight = !isUndefined(headerRight) && !isEmpty(headerRight)
+	const hasLeft = !isUndefined(headerRight) && !!headerLeft
+	const hasRight = !isUndefined(headerRight) && !!headerRight
 
 	const classNames = generateCN("sui-box", { "size-sm": isSmall }, className)
 
 	return (
-		<div className={classNames} style={style ?? {}}>
+		<div className={classNames} style={style ?? {}} {...props}>
 			{hasTitle && (
 				<BoxGroup isInline={true}>
 					<div slot="left">
@@ -34,7 +35,7 @@ const Box: React.FC<BoxProps> = ({
 								className={generateCN(
 									"suicons",
 									{
-										[icon]: true,
+										[icon ?? ""]: true,
 										lg: true,
 									},
 									hideMobileIcon

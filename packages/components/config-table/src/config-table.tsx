@@ -8,8 +8,7 @@ import {
 	TableRow,
 } from "@wpmudev/sui-table"
 import { Button } from "@wpmudev/sui-button"
-import { Box } from "@wpmudev/sui-box"
-import { isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 
 import { ConfigTableTypes } from "./config-table.types"
@@ -76,7 +75,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	 * @param {ConfigActionTypes} type     - The action type.
 	 */
 	const actionClick = useCallback(
-		(configId, type) => {
+		(configId: ConfigId, type: ConfigActionTypes) => {
 			if (onActionClick) {
 				onActionClick(configId, type)
 			}
@@ -84,8 +83,11 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 		[onActionClick],
 	)
 
+	// classnames
+	const classNames = generateCN("sui-config-table", {}, className)
+
 	return (
-		<Table className={`sui-config-table ${className}`} hasToolbar={false}>
+		<Table className={classNames} hasToolbar={false}>
 			<TableHead>
 				<TableRow actions={() => null}>
 					<TableCell isHeading={true} isPrimary={true}>
@@ -136,7 +138,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 								{!isEmpty(config.description ?? "") && (
 									<Tooltip
 										type="icon"
-										name="info-alt"
+										icon="info-alt"
 										position="right-bottom"
 										customWidth={160}
 										customMobileWidth={160}
@@ -146,7 +148,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 								)}
 							</div>
 						</TableCell>
-						{/* Make these dynamic */}
+						{/* @todo: Make these dynamic */}
 						<TableCell>May 21, 2022 @ 6:00 pm</TableCell>
 						<TableCell>May 21, 2022 @ 6:00 pm</TableCell>
 					</TableRow>

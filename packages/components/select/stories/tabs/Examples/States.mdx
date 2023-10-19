@@ -1,84 +1,120 @@
-import { Section, Preview, Snippet, Code } from '@wpmudev/storybook';
-import { Select } from '../../../src';
-import dedent from 'dedent';
+import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { options } from "../TabExamples.mdx"
+import { Select } from "../../../src"
+import dedent from "dedent"
 
-export const DisabledSelectCode = dedent`
-import React from 'react';\n
-import { Select } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Select id="unique-id" label="Select" isDisabled={true} options={options} />;
-}\n
-export default Example;
-`;
+export const disabledCode = dedent`
+  import { Select } from "@wpmudev/sui-select";
+  
+  export const options = [
+    {
+      icon: "settings",
+      id: "option-1",
+      label: "Option 1 is the option.",
+      isSelected: false,
+	  },
+    {
+      icon: "settings",
+      id: "option-2",
+      label: "Option 2",
+      isSelected: false,
+    },
+    {
+      icon: "settings",
+      id: "option-3",
+      label: "Option 3",
+      isSelected: false,
+    },
+  ]
 
-export const ErrorInputCode = dedent`
-import React from 'react';\n
-import { Input } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <Select id="unique-id" label="Select" isError={true} options={options} />;
-}\n
-export default Example;
-`;
+export const Example = () => { 
+    return <Select isDisabled={true} id="disabled" options={options} />
+}`
 
-export const options = [
-	{
-		id: 'option-1',
-		label: 'Option 1 is the option.',
-		isSelected: false
-	},
-	{
-		id: 'option-2',
-		label: 'Option 2',
-		isSelected: false
-	},
-	{
-		id: 'option-3',
-		label: 'Option 3',
-		isSelected: false
-	},
-	{
-		id: 'option-4',
-		label: 'Option 4',
-		isSelected: false
-	},
-	{
-		id: 'option-5',
-		label: 'Option 5',
-		isSelected: false
-	},
-	{
-		id: 'option-6',
-		label: 'Option 6',
-		isSelected: false
-	},
-	{
-		id: 'option-7',
-		label: 'Option 7',
-		isSelected: false
-	},
-	{
-		id: 'option-8',
-		label: 'India',
-		isSelected: false
-	}
-];
+export const smallCode = dedent`
+  import { Select } from "@wpmudev/sui-select";
+  
+  export const options = [
+    {
+      icon: "settings",
+      id: "option-1",
+      label: "Option 1 is the option.",
+      isSelected: false,
+	  },
+    {
+      icon: "settings",
+      id: "option-2",
+      label: "Option 2",
+      isSelected: false,
+    },
+    {
+      icon: "settings",
+      id: "option-3",
+      label: "Option 3",
+      isSelected: false,
+    },
+  ]
+
+export const Example = () => { 
+    return <Select isSmall={true} id="small" options={options} />
+}`
+
+export const errorCode = dedent`
+  import { Select } from "@wpmudev/sui-select";
+  
+  export const options = [
+    {
+      icon: "settings",
+      id: "option-1",
+      label: "Option 1 is the option.",
+      isSelected: false,
+	  },
+    {
+      icon: "settings",
+      id: "option-2",
+      label: "Option 2",
+      isSelected: false,
+    },
+    {
+      icon: "settings",
+      id: "option-3",
+      label: "Option 3",
+      isSelected: false,
+    },
+  ]
+
+export const Example = () => { 
+    return <Select isError={true} id="error" options={options} />
+}`
 
 <Section
-	title="Disabled"
+    title="Disabled"
+    contained={true}
+    border={true}
+    style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+    <p>Set the prop <Code small={true}>isDisabled=\{true\}</Code> to make the select non-interactive</p>
+    <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    	<Select isDisabled={true} id="disabled" options={options}/>
+    </div>
+    <Snippet language="js">{disabledCode}</Snippet>
+
+</Section>
+
+<Section
+	title="Small"
 	contained={true}
 	border={true}
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
 	<p>
-		Set the <Code small={true}>isDisabled</Code> prop to disable a select
-		that is not usable.
+		Set the prop <Code small={true}>isSmall=\{true\}</Code> for smaller version of
+		the select
 	</p>
-	<Preview wrapper={true}>
-		<div style={{ height: '190px' }}>
-			<Select id="select-id-1" label="Select" isDisabled={true} options={options} />
-		</div>
-	</Preview>
-	<Snippet language="js">{DisabledSelectCode}</Snippet>
+	<div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+		<Select isSmall={true} id="small" options={options} />
+	</div>
+	<Snippet language="js">{smallCode}</Snippet>
 </Section>
 
 <Section
@@ -88,13 +124,11 @@ export const options = [
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
 	<p>
-		Set the <Code small={true}>errorMessage</Code> prop to show the error in
-		the field.
+		Set the prop <Code small={true}>isError=\{true\}</Code> to display the select
+		in error state
 	</p>
-	<Preview wrapper={true}>
-		<div style={{ height: '190px' }}>
-			<Select id="select-id-2" label="Select" isError={true} options={options} />
-		</div>
-	</Preview>
-	<Snippet language="js">{ErrorInputCode}</Snippet>
+	<div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+		<Select isError={true} id="error" options={options} />
+	</div>
+	<Snippet language="js">{errorCode}</Snippet>
 </Section>

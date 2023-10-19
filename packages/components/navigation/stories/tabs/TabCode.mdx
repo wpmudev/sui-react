@@ -1,0 +1,82 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Navigation</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+	<Section
+		title={{ content: "brand*", tag: "object", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			Brand information, this represents one of our plugins, the object accepts
+			the following keys
+		</p>
+		<p>
+			<List>
+				<span
+					label={
+						<>
+							<Code small={true}>title*</Code>: The plugin title
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>description*</Code> A subheading that
+							accompagnes the plugin title{" "}
+						</>
+					}
+				/>
+			</List>
+		</p>
+	</Section>
+
+    <Section
+    	title={{ content: "user*", tag: "object", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>
+    		The user information, it accepts two keys
+    	</p>
+    	<p>
+    		<List>
+    			<span
+    				label={
+    					<>
+    						<Code small={true}>user*</Code>: An object with an image, name and email
+    					</>
+    				}
+    			/>
+    			<span
+    				label={
+    					<>
+    						<Code small={true}>menu*</Code> An array of menu items
+    					</>
+    				}
+    			/>
+    		</List>
+    	</p>
+    </Section>
+
+    <Section
+    	title={{ content: "children*", tag: "object", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>
+    		The content of the navigation, usually menu items and buttons
+    	</p>
+
+    </Section>
+
+</Section>

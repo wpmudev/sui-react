@@ -1,20 +1,15 @@
-import { Section, Switcher, Preview, Snippet } from '@wpmudev/storybook';
-import dedent from 'dedent';
-import { RichTextEditor } from '../RichTextEditor.stories';
+import { Section, Switcher, Preview, Snippet } from "@wpmudev/storybook"
+import dedent from "dedent"
+import { RichTextEditor } from "../RichTextEditor.stories"
 
 export const sampleCode = dedent`
-import React from 'react';\n
-import { CodeSnippet } from '@wpmudev/sui-react';\n
-const Example() => {
-	return <CodeSnippet type="markup" copy={false}>{Sample code}</CodeSnippet>;
-}\n
-export default Example;
-`;
+<RichTextEditor />
+`
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>Below is the default form of a code snippet, used for most cases.</p>
-	<Preview wrapper={true}>
-		<RichTextEditor></RichTextEditor>
+	<p>The RichText Editor has one variation which is the following</p>
+	<Preview contained={true} wrapper={true}>
+		<RichTextEditor />
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>

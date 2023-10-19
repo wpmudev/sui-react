@@ -17,7 +17,13 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 
 		let uuid = `sui-radio-${useId()}`
 
-		const { onChange, current, name, asBlock } = useRadio()
+		const {
+			onChange,
+			current,
+			name,
+			asBlock,
+			isDisabled: isGroupDisabled,
+		} = useRadio()
 
 		// use ID from props list if exists
 		if (!!id) {
@@ -31,6 +37,8 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 
 		const checked = value === current
 
+		const isRadioDisabled = isDisabled || isGroupDisabled
+
 		// Define input props
 		const inputProps = {
 			ref,
@@ -40,7 +48,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			value,
 			className: "sui-screen-reader-only",
 			checked,
-			disabled: isDisabled,
+			disabled: isRadioDisabled,
 			onChange: handleOnChange,
 			"aria-labelledby": `${uuid}-label`,
 			...(description && { "aria-describedby": `${uuid}-description` }),
@@ -58,7 +66,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 				// sm: isSmall,
 				hover: isHovered && !checked,
 				focus: isFocused && !checked,
-				disabled: isDisabled,
+				disabled: isRadioDisabled,
 				block: asBlock,
 				checked,
 			}),
@@ -82,7 +90,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 							design="outlined"
 							color="blue"
 							isSmall={false}
-							isDisabled={isDisabled ?? false}
+							isDisabled={isRadioDisabled ?? false}
 						>
 							{tag}
 						</Tag>

@@ -1,14 +1,14 @@
 {
-  "name": "@wpmudev/sui-sui-advanced",
-  "version": "0.0.0",
-  "description": "WPMU DEV Shared UI React sub-package for compound elements",
+  "name": "@wpmudev/sui-advanced",
+  "version": "0.0.1",
+  "description": "WPMU DEV Shared UI React sub-package for advanced elements",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
     {
-      "name": "Leighton Sapir",
-      "email": "2328848+iamleigh@users.noreply.github.com",
-      "url": "https://iamleigh.com"
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
     }
   ],
   "license": "GPL-2.0",
@@ -18,7 +18,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -29,14 +29,44 @@
     "directory": "packages/compound-elements"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:fast": "npx tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-react/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/sui-dropdown": "^0.0.0",
-    "@wpmudev/sui-notification": "^0.0.0"
+    "@wpmudev/sui-accordion": "*",
+    "@wpmudev/sui-code-editor": "*",
+    "@wpmudev/sui-code-snippet": "*",
+    "@wpmudev/sui-color-picker": "*",
+    "@wpmudev/sui-date-picker": "*",
+    "@wpmudev/sui-dropdown": "*",
+    "@wpmudev/sui-empty-state": "*",
+    "@wpmudev/sui-field-password": "*",
+    "@wpmudev/sui-modal": "*",
+    "@wpmudev/sui-notification": "*",
+    "@wpmudev/sui-progress-bar": "*",
+    "@wpmudev/sui-select": "*",
+    "@wpmudev/sui-sidebar": "*",
+    "@wpmudev/sui-summary-box": "*",
+    "@wpmudev/sui-tabs": "*",
+    "@wpmudev/sui-tree-view": "*",
+    "@wpmudev/sui-uploader": "*",
+    "@wpmudev/sui-field-list": "*",
+    "@wpmudev/sui-recipient": "*",
+    "@wpmudev/sui-rich-text-editor": "*",
+    "@wpmudev/sui-advanced-banner": "*",
+    "@wpmudev/sui-builder": "*",
+    "@wpmudev/sui-editor-toolbar": "*",
+    "@wpmudev/sui-pagination": "*",
+    "@wpmudev/sui-search": "*",
+    "@wpmudev/sui-basic-box": "*",
+    "@wpmudev/sui-setting-block": "*"
   }
 }

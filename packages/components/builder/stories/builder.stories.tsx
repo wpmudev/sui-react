@@ -27,13 +27,9 @@ const Builder = ({ ...props }) => {
 		<Dropdown
 			buttonIcon="settings"
 			label="Connect features"
-			appearance="tertiary"
 			direction="left"
 			isSmall={true}
 			iconOnly={true}
-			onMenuClick={(id, e) => {
-				console.log("DEBUG: Menu Item Clicked", id, e)
-			}}
 			menu={[]}
 		>
 			MENU ITEMS
@@ -83,14 +79,9 @@ const Builder = ({ ...props }) => {
 								<Dropdown
 									buttonIcon="settings"
 									label="Connect features"
-									appearance="tertiary"
 									direction="left"
 									isSmall={true}
 									iconOnly={true}
-									isResponsive={true}
-									onMenuClick={(id, e) => {
-										console.log("DEBUG: Menu Item Clicked", id, e)
-									}}
 									menu={[]}
 								/>
 							}

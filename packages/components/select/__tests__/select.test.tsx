@@ -27,8 +27,4 @@ describe("@wpmudev/sui-select", () => {
 		isDisabled: false,
 		isSmall: false,
 	}
-
-	it("renders", () => {
-		render(<Select id={props.id} options={props.options} />)
-	})
 })

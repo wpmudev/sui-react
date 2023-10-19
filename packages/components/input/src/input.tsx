@@ -16,11 +16,10 @@ import {
 	handleOnKeyDown,
 } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
-import { CloseAlt } from "@wpmudev/sui-icons"
+import { Button } from "@wpmudev/sui-button"
 
 import { Icon } from "./elements/input-icon"
 import { InputProps } from "./input.types"
-import { Button } from "@wpmudev/sui-button"
 
 // Build input component
 const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
@@ -208,7 +207,9 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							iconSize={isSmall ? "md" : "lg"}
 							onClick={onClear}
 							isSmall={isSmall}
-							onKeyDown={(e) => handleOnKeyDown(e, onClear)}
+							onKeyDown={(
+								e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
+							) => handleOnKeyDown(e, onClear)}
 						>
 							Clear
 						</Button>

@@ -36,7 +36,12 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 			>
 				{title}
 			</TreeViewInfo>
-			<ul role="group" aria-label={title} className={classNames}>
+			<ul
+				role="group"
+				aria-label={title}
+				className={classNames}
+				data-test="tree-view-group"
+			>
 				{/* Render child items within the group */}
 				{children}
 			</ul>

@@ -2,7 +2,6 @@ import React, { FC, useCallback } from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
-import * as Icons from "@wpmudev/sui-icons"
 import { Button } from "@wpmudev/sui-button"
 
 // Import required element(s)
@@ -41,6 +40,7 @@ const BuilderButton: FC<BuilderButtonProps> = ({
 			className={classNames}
 			{...methods}
 			onClick={onButtonClick}
+			data-testid="builder-add-more"
 		>
 			{!isEmpty(title ?? "") && <span>{title}</span>}
 		</Button>

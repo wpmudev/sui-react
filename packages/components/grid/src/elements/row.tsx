@@ -5,7 +5,7 @@ import { isEmpty } from "@wpmudev/sui-utils"
 import { RowProps } from "../grid.types"
 
 const Row: React.FC<RowProps> = ({ align, className, children, ...props }) => {
-	const expectedAligns = {
+	const expectedAligns: Record<string, any> = {
 		xs: "",
 		sm: "",
 		md: "",

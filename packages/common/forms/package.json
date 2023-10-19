@@ -1,14 +1,14 @@
 {
   "name": "@wpmudev/sui-forms",
-  "version": "0.0.0",
-  "description": "WPMU DEV Shared UI React sub-package for simple elements",
+  "version": "0.0.1",
+  "description": "WPMU DEV Shared UI React sub-package for form elements",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
     {
-      "name": "Leighton Sapir",
-      "email": "2328848+iamleigh@users.noreply.github.com",
-      "url": "https://iamleigh.com"
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
     }
   ],
   "license": "GPL-2.0",
@@ -18,7 +18,7 @@
     "test": "__tests__"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
@@ -29,15 +29,25 @@
     "directory": "packages/simple-elements"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:fast": "npx tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-react/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/sui-avatar": "^0.0.0",
-    "@wpmudev/sui-button": "^0.0.0",
-    "@wpmudev/sui-tag": "^0.0.0"
-  }
+    "@wpmudev/sui-checkbox": "*",
+    "@wpmudev/sui-radio": "*",
+    "@wpmudev/sui-button": "*",
+    "@wpmudev/sui-form-field": "*",
+    "@wpmudev/sui-input": "*",
+    "@wpmudev/sui-textarea": "*",
+    "@wpmudev/sui-toggle": "*"
+  },
+  "clean-package": "../../../postpack.config.json"
 }

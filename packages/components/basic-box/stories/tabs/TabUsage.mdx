@@ -1,0 +1,30 @@
+import { Section, Row, Col } from "@wpmudev/storybook"
+
+import Anatomy from "../images/anatomy.svg"
+import Spacings from "../images/spacings.svg"
+import Examples from "../images/examples.svg"
+import Configs from "../images/configs.svg"
+
+<Section title="Anatomy" style={{ paddingTop: 20 }}>
+	<img src={Anatomy} alt="Basic Box Anatomy" style={{ marginBottom: 20 }} />
+	<h3>1. Box header</h3>
+	<p>Box header can have a simple title and description.</p>
+
+    <h3>2. Box body</h3>
+    <p>Box body is a flexible area where the main content can be inserted. It may include list, table or any type of content.</p>
+
+    <h3>3. Box footer</h3>
+    <p>
+    	Box footer is a footer area which is generally used to display the buttons. However, it can be modified as the design requirement.
+    </p>
+
+</Section>
+
+<Section title="Spacings" style={{ paddingTop: 20 }}>
+	<img src={Spacings} alt="Basic Box Spacings" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="Examples" style={{ paddingTop: 20 }}>
+	<img src={Examples} alt="Basic Box Examples" style={{ marginBottom: 20 }} />
+	<img src={Configs} alt="Basic Box Configs" style={{ marginBottom: 20 }} />
+</Section>

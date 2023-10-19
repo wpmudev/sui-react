@@ -130,10 +130,10 @@ type Falsy = false | null | undefined | 0 | ""
  * @param {Date}              defaultValue - The default value to be returned if the parsing fails or the input is falsy.
  * @return {Date} - The parsed Date if valid, or the defaultValue if invalid or falsy.
  */
-export const parseDate = (date: Date | string | Falsy, defaultValue: Date) => {
+export const parseDate = (date: Date | string | Falsy, defaultValue?: Date) => {
 	if (date) {
 		// Attempt to parse the provided date using date-fns parse function.
-		const parsed = parse(date, "dd/MM/yyyy", new Date())
+		const parsed = parse(date as string, "dd/MM/yyyy", new Date())
 
 		// Check if the parsed date is valid.
 		if (isValid(parsed)) {
@@ -148,12 +148,12 @@ export const parseDate = (date: Date | string | Falsy, defaultValue: Date) => {
 /**
  * Gets the start and end months of the given range, constrained by the minDate and maxDate.
  *
- * @param {Object} range   - An object containing 'startDate' and 'endDate' properties.
- * @param {Date}   minDate - The minimum allowed date for the range.
- * @param {Date}   maxDate - The maximum allowed date for the range.
+ * @param {Object}         range   - An object containing 'startDate' and 'endDate' properties.
+ * @param {Date|undefined} minDate - The minimum allowed date for the range.
+ * @param {Date|undefined} maxDate - The maximum allowed date for the range.
  * @return {Array<Date>} - An array containing the start and end months of the range, constrained by minDate and maxDate.
  */
-export const getMonths = (range: any, minDate: Date, maxDate: Date) => {
+export const getMonths = (range: any, minDate?: Date, maxDate?: Date) => {
 	const { startDate, endDate } = range
 
 	if (startDate && endDate) {

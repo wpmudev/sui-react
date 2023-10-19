@@ -25,13 +25,12 @@ export default {
 }
 
 // Build story
-// eslint-disable-next-line react/prop-types
-export const DashboardWidget = ({ example, icon, ...props }) => {
+export const DashboardWidget = ({ ...props }) => {
 	const [isExpanded, setIsExpanded] = useState<boolean>(true)
 
 	const box = {
 		display: "flex",
-		flexDirection: "column",
+		"flex-direction": "column",
 		gap: "8px",
 		margin: "0 0 20px",
 		padding: "30px",
@@ -84,8 +83,8 @@ DashboardWidget.args = {
 		<Fragment>
 			<p>
 				Lorem Ipsum is simply dummy text of the printing and typesetting
-				industry. Lorem Ipsum has been the industry's standard dummy text ever
-				since the 1500s, when an unknown printer took a galley of type and
+				industry. Lorem Ipsum has been the industry&apos;s standard dummy text
+				ever since the 1500s, when an unknown printer took a galley of type and
 				scrambled it to make a type specimen book.
 			</p>
 			<Notification
@@ -104,7 +103,7 @@ DashboardWidget.args = {
 	icon: "CheckAlt",
 	statusIcon: "InfoAlt",
 	statusProps: {
-		color: "warning",
+		color: "informative",
 	},
 }
 

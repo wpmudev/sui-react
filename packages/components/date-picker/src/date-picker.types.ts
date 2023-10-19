@@ -1,10 +1,14 @@
 interface DatePickerDateRange {
-	startDate?: string | Date
-	endDate?: string | Date
+	startDate?: number | Date
+	endDate?: number | Date
 }
 
 type DatePickerTypes = "single" | "range"
 type DatePickerNavs = "months" | "years"
+
+type DatePickerPredefined = {
+	label: "Today" | "Tomorrow" | "1 Week" | "30 days" | "Custom"
+} & DatePickerDateRange
 
 /**
  * Represents the properties for a code snippet component.
@@ -13,7 +17,7 @@ interface DatePickerProps {
 	/**
 	 * Specifies the type of DatePicker (e.g., single date, date range)
 	 */
-	type: DatePickerTypes
+	type?: DatePickerTypes
 	/**
 	 * CSS class for styling the component
 	 */
@@ -39,6 +43,10 @@ interface DatePickerProps {
 	 */
 	endDate?: string
 	/**
+	 * Predefined date ranges to be shown in the DatePicker (in date range mode)
+	 */
+	definedRanges?: DatePickerPredefined[]
+	/**
 	 * children element of a datepicker
 	 */
 	children?: React.ReactNode
@@ -47,21 +55,21 @@ interface DatePickerProps {
 	 *
 	 * @param {string | Date | DatePickerDateRange} value
 	 */
-	onChange: (value: string | Date | DatePickerDateRange) => void
+	onChange?: (value: string | Date | DatePickerDateRange) => void
 }
 interface DatePickerContextProps {
 	/**
 	 * Flag indicating whether the DatePicker is in single date mode
 	 */
-	isSingle: boolean
+	isSingle?: boolean
 	/**
 	 * Flag indicating whether the DatePicker is disabled or not
 	 */
-	isDisabled: boolean
+	isDisabled?: boolean
 	/**
 	 * Flag indicating whether the DatePicker is open (visible)
 	 */
-	isOpen: boolean
+	isOpen?: boolean
 	/**
 	 * Function to set the open state of the DatePicker
 	 *
@@ -71,11 +79,11 @@ interface DatePickerContextProps {
 	/**
 	 * Type of the list (e.g., 'month', 'year') used in the DatePicker
 	 */
-	listType: string
+	listType?: string
 	/**
 	 * ID or symbol used to identify the toggle element
 	 */
-	toggleId: string | symbol
+	toggleId?: string | symbol
 	/**
 	 * Function to open a specific toggle element
 	 *
@@ -90,23 +98,23 @@ interface DatePickerContextProps {
 	/**
 	 * Minimum selectable date (converted from the minDate prop)
 	 */
-	minDateValid: Date
+	minDateValid?: Date
 	/**
 	 * Maximum selectable date (converted from the maxDate prop)
 	 */
-	maxDateValid: Date
+	maxDateValid?: Date
 	/**
 	 * Predefined date ranges to be shown in the DatePicker (in date range mode)
 	 */
-	definedRanges: DatePickerDateRange[]
+	definedRanges?: DatePickerProps["definedRanges"]
 	/**
 	 * Start month for the displayed calendar (in date range mode)
 	 */
-	startMonth: Date | string | undefined
+	startMonth?: Date | number
 	/**
 	 * End month for the displayed calendar (in date range mode)
 	 */
-	endMonth: Date | string | undefined
+	endMonth?: Date | number
 	/**
 	 * Function to set the validated first month in date range mode
 	 *
@@ -125,6 +133,10 @@ interface DatePickerContextProps {
 	 * @param {DatePickerDateRange} range
 	 */
 	setDateRangeValidated(range: DatePickerDateRange): void
+	/**
+	 * Start and end date object
+	 */
+	dateRange?: DatePickerDateRange
 	helpers: {
 		/**
 		 * Helper function to check if a day is in the hover range
@@ -138,7 +150,7 @@ interface DatePickerContextProps {
 		 *
 		 * @param {number} val
 		 */
-		jumpToDate: (val: string | number) => void
+		jumpToDate: (val: number | string) => void
 		/**
 		 * Helper function to open a specific toggle element
 		 *
@@ -174,7 +186,7 @@ interface DatePickerContextProps {
 	}
 }
 
-export {
+export type {
 	DatePickerDateRange,
 	DatePickerProps,
 	DatePickerTypes,

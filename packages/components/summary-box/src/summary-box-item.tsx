@@ -21,9 +21,10 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	titleUrl = "",
 	description = "",
 	className,
-	actionTitle = "",
+	tagTitle = "",
+	tagColor = "default",
 	actionIcon = "",
-	actionState = "default",
+	actionIconColor = "default",
 }) => {
 	// Hook for handling interaction state (hover, focus).
 	const [isHovered, isFocused, methods] = useInteraction({})
@@ -40,18 +41,19 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	// Dynamically determine the IconTag based on the provided actionIcon prop.
 	let IconTag = null
 	if (!!actionIcon) {
+		// @ts-ignore
 		IconTag = Icons?.[actionIcon]
 	}
 
 	return (
-		<Row className={classNames} {...methods}>
+		<Row className={classNames} {...methods} data-testid="summary-box-item">
 			<div className="sui-summary-box__list-item-info">
 				{!isEmpty(titleUrl) ? <a href={titleUrl}>{title}</a> : title}
 				{!isEmpty(description ?? "") && (
 					<Tooltip
 						label="(info)"
 						type="icon"
-						name="info-alt"
+						icon="info-alt"
 						position="top"
 						customWidth={300}
 						customMobileWidth={200}
@@ -60,12 +62,12 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 					</Tooltip>
 				)}
 			</div>
-			{(!isEmpty(actionTitle) || !isEmpty(actionIcon)) && (
+			{(!isEmpty(tagTitle) || !isEmpty(actionIcon)) && (
 				<div className="sui-summary-box__list-item-status">
 					{IconTag ? (
-						<IconTag color={actionState} size="md" />
+						<IconTag color={actionIconColor} size="md" />
 					) : (
-						<Tag color={actionState}>{actionTitle}</Tag>
+						<Tag color={tagColor}>{tagTitle}</Tag>
 					)}
 				</div>
 			)}

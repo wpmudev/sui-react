@@ -14,8 +14,8 @@ interface NotificationProps {
 	isInline?: boolean // flag to indicate if the notification is displayed inline
 	isDismissible?: boolean // make notification dismissible
 	timeout?: number // make notification invisible
-	size?: "sm" | "lg" | "fluid" // size variation for the notification (small, large, or fluid)
-	variation?: "info" | "success" | "warning" | "error" // variation type for the notification
+	size?: "sm" | "lg" | "fluid" | string // size variation for the notification (small, large, or fluid)
+	variation?: "info" | "success" | "warning" | "error" | string // variation type for the notification
 }
 
 export type { NotificationProps }

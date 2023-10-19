@@ -53,13 +53,16 @@ const Notification: React.FC<NotificationProps> = ({
 	// generate classnames
 	const classNames = generateCN("sui-notification", {
 		inline: isInline,
-		[size]: !isEmpty(size ?? ""),
-		[variation]: ["success", "warning", "error", "info"].includes(
+		[size as string]: !isEmpty(size ?? ""),
+		[variation as string]: ["success", "warning", "error", "info"].includes(
 			variation ?? "",
 		),
 	})
 
 	// Get SVG Icon
+	/*eslint import/namespace: ['error', { allowComputed: true }]*/
+	// @ts-ignore
+	// WE NEED TO WRITE TYPE FOR SUI-ICONS PACKAGE
 	const Icon = Icons?.[icon]
 
 	return (
@@ -69,6 +72,7 @@ const Notification: React.FC<NotificationProps> = ({
 			role="alert"
 			aria-labelledby={`${notificationId}-title`}
 			aria-describedby={`${notificationId}-message`}
+			data-testid="notification"
 		>
 			{!!Icon && <Icon size="md" className="sui-notification__icon" />}
 			<div className="sui-notification__content">
@@ -99,6 +103,7 @@ const Notification: React.FC<NotificationProps> = ({
 					isSmall={true}
 					iconOnly={true}
 					onClick={onClose}
+					data-testid="notification-dismiss"
 				/>
 			)}
 		</div>

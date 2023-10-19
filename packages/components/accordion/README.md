@@ -1,11 +1,11 @@
-# `@wpmudev/sui-score`
+# `@wpmudev/sui-accordion`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactButton = require('@wpmudev/sui-score');
+const reactButton = require('@wpmudev/sui-accordion');
 
 // TODO: DEMONSTRATE API
 ```

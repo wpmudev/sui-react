@@ -20,7 +20,16 @@ export default {
 }
 
 // Build "Tag" story.
-const DatePicker = ({ color, error, isDisabled, ...props }) => {
+const DatePicker = ({
+	color,
+	error,
+	isDisabled,
+	...props
+}: {
+	color: string
+	error: string
+	isDisabled: boolean
+}) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -38,13 +47,7 @@ const DatePicker = ({ color, error, isDisabled, ...props }) => {
 						error={error}
 						isDisabled={isDisabled}
 					>
-						<SuiDatePicker
-							isDisabled={isDisabled}
-							{...props}
-							onChange={console.log}
-						>
-							DISPLAY RANGE PICKER
-						</SuiDatePicker>
+						<SuiDatePicker isDisabled={isDisabled} {...props} />
 					</FormField>
 				</div>
 			</div>

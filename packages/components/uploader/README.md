@@ -1,11 +1,11 @@
-# `@wpmudev/react-alertbanner`
+# `@wpmudev/react-uploader`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactAlertBanner = require('@wpmudev/react-alertbanner');
+const uploader = require('@wpmudev/react-uploader');
 
 // TODO: DEMONSTRATE API
 ```
