@@ -1,24 +1,4 @@
-import React from "react"
-
-// Import required component(s)
-import { ConfigTable as SuiConfigTable } from "../src"
-import { configs } from "./configs"
-
-// Import documentation main page
-// import docs from "./config-table.mdx"
-
-export default {
-	title: "SUI/Components/Collections/Config Table",
-	component: SuiConfigTable,
-	parameters: {
-		layout: "fullscreen",
-		docs: {
-			// page: docs,
-		},
-	},
-}
-
-export const Configs = [
+export const configs = [
 	{
 		id: 1,
 		name: "Default config",
@@ -81,20 +61,3 @@ export const Configs = [
 		plugin: "1081721",
 	},
 ]
-        
-// Build story
-export const ConfigTable = ({ ...props }) => {
-	return (
-		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
-			<div className="sui-layout__content">
-				<div>
-					<SuiConfigTable {...props} configs={Configs} />
-				</div>
-			</div>
-		</div>
-	)
-}
-
-ConfigTable.args = {}
-
-ConfigTable.argTypes = {}
