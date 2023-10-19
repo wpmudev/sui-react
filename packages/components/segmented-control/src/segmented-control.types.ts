@@ -1,21 +1,13 @@
 import React from "react"
-
+import { IconsNamesType } from "@wpmudev/sui-icons/dist"
 /**
  * This interface defines the props for the SegmentedButton component.
  */
 interface SegmentedControlProps {
-	// An optional icon to be displayed within the segmented control.
-	icon?: string
 	// Radio button name
 	name: string
 	// The child elements to be rendered inside the segmented control (the individual segments).
 	children?: React.ReactNode
-	// A boolean indicating if this is the first button in the segmented control (optional).
-	isFirst?: boolean
-	// A boolean indicating if this is the last button in the segmented control (optional).
-	isLast?: boolean
-	// A boolean indicating whether the label should be hidden for accessibility (optional).
-	isLabelHidden?: boolean
 	// A boolean indicating whether the segmented control should take full width (optional).
 	isFullWidth?: boolean
 	// A callback function triggered when the value of the segmented control changes.
@@ -35,7 +27,7 @@ interface SegmentedControlButtonProps {
 	// A boolean indicating whether the segmented control should hide label in mobile view (optional).
 	isResponsive?: boolean
 	// An optional icon to be displayed within the button.
-	icon?: string
+	icon?: IconsNamesType
 	// The label for accessibility purposes (optional).
 	ariaLabel?: string
 	// The child elements to be rendered inside the button (optional).
