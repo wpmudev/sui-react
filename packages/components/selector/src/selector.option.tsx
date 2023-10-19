@@ -23,7 +23,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 	tagColor,
 }) => {
 	// Custom hook to handle interaction states (hover, focus, etc.)
-	const [isHovered, isFocused, methods] = useInteraction({})
+	const [isHovered, _isFocused, methods] = useInteraction({})
 
 	// Generate CSS class names
 	const classNames = generateCN("sui-selector__option", {})

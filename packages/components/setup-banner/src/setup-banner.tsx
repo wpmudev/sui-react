@@ -1,9 +1,10 @@
 import React from "react"
 
 import { generateCN, PluginIconTypes, PluginsIcons } from "@wpmudev/sui-utils"
-import * as Icons from "@wpmudev/sui-icons"
+import Icons from "@wpmudev/sui-icons"
 
 import { SetupBannerProps } from "./setup-banner.types"
+import { IconsNamesType } from "@wpmudev/sui-icons/dist"
 
 /**
  * SetupBanner renders a banner with optional icon and description.
@@ -30,9 +31,7 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 	// Dynamically determine the IconTag based on the provided icon prop.
 	let IconTag = null
 	if (!!Plugin?.icon) {
-		/*eslint import/namespace: ['error', { allowComputed: true }]*/
-		// @ts-ignore
-		IconTag = Icons?.[Plugin?.icon]
+		IconTag = Icons[Plugin?.icon as IconsNamesType]
 	}
 
 	return (
