@@ -1,11 +1,9 @@
 import React, { Fragment, useCallback, useState } from "react"
-
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
-
 import { Col } from "@wpmudev/sui-grid"
 import { Button } from "@wpmudev/sui-button"
-
+import { IconProps } from "@wpmudev/sui-icon"
 import Icons from "@wpmudev/sui-icons"
 
 // Import required element(s)
@@ -47,7 +45,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 	)
 
 	// Determine the IconTag based on the provided icon value
-	let Icon: any = null
+	let Icon: React.ComponentType<IconProps> | null = null
 
 	if (icon) {
 		Icon = Icons[icon]
