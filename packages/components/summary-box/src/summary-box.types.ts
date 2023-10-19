@@ -1,6 +1,7 @@
 import React, { HTMLProps, ReactNode } from "react"
 import { TagProps } from "@wpmudev/sui-tag"
 import { IconProps } from "@wpmudev/sui-icon"
+import { IconsNamesType } from "@wpmudev/sui-icons/dist"
 
 /**
  * SummaryBoxProps Interface
@@ -93,7 +94,7 @@ interface SummaryBoxItemProps extends HTMLProps<HTMLDivElement> {
 	/**
 	 * The item action icon
 	 */
-	actionIcon?: string
+	actionIcon?: IconsNamesType
 	/**
 	 * Action icon color
 	 */

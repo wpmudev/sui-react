@@ -1,8 +1,9 @@
 import React, { KeyboardEvent, useCallback } from "react"
 
-import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
+import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
-import * as Icons from "@wpmudev/sui-icons"
+import Icons from "@wpmudev/sui-icons"
+import { IconProps } from "@wpmudev/sui-icon"
 
 // Import required element(s)
 import { SidebarItemProps } from "./sidebar.types"
@@ -11,7 +12,7 @@ import { SidebarItemProps } from "./sidebar.types"
 // This component represents an item within a sidebar navigation.
 const SidebarItem: React.FC<SidebarItemProps> = ({
 	url = "#",
-	icon = "",
+	icon,
 	title = "",
 	className,
 	action,
@@ -36,11 +37,10 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 	)
 
 	// Determine the IconTag based on the provided icon value.
-	let IconTag = null
-	if (!isEmpty(icon)) {
-		/*eslint import/namespace: ['error', { allowComputed: true }]*/
-		// @ts-ignore
-		IconTag = Icons?.[icon ?? ""]
+	let IconTag: React.ComponentType<IconProps> | null = null
+
+	if (icon) {
+		IconTag = Icons[icon]
 	}
 
 	const onClickCallback = useCallback(
@@ -58,12 +58,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 		<a
 			className={classNames}
 			href={url}
-			{...methods}
-			{...props}
 			tabIndex={isDisabled ? -1 : 0}
 			onClick={onClickCallback}
 			onKeyDown={(e) => handleOnKeyDown(e, onClickCallback)}
 			data-testid="sidebar-item"
+			{...methods}
+			{...props}
 		>
 			{/* Display item info, including optional icon and title */}
 			<div className="sui-sidebar__item-info">
