@@ -2,13 +2,13 @@ import React, { MouseEvent, KeyboardEvent } from "react"
 import classnames from "classnames"
 
 /**
- * Generate classnames based on the prop vars
+ * Generate class names based on the prop variables.
  *
- * @param {string}                           base
- * @param {Record<string, any>} variants
- * @param {string}                           extraClassNames extra class names
+ * @param {string}              base            - The base class name.
+ * @param {Record<string, any>} variants        - A mapping of variant names to their boolean values.
+ * @param {string}              extraClassNames - Additional class names to be included.
  *
- * @return {string} classnames
+ * @return {string} - The generated class names.
  */
 const generateCN = (
 	base: string,

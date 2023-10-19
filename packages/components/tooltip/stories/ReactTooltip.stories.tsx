@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component.
-import { Tooltip as SuiTooltip } from "../src"
+import { Tooltip as SuiTooltip, TooltipBaseProps } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactTooltip.mdx"
@@ -25,25 +25,16 @@ const Tooltip = ({
 	href,
 	tootlipText,
 	target,
-	appearance,
 	position,
 	customWidth,
 	customMobileWidth,
 	color,
-}) => {
+}: { example: string; tootlipText: string } & TooltipBaseProps) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
 		background: color !== "white" ? "#fff" : "#333",
 	}
-
-	const set = {}
-
-	set.content = tootlipText
-
-	const props = {}
-
-	props.appearance = appearance
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
@@ -58,7 +49,7 @@ const Tooltip = ({
 							customWidth={customWidth}
 							customMobileWidth={customMobileWidth}
 						>
-							{set.content}
+							{tootlipText}
 						</SuiTooltip>
 					)}
 
@@ -70,7 +61,7 @@ const Tooltip = ({
 							customWidth={customWidth}
 							customMobileWidth={customMobileWidth}
 						>
-							{set.content}
+							{tootlipText}
 						</SuiTooltip>
 					)}
 
@@ -85,7 +76,7 @@ const Tooltip = ({
 							customWidth={customWidth}
 							customMobileWidth={customMobileWidth}
 						>
-							{set.content}
+							{tootlipText}
 						</SuiTooltip>
 					)}
 					{"icon" === example && (
@@ -97,7 +88,7 @@ const Tooltip = ({
 							customWidth={customWidth}
 							customMobileWidth={customMobileWidth}
 						>
-							{set.content}
+							{tootlipText}
 						</SuiTooltip>
 					)}
 				</div>

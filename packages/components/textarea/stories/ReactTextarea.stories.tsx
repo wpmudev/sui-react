@@ -18,7 +18,7 @@ const Textarea = ({ ...args }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiTextarea rows="4" {...args} />
+					<SuiTextarea rows={4} {...args} />
 				</div>
 			</div>
 		</div>

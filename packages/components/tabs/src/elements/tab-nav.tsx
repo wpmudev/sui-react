@@ -66,14 +66,14 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 
 	// Check if content is scrollable on mount and add scroll event listener
 	useEffect(() => {
+		const currentNavRef = navRef?.current
+
 		handleScroll()
-		navRef?.current?.addEventListener("scroll", handleScroll)
+		currentNavRef?.addEventListener("scroll", handleScroll)
 
 		// Clean up the event listener when the component unmounts
 		return () => {
-			if (!!navRef?.current) {
-				navRef?.current?.removeEventListener("scroll", handleScroll)
-			}
+			currentNavRef?.removeEventListener("scroll", handleScroll)
 		}
 	}, [handleScroll])
 
