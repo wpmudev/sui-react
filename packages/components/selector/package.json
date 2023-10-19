@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-selector",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Selector component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -48,7 +48,12 @@
     "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "react": "^18.2.0"
+  "dependencies": {
+    "react": "^18.2.0",
+    "@wpmudev/sui-tooltip": "*",
+    "@wpmudev/sui-utils": "*",
+    "@wpmudev/sui-hooks": "*",
+    "@wpmudev/sui-icons": "*",
+    "@wpmudev/sui-tag": "*"
   }
 }

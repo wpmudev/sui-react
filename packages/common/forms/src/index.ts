@@ -1,16 +1,9 @@
-// Import core modules
-import { Button, LoadingButton, ToggleButton } from "@wpmudev/sui-button"
-// import { IconButton, LoadingIconButton } from "@wpmudev/sui-icon-button"
-import { Avatar } from "@wpmudev/sui-avatar"
-import { Tag } from "@wpmudev/sui-tag"
+import * as Checkbox from "@wpmudev/sui-checkbox"
+import * as Radio from "@wpmudev/sui-radio"
+import * as Button from "@wpmudev/sui-button"
+import * as FormField from "@wpmudev/sui-form-field"
+import * as Input from "@wpmudev/sui-input"
+import * as Textarea from "@wpmudev/sui-textarea"
+import * as Toggle from "@wpmudev/sui-toggle"
 
-// Publish core modules
-export {
-	Button,
-	LoadingButton,
-	ToggleButton,
-	// IconButton,
-	// LoadingIconButton,
-	Avatar,
-	Tag,
-}
+export { Checkbox, Radio, Button, FormField, Input, Textarea, Toggle }

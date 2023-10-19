@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-link",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Link Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -49,12 +49,12 @@
     "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "@wpmudev/sui-utils": "^0.0.0",
-    "react": "^18.2.0"
-  },
   "dependencies": {
-    "@wpmudev/sui-button": "^0.0.0",
-    "@wpmudev/sui-table": "0.0.0"
+    "react": "^18.2.0",
+    "@wpmudev/sui-button": "*",
+    "@wpmudev/sui-table": "*",
+    "@wpmudev/sui-utils": "*",
+    "@wpmudev/sui-icons": "*",
+    "@wpmudev/sui-hooks": "*"
   }
 }

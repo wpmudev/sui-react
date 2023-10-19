@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-uploader",
-  "version": "0.0.0",
-  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "version": "0.0.1",
+  "description": "WPMU DEV Shared UI React Uploader Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -48,11 +48,9 @@
     "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "@wpmudev/sui-box": "^0.0.0",
-    "react": "^18.2.0"
-  },
   "dependencies": {
-    "@wpmudev/sui-button": "^0.0.0"
+    "@wpmudev/sui-box": "*",
+    "react": "^18.2.0",
+    "@wpmudev/sui-button": "*"
   }
 }

@@ -1,11 +1,11 @@
-# `@wpmudev/compound-elements`
+# `@wpmudev/sui-advanced`
 
 > TODO: description
 
 ## Usage
 
 ```
-const compoundElements = require('@wpmudev/compound-elements');
+const advanced = require('@wpmudev/sui-advanced');
 
 // TODO: DEMONSTRATE API
 ```

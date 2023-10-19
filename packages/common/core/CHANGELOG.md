@@ -1,6 +1,31 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+## 0.0.1
+
+### Patch Changes
+
+- Initial release
+- Updated dependencies
+  - @wpmudev/sui-avatar@0.0.1
+  - @wpmudev/sui-box@0.0.1
+  - @wpmudev/sui-button@0.0.1
+  - @wpmudev/sui-checkbox@0.0.1
+  - @wpmudev/sui-grid@0.0.1
+  - @wpmudev/sui-icon@0.0.1
+  - @wpmudev/sui-input@0.0.1
+  - @wpmudev/sui-link@0.0.1
+  - @wpmudev/sui-radio@0.0.1
+  - @wpmudev/sui-score@0.0.1
+  - @wpmudev/sui-segmented-control@0.0.1
+  - @wpmudev/sui-selector@0.0.1
+  - @wpmudev/sui-spinner@0.0.1
+  - @wpmudev/sui-tag@0.0.1
+  - @wpmudev/sui-textarea@1.0.6
+  - @wpmudev/sui-toggle@0.0.1
+  - @wpmudev/sui-tooltip@0.0.1
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
 ## v1.0.0 (Unreleased)
 

@@ -28,6 +28,9 @@ interface ToggleProps
 	 * Indicates whether the toggle component is disabled or not.
 	 */
 	isDisabled?: boolean
+	/**
+	 * A Callback function to be invoked upon clicking.
+	 */
 	onClick?(e: React.ChangeEvent<HTMLInputElement>): void
 }
 

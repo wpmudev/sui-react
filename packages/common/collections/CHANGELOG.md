@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+## 0.0.1
+
+### Patch Changes
+
+- Initial release
+- Updated dependencies
+  - @wpmudev/sui-config-table@0.0.1
+  - @wpmudev/sui-footer@0.0.1
+  - @wpmudev/sui-setup-banner@0.0.1
+  - @wpmudev/sui-upsell@0.0.1
+  - @wpmudev/sui-upsell-notice@0.0.1
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
 
 ## Unreleased (2023-03-21)
 

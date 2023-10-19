@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-field-list",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Field List",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -54,11 +54,9 @@
     "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "react": "^18.2.0"
-  },
   "dependencies": {
-    "@wpmudev/sui-toggle": "^0.0.0",
-    "@wpmudev/sui-utils": "^0.0.0"
+    "react": "^18.2.0",
+    "@wpmudev/sui-toggle": "*",
+    "@wpmudev/sui-utils": "*"
   }
 }

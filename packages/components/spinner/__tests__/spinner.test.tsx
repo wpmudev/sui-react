@@ -59,6 +59,7 @@ describe("@wpmudev/sui-spinner", () => {
 		expect(spinner).toHaveClass("sui-spinner--absolute")
 	})
 
+	// eslint-disable-next-line jest/no-commented-out-tests
 	// it("useSpinner hook works well", async () => {
 	// 	const boxRef = React.createRef<HTMLDivElement>()
 	// 	const { isVisible } = await renderHook(() => useSpinner(boxRef, {}))

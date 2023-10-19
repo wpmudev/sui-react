@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-field-password",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Password Field",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -53,12 +53,9 @@
     "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "react": "^18.2.0"
-  },
   "dependencies": {
-    "@wpmudev/sui-button": "^0.0.0",
-    "@wpmudev/sui-form-field": "^0.0.0",
-    "@wpmudev/sui-input": "^0.0.0"
+    "react": "^18.2.0",
+    "@wpmudev/sui-button": "*",
+    "@wpmudev/sui-input": "*"
   }
 }

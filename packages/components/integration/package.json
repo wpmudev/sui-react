@@ -1,19 +1,19 @@
 {
   "name": "@wpmudev/sui-integration",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Integration Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
     {
-      "name": "Pawan Kumar",
-      "email": "40248406+creador-dev@users.noreply.github.com",
-      "url": "https://creador.dev/"
-    },
-    {
       "name": "Govind Kumar",
       "email": "gkprmr@gmail.com",
       "url": "https://govind.js.org/"
+    },
+    {
+      "name": "Pawan Kumar",
+      "email": "40248406+creador-dev@users.noreply.github.com",
+      "url": "https://creador.dev/"
     }
   ],
   "license": "ISC",
@@ -33,8 +33,8 @@
     "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
-    "clean" : "rm -rf dist && rm -rf lib",
-    "build" : "npx tsup",
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
     "build:fast": "npx tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
@@ -45,16 +45,15 @@
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/sui-tooltip": "^0.0.0",
-    "@wpmudev/sui-toggle": "^0.0.0",
-    "@wpmudev/sui-utils": "^0.0.0",
-    "@wpmudev/sui-tag": "^0.0.0"
+    "react": "^18.2.0",
+    "@wpmudev/sui-tooltip": "*",
+    "@wpmudev/sui-toggle": "*",
+    "@wpmudev/sui-utils": "*",
+    "@wpmudev/sui-tag": "*",
+    "@wpmudev/sui-button": "*"
   },
   "peerDependencies": {
-      "react": ">=18"
+    "react": ">=18"
   },
-  "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "react": "^18.2.0"
-  }
+  "clean-package": "../../../postpack.config.json"
 }

@@ -1,11 +1,11 @@
-# `@wpmudev/sui-notification`
+# `@wpmudev/sui-dashboard-widget`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactNotification = require('@wpmudev/sui-notification');
+const widget = require('@wpmudev/sui-dashboard-widget');
 
 // TODO: DEMONSTRATE API
 ```

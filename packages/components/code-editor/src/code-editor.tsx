@@ -4,9 +4,9 @@ import React, { useState, useEffect, useCallback } from "react"
 import ReactPrismEditor from "react-prism-editor"
 
 import { generateCN } from "@wpmudev/sui-utils"
+import { Tooltip } from "@wpmudev/sui-tooltip"
 
 import { CodeEditorProps } from "./code-editor.types"
-import { Tooltip } from "@wpmudev/sui-tooltip"
 
 /**
  * CodeEditor Component

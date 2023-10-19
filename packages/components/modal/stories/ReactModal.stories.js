@@ -20,7 +20,7 @@ export default {
 }
 
 // Build "Modal" story
-const Modal = ({ example, ...args }) => {
+const Modal = ({ ...props }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -33,7 +33,7 @@ const Modal = ({ example, ...args }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiModal {...args} ref={ref}>
+					<SuiModal {...props} ref={ref}>
 						<ModalHeader title="Apply Config">
 							Choose the audience you want to send form data to.
 						</ModalHeader>
@@ -51,14 +51,7 @@ const Modal = ({ example, ...args }) => {
 							>
 								Cancel
 							</Button>
-							<Button
-								appearance="primary"
-								color="blue"
-								isSmall={true}
-								onClick={() => {
-									console.log("Submitted")
-								}}
-							>
+							<Button appearance="primary" color="blue" isSmall={true}>
 								Apply
 							</Button>
 						</ModalFooter>

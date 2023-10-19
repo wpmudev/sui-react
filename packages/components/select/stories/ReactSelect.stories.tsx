@@ -1,16 +1,22 @@
 import React from "react"
 
 // Import required component(s).
-import { Select as StandardSelect, SearchSelect, MultiSelect } from "../src"
+import {
+	Select as StandardSelect,
+	SearchSelect,
+	MultiSelect,
+	SelectBaseProps,
+} from "../src"
 
 // Import documentation main page.
 import docs from "./ReactSelect.mdx"
 
 // Build "Select" story.
-const Select = ({ example, ...props }) => {
-	const set = {}
-
-	set.box = {
+const Select = ({
+	example,
+	...props
+}: { example: string } & SelectBaseProps) => {
+	const boxStyle = {
 		margin: 0,
 		padding: "30px",
 		border: "white" === props.color ? "1px solid #E6E6E6" : 0,
@@ -18,14 +24,10 @@ const Select = ({ example, ...props }) => {
 		background: "white" === props.color ? "#333" : "#fff",
 	}
 
-	props.onChange = (option) => {
-		console.log("Selected:", option)
-	}
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={set.box}>
+				<div style={boxStyle}>
 					{"select" === example && <StandardSelect {...props} />}
 					{"search" === example && <SearchSelect {...props} />}
 					{"multi-select" === example && <MultiSelect {...props} />}

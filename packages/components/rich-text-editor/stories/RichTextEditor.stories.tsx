@@ -19,7 +19,7 @@ export default {
 }
 
 // Build "Tag" story.
-const RichTextEditor = ({ color, ...props }) => {
+const RichTextEditor = ({ color, ...props }: { color: string }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,

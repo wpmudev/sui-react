@@ -1,9 +1,13 @@
 // @ts-nocheck
 import React from "react"
 import { isNumber } from "@wpmudev/sui-utils"
+import { ProgressBarProps } from "../progress-bar.types"
 
 // Build "indicator" element
-const Indicator = ({ value, ...args }) => {
+const Indicator: React.FC<Pick<ProgressBarProps, "value">> = ({
+	value,
+	...args
+}) => {
 	const has = {}
 	const set = {}
 

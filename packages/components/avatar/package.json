@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-avatar",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Button Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -53,8 +53,8 @@
     "react": ">=18"
   },
   "clean-package": "../../../postpack.config.json",
-  "devDependencies": {
-    "@wpmudev/sui-utils": "^0.0.0",
+  "dependencies": {
+    "@wpmudev/sui-utils": "*",
     "react": "^18.2.0"
   }
 }

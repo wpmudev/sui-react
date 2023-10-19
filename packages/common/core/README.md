@@ -1,11 +1,11 @@
-# `@wpmudev/core-elements`
+# `@wpmudev/sui-core`
 
 > TODO: description
 
 ## Usage
 
 ```
-const coreElements = require('@wpmudev/core-elements');
+const core = require('@wpmudev/sui-core');
 
 // TODO: DEMONSTRATE API
 ```
