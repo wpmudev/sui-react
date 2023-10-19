@@ -58,6 +58,7 @@ interface SelectorOptionProps
 		| "title"
 		| "description"
 		| "imageUrl"
+		| "isPro"
 		| "isChecked"
 		| "alignment"
 		| "variation"
