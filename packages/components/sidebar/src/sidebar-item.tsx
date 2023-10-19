@@ -38,6 +38,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 	// Determine the IconTag based on the provided icon value.
 	let IconTag = null
 	if (!isEmpty(icon)) {
+		/*eslint import/namespace: ['error', { allowComputed: true }]*/
 		// @ts-ignore
 		IconTag = Icons?.[icon ?? ""]
 	}

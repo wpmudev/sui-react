@@ -1,11 +1,23 @@
 {
   "name": "@wpmudev/sui-radio",
-  "version": "1.0.0",
-  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "version": "0.0.1",
+  "description": "WPMUDEV Shared UI Radio",
   "keywords": [],
-  "author": "Leighton <2328848+iamleigh@users.noreply.github.com>",
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org"
+    },
+    {
+      "name": "Pawan Kumar",
+      "email": "40248406+creador-dev@users.noreply.github.com",
+      "url": "https://creador.dev/"
+    }
+  ],
   "license": "GPL-2.0",
-  "main": "src/react-radio.js",
+  "main": "src/index.ts",
   "directories": {
     "src": "src",
     "test": "__tests__"
@@ -21,8 +33,8 @@
     "url": "git+https://github.com/wpmudev/sui-docs.git"
   },
   "scripts": {
-    "clean" : "rm -rf dist && rm -rf lib",
-    "build" : "npx tsup",
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
     "build:fast": "npx tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
@@ -31,5 +43,14 @@
   "bugs": {
     "url": "https://github.com/wpmudev/sui-docs/issues"
   },
-  "homepage": "https://github.com/wpmudev/sui-docs#readme"
+  "homepage": "https://github.com/wpmudev/sui-docs#readme",
+  "dependencies": {
+    "@wpmudev/sui-tag": "*",
+    "@wpmudev/sui-hooks": "*",
+    "@wpmudev/sui-utils": "*"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "clean-package": "../../../postpack.config.json"
 }

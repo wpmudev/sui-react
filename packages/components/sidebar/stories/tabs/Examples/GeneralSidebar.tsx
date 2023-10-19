@@ -135,16 +135,7 @@ export const BasicSidebar = () => {
 						))}
 					</SidebarDropdown>
 				</Col>
-				<Col
-					size="9"
-					style={{
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-					}}
-				>
-					{selectedItem}
-				</Col>
+				<Col size="9">{selectedItem}</Col>
 			</Row>
 		</BoxGroup>
 	)

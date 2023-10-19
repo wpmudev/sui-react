@@ -1,11 +1,11 @@
-# `@wpmudev/sui-score`
+# `@wpmudev/sui-empty-state`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactButton = require('@wpmudev/sui-score');
+const reactButton = require('@wpmudev/sui-empty-state');
 
 // TODO: DEMONSTRATE API
 ```

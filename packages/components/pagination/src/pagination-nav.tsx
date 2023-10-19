@@ -1,4 +1,5 @@
 import React from "react"
+
 import { Button } from "@wpmudev/sui-button"
 import { PaginationNavProps } from "./pagination.types"
 

@@ -5,7 +5,7 @@ import { Input } from "@wpmudev/sui-input"
 import { Textarea } from "@wpmudev/sui-textarea"
 
 // Import required component
-import { FormField as SUIFormField } from "../src"
+import { FormField as SUIFormField, FormFieldProps } from "../src"
 
 // Import documentation main page
 import docs from "./ReactFormField.mdx"
@@ -23,10 +23,19 @@ export default {
 }
 
 // Build component playground
-export const FormField = ({ example, type, ...args }) => {
-	const set = {}
-
-	set.box = {
+export const FormField = ({
+	example,
+	type,
+	placeholder,
+	isError,
+	...args
+}: {
+	example: string
+	type: string
+	placeholder: string
+	isError: boolean
+} & FormFieldProps) => {
+	const boxStyle = {
 		padding: 20,
 		borderRadius: 4,
 		background: "#fff",
@@ -35,12 +44,13 @@ export const FormField = ({ example, type, ...args }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={set.box}>
-					<SUIFormField {...args}>
+				<div style={boxStyle}>
+					<SUIFormField {...args} label={args.label} id="form-field-1">
 						{"input" === example && (
 							<Input
-								placeholder={args.placeholder}
-								isError={args.error?.state}
+								id="input-1"
+								placeholder={placeholder}
+								isError={isError}
 								isSmall={args.isSmall}
 								isDisabled={args.isDisabled}
 								type={type}
@@ -49,8 +59,8 @@ export const FormField = ({ example, type, ...args }) => {
 						{"textarea" === example && (
 							<Textarea
 								rows={7}
-								placeholder={args.placeholder}
-								isError={args.error?.state}
+								placeholder={placeholder}
+								isError={isError}
 								isSmall={args.isSmall}
 								isDisabled={args.isDisabled}
 							/>
@@ -69,7 +79,7 @@ FormField.args = {
 	label: "Label",
 	placeholder: "Placeholder",
 	helper: "Helper text",
-	error: "",
+	isError: false,
 	className: "myCustomClass",
 	isSmall: false,
 	isDisabled: false,
@@ -115,9 +125,9 @@ FormField.argTypes = {
 		name: "Helper Text",
 		type: "string",
 	},
-	error: {
+	isError: {
 		name: "Error",
-		control: "text",
+		control: "boolean",
 		if: {
 			arg: "example",
 			neq: "",

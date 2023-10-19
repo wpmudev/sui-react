@@ -2,6 +2,7 @@ import React from "react"
 
 // Import required component(s)
 import { ConfigTable as SuiConfigTable } from "../src"
+import { configs } from "./configs"
 
 // Import documentation main page
 // import docs from "./config-table.mdx"
@@ -80,7 +81,7 @@ export const Configs = [
 		plugin: "1081721",
 	},
 ]
-
+        
 // Build story
 export const ConfigTable = ({ ...props }) => {
 	return (

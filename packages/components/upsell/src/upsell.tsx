@@ -25,6 +25,7 @@ const Upsell: React.FC<UpsellProps> = ({
 	const currentVar = variationsList[variation]
 
 	// Get the appropriate SVG Icon based on variation
+	/*eslint import/namespace: ['error', { allowComputed: true }]*/
 	// @ts-ignore
 	const Icon = Icons?.[currentVar?.icon ?? ""]
 

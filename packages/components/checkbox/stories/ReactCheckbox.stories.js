@@ -56,9 +56,33 @@ Checkbox.args = {
 
 // Story props settings
 Checkbox.argTypes = {
+	label: {
+		name: "Label",
+		control: {
+			type: "text",
+		},
+	},
 	defaultValue: {
 		table: {
 			disable: true,
+		},
+	},
+	isLabelHidden: {
+		name: "Label Hidden",
+		control: {
+			type: "boolean",
+		},
+	},
+	isSmall: {
+		name: "Small",
+		control: {
+			type: "boolean",
+		},
+	},
+	isDisabled: {
+		name: "Disabled",
+		control: {
+			type: "boolean",
 		},
 	},
 	isIndeterminate: {

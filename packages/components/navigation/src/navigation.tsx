@@ -10,7 +10,6 @@ import { NavigationUser } from "./navigation-user"
 const Navigation: React.FC<NavigationProps> = ({ children, brand, user }) => {
 	// Generate CSS class names for the navigation component
 	const classNames = generateCN("sui-navigation", {})
-
 	return (
 		// Render the navigation component
 		<nav className={classNames} data-testid="navigation">

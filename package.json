@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-react",
   "description": "Reusable building blocks of our design system based on React.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "GPL-3.0",
   "keywords": [
     "incsub",
@@ -23,6 +23,11 @@
       "name": "Govind Kumar",
       "email": "gkprmr@gmail.com",
       "url": "https://govind.js.org/"
+    },
+    {
+      "name": "Pawan Kumar",
+      "email": "40248406+creador-dev@users.noreply.github.com",
+      "url": "https://creador.dev/"
     }
   ],
   "publishConfig": {
@@ -47,6 +52,7 @@
     "packages/**/*"
   ],
   "dependencies": {
+    "@types/dedent": "^0.7.0",
     "classnames": "^2.3.2"
   },
   "devDependencies": {

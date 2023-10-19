@@ -11,11 +11,7 @@ import { Button } from "@wpmudev/sui-button"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 
-import {
-	ConfigActionTypes,
-	ConfigId,
-	ConfigTableTypes,
-} from "./config-table.types"
+import { ConfigTableTypes } from "./config-table.types"
 import { ConfigTableDetails } from "./config-table-details"
 
 // Render options to be displayed in a table.
@@ -116,7 +112,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 									appearance="tertiary"
 									onClick={(e) => {
 										e.preventDefault()
-										actionClick(config.id, "configure")
+										actionClick(config.id, "apply")
 									}}
 								>
 									Apply

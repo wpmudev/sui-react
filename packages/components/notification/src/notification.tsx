@@ -60,7 +60,9 @@ const Notification: React.FC<NotificationProps> = ({
 	})
 
 	// Get SVG Icon
+	/*eslint import/namespace: ['error', { allowComputed: true }]*/
 	// @ts-ignore
+	// WE NEED TO WRITE TYPE FOR SUI-ICONS PACKAGE
 	const Icon = Icons?.[icon]
 
 	return (

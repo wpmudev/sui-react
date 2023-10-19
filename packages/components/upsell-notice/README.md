@@ -1,11 +1,11 @@
-# `@wpmudev/sui-notification`
+# `@wpmudev/sui-upsell-notice`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactNotification = require('@wpmudev/sui-notification');
+const upsellNotice = require('@wpmudev/sui-upsell-notice');
 
 // TODO: DEMONSTRATE API
 ```

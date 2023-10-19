@@ -21,7 +21,7 @@ export default {
 }
 
 // Build "Field List" story
-const Spinner = ({ example, children, ...args }) => {
+const Spinner = ({ ...args }) => {
 	const boxRef = useRef<HTMLDivElement>(null)
 
 	const loader = useSpinner(boxRef, {
@@ -58,10 +58,10 @@ const Spinner = ({ example, children, ...args }) => {
 						<BoxGroup>
 							<p>
 								Lorem Ipsum is simply dummy text of the printing and typesetting
-								industry. Lorem Ipsum has been the industry's standard dummy
-								text ever since the 1500s, when an unknown printer took a galley
-								of type and scrambled it to make a type specimen book. It has
-								survived not only five centuries,
+								industry. Lorem Ipsum has been the industry&apos;s standard
+								dummy text ever since the 1500s, when an unknown printer took a
+								galley of type and scrambled it to make a type specimen book. It
+								has survived not only five centuries,
 							</p>
 						</BoxGroup>
 					</Box>
@@ -69,7 +69,12 @@ const Spinner = ({ example, children, ...args }) => {
 				<h5>
 					2. Component: use this when you want use spinner as inline element
 				</h5>
-				<div style={ { background: args.color === "dark" ? "rgba(0, 0, 0, 0.7)" : "#fff", padding: 20 } }>
+				<div
+					style={{
+						background: args.color === "dark" ? "rgba(0, 0, 0, 0.7)" : "#fff",
+						padding: 20,
+					}}
+				>
 					<SControl {...args} />
 				</div>
 			</div>

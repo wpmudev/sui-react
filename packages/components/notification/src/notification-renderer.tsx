@@ -1,6 +1,5 @@
 import React from "react"
 import { useNotifications } from "./use-notification"
-import { NotificationProps } from "./notification.types"
 import { Notification } from "./notification"
 
 const NotificationRenderer = () => {

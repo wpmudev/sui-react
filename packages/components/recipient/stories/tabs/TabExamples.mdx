@@ -6,14 +6,23 @@ import Status from "./Examples/Status.mdx"
 import Types from "./Examples/Types.mdx"
 import Appearance from "./Examples/Appearance.mdx"
 
+import image from "../images/person.png"
 export const sampleCode = dedent`
-<Recipient userName="Recipient name" userEmail="email@example.com" />
+    <Recipient
+        userImage={{ src: {your image url}, alt: "User Image" }}
+        userName="Recipient name"
+        userEmail="email@example.com"
+    />
 `
 
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>Below is the default form of a recipient, used for most cases.</p>
 	<Preview wrapper={true}>
-		<Recipient userName="Recipient name" userEmail="email@example.com" />
+		<Recipient
+			userImage={{ src: image, alt: "User Image" }}
+			userName="Recipient name"
+			userEmail="email@example.com"
+		/>
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
 </Section>

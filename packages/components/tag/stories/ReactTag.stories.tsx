@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component.
-import { Tag as SuiTag } from "../src"
+import { Tag as SuiTag, TagProps } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactTag.mdx"
@@ -19,10 +19,8 @@ export default {
 }
 
 // Build "Tag" story.
-const Tag = ({ children, ...props }) => {
-	const set = {}
-
-	set.box = {
+const Tag = ({ children, ...props }: TagProps) => {
+	const boxStyle = {
 		margin: 0,
 		padding: "30px",
 		border: "1px solid #E6E6E6",
@@ -33,7 +31,7 @@ const Tag = ({ children, ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={set.box}>
+				<div style={boxStyle}>
 					<SuiTag {...props}>{children}</SuiTag>
 				</div>
 			</div>

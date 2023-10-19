@@ -1,4 +1,4 @@
-import React, { Fragment, HTMLProps } from "react"
+import React, { Fragment } from "react"
 import { isEmpty, generateCN } from "@wpmudev/sui-utils"
 
 import { Avatar } from "@wpmudev/sui-avatar"
@@ -31,7 +31,7 @@ const Recipient: React.FC<RecipientProps> = ({
 				<Avatar
 					className="sui-recipient__avatar"
 					{...(!isEmpty(status) && { status })}
-					{...(!userImage?.src && { image: userImage })}
+					{...(userImage?.src && { image: userImage })}
 				/>
 				{(!isEmpty(userName) || !isEmpty(userEmail)) && (
 					<div className="sui-recipient__details">

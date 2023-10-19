@@ -2,13 +2,13 @@ import React, { Children, cloneElement, isValidElement, ReactNode } from "react"
 import { TabPanelProps } from "../tabs.types"
 
 /**
- * TabPanel
+ * TabPanel Component
  *
- * React component that represents the container for tab panels
- * in a tabbed interface.
+ * A React component that serves as a container for tab panels in a tabbed interface.
  *
+ * @param {Object} props          - The props for the TabPanel component.
+ * @param {*}      props.children - The content to be displayed within the TabPanel.
  *
- * @param {TabNavProps} props - Props for the TabPanel component.
  * @return {JSX.Element} The TabPanel component.
  */
 const TabPanel: React.FC<TabPanelProps> = ({ children }) => {

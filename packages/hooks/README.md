@@ -1,11 +1,11 @@
-# `@wpmudev/sui-utils`
+# `@wpmudev/sui-hooks`
 
 > TODO: description
 
 ## Usage
 
 ```
-const reactUtils = require('@wpmudev/sui-utils');
+const hooks = require('@wpmudev/sui-hooks');
 
 // TODO: DEMONSTRATE API
 ```

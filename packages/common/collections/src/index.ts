@@ -1,16 +1,7 @@
-// Import core modules
-import { Button, LoadingButton, ToggleButton } from "@wpmudev/sui-button"
-// import { IconButton, LoadingIconButton } from "@wpmudev/sui-icon-button"
-import { Avatar } from "@wpmudev/sui-avatar"
-import { Tag } from "@wpmudev/sui-tag"
+import * as Footer from "@wpmudev/sui-footer"
+import * as ConfigTable from "@wpmudev/sui-config-table"
+import * as SetupBanner from "@wpmudev/sui-setup-banner"
+import * as Upsell from "@wpmudev/sui-upsell"
+import * as UpsellNotice from "@wpmudev/sui-upsell-notice"
 
-// Publish core modules
-export {
-	Button,
-	LoadingButton,
-	ToggleButton,
-	// IconButton,
-	// LoadingIconButton,
-	Avatar,
-	Tag,
-}
+export { Footer, ConfigTable, SetupBanner, Upsell, UpsellNotice }
