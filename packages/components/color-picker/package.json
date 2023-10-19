@@ -54,13 +54,13 @@
   },
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-button": "*",
-    "@wpmudev/sui-input": "*",
-    "@wpmudev/sui-utils": "*",
+    "@types/react-color": "^3.0.7",
+    "@types/tinycolor2": "^1.4.4",
+    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-input": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1",
     "react": "^18.2.0",
     "react-color": "^2.19.3",
-    "tinycolor2": "^1.6.0",
-    "@types/tinycolor2": "^1.4.4",
-    "@types/react-color": "^3.0.7"
+    "tinycolor2": "^1.6.0"
   }
 }

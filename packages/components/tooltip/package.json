@@ -57,8 +57,8 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@wpmudev/sui-button": "*",
-    "@wpmudev/sui-utils": "*",
-    "@wpmudev/sui-hooks": "*"
+    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-hooks": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1"
   }
 }

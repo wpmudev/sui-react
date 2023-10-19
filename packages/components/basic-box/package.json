@@ -49,8 +49,8 @@
   },
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "react": "^18.2.0",
-    "@wpmudev/sui-utils": "*",
-    "@wpmudev/sui-setting-block": "*"
+    "@wpmudev/sui-setting-block": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1",
+    "react": "^18.2.0"
   }
 }

@@ -45,9 +45,9 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "dependencies": {
-    "@wpmudev/sui-tag": "*",
-    "@wpmudev/sui-hooks": "*",
-    "@wpmudev/sui-utils": "*"
+    "@wpmudev/sui-hooks": "^0.0.1",
+    "@wpmudev/sui-tag": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1"
   },
   "peerDependencies": {
     "react": ">=18"

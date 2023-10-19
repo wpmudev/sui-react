@@ -49,7 +49,7 @@
   },
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "react": "^18.2.0",
-    "@wpmudev/sui-icons": "*"
+    "@wpmudev/sui-icons": "*",
+    "react": "^18.2.0"
   }
 }

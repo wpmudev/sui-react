@@ -54,14 +54,14 @@
   },
   "clean-package": "../../../postpack.config.json",
   "devDependencies": {
-    "react": "^18.2.0",
     "prismjs": "^1.29.0",
+    "react": "^18.2.0",
     "react-prism-editor": "^1.1.2"
   },
   "dependencies": {
-    "@wpmudev/sui-tooltip": "*",
-    "@wpmudev/sui-utils": "*",
-    "@wpmudev/sui-hooks": "*",
-    "@wpmudev/sui-checkbox": "*"
+    "@wpmudev/sui-checkbox": "^0.0.1",
+    "@wpmudev/sui-hooks": "^0.0.1",
+    "@wpmudev/sui-tooltip": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1"
   }
 }

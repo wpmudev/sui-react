@@ -49,15 +49,15 @@
   },
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
+    "@types/sortablejs": "^1.15.1",
+    "@wpmudev/sui-box": "^0.0.1",
+    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-checkbox": "^0.0.1",
+    "@wpmudev/sui-hooks": "^0.0.1",
+    "@wpmudev/sui-icons": "*",
+    "@wpmudev/sui-utils": "^0.0.1",
     "react": "^18.2.0",
     "react-sortablejs": "^6.1.4",
-    "sortablejs": "^1.15.0",
-    "@types/sortablejs": "^1.15.1",
-    "@wpmudev/sui-box": "*",
-    "@wpmudev/sui-icons": "*",
-    "@wpmudev/sui-utils": "*",
-    "@wpmudev/sui-hooks": "*",
-    "@wpmudev/sui-checkbox": "*",
-    "@wpmudev/sui-button": "*"
+    "sortablejs": "^1.15.0"
   }
 }

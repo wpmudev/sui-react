@@ -54,8 +54,8 @@
   },
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "react": "^18.2.0",
-    "@wpmudev/sui-button": "*",
-    "@wpmudev/sui-input": "*"
+    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-input": "^0.0.1",
+    "react": "^18.2.0"
   }
 }

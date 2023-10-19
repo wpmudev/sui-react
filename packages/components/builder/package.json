@@ -52,14 +52,14 @@
     "@types/sortablejs": "^1.15.2"
   },
   "dependencies": {
+    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-grid": "^0.0.1",
+    "@wpmudev/sui-hooks": "^0.0.1",
+    "@wpmudev/sui-icon": "^0.0.1",
+    "@wpmudev/sui-icons": "*",
+    "@wpmudev/sui-utils": "^0.0.1",
     "react": "^18.2.0",
     "react-sortablejs": "^6.1.4",
-    "sortablejs": "^1.15.0",
-    "@wpmudev/sui-utils": "*",
-    "@wpmudev/sui-hooks": "*",
-    "@wpmudev/sui-button": "*",
-    "@wpmudev/sui-grid": "*",
-    "@wpmudev/sui-icons": "*",
-    "@wpmudev/sui-icon": "*"
+    "sortablejs": "^1.15.0"
   }
 }

@@ -49,10 +49,10 @@
   },
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "react": "^18.2.0",
-    "@wpmudev/sui-button": "*",
-    "@wpmudev/sui-hooks": "*",
-    "@wpmudev/sui-utils": "*",
-    "@wpmudev/sui-icons": "*"
+    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-hooks": "^0.0.1",
+    "@wpmudev/sui-icons": "*",
+    "@wpmudev/sui-utils": "^0.0.1",
+    "react": "^18.2.0"
   }
 }

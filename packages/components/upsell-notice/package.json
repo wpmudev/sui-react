@@ -53,9 +53,9 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@wpmudev/sui-button": "*",
-    "@wpmudev/sui-utils": "*",
-    "@wpmudev/sui-tag": "*",
-    "@wpmudev/sui-icons": "*"
+    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-icons": "*",
+    "@wpmudev/sui-tag": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1"
   }
 }

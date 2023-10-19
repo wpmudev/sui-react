@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-tabs",
-  "version": "1.0.6",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Tabs Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -49,9 +49,9 @@
   },
   "clean-package": "../../../postpack.config.json",
   "devDependencies": {
-    "@wpmudev/sui-utils": "*",
-    "@wpmudev/sui-hooks": "*",
+    "@wpmudev/sui-hooks": "^0.0.1",
     "@wpmudev/sui-icons": "*",
+    "@wpmudev/sui-utils": "^0.0.1",
     "react": "^18.2.0"
   }
 }
