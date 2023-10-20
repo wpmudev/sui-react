@@ -11,7 +11,11 @@ import { Button } from "@wpmudev/sui-button"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 
-import { ConfigTableTypes } from "./config-table.types"
+import {
+	ConfigTableTypes,
+	ConfigId,
+	ConfigActionTypes,
+} from "./config-table.types"
 import { ConfigTableDetails } from "./config-table-details"
 
 // Render options to be displayed in a table.

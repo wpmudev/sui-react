@@ -1,5 +1,5 @@
 import React, { HTMLProps, KeyboardEvent } from "react"
-import { IconsNamesType } from "@wpmudev/sui-icons/dist"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 /**
  * Props for Menu component.

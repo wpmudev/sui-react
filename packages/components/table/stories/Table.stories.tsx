@@ -471,7 +471,7 @@ const itemsPerPage = 5
 const tableItems = chunkArray(records, itemsPerPage)
 
 // Build "Field List" story
-const Table = ({ example, ...args }) => {
+const Table = ({ ...args }) => {
 	const [tempRows, setTempRows] = useState<Record<string, any>>([])
 	const [rows, setRows] = useState<Record<string, any>>([])
 	const [page, setPage] = useState<number>(1)
@@ -485,7 +485,7 @@ const Table = ({ example, ...args }) => {
 		setRows(tableItems?.[page - 1])
 	}, [page])
 
-	const action = (id, content) => {
+	const action = (_id: string, content: React.ReactNode) => {
 		return (
 			<div
 				style={{
@@ -525,9 +525,6 @@ const Table = ({ example, ...args }) => {
 						switch (actionType) {
 							case "bulk-action":
 							case "apply-filters":
-								alert(
-									`ACTION: ${actionType} \n\nData: \n${JSON.stringify(data)}`,
-								)
 								break
 							case "sort-rows":
 								break

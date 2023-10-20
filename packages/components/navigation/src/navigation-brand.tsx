@@ -1,10 +1,9 @@
 import React from "react"
 
 import { PluginIconTypes, PluginsIcons } from "@wpmudev/sui-utils"
-import Icons from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 import { NavigationBrandProps } from "./navigation.types"
-import { IconsNamesType } from "@wpmudev/sui-icons/dist"
+import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 
 const NavigationBrand: React.FC<NavigationBrandProps> = ({
 	plugin,

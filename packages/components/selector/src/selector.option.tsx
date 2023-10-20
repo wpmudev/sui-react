@@ -5,8 +5,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { IconProps } from "@wpmudev/sui-icon"
 import { Tag } from "@wpmudev/sui-tag"
-import Icons from "@wpmudev/sui-icons"
-import { IconsNamesType } from "@wpmudev/sui-icons/dist"
+import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 import { SelectorOptionProps } from "./selector.types"
 
 const SelectorOption: React.FC<SelectorOptionProps> = ({

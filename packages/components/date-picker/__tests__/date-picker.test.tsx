@@ -37,7 +37,7 @@ describe("@wpmudev/sui-date-picker", () => {
 		)
 
 		// Assert that there are exactly two month blocks
-		expect(monthBlocks.length).toBe(2)
+		expect(monthBlocks.length).toHaveLength(2)
 	})
 
 	// Check if the popover opens when clicking the field
@@ -57,7 +57,7 @@ describe("@wpmudev/sui-date-picker", () => {
 		expect(popover).not.toHaveClass("sui-date-picker__popover--open")
 
 		// Assert that there is only one month block
-		expect(monthBlocks.length).toBe(1)
+		expect(monthBlocks.length).toHaveLength(1)
 
 		// Find the input container
 		const inputContainer = screen.getByTestId("date-picker-input-container")

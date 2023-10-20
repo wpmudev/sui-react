@@ -1,5 +1,5 @@
 import React from "react"
-import { IconsNamesType } from "@wpmudev/sui-icons/dist"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 /**
  * This interface defines the props for the SegmentedButton component.
  */

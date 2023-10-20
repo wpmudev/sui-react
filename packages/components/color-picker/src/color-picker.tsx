@@ -16,7 +16,7 @@ import { generateCN } from "@wpmudev/sui-utils"
  * A code editor component that allows displaying and editing code.
  * Uses ReactPrismEditor as the code editor.
  *
- * @param {CodeEditorProps} props - Component props
+ * @param {ColorPickerProps} props - Component props
  * @return {JSX.Element} - JSX Element representing the CodeEditor component
  */
 

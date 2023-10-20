@@ -1,7 +1,7 @@
 import React, { HTMLProps, ReactNode } from "react"
 import { TagProps } from "@wpmudev/sui-tag"
 import { IconProps } from "@wpmudev/sui-icon"
-import { IconsNamesType } from "@wpmudev/sui-icons/dist"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 /**
  * SummaryBoxProps Interface

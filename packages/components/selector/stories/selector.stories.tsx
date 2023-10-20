@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 // Import required modules
-import { Selector as SuiSelector } from "../src"
+import { Selector as SuiSelector, SelectorProps } from "../src"
 
 // Import documentation
 import docs from "./selector.mdx"
@@ -39,7 +39,7 @@ const options = [
 ]
 
 // Build story
-export const Selector = ({ variation, ...args }) => {
+export const Selector = ({ variation, ...args }: SelectorProps) => {
 	const [val, setVal] = useState<number>()
 
 	const boxStyles = {
@@ -63,12 +63,9 @@ export const Selector = ({ variation, ...args }) => {
 							<Col key={`col-${index}`} size={colSize}>
 								<SuiSelector
 									key={index}
-									name={option.name}
-									value={option.value}
 									onChange={onChange}
 									isChecked={val === option.value}
 									variation={variation}
-									label={option.name}
 									{...args}
 								/>
 							</Col>

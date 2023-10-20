@@ -1,10 +1,9 @@
 import React from "react"
 
 import { generateCN, PluginIconTypes, PluginsIcons } from "@wpmudev/sui-utils"
-import Icons from "@wpmudev/sui-icons"
+import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 
 import { SetupBannerProps } from "./setup-banner.types"
-import { IconsNamesType } from "@wpmudev/sui-icons/dist"
 
 /**
  * SetupBanner renders a banner with optional icon and description.
