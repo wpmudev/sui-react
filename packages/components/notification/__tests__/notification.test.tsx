@@ -3,12 +3,12 @@ import "@testing-library/jest-dom"
 import { fireEvent, render, screen } from "@testing-library/react"
 import { Button } from "@wpmudev/sui-button"
 
-import { Notification, NotificationRenderer } from "../src"
+import { Notification, NotificationRenderer, NotificationProps } from "../src"
 import { useNotifications } from "../src/use-notification"
 
 describe("@wpmudev/sui-notification", () => {
 	// Define common props that can be reused in multiple test cases
-	const commonProps = {
+	const commonProps: NotificationProps = {
 		id: "fake-id",
 		variation: "success",
 		title: "__NOTIFICATION_TITLE__",
@@ -50,9 +50,9 @@ describe("@wpmudev/sui-notification", () => {
 		render(<Notification {...commonProps} isDismissible={true} />)
 
 		// Verify that the title, message, and action are visible in the document
-		expect(screen.getByText(commonProps.title)).toBeVisible()
-		expect(screen.getByText(commonProps.message)).toBeVisible()
-		expect(screen.getByText(commonProps.action)).toBeVisible()
+		expect(screen.getByText(commonProps.title as string)).toBeVisible()
+		expect(screen.getByText(commonProps.message as string)).toBeVisible()
+		expect(screen.getByText(commonProps.action as string)).toBeVisible()
 	})
 
 	// Test case: Check if size and variation props work

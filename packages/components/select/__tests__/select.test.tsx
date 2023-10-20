@@ -3,7 +3,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render, fireEvent } from "@testing-library/react"
 
-import { Select } from "../src"
+import { Select, SelectBaseProps } from "../src"
 
 describe("@wpmudev/sui-select", () => {
 	const props = {
@@ -27,4 +27,16 @@ describe("@wpmudev/sui-select", () => {
 		isDisabled: false,
 		isSmall: false,
 	}
+
+	const Component = (propsList: SelectBaseProps) => {
+		return <Select {...propsList} />
+	}
+
+	// Check if the component renders correctly
+	it("renders correctly", () => {
+		// Render the component
+		render(<Component {...props} />)
+		// Assert that the date picker element is in the document
+		expect(screen.getByTestId("select")).toBeInTheDocument()
+	})
 })

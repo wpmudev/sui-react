@@ -15,7 +15,7 @@ interface DashboardWidgetProps {
 	description?: ReactNode
 
 	/** The name of the icon to display in the widget */
-	icon: IconsNamesType
+	icon?: IconsNamesType
 
 	/** Additional content or actions to display in the widget's footer */
 	actions?: ReactNode
@@ -43,7 +43,7 @@ interface DashboardWidgetProps {
 	tagProps?: TagProps
 
 	/** A status associated with the widget */
-	statusIcon: IconsNamesType
+	statusIcon?: IconsNamesType
 
 	/** A status color with the widget */
 	statusProps?: object

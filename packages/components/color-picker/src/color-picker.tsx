@@ -21,6 +21,7 @@ import { generateCN } from "@wpmudev/sui-utils"
  */
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
+	id = "color-picker",
 	color = "",
 	onChange,
 	placeholder = "Select color",
@@ -80,6 +81,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 				error: isError,
 				disabled: isDisabled,
 			})}
+			data-testid="color-picker"
 		>
 			<div className="sui-color-picker__color">
 				<Input
@@ -90,6 +92,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					onClick={() => setShowPicker(true)}
 					isError={isError ?? false}
 					isDisabled={isDisabled ?? false}
+					id={id}
 					{...props}
 				/>
 

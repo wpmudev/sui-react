@@ -49,7 +49,7 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 				<TreeViewInfo
 					id={`${itemId}-info`}
 					isGroup={false}
-					icon={icon ?? ""}
+					icon={icon}
 					isDisabled={isDisabled ?? false}
 				>
 					{children}
