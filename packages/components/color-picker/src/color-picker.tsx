@@ -37,6 +37,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 		if (tempColor !== color) {
 			setTempColor(color)
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [color])
 
 	// Function to handle color change and call the parent component's onChange function
@@ -59,6 +60,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 			e.stopPropagation()
 			setTempColor("")
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[color],
 	)
 
@@ -68,6 +70,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 			const inputValue = e?.target?.value
 			setTempColor(inputValue)
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[tempColor],
 	)
 
