@@ -1,97 +1,116 @@
-import { Section, Row, Col, List, Code } from "@wpmudev/sui-docs"
+import { Section, Row, Col, List, Code } from "@wpmudev/storybook"
 
 import Anatomy from "../images/anatomy.svg"
-import States from "../images/states.svg"
+import CheckBoxGroup from "../images/checkbox-group.svg"
+import NestedCheckbox from "../images/nested-checkbox.svg"
+import DisabledCheckbox from "../images/disabled-checkbox.svg"
+import InteractiveState from "../images/interactive-state.svg"
+import ErrorState from "../images/error-state.svg"
 import Size from "../images/size.svg"
-import Inline from "../images/inline.svg"
-import Stacked from "../images/stacked.svg"
-import Indeterminate from "../images/indeterminate.svg"
+import Alignment from "../images/alignment.svg"
+import HelperText from "../images/helper-text.svg"
 
 <Section title="Anatomy">
 	<Row>
 		<Col>
-    		<h3 style={{marginTop: 0}}>1. Checkbox</h3>
-    		<p>User intreact check-box button</p>
+    		<h3 style={{marginTop: 0}}>1. Checkbox input</h3>
+    		<p>The checkbox input is the actual interactive element that users can click or tap to select or deselect an option. It is typically represented as a small square or rectangle that can be checked (selected) or unchecked (deselected).</p>
 
-    		<h3>2. Label</h3>
-    		<p>Label of Checkbox</p>
+    		<h3>2. Checkbox label</h3>
+    		<p>The label is the text or description associated with the checkbox. It provides context to the user about what the checkbox represents. Labels should be clear, concise, and easy to understand.</p>
     	</Col>
-		<Col>
+    	<Col>
     		<img src={Anatomy} alt="Checkbox Anatomy" />
     	</Col>
     </Row>
-</Section>
-
-<Section title="Selection">
-
-	<p> The Checkbox Can have three types of selection. </p>
-
-	<List>
-		<span label={<><Code>Selected</Code> - Checkbox is Tick </>} />
-		<span label={<><Code>Unselected</Code> - Checkbox is un-tick </>} />
-		<span label={<><Code>Indeterminate</Code> - The indeterminate state indicates some File/Folders are checked (a line). </>} />
-	</List>
 
 </Section>
 
-<Section title="States">
-   <img src={States} alt="Checkbox States" />
+<Section title="Checkbox Group">
 
-   <h3 style={{marginTop: 30}}>1. Default</h3>
-   <p> Default state where the Checkbox can be Check/Uncheck by the user.</p>
+    <Row>
+    	<Col>
+    		<p>
+    			Checkboxes are often used in groups when users need to select multiple options from a list. The checkboxes within a group should be visually grouped together, often by placing them within a list.
+    		</p>
 
-   <h3>2. Disabled</h3>
-   <p>When users are not allowed to select/unselect, the checkbox will be disabled.</p>
+    		<h3 style={{marginTop: 0}}>1. Group Label</h3>
+    		<p>The field label act as the group label in the checkbox group. It explains what options need to be selected.</p>
 
-   <h3>3. Hover</h3>
-   <p>when User Hover with the Checkbox , It switch to Hover state.</p>
+    		<h3 style={{marginTop: 0}}>2. Checkbox List</h3>
+    		<p>The checkbox list is a group of multiple options that are available for the user to select.</p>
+    	</Col>
+    	<Col>
+    		<img src={CheckBoxGroup} alt="Checkbox Group" />
+    	</Col>
+    </Row>
 
-   <h3>4. Focus</h3>
-   <p>there will be focus state for checkbox after user clicks on it.</p>
+</Section>
+
+<Section title="Nested checkbox">
+	<Row>
+		<Col>
+			<p>
+				Nested checkboxes are used when there is hierarchical data or categories
+				that require multiple levels of selection. These checkboxes allow users
+				to select or deselect options at different levels of a hierarchy. For
+				the advanced presentation of nested selections, use [Tree
+				view](/docs/sui-components-advanced-tree-view--docs) component.
+			</p>
+		</Col>
+		<Col>
+			<img src={NestedCheckbox} alt="Nested Checkbox" />
+		</Col>
+	</Row>
+</Section>
+
+<Section title="Disabled checkbox">
+	<Row>
+		<Col>
+			<p>
+				Checkboxes can also be in a disabled state, where users cannot interact
+				with them. Disabled checkboxes are typically grayed out or have reduced
+				opacity to indicate their inactive status.
+			</p>
+		</Col>
+		<Col>
+			<img src={DisabledCheckbox} alt="Disabled Checkbox" />
+		</Col>
+	</Row>
+</Section>
+
+<Section title="Interactive State">
+	<img src={InteractiveState} alt="Checkbox Interactive State" />
+</Section>
+
+<Section title="Error state">
+	<p>Error can be shown in two ways for checkbox. </p>
+	
+	<h3 style={{marginTop: 0}}>1. Forms or form field</h3>
+    <p>If the checkbox are used within the forms or inside the group of form fields, the error should be similar to the input field.</p>
+
+    <h3 style={{marginTop: 0}}>2. Setting blocks</h3>
+    <p>If the checkbox is used in separate setting block or it require user’s attention, error can be shown with the Alert Notification.</p>
+
+    <img src={ErrorState} alt="Checkbox Error State" />
 
 </Section>
 
 <Section title="Size">
-
-   <img src={Size} alt="Checkbox Sizes" />
-
-   <p> Checkbox has 2 font-size Variation, Large and Small. </p>
-
-	<List>
-		<span label={<><Code small={true}>Large</Code> - Label font size is 15px (Label/Checkbox). </>} />
-		<span label={<><Code small={true}>Small</Code> - Label font size is 13px (Label/Checkbox-small). </>} />
-	</List>
+	<Row>
+		<Col>
+			<p>Checkbox is available with two sizes in SUI 3.</p>
+		</Col>
+		<Col>
+			<img src={Size} alt="Checkbox Size" />
+		</Col>
+	</Row>
 </Section>
 
-<Section title="Alignment">
-
-	<p>There are two ways to align the Checkbox: `Inline` and `Stacked`.
-		By default, Checkboxes are aligned on the top as Stack elements, but you can add one next to another as inline elements.</p>
-	<p> Align your inputs on a single column towards the left side of the screen. Why? There are two reasons:</p>
-	<p> 1. A single, vertical line is easier to follow.</p>
-	<p> 2. Studies have shown that users in left-to-right languages tend to scan pages starting from the left part of the screen</p>
-	<p> You can still use a horizontal layout, but your buttons and labels should be arranged so that users can tell which choice corresponds to which label without trouble.</p>
-
-	<h3> in-lined Checkbox options </h3>
-	<img src={Inline} alt="Checkboxes Inlined" />
-
-	<h3> Stacked Checkbox options </h3>
-	<img src={Stacked} alt="Checkboxes Stacked" />
-
-	<h3> Indeterminate Checkbox options </h3>
-	<p>When we have multi-level lists with checkboxes, you may run into cases where only some subordinate options are checked while others are not. For such a situation, all the nested Checkboxes will be aligned with Parents Checkbox Text, and all the Primary Level Checkboxes will be aligned. </p>
-	<img src={Indeterminate} alt="Checkboxes Indeterminate" />
-
+<Section title="Checkbox Alignment">
+	<img src={Alignment} alt="Checkbox Alignment" />
 </Section>
 
-<Section title="Usecase - Checkbox">
-
-<h3>Checkboxes are similar to toggle switches, but these controls have different application scenarios. Use checkboxes for:</h3>
-	<List>
-		<span label="Actions requiring users' final review come into effect after confirmation through clicking the Submit (or any relevant) button." />
-		<span label="Forms that have other steps users must take after selecting/deselecting checkboxes." />
-		<span label="Multiple-selection lists of options under one category." />
-		<span label="Actions that require a visually clear on/off state." />
-		<span label="Checkboxes have labels and can be used alone (such as a checkbox granting permission to Share Anonymous usage data) or stacked on top of each other for other options." />
-	</List>
+<Section title="Helper Text">
+	<img src={HelperText} alt="Checkbox Helper Text" />
 </Section>
