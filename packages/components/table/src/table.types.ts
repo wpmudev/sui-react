@@ -420,4 +420,5 @@ export type {
 	TableToolbarFilterTypes,
 	TableToolbarFilterSelect,
 	TableToolbarFilterText,
+	TableOnActionType,
 }
