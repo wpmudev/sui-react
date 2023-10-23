@@ -2,19 +2,18 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
 
-import { Sidebar, SidebarItem } from "../src"
+import { Sidebar, SidebarItem, SidebarItemProps } from "../src"
 
 describe("@wpmudev/sui-sidebar", () => {
-	const Items = [
-		{ title: "General", url: "#", icon: "Settings", hasAction: false },
-		{ title: "Integrations", url: "#", icon: "Link", hasAction: true },
-		{ title: "Configs", icon: "Config", url: "#", hasAction: true },
+	const Items: SidebarItemProps[] = [
+		{ title: "General", url: "#", icon: "Settings" },
+		{ title: "Integrations", url: "#", icon: "Link" },
+		{ title: "Configs", icon: "Config", url: "#" },
 		{
 			title: "Data",
 			url: "#",
 			icon: "Refresh",
 			isDisabled: true,
-			hasAction: true,
 		},
 	]
 
@@ -30,7 +29,7 @@ describe("@wpmudev/sui-sidebar", () => {
 	it("renders all SidebarItem correctly", async () => {
 		// Create an array of SidebarItems to render
 		const itemsToRender = Items.map(
-			({ title, url, icon, isDisabled, hasAction }, index) => (
+			({ title, url, icon, isDisabled }, index) => (
 				<SidebarItem
 					key={index}
 					title={title}
@@ -56,7 +55,7 @@ describe("@wpmudev/sui-sidebar", () => {
 	it("SidebarItem props work well", async () => {
 		// Create an array of SidebarItems to render
 		const itemsToRender = Items.map(
-			({ title, url, icon, isDisabled, hasAction }, index) => (
+			({ title, url, icon, isDisabled }, index) => (
 				<SidebarItem
 					key={index}
 					title={title}

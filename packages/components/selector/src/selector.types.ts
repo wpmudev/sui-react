@@ -1,5 +1,5 @@
 import React from "react"
-
+import { IconsNamesType } from "@wpmudev/sui-icons"
 /**
  * Represents the properties for a Selector component.
  */
@@ -26,7 +26,7 @@ interface SelectorProps
 	/** The variation style of the Selector component */
 	variation?: "default" | "icon-only" | "compound" | "image"
 	/** URL for an icon or brand image */
-	iconOrBrandUrl?: string
+	iconOrBrandUrl?: string | IconsNamesType
 	/** The title text */
 	title?: string
 	/** The description text */
@@ -40,7 +40,7 @@ interface SelectorProps
 	/** Event handler for removing the Selector */
 	onRemove?(name: string, value: string | number): void
 	/** Specifiy the color of the tag */
-	tagColor:
+	tagColor?:
 		| "default"
 		| "blue"
 		| "yellow"
@@ -58,6 +58,7 @@ interface SelectorOptionProps
 		| "title"
 		| "description"
 		| "imageUrl"
+		| "isPro"
 		| "isChecked"
 		| "alignment"
 		| "variation"
@@ -65,6 +66,7 @@ interface SelectorOptionProps
 		| "allowRemove"
 		| "onRemove"
 		| "tagColor"
+		| "isPro"
 	> {}
 
 export type { SelectorProps, SelectorOptionProps }

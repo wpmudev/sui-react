@@ -3,8 +3,8 @@ import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import { Button } from "@wpmudev/sui-button"
 import { NotificationProps } from "./notification.types"
-
-import * as Icons from "@wpmudev/sui-icons"
+import { IconProps } from "@wpmudev/sui-icon"
+import Icons from "@wpmudev/sui-icons"
 import { useNotifications } from "./use-notification"
 
 const Notification: React.FC<NotificationProps> = ({
@@ -32,7 +32,7 @@ const Notification: React.FC<NotificationProps> = ({
 				notifications.remove(id)
 			}, timeout ?? 5000)
 		}
-	}, [id, isInline, notifications, timeout])
+	}, [id, isInline, notifications, timeout, isDismissible])
 
 	/**
 	 * Hide notification when click on dismiss button
@@ -60,8 +60,11 @@ const Notification: React.FC<NotificationProps> = ({
 	})
 
 	// Get SVG Icon
-	// @ts-ignore
-	const Icon = Icons?.[icon]
+	let Icon: React.ComponentType<IconProps> | null = null
+
+	if (icon) {
+		Icon = Icons?.[icon]
+	}
 
 	return (
 		<div

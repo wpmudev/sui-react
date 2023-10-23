@@ -1,19 +1,17 @@
 import React, { Fragment, useCallback, useState } from "react"
-
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
-
 import { Col } from "@wpmudev/sui-grid"
 import { Button } from "@wpmudev/sui-button"
-
-import * as Icons from "@wpmudev/sui-icons"
+import { IconProps } from "@wpmudev/sui-icon"
+import Icons from "@wpmudev/sui-icons"
 
 // Import required element(s)
 import { BuilderFieldProps } from "./builder.types"
 
 const BuilderField: React.FC<BuilderFieldProps> = ({
 	columnSize = 12,
-	icon = "",
+	icon,
 	title = "",
 	subTitle = "",
 	className,
@@ -46,13 +44,11 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 		className,
 	)
 
-	// FOR ICONS WE NEED TO CREATE THEIR TYPE IN SUI-ICONS PACKAGE TO REPLACE ANY TYPE
-
 	// Determine the IconTag based on the provided icon value
-	let Icon: any = null
+	let Icon: React.ComponentType<IconProps>
 
-	if (!isEmpty(icon)) {
-		Icon = (Icons as any)[icon]
+	if (icon) {
+		Icon = Icons[icon]
 	}
 
 	// Check if the field has an accordion section

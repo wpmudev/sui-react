@@ -6,7 +6,7 @@ import { screen, render, fireEvent } from "@testing-library/react"
 import { Builder, BuilderField, BuilderProps, BuilderWrapper } from "../src"
 
 describe("@wpmudev/sui-builder", () => {
-	const props = {
+	const args = {
 		action: "__ACTIONS__",
 		customContent: "__CUSTOM_CONTENT__",
 		accordionTitle: "__ACCORDION_TITLE__",
@@ -19,21 +19,21 @@ describe("@wpmudev/sui-builder", () => {
 				<BuilderWrapper data-testid="builder-wrapper">
 					<BuilderField
 						columnSize={4}
-						action={props.action}
+						action={args.action}
 						title="Field title"
 						subTitle="Field text"
 						icon="Desktop"
 					/>
 					<BuilderField
 						columnSize={4}
-						action={props.action}
+						action={args.action}
 						allowDrag={false}
 						title="No Drag"
 						icon="Desktop"
 					/>
 					<BuilderField
 						columnSize={4}
-						action={props.action}
+						action={args.action}
 						title="Image Field"
 						imgUrl="https://placehold.co/40x40/EEE/31343C"
 						icon="Desktop"
@@ -41,7 +41,7 @@ describe("@wpmudev/sui-builder", () => {
 				</BuilderWrapper>
 				<BuilderWrapper data-testid="builder-wrapper">
 					<BuilderField
-						action={props.action}
+						action={args.action}
 						title="Error Block"
 						hasError={true}
 						icon="Bell"
@@ -49,19 +49,19 @@ describe("@wpmudev/sui-builder", () => {
 				</BuilderWrapper>
 				<BuilderWrapper data-testid="builder-wrapper">
 					<BuilderField
-						action={props.action}
+						action={args.action}
 						title="Block 3"
 						icon="Desktop"
-						customContent={props.customContent}
+						customContent={args.customContent}
 					/>
 				</BuilderWrapper>
 				<BuilderWrapper>
 					<BuilderField
-						action={props.action}
-						title={props.accordionTitle}
+						action={args.action}
+						title={args.accordionTitle}
 						icon="Desktop"
 					>
-						{props.accordionBody}
+						{args.accordionBody}
 					</BuilderField>
 				</BuilderWrapper>
 			</Builder>
@@ -134,7 +134,7 @@ describe("@wpmudev/sui-builder", () => {
 		render(<Component />)
 		const builderField = screen.getAllByTestId("builder-field")[4]
 		expect(
-			within(builderField).queryByText(props.customContent),
+			within(builderField).queryByText(args.customContent),
 		).toBeInTheDocument()
 	})
 

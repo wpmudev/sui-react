@@ -35,7 +35,7 @@ interface IconProps {
 	/**
 	 * SVG fill color
 	 */
-	fill?: ""
+	fill?: string
 	/**
 	 * SVG icon state (color)
 	 */

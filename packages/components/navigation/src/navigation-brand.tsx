@@ -1,26 +1,24 @@
 import React from "react"
 
-import { isEmpty, PluginIconTypes, PluginsIcons } from "@wpmudev/sui-utils"
-import * as Icons from "@wpmudev/sui-icons"
-
+import { PluginIconTypes, PluginsIcons } from "@wpmudev/sui-utils"
+import { IconProps } from "@wpmudev/sui-icon"
 import { NavigationBrandProps } from "./navigation.types"
+import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 
 const NavigationBrand: React.FC<NavigationBrandProps> = ({
-	plugin = "",
+	plugin,
 	title = "",
 	description = "",
 }) => {
 	// Icon for the specified plugin or use a default "Plugin" icon.
-	const PluginIcon: PluginIconTypes = !isEmpty(plugin)
-		? // @ts-ignore
-		  PluginsIcons?.[plugin]
+	const PluginIcon: PluginIconTypes = plugin
+		? PluginsIcons?.[plugin]
 		: { icon: "Plugin" }
 
 	// Dynamically determine the IconTag based on the provided icon prop.
-	let IconTag = null
+	let IconTag: React.ComponentType<IconProps> | null = null
 	if (!!PluginIcon) {
-		// @ts-ignore
-		IconTag = Icons?.[PluginIcon?.icon ?? ""]
+		IconTag = Icons?.[PluginIcon.icon as IconsNamesType]
 	}
 
 	return (
@@ -29,7 +27,7 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 				className="sui-navigation__icon"
 				style={{ backgroundColor: PluginIcon?.bg }}
 			>
-				<IconTag fill={PluginIcon?.color} />
+				{!!IconTag && <IconTag fill={PluginIcon?.color} />}
 			</div>
 			<div className="sui-navigation__info">
 				<h3 className="sui-heading--h4">{title}</h3>

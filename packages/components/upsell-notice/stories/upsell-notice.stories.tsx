@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component(s)
-import { UpsellNotice as SuiUpsellNotice } from "../src"
+import { UpsellNotice as SuiUpsellNotice, UpsellNoticeProps } from "../src"
 import { Button } from "@wpmudev/sui-button"
 
 // Import documentation main page
@@ -20,8 +20,7 @@ export default {
 }
 
 // Build story
-// eslint-disable-next-line react/prop-types
-export const UpsellNotice = ({ example, ...props }) => {
+export const UpsellNotice = (props: UpsellNoticeProps) => {
 	const actions = [
 		<Button
 			key={0}

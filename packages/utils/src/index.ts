@@ -2,13 +2,13 @@ import React, { MouseEvent, KeyboardEvent } from "react"
 import classnames from "classnames"
 
 /**
- * Generate classnames based on the prop vars
+ * Generate class names based on the prop variables.
  *
- * @param {string}                           base
+ * @param {string}              base
  * @param {Record<string, any>} variants
- * @param {string}                           extraClassNames extra class names
+ * @param {string}              extraClassNames extra class names
  *
- * @return {string} classnames
+ * @return {string} - The generated class names.
  */
 const generateCN = (
 	base: string,
@@ -190,8 +190,8 @@ export type PluginsSlug =
 	| "branda"
 
 export type PluginIconTypes = {
-	bg: string
-	color: string
+	bg?: string
+	color?: string
 	icon: string
 }
 

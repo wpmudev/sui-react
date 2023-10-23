@@ -2,7 +2,6 @@ import React, { forwardRef, useCallback, useId } from "react"
 
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { Tag } from "@wpmudev/sui-tag"
 
 import { SelectorOption } from "./selector.option"
 import { SelectorProps } from "./selector.types"
@@ -30,7 +29,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			imageUrl,
 			title,
 			description,
-			tagColor,
+			tagColor = "default",
 			...props
 		}: SelectorProps,
 		ref,

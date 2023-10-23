@@ -3,15 +3,15 @@ import React, { useId } from "react"
 // Import required component(s)
 import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
-import * as Icons from "@wpmudev/sui-icons"
-
+import Icons from "@wpmudev/sui-icons"
+import { IconProps } from "@wpmudev/sui-icon"
 import { SegmentedControlButtonProps } from "./segmented-control.types"
 import { useSegmentedControl } from "./segmented-control-context"
 
 // Build segmented button
 const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	value,
-	icon = "",
+	icon,
 	children,
 	ariaLabel,
 	isDisabled,
@@ -33,8 +33,11 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	const isActive = value === ctxValue
 
 	// Get the appropriate icon component if provided.
-	// @ts-ignore
-	const IconTag = Icons?.[icon ?? ""] ?? null
+	let IconTag: React.ComponentType<IconProps> | null = null
+
+	if (icon) {
+		IconTag = Icons[icon]
+	}
 
 	return (
 		<span className={classNames} {...props}>

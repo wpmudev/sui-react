@@ -22,6 +22,12 @@ import {
 	MultiSelectSearch,
 } from "../utils/functions"
 
+export type SelectOptionType =
+	| Record<string, any>
+	| Record<string, any>[]
+	| string
+	| undefined
+
 /**
  * This interface defines the props for the SelectBase component.
  * It extends the Omit utility to remove 'onMouseLeave' and 'onMouseEnter' properties
@@ -70,9 +76,7 @@ interface SelectBaseProps
 	 *
 	 * @param {Record<string, any> | Record<string, any>[]} option option or options list
 	 */
-	onChange?(
-		option: Record<string, any> | Record<string, any>[] | string | undefined,
-	): void
+	onChange?(option: SelectOptionType): void
 }
 
 const Select: React.FC<SelectBaseProps> = ({
@@ -270,7 +274,7 @@ const Select: React.FC<SelectBaseProps> = ({
 
 	// Render component
 	return (
-		<div {...selectProps}>
+		<div {...selectProps} data-testid="select">
 			{!isSearchable && (
 				// @ts-ignore
 				<Selected {...headerProps} />

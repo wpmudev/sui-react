@@ -8,7 +8,6 @@ import {
 } from "@wpmudev/sui-utils"
 import { ExternalLink } from "@wpmudev/sui-icons"
 import { useInteraction } from "@wpmudev/sui-hooks"
-
 import { LinkProps } from "./link.types"
 
 // Link component represents a clickable link element with optional features

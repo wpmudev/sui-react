@@ -1,15 +1,30 @@
 import React, { Fragment, useCallback, useContext, useRef } from "react"
 
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
-import * as Icons from "@wpmudev/sui-icons"
+import Icons from "@wpmudev/sui-icons"
 import { useInteraction } from "@wpmudev/sui-hooks"
 
 import { TableCellProps } from "./table.types"
 import { TableContext, TableSortBy } from "./table-context"
 
 /**
- * TableCell component represents a cell within a table row, either a regular cell (td) or a heading cell (th).
+ * TableCell Component
+ *
+ * Represents a cell within a table row, either a regular cell (td) or a heading cell (th).
  * It can display content, optionally have a drag icon, and accepts additional classNames and props.
+ *
+ * @param {Object}  props                     - The props for the TableCell component.
+ * @param {string}  [props.id]                - The unique identifier for the cell.
+ * @param {*}       props.children            - The content to be displayed within the cell.
+ * @param {boolean} [props.isHeading]         - Specifies whether the cell is a heading cell (th).
+ * @param {string}  [props.className=""]      - Additional CSS classes to apply to the cell.
+ * @param {boolean} [props.hasDragIcon=false] - Indicates whether the cell should display a drag icon.
+ * @param {boolean} [props.isAction=false]    - Indicates whether the cell is an action cell.
+ * @param {boolean} [props.isSortable=false]  - Indicates whether the cell is sortable.
+ * @param {boolean} [props.isSticky=false]    - Indicates whether the cell should stick to a fixed position.
+ * @param {boolean} [props.isTrim=false]      - Indicates whether the cell content should be trimmed.
+ * @param {boolean} [props.isPrimary=false]   - Indicates whether the cell is the primary cell.
+ * @param {Object}  [props.style]             - Additional inline styles to apply to the cell.
  *
  * @return {JSX.Element} The JSX representation of the TableCell component.
  */

@@ -1,4 +1,5 @@
 import React, { HTMLProps, KeyboardEvent } from "react"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 /**
  * Props for Menu component.
@@ -21,7 +22,7 @@ interface DropdownMenuItemProps {
 	/**
 	 * Name of the icon to be displayed with the MenuItem.
 	 */
-	icon?: string
+	icon?: IconsNamesType
 	/**
 	 * Additional class name(s) to be applied to the MenuItem.
 	 */

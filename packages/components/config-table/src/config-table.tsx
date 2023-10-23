@@ -12,9 +12,9 @@ import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 
 import {
-	ConfigActionTypes,
-	ConfigId,
 	ConfigTableTypes,
+	ConfigId,
+	ConfigActionTypes,
 } from "./config-table.types"
 import { ConfigTableDetails } from "./config-table-details"
 
@@ -116,7 +116,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 									appearance="tertiary"
 									onClick={(e) => {
 										e.preventDefault()
-										actionClick(config.id, "configure")
+										actionClick(config.id, "apply")
 									}}
 								>
 									Apply

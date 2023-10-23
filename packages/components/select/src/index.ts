@@ -3,4 +3,4 @@ export { Select } from "./variants/select-standard"
 export { SearchSelect } from "./variants/select-search"
 export { MultiSelect } from "./variants/select-multiselect"
 
-export type { SelectBaseProps } from "./variants/select-base"
+export type { SelectBaseProps, SelectOptionType } from "./variants/select-base"

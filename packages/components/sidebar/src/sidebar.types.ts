@@ -1,3 +1,4 @@
+import { IconsNamesType } from "@wpmudev/sui-icons"
 import React, { HTMLProps } from "react"
 
 /**
@@ -37,7 +38,7 @@ interface SidebarItemProps
 	/**
 	 * An optional icon to be displayed within the SidebarItem.
 	 */
-	icon?: string
+	icon?: IconsNamesType
 
 	/**
 	 * The title or text to be displayed for the SidebarItem.

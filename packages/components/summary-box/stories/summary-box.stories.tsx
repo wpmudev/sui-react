@@ -19,7 +19,7 @@ import {
 } from "../src"
 
 // Build "SummaryBox" story.
-const SummaryBox = ({ color }) => {
+const SummaryBox = ({}) => {
 	const [mode, setMode] = useState<string>("desktop")
 
 	return (
@@ -105,7 +105,13 @@ const SummaryBox = ({ color }) => {
 									<Fragment>
 										Your site performs better than 90 % sites out there. To
 										boost the performance further, check the{" "}
-										<a href="#">Pending Audits</a>
+										<a
+											href="https://wpmudev.com"
+											target="_blank"
+											rel="noreferrer"
+										>
+											Pending Audits
+										</a>
 									</Fragment>
 								}
 							/>

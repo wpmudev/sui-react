@@ -16,7 +16,9 @@ const useSpinner = (
 	const spinnerId = `sui-spinner-${id}`
 
 	useEffect(() => {
-		if (!targetRef?.current) {
+		const currentTargetRef = targetRef?.current
+
+		if (!currentTargetRef) {
 			return
 		}
 
@@ -25,8 +27,8 @@ const useSpinner = (
 			const spinnerDiv = document.getElementById(spinnerId)
 
 			if (!!spinnerDiv?.parentNode) {
-				targetRef.current.removeChild(spinnerDiv)
-				targetRef.current.classList.remove("sui-spinner__wrapper")
+				currentTargetRef.removeChild(spinnerDiv)
+				currentTargetRef.classList.remove("sui-spinner__wrapper")
 			}
 			return
 		}
@@ -37,7 +39,7 @@ const useSpinner = (
 		if (isVisible) {
 			fakeDiv.id = spinnerId
 			fakeDiv.classList.add("sui-spinner__fake")
-			targetRef.current.classList.add("sui-spinner__wrapper")
+			currentTargetRef.classList.add("sui-spinner__wrapper")
 
 			// Render the spinner using React's createRoot API
 			createRoot(fakeDiv!).render(
@@ -57,8 +59,8 @@ const useSpinner = (
 			if (fakeDiv) {
 				const spinnerDiv = document.getElementById(spinnerId)
 				if (!!spinnerDiv?.parentNode) {
-					targetRef?.current?.removeChild(spinnerDiv)
-					targetRef?.current?.classList.remove("sui-spinner__wrapper")
+					currentTargetRef?.removeChild(spinnerDiv)
+					currentTargetRef?.classList.remove("sui-spinner__wrapper")
 				}
 			}
 		}
