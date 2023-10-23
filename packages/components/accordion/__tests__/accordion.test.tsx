@@ -1,9 +1,11 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { fireEvent, render, screen } from "@testing-library/react"
+
 import { Accordion, AccordionItem, AccordionItemBody } from "../src"
+
 import { InfoAlt } from "@wpmudev/sui-icons"
-import { suiA11yTest } from "../../../../../../tests/utility"
+import { a11yTest } from "@wpmudev/sui-utils"
 
 describe("@wpmudev/sui-accordion", () => {
 	// Common props for the Accordion component
@@ -60,7 +62,7 @@ describe("@wpmudev/sui-accordion", () => {
 	}
 
 	it("passes a11y test", async () => {
-		await suiA11yTest(<AccordionDemo />)
+		await a11yTest(<AccordionDemo />)
 	})
 
 	// Test: Renders the Accordion component
