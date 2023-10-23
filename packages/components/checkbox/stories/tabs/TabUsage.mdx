@@ -9,6 +9,8 @@ import ErrorState from "../images/error-state.svg"
 import Size from "../images/size.svg"
 import Alignment from "../images/alignment.svg"
 import HelperText from "../images/helper-text.svg"
+import State from "../images/state.svg"
+import Indeterminate from "../images/state.svg"
 
 <Section title="Anatomy">
 	<Row>
@@ -62,6 +64,37 @@ import HelperText from "../images/helper-text.svg"
 			<img src={NestedCheckbox} alt="Nested Checkbox" />
 		</Col>
 	</Row>
+</Section>
+
+<Section title="Checkbox state">
+	<Row>
+		<Col>
+			<p>Checkbox primarily has two states</p>
+
+    		<h3 style={{marginTop: 0}}>1. Unchecked</h3>
+    		<p>By default checkbox is not selected. When the checkbox is not selected, it is typically empty or displays an empty box.</p>
+
+    		<h3 style={{marginTop: 0}}>2. Checked</h3>
+    		<p>When the checkbox is selected, it typically displays a checkmark (✔) inside the box with filled color to indicate the selected state.</p>
+    	</Col>
+    	<Col>
+    		<img src={State} alt="Checkbox States" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Indeterminate Checkbox">
+	<Row>
+		<Col>
+			<p>An indeterminate checkbox is a special state for checkboxes commonly used when dealing with lists or groups of checkboxes. It indicates that not all items in the group are checked, but some are, and it provides a visual cue to the user. This state is particularly useful when you have a hierarchical or multi-select structure where there's a mix of checked and unchecked checkboxes within a parent category or group.</p>
+
+    	</Col>
+    	<Col>
+    		<img src={Indeterminate} alt="Indeterminated Checkbox" />
+    	</Col>
+    </Row>
+
 </Section>
 
 <Section title="Disabled checkbox">
