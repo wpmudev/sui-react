@@ -3,6 +3,10 @@
  */
 interface ColorPickerProps {
 	/**
+	 * Unique identifier for the color-picker
+	 */
+	id: string
+	/**
 	 * Color code
 	 */
 	color?: string

@@ -10,7 +10,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { Input } from "@wpmudev/sui-input"
 import { Row, Col } from "@wpmudev/sui-grid"
 import { FormField } from "@wpmudev/sui-form-field"
-import { Select } from "@wpmudev/sui-select"
+import { Select, SelectOptionType } from "@wpmudev/sui-select"
 import { Button } from "@wpmudev/sui-button"
 
 import { TableContext } from "./table-context"
@@ -52,26 +52,23 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 			{
 				{
 					select: (
+						// @ts-ignore
 						<Select
-							onChange={(optionID: string | number) =>
-								ctx?.setFilter(filter?.id ?? "", optionID)
+							onChange={(optionID: SelectOptionType) =>
+								ctx?.setFilter(filter?.id ?? "", optionID as string)
 							}
 							id={filter?.id}
 							{...filter?.props}
-							selected={
-								// @ts-ignore
-								ctx?.filterValues?.[filter?.id]
-							}
+							// @ts-ignore
+							selected={ctx?.filterValues?.[filter?.id]}
 						/>
 					),
 					text: (
 						<Input
 							id={filter?.id ?? ""}
 							{...(filter?.props as any)}
-							defaultValue={
-								// @ts-ignore
-								ctx?.filterValues?.[filter?.id]
-							}
+							// @ts-ignore
+							defaultValue={ctx?.filterValues?.[filter?.id]}
 							onChange={(
 								e: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 							) => {

@@ -2,27 +2,18 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
 
-// import { CodeEditor } from "../src"
+import { CodeEditor, CodeEditorProps } from "../src"
 
 describe("@wpmudev/code-editor", () => {
-	it("need test", () => {})
-	// 	it("render correctly", () => {
-	// 		render(
-	// 			<CodeEditor>
-	// 				{`import React from 'react';
-	//
-	// const MyComponent = ({ name }) => {
-	//   return (
-	//     <div>
-	//       <h1>Hello, {name}!</h1>
-	//       <p>This is a basic React functional component.</p>
-	//     </div>
-	//   );
-	// };
-	//
-	// export default MyComponent;
-	// `}
-	// 			</CodeEditor>,
-	// 		)
-	// 	})
+	const Component = (propsList: CodeEditorProps) => {
+		return <CodeEditor {...propsList} />
+	}
+
+	// Check if the component renders correctly
+	it("renders correctly", () => {
+		// Render the component
+		render(<Component />)
+		// Assert that the date picker element is in the document
+		expect(screen.getByTestId("code-editor")).toBeInTheDocument()
+	})
 })

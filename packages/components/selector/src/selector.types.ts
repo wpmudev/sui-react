@@ -1,5 +1,5 @@
 import React from "react"
-
+import { IconsNamesType } from "@wpmudev/sui-icons"
 /**
  * Represents the properties for a Selector component.
  */
@@ -26,7 +26,7 @@ interface SelectorProps
 	/** The variation style of the Selector component */
 	variation?: "default" | "icon-only" | "compound" | "image"
 	/** URL for an icon or brand image */
-	iconOrBrandUrl?: string
+	iconOrBrandUrl?: string | IconsNamesType
 	/** The title text */
 	title?: string
 	/** The description text */

@@ -27,8 +27,10 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	onEvent = () => {},
 	...props
 }) => {
+	const generatedId = useId()
+
 	// Random search ID
-	const inputId = id || `sui-search-${useId()}`
+	const inputId = id || `sui-search-${generatedId}`
 
 	const [value, setValue] = useState<string>(selected?.label || "")
 

@@ -16,11 +16,12 @@ import { generateCN } from "@wpmudev/sui-utils"
  * A code editor component that allows displaying and editing code.
  * Uses ReactPrismEditor as the code editor.
  *
- * @param {CodeEditorProps} props - Component props
+ * @param {ColorPickerProps} props - Component props
  * @return {JSX.Element} - JSX Element representing the CodeEditor component
  */
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
+	id = "color-picker",
 	color = "",
 	onChange,
 	placeholder = "Select color",
@@ -37,6 +38,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 		if (tempColor !== color) {
 			setTempColor(color)
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [color])
 
 	// Function to handle color change and call the parent component's onChange function
@@ -59,6 +61,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 			e.stopPropagation()
 			setTempColor("")
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[color],
 	)
 
@@ -68,6 +71,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 			const inputValue = e?.target?.value
 			setTempColor(inputValue)
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[tempColor],
 	)
 
@@ -77,6 +81,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 				error: isError,
 				disabled: isDisabled,
 			})}
+			data-testid="color-picker"
 		>
 			<div className="sui-color-picker__color">
 				<Input
@@ -87,6 +92,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					onClick={() => setShowPicker(true)}
 					isError={isError ?? false}
 					isDisabled={isDisabled ?? false}
+					id={id}
 					{...props}
 				/>
 

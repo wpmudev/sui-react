@@ -58,6 +58,7 @@ const ColorPicker = ({
 						error={errorMessage}
 					>
 						<SuiColorPicker
+							id={id}
 							color={currentColor}
 							onChange={setCurrentColor}
 							isDisabled={isDisabled}
@@ -72,7 +73,7 @@ const ColorPicker = ({
 
 // Set story arguments.
 ColorPicker.args = {
-	id: "colorpicker",
+	id: "color-picker",
 	color: "#ffffff",
 	type: "hex",
 	isError: false,

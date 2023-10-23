@@ -1,9 +1,8 @@
-import React, { FC, Fragment, useId } from "react"
-
+import React, { FC, useId } from "react"
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
-
-import * as Icons from "@wpmudev/sui-icons"
+import Icons from "@wpmudev/sui-icons"
+import { IconProps } from "@wpmudev/sui-icon"
 import { DropdownMenuItemProps } from "./dropdown.types"
 
 // import { MenuItemProps } from "./menu.types"
@@ -46,11 +45,10 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	)
 
 	// Check if an icon is specified and assign it to IconTag
-	let IconTag = null
-	if (!isEmpty(icon ?? "")) {
-		/*eslint import/namespace: ['error', { allowComputed: true }]*/
-		// @ts-ignore
-		IconTag = Icons?.[icon] ?? null
+	let IconTag: React.ComponentType<IconProps> | null = null
+
+	if (icon) {
+		IconTag = Icons[icon]
 	}
 
 	// Prepare attributes for the menu item element
@@ -59,12 +57,12 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 		href: !!href ? href : undefined,
 		tabIndex: isDisabled ? -1 : 0,
 		children: (
-			<Fragment>
+			<>
 				{!!IconTag && (
 					<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
 				)}
 				<span id={menuTitleId}>{children}</span>
-			</Fragment>
+			</>
 		),
 		...props,
 	}

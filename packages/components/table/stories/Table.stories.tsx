@@ -8,6 +8,7 @@ import {
 	TableFooter,
 	TableHead,
 	TableRow,
+	TableOnActionType,
 } from "../src"
 
 import { Tag } from "@wpmudev/sui-tag"
@@ -471,9 +472,9 @@ const itemsPerPage = 5
 const tableItems = chunkArray(records, itemsPerPage)
 
 // Build "Field List" story
-const Table = ({ example, ...args }) => {
-	const [tempRows, setTempRows] = useState<Record<string, any>>([])
-	const [rows, setRows] = useState<Record<string, any>>([])
+const Table = ({ ...args }) => {
+	const [tempRows, setTempRows] = useState<Record<string, any>[]>([])
+	const [rows, setRows] = useState<Record<string, any>[]>([])
 	const [page, setPage] = useState<number>(1)
 
 	useEffect(() => {
@@ -485,7 +486,7 @@ const Table = ({ example, ...args }) => {
 		setRows(tableItems?.[page - 1])
 	}, [page])
 
-	const action = (id, content) => {
+	const action = (_id: string, content: React.ReactNode) => {
 		return (
 			<div
 				style={{
@@ -520,14 +521,11 @@ const Table = ({ example, ...args }) => {
 					{...args}
 					stickyCols={true}
 					onAction={(actionType, data) => {
-						let dRows: Record<string, any> = [...rows]
+						let dRows: Record<string, any>[] = [...rows]
 
 						switch (actionType) {
 							case "bulk-action":
 							case "apply-filters":
-								alert(
-									`ACTION: ${actionType} \n\nData: \n${JSON.stringify(data)}`,
-								)
 								break
 							case "sort-rows":
 								break
@@ -539,7 +537,10 @@ const Table = ({ example, ...args }) => {
 								dRows = "" !== data ? dRows : tempRows
 								break
 							case "sort-columns":
-								const { column, order } = data
+								const { column, order } = data as {
+									column: string | number
+									order: string
+								}
 
 								// sort
 								dRows.sort((a, b) =>

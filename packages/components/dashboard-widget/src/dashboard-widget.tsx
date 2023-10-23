@@ -1,9 +1,9 @@
 import React, { Fragment, useCallback } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
-import * as Icons from "@wpmudev/sui-icons"
+import Icons from "@wpmudev/sui-icons"
 import { Tag } from "@wpmudev/sui-tag"
-
+import { IconProps } from "@wpmudev/sui-icon"
 import { DashboardWidgetProps } from "./dashboard-widget.types"
 import { Toggle } from "@wpmudev/sui-toggle"
 
@@ -16,10 +16,10 @@ import { Toggle } from "@wpmudev/sui-toggle"
 const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	title,
 	description = "",
-	icon = "",
+	icon,
 	tag,
 	tagProps,
-	statusIcon = "",
+	statusIcon,
 	statusProps,
 	isExpanded = true,
 	isDisabled = false,
@@ -44,13 +44,16 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	}, [isExpanded, onToggle])
 
 	// Determine the icon component based on the 'icon' prop
-	/*eslint import/namespace: ['error', { allowComputed: true }]*/
-	// @ts-ignore
-	const IconTag = Icons?.[icon]
+	let IconTag: React.ComponentType<IconProps> | null = null
+	if (icon) {
+		IconTag = Icons[icon]
+	}
 
-	// Determine the icon component based on the 'icon' prop
-	// @ts-ignore
-	const StatusIcon = Icons?.[statusIcon]
+	// Determine the statusIcon component based on the 'statusIcon' prop
+	let StatusIcon: React.ComponentType<IconProps> | null = null
+	if (statusIcon) {
+		StatusIcon = Icons[statusIcon]
+	}
 
 	// Prepare attributes for the tag component
 	const tagAttrs = {
@@ -72,7 +75,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 									{tag}
 								</Tag>
 							)}
-							{statusIcon && <StatusIcon size="sm" {...(statusProps ?? {})} />}
+							{StatusIcon && <StatusIcon size="sm" {...(statusProps ?? {})} />}
 						</h4>
 					</div>
 					{/* Display collapse/expand button if allowed */}

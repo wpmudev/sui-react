@@ -31,7 +31,7 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 				isExpanded={isOpen}
 				onClick={() => setIsOpen(!isOpen)}
 				isGroup={true}
-				icon={icon ?? ""}
+				icon={icon}
 				isDisabled={isDisabled ?? false}
 			>
 				{title}

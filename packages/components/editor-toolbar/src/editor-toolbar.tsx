@@ -56,7 +56,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 									isSmall={true}
 									iconOnly={true}
 									onClick={onBackClick}
-                  					data-testid="editor-toolbar-back-btn"
+									data-testid="editor-toolbar-back-btn"
 								/>
 							</div>
 						)}

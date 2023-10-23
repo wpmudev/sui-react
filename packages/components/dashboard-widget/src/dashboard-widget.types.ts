@@ -2,6 +2,8 @@ import { ReactNode } from "react"
 
 import { TagProps } from "@wpmudev/sui-tag"
 
+import { IconsNamesType } from "@wpmudev/sui-icons"
+
 /**
  * DashboardWidgetProps is the set of properties that can be passed to the DashboardWidget component.
  */
@@ -13,7 +15,7 @@ interface DashboardWidgetProps {
 	description?: ReactNode
 
 	/** The name of the icon to display in the widget */
-	icon?: string
+	icon?: IconsNamesType
 
 	/** Additional content or actions to display in the widget's footer */
 	actions?: ReactNode
@@ -41,7 +43,7 @@ interface DashboardWidgetProps {
 	tagProps?: TagProps
 
 	/** A status associated with the widget */
-	statusIcon?: string
+	statusIcon?: IconsNamesType
 
 	/** A status color with the widget */
 	statusProps?: object

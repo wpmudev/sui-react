@@ -1,10 +1,8 @@
 import React from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
-import * as Icons from "@wpmudev/sui-icons"
-
 import { UpsellProps } from "./upsell.types"
-import { Check } from "@wpmudev/sui-icons"
+import Icons, { IconsNamesType, Check } from "@wpmudev/sui-icons"
 import { variationsList } from "./helpers"
 
 const Upsell: React.FC<UpsellProps> = ({
@@ -25,9 +23,7 @@ const Upsell: React.FC<UpsellProps> = ({
 	const currentVar = variationsList[variation]
 
 	// Get the appropriate SVG Icon based on variation
-	/*eslint import/namespace: ['error', { allowComputed: true }]*/
-	// @ts-ignore
-	const Icon = Icons?.[currentVar?.icon ?? ""]
+	const Icon = Icons?.[currentVar?.icon as IconsNamesType]
 
 	return (
 		<div className={classNames} data-testid="upsell">

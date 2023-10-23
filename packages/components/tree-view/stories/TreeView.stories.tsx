@@ -21,18 +21,18 @@ export default {
 }
 
 // Build "Tag" story.
-const TreeView = ({ color, ...props }) => {
+const TreeView = ({ ...args }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
-		background: color !== "white" ? "#fff" : "#333",
+		background: "#fff",
 	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiTreeView {...props}>
+					<SuiTreeView {...args}>
 						<TreeViewGroup icon="Bell" id="group-1" title="Tree Group">
 							<TreeViewGroup id="group-2" title="Tree Group">
 								<TreeViewItem id="item-1">Tree Item</TreeViewItem>

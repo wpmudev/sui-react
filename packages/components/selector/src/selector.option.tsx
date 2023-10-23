@@ -3,9 +3,9 @@ import React from "react"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { generateCN } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
+import { IconProps } from "@wpmudev/sui-icon"
 import { Tag } from "@wpmudev/sui-tag"
-import * as Icons from "@wpmudev/sui-icons"
-
+import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 import { SelectorOptionProps } from "./selector.types"
 
 const SelectorOption: React.FC<SelectorOptionProps> = ({
@@ -22,20 +22,19 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 	tagColor,
 }) => {
 	// Custom hook to handle interaction states (hover, focus, etc.)
-	const [isHovered, isFocused, methods] = useInteraction({})
+	const [isHovered, _isFocused, methods] = useInteraction({})
 
 	// Generate CSS class names
 	const classNames = generateCN("sui-selector__option", {})
 
-	let Icon = null
+	let Icon: React.ComponentType<IconProps> | null = null
+
 	const isImage = (iconOrBrandUrl ?? "")?.indexOf(".") > -1
 
 	// Check if the provided iconOrBrandUrl is an image or an icon reference
 	if (!isImage) {
 		// Look up the appropriate icon based on the provided reference
-		/*eslint import/namespace: ['error', { allowComputed: true }]*/
-		// @ts-ignore
-		Icon = Icons?.[iconOrBrandUrl] ?? null
+		Icon = Icons[iconOrBrandUrl as IconsNamesType]
 	}
 
 	return (

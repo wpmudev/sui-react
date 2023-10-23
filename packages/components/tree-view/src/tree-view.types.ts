@@ -1,3 +1,4 @@
+import { IconsNamesType } from "@wpmudev/sui-icons"
 import React from "react"
 
 /**
@@ -16,7 +17,7 @@ interface TreeViewProps {
  */
 interface TreeViewItemProps extends TreeViewProps {
 	id?: string // Unique ID for the tree view item
-	icon?: string // Icon to display with the tree view item
+	icon?: IconsNamesType // Icon to display with the tree view item
 	isGroup?: boolean // Flag to indicate if the item is a group in the tree view
 	isExpanded?: boolean // Flag to indicate if the group item is expanded
 	isDisabled?: boolean // Flag to disable the tree view item

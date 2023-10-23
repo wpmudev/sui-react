@@ -12,4 +12,5 @@ export type {
 	TableRowProps,
 	TableCellProps,
 	TableProps,
+	TableOnActionType,
 } from "./table.types"

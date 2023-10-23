@@ -29,7 +29,7 @@ export type TableColumnType = {
 // table context provider to provide the context to its children
 const TableContextProvider: FC<TableContextProviderProps> = ({
 	children,
-	props = {},
+	props,
 }) => {
 	// state to store filtered values
 	const [filterValues, setFilterValues] = useState<

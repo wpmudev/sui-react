@@ -1,4 +1,5 @@
 import React, { HTMLProps } from "react"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 /**
  * Interface defining the props that can be passed to a Builder component.
@@ -75,7 +76,7 @@ interface BuilderFieldProps {
 	/**
 	 * Optional string for specifying an icon.
 	 */
-	icon?: string
+	icon?: IconsNamesType
 
 	/**
 	 * Optional title for the BuilderField component.

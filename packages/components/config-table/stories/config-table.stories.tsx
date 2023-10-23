@@ -81,7 +81,7 @@ export const Configs = [
 		plugin: "1081721",
 	},
 ]
-        
+
 // Build story
 export const ConfigTable = ({ ...props }) => {
 	return (
