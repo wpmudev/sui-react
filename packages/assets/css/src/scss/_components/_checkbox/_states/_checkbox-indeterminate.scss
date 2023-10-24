@@ -1,0 +1,39 @@
+@use "../../../_utils/utils" as *;
+
+/// Edit InDeterminate State
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-indeterminate($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(indeterminate) {
+				@include modifies-element(box) {
+					border-color: $checkbox-input-border-color-active;
+					background: $checkbox-input-background-active;
+				}
+
+				@include modifies-element(icon) {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(indeterminate) {
+				@include modifies-element(box) {
+					border-color: $color-extended-neutral-0;
+					background: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+}

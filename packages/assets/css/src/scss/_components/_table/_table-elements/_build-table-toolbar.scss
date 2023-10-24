@@ -1,0 +1,152 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Table body
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-table-toolbar($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include element(toolbar) {
+                border-bottom: $border-width-sm solid $color-extended-neutral-80;
+            }
+
+            @include element(toolbar-header) {
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+                padding: $spacing-lg $spacing-xxl;
+
+                @include media(max-width, sm) {
+                    flex-direction: column;
+                    gap: $spacing-lg;
+                    align-items: flex-start;
+                    padding: $spacing-lg;
+                }
+            }
+
+            @include element(toolbar-header-bulk) {
+                align-items: center;
+                display: flex;
+
+                @include media(max-width, sm) {
+                    width: 100%;
+                }
+            }
+
+            @include element(toolbar-body) {
+                display: none;
+                padding: $spacing-xxl;
+
+                @include modifier(inline) {
+                    background: $color-extended-neutral-95;
+                    border-top: $border-width-sm solid $color-extended-neutral-80;
+                }
+
+                @include modifier(expanded) {
+                    display: block;
+                }
+            }
+
+            @include element(toolbar-cta) {
+                text-align: right;
+            }
+
+            @include element(toolbar-filter) {
+                margin: 0;
+
+                .sui-dropdown__menu {
+                    width: $table-width-md;
+                }
+
+                > .sui-button {
+                    margin: 0;
+                }
+
+                .sui-#{$block}__toolbar-body {
+                    padding: $spacing-lg $spacing-xl;
+                }
+
+                .sui-#{$block}__toolbar-cta {
+                    border-top: $border-width-sm solid $color-extended-neutral-80;
+                    padding: $spacing-lg $spacing-xl 0;
+                    margin: $spacing-xl #{-$spacing-xl} 0;
+                }
+            }
+
+            @include element(toolbar-header-actions) {
+                align-items: center;
+                display: flex;
+                gap: $spacing-lg;
+                justify-content: space-between;
+
+                @include media(max-width, sm) {
+                    width: 100%;
+                }
+            }
+
+            @include element(toolbar-actions, toolbar-search) {
+                min-width: $table-width-sm;
+
+                @include media(max-width, sm) {
+                    flex: 1;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include element(toolbar) {
+                border-color: $color-extended-neutral-0;
+            }
+
+            @include element(toolbar-body) {
+
+                @include modifier(inline) {
+                    background: $color-extended-neutral-100;
+                    border-top-color: $color-extended-neutral-0;
+                }
+            }
+
+            @include element(toolbar-filter) {
+
+                .sui-#{$block}__toolbar-cta {
+                    border-top-color: $color-extended-neutral-0;
+                }
+            }
+        }
+    }
+
+    // DIR: Right to left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include element(toolbar-filter) {
+                > .sui-button {
+                    margin: 0;
+                }
+
+                .sui-dropdown__menu {
+                    left: 0;
+                    right: auto;
+                }
+            }
+        }
+    }
+}

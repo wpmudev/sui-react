@@ -1,0 +1,32 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Nav
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-nav($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(nav) {
+                display: flex;
+                flex: 1;
+                justify-content: flex-end;
+                gap: $spacing-md;
+                margin: 0;
+
+                @include media(max-width, md) {
+                    gap: $spacing-lg;
+                }
+            }
+
+            @include element(nav-item) {
+                margin: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,3 @@
+@use "./_elements/elements" as sui-box--element;
+
+@include sui-box--element.build-container(box);

@@ -1,0 +1,24 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Field expanded
+///
+/// @type modifier
+/// @author	 WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-expanded($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(field) {
+                @include modifier(expanded) {
+                    .sui-builder__field-body {
+                        display: block
+                    }
+                }
+            }
+        }
+    }
+}

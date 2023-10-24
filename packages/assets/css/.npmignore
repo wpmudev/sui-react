@@ -1,0 +1,19 @@
+# Ignore Github related files and folders.
+.github
+
+# Ignore Storybook related files and folders.
+.storybook
+stories
+
+# Ignore local modules.
+node_modules
+
+# Ignore other configuration files.
+lerna.json
+.editorconfig
+.prettierignore
+.prettierrc.json
+.stylelintrc.json
+
+# Ignore cache file.
+.dccache

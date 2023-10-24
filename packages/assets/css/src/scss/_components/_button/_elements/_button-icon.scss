@@ -1,0 +1,61 @@
+@use "../../../_utils/utils" as *;
+
+@mixin build-icon($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include element(icon) {
+				display: block;
+				padding: $button-icon-padding-vertical-md
+					$button-icon-padding-horizontal-md;
+
+				span {
+					display: block;
+					&.suicons--spin {
+						@include animation(spin);
+					}
+				}
+			}
+
+			@include modifier(is-icon) {
+				.sui-#{$block-name}__icon {
+					padding: 0;
+				}
+
+				&.sui-#{$block-name}--lg {
+					padding-top: $spacing-md;
+					padding-bottom: $spacing-md;
+				}
+			}
+
+			@include modifier(inline) {
+				border: none;
+				background: unset;
+			}
+
+			@include modifier(responsive) {
+				@include modifies-element(label) {
+					@include media(max-width, md) {
+						display: none;
+
+						+ .sui-#{$block-name}__icon {
+							display: none;
+						}
+					}
+				}
+
+				@include media(max-width, md) {
+					min-width: auto;
+					padding: $button-container-padding-horizontal;
+
+					span {
+						display: block;
+					}
+
+					.sui-#{$block-name}__icon {
+						padding: 0;
+					}
+				}
+			}
+		}
+	}
+}

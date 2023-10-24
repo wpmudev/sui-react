@@ -1,0 +1,139 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build links
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-links($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+
+            a {
+                text-decoration: none;
+                box-shadow: none;
+
+                &:focus {
+                    text-decoration: underline;
+                }
+            }
+            
+            @include element(links) {
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+                margin: 0;
+
+                li {
+                    margin: 0;
+                }
+
+                @include modifier(item) {
+                    align-items: center;
+                    display: inline-flex;
+    
+                    a {
+                        color: $color-extended-neutral-60;
+                        font-size: $font-size-xxs;
+                        line-height: normal;
+                        text-decoration: none;
+                        margin: 0 $spacing-md;
+    
+                        &:hover,
+                        &:focus {
+                            color: $color-primary-40;
+                        }
+                    }
+                    
+                    &:last-child {
+                        a {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+
+            @include element(block) {
+                @include modifier(pages) {
+                    @include media(max-width, sm) {
+                        order: -1;
+                        margin-bottom: $spacing-xxl;
+                    }
+
+                    .sui-#{$block}__links {
+
+                        .sui-#{$block}__links--item {
+                            &:not(:last-child) {
+                                &:after {
+                                    content: '|';
+                                }
+                            }
+                        }
+                        
+                        @include media(max-width, md) {
+                            display: inline-block;
+                            text-align: center;
+                            margin: -#{$spacing-md} $footer-spacing-md 0;
+    
+                            .sui-#{$block}__links--item {
+                                margin-top: $spacing-md;
+                            }
+                        }
+
+                        @include media(max-width, sm) {
+                            margin: 0 $spacing-md;
+                        }
+                    }
+                }
+
+                @include modifier(logo) {
+                    width: $footer-size-width-md;
+                    max-width: unset;
+                }
+            }
+        }
+    }
+
+     // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            
+            @include element(links) {
+
+                @include modifier(item) {
+
+                    a {
+                        &,
+                        &:hover,
+                        &:focus {
+                            color: $color-extended-neutral-0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // DIR: Right to left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: null) {
+        @include block($block) {
+            @include element(links) {
+
+                @include modifier(item) {
+                    &:last-child {
+                        a {
+                            margin-left: 0;
+                            margin-right: $spacing-md;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

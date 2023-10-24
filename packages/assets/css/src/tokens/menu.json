@@ -1,0 +1,10 @@
+{
+    "menu": {
+        "spacing": {
+            "horizontal": {
+                "value": "24px",
+                "type": "spacing"
+            }
+        }
+    }
+}
