@@ -4,8 +4,8 @@ module.exports = {
 	stories: [
 		"../packages/**/stories/*.stories.mdx",
 		"../packages/**/stories/*.stories.@(js|jsx|ts|tsx)",
-		"../packages/**/packages/**/stories/*.stories.mdx",
-		"../packages/**/packages/**/stories/*.stories.@(js|jsx|ts|tsx)",
+		"../packages/**/*.stories.mdx",
+		"../packages/**/*.stories.@(js|jsx|ts|tsx)",
 	],
 	addons: [
 		getAbsolutePath("@storybook/addon-links"),
