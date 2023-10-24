@@ -85,5 +85,8 @@
   "peerDependencies": {
     "react": ">=18"
   },
+  "dependencies": {
+    "@wpmudev/sui-icon": "^0.0.1"
+  },
   "clean-package": "./postpack.config.json"
 }
