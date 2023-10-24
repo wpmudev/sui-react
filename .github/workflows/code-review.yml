@@ -21,7 +21,7 @@ jobs:
 
       - run: tree -a
       - run: ls -la
-      - run: npm ci
+      - run: npm install
       - run: npm run test -- --coverage
   code-linting:
     runs-on: ubuntu-latest
