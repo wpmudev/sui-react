@@ -43,7 +43,10 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "changelog": "npx lerna-changelog",
-    "build": "NODE_ENV=production lerna run build"
+    "build": "NODE_ENV=production lerna run build",
+    "test": "jest",
+    "test:dev": "jest --watch",
+    "test:a11y": "SUI_A11Y_TEST=1 jest"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
