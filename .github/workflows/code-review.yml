@@ -27,12 +27,14 @@ jobs:
         run: npm ci
 
   code-testing:
+    runs-on: ubuntu-latest
     needs: [setup]
     steps:
       - name: Run code test
         run: npm run test -- --coverage
 
   code-linting:
+    runs-on: ubuntu-latest
     needs: [setup]
     steps:
       - name: Run code lint
