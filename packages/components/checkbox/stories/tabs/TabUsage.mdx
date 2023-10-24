@@ -1,4 +1,4 @@
-import { Section, Row, Col, List, Code } from "@wpmudev/storybook"
+import { Section, Row, Col, List, Code } from "@wpmudev/sui-docs"
 
 import Anatomy from "../images/anatomy.svg"
 import States from "../images/states.svg"
@@ -31,12 +31,12 @@ import Indeterminate from "../images/indeterminate.svg"
 		<span label={<><Code>Unselected</Code> - Checkbox is un-tick </>} />
 		<span label={<><Code>Indeterminate</Code> - The indeterminate state indicates some File/Folders are checked (a line). </>} />
 	</List>
-	
+
 </Section>
 
 <Section title="States">
    <img src={States} alt="Checkbox States" />
-   
+
    <h3 style={{marginTop: 30}}>1. Default</h3>
    <p> Default state where the Checkbox can be Check/Uncheck by the user.</p>
 
@@ -65,13 +65,13 @@ import Indeterminate from "../images/indeterminate.svg"
 
 <Section title="Alignment">
 
-	<p>There are two ways to align the Checkbox: `Inline` and `Stacked`. 
+	<p>There are two ways to align the Checkbox: `Inline` and `Stacked`.
 		By default, Checkboxes are aligned on the top as Stack elements, but you can add one next to another as inline elements.</p>
 	<p> Align your inputs on a single column towards the left side of the screen. Why? There are two reasons:</p>
 	<p> 1. A single, vertical line is easier to follow.</p>
 	<p> 2. Studies have shown that users in left-to-right languages tend to scan pages starting from the left part of the screen</p>
 	<p> You can still use a horizontal layout, but your buttons and labels should be arranged so that users can tell which choice corresponds to which label without trouble.</p>
-	
+
 	<h3> in-lined Checkbox options </h3>
 	<img src={Inline} alt="Checkboxes Inlined" />
 
@@ -81,7 +81,7 @@ import Indeterminate from "../images/indeterminate.svg"
 	<h3> Indeterminate Checkbox options </h3>
 	<p>When we have multi-level lists with checkboxes, you may run into cases where only some subordinate options are checked while others are not. For such a situation, all the nested Checkboxes will be aligned with Parents Checkbox Text, and all the Primary Level Checkboxes will be aligned. </p>
 	<img src={Indeterminate} alt="Checkboxes Indeterminate" />
-	
+
 </Section>
 
 <Section title="Usecase - Checkbox">

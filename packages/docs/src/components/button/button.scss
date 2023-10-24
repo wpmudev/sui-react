@@ -1,0 +1,98 @@
+.csb-button {
+  cursor: pointer;
+  padding: 14px 17px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: none;
+  color: #FFF;
+  text-decoration: none;
+  transition: 0.2s ease;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &__icon,
+  &__label {
+    padding: 0 3px;
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 22px;
+  }
+
+  &--primary {
+    background: #286EF1;
+
+    &:hover,
+    &:active {
+      background: #184291;
+      color: #FFF;
+    }
+
+    &:focus {
+      background: #081630;
+      color: #FFF;
+    }
+
+    .csb-button__label {
+      text-transform: uppercase;
+    }
+  }
+
+  &--secondary {
+    padding: 8px 18px;
+    background: transparent;
+
+    &.csb-button {
+
+      &--white {
+        border-color: rgba(255, 255, 255, 0.4);
+
+        &:hover,
+        &:active {
+          border-color: #FFF;
+        }
+
+        &:focus {
+          border-color: #FFF;
+          background: #FFF;
+          color: #1A1A1A;
+        }
+      }
+
+      &--black {
+        border-color: rgba(26, 26, 26, 0.4);
+        color: #1A1A1A;
+
+        &:hover,
+        &:active {
+          border-color: #1A1A1A;
+        }
+
+        &:focus {
+          border-color: #1A1A1A;
+          background: #1A1A1A;
+          color: #FFF;
+        }
+      }
+    }
+
+    .csb-button__label {
+      line-height: 20px;
+    }
+  }
+
+  &--sm {
+    padding: 6px 14px;
+
+    .csb-button__label {
+      font-size: 12px;
+    }
+  }
+}

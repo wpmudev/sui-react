@@ -1,11 +1,11 @@
-import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 import { options } from "../TabExamples.mdx"
 import { Select } from "../../../src"
 import dedent from "dedent"
 
 export const disabledCode = dedent`
   import { Select } from "@wpmudev/sui-select";
-  
+
   export const options = [
     {
       icon: "settings",
@@ -27,13 +27,13 @@ export const disabledCode = dedent`
     },
   ]
 
-export const Example = () => { 
+export const Example = () => {
     return <Select isDisabled={true} id="disabled" options={options} />
 }`
 
 export const smallCode = dedent`
   import { Select } from "@wpmudev/sui-select";
-  
+
   export const options = [
     {
       icon: "settings",
@@ -55,13 +55,13 @@ export const smallCode = dedent`
     },
   ]
 
-export const Example = () => { 
+export const Example = () => {
     return <Select isSmall={true} id="small" options={options} />
 }`
 
 export const errorCode = dedent`
   import { Select } from "@wpmudev/sui-select";
-  
+
   export const options = [
     {
       icon: "settings",
@@ -83,7 +83,7 @@ export const errorCode = dedent`
     },
   ]
 
-export const Example = () => { 
+export const Example = () => {
     return <Select isError={true} id="error" options={options} />
 }`
 

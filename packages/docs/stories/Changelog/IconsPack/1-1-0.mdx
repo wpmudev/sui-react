@@ -1,0 +1,22 @@
+import { Section, List, Code } from '@wpmudev/sui-docs';
+
+<Section
+	title={{
+		content: '1.1.0',
+		date: '2023-01-23',
+		tag: 'New'
+	}}
+	border={ true }
+	style={{ paddingTop: 0 }}>
+	<List title="New Features" id="icons-new__1-1-0">
+		<div label="Define icons sizing." />
+		<div label="New icon for roadmap." />
+		<div label="Add missing icons:">
+			<div label={<Code small={true}>copy</Code>} />
+			<div label={<Code small={true}>tag</Code>} />
+			<div label={<Code small={true}>clock</Code>} />
+			<div label={<Code small={true}>key</Code>} />
+			<div label={<Code small={true}>external-link</Code>} />
+		</div>
+	</List>
+</Section>

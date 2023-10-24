@@ -5,7 +5,7 @@ import docs from './content/Colors/Main.mdx';
 
 // Import required depdendencies.
 import { Palettes } from './content/Colors/Map';
-import { Section, Row, Col, Card, Message } from '@wpmudev/storybook';
+import { Section, Row, Col, Card, Message } from '@wpmudev/sui-docs';
 
 // Configure default options.
 export default {

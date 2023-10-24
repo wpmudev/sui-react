@@ -1,4 +1,5 @@
 import type { Options } from "tsup"
+import { sassPlugin } from 'esbuild-sass-plugin';
 
 const env = process.env.NODE_ENV
 const isProd = env === "production"
@@ -15,4 +16,5 @@ export const tsup: Options = {
     outDir: isProd ? "dist" : "lib",
     format: ["cjs", "esm"],
     entry: ["src/**/*.ts"],
+    esbuildPlugins: [sassPlugin()],
 }

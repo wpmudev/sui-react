@@ -1,36 +1,36 @@
-import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 import { Recipient } from "../../../src"
 import dedent from "dedent"
 
 export const ConfirmedRecipientCode = dedent`
     <Recipient
         status="confirmed"
-        userName="Recipient name" 
-        userEmail="email@example.com" 
+        userName="Recipient name"
+        userEmail="email@example.com"
     />
 `
 
 export const NotAcceptedCode = dedent`
     <Recipient
         status="not-accepted"
-        userName="Recipient name" 
-        userEmail="email@example.com" 
+        userName="Recipient name"
+        userEmail="email@example.com"
     />
 `
 
 export const NotConnectedCode = dedent`
     <Recipient
         status="not-connected"
-        userName="Recipient name" 
-        userEmail="email@example.com" 
+        userName="Recipient name"
+        userEmail="email@example.com"
     />
 `
 
 export const InvitedRecipientCode = dedent`
-    <Recipient 
-        isInvited={true} 
-        userName="Recipient name" 
-        userEmail="email@example.com" 
+    <Recipient
+        isInvited={true}
+        userName="Recipient name"
+        userEmail="email@example.com"
     />
 `
 

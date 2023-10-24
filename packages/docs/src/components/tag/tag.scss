@@ -1,0 +1,96 @@
+@use "sass:map";
+
+$palettes: (
+	'solid': (
+		'gray': (
+			'background': #BCBFCB,
+			'color': #141934,
+		),
+		'blue': (
+			'background': #286EF1,
+			'color': #FFFFFF,
+		),
+		'yellow': (
+			'background': #FFCC20,
+			'color': #1A1A1A,
+		),
+		'green': (
+			'background': #18BB4B,
+			'color': #FFFFFF,
+		),
+		'red': (
+			'background': #F45C59,
+			'color': #FFFFFF,
+		),
+	),
+	'light': (
+		'gray': (
+			'background': #E9EAEE,
+			'color': #141934,
+		),
+		'blue': (
+			'background': #D5E3FD,
+			'color': #286EF1,
+		),
+		'yellow': (
+			'background': #FFF4CE,
+			'color': #5B502B,
+		),
+		'green': (
+			'background': #BAEBC9,
+			'color': #0C5E26,
+		),
+		'red': (
+			'background': #FCCECD,
+			'color': #AB403E,
+		),
+	),
+);
+
+.csb-tag {
+	padding: 2px 15px;
+	border-radius: 100px;
+	background: #BCBFCB;
+	color: #141934;
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+
+	@each $palette, $palette-map in $palettes {
+		@each $color, $color-map in $palette-map {
+			@if $color == 'gray' {
+				@if $palette == 'solid' {
+					background: map.get($palettes, $palette, $color, 'background');
+					color: map.get($palettes, $palette, $color, 'color');
+				}
+				@else {
+					&--#{$palette} {
+						background: map.get($palettes, $palette, $color, 'background');
+						color: map.get($palettes, $palette, $color, 'color');
+					}
+				}
+			}
+			@else {
+				@if $palette == 'solid' {
+					&--#{$color} {
+						background: map.get($palettes, $palette, $color, 'background');
+						color: map.get($palettes, $palette, $color, 'color');
+					}
+				}
+				@else {
+					&--#{$color} {
+						&.csb-tag--#{$palette} {
+							background: map.get($palettes, $palette, $color, 'background');
+							color: map.get($palettes, $palette, $color, 'color');
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&--uppercase {
+		text-transform: uppercase;
+	}
+}

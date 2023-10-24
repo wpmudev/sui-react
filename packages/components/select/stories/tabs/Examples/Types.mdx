@@ -1,11 +1,11 @@
-import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 import { options } from "../TabExamples.mdx"
 import { Select } from "../../../src"
 import dedent from "dedent"
 
 export const smartSearchCode = dedent`
   import { Select } from "@wpmudev/sui-select";
-  
+
   export const options = [
     {
       icon: "settings",
@@ -27,13 +27,13 @@ export const smartSearchCode = dedent`
     },
   ]
 
-export const Example = () => { 
+export const Example = () => {
     return <Select isSearchable={true} id="smart-search" options={options} />
 }`
 
 export const multiSelectCode = dedent`
   import { Select } from "@wpmudev/sui-select";
-  
+
   export const options = [
     {
       icon: "settings",
@@ -55,7 +55,7 @@ export const multiSelectCode = dedent`
     },
   ]
 
-export const Example = () => { 
+export const Example = () => {
     return <Select isMultiSelect={true} id="multiselect" options={options} />
 }`
 

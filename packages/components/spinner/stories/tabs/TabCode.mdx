@@ -1,4 +1,4 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
 
 <Section
 	title="Installation"
@@ -58,14 +58,14 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 >
 	<p> Use this hook when you want to block some content with a spinner overlay. </p>
 
-	The <Code small={true}> useSpinner </Code> hook have two parameters:  
-   
+	The <Code small={true}> useSpinner </Code> hook have two parameters:
+
     <Section title={{ content: "targetRef", tag: 'Ref Object', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
 		The referance object of the React element where the spinner will cover as an overlay
     </Section>
 
 	<Section title={{ content: "props", tag: 'object', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-		The props to be passed to the actual spinner component in the overlay, the object accepts two properties: 
+		The props to be passed to the actual spinner component in the overlay, the object accepts two properties:
 		<List>
 			<span label={<Code small={true}>color</Code>} />
 			<span label={<Code small={true}>size*</Code>} />
@@ -74,7 +74,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/storybook"
 
 	<p>The hook, returns an object which has properties to control and check the spinner state: </p>
 	<Section title={{ content: "isVisible", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-		A variable showing the current display state  
+		A variable showing the current display state
     </Section>
 
 	<Section title={{ content: "show", tag: 'function', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>

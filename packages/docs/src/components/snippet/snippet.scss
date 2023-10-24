@@ -1,0 +1,49 @@
+.csb-snippet {
+  margin: 0 0 20px;
+
+  .docblock-source {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    padding-right: 55px;
+    background: #E9EAEE;
+    box-shadow: none;
+
+    pre {
+      padding: 20px;
+      color: #1F2852;
+      font-size: 13px;
+      line-height: 19px;
+
+      &, * {
+        font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New", monospace;
+      }
+
+      span, .token, .tag, .punctuation, .comment {
+        color: #1F2852;
+      }
+    }
+
+    button {
+      display: block;
+      padding: 6px 10px;
+      border: 1px solid #BCBFCB;
+      border-radius: 4px;
+      background: #FFFFFF;
+      color: #1F2852;
+      font-size: 12px;
+      line-height: 14px;
+    }
+
+    > div:nth-child(2n+2) {
+      top: 3px;
+      right: 3px;
+      bottom: auto;
+      background: transparent;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

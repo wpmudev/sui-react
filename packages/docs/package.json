@@ -1,0 +1,51 @@
+{
+  "name": "@wpmudev/sui-docs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Storybook components to build and style WPMU DEV showcase.",
+  "keywords": [
+    "wpmudev",
+    "storybook",
+    "documentation",
+    "components",
+    "react"
+  ],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "license": "GPL-3.0",
+  "main": "src/index.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-docs.git",
+    "directory": "packages/storybook"
+  },
+  "scripts": {
+    "build": "npx tsup",
+    "build:fast": "npx tsup src",
+    "dev": "npm build:fast -- --watch"
+  },
+  "bugs": {
+    "url": "https://incsub.atlassian.net/browse/SUI"
+  },
+  "homepage": "https://github.com/wpmudev/sui-docs#readme",
+  "devDependencies": {
+    "react": "^18.2.0"
+  }
+}

@@ -1,37 +1,37 @@
-import { Section, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 import { RadioGroup, Radio } from "../../../src"
 import dedent from "dedent"
 
 export const compoundCode = dedent`
     <RadioGroup asBlock={true}>
-        <Radio 
-          tag="Recommended" 
-          label="Radio Label" 
-          value="radio-1"
-          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites." 
-        />
-        <Radio 
+        <Radio
           tag="Recommended"
-          label="Radio Label" 
-          value="radio-2" 
-          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites."  
+          label="Radio Label"
+          value="radio-1"
+          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites."
+        />
+        <Radio
+          tag="Recommended"
+          label="Radio Label"
+          value="radio-2"
+          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites."
         />
     </RadioGroup>
 `
 
 export const stackedCode = dedent`
     <RadioGroup isInline={false} asBlock={true}>
-        <Radio 
-          tag="Recommended" 
-          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites." 
-          label="Radio Label" 
-          value="radio-1" 
+        <Radio
+          tag="Recommended"
+          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites."
+          label="Radio Label"
+          value="radio-1"
         />
-        <Radio 
-          tag="Recommended" 
-          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites."  
-          label="Radio Label" 
-          value="radio-2" 
+        <Radio
+          tag="Recommended"
+          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites."
+          label="Radio Label"
+          value="radio-2"
         />
     </RadioGroup>
 `
@@ -44,17 +44,17 @@ export const stackedCode = dedent`
     <p>Use the prop <Code small={true}>asBlock=\{true\}</Code> to display the RadioGroup as a standalone box</p>
     <Preview wrapper={true}>
     	<RadioGroup asBlock={true}>
-    		<Radio 
-          tag="Recommended" 
-          label="Radio Label" 
-          value="radio-1"
-          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites." 
-        />
-    		<Radio 
+    		<Radio
           tag="Recommended"
-          label="Radio Label" 
-          value="radio-2" 
-          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites."  
+          label="Radio Label"
+          value="radio-1"
+          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites."
+        />
+    		<Radio
+          tag="Recommended"
+          label="Radio Label"
+          value="radio-2"
+          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites."
         />
     	</RadioGroup>
     </Preview>
@@ -69,17 +69,17 @@ export const stackedCode = dedent`
     <p>Set the prop <Code small={true}>isInline=\{false\}</Code> to stack the radios one upon the other</p>
     <Preview wrapper={true}>
     	<RadioGroup isInline={false} asBlock={true}>
-    		<Radio 
-          tag="Recommended" 
-          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites." 
-          label="Radio Label" 
-          value="radio-1" 
+    		<Radio
+          tag="Recommended"
+          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites."
+          label="Radio Label"
+          value="radio-1"
         />
-    		<Radio 
-          tag="Recommended" 
-          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites."  
-          label="Radio Label" 
-          value="radio-2" 
+    		<Radio
+          tag="Recommended"
+          description="Lossy compression offers the best compression rate for all type of images and This is recommended for most sites."
+          label="Radio Label"
+          value="radio-2"
         />
     	</RadioGroup>
     </Preview>

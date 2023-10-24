@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Section, Row, Col, Card } from '@wpmudev/storybook';
+import { Section, Row, Col, Card } from '@wpmudev/sui-docs';
 
 // Build "palettes" component.
 const Palettes = ({ arrays = [], colors, name, wrapper }) => {

@@ -1,0 +1,53 @@
+<!-- START: Overwrite Storybook -->
+<style>
+	body {
+		background: #f1f1f1;
+	}
+
+	img {
+		max-width: 100%;
+	}
+
+	#storybook-docs {
+		background: #fff;
+	}
+
+	.sbdocs-wrapper {
+		padding: 0 !important;
+		background: transparent !important;
+	}
+
+	.sbdocs-content {
+		max-width: 100% !important;
+	}
+
+	.sbdocs-content,
+	.sbdocs-content * {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	}
+
+	#storybook-docs .docblock-source:last-child {
+		margin-bottom: 0;
+	}
+
+	html.wp-toolbar #storybook-docs {
+		margin-top: -32px;
+	}
+
+	#storybook-docs .sbdocs-preview .docs-story > [class*="css-"] > [class*="css-"] {
+		height: auto;
+	}
+
+	#storybook-docs .sbdocs-preview .docs-story .docblock-code-toggle--disabled {
+		display: none;
+	}
+
+	@media screen and (max-width: 782px) {
+		html.wp-toolbar #storybook-docs {
+			margin-top: -46px;
+		}
+	}
+</style>
+<!-- END -->

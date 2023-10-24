@@ -1,13 +1,13 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 import { FormField } from "@wpmudev/sui-form-field"
 import { Uploader } from "../../src"
 import dedent from "dedent"
 
 export const basicCode = dedent`
-<FormField 
-	id="uploader" 
-	label="Upload a file" 
-	helper="Upload files" 
+<FormField
+	id="uploader"
+	label="Upload a file"
+	helper="Upload files"
 	isSmall={true}
 >
 	<Uploader />
@@ -15,10 +15,10 @@ export const basicCode = dedent`
 `
 
 export const multipleCode = dedent`
-<FormField 
-	id="uploader" 
-	label="Upload a file" 
-	helper="Upload files" 
+<FormField
+	id="uploader"
+	label="Upload a file"
+	helper="Upload files"
 	isSmall={true}
 >
 	<Uploader multiple={true} />
@@ -26,10 +26,10 @@ export const multipleCode = dedent`
 `
 
 export const dragDropCode = dedent`
-<FormField 
-	id="uploader" 
-	label="Upload a file" 
-	helper="Upload files" 
+<FormField
+	id="uploader"
+	label="Upload a file"
+	helper="Upload files"
 	isSmall={true}
 >
 	<Uploader allowDragAndDrop={false} />
@@ -37,10 +37,10 @@ export const dragDropCode = dedent`
 `
 
 export const onlyImagesCode = dedent`
-<FormField 
-	id="uploader" 
-	label="Upload a file" 
-	helper="Upload files" 
+<FormField
+	id="uploader"
+	label="Upload a file"
+	helper="Upload files"
 	isSmall={true}
 >
 	<Uploader accept="image/*" />
@@ -48,10 +48,10 @@ export const onlyImagesCode = dedent`
 `
 
 export const onlyPdfCode = dedent`
-<FormField 
-	id="uploader" 
-	label="Upload a file" 
-	helper="Upload files" 
+<FormField
+	id="uploader"
+	label="Upload a file"
+	helper="Upload files"
 	isSmall={true}
 >
 	<Uploader accept="application/pdf" />

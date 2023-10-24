@@ -1,0 +1,122 @@
+@use "sass:map";
+@use "sass:math";
+
+// Set the base spacing.
+$base-gutter: 40px;
+
+// Predefined spacing list.
+$gutter: (
+        xs: math.div($base-gutter, 4),
+        sm: math.div($base-gutter, 2),
+        md: $base-gutter,
+        lg: $base-gutter * 2,
+        xl: $base-gutter * 3,
+);
+
+// Predefined grid spacing.
+$spacing: (
+        sm: math.div(map.get($gutter, xs), 2),
+        md: math.div(map.get($gutter, md), 2),
+        lg: math.div(map.get($gutter, lg), 2),
+);
+
+// Predefined screen sizes.
+$breakpoints: (
+        sm: 601px,
+        md: 893px,
+        lg: 1081px,
+);
+
+// Create breakpoints mixin.
+@mixin media($type, $size) {
+  @if $type == min-width {
+    $width: #{map.get($breakpoints, $size)};
+
+    @media (min-width: $width) {
+      @content;
+    }
+  } @else if $type == max-width {
+    $width: #{map.get($breakpoints, $size) - 1};
+
+    @media (max-width: $width) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+.csb-row {
+  margin: 0 0 map.get($spacing, md);
+
+  @include media(min-width, md) {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0 -#{math.div(map.get($spacing, md), 2)} map.get($spacing, md);
+  }
+
+  &--sm {
+    margin: 0 0 #{map.get($spacing, sm) * 2};
+
+    @include media(min-width, md) {
+      margin: 0 -#{map.get($spacing, sm)} map.get($spacing, sm);
+    }
+
+    .csb-col {
+      margin: 0 0 #{map.get($spacing, sm) * 2};
+
+      @include media(min-width, md) {
+        margin: 0;
+        padding: 0 map.get($spacing, sm);
+      }
+    }
+  }
+
+  &--lg {
+    margin: 0 0 #{map.get($spacing, lg) * 2};
+
+    @include media(min-width, md) {
+      margin: 0 -#{map.get($spacing, lg)} map.get($spacing, lg);
+    }
+
+    .csb-col {
+      margin: 0 0 #{map.get($spacing, lg) * 2};
+
+      @include media(min-width, md) {
+        margin: 0;
+        padding: 0 map.get($spacing, lg);
+      }
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.csb-col {
+  margin: 0 0 map.get($spacing, md);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include media(min-width, md) {
+    min-width: 1px;
+    flex: 1;
+    margin: 0;
+    padding: 0 #{math.div(map.get($spacing, md), 2)};
+  }
+
+  @for $i from 1 through 6 {
+    $column-size: math.div(100 * $i, 6);
+
+    &--#{$i} {
+
+      @include media(min-width, md) {
+        width: #{$column-size + '%'};
+        flex: 0 0 auto;
+      }
+    }
+  }
+}
