@@ -1,11 +1,13 @@
-# `@wpmudev/sui-checkbox`
+<!-- ⚠️ This README has been generated from the file(s) "../../../blueprint.md" ⚠️--><h1 align="center">@wpmudev/sui-checkbox</h1>
 
-> TODO: description
+<div style="text-align: center;">
+<img src="https://img.shields.io/badge/Version-0.0.1-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/License-GPL-orange.svg" alt="License">
+</div>
+<h2> Description </h2> WPMU DEV Shared UI React Checkbox Component
 
-## Usage
 
-```
-const reactCheckbox = require('@wpmudev/sui-checkbox');
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#license)
 
-// TODO: DEMONSTRATE API
-```
+## ➤ License
+	
+Licensed under [ISC](https://opensource.org/licenses/ISC).

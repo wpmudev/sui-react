@@ -34,7 +34,8 @@
     "build:fast": "tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "postpack": "clean-package restore",
+    "generate-readme": "readme generate --input ../../../blueprint.md"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-react/issues"
