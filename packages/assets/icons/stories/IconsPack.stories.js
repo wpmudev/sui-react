@@ -2,7 +2,7 @@ import React, { Fragment, Children } from "react"
 
 // Import required components.
 import dedent from "dedent"
-import { Tag, Code } from "@wpmudev/storybook"
+import { Tag, Code } from "@wpmudev/sui-docs"
 import docs from "./IconsPack.mdx"
 
 // Import required styles.

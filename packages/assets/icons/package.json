@@ -66,7 +66,7 @@
     "trim-newlines": "^3.0.1"
   },
   "devDependencies": {
-    "@wpmudev/storybook": "^0.0.0",
+    "@wpmudev/sui-docs": "^0.0.0",
     "dedent": "^0.7.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
