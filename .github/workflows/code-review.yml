@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: '18'
 
+      - name: List directories
+        run: ls -la
+
       - name: Install dependencies
         run: npm ci
 
