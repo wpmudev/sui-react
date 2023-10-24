@@ -26,14 +26,14 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-    code-testing:
-      needs: [setup]
-      steps:
-        - name: Run code test
-          run: npm run test -- --coverage
+  code-testing:
+    needs: [setup]
+    steps:
+      - name: Run code test
+        run: npm run test -- --coverage
 
-    code-linting:
-      needs: [setup]
-      steps:
-        - name: Run code lint
-          run: npm run lint
+  code-linting:
+    needs: [setup]
+    steps:
+      - name: Run code lint
+        run: npm run lint
