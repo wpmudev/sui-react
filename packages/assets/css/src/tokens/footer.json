@@ -1,0 +1,18 @@
+{
+    "footer": {
+        "size": {
+            "width": {
+                "md": {
+                    "value": "93px",
+                    "type": "sizing"
+                }
+            }
+        },
+        "spacing": {
+            "md": {
+                "value": "45px",
+                "type": "sizing"
+            }
+        }
+    }
+}

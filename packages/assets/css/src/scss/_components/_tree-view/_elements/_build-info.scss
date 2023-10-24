@@ -1,0 +1,87 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Code snippet
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-info($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(info) {
+				align-items: center;
+				border-radius: $treeview-border-radius;
+				cursor: pointer;
+				display: flex;
+				margin-bottom: $treeview-spacing-xs;
+				padding: $treeview-spacing-sm;
+			}
+
+			@include element(info-icon) {
+				margin: 0 $treeview-spacing-xs;
+			}
+
+			@include element(info-title) {
+				align-items: center;
+				display: flex;
+				margin-left: $treeview-spacing-xs;
+
+				span {
+					margin-left: $treeview-spacing-xs;
+				}
+
+				.sui-#{$block}__info-icon {
+					margin: 0 $treeview-spacing-xs;
+				}
+			}
+
+			@include element(info-check) {
+				align-items: center;
+				display: flex;
+				margin-left: $treeview-spacing-sm;
+				width: $treeview-size-md;
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+
+			@include element(info-title) {
+				margin-right: $treeview-spacing-xs;
+				margin-left: 0;
+
+				span {
+					margin-left: 0;
+					margin-right: $treeview-spacing-xs;
+				}
+			}
+
+			@include element(info-check) {
+				margin-left: 0;
+				margin-right: $treeview-spacing-sm;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(info) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

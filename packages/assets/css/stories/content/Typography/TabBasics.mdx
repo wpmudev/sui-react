@@ -1,0 +1,39 @@
+import { Section, Switcher } from '@wpmudev/storybook';
+
+import Label from './TabBasics/Label.mdx';
+import Paragraph from './TabBasics/Paragraph.mdx';
+import Tag from './TabBasics/Tag.mdx';
+import Overline from './TabBasics/Overline.mdx';
+import Helper from './TabBasics/Helper.mdx';
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>
+		Apart from headings, we have a list of typography variations that will
+		help us style our designs properly, such as body (paragraph), section
+		subtitle, or element caption.
+	</p>
+	<p>
+		Please, pick one option from the selector below to read more about its
+		usage.
+	</p>
+</Section>
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="Label" value="label">
+			<Label />
+		</div>
+		<div label="Paragraph" value="paragraph">
+			<Paragraph />
+		</div>
+		<div label="Tag" value="tag">
+			<Tag />
+		</div>
+		<div label="Overline" value="overline">
+			<Overline />
+		</div>
+		<div label="Helper" value="helper">
+			<Helper />
+		</div>
+	</Switcher>
+</Section>

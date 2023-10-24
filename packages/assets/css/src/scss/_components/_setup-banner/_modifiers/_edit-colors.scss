@@ -1,0 +1,138 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build background
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-colors($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(smush) {
+                @include modifies-element(info-logo) {
+                    background-color: $color-secondary-smush-general-50;
+                }
+            }
+
+			@include modifier(defender) {
+                @include modifies-element(info-logo) {
+                    background-color: $color-secondary-defender-general-50;
+                }
+            }
+
+			@include modifier(snapshot) {
+                @include modifies-element(info-logo) {
+                    background-color: $color-secondary-snapshot-general-50;
+                }
+            }
+
+			@include modifier(hummingbird) {
+                @include modifies-element(info-logo) {
+                    background-color: $color-secondary-hummingbird-general-50;
+                }
+            }
+
+			@include modifier(forminator) {
+                @include modifies-element(info-logo) {
+                    background-color: $color-secondary-forminator-general-50;
+                }
+            }
+
+			@include modifier(beehive) {
+                @include modifies-element(info-logo) {
+                    background-color: $color-secondary-beehive-general-50;
+                }
+            }
+
+			@include modifier(hustle) {
+                @include modifies-element(info-logo) {
+                    background-color: $color-secondary-hustle-general-50;
+                }
+            }
+
+			@include modifier(smartcrawl) {
+                @include modifies-element(info-logo) {
+                    background-color: $color-secondary-smartcrawl-general-50;
+                }
+            }
+
+			@include modifier(shipper) {
+                @include modifies-element(info-logo) {
+                    background-color: $color-secondary-shipper-general-50;
+                }
+            }
+
+			@include modifier(branda) {
+                @include modifies-element(info-logo) {
+                    background-color: $color-secondary-branda-general-50;
+                }
+            }
+		}
+	}
+
+    // DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: light) {
+		@include block($block) {
+			@include modifier(smush) {
+                background: $color-secondary-smush-variant-50;
+            }
+
+			@include modifier(defender) {
+                background: $color-secondary-defender-general-10;
+            }
+
+			@include modifier(snapshot) {
+                background: $color-secondary-snapshot-general-10;
+            }
+
+			@include modifier(hummingbird) {
+                background: $color-secondary-hummingbird-variant-30;
+            }
+
+			@include modifier(forminator) {
+                background: $color-secondary-forminator-general-30;
+            }
+
+			@include modifier(beehive) {
+                background: $color-secondary-beehive-general-30;
+            }
+
+			@include modifier(hustle) {
+                background: $color-secondary-hustle-general-10;
+            }
+
+			@include modifier(smartcrawl) {
+                background: $color-secondary-smartcrawl-variant-10;
+            }
+
+			@include modifier(shipper) {
+                background: $color-secondary-shipper-variant-10;
+            }
+
+			@include modifier(branda) {
+                background: $color-secondary-branda-variant-50;
+            }
+
+            @include element(bg) {
+                color: $color-alpha-white-10;
+            }
+		}
+	}
+
+    // DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+            background: $color-extended-neutral-0;
+            
+            @include element(bg) {
+                color: $color-alpha-white-30;
+            }
+		}
+	}
+}

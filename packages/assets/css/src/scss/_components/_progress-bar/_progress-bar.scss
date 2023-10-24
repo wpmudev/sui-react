@@ -1,0 +1,13 @@
+@use "./_elements/elements" as sui-progress-bar--element;
+@use "./_modifiers/modifiers" as sui-progress-bar--modifier;
+
+@include sui-progress-bar--element.build-container(progress-bar);
+@include sui-progress-bar--element.build-main(progress-bar);
+@include sui-progress-bar--element.build-text(progress-bar);
+
+@include sui-progress-bar--element.build-indicator(progress-bar);
+@include sui-progress-bar--element.build-action(progress-bar);
+
+@include sui-progress-bar--modifier.edit-size(progress-bar);
+@include sui-progress-bar--modifier.edit-indeterminate(progress-bar);
+@include sui-progress-bar--modifier.edit-inline(progress-bar);

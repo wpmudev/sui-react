@@ -1,0 +1,53 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Indicator
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-indicator($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(indicator) {
+				background: $color-extended-neutral-90;
+				height: $progress-size-height-sm;
+				overflow: hidden;
+				display: block;
+				margin: $spacing-md 0;
+				border-radius: $progress-border-radius-md;
+				appearance: none;
+				position: relative;
+				width: 100%;
+			}
+
+			@include element(indicator-bar) {
+				background-color: $color-primary-50;
+				display: inline-block;
+				position: absolute;
+				bottom: 0;
+				top: 0;
+				height: 100%;
+				width: $progress-size-width-lg;
+
+				@include modifier(indeterminate) {
+					max-width: $progress-size-width-lg;
+					@include animation(indeterminate-progress-bar);
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(indicator-bar) {
+				background-color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

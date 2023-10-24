@@ -1,0 +1,63 @@
+@use "sass:map";
+
+@use "../tokens" as *;
+
+/// Breakpoints.
+/// Defines the breakpoints based on the WordPress admin UI changes.
+/// @param {Array} $breakpoints - List of predefined breakpoints.
+$breakpoints: (
+	sm: $grid-breakpoint-sm,
+	md: $grid-breakpoint-md,
+	lg: $grid-breakpoint-lg,
+	xl: $grid-breakpoint-xl,
+);
+
+@mixin media($type, $size-1, $size-2: null) {
+	@if $type == min-width {
+		$width: #{map.get($breakpoints, $size-1)};
+		@media (min-width: $width) {
+			@content;
+		}
+	} @else if $type == max-width {
+		$width: #{map.get($breakpoints, $size-1) - 1};
+		@media (max-width: $width) {
+			@content;
+		}
+	} @else if $type == between {
+		$width-1: map.get($breakpoints, $size-1);
+		$width-2: #{map.get($breakpoints, $size-2) - 1};
+		@media (min-width: $width-1) and (max-width: $width-2) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+@mixin media-next($type, $size-1, $size-2: null) {
+	@if $size-1 == xs {
+		$size-1: sm;
+	} @else if $size-1 == sm {
+		$size-1: md;
+	} @else if $size-1 == md {
+		$size-1: lg;
+	}
+
+	@if $size-2 == xs {
+		$size-2: sm;
+	} @else if $size-2 == sm {
+		$size-2: md;
+	} @else if $size-2 == md {
+		$size-2: lg;
+	}
+
+	@if $type == between {
+		@include media($type, $size-1, $size-2) {
+			@content;
+		}
+	} @else {
+		@include media($type, $size-1) {
+			@content;
+		}
+	}
+}

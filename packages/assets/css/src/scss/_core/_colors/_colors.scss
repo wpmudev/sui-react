@@ -1,0 +1,5 @@
+@use "./_color-modifiers/modifiers" as sui-color--modifier;
+
+@include sui-color--modifier.build-background("bg");
+@include sui-color--modifier.build-border("border-color");
+@include sui-color--modifier.build-font("color");

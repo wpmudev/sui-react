@@ -1,0 +1,91 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Action
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-header($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(header) {
+				align-items: center;
+				background: $color-extended-neutral-100;
+				border-radius: $spacing-lg $spacing-lg 0 0;
+				gap: $spacing-lg;
+				justify-content: space-between;
+				padding: 0 $spacing-xxl;
+
+				@include media(max-width, sm) {
+					padding: 0 $spacing-lg;
+				}
+			}
+
+			@include element(header-actions) {
+				align-items: center;
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				gap: $spacing-lg;
+
+				h4 {
+					flex: 1;
+					margin: 0;
+				}
+			}
+
+			// header info title
+			@include element(header-info) {
+				h3 {
+					margin: 0;
+				}
+			}
+
+			// header info content
+			@include element(header-info-content) {
+				margin-top: $spacing-md;
+			}
+
+			@include element(header-logo) {
+				background: $color-extended-neutral-100;
+				border-radius: $modal-border-radius;
+				box-shadow: 0 4px 8px 0 $color-shadow-light, 0 4px 20px 0 $color-shadow-dark, 0 12px 16px 0 $color-shadow-default;
+				height: $modal-size-height-xs;
+				left: 0;
+				top: -38px;
+				margin: 0 auto;
+				overflow: hidden;
+				padding: $spacing-md;
+				position: absolute;
+				right: 0;
+				width: $modal-size-width-xs;
+				z-index: 99;
+
+				img {
+					border-radius: $border-radius-xxl;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+
+			// header info content
+			@include element(header-info-content) {
+				color: $color-extended-neutral-0;
+			}
+
+			@include element(header-logo) {
+				box-shadow: none;
+				border: $border-width-sm solid $color-extended-neutral-0;
+			}
+		}
+	}
+}

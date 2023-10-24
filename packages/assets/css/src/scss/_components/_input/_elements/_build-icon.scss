@@ -1,0 +1,75 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Input
+/// This function creates styles for main element
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-icon($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			// if input has icon
+			@include modifies-element(icon) {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			// if input has icon
+			@include modifier('icon-end') {
+				@include modifies-element(icon) {
+					right: 12px;
+				}
+			}
+
+			// if input has icon
+			@include modifier('icon-start') {
+				@include modifies-element(icon) {
+					left: 12px;
+				}
+			}
+		}
+	}
+
+    // DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include modifies-element(icon) {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+
+			@include modifier('icon-end') {
+				@include modifies-element(icon) {
+					left: 12px;
+                    right: auto;
+				}
+			}
+
+			@include modifier('icon-start') {
+				@include modifies-element(icon) {
+					right: 12px;
+                    left: auto;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: 'dark') {
+		@include block($block) {
+			@include element(icon) {
+				color:  $color-extended-neutral-0;
+			}
+		}
+	}
+}

@@ -1,0 +1,74 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Select Input
+/// This function creates styles for the select input
+/// recipient wrapper.
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-input($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(input) {
+				&.sui-input {
+					&:before {
+						border: none;
+					}
+
+					.sui-input__input {
+						background: none;
+					}
+				}
+			}
+
+			@include element(search) {
+				@include modifier(input) {
+					font-size: $select-input-search-font-size-md;
+					line-height: $select-input-search-font-height-md;
+					width: $select-input-default-size-width;
+					border-width: $select-input-search-border-width;
+					border-style: $select-input-search-border-style;
+					border-color: $select-input-search-border-color;
+					border-radius: $select-input-search-border-radius;
+					padding-top: $select-input-search-padding-vertical;
+					padding-right: $select-input-search-padding-horizontal-right;
+					padding-bottom: $select-input-search-padding-vertical;
+					padding-left: $select-input-search-padding-horizontal-left;
+					cursor: text;
+					outline: none;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(search) {
+				@include modifier(input) {
+					padding-right: $select-input-search-padding-horizontal-left;
+					padding-left: $select-input-search-padding-horizontal-right;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(search) {
+				@include modifier(input) {
+					border-color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+import { Section, Code, Snippet, Preview } from '@wpmudev/storybook';
+import dedent from 'dedent';
+
+export const sampleCode = dedent`
+<p>The quick brown fox jumps over the lazy dog.</p>
+`;
+
+<Section title="Usage" style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p>
+		Since it is a base styling, we apply it directly to the paragraph{' '}
+		<Code>&lt;p&gt;</Code> tag, which works the same way for the modifiers.
+		For bold text, use the <Code>&lt;strong&gt;</Code> or{' '}
+		<Code>&lt;b&gt;</Code> tags; for italic text, use the{' '}
+		<Code>&lt;i&gt;</Code> tag; while for small text, use the{' '}
+		<Code>&lt;small&gt;</Code> tag, as shown in the example below.
+	</p>
+	<Preview wrapper={true}>
+		<p style={{ margin: 0 }}>
+			The quick brown fox jumps over the lazy dog.
+		</p>
+	</Preview>
+	<Snippet language="html">{sampleCode}</Snippet>
+</Section>

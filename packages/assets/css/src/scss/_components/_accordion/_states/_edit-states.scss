@@ -1,0 +1,31 @@
+@use "../../../_utils/utils" as *;
+
+$colors: (
+	neutral: $color-extended-neutral-60,
+    informative: $color-primary-50,
+	success: $color-extended-success-50,
+    warning: $color-extended-warning-50,
+	critical: $color-extended-error-50,
+);
+
+/// Edit Focus State
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-states($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @each $name, $value in $colors {
+                $modifier-name: #{$name};
+
+                @include modifier($modifier-name) {
+                    border-left: solid $accordion-status-border-width $value;
+                }
+            }
+        }
+    }
+}
