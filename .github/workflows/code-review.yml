@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-
+      - run: cd ..
       - run: tree -a
       - run: ls -la
       - run: npm install
