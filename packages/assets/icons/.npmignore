@@ -1,0 +1,18 @@
+# Ignore source folder.
+src
+
+# Ignore test package.
+*.tgz
+/package
+
+# Ignore error logs.
+*.log
+.dccache
+
+# Ignore documentation.
+stories
+RELEASING.md
+
+# Miscellaneous.
+node_modules
+.DS_Store
