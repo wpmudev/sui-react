@@ -1,8 +1,0 @@
-@use "./_elements/elements" as sui-uploader--element;
-@use "./_states/states" as sui-uploader--state;
-
-@include sui-uploader--element.build-files(uploader);
-@include sui-uploader--element.build-input(uploader);
-@include sui-uploader--element.build-uploader(uploader);
-@include sui-uploader--element.build-button(uploader);
-@include sui-uploader--element.build-pick(uploader);

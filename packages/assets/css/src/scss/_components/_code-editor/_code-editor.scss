@@ -1,6 +1,0 @@
-@use "./_elements/elements" as sui-code-editor--element;
-
-@include sui-code-editor--element.build-code-editor(code-editor);
-@include sui-code-editor--element.build-content(code-editor);
-@include sui-code-editor--element.build-design(code-editor);
-@include sui-code-editor--element.build-header(code-editor);

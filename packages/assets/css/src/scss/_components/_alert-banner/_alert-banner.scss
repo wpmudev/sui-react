@@ -1,9 +1,0 @@
-@use "./_elements/elements" as sui-alert-banner--element;
-@use "./_modifiers/modifiers" as sui-alert-banner--modifier;
-
-@include sui-alert-banner--element.build-container(alert-banner);
-@include sui-alert-banner--element.build-body(alert-banner);
-@include sui-alert-banner--element.build-icon(alert-banner);
-
-@include sui-alert-banner--modifier.edit-variation(alert-banner);
-@include sui-alert-banner--modifier.edit-center(alert-banner);

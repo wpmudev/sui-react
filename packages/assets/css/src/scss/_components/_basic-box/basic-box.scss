@@ -1,9 +1,0 @@
-@use "./_elements/elements" as sui-basic-box--element;
-@use "./_modifiers/modifiers" as sui-basic-box--modifier;
-
-@include sui-basic-box--element.build-basic-box(basic-box);
-@include sui-basic-box--element.build-header(basic-box);
-@include sui-basic-box--element.build-body(basic-box);
-@include sui-basic-box--element.build-footer(basic-box);
-
-@include sui-basic-box--modifier.state-pro(basic-box);

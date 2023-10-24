@@ -1,9 +1,0 @@
-@use "./_elements/elements" as sui-avatar--element;
-@use "./_modifiers/modifiers" as sui-avatar--modifier;
-
-@include sui-avatar--element.build-container(avatar);
-@include sui-avatar--element.build-icon(avatar);
-@include sui-avatar--element.build-image(avatar);
-@include sui-avatar--element.build-status(avatar);
-
-@include sui-avatar--modifier.build-size(avatar);

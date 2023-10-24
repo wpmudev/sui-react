@@ -1,4 +1,0 @@
-@use "./_elements/elements" as sui-config-table--element;
-
-@include sui-config-table--element.build-container(config-table);
-@include sui-config-table--element.build-details(config-table);

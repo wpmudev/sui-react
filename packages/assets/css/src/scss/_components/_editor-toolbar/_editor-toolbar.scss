@@ -1,8 +1,0 @@
-@use "./_elements/elements" as sui-editor-toolbar--element;
-@use "./_modifiers/modifiers" as sui-editor-toolbar--modifier;
-
-@include sui-editor-toolbar--element.build-container(editor-toolbar);
-@include sui-editor-toolbar--element.build-content(editor-toolbar);
-@include sui-editor-toolbar--element.build-main(editor-toolbar);
-@include sui-editor-toolbar--element.build-actions(editor-toolbar);
-

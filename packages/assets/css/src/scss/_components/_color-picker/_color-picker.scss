@@ -1,8 +1,0 @@
-@use "./_elements/elements" as sui-color-picker--element;
-@use "./_states/states" as sui-color-picker--state;
-
-@include sui-color-picker--element.build-color-picker(color-picker);
-@include sui-color-picker--element.build-input(color-picker);
-@include sui-color-picker--element.build-popover(color-picker);
-
-@include sui-color-picker--state.build-disabled(color-picker);
