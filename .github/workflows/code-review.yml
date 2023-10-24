@@ -24,7 +24,7 @@ jobs:
           node-version: '18'
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
   code-testing:
     runs-on: ubuntu-latest
