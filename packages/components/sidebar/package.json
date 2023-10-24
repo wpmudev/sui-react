@@ -35,7 +35,7 @@
   "scripts": {
     "clean": "rm -rf dist && rm -rf lib",
     "build": "npx tsup",
-    "build:fast": "npx tsup src",
+    "build:fast": "tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
