@@ -1,4 +1,4 @@
-name: Codes review
+name: Code Review
 
 on:
   pull_request:
@@ -11,25 +11,29 @@ on:
       - master
 
 jobs:
-  code-testing:
+  setup:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - run: ls -la
-      - run: npm install
-      - run: npm run test -- --coverage
-  code-linting:
-    runs-on: ubuntu-latest
-    steps:
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - run: npm ci
-      - run: ./node_modules/.bin/eslint --ext .ts,.tsx ./packages/sui-react/
+      - name: Install Dependencies
+        run: npm ci
+
+    code-testing:
+      needs: [setup]
+      steps:
+        - name: Run code test
+          run: npm run test -- --coverage
+
+    code-linting:
+      needs: [setup]
+      steps:
+        - name: Run code lint
+          run: npm run lint
