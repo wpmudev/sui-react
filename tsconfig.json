@@ -1,6 +1,36 @@
 {
-	"extends": "../../tsconfig.json",
-	"paths": {
-		"packages/*": ["./packages/*"]
-	}
+  "compilerOptions": {
+//    "baseUrl": "./",
+    "target": "esnext",
+    "module": "esnext",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "declaration": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "strict": true,
+    "isolatedModules": true,
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "types": [
+      "node",
+      "react",
+      "react-dom"
+    ]
+  },
+  "include": [
+    "packages"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/dist",
+    "**/lib"
+  ]
 }
