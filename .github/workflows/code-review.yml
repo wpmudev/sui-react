@@ -11,53 +11,9 @@ on:
       - master
 
 jobs:
-  setup-env:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout sui-docs repository
-        uses: actions/checkout@v3
-        with:
-          repository: wpmudev/sui-docs
-          path: .
-          ref: development
-
-#      - name: Checkout sui-css repository
-#        uses: actions/checkout@v3
-#        with:
-#         repository: wpmudev/sui-css
-#         path: ./packages/sui-css
-#         ref: development
-
-      - name: Checkout sui-icons repository
-        uses: actions/checkout@v3
-        with:
-          repository: wpmudev/sui-icons
-          path: ./packages/sui-icons
-          ref: development
-
-      - name: Checkout sui-react repository
-        uses: actions/checkout@v3
-        with:
-          path: ./packages/sui-react
-          fetch-depth: 0
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: sui-docs
-          path: .
-          retention-days: 1
-
   code-testing:
-    needs: [setup-env]
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: sui-docs
-          path: .
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -71,15 +27,8 @@ jobs:
         run: npm run test -- --coverage
 
   code-linting:
-    needs: [setup-env]
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: sui-docs
-          path: .
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -91,13 +40,3 @@ jobs:
 
       - name: Eslint Code Check
         run: ./node_modules/.bin/eslint --ext .ts,.tsx ./packages/sui-react/
-
-  cleanup-env:
-    needs: [code-testing, code-linting]
-    runs-on: ubuntu-latest
-    if: always()
-    steps:
-      - name: Delete Artifacts
-        uses: geekyeggo/delete-artifact@v1
-        with:
-          name: sui-docs
