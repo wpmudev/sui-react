@@ -15,14 +15,17 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(error) {
-
-                @include modifies-element(control) {
+				@include modifies-element(control) {
 					border-color: $color-extended-error-50;
-                }
 
-                @include modifies-element(search) {
-                    border-color: $color-extended-error-50;
-                }
+					&::after {
+						border-color: $color-extended-error-50;
+					}
+				}
+
+				@include modifies-element(search) {
+					border-color: $color-extended-error-50;
+				}
 
 				@include modifies-element(dropdown) {
 					border-color: $color-extended-error-50;
@@ -36,6 +39,22 @@
 				&.sui-#{$block}--focus {
 					@include modifies-element(control) {
 						box-shadow: inset 0 0 1px $color-extended-error-50;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(error) {
+				@include modifies-element(control) {
+					border-color: $color-extended-neutral-0;
+
+					&::after {
+						border-color: $color-extended-neutral-0;
 					}
 				}
 			}

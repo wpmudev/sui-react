@@ -98,6 +98,12 @@
 			@include element(input, input-clear) {
 				color: $color-extended-neutral-0;
 			}
+
+			@include element(input-clear) {
+				&.sui-button {
+					outline: none;
+				}
+			}
 		}
 	}
 }

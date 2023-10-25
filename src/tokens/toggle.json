@@ -1,38 +1,42 @@
 {
-    "toggle": {
-        "spacing": {
-            "xs": {
-                "value": "2px",
-                "type": "spacing"
-            },
-            "lg": {
-                "value": "48px",
-                "type": "spacing"
-            }
-        },
-        "size": {
-            "width": {
-                "sm": {
-                    "value": "14px",
-                    "type": "sizing"
-                },
-                "md": {
-                    "value": "36px",
-                    "type": "sizing"
-                }
-            },
-            "height": {
-                "sm": {
-                    "value": "14px",
-                    "type": "sizing"
-                }
-            }
-        },
-        "border": {
-            "radius": {
-                "value": "10px",
-                "type": "borderRadius"
-            }
-        }
-    }
+	"toggle": {
+		"spacing": {
+			"xs": {
+				"value": "2px",
+				"type": "spacing"
+			},
+			"lg": {
+				"value": "48px",
+				"type": "spacing"
+			}
+		},
+		"size": {
+			"width": {
+				"sm": {
+					"value": "14px",
+					"type": "sizing"
+				},
+				"md": {
+					"value": "36px",
+					"type": "sizing"
+				}
+			},
+			"height": {
+				"sm": {
+					"value": "14px",
+					"type": "sizing"
+				},
+				"md": {
+					"value": "20px",
+					"type": "sizing"
+				}
+			}
+		},
+		"border": {
+			"radius": {
+				"value": "10px",
+				"type": "borderRadius"
+			}
+		}
+	}
 }

@@ -13,11 +13,11 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(icon) {
-				width: $radio-icon-size-md;
-				height: $radio-icon-size-md;
+				width: $radio-size-sm;
+				height: $radio-size-sm;
 				display: block;
 				border-radius: 100%;
-				background: $radio-icon-color-default;
+				background: $color-extended-neutral-100;
 			}
 		}
 	}

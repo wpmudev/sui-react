@@ -15,17 +15,17 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			// Element: Status Container
-            @include element(status) {
+			@include element(status) {
 				display: flex;
 				align-items: center;
 				justify-content: center;
-                position: absolute;
+				position: absolute;
 				right: $avatar-status-margin-md;
 				bottom: $avatar-status-margin-md;
-				padding: $avatar-status-padding-md;
-				border-radius: $avatar-status-border-radius;
-				background: $avatar-status-background;
-            }
+				padding: $spacing-xs;
+				border-radius: 100%;
+				background: $color-extended-neutral-100;
+			}
 
 			// Element: Status Element
 			@include element(status-icon) {

@@ -38,7 +38,7 @@
 				}
 
 				.sui-#{$block}__info-icon {
-					margin: 0 $treeview-spacing-xs;
+					margin: 0 0 0 $treeview-spacing-xs;
 				}
 			}
 
@@ -56,7 +56,6 @@
 	@include sui-class($rtl: true, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-
 			@include element(info-title) {
 				margin-right: $treeview-spacing-xs;
 				margin-left: 0;

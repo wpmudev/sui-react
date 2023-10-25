@@ -13,18 +13,18 @@
 		@include block($block) {
 			@include modifier(sm) {
 				font-size: $font-size-xs;
-				line-height: $checkbox-font-height-sm;
+				line-height: $font-size-xxs;
 
 				@include modifies-element(box) {
-					width: $checkbox-input-size-sm;
-					height: $checkbox-input-size-sm;
-					margin: $checkbox-input-margin-vertical-sm 0;
-					margin-right: $checkbox-input-margin-horizontal-sm;
+					width: $spacing-lg;
+					height: $spacing-lg;
+					margin-bottom: 0;
+					margin-top: 0;
 				}
 
 				@include modifies-element(icon) {
-					width: $checkbox-icon-tick-width-sm;
-					height: $checkbox-icon-tick-height-sm;
+					width: $checkbox-icon-width-sm;
+					height: $checkbox-icon-height-sm;
 				}
 			}
 		}

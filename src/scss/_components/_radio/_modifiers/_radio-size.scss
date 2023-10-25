@@ -14,16 +14,37 @@
 			@include modifier(sm) {
 				.sui-radio {
 					font-size: $font-size-xs;
-					line-height: $radio-font-height-sm;
+					line-height: $font-height-xxs;
 
 					@include modifies-element(box) {
-						width: $radio-input-size-sm;
-						height: $radio-input-size-sm;
+						width: $radio-size-md;
+						height: $radio-size-md;
 					}
 
 					@include modifies-element(icon) {
-						width: $radio-icon-size-sm;
-						height: $radio-icon-size-sm;
+						width: $radio-size-xs;
+						height: $radio-size-xs;
+					}
+
+					.sui-radio__description {
+						font-size: $font-size-xs;
+						line-height: $font-height-xxs;
+						margin-left: $radio-spacing-sm;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include modifier(sm) {
+				.sui-radio {
+					.sui-radio__description {
+						margin-right: $radio-spacing-sm;
+						margin-left: 0;
 					}
 				}
 			}

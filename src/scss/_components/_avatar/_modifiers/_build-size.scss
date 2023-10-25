@@ -15,18 +15,18 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            @include modifier(sm) {
-                width: $avatar-container-size-sm;
-                height: $avatar-container-size-sm;
+			@include modifier(sm) {
+				width: $avatar-container-size-sm;
+				height: $avatar-container-size-sm;
 
 				@include modifies-element(icon) {
-					font-size: $avatar-icon-size-sm;
+					font-size: $font-size-sm;
 				}
 
 				@include modifies-element(status) {
 					right: $avatar-status-margin-sm;
 					bottom: $avatar-status-margin-sm;
-					padding: $avatar-status-padding-sm;
+					padding: $spacing-xs;
 				}
 
 				@include modifies-element(status-icon) {
@@ -34,7 +34,7 @@
 					height: $avatar-status-size-sm;
 					font-size: $avatar-status-size-sm;
 				}
-            }
+			}
 		}
 	}
 }

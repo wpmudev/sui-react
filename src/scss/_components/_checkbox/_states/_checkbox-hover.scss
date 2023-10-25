@@ -13,7 +13,7 @@
 		@include block($block) {
 			@include modifier(hover) {
 				@include modifies-element(box) {
-					border-color: $checkbox-input-border-color-active;
+					border-color: $color-primary-50;
 				}
 			}
 		}

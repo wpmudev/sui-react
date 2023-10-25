@@ -52,7 +52,11 @@ $colors-high-contrast: (
 							&.sui-#{$block-name}--focus {
 								border-color: $value;
 								outline: 1px solid $value;
-								background: transparent;
+								background: if(
+									$name == white,
+									$color-extended-neutral-100,
+									transparent
+								);
 								color: if(
 									$name == white,
 									$color-extended-neutral-10,
@@ -194,6 +198,7 @@ $colors-high-contrast: (
 						} @else {
 							border-color: $value;
 							background: $value;
+							color: $color-extended-neutral-100;
 
 							&.sui-#{$block-name}--focus {
 								border-color: $value;

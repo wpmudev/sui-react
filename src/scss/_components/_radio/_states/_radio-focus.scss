@@ -15,7 +15,7 @@
 				@include modifies-element(box) {
 					outline: $border-width-md solid $color-extended-neutral-50;
 					outline-offset: $border-width-md;
-					border-color: $radio-input-border-color-active;
+					border-color: $color-primary-50;
 				}
 
 				&.sui-#{$block}--checked {

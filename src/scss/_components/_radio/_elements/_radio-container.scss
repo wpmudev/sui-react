@@ -19,14 +19,14 @@
 			flex-wrap: wrap;
 			align-items: center;
 			color: $color-extended-neutral-50;
-			font-weight: $radio-font-weight;
-			font-size: $radio-font-size-md;
-			line-height: $radio-font-height-md;
-			letter-spacing: $radio-font-spacing;
+			font-weight: $font-weight-default;
+			font-size: $font-size-default;
+			line-height: $font-height-sm;
+			letter-spacing: $font-spacing-default;
 
 			@include modifier(block) {
 				padding: $spacing-lg $spacing-xl;
-				border-radius: $border-radius-md;
+				border-radius: $radio-border-radius-sm;
 				outline: $border-width-sm solid $color-extended-neutral-80;
 			}
 		}

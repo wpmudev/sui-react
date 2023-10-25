@@ -7,41 +7,40 @@
 ///
 /// @param {String} $block - Main block name
 @mixin state-focus($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: light) {
+		@include block($block) {
+			@include element(item) {
+				@include modifier(focus) {
+					&::after {
+						position: absolute;
+						content: "";
+						left: 0;
+						right: 0;
+						top: 0;
+						bottom: 0;
+						border: $border-width-md solid $color-primary-50;
+						pointer-events: none;
+					}
+				}
+			}
 
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: light) {
-        @include block($block) {
-            @include element(item) {
-                @include modifier(focus) {
-                    &::after {
-                        position: absolute;
-                        content: '';
-                        left: 0;
-                        right: 0;
-                        top: 0;
-                        bottom: 0;
-                        border: $accordion-state-focus-spacing solid $accordion-state-focus-color;
-                        pointer-events: none;
-                    }
-                }
-            }
+			@include modifier(no-border-radius) {
+				.sui-#{$block}__item--focus {
+					&:first-child,
+					&:first-child::after {
+						border-top-left-radius: 0;
+						border-top-right-radius: 0;
+					}
 
-            @include modifier(no-border-radius) {
-                .sui-#{$block}__item--focus {
-                    &:first-child,
-                    &:first-child::after {
-                        border-top-left-radius: 0;
-                        border-top-right-radius: 0;
-                    }
-
-                    &:last-child,
-                    &:last-child::after {
-                        border-bottom-right-radius: 0;
-                        border-bottom-left-radius: 0;
-                    }
-                }
-            }
-        }
-    }
+					&:last-child,
+					&:last-child::after {
+						border-bottom-right-radius: 0;
+						border-bottom-left-radius: 0;
+					}
+				}
+			}
+		}
+	}
 }

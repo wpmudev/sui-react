@@ -14,16 +14,16 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(box) {
-				width: $radio-input-size-md;
-				height: $radio-input-size-md;
+				width: $radio-size-lg;
+				height: $radio-size-lg;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				margin: 0;
-				margin-right: $radio-input-spacing;
-				border: 1px solid $radio-input-border-color-default;
+				margin-right: $spacing-md;
+				border: $border-width-sm solid $color-extended-neutral-70;
 				border-radius: 100%;
-				background: $radio-input-background-default;
+				background: $color-extended-neutral-100;
 			}
 		}
 	}
@@ -33,7 +33,7 @@
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
 			@include element(box) {
-				margin-left: $radio-input-spacing;
+				margin-left: $spacing-md;
 				margin-right: 0;
 			}
 		}
@@ -44,7 +44,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(box) {
-				border: 1px solid $color-extended-neutral-0;
+				border: $border-width-sm solid $color-extended-neutral-0;
 			}
 		}
 	}

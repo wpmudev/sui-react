@@ -10,38 +10,39 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-panel($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(panel) {
-                display: none;
-                padding: 0 $accordion-spacing-xs $accordion-spacing-xs $accordion-spacing-xs;
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(panel) {
+				display: none;
+				padding: 0 $spacing-lg $spacing-lg $spacing-lg;
 
-                @include media(min-width, sm) {
-                    padding: 0 $accordion-spacing-md $accordion-spacing-md $accordion-spacing-md;
-                }
+				@include media(min-width, sm) {
+					padding: 0 $spacing-xxl $spacing-xxl $spacing-xxl;
+				}
 
-                @include modifier(content) {
-                    box-shadow: $accordion-content-shadow;
-                    border-radius: $accordion-border-radius-xs;
-                    overflow: hidden;
-                }
-            }
-        }
-    }
+				@include modifier(content) {
+					box-shadow: 0px 2px 1px 0px $color-shadow-light,
+						0px 1px 2px 0px $color-shadow-light;
+					border-radius: $border-radius-md;
+					overflow: hidden;
+				}
+			}
+		}
+	}
 
-    // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: false, $theme: dark) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(panel) {
-                @include modifier(content) {
-                    border: $accordion-border-width solid $color-extended-neutral-0;
-                }
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(panel) {
+				@include modifier(content) {
+					border: $border-width-sm solid $color-extended-neutral-0;
+				}
+			}
+		}
+	}
 }

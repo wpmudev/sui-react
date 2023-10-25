@@ -31,8 +31,8 @@ export const SnippetSpacing = dedent`
 				<LinkTo kind="sui-css-framework-grid" story="grid">
 					grid system
 				</LinkTo>
-				. Choose between full-width (100% wide all the time) and contained (it
-				has a maximum width) content.
+				. Choose between full-width (100% wide all the time) and contained
+				(it has a maximum width) content.
 			</>
 		}
 		status="ready"
@@ -44,46 +44,52 @@ export const SnippetSpacing = dedent`
 			style={{ paddingTop: 0 }}
 		>
 			<p>
-				It is essential to wrap the plugin's content with a div containing
-				the <Code>sui-layout</Code> class name. This class name will justify
-				the content accordingly inside the admin area, removing unnecessary
-				spacing and allowing us to occupy the whole area more conveniently.
+				It is essential to wrap the plugin's content with a div
+				containing the <Code>sui-layout</Code> class name. This class
+				name will justify the content accordingly inside the admin area,
+				removing unnecessary spacing and allowing us to occupy the whole
+				area more conveniently.
 			</p>
 			<p>Below, there's an example of placing the main layout wrapper.</p>
 			<Snippet language="html">{SnippetLayout}</Snippet>
 			<p>
-				While the <Code>sui-layout</Code> class name allows the content to
-				occupy the entire width of the admin area (minus the sidebar), using
-				the <Code>sui-layout__content</Code> class name as an inner wrapper
-				will horizontally align content to the center and give them a
-				maximum width defined in the Design Tokens file.
+				While the <Code>sui-layout</Code> class name allows the content
+				to occupy the entire width of the admin area (minus the
+				sidebar), using the <Code>sui-layout__content</Code> class name
+				as an inner wrapper will horizontally align content to the
+				center and give them a maximum width defined in the Design
+				Tokens file.
 			</p>
 			<Snippet language="html">{SnippetLayoutContent}</Snippet>
 			<p>
-				Remember skipping the <Code>sui-layout--vertical</Code> class for
-				the Top Navigation component is fine, but it is a must-go modifier
-				for other types of content.
+				Remember skipping the <Code>sui-layout--vertical</Code> class
+				for the Top Navigation component is fine, but it is a must-go
+				modifier for other types of content.
 			</p>
 		</Section>
 		<Section title="Spacing">
-			<div className="csb-section__contained" style={{ marginBottom: 20 }}>
+			<div
+				className="csb-section__contained"
+				style={{ marginBottom: 20 }}
+			>
 				<p>
-					Modify the <Code>sui-layout</Code> wrapper spacing in two ways:
-					vertical and horizontal, where vertical spacing will prevent
-					your content from being glued to the WordPress top bar.
+					Modify the <Code>sui-layout</Code> wrapper spacing in two
+					ways: vertical and horizontal, where vertical spacing will
+					prevent your content from being glued to the WordPress top
+					bar.
 				</p>
 				<Snippet html="html">{SnippetSpacing}</Snippet>
 				<p>
 					The spacing respects a base gutter of 8px and relies on the
-					three main breakpoints we use in our design system: default (or
-					none), medium, and large.
+					three main breakpoints we use in our design system: default
+					(or none), medium, and large.
 				</p>
 				<p>
-					When applying any modifier spacing class, these set padding to
-					16px, and it applies to every screen size; Once the screen
-					reaches a minimum width of 1024px, the spacing overwrites to
-					24px; Finally, for screens larger than 1200px, the spacing would
-					be 32px.
+					When applying any modifier spacing class, these set padding
+					to 16px, and it applies to every screen size; Once the
+					screen reaches a minimum width of 1024px, the spacing
+					overwrites to 24px; Finally, for screens larger than 1200px,
+					the spacing would be 32px.
 				</p>
 				<p>Peek at the table below for more detailed information.</p>
 			</div>
@@ -94,7 +100,7 @@ export const SnippetSpacing = dedent`
 						columns: {
 							0: <strong>Default</strong>,
 							1: 'None (auto)',
-							2: '48px',
+							2: '16px',
 						},
 					},
 					{
