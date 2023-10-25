@@ -1,100 +1,12 @@
 {
-    "accordion": {
-        "font": {
-            "weight": {
-                "value": "500",
-                "type": "fontWeight"
-            }
-        },
-        "header": {
-            "spacing": {
-                "vertical": {
-                    "value": "{spacing.lg}",
-                    "type": "spacing"
-                },
-                "horizontal": {
-                    "value": "{spacing.lg}*2",
-                    "type": "spacing"
-                }
-            }
-        },
-        "info": {
-            "gap": {
-                "value": "4px",
-                "type": "spacing"
-            }
-        },
-        "spacing": {
-            "md": {
-                "value": "{spacing.lg}*2",
-                "type": "spacing"
-            },
-            "sm": {
-                "value": "24px",
-                "type": "spacing"
-            },
-            "xs": {
-                "value": "{spacing.lg}",
-                "type": "spacing"
-            }
-        },
-        "border": {
-            "color": {
-                "value": "{color.extended.neutral.80}",
-                "type": "borderColor"
-            },
-            "width": {
-                "value": "{border.width.sm}",
-                "type": "borderWidth"
-            },
-            "radius": {
-                "sm": {
-                    "value": "10px",
-                    "type": "borderRadius"
-                },
-                "xs": {
-                    "value": "{border.radius.md}",
-                    "type": "borderRadius"
-                }
-            }
-        },
-        "status": {
-            "border": {
-                "width": {
-                    "value": "4px",
-                    "type": "borderWidth"
-                }
-            }
-        },
-        "content": {
-            "shadow": {
-                "value": "0px 2px 1px 0px {color.shadow.light}, 0px 1px 2px 0px {color.shadow.light}",
-                "type": "boxShadow"
-            }
-        },
-        "state": {
-            "hover": {
-                "background": {
-                    "value": "{color.extended.neutral.95}",
-                    "type": "color"
-                }
-            },
-            "focus": {
-                "color": {
-                    "value": "{color.primary.50}",
-                    "type": "color"
-                },
-                "spacing": {
-                    "value": "2px",
-                    "type": "spacing"
-                }
-            },
-            "disabled": {
-                "color": {
-                    "value": "{color.extended.neutral.70}",
-                    "type": "color"
-                }
-            }
-        }
-    }
-  }
+	"accordion": {
+		"border": {
+			"radius": {
+				"sm": {
+					"value": "10px",
+					"type": "borderRadius"
+				}
+			}
+		}
+	}
+}

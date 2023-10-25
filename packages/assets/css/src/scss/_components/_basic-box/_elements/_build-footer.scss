@@ -38,6 +38,7 @@
 		@include block($block) {
 			@include element(footer) {
 				border-color: $color-extended-neutral-0;
+				color: $color-extended-neutral-0;
 			}
 		}
 	}

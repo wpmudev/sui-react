@@ -7,28 +7,27 @@
 ///
 /// @param {String} $block - Main block name
 @mixin state-hover($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(item) {
+				@include modifier(hover) {
+					background: $color-extended-neutral-95;
+				}
+			}
+		}
+	}
 
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include element(item) {
-                @include modifier(hover) {
-                    background: $accordion-state-hover-background;
-                }
-            }
-        }
-    }
-
-    // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: false, $theme: dark) {
-        @include block($block) {
-            @include element(item) {
-                @include modifier(hover) {
-                    background: $color-extended-neutral-100
-                }
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(item) {
+				@include modifier(hover) {
+					background: $color-extended-neutral-100;
+				}
+			}
+		}
+	}
 }

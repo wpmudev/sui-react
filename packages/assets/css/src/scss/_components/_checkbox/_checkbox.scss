@@ -3,6 +3,7 @@
 @use "./_states/states" as sui-checkbox--state;
 
 @include sui-checkbox--element.build-container(checkbox);
+@include sui-checkbox--element.build-checkbox-group(checkbox-group);
 @include sui-checkbox--element.build-box(checkbox);
 @include sui-checkbox--element.build-icon(checkbox);
 

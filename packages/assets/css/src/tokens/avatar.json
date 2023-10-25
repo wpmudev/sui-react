@@ -1,100 +1,50 @@
 {
-  "avatar": {
-    "container": {
-      "size": {
-        "sm": {
-          "value": "24px",
-          "type": "sizing"
-        },
-        "md": {
-          "value": "32px",
-          "type": "sizing"
-        }
-      },
-      "border": {
-        "width": {
-          "value": "1px",
-          "type": "borderWidth"
-        },
-        "radius": {
-          "value": "100%",
-          "type": "borderRadius"
-        }
-      },
-      "background": {
-        "value": "{color.extended.neutral.90}",
-        "type": "color"
-      }
-    },
-    "icon": {
-      "color": {
-        "value": "{color.extended.neutral.10}",
-        "type": "color"
-      },
-      "size": {
-        "sm": {
-          "value": "14px",
-          "type": "sizing"
-        },
-        "md": {
-          "value": "20px",
-          "type": "sizing"
-        }
-      }
-    },
-    "image": {
-      "size": {
-        "value": "100%",
-        "type": "sizing"
-      },
-      "border": {
-        "radius": {
-          "value": "100%",
-          "type": "borderRadius"
-        }
-      }
-    },
-    "status": {
-      "margin": {
-        "sm": {
-          "value": "-2px",
-          "type": "spacing"
-        },
-        "md": {
-          "value": "-3px",
-          "type": "spacing"
-        }
-      },
-      "padding": {
-        "sm": {
-          "value": "2px",
-          "type": "spacing"
-        },
-        "md": {
-          "value": "2px",
-          "type": "spacing"
-        }
-      },
-      "border": {
-        "radius": {
-          "value": "100%",
-          "type": "borderRadius"
-        }
-      },
-      "size": {
-        "sm": {
-          "value": "10px",
-          "type": "sizing"
-        },
-        "md": {
-          "value": "14px",
-          "type": "sizing"
-        }
-      },
-      "background": {
-        "value": "{color.extended.neutral.100}",
-        "type": "color"
-      }
-    }
-  }
+	"avatar": {
+		"container": {
+			"size": {
+				"sm": {
+					"value": "24px",
+					"type": "sizing"
+				},
+				"md": {
+					"value": "32px",
+					"type": "sizing"
+				}
+			}
+		},
+		"icon": {
+			"size": {
+				"sm": {
+					"value": "14px",
+					"type": "sizing"
+				},
+				"md": {
+					"value": "20px",
+					"type": "sizing"
+				}
+			}
+		},
+		"status": {
+			"margin": {
+				"sm": {
+					"value": "-2px",
+					"type": "spacing"
+				},
+				"md": {
+					"value": "-3px",
+					"type": "spacing"
+				}
+			},
+			"size": {
+				"sm": {
+					"value": "10px",
+					"type": "sizing"
+				},
+				"md": {
+					"value": "14px",
+					"type": "sizing"
+				}
+			}
+		}
+	}
 }

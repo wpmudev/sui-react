@@ -14,8 +14,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(hidden-label) {
+				min-width: $toggle-size-width-md;
+				min-height: $toggle-size-height-md;
+
 				@include modifies-element(switch) {
-					position: unset;
 					margin: 0;
 				}
 			}

@@ -13,15 +13,15 @@
 		@include block($block) {
 			@include modifier(disabled) {
 				pointer-events: none;
-				color: $checkbox-font-color-disabled;
+				color: $color-extended-neutral-70;
 
 				@include modifies-element(box) {
-					border-color: $checkbox-input-border-color-disabled;
-					background: $checkbox-input-background-disabled;
+					border-color: $color-extended-neutral-80;
+					background: $color-extended-neutral-80;
 				}
 
 				@include modifies-element(icon) {
-					fill: $checkbox-icon-color-disabled;
+					fill: $color-extended-neutral-70;
 				}
 			}
 		}

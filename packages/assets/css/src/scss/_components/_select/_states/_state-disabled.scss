@@ -16,16 +16,23 @@
 		@include block($block) {
 			@include modifier(disabled) {
 				pointer-events: none;
-                @include modifies-element(selection) {
-                    background: $color-extended-neutral-90;
+				color: $color-extended-neutral-70;
+
+				@include modifies-element(control) {
+					border: none;
+					background: $color-extended-neutral-90;
+				}
+
+				@include modifies-element(selection) {
+					background: $color-extended-neutral-90;
 					color: $color-extended-neutral-70;
 					pointer-events: none;
 					border: none;
-                }
+				}
 
-                @include modifies-element(input) {
-                    color: $color-extended-neutral-70;
-                }
+				@include modifies-element(input) {
+					color: $color-extended-neutral-70;
+				}
 
 				@include modifies-element(selected-options) {
 					background: $color-extended-neutral-70;
@@ -37,7 +44,7 @@
 				}
 
 				@include modifies-element(icon) {
-                    color: $color-extended-neutral-70;
+					color: $color-extended-neutral-70;
 					pointer-events: none;
 				}
 			}

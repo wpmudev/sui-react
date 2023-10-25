@@ -20,9 +20,9 @@
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-            position: relative;
-			border-radius: $avatar-container-border-radius;
-			background: $avatar-container-background;
+			position: relative;
+			border-radius: 100%;
+			background: $color-extended-neutral-90;
 			letter-spacing: 0;
 
 			@include modifier(clickable) {
@@ -33,9 +33,9 @@
 
 	// DIR: Left to right.
 	// THEME: Dark.
-	@include sui-class($rtl: false, $theme: 'dark') {
+	@include sui-class($rtl: false, $theme: "dark") {
 		@include block($block) {
-			box-shadow: 0 0 0 $avatar-container-border-width $color-extended-neutral-10;
+			box-shadow: 0 0 0 $border-width-sm $color-extended-neutral-10;
 		}
 	}
 }

@@ -14,16 +14,16 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            @include element(image) {
-                width: $avatar-image-size;
-                height: $avatar-image-size;
-                overflow: hidden;
+			@include element(image) {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
 				display: block;
-                border-radius: $avatar-image-border-radius;
+				border-radius: 100%;
 				background-repeat: no-repeat;
 				background-position: center;
 				background-size: cover;
-            }
+			}
 		}
 	}
 }

@@ -838,6 +838,11 @@
 		}
 	},
 	"spacing": {
+		"xs": {
+			"value": "2px",
+			"type": "spacing",
+			"description": "2 points grid system."
+		},
 		"sm": {
 			"value": "4px",
 			"type": "spacing",

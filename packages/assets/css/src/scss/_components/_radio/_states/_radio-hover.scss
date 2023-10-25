@@ -14,7 +14,7 @@
 			@include modifier(hover) {
 				outline-color: $color-primary-80;
 				@include modifies-element(box) {
-					border-color: $radio-input-border-color-active;
+					border-color: $color-primary-50;
 				}
 
 				&.sui-#{$block}--block {

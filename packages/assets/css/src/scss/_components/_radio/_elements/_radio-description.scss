@@ -14,7 +14,33 @@
 		@include block($block) {
 			@include element(description) {
 				flex-basis: 100%;
-				margin-top: $spacing-md;
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
+				margin: $spacing-sm 0 0 $radio-spacing-md;
+			}
+
+			@include modifier(block) {
+				@include modifies-element(description) {
+					font-size: $font-size-default;
+					line-height: $font-height-sm;
+					margin: $spacing-md 0 0;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(description) {
+				margin: $spacing-sm $radio-spacing-md 0 0;
+			}
+
+			@include modifier(block) {
+				@include modifies-element(description) {
+					margin: $spacing-md 0 0;
+				}
 			}
 		}
 	}

@@ -14,19 +14,16 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(box) {
-				width: $checkbox-input-size-md;
-				height: $checkbox-input-size-md;
+				width: $checkbox-size-md;
+				height: $checkbox-size-md;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				margin: $checkbox-input-margin-vertical-md 0;
-				margin-right: $checkbox-input-margin-horizontal-md;
-				border:
-					$checkbox-input-border-width
-					$checkbox-input-border-style
-					$checkbox-input-border-color-default;
-				border-radius: $checkbox-input-border-radius;
-				background: $checkbox-input-background-default;
+				margin: $spacing-sm 0;
+				margin-right: $spacing-md;
+				border: $border-width-sm solid $color-extended-neutral-70;
+				border-radius: $border-radius-sm;
+				background: $color-extended-neutral-100;
 			}
 		}
 	}
@@ -37,7 +34,7 @@
 		@include block($block) {
 			@include element(box) {
 				margin-right: 0;
-				margin-left: $checkbox-input-margin-horizontal-md;
+				margin-left: $spacing-md;
 			}
 		}
 	}

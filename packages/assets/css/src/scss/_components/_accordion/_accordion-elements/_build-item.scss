@@ -10,94 +10,95 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-item($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(item) {
-                border-top: $accordion-border-width solid $accordion-border-color;
-                overflow: hidden;
-                position: relative;
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(item) {
+				border-top: $border-width-sm solid $color-extended-neutral-80;
+				overflow: hidden;
+				position: relative;
 
-                &:first-child {
-                    border: none;
-                }
+				&:first-child {
+					border: none;
+				}
 
-                &:first-child,
-                &:first-child::after {
-                    border-top-left-radius: $accordion-border-radius-xs;
-                    border-top-right-radius: $accordion-border-radius-xs;
-                }
+				&:first-child,
+				&:first-child::after {
+					border-top-left-radius: $border-radius-md;
+					border-top-right-radius: $border-radius-md;
+				}
 
-                &:last-child,
-                &:last-child::after {
-                    border-bottom-right-radius: $accordion-border-radius-xs;
-                    border-bottom-left-radius: $accordion-border-radius-xs;
-                }
+				&:last-child,
+				&:last-child::after {
+					border-bottom-right-radius: $border-radius-md;
+					border-bottom-left-radius: $border-radius-md;
+				}
 
-                p {
-                    &:first-child {
-                        margin-top: 0;
-                    }
+				p {
+					&:first-child {
+						margin-top: 0;
+					}
 
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
-                }
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
 
-                @include modifier(body) {
-                    > .sui-box {
-                        .sui-box-group {
-                            padding-top: $accordion-spacing-md;
-                            padding-bottom: $accordion-spacing-md;
-                        }
-                    }
-                }
+				@include modifier(body) {
+					> .sui-box {
+						.sui-box-group {
+							padding-top: $spacing-xxl;
+							padding-bottom: $spacing-xxl;
+						}
+					}
+				}
 
-                @include modifier(footer) {
-                    > .sui-box {
-                        .sui-box-group {
-                            padding-top: $accordion-spacing-sm;
-                            padding-bottom: $accordion-spacing-sm;
-                            border-top: $accordion-border-width solid $accordion-border-color;
-                        }
-                    }
-                }
+				@include modifier(footer) {
+					> .sui-box {
+						.sui-box-group {
+							padding-top: $spacing-xl;
+							padding-bottom: $spacing-xl;
+							border-top: $border-width-sm solid
+								$color-extended-neutral-80;
+						}
+					}
+				}
 
-                @include modifier(body, footer) {
-                    > .sui-box {
-                        border: none;
-                        border-radius: 0;
-                        .sui-box-group {
-                            margin: 0;
+				@include modifier(body, footer) {
+					> .sui-box {
+						border: none;
+						border-radius: 0;
+						.sui-box-group {
+							margin: 0;
 
-                            @include media(max-width, sm) {
-                                padding: $accordion-spacing-xs;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+							@include media(max-width, sm) {
+								padding: $spacing-lg;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
-    // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: false, $theme: dark) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(item) {
-                border-color: $color-extended-neutral-0;
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(item) {
+				border-color: $color-extended-neutral-0;
 
-                @include modifier(footer) {
-                    > .sui-box {
-                        .sui-box-group {
-                            border-color: $color-extended-neutral-0;
-                        }
-                    }
-                }
-            }
-        }
-    }
+				@include modifier(footer) {
+					> .sui-box {
+						.sui-box-group {
+							border-color: $color-extended-neutral-0;
+						}
+					}
+				}
+			}
+		}
+	}
 }

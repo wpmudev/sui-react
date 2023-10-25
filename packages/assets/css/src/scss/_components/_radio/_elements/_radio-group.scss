@@ -22,23 +22,29 @@
 
 				@include media(max-width, md) {
 					flex-direction: column;
+					gap: $spacing-md;
 				}
 			}
 
 			@include modifier(sm) {
 				font-size: $font-size-xs;
-				line-height: $radio-font-height-sm;
+				line-height: $font-height-xxs;
 
 				.sui-radio__box {
-					width: $radio-input-size-sm;
-					height: $radio-input-size-sm;
+					width: $radio-size-md;
+					height: $radio-size-md;
 				}
 
 				.sui-radio__icon {
-					width: $radio-icon-size-sm;
-					height: $radio-icon-size-sm;
+					width: $radio-size-xs;
+					height: $radio-size-xs;
 				}
 			}
+		}
+
+		.sui-form-field__label + .sui-radio-group,
+		.sui-radio-group + .sui-form-field__helper {
+			margin-top: $spacing-md;
 		}
 	}
 }

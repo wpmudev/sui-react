@@ -13,10 +13,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(icon) {
-				width: $checkbox-icon-tick-width-md;
-				height: $checkbox-icon-tick-height-md;
+				width: $checkbox-icon-width-md;
+				height: $checkbox-icon-height-md;
+				fill: $color-extended-neutral-100;
 				opacity: 0;
-				fill: $checkbox-icon-color-default;
 			}
 		}
 	}

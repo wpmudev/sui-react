@@ -18,23 +18,23 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				color: $avatar-icon-color;
+				color: $color-extended-neutral-10;
 				font-size: $avatar-icon-size-md;
 
 				&:before {
 					margin-top: -0.5px;
 				}
-            }
+			}
 		}
 	}
 
 	// DIR: Left to right.
 	// THEME: Dark.
-	@include sui-class($rtl: false, $theme: 'dark') {
+	@include sui-class($rtl: false, $theme: "dark") {
 		@include block($block) {
 			@include element(icon) {
 				color: $color-extended-neutral-0;
-            }
+			}
 		}
 	}
 }

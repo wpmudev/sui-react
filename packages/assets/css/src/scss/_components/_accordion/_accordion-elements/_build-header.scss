@@ -10,64 +10,64 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-header($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(header) {
-                align-items: baseline;
-                cursor: pointer;
-                display: flex;
-                justify-content: space-between;
-                padding: $accordion-spacing-xs;
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(header) {
+				align-items: baseline;
+				cursor: pointer;
+				display: flex;
+				justify-content: space-between;
+				padding: $spacing-lg;
 
-                svg {
-                    color: $color-extended-neutral-60;
-                }
+				svg {
+					color: $color-extended-neutral-60;
+				}
 
-                @include media(min-width, sm) {
-                    padding: $accordion-spacing-xs $accordion-spacing-md;
-                }
-            }
+				@include media(min-width, sm) {
+					padding: $spacing-lg $spacing-xxl;
+				}
+			}
 
-            @include element(header-info) {
-                align-items: baseline;
-                display: flex;
-                gap: $accordion-info-gap;
-            }
+			@include element(header-info) {
+				align-items: baseline;
+				display: flex;
+				gap: $spacing-sm;
+			}
 
-            @include element(header-actions) {
-                align-items: center;
-                display: inline-flex;
-                align-self: flex-start;
-            }
+			@include element(header-actions) {
+				align-items: center;
+				display: inline-flex;
+				align-self: flex-start;
+			}
 
-            @include element(header-title) {
-                h2 {
-                    font-size: $font-size-default;
-                    line-height: $font-height-sm;
-                    font-weight: $accordion-font-weight;
-                    margin: 0;
-                }
+			@include element(header-title) {
+				h2 {
+					font-size: $font-size-default;
+					line-height: $font-height-sm;
+					font-weight: $font-weight-md;
+					margin: 0;
+				}
 
-                p {
-                    margin: 0;
-                }
-            }
-        }
-    }
+				p {
+					margin: 0;
+				}
+			}
+		}
+	}
 
-    // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: false, $theme: dark) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(header) {
-                svg {
-                    color: $color-extended-neutral-0;
-                }
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(header) {
+				svg {
+					color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
 }
