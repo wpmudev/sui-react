@@ -44,8 +44,5 @@
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
   },
-  "homepage": "https://github.com/wpmudev/sui-docs#readme",
-  "devDependencies": {
-    "react": "^18.2.0"
-  }
+  "homepage": "https://github.com/wpmudev/sui-docs#readme"
 }

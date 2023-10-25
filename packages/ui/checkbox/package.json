@@ -49,9 +49,6 @@
     "url": "https://github.com/wpmudev/sui-react/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
-  "peerDependencies": {
-    "react": ">=18"
-  },
   "clean-package": "../../../postpack.config.json",
   "devDependencies": {
     "react": "^18.2.0"

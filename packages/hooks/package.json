@@ -35,8 +35,5 @@
   "clean-package": "../../postpack.config.json",
   "dependencies": {
     "@wpmudev/sui-utils": "^0.0.1"
-  },
-  "peerDependencies": {
-    "react": ">=18"
   }
 }
