@@ -44,6 +44,7 @@
     "build-storybook": "storybook build",
     "changelog": "npx lerna-changelog",
     "build": "NODE_ENV=production lerna run build",
+    "build:dev": "lerna run build:dev",
     "build:readme": "lerna run build:readme",
     "test": "jest",
     "test:dev": "jest --watch",
