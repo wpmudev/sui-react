@@ -51,7 +51,8 @@
     "publish:test": "npm run prepare && npm version prerelease --git-tag-version=false && npm pack",
     "publish:patch": "npm run prepare && npm version patch -m \"🚀 Publish Icons Pack %s\" && npm publish",
     "publish:minor": "npm run prepare && npm version minor -m \"🚀 Publish Icons Pack %s\" && npm publish",
-    "publish:major": "npm run prepare && npm version major -m \"🚀 Publish Icons Pack %s\" && npm publish"
+    "publish:major": "npm run prepare && npm version major -m \"🚀 Publish Icons Pack %s\" && npm publish",
+    "build:readme": "readme generate --input ../../../blueprint.md"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"

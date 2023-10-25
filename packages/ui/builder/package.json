@@ -39,7 +39,7 @@
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
-    "generate-readme": "readme generate --input ../../../blueprint.md"
+    "build:readme": "readme generate --input ../../../blueprint.md"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-docs/issues"
