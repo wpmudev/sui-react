@@ -47,7 +47,10 @@
     "test": "jest",
     "test:dev": "jest --watch",
     "test:a11y": "SUI_A11Y_TEST=1 jest",
-    "lint": "eslint --ext .ts,.tsx ./packages/"
+    "lint": "eslint --ext .ts,.tsx ./packages/",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "changeset publish"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
