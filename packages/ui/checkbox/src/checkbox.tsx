@@ -1,15 +1,17 @@
 import React, {
 	forwardRef,
 	useCallback,
-	useEffect,
 	useId,
+	useEffect,
 	useState,
 } from "react"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 import { Tick } from "./elements/tick"
-import { CheckboxProps } from "./checkbox.types"
 import { Indeterminate } from "./elements/indeterminate"
+
+import { CheckboxProps } from "./checkbox.types"
+import { useCheckbox } from "./checkbox-context"
 
 /**
  * Checkbox
@@ -23,81 +25,98 @@ import { Indeterminate } from "./elements/indeterminate"
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 	(
 		{
+			id,
 			label,
 			isLabelHidden = false,
-			isSmall = false,
 			isDisabled = false,
-			isChecked: propIsChecked = false,
+			isSmall: propIsSmall = false,
+			value = "",
 			isIndeterminate = false,
-			onChange = () => {},
+			isChecked: propIsChecked = false,
+			onChange: propOnchange = () => {},
 		},
 		ref,
 	) => {
 		// State to manage the checked state of the checkbox
 		const [isChecked, setIsChecked] = useState<boolean>(propIsChecked ?? false)
 
+		const { onChange, name, isSmall } = useCheckbox()
+
 		// Set the initial state based on the default value
 		useEffect(() => {
 			setIsChecked((propIsChecked || isIndeterminate) ?? false)
-		}, [propIsChecked, isIndeterminate])
-
-		// Generate a dynamic ID for the checkbox
-		const id = useId()
+		}, [propIsChecked, isIndeterminate, value])
 
 		// Interaction methods for handling hover and focus
-		const [isHovered, isFocused, interactionMethods] = useInteraction({})
+		const [isHovered, isFocused, methods] = useInteraction({})
 
-		// Callback function for handling checkbox state changes
+		// Generate a dynamic ID for the checkbox
+		let uuid = `sui-checkbox-${useId()}`
+
+		// use ID from props list if exists
+		if (!!id) {
+			uuid = id
+		}
+
+		// handle on change
 		const handleOnChange = useCallback(
 			(e: React.ChangeEvent<HTMLInputElement>) => {
-				// setIsChecked(!isChecked && !isIndeterminate)
+				setIsChecked(e.target.checked)
+
 				if (!!onChange) {
 					onChange(e)
+					propOnchange(e)
 				}
 			},
-			[onChange],
+			[onChange, propOnchange],
 		)
+
+		// Define input props
+		const inputProps = {
+			ref,
+			id: uuid,
+			type: "checkbox",
+			name,
+			value,
+			className: "sui-screen-reader-only",
+			checked: isChecked,
+			disabled: isDisabled,
+			onChange: handleOnChange,
+			"aria-labelledby": `${uuid}-label`,
+		}
 
 		// Props for the box element representing the checkbox
 		const boxProps = {
-			tabIndex: -1,
 			className: "sui-checkbox__box",
 			"aria-hidden": true,
 		}
 
+		// Define container props
+		const containerProps = {
+			className: generateCN("sui-checkbox", {
+				"hidden-label": isLabelHidden,
+				indeterminate: isIndeterminate,
+				hover: isHovered,
+				focus: isFocused,
+				disabled: isDisabled,
+				checked: isChecked,
+				sm: isSmall || propIsSmall,
+			}),
+		}
+
 		return (
 			<label
-				htmlFor={id}
+				{...containerProps}
+				htmlFor={uuid}
 				data-testid="checkbox"
-				className={generateCN("sui-checkbox", {
-					"hidden-label": isLabelHidden,
-					disabled: isDisabled,
-					indeterminate: isIndeterminate,
-					sm: isSmall,
-					hover: isHovered,
-					focus: isFocused,
-					checked: isChecked,
-				})}
-				{...interactionMethods}
+				{...methods}
 			>
-				{/* Hidden input element to track the checkbox state */}
-				<input
-					ref={ref}
-					id={id}
-					type="checkbox"
-					data-testid="checkbox-input"
-					className="sui-screen-reader-only"
-					disabled={isDisabled}
-					checked={(isChecked || isIndeterminate) && !isDisabled}
-					onChange={handleOnChange}
-				/>
-				{/* Custom tick element for the checkbox */}
+				<input {...inputProps} data-testid="checkbox-input" />
 				{isIndeterminate ? (
 					<Indeterminate {...boxProps} />
 				) : (
-					<Tick {...boxProps} />
+					<Tick {...boxProps} tabIndex={-1} />
 				)}
-				{/* Render the label */}
 				{isLabelHidden ? (
 					<span className="sui-screen-reader-only">{label}</span>
 				) : (
