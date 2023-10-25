@@ -4,7 +4,7 @@ import { render } from "@testing-library/react"
 import { axe, toHaveNoViolations } from "jest-axe"
 
 // use "toHaveNoViolations"
-// expect.extend(toHaveNoViolations)
+//expect.extend(toHaveNoViolations)
 
 /**
  * Generate class names based on the prop variables.
