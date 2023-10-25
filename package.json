@@ -50,7 +50,8 @@
     "lint": "eslint --ext .ts,.tsx ./packages/",
     "changeset": "changeset",
     "version": "changeset version",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "deploy": "npm run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\""
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
