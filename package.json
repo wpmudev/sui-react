@@ -107,7 +107,6 @@
     "babel-loader": "^8.2.5",
     "classnames": "^2.3.2",
     "clean-package": "^2.2.0",
-    "css-loader": "^6.7.1",
     "dedent": "^0.7.0",
     "esbuild-sass-plugin": "^2.16.0",
     "eslint": "^8.44.0",

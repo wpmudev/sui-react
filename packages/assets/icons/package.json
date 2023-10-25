@@ -76,11 +76,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-typescript": "^6.0.0-alpha.1",
-    "path": "^0.12.7",
-    "react": "^18.2.0",
-    "sass": "^1.57.0",
-    "ts-dedent": "^2.2.0",
-    "typescript": "^5.2.2"
+    "ts-dedent": "^2.2.0"
   },
   "peerDependencies": {
     "react": ">=18"
