@@ -38,6 +38,7 @@
   },
   "scripts": {
     "build": "npx tsup",
+    "build:dev": "npx tsup --watch",
     "build:fast": "npx tsup src",
     "dev": "npm build:fast -- --watch"
   },
