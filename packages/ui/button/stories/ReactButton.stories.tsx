@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React, {Fragment, useState} from "react"
 
 // Import required component(s).
 import { Button as StandardButton, LoadingButton } from "../src"
@@ -28,6 +28,7 @@ const Button = ({
 	attributes: ButtonProps
 }) => {
 	let content = "Cancel"
+	const [ disabled, setDisabled] = useState(true);
 
 	// @ts-ignore
 	const { color } = attributes
@@ -46,8 +47,11 @@ const Button = ({
 		background: "white" === color ? "#333" : "#fff",
 	}
 
+	console.log('example',example);
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
+			<button onClick={() => setDisabled(! disabled)}>dd</button>
 			<div className="sui-layout__content">
 				<div style={boxStyle}>
 					{(() => {
@@ -81,7 +85,7 @@ const Button = ({
 													</LoadingButton>
 												)}
 												{"button-load" !== example && (
-													<StandardButton {...attributes}>
+													<StandardButton {...attributes} isDisabled={disabled}>
 														{content}
 													</StandardButton>
 												)}

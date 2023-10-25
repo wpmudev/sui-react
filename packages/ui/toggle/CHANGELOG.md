@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- @wpmudev/sui-box@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

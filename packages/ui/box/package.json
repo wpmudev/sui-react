@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-box",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "WPMU DEV Shared UI React Box Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -55,7 +55,7 @@
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
     "@wpmudev/sui-grid": "^0.0.1",
-    "@wpmudev/sui-notification": "^0.0.1",
+    "@wpmudev/sui-notification": "^0.0.2",
     "@wpmudev/sui-utils": "^0.0.1",
     "react": "^18.2.0"
   }

@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- @wpmudev/sui-config-table@0.0.2
+- @wpmudev/sui-upsell@0.0.2
+- @wpmudev/sui-upsell-notice@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

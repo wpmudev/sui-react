@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext } from "react"
+import React, { createContext, useCallback, useContext } from "react"
 import { CheckboxContextProps, CheckboxValueType } from "./checkbox.types"
 
 const CheckboxContext = createContext<CheckboxContextProps>({

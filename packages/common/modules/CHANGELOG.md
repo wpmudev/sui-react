@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- @wpmudev/sui-dashboard-widget@0.0.2
+- @wpmudev/sui-integration@0.0.2
+- @wpmudev/sui-navigation@0.0.2
+- @wpmudev/sui-table@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

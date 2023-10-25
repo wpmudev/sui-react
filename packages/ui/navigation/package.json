@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-navigation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "WPMU DEV Shared UI Navigation Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -50,8 +50,8 @@
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
     "@wpmudev/sui-avatar": "^0.0.1",
-    "@wpmudev/sui-button": "^0.0.1",
-    "@wpmudev/sui-dropdown": "^0.0.1",
+    "@wpmudev/sui-button": "^0.0.2",
+    "@wpmudev/sui-dropdown": "^0.0.2",
     "@wpmudev/sui-icons": "*",
     "@wpmudev/sui-utils": "^0.0.1",
     "react": "^18.2.0"

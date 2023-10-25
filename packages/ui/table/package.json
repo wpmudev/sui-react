@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-table",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "WPMU DEV Shared UI Table Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -49,8 +49,8 @@
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
     "@types/sortablejs": "^1.15.1",
-    "@wpmudev/sui-box": "^0.0.1",
-    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-box": "^0.0.2",
+    "@wpmudev/sui-button": "^0.0.2",
     "@wpmudev/sui-checkbox": "^0.0.1",
     "@wpmudev/sui-hooks": "^0.0.1",
     "@wpmudev/sui-icons": "*",

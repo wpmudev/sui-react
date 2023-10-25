@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @wpmudev/sui-button@0.0.2
+  - @wpmudev/sui-notification@0.0.2
+  - @wpmudev/sui-segmented-control@0.0.2
+  - @wpmudev/sui-tooltip@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

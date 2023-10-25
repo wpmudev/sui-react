@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-builder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Shared builder UI/UX",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -51,7 +51,7 @@
     "@types/sortablejs": "^1.15.2"
   },
   "dependencies": {
-    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-button": "^0.0.2",
     "@wpmudev/sui-grid": "^0.0.1",
     "@wpmudev/sui-hooks": "^0.0.1",
     "@wpmudev/sui-icon": "^0.0.1",

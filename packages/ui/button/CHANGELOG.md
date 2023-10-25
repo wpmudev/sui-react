@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- Fix focus and hover
+
 ## 0.0.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-tooltip",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "WPMU DEV Shared UI React Tooltip Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -56,7 +56,7 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-button": "^0.0.2",
     "@wpmudev/sui-hooks": "^0.0.1",
     "@wpmudev/sui-utils": "^0.0.1"
   }

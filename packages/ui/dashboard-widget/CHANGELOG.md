@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @wpmudev/sui-button@0.0.2
+  - @wpmudev/sui-table@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

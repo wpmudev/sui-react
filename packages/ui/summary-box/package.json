@@ -48,7 +48,7 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "devDependencies": {
-    "@wpmudev/sui-box": "^0.0.1",
+    "@wpmudev/sui-box": "^0.0.2",
     "@wpmudev/sui-grid": "^0.0.1",
     "@wpmudev/sui-utils": "^0.0.1",
     "react": "^18.2.0"
