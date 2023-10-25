@@ -62,8 +62,8 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 		// Classname based on the attributes
 		const attrClasses = {
 			sm: isSmall,
-			hover: isHovered,
-			focus: isFocused,
+			hover: isHovered && ! isDisabled,
+			focus: isFocused && ! isDisabled,
 			disabled: isDisabled,
 			"full-width": isFullWidth,
 			"is-icon": (startIcon || endIcon) && iconOnly,
