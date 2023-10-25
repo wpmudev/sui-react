@@ -1,0 +1,345 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+@use "../_utils/mixins" as *;
+
+/// Build Tooltip Position
+/// This function creates styles for the element
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-position($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+
+		// Block wrapper.
+		@include block($block) {
+
+            @include modifier(top) {
+
+                @include modifies-element(content) {
+                    left: 50%;
+                    transform: translateX(-50%);
+
+                    &:after {
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
+            @include modifier(top-left) {
+
+                @include modifies-element(content) {
+                    left: 0;
+                    transform: translateX(0);
+
+                    &:after {
+                        left: 8px;
+                    }
+                }
+            }
+
+            @include modifier(top-right) {
+
+                @include modifies-element(content) {
+                    right: 0;
+
+                    &:after {
+                        right: 8px;
+                    }
+                }
+            }
+
+            @include modifier(top, top-left, top-right) {
+                @include modifies-element(content) {
+                    bottom: 100%;
+                    margin-bottom: $tooltip-spacing-margin;
+                    
+                    &:after {
+                        @include equilateral-triangle(down, 6px, $color-extended-neutral-20);
+                        bottom: -6px;
+                    }
+                }
+            }
+
+            @include modifier(bottom) {
+
+                @include modifies-element(content) {
+                    left: 50%;
+                    transform: translateX(-50%);
+
+                    &:after {
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
+            @include modifier(bottom-left) {
+
+                @include modifies-element(content) {
+                    left: 0;
+
+                    &:after {
+                        left: 8px;
+                    }
+                }
+            }
+
+            @include modifier(bottom-right) {
+
+                @include modifies-element(content) {
+                    right: 0;
+
+                    &:after {
+                        right: 8px;
+                    }
+                }
+            }
+
+            @include modifier(bottom, bottom-left, bottom-right) {
+                @include modifies-element(content) {
+                    top: 100%;
+                    margin-top: $tooltip-spacing-margin;
+                    
+                    &:after {
+                        @include equilateral-triangle(up, 6px, $color-extended-neutral-20);
+                        top: -6px;
+                    }
+                }
+            }
+
+            @include modifier(left) {
+
+                @include modifies-element(content) {
+                    top: 50%;
+                    transform: translateY(-50%);
+
+                    &:after {
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+
+            @include modifier(left-top) {
+
+                @include modifies-element(content) {
+                    top: 0;
+
+                    &:after {
+                        top: 8px;
+                    }
+                }
+            }
+
+            @include modifier(left-bottom) {
+
+                @include modifies-element(content) {
+                    bottom: 0;
+
+                    &:after {
+                        bottom: 8px;
+                    }
+                }
+            }
+
+            @include modifier(left, left-top, left-bottom) {
+                @include modifies-element(content) {
+                    right: calc(100% + $tooltip-spacing-margin);
+
+                    &:after {
+                        right: -6px;
+                        @include equilateral-triangle(right, 6px, $color-extended-neutral-20);
+                    }
+                }
+            }
+
+            @include modifier(right) {
+
+                @include modifies-element(content) {
+                    top: 50%;
+                    transform: translateY(-50%);
+
+                    &:after {
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+
+            @include modifier(right-top) {
+
+                @include modifies-element(content) {
+                    top: 0;
+
+                    &:after {
+                        top: 8px;
+                    }
+                }
+            }
+
+            @include modifier(right-bottom) {
+
+                @include modifies-element(content) {
+                    bottom: 0;
+
+                    &:after {
+                        bottom: 8px;
+                    }
+                }
+            }
+
+            @include modifier(right, right-top, right-bottom) {
+                @include modifies-element(content) {
+                    left: calc(100% + $tooltip-spacing-margin);
+                    
+                    &:after {
+                        left: -6px;
+                        @include equilateral-triangle(left, 6px, $color-extended-neutral-20);
+                    }
+                }
+            }
+
+            @include modifier(icon) {
+                line-height: 1;
+    
+                &.sui-#{$block}--top-left {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            left: 2px;
+                            bottom: -5px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--top-right {
+    
+                    .sui-#{$block}__content {
+
+                        &:after {
+                            right: 2px;
+                            bottom: -5px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--bottom-left {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            top: -5px;
+                            left: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--bottom-right {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            top: -5px;
+                            right: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--left-top {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            right: -5px;
+                            top: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--left-bottom {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            right: -5px;
+                            bottom: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--right-top {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            left: -5px;
+                            top: 2px;
+                        }
+                    }
+                }
+    
+                &.sui-#{$block}--right-bottom {
+    
+                    .sui-#{$block}__content {
+    
+                        &:after {
+                            left: -5px;
+                            bottom: 2px;
+                        }
+                    }
+                }
+            }
+		}
+	}
+
+    // DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+
+		// Block wrapper.
+		@include block($block) {
+
+            @include modifier(top, top-left, top-right) {
+                @include modifies-element(content) {
+
+                    &:after {
+                        @include equilateral-triangle(down, 6px, $color-extended-neutral-0);
+                    }
+                }
+            }
+
+            @include modifier(bottom, bottom-left, bottom-right) {
+                @include modifies-element(content) {
+                    
+                    &:after {
+                        @include equilateral-triangle(up, 6px, $color-extended-neutral-0);
+                    }
+                }
+            }
+
+            @include modifier(left, left-top, left-bottom) {
+                @include modifies-element(content) {
+                    
+                    &:after {
+                        @include equilateral-triangle(right, 6px, $color-extended-neutral-0);
+                    }
+                }
+            }
+
+            @include modifier(right, right-top, right-bottom) {
+                @include modifies-element(content) {
+                    
+                    &:after {
+                        @include equilateral-triangle(left, 6px, $color-extended-neutral-0);
+                    }
+                }
+            }
+		}
+	}
+}

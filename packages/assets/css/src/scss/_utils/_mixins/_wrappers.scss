@@ -1,0 +1,42 @@
+/// Build body class.
+/// Generates the required body class based on language direction class variation.
+/// @author WPMU DEV
+///
+/// @param {Boolean} $rtl - Enable the RTL class on body.
+@mixin body-class($rtl: false) {
+	@if $rtl {
+		@at-root body.rtl {
+			@content;
+		}
+	} @else {
+		@at-root {
+			@content;
+		}
+	}
+}
+
+/// Build content class.
+/// Generates the required wrapper for the plugin content.
+/// @author WPMU DEV
+///
+/// @param {Boolean} $rtl - Enable the RTL class on body.
+/// @param {Boolean} $nightmode - Enable the nightmode class on content wrapper.
+@mixin sui-class($rtl: false, $theme: null) {
+	$wrapper-class: "sui-wrap";
+
+	@include body-class($rtl) {
+		.#{$wrapper-class} {
+			@if $theme == dark {
+				&.sui-theme--dark {
+					@content;
+				}
+			} @else if $theme == light {
+				&.sui-theme--light {
+					@content;
+				}
+			} @else {
+				@content;
+			}
+		}
+	}
+}

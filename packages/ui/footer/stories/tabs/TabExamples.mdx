@@ -1,0 +1,253 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { Fragment } from "react"
+import { Footer } from "../../src"
+import dedent from "dedent"
+
+export const freeVariationCode = dedent`
+    <Footer
+      renderBlocks={() => [
+       <Fragment key={0}>
+          Check our{" "}
+          <a href="#" target="_blank" rel="nofollow">
+            All in One WordPress Toolkit
+          </a>
+        </Fragment>,
+        <Fragment key={2}>
+          To get the most out of the plugin,{" "}
+          <a href="#" target="_blank" rel="nofollow">
+            see the Help section
+          </a>
+        </Fragment>,
+      ]}
+      socialLinks={[
+        {
+          url: "#",
+          type: "facebook",
+        },
+        {
+          url: "#",
+          type: "instagram",
+        },
+        {
+          url: "#",
+          type: "twitter",
+        },
+      ]}
+      links={[
+        {
+          url: "#",
+          title: "Free Plugins",
+        },
+        {
+          url: "#",
+          title: "Membership",
+        },
+        {
+          url: "#",
+          title: "Roadmap",
+        },
+        {
+          url: "#",
+          title: "Support",
+        },
+        {
+          url: "#",
+          title: "Community",
+        },
+        {
+          url: "#",
+          title: "The Hub",
+        },
+        {
+          url: "#",
+          title: "Terms of Service",
+        },
+        {
+          url: "#",
+          title: "Privacy Policy",
+        },
+      ]}
+    />
+`
+
+export const proVariationCode = dedent`
+    <Footer
+      renderBlocks={() => [
+       <Fragment key={0}>
+          Check our{" "}
+          <a href="#" target="_blank" rel="nofollow">
+            All in One WordPress Toolkit
+          </a>
+        </Fragment>,
+        <Fragment key={2}>
+          To get the most out of the plugin,{" "}
+          <a href="#" target="_blank" rel="nofollow">
+            see the Help section
+          </a>
+        </Fragment>,
+      ]}
+      socialLinks={[
+        {
+          url: "#",
+          type: "facebook",
+        },
+        {
+          url: "#",
+          type: "instagram",
+        },
+        {
+          url: "#",
+          type: "twitter",
+        },
+      ]}
+      links={[
+        {
+          url: "#",
+          title: "Free Plugins",
+        },
+        {
+          url: "#",
+          title: "Membership",
+        },
+        {
+          url: "#",
+          title: "Roadmap",
+        },
+        {
+          url: "#",
+          title: "Support",
+        },
+        {
+          url: "#",
+          title: "Community",
+        },
+        {
+          url: "#",
+          title: "The Hub",
+        },
+        {
+          url: "#",
+          title: "Terms of Service",
+        },
+        {
+          url: "#",
+          title: "Privacy Policy",
+        },
+      ]}
+    />
+`
+
+<Section style={{ paddingTop: 30 }}>
+	<p>Below is the free variation of the footer component</p>
+	<Preview wrapper={true}>
+		<Footer
+			renderBlocks={(content) => [content]}
+			socialLinks={[
+				{
+					url: "#",
+					type: "facebook",
+				},
+				{
+					url: "#",
+					type: "instagram",
+				},
+				{
+					url: "#",
+					type: "twitter",
+				},
+			]}
+			links={[
+				{
+					url: "#",
+					title: "Free Plugins",
+				},
+				{
+					url: "#",
+					title: "Membership",
+				},
+				{
+					url: "#",
+					title: "Roadmap",
+				},
+				{
+					url: "#",
+					title: "Support",
+				},
+				{
+					url: "#",
+					title: "Community",
+				},
+				{
+					url: "#",
+					title: "The Hub",
+				},
+				{
+					url: "#",
+					title: "Terms of Service",
+				},
+				{
+					url: "#",
+					title: "Privacy Policy",
+				},
+			]}
+		/>
+	</Preview>
+	<Snippet language="js">{freeVariationCode}</Snippet>
+</Section>
+
+<Section title="The Pro Variation" style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<Footer
+			renderBlocks={(content) => [content]}
+			socialLinks={[
+				{
+					url: "#",
+					type: "facebook",
+				},
+				{
+					url: "#",
+					type: "instagram",
+				},
+				{
+					url: "#",
+					type: "twitter",
+				},
+			]}
+			links={[
+				{
+					url: "#",
+					title: "Free Plugins",
+				},
+				{
+					url: "#",
+					title: "Membership",
+				},
+				{
+					url: "#",
+					title: "Roadmap",
+				},
+				{
+					url: "#",
+					title: "Support",
+				},
+				{
+					url: "#",
+					title: "Community",
+				},
+				{
+					url: "#",
+					title: "The Hub",
+				},
+				{
+					url: "#",
+					title: "Terms of Service",
+				},
+				{
+					url: "#",
+					title: "Privacy Policy",
+				},
+			]}
+		/>
+	</Preview>
+	<Snippet language="js">{proVariationCode}</Snippet>
+</Section>

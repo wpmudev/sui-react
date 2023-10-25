@@ -1,0 +1,462 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import dedent from "dedent"
+import { Dropdown } from "../../src"
+import { Button } from "@wpmudev/sui-button"
+
+export const sampleCode = dedent`
+        <Dropdown
+            label="Menu Button"
+            menu={[
+                {
+                    id: "menu-0",
+                    label: "Uptime Monitoring",
+                      props: {
+                        icon: "CheckAlt",
+                    },
+                },
+                {
+                    id: "menu-1",
+                    label: "Site management tools",
+                    props: {},
+                },
+                {
+                    id: "menu-3",
+                    label: "Notifications",
+                    props: {
+                        icon: "Bell"
+                    },
+                },
+                {
+                    id: "menu-2",
+                    label: "Website Performance Optimization",
+                    props: {},
+                },
+            ]}
+        />
+`
+export const pluginVariationsMenuExample = dedent`
+        <Dropdown
+            label="Menu Button"
+            menu={[
+                    {
+                        id: "menu-beehive",
+                        label: "Beehive",
+                        props: {
+                            icon: "PluginBeehive",
+                            variation: "beehive",
+                        },
+                    },
+                    {
+                        id: "menu-branda",
+                        label: "Branda",
+                        props: {
+                            icon: "PluginBranda",
+                            variation: "branda",
+                        },
+                    },
+                    {
+                        id: "menu-defender",
+                        label: "Defender",
+                        props: {
+                            icon: "PluginDefender",
+                            variation: "defender",
+                        },
+                    },
+                    {
+                        id: "menu-forminator",
+                        label: "Forminator",
+                        props: {
+                            icon: "PluginForminator",
+                            variation: "forminator",
+                        },
+                    },
+                    {
+                        id: "menu-hummingbird",
+                        label: "Hummingbird",
+                        props: {
+                            icon: "PluginHummingbird",
+                            variation: "hummingbird",
+                        },
+                    },
+                    {
+                        id: "menu-hustle",
+                        label: "Hustle",
+                        props: {
+                            icon: "PluginHustle",
+                            variation: "hustle",
+                        },
+                    },
+                    {
+                        id: "menu-shipper",
+                        label: "Shipper",
+                        props: {
+                            icon: "PluginShipper",
+                            variation: "shipper",
+                        },
+                    },
+                    {
+                        id: "menu-smush",
+                        label: "Smush",
+                        props: {
+                            icon: "PluginSmush",
+                            variation: "smush",
+                        },
+                    },
+                    {
+                        id: "menu-smartcrawl",
+                        label: "SmartCrawl",
+                        props: {
+                            icon: "PluginSmartCrawl",
+                            variation: "smartcrawl",
+                        },
+                    },
+                    {
+                        id: "menu-ivt",
+                        label: "IVT",
+                        props: {
+                            icon: "PluginIVT",
+                            variation: "ivt",
+                        },
+                    },
+                ]}
+        />
+`
+
+export const groupedCode = dedent`
+        <Dropdown
+            label="Menu Button"
+            menu={
+                [
+                    {
+                        id: "group-1",
+                        label: "Extra Optimization",
+                        menus: [
+                                    {
+                                        id: "menu-2",
+                                        label: "Uptime Monitoring",
+                                        props: {
+                                            icon: "CheckAlt",
+                                        },
+                                    },
+                                    {
+                                        id: "menu-2",
+                                        label: "Site management tools",
+                                        props: {},
+                                    },
+                        ],
+                    },
+                    {
+                        id: "group-2",
+                        label: "Performance",
+                        menus: [
+                                    {
+                                        id: "menu-2",
+                                        label: "Uptime Monitoring",
+                                        props: {},
+                                    },
+                                    {
+                                        id: "menu-2",
+                                        label: "Site management tools",
+                                        props: {},
+                                    },
+                        ],
+                    },
+                ]
+            }
+        />
+`
+
+export const iconOnlyCode = dedent`
+        <Dropdown
+            label="Menu Button"
+            isLabelHidden={true}
+            menu={[
+                {
+                    id: "menu-0",
+                    label: "Uptime Monitoring",
+                      props: {
+                        icon: "CheckAlt",
+                    },
+                },
+                {
+                    id: "menu-1",
+                    label: "Site management tools",
+                    props: {},
+                }
+            ]}
+        />
+`
+
+export const customContentCode = dedent`
+        <Dropdown
+            label="Open"
+        >
+            <div
+                style={{
+                    padding: "8px 24px",
+                }}
+            >
+                <h3>CUSTOM CONTENT</h3>
+                <p>Epsom, a charming town nestled in the picturesque countryside, is renowned for its historic architecture, serene landscapes, and therapeutic mineral springs.</p>
+            </div>
+        </Dropdown>
+`
+
+export const smallCode = dedent`
+        <Dropdown
+            isSmall={true}
+            label="Open"
+        >
+            <div
+                style={{
+                    padding: "8px 24px",
+                }}
+            >
+                <h3>CUSTOM CONTENT</h3>
+                <p>Epsom, a charming town nestled in the picturesque countryside, is renowned for its historic architecture, serene landscapes, and therapeutic mineral springs.</p>
+            </div>
+        </Dropdown>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>A basic example of Dropdown with a menu</p>
+	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<Dropdown
+			label="Menu Button"
+			menu={[
+				{
+					id: "menu-0",
+					label: "Uptime Monitoring",
+      				props: {
+						icon: "CheckAlt",
+					},
+				},
+				{
+					id: "menu-1",
+					label: "Site management tools",
+					props: {},
+				},
+				{
+					id: "menu-3",
+					label: "Notifications",
+					props: {
+						icon: "Bell"
+					},
+				},
+				{
+					id: "menu-2",
+					label: "Website Performance Optimization",
+					props: {},
+				},
+    		]}
+    	/>
+    </div>
+    <Snippet language="js">{sampleCode}</Snippet>
+
+</Section>
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Menu items with plugin variations</p>
+	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<Dropdown
+			label="Menu Button"
+			menu={[
+				{
+					id: "menu-beehive",
+					label: "Beehive",
+					props: {
+						icon: "PluginBeehive",
+						variation: "beehive",
+					},
+				},
+				{
+					id: "menu-branda",
+					label: "Branda",
+					props: {
+						icon: "PluginBranda",
+						variation: "branda",
+					},
+				},
+				{
+					id: "menu-defender",
+					label: "Defender",
+					props: {
+						icon: "PluginDefender",
+						variation: "defender",
+					},
+				},
+				{
+					id: "menu-forminator",
+					label: "Forminator",
+					props: {
+						icon: "PluginForminator",
+						variation: "forminator",
+					},
+				},
+				{
+					id: "menu-hummingbird",
+					label: "Hummingbird",
+					props: {
+						icon: "PluginHummingbird",
+						variation: "hummingbird",
+					},
+				},
+				{
+					id: "menu-hustle",
+					label: "Hustle",
+					props: {
+						icon: "PluginHustle",
+						variation: "hustle",
+					},
+				},
+				{
+					id: "menu-shipper",
+					label: "Shipper",
+					props: {
+						icon: "PluginShipper",
+						variation: "shipper",
+					},
+				},
+				{
+					id: "menu-smush",
+					label: "Smush",
+					props: {
+						icon: "PluginSmush",
+						variation: "smush",
+					},
+				},
+				{
+					id: "menu-smartcrawl",
+					label: "SmartCrawl",
+					props: {
+						icon: "PluginSmartCrawl",
+						variation: "smartcrawl",
+					},
+				},
+				{
+					id: "menu-ivt",
+					label: "IVT",
+					props: {
+						icon: "PluginIVT",
+						variation: "ivt",
+					},
+				},
+			]}
+		/>
+	</div>
+	<Snippet language="js">{pluginVariationsMenuExample}</Snippet>
+
+</Section>
+
+<Section title="Grouped menu items" contained={true} style={{ paddingTop: 30 }}>
+	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<Dropdown
+			label="Menu Button"
+			menu={
+					[
+					{
+						id: "group-1",
+						label: "Extra Optimization",
+						menus: [
+									{
+										id: "menu-2",
+										label: "Uptime Monitoring",
+										props: {
+											icon: "CheckAlt",
+										},
+									},
+									{
+										id: "menu-2",
+										label: "Site management tools",
+										props: {},
+									},
+						],
+					},
+					{
+						id: "group-2",
+						label: "Performance",
+						menus: [
+									{
+										id: "menu-2",
+										label: "Uptime Monitoring",
+										props: {},
+									},
+									{
+										id: "menu-2",
+										label: "Site management tools",
+										props: {},
+									},
+						],
+					},
+				]
+			}
+    	/>
+    </div>
+    <Snippet language="js">{groupedCode}</Snippet>
+
+</Section>
+
+<Section title="Icon Button" contained={true} style={{ paddingTop: 30 }}>
+	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<Dropdown
+			label="Menu Button"
+			isLabelHidden={true}
+			menu={[
+				{
+					id: "menu-0",
+					label: "Uptime Monitoring",
+      				props: {
+						icon: "CheckAlt",
+					},
+				},
+				{
+					id: "menu-1",
+					label: "Site management tools",
+					props: {},
+				}
+    		]}
+    	/>
+    </div>
+    <Snippet language="js">{iconOnlyCode}</Snippet>
+
+</Section>
+
+<Section title="Custom Content" contained={true} style={{ paddingTop: 30 }}>
+	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<Dropdown
+			label="Open"
+    	>
+			<div
+				style={{
+					padding: "8px 24px",
+				}}
+			>
+				<h3>CUSTOM CONTENT</h3>
+				<p>Epsom, a charming town nestled in the picturesque countryside, is renowned for its historic architecture, serene landscapes, and therapeutic mineral springs.</p>
+    		</div>
+    	</Dropdown>
+    </div>
+    <Snippet language="js">{customContentCode}</Snippet>
+
+</Section>
+
+<Section title="Smaller Width" contained={true} style={{ paddingTop: 30 }}>
+	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<Dropdown
+			label="Open"
+			isSmall={true}
+    	>
+			<div
+
+    			style={{
+    				padding: "8px 24px",
+    			}}
+    		>
+    			<h3>CUSTOM CONTENT</h3>
+    			<p>Epsom, a charming town nestled in the picturesque countryside, is renowned for its historic architecture, serene landscapes, and therapeutic mineral springs.</p>
+    		</div>
+    	</Dropdown>
+    </div>
+    <Snippet language="js">{smallCode}</Snippet>
+
+</Section>

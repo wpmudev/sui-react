@@ -1,0 +1,40 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Avatar
+/// This function creates styles for the element
+/// avatar wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-icon($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(icon) {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: $avatar-icon-color;
+				font-size: $avatar-icon-size-md;
+
+				&:before {
+					margin-top: -0.5px;
+				}
+            }
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: 'dark') {
+		@include block($block) {
+			@include element(icon) {
+				color: $color-extended-neutral-0;
+            }
+		}
+	}
+}

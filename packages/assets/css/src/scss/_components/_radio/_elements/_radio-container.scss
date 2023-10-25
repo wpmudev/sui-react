@@ -1,0 +1,46 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Container
+/// This function creates styles for the main container
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-container($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			cursor: pointer;
+			user-select: none;
+			position: relative;
+			display: inline-flex;
+			flex-wrap: wrap;
+			align-items: center;
+			color: $color-extended-neutral-50;
+			font-weight: $radio-font-weight;
+			font-size: $radio-font-size-md;
+			line-height: $radio-font-height-md;
+			letter-spacing: $radio-font-spacing;
+
+			@include modifier(block) {
+				padding: $spacing-lg $spacing-xl;
+				border-radius: $border-radius-md;
+				outline: $border-width-sm solid $color-extended-neutral-80;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			color: $color-extended-neutral-0;
+
+			@include modifier(block) {
+				outline-color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

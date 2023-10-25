@@ -1,0 +1,105 @@
+import { Section, Code, Snippet } from '@wpmudev/sui-docs';
+
+import BrowserChrome from '../../images/browser-chrome.png';
+import BrowserSafari from '../../images/browser-safari.png';
+import BrowserEdge from '../../images/browser-edge.png';
+import BrowserFirefox from '../../images/browser-firefox.png';
+
+<style>{`
+.csb-browsers-list {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+.csb-browsers-list img {
+	margin: 0;
+	margin-right: 20px;
+}
+.csb-browsers-list img:last-child {
+	margin-right: 0;
+}
+`}</style>
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>
+		This framework's primary purpose is to provide a method of styling
+		elements with as little conflict as possible. Our framework allows us to
+		use our Design Tokens through memorable CSS-based utility classes. You
+		can use this framework alone or with another CSS framework, as our CSS
+		selectors are prefixed with <Code> .sui- </Code> to prevent collisions.
+	</p>
+	<p>
+		Before moving further, please ensure you have{' '}
+		<a href="https://nodejs.org/" target="_blank">
+			Node.js
+		</a>
+		{' '}installed on your device. You can get the latest version via their
+		website.
+	</p>
+	<p>
+		If you're planning on using Shared UI CSS Framework in a project that
+		doesn't yet use{' '}
+		<a href="https://www.npmjs.com" target="_blank">
+			Node Package Manager
+		</a>
+		, you'll have to create a
+		<a href="https://docs.npmjs.com/files/package.json" target="_blank">
+			package.json
+		</a>
+		file first. To accomplish this, run <Code> npm init </Code> and follow
+		the steps provided. Once completed, you can install the CSS Framework by
+		following the instructions beneath.
+	</p>
+</Section>
+<Section
+	title={{
+		content: 'Install using NPM',
+		small: true,
+	}}
+	contained={true}
+	style={{ paddingTop: 0 }}
+>
+	<p>
+		In your project root directory (where the <Code> package.json </Code> file
+		lives), run the following command:
+	</p>
+	<Snippet>npm install @wpmudev/css</Snippet>
+</Section>
+<Section
+	title={{
+		content: 'Install using Yarn',
+		small: true,
+	}}
+	contained={true}
+	style={{ paddingTop: 0 }}
+>
+	<p>
+		In your project root directory (where the <Code> package.json </Code> file
+		lives), run the following command:
+	</p>
+	<Snippet>yarn add @wpmudev/css</Snippet>
+</Section>
+<Section
+	title={{
+		content: 'Install using Yarn',
+		small: true,
+	}}
+	contained={true}
+	style={{ paddingTop: 0 }}
+>
+	<p>
+		We tested the Shared UI's CSS Framework in the latest two versions of
+		the following browsers. Our team addresses critical{' '}
+		<a href="https://incsub.atlassian.net/browse/SUI" target="_blank">
+			bug fixes
+		</a>
+		{' '}in earlier versions based on their severity and impact. If you need to
+		support IE or pre-Chromium Edge, this library isn't for you.
+	</p>
+	<div className="csb-browsers-list">
+		<img src={BrowserChrome} width="64" height="64" alt="Chrome" />
+		<img src={BrowserSafari} width="64" height="64" alt="Safari" />
+		<img src={BrowserEdge} width="64" height="64" alt="Edge" />
+		<img src={BrowserFirefox} width="64" height="64" alt="Firefox" />
+	</div>
+</Section>

@@ -1,0 +1,43 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Checked
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-checked($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include modifier(checked) {
+                @include modifies-element(option) {
+                    position: relative;
+                    outline: $border-width-md solid $color-primary-50;
+                }
+
+                @include modifies-element(header-icon, header-title) {
+                    color: $color-primary-50;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            @include modifier(checked) {
+                @include modifies-element(option) {
+                    outline-color: $color-extended-neutral-0;
+                }
+
+                @include modifies-element(header-icon, header-title) {
+                    color: $color-extended-neutral-0;
+                }
+            }
+        }
+    }
+}

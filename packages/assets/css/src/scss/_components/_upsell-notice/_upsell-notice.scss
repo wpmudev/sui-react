@@ -1,0 +1,10 @@
+@use "./_elements/elements" as sui-upsell-notice--element;
+@use "./_modifiers/modifiers" as sui-upsell-notice--modifier;
+
+@include sui-upsell-notice--element.build-container(upsell-notice);
+@include sui-upsell-notice--element.build-header(upsell-notice);
+@include sui-upsell-notice--element.build-body(upsell-notice);
+@include sui-upsell-notice--element.build-footer(upsell-notice);
+@include sui-upsell-notice--element.build-features(upsell-notice);
+
+@include sui-upsell-notice--modifier.edit-variation(upsell-notice);

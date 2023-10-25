@@ -23,7 +23,7 @@
   "scripts": {
     "clean": "rm -rf dist && rm -rf lib",
     "build": "npx tsup",
-    "build:fast": "npx tsup src",
+    "build:fast": "tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
     "postpack": "clean-package restore"
@@ -35,8 +35,5 @@
   "clean-package": "../../postpack.config.json",
   "dependencies": {
     "@wpmudev/sui-utils": "^0.0.1"
-  },
-  "peerDependencies": {
-    "react": ">=18"
   }
 }

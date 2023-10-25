@@ -1,0 +1,46 @@
+@use "sass:map";
+
+$palettes: (
+        blue: #286EF1,
+        green: #18BB4B,
+        yellow: #FFCC20,
+        red: #F45C59,
+);
+
+.csb-message {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 10px;
+  background: #F2F2F2;
+
+  &__content {
+    min-width: 1px;
+    flex: 1;
+    padding: 10px;
+  }
+
+  &__action {
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: row nowrap;
+    align-content: center;
+    padding: 0 10px;
+
+    .csb-button {
+      display: block;
+      flex: 0 0 auto;
+    }
+  }
+
+  &--dark {
+    background: #141934;
+    color: #E9EAEE;
+  }
+
+  @each $name, $color in $palettes {
+    &--#{"" + $name} {
+      box-shadow: inset 3px 0 0 0 $color;
+    }
+  }
+}

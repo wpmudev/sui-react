@@ -5,6 +5,7 @@ node_modules
 .dccache
 dist
 lib
+.idea
 
 # Ignore all error logs.
 *.log

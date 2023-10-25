@@ -1,0 +1,131 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Modal</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+
+    	<Section
+    		title={{ content: "id*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Unique id for the modal</p>
+
+    	</Section>
+
+    	<Section
+    		title={{ content: "variant*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Variant type of the modal </p>
+
+    		<p>
+    		Allowed options:
+    			<List>
+    				<span label={<Code small={true}>simple</Code>} />
+    				<span label={<Code small={true}>advanced</Code>} />
+    				<span label={<Code small={true}>app-connect</Code>} />
+
+    			</List>
+    		</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "size*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Indicates the size of the modal </p>
+
+    		<p>
+    		Allowed options:
+    			<List>
+    				<span label={<Code small={true}>sm</Code>} />
+    				<span label={<Code small={true}>md</Code>} />
+    				<span label={<Code small={true}>lg</Code>} />
+    				<span label={<Code small={true}>xl</Code>} />
+    			</List>
+    		</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "ref*", tag: 'object', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The React ref object is utilized to access the methods responsible for opening and closing the modal. these functions are available in the <Code small={true}>current</Code> object property of the ref</p>
+    			<List>
+    				<span label={<><Code small={true}>ref.current.openModal</Code> Opens the modal</>} />
+    				<span label={<><Code small={true}>ref.current.closeModal</Code> Closes the modal</>} />
+    			</List>
+    	</Section>
+
+    	<Section
+    		title={{ content: "children*", tag: 'React Node', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Content of the modal</p>
+    	</Section>
+
+</Section>
+
+<Section
+	title="Sub Components"
+	contained={true}
+	style={{ paddingTop: 30, paddingBottom: 0 }}
+>
+		<p>The Modal component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+
+    <Section title="ModalHeader" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the modal header
+    	</p>
+
+    	<Section title={{ content: "title*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Title for the modal header
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The content of the component
+    		</p>
+    	</Section>
+
+    </Section>
+
+    <Section title="ModalBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the modal body
+    	</p>
+
+    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The content of the component
+    		</p>
+    	</Section>
+
+    </Section>
+
+    <Section title="ModalFooter" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the modal footer
+    	</p>
+
+    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The content of the component
+    		</p>
+    	</Section>
+
+    </Section>
+
+</Section>

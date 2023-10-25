@@ -1,0 +1,26 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Summary box footer
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-footer($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(footer) {
+				padding: 0 $spacing-xxl;
+				margin-bottom: $spacing-xxl;
+
+				@include media(max-width, sm) {
+					padding: 0 $spacing-lg;
+					margin-bottom: $spacing-lg;
+				}
+			}
+		}
+	}
+}

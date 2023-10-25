@@ -1,0 +1,50 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Nav item
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-nav-item($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(nav-item) {
+                display: flex;
+                align-items: center;
+                background-color: $color-extended-neutral-100;
+                border: none;
+                border-bottom: $tabs-navitem-border-width solid transparent;
+                color: $tabs-navitem-font-color;
+                font-weight: $tabs-navitem-font-weight;
+                font-size: $tabs-navitem-font-size;
+                line-height: $tabs-navitem-font-height;
+                gap: $tabs-navitem-gap;
+                padding: $tabs-navitem-spacing-vertical $tabs-navitem-spacing-horizontal;
+                white-space: nowrap;
+                cursor: pointer;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(nav-item) {
+                color: $color-extended-neutral-0;
+
+                svg {
+                    color: $color-extended-neutral-0;
+                }
+            }
+        }
+    }
+}

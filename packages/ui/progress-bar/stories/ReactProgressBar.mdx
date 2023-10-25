@@ -1,0 +1,25 @@
+import { Page } from "@wpmudev/sui-docs"
+import { Unstyled } from "@storybook/blocks"
+
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+import TabUsage from "./tabs/TabUsage.mdx"
+
+<Unstyled>
+	<Page.Tabs
+		title="Progress Bar"
+		subtitle="A progress bar is displayed to show how the operation is going."
+    	status="draft"
+    >
+    		<div id="usage" label="Usage">
+    			<TabUsage />
+    		</div>
+    		<div id="code" label="Code">
+    			<TabCode />
+    		</div>
+    		<div id="examples" label="Examples">
+    			<TabExamples />
+    		</div>
+    </Page.Tabs>
+
+</Unstyled>

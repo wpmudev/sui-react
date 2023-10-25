@@ -1,0 +1,50 @@
+import { Section, Snippet, Preview, Code } from '@wpmudev/sui-docs';
+import dedent from 'dedent';
+import { LoadingButton, ToggleButton } from "../../../src"
+
+export const LoadingButtonCode = dedent`
+import { LoadingButton } from '@wpmudev/sui-button';\n
+
+    const App = () => {
+         return <LoadingButton isLoading={true} />
+    }
+`;
+
+export const ToggleButtonCode = dedent`
+import { ToggleButton } from '@wpmudev/sui-button';\n
+    const App = () => {
+        return <ToggleButton isSelected={true} />
+    }
+`;
+
+<Section
+	title="Loading button"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		<Code small={true}>LoadingButton</Code> applies a spinner based on the
+		<Code small={true}> isLoading </Code> prop.
+	</p>
+	<Preview>
+		<LoadingButton isLoading={true} />
+	</Preview>
+	<Snippet language="js">{LoadingButtonCode}</Snippet>
+</Section>
+
+<Section
+	title="Toggle button"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		This variation unlocks the active state and allows new props to enable
+		or disable the new button state and other ARIA attributes required for
+		its proper functionality.
+	</p>
+	<Preview>
+		<ToggleButton isSelected={true}>Toggle Button</ToggleButton>
+	</Preview>
+	<Snippet language="js">{ToggleButtonCode}</Snippet>
+</Section>

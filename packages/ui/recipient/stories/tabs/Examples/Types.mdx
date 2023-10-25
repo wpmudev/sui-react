@@ -1,0 +1,45 @@
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { Recipient } from "../../../src"
+import image from "../../images/person.png"
+import dedent from "dedent"
+
+export const IconRecipientCode = dedent`
+<Recipient userName="Recipient name" userEmail="email@example.com" />;
+`
+
+export const ImageRecipientCode = dedent`
+<Recipient image={{ src: "{IMAGE LINK GOES HERE}", alt: '{IMAGE ALT TEXT}' }} />;
+`
+
+<Section
+	title="Icon"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>This is the default state of the avatar</p>
+	<Preview wrapper={true}>
+		<Recipient userName="Recipient name" userEmail="email@example.com" />
+	</Preview>
+	<Snippet language="js">{IconRecipientCode}</Snippet>
+</Section>
+
+<Section
+	title="Image"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		Use the <Code small={true}>userImage</Code> prop to show an image instead.
+	</p>
+	<Preview wrapper={true}>
+		<Recipient
+			userName="Recipient name"
+			userEmail="email@example.com"
+			userImage={{
+				src: image,
+				alt: "image-alt",
+			}}
+		/>
+	</Preview>
+	<Snippet language="js">{ImageRecipientCode}</Snippet>
+</Section>

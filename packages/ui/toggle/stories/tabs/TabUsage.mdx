@@ -1,0 +1,88 @@
+import { Section, Row, Col, List } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import States from "../images/states.svg"
+import LabelOnly from "../images/label-only.svg"
+import Description from "../images/description.svg"
+import NoLabel from "../images/no-label.svg"
+
+<Section title="Anatomy" style={{ paddingTop: 20 }}>
+	<Row>
+		<Col>
+    		<img src={Anatomy} alt="Toggle Anatomy" />
+    	</Col>
+
+		<Col style={{display: "flex", justifyContent: "center", flexDirection: "column"}}>
+    		<h3 style={{marginTop: 0}}>1. Toggle</h3>
+    		<p>User intreact Toggle button</p>
+
+    		<h3>2. Label</h3>
+    		<p>Label of Toggle</p>
+    	</Col>
+    </Row>
+</Section>
+
+<Section title="States" style={{ paddingTop: 20 }}>
+	<img src={States} alt="Toggle States" />
+	<p style={{marginTop: -25}}>The Toggle button Can either be On or Off. It has 4 States for User interaction.</p>
+
+	<h3 style={{marginTop: 0}}>1. Default</h3>
+    <p>Default state where the user can Toggle the Switch.</p>
+
+	<h3 style={{marginTop: 0}}>2. Disabled</h3>
+    <p>When users are not allowed to On/Off(Toggle in-between), the Toggle will be disabled.</p>
+
+	<h3 style={{marginTop: 0}}>3. Hover</h3>
+    <p>when User hover with the Toggle button, it switches to this state, and give user a Visual Feedback.</p>
+
+	<h3 style={{marginTop: 0}}>4. Focus</h3>
+    <p>there will be focus state for Toggle after user change the Toggle state.</p>
+</Section>
+
+<Section title="Variations" style={{ paddingTop: 20 }}>
+	<p> Toggles can be used with and without description, or there might be cases when you just need the toggle without the label. </p>
+
+	<Row style={ {marginTop: 50 } }>
+		<Col>
+			<img src={LabelOnly} alt="Toggle Label Only" />
+		</Col>
+
+		<Col>
+			<h3 style={{marginTop: 0}}>1. Label Only</h3>
+			<p>By default the toggle has a label.</p>
+		</Col>
+	</Row>
+
+	<Row>
+		<Col>
+			<img src={Description} alt="Toggle Description" />
+		</Col>
+
+		<Col>
+			<h3 style={{marginTop: 0}}>2. Description</h3>
+			<p>The toggle with label and description.</p>
+		</Col>
+	</Row>
+
+	<Row>
+		<Col>
+			<img src={NoLabel} alt="Toggle Without a Label" />
+		</Col>
+
+		<Col>
+			<h3 style={{marginTop: 0}}>3. No Label</h3>
+			<p>Toggle button without a label.</p>
+		</Col>
+	</Row>
+
+</Section>
+
+<Section title="Usecase" style={{ paddingTop: 20 }}>
+	<List>
+		<span label="The toggle Label must have a concise Heading." />
+		<span label="The description is required to make it easier for users to understand when Using the toggle inside the Plugin's settings." />
+		<span label="The toggle should be set into the correct state for the default Action." />
+		<span label="Toggle can only have 2 States." />
+		<span label="Toggle Button can’t be replaces by Radio button, Toggle best use case is to Switch between two different State More like switch, Radio button pupose is Pick Options." />
+	</List>
+</Section>

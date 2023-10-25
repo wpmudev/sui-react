@@ -1,0 +1,48 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Footer</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+
+    	<Section
+    		title={{ content: "links*", tag: 'array', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Links to be displayed in the footer, each item in the array is an object with the following keys</p>
+    		<List>
+    			<span label={<><Code small={true}>url</Code> The url of of the link</>} />
+    			<span label={<><Code small={true}>title</Code> The link text</>} />
+    		</List>
+
+    	</Section>
+
+    	<Section
+    		title={{ content: "socialLinks*", tag: 'array', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The social links to be displayed in the footer, each item in the array is an object with the following keys:</p>
+    		<List>
+    			<span label={<><Code small={true}>url</Code> The url to the social account or page</>} />
+    			<span label={<><Code small={true}>type</Code> could be one of three values: facebook, twitter, instagram</>} />
+    		</List>
+
+    	</Section>
+
+    	<Section
+    		title={{ content: "renderBlocks*", tag: 'function', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>A function to render additional content for the footer</p>
+    	</Section>
+
+</Section>

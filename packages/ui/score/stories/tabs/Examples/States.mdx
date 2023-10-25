@@ -1,0 +1,48 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/sui-docs';
+import { Score } from '../../../src';
+import dedent from 'dedent';
+
+export const SuccessScoreCode = dedent`
+<Score state="success" bar={95} value={95} />
+`;
+
+export const WarningScoreCode = dedent`
+<Score state="warning" bar={55} value={55} />
+`;
+
+export const ErrorScoreCode = dedent`
+<Score state="error" bar={15} value={15} />
+`;
+
+<Section
+	title="Success"
+	contained={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Score state="success" value="95" bar={95} />
+	</Preview>
+	<Snippet language="js">{SuccessScoreCode}</Snippet>
+</Section>
+
+<Section
+	title="Warning"
+	contained={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Score state="warning" bar={55} value={55} />
+	</Preview>
+	<Snippet language="js">{WarningScoreCode}</Snippet>
+</Section>
+
+<Section
+	title="Error"
+	contained={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Score state="error" bar={15} value={15} />
+	</Preview>
+	<Snippet language="js">{ErrorScoreCode}</Snippet>
+</Section>

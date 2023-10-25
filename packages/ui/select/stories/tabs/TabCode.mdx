@@ -1,0 +1,107 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Select</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+	<Section
+		title={{ content: "id", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>A unique identifier for the select</p>
+	</Section>
+
+    <Section
+    	title={{ content: "options", tag: "Array", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>An array of options to be included in the select, each element is an object with a key as a string and value of any type </p>
+    </Section>
+
+     <Section
+    	title={{ content: "selected*", tag: "Array | string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Currently selected option</p>
+    </Section>
+
+    <Section
+    	title={{ content: "className*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Additional css className(s) for further customization</p>
+    </Section>
+
+    <Section
+    	title={{ content: "label*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The label represents the placeholder for the select element</p>
+    </Section>
+
+    <Section
+    	title={{ content: "isDisabled*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}>true</Code> the select will be non-interactive</p>
+    </Section>
+
+    <Section
+    	title={{ content: "isSmall*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}>true</Code> the select will have a smaller size</p>
+    </Section>
+
+    <Section
+    	title={{ content: "isError*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Whether the select is an error state or not, when the select is in an error state it will have a red border</p>
+    </Section>
+
+    <Section
+    	title={{ content: "isMultiselect*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Set this to <Code small={true}>true</Code> if you want to use the multiselect variation</p>
+    </Section>
+
+    <Section
+    	title={{ content: "isSearchable*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Set this to <Code small={true}>true</Code> if you want to use the smart search variation variation</p>
+    </Section>
+
+    <Section
+    	title={{ content: "onChange", tag: "function", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A callback function to be invoked upon the change of the option, the first parameter would be the new selected item(s)</p>
+    </Section>
+
+    <Section
+    	title={{ content: "onMouseEnter", tag: "function", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A callback function to be invoked when the the mouse enters the select element</p>
+    </Section>
+
+    <Section
+    	title={{ content: "onMouseLeave", tag: "function", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A callback function to be invoked when the the mouse leaves the select element</p>
+    </Section>
+
+</Section>

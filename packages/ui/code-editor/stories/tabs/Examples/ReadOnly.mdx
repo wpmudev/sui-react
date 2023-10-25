@@ -1,0 +1,30 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { CodeEditor } from "../../../src"
+import { sampleCode, reactSampleCode } from "../TabExamples.mdx"
+import dedent from "dedent"
+
+export const readOnlyCode = dedent`
+    <CodeEditor readyOnly={true} language="javascript">
+        import React from 'react';
+
+        const MyComponent = ({ name }) => {
+            return (
+                <div>
+                    <h1>Hello, {name}!</h1>
+                    <p>This is a basic React functional component.</p>
+                </div>
+            );
+        };
+
+        export default MyComponent;
+    </CodeEditor>
+`;
+
+<Section title="Read Only" contained={true} style={{ paddingTop: 30, paddingLeft: 0 }} border={true}>
+	<Preview wrapper={true}>
+		<CodeEditor readOnly={true} language="javascript" >
+            {reactSampleCode}
+		</CodeEditor>
+	</Preview>
+	<Snippet language="js">{readOnlyCode}</Snippet>
+</Section>

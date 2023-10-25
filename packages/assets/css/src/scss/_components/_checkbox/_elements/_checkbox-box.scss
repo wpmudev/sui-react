@@ -1,0 +1,55 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Checkbox Box
+/// This function creates styles for the box element
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-box($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(box) {
+				width: $checkbox-input-size-md;
+				height: $checkbox-input-size-md;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: $checkbox-input-margin-vertical-md 0;
+				margin-right: $checkbox-input-margin-horizontal-md;
+				border:
+					$checkbox-input-border-width
+					$checkbox-input-border-style
+					$checkbox-input-border-color-default;
+				border-radius: $checkbox-input-border-radius;
+				background: $checkbox-input-background-default;
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(box) {
+				margin-right: 0;
+				margin-left: $checkbox-input-margin-horizontal-md;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(box) {
+				background: $color-extended-neutral-0;
+				border-color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

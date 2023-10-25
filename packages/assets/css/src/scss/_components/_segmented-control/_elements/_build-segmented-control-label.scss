@@ -1,0 +1,52 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Segmented control label
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-segmented-control-label($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        @include block($block) {
+            @include element(label) {
+                align-items: center;
+                border: $segmented-border-width solid $segmented-border-color;
+                border-right-width: 0;
+                cursor: pointer;
+                display: flex;
+                font-size: $segmented-font-size;
+                font-weight: $segmented-font-weight;
+                gap: $segmented-spacing-vertical;
+                min-height: $segmented-size-height;
+                padding: $segmented-spacing-vertical $segmented-spacing-horizontal;
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        @include block($block) {
+            @include element(label) {
+                border-color: $color-extended-neutral-0;
+                color: $color-extended-neutral-0;
+            }
+        }
+    }
+
+    // DIR: Right to left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: null) {
+        @include block($block) {
+            @include element(label) {
+                border-right-width: 0;
+            }
+        }
+    }
+}

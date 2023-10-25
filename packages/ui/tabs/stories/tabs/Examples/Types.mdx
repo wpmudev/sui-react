@@ -1,0 +1,49 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/sui-docs';
+import { Tab } from '../../../src';
+import dedent from 'dedent';
+
+export const NumberScoreCode = dedent`
+import React from 'react';\n
+import { Score } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Score bar={95} isPercentage={false} />;
+}\n
+export default Example;
+`;
+
+export const PercentageScoreCode = dedent`
+import React from 'react';\n
+import { Score } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Score bar={95} />;
+}\n
+export default Example;
+`;
+
+<Section
+	title="Tab (number)"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>Number type is used to show the value of the task.</p>
+	<Preview wrapper={true}>
+		<Tab bar={50} value="295" isPercentage={false} />
+	</Preview>
+	<Snippet language="js">{NumberScoreCode}</Snippet>
+</Section>
+
+<Section
+	title="Tab (percentage)"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Percentage score is used to measure the progress of the particular task.
+	</p>
+	<Preview wrapper={true}>
+		<Tab bar={95} />
+	</Preview>
+	<Snippet language="js">{PercentageScoreCode}</Snippet>
+</Section>

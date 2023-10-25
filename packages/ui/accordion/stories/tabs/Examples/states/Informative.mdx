@@ -1,0 +1,55 @@
+import { Section, Preview, Snippet } from "@wpmudev/sui-docs"
+
+import { Accordion, AccordionItem, AccordionItemBody } from "../../../../src"
+
+import dedent from "dedent"
+
+export const InformativeCode = dedent`
+<Accordion state="informative">
+  <AccordionItem title="Accordion title">
+    <AccordionItemBody>
+       <p>
+        Hi, I am accordion content body. you can swap me with your local
+        component.
+       </p>
+    </AccordionItemBody>
+  </AccordionItem>
+  <AccordionItem title="Accordion title">
+    <AccordionItemBody>
+      <p>
+      Hi, I am accordion content body. you can swap me with your local
+      component.
+      </p>
+    </AccordionItemBody>
+  </AccordionItem>
+</Accordion>
+`
+
+<Section
+    contained={true}
+    border={true}
+    style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+    <Preview wrapper={true}>
+    	<Accordion state="informative">
+    		<AccordionItem title="Accordion title">
+    			<AccordionItemBody>
+    				<p>
+    					Hi, I am accordion content body. you can swap me with your local
+    					component.
+    				</p>
+    			</AccordionItemBody>
+    		</AccordionItem>
+    		<AccordionItem title="Accordion title">
+    			<AccordionItemBody>
+    				<p>
+    					Hi, I am accordion content body. you can swap me with your local
+    					component.
+    				</p>
+    			</AccordionItemBody>
+    		</AccordionItem>
+    	</Accordion>
+    </Preview>
+    <Snippet language="js">{InformativeCode}</Snippet>
+
+</Section>

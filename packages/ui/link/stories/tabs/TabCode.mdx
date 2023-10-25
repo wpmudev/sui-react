@@ -1,0 +1,87 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Link</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+
+    	<Section
+    		title={{ content: "theme*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Theme of the link</p>
+    		<p>
+    		Allowed options:
+    			<List>
+    				<span label={<Code small={true}>primary</Code>} />
+    				<span label={<Code small={true}>secondary</Code>} />
+    			</List>
+    		</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "as*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The html tag for the link, default is <Code small={true}> a </Code> tag </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "href", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The link to navigate to</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "isInline", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>If set to true, the link will be displayed inline with surrounding text.</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "isDisabled", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>If true, the link won't be interactive and it will have a different visual style.</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "isExternal", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>If set to <Code small={true}> true</Code> the link will be opened in a new tab </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "hasExternalIcon*", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>If set to <Code small={true}> true </Code> an external link icon will be displayed at the end of the link text, note that <Code small={true}> isExternal </Code> should also be set to <Code small={true}> true </Code> for this to take effect</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "className*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>A custom css className(s) for the link</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "children", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The link text</p>
+    	</Section>
+
+</Section>

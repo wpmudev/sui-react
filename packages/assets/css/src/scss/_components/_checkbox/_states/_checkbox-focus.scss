@@ -1,0 +1,36 @@
+@use "../../../_utils/utils" as *;
+
+/// Edit Focus State
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-focus($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(focus) {
+				@include modifies-element(box) {
+					outline: 2px solid $checkbox-input-border-color-active;
+					outline-offset: 2px;
+					border-color: $checkbox-input-border-color-active;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(focus) {
+				@include modifies-element(box) {
+					outline: 2px solid $color-extended-neutral-0;
+					border-color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+}

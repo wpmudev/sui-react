@@ -1,0 +1,39 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Actions
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-actions($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(info-actions) {
+				display: flex;
+				gap: $spacing-md;
+				margin-top: $spacing-md;
+
+				.sui-button {
+					margin: 0;
+				}
+
+				.sui-input {
+					min-width: $advanced-banner-size-width;
+				}
+
+				@include media(max-width, sm) {
+					flex-direction: column;
+					gap: $spacing-lg;
+				}
+			}
+
+			@include element(actions) {
+				margin-top: $spacing-md;
+			}
+		}
+	}
+}

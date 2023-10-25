@@ -1,0 +1,42 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>ConfigTable</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+
+    <Section
+    	title={{ content: "configs*", tag: 'Array', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The list of configs, each item is an object with custom information, check the examples tab for details </p>
+    </Section>
+
+    <Section
+    	title={{ content: "onActionClick*", tag: 'function', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A callback function to be invoked upon clicking an action, the parameters of this function are: </p>
+    	<List>
+    		<span label={<><Code small={true}>id</Code> The config record id </>} />
+    		<span label={<><Code small={true}>type</Code> The type of the config record, it could be one of two values <Code small={true}>apply</Code> & <Code small={true}>configure</Code> </>} />
+    	</List>
+    </Section>
+
+    <Section
+    	title={{ content: "className*", tag: 'string', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Custom CSS className(s) for further customization</p>
+    </Section>
+
+</Section>

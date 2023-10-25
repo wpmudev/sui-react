@@ -1,0 +1,45 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import IconType from "../images/icon-type.svg"
+import ImageType from "../images/image-type.svg"
+import Sizes from "../images/sizes.svg"
+import Status from "../images/status.svg"
+import OtherUsage from "../images/other-usage.svg"
+
+<Section title="Types">
+	<Row>
+		<img src={IconType} alt="Avatar Icon Type" />
+    	<Col style={ { display: "flex", justifyContent: "center", flexDirection: "column", padding: 20 } }>
+    		<h3 style={{marginTop: 0}}>Icon Avatar</h3>
+    		<p>By default, the avatar for the user will be a user icon.</p>
+    	</Col>
+    </Row>
+	<Row>
+		<img src={ImageType} alt="Avatar Image Type" />
+    	<Col size="3" style={ { display: "flex", justifyContent: "center", flexDirection: "column", paddingLeft: 20 } }>
+    		<h3 style={{marginTop: 0}}>Image Avatar</h3>
+    		<p>The user can choose their own avatar. Gravatar is also supported for avatar images.</p>
+    	</Col>
+    </Row>
+</Section>
+
+<Section title="Size">
+	<img src={Sizes} alt="Avatar Sizes" />
+</Section>
+
+<Section title="Status">
+
+	<p>In the navigation bar we will show the profile status (connected (with or without avatar), not connected)</p>
+	<img src={Status} alt="Avatar Status" />
+	<p>Other avatar usage examples. These avatar states will be used in notifications/reports to indicate if Recipient accepted the invitation or not.</p>
+
+	<Row>
+		<img src={OtherUsage} alt="Avatar Other Usage" />
+    	<Col style={ { display: "flex", justifyContent: "center", flexDirection: "column", padding: 20 } }>
+    		1. Recipient confirmed
+			2. Awaiting for confirmation
+			3. Not accepted
+    	</Col>
+    </Row>
+
+</Section>

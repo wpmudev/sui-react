@@ -1,0 +1,88 @@
+@use "sass:map";
+@use "sass:math";
+
+// Set the base spacing.
+$base-gutter: 40px;
+
+// Predefined spacing list.
+$gutter: (
+	sm: math.div($base-gutter, 2),
+	md: 40px,
+	lg: $base-gutter * 2,
+	xl: $base-gutter * 3,
+);
+
+// Predefined screen sizes.
+$breakpoints: (
+	sm: 601px,
+	md: 893px,
+	lg: 1081px,
+);
+
+// Create breakpoints mixin.
+@mixin media($type, $size) {
+	@if $type == min-width {
+		$width: #{map.get($breakpoints, $size)};
+
+		@media (min-width: $width) {
+			@content;
+		}
+	} @else if $type == max-width {
+		$width: #{map.get($breakpoints, $size) - 1};
+
+		@media (max-width: $width) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+.csb-tabs {
+
+	&__menu {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: flex-end;
+	}
+
+	&__button {
+		cursor: pointer;
+		display: block;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		background-image: none;
+		background-color: transparent;
+		font-size: 12px;
+		font-weight: 700;
+		line-height: 30px;
+		text-transform: uppercase;
+
+		&:hover,
+		&:active {
+			color: #286EF1;
+		}
+
+		&[aria-selected="true"] {
+
+			.csb-tabs__button-text {
+				color: #286EF1;
+				box-shadow: inset 0 -2px 0 0 #286EF1;
+			}
+		}
+
+		span {
+			display: block;
+		}
+	}
+
+	&__button-label {
+		padding: 0 10px;
+	}
+
+	&__button-text {
+		padding: 10px 0;
+	}
+}

@@ -1,0 +1,161 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Color picker
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-color-picker($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+
+			@include element(saturation, hue, alpha) {
+				border-radius: $colorpicker-border-radius-sm;
+				background: $colorpicker-color-shadow-dark;
+				overflow: hidden;
+			}
+
+			@include element(saturation) {
+				position: relative;
+				height: $colorpicker-saturation-height;
+				margin: 0 0 $colorpicker-spacing-sm;
+			}
+
+			@include element(hue, alpha) {
+				position: relative;
+				height: $colorpicker-size-height;
+				margin: $colorpicker-spacing-sm 0;
+			}
+
+			@include element(pointer) {
+				border: $colorpicker-border-width-sm solid $color-extended-neutral-100;
+				cursor: pointer;
+				width: $colorpicker-pointer-size;
+				height: $colorpicker-pointer-size;
+				border-radius: 100%;
+				margin-top: $colorpicker-pointer-spacing-vertical;
+				filter: drop-shadow(0px 0px $colorpicker-pointer-filter-width $colorpicker-pointer-filter-color);
+			}
+
+			@include element(fields) {
+				display: flex;
+				gap: $colorpicker-fields-gap-sm;
+				margin: $colorpicker-fields-spacing-vertical 0;
+
+				@include modifier(select) {
+					padding: $colorpicker-fields-select-spacing-vertical $colorpicker-fields-select-spacing-horizontal;
+					border: none;
+					cursor: pointer;
+					font-size: $colorpicker-fields-font-size;
+					line-height: $colorpicker-fields-font-height;
+				}
+
+				@include modifier(hex) {
+					flex: 0 0 $colorpicker-fields-hex-width;
+				}
+
+				@include modifier(input) {
+					display: flex;
+
+					&:focus-within {
+						box-shadow: 0px 0px 0px $colorpicker-fields-input-focus-width $colorpicker-fields-input-focus-color;
+						border-radius: $colorpicker-border-radius-sm;
+					}
+
+					input {
+						font-size: $colorpicker-fields-font-size;
+						line-height: $colorpicker-fields-font-height;
+						color: $colorpicker-fields-font-color;
+						padding: $colorpicker-fields-input-spacing-vertical $colorpicker-fields-input-spacing-horizontal;
+						border: $colorpicker-border-width-xs solid $colorpicker-fields-input-border-color;
+						width: 100%;
+						outline: none;
+
+						&:first-child {
+							border-top-left-radius: $colorpicker-border-radius-sm;
+							border-bottom-left-radius: $colorpicker-border-radius-sm;
+						}
+
+						&:last-child {
+							border-top-right-radius: $colorpicker-border-radius-sm;
+							border-bottom-right-radius: $colorpicker-border-radius-sm;
+						}
+
+						/* Chrome, Safari, Edge, Opera */
+						&::-webkit-outer-spin-button,
+						&::-webkit-inner-spin-button {
+							-webkit-appearance: none;
+							margin: 0;
+						}
+
+						/* Firefox */
+						&[type=number] {
+							-moz-appearance: textfield;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+
+			@include element(fields) {
+
+				@include modifier(input) {
+
+					&:focus-within {
+						box-shadow: 0px 0px 0px $colorpicker-fields-input-focus-width $color-extended-neutral-0;
+					}
+
+					input {
+						color: $color-extended-neutral-0;
+						border-color:$color-extended-neutral-0;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+
+			@include element(fields) {
+
+				@include modifier(input) {
+
+					input {
+
+						&:first-child {
+							border-top-right-radius:  $colorpicker-border-radius-sm;
+							border-bottom-right-radius:  $colorpicker-border-radius-sm;
+							border-top-left-radius: 0;
+							border-bottom-left-radius: 0;
+						}
+
+						&:last-child {
+							border-top-left-radius:  $colorpicker-border-radius-sm;
+							border-bottom-left-radius:  $colorpicker-border-radius-sm;
+							border-top-right-radius: 0;
+							border-bottom-right-radius: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

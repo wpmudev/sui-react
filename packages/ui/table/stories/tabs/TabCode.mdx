@@ -1,0 +1,290 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Table</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+	<Section
+		title={{ content: "children*", tag: "React Node", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>The content of the table</p>
+	</Section>
+
+    <Section
+    	title={{ content: "ariaLabel*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Aria label text for the table to improve accessibility </p>
+    </Section>
+
+    <Section
+    	title={{ content: "allowCheck*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Determines if the table allows checkable rows with checkboxes.</p>
+    </Section>
+
+    <Section
+    	title={{ content: "isDraggable*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Determines if the table supports drag-and-drop reordering of rows.</p>
+    </Section>
+
+    <Section
+    	title={{ content: "hasToolbar*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Determines if the table has a toolbar.</p>
+    </Section>
+
+    <Section
+    	title={{ content: "noBorderRadius*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}>true</Code>, the table will have no border radius</p>
+    </Section>
+
+    <Section
+    	title={{ content: "noSideBorder*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}>true</Code>, the border from the sides will be removed</p>
+    </Section>
+
+    <Section
+    	title={{ content: "filtersPopover*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}>true</Code>, the border from the sides will be removed</p>
+    </Section>
+
+    <Section
+    	title={{ content: "filters*", tag: "array", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>An array of filters that can be used in the table toolbar.</p>
+    </Section>
+
+    <Section
+    	title={{ content: "bulkActions*", tag: "array", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>An array of bulk actions to be displayed in the select element in the toolbar, each item of the array is an object which has the following keys:</p>
+    	<List>
+    		<span label="id"/>
+    		<span label="label"/>
+    	</List>
+    </Section>
+
+    <Section
+    	title={{ content: "isStripped*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}>true</Code> The table will have a stripped design</p>
+    </Section>
+
+    <Section
+    	title={{ content: "onAction*", tag: "function", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Callback function triggered when an action is performed in the table toolbar.</p>
+    </Section>
+
+    <Section
+    	title={{ content: "className*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Adds custom css className(s) </p>
+    </Section>
+
+    <Section
+    	title={{ content: "stickyCols*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Makes columns sticky when set to <Code small={true}>true</Code></p>
+    </Section>
+
+</Section>
+
+{/* * Use this for sub components */}
+
+<Section
+	title="Sub Components"
+	contained={true}
+	style={{ paddingTop: 30, paddingBottom: 0 }}
+>
+	<p>The Table offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+
+    <Section title="TableHead" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the table heading wrapper, it uses the html tag <Code small={true}>thead</Code> under the hood. it has one prop
+    	</p>
+
+    	<Section title={{ content: "children*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The content of the table head
+    		</p>
+    	</Section>
+
+    </Section>
+
+    <Section title="TableBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the table body wrapper, it uses the html tag <Code small={true}>tbody</Code> under the hood. it has one prop
+    	</p>
+
+    	<Section title={{ content: "children*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The content of the table body
+    		</p>
+    	</Section>
+    </Section>
+
+    <Section title="TableFooter" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the table footer wrapper, it uses the html tag <Code small={true}>tfoot</Code> under the hood. it has one prop
+    	</p>
+
+    	<Section title={{ content: "children*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The content of the table footer
+    		</p>
+    	</Section>
+
+    </Section>
+
+    <Section title="TableRow" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents a single row in the table, nested below the <Code small={true}>TableBody</Code> component it has the following props
+    	</p>
+
+    	<Section title={{ content: "id*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			A unique id for the row
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "children*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The content of the row
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "isUnderHeader*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Determines if the row is under the table header.
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "isExpandable*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Determines if the row is expandable (can show additional content when expanded).
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "expandableContent*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Content to display when the row is expanded (if isExpandable is set to true).
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "status*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Status color to appear on the table row.
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "actions*", tag: 'function', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The actions to be displayed at the last column, the function returns a React Node
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "isUnderFooter*", tag: 'function', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Specifies if the row is under the table footer
+    		</p>
+    	</Section>
+
+    </Section>
+
+     <Section title="TableCell" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents a single cell in the table. it has the following props
+    	</p>
+
+    	<Section title={{ content: "id*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Unique identifier for the <Code small={true}>TableCell</Code>
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The content of the table cell
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "isHeading*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Render table cell as header cell "th"
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "isSticky*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Makes the cell sticky
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "isTrim*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Make cell text single line and trimmable
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "isPrimary*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			 Makes table cell as primary
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "style*", tag: 'object', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Style object for addtional customization
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "hasDragIcon*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Determines if the cell should display a drag icon (Grip icon)
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "className*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Additional css className(s) for further styling
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "isSortable*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			When set to <Code small={true}>true</Code> the cell will be sortable
+    		</p>
+    	</Section>
+
+
+    </Section>
+
+</Section>

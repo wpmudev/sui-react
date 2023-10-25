@@ -1,0 +1,30 @@
+import { Section, Preview, Snippet } from "@wpmudev/sui-docs"
+
+import { Notification } from "../../../../src"
+
+import dedent from "dedent"
+
+export const SmCode = dedent`
+     <Notification
+      title="Notification Title"
+      message="This is notification message."
+      icon="CheckAlt"
+      size="sm"
+   />
+`
+
+<Section
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Notification
+			size="sm"
+			title="Notification Title"
+			message="This is notification message."
+			icon="CheckAlt"
+		/>
+	</Preview>
+	<Snippet language="js">{SmCode}</Snippet>
+</Section>

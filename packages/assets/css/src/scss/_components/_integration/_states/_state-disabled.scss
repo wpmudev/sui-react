@@ -1,0 +1,38 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Edit Disabled
+/// This function creates styles for integration disabled state
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-disabled($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(disabled) {
+				user-select: none;
+				background: $color-extended-neutral-95;
+                box-shadow: inset 0 0 0 $integration-border-width $color-extended-neutral-80;
+
+				@include modifies-element(icon) {
+                    opacity: $integration-disabled-opacity;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(disabled) {
+                box-shadow: inset 0 0 0 $integration-border-width $color-extended-neutral-0;
+			}
+		}
+	}
+}

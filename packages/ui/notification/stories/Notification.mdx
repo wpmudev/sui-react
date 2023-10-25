@@ -1,0 +1,26 @@
+import { Page } from "@wpmudev/sui-docs"
+import { Unstyled } from "@storybook/blocks"
+
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+import TabUsage from "./tabs/TabUsage.mdx"
+
+<Unstyled>
+	<Page.Tabs
+		title="Notification"
+		subtitle="Notifications promptly update users about the status of an action or system, ensuring they stay informed without interruption. Positioned strategically, these alerts provide essential information while maintaining a seamless user experience."
+    	status="draft"
+    >
+    		<div id="usage" label="Usage">
+    			<TabUsage />
+    		</div>
+    		<div id="code" label="Code">
+    			<TabCode />
+    		</div>
+    		<div id="examples" label="Examples">
+    			<TabExamples />
+    		</div>
+
+    </Page.Tabs>
+
+</Unstyled>
