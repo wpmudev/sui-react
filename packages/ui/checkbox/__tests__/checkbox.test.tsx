@@ -38,7 +38,7 @@ describe("@wpmudev/sui-checkbox", () => {
 		const input = screen.getByTestId("checkbox-input")
 
 		fireEvent.click(input)
-		expect(input).not.toBeChecked()
+		expect(input).not.toHaveAttribute("checked")
 	})
 
 	// Test case for testing the isIndeterminate prop
