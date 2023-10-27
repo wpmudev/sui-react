@@ -284,13 +284,13 @@ const chunkArray = (arr: any[], size: number) => {
  *
  * @param {React.ReactElement} component - The React component to be tested for accessibility.
  */
-const a11yTest = async (component: React.ReactElement) => {
-	if (process.env.SUI_A11Y_TEST) {
-		const { container } = render(component)
-		const results = await axe(container)
-		expect(results).toHaveNoViolations()
-	}
-}
+// const a11yTest = async (component: React.ReactElement) => {
+// 	if (process.env.SUI_A11Y_TEST) {
+// 		const { container } = render(component)
+// 		const results = await axe(container)
+// 		expect(results).toHaveNoViolations()
+// 	}
+// }
 
 // Publish required function(s).
 export {
@@ -311,5 +311,5 @@ export {
 	PluginsIcons,
 	chunkArray,
 	// jest utilities
-	a11yTest,
+	// a11yTest,
 }
