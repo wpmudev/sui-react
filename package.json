@@ -59,7 +59,13 @@
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "workspaces": [
-    "./packages/**/*"
+    "./packages/assets/css",
+    "./packages/assets/icons",
+    "./packages/docs",
+    "./packages/hooks",
+    "./packages/utils",
+    "./packages/ui/*",
+    "./packages/common/*"
   ],
   "dependencies": {
     "@types/dedent": "^0.7.0",
