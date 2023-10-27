@@ -64,11 +64,11 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 				setIsChecked(e.target.checked)
 
 				if (!!onChange) {
-					onChange(e)
+					onChange(value)
 					propOnchange(e)
 				}
 			},
-			[onChange, propOnchange],
+			[onChange, propOnchange, value],
 		)
 
 		// Define input props
