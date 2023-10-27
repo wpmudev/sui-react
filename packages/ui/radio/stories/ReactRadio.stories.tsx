@@ -11,6 +11,13 @@ import { FormField } from "@wpmudev/sui-form-field"
 // Import documentation
 import docs from "./ReactRadio.mdx"
 
+type RadioStoryProps = {
+	example: string
+	name: string
+	isInline: boolean
+	isSmall: boolean
+} & RadioProps
+
 // Default settings
 export default {
 	title: "SUI/Components/Forms/Radio",
@@ -24,7 +31,13 @@ export default {
 }
 
 // Build story
-export const Radio = ({ example, name, isInline, isSmall, ...args }) => {
+export const Radio = ({
+	example,
+	name,
+	isInline,
+	isSmall,
+	...args
+}: RadioStoryProps) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -45,9 +58,7 @@ export const Radio = ({ example, name, isInline, isSmall, ...args }) => {
 							isInline={isInline}
 							name={name}
 							asBlock={args?.asBlock}
-							onChange={(data) => {
-								console.log("test", data)
-							}}
+							onChange={(data) => {}}
 						>
 							<SuiRadio value="in" {...args} />
 							<SuiRadio value="usa" {...args} />

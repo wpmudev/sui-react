@@ -11,7 +11,7 @@ import React, {
 } from "react"
 import { ChevronLeft, ChevronRight } from "@wpmudev/sui-icons"
 
-import { useDetectRTL } from "../../../../hooks/src/index"
+import { useDetectRTL } from "@wpmudev/sui-hooks"
 import { TabNavProps, TabNavScrollDirection } from "../tabs.types"
 
 /**

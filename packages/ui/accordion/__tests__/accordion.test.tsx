@@ -61,6 +61,7 @@ describe("@wpmudev/sui-accordion", () => {
 		)
 	}
 
+	// eslint-disable-next-line jest/expect-expect
 	it("passes a11y test", async () => {
 		await a11yTest(<AccordionDemo />)
 	})
