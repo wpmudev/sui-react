@@ -26,6 +26,32 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 		background: "#fff",
 	}
 
+	const [options, setOptions] = useState({})
+
+	const handleCheckboxChange = (key, isChecked) => {
+		setOptions((prevOptions) => {
+			const updatedOptions = { ...prevOptions }
+
+			const keys = key.split("-")
+			let currentLevel = updatedOptions
+
+			for (let i = 0; i < keys.length; i++) {
+				const subKey = keys[i]
+
+				if (i === keys.length - 1) {
+					// Reached the final level, set the checkbox value
+					currentLevel[subKey] = isChecked || true
+				} else {
+					// Ensure that this level is an object
+					currentLevel[subKey] = currentLevel[subKey] || {}
+					currentLevel = currentLevel[subKey]
+				}
+			}
+
+			return updatedOptions
+		})
+	}
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
@@ -35,33 +61,60 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 							isInline={isInline}
 							name={name}
 							isSmall={args?.isSmall}
-							onChange={(data) => {
-								console.log("test", data)
+							onChange={(key, isChecked) => {
+								handleCheckboxChange(key, isChecked)
+								// console.log(key, isChecked)
+								// setOptions({ ...options, [key]: isChecked })
+								console.log(options)
 							}}
 						>
-							<SuiCheckbox value="in" {...args} />
-							<SuiCheckbox value="usa" {...args} isIndeterminate={true} />
+							<SuiCheckbox
+								{...args}
+								itemKey="item1"
+								value="in"
+								isChecked={options.item1}
+							/>
+							<SuiCheckbox
+								{...args}
+								itemKey="group1"
+								value="usa"
+								isChecked={options.group1}
+							/>
 							<CheckboxGroup
 								isInline={isInline}
 								name={name}
 								asBlock={args?.asBlock}
 								isSmall={args?.isSmall}
-								onChange={(data) => {
-									console.log("test", data)
-								}}
 							>
-								<SuiCheckbox {...args} value="in" />
-								<SuiCheckbox {...args} value="usa" isChecked={true} />
+								<SuiCheckbox
+									{...args}
+									itemKey="group1-item2"
+									value="in"
+									isChecked={options.item2}
+								/>
+								<SuiCheckbox
+									{...args}
+									itemKey="group1-group2"
+									value="usa"
+									isChecked={options.group2}
+								/>
 								<CheckboxGroup
 									isInline={isInline}
 									name={name}
 									isSmall={args?.isSmall}
-									onChange={(data) => {
-										console.log("test", data)
-									}}
 								>
-									<SuiCheckbox {...args} value="in" isChecked={true} />
-									<SuiCheckbox {...args} value="usa" isChecked={true} />
+									<SuiCheckbox
+										{...args}
+										itemKey="group1-group2-item3"
+										value="in"
+										isChecked={options.item3}
+									/>
+									<SuiCheckbox
+										{...args}
+										itemKey="group1-group2-item4"
+										value="usa"
+										isChecked={options.item4}
+									/>
 								</CheckboxGroup>
 							</CheckboxGroup>
 						</CheckboxGroup>

@@ -1,9 +1,9 @@
 import { createContext, useCallback, useContext } from "react"
-import { CheckboxContextProps, CheckboxValueType } from "./checkbox.types"
+import { CheckboxContextProps } from "./checkbox.types"
 
 const CheckboxContext = createContext<CheckboxContextProps>({
 	name: "",
-	onChange(value: CheckboxValueType): void {},
+	onChange(): void {},
 })
 
 const useCheckbox = () => {
@@ -14,9 +14,9 @@ const useCheckbox = () => {
 	}
 
 	const onChange = useCallback(
-		(value: CheckboxValueType) => {
+		(key: string, isChecked: boolean) => {
 			if (ctx.onChange) {
-				ctx.onChange(value)
+				ctx.onChange(key, isChecked)
 			}
 		},
 		[ctx],

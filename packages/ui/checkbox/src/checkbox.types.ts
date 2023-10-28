@@ -1,8 +1,5 @@
 import { ReactNode, HTMLAttributes } from "react"
 
-// Define a type that represents the possible values for a checkbox button.
-type CheckboxValueType = string | number | undefined
-
 /**
  * Define the props for a CheckboxGroup component.
  */
@@ -25,7 +22,7 @@ interface CheckboxGroupProps {
 	/**
 	 * A callback function to handle checkbox button selection changes.
 	 */
-	onChange?(value: CheckboxValueType): void
+	onChange?(key: string, isChecked: boolean): void
 
 	/**
 	 * Indicates whether the checkbox buttons should be displayed with a smaller size (optional).
@@ -52,6 +49,11 @@ interface CheckboxProps
 	 * The label for the checkbox.
 	 */
 	label?: string
+
+	/**
+	 * The key for the checkbox.
+	 */
+	itemKey?: string
 
 	/**
 	 * The label for the checkbox.
@@ -90,9 +92,4 @@ interface CheckboxProps
 interface CheckboxContextProps
 	extends Omit<CheckboxGroupProps, "isInline" | "children"> {}
 
-export type {
-	CheckboxProps,
-	CheckboxGroupProps,
-	CheckboxContextProps,
-	CheckboxValueType,
-}
+export type { CheckboxProps, CheckboxGroupProps, CheckboxContextProps }
