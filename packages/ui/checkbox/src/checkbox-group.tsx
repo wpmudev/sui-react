@@ -1,4 +1,4 @@
-import React, { Children, ReactNode } from "react"
+import React, { Children, ReactNode, isValidElement } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 
@@ -28,9 +28,19 @@ const CheckboxGroup = ({
 			}}
 		>
 			<ul className={className}>
-				{Children.map(children, (child: ReactNode) => (
-					<li className="sui-checkbox-group__item">{child}</li>
-				))}
+				{Children.map(children, (child) => {
+					if (isValidElement(child) && child.type === CheckboxGroup) {
+						// If the child is a CheckboxGroup, add an onChange prop
+						return (
+							<li className="sui-checkbox-group__item">
+								{React.cloneElement(child, {
+									onChange,
+								})}
+							</li>
+						)
+					}
+					return <li className="sui-checkbox-group__item">{child}</li>
+				})}
 			</ul>
 		</Provider>
 	)
