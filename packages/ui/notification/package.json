@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-notification",
   "version": "0.0.1",
-  "description": "WPMU DEV Shared UI React Notification Component",
+  "description": "Notifications promptly update users about the status of an action or system, ensuring they stay informed without interruption. Positioned strategically, these alerts provide essential information while maintaining a seamless user experience.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -19,6 +19,11 @@
       "name": "Pawan Kumar",
       "email": "40248406+creador-dev@users.noreply.github.com",
       "url": "https://creador.dev/"
+    },
+    {
+      "name": "Abderrahman DOUARA",
+      "email": "aer17013@gmail.com",
+      "url": "https://douara.me"
     }
   ],
   "license": "GPL-2.0",

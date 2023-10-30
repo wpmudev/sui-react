@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-navigation",
   "version": "0.0.1",
-  "description": "WPMU DEV Shared UI Navigation Component",
+  "description": "The Navigation component provides a user-friendly and intuitive way to navigate through different sections",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -14,6 +14,11 @@
       "name": "Pawan Kumar",
       "email": "40248406+creador-dev@users.noreply.github.com",
       "url": "https://creador.dev/"
+    },
+    {
+      "name": "Abderrahman DOUARA",
+      "email": "aer17013@gmail.com",
+      "url": "https://douara.me"
     }
   ],
   "license": "GPL-2.0",

@@ -3,7 +3,7 @@
 <div style="text-align: center;">
 <img src="https://img.shields.io/badge/Version-0.0.1-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/License-GPL-orange.svg" alt="License">
 </div>
-<h2> Description </h2> WPMU DEV Shared UI React Score Component
+<h2> Description </h2> The Accordion component allows users to show and hide the content of related titles on a page.
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#license)
