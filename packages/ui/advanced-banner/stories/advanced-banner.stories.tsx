@@ -1,11 +1,13 @@
 import React, { Fragment } from "react"
 
 // Import required component
-import { AdvancedBanner as SuiAdvancedBanner } from "../src"
+import {
+	AdvancedBanner as SuiAdvancedBanner,
+	AdvancedBannerProps,
+} from "../src"
 
 import { Button } from "@wpmudev/sui-button"
 import { Input } from "@wpmudev/sui-input"
-import { Box, BoxGroup } from "@wpmudev/sui-box"
 
 // Import documentation main page
 import docs from "./advanced-banner.mdx"
@@ -25,12 +27,10 @@ export default {
 }
 
 // Build "AdvancedBanner" story.
-const AdvancedBanner = ({ ...props }) => {
-	const set = {}
-
+const AdvancedBanner = (props: AdvancedBannerProps) => {
 	let children = null
 
-	switch (props?.example) {
+	switch (props?.variation) {
 		case "plugin":
 			children = (
 				<Fragment>
@@ -68,10 +68,12 @@ const AdvancedBanner = ({ ...props }) => {
 		case "newsletter":
 			children = (
 				<Fragment>
-					<Input
-						id="newsletter-email"
-						placeholder="Enter your email to win today"
-					/>
+					<div style={{ width: 260 }}>
+						<Input
+							id="newsletter-email"
+							placeholder="Enter your email to win today"
+						/>
+					</div>
 					<Button appearance="primary" color="blue">
 						Subscribe now
 					</Button>
