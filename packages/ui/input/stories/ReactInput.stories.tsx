@@ -2,7 +2,7 @@ import React from "react"
 import { FormField } from "@wpmudev/sui-form-field"
 
 // Import required component.
-import { Input as SuiInput } from "../src"
+import { Input as SuiInput, InputProps } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactInput.mdx"
@@ -20,7 +20,8 @@ export default {
 }
 
 // Build "Input" story.
-const Input = ({ example, isSmall, isDisabled, ...args }) => {
+const Input = (args: InputProps) => {
+	const { isSmall, isDisabled } = args
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -31,7 +32,7 @@ const Input = ({ example, isSmall, isDisabled, ...args }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<FormField isSmall={isSmall} isDisabled={isDisabled}>
+					<FormField id="input-1" isSmall={isSmall} isDisabled={isDisabled}>
 						<SuiInput {...args} />
 					</FormField>
 				</div>
@@ -42,7 +43,6 @@ const Input = ({ example, isSmall, isDisabled, ...args }) => {
 
 // Set story arguments.
 Input.args = {
-	example: "standard",
 	type: "text",
 	id: "myCustomId",
 	defaultValue: "Hello World",
@@ -56,17 +56,6 @@ Input.args = {
 
 // Set controls for story arguments.
 Input.argTypes = {
-	example: {
-		name: "Example",
-		options: ["standard", "readonly"],
-		control: {
-			type: "select",
-			labels: {
-				standard: "Example: Standard",
-				readonly: "Example: Read Only",
-			},
-		},
-	},
 	type: {
 		name: "Type",
 		options: ["text", "email", "password", "number", "search", "tel", "url"],
@@ -95,10 +84,6 @@ Input.argTypes = {
 	isReadOnly: {
 		name: "Read Only",
 		control: "boolean",
-		if: {
-			arg: "example",
-			eq: "readonly",
-		},
 	},
 	isDisabled: {
 		name: "Disabled",
