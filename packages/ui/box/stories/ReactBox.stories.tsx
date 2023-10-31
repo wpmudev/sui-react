@@ -64,5 +64,3 @@ Box.args = {
 		</button>,
 	],
 }
-
-Box.argTypes = {}
