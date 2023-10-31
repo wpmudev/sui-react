@@ -63,7 +63,7 @@ export const Checkbox = ({
 								isLabelHidden={isLabelHidden}
 								isDisabled={isDisabled}
 								isSmall={isSmall}
-								isIndeterminate={true}
+								isIndeterminate={isIndeterminate}
 							/>
 							<CheckboxGroup isInline={isInline} name={name} isSmall={isSmall}>
 								<SuiCheckbox
@@ -72,7 +72,7 @@ export const Checkbox = ({
 									isLabelHidden={isLabelHidden}
 									isDisabled={isDisabled}
 									isSmall={isSmall}
-									isIndeterminate={true}
+									isIndeterminate={isIndeterminate}
 								/>
 								<SuiCheckbox
 									value="usa"
@@ -81,12 +81,12 @@ export const Checkbox = ({
 									isLabelHidden={isLabelHidden}
 									isDisabled={isDisabled}
 									isSmall={isSmall}
-									isIndeterminate={true}
+									isIndeterminate={isIndeterminate}
 								/>
 								<CheckboxGroup
 									isInline={isInline}
 									name={name}
-									isSmall={args?.isSmall}
+									isSmall={isSmall}
 								>
 									<SuiCheckbox
 										value="in"
@@ -95,7 +95,7 @@ export const Checkbox = ({
 										isLabelHidden={isLabelHidden}
 										isDisabled={isDisabled}
 										isSmall={isSmall}
-										isIndeterminate={true}
+										isIndeterminate={isIndeterminate}
 									/>
 									<SuiCheckbox
 										value="usa"
@@ -104,21 +104,21 @@ export const Checkbox = ({
 										isLabelHidden={isLabelHidden}
 										isDisabled={isDisabled}
 										isSmall={isSmall}
-										isIndeterminate={true}
+										isIndeterminate={isIndeterminate}
 									/>
 								</CheckboxGroup>
 							</CheckboxGroup>
 						</CheckboxGroup>
 					)}
 					{"horizontal" === example && (
-						<CheckboxGroup isInline={true} name={name} isSmall={args?.isSmall}>
+						<CheckboxGroup isInline={true} name={name} isSmall={isSmall}>
 							<SuiCheckbox
 								value="in"
 								label={label}
 								isLabelHidden={isLabelHidden}
 								isDisabled={isDisabled}
 								isSmall={isSmall}
-								isIndeterminate={true}
+								isIndeterminate={isIndeterminate}
 							/>
 							<SuiCheckbox
 								value="uk"
@@ -126,7 +126,7 @@ export const Checkbox = ({
 								isLabelHidden={isLabelHidden}
 								isDisabled={isDisabled}
 								isSmall={isSmall}
-								isIndeterminate={true}
+								isIndeterminate={isIndeterminate}
 							/>
 							<SuiCheckbox
 								value="af"
@@ -134,7 +134,7 @@ export const Checkbox = ({
 								isLabelHidden={isLabelHidden}
 								isDisabled={isDisabled}
 								isSmall={isSmall}
-								isIndeterminate={true}
+								isIndeterminate={isIndeterminate}
 							/>
 							<SuiCheckbox
 								value="usa"
@@ -142,19 +142,19 @@ export const Checkbox = ({
 								isLabelHidden={isLabelHidden}
 								isDisabled={isDisabled}
 								isSmall={isSmall}
-								isIndeterminate={true}
+								isIndeterminate={isIndeterminate}
 							/>
 						</CheckboxGroup>
 					)}
 					{"vertical" === example && (
-						<CheckboxGroup isInline={false} name={name} isSmall={args?.isSmall}>
+						<CheckboxGroup isInline={false} name={name} isSmall={isSmall}>
 							<SuiCheckbox
 								value="in"
 								label={label}
 								isLabelHidden={isLabelHidden}
 								isDisabled={isDisabled}
 								isSmall={isSmall}
-								isIndeterminate={true}
+								isIndeterminate={isIndeterminate}
 							/>
 							<SuiCheckbox
 								value="uk"
@@ -162,7 +162,7 @@ export const Checkbox = ({
 								isLabelHidden={isLabelHidden}
 								isDisabled={isDisabled}
 								isSmall={isSmall}
-								isIndeterminate={true}
+								isIndeterminate={isIndeterminate}
 							/>
 							<SuiCheckbox
 								value="af"
@@ -170,7 +170,7 @@ export const Checkbox = ({
 								isLabelHidden={isLabelHidden}
 								isDisabled={isDisabled}
 								isSmall={isSmall}
-								isIndeterminate={true}
+								isIndeterminate={isIndeterminate}
 							/>
 							<SuiCheckbox
 								value="usa"
@@ -178,7 +178,7 @@ export const Checkbox = ({
 								isLabelHidden={isLabelHidden}
 								isDisabled={isDisabled}
 								isSmall={isSmall}
-								isIndeterminate={true}
+								isIndeterminate={isIndeterminate}
 							/>
 						</CheckboxGroup>
 					)}
