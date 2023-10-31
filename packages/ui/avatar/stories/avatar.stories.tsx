@@ -4,7 +4,7 @@ import React from "react"
 import { Avatar as SuiAvatar } from "../src"
 
 // Import documentation main page
-import docs from "./ReactAvatar.mdx"
+import docs from "./avatar.mdx"
 
 // Import required assets
 import image from "./images/unreal-person.jpg"
@@ -23,9 +23,7 @@ export default {
 
 // Build "Avatar" story.
 const Avatar = ({ ...props }) => {
-	const set = {}
-
-	set.box = {
+	const boxStyle = {
 		padding: 20,
 		borderRadius: 4,
 		background: "#fff",
@@ -36,7 +34,7 @@ const Avatar = ({ ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={set.box}>
+				<div style={boxStyle}>
 					<SuiAvatar {...props} />
 				</div>
 			</div>
