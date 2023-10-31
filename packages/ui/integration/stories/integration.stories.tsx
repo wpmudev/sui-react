@@ -4,7 +4,7 @@ import React from "react"
 import { Integration as SuiIntegration } from "../src"
 
 // Import documentation
-import docs from "./ReactIntegration.mdx"
+import docs from "./integration.mdx"
 
 // Import required assets
 import image from "./images/icon.png"
