@@ -5,7 +5,7 @@ import { Box as SuiBox, BoxGroup } from "../src"
 import { Row, Col } from "@wpmudev/sui-grid"
 
 // Import documentation main page
-import docs from "./ReactBox.mdx"
+import docs from "./box.mdx"
 
 // Configure default options
 export default {
