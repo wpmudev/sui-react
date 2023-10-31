@@ -1,11 +1,17 @@
 import React, { useRef } from "react"
 
 // Import required component
-import { Modal as SuiModal, ModalBody, ModalFooter, ModalHeader } from "../src"
+import {
+	Modal as SuiModal,
+	ModalBody,
+	ModalFooter,
+	ModalHeader,
+	ModalActionsProps,
+} from "../src"
 import { Button } from "@wpmudev/sui-button"
 
 // Import documentation main page
-import docs from "./ReactModal.mdx"
+import docs from "./modal.mdx"
 
 // Configure default options
 export default {
@@ -27,7 +33,7 @@ const Modal = ({ ...props }) => {
 		background: "#fff",
 	}
 
-	const ref = useRef(null)
+	const ref = useRef<ModalActionsProps | null>(null)
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
@@ -47,7 +53,7 @@ const Modal = ({ ...props }) => {
 								appearance="secondary"
 								color="blue"
 								isSmall={true}
-								onClick={() => ref.current.closeModal()}
+								onClick={() => ref.current?.closeModal()}
 							>
 								Cancel
 							</Button>
@@ -60,7 +66,7 @@ const Modal = ({ ...props }) => {
 						appearance="primary"
 						color="blue"
 						onClick={() => {
-							ref.current.openModal()
+							ref.current?.openModal()
 						}}
 					>
 						Apply Config
