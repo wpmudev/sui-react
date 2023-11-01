@@ -20,7 +20,9 @@
 				z-index: 2;
 				background-color: $colorpicker-picker-background;
 				border-radius: $colorpicker-picker-border-radius;
-				box-shadow: 0 4px 8px 0 $color-shadow-light, 0 4px 20px 0 $color-shadow-default, 0 12px 16px 0 $color-shadow-dark;
+				box-shadow: 0 $shadow-offset-sm $shadow-offset-md 0 $color-shadow-light,
+					0 $shadow-offset-sm $shadow-offset-2xl 0 $color-shadow-default,
+					0 $shadow-offset-lg $shadow-offset-xl 0 $color-shadow-dark;
 				padding: $colorpicker-spacing-sm;
 				margin-top: $colorpicker-picker-spacing-margin;
 				max-width: $colorpicker-picker-size-width;
@@ -34,7 +36,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(popover) {
-                border: $colorpicker-border-width-xs solid $color-extended-neutral-0;
+				border: $colorpicker-border-width-xs solid $color-extended-neutral-0;
 			}
 		}
 	}

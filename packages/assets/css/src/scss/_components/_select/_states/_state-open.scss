@@ -17,9 +17,9 @@
 		@include block($block) {
 			@include modifier(open) {
 				z-index: 1;
-                @include modifies-element(control) {
+				@include modifies-element(control) {
 					border-bottom-color: transparent;
-					box-shadow: inset 0px -1px 0px $color-primary-80;
+					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px $color-primary-80;
 					border-bottom-left-radius: 0;
 					border-bottom-right-radius: 0;
 					&::after {
@@ -28,15 +28,15 @@
 						border-bottom-right-radius: 0;
 						border-bottom: 0;
 					}
-                }
+				}
 
-                @include modifies-element(input) {
-                    border-bottom-left-radius: 0;
+				@include modifies-element(input) {
+					border-bottom-left-radius: 0;
 					border-bottom-right-radius: 0;
 					border-bottom-color: transparent;
-					box-shadow: inset 0px -1px 0px $color-primary-80;
-                }
-            }
+					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px $color-primary-80;
+				}
+			}
 		}
 	}
 
@@ -45,18 +45,20 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include modifier(open) {
-                @include modifies-element(control) {
+				@include modifies-element(control) {
 					border-bottom-color: transparent;
 					&::after {
 						border-color: $color-extended-neutral-0;
 					}
-					box-shadow: inset 0px -1px 0px $color-extended-neutral-0;
-                }
+					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px
+						$color-extended-neutral-0;
+				}
 
-                @include modifies-element(input) {
-					box-shadow: inset 0px -1px 0px $color-extended-neutral-0;
-                }
-            }
+				@include modifies-element(input) {
+					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px
+						$color-extended-neutral-0;
+				}
+			}
 		}
 	}
 }

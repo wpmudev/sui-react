@@ -33,8 +33,7 @@
 		// THEME: Dark.
 		@include sui-class($rtl: false, $theme: dark) {
 			@include block($block) {
-				box-shadow: inset 0 0 0 $integration-border-width
-					$color-extended-neutral-0;
+				box-shadow: inset 0 0 0 $shadow-offset-2xs $color-extended-neutral-0;
 			}
 		}
 	}
