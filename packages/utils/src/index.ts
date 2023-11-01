@@ -1,10 +1,7 @@
 import React, { MouseEvent, KeyboardEvent } from "react"
 import classnames from "classnames"
 import { render } from "@testing-library/react"
-import { axe, toHaveNoViolations } from "jest-axe"
-
-// use "toHaveNoViolations"
-//expect.extend(toHaveNoViolations)
+import { axe } from "jest-axe"
 
 /**
  * Generate class names based on the prop variables.
