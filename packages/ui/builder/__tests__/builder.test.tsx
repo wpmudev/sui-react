@@ -2,7 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { within } from "@testing-library/dom"
 import { screen, render, fireEvent } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Builder, BuilderField, BuilderProps, BuilderWrapper } from "../src"
 
 describe("@wpmudev/sui-builder", () => {
@@ -150,5 +150,10 @@ describe("@wpmudev/sui-builder", () => {
 		)
 		fireEvent.click(accordionBtn)
 		expect(builderField).toHaveClass("sui-builder__field--expanded")
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Component />)
 	})
 })
