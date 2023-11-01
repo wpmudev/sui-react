@@ -15,7 +15,7 @@
 		@include block($block) {
 			@include element(label) {
 				@include modifier(focus) {
-					box-shadow: 0 0 0 $border-width-md $color-extended-neutral-50;
+					box-shadow: 0 0 0 $shadow-offset-xs $color-extended-neutral-50;
 					color: $color-extended-neutral-60;
 					position: relative;
 					z-index: 2;

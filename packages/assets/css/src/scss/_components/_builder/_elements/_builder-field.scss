@@ -15,8 +15,8 @@
 			@include element(field) {
 				background-color: $color-extended-neutral-100;
 				border-radius: $border-radius-md;
-				box-shadow: 0 2px 1px 0 $color-shadow-light,
-					0 1px 2px 0 $color-shadow-light;
+				box-shadow: 0 $shadow-offset-xs $shadow-offset-2xs 0 $color-shadow-light,
+					0 $shadow-offset-2xs $shadow-offset-xs 0 $color-shadow-light;
 				flex: 1;
 			}
 
@@ -105,8 +105,7 @@
 
 			@include element(field-actions-item) {
 				@include modifier(accordion) {
-					border-left: $border-width-md solid
-						$color-extended-neutral-80;
+					border-left: $border-width-md solid $color-extended-neutral-80;
 					margin-left: $spacing-md;
 					padding-left: $spacing-md;
 				}

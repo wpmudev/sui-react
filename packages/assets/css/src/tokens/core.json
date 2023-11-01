@@ -869,6 +869,42 @@
 			"description": "32 points grid system."
 		}
 	},
+	"shadow": {
+		"offset": {
+			"2xs": {
+				"value": "1px",
+				"type": "boxShadow"
+			},
+			"xs": {
+				"value": "2px",
+				"type": "boxShadow"
+			},
+			"sm": {
+				"value": "4px",
+				"type": "boxShadow"
+			},
+			"md": {
+				"value": "8px",
+				"type": "boxShadow"
+			},
+			"lg": {
+				"value": "12px",
+				"type": "boxShadow"
+			},
+			"xl": {
+				"value": "16px",
+				"type": "boxShadow"
+			},
+			"2xl": {
+				"value": "20px",
+				"type": "boxShadow"
+			},
+			"default": {
+				"value": "6px",
+				"type": "boxShadow"
+			}
+		}
+	},
 	"border": {
 		"width": {
 			"sm": {

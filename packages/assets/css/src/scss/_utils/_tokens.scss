@@ -1,6 +1,6 @@
 
 // Do not edit directly
-// Generated on Fri, 27 Oct 2023 00:34:06 GMT
+// Generated on Wed, 01 Nov 2023 05:59:58 GMT
 
 $accordion-border-radius-sm: 10px;
 $advanced-banner-background: linear-gradient(90deg, #222 0%, #383323 48.96%, #514524 100%);
@@ -299,6 +299,14 @@ $spacing-md: 8px;
 $spacing-lg: 16px;
 $spacing-xl: 24px;
 $spacing-xxl: 32px;
+$shadow-offset-2xs: 1px;
+$shadow-offset-xs: 2px;
+$shadow-offset-sm: 4px;
+$shadow-offset-md: 8px;
+$shadow-offset-lg: 12px;
+$shadow-offset-xl: 16px;
+$shadow-offset-2xl: 20px;
+$shadow-offset-default: 6px;
 $border-width-sm: 1px;
 $border-width-md: 2px;
 $border-width-xl: 4px;
@@ -615,6 +623,9 @@ $tabs-border-radius: 4px;
 $tabs-shadow-dark: rgba(115, 115, 115, 0.05);
 $tabs-shadow-medium: rgba(115, 115, 115, 0.03);
 $tabs-shadow-light: rgba(115, 115, 115, 0.02);
+$tabs-shadow-offset-sm: 0px 2px 5px 0px;
+$tabs-shadow-offset-md: 0px 8px 17px 0px;
+$tabs-shadow-offset-lg: 0px 36px 80px 0px;
 $tabs-navitem-font-size: 16px-1px;
 $tabs-navitem-font-height: 24px;
 $tabs-navitem-font-weight: 500;
