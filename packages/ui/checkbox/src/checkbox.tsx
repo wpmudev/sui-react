@@ -26,8 +26,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 	(
 		{
 			id,
-			label,
-			itemKey = "",
+			label = "checkbox label",
 			isLabelHidden = false,
 			isDisabled = false,
 			isSmall: propIsSmall = false,
@@ -62,15 +61,14 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 		// handle on change
 		const handleOnChange = useCallback(
 			(e: React.ChangeEvent<HTMLInputElement>) => {
-				const checked = e.target.checked
-				setIsChecked(checked)
+				setIsChecked(e.target.checked)
 
 				if (!!onChange) {
-					onChange(itemKey, checked)
+					onChange(value)
 					propOnchange(e)
 				}
 			},
-			[itemKey, onChange, propOnchange],
+			[onChange, propOnchange, value],
 		)
 
 		// Define input props
@@ -113,7 +111,11 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 				data-testid="checkbox"
 				{...methods}
 			>
-				<input {...inputProps} data-testid="checkbox-input" />
+				<input
+					{...inputProps}
+					aria-label={label}
+					data-testid="checkbox-input"
+				/>
 				{isIndeterminate ? (
 					<Indeterminate {...boxProps} />
 				) : (
