@@ -1,7 +1,7 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
 import "@testing-library/jest-dom" // This is still needed to extend Jest's expect
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Avatar } from "../src"
 
 describe("@wpmudev/sui-avatar", () => {
@@ -32,5 +32,10 @@ describe("@wpmudev/sui-avatar", () => {
 		// Image description
 		const altTextElement = screen.getByTestId("avatar-image-alt")
 		expect(altTextElement.textContent).toEqual(altText)
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Avatar />)
 	})
 })
