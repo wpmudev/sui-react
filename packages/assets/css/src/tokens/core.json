@@ -806,6 +806,10 @@
 					"value": "rgba(26, 26, 26, 0.1)",
 					"type": "color"
 				},
+				"20": {
+					"value": "rgba(26, 26, 26, 0.2)",
+					"type": "color"
+				},
 				"70": {
 					"value": "rgba(26, 26, 26, 0.7)",
 					"type": "color"
@@ -818,6 +822,10 @@
 			"black": {
 				"0": {
 					"value": "rgba(0, 0, 0, 0)",
+					"type": "color"
+				},
+				"10": {
+					"value": "rgba(0, 0, 0, 0.1)",
 					"type": "color"
 				}
 			}
@@ -867,6 +875,11 @@
 			"value": "32px",
 			"type": "spacing",
 			"description": "32 points grid system."
+		},
+		"default": {
+			"value": "12px",
+			"type": "spacing",
+			"description": "12 points grid system."
 		}
 	},
 	"shadow": {

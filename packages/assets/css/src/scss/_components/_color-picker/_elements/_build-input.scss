@@ -16,11 +16,11 @@
 		@include block($block) {
 			@include element(color) {
 				position: relative;
-				max-width: $colorpicker-size-width;
+				max-width: $colorpicker-size-width-lg;
 			}
 
 			.sui-input__input {
-				padding: $colorpicker-spacing-xs $colorpicker-spacing-lg;
+				padding: $spacing-md $colorpicker-spacing-lg;
 			}
 
 			@include element(input-preview, clear, button) {
@@ -32,19 +32,18 @@
 			@include element(input-preview) {
 				align-items: center;
 				display: inline-flex;
-				gap: $colorpicker-fields-gap-md;
-				left: $colorpicker-position;
+				gap: $spacing-md;
+				left: $spacing-md;
 				cursor: pointer;
 			}
 
 			@include element(input-preview-icon) {
 				border-radius: 100%;
-				height: $colorpicker-preview-size;
-				width: $colorpicker-preview-size;
+				height: $colorpicker-size-height-md;
+				width: $colorpicker-size-width-sm;
 				background-position: center;
-				background-size: $colorpicker-preview-background-size;
-				border: $colorpicker-border-width-xs solid
-					$colorpicker-preview-border-color;
+				background-size: $colorpicker-size-width-xs;
+				border: $border-width-sm solid $color-alpha-grey-10;
 			}
 
 			@include element(input-preview-code) {
@@ -54,16 +53,16 @@
 
 			@include element(clear) {
 				cursor: pointer;
-				color: $colorpicker-clear-color-default;
+				color: $color-extended-neutral-70;
 				right: 0;
 
 				&:hover {
-					color: $colorpicker-clear-color-hover;
+					color: $color-extended-neutral-60;
 				}
 			}
 
 			@include element(button) {
-				right: $colorpicker-position;
+				right: $spacing-md;
 			}
 		}
 	}
@@ -75,13 +74,11 @@
 		@include block($block) {
 			color: $color-extended-neutral-0;
 			@include element(input) {
-				box-shadow: 0 0 0 $colorpicker-border-width-xs
-					$color-extended-neutral-0;
+				box-shadow: 0 0 0 $border-width-sm $color-extended-neutral-0;
 			}
 
 			@include element(input-preview-icon) {
-				border: $colorpicker-border-width-xs solid
-					$color-extended-neutral-0;
+				border: $border-width-sm solid $color-extended-neutral-0;
 			}
 
 			@include element(input-close) {
@@ -100,17 +97,17 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(clear) {
-				left: $colorpicker-position;
+				left: $spacing-md;
 				right: unset;
 			}
 
 			@include element(input-preview) {
 				left: unset;
-				right: $colorpicker-position;
+				right: $spacing-md;
 			}
 
 			@include element(button) {
-				left: $colorpicker-position;
+				left: $spacing-md;
 				right: unset;
 			}
 		}
