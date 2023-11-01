@@ -26,7 +26,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 	(
 		{
 			id,
-			label = "checkbox label",
+			label,
 			isLabelHidden = false,
 			isDisabled = false,
 			isSmall: propIsSmall = false,
@@ -113,7 +113,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 			>
 				<input
 					{...inputProps}
-					aria-label={label}
+					aria-label={label || "checkbox"}
 					data-testid="checkbox-input"
 				/>
 				{isIndeterminate ? (
