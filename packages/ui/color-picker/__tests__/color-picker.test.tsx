@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { ColorPicker, ColorPickerProps } from "../src"
 
 describe("@wpmudev/sui-color-picker", () => {
@@ -15,5 +15,10 @@ describe("@wpmudev/sui-color-picker", () => {
 		render(<Component id="color-picker-1" />)
 		// Assert that the date picker element is in the document
 		expect(screen.getByTestId("color-picker")).toBeInTheDocument()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Component id="color-picker-1" />)
 	})
 })
