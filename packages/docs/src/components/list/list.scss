@@ -13,6 +13,7 @@
 		padding-left: 16px;
 		font-size: 14px;
 		line-height: 20px;
+		color: #737373;
 
 		&:before {
 			content: " ";
@@ -23,7 +24,7 @@
 			left: 0;
 			display: block;
 			border-radius: 6px;
-			background: #286EF1;
+			background: #286ef1;
 		}
 
 		&:last-child {
@@ -41,9 +42,8 @@
 		}
 
 		li {
-
 			&:before {
-				border: 1px solid #286EF1;
+				border: 1px solid #286ef1;
 				background: transparent;
 			}
 		}
