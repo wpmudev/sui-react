@@ -26,7 +26,7 @@
 				@include modifies-element(status) {
 					right: $avatar-status-margin-sm;
 					bottom: $avatar-status-margin-sm;
-					padding: $spacing-xs;
+					padding: $spacing-2xs;
 				}
 
 				@include modifies-element(status-icon) {

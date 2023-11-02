@@ -16,6 +16,10 @@ interface SearchBaseProps {
 	 */
 	defaultValue?: string
 	/**
+	 * Placeholder for search
+	 */
+	placeholder?: string
+	/**
 	 * Callback function to be invoked upon text change
 	 */
 	onChange?(value: string): void

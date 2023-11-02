@@ -14,6 +14,7 @@ const Search: React.FC<SearchProps> = ({
 	id,
 	className,
 	variation = "",
+	placeholder = "",
 	defaultValue,
 	options = [],
 	onChange = () => {},
@@ -122,6 +123,7 @@ const Search: React.FC<SearchProps> = ({
 				allowClear={allowClear}
 				disableInteractions={true}
 				isDisabled={isDisabled}
+				placeholder={placeholder}
 				{...inputProps}
 			/>
 			{isPopoverVisible && "smart" === variation && (

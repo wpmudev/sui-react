@@ -21,6 +21,7 @@
 		font-weight: $body-font-weight;
 		line-height: $body-font-height;
 		letter-spacing: $body-font-spacing;
+		color: $color-extended-neutral-50;
 
 		small {
 			font-size: $body-sm-font-size;
@@ -39,6 +40,14 @@
 		&:focus {
 			color: $color-primary-40;
 		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		color: $color-extended-neutral-10;
 	}
 
 	@include block(heading) {
@@ -75,6 +84,10 @@
 			font-size: $heading-five-font-size;
 			line-height: $heading-five-font-height;
 			letter-spacing: $heading-five-font-spacing;
+		}
+
+		@include modifier(h1, h2, h3, h4, h5) {
+			color: $color-extended-neutral-10;
 		}
 	}
 
@@ -117,20 +130,6 @@
 		font-weight: $tag-font-weight;
 		line-height: $tag-font-height;
 		letter-spacing: $tag-font-spacing;
-	}
-}
-
-// Theme: None
-// RTL: True
-// Set dark color for global elements
-@include sui-class($rtl: true, $theme: false) {
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	p {
-		font-family: $font-family-default;
 	}
 }
 

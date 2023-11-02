@@ -35,6 +35,7 @@ const Search = ({ ...props }) => {
 // Set story arguments.
 Search.args = {
 	variation: "basic",
+	placeholder: "Search",
 	allowClear: true,
 	searchMinChars: 2,
 	defaultValue: "",
@@ -52,6 +53,12 @@ Search.argTypes = {
 				basic: "Basic Search",
 				smart: "Smart Search",
 			},
+		},
+	},
+	placeholder: {
+		name: "Placeholder",
+		control: {
+			type: "text",
 		},
 	},
 	defaultValue: {
