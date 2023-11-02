@@ -37,7 +37,6 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const onCheckBoxChange = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => {
 			e.stopPropagation()
-			e.preventDefault()
 
 			if (onCheck) {
 				onCheck(isExpanded)
@@ -80,7 +79,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			{...(interactionMethods ?? {})}
 			data-testid="accordion-item"
 		>
-			{/* 
+			{/*
 				Rendering the Checkbox component outside the Accordion Header, to comply with
 				the accessibility principle that "Interactive controls must not be nested." 
 				This approach ensures that the Checkbox can be interacted with by all users, 
