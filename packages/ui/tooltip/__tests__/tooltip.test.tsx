@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Tooltip } from "../src"
 
 describe("@wpmudev/sui-tooltip", () => {
@@ -35,5 +35,10 @@ describe("@wpmudev/sui-tooltip", () => {
 
 		// Use an assertion to check if the description is present in the rendered content
 		expect(screen.getByText(description)).toBeInTheDocument()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Tooltip label={label}>{description}</Tooltip>)
 	})
 })
