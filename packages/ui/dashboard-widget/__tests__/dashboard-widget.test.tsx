@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { DashboardWidget } from "../src"
 
 describe("@wpmudev/sui-dashboard-widget", () => {
@@ -55,5 +55,10 @@ describe("@wpmudev/sui-dashboard-widget", () => {
 		expect(screen.getByTestId("dashboard-widget")).toHaveClass(
 			"sui-dashboard-widget--disabled",
 		)
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<DashboardWidget />)
 	})
 })
