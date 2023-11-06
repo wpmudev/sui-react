@@ -5,7 +5,7 @@ import { FormField } from "@wpmudev/sui-form-field"
 import { PasswordField as SuiPasswordField } from "../src"
 
 // Import documentation
-import docs from "./ReactFieldPassword.mdx"
+import docs from "./PasswordField.mdx"
 
 // Default settings
 export default {
