@@ -17,7 +17,7 @@ const Integration: React.FC<IntegrationProps> = ({
 	additionalInfo = "",
 	image,
 	isDisabled = false,
-	active = false,
+	active = true,
 	isSettings = false,
 	isPro = false,
 	onSettingsClick,
