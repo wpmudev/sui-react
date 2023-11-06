@@ -13,6 +13,7 @@ import { TreeViewInfo } from "./tree-view-info"
  * @return {JSX.Element} - JSX Element representing the TreeViewGroup component
  */
 const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
+	id,
 	icon,
 	title = "",
 	className = "",
@@ -25,9 +26,10 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 	const classNames = generateCN("sui-tree-view__group", {}, className ?? "")
 
 	return (
-		<TreeViewItem isExpanded={isOpen} isGroup={true}>
+		<TreeViewItem id={id} isExpanded={isOpen} isGroup={true}>
 			{/* TreeViewInfo represents the group header with expand/collapse functionality */}
 			<TreeViewInfo
+				id={id}
 				isExpanded={isOpen}
 				onClick={() => setIsOpen(!isOpen)}
 				isGroup={true}

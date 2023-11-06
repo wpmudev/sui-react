@@ -23,7 +23,6 @@ const TreeView: React.FC<TreeViewProps> = ({
 	const classNames = generateCN("sui-tree-view", {}, className ?? "")
 	const id = useId()
 	const treeViewId = `sui-tree-view-${id}`
-
 	return (
 		<TreeViewProvider value={{ allowCheck, showIcons, id: treeViewId }}>
 			{/* TreeView component renders a tree structure with a list */}
