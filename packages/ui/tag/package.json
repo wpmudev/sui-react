@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-tag",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "WPMU DEV Shared UI React Tag Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -53,7 +53,7 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-utils": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.4",
     "react": "^18.2.0"
   }
 }

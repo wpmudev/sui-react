@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-summary-box",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "WPMU DEV Shared UI Summary Box Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -48,9 +48,9 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "devDependencies": {
-    "@wpmudev/sui-box": "^0.0.2",
-    "@wpmudev/sui-grid": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1",
+    "@wpmudev/sui-box": "^0.0.5",
+    "@wpmudev/sui-grid": "^0.0.4",
+    "@wpmudev/sui-utils": "^0.0.4",
     "react": "^18.2.0"
   }
 }

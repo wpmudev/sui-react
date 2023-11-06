@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-tree-view",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "WPMU DEV Shared UI React Tree View Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -58,9 +58,9 @@
     "react-prism-editor": "^1.1.2"
   },
   "dependencies": {
-    "@wpmudev/sui-checkbox": "^0.0.1",
-    "@wpmudev/sui-hooks": "^0.0.1",
-    "@wpmudev/sui-tooltip": "^0.0.2",
-    "@wpmudev/sui-utils": "^0.0.1"
+    "@wpmudev/sui-checkbox": "^0.0.4",
+    "@wpmudev/sui-hooks": "^0.0.4",
+    "@wpmudev/sui-tooltip": "^0.0.5",
+    "@wpmudev/sui-utils": "^0.0.4"
   }
 }

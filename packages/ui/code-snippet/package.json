@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-code-snippet",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "WPMU DEV Shared UI React Code Snippet Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -54,8 +54,8 @@
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
     "@types/prismjs": "1.26.1",
-    "@wpmudev/sui-tooltip": "^0.0.2",
-    "@wpmudev/sui-utils": "^0.0.1",
+    "@wpmudev/sui-tooltip": "^0.0.5",
+    "@wpmudev/sui-utils": "^0.0.4",
     "prismjs": "^1.29.0",
     "react": "^18.2.0"
   }

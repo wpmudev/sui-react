@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-dashboard-widget",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "WPMU DEV Shared UI React Dashboard Widget Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -49,9 +49,9 @@
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-button": "^0.0.2",
-    "@wpmudev/sui-table": "^0.0.2",
-    "@wpmudev/sui-utils": "^0.0.1",
+    "@wpmudev/sui-button": "^0.0.5",
+    "@wpmudev/sui-table": "^0.0.5",
+    "@wpmudev/sui-utils": "^0.0.4",
     "react": "^18.2.0"
   }
 }

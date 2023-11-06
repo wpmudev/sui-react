@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-radio",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "WPMUDEV Shared UI Radio",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -47,9 +47,9 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "dependencies": {
-    "@wpmudev/sui-hooks": "^0.0.1",
-    "@wpmudev/sui-tag": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1"
+    "@wpmudev/sui-hooks": "^0.0.4",
+    "@wpmudev/sui-tag": "^0.0.4",
+    "@wpmudev/sui-utils": "^0.0.4"
   },
   "clean-package": "../../../postpack.config.json"
 }

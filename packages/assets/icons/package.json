@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-icons",
   "description": "SUI Icons Pack, the WPMU DEV Products icons font.",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "license": "GPL-2.0",
   "keywords": [
     "wpmudev",
@@ -73,7 +73,7 @@
     "ts-dedent": "^2.2.0"
   },
   "dependencies": {
-    "@wpmudev/sui-icon": "^0.0.1"
+    "@wpmudev/sui-icon": "^0.0.4"
   },
   "clean-package": "./postpack.config.json"
 }

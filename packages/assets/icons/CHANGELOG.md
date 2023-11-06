@@ -1,5 +1,28 @@
 # Change Log
 
+## 0.0.5
+
+### Patch Changes
+
+- Minor release
+- Updated dependencies
+  - @wpmudev/sui-icon@0.0.4
+
+## 0.0.4
+
+### Patch Changes
+
+- minor changes
+- Updated dependencies
+  - @wpmudev/sui-icon@0.0.3
+
+## 0.0.3
+
+### Patch Changes
+
+- Minor version
+  - @wpmudev/sui-icon@0.0.2
+
 ## 0.0.2
 
 ### Patch Changes

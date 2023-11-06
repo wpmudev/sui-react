@@ -12,7 +12,7 @@ import * as ProgressBar from "@wpmudev/sui-progress-bar"
 import * as Select from "@wpmudev/sui-select"
 import * as Sidebar from "@wpmudev/sui-sidebar"
 import * as SummaryBox from "@wpmudev/sui-summary-box"
-import * as Tabs from "@wpmudev/sui-tabs"
+// import * as Tabs from "@wpmudev/sui-tabs"
 import * as TreeView from "@wpmudev/sui-tree-view"
 import * as Uploader from "@wpmudev/sui-uploader"
 import * as FieldList from "@wpmudev/sui-field-list"
@@ -41,7 +41,7 @@ export {
 	Select,
 	Sidebar,
 	SummaryBox,
-	Tabs,
+	// Tabs,
 	TreeView,
 	Uploader,
 	FieldList,
