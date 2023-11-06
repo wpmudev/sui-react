@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render, fireEvent } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Pagination } from "../src"
 
 const itemList = [
@@ -52,5 +52,15 @@ describe("@wpmudev/sui-pagination", () => {
 		// Go to the previous page
 		fireEvent.click(prevButton)
 		expect(props.onChange).toHaveBeenCalledWith(1)
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Pagination {...props} />, {
+			rules: {
+				// This have been tested and it's not affecting the a11y
+				"nested-interactive": { enabled: false },
+			},
+		})
 	})
 })
