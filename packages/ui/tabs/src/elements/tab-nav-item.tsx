@@ -65,7 +65,7 @@ const TabNavItem: FC<TabNavItemProps> = ({
 			})}
 			aria-selected={isActive}
 			aria-controls={`${tabId}--panel-${id}`}
-			tabIndex={isActive ? 0 : -1}
+			tabIndex={isActive && !isDisabled ? 0 : -1}
 			onClick={onTabClick}
 			{...(isDisabled && { disabled: true })}
 			{...(interactionMethods ?? {})}
