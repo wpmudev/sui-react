@@ -24,8 +24,8 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 	return (
 		pagesArray.length > 1 && (
 			<div className="sui-pagination" data-testid="pagination">
-				<ul className="sui-pagination__nav">
-					<li className="sui-pagination__item">
+				<ul className="sui-pagination__nav" role="tablist">
+					<li className="sui-pagination__item" role="tab">
 						<Button
 							className="sui-pagination__button"
 							color="black"
@@ -41,7 +41,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						</Button>
 					</li>
 					{startIndex > 1 && skip && (
-						<li className="sui-pagination__item">
+						<li className="sui-pagination__item" role="tab">
 							<Button
 								className="sui-pagination__button"
 								color="black"
@@ -55,7 +55,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						</li>
 					)}
 					{startIndex > 0 && (
-						<li className="sui-pagination__item">
+						<li className="sui-pagination__item" role="tab">
 							<Button
 								color="black"
 								appearance="tertiary"
@@ -95,7 +95,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							)
 						})}
 					{endIndex < pages - 1 && (
-						<li className="sui-pagination__item">
+						<li className="sui-pagination__item" role="tab">
 							<Button
 								color="black"
 								appearance="tertiary"
@@ -113,7 +113,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						</li>
 					)}
 					{endIndex < pages && skip && (
-						<li className="sui-pagination__item">
+						<li className="sui-pagination__item" role="tab">
 							<Button
 								color="black"
 								appearance="tertiary"
@@ -126,7 +126,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							</Button>
 						</li>
 					)}
-					<li className="sui-pagination__item">
+					<li className="sui-pagination__item" role="tab">
 						<Button
 							className="sui-pagination__button"
 							color="black"
