@@ -2,6 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render, fireEvent } from "@testing-library/react"
 import { DatePicker, DatePickerProps } from "../src"
+import { a11yTest } from "@wpmudev/sui-utils"
 
 describe("@wpmudev/sui-date-picker", () => {
 	const Component = (propsList: DatePickerProps) => {
@@ -67,5 +68,10 @@ describe("@wpmudev/sui-date-picker", () => {
 
 		// Assert that the popover is now open
 		expect(popover).toHaveClass("sui-date-picker__popover--open")
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Component />)
 	})
 })
