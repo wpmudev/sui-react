@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.5
+
+### Patch Changes
+
+- fix(tabs): tabIndex when active
+
 ## 0.0.4
 
 ### Patch Changes
