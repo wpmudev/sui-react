@@ -11,6 +11,7 @@ import { IconProps } from "@wpmudev/sui-icon"
 interface TabsProps extends HTMLProps<HTMLDivElement> {
 	className?: string // Additional CSS class names for the `Tabs` component.
 	children?: React.ReactNode[] // The children components rendered inside the `Tabs` component.
+	onSwitchTab?(tabId: string): void
 }
 
 /**
@@ -68,7 +69,9 @@ interface TabNavItemProps {
 }
 
 // Interface definition for the TabProviderProps
-interface TabProviderProps extends Omit<ProviderProps<any>, "value"> {}
+interface TabProviderProps extends Omit<ProviderProps<any>, "value"> {
+	onSwitchTab?: Pick<TabsProps, "onSwitchTab">
+}
 
 // Nav scroll directions
 type TabNavScrollDirection = "right" | "left"
