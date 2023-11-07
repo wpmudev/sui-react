@@ -30,7 +30,7 @@ const LoadingButton: React.FC<LoadingButtonProps> = ({
 			{...props}
 			isUnwrapped={isLoading}
 		>
-			{isLoading && <Loader />}
+			{isLoading && <Loader>{children}</Loader>}
 			{!isLoading && children}
 		</Base>
 	)
