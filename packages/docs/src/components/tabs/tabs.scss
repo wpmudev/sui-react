@@ -39,7 +39,6 @@ $breakpoints: (
 }
 
 .csb-tabs {
-
 	&__menu {
 		display: flex;
 		flex-flow: row nowrap;
@@ -62,14 +61,13 @@ $breakpoints: (
 
 		&:hover,
 		&:active {
-			color: #286EF1;
+			color: #0059ff;
 		}
 
 		&[aria-selected="true"] {
-
 			.csb-tabs__button-text {
-				color: #286EF1;
-				box-shadow: inset 0 -2px 0 0 #286EF1;
+				color: #0059ff;
+				box-shadow: inset 0 -2px 0 0 #0059ff;
 			}
 		}
 
