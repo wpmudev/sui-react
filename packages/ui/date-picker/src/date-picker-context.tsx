@@ -56,7 +56,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 	} = props
 
 	// Create a ref to access the dropdown's outer container element.
-	const dropdownRef = useRef<HTMLDivElement | null>(null)
+	const datepickerRef = useRef<HTMLDivElement | null>(null)
 
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const [listType, setListType] = useState<"" | "months" | "years">("months")
@@ -98,7 +98,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 	}, [props.startDate, props.endDate])
 
 	// Handle the closing of the dropdown when clicking outside the component.
-	useOuterClick(dropdownRef, () => {
+	useOuterClick(datepickerRef, () => {
 		if (isSingle) {
 			setIsOpen(false)
 		}
@@ -309,7 +309,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		>
 			{props?.children &&
 				React.cloneElement(props.children as React.ReactElement, {
-					ref: dropdownRef,
+					ref: datepickerRef,
 				})}
 		</DatePickerContext.Provider>
 	)
