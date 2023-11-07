@@ -4,7 +4,7 @@ import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { a11yTest } from "@wpmudev/sui-utils"
 
-describe("@wpmudev/sui-field-password", () => {
+describe("@wpmudev/sui-password-field", () => {
 	const Component = () => <PasswordField id="password-field-1" />
 
 	// Test case: Ensure that the PasswordFiled renders correctly
