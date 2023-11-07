@@ -5,7 +5,7 @@ import * as ColorPicker from "@wpmudev/sui-color-picker"
 import * as DatePicker from "@wpmudev/sui-date-picker"
 import * as Dropdown from "@wpmudev/sui-dropdown"
 import * as EmptyState from "@wpmudev/sui-empty-state"
-import * as FieldPassword from "@wpmudev/sui-field-password"
+import * as PasswordField from "@wpmudev/sui-password-field"
 import * as Modal from "@wpmudev/sui-modal"
 import * as Notification from "@wpmudev/sui-notification"
 import * as ProgressBar from "@wpmudev/sui-progress-bar"
@@ -34,7 +34,7 @@ export {
 	DatePicker,
 	Dropdown,
 	EmptyState,
-	FieldPassword,
+	PasswordField,
 	Modal,
 	Notification,
 	ProgressBar,
