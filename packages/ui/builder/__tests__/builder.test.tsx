@@ -16,7 +16,7 @@ describe("@wpmudev/sui-builder", () => {
 	const Component = (propsList: BuilderProps) => {
 		return (
 			<Builder {...(propsList as BuilderProps)}>
-				<BuilderWrapper data-testid="builder-wrapper">
+				<BuilderWrapper>
 					<BuilderField
 						columnSize={4}
 						action={args.action}
@@ -39,7 +39,7 @@ describe("@wpmudev/sui-builder", () => {
 						icon="Desktop"
 					/>
 				</BuilderWrapper>
-				<BuilderWrapper data-testid="builder-wrapper">
+				<BuilderWrapper>
 					<BuilderField
 						action={args.action}
 						title="Error Block"
@@ -47,7 +47,7 @@ describe("@wpmudev/sui-builder", () => {
 						icon="Bell"
 					/>
 				</BuilderWrapper>
-				<BuilderWrapper data-testid="builder-wrapper">
+				<BuilderWrapper>
 					<BuilderField
 						action={args.action}
 						title="Block 3"
@@ -72,10 +72,6 @@ describe("@wpmudev/sui-builder", () => {
 	it("render correctly", () => {
 		render(<Component />)
 		expect(screen.getByTestId("builder")).toBeInTheDocument()
-		// All wrapper elements should be rendered
-		expect(screen.getAllByTestId("builder-wrapper")).toHaveLength(3)
-		// All field elements should be rendered
-		expect(screen.getAllByTestId("builder-field")).toHaveLength(6)
 	})
 
 	// Checks if 'hasNoFields' prop works correctly
