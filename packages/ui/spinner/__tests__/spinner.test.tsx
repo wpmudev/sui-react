@@ -1,7 +1,7 @@
 import React, { RefObject, useRef } from "react"
 import "@testing-library/jest-dom"
 import { render, screen, renderHook, waitFor } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Spinner, useSpinner } from "../src"
 
 const mockUseRef = (obj: any) => () =>
@@ -57,6 +57,11 @@ describe("@wpmudev/sui-spinner", () => {
 
 		// Check that the spinner has the expected CSS class for absolute positioning.
 		expect(spinner).toHaveClass("sui-spinner--absolute")
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Spinner />)
 	})
 
 	// eslint-disable-next-line jest/no-commented-out-tests

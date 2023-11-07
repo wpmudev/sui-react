@@ -1,5 +1,5 @@
 {
-  "name": "@wpmudev/sui-field-password",
+  "name": "@wpmudev/sui-password-field",
   "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Password Field",
   "keywords": [],

@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { Input, InputProps } from "@wpmudev/sui-input"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 
-import { PasswordFieldProps } from "./field-password.types"
+import { PasswordFieldProps } from "./password-field.types"
 
 const PasswordField: React.FC<PasswordFieldProps> = ({
 	id,
@@ -52,7 +52,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	}
 
 	return (
-		<div className="sui-password">
+		<div className="sui-password" data-testid="password-field">
 			<Input {...(inputAttrs as InputProps)} />
 			<Button {...(buttonProps as ButtonProps)}>{buttonProps.label}</Button>
 		</div>

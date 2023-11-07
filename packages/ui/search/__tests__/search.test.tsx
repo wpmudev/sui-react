@@ -2,6 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { Search, SearchProps } from "../src"
+import { a11yTest } from "@wpmudev/sui-utils"
 
 describe("@wpmudev/sui-search", () => {
 	const Component = (propsList: SearchProps) => {
@@ -14,5 +15,10 @@ describe("@wpmudev/sui-search", () => {
 		render(<Component />)
 		// Assert that the date picker element is in the document
 		expect(screen.getByTestId("search")).toBeInTheDocument()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Component />)
 	})
 })

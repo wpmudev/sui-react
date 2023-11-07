@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom" // This is still needed to extend Jest's expect
 import { within } from "@testing-library/dom"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { render, screen } from "@testing-library/react"
 import { Button } from "@wpmudev/sui-button"
 
@@ -51,5 +51,10 @@ describe("@wpmudev/sui-button", () => {
 		// Assert the presence of the button label and its class
 		expect(screen.getByTestId("button-label")).toBeInTheDocument()
 		expect(screen.getByTestId("button")).toHaveClass("sui-button--primary-red")
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Button>Button</Button>)
 	})
 })

@@ -1,10 +1,7 @@
 import React, { MouseEvent, KeyboardEvent } from "react"
 import classnames from "classnames"
 import { render } from "@testing-library/react"
-import { axe, toHaveNoViolations } from "jest-axe"
-
-// use "toHaveNoViolations"
-//expect.extend(toHaveNoViolations)
+import { axe } from "jest-axe"
 
 /**
  * Generate class names based on the prop variables.
@@ -283,11 +280,12 @@ const chunkArray = (arr: any[], size: number) => {
  * If the test is on, it checks the component for accessibility issues using the Axe library.
  *
  * @param {React.ReactElement} component - The React component to be tested for accessibility.
+ * @param {Object}             config    - axe configuration
  */
-const a11yTest = async (component: React.ReactElement) => {
+const a11yTest = async (component: React.ReactElement, config?: object) => {
 	if (process.env.SUI_A11Y_TEST) {
 		const { container } = render(component)
-		const results = await axe(container)
+		const results = await axe(container, config)
 		expect(results).toHaveNoViolations()
 	}
 }

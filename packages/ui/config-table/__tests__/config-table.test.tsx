@@ -1,6 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
+import { a11yTest } from "@wpmudev/sui-utils"
 
 import { ConfigTable } from "../src"
 import { Configs } from "../stories/config-table.stories"
@@ -21,5 +22,10 @@ describe("@wpmudev/sui-config-table", () => {
 		render(<ConfigTable configs={Configs} className="__test-class__" />)
 		// Verify that the ConfigTable component has the custom className
 		expect(screen.getByTestId("table")).toHaveClass("__test-class__")
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<ConfigTable configs={Configs} />)
 	})
 })
