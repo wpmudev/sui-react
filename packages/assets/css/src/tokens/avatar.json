@@ -37,11 +37,11 @@
 			},
 			"size": {
 				"sm": {
-					"value": "10px",
+					"value": "12px",
 					"type": "sizing"
 				},
 				"md": {
-					"value": "14px",
+					"value": "16px",
 					"type": "sizing"
 				}
 			}
