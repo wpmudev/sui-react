@@ -1,4 +1,10 @@
-import React, { createContext, useCallback, useEffect, useState } from "react"
+import React, {
+	createContext,
+	useRef,
+	useCallback,
+	useEffect,
+	useState,
+} from "react"
 import {
 	isSameMonth,
 	addYears,
@@ -14,6 +20,7 @@ import {
 	setMonth,
 	setYear,
 } from "date-fns"
+import { useOuterClick } from "@wpmudev/sui-hooks"
 
 import { predefinedRanges, getMonths, parseDate } from "./helpers"
 import { CALENDARS } from "./date-picker"
@@ -47,6 +54,9 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		definedRanges = predefinedRanges,
 		isDisabled,
 	} = props
+
+	// Create a ref to access the dropdown's outer container element.
+	const dropdownRef = useRef<HTMLDivElement | null>(null)
 
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const [listType, setListType] = useState<"" | "months" | "years">("months")
@@ -86,6 +96,13 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		setDateRange(defaultRange)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [props.startDate, props.endDate])
+
+	// Handle the closing of the dropdown when clicking outside the component.
+	useOuterClick(dropdownRef, () => {
+		if (isSingle) {
+			setIsOpen(false)
+		}
+	})
 
 	// Extract startDate and endDate from the dateRange state.
 	const { startDate, endDate } = dateRange
@@ -290,7 +307,10 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 				handlers,
 			}}
 		>
-			{props?.children as React.ReactNode}
+			{props?.children &&
+				React.cloneElement(props.children as React.ReactElement, {
+					ref: dropdownRef,
+				})}
 		</DatePickerContext.Provider>
 	)
 }
