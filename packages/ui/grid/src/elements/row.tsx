@@ -35,7 +35,7 @@ const Row: React.FC<RowProps> = ({ align, className, children, ...props }) => {
 	}
 
 	return (
-		<div className={classNames} {...props} data-testid="grid">
+		<div className={classNames} data-testid="grid" {...props}>
 			{children}
 		</div>
 	)
