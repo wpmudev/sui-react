@@ -15,7 +15,7 @@ const Tabs: React.FC<TabsProps> = ({ className, children, ...props }) => {
 	return (
 		<TabProvider
 			onSwitchTab={props?.onSwitchTab}
-			activeTab={props?.activeIndex}
+			activeIndex={props?.activeIndex}
 		>
 			<div className={classNames} {...props} data-testid="tabs">
 				{children}

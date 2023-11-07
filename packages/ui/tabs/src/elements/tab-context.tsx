@@ -7,11 +7,11 @@ const TabContext = createContext<TabContextProps | null>(null)
 // Define the TabProvider component as a functional component (FC) with TabProviderProps as its props
 const TabProvider: FC<TabProviderProps> = ({
 	children,
-	activeTab,
+	activeIndex,
 	onSwitchTab,
 }) => {
 	// State to manage the current active tab index, defaulting to 0
-	const [currentIndex, setCurrentIndex] = useState<number>(activeTab ?? 0)
+	const [currentIndex, setCurrentIndex] = useState<number>(activeIndex ?? 0)
 
 	// Generate a unique ID for the tab context
 	const uniqueId = useId()
