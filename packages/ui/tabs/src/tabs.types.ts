@@ -70,7 +70,7 @@ interface TabNavItemProps {
 
 // Interface definition for the TabProviderProps
 interface TabProviderProps extends Omit<ProviderProps<any>, "value"> {
-	onSwitchTab?: Pick<TabsProps, "onSwitchTab">
+	onSwitchTab: TabsProps["onSwitchTab"]
 }
 
 // Nav scroll directions
