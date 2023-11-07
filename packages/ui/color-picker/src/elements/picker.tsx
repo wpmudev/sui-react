@@ -126,13 +126,31 @@ const Picker: React.FC<ColorPickerProps> = ({
 	)
 
 	// Attach a click event handler to the input field
-	const handleInputKeyDown = useCallback(() => {
-		// Move the cursor one character before the end
-		if (inputRef.current) {
-			const valueLength = inputRef.current.value.length
-			inputRef.current.setSelectionRange(valueLength - 1, valueLength - 1)
-		}
-	}, [])
+	const handleInputKeyDown = useCallback(
+		(event: React.KeyboardEvent<HTMLInputElement>) => {
+			if (inputRef.current) {
+				if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+					event.preventDefault() // Prevent the default behavior (e.g., moving the cursor)
+					let value = parseInt(inputRef.current.value, 10)
+					value = isNaN(value) ? 0 : value
+					if (event.key === "ArrowUp") {
+						value = Math.min(value + 1, 100)
+					} else {
+						value = Math.max(value - 1, 0)
+					}
+					const changeEvent = {
+						target: { value: `${value}%` },
+					} as React.ChangeEvent<HTMLInputElement>
+					inputRef.current.value = `${value}%`
+					handleAlphaChange(changeEvent)
+				} else {
+					const valueLength = inputRef.current.value.length
+					inputRef.current.setSelectionRange(valueLength - 1, valueLength - 1)
+				}
+			}
+		},
+		[inputRef, handleAlphaChange],
+	)
 
 	return (
 		<div className="sui-color-picker__popover">
