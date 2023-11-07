@@ -13,7 +13,10 @@ const Tabs: React.FC<TabsProps> = ({ className, children, ...props }) => {
 
 	// Return a div element with the generated CSS class names and spread any additional props
 	return (
-		<TabProvider onSwitchTab={props?.onSwitchTab}>
+		<TabProvider
+			onSwitchTab={props?.onSwitchTab}
+			activeTab={props?.activeIndex}
+		>
 			<div className={classNames} {...props} data-testid="tabs">
 				{children}
 			</div>

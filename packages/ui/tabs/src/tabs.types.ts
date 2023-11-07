@@ -11,7 +11,8 @@ import { IconProps } from "@wpmudev/sui-icon"
 interface TabsProps extends HTMLProps<HTMLDivElement> {
 	className?: string // Additional CSS class names for the `Tabs` component.
 	children?: React.ReactNode[] // The children components rendered inside the `Tabs` component.
-	onSwitchTab?(tabId: string): void
+	activeIndex?: number
+	onSwitchTab?(tabIndex: number, tabId: string | number): void
 }
 
 /**
@@ -21,8 +22,8 @@ interface TabsProps extends HTMLProps<HTMLDivElement> {
  */
 interface TabContextProps {
 	id: string // Unique ID for the tab context.
-	currentIndex?: number // Current active tab index (optional).
-	switchTab: (index: number) => void // Function to switch to a specific tab by index.
+	currentIndex?: number // Current active tab index
+	switchTab: (tabIndex: number) => void // Function to switch to a specific tab by tab id.
 }
 
 /**
@@ -70,6 +71,7 @@ interface TabNavItemProps {
 
 // Interface definition for the TabProviderProps
 interface TabProviderProps extends Omit<ProviderProps<any>, "value"> {
+	activeIndex: TabsProps["activeIndex"]
 	onSwitchTab: TabsProps["onSwitchTab"]
 }
 
