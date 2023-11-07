@@ -72,6 +72,10 @@ describe("@wpmudev/sui-builder", () => {
 	it("render correctly", () => {
 		render(<Component />)
 		expect(screen.getByTestId("builder")).toBeInTheDocument()
+		// All wrapper elements should be rendered
+		expect(screen.getAllByTestId("builder-wrapper")).toHaveLength(4)
+		// All field elements should be rendered
+		expect(screen.getAllByTestId("builder-field")).toHaveLength(6)
 	})
 
 	// Checks if 'hasNoFields' prop works correctly
