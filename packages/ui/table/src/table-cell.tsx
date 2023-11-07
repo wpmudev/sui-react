@@ -109,10 +109,10 @@ const TableCell: React.FC<TableCellProps> = ({
 				},
 				className,
 			)}
-			{...(isHeading ? { scope: "col" } : {})}
-			{...props}
-			role="rowheader"
+			{...(isHeading && { scope: "col" })}
+			role={isHeading ? "rowheader" : "cell"}
 			style={style}
+			{...props}
 		>
 			{hasDragIcon && (
 				<Icons.Grip className="sui-table__cell--drag" size="sm" />
