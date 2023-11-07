@@ -1,5 +1,11 @@
 # @wpmudev/sui-css
 
+## 0.0.6
+
+### Patch Changes
+
+- Add new props + css fix
+
 ## 0.0.5
 
 ### Patch Changes

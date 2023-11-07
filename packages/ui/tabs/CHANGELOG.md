@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.0.8
+
+### Patch Changes
+
+- Add new props + css fix
+
 ## 0.0.7
 
 ### Patch Changes
