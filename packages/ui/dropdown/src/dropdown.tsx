@@ -10,11 +10,9 @@ import React, {
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 import { useOuterClick } from "@wpmudev/sui-hooks"
-
 import { DropdownMenu } from "./dropdown-menu"
 import { DropdownMenuItem } from "./dropdown-menu-item"
 import { DropdownMenuGroup } from "./dropdown-menu-group"
-
 import { DropdownProps, DropdownRefProps } from "./dropdown.types"
 
 /**
@@ -112,7 +110,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							color="black"
 							appearance="secondary"
 							isSmall={isSmall ?? false}
-							aria-activedescendant={isOpen ? `${id}-${current}` : ""}
+							//aria-activedescendant={isOpen ? `${id}-${current}` : ""}
 							onClick={() => setIsOpen(!isOpen)}
 							{...(!iconOnly && { endIcon: "chevron-down" })}
 							{...props}
@@ -124,12 +122,14 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 				<div
 					id={id}
 					tabIndex={-1}
-					role="listbox"
 					className={generateCN("sui-dropdown__popover", {
 						[`direction-${direction}`]: !isEmpty(direction ?? ""),
 						"fixed-height": isFixedHeight,
 					})}
-					{...(label && { "aria-labelledby": `${id}__label` })}
+					{...(label && {
+						"aria-labelledby": `${id}__label`,
+						"aria-label": `${id}__label`,
+					})}
 				>
 					{renderContentOnTop && !!children && (
 						<div className="sui-dropdown__menu-content">{children}</div>
