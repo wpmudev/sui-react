@@ -1,7 +1,6 @@
 import React from "react"
 
 import { Table, TableBody, TableCell, TableRow } from "@wpmudev/sui-table"
-import { Box } from "@wpmudev/sui-box"
 import { isEmpty } from "@wpmudev/sui-utils"
 
 import { ConfigTableDetailsTypes } from "./config-table.types"
@@ -21,7 +20,7 @@ const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({ config }) => {
 	})
 
 	return (
-		<Box className="sui-config-table__details">
+		<div className="sui-config-table__details">
 			<div className="sui-config-table__details-header">
 				<h3 className="sui-heading--h5 sui-config-table__details--title">
 					{config?.name}
@@ -46,7 +45,7 @@ const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({ config }) => {
 					</TableBody>
 				</Table>
 			</div>
-		</Box>
+		</div>
 	)
 }
 
