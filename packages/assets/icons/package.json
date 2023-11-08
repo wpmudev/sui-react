@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-icons",
   "description": "SUI Icons Pack, the WPMU DEV Products icons font.",
-  "version": "0.0.5",
+  "version": "0.0.15",
   "license": "GPL-2.0",
   "keywords": [
     "wpmudev",
@@ -27,6 +27,7 @@
     }
   ],
   "main": "src/components/index.ts",
+  "style": "dist/css/sui-icons.css",
   "input": "./src",
   "output": "./dist",
   "directories": {
@@ -44,8 +45,6 @@
     "directory": "packages/sui-icons"
   },
   "scripts": {
-    "prepare": "npm run clean",
-    "clean": "rm -rf dist && rm -rf lib",
     "build": "gulp",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
