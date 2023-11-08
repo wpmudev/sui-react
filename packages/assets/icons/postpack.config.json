@@ -9,7 +9,8 @@
         "import": "./dist/index.mjs",
         "require": "./dist/index.js",
         "./fonts": "./dist/fonts",
-        "./svg": "./dist/svg"
+        "./svg": "./dist/svg",
+        "./css": "./dist/css"
       },
       "./package.json": "./package.json"
     }
