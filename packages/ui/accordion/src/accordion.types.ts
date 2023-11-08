@@ -12,7 +12,9 @@ interface AccordionProps extends Omit<HTMLProps<HTMLDivElement>, "className"> {
 	/** Remove side borders */
 	noSideBorders?: boolean
 	/** Accordion state */
-	state?: "" | "neutral" | "informative" | "success" | "warning" | "critical" // The semantic types for the accordion
+	state?: "" | "neutral" | "informative" | "success" | "warning" | "critical" // The semantic types for the accordion,
+	/** Whether to allow multiple accordion items to be expanded or not */
+	allowMultipleExpanded?: boolean
 }
 
 type AccordionCheckboxProps =

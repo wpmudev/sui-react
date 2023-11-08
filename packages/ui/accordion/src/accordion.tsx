@@ -10,6 +10,7 @@ const Accordion: React.FC<AccordionProps> = ({
 	state,
 	noBorderRadius = false,
 	noSideBorders = false,
+	allowMultipleExpanded = true,
 	...props
 }) => {
 	// Generate CSS class names for the Accordion component
