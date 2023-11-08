@@ -32,7 +32,7 @@
 				padding: $spacing-xl 0;
 			}
 
-			@include media(max-width, lg) {
+			@include media(max-width, sm) {
 				padding: $spacing-lg 0;
 			}
 

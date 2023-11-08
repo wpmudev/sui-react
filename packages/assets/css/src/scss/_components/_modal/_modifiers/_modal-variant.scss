@@ -40,8 +40,21 @@
 					}
 				}
 
+				@include media(max-width, lg) {
+					padding: $modal-spacing-lg 0;
+				}
+			}
+
+			// variant: app-connect
+			@include modifier(simple, app-connect) {
 				@include modifies-element(body) {
-					padding: $spacing-xl $spacing-xxl;
+					margin: $spacing-xl 0;
+					padding: 0 $spacing-xxl;
+
+					@include media(max-width, sm) {
+						margin: $spacing-lg 0;
+						padding: 0 $spacing-lg;
+					}
 				}
 			}
 		}
