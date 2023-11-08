@@ -26,7 +26,7 @@ const BasicBox = ({ ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={{ backgroundColor: "white" }}>
+				<div style={{ backgroundColor: "white", borderRadius: "4px" }}>
 					<SuiBasicBlock
 						{...props}
 						headerActions={
@@ -45,9 +45,17 @@ const BasicBox = ({ ...props }) => {
 							</Fragment>
 						}
 						footerActions={[
-							"Example of footer content on left",
 							<Button key={0} appearance="primary" color="blue" isSmall={true}>
 								Save changes
+							</Button>,
+							<Button
+								key={1}
+								startIcon="power-off"
+								appearance="tertiary"
+								color="red"
+								isSmall={true}
+							>
+								Deactivate
 							</Button>,
 						]}
 					>
