@@ -1,5 +1,11 @@
 # @wpmudev/sui-css
 
+## 0.0.7
+
+### Patch Changes
+
+- fix
+
 ## 0.0.6
 
 ### Patch Changes
