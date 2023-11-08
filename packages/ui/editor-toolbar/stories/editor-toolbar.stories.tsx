@@ -35,7 +35,6 @@ export const EditorToolbar = ({ ...props }) => {
 				appearance="tertiary"
 				icon="save"
 				color="black"
-				isSmall={true}
 				isResponsive={true}
 			>
 				Save Draft
@@ -45,7 +44,6 @@ export const EditorToolbar = ({ ...props }) => {
 				appearance="secondary"
 				icon="show"
 				color="black"
-				isSmall={true}
 				isFullWidth={true}
 				isResponsive={true}
 			>
@@ -56,7 +54,6 @@ export const EditorToolbar = ({ ...props }) => {
 				appearance="primary"
 				icon="globe"
 				color="blue"
-				isSmall={true}
 				isFullWidth={true}
 			>
 				Publish
