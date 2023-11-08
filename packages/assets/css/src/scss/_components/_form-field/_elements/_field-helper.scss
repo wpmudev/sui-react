@@ -14,10 +14,10 @@
 		@include block($block) {
 			@include element(helper) {
 				display: block;
-				margin: $form-field-helper-margin 0 0;
+				margin: $spacing-sm 0 0;
 				font-size: $font-size-xs;
 				line-height: $font-height-xs;
-				letter-spacing: $form-field-helper-font-spacing-md;
+				letter-spacing: $font-spacing-sm;
 			}
 		}
 	}
