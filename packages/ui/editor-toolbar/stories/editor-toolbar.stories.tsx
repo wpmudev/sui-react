@@ -96,7 +96,7 @@ export const EditorToolbar = ({ ...props }) => {
 }
 
 EditorToolbar.args = {
-	title: "",
+	title: "Title",
 	allowBack: true,
 	alignCenter: true,
 }

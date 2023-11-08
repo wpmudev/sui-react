@@ -1,6 +1,6 @@
 import React from "react"
 import "@testing-library/jest-dom"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { render, screen } from "@testing-library/react"
 import { FormField } from "../src"
 
@@ -38,5 +38,10 @@ describe("@wpmudev/sui-form-field", () => {
 
 		// Check if the error message is present in the document
 		expect(screen.getByText(errorMsg)).toBeInTheDocument()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<FormField id="field-1" label="Test label" />)
 	})
 })

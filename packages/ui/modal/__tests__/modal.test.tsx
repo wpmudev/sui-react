@@ -2,6 +2,7 @@ import React, { Fragment, useRef } from "react"
 import "@testing-library/jest-dom"
 import { fireEvent, render, screen } from "@testing-library/react"
 import { Button } from "@wpmudev/sui-button"
+import { a11yTest } from "@wpmudev/sui-utils"
 
 import {
 	Modal,
@@ -104,5 +105,10 @@ describe("@wpmudev/sui-modal", () => {
 		expect(modal).toBeVisible()
 		expect(modal).toHaveClass("sui-modal--sm")
 		expect(modal).toHaveClass("sui-modal--simple")
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Component />)
 	})
 })

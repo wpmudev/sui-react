@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { SettingBlock } from "../src"
 
 describe("@wpmudev/sui-setting-block", () => {
@@ -42,5 +42,10 @@ describe("@wpmudev/sui-setting-block", () => {
 		// Check if the "tag" element and "Pro" text are visible when the "isPro" prop is true
 		expect(screen.getByTestId("tag")).toBeVisible()
 		expect(screen.getByText("Pro")).toBeVisible()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<SettingBlock title={title}>{body}</SettingBlock>)
 	})
 })
