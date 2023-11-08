@@ -12,7 +12,7 @@ import { ProgressBarProps } from "./progress-bar.types"
 const ProgressBar: React.FC<ProgressBarProps> = ({
 	label,
 	value,
-	size,
+	size = "md",
 	isInline = false,
 	allowCancel = false,
 	isIndeterminate = false,
@@ -25,6 +25,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 		"sui-progress-bar",
 		{
 			sm: "sm" === size,
+			md: "md" === size,
 			lg: "lg" === size,
 			inline: isInline,
 		},
