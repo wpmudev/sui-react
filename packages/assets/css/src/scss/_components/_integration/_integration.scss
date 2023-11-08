@@ -6,6 +6,5 @@
 @include sui-integration--element.build-description(integration);
 @include sui-integration--element.build-icon(integration);
 
-@include sui-integration--state.edit-hover(integration);
 @include sui-integration--state.edit-focus(integration);
 @include sui-integration--state.edit-disabled(integration);
