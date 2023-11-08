@@ -1,5 +1,47 @@
 # Change Log
 
+## 0.0.17
+
+### Patch Changes
+
+- Updated dependencies
+  - @wpmudev/sui-tabs@0.0.16
+
+## 0.0.16
+
+### Patch Changes
+
+- Updated dependencies
+  - @wpmudev/sui-tabs@0.0.15
+
+## 0.0.15
+
+### Patch Changes
+
+- Updated dependencies
+  - @wpmudev/sui-tabs@0.0.14
+
+## 0.0.14
+
+### Patch Changes
+
+- Updated dependencies
+  - @wpmudev/sui-tabs@0.0.13
+
+## 0.0.13
+
+### Patch Changes
+
+- Updated dependencies
+  - @wpmudev/sui-tabs@0.0.12
+
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies
+  - @wpmudev/sui-tabs@0.0.11
+
 ## 0.0.11
 
 ### Patch Changes

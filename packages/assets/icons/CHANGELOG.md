@@ -1,5 +1,41 @@
 # Change Log
 
+## 0.0.18
+
+### Patch Changes
+
+- fix
+
+## 0.0.17
+
+### Patch Changes
+
+- fix
+
+## 0.0.16
+
+### Patch Changes
+
+- fix
+
+## 0.0.15
+
+### Patch Changes
+
+- fix
+
+## 0.0.14
+
+### Patch Changes
+
+- fix
+
+## 0.0.13
+
+### Patch Changes
+
+- fix
+
 ## 0.0.5
 
 ### Patch Changes
