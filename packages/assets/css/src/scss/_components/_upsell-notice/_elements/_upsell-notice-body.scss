@@ -14,7 +14,7 @@
 		@include block($block) {
 			@include element(body) {
 				p {
-					color: $color-extended-neutral-50;
+					color: $color-extended-neutral-10;
 					margin: 0;
 				}
 			}
