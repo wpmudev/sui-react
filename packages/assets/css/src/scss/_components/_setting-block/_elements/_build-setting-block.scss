@@ -25,8 +25,8 @@
 
 			@include media(max-width, sm) {
 				flex-direction: column;
-				gap: $spacing-md;
-				padding: $spacing-xl;
+				gap: $spacing-lg;
+				padding: $spacing-xl $spacing-lg;
 			}
 		}
 	}
