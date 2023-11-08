@@ -63,7 +63,7 @@ export const EditorToolbar = ({ ...props }) => {
 	}
 
 	return (
-		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
+		<div className="sui-layout">
 			<div className="sui-layout__content">
 				<SuiEditorToolbar {...props} actions={actions}>
 					<SegmentedControl
