@@ -1,8 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { screen, render, fireEvent } from "@testing-library/react"
-
 import { BasicBox } from "../src"
 
 describe("@wpmudev/sui-basic-box", () => {
@@ -57,5 +56,10 @@ describe("@wpmudev/sui-basic-box", () => {
 
 		// Verify that the 'sui-basic-box--focus' class is applied on focus
 		expect(boxEl).toHaveClass("sui-basic-box--focus")
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<BasicBox />)
 	})
 })

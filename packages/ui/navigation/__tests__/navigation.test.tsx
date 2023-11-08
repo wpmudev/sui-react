@@ -1,53 +1,55 @@
 import React, { Fragment } from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Navigation } from "../src"
 
 describe("@wpmudev/sui-navigation", () => {
-	beforeEach(() => {
-		render(
-			<Navigation
-				actions={[<div key={0}>ACTIONS list</div>]}
-				brand={{
-					title: "Smush Pro",
-					description: "Description for Smush Pro",
-				}}
-				user={{
-					user: {
-						image: "https://avatars.githubusercontent.com/u/14994452?v=4",
-						name: "John doe",
-						email: "john.doe@incsub.com",
+	const Component = () => (
+		<Navigation
+			actions={[<div key={0}>ACTIONS list</div>]}
+			brand={{
+				title: "Smush Pro",
+				description: "Description for Smush Pro",
+			}}
+			user={{
+				user: {
+					image: "https://avatars.githubusercontent.com/u/14994452?v=4",
+					name: "John doe",
+					email: "john.doe@incsub.com",
+				},
+				menu: [
+					{
+						id: "the-hub",
+						label: "The Hub",
+						props: {
+							icon: "PluginDefender",
+						},
 					},
-					menu: [
-						{
-							id: "the-hub",
-							label: "The Hub",
-							props: {
-								icon: "PluginDefender",
-							},
+					{
+						id: "product-roadmap",
+						label: "Product Roadmap",
+						props: {
+							icon: "PluginSmush",
 						},
-						{
-							id: "product-roadmap",
-							label: "Product Roadmap",
-							props: {
-								icon: "PluginSmush",
-							},
+					},
+					{
+						id: "product-roadmap",
+						label: "Unlock Pro features",
+						props: {
+							icon: "PluginSmush",
+							variation: "smush",
 						},
-						{
-							id: "product-roadmap",
-							label: "Unlock Pro features",
-							props: {
-								icon: "PluginSmush",
-								variation: "smush",
-							},
-						},
-					],
-				}}
-			>
-				CUSTOM CONTENT
-			</Navigation>,
-		)
+					},
+				],
+			}}
+		>
+			CUSTOM CONTENT
+		</Navigation>
+	)
+
+	beforeEach(() => {
+		render(<Component />)
 	})
 
 	it("renders correctly", () => {
@@ -62,5 +64,10 @@ describe("@wpmudev/sui-navigation", () => {
 	it("user prop renders correctly", () => {
 		expect(screen.getByText("John doe")).toBeVisible()
 		expect(screen.getByText("john.doe@incsub.com")).toBeVisible()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Component />)
 	})
 })

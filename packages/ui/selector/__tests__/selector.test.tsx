@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen, fireEvent } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Selector } from "../src"
 
 describe("@wpmudev/sui-selector", () => {
@@ -74,5 +74,12 @@ describe("@wpmudev/sui-selector", () => {
 
 		// Check that the remove element is in the document.
 		expect(screen.getByTestId("selector-remove")).toBeInTheDocument()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(
+			<Selector name="options" label="Option label" value="option-1" />,
+		)
 	})
 })

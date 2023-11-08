@@ -32,7 +32,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ className = "" }) => {
 
 	return (
 		<FormField id={id} label="Label" helper="Helper text for rich text editor.">
-			<div className={classNames}>
+			<div className={classNames} data-testid="rich-text-editor">
 				<div className="sui-rich-text-editor__header">
 					<SegmentedControl
 						name="type"

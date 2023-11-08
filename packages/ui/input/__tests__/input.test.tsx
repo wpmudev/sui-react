@@ -1,6 +1,6 @@
 import React from "react"
 import "@testing-library/jest-dom"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { screen, render } from "@testing-library/react"
 
 import { Input } from "../src"
@@ -53,5 +53,10 @@ describe("@wpmudev/sui-input", () => {
 		rerender(<Input id="icon" icon="bell" iconPosition="end" />)
 		// Check if the end icon is present in the document
 		expect(screen.getByTestId("input-icon-end")).toBeInTheDocument()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Input id="first-name" />)
 	})
 })
