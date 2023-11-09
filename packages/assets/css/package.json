@@ -37,7 +37,7 @@
   "files": [
     "dist"
   ],
-  "style": "dist/css/sui-css.css",
+  "style": "dist/sui-css.css",
   "publishConfig": {
     "access": "public"
   },
