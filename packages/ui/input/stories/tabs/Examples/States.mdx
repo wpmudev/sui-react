@@ -6,7 +6,7 @@ export const DisabledInputCode = dedent`
 import React from 'react';\n
 import { Input } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Input id="input-id-1" label="Label" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" isDisabled={true} />;
+	return <Input id="input-id-1" label="Label" placeholder="Placeholder" isDisabled={true} />;
 }\n
 export default Example;
 `;
@@ -15,7 +15,7 @@ export const ValueEnteredInputCode = dedent`
 import React from 'react';\n
 import { Input } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Input id="input-id-1" value="Default" label="Label" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" />;
+	return <Input id="input-id-1" value="Default" label="Label" placeholder="Placeholder" />;
 }\n
 export default Example;
 `;
@@ -24,7 +24,7 @@ export const ReadOnlyInputCode = dedent`
 import React from 'react';\n
 import { Input } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Input id="input-id-1" label="Label" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" readOnly={true} />;
+	return <Input id="input-id-1" label="Label" placeholder="Placeholder" isReadOnly={true} />;
 }\n
 export default Example;
 `;
@@ -33,7 +33,7 @@ export const ErrorInputCode = dedent`
 import React from 'react';\n
 import { Input } from '@wpmudev/sui-react';\n
 const Example() => {
-	return <Input id="input-id-1" label="Label" errorId="error-id" errorMessage="There is an error." description="This is a description." descriptionId="desc-id" placeholder="Placeholder" />;
+	return <Input id="input-id-1" label="Label" isError={true} placeholder="Placeholder" />;
 }\n
 export default Example;
 `;
@@ -52,8 +52,6 @@ export default Example;
 		<Input
 			id="input-id-1"
 			label="Label"
-			description="This is a description."
-			descriptionId="desc-id-1"
 			placeholder="Placeholder"
 			isDisabled={true}
 		/>
@@ -75,8 +73,6 @@ export default Example;
 			id="input-id-2"
 			value="Default"
 			label="Label"
-			description="This is a description."
-			descriptionId="desc-id-2"
 			placeholder="Placeholder"
 			icon="close"
 		/>
@@ -97,10 +93,8 @@ export default Example;
 		<Input
 			id="input-id-3"
 			label="Label"
-			description="This is a description."
-			descriptionId="desc-id-3"
 			placeholder="Placeholder"
-			readOnly={true}
+			isReadOnly={true}
 		/>
 	</Preview>
 	<Snippet language="js">{ReadOnlyInputCode}</Snippet>
@@ -113,17 +107,13 @@ export default Example;
 	style={{ paddingRight: 0, paddingLeft: 0 }}
 >
 	<p>
-		Set the <Code small={true}>errorMessage</Code> prop to show the error in
-		the field.
+		Set the <Code small={true}>isError</Code> prop.
 	</p>
 	<Preview wrapper={true}>
 		<Input
 			id="input-id-4"
 			label="Label"
-			errorId="error-id-1"
-			errorMessage="There is an error."
-			description="This is a description."
-			descriptionId="desc-id-4"
+			isError={true}
 			placeholder="Placeholder"
 		/>
 	</Preview>

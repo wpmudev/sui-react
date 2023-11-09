@@ -18,13 +18,13 @@
 				@include modifies-element(label) {
 					font-size: $font-size-xs;
 					line-height: $font-height-xs;
-					letter-spacing: $form-field-label-font-spacing-sm;
+					letter-spacing: $font-spacing-md;
 				}
 
 				@include modifies-element(helper) {
 					font-size: $font-size-xs;
-					line-height: $form-field-helper-font-height-sm;
-					letter-spacing: $form-field-helper-font-spacing-sm;
+					line-height: $font-height-xxs;
+					letter-spacing: $font-spacing-default;
 				}
 			}
 		}

@@ -58,12 +58,25 @@
 					border-color: $value;
 					background: $value;
 					color: $color-extended-neutral-100;
+					@include modifier(outlined) {
+						background: transparent;
+						color: $value;
+					}
 				} @else {
-					@include modifier($name, #{"outlined-" + $name}) {
-						border-color: $value;
-						background: $value;
+					@include modifier($name) {
 						@if $name == white {
 							color: $color-extended-neutral-0;
+							border-color: $value;
+							background: $color-extended-neutral-100;
+						}
+					}
+					@include modifier(#{"outlined-" + $name}) {
+						border-color: $value;
+						color: $value;
+						background: transparent;
+						@if $name == white {
+							color: $value;
+							border-color: $value;
 						}
 					}
 				}

@@ -24,8 +24,13 @@
 				z-index: 999;
 
 				.sui-#{$block-name} {
-					box-shadow: 0 4px 8px 0 $color-shadow-light, 0 4px 20px 0 $color-shadow-dark, 0 12px 16px 0 $color-shadow-default;
+					box-shadow: 0 4px 8px 0 $color-shadow-light,
+						0 4px 20px 0 $color-shadow-dark, 0 12px 16px 0 $color-shadow-default;
 					margin: $notification-spacing-md auto 0 auto;
+				}
+
+				@include media(max-width, sm) {
+					width: 100%;
 				}
 			}
 		}

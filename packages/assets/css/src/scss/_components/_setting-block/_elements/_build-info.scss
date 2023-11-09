@@ -18,6 +18,10 @@
 			@include element(info) {
 				flex: 1 100%;
 				max-width: 240px;
+
+				@include media(max-width, sm) {
+					max-width: 100%;
+				}
 			}
 
 			@include element(info-title) {
