@@ -24,7 +24,7 @@ const SettingBlock = ({ ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={{ backgroundColor: "white" }}>
-					<SuiSettingBlock {...props}>Any Content</SuiSettingBlock>
+					<SuiSettingBlock {...props}>Controls</SuiSettingBlock>
 				</div>
 			</div>
 		</div>
@@ -37,6 +37,8 @@ SettingBlock.args = {
 	description:
 		"Block IP addresses that send POST requests with empty Referer and User-Agent headers.",
 	isPro: false,
+	isFluid: false,
+	actions: null,
 }
 
 // Set controls for story arguments.
@@ -57,6 +59,18 @@ SettingBlock.argTypes = {
 		name: "isPro",
 		control: {
 			type: "boolean",
+		},
+	},
+	isFluid: {
+		name: "isFluid",
+		control: {
+			type: "boolean",
+		},
+	},
+	actions: {
+		name: "actions",
+		control: {
+			type: "string",
 		},
 	},
 }
