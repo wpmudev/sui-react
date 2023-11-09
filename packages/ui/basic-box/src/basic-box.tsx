@@ -10,7 +10,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	title,
 	description,
 	headerActions = null,
-	footerActions = [],
+	footerActions = undefined,
 	className,
 	isPro = false,
 	children,

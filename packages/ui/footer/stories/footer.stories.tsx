@@ -18,11 +18,18 @@ export default {
 }
 
 // Build footer story
-const Footer = ({ example }: { example: string }) => {
+const Footer = ({
+	example,
+	removeBGColor,
+}: {
+	example: string
+	removeBGColor: boolean
+}) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<SuiFooter
+					removeBGColor={removeBGColor}
 					renderBlocks={
 						"free" === example
 							? () => [
@@ -106,6 +113,7 @@ const Footer = ({ example }: { example: string }) => {
 // Set story arguments
 Footer.args = {
 	example: "free",
+	removeBGColor: false,
 }
 
 // Set controls for story arguments
@@ -120,6 +128,10 @@ Footer.argTypes = {
 				pro: "Pro",
 			},
 		},
+	},
+	removeBGColor: {
+		name: "removeBGColor",
+		type: "boolean",
 	},
 }
 
