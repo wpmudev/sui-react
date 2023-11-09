@@ -4,6 +4,7 @@ import React, {
 	useEffect,
 	useRef,
 	ReactNode,
+	ChangeEvent,
 } from "react"
 import { ColorPickerProps } from "../color-picker.types"
 import { CustomPicker, ColorResult } from "react-color"
@@ -128,26 +129,38 @@ const Picker: React.FC<ColorPickerProps> = ({
 	// Attach a click event handler to the input field
 	const handleInputKeyDown = useCallback(
 		(event: React.KeyboardEvent<HTMLInputElement>) => {
-			if (inputRef.current) {
-				if (event.key === "ArrowUp" || event.key === "ArrowDown") {
-					event.preventDefault() // Prevent the default behavior (e.g., moving the cursor)
-					let value = parseInt(inputRef.current.value, 10)
-					value = isNaN(value) ? 0 : value
-					if (event.key === "ArrowUp") {
-						value = Math.min(value + 1, 100)
-					} else {
-						value = Math.max(value - 1, 0)
-					}
-					const changeEvent = {
-						target: { value: `${value}%` },
-					} as React.ChangeEvent<HTMLInputElement>
-					inputRef.current.value = `${value}%`
-					handleAlphaChange(changeEvent)
-				} else {
-					const valueLength = inputRef.current.value.length
-					inputRef.current.setSelectionRange(valueLength - 1, valueLength - 1)
-				}
+			// check if inputRef is available
+			if (!inputRef.current) {
+				return // return if ref is missing
 			}
+
+			const { key } = event
+			const { current } = inputRef
+
+			// when key isn't arrow up or down
+			if (!["ArrowUp", "ArrowDown"].includes(key)) {
+				const valueLength = current.value.length
+				// move cursor to the end
+				current?.setSelectionRange(valueLength - 1, valueLength - 1)
+				return
+			}
+
+			// prevent the default behavior (e.g., moving the cursor)
+			event.preventDefault()
+
+			// parse the current value as an integer, default to 0
+			let val = parseInt(current.value, 10) || 0
+
+			// adjust the value based on arrow key
+			val = key === "ArrowUp" ? Math.min(val + 1, 100) : Math.max(val - 1, 0)
+
+			// update the input value with the new percentage
+			current.value = `${val}%`
+
+			// trigger the change event
+			handleAlphaChange({
+				target: { value: `${val}%` },
+			} as ChangeEvent<HTMLInputElement>)
 		},
 		[inputRef, handleAlphaChange],
 	)
