@@ -11,7 +11,7 @@ const Accordion: React.FC<AccordionProps> = ({
 	state,
 	noBorderRadius = false,
 	noSideBorders = false,
-	allowMultipleExpand = true,
+	allowMultipleExpand = false,
 	...props
 }) => {
 	const [expandState, setExpandState] = useState<Record<string, boolean>>({})
