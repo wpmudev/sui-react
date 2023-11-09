@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-core",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "WPMU DEV Shared UI React sub-package for core elements",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -51,7 +51,7 @@
     "@wpmudev/sui-icon": "^0.0.4",
     "@wpmudev/sui-input": "^0.0.5",
     "@wpmudev/sui-link": "^0.0.5",
-    "@wpmudev/sui-radio": "^0.0.4",
+    "@wpmudev/sui-radio": "^0.0.6",
     "@wpmudev/sui-score": "^0.0.4",
     "@wpmudev/sui-segmented-control": "^0.0.5",
     "@wpmudev/sui-selector": "^0.0.5",
