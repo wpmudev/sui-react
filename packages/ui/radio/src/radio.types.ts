@@ -46,6 +46,11 @@ interface RadioGroupProps {
 	 * Indicates whether the radio button is disabled (optional).
 	 */
 	isDisabled?: boolean
+
+	/**
+	 * Add additional className
+	 */
+	className?: string
 }
 
 /**
