@@ -1,11 +1,10 @@
-import React, { useCallback, useId } from "react"
+import React, { useCallback, useId, useState, useEffect, useRef } from "react"
+import { createPortal } from "react-dom"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { useAccordion } from "./accordion-context"
-
 import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
 import { Checkbox } from "@wpmudev/sui-checkbox"
-
 import { AccordionItemProps } from "./accordion.types"
 
 // The AccordionItem component is defined as a functional component using React.FC.
@@ -35,7 +34,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const onCheckBoxChange = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => {
 			e.stopPropagation()
-			e.preventDefault()
+			//e.preventDefault()
 
 			if (onCheck) {
 				onCheck(isExpanded)
@@ -46,6 +45,20 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 
 	// Icon component to display a chevron icon based on the accordion's expanded state.
 	const Icon = isExpanded ? ChevronUp : ChevronDown
+
+	// The element ref where we render the checkbox
+	const checkboxPortalRef = useRef(null)
+
+	// The DOM  element where we render the Accordion Checkbox
+	const [checkboxDomContainer, setCheckBoxDomContainer] =
+		useState<Element | null>(null)
+
+	// Updating the DOM element state when its "ref" becomes available
+	useEffect(() => {
+		if (checkboxPortalRef.current) {
+			setCheckBoxDomContainer(checkboxPortalRef.current)
+		}
+	}, [checkboxPortalRef])
 
 	// Render the AccordionItem component with proper accessibility attributes.
 	return (
@@ -59,6 +72,18 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			{...(interactionMethods ?? {})}
 			data-testid="accordion-item"
 		>
+			{/* 
+				Rendering the Checkbox component outside the Accordion Header, to comply with
+				the accessibility principle that "Interactive controls must not be nested." 
+				This approach ensures that the Checkbox can be interacted with by all users, 
+				including those relying on assistive technologies, without violating accessibility guidelines.
+			 */}
+			{hasCheckbox &&
+				checkboxDomContainer &&
+				createPortal(
+					<Checkbox onChange={onCheckBoxChange} isDisabled={isDisabled} />,
+					checkboxDomContainer,
+				)}
 			<div
 				tabIndex={isDisabled ? -1 : 0}
 				role="button"
@@ -77,13 +102,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				<div className="sui-accordion__header-info">
 					{(!!hasCheckbox || !!icon) && (
 						<div className="sui-accordion__header-actions">
-							{/* Checkbox component to display if the accordion item has a checkbox */}
-							{hasCheckbox && (
-								<Checkbox
-									onChange={onCheckBoxChange}
-									isDisabled={isDisabled ?? false}
-								/>
-							)}
+							{/* The container where the checkbox element will be displayed if the Accordion has a Checkbox */}
+							{hasCheckbox && <div ref={checkboxPortalRef} />}
 							{!!icon && icon}
 						</div>
 					)}

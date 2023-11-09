@@ -13,6 +13,7 @@ const useAccordion = ({ uniqueId }: { uniqueId: string }) => {
 	const { allowMultipleExpand, expandState, setExpandState } =
 		useContext(AccordionContext)
 
+	// toggle the expand state
 	const toggle = useCallback(() => {
 		if (!allowMultipleExpand) {
 			return setExpandState({ [uniqueId]: !expandState[uniqueId] })
@@ -20,7 +21,7 @@ const useAccordion = ({ uniqueId }: { uniqueId: string }) => {
 		setExpandState({ ...expandState, [uniqueId]: !expandState[uniqueId] })
 	}, [allowMultipleExpand, setExpandState, expandState, uniqueId])
 
-	// State to manage the expanded state of the accordion item.
+	// Expand state of item with "uniqueId"
 	const isExpanded = expandState[uniqueId]
 
 	return {
