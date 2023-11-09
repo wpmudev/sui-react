@@ -17,7 +17,7 @@
 		@include block($block) {
 			@include element(menu-item) {
 				align-items: center;
-				color: $color-extended-neutral-50;
+				color: $color-extended-neutral-10;
 				cursor: pointer;
 				display: flex;
 				font-weight: $font-weight-md;

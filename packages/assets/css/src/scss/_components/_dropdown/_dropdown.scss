@@ -4,6 +4,7 @@
 
 @include sui-dropdown--element.build-container(dropdown);
 @include sui-dropdown--element.build-popover(dropdown);
+@include sui-dropdown--element.build-menu(dropdown);
 @include sui-dropdown--element.build-cta(dropdown);
 @include sui-dropdown--element.build-menu-group(dropdown);
 @include sui-dropdown--element.build-menu-item(dropdown);

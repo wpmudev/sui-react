@@ -35,7 +35,6 @@ export const EditorToolbar = ({ ...props }) => {
 				appearance="tertiary"
 				icon="save"
 				color="black"
-				isSmall={true}
 				isResponsive={true}
 			>
 				Save Draft
@@ -45,7 +44,6 @@ export const EditorToolbar = ({ ...props }) => {
 				appearance="secondary"
 				icon="show"
 				color="black"
-				isSmall={true}
 				isFullWidth={true}
 				isResponsive={true}
 			>
@@ -56,7 +54,6 @@ export const EditorToolbar = ({ ...props }) => {
 				appearance="primary"
 				icon="globe"
 				color="blue"
-				isSmall={true}
 				isFullWidth={true}
 			>
 				Publish
@@ -66,7 +63,7 @@ export const EditorToolbar = ({ ...props }) => {
 	}
 
 	return (
-		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
+		<div className="sui-layout">
 			<div className="sui-layout__content">
 				<SuiEditorToolbar {...props} actions={actions}>
 					<SegmentedControl
@@ -96,7 +93,7 @@ export const EditorToolbar = ({ ...props }) => {
 }
 
 EditorToolbar.args = {
-	title: "",
+	title: "Title",
 	allowBack: true,
 	alignCenter: true,
 }

@@ -99,6 +99,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 				<div
 					role="button"
 					tabIndex={0}
+					aria-label="color-preview"
 					className="sui-color-picker__input-preview"
 					onMouseDown={() => setShowPicker(!showPicker)}
 				>

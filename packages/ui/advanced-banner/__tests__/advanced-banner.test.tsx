@@ -4,6 +4,8 @@ import { render, screen } from "@testing-library/react"
 
 import { AdvancedBanner } from "../src"
 
+import { a11yTest } from "@wpmudev/sui-utils"
+
 describe("@wpmudev/sui-advanced-banner", () => {
 	it("render correctly", () => {
 		render(<AdvancedBanner variation="plugin">Test</AdvancedBanner>)
@@ -30,5 +32,10 @@ describe("@wpmudev/sui-advanced-banner", () => {
 
 		expect(screen.getByTestId("advanced-banner-title")).toBeVisible()
 		expect(screen.getByTestId("advanced-banner-desc")).toBeVisible()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<AdvancedBanner variation="plugin">Test</AdvancedBanner>)
 	})
 })

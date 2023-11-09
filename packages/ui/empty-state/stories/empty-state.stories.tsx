@@ -19,15 +19,10 @@ const EmptyState = ({
 	children: React.ReactNode
 	props: EmptyStateProps
 }) => {
-	const boxStyles = {
-		padding: 20,
-		borderRadius: 4,
-	}
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={boxStyles}>
+				<div>
 					<SuiEmptyState {...props}>{children}</SuiEmptyState>
 				</div>
 			</div>
@@ -51,10 +46,10 @@ EmptyState.args = {
 			</Row>
 
 			<Row align={{ md: "center" }}>
-				<Button appearance="secondary" color="blue" isSmall={true}>
+				<Button appearance="secondary" color="blue">
 					Primary
 				</Button>
-				<Button appearance="primary" color="blue" isSmall={true}>
+				<Button appearance="primary" color="blue">
 					Secondary
 				</Button>
 			</Row>

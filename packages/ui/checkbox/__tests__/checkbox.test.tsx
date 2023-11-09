@@ -4,6 +4,7 @@ import "@testing-library/jest-dom"
 import { screen, render, fireEvent } from "@testing-library/react"
 
 import { Checkbox } from "../src"
+import { a11yTest } from "@wpmudev/sui-utils"
 
 describe("@wpmudev/sui-checkbox", () => {
 	// Test case for rendering Checkbox component correctly
@@ -63,5 +64,10 @@ describe("@wpmudev/sui-checkbox", () => {
 
 		// Check if the Checkbox has the correct CSS class when checked
 		expect(checkboxEl).toHaveClass("sui-checkbox--checked")
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Checkbox />)
 	})
 })

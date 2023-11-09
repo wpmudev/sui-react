@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Sidebar, SidebarItem, SidebarItemProps } from "../src"
 
 describe("@wpmudev/sui-sidebar", () => {
@@ -87,5 +87,10 @@ describe("@wpmudev/sui-sidebar", () => {
 
 		// Check if the text of the first item matches the title in the Items array
 		expect(screen.getByText(Items[0].title)).toBeInTheDocument()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Sidebar />)
 	})
 })

@@ -70,11 +70,11 @@ const FormField: React.FC<FormFieldProps> = ({
 				</Label>
 			)}
 			{Object.keys(ariaAttrs).length > 0
-				? Children.map(children, (child: ReactNode) =>
-						isValidElement(child)
+				? Children.map(children, (child: ReactNode) => {
+						return isValidElement(child) && typeof child.type === "function"
 							? cloneElement(child, { ...ariaAttrs })
-							: child,
-				  )
+							: child
+				  })
 				: children}
 			{isErrored && (
 				<ErrorMessage id={fieldId} show={isErrored}>

@@ -2,7 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { within } from "@testing-library/dom"
 import { screen, render, fireEvent } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Builder, BuilderField, BuilderProps, BuilderWrapper } from "../src"
 
 describe("@wpmudev/sui-builder", () => {
@@ -16,7 +16,7 @@ describe("@wpmudev/sui-builder", () => {
 	const Component = (propsList: BuilderProps) => {
 		return (
 			<Builder {...(propsList as BuilderProps)}>
-				<BuilderWrapper data-testid="builder-wrapper">
+				<BuilderWrapper>
 					<BuilderField
 						columnSize={4}
 						action={args.action}
@@ -39,7 +39,7 @@ describe("@wpmudev/sui-builder", () => {
 						icon="Desktop"
 					/>
 				</BuilderWrapper>
-				<BuilderWrapper data-testid="builder-wrapper">
+				<BuilderWrapper>
 					<BuilderField
 						action={args.action}
 						title="Error Block"
@@ -47,7 +47,7 @@ describe("@wpmudev/sui-builder", () => {
 						icon="Bell"
 					/>
 				</BuilderWrapper>
-				<BuilderWrapper data-testid="builder-wrapper">
+				<BuilderWrapper>
 					<BuilderField
 						action={args.action}
 						title="Block 3"
@@ -73,7 +73,7 @@ describe("@wpmudev/sui-builder", () => {
 		render(<Component />)
 		expect(screen.getByTestId("builder")).toBeInTheDocument()
 		// All wrapper elements should be rendered
-		expect(screen.getAllByTestId("builder-wrapper")).toHaveLength(3)
+		expect(screen.getAllByTestId("builder-wrapper")).toHaveLength(4)
 		// All field elements should be rendered
 		expect(screen.getAllByTestId("builder-field")).toHaveLength(6)
 	})
@@ -150,5 +150,10 @@ describe("@wpmudev/sui-builder", () => {
 		)
 		fireEvent.click(accordionBtn)
 		expect(builderField).toHaveClass("sui-builder__field--expanded")
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Component />)
 	})
 })

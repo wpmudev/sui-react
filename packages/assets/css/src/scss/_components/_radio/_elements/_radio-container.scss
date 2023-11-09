@@ -23,11 +23,13 @@
 			font-size: $font-size-default;
 			line-height: $font-height-sm;
 			letter-spacing: $font-spacing-default;
+			align-content: flex-start;
 
 			@include modifier(block) {
 				padding: $spacing-lg $spacing-xl;
 				border-radius: $radio-border-radius-sm;
 				outline: $border-width-sm solid $color-extended-neutral-80;
+				flex: 1;
 			}
 		}
 	}

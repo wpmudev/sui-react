@@ -72,9 +72,10 @@ $breakpoints: (
 
 	p {
 		margin: 0 0 24px;
-		font-size: 16px;
+		font-size: 15px;
 		font-weight: 400;
 		line-height: 24px;
+		color: #737373;
 
 		strong {
 			font-weight: 700;
@@ -90,5 +91,6 @@ $breakpoints: (
 		font-size: 20px;
 		font-weight: 700;
 		line-height: 32px;
+		color: #1a1a1a;
 	}
 }

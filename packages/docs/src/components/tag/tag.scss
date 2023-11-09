@@ -1,48 +1,48 @@
 @use "sass:map";
 
 $palettes: (
-	'solid': (
-		'gray': (
-			'background': #BCBFCB,
-			'color': #141934,
+	"solid": (
+		"gray": (
+			"background": #bcbfcb,
+			"color": #141934,
 		),
-		'blue': (
-			'background': #286EF1,
-			'color': #FFFFFF,
+		"blue": (
+			"background": #0059ff,
+			"color": #ffffff,
 		),
-		'yellow': (
-			'background': #FFCC20,
-			'color': #1A1A1A,
+		"yellow": (
+			"background": #ffcc20,
+			"color": #1a1a1a,
 		),
-		'green': (
-			'background': #18BB4B,
-			'color': #FFFFFF,
+		"green": (
+			"background": #18bb4b,
+			"color": #ffffff,
 		),
-		'red': (
-			'background': #F45C59,
-			'color': #FFFFFF,
+		"red": (
+			"background": #f45c59,
+			"color": #ffffff,
 		),
 	),
-	'light': (
-		'gray': (
-			'background': #E9EAEE,
-			'color': #141934,
+	"light": (
+		"gray": (
+			"background": #e9eaee,
+			"color": #141934,
 		),
-		'blue': (
-			'background': #D5E3FD,
-			'color': #286EF1,
+		"blue": (
+			"background": #d5e3fd,
+			"color": #0059ff,
 		),
-		'yellow': (
-			'background': #FFF4CE,
-			'color': #5B502B,
+		"yellow": (
+			"background": #fff4ce,
+			"color": #5b502b,
 		),
-		'green': (
-			'background': #BAEBC9,
-			'color': #0C5E26,
+		"green": (
+			"background": #baebc9,
+			"color": #0c5e26,
 		),
-		'red': (
-			'background': #FCCECD,
-			'color': #AB403E,
+		"red": (
+			"background": #fccecd,
+			"color": #ab403e,
 		),
 	),
 );
@@ -50,7 +50,7 @@ $palettes: (
 .csb-tag {
 	padding: 2px 15px;
 	border-radius: 100px;
-	background: #BCBFCB;
+	background: #bcbfcb;
 	color: #141934;
 	font-size: 10px;
 	font-weight: 700;
@@ -59,30 +59,27 @@ $palettes: (
 
 	@each $palette, $palette-map in $palettes {
 		@each $color, $color-map in $palette-map {
-			@if $color == 'gray' {
-				@if $palette == 'solid' {
-					background: map.get($palettes, $palette, $color, 'background');
-					color: map.get($palettes, $palette, $color, 'color');
-				}
-				@else {
+			@if $color == "gray" {
+				@if $palette == "solid" {
+					background: map.get($palettes, $palette, $color, "background");
+					color: map.get($palettes, $palette, $color, "color");
+				} @else {
 					&--#{$palette} {
-						background: map.get($palettes, $palette, $color, 'background');
-						color: map.get($palettes, $palette, $color, 'color');
+						background: map.get($palettes, $palette, $color, "background");
+						color: map.get($palettes, $palette, $color, "color");
 					}
 				}
-			}
-			@else {
-				@if $palette == 'solid' {
+			} @else {
+				@if $palette == "solid" {
 					&--#{$color} {
-						background: map.get($palettes, $palette, $color, 'background');
-						color: map.get($palettes, $palette, $color, 'color');
+						background: map.get($palettes, $palette, $color, "background");
+						color: map.get($palettes, $palette, $color, "color");
 					}
-				}
-				@else {
+				} @else {
 					&--#{$color} {
 						&.csb-tag--#{$palette} {
-							background: map.get($palettes, $palette, $color, 'background');
-							color: map.get($palettes, $palette, $color, 'color');
+							background: map.get($palettes, $palette, $color, "background");
+							color: map.get($palettes, $palette, $color, "color");
 						}
 					}
 				}

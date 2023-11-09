@@ -22,8 +22,8 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 			appearance="tertiary"
 			icon="settings"
 			color="black"
-			isSmall={true}
 			iconOnly={true}
+			aria-label="settings"
 			onClick={onSettingClick}
 		/>
 	)
@@ -53,9 +53,9 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 									appearance="tertiary"
 									icon="chevron-left"
 									color="black"
-									isSmall={true}
 									iconOnly={true}
 									onClick={onBackClick}
+									aria-label="back"
 									data-testid="editor-toolbar-back-btn"
 								/>
 							</div>

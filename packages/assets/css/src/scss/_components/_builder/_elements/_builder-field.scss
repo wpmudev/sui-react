@@ -52,9 +52,13 @@
 
 			@include element(field-move) {
 				align-items: center;
-				color: $color-extended-neutral-0;
+				color: $color-extended-neutral-70;
 				cursor: grab;
 				display: flex;
+
+				&:hover {
+					color: $color-extended-neutral-60;
+				}
 			}
 
 			@include element(preview) {

@@ -111,7 +111,11 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 				data-testid="checkbox"
 				{...methods}
 			>
-				<input {...inputProps} data-testid="checkbox-input" />
+				<input
+					{...inputProps}
+					aria-label={label || "checkbox"}
+					data-testid="checkbox-input"
+				/>
 				{isIndeterminate ? (
 					<Indeterminate {...boxProps} />
 				) : (

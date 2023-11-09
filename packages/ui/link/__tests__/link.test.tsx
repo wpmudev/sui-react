@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Link } from "@wpmudev/sui-link"
 
 describe("@wpmudev/sui-link", () => {
@@ -32,5 +32,10 @@ describe("@wpmudev/sui-link", () => {
 
 		// Check if the Link element is wrapped in a span
 		expect(closestSpan).toBeInTheDocument()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Link href="https://example.com">Example Link Title</Link>)
 	})
 })

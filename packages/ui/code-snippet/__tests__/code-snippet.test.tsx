@@ -2,7 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { userEvent } from "@testing-library/user-event"
 import { screen, render, fireEvent } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { CodeSnippet, CodeSnippetProps } from "../src"
 
 describe("@wpmudev/sui-code-snippet", () => {
@@ -41,5 +41,10 @@ describe("@wpmudev/sui-code-snippet", () => {
 		// Read the clipboard contents and assert that it matches the code.
 		const clipboardText = await navigator.clipboard.readText()
 		expect(clipboardText).toBe(code)
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Component />)
 	})
 })
