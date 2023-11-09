@@ -14,6 +14,7 @@ const RadioGroup = ({
 	isSmall = false,
 	isDisabled = false,
 	onChange = () => {},
+	className = "",
 }: RadioGroupProps) => {
 	const [current, setCurrent] = useState<RadioValueType>(defaultValue)
 
@@ -22,10 +23,15 @@ const RadioGroup = ({
 		setCurrent(defaultValue)
 	}, [defaultValue])
 
-	const className = generateCN("sui-radio-group", {
-		inline: isInline,
-		sm: isSmall,
-	})
+	// radio group classname
+	const radioClassNames = generateCN(
+		"sui-radio-group",
+		{
+			inline: isInline,
+			sm: isSmall,
+		},
+		className,
+	)
 
 	return (
 		<Provider
@@ -39,7 +45,11 @@ const RadioGroup = ({
 				onChange,
 			}}
 		>
-			<div className={className} role="radiogroup" data-testid="radio-group">
+			<div
+				className={radioClassNames}
+				role="radiogroup"
+				data-testid="radio-group"
+			>
 				{children}
 			</div>
 		</Provider>
