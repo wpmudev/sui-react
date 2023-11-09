@@ -18,13 +18,16 @@ const TabProvider: FC<TabProviderProps> = ({
 	const id = `sui-tab-${uniqueId}`
 
 	// Callback function to switch to a specific tab by index
-	const switchTab = useCallback((tabIndex: number) => {
-		setCurrentIndex(tabIndex)
-		// When prop exists
-		if ("function" === typeof onSwitchTab) {
-			onSwitchTab(tabIndex, id)
-		}
-	}, [])
+	const switchTab = useCallback(
+		(tabIndex: number) => {
+			setCurrentIndex(tabIndex)
+			// When prop exists
+			if ("function" === typeof onSwitchTab) {
+				onSwitchTab(tabIndex, id)
+			}
+		},
+		[id, onSwitchTab],
+	)
 
 	// Provide the TabContext value to its children using the provided state and functions
 	return (
