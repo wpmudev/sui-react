@@ -10,6 +10,8 @@ import {
 	FooterProps,
 	FooterSocialLinkType,
 } from "./footer.types"
+import classnames from "classnames"
+import { generateCN } from "@wpmudev/sui-utils"
 
 const socialIcons = {
 	facebook: Facebook,
