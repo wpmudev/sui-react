@@ -4,6 +4,7 @@ import { Dropdown, DropdownRefProps } from "@wpmudev/sui-dropdown"
 import { Avatar } from "@wpmudev/sui-avatar"
 
 import { NavigationUserProps } from "./navigation.types"
+import { isEmpty } from "@wpmudev/sui-utils"
 
 const NavigationUser: React.FC<NavigationUserProps> = ({ user, menu }) => {
 	// Create a ref for the user dropdown button
@@ -25,6 +26,28 @@ const NavigationUser: React.FC<NavigationUserProps> = ({ user, menu }) => {
 		/>
 	)
 
+	/**
+	 * Get user block
+	 */
+	const getUserBlock = () => {
+		// Return null if both name and email are missing or empty
+		if (isEmpty(user?.name ?? "") && isEmpty(user?.email ?? "")) {
+			return null
+		}
+
+		// Render otherwise
+		return (
+			<div className="sui-navigation__user">
+				{!isEmpty(user?.name ?? "") && (
+					<div className="sui-navigation__user--name">{user?.name}</div>
+				)}
+				{!isEmpty(user?.email ?? "") && (
+					<div className="sui-navigation__user--email">{user?.email}</div>
+				)}
+			</div>
+		)
+	}
+
 	return (
 		<div>
 			<Dropdown
@@ -35,10 +58,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({ user, menu }) => {
 				renderContentOnTop={true}
 				menu={menu ?? []}
 			>
-				<div className="sui-navigation__user">
-					<div className="sui-navigation__user--name">{user?.name}</div>
-					<div className="sui-navigation__user--email">{user?.email}</div>
-				</div>
+				{getUserBlock()}
 			</Dropdown>
 		</div>
 	)
