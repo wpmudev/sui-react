@@ -108,6 +108,7 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 						// Clone the child element and add the "id" prop with the current index
 						return cloneElement(child, { id: `${index}` } as object)
 					}
+					return null
 				})}
 			</div>
 			{isScrollableRight && (
