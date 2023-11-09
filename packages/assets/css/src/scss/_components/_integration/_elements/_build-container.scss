@@ -14,18 +14,18 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			padding: $integration-spacing-padding;
+			padding: $spacing-xl;
 			background: $color-extended-neutral-100;
-			border-radius: $integration-border-radius;
+			border-radius: $border-radius-md;
 
 			@include element(header, info) {
 				display: flex;
 				align-items: center;
-				margin-bottom: $integration-spacing-margin-horizontal;
+				margin-bottom: $spacing-md;
 			}
 
 			@include element(info) {
-				gap: $integration-spacing-margin-horizontal;
+				gap: $spacing-md;
 			}
 		}
 
@@ -33,8 +33,7 @@
 		// THEME: Dark.
 		@include sui-class($rtl: false, $theme: dark) {
 			@include block($block) {
-				box-shadow: inset 0 0 0 $integration-border-width
-					$color-extended-neutral-0;
+				box-shadow: inset 0 0 0 $shadow-offset-2xs $color-extended-neutral-0;
 			}
 		}
 	}

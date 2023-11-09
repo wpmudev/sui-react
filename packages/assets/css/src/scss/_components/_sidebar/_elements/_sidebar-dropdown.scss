@@ -29,9 +29,11 @@
 					margin-top: $border-width-md;
 					background: $color-extended-neutral-100;
 					border-radius: $border-radius-md;
-					box-shadow: 0px 2px 4px 0px $color-shadow-dark,
-						0px 1px 16px 0px $color-shadow-light,
-						0px 6px 12px 0px $color-shadow-default;
+					box-shadow: 0px $shadow-offset-xs $shadow-offset-sm 0px
+							$color-shadow-dark,
+						0px $shadow-offset-2xs $shadow-offset-xl 0px $color-shadow-light,
+						0px $shadow-offset-default $shadow-offset-lg 0px
+							$color-shadow-default;
 
 					.sui-#{$block}__item {
 						border-radius: unset;

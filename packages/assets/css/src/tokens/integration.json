@@ -1,51 +1,10 @@
 {
 	"integration": {
-        "font": {
-            "size": {
-                "md": {
-                    "value": "18px",
-                    "type": "fontSizes"
-                }
-            },
-            "height": {
-                "md": {
-                    "value": "{font.height.md}",
-                    "type": "lineHeights"
-                },
-                "sm": {
-                    "value": "{font.height.sm}",
-                    "type": "lineHeights"
-                }
-            }
-        },
-        "border": {
-            "width": {
-                "value": "{border.width.sm}",
-                "type": "borderWidth"
-            },
-            "radius": {
-                "value": "{border.radius.md}",
-                "type": "borderRadius"
-            }
-        },
-		"spacing": {
-            "padding": {
-                "value": "{spacing.md}*3"
-            },
-            "margin": {
-                "vertical": {
-                    "value": "{spacing.lg}"
-                },
-                "horizontal": {
-                    "value": "{spacing.md}"
-                }
-            }
-        },
-        "disabled": {
-            "opacity": {
-                "value": "0.5",
-                "type": "other"
-            }
-        }
+		"disabled": {
+			"opacity": {
+				"value": "0.5",
+				"type": "other"
+			}
+		}
 	}
 }

@@ -7,15 +7,15 @@
 ///
 /// @param {String} $block - Main block name
 @mixin state-active($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include element(info) {
-                @include modifier(active) {
-                    background: $treeview-state-active-background;
-                }
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(info) {
+				@include modifier(active) {
+					background: $color-extended-neutral-90;
+				}
+			}
+		}
+	}
 }
