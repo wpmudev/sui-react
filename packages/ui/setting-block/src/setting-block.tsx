@@ -13,7 +13,9 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 	description,
 	className,
 	isPro = false,
+	isFluid = false,
 	children,
+	actions,
 }) => {
 	// Interaction methods
 	const [isHovered, isFocused, methods] = useInteraction({})
@@ -25,22 +27,26 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 			focus: isFocused,
 			hover: isHovered && !isFocused,
 			pro: isPro,
+			fluid: isFluid,
 		},
 		className,
 	)
 
 	return (
 		<div className={classNames} {...methods} data-testid="setting-block">
-			<div className="sui-setting-block__info">
-				<div className="sui-setting-block__info-title sui-heading--h5">
-					{title}
-					{isPro && (
-						<Tag design="outlined" color="black" isSmall={true}>
-							Pro
-						</Tag>
-					)}
+			<div className="sui-setting-block__header">
+				<div className="sui-setting-block__info">
+					<div className="sui-setting-block__info-title sui-heading--h5">
+						{title}
+						{isPro && (
+							<Tag design="outlined" color="black" isSmall={true}>
+								Pro
+							</Tag>
+						)}
+					</div>
+					<div className="sui-setting-block__info-desc">{description}</div>
 				</div>
-				<div className="sui-setting-block__info-desc">{description}</div>
+				{actions && <div className="sui-setting-block__actions">{actions}</div>}
 			</div>
 			<div className="sui-setting-block__body">{children}</div>
 		</div>
