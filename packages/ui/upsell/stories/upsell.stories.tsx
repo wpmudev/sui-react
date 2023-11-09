@@ -3,6 +3,7 @@ import React from "react"
 // Import required component(s)
 import { Upsell as SuiUpsell } from "../src"
 import { Button } from "@wpmudev/sui-button"
+import { Row, Col } from "@wpmudev/sui-grid"
 
 // Import documentation main page
 import docs from "./upsell.mdx"
@@ -39,16 +40,20 @@ export const Upsell = ({ ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div>
-					<SuiUpsell
-						{...props}
-						actions={actions}
-						features={[
-							"Performance Test Reporting",
-							"Uptime monitoring",
-							"Enhanced file minification with CDN",
-							"Database Cleanup notifications",
-						]}
-					/>
+					<Row align={{ md: "inline" }}>
+						<Col size={4}>
+							<SuiUpsell
+								{...props}
+								actions={actions}
+								features={[
+									"Performance Test Reporting",
+									"Uptime monitoring",
+									"Enhanced file minification with CDN",
+									"Database Cleanup notifications",
+								]}
+							/>
+						</Col>
+					</Row>
 				</div>
 			</div>
 		</div>
