@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-advanced",
-  "version": "0.0.17",
+  "version": "0.0.19",
   "description": "WPMU DEV Shared UI React sub-package for advanced elements",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -45,7 +45,7 @@
   "dependencies": {
     "@wpmudev/sui-accordion": "^0.0.4",
     "@wpmudev/sui-advanced-banner": "^0.0.5",
-    "@wpmudev/sui-basic-box": "^0.0.4",
+    "@wpmudev/sui-basic-box": "^0.0.6",
     "@wpmudev/sui-builder": "^0.0.5",
     "@wpmudev/sui-code-editor": "^0.0.5",
     "@wpmudev/sui-code-snippet": "^0.0.5",
@@ -64,7 +64,7 @@
     "@wpmudev/sui-rich-text-editor": "^0.0.5",
     "@wpmudev/sui-search": "^0.0.5",
     "@wpmudev/sui-select": "^0.0.5",
-    "@wpmudev/sui-setting-block": "^0.0.4",
+    "@wpmudev/sui-setting-block": "^0.0.6",
     "@wpmudev/sui-sidebar": "^0.0.5",
     "@wpmudev/sui-summary-box": "^0.0.4",
     "@wpmudev/sui-tabs": "^0.0.16",

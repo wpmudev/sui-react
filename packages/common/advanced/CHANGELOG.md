@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.0.19
+
+### Patch Changes
+
+- Updated dependencies
+  - @wpmudev/sui-setting-block@0.0.6
+  - @wpmudev/sui-basic-box@0.0.6
+
+## 0.0.18
+
+### Patch Changes
+
+- Updated dependencies
+  - @wpmudev/sui-setting-block@0.0.5
+  - @wpmudev/sui-basic-box@0.0.5
+
 ## 0.0.17
 
 ### Patch Changes
