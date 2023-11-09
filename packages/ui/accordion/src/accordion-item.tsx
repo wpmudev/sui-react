@@ -66,7 +66,6 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			className={generateCN("sui-accordion__item", {
 				expanded: isExpanded,
 				hover: isHovered,
-				focus: isFocused,
 				disabled: isDisabled,
 			})}
 			{...(interactionMethods ?? {})}
@@ -90,7 +89,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				id={accordionId}
 				aria-expanded={isExpanded}
 				aria-controls={accordionPanelId}
-				className="sui-accordion__header"
+				className={generateCN("sui-accordion__header", { focus: isFocused })}
 				onClick={toggle}
 				data-testid="accordion-item-button"
 				onKeyDown={(e) => {

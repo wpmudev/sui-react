@@ -11,7 +11,7 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: light) {
 		@include block($block) {
-			@include element(item) {
+			@include element(header) {
 				@include modifier(focus) {
 					&::after {
 						position: absolute;
