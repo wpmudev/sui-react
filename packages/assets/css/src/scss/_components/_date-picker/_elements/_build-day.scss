@@ -1,0 +1,165 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build day
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-day($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(day) {
+                font-size: $datepicker-font-size;
+                line-height: $font-height-xs;
+                font-weight: $font-weight-md;
+                cursor: pointer;
+                margin: $spacing-sm 0;
+                text-align: center;
+                width: $datepicker-size-width-md;
+                position: relative;
+                z-index: 0;
+
+                @include modifier(hover){
+                    span {
+                        background: $color-primary-80;
+                    }
+                }
+
+                @include modifier(disabled) {
+                    background-color: $color-extended-neutral-100;
+                    color: $color-extended-neutral-70;
+                    cursor: default;
+                }
+
+                @include modifier(filled) {
+                    span {
+                        color: $color-extended-neutral-100;
+                        background: $color-primary-50;
+                    }
+                }
+
+                @include modifier(outlined) {
+                    span {
+                        border: $border-width-sm solid $color-primary-50;
+                        color: $color-primary-50;
+                    }
+                }
+
+                @include modifier(highlighted) {
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        z-index: -1;
+                        width: 100%;
+                        height: 100%;
+                        left: 0;
+                        background: $color-primary-80;
+                    }
+                }
+
+                @include modifier(start, end) {
+                    &:after {
+                        width: 90%;
+                    }
+                }
+
+                @include modifier(start) {
+                    &:after {
+                        right: 0;
+                        left: auto;
+                        border-radius: $datepicker-border-radius-lg 0 0 $datepicker-border-radius-lg;
+                    }
+                }
+
+                @include modifier(end) {
+                    &:after {
+                        border-radius: 0 $datepicker-border-radius-lg $datepicker-border-radius-lg 0;
+                    }
+                }
+            }
+
+            @include element(day-title) {
+                position: relative;
+                border-radius: $datepicker-border-radius-lg;
+                align-items: center;
+                display: inline-flex;
+                height: $datepicker-size-height-sm;
+                justify-content: center;
+                width: $datepicker-size-width-sm;
+            }
+        }
+    }
+
+    // DIR: Right to left.
+    // THEME: None.
+    @include sui-class($rtl: true, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(day) {
+
+                @include modifier(start) {
+                    &:after {
+                        right: auto;
+                        left: 0;
+                        border-radius: 0 $datepicker-border-radius-lg $datepicker-border-radius-lg 0;
+                    }
+                }
+
+                @include modifier(end) {
+                    &:after {
+                        right: 0;
+                        left: auto;
+                        border-radius: $datepicker-border-radius-lg 0 0 $datepicker-border-radius-lg;
+                    }
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(day) {
+
+                @include modifier(hover){
+                    span {
+                        background: $color-extended-neutral-0;
+                        color: $color-extended-neutral-100;
+                    }
+                }
+
+                @include modifier(filled) {
+                    span {
+                        color: $color-extended-neutral-100;
+                        background: $color-extended-neutral-0;
+                    }
+                }
+
+                @include modifier(outlined) {
+                    span {
+                        border: $border-width-sm solid $color-extended-neutral-0;
+                        color: $color-extended-neutral-0;
+                    }
+                }
+
+                @include modifier(highlighted) {
+                    &:after {
+                        background: transparent;
+                        border-top: $border-width-sm solid $color-extended-neutral-0;
+                        border-bottom: $border-width-sm solid $color-extended-neutral-0;
+                        top: -$border-width-sm;
+                    }
+                }
+            }
+        }
+    }
+}

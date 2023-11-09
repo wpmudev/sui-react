@@ -1,0 +1,63 @@
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+
+import { Button } from "@wpmudev/sui-button"
+
+import {
+	Accordion,
+	AccordionItem,
+	AccordionItemBody,
+	AccordionItemFooter,
+} from "../../../../src"
+
+import dedent from "dedent"
+
+export const FooterCode = dedent`
+<Accordion>
+    <AccordionItem title="Accordion title">
+       <AccordionItemBody>
+        <p>
+         Hi, I am accordion content body. you can swap me with your local
+         component.
+        </p>
+       </AccordionItemBody>
+       <AccordionItemFooter>
+         <Button color="black" appearance="secondary">
+           Secondary
+         </Button>
+         <Button color="blue" appearance="primary">
+          Primary
+         </Button>
+       </AccordionItemFooter>
+   </AccordionItem>
+</Accordion>
+`
+
+<Section style={{ paddingTop: 0 }}>
+	<Section title="Sidebar" style={{ paddingTop: 0, paddingLeft: 0 }}>
+		<p>
+			Use the <Code small={true}>AccordionItemFooter</Code> component to add a
+			footer to the <Code small={true}>AccordionItem</Code>
+		</p>
+		<Preview>
+			<Accordion>
+				<AccordionItem title="Accordion title">
+					<AccordionItemBody>
+						<p>
+							Hi, I am accordion content body. you can swap me with your local
+							component.
+						</p>
+					</AccordionItemBody>
+					<AccordionItemFooter>
+						<Button color="black" appearance="secondary">
+							Secondary
+						</Button>
+						<Button color="blue" appearance="primary">
+							Primary
+						</Button>
+					</AccordionItemFooter>
+				</AccordionItem>
+			</Accordion>
+		</Preview>
+		<Snippet language="js">{FooterCode}</Snippet>
+	</Section>
+</Section>

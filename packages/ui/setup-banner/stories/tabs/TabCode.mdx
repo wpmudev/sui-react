@@ -1,0 +1,49 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
+	<p>
+		Install the <Code small={true}>Setup Banner</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+	<Section
+		title={{ content: "title*", tag: "string", small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>The main title for the Banner</p>
+	</Section>
+	<Section
+		title={{ content: "type*", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>The Banner variation, essentially the plugin name</p>
+		<p>Allowed options:</p>
+		<List>
+			<span label={<Code small={true}>smush</Code>} />
+			<span label={<Code small={true}>defender</Code>} />
+			<span label={<Code small={true}>snapshot</Code>} />
+			<span label={<Code small={true}>humingbird</Code>} />
+			<span label={<Code small={true}>forminator</Code>} />
+			<span label={<Code small={true}>beehive</Code>} />
+			<span label={<Code small={true}>hustle</Code>} />
+			<span label={<Code small={true}>smartcrawl</Code>} />
+			<span label={<Code small={true}>shipper</Code>} />
+			<span label={<Code small={true}>branda</Code>} />
+		</List>
+	</Section>
+	<Section
+		title={{ content: "description*", tag: "React Node", small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Description text for the banner</p>
+	</Section>
+	<Section
+		title={{ content: "className*", tag: "string", small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Custom css className(s)</p>
+	</Section>
+</Section>

@@ -1,0 +1,10 @@
+{
+	"npmClient": "npm",
+	"useWorkspaces": true,
+	"version": "independent",
+	"command": {
+		"publish": {
+			"message": "🚀 Publish changes."
+		}
+	}
+}

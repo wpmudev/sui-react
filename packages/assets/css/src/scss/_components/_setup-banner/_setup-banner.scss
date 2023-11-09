@@ -1,0 +1,11 @@
+@use "./_elements/elements" as sui-setup-banner--element;
+@use "./_modifiers/modifiers" as sui-setup-banner--modifier;
+
+@include sui-setup-banner--element.build-container(setup-banner);
+@include sui-setup-banner--element.build-subtitle(setup-banner);
+@include sui-setup-banner--element.build-info(setup-banner);
+@include sui-setup-banner--element.build-description(setup-banner);
+@include sui-setup-banner--element.build-bg(setup-banner);
+
+@include sui-setup-banner--modifier.edit-colors(setup-banner);
+

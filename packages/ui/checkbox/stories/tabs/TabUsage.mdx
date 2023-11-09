@@ -1,0 +1,149 @@
+import { Section, Row, Col, List, Code } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import CheckBoxGroup from "../images/checkbox-group.svg"
+import NestedCheckbox from "../images/nested-checkbox.svg"
+import DisabledCheckbox from "../images/disabled-checkbox.svg"
+import InteractiveState from "../images/interactive-state.svg"
+import ErrorState from "../images/error-state.svg"
+import Size from "../images/size.svg"
+import Alignment from "../images/alignment.svg"
+import HelperText from "../images/helper-text.svg"
+import State from "../images/state.svg"
+import Indeterminate from "../images/state.svg"
+
+<Section title="Anatomy">
+	<Row>
+		<Col>
+    		<h3 style={{marginTop: 0}}>1. Checkbox input</h3>
+    		<p>The checkbox input is the actual interactive element that users can click or tap to select or deselect an option. It is typically represented as a small square or rectangle that can be checked (selected) or unchecked (deselected).</p>
+
+    		<h3>2. Checkbox label</h3>
+    		<p>The label is the text or description associated with the checkbox. It provides context to the user about what the checkbox represents. Labels should be clear, concise, and easy to understand.</p>
+    	</Col>
+    	<Col>
+    		<img src={Anatomy} alt="Checkbox Anatomy" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Checkbox Group">
+
+    <Row>
+    	<Col>
+    		<p>
+    			Checkboxes are often used in groups when users need to select multiple options from a list. The checkboxes within a group should be visually grouped together, often by placing them within a list.
+    		</p>
+
+    		<h3 style={{marginTop: 0}}>1. Group Label</h3>
+    		<p>The field label act as the group label in the checkbox group. It explains what options need to be selected.</p>
+
+    		<h3 style={{marginTop: 0}}>2. Checkbox List</h3>
+    		<p>The checkbox list is a group of multiple options that are available for the user to select.</p>
+    	</Col>
+    	<Col>
+    		<img src={CheckBoxGroup} alt="Checkbox Group" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Nested checkbox">
+	<Row>
+		<Col>
+			<p>
+				Nested checkboxes are used when there is hierarchical data or categories
+				that require multiple levels of selection. These checkboxes allow users
+				to select or deselect options at different levels of a hierarchy. For
+				the advanced presentation of nested selections, use [Tree
+				view](/docs/sui-components-advanced-tree-view--docs) component.
+			</p>
+		</Col>
+		<Col>
+			<img src={NestedCheckbox} alt="Nested Checkbox" />
+		</Col>
+	</Row>
+</Section>
+
+<Section title="Checkbox state">
+	<Row>
+		<Col>
+			<p>Checkbox primarily has two states</p>
+
+    		<h3 style={{marginTop: 0}}>1. Unchecked</h3>
+    		<p>By default checkbox is not selected. When the checkbox is not selected, it is typically empty or displays an empty box.</p>
+
+    		<h3 style={{marginTop: 0}}>2. Checked</h3>
+    		<p>When the checkbox is selected, it typically displays a checkmark (✔) inside the box with filled color to indicate the selected state.</p>
+    	</Col>
+    	<Col>
+    		<img src={State} alt="Checkbox States" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Indeterminate Checkbox">
+	<Row>
+		<Col>
+			<p>An indeterminate checkbox is a special state for checkboxes commonly used when dealing with lists or groups of checkboxes. It indicates that not all items in the group are checked, but some are, and it provides a visual cue to the user. This state is particularly useful when you have a hierarchical or multi-select structure where there's a mix of checked and unchecked checkboxes within a parent category or group.</p>
+
+    	</Col>
+    	<Col>
+    		<img src={Indeterminate} alt="Indeterminated Checkbox" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Disabled checkbox">
+	<Row>
+		<Col>
+			<p>
+				Checkboxes can also be in a disabled state, where users cannot interact
+				with them. Disabled checkboxes are typically grayed out or have reduced
+				opacity to indicate their inactive status.
+			</p>
+		</Col>
+		<Col>
+			<img src={DisabledCheckbox} alt="Disabled Checkbox" />
+		</Col>
+	</Row>
+</Section>
+
+<Section title="Interactive State">
+	<img src={InteractiveState} alt="Checkbox Interactive State" />
+</Section>
+
+<Section title="Error state">
+	<p>Error can be shown in two ways for checkbox. </p>
+
+	<h3 style={{marginTop: 0}}>1. Forms or form field</h3>
+    <p>If the checkbox are used within the forms or inside the group of form fields, the error should be similar to the input field.</p>
+
+    <h3 style={{marginTop: 0}}>2. Setting blocks</h3>
+    <p>If the checkbox is used in separate setting block or it require user’s attention, error can be shown with the Alert Notification.</p>
+
+    <img src={ErrorState} alt="Checkbox Error State" />
+
+</Section>
+
+<Section title="Size">
+	<Row>
+		<Col>
+			<p>Checkbox is available with two sizes in SUI 3.</p>
+		</Col>
+		<Col>
+			<img src={Size} alt="Checkbox Size" />
+		</Col>
+	</Row>
+</Section>
+
+<Section title="Checkbox Alignment">
+	<img src={Alignment} alt="Checkbox Alignment" />
+</Section>
+
+<Section title="Helper Text">
+	<img src={HelperText} alt="Checkbox Helper Text" />
+</Section>

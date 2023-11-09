@@ -1,0 +1,57 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import States from "../images/states.svg"
+import UploadTypes from "../images/upload-types.svg"
+import FileTypes from "../images/file-types.svg"
+import SingleMultiple from "../images/single-multiple.svg"
+import Spacing from "../images/spacing.svg"
+
+<Section title="Anatomy">
+	<Row>
+		<Col>
+    		<h3 style={{marginTop: 0}}>1. Label</h3>
+    		<p>A label to describe the upload field.</p>
+
+    		<h3>2. Upload button</h3>
+    		<p>An upload button to allow users to upload files.</p>
+
+    		<h3>3. File Upload</h3>
+    		<p>A file that has been uploaded successfully.</p>
+
+    		<h3>4. Help text</h3>
+    		<p>Help text to help the user make an informed selection.</p>
+
+    	</Col>
+    	<Col>
+    		<img src={Anatomy} alt="Uploader Anatomy" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="States">
+	<img src={States} alt="Uploader States" />
+</Section>
+
+<Section title="Upload types">
+	<p>The upload button's icon can be customised to display the proper icon.</p>
+	<img src={UploadTypes} alt="Upload Types" />
+</Section>
+
+<Section title="File types">
+	<p>
+		The icon for the uploaded file can be changed to show the appropriate icon.
+		When the file is uploaded, a specific image preview may be displayed for the
+		image type.
+	</p>
+	<img src={FileTypes} alt="File Types" />
+</Section>
+
+<Section title="Single and multiple uploads">
+	<img src={SingleMultiple} alt="Single and multiple uploads" />
+</Section>
+
+<Section title="Spacing">
+	<img src={Spacing} alt="Single and multiple uploads" />
+</Section>

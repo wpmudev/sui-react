@@ -1,0 +1,31 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { AdvancedBanner } from "../../src"
+import dedent from "dedent"
+
+{/* Import Variations and States */}
+
+import Variations from "./Examples/Variations.mdx"
+import States from "./Examples/States.mdx"
+
+export const defaultCode = dedent`
+  <AdvancedBanner helper="Helper Text Goes Here" />
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Below is the default form of the Advanced Banner</p>
+	<Preview wrapper={true}>
+		<AdvancedBanner helper="Helper Text Goes Here" />
+	</Preview>
+	<Snippet language="js">{defaultCode}</Snippet>
+</Section>
+
+<Section title="Variations & States" style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="Variations" value="variations">
+			<Variations />
+		</div>
+		<div label="States" value="States">
+			<States />
+		</div>
+	</Switcher>
+</Section>

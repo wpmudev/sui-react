@@ -1,0 +1,19 @@
+import { Section, Preview, Snippet } from "@wpmudev/sui-docs";
+
+import dedent from "dedent";
+
+export const NeutralCode = dedent`
+  Neutral Example State
+`
+
+<Section
+    contained={true}
+    border={true}
+    style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+    <Preview wrapper={true}>
+    	Your component with the Example state Neutral can go here
+    </Preview>
+    <Snippet language="js">{NeutralCode}</Snippet>
+
+</Section>

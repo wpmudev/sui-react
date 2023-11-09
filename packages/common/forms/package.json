@@ -31,23 +31,25 @@
   "scripts": {
     "clean": "rm -rf dist && rm -rf lib",
     "build": "npx tsup",
-    "build:fast": "npx tsup src",
+    "build:dev": "npx tsup --watch",
+    "build:fast": "tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "postpack": "clean-package restore",
+    "build:readme": "readme generate --input ../../../blueprint.md"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-react/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/sui-checkbox": "*",
-    "@wpmudev/sui-radio": "*",
-    "@wpmudev/sui-button": "*",
-    "@wpmudev/sui-form-field": "*",
-    "@wpmudev/sui-input": "*",
-    "@wpmudev/sui-textarea": "*",
-    "@wpmudev/sui-toggle": "*"
+    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-checkbox": "^0.0.1",
+    "@wpmudev/sui-form-field": "^0.0.1",
+    "@wpmudev/sui-input": "^0.0.1",
+    "@wpmudev/sui-radio": "^0.0.1",
+    "@wpmudev/sui-textarea": "^0.0.1",
+    "@wpmudev/sui-toggle": "^0.0.1"
   },
   "clean-package": "../../../postpack.config.json"
 }

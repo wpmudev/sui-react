@@ -1,0 +1,75 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Options
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-options($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(options) {
+				border-top: solid $border-width-sm $color-primary-80;
+				margin: 0 -#{$border-width-sm} -#{$border-width-sm};
+				max-height: $search-size-height-md;
+				overflow-y: auto;
+				padding: $spacing-md 0;
+			}
+
+			@include element(options-item) {
+				background-color: transparent;
+				border: none;
+				border-radius: 0;
+				cursor: pointer;
+				display: block;
+				font-weight: $font-weight-sm;
+				font-size: $font-size-default;
+				line-height: $font-height-sm;
+				margin: 0;
+				padding: $spacing-sm $spacing-lg;
+				text-align: left;
+				width: 100%;
+
+				@include modifier(hover, focus) {
+					background: $color-primary-50;
+					color: $color-extended-neutral-100;
+				}
+
+				span {
+					font-weight: $font-weight-md;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(options-item) {
+				text-align: right;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(options) {
+				border-color: $color-extended-neutral-0;
+			}
+
+			@include element(options-item) {
+				@include modifier(hover, focus) {
+					background: $color-extended-neutral-0;
+					color: $color-extended-neutral-100;
+				}
+			}
+		}
+	}
+}

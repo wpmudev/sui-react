@@ -1,0 +1,20 @@
+import { Page } from "@wpmudev/sui-docs"
+import { Unstyled } from "@storybook/blocks"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+
+<Unstyled>
+	<Page.Tabs title="Button" status="draft">
+		<div id="usage" label="Usage">
+			<TabUsage />
+		</div>
+		<div id="code" label="Code">
+			<TabCode />
+		</div>
+		<div id="examples" label="Examples">
+			<TabExamples />
+		</div>
+	</Page.Tabs>
+</Unstyled>

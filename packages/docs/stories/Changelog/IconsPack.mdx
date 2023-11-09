@@ -1,0 +1,22 @@
+import { Fragment } from "react";
+import { Section, Message } from '@wpmudev/sui-docs';
+
+import Version_1_0_0 from "./IconsPack/1-0-0.mdx";
+import Version_1_1_0 from "./IconsPack/1-1-0.mdx";
+
+<Fragment>
+	<Version_1_1_0 />
+	<Version_1_0_0 />
+	<Section style={{ paddingTop: 0 }}>
+		<Message
+			color="blue"
+			action={{
+				label: "See More",
+				style: "primary",
+				color: "blue",
+				link: 'https://github.com/wpmudev/sui-icons/blob/master/CHANGELOG.md',
+			}}>
+			<p>Visit our public GitHub repo to read the complete log of changes.</p>
+		</Message>
+	</Section>
+</Fragment>

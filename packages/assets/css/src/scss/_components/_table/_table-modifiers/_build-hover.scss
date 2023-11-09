@@ -1,0 +1,28 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// build hover
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-hover($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: light) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(row) {
+                @include modifier(hover) {
+                    background: $color-extended-neutral-95;
+
+                    .sui-#{$block}__cell--sticky {
+                        background: $color-extended-neutral-95;
+                    }
+                }
+            }
+        }
+    }
+}

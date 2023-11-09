@@ -1,0 +1,158 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 0, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Tree View</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+
+    <Section
+    	title={{ content: "children*", tag: "string", small: true }}
+    	style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>
+    		Content of the Tree View
+    	</p>
+    </Section>
+    <Section
+    	title={{ content: "allowCheck*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>
+    		If set to <Code small={true}>true</Code> both elements & groups will display a checkbox
+    	</p>
+    </Section>
+    <Section
+    	title={{ content: "showIcons*", tag: "boolean", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>
+    		When the value is <Code small={true}>true</Code>, both elements and groups will display inline icons.
+    	</p>
+    </Section>
+
+     <Section
+    	title={{ content: "className*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>
+    		Additional css class name for the Tree View
+    	</p>
+    </Section>
+
+</Section>
+
+<Section
+	title="Sub Components"
+	contained={true}
+	style={{ paddingTop: 30, paddingBottom: 0 }}
+>
+		<p>The Tree View component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+
+    <Section title="TreeViewGroup" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents a group in the tree view.
+    	</p>
+
+    	<Section title={{ content: "title*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Title for the group
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "icon*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Custom Icon to display inline with the title, you can check available icons on [sui-icons](https://github.com/wpmudev/sui-icons) package. note that <Code isSmall={true}>showIcons</Code> need to be set to <Code isSmall={true}> true </Code> in the parent <Code isSmall={true}> TreeView </Code> component in order for the icon to be displayed
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "isGroup*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Sets the item as group when <Code isSmall={true}> true </Code>
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "isDisabled*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Enables deactivation of the group, when set to true, the group won't open upon clicking
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The content of the group item
+    		</p>
+    	</Section>
+
+    	 <Section
+    		title={{ content: "className*", tag: "string", small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    		>
+    		<p>
+    			Additional css class name for the component
+    		</p>
+    	</Section>
+
+    </Section>
+
+
+    <Section title="TreeViewItem" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents a group in the tree view.
+    	</p>
+
+    	<Section title={{ content: "id*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Unique ID for the tree view item
+    		</p>
+    	</Section>
+
+
+    	<Section title={{ content: "icon*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Custom Icon to display inline with the content, you can check available icons on [sui-icons](https://github.com/wpmudev/sui-icons) package.
+    			note that <Code isSmall={true}>showIcons</Code> need to be set to <Code isSmall={true}> true </Code> in the parent <Code isSmall={true}> TreeView </Code> component in order for the icon to be displayed
+    		</p>
+    	</Section>
+
+    	 <Section
+    		title={{ content: "isGroup*", tag: "boolean", small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    		>
+    		<p>
+    			When set to <Code isSmall={true}> true </Code> the item would be a group
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "isDisabled*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Enables deactivation of the group, when set to true, the group won't open upon clicking
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The content of the Tree View item
+    		</p>
+    	</Section>
+
+    	 <Section
+    		title={{ content: "className*", tag: "string", small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    		>
+    		<p>
+    			Additional css class name for the item
+    		</p>
+    	</Section>
+
+    </Section>
+
+</Section>

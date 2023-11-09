@@ -1,0 +1,29 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Avatar
+/// This function creates styles for the element
+/// avatar wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-image($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(image) {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				display: block;
+				border-radius: 100%;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+			}
+		}
+	}
+}

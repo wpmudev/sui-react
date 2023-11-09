@@ -1,0 +1,20 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Hover
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-hover($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			box-shadow: 0 $shadow-offset-xs $shadow-offset-sm 0 $color-shadow-dark,
+				0 $shadow-offset-2xs $shadow-offset-xl 0 $color-shadow-light,
+				0 $shadow-offset-default $shadow-offset-lg 0 $color-shadow-default;
+		}
+	}
+}

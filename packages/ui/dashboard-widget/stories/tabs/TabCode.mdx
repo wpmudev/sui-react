@@ -1,0 +1,122 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>DashboardWidget</Code> package as an
+		individual component or follow the Overview page instructions to get the
+		complete SUI Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+	<Section
+		title={{ content: "title*", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>The heading text of the widget</p>
+	</Section>
+
+    <Section
+    	title={{ content: "description*", tag: "React Node", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A descriptive text that accompagnes the title </p>
+    </Section>
+
+    <Section
+    	title={{ content: "icon*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The name of the icon to be displayed beside the title</p>
+    </Section>
+
+    <Section
+    	title={{ content: "actions*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Actions to be displayed in the footer</p>
+    </Section>
+
+    <Section
+    	title={{ content: "isExpanded*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Whether the widget is initially expanded</p>
+    </Section>
+
+    <Section
+    	title={{ content: "isDisabled*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>When set to <Code small={true}>true</Code> the widget will be disabled</p>
+    </Section>
+
+    <Section
+    	title={{ content: "onToggle*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Callback function to be invoked when the widget's expand/collapse state changes.</p>
+    </Section>
+
+    <Section
+    	title={{ content: "canCollapse*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p> When set to <Code small={true}>true</Code> the widget will have a toggle button that allows for changing its expansion state </p>
+    </Section>
+
+    <Section
+    	title={{ content: "tag*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p> A text to be displayed as a tag beside the title </p>
+    </Section>
+
+    <Section
+    	title={{ content: "tagProps*", tag: "object", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p> Add additional customization to the tag, the object accepts <a href="/?path=/docs/sui-components-core-tag--docs" target="_blank">the tag</a> props as keys </p>
+    </Section>
+
+    <Section
+    	title={{ content: "statusIcon*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p> An icon to show the status of the widget</p>
+    </Section>
+
+    <Section
+    	title={{ content: "statusProps*", tag: "object", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Use this prop to customize the color of the status icon, the object has one key <Code small={true}>color</Code>, and it accepts the following values</p>
+    	<p>Allowed Options</p>
+    	<List>
+    		<span label="neutral" />
+    		<span label="informative" />
+    		<span label="success" />
+    		<span label="warning" />
+    		<span label="critical" />
+    	</List>
+    </Section>
+
+    <Section
+    	title={{ content: "children*", tag: "React Node", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The content of the widget</p>
+    </Section>
+
+     <Section
+    	title={{ content: "actions*", tag: "React Node", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Action buttons to be displayed in the footer</p>
+    </Section>
+
+</Section>

@@ -1,0 +1,119 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Advanced Banner</Code> package as an
+		individual component or follow the Overview page instructions to get the
+		complete SUI Components package.
+	</p>
+</Section>
+
+<Section title="Props">
+	<Section
+		title={{ content: "variation", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Customizes the display style of the Advanced Banner.</p>
+		<p>
+			Allowed options:
+			<List>
+				<span label={<Code small={true}>plugin</Code>} />
+				<span label={<Code small={true}>hub</Code>} />
+				<span label={<Code small={true}>newsletter</Code>} />
+				<span label={<Code small={true}>black-friday</Code>} />
+			</List>
+		</p>
+	</Section>
+
+	<Section
+		title={{ content: "imageUrl*", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Specifies the image to be displayed within the Advanced Banner.</p>
+	</Section>
+
+	<Section
+		title={{ content: "title*", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Sets the headline or main text content of the Advanced Banner.</p>
+	</Section>
+
+	<Section
+		title={{ content: "description*", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			Enables you to include a detailed explanatory text or caption for the
+			content within the Advanced Banner."
+		</p>
+	</Section>
+
+	<Section
+		title={{ content: "children*", tag: "React Node", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Represents the content of the Advanced Banner</p>
+	</Section>
+
+	<Section
+		title={{ content: "helper*", tag: "string", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Provides contextual text to enhance user understanding</p>
+	</Section>
+
+	<Section
+		title={{ content: "allowClose*", tag: "boolean", small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Grants control over whether users can close or dismiss the component.</p>
+		<p>When set to <Code small={true}>true</Code>, a close button appears on the top right of the component</p>
+	</Section>
+
+    <Section
+    	title={{ content: "onClose*", tag: "function", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A callback function to be invoked when the component is closed</p>
+    </Section>
+
+    <Section
+    	title={{ content: "className*", tag: "function", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Additional css className(s)</p>
+    </Section>
+
+</Section>
+
+<Section title="Black Fiday Variation">
+	The following props are only relevant for the variation
+	<Code small={true}>black-friday</Code>
+
+    <Section
+    	title={{ content: "discountPercentage*", tag: "number", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Represents the percentage value of a the discount applied</p>
+    </Section>
+
+    <Section
+    	title={{ content: "ctaTitle*", tag: "string", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Represent the text of the action button</p>
+    </Section>
+
+    <Section
+    	title={{ content: "onCTAClick*", tag: "function", small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>A Callback function to be invoked when the action button is clicked</p>
+    </Section>
+
+</Section>

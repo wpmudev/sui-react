@@ -1,0 +1,68 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/sui-docs';
+import { Avatar } from '../../../src';
+import dedent from 'dedent';
+
+export const ConfirmedAvatarCode = dedent`
+<Avatar status="confirmed" />
+`;
+
+export const AwaitingAvatarCode = dedent`
+<Avatar status="awaiting" />
+`;
+
+export const NotAcceptedAvatarCode = dedent`
+<Avatar status="not-connected" />
+`;
+
+export const NotConnectedAvatarCode = dedent`
+<Avatar status="not-accepted" />
+`;
+
+
+<Section
+	title="Confirmed"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Avatar status="confirmed" />
+	</Preview>
+	<Snippet language="js">{ConfirmedAvatarCode}</Snippet>
+</Section>
+
+<Section
+	title="Awaiting"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Avatar status="awaiting" />
+	</Preview>
+	<Snippet language="js">{AwaitingAvatarCode}</Snippet>
+</Section>
+
+<Section
+	title="Not Accepted"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Avatar status="not-accepted" />
+	</Preview>
+	<Snippet language="js">{NotAcceptedAvatarCode}</Snippet>
+</Section>
+
+<Section
+	title="Not Connected"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Avatar status="not-connected" />
+	</Preview>
+	<Snippet language="js">{NotConnectedAvatarCode}</Snippet>
+</Section>

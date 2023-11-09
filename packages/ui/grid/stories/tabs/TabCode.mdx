@@ -1,0 +1,81 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Grid</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+
+<Section border={true}>
+    <p> The grid system is composed of two fundamental components: <Code small={true}> Row </Code> and <Code small={true}> Column </Code></p>
+</Section>
+
+<Section title="Row Props" border={true}>
+
+    <Section
+    	title={{ content: "align*", tag: 'object', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Reprsents the alignment options for the row, the object properties accepet the following keys:</p>
+    	<List>
+    		<span label={<Code small={true}>xs</Code>} />
+    		<span label={<Code small={true}>sm</Code>} />
+    		<span label={<Code small={true}>md</Code>} />
+    		<span label={<Code small={true}>lg</Code>} />
+    		<span label={<Code small={true}>xl</Code>} />
+    	</List>
+
+		Which represent different screen sizes, the value for each, could be either <Code small={true}>inline</Code> or <Code small={true}>stacked</Code>
+		representing the behavior of the column in that particular screen
+    </Section>
+
+	<Section
+    	title={{ content: "children", tag: 'React Node', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The content of the Row, usually a set of columns </p>
+
+    </Section>
+
+	<Section
+    	title={{ content: "className*", tag: 'string', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Additional custom className(s) for the row</p>
+
+    </Section>
+
+</Section>
+
+<Section title="Column Props" border={true}>
+
+ 		<p> You can add multiple columns within the row to display content side by side </p>
+
+		<Section
+    		title={{ content: "size*", tag: 'number | string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The size of the column</p>
+    	</Section>
+
+		<Section
+    		title={{ content: "className*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Additional custom className(s) </p>
+    	</Section>
+
+		<Section
+    		title={{ content: "children", tag: 'React Node', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The column's content</p>
+    	</Section>
+</Section>

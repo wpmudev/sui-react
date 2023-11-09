@@ -1,0 +1,40 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Container
+/// This function creates styles for the input container
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-container($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			padding: $spacing-xl;
+			background: $color-extended-neutral-100;
+			border-radius: $border-radius-md;
+
+			@include element(header, info) {
+				display: flex;
+				align-items: center;
+				margin-bottom: $spacing-md;
+			}
+
+			@include element(info) {
+				gap: $spacing-md;
+			}
+		}
+
+		// DIR: Left to right.
+		// THEME: Dark.
+		@include sui-class($rtl: false, $theme: dark) {
+			@include block($block) {
+				box-shadow: inset 0 0 0 $shadow-offset-2xs $color-extended-neutral-0;
+			}
+		}
+	}
+}

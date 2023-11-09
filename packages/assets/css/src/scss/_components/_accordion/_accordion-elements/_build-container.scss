@@ -1,0 +1,41 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Accordion container
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-container($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			border: $border-width-sm solid $color-extended-neutral-80;
+			border-radius: $accordion-border-radius-sm;
+			overflow: hidden;
+
+			@include modifier(no-border-radius) {
+				border-radius: 0;
+			}
+
+			@include modifier(no-side-borders) {
+				border-left: 0;
+				border-right: 0;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			border-color: $color-extended-neutral-0;
+		}
+	}
+}

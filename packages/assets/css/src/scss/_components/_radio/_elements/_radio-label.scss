@@ -1,0 +1,29 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Description
+/// This function creates styles for the main container
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-label($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(block) {
+				@include modifies-element(label) {
+					font-weight: $font-weight-md;
+				}
+			}
+
+			@include element(label) {
+				display: flex;
+				gap: $spacing-md;
+				align-items: center;
+				flex: 1;
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+{
+	"checkbox": {
+		"size": {
+			"md": {
+				"value": "20px",
+				"type": "sizing"
+			}
+		},
+		"spacing": {
+			"md": {
+				"value": "27px",
+				"type": "spacing"
+			}
+		},
+		"icon": {
+			"width": {
+				"sm": {
+					"value": "11px",
+					"type": "sizing"
+				},
+				"md": {
+					"value": "12px",
+					"type": "sizing"
+				}
+			},
+			"height": {
+				"sm": {
+					"value": "9px",
+					"type": "sizing"
+				},
+				"md": {
+					"value": "10px",
+					"type": "sizing"
+				}
+			}
+		}
+	}
+}

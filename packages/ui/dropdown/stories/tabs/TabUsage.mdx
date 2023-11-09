@@ -1,0 +1,86 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import SelectLarge from "../images/select-large.svg"
+import SelectSmall from "../images/select-small.svg"
+import IconMenuDefault from "../images/icon-menu-default.svg"
+import IconMenuWithIcons from "../images/icon-menu-with-icons.svg"
+import MenuPlugin from "../images/menu-plugin.svg"
+import MenuTemplate from "../images/menu-template.svg"
+import MobileMenuPlugin from "../images/mobile-menu-plugin.svg"
+import MobileMenuTemplate from "../images/mobile-menu-template.svg"
+
+<Section contained={true} title="Anatomy">
+	<img src={Anatomy} alt="Dropdown Anatomy" />
+	<p style={{ paddingTop: "20px" }}>
+		The dropdown should be activated by a trigger. It'll most likely be used to
+		choose alternatives in a form select type. It will, however, be utilized in
+		buttons to show as a menu list or choose alternatives.
+	</p>
+</Section>
+
+<Section contained={true} title="Variation">
+	<h3>1. Select Dropdown</h3>
+	<p>
+		A dropdown is used most commonly for select type in a form. Since the Select
+		type has large and small variations, the dropdown has the same size
+		variations for design consistency.
+	</p>
+	<figure style={{ margin: 0 }}>
+		<img src={SelectLarge} alt="Dropdown Select Large" />
+		<figcaption>Dropdown Size - Large</figcaption>
+	</figure>
+
+    <figure style={{ margin: 0, paddingTop: "30px" }}>
+    	<img src={SelectSmall} alt="Dropdown Select Small" />
+    	<figcaption>Dropdown Size - Small</figcaption>
+    </figure>
+
+    <h3 style={{paddingTop: "20px"}}>2. Icon Menu Drop Down</h3>
+    <Row>
+    	<Col>
+    		 <figure style={{ margin: 0 }}>
+    			<img src={IconMenuDefault} alt="Dropdown Icon Menu Default" />
+    			<figcaption>Icon menu dropdown - default</figcaption>
+    		</figure>
+    	</Col>
+    	<Col>
+    		<figure style={{ margin: 0 }}>
+    			<img src={IconMenuWithIcons} alt="Dropdown Icon Menu With Icons" />
+    			<figcaption>Icon menu dropdown - with icons</figcaption>
+    		</figure>
+    	</Col>
+    </Row>
+
+    <h3 style={{paddingTop: "20px"}}>3. Menu Dropdown</h3>
+    <Row>
+    	<Col>
+    		 <figure style={{ margin: 0 }}>
+    			<img src={MenuPlugin} alt="Dropdown Menu Plugin" />
+    			<figcaption>Menu dropdown - Plugin</figcaption>
+    		</figure>
+    	</Col>
+    	<Col>
+    		<figure style={{ margin: 0 }}>
+    			<img src={MenuTemplate} alt="Dropdown Menu Template" />
+    			<figcaption>Menu dropdown - Template</figcaption>
+    		</figure>
+    	</Col>
+    </Row>
+
+    <Row style={{paddingTop: "20px"}}>
+    	<Col>
+    		 <figure style={{ margin: 0 }}>
+    			<img src={MobileMenuPlugin} alt="Mobile Dropdown Menu Plugin" />
+    			<figcaption>Mobile Menu dropdown - Plugin</figcaption>
+    		</figure>
+    	</Col>
+    	<Col>
+    		<figure style={{ margin: 0 }}>
+    			<img src={MobileMenuTemplate} alt="Mobile Dropdown Menu Template" />
+    			<figcaption>Mobile Menu dropdown - Template</figcaption>
+    		</figure>
+    	</Col>
+    </Row>
+
+</Section>

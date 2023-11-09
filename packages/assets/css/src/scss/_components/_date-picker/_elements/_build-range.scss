@@ -1,0 +1,80 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Range
+/// This function creates styles for the element
+/// main wrapper.
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-range($block) {
+    // DIR: Left to right.
+    // THEME: None.
+    @include sui-class($rtl: false, $theme: null) {
+        // Block wrapper.
+        @include block($block) {
+            @include element(range) {
+                display: flex;
+                gap: $spacing-md;
+                overflow: auto;
+                -ms-overflow-style: none; /* for Internet Explorer, Edge */
+                scrollbar-width: none; /* for Firefox */
+
+                &::-webkit-scrollbar {
+                    display: none; /* for Chrome, Safari, and Opera */
+                }
+                
+                @include media(max-width, sm) {
+                    padding-left: $spacing-lg;
+                    padding-right: $spacing-lg;
+                }
+            }
+
+            @include element(range-button) {
+                background: $color-extended-neutral-90;
+                border-radius: $border-radius-lg;
+                font-size: $datepicker-font-size;
+                line-height: $datepicker-font-height-sm;
+                font-weight: $font-weight-md;
+                padding: $spacing-sm $spacing-md;
+                white-space: nowrap;
+                color: $color-extended-neutral-10;
+                cursor: pointer;
+
+                @include modifier(active) {
+                    color: $color-extended-neutral-100;
+                    background: $color-primary-50;
+                }
+
+                @include modifier(focus) {
+                    border: $border-width-md solid $color-extended-neutral-0;
+                }
+            }
+        }
+    }
+
+    // DIR: Left to right.
+    // THEME: Dark.
+    @include sui-class($rtl: false, $theme: dark) {
+        // Block wrapper.
+        @include block($block) {
+
+            @include element(range-button) {
+                background: $color-extended-neutral-100;
+                color: $color-extended-neutral-0;
+                border: $border-width-sm solid $color-extended-neutral-0;
+
+                @include modifier(active) {
+                    color: $color-extended-neutral-100;
+                    background: $color-extended-neutral-0;
+                }
+
+                @include modifier(focus) {
+                    border: $border-width-md solid $color-extended-neutral-0;
+                }
+            }
+        }
+    }
+}

@@ -31,20 +31,22 @@
   "scripts": {
     "clean": "rm -rf dist && rm -rf lib",
     "build": "npx tsup",
-    "build:fast": "npx tsup src",
+    "build:dev": "npx tsup --watch",
+    "build:fast": "tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "postpack": "clean-package restore",
+    "build:readme": "readme generate --input ../../../blueprint.md"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-react/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/sui-footer": "*",
-    "@wpmudev/sui-config-table": "*",
-    "@wpmudev/sui-setup-banner": "*",
-    "@wpmudev/sui-upsell": "*",
-    "@wpmudev/sui-upsell-notice": "*"
+    "@wpmudev/sui-config-table": "^0.0.1",
+    "@wpmudev/sui-footer": "^0.0.1",
+    "@wpmudev/sui-setup-banner": "^0.0.1",
+    "@wpmudev/sui-upsell": "^0.0.1",
+    "@wpmudev/sui-upsell-notice": "^0.0.1"
   }
 }

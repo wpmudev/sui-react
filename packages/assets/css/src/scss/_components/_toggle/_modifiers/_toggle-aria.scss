@@ -1,0 +1,26 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Visually Hide Label
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-aria($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(hidden-label) {
+				min-width: $toggle-size-width-md;
+				min-height: $toggle-size-height-md;
+
+				@include modifies-element(switch) {
+					margin: 0;
+				}
+			}
+		}
+	}
+}

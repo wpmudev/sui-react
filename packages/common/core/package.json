@@ -31,32 +31,34 @@
   "scripts": {
     "clean": "rm -rf dist && rm -rf lib",
     "build": "npx tsup",
-    "build:fast": "npx tsup src",
+    "build:dev": "npx tsup --watch",
+    "build:fast": "tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "postpack": "clean-package restore",
+    "build:readme": "readme generate --input ../../../blueprint.md"
   },
   "bugs": {
     "url": "https://github.com/wpmudev/sui-react/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/sui-avatar": "*",
-    "@wpmudev/sui-box": "*",
-    "@wpmudev/sui-button": "*",
-    "@wpmudev/sui-checkbox": "*",
-    "@wpmudev/sui-grid": "*",
-    "@wpmudev/sui-input": "*",
-    "@wpmudev/sui-link": "*",
-    "@wpmudev/sui-icon": "*",
-    "@wpmudev/sui-radio": "*",
-    "@wpmudev/sui-score": "*",
-    "@wpmudev/sui-segmented-control": "*",
-    "@wpmudev/sui-selector": "*",
-    "@wpmudev/sui-spinner": "*",
-    "@wpmudev/sui-tag": "*",
-    "@wpmudev/sui-textarea": "*",
-    "@wpmudev/sui-toggle": "*",
-    "@wpmudev/sui-tooltip": "*"
+    "@wpmudev/sui-avatar": "^0.0.1",
+    "@wpmudev/sui-box": "^0.0.1",
+    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-checkbox": "^0.0.1",
+    "@wpmudev/sui-grid": "^0.0.1",
+    "@wpmudev/sui-icon": "^0.0.1",
+    "@wpmudev/sui-input": "^0.0.1",
+    "@wpmudev/sui-link": "^0.0.1",
+    "@wpmudev/sui-radio": "^0.0.1",
+    "@wpmudev/sui-score": "^0.0.1",
+    "@wpmudev/sui-segmented-control": "^0.0.1",
+    "@wpmudev/sui-selector": "^0.0.1",
+    "@wpmudev/sui-spinner": "^0.0.1",
+    "@wpmudev/sui-tag": "^0.0.1",
+    "@wpmudev/sui-textarea": "^0.0.1",
+    "@wpmudev/sui-toggle": "^0.0.1",
+    "@wpmudev/sui-tooltip": "^0.0.1"
   }
 }

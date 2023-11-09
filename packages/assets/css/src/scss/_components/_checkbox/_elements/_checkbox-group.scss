@@ -1,0 +1,50 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Checkbox Group
+/// This function creates styles for the checkbox icon element
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-checkbox-group($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			display: flex;
+			flex-direction: column;
+			gap: $spacing-md;
+			margin: 0;
+
+			@include modifier(inline) {
+				flex-direction: row;
+				gap: $spacing-xl;
+				flex-wrap: wrap;
+
+				@include media(max-width, sm) {
+					flex-direction: column;
+					gap: $spacing-md;
+				}
+
+				@include modifies-element(item) {
+					.sui-#{$block}__item {
+						padding-left: 0;
+						@include media(max-width, sm) {
+							padding-left: $checkbox-spacing-md;
+						}
+					}
+				}
+			}
+
+			@include element(item) {
+				margin: 0;
+				line-height: 1;
+
+				.sui-#{$block}__item {
+					padding-left: $checkbox-spacing-md;
+				}
+			}
+		}
+	}
+}

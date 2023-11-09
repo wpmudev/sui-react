@@ -1,0 +1,81 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Overview from "../images/overview.svg"
+import Anatomy from "../images/anatomy.svg"
+import HeaderVariations from "../images/header-variations.svg"
+import Body from "../images/body.svg"
+import Footer from "../images/footer.svg"
+import Spacing from "../images/spacing.svg"
+import Size from "../images/size.svg"
+import MaxHeight from "../images/max-height.svg"
+import Examples from "../images/examples.svg"
+
+<Section style={{ paddingTop: 20 }}>
+	<img src={Overview} alt="Overview" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="Anatomy">
+	<Row>
+		<Col>
+    		<h3 style={{marginTop: 0}}>1. Dialog header</h3>
+    		<p>The header appears at the top of the modal with the title and close icon. The title provides a brief and descriptive heading that indicates the purpose or topic of the modal dialog. It helps users understand the context and provides a visual cue for what they can expect.
+            Modal dialogs typically include a close button or "X" icon in the top-right corner. This allows users to dismiss the modal without taking any further action.</p>
+
+    		<h3>2. Dialog body</h3>
+    		<p>The Dialog body is where the main information or interaction elements of the modal are placed. It can include text, images, forms, buttons, or any other relevant content specific to the purpose of the modal. The content should be concise and well-organized, focusing on the most important information or actions.</p>
+
+    		<h3>2. Dialog Footer</h3>
+    		<p>Dialog footer is an optional component that appears at the bottom of the modal. It is generally used to display actions and it can be also used to display additional information or supplemental content related to the modal. For example, it may include links to related resources, additional options, or help documentation.</p>
+    		<p>Depending on the purpose of the modal, there may be one or more action buttons
+            included. The specific labels and number of action buttons will vary based on
+            the modal's functionality and the user flow it supports.</p>
+
+    	</Col>
+    	<Col>
+    		<img src={Anatomy} alt="Item Anatomy" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Header Variations">
+	<img src={HeaderVariations} alt="Modal Header Variations" />
+</Section>
+
+<Section title="Modal Body">
+	<img src={Body} alt="Modal Body" />
+</Section>
+
+<Section title="Modal Footer">
+	<img src={Footer} alt="Modal Footer" />
+</Section>
+
+<Section title="Spacing">
+	<img src={Spacing} alt="Modal Spacing" />
+</Section>
+
+<Section title="Size">
+	<img src={Size} alt="Modal Size" />
+</Section>
+
+<Section title="Maximum Height">
+	<p>
+		The modal body will be scrollable when the modal content exceeds the screen
+		size fixing the modal header and footer.
+	</p>
+	<img src={MaxHeight} alt="Modal Maximum Height " />
+</Section>
+
+<Section title="Examples">
+	<img src={Examples} alt="Modal Examples" />
+
+    <h3 style={{marginTop: 30}}>1. Simple dialog</h3>
+    <p>Simple dialogs are commonly used to display confirmation messages. They typically include a header, where the presence of an icon is optional. Depending on the content of the dialog, appropriate actions should be used.</p>
+
+    <h3>2. Advanced dislog</h3>
+    <p>Advanced dialogs are utilised when the body contains extensive content such as forms and other lengthy information. When the modal body exceeds the screen size, an advanced dialog is employed with a fixed header and footer.</p>
+
+    <h3>3. App connect</h3>
+    <p>We use App-connect dialog when user needs to connect third party apps with WPMU DEV plugins. It can be used for add-ons as well.</p>
+
+</Section>

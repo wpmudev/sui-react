@@ -1,0 +1,24 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Navigation Button
+///
+/// @type element
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-button($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(button) {
+				min-width: $pagination-size-width-md;
+				height: $pagination-size-height-md;
+				padding: 0;
+    			align-items: center;
+			}
+		}
+	}
+}

@@ -1,0 +1,70 @@
+import { Section, Preview, Snippet } from "@wpmudev/sui-docs";
+import { Tooltip } from "../../../src"
+import dedent from "dedent"
+
+export const textCode = dedent`
+  <Tooltip label="Text" type="text" >Tooltip Text</Tooltip>
+`
+
+export const buttonCode = dedent`
+  <Tooltip
+      label="Button"
+      type="button"
+      appearance="primary"
+      color="black"
+  >
+        Tooltip Text
+  </Tooltip>
+`
+
+export const linkCode = dedent`
+  <Tooltip
+      label="Link"
+      type="link"
+      appearance="primary"
+      color="black"
+      href="https://wpmudev.com"
+  >
+        Tooltip Text
+  </Tooltip>
+`
+
+export const iconCode = dedent`
+  <Tooltip type="icon" name="logo">Tooltip Text</Tooltip>
+`
+
+<Section title="Text" contained={true} style={{ padding: "30px 0px" }}>
+	<Preview wrapper={true}>
+		<div style={{padding: 40}}>
+			<Tooltip label="Text" type="text" >Tooltip Text</Tooltip>
+		</div>
+	</Preview>
+	<Snippet language="js">{textCode}</Snippet>
+</Section>
+
+<Section title="Button" contained={true} style={{ padding: "30px 0px" }}>
+	<Preview wrapper={true}>
+		<div style={{padding: 40}}>
+			<Tooltip label="Button" type="button" appearance="primary" color="black">Tooltip Text</Tooltip>
+		</div>
+	</Preview>
+	<Snippet language="js">{buttonCode}</Snippet>
+</Section>
+
+<Section title="Link" contained={true} style={{ padding: "30px 0px" }}>
+	<Preview wrapper={true}>
+		<div style={{padding: 40}}>
+			<Tooltip label="Link" type="link" appearance="primary" color="black" href="https://wpmudev.com" >Tooltip Text</Tooltip>
+		</div>
+	</Preview>
+	<Snippet language="js">{linkCode}</Snippet>
+</Section>
+
+<Section title="Icon" contained={true} style={{ padding: "30px 0px" }}>
+	<Preview wrapper={true}>
+		<div style={{padding: 40}}>
+			<Tooltip type="icon" name="logo">Tooltip Text</Tooltip>
+		</div>
+	</Preview>
+	<Snippet language="js">{iconCode}</Snippet>
+</Section>

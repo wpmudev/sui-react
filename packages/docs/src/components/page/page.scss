@@ -1,0 +1,96 @@
+@use "sass:map";
+@use "sass:math";
+
+// Import "Nunito" font family.
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+
+// Set the base spacing.
+$base-gutter: 40px;
+
+// Predefined spacing list.
+$gutter: (
+	sm: math.div($base-gutter, 2),
+	md: 40px,
+	lg: $base-gutter * 2,
+	xl: $base-gutter * 3,
+);
+
+// Predefined screen sizes.
+$breakpoints: (
+	sm: 601px,
+	md: 893px,
+	lg: 1081px,
+);
+
+// Create breakpoints mixin.
+@mixin media($type, $size) {
+	@if $type == min-width {
+		$width: #{map.get($breakpoints, $size)};
+
+		@media (min-width: $width) {
+			@content;
+		}
+	} @else if $type == max-width {
+		$width: #{map.get($breakpoints, $size) - 1};
+
+		@media (max-width: $width) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+.csb-page {
+	width: 100%;
+	max-width: 100%;
+	background: #fff;
+	color: #1a1a1a;
+	font-family: "Roboto", sans-serif;
+
+	@include media(max-width, sm) {
+		margin-top: 46px;
+	}
+
+	@include media(min-width, md) {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+
+	*:not(.sui-wrap *) {
+		box-sizing: border-box;
+		font-family: "Roboto", sans-serif;
+		font-variant-ligatures: none;
+		-webkit-font-variant-ligatures: none;
+		text-rendering: optimizeLegibility;
+		-moz-osx-font-smoothing: grayscale;
+		font-smoothing: antialiased;
+		-webkit-font-smoothing: antialiased;
+		text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+	}
+
+	p {
+		margin: 0 0 24px;
+		font-size: 15px;
+		font-weight: 400;
+		line-height: 24px;
+		color: #737373;
+
+		strong {
+			font-weight: 700;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.csb-page__title {
+		margin: 0;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 32px;
+		color: #1a1a1a;
+	}
+}

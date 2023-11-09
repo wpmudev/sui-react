@@ -1,0 +1,69 @@
+import { Section } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import Types from "../images/types.svg"
+import DefaultAlighnment from "../images/default-alignment.svg"
+import InlineAlignment from "../images/inline-alignment.svg"
+import Size from "../images/size.svg"
+import IndentAlignment from "../images/indent-alignment.svg"
+import CustomExample from "../images/custom-example.svg"
+
+<Section title="Anatomy" style={{ paddingTop: 20 }}>
+
+    <img src={Anatomy} alt="Progress Bar Anatomy" style={{ marginBottom: 20 }} />
+
+    <h3 style={{marginTop: 30}}>1. Label</h3>
+    <p>A label to inform about the state of progress.</p>
+
+    <h3>2. Progress Indicator</h3>
+    <p>The progress indicator indicates how much the process has progressed.</p>
+
+    <h3>3. Progress Track</h3>
+    <p>The progress track is the static length of the progress bar where the progress indicator runs.</p>
+
+    <h3>4. Value</h3>
+    <p>The value of a progress bar can provide detailed information about the process.</p>
+
+    <h3>5. Cancel</h3>
+    <p> If the process needs to be terminated, the option to cancel the process will be available. SUI uses a tertiary button to perform a cancel action.</p>
+
+</Section>
+
+<Section title="Types">
+	<img src={Types} alt="Progress Bar Types"/>
+    <h3 style={{marginTop: 30}}>1. Determinate</h3>
+    <p>When a progress can be calculate, determinate progress bar will be used.</p>
+
+    <h3>2. Indeterminate</h3>
+    <p>If the process can’t be determined, use an indeterminate progress bar. There won’t be a progress value for the indeterminate progress bar.</p>
+
+</Section>
+
+<Section title="Size">
+	<p>Progress state sizes are used to determine progress bar sizes. There are three different sizes  available for progress states.</p>
+
+    <img src={Size} alt="Progress Bar Size" />
+
+</Section>
+
+<Section title="Alignment">
+
+    <h3>1. Default Alignment</h3>
+    <img src={DefaultAlighnment} alt="Progress Bar Default Alignment"/>
+
+    <h3>2. Inline Alignment</h3>
+    <img src={InlineAlignment} alt="Progress Bar Inline Alignment"/>
+
+    <h3>3. Indent Alignment</h3>
+    <p>Use indent alignment if there need to show the progress inside any component.</p>
+    <img src={IndentAlignment} alt="Progress Bar Indent Alignment"/>
+
+</Section>
+
+<Section title="Usage">
+
+    <p>Generally, the label, progress value, progress state, and cancel button will be used in conjunction with the progress bar. But occasionally, it might be necessary to use the component on its own. In those circumstances, we only use the progress state and adjust the design as needed.</p>
+
+    <img src={CustomExample} alt="Progress Bar Custom Example" />
+
+</Section>

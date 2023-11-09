@@ -5,6 +5,8 @@ node_modules
 .dccache
 dist
 lib
+.idea
+storybook-static
 
 # Ignore all error logs.
 *.log

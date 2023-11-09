@@ -1,0 +1,76 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { Select } from "../../src"
+import dedent from "dedent"
+
+{/* Import Variations */}
+
+import States from "./Examples/States.mdx"
+import Types from "./Examples/Types.mdx"
+
+export const defaultCode = dedent`
+  import { Select } from "@wpmudev/sui-select";
+
+  export const options = [
+    {
+      icon: "settings",
+      id: "option-1",
+      label: "Option 1 is the option.",
+      isSelected: false,
+	  },
+    {
+      icon: "settings",
+      id: "option-2",
+      label: "Option 2",
+      isSelected: false,
+    },
+    {
+      icon: "settings",
+      id: "option-3",
+      label: "Option 3",
+      isSelected: false,
+    },
+  ]
+
+  export const Example = () => {
+    return <Select id="select-id" options={options} />
+  }
+`
+export const options = [
+	{
+		icon: "settings",
+		id: "option-1",
+		label: "Option 1 is the option.",
+		isSelected: false,
+	},
+	{
+		icon: "settings",
+		id: "option-2",
+		label: "Option 2",
+		isSelected: false,
+	},
+	{
+		icon: "settings",
+		id: "option-3",
+		label: "Option 3",
+		isSelected: false,
+	},
+]
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Below is the default form of the select component</p>
+	<div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+		<Select id="select-id" options={options} />
+	</div>
+	<Snippet language="js">{defaultCode}</Snippet>
+</Section>
+
+<Section title="States & Types" style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="States" value="states">
+			<States />
+		</div>
+		<div label="Types" value="types">
+			<Types />
+		</div>
+	</Switcher>
+</Section>

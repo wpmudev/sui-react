@@ -1,0 +1,16 @@
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { TableExample } from "./Example"
+import { generalCode } from "../TabExamples.mdx"
+import dedent from "dedent"
+
+<Section
+    border={true}
+    style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+    <p>Set the prop <Code small={true}>isDraggable=\{true\}</Code> to allow rows to be dragged </p>
+    <Preview wrapper={true}>
+    	<TableExample hasToolbar={false} isDraggable={true}/>
+    </Preview>
+    <Snippet language="js">{generalCode("isDraggable={true}")}</Snippet>
+
+</Section>

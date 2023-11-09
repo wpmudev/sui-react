@@ -1,0 +1,44 @@
+{
+  	"navigation": {
+		"border": {
+			"radius": {
+				"md": {
+					"value": "10px",
+					"type": "borderRadius"
+				}
+			}
+		},
+		"size": {
+			"width": {
+				"md": {
+					"value": "32px",
+					"type": "sizing"
+				},
+				"lg": {
+					"value": "48px",
+					"type": "sizing"
+				}
+			},
+			"height": {
+				"md": {
+					"value": "32px",
+					"type": "sizing"
+				},
+				"lg": {
+					"value": "48px",
+					"type": "sizing"
+				}
+			}
+		},
+		"spacing": {
+			"sm": {
+				"value": "12px",
+				"type": "spacing"
+			},
+			"md": {
+				"value": "20px",
+				"type": "spacing"
+			}
+		}
+	}
+}

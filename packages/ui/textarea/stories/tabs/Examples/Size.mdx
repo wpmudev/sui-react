@@ -1,0 +1,33 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/sui-docs';
+import { Textarea } from '../../../src';
+import dedent from 'dedent';
+
+export const SmallTextareaCode = dedent`
+import React from 'react';\n
+import { Button } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Textarea id="textarea-id-4" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" isSmall={true} />;
+}\n
+export default Example;
+`;
+
+<Section
+	title="Small"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isSmall</Code> prop to reduce the textarea
+		height, fitting with the design context.
+	</p>
+	<Preview wrapper={true}>
+		<Textarea
+			id="textarea-id-4"
+			placeholder="Placeholder"
+			description="This is a description."
+			descriptionId="desc-id"
+			isSmall={true}
+		/>
+	</Preview>
+	<Snippet language="js">{SmallTextareaCode}</Snippet>
+</Section>
