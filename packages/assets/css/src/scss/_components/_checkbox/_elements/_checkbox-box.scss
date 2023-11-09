@@ -16,7 +16,8 @@
 			@include element(box) {
 				width: $checkbox-size-md;
 				height: $checkbox-size-md;
-				display: flex;
+				display: flex !important;
+				position: relative !important;
 				align-items: center;
 				justify-content: center;
 				margin: $spacing-sm 0;

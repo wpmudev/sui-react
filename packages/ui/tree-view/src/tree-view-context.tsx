@@ -1,4 +1,4 @@
-import React, { createContext, FC } from "react"
+import React, { createContext, FC, useState } from "react"
 import { TreeViewContextProps, TreeViewProviderProps } from "./tree-view.types"
 
 // Create the context for the TreeView component
@@ -16,8 +16,8 @@ const TreeViewContext = createContext<TreeViewContextProps | null>(null)
 const TreeViewProvider: FC<TreeViewProviderProps> = ({ children, value }) => {
 	// @todo: Uncomment the following code to handle checked items
 	// const [checkItems, setCheckItems] = useState<
-	//   TreeViewContextProps["checkList"]
-	// >([]);
+	// 	TreeViewContextProps["checkList"]
+	// >([])
 
 	// @todo: Add logic to handle checked items and make check work!
 
