@@ -1,5 +1,6 @@
-import React, { useCallback, useId, useState } from "react"
+import React, { useCallback, useId } from "react"
 import { useInteraction } from "@wpmudev/sui-hooks"
+import { useAccordion } from "./accordion-context"
 
 import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
@@ -16,15 +17,12 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	icon,
 	hasCheckbox,
 	onCheck,
-	...props
 }) => {
-	// State to manage the expanded state of the accordion item.
-	const [isExpanded, setIsExpanded] = useState<boolean>(
-		props?.isExpanded ?? false,
-	)
-
 	// Custom hook to generate a unique ID for the accordion item.
 	const uniqueId = useId()
+
+	// Get the "toggle" method and "isExpanded" state from the current AccordionItem
+	const { toggle, isExpanded } = useAccordion({ uniqueId })
 
 	// IDs for the accordion and its panel to manage accessibility.
 	const accordionId = `sui-accordion-${uniqueId}`
@@ -45,11 +43,6 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 		},
 		[isExpanded, onCheck],
 	)
-
-	// Callback to toggle the expanded state of the accordion item.
-	const toggle = useCallback(() => {
-		setIsExpanded(!isExpanded)
-	}, [isExpanded])
 
 	// Icon component to display a chevron icon based on the accordion's expanded state.
 	const Icon = isExpanded ? ChevronUp : ChevronDown
@@ -109,7 +102,9 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				role="region"
 				id={accordionPanelId}
 				aria-labelledby={accordionId}
-				className={generateCN("sui-accordion__panel", { open: isExpanded })}
+				className={generateCN("sui-accordion__panel", {
+					open: isExpanded,
+				})}
 				data-testid="accordion-item-panel"
 			>
 				<div className="sui-accordion__panel--content">{children}</div>
