@@ -40,6 +40,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						isDisabled={selectedPage <= 1}
 						onClick={handlePreviousPage}
 						data-testid="pagination-prev-page"
+						aria-label={previousLabel}
 					>
 						{previousLabel}
 					</Button>
@@ -68,7 +69,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							isSmall={true}
 							className="sui-pagination__button"
 							onClick={handlePreviousEllipsis}
-						></Button>
+						/>
 					</li>
 				)}
 				{pagesArray
@@ -141,6 +142,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						isDisabled={selectedPage >= pages}
 						onClick={handleNextPage}
 						data-testid="pagination-next-page"
+						aria-label={nextLabel}
 					>
 						{nextLabel}
 					</Button>
