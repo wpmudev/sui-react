@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { FieldList, FieldListItem } from "../src"
 
 describe("@wpmudev/sui-field-list", () => {
@@ -50,5 +50,14 @@ describe("@wpmudev/sui-field-list", () => {
 			// Verify that the third field item has the "disabled" class
 			expect(fieldItems[2]).toHaveClass("sui-field-list__item--disabled")
 		})
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(
+			<FieldList {...props} onToggle={jest.fn()}>
+				<FieldListItem id="field-1">Field 1</FieldListItem>
+			</FieldList>,
+		)
 	})
 })

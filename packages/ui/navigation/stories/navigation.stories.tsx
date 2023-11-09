@@ -44,7 +44,7 @@ export const Navigation = ({ ...props }) => {
 	]
 
 	return (
-		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
+		<div className="sui-layout">
 			<div className="sui-layout__content">
 				<div>
 					<SuiNavigation
@@ -89,7 +89,6 @@ export const Navigation = ({ ...props }) => {
 							appearance="tertiary"
 							icon="bell"
 							color="black"
-							isSmall={true}
 							isResponsive={true}
 						>
 							Help
@@ -98,7 +97,6 @@ export const Navigation = ({ ...props }) => {
 							icon="bell"
 							appearance="tertiary"
 							color="black"
-							isSmall={true}
 							isResponsive={true}
 						>
 							Documentation
@@ -107,7 +105,6 @@ export const Navigation = ({ ...props }) => {
 							icon="plugin-smush"
 							appearance="tertiary"
 							color="black"
-							isSmall={true}
 							isResponsive={true}
 						>
 							Support Smush
@@ -116,7 +113,7 @@ export const Navigation = ({ ...props }) => {
 							buttonIcon="bell"
 							label="Connect features"
 							direction="left"
-							isSmall={true}
+							isResponsive={true}
 							menu={[
 								{
 									id: "group-1",

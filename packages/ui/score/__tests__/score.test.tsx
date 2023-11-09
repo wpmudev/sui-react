@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Score } from "../src"
 
 describe("@wpmudev/sui-score", () => {
@@ -33,5 +33,10 @@ describe("@wpmudev/sui-score", () => {
 		// Check if an element with the data-testid "score" has the "sui-score--success" class.
 		// Ensure that the "score" element has the "sui-score--success" class.
 		expect(screen.getByTestId("score")).toHaveClass("sui-score--success")
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Score value={50} bar={50} />)
 	})
 })

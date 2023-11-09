@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { SetupBanner } from "../src"
 
 describe("@wpmudev/sui-setup-banner", () => {
@@ -35,5 +35,15 @@ describe("@wpmudev/sui-setup-banner", () => {
 
 		// Check if the SetupBanner icon is in the document
 		expect(screen.getByTestId("setup-banner-icon")).toBeInTheDocument()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(
+			<SetupBanner
+				type="defender"
+				description="This is a sample description"
+			/>,
+		)
 	})
 })

@@ -13,6 +13,10 @@
 				}
 			}
 
+			@include media(max-width, sm) {
+				width: 100%;
+			}
+
 			@include modifier(fluid) {
 				width: 100%;
 			}

@@ -76,8 +76,8 @@ export const Pagination = (args: PaginationProps): React.ReactNode => {
 Pagination.args = {
 	limit: 5,
 	skip: false,
-	previousLabel: "Go to previous page",
-	nextLabel: "Go to next page",
+	previousLabel: "Previous page",
+	nextLabel: "Next page",
 }
 
 // Set controls for story arguments.

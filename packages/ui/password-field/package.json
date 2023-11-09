@@ -1,5 +1,5 @@
 {
-  "name": "@wpmudev/sui-field-password",
+  "name": "@wpmudev/sui-password-field",
   "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Password Field",
   "keywords": [],
@@ -40,6 +40,7 @@
   "scripts": {
     "clean": "rm -rf dist && rm -rf lib",
     "build": "npx tsup",
+    "build:dev": "npx tsup --watch",
     "build:fast": "tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",

@@ -18,6 +18,12 @@
 				}
 			}
 
+			@include modifier(md) {
+				@include modifies-element(indicator) {
+					height: $progress-size-height-sm;
+				}
+			}
+
 			@include modifier(lg) {
 				@include modifies-element(indicator) {
 					height: $progress-size-height-md;
