@@ -15,77 +15,76 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-
 			@include element(saturation, hue, alpha) {
-				border-radius: $colorpicker-border-radius-sm;
-				background: $colorpicker-color-shadow-dark;
+				border-radius: $border-radius-md;
+				background: $color-alpha-black-10;
 				overflow: hidden;
 			}
 
 			@include element(saturation) {
 				position: relative;
-				height: $colorpicker-saturation-height;
-				margin: 0 0 $colorpicker-spacing-sm;
+				height: $colorpicker-size-height-2xl;
+				margin: 0 0 $spacing-default;
 			}
 
 			@include element(hue, alpha) {
 				position: relative;
-				height: $colorpicker-size-height;
-				margin: $colorpicker-spacing-sm 0;
+				height: $colorpicker-size-height-xs;
+				margin: $spacing-default 0;
 			}
 
 			@include element(pointer) {
-				border: $colorpicker-border-width-sm solid $color-extended-neutral-100;
+				border: $border-width-md solid $color-extended-neutral-100;
 				cursor: pointer;
-				width: $colorpicker-pointer-size;
-				height: $colorpicker-pointer-size;
+				width: $colorpicker-size-width-xs;
+				height: $colorpicker-size-height-sm;
 				border-radius: 100%;
-				margin-top: $colorpicker-pointer-spacing-vertical;
-				filter: drop-shadow(0px 0px $colorpicker-pointer-filter-width $colorpicker-pointer-filter-color);
+				margin-top: $colorpicker-spacing-2xs;
+				filter: drop-shadow(0px 0px $shadow-offset-2xs $color-alpha-grey-20);
 			}
 
 			@include element(fields) {
 				display: flex;
-				gap: $colorpicker-fields-gap-sm;
-				margin: $colorpicker-fields-spacing-vertical 0;
+				gap: $spacing-sm;
+				margin: $spacing-default 0;
 
 				@include modifier(select) {
-					padding: $colorpicker-fields-select-spacing-vertical $colorpicker-fields-select-spacing-horizontal;
+					padding: $colorpicker-spacing-sm $spacing-sm;
 					border: none;
 					cursor: pointer;
-					font-size: $colorpicker-fields-font-size;
-					line-height: $colorpicker-fields-font-height;
+					font-size: $font-size-xs;
+					line-height: $font-height-xxs;
 				}
 
 				@include modifier(hex) {
-					flex: 0 0 $colorpicker-fields-hex-width;
+					flex: 0 0 $colorpicker-size-width-md;
 				}
 
 				@include modifier(input) {
 					display: flex;
 
 					&:focus-within {
-						box-shadow: 0px 0px 0px $colorpicker-fields-input-focus-width $colorpicker-fields-input-focus-color;
-						border-radius: $colorpicker-border-radius-sm;
+						box-shadow: 0px 0px 0px $shadow-offset-xs $color-primary-50;
+						border-radius: $border-radius-md;
 					}
 
 					input {
-						font-size: $colorpicker-fields-font-size;
-						line-height: $colorpicker-fields-font-height;
-						color: $colorpicker-fields-font-color;
-						padding: $colorpicker-fields-input-spacing-vertical $colorpicker-fields-input-spacing-horizontal;
-						border: $colorpicker-border-width-xs solid $colorpicker-fields-input-border-color;
+						font-size: $font-size-xs;
+						line-height: $font-height-xxs;
+						color: $color-extended-neutral-10;
+						padding: $colorpicker-spacing-sm $spacing-md;
+						border: $border-width-sm solid $color-extended-neutral-80;
 						width: 100%;
 						outline: none;
 
 						&:first-child {
-							border-top-left-radius: $colorpicker-border-radius-sm;
-							border-bottom-left-radius: $colorpicker-border-radius-sm;
+							border-top-left-radius: $border-radius-md;
+							border-bottom-left-radius: $border-radius-md;
 						}
 
 						&:last-child {
-							border-top-right-radius: $colorpicker-border-radius-sm;
-							border-bottom-right-radius: $colorpicker-border-radius-sm;
+							border-top-right-radius: $border-radius-md;
+							border-bottom-right-radius: $border-radius-md;
 						}
 
 						/* Chrome, Safari, Edge, Opera */
@@ -96,7 +95,7 @@
 						}
 
 						/* Firefox */
-						&[type=number] {
+						&[type="number"] {
 							-moz-appearance: textfield;
 						}
 					}
@@ -110,18 +109,15 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		// Block wrapper.
 		@include block($block) {
-
 			@include element(fields) {
-
 				@include modifier(input) {
-
 					&:focus-within {
-						box-shadow: 0px 0px 0px $colorpicker-fields-input-focus-width $color-extended-neutral-0;
+						box-shadow: 0px 0px 0px $shadow-offset-xs $color-extended-neutral-0;
 					}
 
 					input {
 						color: $color-extended-neutral-0;
-						border-color:$color-extended-neutral-0;
+						border-color: $color-extended-neutral-0;
 					}
 				}
 			}
@@ -133,23 +129,19 @@
 	@include sui-class($rtl: true, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-
 			@include element(fields) {
-
 				@include modifier(input) {
-
 					input {
-
 						&:first-child {
-							border-top-right-radius:  $colorpicker-border-radius-sm;
-							border-bottom-right-radius:  $colorpicker-border-radius-sm;
+							border-top-right-radius: $border-radius-md;
+							border-bottom-right-radius: $border-radius-md;
 							border-top-left-radius: 0;
 							border-bottom-left-radius: 0;
 						}
 
 						&:last-child {
-							border-top-left-radius:  $colorpicker-border-radius-sm;
-							border-bottom-left-radius:  $colorpicker-border-radius-sm;
+							border-top-left-radius: $border-radius-md;
+							border-bottom-left-radius: $border-radius-md;
 							border-top-right-radius: 0;
 							border-bottom-right-radius: 0;
 						}

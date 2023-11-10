@@ -13,8 +13,9 @@
 		@include block($block) {
 			@include element(field) {
 				@include modifier(error) {
-					box-shadow: 0 2px 4px 0 $color-alpha-grey-05,
-						0 -2px 0 0 $color-extended-error-50 inset;
+					box-shadow: 0 $shadow-offset-xs $shadow-offset-sm 0
+							$color-alpha-grey-05,
+						0 -#{$shadow-offset-xs} 0 0 $color-extended-error-50 inset;
 				}
 			}
 		}
@@ -26,8 +27,9 @@
 		@include block($block) {
 			@include element(field) {
 				@include modifier(error) {
-					box-shadow: 0 2px 4px 0 $color-alpha-grey-05,
-						0 -2px 0 0 $color-extended-neutral-0 inset;
+					box-shadow: 0 $shadow-offset-xs $shadow-offset-sm 0
+							$color-alpha-grey-05,
+						0 -#{$shadow-offset-xs} 0 0 $color-extended-neutral-0 inset;
 				}
 			}
 		}

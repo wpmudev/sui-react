@@ -57,6 +57,14 @@ Integration.args = {
 
 // Story props settings
 Integration.argTypes = {
+	title: {
+		name: "Title",
+		control: "text",
+	},
+	description: {
+		name: "Description",
+		control: "text",
+	},
 	image: {
 		name: "Icon",
 		control: "object",

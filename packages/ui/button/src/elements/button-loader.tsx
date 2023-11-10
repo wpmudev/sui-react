@@ -24,9 +24,15 @@ const Loader: React.FC<ButtonLoaderProps> = ({ children }) => {
 			<span className="sui-button__icon" aria-hidden="true">
 				<span className={className} />
 			</span>
-			<span className="sui-screen-reader-only" tabIndex={-1}>
-				{children ? children : "Loading"}
-			</span>
+			{children ? (
+				<span className="sui-button__label sui-hidden" tabIndex={-1}>
+					{children}
+				</span>
+			) : (
+				<span className="sui-screen-reader-only" tabIndex={-1}>
+					Loading
+				</span>
+			)}
 		</Fragment>
 	)
 }

@@ -14,12 +14,12 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            @include element(description) {
-                font-size: $font-size-xs;
-                line-height: $integration-font-height-sm;
-                color: $color-extended-neutral-50;
-                margin: $integration-spacing-margin-vertical 0 0;
-            }
+			@include element(description) {
+				font-size: $font-size-xs;
+				line-height: $font-height-sm;
+				color: $color-extended-neutral-50;
+				margin: $spacing-lg 0 0;
+			}
 		}
 	}
 }

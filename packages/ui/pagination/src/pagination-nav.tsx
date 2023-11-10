@@ -1,6 +1,7 @@
 import React from "react"
 
 import { Button } from "@wpmudev/sui-button"
+import { Tooltip } from "@wpmudev/sui-tooltip"
 import { PaginationNavProps } from "./pagination.types"
 
 export const PaginationNav: React.FC<PaginationNavProps> = ({
@@ -30,7 +31,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 		<div className="sui-pagination" data-testid="pagination">
 			<ul className="sui-pagination__nav" role="tablist">
 				<li className="sui-pagination__item" role="tab">
-					<Button
+					<Tooltip
 						className="sui-pagination__button"
 						color="black"
 						appearance="tertiary"
@@ -40,9 +41,10 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						isDisabled={selectedPage <= 1}
 						onClick={handlePreviousPage}
 						data-testid="pagination-prev-page"
+						aria-label={previousLabel}
 					>
 						{previousLabel}
-					</Button>
+					</Tooltip>
 				</li>
 				{startIndex > 1 && skip && (
 					<li className="sui-pagination__item" role="tab">
@@ -68,7 +70,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							isSmall={true}
 							className="sui-pagination__button"
 							onClick={handlePreviousEllipsis}
-						></Button>
+						/>
 					</li>
 				)}
 				{pagesArray
@@ -131,7 +133,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 					</li>
 				)}
 				<li className="sui-pagination__item" role="tab">
-					<Button
+					<Tooltip
 						className="sui-pagination__button"
 						color="black"
 						appearance="tertiary"
@@ -141,9 +143,10 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						isDisabled={selectedPage >= pages}
 						onClick={handleNextPage}
 						data-testid="pagination-next-page"
+						aria-label={nextLabel}
 					>
 						{nextLabel}
-					</Button>
+					</Tooltip>
 				</li>
 			</ul>
 		</div>

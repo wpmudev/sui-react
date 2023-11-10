@@ -1,5 +1,6 @@
-import * as Icons from "./exports"
+import "../scss/sui-icons.scss"
 
+import * as Icons from "./exports"
 import { IconProps } from "@wpmudev/sui-icon"
 
 export type IconsNamesType = keyof typeof Icons
