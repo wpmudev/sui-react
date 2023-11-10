@@ -46,7 +46,7 @@
 					border-left: $selector-border-width solid transparent;
 					border-top: $selector-border-width solid $color-primary-50;
 					clear: both;
-					border-top-right-radius: 4px;
+					border-top-right-radius: $border-width-xl;
 					z-index: 1;
 				}
 			}
@@ -135,7 +135,7 @@
 					right: unset;
 					left: -#{$spacing-sm};
 					border-top-right-radius: unset;
-					border-top-left-radius: 4px;
+					border-top-left-radius: $border-width-xl;
 				}
 			}
 		}

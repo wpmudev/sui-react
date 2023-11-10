@@ -20,7 +20,7 @@
 
 			@include element(option-delete-btn) {
 				&:hover {
-					background: #ab403e !important;
+					background: $color-extended-error-30;
 				}
 			}
 		}
