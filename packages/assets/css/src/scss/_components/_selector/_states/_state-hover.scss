@@ -8,11 +8,14 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-hover($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            box-shadow: 0 2px 4px 0 $color-shadow-dark, 0 1px 16px 0 $color-shadow-light, 0 6px 12px 0 $color-shadow-default;
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(hover) {
+				box-shadow: 0 2px 4px 0 $color-shadow-dark,
+					0 1px 16px 0 $color-shadow-light, 0 6px 12px 0 $color-shadow-default;
+			}
+		}
+	}
 }
