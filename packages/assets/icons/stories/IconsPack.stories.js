@@ -4,6 +4,7 @@ import React, { Fragment, Children } from "react"
 import dedent from "dedent"
 import { Tag, Code } from "@wpmudev/sui-docs"
 import docs from "./IconsPack.mdx"
+import Icons from "@wpmudev/sui-icons"
 
 // Import required styles.
 import "../dist/css/sui-icons.css"
@@ -87,6 +88,8 @@ const IconsCard = ({ category, name, alt, checked, id }) => {
 
 	const compSample = dedent`<${capitalizeText(camelCased)}/>`
 
+	const iconName = capitalizeText(camelCased)
+
 	return (
 		<div className="csb-icon">
 			<div className="csb-icon__preview">
@@ -107,7 +110,10 @@ const IconsCard = ({ category, name, alt, checked, id }) => {
 					</div>
 				)}
 				<div className="csb-icon__preview-icon">
-					<span className={`suicons suicons--${id}`} style={{ fontSize: 64 }} />
+					{Icons[iconName] &&
+						React.createElement(Icons[iconName], {
+							size: "lg",
+						})}
 				</div>
 			</div>
 
@@ -120,13 +126,6 @@ const IconsCard = ({ category, name, alt, checked, id }) => {
 					<h3 className="csb-icon__data-title">SVG Name</h3>
 					<Code theme="ghost" fullWidth={true}>
 						{id}
-					</Code>
-				</div>
-
-				<div className="csb-icon__data-block">
-					<h3 className="csb-icon__data-title">HTML Code</h3>
-					<Code fullWidth={true} className="csb-icon__code">
-						{sample}
 					</Code>
 				</div>
 				<div className="csb-icon__data-block">
@@ -144,49 +143,55 @@ const ListIcons = {
 	products: {
 		name: "Products",
 		icons: {
-			"plugin-beehive": {
+			PluginBeehive: {
 				name: "Beehive",
 			},
-			"plugin-blc": {
+			PluginBLC: {
 				name: "BLC",
 			},
-			"plugin-branda": {
+			PluginBranda: {
 				name: "Branda",
 			},
-			"plugin-dashboard": {
+			PluginDashboard: {
 				name: "Dashboard",
 			},
-			"plugin-defender": {
+			PluginDefender: {
 				name: "Defender",
 			},
-			"plugin-forminator": {
+			PluginForminator: {
 				name: "Forminator",
 			},
-			"plugin-hummingbird": {
+			PluginHummingbird: {
 				name: "Hummingbird",
 			},
-			"plugin-hustle": {
+			PluginHustle: {
 				name: "Hustle",
 			},
-			"plugin-ivt": {
+			PluginIVT: {
 				name: "IVT",
 			},
-			"plugin-shipper": {
+			PluginShipper: {
 				name: "Shipper",
 			},
-			"plugin-smartcrawl": {
+			PluginSmartCrawl: {
 				name: "SmartCrawl",
 			},
-			"plugin-smush": {
+			PluginSmush: {
 				name: "Smush",
 			},
-			"plugin-snapshot": {
+			PluginSnapshot: {
 				name: "Snapshot",
 			},
-			hub: {
+			Automate: {
+				name: "Automate",
+			},
+			Uptime: {
+				name: "Uptime",
+			},
+			Hub: {
 				name: "The Hub",
 			},
-			logo: {
+			Logo: {
 				name: "WPMU DEV",
 			},
 		},
@@ -327,7 +332,7 @@ const ListIcons = {
 			lock: {
 				name: "Lock",
 			},
-			"lock-alt": {
+			LockAlt: {
 				name: "Lock",
 				alt: true,
 			},
@@ -345,7 +350,7 @@ const ListIcons = {
 			spinner: {
 				name: "Spinner",
 			},
-			"spinner-alt": {
+			SpinnerAlt: {
 				name: "Spinner",
 				alt: true,
 			},
@@ -357,46 +362,46 @@ const ListIcons = {
 	navigation: {
 		name: "Navigation",
 		icons: {
-			"arrow-up": {
+			ArrowUp: {
 				name: "Arrow Up",
 			},
-			"arrow-down": {
+			ArrowDown: {
 				name: "Arrow Down",
 			},
-			"arrow-left": {
+			ArrowLeft: {
 				name: "Arrow Left",
 			},
-			"arrow-right": {
+			ArrowRight: {
 				name: "Arrow Right",
 			},
-			"chevron-up": {
+			ChevronUp: {
 				name: "Chevron Up",
 			},
-			"chevron-down": {
+			ChevronDown: {
 				name: "Chevron Down",
 			},
-			"chevron-left": {
+			ChevronLeft: {
 				name: "Chevron Left",
 			},
-			"chevron-right": {
+			ChevronRight: {
 				name: "Chevron Right",
 			},
-			"caret-up": {
+			CaretUp: {
 				name: "Caret Up",
 			},
-			"caret-down": {
+			CaretDown: {
 				name: "Caret Down",
 			},
-			"caret-left": {
+			CaretLeft: {
 				name: "Caret Left",
 			},
-			"caret-right": {
+			CaretRight: {
 				name: "Caret Right",
 			},
-			"rotate-left": {
+			RotateLeft: {
 				name: "Rotate Left",
 			},
-			"rotate-right": {
+			RotateRight: {
 				name: "Rotate Right",
 			},
 			exit: {
@@ -442,7 +447,7 @@ const ListIcons = {
 			user: {
 				name: "User",
 			},
-			"user-alt": {
+			UserAlt: {
 				name: "User",
 				alt: true,
 			},
@@ -452,17 +457,17 @@ const ListIcons = {
 			calendar: {
 				name: "Calendar",
 			},
-			"folder-open": {
+			FolderOpen: {
 				name: "Folder (Open)",
 			},
-			"folder-close": {
+			FolderClose: {
 				name: "Folder (Close)",
 			},
 			file: {
 				name: "File",
 				checked: false,
 			},
-			"file-check": {
+			FileCheck: {
 				name: "File",
 				checked: true,
 			},
@@ -478,7 +483,7 @@ const ListIcons = {
 			mobile: {
 				name: "Mobile",
 			},
-			"file-zip": {
+			FileZip: {
 				name: "File Zip",
 			},
 			edit: {
@@ -487,25 +492,25 @@ const ListIcons = {
 			like: {
 				name: "Like",
 			},
-			"like-alt": {
+			LikeAlt: {
 				name: "Like",
 				alt: true,
 			},
 			dislike: {
 				name: "Dislike",
 			},
-			"dislike-alt": {
+			DislikeAlt: {
 				name: "Dislike",
 				alt: true,
 			},
 			lifesaver: {
 				name: "Lifesaver (Life Ring)",
 			},
-			"compress-alt": {
+			CompressAlt: {
 				name: "Compress",
 				alt: true,
 			},
-			"file-code": {
+			FileCode: {
 				name: "File Code",
 			},
 			server: {
@@ -529,7 +534,7 @@ const ListIcons = {
 			rss: {
 				name: "RSS (Feed)",
 			},
-			"external-link": {
+			ExternalLink: {
 				name: "External Link",
 			},
 			key: {
