@@ -8,152 +8,148 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-option($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(icon-only) {
+				@include modifies-element(option-header) {
+					padding: $spacing-xl;
+					justify-content: center;
+				}
+			}
 
-            @include modifier(icon-only) {
-                @include modifies-element(option-header) {
-                    padding: $spacing-xl;
-                    justify-content: center;
-                }
-            }
+			@include element(option) {
+				border-radius: $spacing-md;
+				position: relative;
+			}
 
-            @include element(option) {
-                border-radius: $spacing-md;
-                position: relative;
-            }
+			@include element(option-tip) {
+				position: absolute;
+				right: 0;
 
-            @include element(option-tip) {
-                position: absolute;
-                right: 0;
+				span {
+					color: $color-extended-neutral-100;
+					padding-right: $selector-spacing-xs;
+					position: relative;
+					z-index: 2;
+				}
 
-                span {
-                    color: $color-extended-neutral-100;
-                    padding-right: $selector-spacing-xs;
-                    position: relative;
-                    z-index: 1;
-                }
+				&::after {
+					content: "";
+					position: absolute;
+					left: auto;
+					top: 0;
+					right: 0;
+					width: 0;
+					height: 0;
+					border-left: $selector-border-width solid transparent;
+					border-top: $selector-border-width solid $color-primary-50;
+					clear: both;
+					border-top-right-radius: $border-width-xl;
+					z-index: 1;
+				}
+			}
 
-                &::after {
-                    content: '';
-                    position: absolute;
-                    left: auto;
-                    top: 0;
-                    right: 0;
-                    width: 0;
-                    height: 0;
-                    border-left: $selector-border-width solid transparent;
-                    border-top: $selector-border-width solid $color-primary-50;
-                    clear: both;
-                    border-top-right-radius: 4px;
-                }
-            }
+			@include element(option-header) {
+				align-items: center;
+				display: flex;
+				gap: $spacing-md;
+				padding: $spacing-lg;
+			}
 
-            @include element(option-header) {
-                align-items: center;
-                display: flex;
-                gap: $spacing-md;
-                padding: $spacing-lg;
-            }
+			@include modifier(compound) {
+				@include modifies-element(option-header) {
+					border-bottom: $border-width-sm solid $color-extended-neutral-80;
+					padding: $selector-spacing-lg $spacing-lg;
+				}
+			}
 
-            @include modifier(compound) {
-                @include modifies-element(option-header) {
-                    border-bottom: $border-width-sm solid $color-extended-neutral-80;
-                    padding: $selector-spacing-lg $spacing-lg;
-                }
-            }
+			@include element(option-header-icon) {
+				align-items: center;
+				display: inline-flex;
 
-            @include element(option-header-icon) {
-                align-items: center;
-                display: inline-flex;
+				img {
+					max-width: $selector-size-width;
+				}
+			}
 
-                img {
-                    max-width: $selector-size-width;
-                }
-            }
+			@include element(option-header-title) {
+				align-items: center;
+				display: flex;
+				font-weight: $font-weight-md;
+				flex: 1;
+				justify-content: space-between;
+			}
 
-            @include element(option-header-title) {
-                align-items: center;
-                display: flex;
-                font-weight: $font-weight-md;
-                flex: 1;
-                justify-content: space-between;
-            }
+			@include element(option-body-description) {
+				color: $color-extended-neutral-50;
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
+				padding: $spacing-lg;
+				word-wrap: break-word;
+				user-select: none;
+			}
+		}
+	}
 
-            @include element(option-body-description) {
-                color: $color-extended-neutral-50;
-                font-size: $font-size-xs;
-                line-height: $font-height-xs;
-                padding: $spacing-lg;
-                word-wrap: break-word;
-                user-select: none;
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(option-tip) {
+				.sui-icon {
+					color: $color-extended-neutral-100;
+				}
 
-    // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: false, $theme: dark) {
-        @include block($block) {
+				&::after {
+					border-top-color: $color-extended-neutral-0;
+				}
+			}
 
-            @include element(option-tip) {
-                
-                .sui-icon {
-                    color: $color-extended-neutral-100;
-                }
+			@include modifier(compound) {
+				@include modifies-element(option-header) {
+					border-bottom-color: $color-extended-neutral-0;
+				}
+			}
 
-                &::after {
-                    border-top-color: $color-extended-neutral-0;
-                }
-            }
+			@include element(option-body-description) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
 
-            @include modifier(compound) {
-                @include modifies-element(option-header) {
-                    border-bottom-color: $color-extended-neutral-0;
-                }
-            }
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(option-tip) {
+				left: $spacing-sm;
+				right: unset;
 
-            @include element(option-body-description) {
-                color: $color-extended-neutral-0;
-            }
-        }
-    }
+				&::after {
+					border-left: unset;
+					border-right: $selector-border-width solid transparent;
+					border-top: $selector-border-width solid $color-primary-50;
+					transform: rotate(360deg);
+					right: unset;
+					left: -#{$spacing-sm};
+					border-top-right-radius: unset;
+					border-top-left-radius: $border-width-xl;
+				}
+			}
+		}
+	}
 
-    // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: true, $theme: null) {
-        @include block($block) {
-
-            @include element(option-tip) {
-                left: $spacing-sm;
-                right: unset;
-
-                &::after {
-                    border-left: unset;
-                    border-right: $selector-border-width solid transparent;
-                    border-top: $selector-border-width solid $color-primary-50;
-                    transform: rotate(360deg);
-                    right: unset;
-                    left: -#{$spacing-sm};
-                    border-top-right-radius: unset;
-                    border-top-left-radius: 4px;
-                }
-            }
-        }
-    }
-
-    // DIR: Right to left.
-    // THEME: Dark.
-    @include sui-class($rtl: true, $theme: dark) {
-        @include block($block) {
-
-            @include element(option-tip) {
-                &::after {
-                    border-top-color: $color-extended-neutral-0;
-                }
-            }
-        }
-    }
+	// DIR: Right to left.
+	// THEME: Dark.
+	@include sui-class($rtl: true, $theme: dark) {
+		@include block($block) {
+			@include element(option-tip) {
+				&::after {
+					border-top-color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
 }
