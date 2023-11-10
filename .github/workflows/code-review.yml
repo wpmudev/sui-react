@@ -28,5 +28,5 @@ jobs:
 
       - name: Run code quality checks
         run: |
-          npm run test -- --coverage
+          npm run test:a11y -- --coverage
           npm run lint

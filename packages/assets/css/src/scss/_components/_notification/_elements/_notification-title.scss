@@ -6,8 +6,9 @@
 			@include element(title) {
 				display: block;
 				margin: $spacing-sm 0;
-				font-weight: $font-weight-md;
+				font-weight: $font-weight-lg;
 				font-size: $font-size-md;
+				color: $color-extended-neutral-10;
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { TreeView, TreeViewGroup, TreeViewItem } from "../src"
 
 describe("@wpmudev/sui-tree-view", () => {
@@ -83,6 +83,27 @@ describe("@wpmudev/sui-tree-view", () => {
 		// Verify that the TreeViewItem has the 'sui-tree-view__info--disabled' class
 		expect(screen.getByTestId("tree-view-item-info")).toHaveClass(
 			"sui-tree-view__info--disabled",
+		)
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(
+			<TreeView allowCheck={true}>
+				<TreeViewGroup icon="Bell" id="group-1" title="Tree Group">
+					<TreeViewGroup id="group-2" title="Tree Group">
+						<TreeViewItem id="item-1" isDisabled={true}>
+							Tree Item
+						</TreeViewItem>
+					</TreeViewGroup>
+				</TreeViewGroup>
+			</TreeView>,
+			{
+				rules: {
+					// "nested-interactives" in this component is not affecting accessibility
+					"nested-interactive": { enabled: false },
+				},
+			},
 		)
 	})
 })

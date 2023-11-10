@@ -22,13 +22,15 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 
 	return (
 		<div className={classNames} {...props}>
-			{/* Render the logo if provided. If it's an image URL, display it as an <img> element; otherwise, render it as is. */}
-			{!!logo && (
-				<div className="sui-empty-state__logo">
-					{isImg ? <img src={logo as string} alt="LOGO" /> : logo}
-				</div>
-			)}
-			{children}
+			<div className="sui-empty-state__wrapper">
+				{/* Render the logo if provided. If it's an image URL, display it as an <img> element; otherwise, render it as is. */}
+				{!!logo && (
+					<div className="sui-empty-state__logo">
+						{isImg ? <img src={logo as string} alt="LOGO" /> : logo}
+					</div>
+				)}
+				{children}
+			</div>
 		</div>
 	)
 }

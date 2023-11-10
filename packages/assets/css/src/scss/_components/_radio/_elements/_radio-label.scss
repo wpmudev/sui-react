@@ -13,6 +13,8 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(block) {
+				flex: 1;
+
 				@include modifies-element(label) {
 					font-weight: $font-weight-md;
 				}
@@ -22,6 +24,7 @@
 				display: flex;
 				gap: $spacing-md;
 				align-items: center;
+				flex: 1;
 			}
 		}
 	}

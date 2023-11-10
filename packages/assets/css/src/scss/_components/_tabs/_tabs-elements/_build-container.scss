@@ -10,16 +10,18 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-container($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            background: $color-extended-neutral-100;
-            border: $tabs-border-width solid $tabs-border-color;
-            border-radius: $tabs-border-radius;
-            box-shadow: 0px 2px 5px 0px $tabs-shadow-light, 0px 8px 17px 0px $tabs-shadow-medium, 0px 36px 80px 0px $tabs-shadow-dark;
-            overflow: hidden;
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			background: $color-extended-neutral-100;
+			border: $tabs-border-width solid $tabs-border-color;
+			border-radius: $tabs-border-radius;
+			box-shadow: $tabs-shadow-offset-sm $color-shadow-light,
+				$tabs-shadow-offset-md $tabs-shadow-medium,
+				$tabs-shadow-offset-lg $tabs-shadow-dark;
+			overflow: hidden;
+		}
+	}
 }

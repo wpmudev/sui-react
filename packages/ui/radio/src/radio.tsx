@@ -49,6 +49,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			className: "sui-screen-reader-only",
 			checked,
 			disabled: isRadioDisabled,
+			"aria-label": label || "radio input",
 			onChange: handleOnChange,
 			"aria-labelledby": `${uuid}-label`,
 			...(description && { "aria-describedby": `${uuid}-description` }),

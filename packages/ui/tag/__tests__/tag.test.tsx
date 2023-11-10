@@ -1,6 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
+import { a11yTest } from "@wpmudev/sui-utils"
 
 import { Tag } from "../src"
 
@@ -43,5 +44,10 @@ describe("@wpmudev/sui-tag", () => {
 
 		// Check that the tag has the expected CSS class for disabled state.
 		expect(tag).toHaveClass("sui-tag--disabled")
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Tag>Pro</Tag>)
 	})
 })

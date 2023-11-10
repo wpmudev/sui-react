@@ -51,6 +51,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 				value={value}
 				disabled={isDisabled}
 				onChange={onClick}
+				aria-label={ariaLabel || "radio input"}
 			/>
 			{/* The label element represents the segmented control button. */}
 			<label

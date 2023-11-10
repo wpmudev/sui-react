@@ -14,6 +14,7 @@ const Textarea: React.FC<TextareaProps> = ({
 	isSmall = false,
 	isDisabled = false,
 	onChange = () => {},
+	label,
 	...props
 }) => {
 	const [currentValue, setCurrentValue] = useState(value)
@@ -50,6 +51,7 @@ const Textarea: React.FC<TextareaProps> = ({
 				value={currentValue}
 				disabled={isDisabled}
 				onChange={handleOnChange}
+				aria-label={label || "textarea"}
 				data-testid="textarea-input"
 				{...props}
 				{...methods}

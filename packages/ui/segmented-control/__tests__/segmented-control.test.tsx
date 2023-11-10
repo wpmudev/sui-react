@@ -1,6 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
+import { a11yTest } from "@wpmudev/sui-utils"
 
 import {
 	SegmentedControl,
@@ -54,5 +55,16 @@ describe("@wpmudev/sui-segmented-control", () => {
 
 		// Check if the specified aria-label text is rendered
 		expect(screen.queryByText("Aria-label Sample text")).toBeInTheDocument()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(
+			<SegmentedControl name="country">
+				<SegmentedControlButton value="China" isDisabled={true}>
+					China
+				</SegmentedControlButton>
+			</SegmentedControl>,
+		)
 	})
 })

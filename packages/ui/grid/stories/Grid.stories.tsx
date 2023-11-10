@@ -5,7 +5,7 @@ import { Row, Col } from "../src"
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 
 // Import documentation
-import docs from "./ReactGrid.mdx"
+import docs from "./Grid.mdx"
 
 // Configure default options
 export default {

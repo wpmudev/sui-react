@@ -2,6 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { Box, BoxGroup } from "../src"
+import { a11yTest } from "@wpmudev/sui-utils"
 
 describe("@wpmudev/box", () => {
 	// Define the props for the BoxComponent
@@ -48,5 +49,14 @@ describe("@wpmudev/box", () => {
 		expect(screen.getByText(props.title)).toBeInTheDocument()
 		expect(screen.getByText(props.headerLeft)).toBeInTheDocument()
 		expect(screen.getByText(props.headerRight)).toBeInTheDocument()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(
+			<Box {...props} data-testid="box">
+				<BoxGroup>{boxContent}</BoxGroup>
+			</Box>,
+		)
 	})
 })

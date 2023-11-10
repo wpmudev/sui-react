@@ -23,6 +23,7 @@
   "scripts": {
     "clean": "rm -rf dist && rm -rf lib",
     "build": "npx tsup",
+    "build:dev": "npx tsup --watch",
     "build:fast": "tsup src",
     "dev": "npm build:fast -- --watch",
     "prepack": "clean-package",
@@ -33,6 +34,10 @@
     "url": "https://github.com/wpmudev/sui-docs/issues"
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
+  "dependencies": {
+    "@wpmudev/sui-hooks": "^0.0.1",
+    "react": "^18.2.0"
+  },
   "devDependencies": {
     "jest-axe": "^8.0.0",
     "@testing-library/react": "^14.0.0"

@@ -18,6 +18,11 @@
 			padding: $emptystate-spacing-lg;
 			text-align: center;
 
+			@include element(wrapper) {
+				margin: auto;
+				max-width: 760px;
+			}
+
 			[class^="sui-heading--"] {
 				margin: 0 0 $spacing-lg;
 			}
@@ -30,13 +35,13 @@
 				}
 			}
 
-			@include media(max-width, sm) {
+			@include media(max-width, md) {
 				padding: $emptystate-spacing-md $emptystate-spacing-sm;
 
 				button {
 					width: 100%;
 					margin: 0;
-					
+
 					&:last-child {
 						margin-top: $spacing-lg;
 					}

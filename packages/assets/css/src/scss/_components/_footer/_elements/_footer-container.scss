@@ -18,6 +18,10 @@
 			@include media(max-width, sm) {
 				padding: 0 $spacing-lg;
 			}
+
+			@include modifier(transparent) {
+				background: transparent;
+			}
 		}
 	}
 }

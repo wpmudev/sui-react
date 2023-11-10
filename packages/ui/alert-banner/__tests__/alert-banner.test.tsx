@@ -1,6 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
+import { a11yTest } from "@wpmudev/sui-utils"
 
 import { AlertBanner } from "../src"
 
@@ -53,5 +54,10 @@ describe("@wpmudev/sui-alert-banner", () => {
 
 		// Verify that the AlertBanner has the close button
 		expect(screen.queryByTestId("alert-banner-close")).not.toBeInTheDocument()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<AlertBanner />)
 	})
 })

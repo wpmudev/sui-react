@@ -5,6 +5,9 @@
 		@include block($block-name) {
 			@include modifier(loading) {
 				pointer-events: none;
+				@include modifies-element(icon) {
+					position: absolute;
+				}
 			}
 		}
 	}
