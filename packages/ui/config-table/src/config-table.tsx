@@ -126,6 +126,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 									isSmall={true}
 									iconOnly={true}
 									color="black"
+									aria-label="settings"
 									appearance="tertiary"
 									onClick={(e) => {
 										e.preventDefault()

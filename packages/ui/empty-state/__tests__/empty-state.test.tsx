@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { EmptyState } from "../src"
 
 describe("@wpmudev/sui-empty-state", () => {
@@ -35,5 +35,10 @@ describe("@wpmudev/sui-empty-state", () => {
 			// Verify that the logo is visible and has the alt text "LOGO"
 			expect(screen.getByAltText("LOGO")).toBeVisible()
 		})
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<EmptyState {...props} />)
 	})
 })

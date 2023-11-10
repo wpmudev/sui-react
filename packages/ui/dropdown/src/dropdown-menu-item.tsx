@@ -70,7 +70,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	// Prepare attributes for a button element if onClick is provided
 	const btnAttr: Record<string, any> = {}
 	if (!!onClick) {
-		btnAttr.role = "button"
+		// btnAttr.role = "button"
 		btnAttr.onClick = onClick
 		btnAttr.onKeyDown = (
 			e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,

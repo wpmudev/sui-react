@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 import "@testing-library/jest-dom"
 import { fireEvent, render, screen } from "@testing-library/react"
 import { Button } from "@wpmudev/sui-button"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Notification, NotificationRenderer, NotificationProps } from "../src"
 import { useNotifications } from "../src/use-notification"
 
@@ -99,5 +99,10 @@ describe("@wpmudev/sui-notification", () => {
 
 		// Verify that the notification is visible in the document
 		expect(screen.getByTestId("notification")).toBeVisible()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Notification {...commonProps} size="sm" />)
 	})
 })

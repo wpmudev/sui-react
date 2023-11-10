@@ -2,14 +2,14 @@
 
 @use "../../../_utils/utils" as *;
 
-/// Build Copy Button
+/// Build Info
 /// This function creates styles for the element
 /// main wrapper.
 /// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-header($block) {
+@mixin build-info($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
@@ -18,6 +18,10 @@
 			@include element(info) {
 				flex: 1 100%;
 				max-width: 240px;
+
+				@include media(max-width, sm) {
+					max-width: 100%;
+				}
 			}
 
 			@include element(info-title) {

@@ -17,7 +17,7 @@
         @include block($block) {
             @include element(panel-item) {
                 display: none;
-                padding: $tabs-panel-spacing;
+                //padding: $tabs-panel-spacing;
             }
         }
     }

@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { fireEvent, render, screen } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Integration } from "../src"
 
 describe("@wpmudev/sui-integration", () => {
@@ -79,6 +79,7 @@ describe("@wpmudev/sui-integration", () => {
 		render(
 			<Integration
 				active={true}
+				isSettings={true}
 				onSettingsClick={props.onSettingClick}
 				onClick={jest.fn()}
 			/>,
@@ -89,7 +90,12 @@ describe("@wpmudev/sui-integration", () => {
 		expect(settingBtn).toBeInTheDocument()
 
 		// Click the setting button and verify that 'onSettingsClick' is called
-		fireEvent.click(settingBtn)
+		fireEvent.click(settingBtn as Element)
 		expect(props.onSettingClick).toHaveBeenCalled()
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Integration />)
 	})
 })

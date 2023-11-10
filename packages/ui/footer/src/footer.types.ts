@@ -31,6 +31,16 @@ interface FooterProps {
 	 * An optional array of social media links.
 	 */
 	socialLinks?: FooterSocialLinkType[]
+
+	/**
+	 * When true, it removes background color
+	 */
+	removeBGColor?: boolean
+
+	/**
+	 * Additional className
+	 */
+	className?: string
 }
 
 export type { FooterProps, FooterLinkType, FooterSocialLinkType }

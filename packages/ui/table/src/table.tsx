@@ -75,7 +75,9 @@ const Table: React.FC<TableProps> = ({
 						{...props}
 						className="sui-table__table"
 						ref={ref}
-						role="grid"
+						// Ignore eslint here as the table have expandable elements which makes it interactive
+						// eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+						role="treegrid"
 						tabIndex={-1}
 						cellSpacing="0"
 						cellPadding="0"

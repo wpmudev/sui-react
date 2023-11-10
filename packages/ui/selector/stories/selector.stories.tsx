@@ -39,7 +39,10 @@ const options = [
 ]
 
 // Build story
-export const Selector = ({ variation, ...args }: SelectorProps) => {
+export const Selector = ({
+	variation,
+	...args
+}: Omit<SelectorProps, "value">) => {
 	const [val, setVal] = useState<number>()
 
 	const boxStyles = {
@@ -66,6 +69,7 @@ export const Selector = ({ variation, ...args }: SelectorProps) => {
 									onChange={onChange}
 									isChecked={val === option.value}
 									variation={variation}
+									value={option.value}
 									{...args}
 								/>
 							</Col>
@@ -80,7 +84,7 @@ export const Selector = ({ variation, ...args }: SelectorProps) => {
 // Story props defaults
 Selector.args = {
 	title: "Option Title",
-	iconOrBrandUrl: "InfoAlt",
+	iconOrBrandUrl: "Info",
 	variation: "default",
 	alignment: "left",
 	description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",

@@ -23,6 +23,11 @@ interface SettingBlockProps {
 	isPro?: boolean
 
 	/**
+	 * When set to true, it makes section adapt to the available width of its container
+	 */
+	isFluid?: boolean
+
+	/**
 	 * Optional children elements or components that can be nested within the SettingBlock.
 	 * These can be any valid React nodes.
 	 */
@@ -33,6 +38,11 @@ interface SettingBlockProps {
 	 * Should be a string.
 	 */
 	className?: string
+
+	/**
+	 * Setting block actions
+	 */
+	actions?: React.ReactNode
 }
 
 export type { SettingBlockProps }

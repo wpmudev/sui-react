@@ -12,7 +12,9 @@ interface AccordionProps extends Omit<HTMLProps<HTMLDivElement>, "className"> {
 	/** Remove side borders */
 	noSideBorders?: boolean
 	/** Accordion state */
-	state?: "" | "neutral" | "informative" | "success" | "warning" | "critical" // The semantic types for the accordion
+	state?: "" | "neutral" | "informative" | "success" | "warning" | "critical" // The semantic types for the accordion,
+	/** Whether to allow multiple accordion items to be expanded or not */
+	allowMultipleExpand?: boolean
 }
 
 type AccordionCheckboxProps =
@@ -30,6 +32,13 @@ interface AccordionItemBaseProps {
 	icon?: React.ReactNode // An optional icon to be displayed in the accordion item.
 	isExpanded?: boolean // Indicates whether the accordion item is initially expanded.
 	isDisabled?: boolean // Indicates whether the accordion item is disabled and cannot be interacted with.
+}
+
+// Accordion Context Props
+interface AccordionContextProps {
+	allowMultipleExpand: boolean
+	expandState: Record<string, boolean>
+	setExpandState: Function
 }
 
 // Type when hasCheckbox is true
@@ -56,4 +65,4 @@ type AccordionItemProps =
 	| (AccordionItemWithoutCheckbox & AccordionItemBaseProps)
 	| (AccordionItemOptionalCheckbox & AccordionItemBaseProps)
 
-export type { AccordionItemProps, AccordionProps }
+export type { AccordionItemProps, AccordionProps, AccordionContextProps }

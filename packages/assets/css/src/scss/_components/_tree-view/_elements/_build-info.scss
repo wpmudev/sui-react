@@ -17,35 +17,35 @@
 		@include block($block) {
 			@include element(info) {
 				align-items: center;
-				border-radius: $treeview-border-radius;
+				border-radius: $border-radius-md;
 				cursor: pointer;
 				display: flex;
-				margin-bottom: $treeview-spacing-xs;
-				padding: $treeview-spacing-sm;
+				margin-bottom: $spacing-sm;
+				padding: $spacing-md;
 			}
 
 			@include element(info-icon) {
-				margin: 0 $treeview-spacing-xs;
+				margin: 0 $spacing-sm;
 			}
 
 			@include element(info-title) {
 				align-items: center;
 				display: flex;
-				margin-left: $treeview-spacing-xs;
+				margin-left: $spacing-sm;
 
 				span {
-					margin-left: $treeview-spacing-xs;
+					margin-left: $spacing-sm;
 				}
 
 				.sui-#{$block}__info-icon {
-					margin: 0 0 0 $treeview-spacing-xs;
+					margin: 0 0 0 $spacing-sm;
 				}
 			}
 
 			@include element(info-check) {
 				align-items: center;
 				display: flex;
-				margin-left: $treeview-spacing-sm;
+				margin-left: $spacing-md;
 				width: $treeview-size-md;
 			}
 		}
@@ -57,18 +57,18 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(info-title) {
-				margin-right: $treeview-spacing-xs;
+				margin-right: $spacing-sm;
 				margin-left: 0;
 
 				span {
 					margin-left: 0;
-					margin-right: $treeview-spacing-xs;
+					margin-right: $spacing-sm;
 				}
 			}
 
 			@include element(info-check) {
 				margin-left: 0;
-				margin-right: $treeview-spacing-sm;
+				margin-right: $spacing-md;
 			}
 		}
 	}

@@ -91,7 +91,12 @@ const Tooltip: React.FC<TooltipProps> = ({
 			case "button":
 			case "link":
 				return (
-					<Button {...props} href={href} onClick={onClickCallback}>
+					<Button
+						{...props}
+						{...(icon && { icon })}
+						href={href}
+						onClick={onClickCallback}
+					>
 						{label}
 					</Button>
 				)

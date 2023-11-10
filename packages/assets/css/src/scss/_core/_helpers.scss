@@ -17,6 +17,11 @@
 		word-wrap: normal !important;
 	}
 
+	// .sui-hidden
+	@include block(hidden) {
+		opacity: 0;
+	}
+
 	// .sui-mobile-hide
 	@include block(md-hide) {
 		@include media(max-width, md) {

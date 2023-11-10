@@ -58,11 +58,11 @@ type NavigationUserType = {
 	/*
 	 * Name of the user.
 	 */
-	name: string
+	name?: string
 	/*
 	 * Email address of the user.
 	 */
-	email: string
+	email?: string
 }
 
 interface NavigationUserProps {

@@ -1,4 +1,3 @@
-
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
@@ -27,6 +26,10 @@
 						border-radius: 0 $segmented-border-radius $segmented-border-radius 0;
 						border-right-width: $segmented-border-width;
 					}
+
+					.sui-#{$block}__label--active {
+						border-left-color: $segmented-border-color;
+					}
 				}
 			}
 		}
@@ -42,12 +45,22 @@
 						border-radius: 0 $segmented-border-radius $segmented-border-radius 0;
 						border-right-width: $segmented-border-width;
 					}
+
+					.sui-#{$block}__label--active {
+						border-right-color: $color-primary-80;
+						border-left-color: $segmented-border-color;
+					}
 				}
 
 				&:last-child {
 					.sui-#{$block}__label {
 						border-radius: $segmented-border-radius 0 0 $segmented-border-radius;
 						border-right-width: 0;
+					}
+
+					.sui-#{$block}__label--active {
+						border-left-color: $color-primary-80;
+						border-right-color: $segmented-border-color;
 					}
 				}
 			}

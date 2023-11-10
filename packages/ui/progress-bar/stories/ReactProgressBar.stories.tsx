@@ -38,7 +38,7 @@ const ProgressBar = ({ ...args }) => {
 ProgressBar.args = {
 	label: "Loading Data...",
 	value: 50,
-	size: "sm",
+	size: "md",
 	allowCancel: true,
 	isIndeterminate: true,
 	showValue: true,
@@ -60,11 +60,12 @@ ProgressBar.argTypes = {
 	},
 	size: {
 		name: "Size",
-		options: ["sm", "lg"],
+		options: ["sm", "md", "lg"],
 		control: {
 			type: "select",
 			labels: {
 				sm: "Small (sm)",
+				md: "Default (md)",
 				lg: "Large (lg)",
 			},
 		},

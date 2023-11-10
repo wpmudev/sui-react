@@ -8,12 +8,13 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-content($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
 			@include element(content) {
 				display: flex;
+				gap: $spacing-md;
 				flex: 1;
 				justify-content: space-between;
 
@@ -42,6 +43,6 @@
 					}
 				}
 			}
-        }
-    }
+		}
+	}
 }

@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render, fireEvent } from "@testing-library/react"
-
+import { a11yTest } from "@wpmudev/sui-utils"
 import { Textarea } from "../src"
 
 describe("@wpmudev/sui-textarea", () => {
@@ -32,5 +32,10 @@ describe("@wpmudev/sui-textarea", () => {
 		// focus test
 		fireEvent.focus(textareaInputEl)
 		expect(textareaEl).toHaveClass("sui-textarea--focus")
+	})
+
+	// eslint-disable-next-line jest/expect-expect
+	it("passes a11y test", async () => {
+		await a11yTest(<Textarea />)
 	})
 })
