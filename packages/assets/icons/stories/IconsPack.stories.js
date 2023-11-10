@@ -245,25 +245,28 @@ const ListIcons = {
 	status: {
 		name: "Status",
 		icons: {
-			check: {
+			Check: {
 				name: "Check",
 			},
-			"check-alt": {
+			CheckAlt: {
 				name: "Check",
 				alt: true,
 			},
-			info: {
+			Info: {
 				name: "Info",
 			},
-			"info-alt": {
+			InfoAlt: {
 				name: "Info",
 				alt: true,
 			},
-			question: {
+			Question: {
 				name: "Question",
 			},
-			warning: {
+			Warning: {
 				name: "Warning",
+			},
+			Ban: {
+				name: "Ban",
 			},
 		},
 	},
