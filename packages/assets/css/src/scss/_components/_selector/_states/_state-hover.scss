@@ -16,6 +16,12 @@
 				box-shadow: 0 2px 4px 0 $color-shadow-dark,
 					0 1px 16px 0 $color-shadow-light, 0 6px 12px 0 $color-shadow-default;
 			}
+
+			@include element(option-delete-btn) {
+				&:hover {
+					background: #ab403e !important;
+				}
+			}
 		}
 	}
 }
