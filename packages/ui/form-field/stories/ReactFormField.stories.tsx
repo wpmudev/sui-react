@@ -80,6 +80,7 @@ FormField.args = {
 	placeholder: "Placeholder",
 	helper: "Helper text",
 	isError: false,
+	error: "Error message",
 	className: "myCustomClass",
 	isSmall: false,
 	isDisabled: false,
@@ -131,6 +132,14 @@ FormField.argTypes = {
 		if: {
 			arg: "example",
 			neq: "",
+		},
+	},
+	error: {
+		name: "Error Message",
+		control: "text",
+		if: {
+			arg: "isError",
+			neq: false,
 		},
 	},
 	className: {},
