@@ -81,7 +81,12 @@ const Icon = forwardRef<"svg", IconProps>(
 		)
 
 		return (
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" {...svgProps}>
+			<svg
+				version="1.1"
+				xmlns="http://www.w3.org/2000/svg"
+				{...svgProps}
+				data-testid="svg-icon"
+			>
 				{!!title && <title>{title}</title>}
 				{path}
 			</svg>
