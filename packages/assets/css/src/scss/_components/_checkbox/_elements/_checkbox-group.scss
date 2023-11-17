@@ -12,38 +12,16 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			display: flex;
-			flex-direction: column;
-			gap: $spacing-md;
-			margin: 0;
+			@include element(group) {}
 
-			@include modifier(inline) {
-				flex-direction: row;
-				gap: $spacing-xl;
-				flex-wrap: wrap;
-
-				@include media(max-width, sm) {
-					flex-direction: column;
-					gap: $spacing-md;
-				}
-
-				@include modifies-element(item) {
-					.sui-#{$block}__item {
-						padding-left: 0;
-						@include media(max-width, sm) {
-							padding-left: $checkbox-spacing-md;
-						}
-					}
-				}
+			@include element(group-body) {
+				display: flex;
+				flex-direction: column;
 			}
 
-			@include element(item) {
-				margin: 0;
-				line-height: 1;
-
-				.sui-#{$block}__item {
-					padding-left: $checkbox-spacing-md;
-				}
+			@include element(group-title) {
+				color: $color-extended-neutral-50;
+				font: $font-weight-md 15px/24px $font-family-default;
 			}
 		}
 	}
