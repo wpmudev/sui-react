@@ -1,139 +1,108 @@
-import React, {
-	forwardRef,
-	useCallback,
-	useId,
-	useEffect,
-	useState,
-} from "react"
-import { useInteraction } from "@wpmudev/sui-hooks"
-import { generateCN } from "@wpmudev/sui-utils"
-import { Tick } from "./elements/tick"
-import { Indeterminate } from "./elements/indeterminate"
+import React, { useEffect, useId } from "react"
 
-import { CheckboxProps } from "./checkbox.types"
+import { generateCN } from "@wpmudev/sui-utils"
+import { useInteraction } from "@wpmudev/sui-hooks"
+
+import { Indeterminate } from "./elements/indeterminate"
+import { Tick } from "./elements/tick"
 import { useCheckbox } from "./checkbox-context"
 
-/**
- * Checkbox
- *
- * A React component used in forms when a user needs to select
- * multiple values from several options.
- *
- * @param {CheckboxProps} props - Props for the Checkbox component.
- * @return {React.FC} The Checkbox component.
- */
-const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-	(
-		{
-			id,
-			label,
-			itemKey = "",
-			isLabelHidden = false,
-			isDisabled = false,
-			isSmall: propIsSmall = false,
-			value = "",
-			isIndeterminate = false,
-			isChecked: propIsChecked = false,
-			onChange: propOnchange = () => {},
+const Checkbox = ({
+	groupId = "",
+	id,
+	label,
+	name,
+	value = "",
+	isLabelHidden = false,
+	isChecked = false,
+	isDisabled = false,
+	isSmall: propIsSmall = false,
+	isIndeterminate = false,
+	onChange: propOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {},
+}) => {
+	// Context for checkbox
+	const ctx = useCheckbox()
+	const { isHovered, isFocused, methods } = useInteraction({})
+
+	// Generate a dynamic ID for the checkbox
+	let uuid = `sui-checkbox-item-${useId()}`
+
+	// use ID from props list if it exists
+	if (!!id) {
+		uuid = id
+	}
+
+	useEffect(() => {
+		// Add the checkbox details to the context list on component mount
+		ctx.addToList(id, groupId, isChecked)
+	}, [])
+
+	// Define input props
+	const inputProps = {
+		id: uuid,
+		type: "checkbox",
+		name,
+		value,
+		className: "sui-screen-reader-only",
+		checked: isChecked,
+		disabled: isDisabled,
+		onChange: (e) => {
+			// Invoke context onChange method if available
+			if (!!ctx?.onChange) {
+				ctx.onChange(uuid, e.target.checked, groupId)
+			}
+
+			// Invoke prop onChange method
+			if (!!propOnchange) {
+				propOnchange(e)
+			}
 		},
-		ref,
-	) => {
-		// State to manage the checked state of the checkbox
-		const [isChecked, setIsChecked] = useState<boolean>(propIsChecked ?? false)
+		"aria-labelledby": `${uuid}-label`,
+	}
 
-		const { onChange, name, isSmall } = useCheckbox()
-
-		// Set the initial state based on the default value
-		useEffect(() => {
-			setIsChecked((propIsChecked || isIndeterminate) ?? false)
-		}, [propIsChecked, isIndeterminate, value])
-
-		// Interaction methods for handling hover and focus
-		const [isHovered, isFocused, methods] = useInteraction({})
-
-		// Generate a dynamic ID for the checkbox
-		let uuid = `sui-checkbox-${useId()}`
-
-		// use ID from props list if exists
-		if (!!id) {
-			uuid = id
-		}
-
-		// handle on change
-		const handleOnChange = useCallback(
-			(e: React.ChangeEvent<HTMLInputElement>) => {
-				const checked = e.target.checked
-				setIsChecked(checked)
-
-				if (!!onChange) {
-					onChange(itemKey, checked)
-					propOnchange(e)
-				}
-			},
-			[itemKey, onChange, propOnchange],
-		)
-
-		// Define input props
-		const inputProps = {
-			ref,
-			id: uuid,
-			type: "checkbox",
-			name,
-			value,
-			className: "sui-screen-reader-only",
-			checked: isChecked,
+	// Define container props
+	const containerProps = {
+		className: generateCN("sui-checkbox", {
+			"hidden-label": isLabelHidden,
+			indeterminate: isIndeterminate,
+			hover: isHovered,
+			focus: isFocused,
 			disabled: isDisabled,
-			onChange: handleOnChange,
-			"aria-labelledby": `${uuid}-label`,
-		}
+			checked: isChecked,
+			sm: propIsSmall,
+		}),
+		...methods,
+	}
 
-		// Props for the box element representing the checkbox
-		const boxProps = {
-			className: "sui-checkbox__box",
-			"aria-hidden": true,
-		}
+	// Props for the box element representing the checkbox
+	const boxProps = {
+		className: "sui-checkbox__box",
+		"aria-hidden": true,
+	}
 
-		// Define container props
-		const containerProps = {
-			className: generateCN("sui-checkbox", {
-				"hidden-label": isLabelHidden,
-				indeterminate: isIndeterminate,
-				hover: isHovered,
-				focus: isFocused,
-				disabled: isDisabled,
-				checked: isChecked,
-				sm: isSmall || propIsSmall,
-			}),
-		}
-
-		return (
-			<label
-				{...containerProps}
-				htmlFor={uuid}
-				data-testid="checkbox"
-				{...methods}
-			>
-				<input
-					{...inputProps}
-					aria-label={label || "checkbox"}
-					data-testid="checkbox-input"
-				/>
-				{isIndeterminate ? (
-					<Indeterminate {...boxProps} />
-				) : (
-					<Tick {...boxProps} tabIndex={-1} />
-				)}
-				{isLabelHidden ? (
-					<span className="sui-screen-reader-only">{label}</span>
-				) : (
-					label
-				)}
-			</label>
-		)
-	},
-)
-
-// Display name for the Checkbox component (used for debugging purposes)
-Checkbox.displayName = "Checkbox"
+	return (
+		// Checkbox label container
+		<label {...containerProps} htmlFor={uuid} data-testid="checkbox">
+			{/* Checkbox input */}
+			<input
+				{...inputProps}
+				aria-label={label || "checkbox"}
+				data-testid="checkbox-input"
+			/>
+			{/* Render Indeterminate or Tick component based on isIndeterminate */}
+			{isIndeterminate ? (
+				<Indeterminate {...boxProps} />
+			) : (
+				<Tick {...boxProps} tabIndex={-1} />
+			)}
+			{/* Render label or hidden span based on isLabelHidden */}
+			{isLabelHidden ? (
+				<span className="sui-screen-reader-only">{label}</span>
+			) : (
+				label
+			)}
+		</label>
+	)
+}
 
 export { Checkbox }

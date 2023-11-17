@@ -1,18 +1,23 @@
-import { ReactNode, HTMLAttributes } from "react"
+import React, { ReactNode, HTMLAttributes } from "react"
 
 /**
  * Define the props for a CheckboxGroup component.
  */
 interface CheckboxGroupProps {
 	/**
-	 * The name of the checkbox group.
-	 */
-	name: string
-
-	/**
 	 * Indicates whether the checkbox buttons should be displayed inline.
 	 */
 	isInline?: boolean
+
+	/**
+	 * When group has sub-items
+	 */
+	hasSubItems?: boolean
+
+	/**
+	 * When CheckboxGroup component is under CheckBoxGroups
+	 */
+	_isMultiGroup?: boolean
 
 	/**
 	 * The children components rendered inside the checkbox group.
@@ -22,17 +27,12 @@ interface CheckboxGroupProps {
 	/**
 	 * A callback function to handle checkbox button selection changes.
 	 */
-	onChange?(key: string, isChecked: boolean): void
+	onChange?(id: string, isChecked: boolean, groupId: boolean | string): void
 
 	/**
-	 * Indicates whether the checkbox buttons should be displayed with a smaller size (optional).
+	 * Common checkbox props to be passed in checkbox items
 	 */
-	isSmall?: boolean
-
-	/**
-	 * Indicates whether the checkbox button is disabled (optional).
-	 */
-	isDisabled?: boolean
+	commonCheckboxProps: CheckboxProps
 }
 
 /**
@@ -46,14 +46,14 @@ interface CheckboxProps
 	id?: string
 
 	/**
+	 * Group ID (for context)
+	 */
+	groupId?: string
+
+	/**
 	 * The label for the checkbox.
 	 */
 	label?: string
-
-	/**
-	 * The key for the checkbox.
-	 */
-	itemKey?: string
 
 	/**
 	 * The label for the checkbox.
@@ -84,12 +84,33 @@ interface CheckboxProps
 	 * Mark checkbox checked as indeterminate
 	 */
 	isIndeterminate?: boolean
+
+	/**
+	 * Checkbox onChange callback
+	 *
+	 * @param {React.ChangeEvent<HTMLInputElement>} e
+	 */
+	onChange(e: React.ChangeEvent<HTMLInputElement>): void
+}
+
+type CheckboxItemTypes = {
+	id: string
+	groupId?: string | boolean
+	isChecked?: boolean
 }
 
 /**
  * Define the props for the context of a Checkbox component, which includes properties inherited from CheckboxGroupProps.
  */
-interface CheckboxContextProps
-	extends Omit<CheckboxGroupProps, "isInline" | "children"> {}
+interface CheckboxContextProps {
+	items: CheckboxItemTypes[]
+	setItems: (items: CheckboxContextProps["items"]) => void
+	onChange(id: string, isChecked: boolean, groupId: boolean | string): void
+}
 
-export type { CheckboxProps, CheckboxGroupProps, CheckboxContextProps }
+export type {
+	CheckboxProps,
+	CheckboxGroupProps,
+	CheckboxContextProps,
+	CheckboxItemTypes,
+}

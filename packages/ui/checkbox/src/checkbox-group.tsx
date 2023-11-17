@@ -1,48 +1,141 @@
-import React, { Children, ReactNode, isValidElement } from "react"
+import React, {
+	Children,
+	cloneElement,
+	ReactElement,
+	useCallback,
+	useId,
+} from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 
-import { Provider } from "./checkbox-context"
+import { CheckboxProvider, useCheckbox } from "./checkbox-context"
 import { CheckboxGroupProps } from "./checkbox.types"
+import { Checkbox } from "./checkbox"
 
-const CheckboxGroup = ({
-	isInline = true,
-	children,
-	name = "",
-	isSmall = false,
-	isDisabled = false,
-	onChange = () => {},
-}: CheckboxGroupProps) => {
-	const className = generateCN("sui-checkbox-group", {
+// _CheckboxGroupInner is a component handling the behavior of a group of checkboxes
+const _CheckboxGroupInner = (props: CheckboxGroupProps) => {
+	// Destructure props for easier access
+	const { hasSubItems, title, children, commonCheckboxProps, isInline } = props
+
+	// Access checkbox context methods and items
+	const { items, setItems } = useCheckbox()
+
+	// Generate a unique ID for the checkbox group
+	const id = `sui-checkbox-group-${useId()}`
+
+	// Define CSS class names for the checkbox group
+	const className = generateCN("sui-checkbox__group", {
+		nested: hasSubItems,
 		inline: isInline,
-		sm: isSmall,
 	})
 
+	// Filter items belonging to the current group
+	let group = items.filter((item) => item.groupId === id)
+
+	// Count checked items in the group
+	const checkedItemsCount = group?.filter((item) => item.isChecked).length
+
+	// Determine if all items in the group are checked
+	const allChecked = checkedItemsCount === group.length
+
+	// Check if any item in the group is checked
+	const hasCheckedItems = checkedItemsCount > 0
+
+	/**
+	 * Handle onChange for group checkbox item
+	 */
+	const onCheckboxChange = useCallback(() => {
+		const toUpdate = []
+
+		items.forEach((item) => {
+			// If the item is not from the same group, push it as is and continue
+			if (item.groupId !== id) {
+				toUpdate.push(item)
+				return
+			}
+
+			toUpdate.push({
+				...item,
+				isChecked: !allChecked || (!allChecked && checkedItemsCount > 0),
+			})
+		})
+
+		setItems([...toUpdate])
+	}, [items, group])
+
+	// Render the checkbox group
 	return (
-		<Provider
-			value={{
-				name,
-				isDisabled,
-				onChange,
-				isSmall,
-			}}
-		>
-			<ul className={className}>
-				{Children.map(children, (child) => {
-					if (isValidElement(child) && child.type === CheckboxGroup) {
-						// If the child is a CheckboxGroup, add an onChange prop
-						return (
-							<li className="sui-checkbox-group__item">
-								{React.cloneElement(child, {
-									onChange,
-								})}
-							</li>
-						)
+		<div className={className}>
+			{/* Render a checkbox for the group if it has sub-items */}
+			{hasSubItems && (
+				<Checkbox
+					{...commonCheckboxProps}
+					id={id}
+					name={id}
+					label={title}
+					isChecked={allChecked && hasCheckedItems}
+					onChange={onCheckboxChange}
+					isIndeterminate={
+						!hasCheckedItems ? false : hasCheckedItems && !allChecked
 					}
-					return <li className="sui-checkbox-group__item">{child}</li>
+				/>
+			)}
+			{/* Render children checkboxes */}
+			<div className="sui-checkbox__group-body">
+				{Children.map(children, (child) => {
+					// Generate a unique ID for the child checkbox
+					let uuid = `sui-checkbox-item-${useId()}`
+
+					// Find the current item based on ID and group
+					const currItem = items.find((i) => i.id === uuid && i.groupId === id)
+
+					// Clone the child element and pass necessary props
+					return cloneElement(
+						child as ReactElement,
+						{
+							...commonCheckboxProps,
+							groupId: id,
+							id: uuid,
+							isChecked: !!currItem?.isChecked,
+						} as object,
+					)
 				})}
-			</ul>
-		</Provider>
+			</div>
+		</div>
+	)
+}
+
+// CheckboxGroup is a component handling the behavior of a group of checkboxes
+const CheckboxGroup = ({
+	children,
+	title = "",
+	hasSubItems = false,
+	isInline = false,
+	commonCheckboxProps = {},
+	onChange = () => {},
+	_isMultiGroup = false,
+}) => {
+	// Function to conditionally wrap content with CheckboxProvider for managing checkbox state
+	const withWrapper = (content = null) => {
+		// If it's not a multi-group, wrap the content with CheckboxProvider
+		if (!_isMultiGroup) {
+			return <CheckboxProvider onChange={onChange}>{content}</CheckboxProvider>
+		}
+
+		// If it's a multi-group, return the content as is
+		return content
+	}
+
+	// Wrap the inner content with CheckboxProvider if necessary
+	return withWrapper(
+		<_CheckboxGroupInner
+			title={title}
+			commonCheckboxProps={commonCheckboxProps}
+			hasSubItems={hasSubItems}
+			isInline={isInline}
+		>
+			{children}
+		</_CheckboxGroupInner>,
 	)
 }
 
