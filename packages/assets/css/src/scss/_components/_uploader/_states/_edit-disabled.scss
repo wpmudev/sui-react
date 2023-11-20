@@ -2,22 +2,22 @@
 
 /// Edit Focus State
 ///
-/// @type modifier
+/// @type state
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin edit-disabled($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include element(info) {
-                @include modifier(disabled) {
-                    opacity: 0.5;
-                    pointer-events: none;
-                    user-select: none;
-                }
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(info) {
+				@include modifier(disabled) {
+					opacity: 0.5;
+					pointer-events: none;
+					user-select: none;
+				}
+			}
+		}
+	}
 }

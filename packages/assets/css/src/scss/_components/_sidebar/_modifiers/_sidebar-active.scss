@@ -1,10 +1,9 @@
-
 @use "sass:math";
 @use "../../../_utils/utils" as *;
 
-/// Build item
+/// Active State
 ///
-/// @type item
+/// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $item - Main item name
@@ -16,9 +15,9 @@
 			@include element(item) {
 				@include modifier(active) {
 					background: $color-primary-90;
-					
+
 					.sui-#{$block}__item-info {
-						color: $color-primary-50;						
+						color: $color-primary-50;
 					}
 				}
 			}
@@ -33,9 +32,9 @@
 				@include modifier(active) {
 					background: $color-extended-neutral-100;
 					outline: $border-width-sm solid $color-extended-neutral-0;
-					
+
 					.sui-#{$block}__item-info {
-						color: $color-extended-neutral-0;						
+						color: $color-extended-neutral-0;
 					}
 				}
 			}

@@ -3,30 +3,31 @@
 @use "../../../_utils/utils" as *;
 
 /// State fluid
-/// This function creates styles for select error state
+/// This function creates styles for select fluid state
 ///
 /// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin state-fluid($block) {
-  // DIR: Left to right.
-  // THEME: None.
-  @include sui-class($rtl: false, $theme: null) {
-    @include block($block) {
-      @include modifier(fluid) {
-        flex-direction: column;
-        gap: 0;
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(fluid) {
+				flex-direction: column;
+				gap: 0;
 
-        .sui-#{$block}__header {
-          align-items: center;
-          display: flex;
-        }
+				.sui-#{$block}__header {
+					align-items: center;
+					display: flex;
+				}
 
-        .sui-#{$block}__info,.sui-#{$block}__body {
-          max-width: initial;
-        }
-      }
-    }
-  }
+				.sui-#{$block}__info,
+				.sui-#{$block}__body {
+					max-width: initial;
+				}
+			}
+		}
+	}
 }

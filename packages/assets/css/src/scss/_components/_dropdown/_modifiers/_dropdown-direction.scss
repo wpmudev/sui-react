@@ -1,13 +1,19 @@
 @use "../../../_utils/utils" as *;
 
+/// Direction Styles
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
 @mixin modify-direction($block) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(popover) {
 				@include modifier(direction-left) {
-                    left: auto;
-                    right: 0;
-                }
+					left: auto;
+					right: 0;
+				}
 			}
 		}
 	}
@@ -16,9 +22,9 @@
 		@include block($block) {
 			@include element(popover) {
 				@include modifier(direction-left) {
-                    left: 0;
-                    right: auto;
-                }
+					left: 0;
+					right: auto;
+				}
 			}
 		}
 	}
