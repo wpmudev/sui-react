@@ -108,7 +108,7 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 										id: "menu-smartcrawl",
 										label: "SmartCrawl",
 										props: {
-											icon: "PluginSmartCrawl",
+											icon: "PluginSmartcrawl",
 											variation: "smartcrawl",
 										},
 									},
@@ -116,7 +116,7 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 										id: "menu-ivt",
 										label: "IVT",
 										props: {
-											icon: "PluginIVT",
+											icon: "PluginIvt",
 											variation: "ivt",
 										},
 									},
