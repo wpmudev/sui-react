@@ -252,12 +252,10 @@ export const TimeOutToastCode = dedent`
     		<p> By default, the toast is dismissed after <Code small={true}>5000ms</Code>, you can customize that by using <Code small={true}> timeout</Code> prop, in the following example the notice is dismissed after <Code small={true}>1000ms</Code>.</p>
     	</Section>
 
-
-
     	<div className="sui-wrap sui-theme--light" style={{marginBottom: "20px"}}>
     	<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
     		<NotificationRenderer />
-    		<ToastButton />
+    		<TimeOutToastButton />
     	</div>
     </div>
     <Snippet language="js">{TimeOutToastCode}</Snippet>
