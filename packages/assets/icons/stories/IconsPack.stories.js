@@ -143,55 +143,55 @@ const ListIcons = {
 	products: {
 		name: "Products",
 		icons: {
-			PluginBeehive: {
+			"plugin-beehive": {
 				name: "Beehive",
 			},
-			PluginBLC: {
+			"plugin-blc": {
 				name: "BLC",
 			},
-			PluginBranda: {
+			"plugin-branda": {
 				name: "Branda",
 			},
-			PluginDashboard: {
+			"plugin-dashboard": {
 				name: "Dashboard",
 			},
-			PluginDefender: {
+			"plugin-defender": {
 				name: "Defender",
 			},
-			PluginForminator: {
+			"plugin-forminator": {
 				name: "Forminator",
 			},
-			PluginHummingbird: {
+			"plugin-hummingbird": {
 				name: "Hummingbird",
 			},
-			PluginHustle: {
+			"plugin-hustle": {
 				name: "Hustle",
 			},
-			PluginIVT: {
+			"plugin-ivt": {
 				name: "IVT",
 			},
-			PluginShipper: {
+			"plugin-shipper": {
 				name: "Shipper",
 			},
-			PluginSmartCrawl: {
+			"plugin-smartcrawl": {
 				name: "SmartCrawl",
 			},
-			PluginSmush: {
+			"plugin-smush": {
 				name: "Smush",
 			},
-			PluginSnapshot: {
+			"plugin-snapshot": {
 				name: "Snapshot",
 			},
-			Automate: {
+			automate: {
 				name: "Automate",
 			},
-			Uptime: {
+			uptime: {
 				name: "Uptime",
 			},
-			Hub: {
+			hub: {
 				name: "The Hub",
 			},
-			Logo: {
+			logo: {
 				name: "WPMU DEV",
 			},
 		},
@@ -240,32 +240,36 @@ const ListIcons = {
 			cloud: {
 				name: "Cloud",
 			},
+			"cloud-alt": {
+				name: "Cloud",
+				alt: true,
+			},
 		},
 	},
 	status: {
 		name: "Status",
 		icons: {
-			Check: {
+			check: {
 				name: "Check",
 			},
-			CheckAlt: {
+			"check-alt": {
 				name: "Check",
 				alt: true,
 			},
-			Info: {
+			info: {
 				name: "Info",
 			},
-			InfoAlt: {
+			"info-alt": {
 				name: "Info",
 				alt: true,
 			},
-			Question: {
+			question: {
 				name: "Question",
 			},
-			Warning: {
+			warning: {
 				name: "Warning",
 			},
-			Ban: {
+			ban: {
 				name: "Ban",
 			},
 		},
@@ -308,6 +312,9 @@ const ListIcons = {
 			stop: {
 				name: "Stop",
 			},
+			play: {
+				name: "Play",
+			},
 			save: {
 				name: "Save",
 			},
@@ -335,25 +342,22 @@ const ListIcons = {
 			lock: {
 				name: "Lock",
 			},
-			LockAlt: {
+			"lock-alt": {
 				name: "Lock",
 				alt: true,
 			},
 			submit: {
 				name: "Submit",
 			},
-			roadmap: {
-				name: "Roadmap",
+			export: {
+				name: "Export",
 			},
 		},
 	},
 	state: {
 		name: "State",
 		icons: {
-			spinner: {
-				name: "Spinner",
-			},
-			SpinnerAlt: {
+			"spinner-alt": {
 				name: "Spinner",
 				alt: true,
 			},
@@ -365,64 +369,69 @@ const ListIcons = {
 	navigation: {
 		name: "Navigation",
 		icons: {
-			ArrowUp: {
+			"arrow-up": {
 				name: "Arrow Up",
 			},
-			ArrowDown: {
+			"arrow-down": {
 				name: "Arrow Down",
 			},
-			ArrowLeft: {
+			"arrow-left": {
 				name: "Arrow Left",
 			},
-			ArrowRight: {
+			"arrow-right": {
 				name: "Arrow Right",
 			},
-			ChevronUp: {
+			"chevron-up": {
 				name: "Chevron Up",
 			},
-			ChevronDown: {
+			"chevron-down": {
 				name: "Chevron Down",
 			},
-			ChevronLeft: {
+			"chevron-left": {
 				name: "Chevron Left",
 			},
-			ChevronRight: {
+			"chevron-right": {
 				name: "Chevron Right",
 			},
-			CaretUp: {
+			"caret-up": {
 				name: "Caret Up",
 			},
-			CaretDown: {
+			"caret-up-alt": {
+				name: "Caret Up",
+				alt: true,
+			},
+			"caret-down": {
 				name: "Caret Down",
 			},
-			CaretLeft: {
+			"caret-down-alt": {
+				name: "Caret Down",
+				alt: true,
+			},
+			"caret-left": {
 				name: "Caret Left",
 			},
-			CaretRight: {
+			"caret-left-alt": {
+				name: "Caret Left",
+				alt: true,
+			},
+			"caret-right": {
 				name: "Caret Right",
 			},
-			RotateLeft: {
-				name: "Rotate Left",
-			},
-			RotateRight: {
-				name: "Rotate Right",
+			"caret-right-alt": {
+				name: "Caret Right",
+				alt: true,
 			},
 			exit: {
 				name: "Exit",
 			},
-		},
-	},
-	social: {
-		name: "Social Media",
-		icons: {
-			facebook: {
-				name: "Facebook",
+			"rotate-left": {
+				name: "Rotate Left",
 			},
-			instagram: {
-				name: "Instagram",
+			"rotate-right": {
+				name: "Rotate Right",
 			},
-			twitter: {
-				name: "Twitter",
+			hamburger: {
+				name: "Hamburger",
 			},
 		},
 	},
@@ -492,6 +501,9 @@ const ListIcons = {
 			edit: {
 				name: "Edit (Pen Line)",
 			},
+			roadmap: {
+				name: "Roadmap",
+			},
 			like: {
 				name: "Like",
 			},
@@ -508,6 +520,9 @@ const ListIcons = {
 			},
 			lifesaver: {
 				name: "Lifesaver (Life Ring)",
+			},
+			spinner: {
+				name: "Spinner",
 			},
 			CompressAlt: {
 				name: "Compress",
@@ -551,6 +566,65 @@ const ListIcons = {
 			},
 			clock: {
 				name: "Clock (Time)",
+			},
+		},
+	},
+	forms: {
+		name: "Forms",
+		icons: {
+			radio: {
+				name: "Radio",
+			},
+			calculator: {
+				name: "Calculator",
+			},
+			"calculator-alt": {
+				name: "Calculator",
+				alt: true,
+			},
+			"input-text": {
+				name: "Input Text",
+			},
+			"input-number": {
+				name: "Input Number",
+			},
+			checked: {
+				name: "Checked",
+			},
+			"checked-alt": {
+				name: "Checked",
+				alt: true,
+			},
+			indeterminant: {
+				name: "Indeterminant",
+			},
+		},
+	},
+	payments: {
+		name: "Payments",
+		icons: {
+			invoice: {
+				name: "Invoice",
+			},
+			stripe: {
+				name: "Stripe",
+			},
+			paypal: {
+				name: "Paypal",
+			},
+		},
+	},
+	social: {
+		name: "Social Media",
+		icons: {
+			facebook: {
+				name: "Facebook",
+			},
+			instagram: {
+				name: "Instagram",
+			},
+			twitter: {
+				name: "Twitter",
 			},
 		},
 	},
