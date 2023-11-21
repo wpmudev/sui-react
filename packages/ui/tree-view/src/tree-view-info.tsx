@@ -76,7 +76,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	const onCheckClick = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
 		//ctx?.onCheck()
 		e.stopPropagation()
-		e.preventDefault()
+		//e.preventDefault()
 		setIsChecked(e.target.checked)
 	}, [])
 
