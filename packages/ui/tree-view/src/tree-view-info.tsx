@@ -42,13 +42,6 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	// The element ref where we render the checkbox
 	const checkboxPortalRef = useRef(null)
 
-	// Updating the DOM element state when its "ref" becomes available
-	useEffect(() => {
-		if (checkboxPortalRef.current) {
-			setCheckBoxDomContainer(checkboxPortalRef.current)
-		}
-	}, [checkboxPortalRef])
-
 	// Generate class names
 	const classNames = generateCN("sui-tree-view__info", {
 		active: isExpanded,
@@ -86,6 +79,13 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 		e.preventDefault()
 		setIsChecked(e.target.checked)
 	}, [])
+
+	// Updating the DOM element state when its "ref" becomes available
+	useEffect(() => {
+		if (checkboxPortalRef.current) {
+			setCheckBoxDomContainer(checkboxPortalRef.current)
+		}
+	}, [checkboxPortalRef, ctx?.allowCheck])
 
 	return (
 		<>
