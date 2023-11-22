@@ -14,6 +14,8 @@ import CorrectIcon from "../images/correct-icon.svg"
 import WrongIcon from "../images/wrong-icon.svg"
 import CorrectEmphasis from "../images/correct-emphasis.svg"
 import WrongEmphasis from "../images/wrong-emphasis.svg"
+import LoadingCorrect from "../images/correct-loading.svg"
+import LoadingWrong from "../images/wrong-loading.svg"
 
 <Section title="Buttons" style={{ paddingTop: 20 }}>
 	<p>Buttons are actions that encourage users to perform an action.</p>
@@ -84,6 +86,19 @@ import WrongEmphasis from "../images/wrong-emphasis.svg"
 			<Col>
 				<img src={WrongEmphasis} alt="Button Emphasis - Wrong Use"/>
 				<p>Do not use two high-emphasis buttons while using multiple buttons.</p>
+			</Col>
+		</Row>
+	</Section>
+
+	<Section title="Loading Button Usage" contained={true}>
+		<Row>
+			<Col>
+				<img src={LoadingCorrect} alt="Loading Button - Correct Use"/>
+				<p>When transitioning from the default button to the loading state, the button's width should remain consistent with its width in the default state.</p>
+			</Col>
+			<Col>
+				<img src={LoadingWrong} alt="Loading Button - Wrong Use"/>
+				<p>Don't change the loading button's width when transitioning from the default state to the loading state.</p>
 			</Col>
 		</Row>
 	</Section>
