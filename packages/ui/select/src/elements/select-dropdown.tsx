@@ -1,4 +1,10 @@
-import React, { Fragment, RefObject, useCallback } from "react"
+import React, {
+	Fragment,
+	RefObject,
+	useCallback,
+	KeyboardEvent,
+	MouseEvent,
+} from "react"
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { Icon } from "./select-icon"
 import { Search } from "./multiselect-search"
@@ -35,8 +41,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	const getOptProps = (id: string) => ({
 		...props,
 		ref: undefined,
-		// onClick: (e: MouseEvent) => onSelect(e, id),
-		// onKeyDown: (e?: KeyboardEventHandler<HTMLLIElement>) => onSelect(e, id),
+		onClick: (e: MouseEvent<HTMLElement>) => onSelect(e, id),
+		onKeyDown: (e?: KeyboardEvent<HTMLElement>) => onSelect(e, id),
 	})
 
 	// Render options for the dropdown
@@ -117,7 +123,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							id={id}
 							role="option"
 							className="sui-select__dropdown--option"
-							// onClick={(e) => onSelect(e, id)}
+							onClick={(e) => onSelect(e, id)}
 							onKeyDown={(e) => onSelect(e, id)}
 						>
 							<Checkbox

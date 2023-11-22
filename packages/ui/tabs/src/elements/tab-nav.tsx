@@ -26,24 +26,31 @@ import { TabNavProps, TabNavScrollDirection } from "../tabs.types"
 const TabNav: FC<TabNavProps> = ({ children }) => {
 	const [isScrollableRight, setIsScrollableRight] = useState<boolean>(false)
 	const [isScrollableLeft, setIsScrollableLeft] = useState<boolean>(false)
+	const [navRefCurrent, setNavRefCurrent] = useState<HTMLDivElement | null>(
+		null,
+	)
 
 	const navRef = useRef<HTMLDivElement | null>(null)
+
+	useEffect(() => {
+		setNavRefCurrent(navRef?.current)
+	}, [navRef])
 
 	// use RTL detector
 	const isRTL = useDetectRTL()
 
-	// Scroll information from the navRef, if available
-	const {
-		scrollLeft = 0,
-		scrollWidth = 0,
-		clientWidth = 0,
-	} = navRef?.current ?? {}
-
 	// Function to handle scroll events and determine scrollability
 	const handleScroll = useCallback(() => {
-		if (!navRef.current) {
+		if (!navRefCurrent) {
 			return
 		}
+
+		// Scroll information from the navRef, if available
+		const {
+			scrollLeft = 0,
+			scrollWidth = 0,
+			clientWidth = 0,
+		} = navRefCurrent ?? {}
 
 		const navLeft = Math.abs(scrollLeft ?? 0)
 
@@ -53,10 +60,12 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 		setIsScrollableLeft(
 			isRTL ? navLeft < scrollWidth - clientWidth : navLeft > 0,
 		)
-	}, [clientWidth, isRTL, scrollLeft, scrollWidth])
+	}, [isRTL, navRefCurrent])
 
 	// Adjust the scroll distance as needed
 	const scrollNav = (dir: TabNavScrollDirection) => {
+		// Scroll information from the navRef, if available
+		const { scrollLeft = 0 } = navRefCurrent ?? {}
 		if (!!navRef.current && "scrollLeft" in navRef?.current) {
 			// @ts-ignore
 			navRef.current.scrollLeft =
