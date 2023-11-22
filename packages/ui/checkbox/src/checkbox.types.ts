@@ -59,7 +59,7 @@ interface CheckboxProps
 	groupId?: string
 
 	/**
-	 * Group ID (for context)
+	 * The name of the checkbox
 	 */
 	name?: string
 
