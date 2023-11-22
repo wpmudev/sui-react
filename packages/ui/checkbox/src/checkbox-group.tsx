@@ -9,11 +9,16 @@ import React, {
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { CheckboxProvider, useCheckbox } from "./checkbox-context"
-import { CheckboxGroupProps } from "./checkbox.types"
+import {
+	_CheckboxGroupInnerProps,
+	CheckboxGroupProps,
+	CheckboxItemTypes,
+} from "./checkbox.types"
+
 import { Checkbox } from "./checkbox"
 
 // _CheckboxGroupInner is a component handling the behavior of a group of checkboxes
-const _CheckboxGroupInner = (props: CheckboxGroupProps) => {
+const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 	// Destructure props for easier access
 	const { hasSubItems, title, children, commonCheckboxProps, isInline } = props
 
@@ -30,14 +35,11 @@ const _CheckboxGroupInner = (props: CheckboxGroupProps) => {
 	})
 
 	// Filter items belonging to the current group
-	let group = items.filter((item) => item.groupId === id)
-
+	let group = items.filter((i) => i.groupId === id)
 	// Count checked items in the group
-	const checkedItemsCount = group?.filter((item) => item.isChecked).length
-
+	const checkedItemsCount = group?.filter((i) => i.isChecked).length
 	// Determine if all items in the group are checked
 	const allChecked = checkedItemsCount === group.length
-
 	// Check if any item in the group is checked
 	const hasCheckedItems = checkedItemsCount > 0
 
@@ -45,7 +47,7 @@ const _CheckboxGroupInner = (props: CheckboxGroupProps) => {
 	 * Handle onChange for group checkbox item
 	 */
 	const onCheckboxChange = useCallback(() => {
-		const toUpdate = []
+		const toUpdate: CheckboxItemTypes[] = []
 
 		items.forEach((item) => {
 			// If the item is not from the same group, push it as is and continue
@@ -71,8 +73,8 @@ const _CheckboxGroupInner = (props: CheckboxGroupProps) => {
 				<Checkbox
 					{...commonCheckboxProps}
 					id={id}
-					name={id}
-					label={title}
+					// name={id}
+					label={title ?? ""}
 					isChecked={allChecked && hasCheckedItems}
 					onChange={onCheckboxChange}
 					isIndeterminate={
@@ -114,9 +116,9 @@ const CheckboxGroup = ({
 	commonCheckboxProps = {},
 	onChange = () => {},
 	_isMultiGroup = false,
-}) => {
+}: CheckboxGroupProps) => {
 	// Function to conditionally wrap content with CheckboxProvider for managing checkbox state
-	const withWrapper = (content = null) => {
+	const withWrapper = (content: ReactElement | null = null) => {
 		// If it's not a multi-group, wrap the content with CheckboxProvider
 		if (!_isMultiGroup) {
 			return <CheckboxProvider onChange={onChange}>{content}</CheckboxProvider>
@@ -131,8 +133,8 @@ const CheckboxGroup = ({
 		<_CheckboxGroupInner
 			title={title}
 			commonCheckboxProps={commonCheckboxProps}
-			hasSubItems={hasSubItems}
-			isInline={isInline}
+			hasSubItems={hasSubItems ?? false}
+			isInline={isInline ?? false}
 		>
 			{children}
 		</_CheckboxGroupInner>,

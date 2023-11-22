@@ -1,5 +1,8 @@
 import React, { ReactNode, HTMLAttributes } from "react"
 
+interface _CheckboxGroupInnerProps
+	extends Omit<CheckboxGroupProps, "_isMultiGroup"> {}
+
 /**
  * Define the props for a CheckboxGroup component.
  */
@@ -33,6 +36,11 @@ interface CheckboxGroupProps {
 	 * Common checkbox props to be passed in checkbox items
 	 */
 	commonCheckboxProps: CheckboxProps
+
+	/**
+	 * Checkbox group title
+	 */
+	title?: ReactNode
 }
 
 /**
@@ -90,7 +98,7 @@ interface CheckboxProps
 	 *
 	 * @param {React.ChangeEvent<HTMLInputElement>} e
 	 */
-	onChange(e: React.ChangeEvent<HTMLInputElement>): void
+	onChange?(e: React.ChangeEvent<HTMLInputElement>): void
 }
 
 type CheckboxItemTypes = {
@@ -105,12 +113,19 @@ type CheckboxItemTypes = {
 interface CheckboxContextProps {
 	items: CheckboxItemTypes[]
 	setItems: (items: CheckboxContextProps["items"]) => void
-	onChange(id: string, isChecked: boolean, groupId: boolean | string): void
+	onChange?: CheckboxProviderTypes["onChange"]
+}
+
+interface CheckboxProviderTypes {
+	children: React.ReactNode
+	onChange(items: CheckboxItemTypes[]): void
 }
 
 export type {
 	CheckboxProps,
 	CheckboxGroupProps,
+	_CheckboxGroupInnerProps,
 	CheckboxContextProps,
 	CheckboxItemTypes,
+	CheckboxProviderTypes,
 }
