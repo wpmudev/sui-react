@@ -3182,7 +3182,7 @@ img {
 }
 
 /* Use arrow dashicons for folder states, but hide from screen readers. */
-[role="treeitem"] span[aria-hidden] {
+[role="treeitem"]:not(.sui-wrap) > span[aria-hidden] {
 	font-family: dashicons;
 	font-size: 20px;
 	position: absolute;
