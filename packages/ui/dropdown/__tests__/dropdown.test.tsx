@@ -23,7 +23,7 @@ describe("@wpmudev/sui-dropdown", () => {
 						id: "menu-ivt",
 						label: "IVT",
 						props: {
-							icon: "PluginIVT",
+							icon: "PluginIvt",
 							variation: "ivt",
 						},
 					},
