@@ -23,7 +23,7 @@ const Checkbox = ({
 }: CheckboxProps) => {
 	// Context for checkbox
 	const ctx = useCheckbox()
-	const { isHovered, isFocused, methods } = useInteraction({})
+	const [isHovered, isFocused, methods] = useInteraction({})
 
 	// Generate a dynamic ID for the checkbox
 	let uuid = `sui-checkbox-${useId()}`
