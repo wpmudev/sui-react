@@ -226,6 +226,8 @@ const TableRow: React.FC<TableRowProps> = ({
 						hasDragIcon={ctx?.isDraggable && !isUnderHeader}
 					>
 						<Checkbox
+							name={rowId}
+							id={`${rowId}-checkbox`}
 							onChange={onCheckToggle}
 							isChecked={isChecked}
 							isIndeterminate={isIndeterminate}
