@@ -1,13 +1,9 @@
+
 // Do not edit directly
-// Generated on Wed, 08 Nov 2023 09:21:37 GMT
+// Generated on Wed, 22 Nov 2023 09:34:54 GMT
 
 $accordion-border-radius-sm: 10px;
-$advanced-banner-background: linear-gradient(
-	90deg,
-	#222 0%,
-	#383323 48.96%,
-	#514524 100%
-);
+$advanced-banner-background: linear-gradient(90deg, #222 0%, #383323 48.96%, #514524 100%);
 $advanced-banner-size-width: 260px;
 $avatar-container-size-sm: 24px;
 $avatar-container-size-md: 32px;
@@ -58,6 +54,7 @@ $button-icon-padding-vertical-sm: 4px;
 $button-icon-padding-horizontal-md: 4px;
 $button-icon-padding-horizontal-sm: 4px;
 $checkbox-size-md: 20px;
+$checkbox-spacing-xs: 6px;
 $checkbox-spacing-md: 27px;
 $checkbox-icon-width-sm: 11px;
 $checkbox-icon-width-md: 12px;
@@ -293,10 +290,10 @@ $border-width-sm: 1px;
 $border-width-md: 2px;
 $border-width-xl: 4px;
 $border-radius-sm: 4px;
-$border-radius-md: 4px * 2;
-$border-radius-lg: 4px * 3;
-$border-radius-xl: 4px * 4;
-$border-radius-xxl: 4px * 5;
+$border-radius-md: 4px*2;
+$border-radius-lg: 4px*3;
+$border-radius-xl: 4px*4;
+$border-radius-xxl: 4px*5;
 $font-weight-sm: 400;
 $font-weight-md: 500;
 $font-weight-lg: 700;
@@ -320,8 +317,7 @@ $font-spacing-md: 0.2px;
 $font-spacing-lg: 0.5px;
 $font-spacing-xxl: 1px;
 $font-spacing-default: 0px;
-$font-family-default: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
-	Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+$font-family-default: "Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
 $font-family-code: "Roboto Mono", monospace;
 $dashboard-size-width-lg: 440px;
 $datepicker-font-size: 14px-1px;
@@ -368,7 +364,7 @@ $input-font-height-sm: 16px;
 $input-font-height-md: 24px;
 $input-spacing-padding-vertical-sm: 8px;
 $input-spacing-padding-vertical-md: 8px;
-$input-spacing-padding-horizontal-sm: 4px * 3;
+$input-spacing-padding-horizontal-sm: 4px*3;
 $input-spacing-padding-horizontal-md: 16px;
 $input-spacing-lg: 44px;
 $input-border-width-sm: 1px;
@@ -387,9 +383,9 @@ $integration-disabled-opacity: 0.5;
 $layout-content-width: 1600px;
 $layout-spacing-main-sm: -20px;
 $layout-spacing-main-md: -10px;
-$layout-spacing-content-sm: 8px * 2;
-$layout-spacing-content-md: 8px * 3;
-$layout-spacing-content-lg: 8px * 4;
+$layout-spacing-content-sm: 8px*2;
+$layout-spacing-content-md: 8px*3;
+$layout-spacing-content-lg: 8px*4;
 $menu-spacing-horizontal: 24px;
 $modal-spacing-lg: 40px;
 $modal-border-radius: 24px;
@@ -591,7 +587,7 @@ $tabs-navitem-spacing-vertical: 26px;
 $tabs-navitem-spacing-horizontal: 16px;
 $tabs-navitem-gap: 4px;
 $tabs-navitem-border-width: 4px;
-$tabs-panel-spacing: 16px * 2;
+$tabs-panel-spacing: 16px*2;
 $tabs-color-active: #0059ff;
 $tabs-color-hover: #0059ff;
 $tabs-color-focus-border-color: #0059ff;
@@ -603,18 +599,8 @@ $tabs-arrow-size-height: 100%;
 $tabs-arrow-color: #aaaaaa;
 $tabs-arrow-hover-color: #1a1a1a;
 $tabs-arrow-hover-background: #ffffff;
-$tabs-arrow-left-background: linear-gradient(
-	90deg,
-	#fff 0%,
-	#fff 71.63%,
-	rgba(248, 248, 248, 0) 100%
-);
-$tabs-arrow-right-background: linear-gradient(
-	270deg,
-	#fff 0%,
-	#fff 71.63%,
-	rgba(248, 248, 248, 0) 100%
-);
+$tabs-arrow-left-background: linear-gradient(90deg, #FFF 0%, #FFF 71.63%, rgba(248, 248, 248, 0.00) 100%);
+$tabs-arrow-right-background: linear-gradient(270deg, #FFF 0%, #FFF 71.63%, rgba(248, 248, 248, 0.00) 100%);
 $tag-font-size-sm: 10px;
 $tag-font-size-md: 12px;
 $tag-font-spacing-sm: -0.1px;

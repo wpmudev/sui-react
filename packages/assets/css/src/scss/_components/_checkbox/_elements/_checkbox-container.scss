@@ -24,6 +24,17 @@
 			* {
 				pointer-events: none;
 			}
+
+			@include element(group-body, group) {
+				display: flex;
+				flex-direction: column;
+				gap: $checkbox-spacing-xs;
+			}
+
+			@include element(group-title) {
+				color: $color-extended-neutral-50;
+				font: $font-weight-md 15px/24px $font-family-default;
+			}
 		}
 	}
 
