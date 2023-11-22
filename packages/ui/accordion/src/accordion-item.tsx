@@ -17,6 +17,9 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	hasCheckbox,
 	onCheck,
 }) => {
+	// Checkbox is checked.
+	const [isChecked, setIsChecked] = useState(false)
+
 	// Custom hook to generate a unique ID for the accordion item.
 	const uniqueId = useId()
 
@@ -35,12 +38,12 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 		(e: React.ChangeEvent<HTMLInputElement>) => {
 			e.stopPropagation()
 			//e.preventDefault()
-
+			setIsChecked(!isChecked)
 			if (onCheck) {
 				onCheck(isExpanded)
 			}
 		},
-		[isExpanded, onCheck],
+		[isChecked, isExpanded, onCheck],
 	)
 
 	// Icon component to display a chevron icon based on the accordion's expanded state.
@@ -80,7 +83,12 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			{hasCheckbox &&
 				checkboxDomContainer &&
 				createPortal(
-					<Checkbox onChange={onCheckBoxChange} isDisabled={isDisabled} />,
+					<Checkbox
+						name={accordionId}
+						onChange={onCheckBoxChange}
+						isChecked={isChecked}
+						isDisabled={isDisabled}
+					/>,
 					checkboxDomContainer,
 				)}
 			<div

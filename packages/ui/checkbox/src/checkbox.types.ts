@@ -59,6 +59,11 @@ interface CheckboxProps
 	groupId?: string
 
 	/**
+	 * Group ID (for context)
+	 */
+	name?: string
+
+	/**
 	 * The label for the checkbox.
 	 */
 	label?: string
