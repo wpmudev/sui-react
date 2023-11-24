@@ -588,15 +588,15 @@ const ListIcons = {
 			"input-number": {
 				name: "Input Number",
 			},
-			checked: {
-				name: "Checked",
+			"checkbox-checked": {
+				name: "Checkbox Checked",
 			},
-			"checked-alt": {
-				name: "Checked",
+			"checkbox-checked-alt": {
+				name: "Checkbox Checked",
 				alt: true,
 			},
-			indeterminant: {
-				name: "Indeterminant",
+			"checkbox-indeterminate": {
+				name: "Checkbox Indeterminate",
 			},
 		},
 	},
