@@ -112,7 +112,7 @@ const IconsCard = ({ category, name, alt, checked, id }) => {
 				<div className="csb-icon__preview-icon">
 					{Icons[iconName] &&
 						React.createElement(Icons[iconName], {
-							size: "lg",
+							size: "xl",
 						})}
 				</div>
 			</div>
