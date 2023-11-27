@@ -35,12 +35,8 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 	})
 
 	// Filter items belonging to the current group
-<<<<<<< HEAD
 	const group = items.filter((item) => item.groupId === id)
 
-=======
-	let group = items.filter((i) => i.groupId === id)
->>>>>>> 9874471f364b09fa0b847497a26013a9865ff875
 	// Count checked items in the group
 	const checkedItemsCount = group?.filter((i) => i.isChecked).length
 	// Determine if all items in the group are checked

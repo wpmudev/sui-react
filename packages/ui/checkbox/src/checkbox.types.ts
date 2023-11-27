@@ -13,11 +13,6 @@ interface CheckboxGroupProps {
 	isInline?: boolean
 
 	/**
-	 * Indicates whether the checkbox buttons should be displayed inline.
-	 */
-	title?: string
-
-	/**
 	 * When group has sub-items
 	 */
 	hasSubItems?: boolean
