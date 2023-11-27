@@ -450,6 +450,9 @@ const ListIcons = {
 			plugin: {
 				name: "Plugin",
 			},
+			"plugin-disconnected": {
+				name: "Plugin Disconnected",
+			},
 			tutorials: {
 				name: "Tutorials",
 			},
@@ -459,9 +462,12 @@ const ListIcons = {
 			user: {
 				name: "User",
 			},
-			UserAlt: {
+			"user-alt": {
 				name: "User",
 				alt: true,
+			},
+			"user-plus": {
+				name: "User Plus",
 			},
 			search: {
 				name: "Search",
@@ -469,17 +475,17 @@ const ListIcons = {
 			calendar: {
 				name: "Calendar",
 			},
-			FolderOpen: {
+			"folder-open": {
 				name: "Folder (Open)",
 			},
-			FolderClose: {
+			"folder-close": {
 				name: "Folder (Close)",
 			},
 			file: {
 				name: "File",
 				checked: false,
 			},
-			FileCheck: {
+			"file-check": {
 				name: "File",
 				checked: true,
 			},
@@ -495,26 +501,20 @@ const ListIcons = {
 			mobile: {
 				name: "Mobile",
 			},
-			FileZip: {
-				name: "File Zip",
-			},
 			edit: {
 				name: "Edit (Pen Line)",
-			},
-			roadmap: {
-				name: "Roadmap",
 			},
 			like: {
 				name: "Like",
 			},
-			LikeAlt: {
+			"like-alt": {
 				name: "Like",
 				alt: true,
 			},
 			dislike: {
 				name: "Dislike",
 			},
-			DislikeAlt: {
+			"dislike-alt": {
 				name: "Dislike",
 				alt: true,
 			},
@@ -524,11 +524,11 @@ const ListIcons = {
 			spinner: {
 				name: "Spinner",
 			},
-			CompressAlt: {
+			"compress-alt": {
 				name: "Compress",
 				alt: true,
 			},
-			FileCode: {
+			"file-code": {
 				name: "File Code",
 			},
 			server: {
@@ -552,11 +552,17 @@ const ListIcons = {
 			rss: {
 				name: "RSS (Feed)",
 			},
-			ExternalLink: {
+			"external-link": {
 				name: "External Link",
 			},
 			key: {
 				name: "Key",
+			},
+			phone: {
+				name: "Phone",
+			},
+			dollar: {
+				name: "Dollar",
 			},
 			copy: {
 				name: "Copy",
@@ -567,13 +573,99 @@ const ListIcons = {
 			clock: {
 				name: "Clock (Time)",
 			},
+			"clock-alt": {
+				name: "Clock (Time)",
+				alt: true,
+			},
+			wordpress: {
+				name: "WordPress",
+			},
+			merge: {
+				name: "Merge",
+			},
+			footer: {
+				name: "Footer",
+			},
+			inline: {
+				name: "Inline",
+			},
+			async: {
+				name: "Async",
+			},
+			roadmap: {
+				name: "Roadmap",
+			},
+			gift: {
+				name: "Gift",
+			},
+			optimization: {
+				name: "Optimization",
+			},
+			reports: {
+				name: "Reports",
+			},
+			graduation: {
+				name: "Graduation Cap",
+			},
+			brush: {
+				name: "Brush",
+			},
+			palette: {
+				name: "Palette",
+			},
+			"file-zip": {
+				name: "File Zip",
+			},
+			newspaper: {
+				name: "Newspaper",
+			},
+			captcha: {
+				name: "Captcha",
+			},
+			"page-break": {
+				name: "Page Break",
+			},
+			signature: {
+				name: "Signature",
+			},
+			"signature-alt": {
+				name: "Signature",
+				alt: true,
+			},
+			"group-field": {
+				name: "Group Field",
+			},
+			bug: {
+				name: "Bug",
+			},
+			"caret-up-down": {
+				name: "Caret Up Down",
+			},
+			"align-left": {
+				name: "Align Left",
+			},
+			"align-right": {
+				name: "Align Right",
+			},
+			"align-center": {
+				name: "Align Center",
+			},
+			broom: {
+				name: "Broom",
+			},
+			js: {
+				name: "JS",
+			},
+			css: {
+				name: "CSS",
+			},
 		},
 	},
 	forms: {
 		name: "Forms",
 		icons: {
-			radio: {
-				name: "Radio",
+			"radio-selected": {
+				name: "Radio Selected",
 			},
 			calculator: {
 				name: "Calculator",
@@ -647,6 +739,7 @@ Page.argTypes = {
 			"state",
 			"navigation",
 			"social",
+			"forms",
 			"global",
 		],
 		control: {
@@ -660,6 +753,7 @@ Page.argTypes = {
 				state: "State",
 				navigation: "Navigation",
 				social: "Social Media",
+				forms: "Forms",
 				global: "Global",
 			},
 		},
