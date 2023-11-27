@@ -75,7 +75,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 					{...commonCheckboxProps}
 					id={id}
 					// name={id}
-					label={title ?? ""}
+					label={(title as string) ?? ""}
 					isChecked={allChecked && hasCheckedItems}
 					onChange={onCheckboxChange}
 					isIndeterminate={
