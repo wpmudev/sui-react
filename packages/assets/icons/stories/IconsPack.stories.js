@@ -466,8 +466,8 @@ const ListIcons = {
 				name: "User",
 				alt: true,
 			},
-			"user-plus": {
-				name: "User Plus",
+			"user-add": {
+				name: "User Add",
 			},
 			search: {
 				name: "Search",

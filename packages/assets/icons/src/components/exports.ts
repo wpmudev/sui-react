@@ -82,6 +82,10 @@ export { Plugin } from "./icons/Plugin"
 export { PluginDisconnected } from "./icons/PluginDisconnected"
 export { Tutorials } from "./icons/Tutorials"
 export { Menu } from "./icons/Menu"
+export { User } from "./icons/User"
+export { UserAlt } from "./icons/UserAlt"
+export { UserAdd } from "./icons/UserAdd"
+export { File } from "./icons/File"
 
 // form icons
 export { Calculator } from "./icons/Calculator"
