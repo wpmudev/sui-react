@@ -104,6 +104,7 @@ export { Key } from "./icons/Key"
 export { Phone } from "./icons/Phone"
 export { Currency } from "./icons/Currency"
 export { Copy } from "./icons/Copy"
+export { Clock } from "./icons/Clock"
 
 // form icons
 export { Calculator } from "./icons/Calculator"
