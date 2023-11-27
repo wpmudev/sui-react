@@ -12,17 +12,10 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			@include element(group) {}
-
-			@include element(group-body) {
-				display: flex;
-				flex-direction: column;
-			}
-
-			@include element(group-title) {
-				color: $color-extended-neutral-50;
-				font: $font-weight-md 15px/24px $font-family-default;
-			}
+			display: flex;
+			flex-direction: column;
+			gap: $checkbox-spacing-xs;
+			margin: 0;
 		}
 	}
 }

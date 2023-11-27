@@ -1,5 +1,9 @@
 import { createContext, useCallback, useContext, useState } from "react"
-import { CheckboxContextProps, CheckboxItemTypes } from "./checkbox.types"
+import {
+	CheckboxContextProps,
+	CheckboxItemTypes,
+	CheckboxProviderTypes,
+} from "./checkbox.types"
 
 const CheckboxContext = createContext<CheckboxContextProps>({
 	items: [],
@@ -8,7 +12,7 @@ const CheckboxContext = createContext<CheckboxContextProps>({
 })
 
 // CheckboxProvider component manages the state and provides a context for checkboxes
-const CheckboxProvider = ({ children, onChange }) => {
+const CheckboxProvider = ({ children, onChange }: CheckboxProviderTypes) => {
 	// State to hold checkbox items
 	const [items, setItems] = useState<CheckboxItemTypes[]>([])
 
@@ -67,7 +71,7 @@ const useCheckbox = () => {
 		throw new Error("useCheckbox must be used within a CheckboxContextProvider")
 	}
 
-	// Define a callback function triggered by the Checkbox's onChange event
+	// Define a callback function triggered by the Checkboxes onChange event
 	const onChangeCallback = (
 		id: string,
 		isChecked: boolean,
@@ -79,9 +83,9 @@ const useCheckbox = () => {
 
 	// Function to add Checkbox details to the context's list
 	const addToList = (
-		id: string,
-		groupId: boolean | string,
-		isChecked: boolean,
+		id?: string,
+		groupId?: boolean | string,
+		isChecked?: boolean,
 	) => {
 		// Trigger the onChange method from CheckboxContext, if it exists
 		ctx?.onChange?.(id, isChecked, groupId)

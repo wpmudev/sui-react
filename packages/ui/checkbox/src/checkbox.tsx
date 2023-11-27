@@ -6,26 +6,27 @@ import { useInteraction } from "@wpmudev/sui-hooks"
 import { Indeterminate } from "./elements/indeterminate"
 import { Tick } from "./elements/tick"
 import { useCheckbox } from "./checkbox-context"
+import { CheckboxProps } from "./checkbox.types"
 
 const Checkbox = ({
-	groupId = "",
 	id,
-	label,
+	groupId = "",
 	name,
 	value = "",
+	label,
 	isLabelHidden = false,
 	isChecked = false,
 	isDisabled = false,
-	isSmall: propIsSmall = false,
+	isSmall = false,
 	isIndeterminate = false,
 	onChange: propOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {},
-}) => {
+}: CheckboxProps) => {
 	// Context for checkbox
 	const ctx = useCheckbox()
-	const { isHovered, isFocused, methods } = useInteraction({})
+	const [isHovered, isFocused, methods] = useInteraction({})
 
 	// Generate a dynamic ID for the checkbox
-	let uuid = `sui-checkbox-item-${useId()}`
+	let uuid = `sui-checkbox-${useId()}`
 
 	// use ID from props list if it exists
 	if (!!id) {
@@ -34,7 +35,7 @@ const Checkbox = ({
 
 	useEffect(() => {
 		// Add the checkbox details to the context list on component mount
-		ctx.addToList(id, groupId, isChecked)
+		ctx?.addToList(id, groupId, isChecked)
 	}, [])
 
 	// Define input props
@@ -69,7 +70,7 @@ const Checkbox = ({
 			focus: isFocused,
 			disabled: isDisabled,
 			checked: isChecked,
-			sm: propIsSmall,
+			sm: isSmall,
 		}),
 		...methods,
 	}

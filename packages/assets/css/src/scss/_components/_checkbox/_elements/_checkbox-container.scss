@@ -24,6 +24,12 @@
 			* {
 				pointer-events: none;
 			}
+
+			@include element(group-body, group) {
+				display: flex;
+				flex-direction: column;
+				gap: $checkbox-spacing-xs;
+			}
 		}
 	}
 

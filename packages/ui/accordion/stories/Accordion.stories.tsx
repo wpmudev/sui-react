@@ -1,6 +1,5 @@
 import React from "react"
 import { Button } from "@wpmudev/sui-button"
-
 import { InfoAlt } from "@wpmudev/sui-icons"
 
 // Import required component.
@@ -9,13 +8,18 @@ import {
 	AccordionItem,
 	AccordionItemBody,
 	AccordionItemFooter,
+	AccordionProps,
 } from "../src"
 
 // Import documentation main page.
 import docs from "./Accordion.mdx"
 
 // Build "Tab" story.
-const Accordion = ({ color, state }: any) => {
+const Accordion = ({
+	color,
+	state,
+	allowMultipleExpand,
+}: { color: string } & AccordionProps) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -26,7 +30,7 @@ const Accordion = ({ color, state }: any) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiAccordion state={state}>
+					<SuiAccordion state={state} allowMultipleExpand={allowMultipleExpand}>
 						<AccordionItem title="Tab Title 1">
 							<AccordionItemBody>
 								<p>
@@ -154,6 +158,12 @@ Accordion.argTypes = {
 				warning: "Warning",
 				critical: "Critical",
 			},
+		},
+	},
+	allowMultipleExpand: {
+		name: "Multiple Expands",
+		control: {
+			type: "boolean",
 		},
 	},
 }

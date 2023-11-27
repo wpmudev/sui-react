@@ -1,4 +1,11 @@
-import React, { Fragment, RefObject, useCallback } from "react"
+import React, {
+	Fragment,
+	RefObject,
+	useCallback,
+	KeyboardEvent,
+	MouseEvent,
+	useId,
+} from "react"
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { Icon } from "./select-icon"
 import { Search } from "./multiselect-search"
@@ -23,6 +30,9 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	selected = "",
 	...props
 }) => {
+	// generate unique name for checkbox
+	const name = "select-" + useId()
+
 	const onSelect = useCallback(
 		(e: any, id: string) => {
 			if ((!e.key || (!!e.key && e.key === "Enter")) && onEvent) {
@@ -35,8 +45,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	const getOptProps = (id: string) => ({
 		...props,
 		ref: undefined,
-		// onClick: (e: MouseEvent) => onSelect(e, id),
-		// onKeyDown: (e?: KeyboardEventHandler<HTMLLIElement>) => onSelect(e, id),
+		onClick: (e: MouseEvent<HTMLElement>) => onSelect(e, id),
+		onKeyDown: (e?: KeyboardEvent<HTMLElement>) => onSelect(e, id),
 	})
 
 	// Render options for the dropdown
@@ -105,6 +115,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 				>
 					<li className="sui-select__dropdown--option" role="option">
 						<Checkbox
+							name={name}
 							label="Select all"
 							isChecked={allSelected}
 							isIndeterminate={!allSelected && !!isIndeterminate}
@@ -117,11 +128,12 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							id={id}
 							role="option"
 							className="sui-select__dropdown--option"
-							// onClick={(e) => onSelect(e, id)}
+							onClick={(e) => onSelect(e, id)}
 							onKeyDown={(e) => onSelect(e, id)}
 						>
 							<Checkbox
 								id={id}
+								name={name}
 								label={label}
 								isChecked={isSelected}
 								onChange={(e) => onSelect(e, id)}
