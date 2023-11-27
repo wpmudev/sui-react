@@ -3,8 +3,6 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Recipient Button
-/// This function creates styles for the element
-/// recipient button.
 ///
 /// @type block
 /// @author WPMU DEV
@@ -15,10 +13,10 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            @include element(actions) {
-                display: flex;
+			@include element(actions) {
+				display: flex;
 				gap: $spacing-md;
-            }
+			}
 		}
 	}
 }

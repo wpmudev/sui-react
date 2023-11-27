@@ -1,5 +1,11 @@
 @use "../../../_utils/utils" as *;
 
+/// Build Button Icon
+///
+/// @type item
+/// @author WPMU DEV
+///
+/// @param {String} $item - Main item name
 @mixin build-icon($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
