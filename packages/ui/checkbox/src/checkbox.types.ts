@@ -10,6 +10,11 @@ interface CheckboxGroupProps {
 	isInline?: boolean
 
 	/**
+	 * Indicates whether the checkbox buttons should be displayed inline.
+	 */
+	title?: string
+
+	/**
 	 * When group has sub-items
 	 */
 	hasSubItems?: boolean
@@ -39,7 +44,7 @@ interface CheckboxGroupProps {
  * Represents the properties for a checkbox component.
  */
 interface CheckboxProps
-	extends Omit<HTMLAttributes<HTMLInputElement>, "defaultValue"> {
+	extends Omit<HTMLAttributes<HTMLInputElement>, "defaultValue" | "label"> {
 	/**
 	 * The unique identifier for the checkbox button (optional).
 	 */

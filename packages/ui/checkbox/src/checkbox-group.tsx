@@ -30,7 +30,7 @@ const _CheckboxGroupInner = (props: CheckboxGroupProps) => {
 	})
 
 	// Filter items belonging to the current group
-	let group = items.filter((item) => item.groupId === id)
+	const group = items.filter((item) => item.groupId === id)
 
 	// Count checked items in the group
 	const checkedItemsCount = group?.filter((item) => item.isChecked).length
@@ -84,7 +84,7 @@ const _CheckboxGroupInner = (props: CheckboxGroupProps) => {
 			<div className="sui-checkbox__group-body">
 				{Children.map(children, (child) => {
 					// Generate a unique ID for the child checkbox
-					let uuid = `sui-checkbox-item-${useId()}`
+					const uuid = `sui-checkbox-item-${useId()}`
 
 					// Find the current item based on ID and group
 					const currItem = items.find((i) => i.id === uuid && i.groupId === id)
