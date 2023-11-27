@@ -100,6 +100,10 @@ export { Cart } from "./icons/Cart"
 export { Emoji } from "./icons/Emoji"
 export { Tools } from "./icons/Tools"
 export { Rss } from "./icons/Rss"
+export { Key } from "./icons/Key"
+export { Phone } from "./icons/Phone"
+export { Currency } from "./icons/Currency"
+export { Copy } from "./icons/Copy"
 
 // form icons
 export { Calculator } from "./icons/Calculator"

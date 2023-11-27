@@ -561,8 +561,8 @@ const ListIcons = {
 			phone: {
 				name: "Phone",
 			},
-			dollar: {
-				name: "Dollar",
+			currency: {
+				name: "Currency (Dollar)",
 			},
 			copy: {
 				name: "Copy",
