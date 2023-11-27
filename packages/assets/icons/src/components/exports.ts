@@ -105,6 +105,11 @@ export { Phone } from "./icons/Phone"
 export { Currency } from "./icons/Currency"
 export { Copy } from "./icons/Copy"
 export { Clock } from "./icons/Clock"
+export { ClockAlt } from "./icons/ClockAlt"
+export { Wordpress } from "./icons/Wordpress"
+export { Merge } from "./icons/Merge"
+export { Footer } from "./icons/Footer"
+export { Inline } from "./icons/Inline"
 
 // form icons
 export { Calculator } from "./icons/Calculator"
