@@ -125,6 +125,13 @@ export { PageBreak } from "./icons/PageBreak"
 export { Signature } from "./icons/Signature"
 export { SignatureAlt } from "./icons/SignatureAlt"
 export { GroupField } from "./icons/GroupField"
+export { Bug } from "./icons/Bug"
+export { AlignLeft } from "./icons/AlignLeft"
+export { AlignRight } from "./icons/AlignRight"
+export { AlignCenter } from "./icons/AlignCenter"
+export { Broom } from "./icons/Broom"
+export { Js } from "./icons/Js"
+export { Css } from "./icons/Css"
 
 // form icons
 export { Calculator } from "./icons/Calculator"
