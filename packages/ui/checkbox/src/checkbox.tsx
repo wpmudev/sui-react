@@ -36,7 +36,7 @@ const Checkbox = ({
 	useEffect(() => {
 		// Add the checkbox details to the context list on component mount
 		ctx?.addToList(id as string, groupId, isChecked)
-	}, [])
+	}, [ctx, groupId, id, isChecked])
 
 	// Define input props
 	const inputProps = {
