@@ -1,11 +1,10 @@
 import React, { useState } from "react"
 
 // Import required modules
-import { CheckboxGroup, Checkbox as SuiCheckbox } from "../src"
+import { CheckboxGroup, Checkbox as SuiCheckbox, CheckBoxGroups } from "../src"
 
 // Import documentation
 import docs from "./ReactCheckbox.mdx"
-import { CheckBoxGroups } from "../src/checkbox-wrapper"
 
 // Default settings
 export default {
@@ -52,7 +51,7 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 									title="Group 1 Label"
 									commonCheckboxProps={{
 										// it will be passed to all checkbox items
-										name: "groups-checkbox",
+										name: "group-checkbox",
 										...args,
 									}}
 									onChange={(items) => {
