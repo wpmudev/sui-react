@@ -59,7 +59,7 @@ const CheckboxProvider = ({ children, onChange }: CheckboxProviderTypes) => {
 				})
 			}
 		},
-		[],
+		[onChange],
 	)
 
 	// Provide CheckboxContext with the handleOnChange function and checkbox items

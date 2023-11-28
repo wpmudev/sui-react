@@ -67,7 +67,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 		})
 
 		setItems([...toUpdate])
-	}, [items, group])
+	}, [items, allChecked, checkedItemsCount, id, setItems])
 
 	// Render the checkbox group
 	return (
