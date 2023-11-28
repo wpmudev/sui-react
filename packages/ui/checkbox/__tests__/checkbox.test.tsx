@@ -72,36 +72,71 @@ describe("@wpmudev/sui-checkbox", () => {
 	})
 
 	// Passing common props from CheckboxGroup to children checkboxes
-	it("Passes common props from group", async () => {
+	it("common props in a group", async () => {
 		// Render the checkbox group component
 		const { container } = render(
-			<CheckboxGroup
-				title="Group 1 Label"
-				commonCheckboxProps={{ name: "group-checkbox" }}
-			>
-				<Checkbox id="checkbox-1" label="Checkbox Group Item 1" />
-				<Checkbox id="checkbox-2" label="Checkbox Group Item 2" />
-			</CheckboxGroup>,
+			<div>
+				<CheckboxGroup
+					title="Group 1 Label"
+					commonCheckboxProps={{ name: "group-checkbox" }}
+				>
+					<Checkbox label="Checkbox Group Item 1" />
+					<Checkbox label="Checkbox Group Item 2" />
+				</CheckboxGroup>
+			</div>,
 		)
 
 		// Get the first Checkbox element
-		const checkboxFirstEl = container.querySelector("#checkbox-1")
+		const checkboxes = container.querySelectorAll(".sui-checkbox > input")
 
-		// Get the second Checkbox element
-		const checkboxSecondEl = container.querySelector("#checkbox-2")
+		// Expect to have two checkboxes
+		expect(checkboxes).toHaveLength(2)
 
-		// Check if the Checkboxs has the "name" prop
-		expect(checkboxFirstEl).toHaveAttribute("name", "group-checkbox")
-		expect(checkboxSecondEl).toHaveAttribute("name", "group-checkbox")
+		// Expect all checkboxes to have the attribute "name" with the value "group-checkbox"
+		checkboxes.forEach((checkbox) =>
+			expect(checkbox).toHaveAttribute("name", "group-checkbox"),
+		)
 	})
 
 	// Passing common props from ChecboxGroups
-	it("Passes common props in multigroup structure", async () => {
+	it("common props in a multigroup", async () => {
 		// Render the checkbox group component
 		const { container } = render(
 			<CheckBoxGroups
 				commonCheckboxProps={{
-					// it will be passed to all checkbox items
+					// It will be passed to all checkbox items
+					name: "groups-checkbox",
+				}}
+			>
+				<CheckboxGroup title="Nested Group 1" hasSubItems={true}>
+					<Checkbox label="Nested item 1" />
+					<Checkbox label="Nested item 2" />
+				</CheckboxGroup>
+				<CheckboxGroup title="Nested Group 2" hasSubItems={true}>
+					<Checkbox label="Nested item 1" />
+					<Checkbox label="Nested item 2" />
+				</CheckboxGroup>
+			</CheckBoxGroups>,
+		)
+
+		const checkboxes = container.querySelectorAll(".sui-checkbox > input")
+
+		// Expect to have two checkboxes
+		expect(checkboxes).toHaveLength(6)
+
+		// expect all checkboxes to have name "group-checkbox"
+		checkboxes.forEach((checkbox) =>
+			expect(checkbox).not.toHaveClass("sui-checkbox--checked"),
+		)
+	})
+
+	// Changing parent will change children
+	it("group check change", async () => {
+		// Rendering the groups
+		const { container } = render(
+			<CheckBoxGroups
+				commonCheckboxProps={{
+					// It will be passed to all checkbox items
 					name: "groups-checkbox",
 				}}
 			>
@@ -109,29 +144,73 @@ describe("@wpmudev/sui-checkbox", () => {
 					<Checkbox id="checkbox-1" label="Nested item 1" />
 					<Checkbox id="checkbox-2" label="Nested item 2" />
 				</CheckboxGroup>
-				<CheckboxGroup title="Nested Group 2" hasSubItems={true}>
-					<Checkbox id="checkbox-3" label="Nested item 1" />
-					<Checkbox id="checkbox-4" label="Nested item 2" />
+			</CheckBoxGroups>,
+		)
+
+		// Getting the top most parent
+		const checkboxes = container.querySelectorAll("label")
+
+		// The parent checkbox
+		const parentCheckbox = checkboxes[0]
+
+		// Click on the parent checkbox to make it checked
+		fireEvent.click(parentCheckbox)
+
+		// expect all elements to be checked
+		checkboxes.forEach((checkbox) =>
+			expect(checkbox).toHaveClass("sui-checkbox--checked"),
+		)
+
+		// Clicking on the checkbox again to make it unchecked
+		fireEvent.click(parentCheckbox)
+
+		// expect all elements to be unchecked
+		checkboxes.forEach((checkbox) =>
+			expect(checkbox).not.toHaveClass("sui-checkbox--checked"),
+		)
+	})
+
+	// Parent indeterminate state
+	it("indeterminate state", async () => {
+		// Rendering the groups
+		const { container } = render(
+			<CheckBoxGroups
+				commonCheckboxProps={{
+					// It will be passed to all checkbox items
+					name: "groups-checkbox",
+				}}
+			>
+				<CheckboxGroup title="Nested Group 1" hasSubItems={true}>
+					<Checkbox id="checkbox-1" label="Nested item 1" />
+					<Checkbox id="checkbox-2" label="Nested item 2" />
 				</CheckboxGroup>
 			</CheckBoxGroups>,
 		)
 
-		// Get the first Checkbox element
-		const checkboxFirstEl = container.querySelector("#checkbox-1")
+		// Get all checkboxes all checkboxes
+		const checkboxes = container.querySelectorAll(".sui-checkbox")
 
-		// Get the second Checkbox element
-		const checkboxSecondEl = container.querySelector("#checkbox-2")
+		// parent & a child elements
+		const parentElement = checkboxes[0]
+		const childElement = checkboxes[1]
 
-		// Get the third Checkbox element
-		const checkboxThirdEl = container.querySelector("#checkbox-3")
+		// Click on the child element to make it checked
+		fireEvent.click(childElement)
 
-		// Get the fourth Checkbox element
-		const checkboxFourthEl = container.querySelector("#checkbox-4")
+		// expect the child to be checked
+		expect(childElement).toHaveClass("sui-checkbox--checked")
 
-		// Check if the Checkboxes has the "name" prop
-		expect(checkboxFirstEl).toHaveAttribute("name", "groups-checkbox")
-		expect(checkboxSecondEl).toHaveAttribute("name", "groups-checkbox")
-		expect(checkboxThirdEl).toHaveAttribute("name", "groups-checkbox")
-		expect(checkboxFourthEl).toHaveAttribute("name", "groups-checkbox")
+		// Expect the parent to be indeterminate
+		expect(parentElement).toHaveClass("sui-checkbox--indeterminate")
+
+		// Expect The other child to be checked
+
+		// Clicking on the parent ( while in indeterminate state) will make it checked with all children
+		fireEvent.click(parentElement)
+
+		// expect all the children to be checked
+		checkboxes.forEach((checkbox) =>
+			expect(checkbox).toHaveClass("sui-checkbox--checked"),
+		)
 	})
 })

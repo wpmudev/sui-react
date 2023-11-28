@@ -90,8 +90,8 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 									>
 										<SuiCheckbox label="Nested item 1" />
 										<SuiCheckbox label="Nested item 2" />
-										<SuiCheckbox label="Nested item 2" />
-										<SuiCheckbox label="Nested item 2" />
+										<SuiCheckbox label="Nested item 3" />
+										<SuiCheckbox label="Nested item 4" />
 									</CheckboxGroup>
 								</CheckBoxGroups>
 							),
