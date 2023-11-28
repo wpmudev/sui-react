@@ -12,7 +12,7 @@ import { CheckboxProvider, useCheckbox } from "./checkbox-context"
 import {
 	_CheckboxGroupInnerProps,
 	CheckboxGroupProps,
-	CheckboxItemTypes,
+	CheckBoxItemsList,
 } from "./checkbox.types"
 
 import { Checkbox } from "./checkbox"
@@ -48,7 +48,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 	 * Handle onChange for group checkbox item
 	 */
 	const onCheckboxChange = useCallback(() => {
-		const toUpdate: CheckboxItemTypes[] = []
+		const toUpdate: CheckBoxItemsList = []
 
 		items.forEach((item) => {
 			// If the item is not from the same group, push it as is and continue

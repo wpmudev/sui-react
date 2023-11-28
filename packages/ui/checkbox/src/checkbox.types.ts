@@ -28,9 +28,14 @@ interface CheckboxGroupProps {
 	children: ReactNode
 
 	/**
-	 * A callback function to handle checkbox button selection changes.
+	 *
+	 * A callback function to handle checkbox button selection changes, with two signatures
+	 * - A Single argument which represent a list of items
+	 * - 3 Arguments for a single item: id, isChecked and groupId
+	 *
 	 */
 	onChange?(id: string, isChecked: boolean, groupId: boolean | string): void
+	onChange?(items: CheckBoxItemsList): void
 
 	/**
 	 * Common checkbox props to be passed in checkbox items
@@ -112,18 +117,31 @@ type CheckboxItemTypes = {
 	isChecked?: boolean
 }
 
+type CheckBoxItemsList = CheckboxItemTypes[]
+
 /**
  * Define the props for the context of a Checkbox component, which includes properties inherited from CheckboxGroupProps.
  */
 interface CheckboxContextProps {
-	items: CheckboxItemTypes[]
+	items: CheckBoxItemsList
 	setItems: (items: CheckboxContextProps["items"]) => void
 	onChange?: CheckboxProviderTypes["onChange"]
 }
 
 interface CheckboxProviderTypes {
+	/**
+	 * children elements
+	 */
 	children: React.ReactNode
-	onChange(items: CheckboxItemTypes[]): void
+	/**
+	 *
+	 * A callback function to handle checkbox button selection changes, with two signatures
+	 * - A Single argument which represent a list of items
+	 * - 3 Arguments for a single item: id, isChecked and groupId
+	 *
+	 */
+	onChange(items: CheckBoxItemsList): void
+	onChange(id: string, isChecked?: boolean, groupId?: boolean | string): void
 }
 
 export type {
@@ -132,5 +150,6 @@ export type {
 	_CheckboxGroupInnerProps,
 	CheckboxContextProps,
 	CheckboxItemTypes,
+	CheckBoxItemsList,
 	CheckboxProviderTypes,
 }
