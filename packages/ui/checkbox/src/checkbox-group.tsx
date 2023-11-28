@@ -90,7 +90,9 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 			<div className="sui-checkbox__group-body">
 				{Children.map(children, (child, index) => {
 					// Generate a unique ID for the child checkbox
-					const checkboxId = `sui-checkbox-item-${uuid}-${index}`
+					const checkboxId =
+						(child as ReactElement)?.props?.id ||
+						`sui-checkbox-item-${uuid}-${index}`
 
 					// Find the current item based on ID and group
 					const currItem = items.find(

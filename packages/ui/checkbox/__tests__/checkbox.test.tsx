@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 
 import "@testing-library/jest-dom"
-import { screen, render, fireEvent } from "@testing-library/react"
+import { screen, render, fireEvent, prettyDOM } from "@testing-library/react"
 
-import { Checkbox } from "../src"
+import { Checkbox, CheckboxGroup } from "../src"
 import { a11yTest } from "@wpmudev/sui-utils"
 
 describe("@wpmudev/sui-checkbox", () => {
@@ -70,4 +70,25 @@ describe("@wpmudev/sui-checkbox", () => {
 	it("passes a11y test", async () => {
 		await a11yTest(<Checkbox />)
 	})
+
+	// Passing common props from group
+	// it("Passes props from group to checkboxes", async () => {
+	// 	// Render the checkbox group component
+	// 	const { container } = render(
+	// 		<CheckboxGroup
+	// 			title="Group 1 Label"
+	// 			commonCheckboxProps={{ name: "ggggggg" }}
+	// 		>
+	// 			<Checkbox id="checkbox-1" label="Checkbox Group Item 1" />
+	// 			<Checkbox id="checkbox-2" label="Checkbox Group Item 2" />
+	// 		</CheckboxGroup>,
+	// 	)
+
+	// 	// Get the first Checkbox element
+	// 	const checkboxFirstEl = container.querySelector("#checkbox")
+
+	// 	console.log(prettyDOM(container))
+
+	// 	expect(checkboxFirstEl).toBeInTheDocument()
+	// })
 })

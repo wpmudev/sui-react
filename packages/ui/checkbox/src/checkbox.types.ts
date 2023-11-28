@@ -65,7 +65,7 @@ interface CheckboxGroupProps {
 	/**
 	 * Common checkbox props to be passed in checkbox items
 	 */
-	commonCheckboxProps: CheckboxProps
+	commonCheckboxProps?: CheckboxProps
 
 	/**
 	 * Checkbox group title

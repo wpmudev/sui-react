@@ -48,26 +48,25 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 								/>
 							),
 							group: (
-								<CheckBoxGroups
-									onChange={(key, isChecked) => {
-										console.log("debug", key, isChecked)
-									}}
+								<CheckboxGroup
+									title="Group 1 Label"
 									commonCheckboxProps={{
 										// it will be passed to all checkbox items
-										name: "group-checkbox",
+										name: "groups-checkbox",
 										...args,
 									}}
+									onChange={(items) => {
+										console.log("group debug", items)
+									}}
 								>
-									<CheckboxGroup label="Group 1 Label" id="checkbox-group">
-										<SuiCheckbox label="Checkbox Group Item 1" />
-										<SuiCheckbox label="Checkbox Group Item 2" />
-									</CheckboxGroup>
-								</CheckBoxGroups>
+									<SuiCheckbox label="Checkbox Group Item 1" />
+									<SuiCheckbox label="Checkbox Group Item 2" />
+								</CheckboxGroup>
 							),
 							nested: (
 								<CheckBoxGroups
 									onChange={(items) => {
-										console.log("debug", items)
+										console.log("nested debug", items)
 									}}
 									commonCheckboxProps={{
 										// it will be passed to all checkbox items
@@ -105,6 +104,7 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 									commonCheckboxProps={{
 										...args,
 									}}
+									onChange={(items) => console.log("horizontal debug", items)}
 								>
 									<SuiCheckbox label="Checkbox Group Item 1" />
 									<SuiCheckbox label="Checkbox Group Item 2" />
