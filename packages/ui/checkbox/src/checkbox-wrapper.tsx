@@ -2,8 +2,9 @@ import React, { Children, cloneElement } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 import { CheckboxProvider } from "./checkbox-context"
+import { CheckboxGroupsProps } from "./checkbox.types"
 
-const CheckBoxGroups = ({
+const CheckBoxGroups: React.FC<CheckboxGroupsProps> = ({
 	isDisabled = false,
 	children,
 	commonCheckboxProps = {},

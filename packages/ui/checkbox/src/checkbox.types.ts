@@ -4,6 +4,31 @@ interface _CheckboxGroupInnerProps
 	extends Omit<CheckboxGroupProps, "_isMultiGroup"> {}
 
 /**
+ * Define the props for a CheckboxGroups component.
+ */
+interface CheckboxGroupsProps {
+	/**
+	 * Whethers the group of checkboxes is disabled or not
+	 */
+	isDisabled?: boolean
+
+	/**
+	 * The children elements of the groups
+	 */
+	children: React.ReactNode
+
+	/**
+	 * The props to share with all children
+	 */
+	commonCheckboxProps?: CheckboxProps
+
+	/**
+	 * When a change happens
+	 */
+	onChange?: CheckboxGroupProps["onChange"]
+}
+
+/**
  * Define the props for a CheckboxGroup component.
  */
 interface CheckboxGroupProps {
@@ -152,4 +177,5 @@ export type {
 	CheckboxItemTypes,
 	CheckBoxItemsList,
 	CheckboxProviderTypes,
+	CheckboxGroupsProps,
 }
