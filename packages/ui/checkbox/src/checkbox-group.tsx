@@ -25,8 +25,11 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 	// Access checkbox context methods and items
 	const { items, setItems } = useCheckbox()
 
+	// unique id to be used in diffrent places
+	const uuid = useId()
+
 	// Generate a unique ID for the checkbox group
-	const id = `sui-checkbox-group-${useId()}`
+	const id = `sui-checkbox-group-${uuid}`
 
 	// Define CSS class names for the checkbox group
 	const className = generateCN("sui-checkbox__group", {
@@ -85,12 +88,14 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 			)}
 			{/* Render children checkboxes */}
 			<div className="sui-checkbox__group-body">
-				{Children.map(children, (child) => {
+				{Children.map(children, (child, index) => {
 					// Generate a unique ID for the child checkbox
-					const uuid = `sui-checkbox-item-${useId()}`
+					const checkboxId = `sui-checkbox-item-${uuid}-${index}`
 
 					// Find the current item based on ID and group
-					const currItem = items.find((i) => i.id === uuid && i.groupId === id)
+					const currItem = items.find(
+						(i) => i.id === checkboxId && i.groupId === id,
+					)
 
 					// Clone the child element and pass necessary props
 					return cloneElement(
@@ -98,7 +103,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 						{
 							...commonCheckboxProps,
 							groupId: id,
-							id: uuid,
+							id: checkboxId,
 							isChecked: !!currItem?.isChecked,
 						} as object,
 					)
