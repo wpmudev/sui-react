@@ -35,7 +35,7 @@ const Checkbox = ({
 
 	useEffect(() => {
 		// Add the checkbox details to the context list on component mount
-		ctx?.addToList(id, groupId, isChecked)
+		ctx?.addToList(id as string, groupId, isChecked)
 	}, [])
 
 	// Define input props
@@ -47,7 +47,7 @@ const Checkbox = ({
 		className: "sui-screen-reader-only",
 		checked: isChecked,
 		disabled: isDisabled,
-		onChange: (e) => {
+		onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
 			// Invoke context onChange method if available
 			if (!!ctx?.onChange) {
 				ctx.onChange(uuid, e.target.checked, groupId)
