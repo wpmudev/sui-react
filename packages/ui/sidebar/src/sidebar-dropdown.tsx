@@ -69,7 +69,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 						className="sui-sidebar__dropdown--button"
 						// aria-activedescendant={isOpen ? `${id}-${current}` : ""}
 						onClick={() => setIsOpen(!isOpen)}
-						endIcon="ChevronDown"
+						endIcon="Hamburger"
 						isFullWidth={true}
 						{...props}
 					>
