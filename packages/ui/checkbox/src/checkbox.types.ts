@@ -99,7 +99,7 @@ interface CheckboxProps
 	label?: string
 
 	/**
-	 * The label for the checkbox.
+	 * Represents the value of the checkbox
 	 */
 	value?: string
 

@@ -12,7 +12,35 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
 	</p>
 </Section>
 
+
 <Section title="Props" border={true}>
+		<Section
+    		title={{ content: "id*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>A unique identifier for the checkbox, within group context this will be generated automatically</p>
+    	</Section>
+
+		<Section
+    		title={{ content: "groupId*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>In case the checkbox is used within a group, this will represent the id of the group that the checkbox belongs to, this will be generated automatically if not provided</p>
+    	</Section>
+
+		<Section
+    		title={{ content: "name*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Represents the name of the checkbox</p>
+    	</Section>
+
+		<Section
+    		title={{ content: "value*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Represents the value of the checkbox</p>
+    	</Section>
 
     	<Section
     		title={{ content: "label*", tag: 'string', small: true }}
@@ -68,6 +96,86 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	>
     		<p>A callback function to be invoked when the checkbox state is changed</p>
 
+    	</Section>
+
+</Section>
+
+<Section
+	title="Groups & Nesting"
+	contained={true}
+	style={{ paddingTop: 30, paddingBottom: 0 }}
+>
+		<p>The Checkbox package provides two other components to implement grouping and nesting functionalities</p>
+
+    <Section title="CheckboxGroup" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		Use this component to group multiple checboxes together and display them horizontally or vertically, the <Code isSmall={true}>CheckboxGroup</Code> has the following props
+    	</p>
+
+    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The elements content of the component
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "title*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Represents the group checkbox label
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "hasSubItems*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Whether the group has chldren checkboxes
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "isInline*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			When set to <Code isSmall={true}>true</Code> the checkboxes will be displayed horizontally
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "commonCheckboxProps*", tag: 'object', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			The common checkbox props to be shared with all children checkboxes, accepted props are detailed in the <Code isSmall={true}>Checkbox</Code> section.
+    		</p>
+    	</Section>
+
+    	<Section title={{ content: "onChange*", tag: 'function', small: true }}   contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<p>
+    			Callback function to be executed when the state of any checkbox in the group is changed, the first parameter returns the state of all checkboxes in an array structure
+    		</p>
+    	</Section>
+
+    </Section>
+
+    	<Section title="CheckboxGroups" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		Use this component to create hierarchical structure with nested checkboxes, it has the following props: 
+    	</p>
+    		<Section title={{ content: "isDisabled*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    			<p>
+    				Whether all the checkboxes in the structure are disabled or not. 
+    			</p>
+    		</Section>
+			<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    			<p>
+    				The elements children of the the component
+    			</p>
+    		</Section>
+
+			<Section title={{ content: "commonCheckboxProps*", tag: 'object', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+				<p>
+					The common checkbox props to be shared with all children checkboxes, accepted props are detailed in the <Code isSmall={true}>Checkbox</Code> section.
+				</p>
+    		</Section>
+
+			<Section title={{ content: "onChange*", tag: 'function', small: true }}   contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+				<p>
+					Callback function to be executed when the state of any checkbox in the group is changed, the first parameter returns the state of all checkboxes in an array structure
+				</p>
+    		</Section>
     	</Section>
 
 </Section>

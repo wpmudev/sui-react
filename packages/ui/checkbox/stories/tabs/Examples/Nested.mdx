@@ -9,6 +9,10 @@ export const checkboxGroups = dedent`
         onChange={(items) => {
             console.log("nested debug", items)
         }}
+        commonCheckboxProps={{
+            // it will be passed to all checkbox items
+            name: "groups-checkbox"						
+        }}
     >
         <CheckboxGroup 
             title="Parent" 
@@ -38,6 +42,10 @@ export const checkboxGroups = dedent`
 			onChange={(items) => {
 				console.log("nested debug", items)
 			}}
+			commonCheckboxProps={{
+				// it will be passed to all checkbox items
+				name: "groups-checkbox"						
+        	}}
 		>
 			<CheckboxGroup 
 				title="Parent" 
