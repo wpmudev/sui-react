@@ -105,14 +105,14 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 				) : (
 					<div>
 						<Button
-							startIcon={buttonIcon ?? "menu"}
+							startIcon={buttonIcon ?? "Menu"}
 							iconOnly={iconOnly ?? false}
 							color="black"
 							appearance="secondary"
 							isSmall={isSmall ?? false}
 							//aria-activedescendant={isOpen ? `${id}-${current}` : ""}
 							onClick={() => setIsOpen(!isOpen)}
-							{...(!iconOnly && { endIcon: "chevron-down" })}
+							{...(!iconOnly && { endIcon: "ChevronDown" })}
 							{...props}
 						>
 							{label}

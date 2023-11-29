@@ -93,7 +93,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 					data-testid="advanced-banner-close"
 				>
 					<Button
-						icon="close"
+						icon="Close"
 						appearance="tertiary"
 						isSmall={true}
 						iconOnly={true}

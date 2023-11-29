@@ -20,7 +20,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 	const settingButton = (
 		<Button
 			appearance="tertiary"
-			icon="settings"
+			icon="Settings"
 			color="black"
 			iconOnly={true}
 			aria-label="settings"
@@ -51,7 +51,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 							<div>
 								<Button
 									appearance="tertiary"
-									icon="chevron-left"
+									icon="ChevronLeft"
 									color="black"
 									iconOnly={true}
 									onClick={onBackClick}

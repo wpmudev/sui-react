@@ -104,7 +104,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 			{hasAccordion && (
 				<div className="sui-builder__field-actions-item sui-builder__field-actions-item--accordion">
 					<Button
-						startIcon={isExpanded ? "chevron-up" : "chevron-down"}
+						startIcon={isExpanded ? "ChevronUp" : "ChevronDown"}
 						iconOnly={true}
 						color="black"
 						isSmall={true}

@@ -1,4 +1,5 @@
 import React, { HTMLProps } from "react"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 /**
  * Represents the properties for a button component.
@@ -50,15 +51,15 @@ interface ButtonProps
 	/**
 	 * Optional icon to be displayed.
 	 */
-	icon?: string
+	icon?: IconsNamesType
 	/**
 	 * Optional icon to be displayed.
 	 */
-	startIcon?: string
+	startIcon?: IconsNamesType
 	/**
 	 * Optional icon to be displayed.
 	 */
-	endIcon?: string
+	endIcon?: IconsNamesType
 	/**
 	 * Optional icon size to be displayed.
 	 */

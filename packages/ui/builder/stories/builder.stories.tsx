@@ -25,7 +25,7 @@ export default {
 const Builder = ({ ...props }) => {
 	const actionButton = (
 		<Dropdown
-			buttonIcon="settings"
+			buttonIcon="Settings"
 			label="Connect features"
 			direction="left"
 			isSmall={true}
@@ -77,7 +77,7 @@ const Builder = ({ ...props }) => {
 						<BuilderField
 							action={
 								<Dropdown
-									buttonIcon="settings"
+									buttonIcon="Settings"
 									label="Connect features"
 									direction="left"
 									isSmall={true}

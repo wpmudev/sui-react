@@ -94,7 +94,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 					data-testid="alert-banner-close"
 				>
 					<Button
-						icon="close"
+						icon="Close"
 						appearance="tertiary"
 						color={dismissBtnColor}
 						isSmall={true}

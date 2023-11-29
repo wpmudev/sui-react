@@ -71,7 +71,7 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 			className="sui-uploader__button"
 			appearance="primary"
 			color="blue"
-			icon="upload"
+			icon="Upload"
 			onClick={onClick}
 		>
 			{btnTitle}
