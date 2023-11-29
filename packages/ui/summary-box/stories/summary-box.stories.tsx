@@ -27,7 +27,7 @@ const SummaryBox = ({}) => {
 			<div className="sui-layout__content">
 				<div>
 					<SuiSummaryBox
-						icon="Performance"
+						icon="performance"
 						title="Performance Summary"
 						hideMobileIcon={true}
 						primaryActions={[
