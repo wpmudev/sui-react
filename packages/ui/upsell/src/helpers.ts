@@ -19,7 +19,7 @@ const variationsList = {
 			"Get Snapshot Pro and get all the tools you need for Easily backup and migrate site.",
 	},
 	smartcrawl: {
-		icon: "PluginSmartCrawl",
+		icon: "PluginSmartcrawl",
 		title: "SmartCrawl Pro",
 		description:
 			"Get our full WordPress Search Engine Optimization suite with SmartCrawl Pro and resolve more about the Engine Optimization.",
@@ -31,7 +31,7 @@ const variationsList = {
 			"Get Shipper Pro and get all the tools you need for Migrate Site.",
 	},
 	ivt: {
-		icon: "PluginIVT",
+		icon: "PluginIvt",
 		title: "IVT Pro",
 		description:
 			"Get IVT Pro and get all the tools you need for Video upload on Site.",

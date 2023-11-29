@@ -236,7 +236,7 @@ const PluginsIcons: Record<PluginsSlug, PluginIconTypes> = {
 	smartcrawl: {
 		bg: "#de240a",
 		color: "#FFF",
-		icon: "PluginSmartCrawl",
+		icon: "PluginSmartcrawl",
 	},
 	shipper: {
 		bg: "#7b5499",
