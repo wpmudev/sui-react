@@ -1,4 +1,4 @@
-import { Checkbox } from "../../../src"
+import { Checkbox } from "../../../../src"
 import React, { useState } from "react"
 
 // Basic Checkbox example

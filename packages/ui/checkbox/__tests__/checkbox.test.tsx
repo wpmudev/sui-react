@@ -197,14 +197,14 @@ describe("@wpmudev/sui-checkbox", () => {
 		// Get all checkboxes
 		const checkboxes = container.querySelectorAll(".sui-checkbox")
 
-		// parent & child elements
+		// Parent & child elements
 		const parentElement = checkboxes[0]
 		const childElement = checkboxes[1]
 
 		// Click on the child element to make it checked
 		fireEvent.click(childElement)
 
-		// expect the child to be checked
+		// Expect the child to be checked
 		expect(childElement).toHaveClass("sui-checkbox--checked")
 
 		// Expect the parent to be indeterminate

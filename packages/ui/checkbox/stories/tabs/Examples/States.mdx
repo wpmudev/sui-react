@@ -1,0 +1,42 @@
+
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { BasicCheckbox } from "./components/BasicCheckbox"
+import dedent from "dedent"
+
+export const disabledCode = dedent`
+    <Checkbox isDisabled={true} label="Disabled Checkbox" onChange={(e)=> setChecked(e.target.checked)}/>
+`
+
+export const smallCode = dedent`
+    <Checkbox isSmall={true} label="Small Checkbox" onChange={(e)=> setChecked(e.target.checked)}/>
+`
+
+export const indeterminateCode = dedent`
+    <Checkbox isIndeterminate={true} label="Indeterminate Checkbox" onChange={(e)=> setChecked(e.target.checked)}/>
+`
+
+
+<Section title="Disabled" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p> To disable the checkbox use the prop <Code small={true}> isDisabled=\{true\} </Code> </p>
+	<Preview wrapper={true}>
+		<BasicCheckbox isDisabled={true} label="Disabled Checkbox" onChange={(e)=> setChecked(e.target.checked)}/>
+	</Preview>
+	<Snippet language="js">{disabledCode}</Snippet>
+</Section>
+
+<Section title="Small" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p> To make the checkbox look smaller use the prop <Code small={true}> isSmall=\{true\} </Code> </p>
+	<Preview wrapper={true}>
+		<BasicCheckbox isSmall={true} label="Small Checkbox" onChange={(e)=> setChecked(e.target.checked)}/>
+	</Preview>
+	<Snippet language="js">{smallCode}</Snippet>
+</Section>
+
+<Section title="Indeterminate" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p> This is mainly used when the checkbox state depends on other checkboxes states where only some of them are checked. </p>
+	<p> Use the prop <Code small={true}> isIndeterminate=\{true\} </Code> to mark the checkbox as indeterminate </p>
+	<Preview wrapper={true}>
+		<BasicCheckbox isIndeterminate={true} label="Indeterminate Checkbox" onChange={(e)=> setChecked(e.target.checked)}/>
+	</Preview>
+	<Snippet language="js">{indeterminateCode}</Snippet>
+</Section>
