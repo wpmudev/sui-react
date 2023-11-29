@@ -16,8 +16,8 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(row) {
-				box-shadow: 0 -#{$shadow-offset-xs} 0 0 $color-extended-neutral-80,
-					0 -#{$shadow-offset-xs} 0 0 $color-extended-neutral-80;
+				box-shadow: 0 -#{$shadow-offset-2xs} 0 0 $color-extended-neutral-80,
+					0 -#{$shadow-offset-2xs} 0 0 $color-extended-neutral-80;
 				position: relative;
 				background: $color-extended-neutral-100;
 
@@ -114,8 +114,8 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(row) {
-				box-shadow: 0 -#{$shadow-offset-xs} 0 0 $color-extended-neutral-0,
-					0 -#{$shadow-offset-xs} 0 0 $color-extended-neutral-0;
+				box-shadow: 0 -#{$shadow-offset-2xs} 0 0 $color-extended-neutral-0,
+					0 -#{$shadow-offset-2xs} 0 0 $color-extended-neutral-0;
 
 				@include modifier(expanded, content) {
 					background: $color-extended-neutral-100;
