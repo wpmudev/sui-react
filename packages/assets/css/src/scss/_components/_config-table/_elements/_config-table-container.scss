@@ -20,10 +20,38 @@
 				color: $color-extended-neutral-50;
 			}
 
+			.sui-table__row {
+				box-shadow: 0 -#{$shadow-offset-2xs} 0 0 $color-extended-neutral-80,
+					0 -#{$shadow-offset-2xs} 0 0 $color-extended-neutral-80;
+			}
+
+			.sui-table__row--content {
+				box-shadow: none;
+			}
+
 			@include element(title) {
 				align-items: center;
 				display: flex;
 				gap: $spacing-md;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			td {
+				color: $color-extended-neutral-0;
+			}
+
+			.sui-table__row {
+				box-shadow: 0 -#{$shadow-offset-2xs} 0 0 $color-extended-neutral-0,
+					0 -#{$shadow-offset-2xs} 0 0 $color-extended-neutral-0;
+			}
+
+			.sui-table__row--content {
+				box-shadow: none;
 			}
 		}
 	}
