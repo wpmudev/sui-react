@@ -17,7 +17,7 @@ describe("@wpmudev/sui-checkbox", () => {
 	})
 
 	// Test case for testing the isDisabled prop
-	it("disabled state", () => {
+	it("Disabled state", () => {
 		const Component = () => {
 			const [checked, setChecked] = useState<boolean>(false)
 
@@ -67,23 +67,21 @@ describe("@wpmudev/sui-checkbox", () => {
 	})
 
 	// eslint-disable-next-line jest/expect-expect
-	it("passes a11y test", async () => {
+	it("Passes a11y test", async () => {
 		await a11yTest(<Checkbox />)
 	})
 
 	// Passing common props from CheckboxGroup to children checkboxes
-	it("common props in a group", async () => {
+	it("Common props in a group", async () => {
 		// Render the checkbox group component
 		const { container } = render(
-			<div>
-				<CheckboxGroup
-					title="Group 1 Label"
-					commonCheckboxProps={{ name: "group-checkbox" }}
-				>
-					<Checkbox label="Checkbox Group Item 1" />
-					<Checkbox label="Checkbox Group Item 2" />
-				</CheckboxGroup>
-			</div>,
+			<CheckboxGroup
+				title="Group 1 Label"
+				commonCheckboxProps={{ name: "group-checkbox" }}
+			>
+				<Checkbox label="Checkbox Group Item 1" />
+				<Checkbox label="Checkbox Group Item 2" />
+			</CheckboxGroup>,
 		)
 
 		// Get the first Checkbox element
@@ -99,7 +97,7 @@ describe("@wpmudev/sui-checkbox", () => {
 	})
 
 	// Passing common props from ChecboxGroups
-	it("common props in a multigroup", async () => {
+	it("Common props in a multigroup", async () => {
 		// Render the checkbox group component
 		const { container } = render(
 			<CheckBoxGroups
@@ -121,17 +119,17 @@ describe("@wpmudev/sui-checkbox", () => {
 
 		const checkboxes = container.querySelectorAll(".sui-checkbox > input")
 
-		// Expect to have two checkboxes
+		// Expect to have six checkboxes
 		expect(checkboxes).toHaveLength(6)
 
-		// expect all checkboxes to have name "group-checkbox"
+		// expect all checkboxes to have name "groups-checkbox"
 		checkboxes.forEach((checkbox) =>
-			expect(checkbox).not.toHaveClass("sui-checkbox--checked"),
+			expect(checkbox).toHaveAttribute("name", "groups-checkbox"),
 		)
 	})
 
 	// Changing parent will change children
-	it("group check change", async () => {
+	it("Group check change", async () => {
 		// Rendering the groups
 		const { container } = render(
 			<CheckBoxGroups
@@ -148,15 +146,17 @@ describe("@wpmudev/sui-checkbox", () => {
 		)
 
 		// Getting the top most parent
-		const checkboxes = container.querySelectorAll("label")
+		const checkboxes = container.querySelectorAll(".sui-checkbox")
 
-		// The parent checkbox
+		// The parent & children checkboxs
 		const parentCheckbox = checkboxes[0]
+		const firstChildCheckbox = checkboxes[1]
+		const secondChildCheckbox = checkboxes[2]
 
 		// Click on the parent checkbox to make it checked
 		fireEvent.click(parentCheckbox)
 
-		// expect all elements to be checked
+		// Expect all elements to be checked
 		checkboxes.forEach((checkbox) =>
 			expect(checkbox).toHaveClass("sui-checkbox--checked"),
 		)
@@ -164,14 +164,21 @@ describe("@wpmudev/sui-checkbox", () => {
 		// Clicking on the checkbox again to make it unchecked
 		fireEvent.click(parentCheckbox)
 
-		// expect all elements to be unchecked
+		// Expect all elements to be unchecked
 		checkboxes.forEach((checkbox) =>
 			expect(checkbox).not.toHaveClass("sui-checkbox--checked"),
 		)
+
+		// Checking all children will make parent checked
+		fireEvent.click(firstChildCheckbox)
+		fireEvent.click(secondChildCheckbox)
+
+		// Expect the parent to be checked
+		expect(parentCheckbox).toHaveClass("sui-checkbox--checked")
 	})
 
 	// Parent indeterminate state
-	it("indeterminate state", async () => {
+	it("Indeterminate state", async () => {
 		// Rendering the groups
 		const { container } = render(
 			<CheckBoxGroups
@@ -187,10 +194,10 @@ describe("@wpmudev/sui-checkbox", () => {
 			</CheckBoxGroups>,
 		)
 
-		// Get all checkboxes all checkboxes
+		// Get all checkboxes
 		const checkboxes = container.querySelectorAll(".sui-checkbox")
 
-		// parent & a child elements
+		// parent & child elements
 		const parentElement = checkboxes[0]
 		const childElement = checkboxes[1]
 
@@ -203,9 +210,7 @@ describe("@wpmudev/sui-checkbox", () => {
 		// Expect the parent to be indeterminate
 		expect(parentElement).toHaveClass("sui-checkbox--indeterminate")
 
-		// Expect The other child to be checked
-
-		// Clicking on the parent ( while in indeterminate state) will make it checked with all children
+		// Clicking on the parent ( while in indeterminate state ) will make it checked with all children
 		fireEvent.click(parentElement)
 
 		// expect all the children to be checked
