@@ -139,8 +139,8 @@ describe("@wpmudev/sui-checkbox", () => {
 				}}
 			>
 				<CheckboxGroup title="Nested Group 1" hasSubItems={true}>
-					<Checkbox id="checkbox-1" label="Nested item 1" />
-					<Checkbox id="checkbox-2" label="Nested item 2" />
+					<Checkbox label="Nested item 1" />
+					<Checkbox label="Nested item 2" />
 				</CheckboxGroup>
 			</CheckBoxGroups>,
 		)
@@ -148,7 +148,7 @@ describe("@wpmudev/sui-checkbox", () => {
 		// Getting the top most parent
 		const checkboxes = container.querySelectorAll(".sui-checkbox")
 
-		// The parent & children checkboxs
+		// The parent & children checkboxes
 		const parentCheckbox = checkboxes[0]
 		const firstChildCheckbox = checkboxes[1]
 		const secondChildCheckbox = checkboxes[2]
@@ -160,6 +160,8 @@ describe("@wpmudev/sui-checkbox", () => {
 		checkboxes.forEach((checkbox) =>
 			expect(checkbox).toHaveClass("sui-checkbox--checked"),
 		)
+
+		console.log(prettyDOM(container))
 
 		// Clicking on the checkbox again to make it unchecked
 		fireEvent.click(parentCheckbox)
@@ -188,8 +190,8 @@ describe("@wpmudev/sui-checkbox", () => {
 				}}
 			>
 				<CheckboxGroup title="Nested Group 1" hasSubItems={true}>
-					<Checkbox id="checkbox-1" label="Nested item 1" />
-					<Checkbox id="checkbox-2" label="Nested item 2" />
+					<Checkbox label="Nested item 1" />
+					<Checkbox label="Nested item 2" />
 				</CheckboxGroup>
 			</CheckBoxGroups>,
 		)
@@ -213,7 +215,7 @@ describe("@wpmudev/sui-checkbox", () => {
 		// Clicking on the parent ( while in indeterminate state ) will make it checked with all children
 		fireEvent.click(parentElement)
 
-		// expect all the children to be checked
+		// Expect all the children to be checked
 		checkboxes.forEach((checkbox) =>
 			expect(checkbox).toHaveClass("sui-checkbox--checked"),
 		)

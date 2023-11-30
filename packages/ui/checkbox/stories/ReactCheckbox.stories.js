@@ -50,12 +50,12 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 								<CheckboxGroup
 									title="Group 1 Label"
 									commonCheckboxProps={{
-										// it will be passed to all checkbox items
+										// It will be passed to all checkbox items
 										name: "group-checkbox",
 										...args,
 									}}
 									onChange={(items) => {
-										console.log("group debug", items)
+										console.log("Group debug", items)
 									}}
 								>
 									<SuiCheckbox label="Checkbox Group Item 1" />
@@ -65,10 +65,10 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 							nested: (
 								<CheckBoxGroups
 									onChange={(items) => {
-										console.log("nested debug", items)
+										console.log("Nested Debug", items)
 									}}
 									commonCheckboxProps={{
-										// it will be passed to all checkbox items
+										// It will be passed to all checkbox items
 										name: "groups-checkbox",
 										...args,
 									}}
@@ -76,17 +76,15 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 									<CheckboxGroup
 										title="Nested Group 1"
 										hasSubItems={true}
-										// isInline={true}
-										commonProps={{}}
+										commonCheckboxProps={{ label: "hello world!" }}
 									>
-										<SuiCheckbox label="Nested item 1" />
+										<SuiCheckbox isChecked={true} label="Nested item 1" />
 										<SuiCheckbox label="Nested item 2" />
 									</CheckboxGroup>
 									<CheckboxGroup
 										title="Nested Group 2"
 										hasSubItems={true}
-										// isInline={true}
-										commonProps={{}}
+										commonCheckboxProps={{ isDisabled: false }}
 									>
 										<SuiCheckbox label="Nested item 1" />
 										<SuiCheckbox label="Nested item 2" />
@@ -103,7 +101,7 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 									commonCheckboxProps={{
 										...args,
 									}}
-									onChange={(items) => console.log("horizontal debug", items)}
+									onChange={(items) => console.log("Horizontal debug", items)}
 								>
 									<SuiCheckbox label="Checkbox Group Item 1" />
 									<SuiCheckbox label="Checkbox Group Item 2" />
@@ -121,10 +119,9 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 Checkbox.args = {
 	example: "nested",
 	name: "countries",
-	label: "Checkbox label",
 	isLabelHidden: false,
 	isSmall: false,
-	isDisabled: false,
+	//isDisabled: false,
 }
 
 // Story props settings

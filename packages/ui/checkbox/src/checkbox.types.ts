@@ -8,11 +8,6 @@ interface _CheckboxGroupInnerProps
  */
 interface CheckboxGroupsProps {
 	/**
-	 * Whethers the group of checkboxes is disabled or not
-	 */
-	isDisabled?: boolean
-
-	/**
 	 * The children elements of the groups
 	 */
 	children: React.ReactNode

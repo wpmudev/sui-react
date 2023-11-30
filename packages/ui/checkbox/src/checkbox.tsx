@@ -35,7 +35,7 @@ const Checkbox = ({
 
 	useEffect(() => {
 		// Add the checkbox details to the context list on component mount
-		ctx?.addToList(id as string, groupId, isChecked)
+		ctx?.addToList(id as string, isChecked, groupId)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [id, groupId, isChecked])
 

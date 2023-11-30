@@ -95,8 +95,8 @@ const useCheckbox = () => {
 	// Function to add Checkbox details to the context's list
 	const addToList = (
 		id: string,
-		groupId: boolean | string,
 		isChecked: boolean,
+		groupId: boolean | string,
 	) => {
 		// Trigger the onChange method from CheckboxContext, if it exists
 		ctx?.onChange?.(id, isChecked, groupId)
