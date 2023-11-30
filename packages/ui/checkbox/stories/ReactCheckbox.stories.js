@@ -76,7 +76,7 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 									<CheckboxGroup
 										title="Nested Group 1"
 										hasSubItems={true}
-										commonCheckboxProps={{ label: "hello world!" }}
+										commonCheckboxProps={{}}
 									>
 										<SuiCheckbox
 											id="checkbox-1"
@@ -88,7 +88,7 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 									<CheckboxGroup
 										title="Nested Group 2"
 										hasSubItems={true}
-										commonCheckboxProps={{ isDisabled: false }}
+										commonCheckboxProps={{}}
 									>
 										<SuiCheckbox label="Nested item 1" />
 										<SuiCheckbox label="Nested item 2" />
@@ -125,7 +125,7 @@ Checkbox.args = {
 	name: "countries",
 	isLabelHidden: false,
 	isSmall: false,
-	//isDisabled: false,
+	isDisabled: false,
 }
 
 // Story props settings
