@@ -50,7 +50,6 @@ const Checkbox = ({
 		disabled: isDisabled,
 		onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
 			// Invoke context onChange method if available
-			console.log(uuid, groupId)
 			if (!!ctx?.onChange) {
 				ctx.onChange(uuid, e.target.checked, groupId)
 			}
