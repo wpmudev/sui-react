@@ -78,8 +78,12 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 										hasSubItems={true}
 										commonCheckboxProps={{ label: "hello world!" }}
 									>
-										<SuiCheckbox isChecked={true} label="Nested item 1" />
-										<SuiCheckbox label="Nested item 2" />
+										<SuiCheckbox
+											id="checkbox-1"
+											isChecked={true}
+											label="Nested item 1"
+										/>
+										<SuiCheckbox id="checkbox-2" label="Nested item 2" />
 									</CheckboxGroup>
 									<CheckboxGroup
 										title="Nested Group 2"

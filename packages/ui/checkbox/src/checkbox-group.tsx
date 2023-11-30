@@ -77,7 +77,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 	}, [items, allChecked, checkedItemsCount, id, setItems])
 
 	useEffect(() => {
-		// Update the first render
+		// Update isFirstRender state after first render
 		setIsFirstRender(false)
 	}, [])
 
@@ -101,8 +101,15 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 			{/* Render children checkboxes */}
 			<div className="sui-checkbox__group-body">
 				{Children.map(children, (child, index) => {
-					// Generate a unique ID for the child checkbox
-					const checkboxId = `sui-checkbox-item-${uuid}-${index}`
+					// initial checkbox id prop provided by user
+					const chekboxInitialId = (child as ReactElement)?.props?.id
+
+					// initial "isChecked" prop provided by user
+					const initialIsChecked = (child as ReactElement)?.props?.isChecked
+
+					// Use initial id defined by user or generate a unique ID for the child checkbox
+					const checkboxId =
+						chekboxInitialId || `sui-checkbox-item-${uuid}-${index}`
 
 					// Find the current item based on ID and group
 					const currItem = items.find(
@@ -114,13 +121,13 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 						child as ReactElement,
 						{
 							...commonCheckboxProps,
-							groupId: id,
 							id: checkboxId,
-							// Individual checkbox props should override common props, id and groupId
+							// Individual checkbox props should override: common props and id
 							...(child as ReactElement)?.props,
-							// On First render we should use the passed prop "isChecked"
+							groupId: id,
+							// On First render we should use the initial isChecked value
 							isChecked: isFirstRender
-								? (child as ReactElement)?.props?.isChecked
+								? initialIsChecked
 								: !!currItem?.isChecked,
 						} as object,
 					)

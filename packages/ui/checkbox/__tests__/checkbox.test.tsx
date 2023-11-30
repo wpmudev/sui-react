@@ -161,8 +161,6 @@ describe("@wpmudev/sui-checkbox", () => {
 			expect(checkbox).toHaveClass("sui-checkbox--checked"),
 		)
 
-		console.log(prettyDOM(container))
-
 		// Clicking on the checkbox again to make it unchecked
 		fireEvent.click(parentCheckbox)
 
@@ -216,6 +214,38 @@ describe("@wpmudev/sui-checkbox", () => {
 		fireEvent.click(parentElement)
 
 		// Expect all the children to be checked
+		checkboxes.forEach((checkbox) =>
+			expect(checkbox).toHaveClass("sui-checkbox--checked"),
+		)
+	})
+
+	// Changing parent will change children
+	it("Checkboxes with custom ids works as expected", async () => {
+		// Rendering the groups
+		const { container } = render(
+			<CheckBoxGroups
+				commonCheckboxProps={{
+					// It will be passed to all checkbox items
+					name: "groups-checkbox",
+				}}
+			>
+				<CheckboxGroup title="Nested Group 1" hasSubItems={true}>
+					<Checkbox id="1" label="Nested item 1" />
+					<Checkbox id="2" label="Nested item 2" />
+				</CheckboxGroup>
+			</CheckBoxGroups>,
+		)
+
+		// Getting the top most parent
+		const checkboxes = container.querySelectorAll(".sui-checkbox")
+
+		// The parent & children checkboxes
+		const parentCheckbox = checkboxes[0]
+
+		// Click on the parent checkbox to make it checked
+		fireEvent.click(parentCheckbox)
+
+		// Expect all elements to be checked
 		checkboxes.forEach((checkbox) =>
 			expect(checkbox).toHaveClass("sui-checkbox--checked"),
 		)
