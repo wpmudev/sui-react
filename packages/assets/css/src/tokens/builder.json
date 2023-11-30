@@ -15,6 +15,10 @@
 				"xs": {
 					"value": "32px",
 					"type": "sizing"
+				},
+				"md": {
+					"value": "72px",
+					"type": "sizing"
 				}
 			}
 		},
