@@ -230,7 +230,10 @@ const Select: React.FC<SelectBaseProps> = ({
 		arrow: isDropdownOpen ? "chevron-up" : "chevron-down",
 		selectLabel: label,
 		isSmall,
-		dropdownToggle: () => setIsDropdownOpen(!isDropdownOpen),
+		dropdownToggle: () => {
+			setIsDropdownOpen(!isDropdownOpen)
+			console.log("Dropdown is open!")
+		},
 		clearSelection: () => {
 			RemoveAll(updateItem, items, setFilteredItems)
 		},
@@ -274,7 +277,7 @@ const Select: React.FC<SelectBaseProps> = ({
 
 	// Render component
 	return (
-		<div {...selectProps} data-testid="select">
+		<div {...selectProps} data-check="check" data-testid="select">
 			{!isSearchable && (
 				// @ts-ignore
 				<Selected {...headerProps} />
