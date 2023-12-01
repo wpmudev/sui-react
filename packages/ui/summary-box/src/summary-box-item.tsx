@@ -64,7 +64,7 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 					<Tooltip
 						label="(info)"
 						type="icon"
-						icon="info-alt"
+						icon="InfoAlt"
 						position="top"
 						customWidth={300}
 						customMobileWidth={200}

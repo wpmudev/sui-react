@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 
 import { Tag } from "@wpmudev/sui-tag"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 // Import required component
 import { Sidebar as SuiSidebar, SidebarItem, SidebarDropdown } from "../src"
@@ -52,7 +53,7 @@ const Sidebar = ({}) => {
 	const renderSidebarItem = (
 		title: string,
 		url: string,
-		icon?: string,
+		icon?: IconsNamesType,
 		hasAction = false,
 		isDisabled = false,
 	) => (

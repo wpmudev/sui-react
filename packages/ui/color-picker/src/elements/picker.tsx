@@ -134,7 +134,7 @@ const Picker: React.FC<ColorPickerProps> = ({
 				return // return if ref is missing
 			}
 
-			const { key } = event
+			const { key, shiftKey } = event
 			const { current } = inputRef
 
 			// when key isn't arrow up or down
@@ -151,8 +151,12 @@ const Picker: React.FC<ColorPickerProps> = ({
 			// parse the current value as an integer, default to 0
 			let val = parseInt(current.value, 10) || 0
 
-			// adjust the value based on arrow key
-			val = key === "ArrowUp" ? Math.min(val + 1, 100) : Math.max(val - 1, 0)
+			// adjust the value based on arrow key and Shift key
+			const incrementValue = shiftKey ? 10 : 1
+			val =
+				key === "ArrowUp"
+					? Math.min(val + incrementValue, 100)
+					: Math.max(val - incrementValue, 0)
 
 			// update the input value with the new percentage
 			current.value = `${val}%`

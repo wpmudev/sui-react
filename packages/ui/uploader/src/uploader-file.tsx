@@ -40,7 +40,7 @@ const UploaderFile: React.FC<UploaderFileProps> = ({ id, file, onRemove }) => {
 			<Button
 				className="sui-uploader__file--remove"
 				iconOnly={true}
-				icon="close"
+				icon="Close"
 				onClick={() => onRemove(id)}
 			/>
 		</div>

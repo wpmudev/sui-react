@@ -55,7 +55,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 				>
 					<Tooltip
 						type="icon"
-						icon="trash"
+						icon="Trash"
 						iconSize="sm"
 						appearance="primary"
 						color="red"

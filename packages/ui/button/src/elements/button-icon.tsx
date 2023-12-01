@@ -1,5 +1,7 @@
 import React from "react"
 import { isUndefined, isEmpty, generateCN } from "@wpmudev/sui-utils"
+import { IconProps } from "@wpmudev/sui-icon"
+import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 
 interface ButtonIconProps {
 	/**
@@ -7,17 +9,17 @@ interface ButtonIconProps {
 	 *
 	 * @type {string | undefined}
 	 */
-	name?: string
+	name: string
 	/**
 	 * Icon size
 	 *
 	 * @type {string}
 	 */
-	size?: string
+	size?: IconProps["size"]
 }
 
 // Build "Icon" component.
-const Icon: React.FC<ButtonIconProps> = ({ name = "", size = "md" }) => {
+const Icon: React.FC<ButtonIconProps> = ({ name, size = "sm" }) => {
 	const hasIcon = !isUndefined(name) && !isEmpty(name ?? "")
 
 	if (!hasIcon) {
@@ -26,10 +28,10 @@ const Icon: React.FC<ButtonIconProps> = ({ name = "", size = "md" }) => {
 		)
 	}
 
-	const classNames = generateCN("suicons", {
-		[name]: !isEmpty(name),
-		[size]: true,
-	})
+	const IconName = name
+
+	// Set Icon & iconColor based on "variation" value
+	const IconTag = Icons[IconName as IconsNamesType]
 
 	return (
 		<span
@@ -37,7 +39,7 @@ const Icon: React.FC<ButtonIconProps> = ({ name = "", size = "md" }) => {
 			aria-hidden="true"
 			data-testid="button-icon"
 		>
-			<span className={classNames} />
+			<IconTag size={size} />
 		</span>
 	)
 }

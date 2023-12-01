@@ -1,6 +1,6 @@
 
 // Do not edit directly
-// Generated on Fri, 24 Nov 2023 06:16:35 GMT
+// Generated on Fri, 01 Dec 2023 07:11:04 GMT
 
 $accordion-border-radius-sm: 10px;
 $advanced-banner-background: linear-gradient(90deg, #222 0%, #383323 48.96%, #514524 100%);
@@ -17,9 +17,11 @@ $banner-font-size-lg: 40px;
 $banner-font-height-lg: 48px;
 $banner-font-spacing: 1px;
 $banner-border-radius: 16px;
+$banner-spacing-xxs: 10px;
 $banner-spacing-xs: 12px;
 $banner-spacing-sm: 24px;
-$banner-spacing-md: 48px;
+$banner-spacing-md: 34px;
+$banner-spacing-lg: 48px;
 $banner-size-sm: 420px;
 $banner-size-md: 420px;
 $banner-size-lg: 784px;
@@ -31,6 +33,7 @@ $banner-bg-size: 40px;
 $builder-size-width-xs: 32px;
 $builder-size-width-xxl: 680px;
 $builder-size-height-xs: 32px;
+$builder-size-height-md: 72px;
 $builder-spacing-md: 20px;
 $button-container-size-md: 74px;
 $button-container-size-sm: 68px;
@@ -263,6 +266,7 @@ $color-alpha-grey-10: rgba(26, 26, 26, 0.1);
 $color-alpha-grey-20: rgba(26, 26, 26, 0.2);
 $color-alpha-grey-70: rgba(26, 26, 26, 0.7);
 $color-alpha-grey-90: rgba(26, 26, 26, 0.9);
+$color-alpha-grey-01: rgba(26, 26, 26, 0.01);
 $color-alpha-grey-05: rgba(26, 26, 26, 0.05);
 $color-alpha-black-0: rgba(0, 0, 0, 0);
 $color-alpha-black-10: rgba(0, 0, 0, 0.1);
@@ -392,7 +396,8 @@ $modal-border-radius: 24px;
 $modal-size-width-xs: 64px;
 $modal-size-width-md: 480px;
 $modal-size-width-lg: 720px;
-$modal-size-width-xl: 100vw;
+$modal-size-width-xl: 1024px;
+$modal-size-width-xxl: 100vw;
 $modal-size-height-xs: 64px;
 $navigation-border-radius-md: 10px;
 $navigation-size-width-md: 32px;

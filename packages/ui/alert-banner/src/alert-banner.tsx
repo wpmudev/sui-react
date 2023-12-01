@@ -72,16 +72,21 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 
 	return (
 		<div className={classNames} data-testid="alert-banner">
-			{/* Render the Icon if available and displayIcon is true */}
-			{Icon && !!displayIcon && (
-				<div className="sui-alert-banner__icon" data-testid="alert-banner-icon">
-					<Icon color={iconColor} />
-				</div>
-			)}
 			<div
 				className={generateCN("sui-alert-banner__body", { center: isCenter })}
 			>
-				<div className="sui-alert-banner__body-content">{children}</div>
+				<div className="sui-alert-banner__body-content">
+					{/* Render the Icon if available and displayIcon is true */}
+					{Icon && !!displayIcon && (
+						<div
+							className="sui-alert-banner__icon"
+							data-testid="alert-banner-icon"
+						>
+							<Icon color={iconColor} />
+						</div>
+					)}
+					{children}
+				</div>
 				{/* Render actions if provided */}
 				{actions && (
 					<div className="sui-alert-banner__body-actions">{actions}</div>
@@ -94,7 +99,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 					data-testid="alert-banner-close"
 				>
 					<Button
-						icon="close"
+						icon="Close"
 						appearance="tertiary"
 						color={dismissBtnColor}
 						isSmall={true}

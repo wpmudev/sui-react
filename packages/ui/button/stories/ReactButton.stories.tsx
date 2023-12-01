@@ -55,17 +55,17 @@ const Button = ({
 							case "label-icon":
 								return (
 									<Fragment>
-										<StandardButton icon="chevron-left" {...attributes}>
+										<StandardButton icon="ChevronLeft" {...attributes}>
 											Prev
 										</StandardButton>
-										<StandardButton endIcon="chevron-right" {...attributes}>
+										<StandardButton endIcon="ChevronRight" {...attributes}>
 											Next
 										</StandardButton>
 									</Fragment>
 								)
 							case "icon":
 								return (
-									<StandardButton icon="add" iconOnly={true} {...attributes}>
+									<StandardButton icon="Add" iconOnly={true} {...attributes}>
 										Add
 									</StandardButton>
 								)

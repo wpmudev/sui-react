@@ -44,7 +44,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ className = "" }) => {
 						</SegmentedControlButton>
 						<SegmentedControlButton value="code">Code</SegmentedControlButton>
 					</SegmentedControl>
-					<Button appearance="secondary" icon="add" color="black">
+					<Button appearance="secondary" icon="Add" color="black">
 						Add field
 					</Button>
 				</div>

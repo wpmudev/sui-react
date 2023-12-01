@@ -22,10 +22,14 @@
 				padding: $spacing-xxl;
 				border-top: $border-width-sm solid $color-extended-neutral-80;
 
+				@include media(max-width, md) {
+					padding: $spacing-xl;
+				}
+
 				@include media(max-width, sm) {
 					flex-wrap: wrap;
 					gap: $spacing-md;
-					padding: $spacing-xl;
+					padding: $spacing-xl $spacing-lg;
 				}
 			}
 		}

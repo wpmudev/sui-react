@@ -1,4 +1,5 @@
 import React from "react"
+import { FormField } from "@wpmudev/sui-form-field"
 
 // Import required component(s).
 import {
@@ -14,6 +15,7 @@ import docs from "./ReactSelect.mdx"
 // Build "Select" story.
 const Select = ({
 	example,
+	errorMessage,
 	...props
 }: { example: string } & SelectBaseProps) => {
 	const boxStyle = {
@@ -28,9 +30,16 @@ const Select = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyle}>
-					{"select" === example && <StandardSelect {...props} />}
-					{"search" === example && <SearchSelect {...props} />}
-					{"multi-select" === example && <MultiSelect {...props} />}
+					<FormField
+						id="select"
+						label="Label"
+						helper="Description"
+						error={errorMessage}
+					>
+						{"select" === example && <StandardSelect {...props} />}
+						{"search" === example && <SearchSelect {...props} />}
+						{"multi-select" === example && <MultiSelect {...props} />}
+					</FormField>
 				</div>
 			</div>
 		</div>
@@ -92,6 +101,7 @@ Select.args = {
 		},
 	],
 	isError: false,
+	errorMessage: "Error message",
 	isDisabled: false,
 	isSmall: false,
 }
@@ -126,6 +136,14 @@ Select.argTypes = {
 	},
 	isError: {
 		name: "Error",
+	},
+	errorMessage: {
+		name: "Error message",
+		control: "text",
+		if: {
+			arg: "isError",
+			eq: true,
+		},
 	},
 	isDisabled: {
 		name: "Disabled",

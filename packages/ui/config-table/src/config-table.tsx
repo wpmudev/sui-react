@@ -122,7 +122,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 									Apply
 								</Button>
 								<Button
-									icon="settings"
+									icon="Settings"
 									isSmall={true}
 									iconOnly={true}
 									color="black"
@@ -143,7 +143,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 								{!isEmpty(config.description ?? "") && (
 									<Tooltip
 										type="icon"
-										icon="info-alt"
+										icon="InfoAlt"
 										position="right-bottom"
 										customWidth={160}
 										customMobileWidth={160}

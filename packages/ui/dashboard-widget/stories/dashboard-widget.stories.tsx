@@ -30,7 +30,7 @@ export const DashboardWidget = ({ ...props }) => {
 
 	const box = {
 		display: "flex",
-		"flex-direction": "column",
+		flexDirection: "column",
 		gap: "8px",
 		margin: "0 0 20px",
 		padding: "30px",

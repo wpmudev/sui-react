@@ -480,14 +480,14 @@ export const TableExample = ({ ...props }) => {
 				}}
 			>
 				<Button
-					icon="edit"
+					icon="Edit"
 					color="black"
 					appearance="tertiary"
 					isSmall={true}
 					iconOnly={true}
 				/>
 				<Button
-					icon="settings"
+					icon="Settings"
 					color="black"
 					appearance="tertiary"
 					isSmall={true}

@@ -35,7 +35,7 @@ const BasicBox = ({ ...props }) => {
 									appearance="secondary"
 									color="black"
 									isSmall={true}
-									icon="upload"
+									icon="Upload"
 								>
 									Upload
 								</Button>
@@ -50,7 +50,7 @@ const BasicBox = ({ ...props }) => {
 							</Button>,
 							<Button
 								key={1}
-								startIcon="power-off"
+								startIcon="PowerOff"
 								appearance="tertiary"
 								color="red"
 								isSmall={true}
@@ -71,7 +71,7 @@ const BasicBox = ({ ...props }) => {
 							<div>
 								<Button
 									appearance="secondary"
-									icon="upload"
+									icon="Upload"
 									color="black"
 									isSmall={true}
 								>
@@ -85,7 +85,7 @@ const BasicBox = ({ ...props }) => {
 						>
 							<Button
 								appearance="secondary"
-								icon="upload"
+								icon="Upload"
 								color="black"
 								isSmall={true}
 							>
