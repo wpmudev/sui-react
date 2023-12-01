@@ -23,13 +23,14 @@
 			@include element(dropdown) {
 				@include modifier(option) {
 					&:hover {
-						color: $color-primary-50;
+						background: $color-primary-50;
+						color: $color-extended-neutral-100;
 					}
 				}
 
 				@include modifier(selected) {
 					&:hover {
-						color: $color-extended-neutral-100;
+						color: $color-extended-neutral-50;
 					}
 				}
 			}
@@ -49,7 +50,8 @@
 			@include element(dropdown) {
 				@include modifier(option) {
 					&:hover {
-						color: $color-extended-neutral-0;
+						background: $color-extended-neutral-0;
+						color: $color-extended-neutral-100;
 					}
 				}
 
