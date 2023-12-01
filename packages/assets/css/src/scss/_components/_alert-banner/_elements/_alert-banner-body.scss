@@ -29,7 +29,7 @@
 				flex: 1;
 				display: flex;
 				align-items: flex-start;
-				gap: 10px;
+				gap: $banner-spacing-xxs;
 				color: $color-extended-neutral-10;
 			}
 
@@ -44,7 +44,7 @@
 				}
 
 				@include media(max-width, sm) {
-					margin-left: 34px;
+					margin-left: $banner-spacing-md;
 				}
 			}
 
