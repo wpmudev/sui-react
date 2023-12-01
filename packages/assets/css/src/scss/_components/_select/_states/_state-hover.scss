@@ -27,12 +27,6 @@
 						color: $color-extended-neutral-100;
 					}
 				}
-
-				@include modifier(selected) {
-					&:hover {
-						color: $color-extended-neutral-50;
-					}
-				}
 			}
 		}
 	}
