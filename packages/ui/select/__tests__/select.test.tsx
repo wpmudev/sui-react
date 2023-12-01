@@ -63,9 +63,9 @@ describe("@wpmudev/sui-select", () => {
 	})
 
 	// multi-select works as expected
-	it("multi-select: for a few elements works as expected", () => {
+	it("multi-select works as expected", () => {
 		// Render the component
-		const { container } = render(<Component {...props} isMultiSelect={true} />)
+		render(<Component {...props} isMultiSelect={true} />)
 
 		// Get the "select" element
 		const select = screen.getByTestId("select")
@@ -79,22 +79,26 @@ describe("@wpmudev/sui-select", () => {
 
 		// Get options elements
 		const options = select.querySelectorAll(".sui-select__dropdown--option")
-		const selectAllOption = options[0]
+		const selectAll = options[0]
 		const firstOption = options[1]
 		const secondOption = options[2]
+
 		const firstOptionText = firstOption.textContent
 		const secondOptionText = secondOption.textContent
 
-		// Clicking on the options to choose them
+		const selectAllCheckbox = selectAll.querySelector(".sui-checkbox")
+
+		// Clicking on the first option to select it
 		fireEvent.click(firstOption)
 
 		// Expect selectAllCheckbox to be indeterminate
-		expect(selectAllOption.querySelector(".sui-checkbox")).toHaveClass(
-			"sui-checkbox--indeterminate",
-		)
+		expect(selectAllCheckbox).toHaveClass("sui-checkbox--indeterminate")
 
-		// Expect the
+		// Clicking on the second option to select it
 		fireEvent.click(secondOption)
+
+		// Expect selectAllCheckbox to be selected as all options are selected
+		expect(selectAllCheckbox).toHaveClass("sui-checkbox--checked")
 
 		// Two elements will appear for the selected options
 		const selectedOptions = select.querySelectorAll(
@@ -104,6 +108,23 @@ describe("@wpmudev/sui-select", () => {
 		// Expect the same options to be selected
 		expect((selectedOptions[0] as Element).textContent).toBe(firstOptionText)
 		expect((selectedOptions[1] as Element).textContent).toBe(secondOptionText)
+
+		// Deselect all elements
+		fireEvent.click(selectAllCheckbox as Element)
+
+		// Expect no element to be selected
+		expect(
+			select.querySelectorAll(".sui-select__selected-options"),
+		).toHaveLength(0)
+
+		expect(selectAllCheckbox).not.toHaveClass("sui-checkbox--checked")
+
+		expect(firstOption.querySelector(".sui-checkbox")).not.toHaveClass(
+			"sui-checkbox--checked",
+		)
+		expect(secondOption.querySelector(".sui-checkbox")).not.toHaveClass(
+			"sui-checkbox--checked",
+		)
 	})
 
 	// eslint-disable-next-line jest/expect-expect
