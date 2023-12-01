@@ -25,7 +25,7 @@
 			bottom: 0;
 			transition-duration: 0.4s;
 			visibility: hidden;
-			width: $modal-size-width-xl;
+			width: $modal-size-width-xxl;
 			z-index: 999999;
 
 			@include media(max-width, lg) {
