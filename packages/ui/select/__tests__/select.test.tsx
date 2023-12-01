@@ -44,7 +44,7 @@ describe("@wpmudev/sui-select", () => {
 	// The "select" opens when clicked
 	it("Gets open when it's clicked", () => {
 		// Render the component
-		const { container } = render(<Component {...props} />)
+		render(<Component {...props} />)
 
 		// Get the "select" element
 		const select = screen.getByTestId("select")
@@ -62,20 +62,49 @@ describe("@wpmudev/sui-select", () => {
 		expect(select).toHaveClass("sui-select--open")
 	})
 
-	// // multi-select works as expected
-	// it("multi-select works as expected", () => {
-	// 	// Render the component
-	// 	render(<Component {...props} isMultiSelect={true} />)
+	// multi-select works as expected
+	it("multi-select: for a few elements works as expected", () => {
+		// Render the component
+		const { container } = render(<Component {...props} isMultiSelect={true} />)
 
-	// 	// Get the "select" element
-	// 	const select = screen.getByTestId("select")
+		// Get the "select" element
+		const select = screen.getByTestId("select")
 
-	// 	// Expect that the select element has the "multi-select" type
-	// 	expect(select).toHaveClass("sui-select--multiselect")
+		// Expect the type to be multi-select
+		expect(select).toHaveClass("sui-select--multiselect")
 
-	// 	// Select multiple options
-	// 	fireEvent.click(select)
-	// })
+		// Open the "select" element
+		const selectHeader = select.querySelector(".sui-select__control")
+		fireEvent.click(selectHeader as Element)
+
+		// Get options elements
+		const options = select.querySelectorAll(".sui-select__dropdown--option")
+		const selectAllOption = options[0]
+		const firstOption = options[1]
+		const secondOption = options[2]
+		const firstOptionText = firstOption.textContent
+		const secondOptionText = secondOption.textContent
+
+		// Clicking on the options to choose them
+		fireEvent.click(firstOption)
+
+		// Expect selectAllCheckbox to be indeterminate
+		expect(selectAllOption.querySelector(".sui-checkbox")).toHaveClass(
+			"sui-checkbox--indeterminate",
+		)
+
+		// Expect the
+		fireEvent.click(secondOption)
+
+		// Two elements will appear for the selected options
+		const selectedOptions = select.querySelectorAll(
+			".sui-select__selected-options",
+		)
+
+		// Expect the same options to be selected
+		expect((selectedOptions[0] as Element).textContent).toBe(firstOptionText)
+		expect((selectedOptions[1] as Element).textContent).toBe(secondOptionText)
+	})
 
 	// eslint-disable-next-line jest/expect-expect
 	it("passes a11y test", async () => {

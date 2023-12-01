@@ -230,10 +230,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		arrow: isDropdownOpen ? "chevron-up" : "chevron-down",
 		selectLabel: label,
 		isSmall,
-		dropdownToggle: () => {
-			setIsDropdownOpen(!isDropdownOpen)
-			console.log("Dropdown is open!")
-		},
+		dropdownToggle: () => setIsDropdownOpen(!isDropdownOpen),
 		clearSelection: () => {
 			RemoveAll(updateItem, items, setFilteredItems)
 		},
