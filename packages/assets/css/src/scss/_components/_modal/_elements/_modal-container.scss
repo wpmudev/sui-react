@@ -50,9 +50,9 @@
 				display: flex;
 				flex-direction: column;
 				box-sizing: border-box;
+				margin: 0 $spacing-lg;
 
 				@include media(max-width, sm) {
-					margin: 0 $spacing-lg;
 					padding: $spacing-lg 0;
 				}
 			}
