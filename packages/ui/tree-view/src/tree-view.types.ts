@@ -20,6 +20,7 @@ interface TreeViewItemProps extends TreeViewProps {
 	id?: string // Unique ID for the tree view item
 	groupId?: string
 	icon?: IconsNamesType // Icon to display with the tree view item
+	isChecked?: boolean
 	isGroup?: boolean // Flag to indicate if the item is a group in the tree view
 	isExpanded?: boolean // Flag to indicate if the group item is expanded
 	isDisabled?: boolean // Flag to disable the tree view item
@@ -63,8 +64,8 @@ interface TreeViewInfoProps
 interface TreeViewContextProps {
 	id?: string // Unique ID for the tree view context
 	checkList?: Record<string, boolean>[] // List of checked items in the tree view
-	items: Record<string, any>
-	setItems(items: TreeViewContextProps["items"]): void
+	items: TreeViewCheckType[] // List of checked items in the tree view
+	setItems(items: (prev: TreeViewContextProps["items"]) => any): void
 	allowCheck?: boolean
 	showIcons?: boolean
 	onCheck(

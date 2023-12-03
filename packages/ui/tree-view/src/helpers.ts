@@ -23,12 +23,16 @@ const getCheckIndex = (
  * @param {TreeViewCheckType} toOverride - Params to override in check item
  * @return {Array} - Items from the specified group
  */
-const getGroupItems = (groupId, checks, toOverride = {}) => {
+const getGroupItems = (
+	groupId?: string,
+	checks?: TreeViewCheckType[],
+	toOverride: object = {},
+) => {
 	// Filter items by group ID
-	const filteredItems = checks.filter((item) => item.group === groupId)
+	const filteredItems = (checks ?? [])?.filter((item) => item.group === groupId)
 
 	// Process filtered items
-	return filteredItems.flatMap((item) => {
+	return filteredItems?.map((item) => {
 		// Check if item is a group
 		if (item.type === "group") {
 			return getGroupItems(item.id, checks, toOverride) // Recursively call for nested groups
@@ -64,10 +68,10 @@ const mergeItems = (checkList, mergeWith = []) => {
  * @param {TreeViewCheckType[]} items - Array of checkbox items
  * @return {string} - State of the checkbox group
  */
-const getGroupState = (group = "", items = []) => {
+const getGroupState = (group = "", items: TreeViewCheckType[] = []) => {
 	// Get list of checkbox items from the specified group
 	const groupList = getGroupItems(group, items)
-	const checkedItems = groupList.filter((item) => item.isChecked)
+	const checkedItems = groupList.filter((item) => item?.isChecked)
 
 	if (checkedItems.length === 0) {
 		return "none" // Return 'none' state if no items are checked

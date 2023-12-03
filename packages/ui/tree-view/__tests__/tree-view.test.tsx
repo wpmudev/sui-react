@@ -2,20 +2,50 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { a11yTest } from "@wpmudev/sui-utils"
-import { TreeView, TreeViewGroup, TreeViewItem } from "../src"
+import { TreeView, TreeViewGroup, TreeViewItem, TreeViewProps } from "../src"
 
 describe("@wpmudev/sui-tree-view", () => {
-	it("renders correctly without allowCheck", () => {
-		// Render the TreeView component without allowCheck
-		const { container } = render(
-			<TreeView>
+	const renderComponent = (props: TreeViewProps) => {
+		return (
+			<TreeView {...props}>
 				<TreeViewGroup icon="Bell" id="group-1" title="Tree Group">
 					<TreeViewGroup id="group-2" title="Tree Group">
 						<TreeViewItem id="item-1">Tree Item</TreeViewItem>
+						<TreeViewItem id="item-2">Tree Item</TreeViewItem>
+						<TreeViewItem id="item-3" isChecked={true}>
+							Tree Item
+						</TreeViewItem>
+						<TreeViewGroup id="group-4" title="Tree Group">
+							<TreeViewItem id="item-4">Tree Item</TreeViewItem>
+							<TreeViewItem id="item-5">Tree Item</TreeViewItem>
+							<TreeViewItem id="item-6">Tree Item</TreeViewItem>
+						</TreeViewGroup>
 					</TreeViewGroup>
+					<TreeViewItem id="item-7">Tree Item</TreeViewItem>
+					<TreeViewItem id="item-8">Tree Item</TreeViewItem>
+					<TreeViewItem id="item-9">Tree Item</TreeViewItem>
+					<TreeViewGroup id="group-5" title="Tree Group">
+						<TreeViewItem id="item-10">Tree Item</TreeViewItem>
+						<TreeViewItem id="item-11">Tree Item</TreeViewItem>
+						<TreeViewItem id="item-12">Tree Item</TreeViewItem>
+					</TreeViewGroup>
+					<TreeViewGroup id="group-6" title="Tree Group">
+						<TreeViewItem id="item-13">Tree Item</TreeViewItem>
+						<TreeViewItem id="item-14">Tree Item</TreeViewItem>
+						<TreeViewItem id="item-15">Tree Item</TreeViewItem>
+					</TreeViewGroup>
+					<TreeViewItem id="item-16" isDisabled={true}>
+						Tree Item
+					</TreeViewItem>
+					<TreeViewItem id="item-17">Tree Item</TreeViewItem>
 				</TreeViewGroup>
-			</TreeView>,
+			</TreeView>
 		)
+	}
+
+	it("renders correctly without allowCheck", () => {
+		// Render the TreeView component without allowCheck
+		const { container } = render(renderComponent({}))
 
 		// Ensure that the tree-view element is in the document
 		expect(screen.getByTestId("tree-view")).toBeInTheDocument()
@@ -25,15 +55,7 @@ describe("@wpmudev/sui-tree-view", () => {
 
 	it("renders with allowCheck", () => {
 		// Render the TreeView component with allowCheck set to true
-		const { container } = render(
-			<TreeView allowCheck={true}>
-				<TreeViewGroup icon="Bell" id="group-1" title="Tree Group">
-					<TreeViewGroup id="group-2" title="Tree Group">
-						<TreeViewItem id="item-1">Tree Item</TreeViewItem>
-					</TreeViewGroup>
-				</TreeViewGroup>
-			</TreeView>,
-		)
+		const { container } = render(renderComponent({ allowCheck: true }))
 
 		// Verify that the sui-checkbox element is present when allowCheck is true
 		expect(container.querySelector(".sui-checkbox")).toBeInTheDocument()

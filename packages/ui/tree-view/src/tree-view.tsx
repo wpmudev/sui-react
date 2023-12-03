@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 
-import { TreeViewProps } from "./tree-view.types"
+import { TreeViewCheckType, TreeViewProps } from "./tree-view.types"
 import { TreeViewProvider } from "./tree-view-context"
 
 /**
@@ -20,14 +20,13 @@ const TreeView: React.FC<TreeViewProps> = ({
 	showIcons,
 	onChange = () => {},
 }) => {
-	const [items, setItems] = useState([])
-	allowCheck = true
+	const [items, setItems] = useState<TreeViewCheckType[]>([])
 
 	useEffect(() => {
 		if (onChange) {
 			onChange(
 				items
-					.filter((item) => "single" === item.type)
+					.filter((item) => "single" === item?.type)
 					.map(({ id, isChecked, group }) => ({ id, isChecked, group })),
 			)
 		}
