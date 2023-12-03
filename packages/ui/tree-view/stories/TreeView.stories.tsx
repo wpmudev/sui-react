@@ -1,12 +1,10 @@
 import React from "react"
 
 // Import required component.
-import { TreeView as SuiTreeView } from "../src"
+import { TreeView as SuiTreeView, TreeViewGroup, TreeViewItem } from "../src"
 
 // Import documentation main page.
 import docs from "./TreeView.mdx"
-import { TreeViewGroup } from "../src/tree-view-group"
-import { TreeViewItem } from "../src/tree-view-item"
 
 // Configure default options.
 export default {
@@ -32,12 +30,19 @@ const TreeView = ({ ...args }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiTreeView {...args}>
+					<SuiTreeView
+						{...args}
+						onChange={(items) => {
+							console.log("debug", items)
+						}}
+					>
 						<TreeViewGroup icon="Bell" id="group-1" title="Tree Group">
 							<TreeViewGroup id="group-2" title="Tree Group">
 								<TreeViewItem id="item-1">Tree Item</TreeViewItem>
 								<TreeViewItem id="item-2">Tree Item</TreeViewItem>
-								<TreeViewItem id="item-3">Tree Item</TreeViewItem>
+								<TreeViewItem id="item-3" isChecked={true}>
+									Tree Item
+								</TreeViewItem>
 								<TreeViewGroup id="group-4" title="Tree Group">
 									<TreeViewItem id="item-4">Tree Item</TreeViewItem>
 									<TreeViewItem id="item-5">Tree Item</TreeViewItem>
