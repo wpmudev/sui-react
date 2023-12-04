@@ -10,15 +10,12 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			@include element(icon) {
-				display: block;
+				display: flex;
 				padding: $button-icon-padding-vertical-md
 					$button-icon-padding-horizontal-md;
 
-				span {
-					display: block;
-					&.suicons--spin {
-						@include animation(spin);
-					}
+				.suicons--spin {
+					@include animation(spin);
 				}
 			}
 
@@ -52,10 +49,6 @@
 				@include media(max-width, md) {
 					min-width: auto;
 					padding: $button-container-padding-horizontal;
-
-					span {
-						display: block;
-					}
 
 					.sui-#{$block-name}__icon {
 						padding: 0;

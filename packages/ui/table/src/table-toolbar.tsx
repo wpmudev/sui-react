@@ -97,7 +97,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 						<Dropdown
 							label="Filter"
 							className="sui-table__toolbar-filter"
-							buttonIcon="filter"
+							buttonIcon="Filter"
 							direction="left"
 							isSmall={true}
 							isFixedHeight={false}
@@ -108,7 +108,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 						<Button
 							id={filterBtnId}
 							className="sui-table__toolbar-filter"
-							icon="filter"
+							icon="Filter"
 							color="black"
 							appearance="secondary"
 							isSmall={true}

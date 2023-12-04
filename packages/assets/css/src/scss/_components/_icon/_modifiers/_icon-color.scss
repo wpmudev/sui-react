@@ -23,7 +23,7 @@
 				color: $color-extended-success-50;
 			}
 			@include modifier(warning) {
-				color: $color-extended-warning-50;
+				color: $color-extended-warning-10;
 			}
 			@include modifier(critical) {
 				color: $color-extended-error-50;

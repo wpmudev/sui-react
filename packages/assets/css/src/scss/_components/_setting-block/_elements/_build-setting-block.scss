@@ -22,6 +22,11 @@
 				border-top: $border-width-sm solid $color-extended-neutral-80;
 			}
 
+			@include media(max-width, md) {
+				gap: $spacing-xl;
+				padding: $spacing-xl;
+			}
+
 			@include media(max-width, sm) {
 				flex-direction: column;
 				gap: $spacing-lg;

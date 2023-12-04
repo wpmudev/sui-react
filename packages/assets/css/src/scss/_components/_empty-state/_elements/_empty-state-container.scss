@@ -35,7 +35,7 @@
 				}
 			}
 
-			@include media(max-width, md) {
+			@include media(max-width, sm) {
 				padding: $emptystate-spacing-md $emptystate-spacing-sm;
 
 				button {

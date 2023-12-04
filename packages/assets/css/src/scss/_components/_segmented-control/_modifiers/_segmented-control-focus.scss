@@ -17,7 +17,7 @@
 				@include modifier(focus) {
 					outline: $border-width-md solid $color-extended-neutral-50;
 					outline-offset: -#{$border-width-md};
-					color: $color-extended-neutral-60;
+					color: $color-extended-neutral-50;
 					position: relative;
 				}
 			}

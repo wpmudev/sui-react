@@ -25,6 +25,12 @@
 					max-width: $modal-size-width-lg;
 				}
 			}
+			// variant: xl
+			@include modifier(xl) {
+				@include modifies-element(container) {
+					max-width: $modal-size-width-xl;
+				}
+			}
 		}
 	}
 }

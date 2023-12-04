@@ -19,7 +19,6 @@
 			padding: $spacing-lg;
 
 			@include media(min-width, sm) {
-				align-items: center;
 				padding: $spacing-md $spacing-xxl;
 			}
 		}

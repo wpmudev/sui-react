@@ -35,7 +35,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						className="sui-pagination__button"
 						color="black"
 						appearance="tertiary"
-						icon="chevron-left"
+						icon="ChevronLeft"
 						iconOnly={true}
 						isSmall={true}
 						isDisabled={selectedPage <= 1}
@@ -65,7 +65,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						<Button
 							color="black"
 							appearance="tertiary"
-							icon="more"
+							icon="More"
 							iconOnly={true}
 							isSmall={true}
 							className="sui-pagination__button"
@@ -105,7 +105,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						<Button
 							color="black"
 							appearance="tertiary"
-							icon="more"
+							icon="More"
 							iconOnly={true}
 							isSmall={true}
 							className="sui-pagination__button"
@@ -137,7 +137,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						className="sui-pagination__button"
 						color="black"
 						appearance="tertiary"
-						icon="chevron-right"
+						icon="ChevronRight"
 						iconOnly={true}
 						isSmall={true}
 						isDisabled={selectedPage >= pages}

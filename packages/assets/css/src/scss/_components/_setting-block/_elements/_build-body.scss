@@ -15,6 +15,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(body) {
+				flex: 1;
 				p {
 					&:first-child {
 						margin-top: 0;

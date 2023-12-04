@@ -8,7 +8,7 @@ import { Button } from "@wpmudev/sui-button"
 import { BuilderButtonProps } from "./builder.types"
 
 const BuilderButton: FC<BuilderButtonProps> = ({
-	icon = "add",
+	icon = "Add",
 	title = "Insert new field",
 	className,
 	isDisabled = false,

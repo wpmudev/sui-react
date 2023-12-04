@@ -105,7 +105,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	// Generate toggle button
 	const toggleBtn = isExpandable && (
 		<Button
-			icon={isExpanded ? "chevron-up" : "chevron-down"}
+			icon={isExpanded ? "ChevronUp" : "ChevronDown"}
 			color="black"
 			appearance="tertiary"
 			isSmall={true}
@@ -226,6 +226,8 @@ const TableRow: React.FC<TableRowProps> = ({
 						hasDragIcon={ctx?.isDraggable && !isUnderHeader}
 					>
 						<Checkbox
+							name={rowId}
+							id={`${rowId}-checkbox`}
 							onChange={onCheckToggle}
 							isChecked={isChecked}
 							isIndeterminate={isIndeterminate}

@@ -27,6 +27,10 @@
 				height: $icon-size-lg;
 				width: $icon-size-lg;
 			}
+			@include modifier(xl) {
+				height: $icon-size-xl;
+				width: $icon-size-xl;
+			}
 			// @todo: add others variations
 		}
 	}

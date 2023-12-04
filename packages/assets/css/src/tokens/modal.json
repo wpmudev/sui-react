@@ -27,6 +27,10 @@
 					"type": "sizing"
 				},
 				"xl": {
+					"value": "1024px",
+					"type": "sizing"
+				},
+				"xxl": {
 					"value": "100vw",
 					"type": "sizing"
 				}

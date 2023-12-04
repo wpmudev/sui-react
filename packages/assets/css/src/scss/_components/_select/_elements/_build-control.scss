@@ -67,6 +67,14 @@
 				@include modifies-element(control) {
 					padding-right: $select-control-multiselect-padding-md-horizontal;
 				}
+
+				@include modifies-element(dropdown) {
+					.sui-#{$block}__dropdown--option {
+						&:hover {
+							background: none;
+						}
+					}
+				}
 			}
 		}
 	}

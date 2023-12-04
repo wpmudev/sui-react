@@ -31,7 +31,7 @@ interface BuilderButtonProps extends HTMLProps<HTMLAnchorElement> {
 	/**
 	 * An optional icon to be displayed within in button.
 	 */
-	icon?: string
+	icon?: IconsNamesType
 	/**
 	 * The title or text to be displayed.
 	 */

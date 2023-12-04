@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-dashboard-widget",
   "version": "0.0.1",
-  "description": "WPMU DEV Shared UI React Dashboard Widget Component",
+  "description": "Dashboards are used to display important information and data in a concise and organised manner. Dashboard widgets are individual sections or modules within the dashboard that present specific pieces of information or insights to users.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -14,6 +14,11 @@
       "name": "Pawan Kumar",
       "email": "40248406+creador-dev@users.noreply.github.com",
       "url": "https://creador.dev/"
+    },
+    {
+      "name": "Abderrahman DOUARA",
+      "email": "aer17013@gmail.com",
+      "url": "https://douara.me"
     }
   ],
   "license": "GPL-2.0",

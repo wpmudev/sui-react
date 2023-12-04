@@ -44,10 +44,6 @@
 			@include modifier(is-icon) {
 				min-width: auto;
 				padding: $button-container-padding-horizontal;
-
-				span {
-					display: block;
-				}
 			}
 		}
 	}

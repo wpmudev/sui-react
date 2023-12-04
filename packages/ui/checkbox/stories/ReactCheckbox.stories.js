@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 // Import required modules
-import { CheckboxGroup, Checkbox as SuiCheckbox } from "../src"
+import { CheckboxGroup, Checkbox as SuiCheckbox, CheckBoxGroups } from "../src"
 
 // Import documentation
 import docs from "./ReactCheckbox.mdx"
@@ -26,76 +26,93 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 		background: "#fff",
 	}
 
+	// for single checkbox (outside of CheckboxWrapper)
+	const [isChecked, setIsChecked] = useState(false)
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{"nested" === example && (
-						<CheckboxGroup
-							isInline={isInline}
-							name={name}
-							isSmall={args?.isSmall}
-							onChange={(data) => {
-								console.log("test", data)
-							}}
-						>
-							<SuiCheckbox value="in" {...args} />
-							<SuiCheckbox value="usa" {...args} isIndeterminate={true} />
-							<CheckboxGroup
-								isInline={isInline}
-								name={name}
-								asBlock={args?.asBlock}
-								isSmall={args?.isSmall}
-								onChange={(data) => {
-									console.log("test", data)
-								}}
-							>
-								<SuiCheckbox {...args} value="in" />
-								<SuiCheckbox {...args} value="usa" isChecked={true} />
+					{
+						{
+							single: (
+								<SuiCheckbox
+									name="single-checkbox"
+									id="single-checkbox"
+									label="Single Checkbox"
+									isChecked={isChecked}
+									onChange={(e) => {
+										setIsChecked(e.target.checked)
+									}}
+								/>
+							),
+							group: (
 								<CheckboxGroup
-									isInline={isInline}
-									name={name}
-									isSmall={args?.isSmall}
-									onChange={(data) => {
-										console.log("test", data)
+									title="Group 1 Label"
+									commonCheckboxProps={{
+										// It will be passed to all checkbox items
+										name: "group-checkbox",
+										...args,
+									}}
+									onChange={(items) => {
+										console.log("Group debug", items)
 									}}
 								>
-									<SuiCheckbox {...args} value="in" isChecked={true} />
-									<SuiCheckbox {...args} value="usa" isChecked={true} />
+									<SuiCheckbox label="Checkbox Group Item 1" />
+									<SuiCheckbox label="Checkbox Group Item 2" />
 								</CheckboxGroup>
-							</CheckboxGroup>
-						</CheckboxGroup>
-					)}
-					{"horizontal" === example && (
-						<CheckboxGroup
-							isInline={true}
-							name={name}
-							isSmall={args?.isSmall}
-							onChange={(data) => {
-								console.log("test", data)
-							}}
-						>
-							<SuiCheckbox value="in" {...args} />
-							<SuiCheckbox value="uk" {...args} />
-							<SuiCheckbox value="af" {...args} />
-							<SuiCheckbox value="usa" {...args} />
-						</CheckboxGroup>
-					)}
-					{"vertical" === example && (
-						<CheckboxGroup
-							isInline={false}
-							name={name}
-							isSmall={args?.isSmall}
-							onChange={(data) => {
-								console.log("test", data)
-							}}
-						>
-							<SuiCheckbox value="in" {...args} />
-							<SuiCheckbox value="uk" {...args} />
-							<SuiCheckbox value="af" {...args} />
-							<SuiCheckbox value="usa" {...args} />
-						</CheckboxGroup>
-					)}
+							),
+							nested: (
+								<CheckBoxGroups
+									onChange={(items) => {
+										console.log("Nested Debug", items)
+									}}
+									commonCheckboxProps={{
+										// It will be passed to all checkbox items
+										name: "groups-checkbox",
+										...args,
+									}}
+								>
+									<CheckboxGroup
+										title="Nested Group 1"
+										hasSubItems={true}
+										commonCheckboxProps={{}}
+									>
+										<SuiCheckbox
+											id="checkbox-1"
+											isChecked={true}
+											label="Nested item 1"
+										/>
+										<SuiCheckbox id="checkbox-2" label="Nested item 2" />
+									</CheckboxGroup>
+									<CheckboxGroup
+										title="Nested Group 2"
+										hasSubItems={true}
+										commonCheckboxProps={{}}
+									>
+										<SuiCheckbox label="Nested item 1" />
+										<SuiCheckbox label="Nested item 2" />
+										<SuiCheckbox label="Nested item 3" />
+										<SuiCheckbox label="Nested item 4" />
+									</CheckboxGroup>
+								</CheckBoxGroups>
+							),
+							horizontal: (
+								<CheckboxGroup
+									label="Group 1 Label"
+									id="checkbox-group"
+									isInline={true}
+									commonCheckboxProps={{
+										...args,
+									}}
+									onChange={(items) => console.log("Horizontal debug", items)}
+								>
+									<SuiCheckbox label="Checkbox Group Item 1" />
+									<SuiCheckbox label="Checkbox Group Item 2" />
+								</CheckboxGroup>
+							),
+						}[example]
+					}
 				</div>
 			</div>
 		</div>
@@ -106,25 +123,23 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 Checkbox.args = {
 	example: "nested",
 	name: "countries",
-	label: "Checkbox label",
 	isLabelHidden: false,
 	isSmall: false,
 	isDisabled: false,
-	isIndeterminate: false,
-	isInline: false,
 }
 
 // Story props settings
 Checkbox.argTypes = {
 	example: {
 		name: "Example",
-		options: ["nested", "horizontal", "vertical"],
+		options: ["single", "group", "nested", "horizontal"],
 		control: {
 			type: "select",
 			labels: {
+				single: "Example: Single",
+				group: "Example: Group",
 				nested: "Example: Nested",
 				horizontal: "Example: Horizontal",
-				vertical: "Example: Vertical",
 			},
 		},
 	},
@@ -147,12 +162,6 @@ Checkbox.argTypes = {
 	},
 	isDisabled: {
 		name: "Disabled",
-		control: {
-			type: "boolean",
-		},
-	},
-	isIndeterminate: {
-		name: "Is Indeterminate",
 		control: {
 			type: "boolean",
 		},

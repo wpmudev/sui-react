@@ -201,7 +201,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 					{allowClear && !isEmpty(value as string) && !isMultiLine && (
 						<Button
 							className="sui-input__input-clear"
-							icon="close-alt"
+							icon="CloseAlt"
 							color="black"
 							appearance="tertiary"
 							iconOnly={true}

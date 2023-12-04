@@ -33,7 +33,7 @@ export const EditorToolbar = ({ ...props }) => {
 			<Button
 				key={0}
 				appearance="tertiary"
-				icon="save"
+				icon="Save"
 				color="black"
 				isResponsive={true}
 			>
@@ -42,7 +42,7 @@ export const EditorToolbar = ({ ...props }) => {
 			<Button
 				key={1}
 				appearance="secondary"
-				icon="show"
+				icon="Show"
 				color="black"
 				isFullWidth={true}
 				isResponsive={true}
@@ -52,7 +52,7 @@ export const EditorToolbar = ({ ...props }) => {
 			<Button
 				key={2}
 				appearance="primary"
-				icon="globe"
+				icon="Globe"
 				color="blue"
 				isFullWidth={true}
 			>

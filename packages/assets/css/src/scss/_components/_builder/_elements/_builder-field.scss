@@ -27,6 +27,7 @@
 				justify-content: space-between;
 				padding: $builder-spacing-md $spacing-xl;
 				text-decoration: none;
+				min-height: $builder-size-height-md;
 			}
 
 			@include element(field-body) {
@@ -55,6 +56,7 @@
 				color: $color-extended-neutral-70;
 				cursor: grab;
 				display: flex;
+				transition: ease all 0.2s;
 
 				&:hover {
 					color: $color-extended-neutral-60;
@@ -105,11 +107,16 @@
 			@include element(field-actions) {
 				align-items: center;
 				display: flex;
+
+				@include modifier(hover) {
+					.sui-builder__field-actions-item {
+						border-left: $border-width-md solid $color-extended-neutral-80;
+					}
+				}
 			}
 
 			@include element(field-actions-item) {
 				@include modifier(accordion) {
-					border-left: $border-width-md solid $color-extended-neutral-80;
 					margin-left: $spacing-md;
 					padding-left: $spacing-md;
 				}

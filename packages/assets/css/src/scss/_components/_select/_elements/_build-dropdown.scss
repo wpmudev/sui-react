@@ -38,8 +38,7 @@
 				}
 
 				@include modifier(selected) {
-					background: $color-primary-50;
-					color: $color-extended-neutral-100;
+					color: $color-primary-50;
 				}
 
 				@include modifier(empty) {
@@ -70,7 +69,7 @@
 		@include block($block) {
 			@include element(dropdown) {
 				@include modifier(selected) {
-					background: $color-extended-neutral-0;
+					color: $color-extended-neutral-0;
 				}
 
 				@include modifier(empty) {

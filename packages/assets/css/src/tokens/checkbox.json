@@ -7,6 +7,10 @@
 			}
 		},
 		"spacing": {
+			"xs": {
+				"value": "6px",
+				"type": "spacing"
+			},
 			"md": {
 				"value": "27px",
 				"type": "spacing"
