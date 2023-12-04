@@ -42,7 +42,7 @@ describe("@wpmudev/sui-select", () => {
 	})
 
 	// The "select" opens when clicked
-	it("Gets open when it's clicked", () => {
+	it("Gets opened when clicked", () => {
 		// Render the component
 		render(<Component {...props} />)
 
@@ -62,7 +62,7 @@ describe("@wpmudev/sui-select", () => {
 		expect(select).toHaveClass("sui-select--open")
 	})
 
-	// multi-select works as expected
+	// multi-select variation test
 	it("multi-select works as expected", () => {
 		// Render the component
 		render(<Component {...props} isMultiSelect={true} />)
@@ -125,6 +125,32 @@ describe("@wpmudev/sui-select", () => {
 		expect(secondOption.querySelector(".sui-checkbox")).not.toHaveClass(
 			"sui-checkbox--checked",
 		)
+	})
+
+	// Search variation test
+	it("search variation works as expected", () => {
+		// Render the component
+		const { container } = render(<Component {...props} isSearchable={true} />)
+
+		// Get the "select" element
+		const select = screen.getByTestId("select")
+
+		// Get the input element in the select
+		const input = select.querySelector(".sui-input__input")
+
+		console.log(input)
+
+		// Open the dropdown to render the options
+		// fireEvent.click(
+		// 	(select as Element).querySelector(".sui-select__control") as Element,
+		// )
+
+		// Simulate typing into the input field
+		fireEvent.change(input as Element, {
+			target: { value: "Option 1 is the option" },
+		})
+
+		//console.log(prettyDOM(container))
 	})
 
 	// eslint-disable-next-line jest/expect-expect
