@@ -12,17 +12,23 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			align-items: center;
 			cursor: pointer;
 			user-select: none;
 			position: relative;
 			display: inline-flex;
-			align-items: center;
 			color: $color-extended-neutral-10;
 			font-size: $font-size-default;
 			line-height: $font-height-sm;
 
 			* {
 				pointer-events: none;
+			}
+
+			@include element(group-body, group) {
+				display: flex;
+				flex-direction: column;
+				gap: $checkbox-spacing-xs;
 			}
 		}
 	}

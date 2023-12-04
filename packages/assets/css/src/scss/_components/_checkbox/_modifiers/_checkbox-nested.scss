@@ -1,21 +1,24 @@
 @use "../../../_utils/utils" as *;
 
-/// Build Checkbox Group
-/// This function creates styles for the checkbox icon element
+/// Edit Nested
 ///
-/// @type element
+/// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-checkbox-group($block) {
+@mixin edit-nested($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			display: flex;
-			flex-direction: column;
-			gap: $checkbox-spacing-xs;
-			margin: 0;
+
+			@include element(group) {
+				@include modifier(nested) {
+					.sui-checkbox__group-body {
+						margin-left: 28px;
+					}
+				}
+			}
 		}
 	}
 }
