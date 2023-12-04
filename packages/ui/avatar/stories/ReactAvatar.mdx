@@ -1,25 +1,20 @@
-import { Source } from '@storybook/addon-docs';
-import { Page } from '@wpmudev/sui-docs';
-import { Unstyled } from '@storybook/blocks';
+import { Source } from "@storybook/addon-docs"
+import { Page } from "@wpmudev/sui-docs"
+import { Unstyled } from "@storybook/blocks"
 
 import TabUsage from "./tabs/TabUsage.mdx"
-import TabCode from './tabs/TabCode.mdx';
-import TabExamples from './tabs/TabExamples.mdx';
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
 
 <Unstyled>
 	<Page.Tabs
 		title="Avatar"
-		subtitle={
-			<>
-				An avatar is a thumbnail that represents a user or organization on
-				the SUI platform.
-			</>
-		}
+		subtitle="An avatar is a thumbnail that represents a user or organization on the SUI platform."
 		status="draft"
 	>
 		<div id="usage" label="Usage">
-    		<TabUsage />
-    	</div>
+			<TabUsage />
+		</div>
 		<div id="code" label="Code">
 			<TabCode />
 		</div>
