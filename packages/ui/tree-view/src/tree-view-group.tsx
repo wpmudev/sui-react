@@ -82,7 +82,6 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 			>
 				{/* Render child items within the group */}
 				{React.Children.map(children, (child, index) => {
-					//console.log(child)
 					const type = ((child as React.ReactElement).type as React.FC).name
 
 					return React.cloneElement(child as ReactElement, {

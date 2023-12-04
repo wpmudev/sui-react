@@ -89,7 +89,6 @@ describe("@wpmudev/sui-tree-view", () => {
 	})
 
 	it("applies isDisabled for TreeViewItem", () => {
-		// Render the TreeView with a disabled TreeViewItem
 		render(
 			<TreeView allowCheck={true}>
 				<TreeViewGroup icon="Bell" id="group-1" title="Tree Group">

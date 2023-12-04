@@ -33,6 +33,8 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 	const context = useTreeViewContext()
 	const itemId = id
 
+	console.log("id", id)
+
 	useEffect(() => {
 		if (!isGroup && !isDisabled) {
 			context?.onCheck({
