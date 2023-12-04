@@ -62,7 +62,6 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 				/* Render the TreeViewInfo component for leaf nodes */
 				<TreeViewInfo
 					id={itemId ?? ""}
-					rawId={id}
 					icon={icon}
 					isDisabled={isDisabled ?? false}
 					_isGroup={false}

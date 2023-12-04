@@ -56,7 +56,7 @@ interface TreeViewInfoProps
 	_groupId?: TreeViewItemProps["groupId"]
 	_isGroup?: TreeViewItemProps["isGroup"]
 	_onGroupCheckClick?: (checked: boolean) => void // Callback function for when group item clicked
-	isIndeterminate: boolean // Whether it's in an indeterministic state or not.
+	isIndeterminate?: boolean // Whether it's in an indeterministic state or not.
 }
 
 /**

@@ -8,7 +8,17 @@ import {
 import { getCheckIndex, getGroupState, groupSet, mergeItems } from "./helpers"
 
 // Create the context for the TreeView component
-const TreeViewContext = createContext<TreeViewContextProps | null>(null)
+const TreeViewContext = createContext<TreeViewContextProps>({
+	items: [], // List of checked items in the tree view
+	onCheck: (
+		id: string,
+		isChecked: boolean,
+		type: string,
+		groupId?: string,
+		isGroup?: boolean,
+	) => null,
+	setItems: (items: (prev: TreeViewContextProps["items"]) => any) => null,
+})
 
 export const useTreeViewContext = () => {
 	const ctx = useContext(TreeViewContext)
@@ -22,7 +32,7 @@ export const useTreeViewContext = () => {
 		(obj: TreeViewCheckType) => {
 			const { id, group, isChecked, type } = obj
 
-			setItems((prev) => {
+			setItems((prev: TreeViewCheckType[]) => {
 				const cloned = [...prev]
 
 				// Handle group check

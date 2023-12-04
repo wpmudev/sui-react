@@ -97,7 +97,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 
 			// trigger ctx function
 			ctx?.onCheck({
-				id,
+				id: id as string,
 				isChecked: checked,
 				type: _isGroup ? "group" : "single",
 				group: _isGroup ? "" : _groupId,

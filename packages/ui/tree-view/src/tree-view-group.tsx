@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState, ReactElement } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 
@@ -82,10 +82,11 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 			>
 				{/* Render child items within the group */}
 				{React.Children.map(children, (child, index) => {
-					const type = child.type.name
+					//console.log(child)
+					const type = ((child as React.ReactElement).type as React.FC).name
 
-					return React.cloneElement(child as React.ReactElement, {
-						...child.props,
+					return React.cloneElement(child as ReactElement, {
+						...(child as React.ReactElement).props,
 						groupId: id,
 						...("TreeViewGroup" === type ? { parentGroupId: id } : {}),
 					})
