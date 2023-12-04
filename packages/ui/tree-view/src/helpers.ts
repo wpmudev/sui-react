@@ -32,7 +32,7 @@ const getGroupItems = (
 	const filteredItems = (checks ?? [])?.filter((item) => item.group === groupId)
 
 	// Process filtered items
-	return filteredItems?.map((item) => {
+	return (filteredItems ?? [])?.flatMap((item) => {
 		// Check if item is a group
 		if (item.type === "group") {
 			return getGroupItems(item.id, checks, toOverride) // Recursively call for nested groups
@@ -71,7 +71,7 @@ const mergeItems = (checkList, mergeWith = []) => {
 const getGroupState = (group = "", items: TreeViewCheckType[] = []) => {
 	// Get list of checkbox items from the specified group
 	const groupList = getGroupItems(group, items)
-	const checkedItems = groupList.filter((item) => item?.isChecked)
+	const checkedItems = groupList.filter((item) => !!item?.isChecked)
 
 	if (checkedItems.length === 0) {
 		return "none" // Return 'none' state if no items are checked

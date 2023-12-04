@@ -122,6 +122,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 				including those relying on assistive technologies, without violating accessibility guidelines.
 			 */}
 			{ctx?.allowCheck &&
+				!isDisabled &&
 				checkboxDomContainer &&
 				createPortal(
 					<Checkbox
