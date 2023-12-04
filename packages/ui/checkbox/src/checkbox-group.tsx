@@ -144,7 +144,7 @@ const CheckboxGroup = ({
 	hasSubItems = false,
 	isInline = false,
 	commonCheckboxProps = {},
-	onChange,
+	onChange = () => {},
 	_isMultiGroup = false,
 }: CheckboxGroupProps) => {
 	// Function to conditionally wrap content with CheckboxProvider for managing checkbox state
