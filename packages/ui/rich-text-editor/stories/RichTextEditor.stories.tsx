@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment, useEffect, useState } from "react"
 
 // Import required component.
 import { RichTextEditor as SuiRichTextEditor } from "../src"
@@ -18,19 +18,47 @@ export default {
 	},
 }
 
+/**
+ * Tiny MCE API key
+ * Get your own key from https://www.tiny.cloud/my-account/integrate/
+ */
+const TINY_MCE_API_KEY = "16svjtls827i92z95atzbvrutvut1n85ckqxu4k9sslf5b7d"
+
 // Build "Tag" story.
 const RichTextEditor = ({ color, ...props }: { color: string }) => {
+	const [isScriptLoaded, setIsScriptLoaded] = useState<boolean>(false)
+
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
 		background: color !== "white" ? "#fff" : "#333",
 	}
 
+	useEffect(() => {
+		const script = document.createElement("script")
+		script.src = `https://cdn.tiny.cloud/1/${TINY_MCE_API_KEY}/tinymce/6/tinymce.min.js`
+		script.async = true
+		document.body.appendChild(script)
+
+		setTimeout(() => {
+			setIsScriptLoaded(true)
+		}, 500)
+	}, [isScriptLoaded])
+
+	if (!isScriptLoaded) {
+		return <Fragment />
+	}
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiRichTextEditor {...props} />
+					<SuiRichTextEditor
+						{...props}
+						onChange={(content) => {
+							console.log("content", content)
+						}}
+					/>
 				</div>
 			</div>
 		</div>
@@ -38,7 +66,13 @@ const RichTextEditor = ({ color, ...props }: { color: string }) => {
 }
 
 // Set story arguments.
-RichTextEditor.args = {}
+RichTextEditor.args = {
+	textareaId: "",
+	isDisabled: false,
+	className: "",
+	tinyMCEOptions: {},
+	defaultValue: "",
+}
 
 // Set controls for story arguments.
 RichTextEditor.argTypes = {}

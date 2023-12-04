@@ -1,4 +1,4 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+import { Section, Code } from "@wpmudev/sui-docs"
 
 <Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
 	<p>
@@ -15,5 +15,23 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
 		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Custom css className(s)</p>
+	</Section>
+	<Section
+		title={{ content: "actions*", tag: "ReactNode", small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Rich text editor also has extra button that can be used for additional control.</p>
+	</Section>
+	<Section
+		title={{ content: "tinyMCEOptions*", tag: "object", small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>TinyMCE configurations, see here: <a href="https://www.tiny.cloud/docs-3x/reference/Configuration3x/" target="_blank">https://www.tiny.cloud/docs-3x/reference/Configuration3x/</a></p>
+	</Section>
+	<Section
+		title={{ content: "onChange*", tag: "function", small: true }}
+		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Catch textarea content</p>
 	</Section>
 </Section>
