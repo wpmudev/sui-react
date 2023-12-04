@@ -27,7 +27,7 @@ const getGroupItems = (
 	groupId?: string,
 	checks?: TreeViewCheckType[],
 	toOverride: object = {},
-) => {
+): TreeViewCheckType[] => {
 	// Filter items by group ID
 	const filteredItems = (checks ?? [])?.filter((item) => item.group === groupId)
 
@@ -49,7 +49,10 @@ const getGroupItems = (
  *
  * @return {object[]} - Merged checkbox items
  */
-const mergeItems = (checkList, mergeWith = []) => {
+const mergeItems = (
+	checkList: TreeViewCheckType[] = [],
+	mergeWith: TreeViewCheckType[] = [],
+) => {
 	// Merge items from the given list
 	mergeWith.forEach((item) => {
 		const index = getCheckIndex(item?.id, item.group, checkList)
@@ -89,7 +92,11 @@ const getGroupState = (group = "", items: TreeViewCheckType[] = []) => {
  *
  * @return {boolean} - State of the checkbox item
  */
-const getCheckboxState = (id = "", group = "", items = []) => {
+const getCheckboxState = (
+	id = "",
+	group = "",
+	items: TreeViewCheckType[] = [],
+) => {
 	// Find the checkbox item with the given ID and group ID
 	const index = getCheckIndex(id, group, items)
 	return items?.[index]?.isChecked ?? false // Return checkbox state or false if not found
