@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-recipient",
   "version": "0.0.1",
-  "description": "WPMU DEV Shared UI React Recipient Component",
+  "description": "The 'Recipient' Component simplifies user onboarding by providing a user-friendly interface for inviting users",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -19,6 +19,11 @@
       "name": "Govind Kumar",
       "email": "gkprmr@gmail.com",
       "url": "https://govind.js.org/"
+    },
+    {
+      "name": "Abderrahman DOUARA",
+      "email": "aer17013@gmail.com",
+      "url": "https://douara.me"
     }
   ],
   "license": "GPL-2.0",

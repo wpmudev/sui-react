@@ -3,7 +3,7 @@
 <div style="text-align: center;">
 <img src="https://img.shields.io/badge/Version-0.0.1-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/License-GPL-orange.svg" alt="License">
 </div>
-<h2> Description </h2> WPMU DEV Shared UI React Notification Component
+<h2> Description </h2> Notifications promptly update users about the status of an action or system, ensuring they stay informed without interruption. Positioned strategically, these alerts provide essential information while maintaining a seamless user experience.
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#license)

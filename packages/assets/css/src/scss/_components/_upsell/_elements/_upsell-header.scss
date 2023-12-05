@@ -3,26 +3,26 @@
 
 /// Build Header
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-header($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include element(header) {
-                align-items: center;
-                display: flex;
-                gap: $spacing-md;
-                margin-bottom: $spacing-lg;
-            }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(header) {
+				align-items: center;
+				display: flex;
+				gap: $spacing-md;
+				margin-bottom: $spacing-lg;
+			}
 
-            @include element(header-title) {
-                font-weight: $font-weight-md;
-                margin: 0;
-            }
-        }
-    }
+			@include element(header-title) {
+				font-weight: $font-weight-md;
+				margin: 0;
+			}
+		}
+	}
 }

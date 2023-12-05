@@ -3,76 +3,71 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Date Picker
-/// This function creates styles for the element
-/// main wrapper.
+///
 /// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-date-picker($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include modifier(single) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(single) {
+				@include modifies-element(calendar-list) {
+					display: flex;
+					flex-wrap: wrap;
+					gap: $datepicker-spacing-xs;
+					padding: $datepicker-spacing-sm 0;
 
-                @include modifies-element(calendar-list) {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: $datepicker-spacing-xs;
-                    padding: $datepicker-spacing-sm 0;
+					&-item {
+						border-radius: $datepicker-border-radius-lg;
+						display: inline-flex;
 
-                    &-item {
-                        border-radius: $datepicker-border-radius-lg;
-                        display: inline-flex;
+						&--active {
+							background: $color-primary-50;
 
-                        &--active {
-                            background: $color-primary-50;
+							span {
+								color: $color-extended-neutral-100;
+							}
+						}
 
-                            span {
-                                color: $color-extended-neutral-100;
-                            }
-                        }
+						&:hover {
+							background: $color-primary-80;
+						}
+					}
+				}
+			}
+		}
+	}
 
-                        &:hover {
-                            background: $color-primary-80;
-                        }
-                    }
-                }
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(single) {
+				@include modifies-element(calendar-list) {
+					&-item {
+						&--active {
+							background: $color-extended-neutral-0;
 
-     // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: false, $theme: dark) {
-        // Block wrapper.
-        @include block($block) {
-            @include modifier(single) {
+							span {
+								color: $color-extended-neutral-100;
+							}
+						}
 
-                @include modifies-element(calendar-list) {
+						&:hover {
+							background: $color-extended-neutral-0;
 
-                    &-item {
-
-                        &--active {
-                            background: $color-extended-neutral-0;
-
-                            span {
-                                color: $color-extended-neutral-100;
-                            }
-                        }
-
-                        &:hover {
-                            background: $color-extended-neutral-0;
-                            
-                            span {
-                                color: $color-extended-neutral-100;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+							span {
+								color: $color-extended-neutral-100;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }

@@ -4,7 +4,7 @@
 
 /// State: Disabled
 ///
-/// @type modifier
+/// @type state
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -33,7 +33,6 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include modifier(disabled) {
-
 				@include modifies-element(switch) {
 					background: $color-extended-neutral-100;
 

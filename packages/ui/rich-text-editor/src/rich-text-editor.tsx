@@ -12,6 +12,8 @@ import {
 	SegmentedControlButton,
 } from "@wpmudev/sui-segmented-control"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { Textarea } from "@wpmudev/sui-textarea"
+import { useDetectRTL } from "@wpmudev/sui-hooks"
 
 import { RichTextEditorProps } from "./rich-text-editor.types"
 
@@ -39,6 +41,9 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 
 	const id = useId()
 
+	// detect RTL
+	const isRTL = useDetectRTL()
+
 	// textarea ID
 	textareaId = isEmpty(textareaId) ? "sui-rich-text-editor-input" : textareaId
 
@@ -53,8 +58,12 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 				toolbar:
 					"bold italic bullist numlist alignleft aligncenter alignright link",
 				height: 200, // Set the height as needed
+				body_class: "sui-rich-text-editor__tinymce--content",
 				...{
 					...tinyMCEOptions,
+					...(isRTL && { directionality: "rtl" }),
+					content_style:
+						"@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); body { font-family: 'Roboto'; font-size: 15px; line-height: 24px; margin: -8px 16px 8px 16px }",
 					setup: (ed) => {
 						// set editor to local state
 						setEditor(ed)
@@ -182,12 +191,13 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 						/>
 					</div>
 					{"code" === editorType && (
-						<textarea
+						<Textarea
 							{...textareaProps}
+							rows={8}
 							id={`${textareaId}-code`}
 							value={content}
 							onChange={onTextareaChange}
-						/>
+						></Textarea>
 					)}
 				</div>
 			</div>

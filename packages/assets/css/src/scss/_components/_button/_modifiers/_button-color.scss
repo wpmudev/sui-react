@@ -18,6 +18,12 @@ $colors-high-contrast: (
 	white: $color-extended-neutral-100,
 );
 
+/// Color
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
 @mixin modify-color($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
@@ -32,21 +38,9 @@ $colors-high-contrast: (
 							color: $value;
 
 							&.sui-#{$block-name}--hover {
-								border-color: if(
-									$name == white,
-									$value,
-									tint($value, 90%)
-								);
-								background: if(
-									$name == white,
-									$value,
-									tint($value, 90%)
-								);
-								color: if(
-									$name == white,
-									$color-extended-neutral-10,
-									$value
-								);
+								border-color: if($name == white, $value, tint($value, 90%));
+								background: if($name == white, $value, tint($value, 90%));
+								color: if($name == white, $color-extended-neutral-10, $value);
 							}
 
 							&.sui-#{$block-name}--focus {
@@ -57,11 +51,7 @@ $colors-high-contrast: (
 									$color-extended-neutral-100,
 									transparent
 								);
-								color: if(
-									$name == white,
-									$color-extended-neutral-10,
-									$value
-								);
+								color: if($name == white, $color-extended-neutral-10, $value);
 							}
 						} @else if $theme == secondary {
 							border-color: $value;
@@ -69,16 +59,8 @@ $colors-high-contrast: (
 							color: $value;
 
 							&.sui-#{$block-name}--hover {
-								background: if(
-									$name == white,
-									$value,
-									tint($value, 90%)
-								);
-								color: if(
-									$name == white,
-									$color-extended-neutral-10,
-									$value
-								);
+								background: if($name == white, $value, tint($value, 90%));
+								color: if($name == white, $color-extended-neutral-10, $value);
 							}
 
 							&.sui-#{$block-name}--focus {
@@ -86,16 +68,8 @@ $colors-high-contrast: (
 								outline-style: solid;
 								outline-color: $value;
 								outline-offset: if($name == white, 2px, 0);
-								background: if(
-									$name == white,
-									$value,
-									tint($value, 90%)
-								);
-								color: if(
-									$name == white,
-									$color-extended-neutral-10,
-									$value
-								);
+								background: if($name == white, $value, tint($value, 90%));
+								color: if($name == white, $color-extended-neutral-10, $value);
 							}
 						} @else {
 							border-color: $value;

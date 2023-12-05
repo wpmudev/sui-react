@@ -2,8 +2,7 @@
 
 @use "../../../_utils/utils" as *;
 
-/// Build Input
-/// This function creates styles for main element
+/// Icon
 ///
 /// @type block
 /// @author WPMU DEV
@@ -22,14 +21,14 @@
 			}
 
 			// if input has icon
-			@include modifier('icon-end') {
+			@include modifier("icon-end") {
 				@include modifies-element(icon) {
 					right: 12px;
 				}
 			}
 
 			// if input has icon
-			@include modifier('icon-start') {
+			@include modifier("icon-start") {
 				@include modifies-element(icon) {
 					left: 12px;
 				}
@@ -37,7 +36,7 @@
 		}
 	}
 
-    // DIR: Right to left.
+	// DIR: Right to left.
 	// THEME: None.
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
@@ -47,17 +46,17 @@
 				transform: translateY(-50%);
 			}
 
-			@include modifier('icon-end') {
+			@include modifier("icon-end") {
 				@include modifies-element(icon) {
 					left: 12px;
-                    right: auto;
+					right: auto;
 				}
 			}
 
-			@include modifier('icon-start') {
+			@include modifier("icon-start") {
 				@include modifies-element(icon) {
 					right: 12px;
-                    left: auto;
+					left: auto;
 				}
 			}
 		}
@@ -65,10 +64,10 @@
 
 	// DIR: Left to right.
 	// THEME: None.
-	@include sui-class($rtl: false, $theme: 'dark') {
+	@include sui-class($rtl: false, $theme: "dark") {
 		@include block($block) {
 			@include element(icon) {
-				color:  $color-extended-neutral-0;
+				color: $color-extended-neutral-0;
 			}
 		}
 	}
