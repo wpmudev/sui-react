@@ -1,6 +1,6 @@
 import React from "react"
 import "@testing-library/jest-dom"
-import { render, screen } from "@testing-library/react"
+import { render, screen, prettyDOM } from "@testing-library/react"
 import { a11yTest } from "@wpmudev/sui-utils"
 import { TreeView, TreeViewGroup, TreeViewItem, TreeViewProps } from "../src"
 
@@ -113,34 +113,10 @@ describe("@wpmudev/sui-tree-view", () => {
 			<TreeView>
 				<TreeViewGroup icon="Bell" id="group-1" title="Tree Group">
 					<TreeViewGroup id="group-2" title="Tree Group">
-						<TreeViewItem id="item-1">Tree Item</TreeViewItem>
-						<TreeViewItem id="item-2">Tree Item</TreeViewItem>
-						<TreeViewItem id="item-3" isChecked={true}>
+						<TreeViewItem id="item-1" isDisabled={true}>
 							Tree Item
 						</TreeViewItem>
-						<TreeViewGroup id="group-4" title="Tree Group">
-							<TreeViewItem id="item-4">Tree Item</TreeViewItem>
-							<TreeViewItem id="item-5">Tree Item</TreeViewItem>
-							<TreeViewItem id="item-6">Tree Item</TreeViewItem>
-						</TreeViewGroup>
 					</TreeViewGroup>
-					<TreeViewItem id="item-7">Tree Item</TreeViewItem>
-					<TreeViewItem id="item-8">Tree Item</TreeViewItem>
-					<TreeViewItem id="item-9">Tree Item</TreeViewItem>
-					<TreeViewGroup id="group-5" title="Tree Group">
-						<TreeViewItem id="item-10">Tree Item</TreeViewItem>
-						<TreeViewItem id="item-11">Tree Item</TreeViewItem>
-						<TreeViewItem id="item-12">Tree Item</TreeViewItem>
-					</TreeViewGroup>
-					<TreeViewGroup id="group-6" title="Tree Group">
-						<TreeViewItem id="item-13">Tree Item</TreeViewItem>
-						<TreeViewItem id="item-14">Tree Item</TreeViewItem>
-						<TreeViewItem id="item-15">Tree Item</TreeViewItem>
-					</TreeViewGroup>
-					<TreeViewItem id="item-16" isDisabled={true}>
-						Tree Item
-					</TreeViewItem>
-					<TreeViewItem id="item-17">Tree Item</TreeViewItem>
 				</TreeViewGroup>
 			</TreeView>,
 			{

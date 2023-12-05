@@ -138,7 +138,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 				className={classNames}
 				onClick={onClick}
 				onKeyDown={(e) => handleOnKeyDown(e, onClick)}
-				id={id}
+				id={`info-${id}`}
 				data-testid={_isGroup ? "" : "tree-view-item-info"}
 				{...(interactionMethods ?? {})}
 			>
