@@ -3,22 +3,21 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Panel item
-/// This function creates styles for the element
-/// main wrapper.
+///
 /// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-panel-item($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(panel-item) {
-                display: none;
-                //padding: $tabs-panel-spacing;
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(panel-item) {
+				display: none;
+				//padding: $tabs-panel-spacing;
+			}
+		}
+	}
 }

@@ -1,8 +1,8 @@
-import React, { useId } from "react"
+import React, { useEffect, useState } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 
-import { TreeViewProps } from "./tree-view.types"
+import { TreeViewCheckType, TreeViewProps } from "./tree-view.types"
 import { TreeViewProvider } from "./tree-view-context"
 
 /**
@@ -18,15 +18,27 @@ const TreeView: React.FC<TreeViewProps> = ({
 	children,
 	allowCheck,
 	showIcons,
+	onChange = () => {},
 }) => {
-	// Generate class names
-	const classNames = generateCN("sui-tree-view", {}, className ?? "")
-	const id = useId()
-	const treeViewId = `sui-tree-view-${id}`
+	const [items, setItems] = useState<TreeViewCheckType[]>([])
+
+	useEffect(() => {
+		if (onChange) {
+			onChange(
+				items
+					.filter((item) => "single" === item?.type)
+					.map(({ id, isChecked, group }) => ({ id, isChecked, group })),
+			)
+		}
+	}, [items, onChange])
+
 	return (
-		<TreeViewProvider value={{ allowCheck, showIcons, id: treeViewId }}>
+		<TreeViewProvider value={{ allowCheck, showIcons, items, setItems }}>
 			{/* TreeView component renders a tree structure with a list */}
-			<nav className={classNames} data-testid="tree-view">
+			<nav
+				className={generateCN("sui-tree-view", {}, className ?? "")}
+				data-testid="tree-view"
+			>
 				<ul role="tree">{children}</ul>
 			</nav>
 		</TreeViewProvider>

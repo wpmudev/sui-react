@@ -3,36 +3,36 @@
 
 /// Build Disabled
 ///
-/// @type block
+/// @type state
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-disabled($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include modifier(disabled) {
-                cursor: none;
-                pointer-events: none;
-                user-select: none;
-                &.sui-#{$block}--compound,
-                &.sui-#{$block}--default {
-                    border: $border-width-sm solid $color-extended-neutral-70;
-                    background: unset;
-                    box-shadow: none;
-                }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(disabled) {
+				cursor: none;
+				pointer-events: none;
+				user-select: none;
+				&.sui-#{$block}--compound,
+				&.sui-#{$block}--default {
+					border: $border-width-sm solid $color-extended-neutral-70;
+					background: unset;
+					box-shadow: none;
+				}
 
-                &.sui-#{$block}--icon-only {
-                    color: $color-extended-neutral-70;
-                }
-                
-                &.sui-#{$block}--image {
-                    .sui-selector__option-body-image {
-                        opacity: 0.5;
-                    }
-                }
-            }
-        }
-    }
+				&.sui-#{$block}--icon-only {
+					color: $color-extended-neutral-70;
+				}
+
+				&.sui-#{$block}--image {
+					.sui-selector__option-body-image {
+						opacity: 0.5;
+					}
+				}
+			}
+		}
+	}
 }

@@ -1,9 +1,8 @@
 @use "../../../_utils/utils" as *;
 
-/// Edit Error
-/// This function modifies elements styles when the field has error state
+/// Error state
 ///
-/// @type modifier
+/// @type state
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name

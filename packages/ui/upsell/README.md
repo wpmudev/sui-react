@@ -3,7 +3,7 @@
 <div style="text-align: center;">
 <img src="https://img.shields.io/badge/Version-0.0.1-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/License-GPL-orange.svg" alt="License">
 </div>
-<h2> Description </h2> WPMU DEV Shared UI React Upsell Component
+<h2> Description </h2> Upsell box provides a list of Features which are part of the Pro tier. It highlights key features of Plugin pro features. The goal of this Upsell is to Highlight the Pro features for the free tier user.
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#license)

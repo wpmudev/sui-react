@@ -3,7 +3,7 @@
 <div style="text-align: center;">
 <img src="https://img.shields.io/badge/Version-0.0.1-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/License-GPL-orange.svg" alt="License">
 </div>
-<h2> Description </h2> WPMU DEV Shared UI React Select Component
+<h2> Description </h2> The Select element is used for a drop-down options. This element is most often used in a form, to collect user input. Select inputs let users select a predefined value from a list of options
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#license)

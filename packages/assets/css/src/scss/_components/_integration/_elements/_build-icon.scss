@@ -3,7 +3,6 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Icon
-/// This function creates styles for the integration icon
 ///
 /// @type block
 /// @author WPMU DEV
@@ -14,20 +13,20 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            @include element(icon) {
-                margin-right: auto;
-            }
+			@include element(icon) {
+				margin-right: auto;
+			}
 		}
 	}
 
-    // DIR: Right to left.
+	// DIR: Right to left.
 	// THEME: None.
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
-            @include element(icon) {
-                margin-left: auto;
-                margin-right: 0;
-            }
+			@include element(icon) {
+				margin-left: auto;
+				margin-right: 0;
+			}
 		}
 	}
 }

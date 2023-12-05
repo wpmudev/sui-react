@@ -3,10 +3,8 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Select Open
-/// This function creates styles for the select open state
-/// recipient wrapper.
 ///
-/// @type block
+/// @type state
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name

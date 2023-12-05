@@ -3,25 +3,25 @@
 
 /// Build Actions
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-actions($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include element(actions) {
-                align-items: center;
-                display: flex;
-                gap: $spacing-lg;
-                justify-content: space-between;
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(actions) {
+				align-items: center;
+				display: flex;
+				gap: $spacing-lg;
+				justify-content: space-between;
 
 				@include media(max-width, sm) {
 					gap: $spacing-md;
 				}
-            }
-        }
-    }
+			}
+		}
+	}
 }

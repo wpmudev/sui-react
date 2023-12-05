@@ -3,7 +3,7 @@
 <div style="text-align: center;">
 <img src="https://img.shields.io/badge/Version-0.0.1-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/License-GPL-orange.svg" alt="License">
 </div>
-<h2> Description </h2> WPMU DEV Shared UI React Button Component
+<h2> Description </h2> Buttons serve as a means to perform various interface actions, spanning from saving settings to initiating a modal. They offer diverse variations tailored to specific design requirements, enhancing the overall user experience.
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#license)

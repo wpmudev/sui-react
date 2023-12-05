@@ -3,7 +3,7 @@
 
 /// Build Item
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -41,7 +41,6 @@
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
 			@include element(item) {
-
 				&:first-child {
 					margin-left: $spacing-sm;
 					margin-right: 0;

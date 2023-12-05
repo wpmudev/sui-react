@@ -4,7 +4,7 @@
 
 /// Build Navigation Button
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -17,7 +17,7 @@
 				min-width: $pagination-size-width-md;
 				height: $pagination-size-height-md;
 				padding: 0;
-    			align-items: center;
+				align-items: center;
 			}
 		}
 	}
