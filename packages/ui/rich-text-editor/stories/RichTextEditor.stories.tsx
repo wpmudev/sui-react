@@ -53,12 +53,7 @@ const RichTextEditor = ({ color, ...props }: { color: string }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiRichTextEditor
-						{...props}
-						onChange={(content) => {
-							console.log("content", content)
-						}}
-					/>
+					<SuiRichTextEditor {...props} />
 				</div>
 			</div>
 		</div>

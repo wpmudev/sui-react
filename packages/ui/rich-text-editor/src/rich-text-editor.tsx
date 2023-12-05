@@ -17,6 +17,8 @@ import { useDetectRTL } from "@wpmudev/sui-hooks"
 
 import { RichTextEditorProps } from "./rich-text-editor.types"
 
+declare const tinymce: Record<string, any>
+
 /**
  * RichTextEditor Component
  *
@@ -36,8 +38,8 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 }) => {
 	const [content, setContent] = useState<string>(defaultValue ?? "")
 	const [editorType, setEditorType] = useState<"visual" | "code">("visual")
-	const [editor, setEditor] = useState(null)
-	const [ref, setRef] = useState(null)
+	const [editor, setEditor] = useState<Record<string, any> | null>(null)
+	const [ref, setRef] = useState<HTMLElement>()
 
 	const id = useId()
 
@@ -64,7 +66,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 					...(isRTL && { directionality: "rtl" }),
 					content_style:
 						"@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); body { font-family: 'Roboto'; font-size: 15px; line-height: 24px; margin: -8px 16px 8px 16px }",
-					setup: (ed) => {
+					setup: (ed: Record<string, any>) => {
 						// set editor to local state
 						setEditor(ed)
 
@@ -107,9 +109,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 		}
 	}, [content, onChange])
 
-	console.log("component", tinymce)
-
-	const textareaRef = useCallback((node) => {
+	const textareaRef = useCallback((node: HTMLElement) => {
 		if (!!node) {
 			setRef(node)
 
@@ -184,7 +184,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 						})}
 					>
 						<textarea
-							ref={textareaRef}
+							ref={textareaRef as React.LegacyRef<HTMLTextAreaElement>}
 							{...textareaProps}
 							value={content}
 							id={textareaId}
