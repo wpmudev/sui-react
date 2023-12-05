@@ -3,33 +3,33 @@
 
 /// Build Footer
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-footer($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include element(footer) {
-                font-size: $font-size-xs;
-                color: $color-extended-neutral-50;
-                align-items: center;
-                display: flex;
-                gap: $spacing-md;
-                justify-content: space-between;
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(footer) {
+				font-size: $font-size-xs;
+				color: $color-extended-neutral-50;
+				align-items: center;
+				display: flex;
+				gap: $spacing-md;
+				justify-content: space-between;
+			}
+		}
+	}
 
-    // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: false, $theme: dark) {
-        @include block($block) {
-            @include element(footer) {
-                color: $color-extended-neutral-0;
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(footer) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
 }

@@ -10,6 +10,13 @@ $colors: (
 	white: $color-extended-neutral-100,
 );
 
+/// Color Styles
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+
 @mixin modify-color($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
@@ -24,16 +31,8 @@ $colors: (
 							color: $value;
 
 							&.sui-#{$block-name}--hover {
-								border-color: if(
-									$name == white,
-									$value,
-									tint($value, 90%)
-								);
-								background: if(
-									$name == white,
-									$value,
-									tint($value, 90%)
-								);
+								border-color: if($name == white, $value, tint($value, 90%));
+								background: if($name == white, $value, tint($value, 90%));
 								@if $name == white {
 									color: $color-extended-neutral-10;
 								}
@@ -53,11 +52,7 @@ $colors: (
 							color: $value;
 
 							&.sui-#{$block-name}--hover {
-								background: if(
-									$name == white,
-									$value,
-									tint($value, 90%)
-								);
+								background: if($name == white, $value, tint($value, 90%));
 								@if $name == white {
 									color: $color-extended-neutral-10;
 								}
@@ -68,11 +63,7 @@ $colors: (
 								outline-style: solid;
 								outline-color: $value;
 								outline-offset: if($name == white, 2px, 0);
-								background: if(
-									$name == white,
-									$value,
-									tint($value, 90%)
-								);
+								background: if($name == white, $value, tint($value, 90%));
 								@if $name == white {
 									color: $color-extended-neutral-10;
 								}

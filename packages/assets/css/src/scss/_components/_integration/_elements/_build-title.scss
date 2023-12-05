@@ -1,9 +1,8 @@
-    @use "sass:map";
+@use "sass:map";
 
 @use "../../../_utils/utils" as *;
 
 /// Build Title
-/// This function creates styles for the integration title
 ///
 /// @type block
 /// @author WPMU DEV
@@ -14,14 +13,14 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            @include element(title) {
-                display: inline-block;
-                margin: 0;
-            }
+			@include element(title) {
+				display: inline-block;
+				margin: 0;
+			}
 
-            .sui-tag {
-                margin: 0;
-            }
+			.sui-tag {
+				margin: 0;
+			}
 		}
 	}
 }

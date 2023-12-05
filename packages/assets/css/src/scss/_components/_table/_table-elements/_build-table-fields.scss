@@ -1,55 +1,53 @@
-
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
 
 /// Build table fields
-/// This function creates styles for the element
-/// main wrapper.
+///
 /// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-table-fields($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(fields) {
-                display: block;
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(fields) {
+				display: block;
 
-                @include media(min-width, sm) {
-                    display: none;
-                }
-            }
+				@include media(min-width, sm) {
+					display: none;
+				}
+			}
 
-            @include element(fields-primary) {
-                color: $color-extended-neutral-0;
-                font-size: $table-font-size-md;
-                line-height: $table-font-height-md;
-                font-weight: $font-weight-lg;
-                margin-bottom: $spacing-xl;
-            }
+			@include element(fields-primary) {
+				color: $color-extended-neutral-0;
+				font-size: $table-font-size-md;
+				line-height: $table-font-height-md;
+				font-weight: $font-weight-lg;
+				margin-bottom: $spacing-xl;
+			}
 
-            @include element(fields-item) {
-                list-style: none;
-                margin-bottom: $spacing-xl;
-            }
+			@include element(fields-item) {
+				list-style: none;
+				margin-bottom: $spacing-xl;
+			}
 
-            @include element(fields-item-title, fields-item-value) {
-                color: $color-extended-neutral-50;
-            }
+			@include element(fields-item-title, fields-item-value) {
+				color: $color-extended-neutral-50;
+			}
 
-            @include element(fields-item-title) {
-                margin-bottom: $spacing-md;
-                font-weight: $font-weight-md;
-            }
+			@include element(fields-item-title) {
+				margin-bottom: $spacing-md;
+				font-weight: $font-weight-md;
+			}
 
-            @include element(fields-item-value) {
-                color: $color-extended-neutral-50;
-                padding: 0;
-            }
-        }
-    }
+			@include element(fields-item-value) {
+				color: $color-extended-neutral-50;
+				padding: 0;
+			}
+		}
+	}
 }

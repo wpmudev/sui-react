@@ -4,7 +4,7 @@
 
 /// Build Score size
 ///
-/// @type block
+/// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -17,8 +17,8 @@
 			height: $score-size-height-sm;
 			// Size large
 			@include modifier(lg) {
-                position: relative;
-                display: inline-block;
+				position: relative;
+				display: inline-block;
 				height: $score-size-height-lg;
 				font-size: $score-font-size-lg;
 				line-height: $score-font-height-lg;
@@ -26,19 +26,19 @@
 
 				.sui-#{$block}--content {
 					position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    margin: 0;
-					
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					margin: 0;
+
 					max-width: $score-size-width;
-                }
+				}
 
 				.sui-#{$block}--percentage {
 					font-size: $score-font-size-md;
 					line-height: $score-font-height-md;
 				}
-            }
+			}
 		}
 	}
 }

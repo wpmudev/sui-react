@@ -4,23 +4,23 @@
 
 /// Build full width
 ///
-/// @type block
+/// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $block-name - Main block name
 @mixin build-segmented-control-full-width($block) {
-    // DIR: Left to right.
-    // THEME: Light.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include modifier(full-width) {
-                @include modifies-element(button) {
-                    flex: auto;
-                }
-                @include modifies-element(label) {
-                    justify-content: center;
-                }
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(full-width) {
+				@include modifies-element(button) {
+					flex: auto;
+				}
+				@include modifies-element(label) {
+					justify-content: center;
+				}
+			}
+		}
+	}
 }

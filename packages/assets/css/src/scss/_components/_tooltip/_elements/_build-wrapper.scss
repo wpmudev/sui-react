@@ -3,8 +3,7 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Tooltip Wrapper
-/// This function creates styles for the element
-/// main wrapper.
+///
 /// @type block
 /// @author WPMU DEV
 ///
@@ -13,11 +12,10 @@
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
-
 		// Block wrapper.
 		@include block($block) {
 			position: relative;
-	        display: inline-block;
+			display: inline-block;
 			line-height: normal;
 		}
 	}
@@ -25,7 +23,6 @@
 	// DIR: Left to right.
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
-
 		// Block wrapper.
 		@include block($block) {
 			color: $color-extended-neutral-0;

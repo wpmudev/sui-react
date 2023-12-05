@@ -1,5 +1,11 @@
 @use "../../../_utils/utils" as *;
 
+/// Edit Variation
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
 @mixin edit-variation($block) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {

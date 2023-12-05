@@ -14,12 +14,11 @@ $sui-score-design: (
 	),
 	default: (
 		stroke: $score-color-blue,
-	)
+	),
 );
 
 /// Build SVG
-/// This function creates styles for the element
-/// main wrapper.
+///
 /// @type block
 /// @author WPMU DEV
 ///
@@ -30,7 +29,6 @@ $sui-score-design: (
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-
 			@include element(svg) {
 				height: 100%;
 				transform: rotate(-90deg);
@@ -52,7 +50,6 @@ $sui-score-design: (
 	@include sui-class($rtl: false, $theme: light) {
 		// Block wrapper.
 		@include block($block) {
-
 			@include element(circle) {
 				@include modifier(inner, outer) {
 					display: none;
@@ -76,9 +73,7 @@ $sui-score-design: (
 	@include sui-class($rtl: false, $theme: dark) {
 		// Block wrapper.
 		@include block($block) {
-
 			@include element(circle) {
-
 				@include modifier(bg) {
 					stroke: $color-extended-neutral-100;
 				}

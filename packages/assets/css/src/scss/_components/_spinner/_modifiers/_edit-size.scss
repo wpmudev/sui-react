@@ -1,9 +1,9 @@
 @use "sass:math";
 @use "../../../_utils/utils" as *;
 
-/// Build background
+/// Build size
 ///
-/// @type block
+/// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -12,13 +12,12 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            @include modifier(lg) {
-
-                @include modifies-element(loader) {
-                    width: $spinner-size-width-lg;
-                    height: $spinner-size-height-lg;
-                }
-            }
+			@include modifier(lg) {
+				@include modifies-element(loader) {
+					width: $spinner-size-width-lg;
+					height: $spinner-size-height-lg;
+				}
+			}
 		}
 	}
 }

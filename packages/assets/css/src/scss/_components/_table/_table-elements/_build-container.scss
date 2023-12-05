@@ -3,66 +3,65 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Table container
-/// This function creates styles for the element
-/// main wrapper.
+///
 /// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-container($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            border-radius: $border-radius-md;
-            background: $color-extended-neutral-100;
-            border: $border-width-sm solid $color-extended-neutral-80;
-            overflow: hidden;
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			border-radius: $border-radius-md;
+			background: $color-extended-neutral-100;
+			border: $border-width-sm solid $color-extended-neutral-80;
+			overflow: hidden;
 
-            @include element(wrapper) {
-                overflow-y: auto;
-            }
+			@include element(wrapper) {
+				overflow-y: auto;
+			}
 
-            // @todo: improve
-            @include element(table) {
-                position: relative;
-                width: 100%;
+			// @todo: improve
+			@include element(table) {
+				position: relative;
+				width: 100%;
 
-                @include modifier(footer) {
-                    border-collapse: collapse;
-                }
-            }
+				@include modifier(footer) {
+					border-collapse: collapse;
+				}
+			}
 
-            @include modifier(no-border-radius) {
-                border-radius: 0;
-            }
+			@include modifier(no-border-radius) {
+				border-radius: 0;
+			}
 
-            @include modifier(no-side-borders) {
-                border-left: 0;
-                border-right: 0;
-            }
-        }
-    }
+			@include modifier(no-side-borders) {
+				border-left: 0;
+				border-right: 0;
+			}
+		}
+	}
 
-    // DIR: Right top left.
-    // THEME: None.
-    @include sui-class($rtl: true, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            // @todo: improve
-            @include element(table) {
-                margin-right: -1px;
-            }
-        }
-    }
+	// DIR: Right top left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			// @todo: improve
+			@include element(table) {
+				margin-right: -1px;
+			}
+		}
+	}
 
-    // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: false, $theme: dark) {
-        // Block wrapper.
-        @include block($block) {
-            border-color: $color-extended-neutral-0;
-        }
-    }
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			border-color: $color-extended-neutral-0;
+		}
+	}
 }
