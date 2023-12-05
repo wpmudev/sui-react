@@ -15,6 +15,98 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
+			@include element(tinymce) {
+				border: $border-width-sm solid $color-extended-neutral-80;
+
+				.tox-statusbar,
+				.tox-anchorbar {
+					display: none;
+				}
+
+				.tox-toolbar__group {
+					padding: 0;
+				}
+
+				.tox-toolbar__primary {
+					background: none;
+				}
+
+				.tox-editor-container {
+					.tox-editor-header {
+						box-shadow: unset;
+						border-bottom: $border-width-sm solid $color-extended-neutral-80;
+						padding: 0;
+					}
+				}
+
+				.tox-tbtn {
+					cursor: pointer;
+					width: $spacing-xxl !important;
+					height: $spacing-xxl;
+					margin: $spacing-sm;
+
+					&.tox-tbtn--enabled,
+					&.tox-tbtn--enabled:hover,
+					&:hover {
+						background: $color-extended-neutral-90;
+					}
+
+					&:focus {
+						outline: $border-width-sm solid $color-extended-neutral-0;
+						background: $color-extended-neutral-100;
+					}
+
+					svg {
+						fill: $color-extended-neutral-0;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(tinymce) {
+				border-color: $color-extended-neutral-0;
+
+				.tox-editor-container {
+					.tox-editor-header {
+						border-color: $color-extended-neutral-0;
+					}
+				}
+
+				.tox-tbtn {
+					&.tox-tbtn--enabled,
+					&.tox-tbtn--enabled:hover,
+					&:hover {
+						background: $color-extended-neutral-0;
+
+						svg {
+							fill: $color-extended-neutral-100;
+						}
+					}
+
+					&:focus {
+						background: $color-extended-neutral-100;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(tinymce) {
+				.tox-toolbar__group {
+					margin-left: auto;
+				}
+			}
 		}
 	}
 }

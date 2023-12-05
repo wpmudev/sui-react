@@ -10,14 +10,14 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-content($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(content) {
-                padding: 8px 0 4px;
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(content) {
+				padding: $spacing-md 0 $spacing-sm;
+			}
+		}
+	}
 }

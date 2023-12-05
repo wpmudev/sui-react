@@ -15,12 +15,11 @@
 		@include block($block) {
 			@include element(textarea-input) {
 				@include modifier(code) {
-					border-radius: 4px;
-					border-color: #E6E6E6;
-					font: $font-weight-default 13px/20px $font-family-default;
-					min-height: 160px;
-					padding: 8px 16px;
-					width: 100%;
+					.sui-textarea__field {
+						font-family: $font-family-code;
+						font-size: $font-size-xs;
+						line-height: $font-height-xs;
+					}
 				}
 			}
 		}

@@ -10,14 +10,14 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-tinymce($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(tinymce) {
-                border-radius: 4px;
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(tinymce) {
+				border-radius: $border-radius-sm;
+			}
+		}
+	}
 }
