@@ -34,7 +34,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 	className = "",
 	isDisabled = false,
 	defaultValue = "",
-	onChange = () => {},
+	onChange = () => null,
 }) => {
 	const [content, setContent] = useState<string>(defaultValue ?? "")
 	const [editorType, setEditorType] = useState<"visual" | "code">("visual")
@@ -92,7 +92,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 			 */
 			tinymce?.init(options)
 		},
-		[isDisabled, tinyMCEOptions],
+		[isDisabled, tinyMCEOptions, isRTL],
 	)
 
 	// Update tinymce editor content
@@ -124,8 +124,8 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 	useEffect(() => {
 		return () => {
 			// Cleanup: Destroy the editor when the component is unmounted
-			if (!!ref && tinymce.get(ref?.id)) {
-				tinymce.get(ref?.id).remove()
+			if (!!ref && tinymce?.get(ref?.id)) {
+				tinymce?.get(ref?.id)?.remove()
 			}
 		}
 	}, [ref, textareaRef])
@@ -187,6 +187,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 							ref={textareaRef as React.LegacyRef<HTMLTextAreaElement>}
 							{...textareaProps}
 							value={content}
+							onChange={() => null}
 							id={textareaId}
 						/>
 					</div>

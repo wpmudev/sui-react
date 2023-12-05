@@ -45,15 +45,11 @@ const RichTextEditor = ({ color, ...props }: { color: string }) => {
 		}, 500)
 	}, [])
 
-	if (!isScriptLoaded) {
-		return <Fragment />
-	}
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiRichTextEditor {...props} />
+					{isScriptLoaded ? <SuiRichTextEditor {...props} /> : "Loading..."}
 				</div>
 			</div>
 		</div>
@@ -65,8 +61,6 @@ RichTextEditor.args = {
 	textareaId: "",
 	isDisabled: false,
 	className: "",
-	tinyMCEOptions: {},
-	defaultValue: "",
 }
 
 // Set controls for story arguments.
