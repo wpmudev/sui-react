@@ -1,4 +1,10 @@
-import React, { useState, useId, useCallback, useEffect } from "react"
+import React, {
+	useState,
+	useId,
+	useCallback,
+	useEffect,
+	useLayoutEffect,
+} from "react"
 
 import { FormField } from "@wpmudev/sui-form-field"
 import {
@@ -91,6 +97,8 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 			onChange(content)
 		}
 	}, [content, onChange])
+
+	console.log("component", tinymce)
 
 	const textareaRef = useCallback((node) => {
 		if (!!node) {

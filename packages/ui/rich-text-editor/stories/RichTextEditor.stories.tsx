@@ -38,12 +38,12 @@ const RichTextEditor = ({ color, ...props }: { color: string }) => {
 		const script = document.createElement("script")
 		script.src = `https://cdn.tiny.cloud/1/${TINY_MCE_API_KEY}/tinymce/6/tinymce.min.js`
 		script.async = true
-		document.body.appendChild(script)
+		document.head.appendChild(script)
 
 		setTimeout(() => {
 			setIsScriptLoaded(true)
 		}, 500)
-	}, [isScriptLoaded])
+	}, [])
 
 	if (!isScriptLoaded) {
 		return <Fragment />
