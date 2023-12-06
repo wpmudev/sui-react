@@ -189,6 +189,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 							value={content}
 							onChange={() => null}
 							id={textareaId}
+							aria-label="visual editor"
 						/>
 					</div>
 					{"code" === editorType && (
@@ -198,7 +199,8 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 							id={`${textareaId}-code`}
 							value={content}
 							onChange={onTextareaChange}
-						></Textarea>
+							aria-label="code editor"
+						/>
 					)}
 				</div>
 			</div>
