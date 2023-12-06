@@ -7,7 +7,7 @@ import { PasswordFieldProps } from "./password-field.types"
 
 const PasswordField: React.FC<PasswordFieldProps> = ({
 	id,
-	button = { type: "" },
+	button = { type: "text" },
 	isSmall = false,
 	isError = false,
 	isDisabled = false,
@@ -43,10 +43,10 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 		isDisabled: isDisabled || !hasValue ? true : false,
 		onClick: () => setVisible(!isVisible),
 		...(button.type === "icon-button" && {
-			icon: isVisible ? "hide" : "show",
+			icon: isVisible ? "Hide" : "Show",
 			appearance: "tertiary",
 			iconOnly: true,
-			iconSize: isSmall ? "md" : "lg",
+			iconSize: isSmall ? "sm" : "md",
 		}),
 		isSmall,
 	}

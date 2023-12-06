@@ -1,10 +1,9 @@
 import React from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { Button } from "@wpmudev/sui-button"
+import { Button, ButtonProps } from "@wpmudev/sui-button"
 
 import { AdvancedBannerProps } from "./advanced-banner.types"
-// import Tag from "../stories/images/tag.svg"
 
 // Build "advanced-banner" component
 const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
@@ -31,7 +30,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 		className,
 	)
 
-	let closeBtnColor = "black"
+	let closeBtnColor: ButtonProps["color"] = "black"
 
 	// Display white button for following variations
 	if (["black-friday", "hub"].includes(variation)) {

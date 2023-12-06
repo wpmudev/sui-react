@@ -27,11 +27,11 @@ interface ButtonProps
 	/**
 	 * Appearance style of the button.
 	 */
-	appearance?: string
+	appearance?: "primary" | "secondary" | "tertiary"
 	/**
 	 * Color of the button.
 	 */
-	color?: string
+	color?: "blue" | "black" | "red" | "navy" | "white"
 	/**
 	 * Optional flag to make the button small.
 	 */

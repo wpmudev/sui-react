@@ -96,7 +96,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 
 		return (
 			<TagName {...attrs}>
-				{isStartIcon && <Icon name={startIcon ?? ""} size={iconSize} />}
+				{(startIcon || icon) && <Icon name={startIcon ?? ""} size={iconSize} />}
 				{isUnwrapped && children}
 				{!isUnwrapped && (
 					<Label {...(iconOnly && { hidden: true })}>{children}</Label>

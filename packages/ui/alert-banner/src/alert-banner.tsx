@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { Button } from "@wpmudev/sui-button"
+import { Button, ButtonProps } from "@wpmudev/sui-button"
 import Icons from "@wpmudev/sui-icons"
 
 import { AlertBannerProps } from "./alert-banner.types"
@@ -64,7 +64,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	}
 
 	// Set the dismiss button color and center flag based on variation
-	let dismissBtnColor = "black"
+	let dismissBtnColor: ButtonProps["color"] = "black"
 	if (["hub-upsell", "plugin-upsell"].includes(variation ?? "")) {
 		dismissBtnColor = "white"
 		isCenter = true
