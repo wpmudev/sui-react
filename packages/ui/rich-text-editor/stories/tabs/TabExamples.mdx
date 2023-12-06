@@ -1,31 +1,32 @@
-import { Section, Preview, Snippet } from "@wpmudev/sui-docs"
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 import dedent from "dedent"
 import { RichTextEditor } from "../RichTextEditor.stories"
+import { Button } from "@wpmudev/sui-button"
 
 export const sampleCode = dedent`
 <RichTextEditor />
 `
 
+export const actionButtonCode = dedent`
+    <RichTextEditor 
+        actions={
+            <Button appearance="secondary" icon="Add" color="black">Add Field</Button>
+        } 
+    />
+`
+
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>The RichText Editor has one variation which is the following</p>
-
-	<Section
-		contained={true}
-		style={{ padding: 0, paddingBottom: '10px' }}
-	>
-		<p>
-			Make sure to load TinyMCE bundled with WP
-			<Snippet language="php">
-				{`add_action('admin_enqueue_scripts', 'sui_load_mce_editor_scripts');
-
-function sui_load_mce_editor_scripts() {
- wp_enqueue_editor()
-}`}
-			</Snippet>
-		</p>
-	</Section>
 	<Preview contained={true} wrapper={true}>
 		<RichTextEditor />
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+<Section title="With an Action Button" contained={true} style={{ paddingTop: 0 }}>
+	<p>You can optionally add custom action button(s) using the <Code isSmall={true}>actions</Code> prop</p>
+	<Preview contained={true} wrapper={true}>
+		<RichTextEditor actions={<Button appearance="secondary" icon="Add" color="black">Add Field</Button>} />
+	</Preview>
+	<Snippet language="js">{actionButtonCode}</Snippet>
 </Section>

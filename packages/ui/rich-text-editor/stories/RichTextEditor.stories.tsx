@@ -49,7 +49,14 @@ const RichTextEditor = ({ color, ...props }: { color: string }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{isScriptLoaded ? <SuiRichTextEditor {...props} /> : "Loading..."}
+					{isScriptLoaded ? (
+						<SuiRichTextEditor
+							{...props}
+							onChange={(text) => console.log(text)}
+						/>
+					) : (
+						"Loading..."
+					)}
 				</div>
 			</div>
 		</div>
