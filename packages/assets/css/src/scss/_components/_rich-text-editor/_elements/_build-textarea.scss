@@ -2,20 +2,26 @@
 
 @use "../../../_utils/utils" as *;
 
-/// Build Content
-///
+/// Rich text editor textarea
 /// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-content($block) {
+@mixin build-textarea($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-			@include element(content) {
-				padding: $spacing-md 0 $spacing-sm;
+			@include element(textarea) {
+				@include modifier(hidden) {
+					display: none;
+				}
+
+				@include modifier(disabled) {
+					opacity: 0.5;
+					pointer-events: none;
+				}
 			}
 		}
 	}
