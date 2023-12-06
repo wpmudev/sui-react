@@ -41,7 +41,7 @@ describe("@wpmudev/sui-select", () => {
 		expect(screen.getByTestId("select")).toBeInTheDocument()
 	})
 
-	// The "select" opens when clicked
+	// Dropdown open when clicked
 	it("Gets opened when clicked", () => {
 		// Render the component
 		render(<Component {...props} />)
@@ -138,19 +138,13 @@ describe("@wpmudev/sui-select", () => {
 		// Get the input element in the select
 		const input = select.querySelector(".sui-input__input")
 
-		console.log(input)
-
-		// Open the dropdown to render the options
-		// fireEvent.click(
-		// 	(select as Element).querySelector(".sui-select__control") as Element,
-		// )
-
 		// Simulate typing into the input field
 		fireEvent.change(input as Element, {
-			target: { value: "Option 1 is the option" },
+			target: { value: "Option 1" },
 		})
 
-		//console.log(prettyDOM(container))
+		// Expect only one option to be found
+		expect(container.querySelectorAll(".sui-select__dropdown")).toHaveLength(1)
 	})
 
 	// eslint-disable-next-line jest/expect-expect
