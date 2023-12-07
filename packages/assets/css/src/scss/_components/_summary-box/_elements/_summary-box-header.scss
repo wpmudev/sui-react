@@ -3,7 +3,7 @@
 
 /// Build Summary box header
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -18,7 +18,7 @@
 				justify-content: space-between;
 			}
 
-			@include element(header-info){
+			@include element(header-info) {
 				align-items: center;
 				display: flex;
 				gap: $spacing-md;

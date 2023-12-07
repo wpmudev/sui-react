@@ -3,7 +3,6 @@
 @use "../../../_utils/utils" as *;
 
 /// Select Icon
-/// This function creates styles for select icon
 ///
 /// @type modifier
 /// @author WPMU DEV
@@ -14,136 +13,128 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			@include element(control) {
+				.sui-#{$block}__icon {
+					position: absolute;
+					line-height: normal;
+					top: $select-icon-container-position-vertical;
+					transform: translateY(-$select-icon-container-position-vertical);
+				}
+			}
 
-            @include element(control) {
-                .sui-#{$block}__icon {
-                    position: absolute;
-                    line-height: normal;
-                    top: $select-icon-container-position-vertical;
-                    transform: translateY(-$select-icon-container-position-vertical);
-                }
-            }
+			@include element(icon) {
+				@include modifier(chevron-down, chevron-up, close-alt) {
+					right: $select-icon-container-position-horizontal;
+				}
 
-            @include element(icon) {
+				@include modifier(search) {
+					left: $select-icon-container-position-horizontal;
+					font-size: $select-icon-font-size-lg;
+					color: $color-extended-neutral-60;
+				}
 
-                @include modifier(chevron-down, chevron-up, close-alt) {
-                    right: $select-icon-container-position-horizontal;
-                }
+				@include modifier(close-alt) {
+					font-size: $select-icon-font-size-lg;
+					color: $color-extended-neutral-70;
+					pointer-events: all;
 
-                @include modifier(search) {
-                    left: $select-icon-container-position-horizontal;
-                    font-size: $select-icon-font-size-lg;
-                    color: $color-extended-neutral-60;
-                }
+					&:hover {
+						color: $color-extended-neutral-60;
+					}
+				}
+			}
 
-                @include modifier(close-alt) {
-                    font-size: $select-icon-font-size-lg;
-                    color: $color-extended-neutral-70;
-                    pointer-events: all;
+			@include element(search) {
+				.sui-#{$block}__icon {
+					font-size: $font-size-xs;
+					line-height: 1;
+					position: absolute;
+					bottom: $select-icon-search-position-bottom;
+					left: $select-icon-search-position-left-md;
+				}
+			}
 
-                    &:hover {
-                        color: $color-extended-neutral-60;
-                    }
-                }
-            }
+			@include element(dropdown) {
+				@include modifier(option) {
+					.sui-#{$block}__icon {
+						padding-right: $select-icon-padding-horizontal;
+						line-height: 1;
+					}
+				}
+			}
 
-            @include element(search) {
-                .sui-#{$block}__icon {
-                    font-size: $font-size-xs;
-                    line-height: 1;
-                    position: absolute;
-                    bottom: $select-icon-search-position-bottom;
-                    left: $select-icon-search-position-left-md;
-                }
-            }
+			@include modifier(multiselect) {
+				.sui-#{$block}__icon--close {
+					right: $select-icon-close-position-right-xs;
+					font-size: $select-icon-font-size-xs;
+				}
 
-            @include element(dropdown) {
-                @include modifier(option) {
-                    .sui-#{$block}__icon {
-                        padding-right: $select-icon-padding-horizontal;
-                        line-height: 1;
-                    }
-                }
-            }
-
-            @include modifier(multiselect) {
-
-                .sui-#{$block}__icon--close {
-                    right: $select-icon-close-position-right-xs;
-                    font-size: $select-icon-font-size-xs;
-                }
-
-                .sui-#{$block}__icon--close-alt {
-                    right: $select-icon-close-position-right-lg;
-                }
-            }
+				.sui-#{$block}__icon--close-alt {
+					right: $select-icon-close-position-right-lg;
+				}
+			}
 		}
 	}
 
-    // DIR: Right to left.
+	// DIR: Right to left.
 	// THEME: None.
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
+			@include element(icon) {
+				@include modifier(chevron-down, chevron-up, close-alt) {
+					left: $select-icon-container-position-horizontal;
+					right: unset;
+				}
 
-            @include element(icon) {
+				@include modifier(search) {
+					left: unset;
+					right: $select-icon-container-position-horizontal;
+				}
+			}
 
-                @include modifier(chevron-down, chevron-up, close-alt) {
-                    left: $select-icon-container-position-horizontal;
-                    right: unset;
-                }
+			@include element(search) {
+				.sui-#{$block}__icon {
+					right: $select-icon-search-position-left-md;
+					left: unset;
+				}
+			}
 
-                @include modifier(search) {
-                    left: unset;
-                    right: $select-icon-container-position-horizontal;
-                }
-            }
+			@include element(dropdown) {
+				@include modifier(option) {
+					.sui-#{$block}__icon {
+						padding-left: $select-icon-padding-horizontal;
+						padding-right: 0;
+					}
+				}
+			}
 
-            @include element(search) {
-                .sui-#{$block}__icon {
-                    right: $select-icon-search-position-left-md;
-                    left: unset;
-                }
-            }
+			@include modifier(multiselect) {
+				.sui-#{$block}__icon--close {
+					left: $select-icon-close-position-right-xs;
+					right: unset;
+				}
 
-            @include element(dropdown) {
-                @include modifier(option) {
-                    .sui-#{$block}__icon {
-                        padding-left: $select-icon-padding-horizontal;
-                        padding-right: 0;
-                    }
-                }
-            }
-
-            @include modifier(multiselect) {
-
-                .sui-#{$block}__icon--close {
-                    left: $select-icon-close-position-right-xs;
-                    right: unset;
-                }
-
-                .sui-#{$block}__icon--close-alt {
-                    left: $select-icon-close-position-right-lg;
-                    right: unset;
-                }
-            }
+				.sui-#{$block}__icon--close-alt {
+					left: $select-icon-close-position-right-lg;
+					right: unset;
+				}
+			}
 		}
 	}
 
-    // DIR: Left to right.
+	// DIR: Left to right.
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
+			@include element(icon) {
+				@include modifier(search) {
+					color: $color-extended-neutral-0;
+				}
 
-            @include element(icon) {
-
-                @include modifier(search) {
-                    color: $color-extended-neutral-0;
-                }
-
-                @include modifier(close-alt) {
-                    color: $color-extended-neutral-0;
-                }
-            }
+				@include modifier(close-alt) {
+					color: $color-extended-neutral-0;
+				}
+			}
 		}
 	}
 }

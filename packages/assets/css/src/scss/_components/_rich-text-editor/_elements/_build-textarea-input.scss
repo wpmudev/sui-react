@@ -1,0 +1,27 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Rich text editor textarea input
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-textarea-input($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(textarea-input) {
+				@include modifier(code) {
+					.sui-textarea__field {
+						font-family: $font-family-code;
+						font-size: $font-size-xs;
+						line-height: $font-height-xs;
+					}
+				}
+			}
+		}
+	}
+}

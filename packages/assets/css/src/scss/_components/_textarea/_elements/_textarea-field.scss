@@ -2,8 +2,7 @@
 
 @use "../../../_utils/utils" as *;
 
-/// Build Container
-/// This function creates styles for the password container
+/// Build field
 ///
 /// @type block
 /// @author WPMU DEV
@@ -21,6 +20,7 @@
 				font-size: $font-size-default;
 				padding: $spacing-md $spacing-lg;
 				width: 100%;
+				border: none;
 			}
 		}
 	}

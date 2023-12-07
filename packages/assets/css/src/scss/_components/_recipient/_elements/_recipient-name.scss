@@ -3,8 +3,6 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Recipient Name
-/// This function creates styles for the element
-/// recipient name.
 ///
 /// @type block
 /// @author WPMU DEV
@@ -18,8 +16,8 @@
 			@include element(name) {
 				font-weight: $font-weight-md;
 				color: $color-extended-neutral-10;
-                flex: 1;				
-            }
+				flex: 1;
+			}
 		}
 	}
 
@@ -29,7 +27,7 @@
 		@include block($block) {
 			@include element(name) {
 				color: $color-extended-neutral-0;
-            }
+			}
 		}
 	}
 }
