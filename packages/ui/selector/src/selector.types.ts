@@ -38,7 +38,7 @@ interface SelectorProps
 	/** Whether removal of the Selector is allowed */
 	allowRemove?: boolean
 	/** Event handler for removing the Selector */
-	onRemove?(name: string, value: string | number): void
+	onRemove?(): void
 	/** Specifiy the color of the tag */
 	tagColor?:
 		| "default"
