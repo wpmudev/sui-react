@@ -17,7 +17,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 	variation,
 	tag,
 	allowRemove,
-	onRemove,
+	onRemove = () => {},
 	isPro,
 	tagColor,
 }) => {
@@ -54,7 +54,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 					data-testid="selector-remove"
 				>
 					<Tooltip
-						type="icon"
+						type="button"
 						icon="Trash"
 						iconSize="sm"
 						appearance="primary"
@@ -62,7 +62,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 						iconOnly={true}
 						isSmall={true}
 						className="sui-selector__option-delete-btn"
-						onClick={() => onRemove}
+						onClick={() => onRemove()}
 						position="top-right"
 						customWidth={70}
 					>
@@ -114,14 +114,16 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 				["compound", "image"].includes(variation ?? "") && (
 					<div className="sui-selector__option-body">
 						{!!imageUrl && "image" === variation && (
-							<span
-								className="sui-selector__option-body-image"
-								role="img"
-								aria-label="Option image"
-								style={{
-									backgroundImage: `url('${imageUrl}')`,
-								}}
-							/>
+							<div className="sui-selector__option-image-wrapper">
+								<span
+									className="sui-selector__option-body-image"
+									role="img"
+									aria-label="Option image"
+									style={{
+										backgroundImage: `url('${imageUrl}')`,
+									}}
+								/>
+							</div>
 						)}
 						{!!description && (
 							<div className="sui-selector__option-body-description">

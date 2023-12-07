@@ -17,12 +17,6 @@
 					0 $shadow-offset-2xs $shadow-offset-xl 0 $color-shadow-light,
 					0 $shadow-offset-default $shadow-offset-lg 0 $color-shadow-default;
 			}
-
-			@include element(option-delete-btn) {
-				&:hover {
-					background: $color-extended-error-30;
-				}
-			}
 		}
 	}
 }
