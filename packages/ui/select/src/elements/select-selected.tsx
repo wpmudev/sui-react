@@ -40,28 +40,32 @@ const Selected: React.FC<SelectSelectedProps> = ({
 }) => {
 	// Prepare the selected content
 	const selectedContent = isArray(selected) ? (
-		selected?.map((selectedItem: Record<string, any>) => (
-			<span
-				key={selectedItem?.id}
-				tabIndex={0}
-				role="button"
-				className="sui-select__selected-options"
-				onClick={(event) => event.stopPropagation()}
-				onKeyDown={(event) => event.stopPropagation()}
-			>
-				{selectedItem?.label as ReactNode}
-				<Icon
-					name="close"
-					size="sm"
-					{...(!!removeSelection && {
-						onClick: () => removeSelection(selectedItem?.id),
-					})}
-				/>
-			</span>
-		))
+		(selected as Record<string, any>[]).map(
+			(selectedItem: Record<string, any>) => (
+				<span
+					key={selectedItem?.id}
+					tabIndex={0}
+					role="button"
+					className="sui-select__selected-options"
+					onClick={(event) => event.stopPropagation()}
+					onKeyDown={(event) => event.stopPropagation()}
+				>
+					{selectedItem?.label as ReactNode}
+					<Icon
+						name="close"
+						size="sm"
+						{...(!!removeSelection && {
+							onClick: () => removeSelection(selectedItem?.id),
+						})}
+					/>
+				</span>
+			),
+		)
 	) : (
 		<span className="sui-select__selected">
-			{selected?.label ? selected.label : selectLabel}
+			{selected && typeof selected === "object" && "label" in selected
+				? selected.label
+				: selectLabel}
 		</span>
 	)
 
@@ -102,7 +106,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 }
 
 interface SelectSelectedSearchProps
-	extends Omit<HTMLProps<HTMLInputElement>, "ref" | "onChange"> {
+	extends Omit<HTMLProps<HTMLInputElement>, "selected" | "ref" | "onChange"> {
 	arrow?: string
 	isSmall?: boolean
 	selected?: {
