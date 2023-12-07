@@ -4,8 +4,9 @@ import React, {
 	MouseEvent,
 	ReactNode,
 	useCallback,
+	useState,
 } from "react"
-import { isArray } from "@wpmudev/sui-utils"
+import { isArray, isUndefined } from "@wpmudev/sui-utils"
 import { Icon } from "./select-icon"
 import { InputWithAutoComplete } from "./select-input"
 
@@ -14,7 +15,7 @@ interface SelectSelectedProps
 	id: string
 	expanded?: boolean
 	arrow?: string
-	selected?: Record<string, any>
+	selected?: Record<string, any> | string
 	selectLabel?: string
 	isSmall?: boolean
 	isMultiSelect?: boolean
@@ -88,22 +89,25 @@ const Selected: React.FC<SelectSelectedProps> = ({
 			{...props}
 		>
 			{selectedContent}
-			{isMultiSelect && selectLabel !== selected?.label && (
+			{isMultiSelect && !isUndefined(selected) && selectLabel !== selected && (
 				<Icon
 					name="close-alt"
 					size={isSmall ? "md" : "lg"}
 					onClick={onClearSelection}
 				/>
 			)}
-			<Icon name={arrow ?? ""} size="md" />
+			{arrow && <Icon name={arrow} size="md" />}
 		</div>
 	)
 }
 
 interface SelectSelectedSearchProps
-	extends Omit<HTMLProps<HTMLInputElement>, "selected" | "ref" | "onChange"> {
+	extends Omit<HTMLProps<HTMLInputElement>, "ref" | "onChange"> {
 	arrow?: string
 	isSmall?: boolean
+	selected?: {
+		label: string
+	}
 	selectLabel?: string
 	clearSelection: () => void
 	// ref?: LegacyRef<HTMLDivElement>
@@ -111,20 +115,43 @@ interface SelectSelectedSearchProps
 }
 
 const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
-	arrow,
 	isSmall = false,
 	selectLabel = "",
 	clearSelection,
+	selected,
 	...props
 }) => {
+	const [close, setClose] = useState(false)
+	const onClearSelection = useCallback(
+		(event: MouseEvent<HTMLSpanElement>) => {
+			clearSelection()
+			setClose(false)
+		},
+		[clearSelection],
+	)
+	const onValueChange = (val: string) => {
+		if (val) {
+			setClose(true)
+		} else {
+			setClose(false)
+		}
+	}
 	return (
 		<div className="sui-select__control">
 			<InputWithAutoComplete
 				placeholder="Search"
 				isSmall={isSmall ?? false}
+				onValueChange={onValueChange}
+				selected={selected}
 				{...props}
 			/>
-			<Icon name={arrow ?? ""} size="md" />
+			{(close || selected?.label) && (
+				<Icon
+					name="close-alt"
+					size={isSmall ? "md" : "lg"}
+					onClick={onClearSelection}
+				/>
+			)}
 		</div>
 	)
 }
