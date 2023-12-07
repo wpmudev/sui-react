@@ -4,7 +4,8 @@
 $sui-grid: $grid-columns;
 
 $sui-grid-spacing: (
-	sm: $grid-spacing-sm,
+	xs: $grid-spacing-sm,
+	sm: $grid-spacing-md,
 	md: $grid-spacing-md,
 	lg: $grid-spacing-lg,
 	xl: $grid-spacing-lg,

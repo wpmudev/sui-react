@@ -6,6 +6,7 @@
 /// Defines the breakpoints based on the WordPress admin UI changes.
 /// @param {Array} $breakpoints - List of predefined breakpoints.
 $breakpoints: (
+	xs: $grid-breakpoint-xs,
 	sm: $grid-breakpoint-sm,
 	md: $grid-breakpoint-md,
 	lg: $grid-breakpoint-lg,

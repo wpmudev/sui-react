@@ -15,6 +15,10 @@
 			}
 		},
 		"breakpoint": {
+			"xs": {
+				"value": "0px",
+				"type": "sizing"
+			},
 			"sm": {
 				"value": "600px",
 				"type": "sizing"

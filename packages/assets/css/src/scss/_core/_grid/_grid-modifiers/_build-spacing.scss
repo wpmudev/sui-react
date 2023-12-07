@@ -13,7 +13,7 @@
 		.sui-row--inline {
 			@include block($block) {
 				margin: 0;
-				padding: 0 math.div(map.get($sui-grid-spacing, sm), 2);
+				padding: 0 math.div(map.get($sui-grid-spacing, xs), 2);
 			}
 		}
 
@@ -23,11 +23,7 @@
 					@include block($block) {
 						@include media(min-width, $bp-label) {
 							margin: 0;
-							padding: 0
-								math.div(
-									map.get($sui-grid-spacing, $bp-label),
-									2
-								);
+							padding: 0 math.div(map.get($sui-grid-spacing, $bp-label), 2);
 						}
 					}
 				}
