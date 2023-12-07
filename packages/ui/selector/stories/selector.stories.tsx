@@ -70,7 +70,6 @@ export const Selector = ({
 									isChecked={val === option.value}
 									variation={variation}
 									value={option.value}
-									onRemove={() => console.log("Hello")}
 									{...args}
 								/>
 							</Col>
