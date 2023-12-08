@@ -17,9 +17,11 @@
 				display: flex;
 				gap: $spacing-lg;
 				justify-content: space-between;
+				margin-left: auto;
 
 				@include media(max-width, sm) {
 					gap: $spacing-md;
+					margin-left: 0;
 				}
 			}
 		}

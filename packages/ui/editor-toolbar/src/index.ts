@@ -1,2 +1,6 @@
 export { EditorToolbar } from "./editor-toolbar"
-export type { EditorToolbarProps } from "./editor-toolbar.types"
+export { EditorToolbarField } from "./editor-toolbar-field"
+export type {
+	EditorToolbarProps,
+	EditorToolbarFieldProps,
+} from "./editor-toolbar.types"
