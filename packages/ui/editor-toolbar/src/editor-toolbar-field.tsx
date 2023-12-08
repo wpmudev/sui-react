@@ -1,7 +1,4 @@
 import React, { FC } from "react"
-
-import { Button } from "@wpmudev/sui-button"
-import { generateCN } from "@wpmudev/sui-utils"
 import { Refresh, Spinner, CheckAlt } from "@wpmudev/sui-icons"
 import { isEmpty } from "@wpmudev/sui-docs/src/utils"
 import { EditorToolbarFieldProps } from "./editor-toolbar.types"
@@ -42,5 +39,5 @@ const EditorToolbarField: FC<EditorToolbarFieldProps> = ({
 	)
 }
 
-// Export the editor-toolbar component
+// Export the editor-toolbar-field component
 export { EditorToolbarField }
