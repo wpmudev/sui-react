@@ -14,7 +14,7 @@
 			@include element(nav-item) {
 				@include modifier(focus) {
 					color: $tabs-color-focus-color;
-					background: $tabs-color-focus-background;
+					// background: $tabs-color-focus-background;
 					border-color: $tabs-color-focus-border-color;
 				}
 			}
