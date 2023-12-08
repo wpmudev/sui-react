@@ -85,7 +85,6 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				hover: isHovered,
 				disabled: isDisabled,
 			})}
-			{...(interactionMethods ?? {})}
 			data-testid="accordion-item"
 		>
 			{/* 
@@ -121,6 +120,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 					e.stopPropagation()
 					handleOnKeyDown(e, toggle)
 				}}
+				{...(interactionMethods ?? {})}
 			>
 				{/* Content of the accordion item's header */}
 				<div className="sui-accordion__header-info">
