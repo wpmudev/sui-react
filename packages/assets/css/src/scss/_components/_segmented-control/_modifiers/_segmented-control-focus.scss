@@ -42,8 +42,8 @@
 					color: $color-extended-neutral-0;
 				}
 
-				&:active,
-				& {
+				&,
+				&:active {
 					& + .sui-segmented-control__label--active {
 						color: $color-extended-neutral-100;
 					}
