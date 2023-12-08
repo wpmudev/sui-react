@@ -25,8 +25,18 @@ export default {
 	},
 }
 
+interface EditorToolbarProps {
+	example: "example-1" | "example-2"
+	status: "unsaved" | "saving" | "saved"
+	// Add other expected props with their types here
+}
+
 // Build story
-export const EditorToolbar = ({ example, status, ...props }) => {
+export const EditorToolbar = ({
+	example,
+	status,
+	...props
+}: EditorToolbarProps) => {
 	const [editorType, setEditorType] = useState<string | number>("visual")
 
 	const actions = (settingBtn: React.ReactNode) => {
