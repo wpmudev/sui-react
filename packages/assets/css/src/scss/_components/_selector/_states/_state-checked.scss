@@ -15,7 +15,13 @@
 			@include modifier(checked) {
 				@include modifies-element(option) {
 					position: relative;
-					outline: $border-width-md solid $color-primary-50;
+					&:after {
+						content: "";
+						position: absolute;
+						inset: -#{$border-width-md};
+						border: $border-width-md solid $color-primary-50;
+						border-radius: inherit;
+					}
 				}
 
 				@include modifies-element(header-icon, header-title) {
@@ -31,7 +37,9 @@
 		@include block($block) {
 			@include modifier(checked) {
 				@include modifies-element(option) {
-					outline-color: $color-extended-neutral-0;
+					&:after {
+						border-color: $color-extended-neutral-0;
+					}
 				}
 
 				@include modifies-element(header-icon, header-title) {
