@@ -18,21 +18,10 @@
 				border-top: $border-width-sm solid $color-extended-neutral-80;
 				overflow: hidden;
 				position: relative;
+				transition: 0.3s all ease;
 
 				&:first-child {
 					border: none;
-				}
-
-				&:first-child,
-				&:first-child::after {
-					border-top-left-radius: $border-radius-md;
-					border-top-right-radius: $border-radius-md;
-				}
-
-				&:last-child,
-				&:last-child::after {
-					border-bottom-right-radius: $border-radius-md;
-					border-bottom-left-radius: $border-radius-md;
 				}
 
 				p {
