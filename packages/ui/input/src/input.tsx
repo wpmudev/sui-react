@@ -66,8 +66,6 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				setValue(defaultValue)
 			}, [defaultValue])
 
-			console.log(isSmall, props)
-
 			// handle on change
 			const handleChange = useCallback(
 				(e: React.ChangeEvent<HTMLInputElement>) => {
