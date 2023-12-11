@@ -1,5 +1,10 @@
-import React, { useCallback, useContext } from "react"
-import { getMonth, getYear, isWithinInterval, isSameYear } from "date-fns"
+import React, {
+	useCallback,
+	useContext,
+	MouseEvent,
+	KeyboardEvent,
+} from "react"
+import { getMonth, getYear, isWithinInterval } from "date-fns"
 
 import { handleOnKeyDown, generateCN } from "@wpmudev/sui-utils"
 
@@ -12,9 +17,11 @@ const DatePickerList: React.FC<any> = ({ date, height }) => {
 	const dropdownList: string[] = switchLists?.[ctx?.listType] ?? []
 
 	const onItemClick = useCallback(
-		(value: number | string) => {
-			// close list
-			//ctx.closeToggle()
+		(
+			value: number | string,
+			event: MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>,
+		) => {
+			event.stopPropagation()
 			ctx.helpers.jumpToDate(value)
 		},
 		[ctx],
@@ -61,11 +68,12 @@ const DatePickerList: React.FC<any> = ({ date, height }) => {
 						<span
 							role="button"
 							tabIndex={0}
-							onClick={() => {
-								if (!disabled) onItemClick(val)
+							onClick={(e) => {
+								if (!disabled) onItemClick(val, e)
 							}}
-							onKeyDown={(e) => {
-								if (!disabled) handleOnKeyDown(e, () => onItemClick(val))
+							onKeyDown={(event) => {
+								if (!disabled)
+									handleOnKeyDown(event, () => onItemClick(val, event))
 							}}
 						>
 							{name}
