@@ -15,17 +15,21 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(switch) {
-					outline: $border-width-md solid $color-extended-neutral-80;
-					outline-offset: $border-width-md;
 					background: $color-extended-neutral-80;
+
+					&:after {
+						border: $border-width-md solid $color-extended-neutral-80;
+					}
 				}
 			}
 
 			@include modifier(checked-focus) {
 				@include modifies-element(switch) {
-					outline: $border-width-md solid $color-primary-50;
-					outline-offset: $border-width-md;
 					background: $color-primary-50;
+
+					&:after {
+						border: $border-width-md solid $color-primary-50;
+					}
 				}
 			}
 		}
@@ -37,17 +41,19 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(switch) {
-					outline: $border-width-md solid $color-extended-neutral-0;
-					outline-offset: $border-width-md;
 					background: $color-extended-neutral-100;
+					&:after {
+						border-color: $color-extended-neutral-0;
+					}
 				}
 			}
 
 			@include modifier(checked-focus) {
 				@include modifies-element(switch) {
-					outline: $border-width-md solid $color-extended-neutral-0;
-					outline-offset: $border-width-md;
 					background: $color-extended-neutral-0;
+					&:after {
+						border-color: $color-extended-neutral-0;
+					}
 				}
 			}
 		}

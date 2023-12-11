@@ -35,6 +35,13 @@
 					border-radius: 50%;
 					background: $color-extended-neutral-100;
 				}
+
+				&:after {
+					content: "";
+					position: absolute;
+					inset: -4px;
+					border-radius: $toggle-border-radius * 2;
+				}
 			}
 		}
 	}
