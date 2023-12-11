@@ -13,9 +13,12 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(box) {
-					outline: $border-width-md solid $color-primary-50;
-					outline-offset: $border-width-md;
 					border-color: $color-primary-50;
+
+					&:after {
+						border-width: $border-width-md;
+						border-color: inherit;
+					}
 				}
 			}
 		}
@@ -27,7 +30,6 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(box) {
-					outline: $border-width-md solid $color-extended-neutral-0;
 					border-color: $color-extended-neutral-0;
 				}
 			}
