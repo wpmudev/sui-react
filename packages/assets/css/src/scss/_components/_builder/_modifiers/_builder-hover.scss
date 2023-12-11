@@ -12,9 +12,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(field) {
-				transition: 0.3s all ease;
 				@include modifier(hover) {
-					outline: $border-width-xl solid $color-alpha-grey-10;
+					&:after {
+						border-color: $color-alpha-grey-10;
+					}
 				}
 			}
 		}

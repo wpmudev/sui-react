@@ -13,11 +13,24 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(field) {
+				position: relative;
 				background-color: $color-extended-neutral-100;
 				border-radius: $border-radius-md;
 				box-shadow: 0 $shadow-offset-xs $shadow-offset-2xs 0 $color-shadow-light,
 					0 $shadow-offset-2xs $shadow-offset-xs 0 $color-shadow-light;
 				flex: 1;
+
+				&:after {
+					content: "";
+					position: absolute;
+					inset: -#{$border-width-xl};
+					border-radius: inherit;
+					border-width: $border-width-xl;
+					border-style: solid;
+					border-color: transparent;
+					transition: 0.3s all ease;
+					pointer-events: none;
+				}
 			}
 
 			@include element(field-header) {
