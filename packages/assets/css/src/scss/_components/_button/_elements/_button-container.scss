@@ -41,6 +41,7 @@
 				border-color: inherit;
 				border-style: $button-container-border-style;
 				border-radius: $border-radius-sm;
+				pointer-events: none;
 			}
 
 			&:first-child {
@@ -53,7 +54,7 @@
 
 			@include modifier(is-icon) {
 				min-width: auto;
-				padding: $button-container-padding-horizontal;
+				padding: $spacing-md;
 			}
 		}
 	}

@@ -66,6 +66,8 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				setValue(defaultValue)
 			}, [defaultValue])
 
+			console.log(isSmall, props)
+
 			// handle on change
 			const handleChange = useCallback(
 				(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -205,7 +207,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							color="black"
 							appearance="tertiary"
 							iconOnly={true}
-							iconSize={isSmall ? "md" : "lg"}
+							iconSize={isSmall ? "sm" : "md"}
 							onClick={onClear}
 							isSmall={isSmall}
 							onKeyDown={(
