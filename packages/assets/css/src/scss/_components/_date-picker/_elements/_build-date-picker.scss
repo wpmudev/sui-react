@@ -36,6 +36,14 @@
 						&:hover {
 							background: $color-primary-80;
 						}
+
+						&--disabled {
+							color: $color-extended-neutral-70;
+							cursor: default;
+							&:hover {
+								background: $color-extended-neutral-100;
+							}
+						}
 					}
 				}
 			}

@@ -189,7 +189,18 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 
 		// set year for single date
 		if (isSingle) {
-			setFirstMonth(setYear(startMonth, value))
+			if ("years" === listType) {
+				setFirstMonth(setYear(startMonth, value))
+
+				// Display months list
+				setListType("months")
+			} else {
+				setFirstMonth(setMonth(startMonth, value))
+
+				// Display days list
+				setListType("")
+				setToggleId("")
+			}
 			return
 		}
 

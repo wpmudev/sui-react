@@ -35,6 +35,7 @@ const DatePickerPopover: React.FunctionComponent<any> = () => {
 		<div
 			className={generateCN("sui-date-picker__popover", { open: ctx?.isOpen })}
 			data-testid="date-picker-popover"
+			ref={popoverRef}
 		>
 			{/* Render the DatePickerRange component in the header (only in non-single mode) */}
 			{!ctx?.isSingle && (
