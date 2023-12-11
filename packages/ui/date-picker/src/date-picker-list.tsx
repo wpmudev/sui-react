@@ -61,7 +61,7 @@ const DatePickerList: React.FC<any> = ({ date, height }) => {
 					<li
 						key={index}
 						className={generateCN("sui-date-picker__calendar-list-item", {
-							active: isActive(val),
+							active: isActive(val) && !disabled,
 							disabled,
 						})}
 					>

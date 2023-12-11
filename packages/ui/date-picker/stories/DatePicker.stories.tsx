@@ -60,7 +60,7 @@ DatePicker.args = {
 	type: "single",
 	startDate: "15/07/2023",
 	endDate: "15/09/2023",
-	minDate: "01/05/2010",
+	minDate: "01/05/2007",
 	maxDate: "30/10/2023",
 	isDisabled: false,
 	error: "",
