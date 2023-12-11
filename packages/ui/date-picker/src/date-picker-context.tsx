@@ -152,7 +152,15 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		// Set startDate and close the popover (in single mode)
 		if (isSingle) {
 			setDateRange({ startDate: day, endDate: undefined })
+
+			// Close the dropdown
 			setIsOpen(false)
+
+			// call the onChange callback with the update date
+			if (onChange) {
+				onChange(day)
+			}
+
 			return
 		}
 
