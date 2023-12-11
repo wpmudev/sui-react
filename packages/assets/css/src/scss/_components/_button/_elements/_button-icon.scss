@@ -57,4 +57,14 @@
 			}
 		}
 	}
+
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block-name) {
+			@include element(icon) {
+				.sui-icon {
+					color: inherit;
+				}
+			}
+		}
+	}
 }
