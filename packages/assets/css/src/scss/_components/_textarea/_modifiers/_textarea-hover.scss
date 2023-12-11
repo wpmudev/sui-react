@@ -14,9 +14,9 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			@include modifier(hover) {
-				@include modifies-element(field) {
-					outline: $border-width-sm solid $color-primary-50;
-					outline-offset: -#{$border-width-sm};
+				&:after {
+					border: $border-width-sm solid $color-primary-50;
+					inset: -#{$border-width-sm};
 				}
 			}
 		}
@@ -27,8 +27,8 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block-name) {
 			@include modifier(hover) {
-				@include modifies-element(field) {
-					outline-color: $color-extended-neutral-0;
+				&:after {
+					border-color: $color-extended-neutral-0;
 				}
 			}
 		}
