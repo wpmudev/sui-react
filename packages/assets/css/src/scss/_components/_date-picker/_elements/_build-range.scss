@@ -47,6 +47,11 @@
 					background: $color-primary-50;
 				}
 
+				@include modifier(disabled) {
+					cursor: not-allowed;
+					color: $color-extended-neutral-70;
+				}
+
 				@include modifier(focus) {
 					border: $border-width-md solid $color-extended-neutral-0;
 				}
