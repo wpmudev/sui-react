@@ -46,7 +46,8 @@
 
 					&.tox-tbtn--enabled,
 					&.tox-tbtn--enabled:hover,
-					&:hover {
+					&:hover,
+					&:active {
 						background: $color-extended-neutral-90;
 					}
 
