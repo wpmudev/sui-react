@@ -48,7 +48,7 @@
 				}
 
 				@include modifier(disabled) {
-					cursor: not-allowed;
+					pointer-events: none;
 					color: $color-extended-neutral-70;
 				}
 

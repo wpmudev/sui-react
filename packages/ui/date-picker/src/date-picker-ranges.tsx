@@ -77,15 +77,12 @@ const DatePickerRange = ({}) => {
 							active: isActive && !isDisabled,
 							disabled: isDisabled,
 						})}
-						onClick={() => {
-							if (!isDisabled) onRangeClick(range)
-						}}
-						onKeyDown={(e) => {
-							if (!isDisabled)
-								handleOnKeyDown(e, () => {
-									onRangeClick(range)
-								})
-						}}
+						onClick={() => onRangeClick(range)}
+						onKeyDown={(e) =>
+							handleOnKeyDown(e, () => {
+								onRangeClick(range)
+							})
+						}
 					>
 						{range?.label}
 					</div>
