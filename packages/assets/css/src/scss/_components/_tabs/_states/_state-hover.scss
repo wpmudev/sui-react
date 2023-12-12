@@ -16,7 +16,6 @@
 					background: $color-primary-90;
 					border-color: $color-primary-80;
 					color: $color-extended-neutral-10;
-					transition: background-color 0.6s ease, border 0.6s ease;
 				}
 			}
 		}
@@ -30,7 +29,6 @@
 				@include modifier(hover) {
 					background: transparent;
 					border-color: $color-extended-neutral-0;
-					transition: background-color 0.6s ease, border 0.6s ease;
 				}
 			}
 		}
