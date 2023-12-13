@@ -21,7 +21,6 @@ import {
 	setYear,
 } from "date-fns"
 import { useOuterClick } from "@wpmudev/sui-hooks"
-
 import { predefinedRanges, getMonths, parseDate } from "./helpers"
 import { CALENDARS } from "./date-picker"
 import {
