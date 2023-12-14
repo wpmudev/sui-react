@@ -28,7 +28,17 @@
 				padding: $tabs-navitem-spacing-vertical $tabs-navitem-spacing-horizontal;
 				white-space: nowrap;
 				cursor: pointer;
-				transition: background-color 0.6s ease, border 0.6s ease;
+				outline: none;
+				position: relative;
+				transition: 0.3s all ease;
+
+				&:after {
+					content: "";
+					position: absolute;
+					inset: 0;
+					bottom: -#{$tabs-navitem-border-width};
+					pointer-events: none;
+				}
 			}
 		}
 	}
