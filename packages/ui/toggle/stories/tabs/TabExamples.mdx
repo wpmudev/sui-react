@@ -24,8 +24,12 @@ export const descriptionCode = dedent`
 export const noLabelCode = dedent`
     <div style={ { display: "flex", justifyContent: "space-between" } }>
         <span>Pluign Settings</span>
-        <Toggle />
+        <Toggle isLabelHidden={true} />
     </div>
+`
+
+export const disabledCode = dedent`
+    <Toggle isDisabled={true} label="Label"/>
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
@@ -49,8 +53,16 @@ export const noLabelCode = dedent`
 	<Preview wrapper={true}>
 		<div style={ { display: "flex", justifyContent: "space-between" } }>
 			<span>Pluign Settings</span>
-			<Toggle />
+			<Toggle isLabelHidden={true} />
 		</div>
 	</Preview>
 	<Snippet language="js">{noLabelCode}</Snippet>
+</Section>
+
+<Section title="Disabled" contained={true} style={{ paddingTop: 30 }}>
+	<p>To disable the toggle, use the prop <Code isSmall={true}> isDisabled=\{true\} </Code>  </p>
+	<Preview wrapper={true}>
+		<Toggle isDisabled={true} label="Label"/>
+	</Preview>
+	<Snippet language="js">{disabledCode}</Snippet>
 </Section>
