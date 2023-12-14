@@ -2,6 +2,8 @@ import { Section, Preview, Snippet } from "@wpmudev/sui-docs"
 import { Tabs, TabNav, TabNavItem, TabPanel, TabPanelItem } from "../../src"
 import { Bell, Calendar } from "@wpmudev/sui-icons"
 import { Tag } from "@wpmudev/sui-tag"
+import { BoxGroup } from "@wpmudev/sui-box"
+
 
 import dedent from "dedent"
 
@@ -14,22 +16,28 @@ export const sampleCode = dedent`
             </TabNav>
             <TabPanel>
                 <TabPanelItem>
-                    <h3>Image Compression</h3>
-                    <p>
-                        In the tapestry of creation, Lorem Ipsum threads a tale. Since the 1500s, these words have been an artful dance of letters, a symphony of type. Crafted by an unknown printer, they echo the essence of expression—a timeless galley sailing through human connection.
-                    </p>
+                    <BoxGroup>
+                        <h3>Image Compression</h3>
+                        <p>
+                           In the tapestry of creation, Lorem Ipsum threads a tale. Since the 1500s, these words have been an artful dance of letters, a symphony of type. Crafted by an unknown printer, they echo the essence of expression—a timeless galley sailing through human connection.
+                        </p>
+                    </BoxGroup>
                 </TabPanelItem>
                 <TabPanelItem>
-                    <h3>Tools & Settings</h3>
-                    <p>
-                        In the tapestry of creation, Lorem Ipsum threads a tale. Since the 1500s, these words have been an artful dance of letters, a symphony of type. Crafted by an unknown printer, they echo the essence of expression—a timeless galley sailing through human connection.
-                    </p>
+                    <BoxGroup>
+                        <h3>Tools & Settings</h3>
+                        <p>
+                           In the tapestry of creation, Lorem Ipsum threads a tale. Since the 1500s, these words have been an artful dance of letters, a symphony of type. Crafted by an unknown printer, they echo the essence of expression—a timeless galley sailing through human connection.
+                        </p>
+                    </BoxGroup>
                 </TabPanelItem>
                 <TabPanelItem>
-                    <h3>Smush Pro</h3>
-                    <p>
-                        In the tapestry of creation, Lorem Ipsum threads a tale. Since the 1500s, these words have been an artful dance of letters, a symphony of type. Crafted by an unknown printer, they echo the essence of expression—a timeless galley sailing through human connection.
-                    </p>
+                    <BoxGroup>
+                        <h3>Smush Pro</h3>
+                        <p>
+                           In the tapestry of creation, Lorem Ipsum threads a tale. Since the 1500s, these words have been an artful dance of letters, a symphony of type. Crafted by an unknown printer, they echo the essence of expression—a timeless galley sailing through human connection.
+                        </p>
+                    </BoxGroup>
                 </TabPanelItem>
             </TabPanel>
         </Tabs>
@@ -46,13 +54,19 @@ export const iconsCode = dedent`
             </TabNav>
             <TabPanel>
                 <TabPanelItem>
-                    <p>Image Compression Tab Content</p>
+                    <BoxGroup>
+                      <p>Image Compression Tab Content</p>
+                    </BoxGroup>
                 </TabPanelItem>
                 <TabPanelItem>
-                    <p>Tools & Settings Tab Content</p>
+                    <BoxGroup>
+                       <p>Tools & Settings Tab Content</p>
+                    </BoxGroup>
                 </TabPanelItem>
                 <TabPanelItem>
-                    <p>Smush Pro Tab Content</p>
+                    <BoxGroup>
+                       <p>Smush Pro Tab Content</p>
+                    </BoxGroup>
                 </TabPanelItem>
             </TabPanel>
         </Tabs>
@@ -68,10 +82,14 @@ export const disabledCode = dedent`
             </TabNav>
             <TabPanel>
                 <TabPanelItem>
-                    <p>Image Compression Tab Content</p>
+                    <BoxGroup>
+                       <p>Image Compression Tab Content</p>
+                    </BoxGroup>
                 </TabPanelItem>
                 <TabPanelItem>
-                    <p>Tools & Settings Tab Content</p>
+                    <BoxGroup>
+                        <p>Tools & Settings Tab Content</p>
+                    </BoxGroup>
                 </TabPanelItem>
             </TabPanel>
         </Tabs>
@@ -90,10 +108,14 @@ export const tagCode = dedent`
             </TabNav>
             <TabPanel>
                 <TabPanelItem>
-                    <p>Image Compression Tab Content</p>
+                    <BoxGroup>
+                        <p>Image Compression Tab Content</p>
+                    </BoxGroup>
                 </TabPanelItem>
                 <TabPanelItem>
-                    <p>Pro Tab Content</p>
+                    <BoxGroup>
+                        <p>Pro Tab Content</p>
+                    </BoxGroup>
                 </TabPanelItem>
             </TabPanel>
         </Tabs>
@@ -110,31 +132,37 @@ export const tagCode = dedent`
 			</TabNav>
 			<TabPanel>
 				<TabPanelItem>
-					<h3>Image Compression</h3>
-					<p>
-						In the tapestry of creation, Lorem Ipsum threads a tale. Since the
-						1500s, these words have been an artful dance of letters, a symphony
-						of type. Crafted by an unknown printer, they echo the essence of
-						expression—a timeless galley sailing through human connection.
-					</p>
+					<BoxGroup>
+						<h3>Image Compression</h3>
+						<p>
+							In the tapestry of creation, Lorem Ipsum threads a tale. Since the
+							1500s, these words have been an artful dance of letters, a symphony
+							of type. Crafted by an unknown printer, they echo the essence of
+							expression—a timeless galley sailing through human connection.
+						</p>
+					</BoxGroup>
 				</TabPanelItem>
 				<TabPanelItem>
-					<h3>Tools & Settings</h3>
-					<p>
-						In the tapestry of creation, Lorem Ipsum threads a tale. Since the
-						1500s, these words have been an artful dance of letters, a symphony
-						of type. Crafted by an unknown printer, they echo the essence of
-						expression—a timeless galley sailing through human connection.
-					</p>
+					<BoxGroup>
+						<h3>Tools & Settings</h3>
+						<p>
+							In the tapestry of creation, Lorem Ipsum threads a tale. Since the
+							1500s, these words have been an artful dance of letters, a symphony
+							of type. Crafted by an unknown printer, they echo the essence of
+							expression—a timeless galley sailing through human connection.
+						</p>
+					</BoxGroup>
 				</TabPanelItem>
 				<TabPanelItem>
-					<h3>Smush Pro</h3>
-					<p>
-						In the tapestry of creation, Lorem Ipsum threads a tale. Since the
-						1500s, these words have been an artful dance of letters, a symphony
-						of type. Crafted by an unknown printer, they echo the essence of
-						expression—a timeless galley sailing through human connection.
-					</p>
+					<BoxGroup>
+						<h3>Smush Pro</h3>
+						<p>
+							In the tapestry of creation, Lorem Ipsum threads a tale. Since the
+							1500s, these words have been an artful dance of letters, a symphony
+							of type. Crafted by an unknown printer, they echo the essence of
+							expression—a timeless galley sailing through human connection.
+						</p>
+					</BoxGroup>
 				</TabPanelItem>
 			</TabPanel>
 		</Tabs>
@@ -154,13 +182,19 @@ export const tagCode = dedent`
 			</TabNav>
 			<TabPanel>
 				<TabPanelItem>
-					<p>Image Compression Tab Content</p>
+					<BoxGroup>
+						<p>Image Compression Tab Content</p>
+					</BoxGroup>
 				</TabPanelItem>
 				<TabPanelItem>
-					<p>Tools & Settings Tab Content</p>
+					<BoxGroup>
+						<p>Tools & Settings Tab Content</p>
+					</BoxGroup>
 				</TabPanelItem>
 				<TabPanelItem>
-					<p>Smush Pro Tab Content</p>
+					<BoxGroup>
+						<p>Smush Pro Tab Content</p>
+					</BoxGroup>
 				</TabPanelItem>
 			</TabPanel>
 		</Tabs>
@@ -182,10 +216,14 @@ export const tagCode = dedent`
     		</TabNav>
     		<TabPanel>
     			<TabPanelItem>
-    				<p>Image Compression Tab Content</p>
+				    <BoxGroup>
+    				    <p>Image Compression Tab Content</p>
+					</BoxGroup>
     			</TabPanelItem>
     			<TabPanelItem>
-    				<p>Tools & Settings Tab Content</p>
+				    <BoxGroup>
+    				    <p>Tools & Settings Tab Content</p>
+					</BoxGroup>
     			</TabPanelItem>
     		</TabPanel>
     	</Tabs>
@@ -208,10 +246,14 @@ export const tagCode = dedent`
     		</TabNav>
     		<TabPanel>
     			<TabPanelItem>
-    				<p>Image Compression Tab Content</p>
+				    <BoxGroup>
+    				    <p>Image Compression Tab Content</p>
+					</BoxGroup>
     			</TabPanelItem>
     			<TabPanelItem>
-    				<p>CDN Tab Content</p>
+				    <BoxGroup>
+    				    <p>CDN Tab Content</p>
+					</BoxGroup>
     			</TabPanelItem>
     		</TabPanel>
     	</Tabs>

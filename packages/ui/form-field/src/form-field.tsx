@@ -71,7 +71,7 @@ const FormField: React.FC<FormFieldProps> = ({
 			)}
 			{Object.keys(ariaAttrs).length > 0
 				? Children.map(children, (child: ReactNode) => {
-						return isValidElement(child) && typeof child.type === "function"
+						return isValidElement(child)
 							? cloneElement(child, { ...ariaAttrs })
 							: child
 				  })

@@ -179,36 +179,46 @@ export const getMonths = (range: any, minDate?: Date, maxDate?: Date) => {
  * @param {Date} dateStr - The current date to use as a base for the predefined ranges.
  * @return {Array} - An array containing predefined date ranges with label, startDate, and endDate properties.
  */
-const generateRanges = (dateStr: Date): any[] => [
-	{
-		label: "Today",
-		startDate: dateStr,
-		endDate: dateStr,
-	},
-	{
-		label: "Tomorrow",
-		startDate: addDays(dateStr, 1),
-		endDate: addDays(dateStr, 1),
-	},
-	{
-		label: "1 Week",
-		startDate: startOfWeek(dateStr),
-		endDate: endOfWeek(dateStr),
-	},
-	{
-		label: "30 days",
-		startDate: startOfMonth(dateStr),
-		endDate: endOfMonth(dateStr),
-	},
-	{
-		label: "Custom",
-		startDate: null,
-		endDate: null,
-	},
-]
+const generateRanges = (dateStr: Date): any[] => {
+	// Setting time to 00:00:00 for the end of the month
+	const endOfMonthDate = endOfMonth(dateStr)
+	endOfMonthDate.setHours(0, 0, 0, 0)
+
+	return [
+		{
+			label: "Today",
+			startDate: dateStr,
+			endDate: dateStr,
+		},
+		{
+			label: "Tomorrow",
+			startDate: addDays(dateStr, 1),
+			endDate: addDays(dateStr, 1),
+		},
+		{
+			label: "1 Week",
+			startDate: startOfWeek(dateStr, { weekStartsOn: 1 }), // The week start on monday
+			endDate: endOfWeek(dateStr, { weekStartsOn: 1 }), // The week start on monday
+		},
+		{
+			label: "30 days",
+			startDate: startOfMonth(dateStr),
+			endDate: endOfMonthDate,
+		},
+		{
+			label: "Custom",
+			startDate: null,
+			endDate: null,
+		},
+	]
+}
+
+// Current date with time set to 00:00:00.
+const currentDate = new Date()
+currentDate.setHours(0, 0, 0, 0)
 
 // Generate predefined date ranges starting from the current date.
-export const predefinedRanges = generateRanges(new Date())
+export const predefinedRanges = generateRanges(currentDate)
 
 // Object containing lists of months and years for the date picker dropdowns.
 export const switchLists = {

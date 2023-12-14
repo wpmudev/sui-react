@@ -13,14 +13,23 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			position: relative;
+
 			@include element(field) {
-				outline: $border-width-sm solid $color-extended-neutral-70;
-				outline-offset: -#{$border-width-sm};
-				border-radius: $border-radius-sm;
 				font-size: $font-size-default;
 				padding: $spacing-md $spacing-lg;
 				width: 100%;
 				border: none;
+				outline: none;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				border: $border-width-sm solid $color-extended-neutral-70;
+				border-radius: $border-radius-sm;
+				inset: -#{$border-width-sm};
+				pointer-events: none;
 			}
 		}
 	}
@@ -29,8 +38,8 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			@include element(field) {
-				outline-color: $color-extended-neutral-0;
+			&:after {
+				border-color: $color-extended-neutral-0;
 			}
 		}
 	}

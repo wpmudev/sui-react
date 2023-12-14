@@ -44,4 +44,22 @@ interface EditorToolbarProps {
 	children?: ReactNode
 }
 
-export type { EditorToolbarProps }
+// interface definition for the EditorToolbar
+interface EditorToolbarFieldProps {
+	/**
+	 * The title displayed in the editor toolbar.
+	 */
+	status?: "saved" | "saving" | "unsaved"
+
+	/**
+	 * The title displayed in the editor toolbar.
+	 */
+	statusText?: string
+
+	/**
+	 * Elements to be included in the middle of the toolbar.
+	 */
+	children: ReactNode
+}
+
+export type { EditorToolbarProps, EditorToolbarFieldProps }

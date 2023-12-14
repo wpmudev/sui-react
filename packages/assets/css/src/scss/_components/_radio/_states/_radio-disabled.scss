@@ -17,9 +17,11 @@
 				color: $color-extended-neutral-70;
 
 				@include modifies-element(box) {
-					outline-color: $color-extended-neutral-80;
-					border-color: $color-extended-neutral-80;
 					background: $color-extended-neutral-80;
+
+					&:after {
+						border-color: $color-extended-neutral-80;
+					}
 				}
 
 				@include modifies-element(icon) {
@@ -31,8 +33,11 @@
 				}
 
 				&.sui-#{$block}--block {
-					outline-color: $color-extended-neutral-80;
 					background: $color-extended-neutral-95;
+
+					&:after {
+						border-color: $color-extended-neutral-80;
+					}
 				}
 			}
 		}
@@ -46,9 +51,10 @@
 				color: $color-extended-neutral-0;
 
 				@include modifies-element(box) {
-					outline-color: $color-extended-neutral-0;
-					border-color: $color-extended-neutral-0;
 					background: $color-extended-neutral-100;
+					&:after {
+						border-color: $color-extended-neutral-0;
+					}
 				}
 
 				@include modifies-element(icon) {
@@ -60,8 +66,10 @@
 				}
 
 				&.sui-#{$block}--block {
-					outline-color: $color-extended-neutral-0;
 					background: $color-extended-neutral-100;
+					&:after {
+						border-color: $color-extended-neutral-0;
+					}
 				}
 			}
 		}

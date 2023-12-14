@@ -13,9 +13,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(item) {
+				box-shadow: none;
+
 				@include modifier(hover) {
 					background: $color-primary-90;
-					box-shadow: none;
 
 					.sui-#{$block}__item-info {
 						color: $color-primary-50;

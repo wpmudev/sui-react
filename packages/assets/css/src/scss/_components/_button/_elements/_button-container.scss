@@ -9,6 +9,7 @@
 @mixin build-container($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
+			position: relative;
 			cursor: pointer;
 			min-width: $button-container-size-md;
 			max-width: 100%;
@@ -20,7 +21,7 @@
 				$button-container-padding-horizontal;
 			border-width: $button-container-border-width;
 			border-style: $button-container-border-style;
-			border-radius: $button-container-border-radius;
+			border-radius: $border-radius-sm;
 			outline: none;
 			background-image: none;
 			box-shadow: none;
@@ -29,9 +30,19 @@
 			line-height: $button-label-font-height-md;
 			letter-spacing: $button-label-font-spacing-md;
 			text-decoration: none;
-			transition: 0.1s ease;
+			transition: 0.3s all ease;
 			user-select: none;
 			vertical-align: middle;
+
+			&:after {
+				content: "";
+				position: absolute;
+				border-width: 0;
+				border-color: inherit;
+				border-style: $button-container-border-style;
+				border-radius: $border-radius-sm;
+				pointer-events: none;
+			}
 
 			&:first-child {
 				margin-left: 0;
@@ -43,7 +54,7 @@
 
 			@include modifier(is-icon) {
 				min-width: auto;
-				padding: $button-container-padding-horizontal;
+				padding: $spacing-md;
 			}
 		}
 	}

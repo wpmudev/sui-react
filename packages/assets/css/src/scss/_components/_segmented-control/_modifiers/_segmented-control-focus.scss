@@ -13,8 +13,17 @@
 	// THEME: Light.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			@include element(input) {
+				&:active + .sui-segmented-control__label {
+					outline: $border-width-md solid $color-extended-neutral-50;
+					outline-offset: -#{$border-width-md};
+					color: $color-extended-neutral-50;
+					position: relative;
+				}
+			}
+
 			@include element(label) {
-				@include modifier(focus) {
+				&:focus-visible {
 					outline: $border-width-md solid $color-extended-neutral-50;
 					outline-offset: -#{$border-width-md};
 					color: $color-extended-neutral-50;
@@ -28,9 +37,29 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
+			@include element(input) {
+				&:active + .sui-segmented-control__label {
+					color: $color-extended-neutral-0;
+				}
+
+				&,
+				&:active {
+					& + .sui-segmented-control__label--active {
+						color: $color-extended-neutral-100;
+					}
+				}
+			}
+
 			@include element(label) {
-				@include modifier(focus) {
-					box-shadow: none;
+				&:focus-visible {
+					color: $color-extended-neutral-0;
+				}
+
+				@include modifier(active) {
+					&,
+					&:focus-visible {
+						color: $color-extended-neutral-100;
+					}
 				}
 			}
 		}

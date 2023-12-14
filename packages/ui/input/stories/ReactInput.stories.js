@@ -32,7 +32,7 @@ const Input = ({ example, isSmall, isDisabled, ...args }) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<FormField isSmall={isSmall} isDisabled={isDisabled}>
-						<SuiInput {...args} />
+						<SuiInput {...args} isSmall={isSmall} isDisabled={isDisabled} />
 					</FormField>
 				</div>
 			</div>

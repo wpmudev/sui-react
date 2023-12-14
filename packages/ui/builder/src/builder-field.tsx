@@ -104,7 +104,8 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 	// Render the action buttons
 	const renderActions = () => (
 		<div className={actionClass}>
-			{isHovered && action}
+			{hasAccordion && isHovered && action}
+			{!hasAccordion && action}
 			{hasAccordion && (
 				<div className="sui-builder__field-actions-item sui-builder__field-actions-item--accordion">
 					<Button

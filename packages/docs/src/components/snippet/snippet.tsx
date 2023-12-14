@@ -36,7 +36,6 @@ const Snippet: React.FunctionComponent<SnippetProps> = ({
 			<Button
 				type="button"
 				style="secondary"
-				icon="bell"
 				label={showCode ? "Hide code" : "Show code"}
 				className="csb-snippet__toggle-button"
 				onClick={() => setShowCode(!showCode)}

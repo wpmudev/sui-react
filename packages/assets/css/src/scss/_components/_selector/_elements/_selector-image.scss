@@ -13,6 +13,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(image) {
+				@include modifies-element(option-image-wrapper) {
+					padding: $spacing-sm;
+				}
+
 				@include modifies-element(option-body-image) {
 					display: block;
 					border-radius: $border-radius-sm;
@@ -21,7 +25,6 @@
 					background-position: center;
 					background-size: cover;
 					background-repeat: no-repeat;
-					margin: $spacing-sm;
 					width: auto;
 				}
 

@@ -13,6 +13,7 @@ interface InputWithAutoCompleteProps {
 	onChange?: (
 		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => void
+	onValueChange: (val: string) => void
 	onEvent?: (event: React.ChangeEvent<HTMLInputElement>) => void
 	ref?: LegacyRef<HTMLInputElement>
 }
@@ -23,6 +24,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	selected = { label: "" },
 	dropdownItems = [],
 	dropdownToggle,
+	onValueChange = () => {},
 	onChange = () => {},
 	onEvent = () => {},
 	...props
@@ -55,6 +57,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 			const val = e.target.value
 
 			setValue(val)
+			onValueChange(val)
 			if (onChange) {
 				onChange(e)
 			}

@@ -26,9 +26,21 @@
 
 			@include modifier(block) {
 				padding: $spacing-lg $spacing-xl;
-				border-radius: $radio-border-radius-sm;
-				outline: $border-width-sm solid $color-extended-neutral-80;
 				flex: 1;
+				position: relative;
+
+				@include media(max-width, md) {
+					padding: $spacing-lg;
+				}
+
+				&:after {
+					content: "";
+					position: absolute;
+					inset: -1px;
+					border-radius: $radio-border-radius-sm;
+					border: $border-width-sm solid $color-extended-neutral-80;
+					pointer-events: none;
+				}
 			}
 		}
 	}
@@ -40,7 +52,9 @@
 			color: $color-extended-neutral-0;
 
 			@include modifier(block) {
-				outline-color: $color-extended-neutral-0;
+				&:after {
+					border-color: $color-extended-neutral-0;
+				}
 			}
 		}
 	}
