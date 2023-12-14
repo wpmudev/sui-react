@@ -14,7 +14,9 @@
 			@include element(info) {
 				@include modifier(focus) {
 					background: $color-extended-neutral-95;
-					box-shadow: 0 0 0 $shadow-offset-xs $color-extended-neutral-10;
+					&:after {
+						border: $border-width-md solid $color-extended-neutral-10;
+					}
 				}
 			}
 		}

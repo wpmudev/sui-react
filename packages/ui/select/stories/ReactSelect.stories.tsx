@@ -16,8 +16,10 @@ import docs from "./ReactSelect.mdx"
 const Select = ({
 	example,
 	errorMessage,
+	isSmall,
+	isDisabled,
 	...props
-}: { example: string } & SelectBaseProps) => {
+}: { example: string; errorMessage: string } & SelectBaseProps) => {
 	const boxStyle = {
 		margin: 0,
 		padding: "30px",
@@ -35,6 +37,8 @@ const Select = ({
 						label="Label"
 						helper="Description"
 						error={errorMessage}
+						isSmall={isSmall}
+						isDisabled={isDisabled}
 					>
 						{"select" === example && <StandardSelect {...props} />}
 						{"search" === example && <SearchSelect {...props} />}

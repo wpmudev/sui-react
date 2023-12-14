@@ -45,13 +45,18 @@ $colors-high-contrast: (
 
 							&.sui-#{$block-name}--focus {
 								border-color: $value;
-								outline: 1px solid $value;
 								background: if(
 									$name == white,
-									$color-extended-neutral-100,
-									transparent
+									transparent,
+									$color-extended-neutral-100
 								);
-								color: if($name == white, $color-extended-neutral-10, $value);
+								color: $value;
+
+								&:after {
+									border-width: $border-width-sm;
+									inset: -#{$border-width-md};
+									border-radius: $border-radius-sm;
+								}
 							}
 						} @else if $theme == secondary {
 							border-color: $value;
@@ -64,12 +69,18 @@ $colors-high-contrast: (
 							}
 
 							&.sui-#{$block-name}--focus {
-								outline-width: if($name == white, 2px, 1px);
-								outline-style: solid;
-								outline-color: $value;
-								outline-offset: if($name == white, 2px, 0);
 								background: if($name == white, $value, tint($value, 90%));
 								color: if($name == white, $color-extended-neutral-10, $value);
+
+								&:after {
+									border-width: $border-width-md;
+									inset: if($name == white, -5px, -#{$border-width-md});
+									border-radius: if(
+										$name == white,
+										$border-radius-md,
+										$border-radius-sm
+									);
+								}
 							}
 						} @else {
 							border-color: $value;
@@ -100,14 +111,18 @@ $colors-high-contrast: (
 
 							&.sui-#{$block-name}--focus {
 								border-color: $value;
-								outline: 2px solid $value;
-								outline-offset: 2px;
 								background: $value;
 								color: if(
 									$name == white,
 									$color-extended-neutral-10,
 									$color-extended-neutral-100
 								);
+
+								&:after {
+									border-width: $border-width-md;
+									inset: -5px;
+									border-radius: $border-radius-md;
+								}
 							}
 						}
 					}
@@ -139,7 +154,6 @@ $colors-high-contrast: (
 
 							&.sui-#{$block-name}--focus {
 								border-color: $value;
-								outline: 1px solid $value;
 								background: transparent;
 								color: inherit;
 								@if $name == white {
@@ -161,7 +175,7 @@ $colors-high-contrast: (
 							}
 
 							&.sui-#{$block-name}--focus {
-								outline-color: $value;
+								border-color: $value;
 								@if $name != white {
 									background: tint($value, 90%);
 								}
@@ -175,8 +189,6 @@ $colors-high-contrast: (
 							color: $color-extended-neutral-100;
 
 							&.sui-#{$block-name}--focus {
-								border-color: $value;
-								outline: $border-width-md solid $value;
 								background: $value;
 							}
 						}

@@ -14,15 +14,15 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(focus) {
-				@include modifies-element(field) {
-					outline: $border-width-md solid $color-primary-50;
-					outline-offset: -#{$border-width-md};
+				&:after {
+					border: $border-width-md solid $color-primary-50;
+					inset: -#{$border-width-md};
 				}
 
 				&.sui-#{$block}--error {
-					@include modifies-element(field) {
-						outline: $border-width-md solid $color-extended-error-50;
-						outline-offset: -#{$border-width-md};
+					&:after {
+						border: $border-width-md solid $color-extended-error-50;
+						inset: -#{$border-width-md};
 					}
 				}
 			}
@@ -34,13 +34,13 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include modifier(focus) {
-				@include modifies-element(field) {
-					outline-color: $color-extended-neutral-0;
+				&:after {
+					border-color: $color-extended-neutral-0;
 				}
 
 				&.sui-#{$block}--error {
-					@include modifies-element(field) {
-						outline-color: $color-extended-neutral-0;
+					&:after {
+						border-color: $color-extended-neutral-0;
 					}
 				}
 			}

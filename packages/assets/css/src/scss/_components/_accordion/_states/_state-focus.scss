@@ -13,31 +13,62 @@
 		@include block($block) {
 			@include element(header) {
 				@include modifier(focus) {
-					&::after {
+					&:after {
 						position: absolute;
 						content: "";
-						left: 0;
-						right: 0;
-						top: 0;
-						bottom: 0;
+						inset: 0;
 						border: $border-width-md solid $color-primary-50;
 						pointer-events: none;
 					}
 				}
 			}
 
+			@include element(item) {
+				&:first-child {
+					.sui-#{$block}__header--focus {
+						&:after {
+							border-top-left-radius: $border-radius-md;
+							border-top-right-radius: $border-radius-md;
+						}
+					}
+				}
+
+				&:last-child {
+					.sui-#{$block}__header--focus {
+						&:after {
+							border-bottom-right-radius: $border-radius-md;
+							border-bottom-left-radius: $border-radius-md;
+						}
+					}
+					&.sui-#{$block}__item--expanded {
+						.sui-#{$block}__header--focus {
+							&:after {
+								border-bottom-right-radius: 0;
+								border-bottom-left-radius: 0;
+							}
+						}
+					}
+				}
+			}
+
 			@include modifier(no-border-radius) {
-				.sui-#{$block}__item--focus {
-					&:first-child,
-					&:first-child::after {
-						border-top-left-radius: 0;
-						border-top-right-radius: 0;
+				.sui-#{$block}__item {
+					&:first-child {
+						.sui-#{$block}__header--focus {
+							&:after {
+								border-top-left-radius: 0;
+								border-top-right-radius: 0;
+							}
+						}
 					}
 
-					&:last-child,
-					&:last-child::after {
-						border-bottom-right-radius: 0;
-						border-bottom-left-radius: 0;
+					&:last-child {
+						.sui-#{$block}__header--focus {
+							&:after {
+								border-bottom-right-radius: 0;
+								border-bottom-left-radius: 0;
+							}
+						}
 					}
 				}
 			}
