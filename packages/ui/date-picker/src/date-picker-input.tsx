@@ -49,7 +49,7 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 	if (ctx?.isSingle && !!startDate) {
 		value = `${format(startDate, formatStr)}`
 	} else if (!!startDate && !!endDate) {
-		value = `${format(startDate, formatStr)}- ${format(endDate, formatStr)}`
+		value = `${format(startDate, formatStr)} - ${format(endDate, formatStr)}`
 	}
 
 	return (
