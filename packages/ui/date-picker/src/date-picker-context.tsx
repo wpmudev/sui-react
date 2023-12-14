@@ -20,7 +20,7 @@ import {
 	setMonth,
 	setYear,
 } from "date-fns"
-import { useOuterClick } from "@wpmudev/sui-hooks"
+
 import { predefinedRanges, getMonths, parseDate } from "./helpers"
 import { CALENDARS } from "./date-picker"
 import {
@@ -52,10 +52,8 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		maxDate,
 		definedRanges = predefinedRanges,
 		isDisabled,
+		children,
 	} = props
-
-	// Create a ref to access the dropdown's outer container element.
-	const datepickerRef = useRef<HTMLDivElement | null>(null)
 
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const [listType, setListType] = useState<"" | "months" | "years">("months")
@@ -95,13 +93,6 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		setDateRange(defaultRange)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [props.startDate, props.endDate])
-
-	// Handle the closing of the dropdown when clicking outside the component.
-	useOuterClick(datepickerRef, () => {
-		if (isSingle) {
-			setIsOpen(false)
-		}
-	})
 
 	// Extract startDate and endDate from the dateRange state.
 	const { startDate, endDate } = dateRange
@@ -162,7 +153,15 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		// Set startDate and close the popover (in single mode)
 		if (isSingle) {
 			setDateRange({ startDate: day, endDate: undefined })
+
+			// Close the dropdown
 			setIsOpen(false)
+
+			// call the onChange callback with the update date
+			if (onChange) {
+				onChange(day)
+			}
+
 			return
 		}
 
@@ -199,7 +198,18 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 
 		// set year for single date
 		if (isSingle) {
-			setFirstMonth(setYear(startMonth, value))
+			if ("years" === listType) {
+				setFirstMonth(setYear(startMonth, value))
+
+				// Display months list
+				setListType("months")
+			} else {
+				setFirstMonth(setMonth(startMonth, value))
+
+				// Display days list
+				setListType("")
+				setToggleId("")
+			}
 			return
 		}
 
@@ -306,10 +316,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 				handlers,
 			}}
 		>
-			{props?.children &&
-				React.cloneElement(props.children as React.ReactElement, {
-					ref: datepickerRef,
-				})}
+			{children}
 		</DatePickerContext.Provider>
 	)
 }
