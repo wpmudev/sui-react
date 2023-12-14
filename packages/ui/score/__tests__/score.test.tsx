@@ -35,6 +35,33 @@ describe("@wpmudev/sui-score", () => {
 		expect(screen.getByTestId("score")).toHaveClass("sui-score--success")
 	})
 
+	// Test the score bar length
+	test("score has the right value and bar length", () => {
+		// Render the score component with a value of 70, a bar of 70, and the "success" state.
+		render(<Score value={70} bar={70} />)
+
+		// Get the score element
+		const scoreElement = screen.getByTestId("score")
+
+		// Get all circles elements
+		const circles = scoreElement.querySelectorAll(".sui-score__circle")
+
+		// The second circle is the score bar element
+		const bar = circles[1]
+
+		// Get the computed styles of the bar
+		const styles = window.getComputedStyle(bar)
+
+		// Check if the "sui70" animation is part of the animation property
+		expect(styles.animation).toMatch("sui70")
+
+		// Content element
+		const content = scoreElement.querySelector(".sui-score--content")
+
+		// Expect the value to be "70%"
+		expect(content?.textContent).toContain("70%")
+	})
+
 	// eslint-disable-next-line jest/expect-expect
 	it("passes a11y test", async () => {
 		await a11yTest(<Score value={50} bar={50} />)

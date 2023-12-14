@@ -113,7 +113,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 		if (!!node) {
 			setRef(node)
 
-			// load tinymce
+			// Load tinymce
 			if (tinymce) {
 				loadTinyMCE(node.id)
 			}

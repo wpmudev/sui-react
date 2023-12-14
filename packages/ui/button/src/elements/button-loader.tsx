@@ -1,5 +1,4 @@
 import React, { Fragment } from "react"
-import { generateCN } from "@wpmudev/sui-utils"
 import { SpinnerAlt } from "@wpmudev/sui-icons"
 
 interface ButtonLoaderProps {

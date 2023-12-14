@@ -58,9 +58,9 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@types/prismjs": "1.26.1",
     "@wpmudev/sui-tooltip": "^0.0.1",
     "@wpmudev/sui-utils": "^0.0.1",
+    "@types/prismjs": "1.26.1",
     "prismjs": "^1.29.0",
     "react": "^18.2.0"
   }

@@ -274,7 +274,7 @@ const Select: React.FC<SelectBaseProps> = ({
 
 	// Render component
 	return (
-		<div {...selectProps} data-testid="select">
+		<div {...selectProps} data-check="check" data-testid="select">
 			{!isSearchable && (
 				// @ts-ignore
 				<Selected {...headerProps} />
