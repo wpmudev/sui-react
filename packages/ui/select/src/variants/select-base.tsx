@@ -4,6 +4,7 @@ import React, {
 	useRef,
 	HTMLProps,
 	ChangeEvent,
+	LegacyRef,
 } from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 import {
@@ -105,14 +106,9 @@ const Select: React.FC<SelectBaseProps> = ({
 		)
 	}
 
-	// Define states.
-	const [isHovered, isFocused, interactionMethods] = useInteraction({
-		onMouseLeave: props.onMouseLeave,
-		onMouseEnter: props.onMouseEnter,
-	} as InteractionTypes)
-
 	// set ref to dropdown.
 	const ref = useRef<HTMLDivElement | null>(null)
+	const controlRef = useRef<HTMLDivElement | HTMLInputElement | null>(null)
 
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
 	const [items, setItems] = useState<Record<string, any>[]>(options)
@@ -129,6 +125,26 @@ const Select: React.FC<SelectBaseProps> = ({
 	useEffect(() => {
 		setSelectedItems(selected)
 	}, [selected])
+
+	// focus when dropdown closed
+	useEffect(() => {
+		if (!!controlRef?.current) {
+			controlRef?.current?.focus()
+		}
+	}, [selectedItem])
+
+	// focus-in when multi-select dropdown is closed
+	useEffect(() => {
+		if (isMultiSelect && !isDropdownOpen && !!controlRef?.current) {
+			controlRef?.current?.focus()
+		}
+	}, [isDropdownOpen, isMultiSelect])
+
+	// Define states.
+	const [isHovered, isFocused, interactionMethods] = useInteraction({
+		onMouseLeave: props.onMouseLeave,
+		onMouseEnter: props.onMouseEnter,
+	} as InteractionTypes)
 
 	// UseEffect function to handle change in items
 	useEffect(() => {
@@ -189,7 +205,6 @@ const Select: React.FC<SelectBaseProps> = ({
 	const selectProps = {
 		className: classNames,
 		ref,
-		...interactionMethods,
 		// onBlurCapture: () => set.focus(false),
 	}
 
@@ -225,6 +240,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	// Header props
 	const headerProps = {
 		id,
+		controlRef,
 		expanded: isDropdownOpen,
 		selected: selectedItem,
 		selectLabel: label,
@@ -255,6 +271,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			},
 		}),
 		...props,
+		...interactionMethods,
 	}
 
 	// Dropdown props
