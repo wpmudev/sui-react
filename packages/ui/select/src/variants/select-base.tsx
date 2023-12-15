@@ -4,13 +4,13 @@ import React, {
 	useRef,
 	HTMLProps,
 	ChangeEvent,
-	LegacyRef,
 } from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
 	useInteraction,
 	useOuterClick,
+	usePrevious,
 } from "@wpmudev/sui-hooks"
 
 import { Dropdown } from "../elements/select-dropdown"
@@ -126,19 +126,20 @@ const Select: React.FC<SelectBaseProps> = ({
 		setSelectedItems(selected)
 	}, [selected])
 
+	// hold isDropdownOpen's previous val
+	const prevIsDropdownOpen = usePrevious(isDropdownOpen)
+
 	// focus when dropdown closed
 	useEffect(() => {
-		if (!!controlRef?.current) {
+		if (
+			!!controlRef?.current &&
+			"undefined" !== typeof prevIsDropdownOpen &&
+			prevIsDropdownOpen !== isDropdownOpen &&
+			!isDropdownOpen
+		) {
 			controlRef?.current?.focus()
 		}
-	}, [selectedItem])
-
-	// focus-in when multi-select dropdown is closed
-	useEffect(() => {
-		if (isMultiSelect && !isDropdownOpen && !!controlRef?.current) {
-			controlRef?.current?.focus()
-		}
-	}, [isDropdownOpen, isMultiSelect])
+	}, [isDropdownOpen, prevIsDropdownOpen])
 
 	// Define states.
 	const [isHovered, isFocused, interactionMethods] = useInteraction({
