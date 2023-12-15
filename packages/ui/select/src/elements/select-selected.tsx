@@ -1,6 +1,7 @@
 import React, {
 	ChangeEvent,
 	HTMLProps,
+	LegacyRef,
 	MouseEvent,
 	ReactNode,
 	useCallback,
@@ -13,6 +14,7 @@ import { InputWithAutoComplete } from "./select-input"
 interface SelectSelectedProps
 	extends Omit<HTMLProps<HTMLDivElement>, "selected"> {
 	id: string
+	controlRef: LegacyRef<HTMLDivElement | HTMLInputElement> | null
 	expanded?: boolean
 	arrow?: string
 	selected?: Record<string, any> | string
@@ -27,6 +29,7 @@ interface SelectSelectedProps
 // Build "Select Selected" component.
 const Selected: React.FC<SelectSelectedProps> = ({
 	id,
+	controlRef,
 	expanded = false,
 	arrow,
 	selected,
@@ -79,6 +82,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	return (
 		<div
 			id={id}
+			ref={controlRef as LegacyRef<HTMLDivElement>}
 			role="button"
 			className="sui-select__control"
 			onClick={dropdownToggle}
@@ -109,6 +113,7 @@ interface SelectSelectedSearchProps
 	extends Omit<HTMLProps<HTMLInputElement>, "selected" | "ref" | "onChange"> {
 	arrow?: string
 	isSmall?: boolean
+	controlRef: LegacyRef<HTMLDivElement | HTMLInputElement> | null
 	selected?: {
 		label: string
 	}
