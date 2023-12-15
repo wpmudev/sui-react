@@ -189,7 +189,6 @@ const Select: React.FC<SelectBaseProps> = ({
 	const selectProps = {
 		className: classNames,
 		ref,
-		...interactionMethods,
 		// onBlurCapture: () => set.focus(false),
 	}
 
@@ -255,6 +254,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			},
 		}),
 		...props,
+		...interactionMethods,
 	}
 
 	// Dropdown props
