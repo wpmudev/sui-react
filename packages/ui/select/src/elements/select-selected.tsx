@@ -14,7 +14,7 @@ import { InputWithAutoComplete } from "./select-input"
 interface SelectSelectedProps
 	extends Omit<HTMLProps<HTMLDivElement>, "selected"> {
 	id: string
-	controlRef: LegacyRef<HTMLDivElement | HTMLInputElement> | null
+	controlRef: HTMLDivElement | HTMLInputElement | null
 	expanded?: boolean
 	arrow?: string
 	selected?: Record<string, any> | string
@@ -113,7 +113,7 @@ interface SelectSelectedSearchProps
 	extends Omit<HTMLProps<HTMLInputElement>, "selected" | "ref" | "onChange"> {
 	arrow?: string
 	isSmall?: boolean
-	controlRef: LegacyRef<HTMLDivElement | HTMLInputElement> | null
+	controlRef: HTMLDivElement | HTMLInputElement | null
 	selected?: {
 		label: string
 	}

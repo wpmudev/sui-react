@@ -4,7 +4,7 @@ import { Input } from "@wpmudev/sui-input"
 interface InputWithAutoCompleteProps {
 	id?: string
 	expanded?: boolean
-	controlRef: LegacyRef<HTMLDivElement | HTMLInputElement> | null
+	controlRef: HTMLDivElement | HTMLInputElement | null
 	isSmall?: boolean
 	selected?: {
 		label: string
