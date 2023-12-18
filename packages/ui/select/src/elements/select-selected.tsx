@@ -24,6 +24,7 @@ interface SelectSelectedProps
 	removeSelection?: (optionId: number | string) => void
 	dropdownToggle: () => void
 	clearSelection: () => void
+	interactionMethods: object
 }
 
 // Build "Select Selected" component.
@@ -36,6 +37,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	selectLabel = "",
 	isMultiSelect = false,
 	isSmall = false,
+	interactionMethods,
 	removeSelection = () => {},
 	dropdownToggle = () => {},
 	clearSelection = () => {},
@@ -80,32 +82,41 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	)
 
 	return (
-		<div
-			id={id}
-			ref={controlRef as LegacyRef<HTMLDivElement>}
-			role="button"
-			className="sui-select__control"
-			onClick={dropdownToggle}
-			onKeyDown={(e) => {
-				if (e.key === "Enter") {
-					dropdownToggle()
-				}
-			}}
-			tabIndex={0}
-			aria-haspopup="listbox"
-			aria-expanded={expanded}
-			{...props}
-		>
-			{selectedContent}
-			{isMultiSelect && !isUndefined(selected) && selectLabel !== selected && (
-				<Icon
-					name="close-alt"
-					size={isSmall ? "md" : "lg"}
-					onClick={onClearSelection}
-				/>
-			)}
-			{arrow && <Icon name={arrow} size="md" />}
-		</div>
+		<>
+			<input
+				id={id}
+				className="sui-select__hidden-input"
+				{...interactionMethods}
+			/>
+			<div
+				id={id}
+				ref={controlRef as LegacyRef<HTMLDivElement>}
+				role="button"
+				className="sui-select__control"
+				onClick={dropdownToggle}
+				onKeyDown={(e) => {
+					if (e.key === "Enter") {
+						dropdownToggle()
+					}
+				}}
+				tabIndex={0}
+				aria-haspopup="listbox"
+				aria-expanded={expanded}
+				{...props}
+			>
+				{selectedContent}
+				{isMultiSelect &&
+					!isUndefined(selected) &&
+					selectLabel !== selected && (
+						<Icon
+							name="close-alt"
+							size={isSmall ? "md" : "lg"}
+							onClick={onClearSelection}
+						/>
+					)}
+				{arrow && <Icon name={arrow} size="md" />}
+			</div>
+		</>
 	)
 }
 
@@ -121,10 +132,12 @@ interface SelectSelectedSearchProps
 	clearSelection: () => void
 	// ref?: LegacyRef<HTMLDivElement>
 	onChange?(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void
+	interactionMethods: object
 }
 
 const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 	isSmall = false,
+	interactionMethods,
 	selectLabel = "",
 	clearSelection,
 	selected,
@@ -152,6 +165,7 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 				isSmall={isSmall ?? false}
 				onValueChange={onValueChange}
 				selected={selected}
+				interactionMethods={interactionMethods}
 				{...props}
 			/>
 			{(close || selected?.label) && (

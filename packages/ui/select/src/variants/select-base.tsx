@@ -272,7 +272,6 @@ const Select: React.FC<SelectBaseProps> = ({
 			},
 		}),
 		...props,
-		...interactionMethods,
 	}
 
 	// Dropdown props
@@ -297,11 +296,14 @@ const Select: React.FC<SelectBaseProps> = ({
 		<div {...selectProps} data-check="check" data-testid="select">
 			{!isSearchable && (
 				// @ts-ignore
-				<Selected {...headerProps} />
+				<Selected {...headerProps} interactionMethods={interactionMethods} />
 			)}
 			{isSearchable && (
 				// @ts-ignore
-				<SelectedSearch {...headerProps} />
+				<SelectedSearch
+					{...headerProps}
+					interactionMethods={interactionMethods}
+				/>
 			)}
 			{isDropdownOpen && (
 				// @ts-ignore
