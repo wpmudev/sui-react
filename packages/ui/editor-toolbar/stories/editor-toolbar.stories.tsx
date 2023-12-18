@@ -43,15 +43,6 @@ export const EditorToolbar = ({
 		return [
 			<Button
 				key={0}
-				appearance="tertiary"
-				icon="Save"
-				color="black"
-				isResponsive={true}
-			>
-				Save Draft
-			</Button>,
-			<Button
-				key={1}
 				appearance="secondary"
 				icon="Show"
 				color="black"
@@ -61,7 +52,7 @@ export const EditorToolbar = ({
 				Preview
 			</Button>,
 			<Button
-				key={2}
+				key={1}
 				appearance="primary"
 				icon="Globe"
 				color="blue"

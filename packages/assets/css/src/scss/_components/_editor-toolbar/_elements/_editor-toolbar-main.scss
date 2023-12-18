@@ -22,9 +22,13 @@
 				color: $color-extended-neutral-10;
 				margin: 0;
 				max-width: 200px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
 
-				@include media(max-width, md) {
+				@include media(max-width, sm) {
 					max-width: 100%;
+					white-space: unset;
 				}
 			}
 		}
