@@ -21,6 +21,11 @@
 			@include element(main-title) {
 				color: $color-extended-neutral-10;
 				margin: 0;
+				max-width: 200px;
+
+				@include media(max-width, md) {
+					max-width: 100%;
+				}
 			}
 		}
 	}
