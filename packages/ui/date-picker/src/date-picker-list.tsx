@@ -39,6 +39,9 @@ const DatePickerList: React.FC<any> = ({ date, height }) => {
 				// if we have "months" list, else "years" list
 				const isTypeMonths = "months" === ctx.listType
 
+				// The selected year in string type
+				const selectedYear = getYear(date).toString()
+
 				// The value to use based on the type
 				const val = isTypeMonths ? index : name
 
@@ -46,8 +49,14 @@ const DatePickerList: React.FC<any> = ({ date, height }) => {
 				const minYear = getYear(ctx?.minDateValid as Date)
 				const maxYear = getYear(ctx?.maxDateValid as Date)
 
-				// The date to check upon (always use the first of the month and the selected year)
-				const monthFullDate = new Date(`${index + 1}-01-${getYear(date)}`)
+				// The date to check upon for the month
+				const monthFullDate = new Date(selectedYear)
+
+				// Set the month to the current month in the loop
+				monthFullDate.setMonth(index)
+
+				// set time to 00:00:00
+				monthFullDate.setHours(0, 0, 0, 0)
 
 				// Check if the current "year" or "month" is disabled (if it's outside of the valid date range)
 				const disabled = isTypeMonths
