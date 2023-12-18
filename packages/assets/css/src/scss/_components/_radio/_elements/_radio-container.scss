@@ -23,6 +23,7 @@
 			line-height: $font-height-sm;
 			letter-spacing: $font-spacing-default;
 			align-content: flex-start;
+			outline: none;
 
 			@include modifier(block) {
 				padding: $spacing-lg $spacing-xl;
