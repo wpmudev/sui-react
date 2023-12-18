@@ -16,6 +16,7 @@
 				display: flex;
 				gap: $spacing-md;
 				width: 100%;
+				flex: 1;
 
 				.sui-#{$block}__body {
 					@include media(max-width, md) {
