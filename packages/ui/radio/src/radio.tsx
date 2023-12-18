@@ -79,8 +79,9 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 				htmlFor={uuid}
 				data-testid="radio"
 				tabIndex={-1}
+				{...methods}
 			>
-				<input {...inputProps} data-testid="radio-input" {...methods} />
+				<input {...inputProps} data-testid="radio-input" />
 				<span {...boxProps} tabIndex={-1}>
 					{checked && <span className="sui-radio__icon" />}
 				</span>
