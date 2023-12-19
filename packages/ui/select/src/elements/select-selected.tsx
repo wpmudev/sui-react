@@ -84,13 +84,13 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	return (
 		<>
 			<input
-				id={`${id}-hidden`}
+				id={id}
 				aria-label="select-input-field"
 				className="sui-select__hidden-input"
 				{...interactionMethods}
 			/>
 			<div
-				id={id}
+				id={`${id}-control`}
 				ref={controlRef as LegacyRef<HTMLDivElement>}
 				role="button"
 				className="sui-select__control"
