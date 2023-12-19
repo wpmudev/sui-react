@@ -8,7 +8,7 @@
 		},
 		"spacing": {
 			"xs": {
-				"value": "6px",
+				"value": "8px",
 				"type": "spacing"
 			},
 			"md": {
