@@ -14,7 +14,7 @@ import "./button.scss"
 interface ButtonProps {
 	label: string
 	icon?: string
-	style: "primary" | "secondary"
+	style?: "primary" | "secondary"
 	color?: "white" | "black"
 	small?: boolean
 	className?: string
@@ -35,7 +35,7 @@ type buttonTagAttributes = React.DetailedHTMLProps<
 // Signature for "button" tag
 function Button({
 	type,
-	style,
+	style = "primary",
 	color,
 	small,
 	icon,
@@ -46,7 +46,7 @@ function Button({
 // Signature for "a" tag
 function Button({
 	type,
-	style,
+	style = "primary",
 	color,
 	small,
 	icon,
@@ -57,7 +57,7 @@ function Button({
 // Implementation
 function Button({
 	type,
-	style,
+	style = "primary",
 	color,
 	small,
 	icon = "",

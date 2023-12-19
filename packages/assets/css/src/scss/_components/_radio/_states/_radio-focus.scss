@@ -13,8 +13,6 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(box) {
-					border-color: $color-primary-50;
-
 					&:after {
 						border: $border-width-md solid $color-extended-neutral-50;
 					}
