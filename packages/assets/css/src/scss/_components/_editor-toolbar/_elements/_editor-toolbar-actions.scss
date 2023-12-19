@@ -16,7 +16,7 @@
 				align-items: center;
 				display: flex;
 				gap: $spacing-lg;
-				justify-content: space-between;
+				justify-content: flex-end;
 				margin-left: auto;
 
 				@include media(max-width, sm) {

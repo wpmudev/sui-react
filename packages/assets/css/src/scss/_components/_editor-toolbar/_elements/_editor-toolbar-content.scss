@@ -24,18 +24,6 @@
 					}
 				}
 
-				@include modifier(center) {
-					.sui-#{$block}__body {
-						flex: 1;
-						display: flex;
-						justify-content: center;
-
-						@include media(max-width, sm) {
-							flex: 0;
-						}
-					}
-				}
-
 				@include modifier(left) {
 					@include media(max-width, sm) {
 						flex: 100%;

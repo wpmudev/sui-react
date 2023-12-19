@@ -8,30 +8,64 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-container($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
 			display: flex;
 			align-items: center;
-            background-color: $color-extended-neutral-100;
-            gap: $spacing-lg;
+			background-color: $color-extended-neutral-100;
+			gap: $spacing-lg;
 			padding: $spacing-lg $spacing-xxl;
 
-            @include media(max-width, sm) {
+			@include modifier(center) {
+				@include modifies-element(content, content--left, actions) {
+					flex-grow: 1;
+					flex-basis: 0;
+				}
+
+				@include modifies-element(content--left) {
+					@include media(max-width, sm) {
+						flex-basis: unset;
+						width: 100%;
+					}
+				}
+
+				@include modifies-element(content) {
+					justify-content: center;
+
+					.sui-#{$block}__body {
+						@include media(max-width, md) {
+							width: auto;
+						}
+					}
+
+					@include media(max-width, sm) {
+						justify-content: flex-start;
+						flex-grow: unset;
+					}
+				}
+
+				@include modifies-element(actions) {
+					@include media(max-width, sm) {
+						justify-content: flex-start;
+					}
+				}
+			}
+
+			@include media(max-width, sm) {
 				flex-wrap: wrap;
-				align-items: flex-start;
 				padding: $spacing-lg;
 				gap: $spacing-md;
 			}
-        }
-    }
+		}
+	}
 
-    // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: false, $theme: dark) {
-        @include block($block) {
-            border-bottom: $border-width-sm solid $color-extended-neutral-0;
-        }
-    }
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			border-bottom: $border-width-sm solid $color-extended-neutral-0;
+		}
+	}
 }
