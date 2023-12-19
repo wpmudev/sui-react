@@ -36,8 +36,8 @@ describe("@wpmudev/sui-editor-toolbar", () => {
 
 	it("alignCenter prop work correctly", () => {
 		render(<EditorToolbar {...props} alignCenter={true} />)
-		expect(screen.getByTestId("editor-toolbar-content")).toHaveClass(
-			"sui-editor-toolbar__content--center",
+		expect(screen.getByTestId("editor-toolbar")).toHaveClass(
+			"sui-editor-toolbar--center",
 		)
 	})
 
