@@ -75,7 +75,7 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 	 */
 	const onMouseUpCallback = useCallback(
 		(e: EventType) => {
-			const target = e?.target
+			const target = e?.currentTarget
 
 			if (!!target) {
 				// manually focus

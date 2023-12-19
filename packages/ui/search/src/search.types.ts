@@ -27,7 +27,7 @@ interface SearchBaseProps {
 	 * Disables the input
 	 */
 	isDisabled?: boolean
-	options?: never
+	options?: SearchOptionType[]
 	allowClear?: never
 	searchMinChars?: never
 	searchHint?: never
@@ -78,4 +78,9 @@ interface SearchOptionsProps {
 	setIsPopoverVisible(isVisible: boolean): void
 }
 
-export type { SearchProps, SearchOptionItemProps, SearchOptionsProps }
+export type {
+	SearchProps,
+	SearchOptionItemProps,
+	SearchOptionsProps,
+	SearchBaseProps,
+}

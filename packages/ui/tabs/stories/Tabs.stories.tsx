@@ -45,7 +45,12 @@ const Tabs = ({ color, state }: any) => {
 							</TabNavItem>
 							<TabNavItem isDisabled={true}>
 								CDN{" "}
-								<Tag design="outlined" color="black" isSmall={true}>
+								<Tag
+									design="outlined"
+									color="black"
+									isDisabled={true}
+									isSmall={true}
+								>
 									Pro
 								</Tag>
 							</TabNavItem>

@@ -35,7 +35,6 @@ const Integration: React.FC<IntegrationProps> = ({
 	const [isHovered, isFocused, methods] = useInteraction({})
 
 	// Define component states
-	// const [state, setState] = useState()
 	const [isActive, setIsActive] = useState(active)
 
 	// Define container props

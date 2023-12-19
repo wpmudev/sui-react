@@ -16,3 +16,6 @@ export { useDragAndDrop } from "./use-drag-and-drop"
 
 // isRTL hook
 export { useDetectRTL } from "./use-rtl-detect"
+
+// usePrevious hook
+export { usePrevious } from "./use-previous"

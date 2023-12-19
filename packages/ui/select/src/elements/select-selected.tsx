@@ -1,6 +1,7 @@
 import React, {
 	ChangeEvent,
 	HTMLProps,
+	LegacyRef,
 	MouseEvent,
 	ReactNode,
 	useCallback,
@@ -13,6 +14,7 @@ import { InputWithAutoComplete } from "./select-input"
 interface SelectSelectedProps
 	extends Omit<HTMLProps<HTMLDivElement>, "selected"> {
 	id: string
+	controlRef: HTMLDivElement | HTMLInputElement | null
 	expanded?: boolean
 	arrow?: string
 	selected?: Record<string, any> | string
@@ -22,17 +24,20 @@ interface SelectSelectedProps
 	removeSelection?: (optionId: number | string) => void
 	dropdownToggle: () => void
 	clearSelection: () => void
+	interactionMethods: object
 }
 
 // Build "Select Selected" component.
 const Selected: React.FC<SelectSelectedProps> = ({
 	id,
+	controlRef,
 	expanded = false,
 	arrow,
 	selected,
 	selectLabel = "",
 	isMultiSelect = false,
 	isSmall = false,
+	interactionMethods,
 	removeSelection = () => {},
 	dropdownToggle = () => {},
 	clearSelection = () => {},
@@ -77,31 +82,42 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	)
 
 	return (
-		<div
-			id={id}
-			role="button"
-			className="sui-select__control"
-			onClick={dropdownToggle}
-			onKeyDown={(e) => {
-				if (e.key === "Enter") {
-					dropdownToggle()
-				}
-			}}
-			tabIndex={0}
-			aria-haspopup="listbox"
-			aria-expanded={expanded}
-			{...props}
-		>
-			{selectedContent}
-			{isMultiSelect && !isUndefined(selected) && selectLabel !== selected && (
-				<Icon
-					name="close-alt"
-					size={isSmall ? "md" : "lg"}
-					onClick={onClearSelection}
-				/>
-			)}
-			{arrow && <Icon name={arrow} size="md" />}
-		</div>
+		<>
+			<input
+				id={id}
+				aria-label="select-input-field"
+				className="sui-select__hidden-input"
+				{...interactionMethods}
+			/>
+			<div
+				id={`${id}-control`}
+				ref={controlRef as LegacyRef<HTMLDivElement>}
+				role="button"
+				className="sui-select__control"
+				onClick={dropdownToggle}
+				onKeyDown={(e) => {
+					if (e.key === "Enter") {
+						dropdownToggle()
+					}
+				}}
+				tabIndex={0}
+				aria-haspopup="listbox"
+				aria-expanded={expanded}
+				{...props}
+			>
+				{selectedContent}
+				{isMultiSelect &&
+					!isUndefined(selected) &&
+					selectLabel !== selected && (
+						<Icon
+							name="close-alt"
+							size={isSmall ? "md" : "lg"}
+							onClick={onClearSelection}
+						/>
+					)}
+				{arrow && <Icon name={arrow} size="md" />}
+			</div>
+		</>
 	)
 }
 
@@ -109,6 +125,7 @@ interface SelectSelectedSearchProps
 	extends Omit<HTMLProps<HTMLInputElement>, "selected" | "ref" | "onChange"> {
 	arrow?: string
 	isSmall?: boolean
+	controlRef: HTMLDivElement | HTMLInputElement | null
 	selected?: {
 		label: string
 	}
@@ -116,10 +133,12 @@ interface SelectSelectedSearchProps
 	clearSelection: () => void
 	// ref?: LegacyRef<HTMLDivElement>
 	onChange?(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void
+	interactionMethods: object
 }
 
 const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 	isSmall = false,
+	interactionMethods,
 	selectLabel = "",
 	clearSelection,
 	selected,
@@ -147,6 +166,7 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 				isSmall={isSmall ?? false}
 				onValueChange={onValueChange}
 				selected={selected}
+				interactionMethods={interactionMethods}
 				{...props}
 			/>
 			{(close || selected?.label) && (

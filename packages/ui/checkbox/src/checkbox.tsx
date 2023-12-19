@@ -84,7 +84,12 @@ const Checkbox = ({
 
 	return (
 		// Checkbox label container
-		<label {...containerProps} htmlFor={uuid} data-testid="checkbox">
+		<label
+			{...containerProps}
+			htmlFor={uuid}
+			tabIndex={-1}
+			data-testid="checkbox"
+		>
 			{/* Checkbox input */}
 			<input
 				{...inputProps}

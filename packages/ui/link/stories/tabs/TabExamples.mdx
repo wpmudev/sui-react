@@ -22,7 +22,9 @@ export const disabledCode = dedent`
 
 <Section title="Basic Link Example" contained={true} style={{ paddingTop: 30 }}>
 	<Preview wrapper={true}>
-		<Link href="https://wpmudev.com">Visit our website</Link>
+		<Link href="https://wpmudev.com">
+			<>Visit our website</>
+		</Link>
 	</Preview>
 	<Snippet language="js">{basicCode}</Snippet>
 </Section>
@@ -35,7 +37,7 @@ export const disabledCode = dedent`
 	<Preview wrapper={true}>
 		<div style={{ backgroundColor: "#0059FF", padding: "20px" }}>
 			<Link theme="secondary" href="https://wpmudev.com">
-				Visit our website
+				<>Visit our website</>
 			</Link>
 		</div>
 	</Preview>

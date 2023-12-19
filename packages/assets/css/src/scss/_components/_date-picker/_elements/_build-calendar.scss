@@ -85,6 +85,7 @@
 
 			@include element(calendar-list-item) {
 				list-style: none;
+				cursor: pointer;
 
 				@include modifier(active) {
 					span {
@@ -95,7 +96,6 @@
 				span {
 					display: inline-block;
 					padding: $spacing-sm $spacing-lg;
-					cursor: pointer;
 				}
 			}
 

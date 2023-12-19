@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { CheckboxGroup, Checkbox as SuiCheckbox, CheckBoxGroups } from "../src"
 
 // Import documentation
-import docs from "./ReactCheckbox.mdx"
+import docs from "./checkbox.mdx"
 
 // Default settings
 export default {
@@ -19,7 +19,16 @@ export default {
 }
 
 // Build story
-export const Checkbox = ({ example, name, isInline, ...args }) => {
+export const Checkbox = ({
+	example,
+	name,
+	isInline,
+	...args
+}: {
+	example: string
+	name: string
+	isInline: boolean
+}) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -54,9 +63,6 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 										name: "group-checkbox",
 										...args,
 									}}
-									onChange={(items) => {
-										console.log("Group debug", items)
-									}}
 								>
 									<SuiCheckbox label="Checkbox Group Item 1" />
 									<SuiCheckbox label="Checkbox Group Item 2" />
@@ -64,9 +70,6 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 							),
 							nested: (
 								<CheckBoxGroups
-									onChange={(items) => {
-										console.log("Nested Debug", items)
-									}}
 									commonCheckboxProps={{
 										// It will be passed to all checkbox items
 										name: "groups-checkbox",
@@ -99,13 +102,11 @@ export const Checkbox = ({ example, name, isInline, ...args }) => {
 							),
 							horizontal: (
 								<CheckboxGroup
-									label="Group 1 Label"
-									id="checkbox-group"
+									title="Group 1 Label"
 									isInline={true}
 									commonCheckboxProps={{
 										...args,
 									}}
-									onChange={(items) => console.log("Horizontal debug", items)}
 								>
 									<SuiCheckbox label="Checkbox Group Item 1" />
 									<SuiCheckbox label="Checkbox Group Item 2" />

@@ -22,6 +22,7 @@
 				width: $tabs-arrow-size-width;
 				border: none;
 				color: $tabs-arrow-color;
+				z-index: 1;
 
 				&:hover {
 					background: $tabs-arrow-hover-background;
