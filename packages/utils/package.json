@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-utils",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "WPMU DEV Shared UI React Global Functions",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "dependencies": {
-    "@wpmudev/sui-hooks": "^0.0.1",
+    "@wpmudev/sui-hooks": "^0.1.0",
     "react": "^18.2.0"
   },
   "devDependencies": {

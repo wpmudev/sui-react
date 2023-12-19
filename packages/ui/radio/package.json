@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-radio",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Radio buttons allow users to make a single selection from a set of mutually exclusive options.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -52,9 +52,9 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "dependencies": {
-    "@wpmudev/sui-hooks": "^0.0.1",
-    "@wpmudev/sui-tag": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1",
+    "@wpmudev/sui-hooks": "^0.1.0",
+    "@wpmudev/sui-tag": "^0.1.0",
+    "@wpmudev/sui-utils": "^0.1.0",
     "react": "^18.2.0"
   },
   "clean-package": "../../../postpack.config.json"

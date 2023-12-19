@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.1.0
+
+### Minor Changes
+
+- initial changeset
+
+### Patch Changes
+
+- Updated dependencies
+  - @wpmudev/sui-dashboard-widget@0.1.0
+  - @wpmudev/sui-integration@0.1.0
+  - @wpmudev/sui-navigation@0.1.0
+  - @wpmudev/sui-table@0.1.0
+
 ## 0.0.1
 
 ### Patch Changes
