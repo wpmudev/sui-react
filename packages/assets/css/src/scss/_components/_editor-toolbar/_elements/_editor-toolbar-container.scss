@@ -24,13 +24,6 @@
 					flex-basis: 0;
 				}
 
-				@include modifies-element(content--left) {
-					@include media(max-width, sm) {
-						flex-basis: unset;
-						width: 100%;
-					}
-				}
-
 				@include modifies-element(content) {
 					justify-content: center;
 

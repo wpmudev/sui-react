@@ -26,7 +26,8 @@
 
 				@include modifier(left) {
 					@include media(max-width, sm) {
-						flex: 100%;
+						flex-basis: unset;
+						width: 100%;
 					}
 				}
 
