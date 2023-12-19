@@ -136,7 +136,6 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 								name={name}
 								label={label}
 								isChecked={isSelected}
-								onChange={(e) => onSelect(e, id)}
 							/>
 						</li>
 					))}

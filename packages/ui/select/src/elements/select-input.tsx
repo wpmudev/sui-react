@@ -17,6 +17,7 @@ interface InputWithAutoCompleteProps {
 	onValueChange: (val: string) => void
 	onEvent?: (event: React.ChangeEvent<HTMLInputElement>) => void
 	ref?: LegacyRef<HTMLInputElement>
+	interactionMethods: object
 }
 
 const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
@@ -29,6 +30,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	onValueChange = () => {},
 	onChange = () => {},
 	onEvent = () => {},
+	interactionMethods,
 	...props
 }) => {
 	const generatedId = useId()
@@ -94,6 +96,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 			disableInteractions={true}
 			onKeyDown={onInputKeyDown}
 			{...props}
+			{...interactionMethods}
 		/>
 	)
 }
