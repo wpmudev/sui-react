@@ -11,7 +11,7 @@ interface FormFieldProps {
 	/**
 	 * The label for the field.
 	 */
-	label: string
+	label?: string
 	/**
 	 * The helper text for the field.
 	 */

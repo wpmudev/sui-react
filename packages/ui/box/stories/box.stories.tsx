@@ -6,7 +6,7 @@ import { Row, Col } from "@wpmudev/sui-grid"
 import { Button } from "@wpmudev/sui-button"
 
 // Import documentation main page
-import docs from "./ReactBox.mdx"
+import docs from "./box.mdx"
 
 // Configure default options
 export default {
@@ -65,5 +65,3 @@ Box.args = {
 		</Button>,
 	],
 }
-
-Box.argTypes = {}

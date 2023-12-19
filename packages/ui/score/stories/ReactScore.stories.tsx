@@ -42,8 +42,8 @@ const Score = ({
 
 // Set story arguments.
 Score.args = {
-	bar: 55,
-	value: 55,
+	bar: 15,
+	value: 15,
 	content: "",
 	isPercentage: false,
 	state: "warning",

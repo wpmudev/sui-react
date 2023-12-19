@@ -10,6 +10,7 @@ import {
 	InteractionTypes,
 	useInteraction,
 	useOuterClick,
+	usePrevious,
 } from "@wpmudev/sui-hooks"
 
 import { Dropdown } from "../elements/select-dropdown"
@@ -105,14 +106,9 @@ const Select: React.FC<SelectBaseProps> = ({
 		)
 	}
 
-	// Define states.
-	const [isHovered, isFocused, interactionMethods] = useInteraction({
-		onMouseLeave: props.onMouseLeave,
-		onMouseEnter: props.onMouseEnter,
-	} as InteractionTypes)
-
 	// set ref to dropdown.
 	const ref = useRef<HTMLDivElement | null>(null)
+	const controlRef = useRef<HTMLDivElement | HTMLInputElement | null>(null)
 
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
 	const [items, setItems] = useState<Record<string, any>[]>(options)
@@ -129,6 +125,27 @@ const Select: React.FC<SelectBaseProps> = ({
 	useEffect(() => {
 		setSelectedItems(selected)
 	}, [selected])
+
+	// hold isDropdownOpen's previous val
+	const prevIsDropdownOpen = usePrevious(isDropdownOpen)
+
+	// focus when dropdown closed
+	useEffect(() => {
+		if (
+			!!controlRef?.current &&
+			"undefined" !== typeof prevIsDropdownOpen &&
+			prevIsDropdownOpen !== isDropdownOpen &&
+			!isDropdownOpen
+		) {
+			controlRef?.current?.focus()
+		}
+	}, [isDropdownOpen, prevIsDropdownOpen])
+
+	// Define states.
+	const [isHovered, isFocused, interactionMethods] = useInteraction({
+		onMouseLeave: props.onMouseLeave,
+		onMouseEnter: props.onMouseEnter,
+	} as InteractionTypes)
 
 	// UseEffect function to handle change in items
 	useEffect(() => {
@@ -189,7 +206,6 @@ const Select: React.FC<SelectBaseProps> = ({
 	const selectProps = {
 		className: classNames,
 		ref,
-		...interactionMethods,
 		// onBlurCapture: () => set.focus(false),
 	}
 
@@ -225,6 +241,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	// Header props
 	const headerProps = {
 		id,
+		controlRef,
 		expanded: isDropdownOpen,
 		selected: selectedItem,
 		selectLabel: label,
@@ -276,14 +293,17 @@ const Select: React.FC<SelectBaseProps> = ({
 
 	// Render component
 	return (
-		<div {...selectProps} data-testid="select">
+		<div {...selectProps} data-check="check" data-testid="select">
 			{!isSearchable && (
 				// @ts-ignore
-				<Selected {...headerProps} />
+				<Selected {...headerProps} interactionMethods={interactionMethods} />
 			)}
 			{isSearchable && (
 				// @ts-ignore
-				<SelectedSearch {...headerProps} />
+				<SelectedSearch
+					{...headerProps}
+					interactionMethods={interactionMethods}
+				/>
 			)}
 			{isDropdownOpen && (
 				// @ts-ignore

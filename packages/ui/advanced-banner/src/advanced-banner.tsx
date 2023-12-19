@@ -2,7 +2,6 @@ import React from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
-
 import { AdvancedBannerProps } from "./advanced-banner.types"
 
 // Build "advanced-banner" component
