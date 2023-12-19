@@ -84,7 +84,8 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	return (
 		<>
 			<input
-				id={id}
+				id={`${id}-hidden`}
+				aria-label="select-input-field"
 				className="sui-select__hidden-input"
 				{...interactionMethods}
 			/>
