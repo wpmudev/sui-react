@@ -26,6 +26,10 @@
 					width: $checkbox-icon-width-sm;
 					height: $checkbox-icon-height-sm;
 				}
+
+				@include modifies-element(label) {
+					margin-top: $spacing-xs;
+				}
 			}
 		}
 	}
