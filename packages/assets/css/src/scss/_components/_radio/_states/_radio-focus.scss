@@ -2,7 +2,7 @@
 
 /// Edit Focus State
 ///
-/// @type modifier
+/// @type state
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -13,20 +13,25 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(box) {
-					outline: $border-width-md solid $color-extended-neutral-50;
-					outline-offset: $border-width-md;
-					border-color: $color-primary-50;
+					&:after {
+						border: $border-width-md solid $color-extended-neutral-50;
+					}
 				}
 
 				&.sui-#{$block}--checked {
 					@include modifies-element(box) {
-						outline-color: $color-primary-50;
+						&:after {
+							border-color: $color-primary-50;
+						}
 					}
 				}
 
 				&.sui-#{$block}--block {
-					outline-width: $border-width-md;
 					background: transparent;
+
+					&:after {
+						border-width: $border-width-md;
+					}
 				}
 			}
 		}
@@ -38,7 +43,6 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(box) {
-					outline: $border-width-md solid $color-extended-neutral-0;
 					border-color: $color-extended-neutral-0;
 				}
 			}

@@ -29,13 +29,23 @@
 
 			@include element(cta-btn) {
 				@include modifier(bf) {
+					position: relative;
 					font-size: $font-size-xs;
 					letter-spacing: $font-spacing-lg;
 					background: $color-extended-warning-50;
 
+					&:after {
+						content: "";
+						position: absolute;
+						inset: -5px;
+						border-radius: $border-radius-md;
+						pointer-events: none;
+					}
+
 					&.sui-button--focus {
-						outline: $border-width-md solid $color-extended-warning-50;
-						outline-offset: $border-width-md;
+						&:after {
+							border: $border-width-md solid $color-extended-warning-50;
+						}
 					}
 				}
 			}

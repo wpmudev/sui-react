@@ -7,6 +7,7 @@ interface InteractionTypes
 		| "onMouseEnter"
 		| "onMouseLeave"
 		| "onMouseDownCapture"
+		| "onMouseUp"
 		| "onMouseUpCapture"
 		| "onFocus"
 		| "onBlur"
@@ -26,6 +27,7 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 		onMouseEnter,
 		onMouseLeave,
 		onMouseDownCapture,
+		onMouseUp,
 		onMouseUpCapture,
 		onFocus,
 		onBlur,
@@ -63,6 +65,31 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 			}
 		},
 		[],
+	)
+
+	/**
+	 * In Safari, an element doesn't receive focus on click, which means onBlur doesn't fire.
+	 * Consequently, it needs to be manually focused.
+	 *
+	 * @type {(e: Event) => void}
+	 */
+	const onMouseUpCallback = useCallback(
+		(e: EventType) => {
+			const target = e?.currentTarget
+
+			if (!!target) {
+				// manually focus
+				target?.focus()
+				// toggle focus
+				toggleFocus(true, e, (event) => {
+					if (onMouseUp) {
+						// @ts-ignore
+						onMouseUp(event)
+					}
+				})
+			}
+		},
+		[onMouseUp, toggleFocus],
 	)
 
 	/**
@@ -181,6 +208,7 @@ const useInteraction = (methods: InteractionTypes | Object) => {
 		isHovered,
 		isFocused,
 		{
+			onMouseUp: onMouseUpCallback,
 			onMouseEnter: onMouseEnterCallback,
 			onMouseLeave: onMouseLeaveCallback,
 			onMouseDownCapture: onMouseDownCaptureCallback,

@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-radio",
   "version": "0.0.1",
-  "description": "WPMUDEV Shared UI Radio",
+  "description": "Radio buttons allow users to make a single selection from a set of mutually exclusive options.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -14,6 +14,11 @@
       "name": "Pawan Kumar",
       "email": "40248406+creador-dev@users.noreply.github.com",
       "url": "https://creador.dev/"
+    },
+    {
+      "name": "Abderrahman DOUARA",
+      "email": "aer17013@gmail.com",
+      "url": "https://douara.me"
     }
   ],
   "license": "GPL-2.0",
@@ -49,7 +54,8 @@
   "dependencies": {
     "@wpmudev/sui-hooks": "^0.0.1",
     "@wpmudev/sui-tag": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1"
+    "@wpmudev/sui-utils": "^0.0.1",
+    "react": "^18.2.0"
   },
   "clean-package": "../../../postpack.config.json"
 }

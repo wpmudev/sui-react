@@ -3,8 +3,6 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Select Control
-/// This function creates styles for the element
-/// recipient wrapper.
 ///
 /// @type block
 /// @author WPMU DEV
@@ -68,6 +66,14 @@
 
 				@include modifies-element(control) {
 					padding-right: $select-control-multiselect-padding-md-horizontal;
+				}
+
+				@include modifies-element(dropdown) {
+					.sui-#{$block}__dropdown--option {
+						&:hover {
+							background: none;
+						}
+					}
 				}
 			}
 		}

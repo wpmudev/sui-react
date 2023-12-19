@@ -97,14 +97,20 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 		setIsExpanded(!isExpanded)
 	}, [isExpanded])
 
+	const actionClass = generateCN("sui-builder__field-actions", {
+		hover: isHovered,
+	})
+
 	// Render the action buttons
 	const renderActions = () => (
-		<div className="sui-builder__field-actions">
-			{action}
+		<div className={actionClass}>
+			{hasAccordion && isHovered && action}
+			{!hasAccordion && action}
 			{hasAccordion && (
 				<div className="sui-builder__field-actions-item sui-builder__field-actions-item--accordion">
 					<Button
-						startIcon={isExpanded ? "chevron-up" : "chevron-down"}
+						appearance="tertiary"
+						startIcon={isExpanded ? "ChevronUp" : "ChevronDown"}
 						iconOnly={true}
 						color="black"
 						isSmall={true}

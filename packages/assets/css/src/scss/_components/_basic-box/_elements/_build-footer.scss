@@ -2,9 +2,8 @@
 
 @use "../../../_utils/utils" as *;
 
-/// Build Footer
-/// This function creates styles for the element
-/// main wrapper.
+/// Build footer
+///
 /// @type block
 /// @author WPMU DEV
 ///
@@ -22,10 +21,14 @@
 				padding: $spacing-xxl;
 				border-top: $border-width-sm solid $color-extended-neutral-80;
 
+				@include media(max-width, md) {
+					padding: $spacing-xl;
+				}
+
 				@include media(max-width, sm) {
 					flex-wrap: wrap;
 					gap: $spacing-md;
-					padding: $spacing-xl;
+					padding: $spacing-xl $spacing-lg;
 				}
 			}
 		}

@@ -2,24 +2,24 @@
 
 @use "../../../_utils/utils" as *;
 
-/// Loading Score
+/// Table Selection
 ///
-/// @type block
+/// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-selection($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(cell) {
-                @include modifier(selection) {
-                    text-align: center;
-                    width: 0;
-                }
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(cell) {
+				@include modifier(selection) {
+					text-align: center;
+					width: 0;
+				}
+			}
+		}
+	}
 }

@@ -3,7 +3,7 @@
 
 /// Build Delete
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -14,17 +14,10 @@
 		@include block($block) {
 			@include element(option-delete) {
 				left: auto;
-				padding: $selector-spacing-xs;
 				position: absolute;
-				right: 0;
+				right: 5px;
+				top: 5px;
 				z-index: 2;
-			}
-
-			@include element(option-delete-btn) {
-				background-color: $color-extended-error-50;
-				color: $color-extended-neutral-100;
-				border-radius: $border-width-xl;
-				padding: 5px;
 			}
 		}
 	}
@@ -34,7 +27,7 @@
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
 			@include element(option-delete) {
-				left: 0;
+				left: 5px;
 				right: unset;
 			}
 		}

@@ -73,7 +73,7 @@ export const customIconsCode = dedent`
 `
 
 export const checkboxCode = dedent`
-        <TreeView allowCheck={true}>
+        <TreeView allowCheck={true} onChange={items => console.log(items)}>
             <TreeViewGroup id="group-1" title="Tree Group">
                 <TreeViewGroup id="group-2" title="Tree Group">
                     <TreeViewItem id="item-1">Tree Item</TreeViewItem>
@@ -225,7 +225,7 @@ export const disabledItemsCode = dedent`
 
 <Section title="With Checkbox" contained={true} style={{ paddingTop: 0 }}>
 	<Preview wrapper={true}>
-		<TreeView allowCheck={true}>
+		<TreeView allowCheck={true} onChange={items => console.log(items)}>
 			<TreeViewGroup id="group-1" title="Tree Group">
 				<TreeViewGroup id="group-2" title="Tree Group">
 					<TreeViewItem icon="Bell" id="item-1">

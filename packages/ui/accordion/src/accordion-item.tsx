@@ -17,6 +17,12 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	hasCheckbox,
 	onCheck,
 }) => {
+	// Checkbox is checked.
+	const [isChecked, setIsChecked] = useState(false)
+
+	// Mouse is being pressed
+	const [isPressed, setIsPressed] = useState(false)
+
 	// Custom hook to generate a unique ID for the accordion item.
 	const uniqueId = useId()
 
@@ -27,15 +33,26 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const accordionId = `sui-accordion-${uniqueId}`
 	const accordionPanelId = `sui-accordion-panel-${uniqueId}`
 
+	const onMouseDownCapture = () => {
+		setIsPressed(true)
+	}
+
+	const onMouseUpCapture = () => {
+		setIsPressed(false)
+	}
+
 	// Manage interaction methods
-	const [isHovered, isFocused, interactionMethods] = useInteraction({})
+	const [isHovered, isFocused, interactionMethods] = useInteraction({
+		onMouseDownCapture,
+		onMouseUpCapture,
+	})
 
 	// When checkbox clicked
 	const onCheckBoxChange = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => {
 			e.stopPropagation()
 			//e.preventDefault()
-
+			setIsChecked(e.target.checked)
 			if (onCheck) {
 				onCheck(isExpanded)
 			}
@@ -68,7 +85,6 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				hover: isHovered,
 				disabled: isDisabled,
 			})}
-			{...(interactionMethods ?? {})}
 			data-testid="accordion-item"
 		>
 			{/* 
@@ -80,7 +96,13 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			{hasCheckbox &&
 				checkboxDomContainer &&
 				createPortal(
-					<Checkbox onChange={onCheckBoxChange} isDisabled={isDisabled} />,
+					<Checkbox
+						name={accordionId}
+						id={`${accordionId}-checkbox`}
+						onChange={onCheckBoxChange}
+						isChecked={isChecked}
+						isDisabled={isDisabled}
+					/>,
 					checkboxDomContainer,
 				)}
 			<div
@@ -89,13 +111,16 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				id={accordionId}
 				aria-expanded={isExpanded}
 				aria-controls={accordionPanelId}
-				className={generateCN("sui-accordion__header", { focus: isFocused })}
+				className={generateCN("sui-accordion__header", {
+					focus: isFocused || isPressed,
+				})}
 				onClick={toggle}
 				data-testid="accordion-item-button"
 				onKeyDown={(e) => {
 					e.stopPropagation()
 					handleOnKeyDown(e, toggle)
 				}}
+				{...(interactionMethods ?? {})}
 			>
 				{/* Content of the accordion item's header */}
 				<div className="sui-accordion__header-info">

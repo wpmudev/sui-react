@@ -12,18 +12,29 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			position: relative;
 			border: $border-width-sm solid $color-extended-neutral-70;
 			border-radius: $border-radius-sm;
 			background: $color-extended-neutral-100;
 
+			&:after {
+				content: "";
+				position: absolute;
+				inset: -#{$border-width-md};
+				pointer-events: none;
+			}
+
 			@include modifier(hover) {
-				outline: $border-width-sm solid $color-primary-50;
-				outline-offset: -#{$border-width-sm};
+				border: $border-width-sm solid $color-primary-50;
 			}
 
 			@include modifier(focus) {
-				outline: $border-width-md solid $color-primary-50;
-				outline-offset: -#{$border-width-md};
+				&:after {
+					border-width: $border-width-md;
+					border-style: solid;
+					border-color: $color-primary-50;
+					border-radius: inherit;
+				}
 			}
 		}
 	}
@@ -35,7 +46,9 @@
 			border-color: $color-extended-neutral-0;
 
 			@include modifier(hover, focus) {
-				outline-color: $color-extended-neutral-0;
+				&:after {
+					border-color: inherit;
+				}
 			}
 		}
 	}

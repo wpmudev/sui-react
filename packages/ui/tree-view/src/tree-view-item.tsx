@@ -1,10 +1,10 @@
-import React, { useContext } from "react"
+import React, { useEffect } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 
-import { TreeViewContextProps, TreeViewItemProps } from "./tree-view.types"
+import { TreeViewItemProps } from "./tree-view.types"
 import { TreeViewInfo } from "./tree-view-info"
-import { TreeViewContext } from "./tree-view-context"
+import { useTreeViewContext } from "./tree-view-context"
 
 /**
  * TreeViewItem Component
@@ -17,7 +17,9 @@ import { TreeViewContext } from "./tree-view-context"
  */
 const TreeViewItem: React.FC<TreeViewItemProps> = ({
 	id = "",
+	groupId = "",
 	icon,
+	isChecked = false,
 	isGroup = false,
 	isExpanded = false,
 	isDisabled = false,
@@ -28,16 +30,28 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 	const classNames = generateCN("sui-tree-view__item", {}, className ?? "")
 
 	// Get the tree view context to access configuration
-	const ctx = useContext<TreeViewContextProps | null>(TreeViewContext)
-	const itemId = `${ctx?.id}-item-${id}`
+	const context = useTreeViewContext()
+	const itemId = id
+
+	useEffect(() => {
+		if (!isGroup && !isDisabled) {
+			context?.onCheck({
+				id: id ?? "",
+				isChecked,
+				type: isGroup ? "group" : "single",
+				group: groupId,
+			})
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	return (
 		<li
-			id={itemId}
+			id={id}
 			className={classNames}
 			role="treeitem"
-			aria-labelledby={`${itemId}-info`}
-			aria-describedby={`${itemId}-info ${itemId}-info-title`}
+			aria-labelledby={id}
+			aria-describedby={`${id} ${itemId}-info-title`}
 			aria-expanded={isExpanded}
 			aria-selected={false}
 		>
@@ -47,10 +61,11 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 			) : (
 				/* Render the TreeViewInfo component for leaf nodes */
 				<TreeViewInfo
-					id={`${itemId}-info`}
-					isGroup={false}
+					id={itemId ?? ""}
 					icon={icon}
 					isDisabled={isDisabled ?? false}
+					_isGroup={false}
+					_groupId={groupId}
 				>
 					{children}
 				</TreeViewInfo>

@@ -127,7 +127,7 @@ interface DropdownProps {
 	/**
 	 * Filter button icon
 	 */
-	buttonIcon?: string
+	buttonIcon?: IconsNamesType
 	/**
 	 * On click on Menu Item
 	 */

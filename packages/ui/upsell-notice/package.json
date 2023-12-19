@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-upsell-notice",
   "version": "0.0.1",
-  "description": "WPMU DEV Shared UI React Upsell Notice Component",
+  "description": "The upsell notice is used to upsell any features in the plugins.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -14,6 +14,11 @@
       "name": "Pawan Kumar",
       "email": "40248406+creador-dev@users.noreply.github.com",
       "url": "https://creador.dev/"
+    },
+    {
+      "name": "Abderrahman DOUARA",
+      "email": "aer17013@gmail.com",
+      "url": "https://douara.me"
     }
   ],
   "license": "GPL-2.0",
@@ -52,7 +57,6 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@wpmudev/sui-button": "^0.0.1",
     "@wpmudev/sui-icons": "*",
     "@wpmudev/sui-tag": "^0.0.1",
     "@wpmudev/sui-utils": "^0.0.1"

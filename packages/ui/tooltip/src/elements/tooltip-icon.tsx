@@ -1,5 +1,7 @@
 import React from "react"
 import { isUndefined, isEmpty, generateCN } from "@wpmudev/sui-utils"
+import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
+import { IconProps } from "@wpmudev/sui-icon"
 
 interface TooltipIconProps {
 	/**
@@ -13,14 +15,11 @@ interface TooltipIconProps {
 	 *
 	 * @type {string}
 	 */
-	size?: string
+	size?: IconProps["size"]
 }
 
 // Build "Icon" component.
-const Icon: React.FC<TooltipIconProps> = ({
-	name = "tooltip",
-	size = "md",
-}) => {
+const Icon: React.FC<TooltipIconProps> = ({ name = "Info", size = "sm" }) => {
 	const hasIcon = !isUndefined(name) && !isEmpty(name ?? "")
 
 	if (!hasIcon) {
@@ -29,14 +28,14 @@ const Icon: React.FC<TooltipIconProps> = ({
 		)
 	}
 
-	const classNames = generateCN("suicons", {
-		[name]: !isEmpty(name),
-		[size]: true,
-	})
+	const IconName = name
+
+	// Set Icon & iconColor based on "variation" value
+	const IconTag = Icons[IconName as IconsNamesType]
 
 	return (
 		<span className="sui-tooltip__icon" aria-hidden="true">
-			<span className={classNames} />
+			<IconTag size={size} />
 		</span>
 	)
 }

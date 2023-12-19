@@ -3,6 +3,7 @@ import React from "react"
 // Import required component(s)
 import { Box as SuiBox, BoxGroup } from "../src"
 import { Row, Col } from "@wpmudev/sui-grid"
+import { Button } from "@wpmudev/sui-button"
 
 // Import documentation main page
 import docs from "./box.mdx"
@@ -59,8 +60,8 @@ Box.args = {
 		</span>,
 	],
 	headerRight: [
-		<button key="1" className="sui-button sui-button--primary-blue">
+		<Button key="1" appearance="primary" color="blue" isSmall={true}>
 			Run Action
-		</button>,
+		</Button>,
 	],
 }

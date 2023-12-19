@@ -104,12 +104,13 @@ Modal.argTypes = {
 	},
 	size: {
 		name: "Size",
-		options: ["sm", "lg"],
+		options: ["sm", "lg", "xl"],
 		control: {
 			type: "select",
 			labels: {
 				sm: "Small (sm)",
 				lg: "Large (lg)",
+				xl: "Extra Large (xl)",
 			},
 		},
 	},

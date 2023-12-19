@@ -2,7 +2,7 @@
 
 /// Edit Disabled State
 ///
-/// @type modifier
+/// @type state
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -12,11 +12,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(disabled) {
-				outline: $border-width-sm solid $color-extended-neutral-70;
-                outline-offset: $border-width-sm;
-                background: $color-extended-neutral-95;
-                pointer-events: none;
-                user-select: none;
+				border: $border-width-sm solid $color-extended-neutral-70;
+				background: $color-extended-neutral-95;
+				pointer-events: none;
+				user-select: none;
 			}
 		}
 	}

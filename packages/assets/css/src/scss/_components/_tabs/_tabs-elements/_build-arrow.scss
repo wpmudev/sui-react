@@ -3,62 +3,62 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Arrow
-/// This function creates styles for the element
-/// main wrapper.
+///
 /// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-arrow($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(arrow) {
-                position: absolute;
-                height: $tabs-arrow-size-height;
-                top: 0;
-                cursor: pointer;
-                width: $tabs-arrow-size-width;
-                border: none;
-                color: $tabs-arrow-color;
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(arrow) {
+				position: absolute;
+				height: $tabs-arrow-size-height;
+				top: 0;
+				cursor: pointer;
+				width: $tabs-arrow-size-width;
+				border: none;
+				color: $tabs-arrow-color;
+				z-index: 1;
 
-                &:hover {
-                    background: $tabs-arrow-hover-background;
-                    color: $tabs-arrow-hover-color;
-                }
+				&:hover {
+					background: $tabs-arrow-hover-background;
+					color: $tabs-arrow-hover-color;
+				}
 
-                @include modifier(left) {
-                    left: 0;
-                    background: $tabs-arrow-left-background;
-                }
+				@include modifier(left) {
+					left: 0;
+					background: $tabs-arrow-left-background;
+				}
 
-                @include modifier(right) {
-                    right: 0;
-                    background: $tabs-arrow-right-background;
-                }
-            }
-        }
-    }
+				@include modifier(right) {
+					right: 0;
+					background: $tabs-arrow-right-background;
+				}
+			}
+		}
+	}
 
-    // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: false, $theme: dark) {
-        // Block wrapper.
-        @include block($block) {
-            @include element(arrow) {
-                background: $color-extended-neutral-100;
-                color: $color-extended-neutral-0;
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(arrow) {
+				background: $color-extended-neutral-100;
+				color: $color-extended-neutral-0;
 
-                &:hover {
-                    color: $color-extended-neutral-0;
-                }
+				&:hover {
+					color: $color-extended-neutral-0;
+				}
 
-                &:focus {
-                    border: $tabs-border-width solid $color-extended-neutral-0;
-                }
-            }
-        }
-    }
+				&:focus {
+					border: $tabs-border-width solid $color-extended-neutral-0;
+				}
+			}
+		}
+	}
 }

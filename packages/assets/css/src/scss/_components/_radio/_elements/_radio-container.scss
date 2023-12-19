@@ -1,7 +1,6 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Container
-/// This function creates styles for the main container
 ///
 /// @type block
 /// @author WPMU DEV
@@ -24,12 +23,25 @@
 			line-height: $font-height-sm;
 			letter-spacing: $font-spacing-default;
 			align-content: flex-start;
+			outline: none;
 
 			@include modifier(block) {
 				padding: $spacing-lg $spacing-xl;
-				border-radius: $radio-border-radius-sm;
-				outline: $border-width-sm solid $color-extended-neutral-80;
 				flex: 1;
+				position: relative;
+
+				@include media(max-width, md) {
+					padding: $spacing-lg;
+				}
+
+				&:after {
+					content: "";
+					position: absolute;
+					inset: -1px;
+					border-radius: $radio-border-radius-sm;
+					border: $border-width-sm solid $color-extended-neutral-80;
+					pointer-events: none;
+				}
 			}
 		}
 	}
@@ -41,7 +53,9 @@
 			color: $color-extended-neutral-0;
 
 			@include modifier(block) {
-				outline-color: $color-extended-neutral-0;
+				&:after {
+					border-color: $color-extended-neutral-0;
+				}
 			}
 		}
 	}

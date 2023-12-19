@@ -2,9 +2,9 @@
 
 @use "../../../_utils/utils" as *;
 
-/// Build Switch Element
+/// Build Switch
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -24,7 +24,7 @@
 				padding: 0;
 				border-radius: $toggle-border-radius;
 				background: $color-extended-neutral-80;
-				transition: 0.2s ease;
+				transition: 0.3s all ease;
 
 				&:before {
 					content: "";
@@ -34,6 +34,13 @@
 					margin: 0 $toggle-spacing-xs;
 					border-radius: 50%;
 					background: $color-extended-neutral-100;
+				}
+
+				&:after {
+					content: "";
+					position: absolute;
+					inset: -4px;
+					border-radius: $toggle-border-radius * 2;
 				}
 			}
 		}

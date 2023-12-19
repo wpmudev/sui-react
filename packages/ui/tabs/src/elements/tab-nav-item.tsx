@@ -60,7 +60,7 @@ const TabNavItem: FC<TabNavItemProps> = ({
 			className={generateCN("sui-tab__nav-item", {
 				active: isActive,
 				hover: isHovered,
-				focus: isFocused,
+				focus: isFocused && !isActive,
 				disabled: isDisabled,
 			})}
 			aria-selected={isActive}

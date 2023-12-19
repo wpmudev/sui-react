@@ -4,6 +4,7 @@ import React, { Fragment, Children } from "react"
 import dedent from "dedent"
 import { Tag, Code } from "@wpmudev/sui-docs"
 import docs from "./IconsPack.mdx"
+import Icons from "@wpmudev/sui-icons"
 
 // Import required styles.
 import "../dist/css/sui-icons.css"
@@ -87,6 +88,8 @@ const IconsCard = ({ category, name, alt, checked, id }) => {
 
 	const compSample = dedent`<${capitalizeText(camelCased)}/>`
 
+	const iconName = capitalizeText(camelCased)
+
 	return (
 		<div className="csb-icon">
 			<div className="csb-icon__preview">
@@ -107,7 +110,10 @@ const IconsCard = ({ category, name, alt, checked, id }) => {
 					</div>
 				)}
 				<div className="csb-icon__preview-icon">
-					<span className={`suicons suicons--${id}`} style={{ fontSize: 64 }} />
+					{Icons[iconName] &&
+						React.createElement(Icons[iconName], {
+							size: "xl",
+						})}
 				</div>
 			</div>
 
@@ -120,13 +126,6 @@ const IconsCard = ({ category, name, alt, checked, id }) => {
 					<h3 className="csb-icon__data-title">SVG Name</h3>
 					<Code theme="ghost" fullWidth={true}>
 						{id}
-					</Code>
-				</div>
-
-				<div className="csb-icon__data-block">
-					<h3 className="csb-icon__data-title">HTML Code</h3>
-					<Code fullWidth={true} className="csb-icon__code">
-						{sample}
 					</Code>
 				</div>
 				<div className="csb-icon__data-block">
@@ -183,6 +182,12 @@ const ListIcons = {
 			"plugin-snapshot": {
 				name: "Snapshot",
 			},
+			automate: {
+				name: "Automate",
+			},
+			uptime: {
+				name: "Uptime",
+			},
 			hub: {
 				name: "The Hub",
 			},
@@ -235,6 +240,10 @@ const ListIcons = {
 			cloud: {
 				name: "Cloud",
 			},
+			"cloud-alt": {
+				name: "Cloud",
+				alt: true,
+			},
 		},
 	},
 	status: {
@@ -259,6 +268,9 @@ const ListIcons = {
 			},
 			warning: {
 				name: "Warning",
+			},
+			ban: {
+				name: "Ban",
 			},
 		},
 	},
@@ -300,6 +312,9 @@ const ListIcons = {
 			stop: {
 				name: "Stop",
 			},
+			play: {
+				name: "Play",
+			},
 			save: {
 				name: "Save",
 			},
@@ -334,17 +349,14 @@ const ListIcons = {
 			submit: {
 				name: "Submit",
 			},
-			roadmap: {
-				name: "Roadmap",
+			export: {
+				name: "Export",
 			},
 		},
 	},
 	state: {
 		name: "State",
 		icons: {
-			spinner: {
-				name: "Spinner",
-			},
 			"spinner-alt": {
 				name: "Spinner",
 				alt: true,
@@ -384,14 +396,33 @@ const ListIcons = {
 			"caret-up": {
 				name: "Caret Up",
 			},
+			"caret-up-alt": {
+				name: "Caret Up",
+				alt: true,
+			},
 			"caret-down": {
 				name: "Caret Down",
+			},
+			"caret-down-alt": {
+				name: "Caret Down",
+				alt: true,
 			},
 			"caret-left": {
 				name: "Caret Left",
 			},
+			"caret-left-alt": {
+				name: "Caret Left",
+				alt: true,
+			},
 			"caret-right": {
 				name: "Caret Right",
+			},
+			"caret-right-alt": {
+				name: "Caret Right",
+				alt: true,
+			},
+			exit: {
+				name: "Exit",
 			},
 			"rotate-left": {
 				name: "Rotate Left",
@@ -399,22 +430,8 @@ const ListIcons = {
 			"rotate-right": {
 				name: "Rotate Right",
 			},
-			exit: {
-				name: "Exit",
-			},
-		},
-	},
-	social: {
-		name: "Social Media",
-		icons: {
-			facebook: {
-				name: "Facebook",
-			},
-			instagram: {
-				name: "Instagram",
-			},
-			twitter: {
-				name: "Twitter",
+			hamburger: {
+				name: "Hamburger",
 			},
 		},
 	},
@@ -433,6 +450,9 @@ const ListIcons = {
 			plugin: {
 				name: "Plugin",
 			},
+			"plugin-disconnected": {
+				name: "Plugin Disconnected",
+			},
 			tutorials: {
 				name: "Tutorials",
 			},
@@ -445,6 +465,9 @@ const ListIcons = {
 			"user-alt": {
 				name: "User",
 				alt: true,
+			},
+			"user-add": {
+				name: "User Add",
 			},
 			search: {
 				name: "Search",
@@ -478,9 +501,6 @@ const ListIcons = {
 			mobile: {
 				name: "Mobile",
 			},
-			"file-zip": {
-				name: "File Zip",
-			},
 			edit: {
 				name: "Edit (Pen Line)",
 			},
@@ -500,6 +520,9 @@ const ListIcons = {
 			},
 			lifesaver: {
 				name: "Lifesaver (Life Ring)",
+			},
+			spinner: {
+				name: "Spinner",
 			},
 			"compress-alt": {
 				name: "Compress",
@@ -535,6 +558,12 @@ const ListIcons = {
 			key: {
 				name: "Key",
 			},
+			phone: {
+				name: "Phone",
+			},
+			currency: {
+				name: "Currency (Dollar)",
+			},
 			copy: {
 				name: "Copy",
 			},
@@ -543,6 +572,151 @@ const ListIcons = {
 			},
 			clock: {
 				name: "Clock (Time)",
+			},
+			"clock-alt": {
+				name: "Clock (Time)",
+				alt: true,
+			},
+			wordpress: {
+				name: "WordPress",
+			},
+			merge: {
+				name: "Merge",
+			},
+			footer: {
+				name: "Footer",
+			},
+			inline: {
+				name: "Inline",
+			},
+			async: {
+				name: "Async",
+			},
+			roadmap: {
+				name: "Roadmap",
+			},
+			gift: {
+				name: "Gift",
+			},
+			optimization: {
+				name: "Optimization",
+			},
+			reports: {
+				name: "Reports",
+			},
+			graduation: {
+				name: "Graduation Cap",
+			},
+			brush: {
+				name: "Brush",
+			},
+			palette: {
+				name: "Palette",
+			},
+			"file-zip": {
+				name: "File Zip",
+			},
+			newspaper: {
+				name: "Newspaper",
+			},
+			captcha: {
+				name: "Captcha",
+			},
+			"page-break": {
+				name: "Page Break",
+			},
+			signature: {
+				name: "Signature",
+			},
+			"signature-alt": {
+				name: "Signature",
+				alt: true,
+			},
+			"group-field": {
+				name: "Group Field",
+			},
+			bug: {
+				name: "Bug",
+			},
+			"caret-up-down": {
+				name: "Caret Up Down",
+			},
+			"align-left": {
+				name: "Align Left",
+			},
+			"align-right": {
+				name: "Align Right",
+			},
+			"align-center": {
+				name: "Align Center",
+			},
+			broom: {
+				name: "Broom",
+			},
+			js: {
+				name: "JS",
+			},
+			css: {
+				name: "CSS",
+			},
+		},
+	},
+	forms: {
+		name: "Forms",
+		icons: {
+			"radio-selected": {
+				name: "Radio Selected",
+			},
+			calculator: {
+				name: "Calculator",
+			},
+			"calculator-alt": {
+				name: "Calculator",
+				alt: true,
+			},
+			"input-text": {
+				name: "Input Text",
+			},
+			"input-number": {
+				name: "Input Number",
+			},
+			"checkbox-checked": {
+				name: "Checkbox Checked",
+			},
+			"checkbox-checked-alt": {
+				name: "Checkbox Checked",
+				alt: true,
+			},
+			"checkbox-indeterminate": {
+				name: "Checkbox Indeterminate",
+			},
+		},
+	},
+	payments: {
+		name: "Payments",
+		icons: {
+			invoice: {
+				name: "Invoice",
+			},
+			stripe: {
+				name: "Stripe",
+			},
+			paypal: {
+				name: "Paypal",
+			},
+		},
+	},
+	social: {
+		name: "Social Media",
+		icons: {
+			facebook: {
+				name: "Facebook",
+			},
+			instagram: {
+				name: "Instagram",
+			},
+			twitter: {
+				name: "Twitter",
 			},
 		},
 	},
@@ -565,6 +739,7 @@ Page.argTypes = {
 			"state",
 			"navigation",
 			"social",
+			"forms",
 			"global",
 		],
 		control: {
@@ -578,6 +753,7 @@ Page.argTypes = {
 				state: "State",
 				navigation: "Navigation",
 				social: "Social Media",
+				forms: "Forms",
 				global: "Global",
 			},
 		},

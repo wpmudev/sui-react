@@ -3,9 +3,8 @@
 @use "../../../_utils/utils" as *;
 
 /// Edit Read Only
-/// This function creates styles for input in readonly mode
 ///
-/// @type modifier
+/// @type state
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -15,6 +14,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(readonly) {
+				pointer-events: none;
 				&:before {
 					border-color: $input-border-color-readonly;
 				}

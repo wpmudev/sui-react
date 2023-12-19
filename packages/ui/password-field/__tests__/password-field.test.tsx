@@ -1,7 +1,7 @@
 import React from "react"
 import { PasswordField } from "../src"
 import "@testing-library/jest-dom"
-import { render, screen } from "@testing-library/react"
+import { render, screen, prettyDOM } from "@testing-library/react"
 import { a11yTest } from "@wpmudev/sui-utils"
 
 describe("@wpmudev/sui-password-field", () => {
@@ -9,7 +9,7 @@ describe("@wpmudev/sui-password-field", () => {
 
 	// Test case: Ensure that the PasswordFiled renders correctly
 	it("renders correctly", async () => {
-		render(<Component />)
+		const { container } = render(<Component />)
 		expect(screen.getByTestId("password-field")).toBeInTheDocument()
 	})
 

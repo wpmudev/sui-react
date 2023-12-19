@@ -22,7 +22,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({ title = "", children }) => {
 				{!isEmpty(title ?? "") && "app-connect" !== variant && <h4>{title}</h4>}
 				<Button
 					className="sui-modal__header-actions-close"
-					icon="close"
+					icon="Close"
 					appearance="tertiary"
 					color="black"
 					onClick={!!closeModal ? closeModal : () => {}}

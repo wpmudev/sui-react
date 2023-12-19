@@ -35,7 +35,6 @@ const Integration: React.FC<IntegrationProps> = ({
 	const [isHovered, isFocused, methods] = useInteraction({})
 
 	// Define component states
-	// const [state, setState] = useState()
 	const [isActive, setIsActive] = useState(active)
 
 	// Define container props
@@ -64,7 +63,7 @@ const Integration: React.FC<IntegrationProps> = ({
 	// Settings button props.
 	const settingsProps = {
 		className: "sui-integration-setting-btn",
-		icon: "settings",
+		icon: "Settings",
 		label: "settings",
 		appearance: "tertiary",
 		color: "black",
@@ -90,7 +89,7 @@ const Integration: React.FC<IntegrationProps> = ({
 					<h3 className="sui-heading--h4 sui-integration__title">{title}</h3>
 				)}
 				{!!additionalInfo && (
-					<Tooltip type="icon" name="info" icon="info" customWidth={160}>
+					<Tooltip type="icon" name="info" icon="Info" customWidth={160}>
 						{additionalInfo}
 					</Tooltip>
 				)}

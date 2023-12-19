@@ -3,8 +3,6 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Recipient Email
-/// This function creates styles for the element
-/// recipient email.
 ///
 /// @type block
 /// @author WPMU DEV
@@ -15,10 +13,10 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            @include element(email) {
+			@include element(email) {
 				color: $color-extended-neutral-50;
-                flex: 1;
-            }
+				flex: 1;
+			}
 		}
 	}
 
@@ -26,9 +24,9 @@
 	// THEME: dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-            @include element(email) {
+			@include element(email) {
 				color: $color-extended-neutral-0;
-            }
+			}
 		}
 	}
 }

@@ -3,9 +3,8 @@
 @use "../../../_utils/utils" as *;
 
 /// Select Checkbox
-/// This function creates styles for select checkbox
 ///
-/// @type modifier
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -14,11 +13,11 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            .sui-checkbox {
-                font-size: $font-size-xs;
-                line-height: $select-checkbox-font-height-md;
-                width: $select-checkbox-container-size;
-            }
+			.sui-checkbox {
+				font-size: $font-size-xs;
+				line-height: $select-checkbox-font-height-md;
+				width: $select-checkbox-container-size;
+			}
 		}
 	}
 }

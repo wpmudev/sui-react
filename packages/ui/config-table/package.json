@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-config-table",
   "version": "0.0.1",
-  "description": "WPMU DEV Shared UI React Config Table shared Component",
+  "description": "The config table provides plugin config information in a tabular format",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -14,6 +14,11 @@
       "name": "Pawan Kumar",
       "email": "40248406+creador-dev@users.noreply.github.com",
       "url": "https://creador.dev/"
+    },
+    {
+      "name": "Abderrahman DOUARA",
+      "email": "aer17013@gmail.com",
+      "url": "https://douara.me"
     }
   ],
   "license": "GPL-2.0",
@@ -49,7 +54,6 @@
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-box": "^0.0.1",
     "@wpmudev/sui-button": "^0.0.1",
     "@wpmudev/sui-table": "^0.0.1",
     "@wpmudev/sui-tooltip": "^0.0.1",

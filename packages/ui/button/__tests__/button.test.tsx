@@ -17,7 +17,7 @@ describe("@wpmudev/sui-button", () => {
 
 	test("Renders icon + text correctly", () => {
 		// Render the button component with an icon and text
-		render(<Button icon="close">Button with Icon</Button>)
+		render(<Button icon="Close">Button with Icon</Button>)
 
 		// Render text within the button component
 		const { getByText } = within(screen.getByTestId("button"))
@@ -30,7 +30,7 @@ describe("@wpmudev/sui-button", () => {
 	test("Renders icon only", () => {
 		// Render the button component with only an icon
 		render(
-			<Button icon="close" iconOnly={true}>
+			<Button icon="Close" iconOnly={true}>
 				Button label
 			</Button>,
 		)

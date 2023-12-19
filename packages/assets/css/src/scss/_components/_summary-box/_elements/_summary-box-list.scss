@@ -3,7 +3,7 @@
 
 /// Build Summary box list
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -30,6 +30,7 @@
 				justify-content: space-between;
 				margin-bottom: $spacing-lg;
 				padding: $spacing-lg;
+				position: relative;
 
 				@include media(max-width, md) {
 					margin-bottom: $spacing-md;
@@ -42,8 +43,19 @@
 					}
 				}
 
+				&:after {
+					content: "";
+					position: absolute;
+					inset: -#{$border-width-sm};
+					pointer-events: none;
+					border-radius: inherit;
+					z-index: -1;
+				}
+
 				@include modifier(focus) {
-					outline: $border-width-sm solid $color-extended-neutral-60;
+					&:after {
+						border: $border-width-sm solid $color-extended-neutral-60;
+					}
 				}
 			}
 
@@ -73,7 +85,7 @@
 		@include block($block) {
 			@include element(list-item) {
 				background-color: $color-extended-neutral-100;
-				outline: $border-width-sm solid $color-extended-neutral-0;
+				border: $border-width-sm solid $color-extended-neutral-0;
 			}
 		}
 	}

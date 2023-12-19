@@ -1,4 +1,3 @@
-
 @use "sass:math";
 @use "../../../_utils/utils" as *;
 
@@ -14,6 +13,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(item) {
+				position: relative;
 				align-items: center;
 				border-radius: $border-radius-sm;
 				display: flex;
@@ -21,6 +21,16 @@
 				margin-bottom: $spacing-sm;
 				padding: $sidebar-spacing-md;
 				text-decoration: none;
+				transition: 0.3s all ease;
+
+				&:after {
+					content: "";
+					position: absolute;
+					inset: -#{$border-width-md};
+					border-radius: inherit;
+					pointer-events: none;
+					z-index: -1;
+				}
 
 				&:last-child {
 					margin-bottom: 0;
@@ -33,6 +43,7 @@
 				font-weight: $font-weight-md;
 				gap: $spacing-md;
 				color: $color-extended-neutral-10;
+				transition: 0.3s all ease;
 			}
 		}
 	}

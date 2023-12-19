@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react"
+import React, { Fragment, useContext, useRef } from "react"
 
 import { Button } from "@wpmudev/sui-button"
 import { generateCN } from "@wpmudev/sui-utils"
@@ -7,12 +7,23 @@ import { DatePickerMonth } from "./date-picker-month"
 import { CALENDARS } from "./date-picker"
 import { DatePickerContext } from "./date-picker-context"
 import { DatePickerRange } from "./date-picker-ranges"
+import { useOuterClick } from "@wpmudev/sui-hooks"
 
 const DatePickerPopover: React.FunctionComponent<any> = () => {
 	// Context of the DatePicker, which contains various state variables and functions
 	const ctx = useContext(DatePickerContext)
 
 	const { startMonth, endMonth, helpers, handlers } = ctx!
+
+	// Create a ref to access the dropdown's outer container element.
+	const popoverRef = useRef<HTMLDivElement | null>(null)
+
+	// Handle the closing of the dropdown when clicking outside the component.
+	useOuterClick(popoverRef, () => {
+		if (ctx?.isSingle) {
+			ctx?.setIsOpen(false)
+		}
+	})
 
 	// Common props passed to the DatePickerMonth components
 	const commonProps = {
@@ -24,6 +35,7 @@ const DatePickerPopover: React.FunctionComponent<any> = () => {
 		<div
 			className={generateCN("sui-date-picker__popover", { open: ctx?.isOpen })}
 			data-testid="date-picker-popover"
+			ref={popoverRef}
 		>
 			{/* Render the DatePickerRange component in the header (only in non-single mode) */}
 			{!ctx?.isSingle && (

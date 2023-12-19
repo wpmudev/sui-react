@@ -5,7 +5,7 @@
 /// Select Hover
 /// This function creates styles for select hover state
 ///
-/// @type modifier
+/// @type state
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -23,12 +23,7 @@
 			@include element(dropdown) {
 				@include modifier(option) {
 					&:hover {
-						color: $color-primary-50;
-					}
-				}
-
-				@include modifier(selected) {
-					&:hover {
+						background: $color-primary-50;
 						color: $color-extended-neutral-100;
 					}
 				}
@@ -49,7 +44,8 @@
 			@include element(dropdown) {
 				@include modifier(option) {
 					&:hover {
-						color: $color-extended-neutral-0;
+						background: $color-extended-neutral-0;
+						color: $color-extended-neutral-100;
 					}
 				}
 

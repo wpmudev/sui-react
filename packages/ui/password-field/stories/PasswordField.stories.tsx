@@ -108,12 +108,12 @@ PasswordField.argTypes = {
 	},
 	buttonType: {
 		name: "Button Style",
-		options: ["icon-button", "standard"],
+		options: ["icon-button", "text"],
 		control: {
 			type: "select",
 			labels: {
 				"icon-button": "Icon Button (Default)",
-				standard: "Button",
+				standard: "text",
 			},
 		},
 	},

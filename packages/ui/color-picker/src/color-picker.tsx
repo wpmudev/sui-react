@@ -116,9 +116,9 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 				<Button
 					className={`sui-color-picker__${tempColor ? "clear" : "button"}`}
 					{...(tempColor && {
-						icon: "close-alt",
+						icon: "CloseAlt",
 						iconOnly: true,
-						iconSize: "lg",
+						iconSize: "md",
 						onClick: closeColorPicker,
 					})}
 					{...(!tempColor && {

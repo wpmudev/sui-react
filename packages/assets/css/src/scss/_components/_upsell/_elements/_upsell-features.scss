@@ -3,43 +3,43 @@
 
 /// Build Features
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-features($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include element(features) {
-                display: flex;
-                flex-direction: column;
-                gap: $spacing-lg;
-                row-gap: $spacing-md;
-                margin: $spacing-lg 0 $spacing-xl;
-            }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(features) {
+				display: flex;
+				flex-direction: column;
+				gap: $spacing-lg;
+				row-gap: $spacing-md;
+				margin: $spacing-lg 0 $spacing-xl;
+			}
 
-            @include element(features-item) {
-                align-items: center;
-                color: $color-extended-neutral-10;
-                display: flex;
-                font-size: $font-size-xs;
-                line-height: $font-height-xs;
-                font-weight: $font-weight-md;
-                gap: $spacing-md;
-                margin: 0;
-            }
-        }
-    }
+			@include element(features-item) {
+				align-items: center;
+				color: $color-extended-neutral-10;
+				display: flex;
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
+				font-weight: $font-weight-md;
+				gap: $spacing-md;
+				margin: 0;
+			}
+		}
+	}
 
-    // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: false, $theme: dark) {
-        @include block($block) {
-            @include element(features-item) {
-                color: $color-extended-neutral-0;
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(features-item) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
 }

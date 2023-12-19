@@ -3,8 +3,6 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Select Input
-/// This function creates styles for the select input
-/// recipient wrapper.
 ///
 /// @type block
 /// @author WPMU DEV
@@ -43,6 +41,17 @@
 					cursor: text;
 					outline: none;
 				}
+			}
+
+			@include element(hidden-input) {
+				width: 0;
+				height: 0;
+				overflow: hidden;
+				clip: rect(1px, 1px, 1px, 1px);
+				clip-path: inset(50%);
+				display: block;
+				margin-bottom: -4px;
+				padding: 0;
 			}
 		}
 	}

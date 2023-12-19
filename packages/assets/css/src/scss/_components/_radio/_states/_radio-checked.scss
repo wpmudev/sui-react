@@ -2,7 +2,7 @@
 
 /// Edit Checked State
 ///
-/// @type modifier
+/// @type state
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -13,13 +13,25 @@
 		@include block($block) {
 			@include modifier(checked) {
 				@include modifies-element(box) {
-					border-color: $color-primary-50;
 					background: $color-primary-50;
+					border-color: $color-primary-50;
 				}
 
 				&.sui-#{$block}--block {
-					outline-color: $color-primary-80;
 					background: $color-primary-90;
+
+					&:after {
+						border-color: $color-primary-80;
+					}
+
+					&:hover {
+						background: unset;
+
+						.sui-#{$block}__box {
+							background: $color-primary-40;
+							border-color: $color-primary-40;
+						}
+					}
 				}
 			}
 		}
@@ -31,13 +43,15 @@
 		@include block($block) {
 			@include modifier(checked) {
 				@include modifies-element(box) {
-					border-color: $color-extended-neutral-0;
 					background: $color-extended-neutral-0;
+					border-color: $color-extended-neutral-0;
 				}
 
 				&.sui-#{$block}--block {
-					outline-color: $color-extended-neutral-0;
 					background: $color-extended-neutral-100;
+					&:after {
+						border-color: $color-extended-neutral-0;
+					}
 				}
 			}
 		}

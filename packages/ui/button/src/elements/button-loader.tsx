@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { generateCN } from "@wpmudev/sui-utils"
+import { SpinnerAlt } from "@wpmudev/sui-icons"
 
 interface ButtonLoaderProps {
 	/**
@@ -12,17 +12,10 @@ interface ButtonLoaderProps {
 
 // Build "Loader" component.
 const Loader: React.FC<ButtonLoaderProps> = ({ children }) => {
-	const className = generateCN("suicons", {
-		md: true,
-		"spinner-alt": true,
-		// icon animation
-		spin: true,
-	})
-
 	return (
 		<Fragment>
 			<span className="sui-button__icon" aria-hidden="true">
-				<span className={className} />
+				<SpinnerAlt className="suicons--spin" size="sm" />
 			</span>
 			{children ? (
 				<span className="sui-button__label sui-hidden" tabIndex={-1}>

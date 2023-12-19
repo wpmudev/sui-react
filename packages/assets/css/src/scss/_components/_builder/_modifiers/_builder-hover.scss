@@ -13,7 +13,9 @@
 		@include block($block) {
 			@include element(field) {
 				@include modifier(hover) {
-					outline: $border-width-xl solid $color-alpha-grey-10;
+					&:after {
+						border-color: $color-alpha-grey-10;
+					}
 				}
 			}
 		}
@@ -24,8 +26,8 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(field) {
-				@include modifier(hover) {
-					outline: none;
+				&:after {
+					border: none;
 				}
 			}
 		}

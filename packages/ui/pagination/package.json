@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-pagination",
   "version": "0.0.1",
-  "description": "WPMU DEV Shared UI React Pagination",
+  "description": "Pagination helps users navigate through pages or content separated by pages.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -16,14 +16,14 @@
       "url": "https://iamleigh.com"
     },
     {
-      "name": "Govind Kumar",
-      "email": "gkprmr@gmail.com",
-      "url": "https://govind.js.org"
-    },
-    {
       "name": "Pawan Kumar",
       "email": "40248406+creador-dev@users.noreply.github.com",
       "url": "https://creador.dev/"
+    },
+    {
+      "name": "Abderrahman DOUARA",
+      "email": "aer17013@gmail.com",
+      "url": "https://douara.me"
     }
   ],
   "license": "GPL-2.0",
@@ -60,6 +60,7 @@
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
     "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-tooltip": "^0.0.1",
     "react": "^18.2.0"
   }
 }

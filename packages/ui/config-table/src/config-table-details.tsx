@@ -37,7 +37,9 @@ const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({ config }) => {
 
 							return (
 								<TableRow key={index} id={option.id}>
-									<TableCell>{chunks[0]}</TableCell>
+									<TableCell>
+										<strong>{chunks[0]}</strong>
+									</TableCell>
 									<TableCell>{chunks[1]}</TableCell>
 								</TableRow>
 							)

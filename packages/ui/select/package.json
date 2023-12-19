@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-select",
   "version": "0.0.1",
-  "description": "WPMU DEV Shared UI React Select Component",
+  "description": "The Select element is used for a drop-down options. This element is most often used in a form, to collect user input. Select inputs let users select a predefined value from a list of options",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -14,6 +14,11 @@
       "name": "Govind Kumar",
       "email": "gkprmr@gmail.com",
       "url": "https://govind.js.org/"
+    },
+    {
+      "name": "Abderrahman DOUARA",
+      "email": "aer17013@gmail.com",
+      "url": "https://douara.me"
     }
   ],
   "license": "GPL-2.0",
@@ -49,6 +54,7 @@
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
     "@wpmudev/sui-checkbox": "^0.0.1",
+    "@wpmudev/sui-hooks": "^0.0.1",
     "@wpmudev/sui-input": "^0.0.1",
     "@wpmudev/sui-utils": "^0.0.1",
     "react": "^18.2.0"

@@ -108,7 +108,7 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 										id: "menu-smartcrawl",
 										label: "SmartCrawl",
 										props: {
-											icon: "PluginSmartCrawl",
+											icon: "PluginSmartcrawl",
 											variation: "smartcrawl",
 										},
 									},
@@ -116,7 +116,7 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 										id: "menu-ivt",
 										label: "IVT",
 										props: {
-											icon: "PluginIVT",
+											icon: "PluginIvt",
 											variation: "ivt",
 										},
 									},
@@ -164,7 +164,7 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 						>
 							<Button
 								appearance="primary"
-								icon="package"
+								icon="Package"
 								color="blue"
 								isSmall={true}
 								isFullWidth={true}

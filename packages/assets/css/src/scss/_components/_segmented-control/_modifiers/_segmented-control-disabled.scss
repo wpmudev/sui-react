@@ -4,24 +4,24 @@
 
 /// Build disabled
 ///
-/// @type block
+/// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $block-name - Main block name
 @mixin build-segmented-control-disabled($block) {
-    // DIR: Left to right.
-    // THEME: Light.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include element(label) {
-                @include modifier(disabled) {
-                    pointer-events: none;
-                    user-select: none;
-                    background: $color-extended-neutral-90;
-                    color: $color-extended-neutral-70;
-                    cursor: default;
-                }
-            }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(label) {
+				@include modifier(disabled) {
+					pointer-events: none;
+					user-select: none;
+					background: $color-extended-neutral-90;
+					color: $color-extended-neutral-70;
+					cursor: default;
+				}
+			}
+		}
+	}
 }

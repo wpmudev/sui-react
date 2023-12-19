@@ -2,8 +2,7 @@
 
 @use "../../../_utils/utils" as *;
 
-/// Select Control
-/// This function creates styles for select control
+/// Dropdown
 ///
 /// @type modifier
 /// @author WPMU DEV
@@ -17,72 +16,73 @@
 			@include element(dropdown) {
 				position: absolute;
 				overflow-y: auto;
-                background: $color-extended-neutral-100;
+				background: $color-extended-neutral-100;
 				width: $select-dropdown-container-size-width;
-				padding: $select-dropdown-container-padding-vertical $select-dropdown-container-padding-horizontal;
+				padding: $select-dropdown-container-padding-vertical
+					$select-dropdown-container-padding-horizontal;
 				margin: $select-dropdown-container-margin;
 				border-style: $select-dropdown-container-border-style;
 				border-bottom-left-radius: $select-dropdown-container-border-radius;
 				border-bottom-right-radius: $select-dropdown-container-border-radius;
 				max-height: $select-dropdown-container-size-height;
 
-                @include modifier(option) {
-                    display: flex;
+				@include modifier(option) {
+					display: flex;
 					align-items: center;
 					cursor: pointer;
-                    font-size: $font-size-xs;
+					font-size: $font-size-xs;
 					line-height: $select-dropdown-option-font-height-md;
-					padding: $select-dropdown-option-padding-vertical $select-dropdown-option-padding-horizontal-md;
+					padding: $select-dropdown-option-padding-vertical
+						$select-dropdown-option-padding-horizontal-md;
 					margin: $select-dropdown-option-margin;
-                }
+				}
 
-                @include modifier(selected) {
-                    background: $color-primary-50;
-                    color: $color-extended-neutral-100;
-                }
+				@include modifier(selected) {
+					color: $color-primary-50;
+				}
 
-                @include modifier(empty) {
-                    padding: $select-dropdown-empty-padding;
-                    margin: $select-dropdown-empty-margin-horizontal $select-dropdown-empty-margin-vertical;
-                    font-size: $font-size-xs;
-                    line-height: $select-dropdown-empty-font-height-md;
-                    letter-spacing: $select-dropdown-empty-font-spacing-md;
-                    background: $color-primary-90;
-                    border-radius: $select-dropdown-empty-border-radius;
-                }
+				@include modifier(empty) {
+					padding: $select-dropdown-empty-padding;
+					margin: $select-dropdown-empty-margin-horizontal
+						$select-dropdown-empty-margin-vertical;
+					font-size: $font-size-xs;
+					line-height: $select-dropdown-empty-font-height-md;
+					letter-spacing: $select-dropdown-empty-font-spacing-md;
+					background: $color-primary-90;
+					border-radius: $select-dropdown-empty-border-radius;
+				}
 			}
 
-            @include modifier(open) {
-                @include modifies-element(dropdown) {
-                    border-top: 0;
-                    border-width: $select-dropdown-open-border-width;
+			@include modifier(open) {
+				@include modifies-element(dropdown) {
+					border-top: 0;
+					border-width: $select-dropdown-open-border-width;
 					border-color: $select-dropdown-open-border-color;
-                }
-            }
+				}
+			}
 		}
 	}
 
-    // DIR: Left to right.
+	// DIR: Left to right.
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(dropdown) {
+				@include modifier(selected) {
+					color: $color-extended-neutral-0;
+				}
 
-                @include modifier(selected) {
-                    background: $color-extended-neutral-0;
-                }
-
-                @include modifier(empty) {
-                    background: $color-extended-neutral-0;
-                    color: $color-extended-neutral-100;
-                }
+				@include modifier(empty) {
+					background: $color-extended-neutral-0;
+					color: $color-extended-neutral-100;
+				}
 			}
 
-            @include modifier(open) {
-                @include modifies-element(dropdown) {
+			@include modifier(open) {
+				@include modifies-element(dropdown) {
 					border-color: $color-extended-neutral-0;
-                }
-            }
+				}
+			}
 		}
 	}
 }

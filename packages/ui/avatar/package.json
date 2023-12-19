@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-avatar",
   "version": "0.0.1",
-  "description": "WPMU DEV Shared UI React Button Component",
+  "description": "An avatar is a thumbnail that represents a user or organization on the SUI platform.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
@@ -19,6 +19,11 @@
       "name": "Pawan Kumar",
       "email": "40248406+creador-dev@users.noreply.github.com",
       "url": "https://creador.dev/"
+    },
+    {
+      "name": "Abderrahman DOUARA",
+      "email": "aer17013@gmail.com",
+      "url": "https://douara.me"
     }
   ],
   "license": "ISC",

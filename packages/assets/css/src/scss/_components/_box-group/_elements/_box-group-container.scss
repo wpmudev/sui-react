@@ -1,9 +1,9 @@
 @use "sass:math";
 @use "../../../_utils/utils" as *;
 
-/// Build Container
+/// Build container
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -30,6 +30,11 @@
 				border-bottom: $border-width-sm solid $color-extended-neutral-80;
 			}
 
+			@include media(max-width, lg) {
+				margin: $spacing-xl 0;
+				padding: 0 $spacing-xl;
+			}
+
 			@include media(max-width, sm) {
 				margin: $spacing-lg 0;
 				padding: 0 $spacing-lg;
@@ -41,7 +46,6 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-
 			@include modifier(footer) {
 				border-top-color: $color-extended-neutral-0;
 			}

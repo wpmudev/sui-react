@@ -46,7 +46,7 @@ const Recipient: React.FC<RecipientProps> = ({
 				{!isInvited && (
 					<RecipientButton
 						className="sui-recipient__button"
-						icon="add"
+						icon="Add"
 						color="black"
 					>
 						Add recipient
@@ -56,14 +56,14 @@ const Recipient: React.FC<RecipientProps> = ({
 					<Fragment>
 						<RecipientButton
 							className="sui-recipient__button"
-							icon="submit"
+							icon="Submit"
 							color="black"
 						>
 							Send recipient
 						</RecipientButton>
 						<RecipientButton
 							className="sui-recipient__button"
-							icon="trash"
+							icon="Trash"
 							color="red"
 						>
 							Delete recipient

@@ -4,6 +4,7 @@ import { Input } from "@wpmudev/sui-input"
 interface InputWithAutoCompleteProps {
 	id?: string
 	expanded?: boolean
+	controlRef: HTMLDivElement | HTMLInputElement | null
 	isSmall?: boolean
 	selected?: {
 		label: string
@@ -13,18 +14,23 @@ interface InputWithAutoCompleteProps {
 	onChange?: (
 		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => void
+	onValueChange: (val: string) => void
 	onEvent?: (event: React.ChangeEvent<HTMLInputElement>) => void
 	ref?: LegacyRef<HTMLInputElement>
+	interactionMethods: object
 }
 
 const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	id,
+	controlRef,
 	expanded = false,
 	selected = { label: "" },
 	dropdownItems = [],
 	dropdownToggle,
+	onValueChange = () => {},
 	onChange = () => {},
 	onEvent = () => {},
+	interactionMethods,
 	...props
 }) => {
 	const generatedId = useId()
@@ -33,9 +39,6 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	const inputId = id || `sui-search-${generatedId}`
 
 	const [value, setValue] = useState<string>(selected?.label || "")
-
-	// Search input ref
-	const inputRef = useRef<HTMLInputElement | null>(null)
 
 	// Make options searchable if input value is above min chars required for search
 	const isFiltered = value.length >= 1
@@ -55,6 +58,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 			const val = e.target.value
 
 			setValue(val)
+			onValueChange(val)
 			if (onChange) {
 				onChange(e)
 			}
@@ -79,7 +83,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 
 	return (
 		<Input
-			ref={inputRef}
+			ref={controlRef}
 			className="sui-select__input"
 			id={inputId}
 			icon="search"
@@ -92,6 +96,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 			disableInteractions={true}
 			onKeyDown={onInputKeyDown}
 			{...props}
+			{...interactionMethods}
 		/>
 	)
 }

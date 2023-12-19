@@ -15,8 +15,14 @@
 			@include element(content) {
 				display: flex;
 				gap: $spacing-md;
+				width: 100%;
 				flex: 1;
-				justify-content: space-between;
+
+				.sui-#{$block}__body {
+					@include media(max-width, md) {
+						width: 100%;
+					}
+				}
 
 				@include modifier(center) {
 					.sui-#{$block}__body {
@@ -40,6 +46,36 @@
 					@include media(max-width, sm) {
 						flex-wrap: wrap;
 						gap: $spacing-lg;
+					}
+				}
+			}
+
+			@include element(field) {
+				display: flex;
+				gap: $spacing-lg;
+				flex: 1;
+
+				.sui-input {
+					min-width: 200px;
+					@include media(min-width, lg) {
+						min-width: 240px;
+					}
+				}
+
+				@include modifier(status) {
+					display: flex;
+					align-items: center;
+					gap: $spacing-md;
+					width: 100%;
+					color: $color-extended-neutral-50;
+					@include media(max-width, md) {
+						width: auto;
+					}
+				}
+
+				@include modifier(status-text) {
+					@include media(max-width, lg) {
+						display: none;
 					}
 				}
 			}

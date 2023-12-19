@@ -3,11 +3,10 @@
  * External Dependencies
  *
  */
-import React from "react"
-// eslint-disable-next-line import/no-extraneous-dependencies
+import React, { useState } from "react"
 import classnames from "classnames"
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Source } from "@storybook/addon-docs"
+import Button from "../button/button"
 
 /**
  *
@@ -27,13 +26,21 @@ const Snippet: React.FunctionComponent<SnippetProps> = ({
 	dark = false,
 	children,
 }) => {
+	const [showCode, setShowCode] = useState(false)
 	const snippetClasses = classnames({
 		"csb-snippet": true,
 		"csb-snippet--dark": dark,
 	})
 	return (
 		<div className={snippetClasses}>
-			<Source code={children} language={language} />
+			<Button
+				type="button"
+				style="secondary"
+				label={showCode ? "Hide code" : "Show code"}
+				className="csb-snippet__toggle-button"
+				onClick={() => setShowCode(!showCode)}
+			/>
+			{showCode && <Source code={children} language={language} dark={true} />}
 		</div>
 	)
 }

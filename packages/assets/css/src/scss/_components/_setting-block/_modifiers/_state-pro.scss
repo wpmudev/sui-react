@@ -3,20 +3,19 @@
 @use "../../../_utils/utils" as *;
 
 /// State pro
-/// This function creates styles for select error state
 ///
 /// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin state-pro($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-           @include modifier(pro) {
-               background: var(--color-nutral-grey-95, #F8F8F8);
-           }
-        }
-    }
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(pro) {
+				background: var(--color-nutral-grey-95, #f8f8f8);
+			}
+		}
+	}
 }

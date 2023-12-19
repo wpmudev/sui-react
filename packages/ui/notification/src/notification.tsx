@@ -98,7 +98,7 @@ const Notification: React.FC<NotificationProps> = ({
 			{isDismissible && (
 				<Button
 					className="sui-modal__header-actions-close"
-					icon="close"
+					icon="Close"
 					appearance="tertiary"
 					color="black"
 					isSmall={true}

@@ -24,9 +24,15 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 	}, [ctx, ctx?.isDisabled])
 
 	// function to toggle the date picker visibility when the input field is clicked
-	const onInputClick = useCallback(() => {
-		ctx.setIsOpen(!ctx.isOpen) // Toggle the isOpen state in the context
-	}, [ctx])
+	const onInputClick = useCallback(
+		(event: React.MouseEvent<HTMLInputElement>) => {
+			// Stop event propagation
+			event.stopPropagation()
+
+			ctx.setIsOpen(!ctx.isOpen) // Toggle the isOpen state in the context
+		},
+		[ctx],
+	)
 
 	// Generate a unique id for the input field using the useId hook
 	const id = useId()
@@ -43,7 +49,7 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 	if (ctx?.isSingle && !!startDate) {
 		value = `${format(startDate, formatStr)}`
 	} else if (!!startDate && !!endDate) {
-		value = `${format(startDate, formatStr)}- ${format(endDate, formatStr)}`
+		value = `${format(startDate, formatStr)} - ${format(endDate, formatStr)}`
 	}
 
 	return (
@@ -57,7 +63,6 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 		>
 			<Input
 				id={id}
-				tabIndex={-1}
 				icon="calendar"
 				iconPosition="start"
 				readOnly={true}

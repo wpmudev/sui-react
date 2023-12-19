@@ -2,9 +2,8 @@
 @use "../../../_utils/utils" as *;
 
 /// Build Checkbox Box
-/// This function creates styles for the box element
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
@@ -25,6 +24,15 @@
 				border: $border-width-sm solid $color-extended-neutral-70;
 				border-radius: $border-radius-sm;
 				background: $color-extended-neutral-100;
+
+				&:after {
+					content: "";
+					position: absolute;
+					inset: -5px;
+					border-width: 0;
+					border-style: solid;
+					border-radius: $border-radius-md;
+				}
 			}
 		}
 	}

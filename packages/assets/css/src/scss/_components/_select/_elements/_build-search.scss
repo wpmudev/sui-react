@@ -3,7 +3,6 @@
 @use "../../../_utils/utils" as *;
 
 /// Select Search
-/// This function creates styles for select search
 ///
 /// @type modifier
 /// @author WPMU DEV
@@ -14,15 +13,16 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-            @include element(search) {
+			@include element(search) {
 				position: relative;
 				border-bottom: 0;
-                border-top: 0;
-                padding: $select-search-padding-horizontal $select-search-padding-vertical 0;
-                border-style: $select-search-border-style;
+				border-top: 0;
+				padding: $select-search-padding-horizontal
+					$select-search-padding-vertical 0;
+				border-style: $select-search-border-style;
 				border-width: $select-search-border-width;
 				border-color: $select-search-border-color;
-            }
+			}
 
 			@include modifier(multiselect) {
 				@include modifies-element(search) {
@@ -37,9 +37,9 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-            @include element(search) {
+			@include element(search) {
 				border-color: $color-extended-neutral-0;
-            }
+			}
 		}
 	}
 }

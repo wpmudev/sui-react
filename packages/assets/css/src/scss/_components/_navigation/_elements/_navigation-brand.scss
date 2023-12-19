@@ -3,58 +3,58 @@
 
 /// Build Brand
 ///
-/// @type element
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
 @mixin build-brand($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            @include element(brand) {
-                align-items: center;
-                display: flex;
-                gap: $spacing-lg;
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(brand) {
+				align-items: center;
+				display: flex;
+				gap: $spacing-lg;
 
-                h3 {
-                    margin: 0;
-                }
-            }
+				h3 {
+					margin: 0;
+				}
+			}
 
-            @include element(icon) {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                background-color: $color-extended-neutral-80;
-                border-radius: $border-radius-xl;
-                height: $navigation-size-height-lg;
-                width: $navigation-size-width-lg;
+			@include element(icon) {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				background-color: $color-extended-neutral-80;
+				border-radius: $border-radius-xl;
+				height: $navigation-size-height-lg;
+				width: $navigation-size-width-lg;
 
-                @include media(max-width, md) {
-                    height: $navigation-size-height-md;
-                    width: $navigation-size-width-md;
-                    border-radius: $navigation-border-radius-md;
-                }
-            }
+				@include media(max-width, md) {
+					height: $navigation-size-height-md;
+					width: $navigation-size-width-md;
+					border-radius: $navigation-border-radius-md;
+				}
+			}
 
-            @include element(info) {
-                @include media(max-width, sm) {
-                    display: none;
-                }
-                @include modifier(desc) {
-                    color: $color-extended-neutral-70;
-                    font-size: $font-size-xs;
-                    line-height: $font-height-xs;
-                    font-weight: $font-weight-md;
-                    letter-spacing: $font-spacing-xxl;
-                    text-transform: uppercase;
+			@include element(info) {
+				@include media(max-width, sm) {
+					display: none;
+				}
+				@include modifier(desc) {
+					color: $color-extended-neutral-60;
+					font-size: $font-size-xs;
+					line-height: $font-height-xs;
+					font-weight: $font-weight-md;
+					letter-spacing: $font-spacing-xxl;
+					text-transform: uppercase;
 
-                    @include media(max-width, md) {
-                        display: none;
-                    }
-                }
-            }
-        }
-    }
+					@include media(max-width, md) {
+						display: none;
+					}
+				}
+			}
+		}
+	}
 }
