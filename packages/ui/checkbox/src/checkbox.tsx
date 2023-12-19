@@ -101,7 +101,7 @@ const Checkbox = ({
 			{isLabelHidden ? (
 				<span className="sui-screen-reader-only">{label}</span>
 			) : (
-				label
+				<span className="sui-checkbox__label">{label}</span>
 			)}
 		</label>
 	)
