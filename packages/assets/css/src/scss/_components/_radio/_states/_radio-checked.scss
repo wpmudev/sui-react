@@ -19,8 +19,18 @@
 
 				&.sui-#{$block}--block {
 					background: $color-primary-90;
+
 					&:after {
 						border-color: $color-primary-80;
+					}
+
+					&:hover {
+						background: unset;
+
+						.sui-#{$block}__box {
+							background: $color-primary-40;
+							border-color: $color-primary-40;
+						}
 					}
 				}
 			}
