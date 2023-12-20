@@ -44,7 +44,6 @@ $colors-high-contrast: (
 							}
 
 							&.sui-#{$block-name}--focus {
-								border-color: $value;
 								background: if(
 									$name == white,
 									transparent,
@@ -53,9 +52,10 @@ $colors-high-contrast: (
 								color: $value;
 
 								&:after {
-									border-width: $border-width-sm;
+									border-width: $border-width-md;
 									inset: -#{$border-width-md};
-									border-radius: $border-radius-sm;
+									border-radius: $border-radius-default;
+									border-color: $value;
 								}
 							}
 						} @else if $theme == secondary {
