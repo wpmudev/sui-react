@@ -24,7 +24,7 @@
 					content: "";
 					position: absolute;
 					inset: -#{$border-width-xl};
-					border-radius: inherit;
+					border-radius: $border-radius-lg;
 					border-width: $border-width-xl;
 					border-style: solid;
 					border-color: transparent;
