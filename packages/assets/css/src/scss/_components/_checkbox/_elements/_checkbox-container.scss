@@ -11,7 +11,7 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			align-items: center;
+			align-items: flex-start;
 			cursor: pointer;
 			user-select: none;
 			position: relative;
@@ -28,6 +28,10 @@
 				display: flex;
 				flex-direction: column;
 				gap: $checkbox-spacing-xs;
+			}
+
+			@include element(label) {
+				flex: 1;
 			}
 		}
 	}

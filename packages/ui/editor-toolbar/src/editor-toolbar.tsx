@@ -15,7 +15,10 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 	onSettingClick = () => {},
 }) => {
 	// Generate CSS class names for the editor toolbar component
-	const classNames = generateCN("sui-editor-toolbar", {})
+	const classNames = generateCN("sui-editor-toolbar", {
+		right: !alignCenter,
+		center: alignCenter,
+	})
 
 	const settingButton = (
 		<Button
@@ -68,21 +71,19 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 					</div>
 				</div>
 			)}
-			{!!children && !!actionButtons && (
+			{!!children && (
 				<div
-					className={generateCN("sui-editor-toolbar__content", {
-						base: false,
-						right: !alignCenter,
-						center: alignCenter,
-					})}
+					className={generateCN("sui-editor-toolbar__content", {})}
 					data-testid="editor-toolbar-content"
 				>
 					{!!children && (
 						<div className="sui-editor-toolbar__body">{children}</div>
 					)}
-					<div className="sui-editor-toolbar__actions">
-						{!!actionButtons && actionButtons}
-					</div>
+				</div>
+			)}
+			{!!actionButtons && (
+				<div className="sui-editor-toolbar__actions">
+					{!!actionButtons && actionButtons}
 				</div>
 			)}
 		</div>

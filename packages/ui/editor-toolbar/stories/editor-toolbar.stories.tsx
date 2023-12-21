@@ -68,7 +68,7 @@ export const EditorToolbar = ({
 		<div className="sui-layout">
 			<div className="sui-layout__content">
 				{"example-1" === example ? (
-					<SuiEditorToolbar {...props} actions={actions}>
+					<SuiEditorToolbar {...props} alignCenter={true} actions={actions}>
 						<SegmentedControl
 							name="type"
 							defaultValue={editorType}
@@ -112,7 +112,6 @@ EditorToolbar.args = {
 	example: "example-1",
 	title: "Title",
 	allowBack: true,
-	alignCenter: false,
 	status: "unsaved",
 }
 
@@ -140,18 +139,8 @@ EditorToolbar.argTypes = {
 			type: "boolean",
 		},
 	},
-	alignCenter: {
-		name: "Center Content",
-		control: {
-			type: "boolean",
-		},
-		if: {
-			arg: "example",
-			eq: "example-1",
-		},
-	},
 	status: {
-		name: "Example",
+		name: "Status",
 		options: ["unsaved", "saving", "saved"],
 		control: {
 			type: "select",

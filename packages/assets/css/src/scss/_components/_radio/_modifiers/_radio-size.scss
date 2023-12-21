@@ -21,6 +21,10 @@
 						height: $radio-size-md;
 					}
 
+					.sui-radio__label {
+						margin-top: $spacing-xs;
+					}
+
 					@include modifies-element(icon) {
 						width: $radio-size-xs;
 						height: $radio-size-xs;
