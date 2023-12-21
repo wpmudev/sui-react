@@ -11,11 +11,17 @@ export const generalCode = dedent`
         description: "Description",
       }}
       user={{
+		
+        disMenuDisabled: false,
+		
+        status: "confirmed",
+        
         user: {
           image: "https://avatars.githubusercontent.com/u/14994452?v=4",
           name: "John doe",
           email: "john.doe@incsub.com",
         },
+        
         menu: [
           {
             id: "the-hub",
@@ -150,6 +156,8 @@ export const generalCode = dedent`
 					name: "John doe",
 					email: "john.doe@incsub.com",
 				},
+				isMenuDisabled: false,
+				status: "confirmed",
 				menu: [
 					{
 						id: "the-hub",

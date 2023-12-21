@@ -1,7 +1,8 @@
 import React from "react"
 
 // Import required component(s)
-import { Navigation as SuiNavigation } from "../src"
+import { Navigation as SuiNavigation, NavigationUserProps } from "../src"
+import { PluginsSlug } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 import { Dropdown } from "@wpmudev/sui-dropdown"
 
@@ -21,37 +22,24 @@ export default {
 }
 
 // Build story
-export const Navigation = ({ ...props }) => {
-	const actions = [
-		<Button
-			key={0}
-			appearance="secondary"
-			color="black"
-			isSmall={true}
-			isFullWidth={true}
-		>
-			Primary
-		</Button>,
-		<Button
-			key={1}
-			appearance="secondary"
-			color="black"
-			isSmall={true}
-			isFullWidth={true}
-		>
-			Secondary
-		</Button>,
-	]
+export const Navigation = (props: {
+	status: NavigationUserProps["status"]
+	isMenuDisabled: NavigationUserProps["isMenuDisabled"]
+	plugin: PluginsSlug
+	title: string
+	description: string
+}) => {
+	const { status, isMenuDisabled, plugin, title, description } = props
 
 	return (
 		<div className="sui-layout">
 			<div className="sui-layout__content">
 				<div>
 					<SuiNavigation
-						{...props}
 						brand={{
-							title: "Smush Pro",
-							description: "Description",
+							plugin,
+							title,
+							description,
 						}}
 						user={{
 							user: {
@@ -59,6 +47,8 @@ export const Navigation = ({ ...props }) => {
 								name: "John doe",
 								email: "john.doe@incsub.com",
 							},
+							status,
+							isMenuDisabled,
 							menu: [
 								{
 									id: "the-hub",
@@ -113,7 +103,6 @@ export const Navigation = ({ ...props }) => {
 							buttonIcon="Bell"
 							label="Connect features"
 							direction="left"
-							isResponsive={true}
 							menu={[
 								{
 									id: "group-1",
@@ -176,6 +165,57 @@ export const Navigation = ({ ...props }) => {
 	)
 }
 
-Navigation.args = {}
+Navigation.args = {
+	isMenuDisabled: false,
+	status: "confirmed",
+	plugin: "smush",
+	title: "Smush Pro",
+	description: "Description",
+}
 
-Navigation.argTypes = {}
+Navigation.argTypes = {
+	status: {
+		name: "User Status",
+		options: ["none", "confirmed", "awaiting", "not-accepted", "not-connected"],
+		control: {
+			type: "select",
+			labels: {
+				none: "None",
+				confirmed: "Confirmed",
+				awaiting: "Awaiting",
+				"not-accepted": "Not Accepted",
+				"not-connected": "Not Connected",
+			},
+		},
+	},
+	plugin: {
+		name: "User Status",
+		options: [
+			"smush",
+			"defender",
+			"snapshot",
+			"hummingbird",
+			"forminator",
+			"beehive",
+			"hustle",
+			"smartcrawl",
+			"shipper",
+			"branda",
+		],
+		control: {
+			type: "select",
+			labels: {
+				smush: "smush",
+				defendre: "defender",
+				snapshot: "snapshot",
+				hummigbird: "hummingbird",
+				forminator: "forminator",
+				beehive: "beehive",
+				hustle: "hustle",
+				smartcrawl: "smartcrawl",
+				shipper: "shipper",
+				branda: "branda",
+			},
+		},
+	},
+}
