@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.1.2
+
+### Patch Changes
+
+- types fix and build before release
+- Updated dependencies
+  - @wpmudev/sui-avatar@0.1.2
+
+## 0.1.1
+
+### Patch Changes
+
+- Change for THC
+- Updated dependencies
+  - @wpmudev/sui-avatar@0.1.1
+
 ## 0.1.0
 
 ### Minor Changes

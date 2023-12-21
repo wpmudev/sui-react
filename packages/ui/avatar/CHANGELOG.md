@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.1.2
+
+### Patch Changes
+
+- types fix and build before release
+
+## 0.1.1
+
+### Patch Changes
+
+- Change for THC
+
 ## 0.1.0
 
 ### Minor Changes

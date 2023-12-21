@@ -21,6 +21,7 @@ interface InputProps
 			| "onFocus"
 			| "onBlur"
 			| "onBlurCapture"
+			| "onMouseUp"
 		>,
 		InteractionTypes {
 	/**
