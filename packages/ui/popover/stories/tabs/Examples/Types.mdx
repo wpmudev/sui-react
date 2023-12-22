@@ -1,0 +1,70 @@
+import { Section, Preview, Snippet } from "@wpmudev/sui-docs";
+import { Popover } from "../../../src"
+import dedent from "dedent"
+
+export const textCode = dedent`
+  <Popover label="Text" type="text" >Popover Text</Popover>
+`
+
+export const buttonCode = dedent`
+  <Popover
+      label="Button"
+      type="button"
+      appearance="primary"
+      color="black"
+  >
+        Popover Text
+  </Popover>
+`
+
+export const linkCode = dedent`
+  <Popover
+      label="Link"
+      type="link"
+      appearance="primary"
+      color="black"
+      href="https://wpmudev.com"
+  >
+        Popover Text
+  </Popover>
+`
+
+export const iconCode = dedent`
+  <Popover type="icon" name="logo">Popover Text</Popover>
+`
+
+<Section title="Text" contained={true} style={{ padding: "30px 0px" }}>
+	<Preview wrapper={true}>
+		<div style={{padding: 40}}>
+			<Popover label="Text" type="text" >Popover Text</Popover>
+		</div>
+	</Preview>
+	<Snippet language="js">{textCode}</Snippet>
+</Section>
+
+<Section title="Button" contained={true} style={{ padding: "30px 0px" }}>
+	<Preview wrapper={true}>
+		<div style={{padding: 40}}>
+			<Popover label="Button" type="button" appearance="primary" color="black">Popover Text</Popover>
+		</div>
+	</Preview>
+	<Snippet language="js">{buttonCode}</Snippet>
+</Section>
+
+<Section title="Link" contained={true} style={{ padding: "30px 0px" }}>
+	<Preview wrapper={true}>
+		<div style={{padding: 40}}>
+			<Popover label="Link" type="link" appearance="primary" color="black" href="https://wpmudev.com" >Popover Text</Popover>
+		</div>
+	</Preview>
+	<Snippet language="js">{linkCode}</Snippet>
+</Section>
+
+<Section title="Icon" contained={true} style={{ padding: "30px 0px" }}>
+	<Preview wrapper={true}>
+		<div style={{padding: 40}}>
+			<Popover type="icon" name="logo">Popover Text</Popover>
+		</div>
+	</Preview>
+	<Snippet language="js">{iconCode}</Snippet>
+</Section>

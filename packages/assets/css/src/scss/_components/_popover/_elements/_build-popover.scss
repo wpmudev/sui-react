@@ -1,0 +1,107 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build popover
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-popover($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popup) {
+				background: #fff;
+				border: 1px solid #e6e6e6;
+				border-radius: 8px;
+				box-shadow: 0 2px 4px 0 rgba(115, 115, 115, 0.1),
+					0 1px 16px 0 rgba(115, 115, 115, 0.05),
+					0 6px 12px 0 rgba(115, 115, 115, 0.08);
+				max-width: 360px;
+				margin: 0;
+				position: absolute;
+				display: none;
+
+				&:before {
+					box-shadow: 1.5px 0 0 0 #e6e6e6 inset;
+					border-width: 10px;
+					border-color: transparent red transparent transparent;
+					border-style: solid;
+					content: "";
+					height: 0;
+					left: -20px;
+					position: absolute;
+					top: 10px;
+					width: 0;
+				}
+			}
+
+			@include element(popup-inner) {
+				padding: 16px;
+			}
+
+			@include element(popup-header) {
+				color: #1a1a1a;
+				font: $font-weight-sm 16px/500 $font-family-default;
+				line-height: 24px;
+				margin-bottom: 8px;
+
+				// remove margin
+				> * {
+					margin: 0;
+				}
+			}
+
+			@include element(popup-close) {
+				cursor: pointer;
+				left: auto;
+				position: absolute;
+				right: 16px;
+				top: 20px;
+			}
+
+			@include element(popup-image) {
+				background-color: lightgray;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: 50%;
+				height: 180px;
+				width: 100%;
+			}
+
+			@include element(popup-content) {
+				color: #505050;
+				font: $font-weight-default 13px/20px $font-family-default;
+			}
+
+			@include element(popup-footer) {
+				margin: 15px 0 0 0;
+			}
+
+			@include element(popup-arrow) {
+				width: 8px;
+				height: 8px;
+				z-index: -1;
+				position: absolute;
+				left: 0;
+				transform: translate3d(145px, 0, 0);
+				top: 0;
+			}
+
+			@include element(popup-arrow-inner) {
+				background: blue;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				z-index: inherit;
+				//box-shadow: (blue, red);
+			}
+		}
+	}
+}
