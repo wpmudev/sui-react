@@ -15,7 +15,7 @@ const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 	return (
 		<Row
 			className={classNames}
-			align={{ xs: "inline" }}
+			align={{ sm: "inline" }}
 			{...props}
 			data-testid="builder-wrapper"
 		>
