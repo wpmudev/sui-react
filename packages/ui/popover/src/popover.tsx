@@ -19,23 +19,25 @@ const Popover: React.FC<PopoverProps> = ({
 	className,
 	header,
 	children,
-	position = "bottom-right",
 	footer,
 }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(true)
-	const [popupPositions, setPopupPositions] = useState<
-		Record<CSSProperties, any>
-	>({ top: 0, right: "auto" })
+	const [direction, setDirection] = useState("")
+	const [position, setPopupPosition] = useState<Record<CSSProperties, any>>({
+		top: 0,
+		right: "auto",
+	})
 
 	const ref = useRef<HTMLDivElement | null>(null)
-	const triggerRef = useRef<HTMLDivElement | null>(null)
+	const targetRef = useRef<HTMLDivElement | null>(null)
 	const popupRef = useRef<HTMLDivElement | null>(null)
+	// const targetRef = document.getElementsByTagName("body")[0]
 
 	const classNames = generateCN(
 		"sui-popover",
 		{
 			open: isOpen,
-			[`${position}`]: true,
+			[`${direction}`]: true,
 		},
 		className ?? "",
 	)
@@ -48,39 +50,133 @@ const Popover: React.FC<PopoverProps> = ({
 		setIsOpen(!isOpen)
 	}, [isOpen])
 
+	const positions = [
+		"top-left",
+		"top-center",
+		"top-right",
+		"right-top",
+		"right-center",
+		"right-bottom",
+		"bottom-left",
+		"bottom-center",
+		"bottom-right",
+		"left-top",
+		"left-center",
+		"left-bottom",
+	]
+
 	useEffect(() => {
-		const el = triggerRef?.current
-		const { clientWidth, clientHeight } = el
-		const { clientWidth: popupW, clientHeight: popupH } = popupRef?.current
+		if (targetRef.current && popupRef.current) {
+			const target = targetRef.current.getBoundingClientRect()
+			const popup = popupRef.current.getBoundingClientRect()
+			const parent = targetRef.current.parentElement.getBoundingClientRect() // Get parent's bounding rect
 
-		let pos = {}
+			let selectedPosition = null
 
-		switch (position) {
-			case "bottom":
-				pos = {
-					left: clientWidth / 2 - popupW / 2,
-					top: clientHeight + 16,
-				}
-				break
-			case "bottom-left":
-				pos = {
-					left: 0,
-					top: clientHeight + 16,
-				}
-				break
-			case "bottom-right":
-				pos = {
-					left: 0 - popupW + clientWidth,
-					top: clientHeight + 16,
-				}
-				break
+			const poses = {
+				"top-left": {
+					top: target.top - popup.height - parent.top,
+					left: target.left - parent.left,
+				},
+				"top-center": {
+					top: target.top - popup.height - parent.top,
+					left: target.left + (target.width - popup.width) / 2 - parent.left,
+				},
+				"top-right": {
+					top: target.top - popup.height - parent.top,
+					left: target.right - popup.width - parent.left,
+				},
+				"right-top": {
+					top: target.top - parent.top,
+					left: target.right - parent.left,
+				},
+				"right-center": {
+					top: target.top + (target.height - popup.height) / 2 - parent.top,
+					left: target.right - parent.left,
+				},
+				"right-bottom": {
+					top: target.bottom - popup.height - parent.top,
+					left: target.right - parent.left,
+				},
+				"bottom-left": {
+					top: target.bottom - parent.top,
+					left: target.left - parent.left,
+				},
+				"bottom-center": {
+					top: target.bottom - parent.top,
+					left: target.left + (target.width - popup.width) / 2 - parent.left,
+				},
+				"bottom-right": {
+					top: target.bottom - parent.top,
+					left: target.right - popup.width - parent.left,
+				},
+				"left-top": {
+					top: target.top - parent.top,
+					left: target.left - popup.width - parent.left,
+				},
+				"left-center": {
+					top: target.top + (target.height - popup.height) / 2 - parent.top,
+					left: target.left - popup.width - parent.left,
+				},
+				"left-bottom": {
+					top: target.bottom - popup.height - parent.top,
+					left: target.left - popup.width - parent.left,
+				},
+				default: {
+					top: target.top - popup.height - parent.top,
+					left: target.left - parent.left,
+				},
+			}
+
+			const availablePositions = Object.keys(poses).filter((pos, index) => {
+				const data = poses[pos]
+
+				console.log("pos", window.innerWidth, target.left, popup.left)
+
+				return (
+					window.innerWidth - (target.left + data.left) >= popup.width &&
+					window.innerHeight - (target.top + data.top) >= popup.height
+				)
+			})
+
+			if (!!availablePositions[0]) {
+				console.log(
+					"availablePositions[0]",
+					availablePositions[0],
+					availablePositions,
+				)
+				setDirection(availablePositions[0])
+				setPopupPosition(poses[availablePositions[0]])
+			}
+
+			// positions.some((pos) => {
+			// 	let top = 0,
+			// 		left = 0
+			//
+			// 	if (
+			// 		top >= 0 &&
+			// 		left >= 0 &&
+			// 		top + popup.height <= window.innerHeight &&
+			// 		left + popup.width <= window.innerWidth
+			// 	) {
+			// 		selectedPosition = position
+			// 		console.log("position", position)
+			// 		setPopupPosition({ top, left })
+			// 		return true
+			// 	}
+			// 	return false
+			// })
+
+			// If no suitable position found, default to 'top-left'
+			// if (!selectedPosition) {
+			// 	selectedPosition = "top-left"
+			// 	setPopupPosition({
+			// 		top: target.top - popup.height - parent.top,
+			// 		left: target.left - parentRect.left,
+			// 	})
+			// }
 		}
-
-		setPopupPositions({
-			...popupPositions,
-			...pos,
-		})
-	}, [])
+	}, [isOpen, targetRef, popupRef])
 
 	return (
 		<div
@@ -89,7 +185,7 @@ const Popover: React.FC<PopoverProps> = ({
 			data-testid="popover"
 		>
 			<div
-				ref={triggerRef as LegacyRef<HTMLDivElement>}
+				ref={targetRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__trigger"
 				role="button"
 				tabIndex={0}
@@ -101,7 +197,14 @@ const Popover: React.FC<PopoverProps> = ({
 			<div
 				ref={popupRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__popup"
-				style={{ ...popupPositions }}
+				// style={{ ...popupPositions }}
+				style={{
+					position: "absolute",
+					top: `${position.top}px`,
+					left: `${position.left}px`,
+					// Additional styling for the popup
+					// ...
+				}}
 			>
 				<Close
 					className="sui-popover__popup-close"

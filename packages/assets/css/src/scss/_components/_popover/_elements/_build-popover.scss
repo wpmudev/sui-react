@@ -21,10 +21,11 @@
 				box-shadow: 0 2px 4px 0 rgba(115, 115, 115, 0.1),
 					0 1px 16px 0 rgba(115, 115, 115, 0.05),
 					0 6px 12px 0 rgba(115, 115, 115, 0.08);
-				max-width: 360px;
+				width: 360px;
 				margin: 0;
 				position: absolute;
 				display: none;
+				z-index: 9999;
 
 				&:before {
 					box-shadow: 1.5px 0 0 0 #e6e6e6 inset;

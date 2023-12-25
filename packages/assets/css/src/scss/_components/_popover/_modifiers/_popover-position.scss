@@ -16,13 +16,12 @@
 		// Block wrapper.
 		@include block($block) {
 			@include modifier(top) {
-				@include modifies-element(content) {
-					left: 50%;
-					transform: translateX(-50%);
-
-					&:after {
-						left: 50%;
-						transform: translateX(-50%);
+				@include modifies-element(popup) {
+					&:before {
+						left: calc(50% - 10px);
+						bottom: 0;
+						top: auto;
+						transform: rotate(-90deg);
 					}
 				}
 			}
@@ -96,35 +95,26 @@
 			}
 
 			@include modifier(bottom, bottom-left, bottom-right) {
-				@include modifies-element(content) {
-					top: 100%;
-					margin-top: $popover-spacing-margin;
-
-					&:after {
-						@include equilateral-triangle(up, 6px, $color-extended-neutral-20);
-						top: -6px;
-					}
-				}
 			}
 
 			@include modifier(left) {
-				@include modifies-element(content) {
-					top: 50%;
-					transform: translateY(-50%);
-
-					&:after {
-						top: 50%;
-						transform: translateY(-50%);
+				@include modifies-element(popup) {
+					&:before {
+						left: auto;
+						right: -19px;
+						top: calc(50% - 15px);
+						transform: rotate(180deg);
 					}
 				}
 			}
 
 			@include modifier(left-top) {
-				@include modifies-element(content) {
-					top: 0;
-
-					&:after {
-						top: 8px;
+				@include modifies-element(popup) {
+					&:before {
+						left: auto;
+						right: -19px;
+						top: 16px;
+						transform: rotate(180deg);
 					}
 				}
 			}
@@ -140,17 +130,7 @@
 			}
 
 			@include modifier(left, left-top, left-bottom) {
-				@include modifies-element(content) {
-					right: calc(100% + $popover-spacing-margin);
-
-					&:after {
-						right: -6px;
-						@include equilateral-triangle(
-							right,
-							6px,
-							$color-extended-neutral-20
-						);
-					}
+				@include modifies-element(popup) {
 				}
 			}
 

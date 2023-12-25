@@ -25,7 +25,9 @@ const Popover = ({
 	color,
 }: { example: string; tootlipText: string } & PopoverBaseProps) => {
 	const boxStyles = {
-		padding: 20,
+		padding: 200,
+		paddingLeft: 400,
+		paddingTop: 0,
 		borderRadius: 4,
 		background: color !== "white" ? "#fff" : "#333",
 	}
@@ -37,8 +39,8 @@ const Popover = ({
 					<SuiPopover
 						trigger={<Button>Test</Button>}
 						header={<h4>This is popover title</h4>}
-						footer={<Button isSmall={true}>Next</Button>}
-						image="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR"
+						// footer={<Button isSmall={true}>Next</Button>}
+						// image="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR"
 					>
 						{tootlipText}
 					</SuiPopover>
