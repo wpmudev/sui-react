@@ -44,6 +44,8 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 										id: "menu-beehive",
 										label: "Beehive",
 										props: {
+											href: "#",
+
 											icon: "PluginBeehive",
 											variation: "beehive",
 										},
