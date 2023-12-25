@@ -201,6 +201,8 @@ Navigation.argTypes = {
 			"smartcrawl",
 			"shipper",
 			"branda",
+			"blc",
+			"thc",
 		],
 		control: {
 			type: "select",
@@ -215,6 +217,8 @@ Navigation.argTypes = {
 				smartcrawl: "smartcrawl",
 				shipper: "shipper",
 				branda: "branda",
+				blc: "blc",
+				thc: "thc",
 			},
 		},
 	},
