@@ -6,6 +6,8 @@ import { UploaderProps } from "./uploader.types"
 import { UploaderFile } from "./uploader-file"
 import { UploaderButton } from "./uploader-button"
 
+import { getFileImagePreview, isImageFile } from "./helper"
+
 // The Uploader component displays a file uploader with drag-and-drop support and file previews.
 const Uploader: React.FC<UploaderProps> = ({
 	btnTitle,
@@ -30,7 +32,7 @@ const Uploader: React.FC<UploaderProps> = ({
 		if (onChange) {
 			onChange(files)
 		}
-	}, [files, onChange])
+	}, [files])
 
 	// Callback to handle file selection
 	const onSelectFile = useCallback(
@@ -42,8 +44,17 @@ const Uploader: React.FC<UploaderProps> = ({
 				selectedFiles = filesOrEvent
 			}
 
+			// Add a preview url for the file if it's an image
+			const tempSelectedFiles = Array.from(selectedFiles).map((file) => {
+				if (isImageFile(file?.type)) {
+					file.previewUrl = getFileImagePreview(file)
+				}
+
+				return file
+			})
+
 			// Append new files to the existing files array
-			setFiles([...files, ...Array.from(selectedFiles)])
+			setFiles([...files, ...tempSelectedFiles])
 		},
 		[files],
 	)
