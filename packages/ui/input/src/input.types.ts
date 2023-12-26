@@ -94,6 +94,18 @@ interface InputProps
 	 * Disable interactions such as hover and focus
 	 */
 	disableInteractions?: boolean
+	/**
+	 * Whether the input is required or not
+	 */
+	isRequired?: boolean
+	/**
+	 * Validate value on mount
+	 */
+	validateOnMount?: boolean
+	/**
+	 * On validation callback
+	 */
+	onValidate?: (id: string, value: string | number | boolean) => void
 }
 
 export type { InputProps }

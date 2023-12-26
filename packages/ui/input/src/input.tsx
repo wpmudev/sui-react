@@ -45,6 +45,11 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				iconPosition,
 				allowClear = false,
 				disableInteractions = false,
+				isRequired = false,
+				pattern,
+				onKeyUp,
+				validateOnMount = false,
+				onValidate,
 				...props
 			},
 			ref,
@@ -52,6 +57,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			// Define states
 			const [value, setValue] = useState<typeof defaultValue>(defaultValue)
 			const [isHovered, isFocused, interactionMethods] = useInteraction({})
+			const [hasError, setHasError] = useState(false)
 
 			// Properties validation
 			const hasID = !isUndefined(id) && !isEmpty(id)
@@ -113,7 +119,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 					sm: isSmall,
 					readonly: isReadOnly,
 					hover: isHovered && !isReadOnly,
-					focus: isFocused && !isReadOnly,
+					focus: isFocused && !isReadOnly && !isError,
 					filled: hasValue,
 					"has-icon": !isEmpty(icon),
 					"icon-start": !isEmpty(iconPosition) && "start" === iconPosition,
@@ -144,6 +150,53 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				TagName = "textarea"
 			}
 
+			const hasHintText = !isEmpty(hint ?? "")
+
+			// Call onValidate when hasError changes
+			useEffect(() => {
+				if (onValidate) onValidate(id, hasError)
+			}, [hasError])
+
+			/**
+			 * Validate value passed on input field
+			 */
+			const validation = () => {
+				let tempHasError = false
+
+				// Remove blank spaces
+				const val = value?.toString()?.trim() ?? ""
+
+				// Define error
+				if (typeof value === "string" && "" !== val && pattern) {
+					tempHasError = !new RegExp("^(?:" + pattern + ")$", "gm").test(val)
+				} else if (isRequired && isEmpty(val)) {
+					// field is required
+					tempHasError = true
+				}
+
+				setHasError(tempHasError)
+			}
+
+			/**
+			 * Reset validation when key up
+			 *
+			 * @param {any} e
+			 */
+			const onInputKeyUp = (e: any) => {
+				// Validate the input
+				validation()
+				// Pass data to prop method
+				if (onKeyUp) {
+					onKeyUp(e)
+				}
+			}
+
+			useEffect(() => {
+				if (validateOnMount) {
+					validation()
+				}
+			}, [])
+
 			// Input field props
 			const attrs = {
 				id,
@@ -159,10 +212,11 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				// Interaction methods
 				...(!!disableInteractions ? {} : interactionMethods),
 				// Any additional props
+				isRequired,
+				pattern,
+				onKeyUp: onInputKeyUp,
 				...props,
 			}
-
-			const hasHintText = !isEmpty(hint ?? "")
 
 			// Render component
 			return (

@@ -8,7 +8,7 @@ const Col: React.FC<ColProps> = ({ size, children, className, ...props }) => {
 		"sui-col",
 		{
 			// Define class based on the column size
-			[size]: !!size,
+			[size as string]: !!size,
 		},
 		className,
 	)
