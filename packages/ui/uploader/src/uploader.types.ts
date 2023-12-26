@@ -38,6 +38,14 @@ interface UploaderProps extends Omit<HTMLProps<HTMLInputElement>, "onChange"> {
 	 * @param {Record<File, any>[] | string } file
 	 */
 	defaultFiles?: Record<string, any>[] | string
+	/**
+	 * Max allowed file size in bytes
+	 */
+	maxSize?: number
+	/**
+	 * Text to appear in the alert when file size is larger than the max
+	 */
+	maxSizeText?: string
 }
 
 /**

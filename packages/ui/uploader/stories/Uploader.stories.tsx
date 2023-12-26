@@ -40,7 +40,7 @@ export const Uploader = ({ ...props }) => {
 				}}
 			>
 				<FormField id="uploader" {...fieldAttrs}>
-					<SuiUploader {...props} />
+					<SuiUploader {...props} maxSize={1000000} />
 				</FormField>
 			</div>
 		</Fragment>

@@ -5,12 +5,17 @@ import React, { useState, useId, useCallback, useRef, useEffect } from "react"
 import { UploaderProps } from "./uploader.types"
 import { UploaderFile } from "./uploader-file"
 import { UploaderButton } from "./uploader-button"
+import {
+	NotificationRenderer,
+	useNotifications,
+} from "@wpmudev/sui-notification"
 
 import {
 	getFileImagePreview,
 	isImageFile,
 	getObjectFileFromUrl,
 } from "./helper"
+import { isEmpty } from "@wpmudev/sui-utils"
 
 // The Uploader component displays a file uploader with drag-and-drop support and file previews.
 const Uploader: React.FC<UploaderProps> = ({
@@ -20,8 +25,13 @@ const Uploader: React.FC<UploaderProps> = ({
 	allowDragAndDrop = true,
 	defaultFiles = [],
 	onChange = () => {},
+	maxSize,
+	maxSizeText = "Message to appear when file size exeeds the max given",
 	...props
 }) => {
+	// To display notifications
+	const notification = useNotifications()
+
 	// State to keep track of selected files
 	const [files, setFiles] = useState<Record<string, any>[]>([])
 
@@ -34,7 +44,7 @@ const Uploader: React.FC<UploaderProps> = ({
 		const initFiles = async () => {
 			if (typeof defaultFiles === "array") {
 				setFiles(defaultFiles)
-			} else if (typeof defaultFiles === "string") {
+			} else if (typeof defaultFiles === "string" && !isEmpty(defaultFiles)) {
 				const fileObject = await getObjectFileFromUrl(defaultFiles)
 				setFiles([fileObject])
 			}
@@ -46,6 +56,19 @@ const Uploader: React.FC<UploaderProps> = ({
 	// Ref to the hidden input element used to handle file selection
 	const ref = useRef<HTMLInputElement | null>(null)
 
+	/**
+	 * Check file size
+	 *
+	 * @param {File} file object
+	 * @return {boolean} true if proper size
+	 */
+	const fileSizeExceedMax = (file: File): boolean => {
+		if (maxSize) {
+			return file.size > maxSize
+		}
+		return false
+	}
+
 	// Send files to parent component
 	useEffect(() => {
 		if (onChange) {
@@ -56,6 +79,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	// Callback to handle file selection
 	const onSelectFile = useCallback(
 		(filesOrEvent: unknown | Record<string, any>[]) => {
+			let block = false
 			let { files: selectedFiles } = filesOrEvent?.target ?? {}
 
 			// Use param value directly if the files were passed directly
@@ -63,8 +87,30 @@ const Uploader: React.FC<UploaderProps> = ({
 				selectedFiles = filesOrEvent
 			}
 
+			const selectedFilesList = Array.from(selectedFiles)
+
+			// Select file sizes
+			selectedFilesList.forEach((file) => {
+				// check file size
+				if (fileSizeExceedMax(file)) {
+					notification.push({
+						message: maxSizeText,
+						variation: "error",
+						isDismissible: true,
+						size: "lg",
+						icon: "Warning",
+					})
+					block = true
+				}
+			})
+
+			// Return if the file exceeds the max size
+			if (block) {
+				return
+			}
+
 			// Add a preview url for the file if it's an image
-			const tempSelectedFiles = Array.from(selectedFiles).map((file) => {
+			const tempSelectedFiles = selectedFilesList.map((file) => {
 				if (isImageFile(file?.type)) {
 					file.previewUrl = getFileImagePreview(file)
 				}
@@ -92,46 +138,49 @@ const Uploader: React.FC<UploaderProps> = ({
 	)
 
 	return (
-		<div className="sui-uploader" data-testid="uploader">
-			{/* Hidden input field to handle file selection */}
-			<input
-				type="file"
-				id={uploaderId}
-				ref={ref}
-				onChange={onSelectFile}
-				className="sui-uploader__input"
-				multiple={multiple}
-				accept={accept}
-				hidden={true}
-				{...props}
-			/>
-
-			{/* Render the uploader button when multiple selection is allowed or no files are selected */}
-			{(multiple || (!multiple && files.length <= 0)) && (
-				<UploaderButton
-					btnTitle={btnTitle ?? ""}
-					multiple={multiple ?? false}
-					allowDragAndDrop={allowDragAndDrop ?? false}
-					onClick={openFileSelector}
-					onDrag={onSelectFile}
+		<>
+			<NotificationRenderer />
+			<div className="sui-uploader" data-testid="uploader">
+				{/* Hidden input field to handle file selection */}
+				<input
+					type="file"
+					id={uploaderId}
+					ref={ref}
+					onChange={onSelectFile}
+					className="sui-uploader__input"
+					multiple={multiple}
+					accept={accept}
+					hidden={true}
+					{...props}
 				/>
-			)}
-			{/* Render the file previews when there are selected files */}
-			{!!files && files.length > 0 && (
-				<div className="sui-uploader__preview">
-					<div className="sui-uploader__files">
-						{files?.map((file: File, index: number) => (
-							<UploaderFile
-								key={index}
-								id={index}
-								onRemove={onRemoveFile}
-								file={file}
-							/>
-						))}
+
+				{/* Render the uploader button when multiple selection is allowed or no files are selected */}
+				{(multiple || (!multiple && files.length <= 0)) && (
+					<UploaderButton
+						btnTitle={btnTitle ?? ""}
+						multiple={multiple ?? false}
+						allowDragAndDrop={allowDragAndDrop ?? false}
+						onClick={openFileSelector}
+						onDrag={onSelectFile}
+					/>
+				)}
+				{/* Render the file previews when there are selected files */}
+				{!!files && files.length > 0 && (
+					<div className="sui-uploader__preview">
+						<div className="sui-uploader__files">
+							{files?.map((file: File, index: number) => (
+								<UploaderFile
+									key={index}
+									id={index}
+									onRemove={onRemoveFile}
+									file={file}
+								/>
+							))}
+						</div>
 					</div>
-				</div>
-			)}
-		</div>
+				)}
+			</div>
+		</>
 	)
 }
 
