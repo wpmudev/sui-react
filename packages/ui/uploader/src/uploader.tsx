@@ -6,7 +6,11 @@ import { UploaderProps } from "./uploader.types"
 import { UploaderFile } from "./uploader-file"
 import { UploaderButton } from "./uploader-button"
 
-import { getFileImagePreview, isImageFile } from "./helper"
+import {
+	getFileImagePreview,
+	isImageFile,
+	getObjectFileFromUrl,
+} from "./helper"
 
 // The Uploader component displays a file uploader with drag-and-drop support and file previews.
 const Uploader: React.FC<UploaderProps> = ({
@@ -14,6 +18,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	multiple = true,
 	accept = "",
 	allowDragAndDrop = true,
+	defaultFiles = [],
 	onChange = () => {},
 	...props
 }) => {
@@ -23,6 +28,20 @@ const Uploader: React.FC<UploaderProps> = ({
 	// Generate a unique ID for the uploader component
 	const uniqueID = useId()
 	const uploaderId = `sui-uploader-${uniqueID}`
+
+	// load default files
+	useEffect(() => {
+		const initFiles = async () => {
+			if (typeof defaultFiles === "array") {
+				setFiles(defaultFiles)
+			} else if (typeof defaultFiles === "string") {
+				const fileObject = await getObjectFileFromUrl(defaultFiles)
+				setFiles([fileObject])
+			}
+		}
+
+		initFiles()
+	}, [defaultFiles])
 
 	// Ref to the hidden input element used to handle file selection
 	const ref = useRef<HTMLInputElement | null>(null)

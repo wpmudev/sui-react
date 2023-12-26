@@ -31,7 +31,13 @@ interface UploaderProps extends Omit<HTMLProps<HTMLInputElement>, "onChange"> {
 	 *
 	 * @param {Record<File, any>[]} file
 	 */
-	onChange?: (file: Record<string, any>[]) => void
+	onChange?: (files: Record<string, any>[]) => void
+	/**
+	 * List of object files or a blob url
+	 *
+	 * @param {Record<File, any>[] | string } file
+	 */
+	defaultFiles?: Record<string, any>[] | string
 }
 
 /**
