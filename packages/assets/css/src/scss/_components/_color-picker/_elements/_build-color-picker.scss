@@ -14,6 +14,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
+			display: inline-block;
 			@include element(saturation, hue, alpha) {
 				border-radius: $border-radius-md;
 				background: $color-alpha-black-10;

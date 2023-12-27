@@ -25,6 +25,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	id = "color-picker",
 	color = "",
 	onChange,
+	onCancel,
 	placeholder = "Select color",
 	isError = false,
 	isDisabled = false,
@@ -66,7 +67,13 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	const closeColorPicker = useCallback(
 		(e: React.MouseEvent<HTMLElement>) => {
 			e.stopPropagation()
+			setShowPicker(false)
+
 			setTempColor("")
+
+			if (onCancel) {
+				onCancel()
+			}
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[color],
