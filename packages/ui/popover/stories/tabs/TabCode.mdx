@@ -1,0 +1,174 @@
+import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/sui-docs';
+
+<Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
+	<p>
+		Install the <Code small={true}>Popover</Code> package as an individual
+		component or follow the Overview page instructions to get the complete
+		SUI Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+		<Section
+			title={{ content: 'position', tag: 'string', small: true }}
+			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
+		>
+			<p>
+				A tooltip can be placed at the top, bottom, left, or right of the
+				button.
+			</p>
+			<p>Allowed options:</p>
+			<List>
+				<span
+					label={
+						<>
+							<Code small={true}>top</Code>: Popover will be aligned
+							to the top center of the button.
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>top-left</Code>: Popover will be
+							aligned to the top left of the button.
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>top-right</Code>: Popover will be
+							aligned to the top right of the button.
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>bottom</Code>: Popover will be
+							aligned to the bottom center of the button.
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>bottom-left</Code>: Popover will be
+							aligned to the bottom left of the button.
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>bottom-right</Code>: Popover will be
+							aligned to the bottom right of the button.
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>left</Code>: Popover will be aligned
+							to the left center of the buttom.
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>left-top</Code>: Popover will be
+							aligned to the left top of the button.
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>left-bottom</Code>: Popover will be
+							aligned to the left bottom of the button.
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>right</Code>: Popover will be aligned
+							to the right center of the button.
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>right-top</Code>: Popover will be
+							aligned to the right top of the button.
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>right-bottom</Code>: Popover will be
+							aligned to the right bottom of the button.
+						</>
+					}
+				/>
+			</List>
+		</Section>
+		<Section
+			title={{ content: 'className', tag: 'string', small: true }}
+			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+		>
+			<p>Custom css classNames(s) to be added to the tooltip</p>
+		</Section>
+		<Section
+			title={{ content: 'isOpen', tag: 'boolean', small: true }}
+			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+		>
+			<p>
+				It will make popup visible on initial load.
+			</p>
+		</Section>
+	<Section
+		title={{ content: 'image', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			Thumbnail URL to be displayed inside the popup.
+		</p>
+	</Section>
+	<Section
+		title={{ content: 'trigger', tag: 'node', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			Trigger element, it can be button, icon, text, anything.
+		</p>
+	</Section>
+	<Section
+		title={{ content: 'title', tag: 'node', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			Popup title, it can be any type, not just string.
+		</p>
+	</Section>
+	<Section
+		title={{ content: 'footer', tag: 'node', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			Popup footer, contents to be displayed in bottom of popup.
+		</p>
+	</Section>
+		<Section
+			title={{ content: 'children', tag: 'React Node', small: true }}
+			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+		>
+			<p>
+				A fixed width for mobile
+			</p>
+	</Section>
+</Section>

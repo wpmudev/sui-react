@@ -138,12 +138,11 @@ const WordPress = ({ children }) => {
 	const [folded, setFolded] = useState(false)
 
 	const toggleSidebar = useCallback(() => {
-		console.log("wpadmin", folded)
 		setFolded(!folded)
 	}, [folded])
 
 	return (
-		<div id="wpadmin" className={folded && "folded"}>
+		<div id="wpadmin" className={folded ? "folded" : undefined}>
 			<div id="adminmenumain" role="navigation" aria-label="Main Menu">
 				<div id="adminmenuback"></div>
 

@@ -17,6 +17,7 @@ interface InputProps
 			| "onMouseEnter"
 			| "onMouseLeave"
 			| "onMouseDownCapture"
+			| "onMouseUp"
 			| "onMouseUpCapture"
 			| "onFocus"
 			| "onBlur"
