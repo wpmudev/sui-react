@@ -11,7 +11,7 @@ describe("@wpmudev/sui-popover", () => {
 	// Test case to check if the Popover renders correctly
 	it("Renders correctly", () => {
 		// Render the Popover component with the provided label and description
-		render(<Popover header={label}>{description}</Popover>)
+		render(<Popover title={label}>{description}</Popover>)
 
 		// Use assertions to check if the label and description are present in the rendered content
 		expect(screen.getByText(label)).toBeInTheDocument()
@@ -24,7 +24,7 @@ describe("@wpmudev/sui-popover", () => {
 
 		// Render the Popover component with the provided label and description
 		const { container } = render(
-			<Popover header="Popup is opened by default" image={imgUrl}>
+			<Popover title="Popup is opened by default" image={imgUrl}>
 				{description}
 			</Popover>,
 		)
@@ -38,7 +38,7 @@ describe("@wpmudev/sui-popover", () => {
 	it("Position prop works correctly", () => {
 		// Render the Popover component with the provided label, description, and position="bottom"
 		render(
-			<Popover header={label} position="bottom" trigger="Test Button">
+			<Popover title={label} position="bottom" trigger="Test Button">
 				{description}
 			</Popover>,
 		)
