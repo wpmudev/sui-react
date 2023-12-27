@@ -21,7 +21,7 @@ interface PopoverBaseProps
 	/**
 	 * Popup header
 	 */
-	header?: React.ReactNode
+	title?: React.ReactNode
 	/**
 	 * Optional child elements.
 	 */
@@ -54,6 +54,10 @@ interface PopoverBaseProps
 	 * Additional className
 	 */
 	className?: string
+	/**
+	 * When true, it will display popup on hover
+	 */
+	displayOnHover?: boolean
 }
 
 type PopoverProps = PopoverBaseProps & ButtonProps

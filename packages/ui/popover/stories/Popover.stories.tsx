@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 
 // Import required component.
 import { Popover as SuiPopover, PopoverBaseProps } from "../src"
@@ -22,7 +22,10 @@ export default {
 // Build "Popover" story.
 const Popover = ({
 	position,
-}: { example: string; tootlipText: string } & PopoverBaseProps) => {
+	displayOnHover,
+	footer,
+	title,
+}: PopoverBaseProps) => {
 	const boxStyles = {
 		borderRadius: 4,
 	}
@@ -33,17 +36,23 @@ const Popover = ({
 				<div style={boxStyles}>
 					<SuiPopover
 						position={position ?? "bottom"}
+						displayOnHover={displayOnHover ?? false}
+						title={title}
+						footer={
+							footer ? (
+								<Fragment>{footer}</Fragment>
+							) : (
+								<Button isSmall={true} appearance="secondary" color="black">
+									Know more
+								</Button>
+							)
+						}
 						trigger={
 							<Button isSmall={true} appearance="primary" color="blue">
 								Open popup
 							</Button>
 						}
-						header={<h4>This is popover title</h4>}
-						footer={
-							<Button isSmall={true} appearance="secondary" color="black">
-								Know more
-							</Button>
-						}
+
 						// image="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR"
 					>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -59,7 +68,10 @@ const Popover = ({
 
 // Set story arguments.
 Popover.args = {
+	title: "This is popover title",
+	footer: "",
 	position: "right-bottom",
+	displayOnHover: false,
 }
 
 // Set controls for story arguments.

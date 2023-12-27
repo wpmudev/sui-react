@@ -18,10 +18,11 @@ const Popover: React.FC<PopoverProps> = ({
 	image,
 	trigger,
 	className,
-	header,
+	title,
 	children,
 	position = "top",
 	footer,
+	displayOnHover = false,
 }) => {
 	const [isPopupOpen, setIsPopupOpen] = useState<boolean>(isOpen ?? false)
 	const [popupPositions, setPopupPositions] = useState<Record<string, any>>({
@@ -47,9 +48,35 @@ const Popover: React.FC<PopoverProps> = ({
 		setIsPopupOpen(false)
 	})
 
+	/**
+	 * Display popup when click on it
+	 */
 	const onTriggerClick = useCallback(() => {
+		// Do nothing, when popup supposed to be displayed on hover
+		if (displayOnHover) {
+			return
+		}
+
 		setIsPopupOpen(!isPopupOpen)
-	}, [isPopupOpen])
+	}, [displayOnHover, isPopupOpen])
+
+	const onMouseEnter = useCallback(() => {
+		// Do not do anything in case of displayOnHover is false
+		if (!displayOnHover) {
+			return
+		}
+
+		setIsPopupOpen(true)
+	}, [displayOnHover])
+
+	const onMouseLeave = useCallback(() => {
+		// Do not do anything in case of displayOnHover is false
+		if (!displayOnHover) {
+			return
+		}
+
+		setIsPopupOpen(false)
+	}, [displayOnHover])
 
 	useEffect(() => {
 		const el = triggerRef?.current
@@ -150,6 +177,7 @@ const Popover: React.FC<PopoverProps> = ({
 			ref={ref as LegacyRef<HTMLDivElement>}
 			className={!!classNames ? classNames : undefined}
 			data-testid="popover"
+			onMouseLeave={onMouseLeave}
 		>
 			<div
 				ref={triggerRef as LegacyRef<HTMLDivElement>}
@@ -158,6 +186,7 @@ const Popover: React.FC<PopoverProps> = ({
 				tabIndex={0}
 				onKeyDown={(e) => handleOnKeyDown(e, onTriggerClick)}
 				onClick={onTriggerClick}
+				onMouseEnter={onMouseEnter}
 			>
 				{trigger}
 			</div>
@@ -166,11 +195,13 @@ const Popover: React.FC<PopoverProps> = ({
 				className="sui-popover__popup"
 				style={{ ...popupPositions } as CSSProperties}
 			>
-				<Close
-					className="sui-popover__popup-close"
-					size="sm"
-					onClick={onTriggerClick}
-				/>
+				{!displayOnHover && (
+					<Close
+						size="sm"
+						className="sui-popover__popup-close"
+						onClick={onTriggerClick}
+					/>
+				)}
 				{image && (
 					<div
 						className="sui-popover__popup-image"
@@ -180,7 +211,7 @@ const Popover: React.FC<PopoverProps> = ({
 					/>
 				)}
 				<div className="sui-popover__popup-inner">
-					{header && <div className="sui-popover__popup-header">{header}</div>}
+					{title && <div className="sui-popover__popup-header">{title}</div>}
 					<div className="sui-popover__popup-content">{children}</div>
 					{!!footer && (
 						<div className="sui-popover__popup-footer">{footer}</div>

@@ -9,102 +9,6 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/sui-docs';
 </Section>
 
 <Section title="Props" border={true}>
-	<p>
-		The tooltip component is composed of a button and the tooltip itselft, when the button is hovered the tooltip will appear
-	</p>
-	<p>
-		We compose the props into two categories, the first category is for the props of the button and the second for the tooltip.
-	</p>
-	<Section title="Button Props">
-		<Section
-			title={{ content: 'label', tag: 'string', small: true }}
-			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>Text content of the button</p>
-		</Section>
-		<Section
-			title={{ content: 'type', tag: 'string', small: true }}
-			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				The type of the button, leave it empty when you want to use the default type
-			</p>
-			<p>Allowed options:</p>
-			<List>
-				<span
-					label={
-						<>
-							<Code small={true}>button</Code>
-						</>
-					}
-				/>
-				<span
-					label={
-						<>
-							<Code small={true}>text</Code>
-						</>
-					}
-				/>
-				<span
-					label={
-						<>
-							<Code small={true}>icon</Code> when you choose this make sure you provide the name prop, which is the name of the icon
-						</>
-					}
-				/>
-			</List>
-		</Section>
-		<Section
-			title={{ content: 'href', tag: 'string', small: true }}
-			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>Button url when the type is set to link <Code small={true}>link</Code></p>
-		</Section>
-		<Section
-			title={{ content: 'onClick', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				A callback function for click event
-			</p>
-		</Section>
-		<Section
-			title={{ content: 'onMouseEnter', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				A callback function to be triggered when the mouse pointer moves over the button
-			</p>
-		</Section>
-		<Section
-			title={{ content: 'onMouseLeave', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				A callback function to be triggered when the mouse pointer exits the button
-			</p>
-		</Section>
-		<Section
-			title={{ content: 'onFocus', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				This function is called when the button receives keyboard focus, typically used to enhance accessibility.
-			</p>
-		</Section>
-		<Section
-			title={{ content: 'onBlur', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				This function is called when the button loses keyboard focus.
-			</p>
-		</Section>
-		<p>In addition to these props you can use any prop that the <a href="/?path=/docs/sui-components-core-button--docs" target="_blank">Button Component</a> accepts</p>
-	</Section>
-
-
-	<Section title="Popover props">
 		<Section
 			title={{ content: 'position', tag: 'string', small: true }}
 			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
@@ -220,21 +124,45 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/sui-docs';
 			<p>Custom css classNames(s) to be added to the tooltip</p>
 		</Section>
 		<Section
-			title={{ content: 'customWidth', tag: 'number', small: true }}
+			title={{ content: 'isOpen', tag: 'boolean', small: true }}
 			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 		>
 			<p>
-				Add a fixed width to the tooltip
+				It will make popup visible on initial load.
 			</p>
 		</Section>
-		<Section
-			title={{ content: 'customMobileWidth', tag: 'number', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				A fixed width for mobile
-			</p>
-		</Section>
+	<Section
+		title={{ content: 'image', tag: 'string', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			Thumbnail URL to be displayed inside the popup.
+		</p>
+	</Section>
+	<Section
+		title={{ content: 'trigger', tag: 'node', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			Trigger element, it can be button, icon, text, anything.
+		</p>
+	</Section>
+	<Section
+		title={{ content: 'title', tag: 'node', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			Popup title, it can be any type, not just string.
+		</p>
+	</Section>
+	<Section
+		title={{ content: 'footer', tag: 'node', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>
+			Popup footer, contents to be displayed in bottom of popup.
+		</p>
+	</Section>
 		<Section
 			title={{ content: 'children', tag: 'React Node', small: true }}
 			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
@@ -242,6 +170,5 @@ import { Section, Row, Col, Table, List, Code, Tag } from '@wpmudev/sui-docs';
 			<p>
 				A fixed width for mobile
 			</p>
-		</Section>
 	</Section>
 </Section>

@@ -1,45 +1,48 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { Section, Preview, Snippet } from "@wpmudev/sui-docs"
 import { Popover } from "../../src"
 import dedent from "dedent"
 
-import Types from "./Examples/Types.mdx"
-import Position from "./Examples/Position.mdx"
-
-export const sampleCode = dedent`
-    <Popover label="Button Label">Popover Text</Popover>
-`
-
-export const customWidth = dedent`
-    <Popover customWidth={10} label="Button Text">Custom Width</Popover>
+export const defaultPopover = dedent`
+    <Popover title="Popover title" footer="Footer content" trigger="Click on me!">Popover Body</Popover>
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
 	<p>The default form of the tooltip component</p>
 	<Preview wrapper={true}>
-		<div style={ { padding: 40 } }>
-			<Popover label="Button Text">Popover Text</Popover>
+		<div style={ {  paddingBottom: 100 } }>
+			<Popover title="Popover title" footer="Footer content" trigger="Click on me!" position="right-bottom">Popover Body</Popover>
 		</div>
 	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+	<Snippet language="js">{defaultPopover}</Snippet>
 </Section>
 
-<Section title="Custom Width" contained={true} style={{ paddingTop: 30 }}>
-	<p>Use <Code small={true}> customWidth </Code> prop to set a custom width for the tooltip</p>
+export const displayOnHover = dedent`
+    <Popover title="Popover title" footer="Footer content" trigger="Hover on me!" displayOnHover={true} position="right-bottom">Popover Body</Popover>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<h3>displayOnHover: true</h3>
+	<p>Display popup on hover</p>
 	<Preview wrapper={true}>
-		<div style={ { padding: 60 } }>
-			<Popover customWidth={10} label="Button Text">Custom Width</Popover>
+		<div style={ { paddingBottom: 100 } }>
+			<Popover title="Popover title" footer="Footer content" trigger="Hover on me!" displayOnHover={true} position="right-bottom">Popover Body</Popover>
 		</div>
 	</Preview>
-	<Snippet language="js">{customWidth}</Snippet>
+	<Snippet language="js">{displayOnHover}</Snippet>
 </Section>
 
-<Section style={{ paddingTop: 0 }}>
-	<Switcher>
-		<div label="Types" value="types">
-			<Types />
+export const image = dedent`
+    <Popover title="Popover title" footer="Footer content" trigger="Hover on me!" displayOnHover={true} position="right-bottom" image="https://placehold.co/600x400">Popover Body</Popover>
+`
+
+<Section contained={true} style={{ paddingTop: 30, height: '300px' }}>
+	<h3>Popover with image</h3>
+	<p>Display thumbnail in popup</p>
+	<Preview wrapper={true}>
+		<div >
+			<Popover title="Popover title" footer="Footer content" trigger="Hover on me!" displayOnHover={true} position="right-bottom" image="https://placehold.co/600x400">Popover Body</Popover>
 		</div>
-		<div label="Position" value="position">
-			<Position />
-		</div>
-	</Switcher>
+	</Preview>
+	<Snippet language="js">{image}</Snippet>
 </Section>
+
