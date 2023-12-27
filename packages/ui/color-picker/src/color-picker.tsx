@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState, useRef } from "react"
 
 import { ColorPickerProps } from "./color-picker.types"
 import { Button } from "@wpmudev/sui-button"
@@ -9,6 +9,7 @@ import PreviewImage from "./static/opaque.png"
 
 import Picker from "./elements/picker"
 import { generateCN } from "@wpmudev/sui-utils"
+import { useOuterClick } from "@wpmudev/sui-hooks"
 
 /**
  * ColorPicker Component
@@ -55,6 +56,12 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 		setShowPicker(false)
 	}, [onChange, tempColor])
 
+	// The component ref
+	const colorPickerRef = useRef()
+
+	// Clicking outside should apply color change
+	useOuterClick(colorPickerRef, handleColorApply)
+
 	// Handle color picker close
 	const closeColorPicker = useCallback(
 		(e: React.MouseEvent<HTMLElement>) => {
@@ -82,6 +89,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 				disabled: isDisabled,
 			})}
 			data-testid="color-picker"
+			ref={colorPickerRef}
 		>
 			<div className="sui-color-picker__color">
 				<Input

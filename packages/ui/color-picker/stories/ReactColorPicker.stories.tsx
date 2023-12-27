@@ -36,6 +36,8 @@ const ColorPicker = ({
 }) => {
 	const [currentColor, setCurrentColor] = useState<string>(color)
 
+	console.log(currentColor)
+
 	useEffect(() => {
 		setCurrentColor(color)
 	}, [color])
