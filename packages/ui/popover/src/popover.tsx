@@ -12,32 +12,31 @@ import { useOuterClick } from "@wpmudev/sui-hooks"
 import { PopoverProps } from "./popover.types"
 import { Close } from "@wpmudev/sui-icons"
 
-// Build "Tooltip" component.
+// Popover component
 const Popover: React.FC<PopoverProps> = ({
 	image,
 	trigger,
 	className,
 	header,
 	children,
+	position = "top",
 	footer,
 }) => {
-	const [isOpen, setIsOpen] = useState<boolean>(true)
-	const [direction, setDirection] = useState("")
-	const [position, setPopupPosition] = useState<Record<CSSProperties, any>>({
-		top: 0,
-		right: "auto",
-	})
+	const [isOpen, setIsOpen] = useState<boolean>(false)
+	const [popupPositions, setPopupPositions] = useState<
+		Record<CSSProperties, any>
+	>({ top: 0, right: "auto" })
 
 	const ref = useRef<HTMLDivElement | null>(null)
-	const targetRef = useRef<HTMLDivElement | null>(null)
+	const triggerRef = useRef<HTMLDivElement | null>(null)
 	const popupRef = useRef<HTMLDivElement | null>(null)
-	// const targetRef = document.getElementsByTagName("body")[0]
 
+	// class names
 	const classNames = generateCN(
 		"sui-popover",
 		{
 			open: isOpen,
-			[`${direction}`]: true,
+			[`${position}`]: true,
 		},
 		className ?? "",
 	)
@@ -50,142 +49,106 @@ const Popover: React.FC<PopoverProps> = ({
 		setIsOpen(!isOpen)
 	}, [isOpen])
 
-	const positions = [
-		"top-left",
-		"top-center",
-		"top-right",
-		"right-top",
-		"right-center",
-		"right-bottom",
-		"bottom-left",
-		"bottom-center",
-		"bottom-right",
-		"left-top",
-		"left-center",
-		"left-bottom",
-	]
-
 	useEffect(() => {
-		if (targetRef.current && popupRef.current) {
-			const target = targetRef.current.getBoundingClientRect()
-			const popup = popupRef.current.getBoundingClientRect()
-			const parent = targetRef.current.parentElement.getBoundingClientRect() // Get parent's bounding rect
+		const el = triggerRef?.current
+		const { clientWidth, clientHeight } = el
+		const { clientWidth: popupW, clientHeight: popupH } = popupRef?.current
 
-			let selectedPosition = null
-
-			const poses = {
-				"top-left": {
-					top: target.top - popup.height - parent.top,
-					left: target.left - parent.left,
-				},
-				"top-center": {
-					top: target.top - popup.height - parent.top,
-					left: target.left + (target.width - popup.width) / 2 - parent.left,
-				},
-				"top-right": {
-					top: target.top - popup.height - parent.top,
-					left: target.right - popup.width - parent.left,
-				},
-				"right-top": {
-					top: target.top - parent.top,
-					left: target.right - parent.left,
-				},
-				"right-center": {
-					top: target.top + (target.height - popup.height) / 2 - parent.top,
-					left: target.right - parent.left,
-				},
-				"right-bottom": {
-					top: target.bottom - popup.height - parent.top,
-					left: target.right - parent.left,
-				},
-				"bottom-left": {
-					top: target.bottom - parent.top,
-					left: target.left - parent.left,
-				},
-				"bottom-center": {
-					top: target.bottom - parent.top,
-					left: target.left + (target.width - popup.width) / 2 - parent.left,
-				},
-				"bottom-right": {
-					top: target.bottom - parent.top,
-					left: target.right - popup.width - parent.left,
-				},
-				"left-top": {
-					top: target.top - parent.top,
-					left: target.left - popup.width - parent.left,
-				},
-				"left-center": {
-					top: target.top + (target.height - popup.height) / 2 - parent.top,
-					left: target.left - popup.width - parent.left,
-				},
-				"left-bottom": {
-					top: target.bottom - popup.height - parent.top,
-					left: target.left - popup.width - parent.left,
-				},
-				default: {
-					top: target.top - popup.height - parent.top,
-					left: target.left - parent.left,
-				},
-			}
-
-			const availablePositions = Object.keys(poses).filter((pos, index) => {
-				const data = poses[pos]
-
-				console.log("pos", window.innerWidth, target.left, popup.left)
-
-				return (
-					window.innerWidth - (target.left + data.left) >= popup.width &&
-					window.innerHeight - (target.top + data.top) >= popup.height
-				)
-			})
-
-			if (!!availablePositions[0]) {
-				console.log(
-					"availablePositions[0]",
-					availablePositions[0],
-					availablePositions,
-				)
-				setDirection(availablePositions[0])
-				setPopupPosition(poses[availablePositions[0]])
-			}
-
-			// positions.some((pos) => {
-			// 	let top = 0,
-			// 		left = 0
-			//
-			// 	if (
-			// 		top >= 0 &&
-			// 		left >= 0 &&
-			// 		top + popup.height <= window.innerHeight &&
-			// 		left + popup.width <= window.innerWidth
-			// 	) {
-			// 		selectedPosition = position
-			// 		console.log("position", position)
-			// 		setPopupPosition({ top, left })
-			// 		return true
-			// 	}
-			// 	return false
-			// })
-
-			// If no suitable position found, default to 'top-left'
-			// if (!selectedPosition) {
-			// 	selectedPosition = "top-left"
-			// 	setPopupPosition({
-			// 		top: target.top - popup.height - parent.top,
-			// 		left: target.left - parentRect.left,
-			// 	})
-			// }
+		if (!isOpen) {
+			return
 		}
-	}, [isOpen, targetRef, popupRef])
+
+		let pos = {}
+
+		switch (position) {
+			case "top":
+				pos = {
+					left: 0 - popupW / 2 + clientWidth / 2,
+					top: -(16 + popupH),
+				}
+				break
+			case "top-left":
+				pos = {
+					left: -(popupW - clientWidth / 2 - 26),
+					top: -(16 + popupH),
+				}
+				break
+			case "top-right":
+				pos = {
+					left: clientWidth / 2 - 26,
+					top: -(16 + popupH),
+				}
+				break
+			case "left":
+				pos = {
+					left: 0 - (popupW + 16),
+					top: clientHeight / 2 - popupH / 2,
+				}
+				break
+			case "left-top":
+				pos = {
+					left: 0 - (popupW + 16),
+					top: -(popupH - clientHeight / 2 - 26),
+				}
+				break
+			case "left-bottom":
+				pos = {
+					left: 0 - (popupW + 16),
+					top: clientHeight / 2 - 26,
+				}
+				break
+			case "right":
+				pos = {
+					left: clientWidth + 16,
+					top: clientHeight / 2 - popupH / 2,
+				}
+				break
+			case "right-top":
+				pos = {
+					left: clientWidth + 16,
+					top: -(popupH - clientHeight / 2 - 26),
+				}
+				break
+			case "right-bottom":
+				pos = {
+					left: clientWidth + 16,
+					top: clientHeight / 2 - 26,
+				}
+				break
+			case "bottom":
+				pos = {
+					left: clientWidth / 2 - popupW / 2,
+					top: clientHeight + 16,
+				}
+				break
+			case "bottom-left":
+				pos = {
+					left: -(popupW - clientWidth / 2 - 26),
+					top: clientHeight + 16,
+				}
+				break
+			case "bottom-right":
+				pos = {
+					left: clientWidth / 2 - 26,
+					top: clientHeight + 16,
+				}
+				break
+		}
+
+		setPopupPositions({
+			...popupPositions,
+			...pos,
+		})
+	}, [trigger, popupRef, isOpen, position])
 
 	return (
 		<div
 			ref={ref as LegacyRef<HTMLDivElement>}
-			className={classNames}
+			className={!!classNames ? classNames : undefined}
 			data-testid="popover"
 		>
 			<div
-				ref={targetRef as LegacyRef<HTMLDivElement>}
+				ref={triggerRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__trigger"
 				role="button"
 				tabIndex={0}
@@ -197,14 +160,7 @@ const Popover: React.FC<PopoverProps> = ({
 			<div
 				ref={popupRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__popup"
-				// style={{ ...popupPositions }}
-				style={{
-					position: "absolute",
-					top: `${position.top}px`,
-					left: `${position.left}px`,
-					// Additional styling for the popup
-					// ...
-				}}
+				style={{ ...popupPositions }}
 			>
 				<Close
 					className="sui-popover__popup-close"

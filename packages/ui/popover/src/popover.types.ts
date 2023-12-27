@@ -10,15 +10,46 @@ interface PopoverBaseProps
 		HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>,
 		"onClick"
 	> {
+	/**
+	 * Popup thumbnail
+	 */
 	image?: string
+	/**
+	 * Popup header
+	 */
 	header?: React.ReactNode
 	/**
 	 * Optional child elements.
 	 */
 	children?: React.ReactNode
+	/**
+	 * Popup footer
+	 */
 	footer?: React.ReactNode
+	/**
+	 * Popup trigger element
+	 */
 	trigger?: React.ReactNode
-	position?: ["top", "left", "bottom", "bottom-left", "bottom-right", "right"]
+	/**
+	 * Popup directions
+	 */
+	position?: [
+		"top",
+		"top-left",
+		"top-right",
+		"bottom",
+		"bottom-left",
+		"bottom-right",
+		"left",
+		"left-top",
+		"left-bottom",
+		"right",
+		"right-top",
+		"right-bottom",
+	]
+	/**
+	 * Additional className
+	 */
 	className?: string
 }
 

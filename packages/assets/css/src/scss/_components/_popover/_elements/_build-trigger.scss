@@ -15,7 +15,8 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(trigger) {
-				display: inline-block;
+				cursor: pointer;
+				display: inline-flex;
 			}
 		}
 	}

@@ -21,15 +21,10 @@ export default {
 
 // Build "Popover" story.
 const Popover = ({
-	tootlipText,
-	color,
+	position,
 }: { example: string; tootlipText: string } & PopoverBaseProps) => {
 	const boxStyles = {
-		padding: 200,
-		paddingLeft: 400,
-		paddingTop: 0,
 		borderRadius: 4,
-		background: color !== "white" ? "#fff" : "#333",
 	}
 
 	return (
@@ -37,12 +32,24 @@ const Popover = ({
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<SuiPopover
-						trigger={<Button>Test</Button>}
+						position={position ?? "bottom"}
+						trigger={
+							<Button isSmall={true} appearance="primary" color="blue">
+								Open popup
+							</Button>
+						}
 						header={<h4>This is popover title</h4>}
-						// footer={<Button isSmall={true}>Next</Button>}
+						footer={
+							<Button isSmall={true} appearance="secondary" color="black">
+								Know more
+							</Button>
+						}
 						// image="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR"
 					>
-						{tootlipText}
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry's standard dummy text
+						ever since the 1500s, when an unknown printer took a galley of type
+						and scrambled it to make a type specimen book.
 					</SuiPopover>
 				</div>
 			</div>
@@ -52,61 +59,11 @@ const Popover = ({
 
 // Set story arguments.
 Popover.args = {
-	tootlipText:
-		"This is popover body content. Add links if it is required. If there needs more elements than only texts detach the component and design it following the guideline.",
-	href: "",
-	target: "_blank",
-	label: "Button",
-	position: "top",
-	customWidth: "",
-	customMobileWidth: "",
+	position: "right-bottom",
 }
 
 // Set controls for story arguments.
 Popover.argTypes = {
-	example: {
-		name: "Example",
-		options: ["link", "button", "text", "icon"],
-		control: {
-			type: "select",
-			labels: {
-				link: "Example: Link",
-				button: "Example: Button",
-				text: "Example: Text",
-				icon: "Example: Icon",
-			},
-		},
-	},
-	tootlipText: {
-		name: "Popover Text",
-	},
-	label: {
-		name: "Label",
-		control: {
-			type: "text",
-		},
-	},
-	href: {
-		name: "Link",
-		control: {
-			type: "text",
-		},
-		if: {
-			arg: "example",
-			eq: "link",
-		},
-	},
-	target: {
-		name: "Target",
-		options: ["_self", "_blank"],
-		control: {
-			type: "select",
-		},
-		if: {
-			arg: "example",
-			eq: "link",
-		},
-	},
 	position: {
 		name: "Position",
 		options: [
@@ -139,18 +96,6 @@ Popover.argTypes = {
 				"right-top": "Right Top",
 				"right-bottom": "Right Bottom",
 			},
-		},
-	},
-	customWidth: {
-		name: "Custom Width",
-		control: {
-			type: "number",
-		},
-	},
-	customMobileWidth: {
-		name: "Custom Width (Mobile)",
-		control: {
-			type: "number",
 		},
 	},
 }

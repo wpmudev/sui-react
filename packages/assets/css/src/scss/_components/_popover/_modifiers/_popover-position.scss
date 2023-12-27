@@ -19,7 +19,7 @@
 				@include modifies-element(popup) {
 					&:before {
 						left: calc(50% - 10px);
-						bottom: 0;
+						bottom: -20px;
 						top: auto;
 						transform: rotate(-90deg);
 					}
@@ -27,22 +27,24 @@
 			}
 
 			@include modifier(top-left) {
-				@include modifies-element(content) {
-					left: 0;
-					transform: translateX(0);
-
-					&:after {
-						left: 8px;
+				@include modifies-element(popup) {
+					&:before {
+						left: auto;
+						bottom: -20px;
+						top: auto;
+						right: 16px;
+						transform: rotate(-90deg);
 					}
 				}
 			}
 
 			@include modifier(top-right) {
-				@include modifies-element(content) {
-					right: 0;
-
-					&:after {
-						right: 8px;
+				@include modifies-element(popup) {
+					&:before {
+						left: 16px;
+						bottom: -20px;
+						top: auto;
+						transform: rotate(-90deg);
 					}
 				}
 			}
@@ -76,7 +78,8 @@
 			@include modifier(bottom-left) {
 				@include modifies-element(popup) {
 					&:before {
-						left: 16px;
+						left: auto;
+						right: 16px;
 						top: -20px;
 						transform: rotate(90deg);
 					}
@@ -86,8 +89,7 @@
 			@include modifier(bottom-right) {
 				@include modifies-element(popup) {
 					&:before {
-						left: auto;
-						right: 16px;
+						left: 16px;
 						top: -20px;
 						transform: rotate(90deg);
 					}
@@ -102,7 +104,7 @@
 					&:before {
 						left: auto;
 						right: -19px;
-						top: calc(50% - 15px);
+						top: calc(50% - 10px);
 						transform: rotate(180deg);
 					}
 				}
@@ -113,18 +115,21 @@
 					&:before {
 						left: auto;
 						right: -19px;
-						top: 16px;
+						bottom: 16px;
+						top: auto;
 						transform: rotate(180deg);
 					}
 				}
 			}
 
 			@include modifier(left-bottom) {
-				@include modifies-element(content) {
-					bottom: 0;
-
-					&:after {
-						bottom: 8px;
+				@include modifies-element(popup) {
+					&:before {
+						left: auto;
+						right: -19px;
+						bottom: auto;
+						top: 16px;
+						transform: rotate(180deg);
 					}
 				}
 			}
@@ -135,126 +140,38 @@
 			}
 
 			@include modifier(right) {
-				@include modifies-element(content) {
-					top: 50%;
-					transform: translateY(-50%);
-
-					&:after {
-						top: 50%;
-						transform: translateY(-50%);
+				@include modifies-element(popup) {
+					&:before {
+						left: -20px;
+						right: -19px;
+						top: calc(50% - 10px);
 					}
 				}
 			}
 
 			@include modifier(right-top) {
-				@include modifies-element(content) {
-					top: 0;
-
-					&:after {
-						top: 8px;
+				@include modifies-element(popup) {
+					&:before {
+						bottom: 16px;
+						left: -20px;
+						right: -19px;
+						top: auto;
 					}
 				}
 			}
 
 			@include modifier(right-bottom) {
-				@include modifies-element(content) {
-					bottom: 0;
-
-					&:after {
-						bottom: 8px;
+				@include modifies-element(popup) {
+					&:before {
+						bottom: 16px;
+						left: -20px;
+						right: -19px;
+						top: 16px;
 					}
 				}
 			}
 
 			@include modifier(right, right-top, right-bottom) {
-				@include modifies-element(content) {
-					left: calc(100% + $popover-spacing-margin);
-
-					&:after {
-						left: -6px;
-						@include equilateral-triangle(
-							left,
-							6px,
-							$color-extended-neutral-20
-						);
-					}
-				}
-			}
-
-			@include modifier(icon) {
-				line-height: 1;
-
-				&.sui-#{$block}--top-left {
-					.sui-#{$block}__content {
-						&:after {
-							left: 2px;
-							bottom: -5px;
-						}
-					}
-				}
-
-				&.sui-#{$block}--top-right {
-					.sui-#{$block}__content {
-						&:after {
-							right: 2px;
-							bottom: -5px;
-						}
-					}
-				}
-
-				&.sui-#{$block}--bottom-left {
-					.sui-#{$block}__content {
-						&:after {
-							top: -5px;
-							left: 2px;
-						}
-					}
-				}
-
-				&.sui-#{$block}--bottom-right {
-					.sui-#{$block}__content {
-						&:after {
-							top: -5px;
-							right: 2px;
-						}
-					}
-				}
-
-				&.sui-#{$block}--left-top {
-					.sui-#{$block}__content {
-						&:after {
-							right: -5px;
-							top: 2px;
-						}
-					}
-				}
-
-				&.sui-#{$block}--left-bottom {
-					.sui-#{$block}__content {
-						&:after {
-							right: -5px;
-							bottom: 2px;
-						}
-					}
-				}
-
-				&.sui-#{$block}--right-top {
-					.sui-#{$block}__content {
-						&:after {
-							left: -5px;
-							top: 2px;
-						}
-					}
-				}
-
-				&.sui-#{$block}--right-bottom {
-					.sui-#{$block}__content {
-						&:after {
-							left: -5px;
-							bottom: 2px;
-						}
-					}
-				}
 			}
 		}
 	}
