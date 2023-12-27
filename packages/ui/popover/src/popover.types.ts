@@ -11,6 +11,10 @@ interface PopoverBaseProps
 		"onClick"
 	> {
 	/**
+	 * Open popup on initial load
+	 */
+	isOpen?: boolean
+	/**
 	 * Popup thumbnail
 	 */
 	image?: string
@@ -33,20 +37,19 @@ interface PopoverBaseProps
 	/**
 	 * Popup directions
 	 */
-	position?: [
-		"top",
-		"top-left",
-		"top-right",
-		"bottom",
-		"bottom-left",
-		"bottom-right",
-		"left",
-		"left-top",
-		"left-bottom",
-		"right",
-		"right-top",
-		"right-bottom",
-	]
+	position?:
+		| "top"
+		| "top-left"
+		| "top-right"
+		| "bottom"
+		| "bottom-left"
+		| "bottom-right"
+		| "left"
+		| "left-top"
+		| "left-bottom"
+		| "right"
+		| "right-top"
+		| "right-bottom"
 	/**
 	 * Additional className
 	 */

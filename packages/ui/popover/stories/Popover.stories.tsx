@@ -9,7 +9,7 @@ import docs from "./Popover.mdx"
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Core/Popover",
+	title: "SUI/Components/Advanced/Popover",
 	component: SuiPopover,
 	parameters: {
 		layout: "fullscreen",

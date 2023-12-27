@@ -14,6 +14,7 @@ import { Close } from "@wpmudev/sui-icons"
 
 // Popover component
 const Popover: React.FC<PopoverProps> = ({
+	isOpen = false,
 	image,
 	trigger,
 	className,
@@ -22,10 +23,11 @@ const Popover: React.FC<PopoverProps> = ({
 	position = "top",
 	footer,
 }) => {
-	const [isOpen, setIsOpen] = useState<boolean>(false)
-	const [popupPositions, setPopupPositions] = useState<
-		Record<CSSProperties, any>
-	>({ top: 0, right: "auto" })
+	const [isPopupOpen, setIsPopupOpen] = useState<boolean>(isOpen ?? false)
+	const [popupPositions, setPopupPositions] = useState<Record<string, any>>({
+		top: 0,
+		right: "auto",
+	})
 
 	const ref = useRef<HTMLDivElement | null>(null)
 	const triggerRef = useRef<HTMLDivElement | null>(null)
@@ -35,26 +37,27 @@ const Popover: React.FC<PopoverProps> = ({
 	const classNames = generateCN(
 		"sui-popover",
 		{
-			open: isOpen,
+			open: isPopupOpen,
 			[`${position}`]: true,
 		},
 		className ?? "",
 	)
 
 	useOuterClick(ref, () => {
-		setIsOpen(false)
+		setIsPopupOpen(false)
 	})
 
 	const onTriggerClick = useCallback(() => {
-		setIsOpen(!isOpen)
-	}, [isOpen])
+		setIsPopupOpen(!isPopupOpen)
+	}, [isPopupOpen])
 
 	useEffect(() => {
 		const el = triggerRef?.current
-		const { clientWidth, clientHeight } = el
-		const { clientWidth: popupW, clientHeight: popupH } = popupRef?.current
+		const { clientWidth, clientHeight } = el as HTMLDivElement
+		const { clientWidth: popupW, clientHeight: popupH } =
+			popupRef?.current as HTMLDivElement
 
-		if (!isOpen) {
+		if (!isPopupOpen) {
 			return
 		}
 
@@ -139,7 +142,7 @@ const Popover: React.FC<PopoverProps> = ({
 			...popupPositions,
 			...pos,
 		})
-	}, [trigger, popupRef, isOpen, position])
+	}, [trigger, popupRef, isPopupOpen, position])
 
 	return (
 		<div
@@ -160,7 +163,7 @@ const Popover: React.FC<PopoverProps> = ({
 			<div
 				ref={popupRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__popup"
-				style={{ ...popupPositions }}
+				style={{ ...popupPositions } as CSSProperties}
 			>
 				<Close
 					className="sui-popover__popup-close"
