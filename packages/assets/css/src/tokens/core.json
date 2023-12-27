@@ -962,6 +962,10 @@
 			"xxl": {
 				"value": "{border.radius.sm}*5",
 				"type": "borderRadius"
+			},
+			"default": {
+				"value": "6px",
+				"type": "borderRadius"
 			}
 		}
 	},
