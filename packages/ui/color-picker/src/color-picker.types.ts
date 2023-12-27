@@ -38,6 +38,14 @@ interface ColorPickerProps {
 	 * Specifies if the color picker field is disabled.
 	 */
 	isDisabled?: boolean
+	/**
+	 * callback when cancel
+	 */
+	onCancel?: Function
+	/**
+	 * callback when reset
+	 */
+	onReset?: Function
 }
 
 interface ColorPickerColorProps {

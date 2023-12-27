@@ -35,6 +35,7 @@ const ColorPicker = ({
 	errorMessage: string
 }) => {
 	const [currentColor, setCurrentColor] = useState<string>(color)
+	const [testColor, setTestColor] = useState<string>(color)
 
 	console.log(currentColor)
 
@@ -63,6 +64,16 @@ const ColorPicker = ({
 							id={id}
 							color={currentColor}
 							onChange={setCurrentColor}
+							onReset={() => setCurrentColor("#ffffff")}
+							isDisabled={isDisabled}
+							{...props}
+						/>
+
+						<SuiColorPicker
+							id={"54fds"}
+							color={testColor}
+							onChange={setTestColor}
+							onReset={() => setTestColor("#ffffff")}
 							isDisabled={isDisabled}
 							{...props}
 						/>
