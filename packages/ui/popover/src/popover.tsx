@@ -142,6 +142,7 @@ const Popover: React.FC<PopoverProps> = ({
 			...popupPositions,
 			...pos,
 		})
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [trigger, popupRef, isPopupOpen, position])
 
 	return (
