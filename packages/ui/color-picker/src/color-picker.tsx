@@ -35,7 +35,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 }) => {
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
-	const [tempColor, setTempColor] = useState(color)
+	const [tempColor, setTempColor] = useState("")
 	const [showClearBtn, setShowClearBtn] = useState(false)
 	const [showResetBtn, setShowResetBtn] = useState(false)
 
@@ -70,15 +70,18 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 
 	// Function to handle color apply and call the parent component's onApply function
 	const handleColorApply = useCallback(() => {
-		if (onChange) {
-			onChange(tempColor)
+		// Apply only if color picker is open
+		if (showPicker) {
+			if (onChange) {
+				onChange(tempColor)
+			}
+
+			setShowClearBtn(false)
+
+			setShowResetBtn(true)
+
+			setShowPicker(false)
 		}
-
-		setShowClearBtn(false)
-
-		setShowResetBtn(true)
-
-		setShowPicker(false)
 	}, [onChange, tempColor])
 
 	// The component ref

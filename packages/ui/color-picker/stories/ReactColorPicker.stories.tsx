@@ -35,6 +35,7 @@ const ColorPicker = ({
 	errorMessage: string
 }) => {
 	const [currentColor, setCurrentColor] = useState<string>(color)
+	const [savedColor, setSavedColor] = useState("#ffffff")
 
 	useEffect(() => {
 		setCurrentColor(color)
@@ -60,8 +61,9 @@ const ColorPicker = ({
 						<SuiColorPicker
 							id={id}
 							color={currentColor}
-							onChange={setCurrentColor}
-							onColorChange={(color) => console.log(color)}
+							onChange={setSavedColor}
+							onColorChange={setCurrentColor}
+							onCancel={() => setCurrentColor("#ffffff")}
 							onReset={() => setCurrentColor("#ffffff")}
 							isDisabled={isDisabled}
 							{...props}
