@@ -16,6 +16,10 @@ interface SpinnerProps {
 	 * Whether the spinner should be absolutely positioned
 	 */
 	isAbsolute?: boolean
+	/**
+	 * Wraps the spinner in a container with 500px height
+	 */
+	isContained?: boolean
 }
 
 /**
