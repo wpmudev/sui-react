@@ -41,9 +41,8 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 
 	// Update tempColor when color prop value changes
 	useEffect(() => {
-		if (tempColor !== color) {
-			setTempColor(color)
-		}
+		setTempColor(color)
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [color])
 
@@ -98,12 +97,14 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 
 			setShowClearBtn(false)
 
+			setTempColor(color)
+
 			if (onCancel) {
 				onCancel()
 			}
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[color],
+		[onCancel, color],
 	)
 
 	// Handle input color change
