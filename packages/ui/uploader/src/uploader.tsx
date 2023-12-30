@@ -1,5 +1,12 @@
 // @ts-nocheck
-import React, { useState, useId, useCallback, useRef, useEffect } from "react"
+import React, {
+	useState,
+	useId,
+	useCallback,
+	useRef,
+	useEffect,
+	Fragment,
+} from "react"
 
 // import type
 import { UploaderProps } from "./uploader.types"
@@ -56,6 +63,11 @@ const Uploader: React.FC<UploaderProps> = ({
 	// Ref to the hidden input element used to handle file selection
 	const ref = useRef<HTMLInputElement | null>(null)
 
+	// Empty the file input
+	const emptyFileInput = () => {
+		ref.current.value = ""
+	}
+
 	/**
 	 * Check file size
 	 *
@@ -89,23 +101,25 @@ const Uploader: React.FC<UploaderProps> = ({
 
 			const selectedFilesList = Array.from(selectedFiles)
 
-			// Select file sizes
+			// Check files size
 			selectedFilesList.forEach((file) => {
 				// check file size
 				if (fileSizeExceedMax(file)) {
 					notification.push({
 						message: maxSizeText,
 						variation: "error",
-						isDismissible: true,
 						size: "lg",
 						icon: "Warning",
+						timeout: 3000,
 					})
 					block = true
 				}
 			})
 
-			// Return if the file exceeds the max size
+			// Return if one of the files exceeds the max size
 			if (block) {
+				emptyFileInput()
+
 				return
 			}
 
@@ -133,12 +147,14 @@ const Uploader: React.FC<UploaderProps> = ({
 	const onRemoveFile = useCallback(
 		(fileIndex: number) => {
 			setFiles(files.filter((file: File, index: number) => index !== fileIndex))
+
+			emptyFileInput()
 		},
 		[files],
 	)
 
 	return (
-		<>
+		<Fragment>
 			<NotificationRenderer />
 			<div className="sui-uploader" data-testid="uploader">
 				{/* Hidden input field to handle file selection */}
@@ -180,7 +196,7 @@ const Uploader: React.FC<UploaderProps> = ({
 					</div>
 				)}
 			</div>
-		</>
+		</Fragment>
 	)
 }
 
