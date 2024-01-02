@@ -81,7 +81,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 
 			setShowPicker(false)
 		}
-	}, [onChange, tempColor])
+	}, [onChange, tempColor, showPicker])
 
 	// The component ref
 	const colorPickerRef = useRef()
