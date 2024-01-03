@@ -79,6 +79,10 @@ interface InputProps
 		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string,
 	) => void
 	/**
+	 * A callback function to be invoked when the icon is clicked
+	 */
+	onClickIcon?: (event: React.MouseEvent) => void
+	/**
 	 * Optional icon to be displayed.
 	 */
 	icon?: string

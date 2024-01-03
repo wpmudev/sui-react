@@ -38,6 +38,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				isReadOnly = false,
 				isError = false,
 				isDisabled = false,
+				onClickIcon,
 				onMouseEnter = () => {},
 				onMouseLeave = () => {},
 				onChange,
@@ -226,6 +227,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							name={icon ?? ""}
 							size={isSmall ? "md" : "lg"}
 							position={iconPosition}
+							onClick={onClickIcon}
 						/>
 					)}
 					<div
@@ -250,6 +252,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							name={icon ?? ""}
 							size={isSmall ? "md" : "lg"}
 							position={iconPosition}
+							onClick={onClickIcon}
 						/>
 					)}
 					{allowClear && !isEmpty(value as string) && !isMultiLine && (

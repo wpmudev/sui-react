@@ -8,6 +8,7 @@ const Icon: React.FC<IconPropsTypes> = ({
 	name = "",
 	size = "lg",
 	position = "start",
+	onClick,
 }) => {
 	// Required parameter(s) validation.
 	if (isEmpty(name ?? "")) {
@@ -29,6 +30,7 @@ const Icon: React.FC<IconPropsTypes> = ({
 
 	return (
 		<span
+			onClick={onClick}
 			className={classNames}
 			aria-hidden="true"
 			data-testid={`input-icon-${position}`}
