@@ -9,6 +9,8 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 	id,
 	isChecked = false,
 	children,
+	hasToggle = true,
+	actions,
 	onToggle,
 	...props
 }) => {
@@ -36,17 +38,25 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 		>
 			{/* Display the item's content */}
 			<div className="sui-field-list__item-label">{children}</div>
-			<div className="sui-field-list__item-checkbox">
-				{/* Render the Toggle component with appropriate props */}
-				<Toggle
-					id={tempId}
-					label={children}
-					isLabelHidden={true}
-					defaultValue={isChecked ?? false}
-					onClick={onChange}
-					{...props}
-				/>
-			</div>
+			{hasToggle && (
+				<div className="sui-field-list__item-checkbox">
+					{/* Render the Toggle component with appropriate props */}
+					<Toggle
+						id={tempId}
+						label={children}
+						isLabelHidden={true}
+						defaultValue={isChecked ?? false}
+						onClick={onChange}
+						{...props}
+					/>
+				</div>
+			)}
+			{actions && (
+				<div className="sui-field-list__item-actions">
+					{/* Render the actions here */}
+					{actions}
+				</div>
+			)}
 		</div>
 	)
 }
