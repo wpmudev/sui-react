@@ -51,7 +51,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 					/>
 				</div>
 			)}
-			{actions && (
+			{!!actions && (
 				<div className="sui-field-list__item-actions">
 					{/* Render the actions here */}
 					{actions}
