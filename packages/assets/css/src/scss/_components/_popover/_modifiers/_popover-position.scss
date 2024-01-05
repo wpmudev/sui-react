@@ -34,7 +34,7 @@
 					right: -#{$popover-spacing-2xl};
 					&:before {
 						right: auto;
-						left: -#{$popover-spacing-lg};
+						left: -#{$spacing-default};
 					}
 				}
 			}
@@ -45,7 +45,7 @@
 					top: -#{$popover-spacing-2xl};
 					&:before {
 						right: unset;
-						bottom: -#{$popover-spacing-lg};
+						bottom: -#{$spacing-default};
 					}
 				}
 			}
@@ -70,7 +70,7 @@
 					bottom: -#{$popover-spacing-2xl};
 					&:before {
 						right: unset;
-						top: -#{$popover-spacing-lg};
+						top: -#{$spacing-default};
 					}
 				}
 			}
