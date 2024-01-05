@@ -46,4 +46,24 @@
 			}
 		}
 	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block image.
+		@include block($block) {
+			@include modifier(image) {
+				@include modifies-element(popup-close) {
+					.sui-button {
+						border-color: $color-extended-neutral-0;
+						background: $color-extended-neutral-100;
+					}
+				}
+
+				@include modifies-element(popup-header) {
+					max-width: 100%;
+				}
+			}
+		}
+	}
 }
