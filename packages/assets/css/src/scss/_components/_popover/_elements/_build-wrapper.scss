@@ -77,12 +77,6 @@
 				box-shadow: none;
 			}
 
-			@include element(popup-close) {
-				.sui-button {
-					padding: $popover-spacing-sm;
-				}
-			}
-
 			@include element(popup-header, popup-content) {
 				color: $color-extended-neutral-0;
 			}
