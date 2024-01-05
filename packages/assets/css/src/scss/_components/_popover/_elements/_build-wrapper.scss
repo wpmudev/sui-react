@@ -17,7 +17,7 @@
 			position: relative;
 
 			@include modifier(open) {
-				.sui-popover__popup {
+				@include modifies-element(popup) {
 					display: block;
 				}
 			}

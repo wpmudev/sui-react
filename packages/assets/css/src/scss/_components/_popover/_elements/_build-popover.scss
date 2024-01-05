@@ -15,72 +15,78 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(popup) {
-				background: #fff;
-				border: 1px solid #e6e6e6;
-				border-radius: 8px;
-				box-shadow: 0 2px 4px 0 rgba(115, 115, 115, 0.1),
-					0 1px 16px 0 rgba(115, 115, 115, 0.05),
-					0 6px 12px 0 rgba(115, 115, 115, 0.08);
-				width: 360px;
+				width: $popover-size-width-lg;
 				margin: 0;
 				position: absolute;
 				display: none;
 				z-index: 9999;
+			}
+
+			@include element(popup-arrow) {
+				left: -#{$popover-spacing-2xl};
+				position: absolute;
+				top: $spacing-lg;
+				width: $spacing-lg;
+				height: $spacing-lg;
+				overflow: hidden;
 
 				&:before {
-					box-shadow: 0 1.5px 0 0 #e6e6e6 inset;
-					border-width: 10px;
-					border-color: transparent white transparent transparent;
-					border-style: solid;
-					content: "";
-					height: 0;
-					left: -20px;
 					position: absolute;
-					top: 10px;
-					width: 0;
+					box-shadow: 0 0 0 $border-width-sm $color-extended-neutral-80;
+					content: "";
+					height: 100%;
+					width: 100%;
+					background: $color-extended-neutral-100;
+					transform: rotate(45deg);
+					right: -#{$popover-spacing-lg};
 				}
 			}
 
 			@include element(popup-inner) {
-				padding: 16px;
+				padding: $spacing-lg;
 			}
 
 			@include element(popup-header) {
-				color: #1a1a1a;
-				font: $font-weight-sm 16px/500 $font-family-default;
-				line-height: 24px;
-				margin-bottom: 8px;
+				display: flex;
+				gap: $spacing-sm;
+				align-items: center;
+				font-weight: $font-weight-md;
+				margin: 0 0 $spacing-md;
+				max-width: $popover-size-width-md;
 
-				// remove margin
 				> * {
 					margin: 0;
 				}
 			}
 
 			@include element(popup-close) {
-				cursor: pointer;
 				left: auto;
 				position: absolute;
-				right: 16px;
-				top: 20px;
+				right: $spacing-lg;
+				top: $popover-spacing-xl;
+
+				.sui-button {
+					padding: $popover-spacing-sm;
+				}
 			}
 
-			@include element(popup-image) {
-				background-color: lightgray;
-				background-repeat: no-repeat;
-				background-size: contain;
-				background-position: 50%;
-				height: 180px;
-				width: 100%;
+			@include element(popup-wrapper) {
+				border: $border-width-sm solid $color-extended-neutral-80;
+				box-shadow: 0 $spacing-xs $spacing-sm 0 $color-shadow-dark,
+					0 $spacing-2xs $spacing-lg 0 $color-shadow-light,
+					0 $popover-spacing-md $spacing-default 0 $color-shadow-default;
+				background: $color-extended-neutral-100;
+				border-radius: $border-radius-md;
+				overflow: hidden;
 			}
 
 			@include element(popup-content) {
-				color: #505050;
-				font: $font-weight-default 13px/20px $font-family-default;
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
 			}
 
 			@include element(popup-footer) {
-				margin: 15px 0 0 0;
+				margin: $spacing-lg 0 0;
 			}
 		}
 	}

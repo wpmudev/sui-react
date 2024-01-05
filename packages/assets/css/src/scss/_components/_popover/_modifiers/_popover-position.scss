@@ -1,7 +1,6 @@
 @use "sass:map";
 
 @use "../../../_utils/utils" as *;
-@use "../_utils/mixins" as *;
 
 /// Build popover Position
 ///
@@ -15,205 +14,70 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-			@include modifier(top) {
-				@include modifies-element(popup) {
-					&:before {
-						left: calc(50% - 10px);
-						bottom: -20px;
-						top: auto;
-						transform: rotate(-90deg);
-					}
+			@include modifier(right-top, left-top) {
+				@include modifies-element(popup-arrow) {
+					top: auto;
+					bottom: $spacing-lg;
 				}
 			}
 
-			@include modifier(top-left) {
-				@include modifies-element(popup) {
-					&:before {
-						left: auto;
-						bottom: -20px;
-						top: auto;
-						right: 16px;
-						transform: rotate(-90deg);
-					}
+			@include modifier(right, left) {
+				@include modifies-element(popup-arrow) {
+					top: 50%;
+					transform: translateY(-50%);
 				}
 			}
 
-			@include modifier(top-right) {
-				@include modifies-element(popup) {
+			@include modifier(left, left-top, left-bottom) {
+				@include modifies-element(popup-arrow) {
+					left: unset;
+					right: -#{$popover-spacing-2xl};
 					&:before {
-						left: 16px;
-						bottom: -20px;
-						top: auto;
-						transform: rotate(-90deg);
-					}
-				}
-			}
-
-			@include modifier(top, top-left, top-right) {
-				@include modifies-element(content) {
-					bottom: 100%;
-					margin-bottom: $popover-spacing-margin;
-
-					&:after {
-						@include equilateral-triangle(
-							down,
-							6px,
-							$color-extended-neutral-20
-						);
-						bottom: -6px;
-					}
-				}
-			}
-
-			@include modifier(bottom) {
-				@include modifies-element(popup) {
-					&:before {
-						left: calc(50% - 10px);
-						top: -20px;
-						transform: rotate(90deg);
-					}
-				}
-			}
-
-			@include modifier(bottom-left) {
-				@include modifies-element(popup) {
-					&:before {
-						left: auto;
-						right: 16px;
-						top: -20px;
-						transform: rotate(90deg);
-					}
-				}
-			}
-
-			@include modifier(bottom-right) {
-				@include modifies-element(popup) {
-					&:before {
-						left: 16px;
-						top: -20px;
-						transform: rotate(90deg);
+						right: auto;
+						left: -#{$popover-spacing-lg};
 					}
 				}
 			}
 
 			@include modifier(bottom, bottom-left, bottom-right) {
-			}
-
-			@include modifier(left) {
-				@include modifies-element(popup) {
+				@include modifies-element(popup-arrow) {
+					left: unset;
+					top: -#{$popover-spacing-2xl};
 					&:before {
-						left: auto;
-						right: -19px;
-						top: calc(50% - 10px);
-						transform: rotate(180deg);
+						right: unset;
+						bottom: -#{$popover-spacing-lg};
 					}
 				}
 			}
 
-			@include modifier(left-top) {
-				@include modifies-element(popup) {
-					&:before {
-						left: auto;
-						right: -19px;
-						bottom: 16px;
-						top: auto;
-						transform: rotate(180deg);
-					}
+			@include modifier(top, bottom) {
+				@include modifies-element(popup-arrow) {
+					left: 50%;
+					transform: translateX(-50%);
 				}
 			}
 
-			@include modifier(left-bottom) {
-				@include modifies-element(popup) {
-					&:before {
-						left: auto;
-						right: -19px;
-						bottom: auto;
-						top: 16px;
-						transform: rotate(180deg);
-					}
+			@include modifier(bottom-left, top-left) {
+				@include modifies-element(popup-arrow) {
+					left: unset;
+					right: $spacing-lg;
 				}
 			}
 
-			@include modifier(left, left-top, left-bottom) {
-				@include modifies-element(popup) {
-				}
-			}
-
-			@include modifier(right) {
-				@include modifies-element(popup) {
-					&:before {
-						left: -20px;
-						right: -19px;
-						top: calc(50% - 10px);
-					}
-				}
-			}
-
-			@include modifier(right-top) {
-				@include modifies-element(popup) {
-					&:before {
-						bottom: 16px;
-						left: -20px;
-						right: -19px;
-						top: auto;
-					}
-				}
-			}
-
-			@include modifier(right-bottom) {
-				@include modifies-element(popup) {
-					&:before {
-						bottom: 16px;
-						left: -20px;
-						right: -19px;
-						top: 16px;
-					}
-				}
-			}
-
-			@include modifier(right, right-top, right-bottom) {
-			}
-		}
-	}
-
-	// DIR: Left to right.
-	// THEME: Dark.
-	@include sui-class($rtl: false, $theme: dark) {
-		// Block wrapper.
-		@include block($block) {
 			@include modifier(top, top-left, top-right) {
-				@include modifies-element(content) {
-					&:after {
-						@include equilateral-triangle(down, 6px, $color-extended-neutral-0);
+				@include modifies-element(popup-arrow) {
+					top: unset;
+					bottom: -#{$popover-spacing-2xl};
+					&:before {
+						right: unset;
+						top: -#{$popover-spacing-lg};
 					}
 				}
 			}
 
-			@include modifier(bottom, bottom-left, bottom-right) {
-				@include modifies-element(content) {
-					&:after {
-						@include equilateral-triangle(up, 6px, $color-extended-neutral-0);
-					}
-				}
-			}
-
-			@include modifier(left, left-top, left-bottom) {
-				@include modifies-element(content) {
-					&:after {
-						@include equilateral-triangle(
-							right,
-							6px,
-							$color-extended-neutral-0
-						);
-					}
-				}
-			}
-
-			@include modifier(right, right-top, right-bottom) {
-				@include modifies-element(content) {
-					&:after {
-						@include equilateral-triangle(left, 6px, $color-extended-neutral-0);
-					}
+			@include modifier(bottom-right, top-right) {
+				@include modifies-element(popup-arrow) {
+					left: $spacing-lg;
 				}
 			}
 		}

@@ -6,8 +6,9 @@ import React, {
 	CSSProperties,
 	useEffect,
 } from "react"
-import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
+import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
 import { useOuterClick } from "@wpmudev/sui-hooks"
+import { Button } from "@wpmudev/sui-button"
 
 import { PopoverProps } from "./popover.types"
 import { Close } from "@wpmudev/sui-icons"
@@ -39,6 +40,7 @@ const Popover: React.FC<PopoverProps> = ({
 		"sui-popover",
 		{
 			open: isPopupOpen,
+			image: !isEmpty(image),
 			[`${position}`]: true,
 		},
 		className ?? "",
@@ -195,27 +197,38 @@ const Popover: React.FC<PopoverProps> = ({
 				className="sui-popover__popup"
 				style={{ ...popupPositions } as CSSProperties}
 			>
-				{!displayOnHover && (
-					<Close
-						size="sm"
-						className="sui-popover__popup-close"
-						onClick={onTriggerClick}
-					/>
-				)}
-				{image && (
-					<div
-						className="sui-popover__popup-image"
-						style={{
-							backgroundImage: `url("${image}")`,
-						}}
-					/>
-				)}
-				<div className="sui-popover__popup-inner">
-					{title && <div className="sui-popover__popup-header">{title}</div>}
-					<div className="sui-popover__popup-content">{children}</div>
-					{!!footer && (
-						<div className="sui-popover__popup-footer">{footer}</div>
+				<div className="sui-popover__popup-arrow"></div>
+				<div className="sui-popover__popup-wrapper">
+					{!displayOnHover && (
+						<div className="sui-popover__popup-close">
+							<Button
+								icon="Close"
+								iconOnly={true}
+								color="black"
+								isSmall={true}
+								appearance="tertiary"
+							/>
+						</div>
 					)}
+					{image && (
+						<div
+							className="sui-popover__popup-image"
+							style={{
+								backgroundImage: `url("${image}")`,
+							}}
+						/>
+					)}
+					<div className="sui-popover__popup-inner">
+						{title && (
+							<div className="sui-heading--h5 sui-popover__popup-header">
+								{title}
+							</div>
+						)}
+						<div className="sui-popover__popup-content">{children}</div>
+						{!!footer && (
+							<div className="sui-popover__popup-footer">{footer}</div>
+						)}
+					</div>
 				</div>
 			</div>
 		</div>
