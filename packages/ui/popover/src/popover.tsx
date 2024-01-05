@@ -6,7 +6,12 @@ import React, {
 	CSSProperties,
 	useEffect,
 } from "react"
-import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
+import {
+	generateCN,
+	handleOnKeyDown,
+	isEmpty,
+	isUndefined,
+} from "@wpmudev/sui-utils"
 import { useOuterClick } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
 
@@ -40,7 +45,7 @@ const Popover: React.FC<PopoverProps> = ({
 		"sui-popover",
 		{
 			open: isPopupOpen,
-			image: !isEmpty(image),
+			image: !isUndefined(image) && !isEmpty(image),
 			[`${position}`]: true,
 		},
 		className ?? "",

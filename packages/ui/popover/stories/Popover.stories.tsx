@@ -38,7 +38,6 @@ const Popover = ({
 						position={position ?? "bottom"}
 						displayOnHover={displayOnHover ?? false}
 						title={title}
-						image="https://cdn.pixabay.com/photo/2014/06/03/19/38/board-361516_1280.jpg"
 						footer={
 							footer ? (
 								<Fragment>{footer}</Fragment>
