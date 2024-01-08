@@ -50,12 +50,15 @@
 				}
 			}
 
-			@include element(popup-content) {
+			@include element(popup-content, popup-footer) {
 				font-size: $font-size-xs;
 				line-height: $font-height-xs;
 			}
 
 			@include element(popup-footer) {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
 				margin: $spacing-lg 0 0;
 			}
 

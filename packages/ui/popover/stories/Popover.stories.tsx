@@ -76,6 +76,12 @@ Popover.args = {
 
 // Set controls for story arguments.
 Popover.argTypes = {
+	title: {
+		name: "Title",
+	},
+	footer: {
+		name: "Footer",
+	},
 	position: {
 		name: "Position",
 		options: [
@@ -108,6 +114,12 @@ Popover.argTypes = {
 				"right-top": "Right Top",
 				"right-bottom": "Right Bottom",
 			},
+		},
+	},
+	displayOnHover: {
+		name: "On Hover",
+		control: {
+			type: "boolean",
 		},
 	},
 }

@@ -12,7 +12,7 @@ import {
 	isEmpty,
 	isUndefined,
 } from "@wpmudev/sui-utils"
-import { useOuterClick } from "@wpmudev/sui-hooks"
+import { useOuterClick, useDetectRTL } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
 
 import { PopoverProps } from "./popover.types"
@@ -35,6 +35,9 @@ const Popover: React.FC<PopoverProps> = ({
 		top: 0,
 		right: "auto",
 	})
+
+	// detect RTL
+	const isRTL = useDetectRTL()
 
 	const ref = useRef<HTMLDivElement | null>(null)
 	const triggerRef = useRef<HTMLDivElement | null>(null)
@@ -100,73 +103,73 @@ const Popover: React.FC<PopoverProps> = ({
 		switch (position) {
 			case "top":
 				pos = {
-					left: 0 - popupW / 2 + clientWidth / 2,
+					[isRTL ? "right" : "left"]: 0 - popupW / 2 + clientWidth / 2,
 					top: -(16 + popupH),
 				}
 				break
 			case "top-left":
 				pos = {
-					left: -(popupW - clientWidth / 2 - 26),
+					[isRTL ? "right" : "left"]: -(popupW - clientWidth / 2 - 26),
 					top: -(16 + popupH),
 				}
 				break
 			case "top-right":
 				pos = {
-					left: clientWidth / 2 - 26,
+					[isRTL ? "right" : "left"]: clientWidth / 2 - 26,
 					top: -(16 + popupH),
 				}
 				break
 			case "left":
 				pos = {
-					left: 0 - (popupW + 16),
+					[isRTL ? "right" : "left"]: 0 - (popupW + 16),
 					top: clientHeight / 2 - popupH / 2,
 				}
 				break
 			case "left-top":
 				pos = {
-					left: 0 - (popupW + 16),
+					[isRTL ? "right" : "left"]: 0 - (popupW + 16),
 					top: -(popupH - clientHeight / 2 - 26),
 				}
 				break
 			case "left-bottom":
 				pos = {
-					left: 0 - (popupW + 16),
+					[isRTL ? "right" : "left"]: 0 - (popupW + 16),
 					top: clientHeight / 2 - 26,
 				}
 				break
 			case "right":
 				pos = {
-					left: clientWidth + 16,
+					[isRTL ? "right" : "left"]: clientWidth + 16,
 					top: clientHeight / 2 - popupH / 2,
 				}
 				break
 			case "right-top":
 				pos = {
-					left: clientWidth + 16,
+					[isRTL ? "right" : "left"]: clientWidth + 16,
 					top: -(popupH - clientHeight / 2 - 26),
 				}
 				break
 			case "right-bottom":
 				pos = {
-					left: clientWidth + 16,
+					[isRTL ? "right" : "left"]: clientWidth + 16,
 					top: clientHeight / 2 - 26,
 				}
 				break
 			case "bottom":
 				pos = {
-					left: clientWidth / 2 - popupW / 2,
+					[isRTL ? "right" : "left"]: clientWidth / 2 - popupW / 2,
 					top: clientHeight + 16,
 				}
 				break
 			case "bottom-left":
 				pos = {
-					left: -(popupW - clientWidth / 2 - 26),
+					[isRTL ? "right" : "left"]: -(popupW - clientWidth / 2 - 26),
 					top: clientHeight + 16,
 				}
 				break
 			case "bottom-right":
 				pos = {
-					left: clientWidth / 2 - 26,
+					[isRTL ? "right" : "left"]: clientWidth / 2 - 26,
 					top: clientHeight + 16,
 				}
 				break
