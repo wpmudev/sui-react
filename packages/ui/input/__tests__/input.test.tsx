@@ -45,12 +45,12 @@ describe("@wpmudev/sui-input", () => {
 	it("icon + iconPosition works fine", () => {
 		// Render the Input component with an icon at the start
 		const { rerender } = render(
-			<Input id="icon" icon="bell" iconPosition="start" />,
+			<Input id="icon" icon="Bell" iconPosition="start" />,
 		)
 		// Check if the start icon is present in the document
 		expect(screen.getByTestId("input-icon-start")).toBeInTheDocument()
 		// Rerender the Input with an icon at the end
-		rerender(<Input id="icon" icon="bell" iconPosition="end" />)
+		rerender(<Input id="icon" icon="Bell" iconPosition="end" />)
 		// Check if the end icon is present in the document
 		expect(screen.getByTestId("input-icon-end")).toBeInTheDocument()
 	})

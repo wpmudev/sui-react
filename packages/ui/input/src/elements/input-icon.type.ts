@@ -1,3 +1,5 @@
+import { IconsNamesType } from "@wpmudev/sui-icons"
+
 /**
  * Represents the properties for an icon component.
  */
@@ -5,7 +7,7 @@ interface IconPropsTypes {
 	/**
 	 * The name of the icon.
 	 */
-	name?: string
+	name: IconsNamesType
 	/**
 	 * The size of the icon.
 	 */
