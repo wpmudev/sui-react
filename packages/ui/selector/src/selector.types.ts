@@ -63,6 +63,7 @@ interface SelectorOptionProps {
 	onRemove: SelectorProps["onRemove"]
 	tagColor: SelectorProps["tagColor"]
 	isPro: SelectorProps["isPro"]
+	allowRemove: SelectorProps["allowRemove"]
 }
 
 export type { SelectorProps, SelectorOptionProps }
