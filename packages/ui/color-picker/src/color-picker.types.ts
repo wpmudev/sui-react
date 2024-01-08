@@ -40,4 +40,11 @@ interface ColorPickerColorProps {
 	colorCode: string
 }
 
-export type { ColorPickerProps, ColorPickerColorProps }
+interface ColorPickerPickerProps {
+	color: ColorPickerProps["color"]
+	type: ColorPickerProps["type"]
+	onColorChange: ColorPickerProps["onChange"]
+	onApplyButton: ColorPickerProps["onApplyButton"]
+}
+
+export type { ColorPickerProps, ColorPickerColorProps, ColorPickerPickerProps }

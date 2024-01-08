@@ -6,7 +6,7 @@ import React, {
 	ReactNode,
 	ChangeEvent,
 } from "react"
-import { ColorPickerProps } from "../color-picker.types"
+import { ColorPickerPickerProps, ColorPickerProps } from "../color-picker.types"
 import { CustomPicker, ColorResult } from "react-color"
 import {
 	Saturation,
@@ -33,7 +33,7 @@ const customPointer = (): ReactNode | undefined => {
 	return <div className="sui-color-picker__pointer"></div>
 }
 
-const Picker: React.FC<ColorPickerProps> = ({
+const Picker: React.FC<ColorPickerPickerProps> = ({
 	color = "",
 	type = "hex",
 	onColorChange = () => null,
