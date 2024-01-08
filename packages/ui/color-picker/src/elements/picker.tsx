@@ -8,7 +8,11 @@ import React, {
 } from "react"
 import { ColorPickerProps } from "../color-picker.types"
 import { CustomPicker, ColorResult } from "react-color"
-import { Saturation, Hue, Alpha } from "react-color/lib/components/common"
+import {
+	Saturation,
+	Hue,
+	Alpha,
+} from "react-color/lib/components/common/index.js"
 import tinycolor from "tinycolor2"
 import { Button } from "@wpmudev/sui-button"
 
