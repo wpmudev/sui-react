@@ -251,7 +251,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			RemoveAll(updateItem, items, setFilteredItems)
 		},
 		...(!isSearchable && {
-			arrow: isDropdownOpen ? "chevron-up" : "chevron-down",
+			arrow: isDropdownOpen ? "ChevronUp" : "ChevronDown",
 		}),
 		...(isSearchable && {
 			disabled: isDisabled,
