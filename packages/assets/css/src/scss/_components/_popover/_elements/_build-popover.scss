@@ -20,6 +20,10 @@
 				position: absolute;
 				display: none;
 				z-index: 9999;
+
+				@include media(max-width, sm) {
+					width: auto;
+				}
 			}
 
 			@include element(popup-arrow) {
