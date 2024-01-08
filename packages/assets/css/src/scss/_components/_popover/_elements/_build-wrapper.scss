@@ -85,4 +85,16 @@
 			}
 		}
 	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popup-close) {
+				right: auto;
+				left: $spacing-lg;
+			}
+		}
+	}
 }

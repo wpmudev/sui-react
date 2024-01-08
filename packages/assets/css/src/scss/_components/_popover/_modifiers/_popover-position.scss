@@ -82,4 +82,55 @@
 			}
 		}
 	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(left, left-top, left-bottom) {
+				@include modifies-element(popup-arrow) {
+					left: -#{$popover-spacing-2xl};
+					right: unset;
+					&:before {
+						right: -#{$spacing-default};
+						left: unset;
+					}
+				}
+			}
+
+			@include modifier(bottom-left, top-left, bottom-right, top-right) {
+				@include modifies-element(popup-arrow) {
+					&:before {
+						left: unset;
+					}
+				}
+			}
+
+			@include modifier(bottom-left, top-left) {
+				@include modifies-element(popup-arrow) {
+					right: unset;
+					left: $spacing-lg;
+				}
+			}
+
+			@include modifier(bottom-right, top-right) {
+				@include modifies-element(popup-arrow) {
+					left: unset;
+					right: $spacing-lg;
+				}
+			}
+
+			@include modifier(top, bottom) {
+				@include modifies-element(popup-arrow) {
+					left: 50%;
+					right: unset;
+
+					&:before {
+						left: unset;
+					}
+				}
+			}
+		}
+	}
 }

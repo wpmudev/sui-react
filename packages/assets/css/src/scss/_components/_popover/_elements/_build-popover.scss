@@ -60,4 +60,21 @@
 			}
 		}
 	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popup-arrow) {
+				right: -#{$popover-spacing-2xl};
+				left: unset;
+
+				&:before {
+					left: -#{$spacing-default};
+					right: unset;
+				}
+			}
+		}
+	}
 }
