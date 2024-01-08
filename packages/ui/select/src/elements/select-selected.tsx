@@ -10,13 +10,14 @@ import React, {
 import { isArray, isUndefined } from "@wpmudev/sui-utils"
 import { Icon } from "./select-icon"
 import { InputWithAutoComplete } from "./select-input"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 interface SelectSelectedProps
 	extends Omit<HTMLProps<HTMLDivElement>, "selected"> {
 	id: string
 	controlRef: HTMLDivElement | HTMLInputElement | null
 	expanded?: boolean
-	arrow?: string
+	arrow?: IconsNamesType
 	selected?: Record<string, any> | string
 	selectLabel?: string
 	isSmall?: boolean
