@@ -113,7 +113,7 @@ const Search: React.FC<SearchProps> = ({
 		>
 			<Input
 				ref={inputRef}
-				tabIndex={-1}
+				tabIndex={isDisabled ? -1 : 0}
 				className="sui-search__input-field"
 				id={inputId}
 				icon="search"
@@ -122,8 +122,8 @@ const Search: React.FC<SearchProps> = ({
 				defaultValue={value}
 				allowClear={allowClear}
 				disableInteractions={true}
-				isDisabled={isDisabled}
-				placeholder={placeholder}
+				isDisabled={isDisabled ?? false}
+				placeholder={placeholder ?? ""}
 				{...inputProps}
 			/>
 			{isPopoverVisible && "smart" === variation && (
