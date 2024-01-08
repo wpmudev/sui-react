@@ -32,7 +32,7 @@ const Icon: React.FC<IconPropsTypes> = ({
 			aria-hidden="true"
 			data-testid={`input-icon-${position}`}
 		>
-			<IconName size={size} />
+			{IconName && <IconName size={size} />}
 		</span>
 	)
 }
