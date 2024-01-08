@@ -1,5 +1,6 @@
 import React, { HTMLProps } from "react"
 import { InteractionTypes } from "@wpmudev/sui-hooks"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 /**
  * The `InputPropsTypes` interface represents the props for an input element.
@@ -81,7 +82,7 @@ interface InputProps
 	/**
 	 * Optional icon to be displayed.
 	 */
-	icon?: string
+	icon?: IconsNamesType
 	/**
 	 * Optional icon position to be displayed before or after text.
 	 */
