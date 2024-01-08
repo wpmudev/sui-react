@@ -49,6 +49,7 @@ export * from "@wpmudev/sui-pagination"
 export * from "@wpmudev/sui-search"
 export * from "@wpmudev/sui-basic-box"
 export * from "@wpmudev/sui-setting-block"
+export * from "@wpmudev/sui-popover"
 
 // Modules
 export * from "@wpmudev/sui-table"
