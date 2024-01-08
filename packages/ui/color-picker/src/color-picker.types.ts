@@ -5,7 +5,7 @@ interface ColorPickerProps {
 	/**
 	 * Unique identifier for the color-picker
 	 */
-	id: string
+	id?: string
 	/**
 	 * Color code
 	 */
@@ -22,10 +22,6 @@ interface ColorPickerProps {
 	 * Color type hex | rgb
 	 */
 	type?: "hex" | "rgb"
-	/**
-	 * Callback for color change
-	 */
-	onColorChange?: (color: string) => void
 	/**
 	 * Callback for color button click
 	 */
