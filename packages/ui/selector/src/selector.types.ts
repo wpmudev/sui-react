@@ -19,6 +19,8 @@ interface SelectorProps
 	isDisabled?: boolean
 	/** Whether the selector is a pro feature */
 	isPro?: boolean
+	/** Whether the selector item width is fluid */
+	isFluid?: boolean
 	/** Event handler for radio input change */
 	onChange?(isChecked: boolean, value: string | number, name: string): void
 	/** The alignment of the Selector component */

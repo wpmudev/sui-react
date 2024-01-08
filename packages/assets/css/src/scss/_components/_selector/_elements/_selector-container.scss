@@ -20,6 +20,25 @@
 			box-shadow: 0 $shadow-offset-xs $shadow-offset-2xs 0 $color-shadow-light,
 				0 $shadow-offset-2xs $shadow-offset-xs 0 $color-shadow-light;
 			color: $color-extended-neutral-50;
+			width: 100%;
+			max-width: $selector-size-width-lg;
+
+			@include modifier(default) {
+				&.sui-#{$block}--center {
+					max-width: $selector-size-width-md;
+				}
+			}
+
+			@include modifier(icon-only) {
+				max-width: $selector-size-width-sm;
+			}
+
+			@include modifier(fluid) {
+				&,
+				&.sui-#{$block}--center {
+					max-width: 100%;
+				}
+			}
 
 			@include modifier(center) {
 				text-align: center;

@@ -30,6 +30,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			title,
 			description,
 			tagColor = "default",
+			isFluid = false,
 			...props
 		}: SelectorProps,
 		ref,
@@ -58,6 +59,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 					hover: isHovered,
 					focus: isFocused,
 					checked: isChecked,
+					fluid: isFluid,
 					[alignment]: !isEmpty(alignment ?? ""),
 					[variation]: !isEmpty(variation ?? ""),
 				})}
