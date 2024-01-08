@@ -1,7 +1,7 @@
 import { Section, Preview, Snippet, Switcher, Code } from "@wpmudev/sui-docs"
 import { Notification, NotificationRenderer } from "../../src"
 import { Button } from "@wpmudev/sui-button"
-import { useNotifications } from "../../src/use-notification"
+import { useNotifications } from "../../src"
 
 import dedent from "dedent"
 
@@ -56,6 +56,7 @@ export const TimeOutToastButton = () => {
 
 export const sampleCode = dedent`
      <Notification
+      id="simple-notification"
       title="Notification Title"
       message="This is notification message."
       icon="CheckAlt"
@@ -64,6 +65,7 @@ export const sampleCode = dedent`
 
 export const DismissCode = dedent`
      <Notification
+      id="dismiss-notification"
       title="Notification Title"
       message="This is notification message."
       icon="CheckAlt"
@@ -144,6 +146,7 @@ export const TimeOutToastCode = dedent`
 	<p>Basic Notification Example </p>
 	<Preview wrapper={true}>
     	<Notification
+				id="basic-notification"
     		title="Notification Title"
 			message="This is notification message."
     		icon="CheckAlt"
@@ -201,6 +204,7 @@ export const TimeOutToastCode = dedent`
 	<Code small={true}>true</Code> if you want to add a dismissing button
 	<Preview wrapper={true}>
 		<Notification
+			id="dismissible-notification"
 			title="Notification Title"
 			message="This is notification message."
 			icon="CheckAlt"
