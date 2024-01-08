@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-react",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "description": "It provides all the ui components for available for sui react",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -50,6 +50,7 @@
     "@wpmudev/sui-basic-box": "^0.0.1",
     "@wpmudev/sui-box": "^0.0.1",
     "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-builder": "^0.0.1",
     "@wpmudev/sui-checkbox": "^0.0.1",
     "@wpmudev/sui-code-editor": "^0.0.1",
     "@wpmudev/sui-code-snippet": "^0.0.1",
