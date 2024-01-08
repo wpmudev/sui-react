@@ -51,22 +51,18 @@ interface SelectorProps
 		| "navy"
 }
 
-interface SelectorOptionProps
-	extends Pick<
-		SelectorProps,
-		| "iconOrBrandUrl"
-		| "title"
-		| "description"
-		| "imageUrl"
-		| "isPro"
-		| "isChecked"
-		| "alignment"
-		| "variation"
-		| "tag"
-		| "allowRemove"
-		| "onRemove"
-		| "tagColor"
-		| "isPro"
-	> {}
+interface SelectorOptionProps {
+	iconOrBrandUrl: SelectorProps["iconOrBrandUrl"]
+	title: SelectorProps["title"]
+	description: SelectorProps["description"]
+	imageUrl: SelectorProps["imageUrl"]
+	isChecked: SelectorProps["isChecked"]
+	alignment: SelectorProps["alignment"]
+	variation: SelectorProps["variation"]
+	tag: SelectorProps["tag"]
+	onRemove: SelectorProps["onRemove"]
+	tagColor: SelectorProps["tagColor"]
+	isPro: SelectorProps["isPro"]
+}
 
 export type { SelectorProps, SelectorOptionProps }
