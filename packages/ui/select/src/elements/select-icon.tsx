@@ -36,7 +36,7 @@ const Icon: React.FC<SelectIconProps> = ({
 			onClick={onClick}
 			aria-hidden="true"
 		>
-			<IconName size={size} />
+			{IconName && <IconName size={size} />}
 		</span>
 	)
 }
