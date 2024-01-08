@@ -15,12 +15,12 @@ const Col: React.FC<ColProps> = ({ size, children, className, ...props }) => {
 
 	// remove if exists
 	if ("colSize" in props) {
-		delete props.colSize
+		delete props?.colSize
 	}
 
 	// remove if exists
 	if ("size" in props) {
-		delete props.size
+		delete props?.size
 	}
 
 	return (
