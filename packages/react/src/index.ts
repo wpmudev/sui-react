@@ -1,4 +1,5 @@
 // Core
+export * from "@wpmudev/sui-avatar"
 export * from "@wpmudev/sui-box"
 export * from "@wpmudev/sui-grid"
 export * from "@wpmudev/sui-link"
@@ -21,6 +22,7 @@ export * from "@wpmudev/sui-toggle"
 
 // Advanced
 export * from "@wpmudev/sui-accordion"
+export * from "@wpmudev/sui-alert-banner"
 export * from "@wpmudev/sui-code-editor"
 export * from "@wpmudev/sui-code-snippet"
 export * from "@wpmudev/sui-color-picker"
