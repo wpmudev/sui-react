@@ -3,6 +3,7 @@ import React, { Fragment } from "react"
 // Import required component.
 import { Popover as SuiPopover, PopoverBaseProps } from "../src"
 import { Button } from "@wpmudev/sui-button"
+import { Tag } from "@wpmudev/sui-tag"
 
 // Import documentation main page.
 import docs from "./Popover.mdx"
@@ -21,10 +22,12 @@ export default {
 
 // Build "Popover" story.
 const Popover = ({
+	example,
 	position,
 	displayOnHover,
 	footer,
 	title,
+	src,
 }: PopoverBaseProps) => {
 	const boxStyles = {
 		borderRadius: 4,
@@ -52,8 +55,7 @@ const Popover = ({
 								Open popup
 							</Button>
 						}
-
-						// image="https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR"
+						image={src}
 					>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
 						industry. Lorem Ipsum has been the industry standard dummy text ever
@@ -68,19 +70,60 @@ const Popover = ({
 
 // Set story arguments.
 Popover.args = {
-	title: "This is popover title",
-	footer: "",
+	example: "title",
+	title: (
+		<Fragment>
+			This is popover title
+			<Tag isSmall={true}>Tag</Tag>
+		</Fragment>
+	),
+	src: "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR",
+	footer: (
+		<Fragment>
+			1/2
+			<Button isSmall={true} appearance="secondary" color="black">
+				Know more
+			</Button>
+		</Fragment>
+	),
 	position: "right-bottom",
 	displayOnHover: false,
 }
 
 // Set controls for story arguments.
 Popover.argTypes = {
+	example: {
+		name: "Example",
+		options: ["image", "title"],
+		control: {
+			type: "select",
+			labels: {
+				title: "Example: Title",
+				image: "Example: Image",
+			},
+		},
+	},
+	src: {
+		name: "Image Src",
+		control: {
+			type: "text",
+		},
+		if: {
+			arg: "example",
+			eq: "image",
+		},
+	},
 	title: {
 		name: "Title",
+		controls: {
+			type: "object",
+		},
 	},
 	footer: {
 		name: "Footer",
+		controls: {
+			type: "object",
+		},
 	},
 	position: {
 		name: "Position",
