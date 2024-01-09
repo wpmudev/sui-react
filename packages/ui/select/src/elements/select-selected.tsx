@@ -10,13 +10,14 @@ import React, {
 import { isArray, isUndefined } from "@wpmudev/sui-utils"
 import { Icon } from "./select-icon"
 import { InputWithAutoComplete } from "./select-input"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 interface SelectSelectedProps
 	extends Omit<HTMLProps<HTMLDivElement>, "selected"> {
 	id: string
 	controlRef: HTMLDivElement | HTMLInputElement | null
 	expanded?: boolean
-	arrow?: string
+	arrow?: IconsNamesType
 	selected?: Record<string, any> | string
 	selectLabel?: string
 	isSmall?: boolean
@@ -57,8 +58,8 @@ const Selected: React.FC<SelectSelectedProps> = ({
 				>
 					{selectedItem?.label as ReactNode}
 					<Icon
-						name="close"
-						size="sm"
+						name="Close"
+						size="xs"
 						{...(!!removeSelection && {
 							onClick: () => removeSelection(selectedItem?.id),
 						})}
@@ -110,12 +111,12 @@ const Selected: React.FC<SelectSelectedProps> = ({
 					!isUndefined(selected) &&
 					selectLabel !== selected && (
 						<Icon
-							name="close-alt"
-							size={isSmall ? "md" : "lg"}
+							name="CloseAlt"
+							size={isSmall ? "sm" : "md"}
 							onClick={onClearSelection}
 						/>
 					)}
-				{arrow && <Icon name={arrow} size="md" />}
+				{arrow && <Icon name={arrow} size="sm" />}
 			</div>
 		</>
 	)
@@ -171,8 +172,8 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 			/>
 			{(close || selected?.label) && (
 				<Icon
-					name="close-alt"
-					size={isSmall ? "md" : "lg"}
+					name="CloseAlt"
+					size={isSmall ? "sm" : "md"}
 					onClick={onClearSelection}
 				/>
 			)}

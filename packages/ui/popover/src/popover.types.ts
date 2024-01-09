@@ -21,7 +21,7 @@ interface PopoverBaseProps
 	/**
 	 * Popup header
 	 */
-	title?: React.ReactNode
+	header?: React.ReactNode
 	/**
 	 * Optional child elements.
 	 */

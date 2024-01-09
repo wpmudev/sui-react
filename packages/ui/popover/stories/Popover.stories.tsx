@@ -26,7 +26,7 @@ const Popover = ({
 	position,
 	displayOnHover,
 	footer,
-	title,
+	header,
 	src,
 }: PopoverBaseProps) => {
 	const boxStyles = {
@@ -40,7 +40,7 @@ const Popover = ({
 					<SuiPopover
 						position={position ?? "bottom"}
 						displayOnHover={displayOnHover ?? false}
-						title={title}
+						header={header}
 						footer={
 							footer ? (
 								<Fragment>{footer}</Fragment>

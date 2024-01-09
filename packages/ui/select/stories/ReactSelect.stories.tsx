@@ -32,18 +32,42 @@ const Select = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyle}>
-					<FormField
-						id="select"
-						label="Label"
-						helper="Description"
-						error={errorMessage}
-						isSmall={isSmall}
-						isDisabled={isDisabled}
-					>
-						{"select" === example && <StandardSelect {...props} />}
-						{"search" === example && <SearchSelect {...props} />}
-						{"multi-select" === example && <MultiSelect {...props} />}
-					</FormField>
+					{"select" === example && (
+						<FormField
+							id="select"
+							label="Label"
+							helper="Description"
+							error={errorMessage}
+							isSmall={isSmall}
+							isDisabled={isDisabled}
+						>
+							<StandardSelect {...props} />
+						</FormField>
+					)}
+					{"search" === example && (
+						<FormField
+							id="select"
+							label="Label"
+							helper="Description"
+							error={errorMessage}
+							isSmall={isSmall}
+							isDisabled={isDisabled}
+						>
+							<SearchSelect {...props} />
+						</FormField>
+					)}
+					{"multi-select" === example && (
+						<FormField
+							id="select"
+							label="Label"
+							helper="Description"
+							error={errorMessage}
+							isSmall={isSmall}
+							isDisabled={isDisabled}
+						>
+							<MultiSelect {...props} />
+						</FormField>
+					)}
 				</div>
 			</div>
 		</div>
@@ -56,49 +80,49 @@ Select.args = {
 	label: "Select",
 	options: [
 		{
-			icon: "settings",
+			icon: "Settings",
 			id: "option-1",
 			label: "Option 1 is the option.",
 			isSelected: false,
 		},
 		{
-			icon: "settings",
+			icon: "Settings",
 			id: "option-2",
 			label: "Option 2",
 			isSelected: false,
 		},
 		{
-			icon: "settings",
+			icon: "Settings",
 			id: "option-3",
 			label: "Option 3",
 			isSelected: false,
 		},
 		{
-			icon: "settings",
+			icon: "Settings",
 			id: "option-4",
 			label: "Option 4",
 			isSelected: false,
 		},
 		{
-			icon: "settings",
+			icon: "Settings",
 			id: "option-5",
 			label: "Option 5",
 			isSelected: false,
 		},
 		{
-			icon: "settings",
+			icon: "Settings",
 			id: "option-6",
 			label: "Option 6",
 			isSelected: false,
 		},
 		{
-			icon: "settings",
+			icon: "Settings",
 			id: "option-7",
 			label: "Option 7",
 			isSelected: false,
 		},
 		{
-			icon: "settings",
+			icon: "Settings",
 			id: "option-8",
 			label: "India",
 			isSelected: false,

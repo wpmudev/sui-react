@@ -78,7 +78,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							{...getOptProps(id)}
 						>
 							<Fragment>
-								{icon && <Icon name={icon} size={isSmall ? "sm" : "md"} />}
+								{icon && <Icon name={icon} size={isSmall ? "xs" : "sm"} />}
 								<span>
 									{boldLabel && <strong>{boldLabel}</strong>}
 									{newLabel}
@@ -99,7 +99,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		return (
 			<Fragment>
 				<div className="sui-select__search">
-					<Icon name="search" size="md" />
+					<Icon name="Search" size="sm" />
 					<Search
 						placeholder="Search"
 						{
