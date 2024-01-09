@@ -104,6 +104,13 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     		Use this component to group multiple checboxes together and display them horizontally or vertically, the <Code isSmall={true}>CheckboxGroup</Code> has the following props
     	</p>
 
+			<Section
+				title={{ content: "id", tag: 'string', small: true }}
+				style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+			>
+				<p>A unique identifier for the checkbox group, within group context this will be generated automatically if not passed</p>
+			</Section>
+
     	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			The elements content of the component
@@ -144,9 +151,9 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
 
     	<Section title="CheckboxGroups" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     	<p>
-    		Use this component to create hierarchical structure with nested checkboxes, it has the following props: 
+    		Use this component to create hierarchical structure with nested checkboxes, it has the following props:
     	</p>
-    		
+
 			<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     			<p>
     				The elements children of the the component

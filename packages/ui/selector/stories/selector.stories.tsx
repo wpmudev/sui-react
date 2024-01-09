@@ -73,6 +73,7 @@ export const Selector = ({
 
 // Story props defaults
 Selector.args = {
+	name: "selector-demo",
 	title: "Option Title",
 	iconOrBrandUrl: "Info",
 	variation: "default",

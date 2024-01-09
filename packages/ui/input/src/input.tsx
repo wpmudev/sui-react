@@ -41,6 +41,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				onMouseEnter = () => {},
 				onMouseLeave = () => {},
 				onChange,
+				onClear,
 				icon,
 				iconPosition,
 				allowClear = false,
@@ -82,12 +83,12 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			)
 
 			// Clear input value
-			const onClear = useCallback(() => {
+			const onClearCallback = useCallback(() => {
 				setValue("")
-				if (!!onChange) {
-					onChange("")
+				if (!!onClear) {
+					onClear("")
 				}
-			}, [onChange])
+			}, [onClear])
 
 			// flags
 			const hasValue = !isUndefined(value) && !isEmpty((value ?? "") as string)
@@ -206,8 +207,8 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							appearance="tertiary"
 							iconOnly={true}
 							iconSize={isSmall ? "sm" : "md"}
-							onClick={onClear}
-							isSmall={isSmall}
+							onClick={onClearCallback}
+							isSmall={isSmall ?? false}
 							onKeyDown={(
 								e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
 							) => handleOnKeyDown(e, onClear)}
