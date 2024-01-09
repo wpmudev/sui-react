@@ -91,24 +91,25 @@ const Selected: React.FC<SelectSelectedProps> = ({
 				id={id}
 				aria-label="select-input-field"
 				className="sui-select__hidden-input"
+				tabIndex={-1}
 				{...interactionMethods}
 			/>
-			<div
-				id={`${id}-control`}
-				ref={controlRef as LegacyRef<HTMLDivElement>}
-				role="button"
-				className="sui-select__control"
-				onClick={dropdownToggle}
-				onKeyDown={(e) => {
-					if (e.key === "Enter") {
-						dropdownToggle()
-					}
-				}}
-				tabIndex={0}
-				aria-haspopup="listbox"
-				aria-expanded={expanded}
-				{...props}
-			>
+			<div id={`${id}-control`} className="sui-select__control" {...props}>
+				<div
+					className="sui-select__cta"
+					ref={controlRef as LegacyRef<HTMLDivElement>}
+					role="button"
+					onClick={dropdownToggle}
+					onKeyDown={(e) => {
+						if (e.key === "Enter") {
+							dropdownToggle()
+						}
+					}}
+					tabIndex={0}
+					aria-label={selectLabel}
+					aria-haspopup="listbox"
+					aria-expanded={expanded}
+				></div>
 				{selectedContent}
 				{isMultiSelect &&
 					!isUndefined(selected) &&
