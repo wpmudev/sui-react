@@ -18,7 +18,7 @@ const Popover: React.FC<PopoverProps> = ({
 	image,
 	trigger,
 	className,
-	title,
+	header,
 	children,
 	position = "top",
 	footer,
@@ -211,7 +211,7 @@ const Popover: React.FC<PopoverProps> = ({
 					/>
 				)}
 				<div className="sui-popover__popup-inner">
-					{title && <div className="sui-popover__popup-header">{title}</div>}
+					{header && <div className="sui-popover__popup-header">{header}</div>}
 					<div className="sui-popover__popup-content">{children}</div>
 					{!!footer && (
 						<div className="sui-popover__popup-footer">{footer}</div>
