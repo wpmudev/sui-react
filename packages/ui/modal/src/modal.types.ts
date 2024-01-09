@@ -21,7 +21,7 @@ interface ModalContextProps
 		Pick<ModalProps, "variant" | "size"> {}
 
 interface ModalHeaderProps {
-	title: string
+	title?: string
 	children?: React.ReactNode
 }
 

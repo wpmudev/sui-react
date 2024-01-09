@@ -17,7 +17,7 @@ interface SetupBannerProps {
 	/**
 	 * Description or content for the banner
 	 */
-	description: React.ReactNode
+	description?: React.ReactNode
 	/**
 	 * CSS class for styling the component
 	 */

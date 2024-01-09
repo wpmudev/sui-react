@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useCallback, useState } from "react"
+import { createContext, useContext, useCallback, useEffect } from "react"
 import { AccordionContextProps } from "./accordion.types"
 
 const AccordionContext = createContext<AccordionContextProps>({
@@ -9,9 +9,22 @@ const AccordionContext = createContext<AccordionContextProps>({
 
 const AccordionProvider = AccordionContext.Provider
 
-const useAccordion = ({ uniqueId }: { uniqueId: string }) => {
+const useAccordion = ({
+	uniqueId,
+	isExpanded: propIsExpanded,
+}: {
+	uniqueId: string
+	isExpanded?: boolean
+}) => {
 	const { allowMultipleExpand, expandState, setExpandState } =
 		useContext(AccordionContext)
+
+	useEffect(() => {
+		if (isExpanded) {
+			setExpandState({ ...expandState, [uniqueId]: propIsExpanded })
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	// toggle the expand state
 	const toggle = useCallback(() => {

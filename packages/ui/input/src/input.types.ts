@@ -80,6 +80,10 @@ interface InputProps
 		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string,
 	) => void
 	/**
+	 * The callback function for handling input clear
+	 */
+	onClear?: (value: string | number) => void
+	/**
 	 * Optional icon to be displayed.
 	 */
 	icon?: IconsNamesType

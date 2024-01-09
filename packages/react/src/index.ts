@@ -1,4 +1,5 @@
 // Core
+export * from "@wpmudev/sui-avatar"
 export * from "@wpmudev/sui-box"
 export * from "@wpmudev/sui-grid"
 export * from "@wpmudev/sui-link"
@@ -21,6 +22,7 @@ export * from "@wpmudev/sui-toggle"
 
 // Advanced
 export * from "@wpmudev/sui-accordion"
+export * from "@wpmudev/sui-alert-banner"
 export * from "@wpmudev/sui-code-editor"
 export * from "@wpmudev/sui-code-snippet"
 export * from "@wpmudev/sui-color-picker"
@@ -47,6 +49,7 @@ export * from "@wpmudev/sui-pagination"
 export * from "@wpmudev/sui-search"
 export * from "@wpmudev/sui-basic-box"
 export * from "@wpmudev/sui-setting-block"
+export * from "@wpmudev/sui-popover"
 
 // Modules
 export * from "@wpmudev/sui-table"

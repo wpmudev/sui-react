@@ -7,7 +7,7 @@ interface ColProps {
 	/**
 	 * The size of the column.
 	 */
-	size: number | string
+	size?: number | string
 	/**
 	 * Additional className
 	 */
