@@ -63,7 +63,7 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 		>
 			<Input
 				id={id}
-				icon="calendar"
+				icon="Calendar"
 				iconPosition="start"
 				readOnly={true}
 				value={value ?? ""}

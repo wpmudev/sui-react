@@ -1,7 +1,9 @@
 import React, { ReactNode, HTMLAttributes } from "react"
 
 interface _CheckboxGroupInnerProps
-	extends Omit<CheckboxGroupProps, "_isMultiGroup"> {}
+	extends Omit<CheckboxGroupProps, "_isMultiGroup" | "id"> {
+	id: CheckboxGroupProps["id"]
+}
 
 /**
  * Define the props for a CheckboxGroups component.
@@ -27,6 +29,10 @@ interface CheckboxGroupsProps {
  * Define the props for a CheckboxGroup component.
  */
 interface CheckboxGroupProps {
+	/**
+	 * Checkbox group Id
+	 */
+	id?: string
 	/**
 	 * Indicates whether the checkbox buttons should be displayed inline.
 	 */

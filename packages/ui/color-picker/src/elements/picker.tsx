@@ -6,9 +6,13 @@ import React, {
 	ReactNode,
 	ChangeEvent,
 } from "react"
-import { ColorPickerProps } from "../color-picker.types"
+import { ColorPickerPickerProps, ColorPickerProps } from "../color-picker.types"
 import { CustomPicker, ColorResult } from "react-color"
-import { Saturation, Hue, Alpha } from "react-color/lib/components/common"
+import {
+	Saturation,
+	Hue,
+	Alpha,
+} from "react-color/lib/components/common/index.js"
 import tinycolor from "tinycolor2"
 import { Button } from "@wpmudev/sui-button"
 
@@ -29,7 +33,7 @@ const customPointer = (): ReactNode | undefined => {
 	return <div className="sui-color-picker__pointer"></div>
 }
 
-const Picker: React.FC<ColorPickerProps> = ({
+const Picker: React.FC<ColorPickerPickerProps> = ({
 	color = "",
 	type = "hex",
 	onColorChange = () => null,

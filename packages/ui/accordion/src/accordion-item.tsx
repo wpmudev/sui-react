@@ -13,6 +13,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	description,
 	children,
 	isDisabled,
+	isExpanded: propIsExpended,
 	icon,
 	hasCheckbox,
 	onCheck,
@@ -27,7 +28,10 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const uniqueId = useId()
 
 	// Get the "toggle" method and "isExpanded" state from the current AccordionItem
-	const { toggle, isExpanded } = useAccordion({ uniqueId })
+	const { toggle, isExpanded } = useAccordion({
+		uniqueId,
+		isExpanded: propIsExpended,
+	})
 
 	// IDs for the accordion and its panel to manage accessibility.
 	const accordionId = `sui-accordion-${uniqueId}`
@@ -54,10 +58,10 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			//e.preventDefault()
 			setIsChecked(e.target.checked)
 			if (onCheck) {
-				onCheck(isExpanded)
+				onCheck(e.target.checked)
 			}
 		},
-		[isExpanded, onCheck],
+		[onCheck],
 	)
 
 	// Icon component to display a chevron icon based on the accordion's expanded state.
@@ -87,10 +91,10 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			})}
 			data-testid="accordion-item"
 		>
-			{/* 
+			{/*
 				Rendering the Checkbox component outside the Accordion Header, to comply with
-				the accessibility principle that "Interactive controls must not be nested." 
-				This approach ensures that the Checkbox can be interacted with by all users, 
+				the accessibility principle that "Interactive controls must not be nested."
+				This approach ensures that the Checkbox can be interacted with by all users,
 				including those relying on assistive technologies, without violating accessibility guidelines.
 			 */}
 			{hasCheckbox &&
@@ -101,7 +105,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 						id={`${accordionId}-checkbox`}
 						onChange={onCheckBoxChange}
 						isChecked={isChecked}
-						isDisabled={isDisabled}
+						isDisabled={isDisabled ?? false}
 					/>,
 					checkboxDomContainer,
 				)}

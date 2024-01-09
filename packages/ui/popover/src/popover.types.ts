@@ -8,7 +8,7 @@ import { ButtonProps } from "@wpmudev/sui-button"
 interface PopoverBaseProps
 	extends Omit<
 		HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>,
-		"onClick"
+		"onClick" | "title"
 	> {
 	/**
 	 * Open popup on initial load
@@ -21,7 +21,7 @@ interface PopoverBaseProps
 	/**
 	 * Popup header
 	 */
-	title?: React.ReactNode
+	header?: React.ReactNode
 	/**
 	 * Optional child elements.
 	 */
