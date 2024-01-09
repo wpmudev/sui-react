@@ -6,8 +6,14 @@ import React, {
 	CSSProperties,
 	useEffect,
 } from "react"
-import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
-import { useOuterClick } from "@wpmudev/sui-hooks"
+import {
+	generateCN,
+	handleOnKeyDown,
+	isEmpty,
+	isUndefined,
+} from "@wpmudev/sui-utils"
+import { useOuterClick, useDetectRTL } from "@wpmudev/sui-hooks"
+import { Button } from "@wpmudev/sui-button"
 
 import { PopoverProps } from "./popover.types"
 import { Close } from "@wpmudev/sui-icons"
@@ -30,6 +36,9 @@ const Popover: React.FC<PopoverProps> = ({
 		right: "auto",
 	})
 
+	// detect RTL
+	const isRTL = useDetectRTL()
+
 	const ref = useRef<HTMLDivElement | null>(null)
 	const triggerRef = useRef<HTMLDivElement | null>(null)
 	const popupRef = useRef<HTMLDivElement | null>(null)
@@ -39,6 +48,7 @@ const Popover: React.FC<PopoverProps> = ({
 		"sui-popover",
 		{
 			open: isPopupOpen,
+			image: !isUndefined(image) && !isEmpty(image),
 			[`${position}`]: true,
 		},
 		className ?? "",
@@ -93,73 +103,73 @@ const Popover: React.FC<PopoverProps> = ({
 		switch (position) {
 			case "top":
 				pos = {
-					left: 0 - popupW / 2 + clientWidth / 2,
+					[isRTL ? "right" : "left"]: 0 - popupW / 2 + clientWidth / 2,
 					top: -(16 + popupH),
 				}
 				break
 			case "top-left":
 				pos = {
-					left: -(popupW - clientWidth / 2 - 26),
+					[isRTL ? "right" : "left"]: -(popupW - clientWidth / 2 - 26),
 					top: -(16 + popupH),
 				}
 				break
 			case "top-right":
 				pos = {
-					left: clientWidth / 2 - 26,
+					[isRTL ? "right" : "left"]: clientWidth / 2 - 26,
 					top: -(16 + popupH),
 				}
 				break
 			case "left":
 				pos = {
-					left: 0 - (popupW + 16),
+					[isRTL ? "right" : "left"]: 0 - (popupW + 16),
 					top: clientHeight / 2 - popupH / 2,
 				}
 				break
 			case "left-top":
 				pos = {
-					left: 0 - (popupW + 16),
+					[isRTL ? "right" : "left"]: 0 - (popupW + 16),
 					top: -(popupH - clientHeight / 2 - 26),
 				}
 				break
 			case "left-bottom":
 				pos = {
-					left: 0 - (popupW + 16),
+					[isRTL ? "right" : "left"]: 0 - (popupW + 16),
 					top: clientHeight / 2 - 26,
 				}
 				break
 			case "right":
 				pos = {
-					left: clientWidth + 16,
+					[isRTL ? "right" : "left"]: clientWidth + 16,
 					top: clientHeight / 2 - popupH / 2,
 				}
 				break
 			case "right-top":
 				pos = {
-					left: clientWidth + 16,
+					[isRTL ? "right" : "left"]: clientWidth + 16,
 					top: -(popupH - clientHeight / 2 - 26),
 				}
 				break
 			case "right-bottom":
 				pos = {
-					left: clientWidth + 16,
+					[isRTL ? "right" : "left"]: clientWidth + 16,
 					top: clientHeight / 2 - 26,
 				}
 				break
 			case "bottom":
 				pos = {
-					left: clientWidth / 2 - popupW / 2,
+					[isRTL ? "right" : "left"]: clientWidth / 2 - popupW / 2,
 					top: clientHeight + 16,
 				}
 				break
 			case "bottom-left":
 				pos = {
-					left: -(popupW - clientWidth / 2 - 26),
+					[isRTL ? "right" : "left"]: -(popupW - clientWidth / 2 - 26),
 					top: clientHeight + 16,
 				}
 				break
 			case "bottom-right":
 				pos = {
-					left: clientWidth / 2 - 26,
+					[isRTL ? "right" : "left"]: clientWidth / 2 - 26,
 					top: clientHeight + 16,
 				}
 				break
@@ -195,27 +205,41 @@ const Popover: React.FC<PopoverProps> = ({
 				className="sui-popover__popup"
 				style={{ ...popupPositions } as CSSProperties}
 			>
-				{!displayOnHover && (
-					<Close
-						size="sm"
-						className="sui-popover__popup-close"
-						onClick={onTriggerClick}
-					/>
-				)}
-				{image && (
-					<div
-						className="sui-popover__popup-image"
-						style={{
-							backgroundImage: `url("${image}")`,
-						}}
-					/>
-				)}
-				<div className="sui-popover__popup-inner">
-					{header && <div className="sui-popover__popup-header">{header}</div>}
-					<div className="sui-popover__popup-content">{children}</div>
-					{!!footer && (
-						<div className="sui-popover__popup-footer">{footer}</div>
+				<div className="sui-popover__popup-arrow"></div>
+				<div className="sui-popover__popup-wrapper">
+					{!displayOnHover && (
+						<div className="sui-popover__popup-close">
+							<Button
+								icon="Close"
+								iconOnly={true}
+								color="black"
+								isSmall={true}
+								appearance="tertiary"
+								onClick={onTriggerClick}
+							>
+								{"Close"}
+							</Button>
+						</div>
 					)}
+					{image && (
+						<div
+							className="sui-popover__popup-image"
+							style={{
+								backgroundImage: `url("${image}")`,
+							}}
+						/>
+					)}
+					<div className="sui-popover__popup-inner">
+						{header && (
+							<div className="sui-heading--h5 sui-popover__popup-header">
+								{header}
+							</div>
+						)}
+						<div className="sui-popover__popup-content">{children}</div>
+						{!!footer && (
+							<div className="sui-popover__popup-footer">{footer}</div>
+						)}
+					</div>
 				</div>
 			</div>
 		</div>
