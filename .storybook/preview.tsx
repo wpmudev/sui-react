@@ -124,6 +124,8 @@ export const parameters = {
 						["*"],
 						"*",
 					],
+					"React Framework",
+					["Overview"],
 					"CSS Framework",
 					["Overview", "Colors", "Typography", "Layout", "Grid", "*"],
 					"Icons Pack",
