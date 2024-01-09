@@ -1,0 +1,76 @@
+"use strict";(self.webpackChunkwpmudev_sui=self.webpackChunkwpmudev_sui||[]).push([[4056],{"./packages/ui/config-table/stories/config-table.stories.tsx":(__unused_webpack_module,__webpack_exports__,__webpack_require__)=>{__webpack_require__.r(__webpack_exports__),__webpack_require__.d(__webpack_exports__,{ConfigTable:()=>config_table_stories_ConfigTable,__namedExportsOrder:()=>__namedExportsOrder,default:()=>config_table_stories});var jsx_runtime=__webpack_require__("./node_modules/react/jsx-runtime.js"),react=__webpack_require__("./node_modules/react/index.js"),src=__webpack_require__("./packages/ui/table/src/index.ts"),button_src=__webpack_require__("./packages/ui/button/src/index.ts"),utils_src=__webpack_require__("./packages/utils/src/index.ts"),tooltip_src=__webpack_require__("./packages/ui/tooltip/src/index.ts");const ConfigTableDetails=({config})=>{let options=[];return Object.values(config?.config?.strings).forEach((string=>{options=[...options,...string[0].split("\n").filter((opt=>!(0,utils_src.xb)(opt)))]})),(0,jsx_runtime.jsxs)("div",{className:"sui-config-table__details",children:[(0,jsx_runtime.jsxs)("div",{className:"sui-config-table__details-header",children:[(0,jsx_runtime.jsx)("h3",{className:"sui-heading--h5 sui-config-table__details--title",children:config?.name}),(0,jsx_runtime.jsx)("p",{className:"sui-config-table__details--content",children:config?.description})]}),(0,jsx_runtime.jsx)("div",{className:"sui-config-table__details-body",children:(0,jsx_runtime.jsx)(src.iA,{hasToolbar:!1,isStripped:!0,children:(0,jsx_runtime.jsx)(src.RM,{children:options.map(((option,index)=>{const chunks=option.split("-");return(0,jsx_runtime.jsxs)(src.SC,{id:option.id,children:[(0,jsx_runtime.jsx)(src.pj,{children:(0,jsx_runtime.jsx)("strong",{children:chunks[0]})}),(0,jsx_runtime.jsx)(src.pj,{children:chunks[1]})]},index)}))})})})]})},ConfigTable=({className="",configs,onActionClick})=>{const actionClick=(0,react.useCallback)(((configId,type)=>{onActionClick&&onActionClick(configId,type)}),[onActionClick]),classNames=(0,utils_src.uY)("sui-config-table",{},className);return(0,jsx_runtime.jsxs)(src.iA,{className:classNames,hasToolbar:!1,children:[(0,jsx_runtime.jsx)(src.ss,{children:(0,jsx_runtime.jsxs)(src.SC,{actions:()=>null,children:[(0,jsx_runtime.jsx)(src.pj,{isHeading:!0,isPrimary:!0,children:"Config"}),(0,jsx_runtime.jsx)(src.pj,{isHeading:!0,children:"Date Created"}),(0,jsx_runtime.jsx)(src.pj,{isHeading:!0,children:"Last Applied"})]})}),(0,jsx_runtime.jsx)(src.RM,{children:configs?.map(((config,index)=>(0,jsx_runtime.jsxs)(src.SC,{id:config.id,isExpandable:!0,expandableContent:(0,jsx_runtime.jsx)(ConfigTableDetails,{config}),actions:({content})=>(0,jsx_runtime.jsxs)(react.Fragment,{children:[(0,jsx_runtime.jsx)(button_src.zx,{isSmall:!0,color:"blue",appearance:"tertiary",onClick:e=>{e.preventDefault(),actionClick(config.id,"apply")},children:"Apply"}),(0,jsx_runtime.jsx)(button_src.zx,{icon:"Settings",isSmall:!0,iconOnly:!0,color:"black","aria-label":"settings",appearance:"tertiary",onClick:e=>{e.preventDefault(),actionClick(config.id,"configure")}}),content]}),children:[(0,jsx_runtime.jsx)(src.pj,{children:(0,jsx_runtime.jsxs)("div",{className:"sui-config-table__title",children:[(0,jsx_runtime.jsx)("strong",{children:config.name}),!(0,utils_src.xb)(config.description??"")&&(0,jsx_runtime.jsx)(tooltip_src.u,{type:"icon",icon:"InfoAlt",position:"right-bottom",customWidth:160,customMobileWidth:160,children:config.description})]})}),(0,jsx_runtime.jsx)(src.pj,{children:"May 21, 2022 @ 6:00 pm"}),(0,jsx_runtime.jsx)(src.pj,{children:"May 21, 2022 @ 6:00 pm"})]},index)))})]})},configs=[{id:1,name:"Default config",description:"Recommended performance config for every site.",config:{configs:{settings:{advanced:{query_string:!1,emoji:!1,cart_fragments:!1,lazy_load:{enabled:!1,preload:!1}},gravatar:{enabled:!0},page_cache:{enabled:!0,detection:"auto",integrations:{varnish:!1,opcache:!1},preload:!1},performance:[],rss:{enabled:!0,duration:3600},settings:{accessible_colors:!1,remove_settings:!1,remove_data:!1,control:!0},uptime:{enabled:!1}}},strings:{advanced:["Remove query strings from assets - Inactive\nRemove Emoji JS & CSS files - Inactive\nDisable WooCommerce cart fragments - Inactive\nComments lazy loading - Inactive\n"],gravatar:["Gravatar cache - Active\n"],page_cache:["Page cache - Active\nFile change detection - Auto\nPurge Varnish cache - Inactive\nPurge OpCache - Inactive\nCache preloading - Inactive\n"],rss:["RSS caching - Active\n"],settings:["High contrast mode - Inactive\nRemove settings on uninstall - Inactive\nRemove data on uninstall - Inactive\nCache control in admin bar - Active\n"],uptime:["Uptime - Inactive\n"]}},plugin:"1081721"}];var lib=__webpack_require__("./node_modules/@mdx-js/react/lib/index.js"),docs_src=__webpack_require__("./packages/docs/src/index.ts"),dist=__webpack_require__("./node_modules/@storybook/blocks/dist/index.mjs");const example_namespaceObject=__webpack_require__.p+"static/media/example.ab12b8fb.svg",states_namespaceObject=__webpack_require__.p+"static/media/states.93388033.svg";function _createMdxContent(props){return(0,jsx_runtime.jsxs)(jsx_runtime.Fragment,{children:[(0,jsx_runtime.jsxs)(docs_src.$0,{title:"Example",style:{paddingTop:20},children:[(0,jsx_runtime.jsx)("img",{src:example_namespaceObject,alt:"Table Config Example",style:{marginBottom:20}}),(0,jsx_runtime.jsx)("h3",{style:{marginTop:0},children:"1. Accordion header"}),(0,jsx_runtime.jsx)("p",{children:"Accordion header contains the section title and chevron icon that expands and collapses accordion content."}),(0,jsx_runtime.jsx)("h3",{children:"1. Config title"}),(0,jsx_runtime.jsx)("p",{children:"Config title will help users to recognize the config."}),(0,jsx_runtime.jsx)("h3",{children:"2. Date created"}),(0,jsx_runtime.jsx)("p",{children:"There will be the date that the config was created."}),(0,jsx_runtime.jsx)("h3",{children:"3. Last applied on"}),(0,jsx_runtime.jsx)("p",{children:"The last applied on date allows users to easily determine if the config has been applied or not. If the config has been applied, a date will be displayed when the config was last applied. If not,  there will be displayed “Never“."}),(0,jsx_runtime.jsx)("h3",{children:"4. Apply"}),(0,jsx_runtime.jsx)("p",{children:"The config can be applied at any time. If the config was already applied, it will also be utilized to update it."}),(0,jsx_runtime.jsx)("h3",{children:"5. Configure"}),(0,jsx_runtime.jsx)("p",{children:"Users can configure the config with the helpof the action button."}),(0,jsx_runtime.jsx)("h3",{children:"6. Open and collapse config"}),(0,jsx_runtime.jsx)("p",{children:"Users can view the full details of the config."})]}),"\n",(0,jsx_runtime.jsx)(docs_src.$0,{title:"States",border:!0,children:(0,jsx_runtime.jsx)("img",{src:states_namespaceObject,alt:"Config Table States"})})]})}const TabUsage=function MDXContent(props={}){const{wrapper:MDXLayout}=Object.assign({},(0,lib.ah)(),props.components);return MDXLayout?(0,jsx_runtime.jsx)(MDXLayout,Object.assign({},props,{children:(0,jsx_runtime.jsx)(_createMdxContent,props)})):_createMdxContent()};function TabCode_createMdxContent(props){const _components=Object.assign({p:"p"},(0,lib.ah)(),props.components);return(0,jsx_runtime.jsxs)(jsx_runtime.Fragment,{children:[(0,jsx_runtime.jsx)(docs_src.$0,{title:"Installation",contained:!0,style:{paddingTop:20,paddingBottom:0},children:(0,jsx_runtime.jsx)("p",{children:(0,jsx_runtime.jsxs)(_components.p,{children:["Install the ",(0,jsx_runtime.jsx)(docs_src.EK,{small:!0,children:"ConfigTable"})," package as an individual\ncomponent or follow the Overview page instructions to get the complete SUI\nComponents package."]})})}),"\n",(0,jsx_runtime.jsxs)(docs_src.$0,{title:"Props",border:!0,children:[(0,jsx_runtime.jsx)(docs_src.$0,{title:{content:"configs",tag:"Array",small:!0},style:{paddingTop:0,paddingLeft:20,paddingRight:0},children:(0,jsx_runtime.jsx)("p",{children:"The list of configs, each item is an object with custom information, check the examples tab for details "})}),(0,jsx_runtime.jsxs)(docs_src.$0,{title:{content:"onActionClick",tag:"function",small:!0},style:{paddingTop:0,paddingLeft:20,paddingRight:0},children:[(0,jsx_runtime.jsx)("p",{children:"A callback function to be invoked upon clicking an action, the parameters of this function are: "}),(0,jsx_runtime.jsxs)(docs_src.aV,{children:[(0,jsx_runtime.jsx)("span",{label:(0,jsx_runtime.jsxs)(jsx_runtime.Fragment,{children:[(0,jsx_runtime.jsx)(docs_src.EK,{small:!0,children:"id"})," The config record id "]})}),(0,jsx_runtime.jsx)("span",{label:(0,jsx_runtime.jsxs)(jsx_runtime.Fragment,{children:[(0,jsx_runtime.jsx)(docs_src.EK,{small:!0,children:"type"})," The type of the config record, it could be one of two values ",(0,jsx_runtime.jsx)(docs_src.EK,{small:!0,children:"apply"})," & ",(0,jsx_runtime.jsx)(docs_src.EK,{small:!0,children:"configure"})," "]})})]})]}),(0,jsx_runtime.jsx)(docs_src.$0,{title:{content:"className",tag:"string",small:!0},style:{paddingTop:0,paddingLeft:20,paddingRight:0},children:(0,jsx_runtime.jsx)("p",{children:"Custom CSS className(s) for further customization"})})]})]})}const TabCode=function TabCode_MDXContent(props={}){const{wrapper:MDXLayout}=Object.assign({},(0,lib.ah)(),props.components);return MDXLayout?(0,jsx_runtime.jsx)(MDXLayout,Object.assign({},props,{children:(0,jsx_runtime.jsx)(TabCode_createMdxContent,props)})):TabCode_createMdxContent(props)};var dedent=__webpack_require__("./node_modules/dedent/dist/dedent.js");const sampleCode=__webpack_require__.n(dedent)()`
+import { ConfigTable } from "@wpmudev/sui-config-table"
+
+const configs = [
+      {
+        id: 1,
+        name: "Default config",
+        description: "Recommended performance config for every site.",
+        config: {
+          configs: {
+            settings: {
+              advanced: {
+                query_string: false,
+                emoji: false,
+                cart_fragments: false,
+                lazy_load: {
+                  enabled: false,
+                  preload: false,
+                },
+              },
+              gravatar: {
+                enabled: true,
+              },
+              page_cache: {
+                enabled: true,
+                detection: "auto",
+                integrations: {
+                  varnish: false,
+                  opcache: false,
+                },
+                preload: false,
+              },
+              performance: [],
+              rss: {
+                enabled: true,
+                duration: 3600,
+              },
+              settings: {
+                accessible_colors: false,
+                remove_settings: false,
+                remove_data: false,
+                control: true,
+              },
+              uptime: {
+                enabled: false,
+              },
+            },
+          },
+          strings: {
+            advanced: [
+              "Remove query strings from assets - Inactive Remove Emoji JS & CSS files - Inactive Disable WooCommerce cart fragments - Inactive Comments lazy loading - Inactive",
+            ],
+            gravatar: ["Gravatar cache - Active"],
+            page_cache: [
+              "Page cache - Active File change detection - Auto Purge Varnish cache - Inactive Purge OpCache - Inactive Cache preloading - Inactive",
+            ],
+            rss: ["RSS caching - Active"],
+            settings: [
+              "High contrast mode - Inactive Remove settings on uninstall - Inactive Remove data on uninstall - Inactive Cache control in admin bar - Active",
+            ],
+            uptime: ["Uptime - Inactive"],
+          },
+        },
+        plugin: "1081721",
+      },
+    ]
+
+    export const Example() = {
+        return (
+          <ConfigTable
+            configs={configs}
+            onActionClick={(id, type) => console.log(id, type)}
+          />
+        )
+}`;function TabExamples_createMdxContent(props){const _components=Object.assign({p:"p"},(0,lib.ah)(),props.components);return(0,jsx_runtime.jsxs)(docs_src.$0,{style:{paddingTop:30},children:[(0,jsx_runtime.jsx)("p",{children:(0,jsx_runtime.jsx)(_components.p,{children:"Below is a general example of the config table which you can tweak to fit\nyour needs"})}),(0,jsx_runtime.jsx)(docs_src.MB,{wrapper:!0,children:(0,jsx_runtime.jsx)("div",{style:{padding:50},children:(0,jsx_runtime.jsx)(ConfigTable,{configs,onActionClick:(id,type)=>console.log(id,type)})})}),(0,jsx_runtime.jsx)(docs_src.pP,{language:"js",children:sampleCode})]})}const TabExamples=function TabExamples_MDXContent(props={}){const{wrapper:MDXLayout}=Object.assign({},(0,lib.ah)(),props.components);return MDXLayout?(0,jsx_runtime.jsx)(MDXLayout,Object.assign({},props,{children:(0,jsx_runtime.jsx)(TabExamples_createMdxContent,props)})):TabExamples_createMdxContent(props)};function config_table_createMdxContent(props){return docs_src.T3||_missingMdxReference("Page",!1),docs_src.T3.Tabs||_missingMdxReference("Page.Tabs",!0),(0,jsx_runtime.jsx)(dist.E$,{children:(0,jsx_runtime.jsxs)(docs_src.T3.Tabs,{title:"Config Table",subtitle:"The config table provides plugin config information in a tabular format",status:"ready",children:[(0,jsx_runtime.jsx)("div",{id:"usage",label:"Usage",children:(0,jsx_runtime.jsx)(TabUsage,{})}),(0,jsx_runtime.jsx)("div",{id:"code",label:"Code",children:(0,jsx_runtime.jsx)(TabCode,{})}),(0,jsx_runtime.jsx)("div",{id:"examples",label:"Examples",children:(0,jsx_runtime.jsx)(TabExamples,{})})]})})}function _missingMdxReference(id,component){throw new Error("Expected "+(component?"component":"object")+" `"+id+"` to be defined: you likely forgot to import, pass, or provide it.")}const config_table_stories={title:"SUI/Components/Collections/Config Table",component:ConfigTable,parameters:{layout:"fullscreen",docs:{page:function config_table_MDXContent(props={}){const{wrapper:MDXLayout}=Object.assign({},(0,lib.ah)(),props.components);return MDXLayout?(0,jsx_runtime.jsx)(MDXLayout,Object.assign({},props,{children:(0,jsx_runtime.jsx)(config_table_createMdxContent,props)})):config_table_createMdxContent()}}}},config_table_stories_ConfigTable=({...props})=>(0,jsx_runtime.jsx)("div",{className:"sui-layout sui-layout--horizontal sui-layout--vertical",children:(0,jsx_runtime.jsx)("div",{className:"sui-layout__content",children:(0,jsx_runtime.jsx)("div",{children:(0,jsx_runtime.jsx)(ConfigTable,{...props,configs})})})});config_table_stories_ConfigTable.args={},config_table_stories_ConfigTable.argTypes={},config_table_stories_ConfigTable.parameters={...config_table_stories_ConfigTable.parameters,docs:{...config_table_stories_ConfigTable.parameters?.docs,source:{originalSource:'({\n  ...props\n}) => {\n  return <div className="sui-layout sui-layout--horizontal sui-layout--vertical">\n            <div className="sui-layout__content">\n                <div>\n                    <SuiConfigTable {...props} configs={configs} />\n                </div>\n            </div>\n        </div>;\n}',...config_table_stories_ConfigTable.parameters?.docs?.source}}};const __namedExportsOrder=["ConfigTable"]}}]);
+//# sourceMappingURL=ui-config-table-stories-config-table-stories.9cba6168.iframe.bundle.js.map
