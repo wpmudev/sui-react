@@ -216,7 +216,9 @@ const Popover: React.FC<PopoverProps> = ({
 								isSmall={true}
 								appearance="tertiary"
 								onClick={onTriggerClick}
-							/>
+							>
+								{"Close"}
+							</Button>
 						</div>
 					)}
 					{image && (
