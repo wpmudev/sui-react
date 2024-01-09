@@ -5,6 +5,9 @@ import React, {
 	LegacyRef,
 	CSSProperties,
 	useEffect,
+	isValidElement,
+	cloneElement,
+	ReactElement,
 } from "react"
 import {
 	generateCN,
@@ -192,14 +195,24 @@ const Popover: React.FC<PopoverProps> = ({
 			<div
 				ref={triggerRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__trigger"
-				role="button"
-				tabIndex={0}
-				onKeyDown={(e) => handleOnKeyDown(e, onTriggerClick)}
-				onClick={onTriggerClick}
-				onMouseEnter={onMouseEnter}
+				{...(!isValidElement(trigger) && {
+					role: "button",
+					tabIndex: 0,
+					onKeyDown: (e) => handleOnKeyDown(e, onTriggerClick),
+					onClick: onTriggerClick,
+					onMouseEnter,
+				})}
 			>
-				{trigger}
+				{isValidElement(trigger)
+					? cloneElement(trigger as ReactElement, {
+							onKeyDown: (e: React.KeyboardEvent<HTMLElement>) =>
+								handleOnKeyDown(e, onTriggerClick),
+							onClick: onTriggerClick,
+							onMouseEnter,
+					  })
+					: trigger}
 			</div>
+
 			<div
 				ref={popupRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__popup"
