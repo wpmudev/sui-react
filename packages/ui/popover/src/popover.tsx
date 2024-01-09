@@ -215,6 +215,7 @@ const Popover: React.FC<PopoverProps> = ({
 								color="black"
 								isSmall={true}
 								appearance="tertiary"
+								onClick={onTriggerClick}
 							/>
 						</div>
 					)}
