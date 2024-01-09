@@ -20,6 +20,7 @@ const Checkbox = ({
 	isSmall = false,
 	isIndeterminate = false,
 	onChange: propOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {},
+	...props
 }: CheckboxProps) => {
 	// Context for checkbox
 	const ctx = useCheckbox()
@@ -74,6 +75,7 @@ const Checkbox = ({
 			sm: isSmall,
 		}),
 		...methods,
+		...props,
 	}
 
 	// Props for the box element representing the checkbox
