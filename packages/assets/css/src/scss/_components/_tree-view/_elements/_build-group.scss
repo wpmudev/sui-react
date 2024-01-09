@@ -17,6 +17,14 @@
 			@include element(group) {
 				padding-left: $spacing-xl;
 			}
+
+			[role="treeitem"] {
+				[aria-expanded="false"] {
+					> ul {
+						display: none;
+					}
+				}
+			}
 		}
 	}
 
