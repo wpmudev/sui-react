@@ -18,11 +18,9 @@
 				padding-left: $spacing-xl;
 			}
 
-			[role="treeitem"] {
-				[aria-expanded="false"] {
-					> ul {
-						display: none;
-					}
+			[role="treeitem"][aria-expanded="false"] {
+				> ul {
+					display: none;
 				}
 			}
 		}
