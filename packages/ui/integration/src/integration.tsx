@@ -80,7 +80,13 @@ const Integration: React.FC<IntegrationProps> = ({
 	return (
 		<div className={classNames} data-testid="integration">
 			<div className="sui-integration__header">
-				<img src={icon.src} alt={icon.alt} className="sui-integration__icon" />
+				{!!icon?.src && (
+					<img
+						src={icon?.src ?? ""}
+						alt={icon?.alt ?? ""}
+						className="sui-integration__icon"
+					/>
+				)}
 				{isSettings && isActive && <Button {...settingsProps} />}
 				<Toggle {...toggleProps} />
 			</div>
