@@ -1,4 +1,4 @@
-import { Section, Code, Snippet, NodeJSWarning } from "@wpmudev/sui-docs"
+import { Section, Code, Snippet, Message, NodeJSWarning } from "@wpmudev/sui-docs"
 
 
 <style>{`
@@ -18,7 +18,7 @@ import { Section, Code, Snippet, NodeJSWarning } from "@wpmudev/sui-docs"
 
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>
-		<Code>@wpmudev/sui-react</Code>, a package within our library, offers all the UI components required for your plugin. This package allows developers to load all these components from the library at once, ensuring convenience. Notably, please be aware that it doesn't includes following packages: <Code>@wpmudev/sui-utils</Code>, <Code>@wpmudev/sui-css</Code>, <Code>@wpmudev/sui-hooks</Code>, and <Code>@wpmudev/react-icons</Code>.
+		This package within our library, offers React custom hooks for using in your plugin.
 	</p>
 	<NodeJSWarning/>
 </Section>
@@ -35,7 +35,7 @@ import { Section, Code, Snippet, NodeJSWarning } from "@wpmudev/sui-docs"
 		lives), run the following command:
 	</p>
 	```js
-	npm install --save @wpmudev/sui-react
+	npm install --save @wpmudev/sui-hooks
 	```
 </Section>
 <Section
@@ -51,6 +51,6 @@ import { Section, Code, Snippet, NodeJSWarning } from "@wpmudev/sui-docs"
 		lives), run the following command:
 	</p>
 	```js
-	yarn add @wpmudev/sui-react
+	yarn add @wpmudev/sui-hooks
 	```
 </Section>
