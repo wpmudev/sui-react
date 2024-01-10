@@ -40,14 +40,6 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	// Manage interaction methods
 	const [isHovered, isFocused, interactionMethods] = useInteraction({})
 
-	// The DOM  element where we render the Treeview Checkbox
-	const [checkboxDomContainer, setCheckBoxDomContainer] =
-		useState<Element | null>(null)
-
-	// The element ref where we render the checkbox
-	const checkboxPortalRef: RefObject<HTMLDivElement> =
-		useRef<HTMLDivElement | null>(null)
-
 	// Generate class names
 	const classNames = generateCN("sui-tree-view__info", {
 		active: isExpanded,
@@ -105,82 +97,53 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 		[_isGroup, ctx, id, _groupId, _onGroupCheckClick],
 	)
 
-	// Updating the DOM element state when its "ref" becomes available
-	useEffect(() => {
-		if (checkboxPortalRef.current) {
-			setCheckBoxDomContainer(checkboxPortalRef.current)
-		}
-	}, [checkboxPortalRef, ctx?.allowCheck])
-
 	return (
-		<>
-			{/*
-				Rendering the Checkbox component outside the Tree View Info, to comply with
-				the accessibility principle that "Interactive controls must not be nested."
-				This approach ensures that the Checkbox can be interacted with by all users,
-				including those relying on assistive technologies, without violating accessibility guidelines.
-			 */}
-			{ctx?.allowCheck &&
-				!isDisabled &&
-				checkboxDomContainer &&
-				createPortal(
+		<div
+			className={classNames}
+			id={`info-${id}`}
+			data-testid={_isGroup ? "" : "tree-view-item-info"}
+			{...(!ctx?.allowCheck && {
+				tabIndex: isDisabled ? -1 : 0,
+				role: "button",
+				onClick,
+				onKeyDown: (e) => handleOnKeyDown(e, onClick),
+				ariaLabel: id,
+			})}
+			{...(interactionMethods ?? {})}
+		>
+			{ctx?.allowCheck && (
+				<div
+					tabIndex={isDisabled ? -1 : 0}
+					role="button"
+					onClick={onClick}
+					onKeyDown={(e) => handleOnKeyDown(e, onClick)}
+					aria-label={id}
+					style={{
+						position: "absolute",
+						inset: 0,
+					}}
+				></div>
+			)}
+			{_isGroup && <TickIcon size="sm" className="sui-tree-view__info-icon" />}
+			{ctx?.allowCheck && (
+				<div className="sui-tree-view__info-check">
 					<Checkbox
 						onChange={onCheckClick}
 						isChecked={isChecked ?? false}
 						isIndeterminate={isIndeterminate}
 						isDisabled={isDisabled}
-					/>,
-					checkboxDomContainer,
-				)}
-			<div
-				className={classNames}
-				id={`info-${id}`}
-				data-testid={_isGroup ? "" : "tree-view-item-info"}
-				{...(!ctx?.allowCheck && {
-					tabIndex: isDisabled ? -1 : 0,
-					role: "button",
-					onClick,
-					onKeyDown: (e) => handleOnKeyDown(e, onClick),
-					ariaLabel: id,
-				})}
-				{...(interactionMethods ?? {})}
-			>
-				{ctx?.allowCheck && (
-					<div
-						tabIndex={isDisabled ? -1 : 0}
-						role="button"
-						onClick={onClick}
-						onKeyDown={(e) => handleOnKeyDown(e, onClick)}
-						aria-label={id}
-						style={{
-							position: "absolute",
-							inset: 0,
-						}}
-					></div>
-				)}
-				{_isGroup && (
-					<TickIcon size="sm" className="sui-tree-view__info-icon" />
-				)}
-				{ctx?.allowCheck && (
-					<div className="sui-tree-view__info-check">
-						<Checkbox
-							onChange={onCheckClick}
-							isChecked={isChecked ?? false}
-							isIndeterminate={isIndeterminate}
-							isDisabled={isDisabled}
-						/>
-					</div>
-				)}
-				<div className="sui-tree-view__info-title">
-					{!!ItemIcon && (!!ctx?.showIcons || isDisabled) && (
-						// Render the item's icon, if available and allowed
-						<ItemIcon size="sm" className="sui-tree-view__info-icon" />
-					)}
-					{/* Render the item's title */}
-					<span id={`${id}-title`}>{children}</span>
+					/>
 				</div>
+			)}
+			<div className="sui-tree-view__info-title">
+				{!!ItemIcon && (!!ctx?.showIcons || isDisabled) && (
+					// Render the item's icon, if available and allowed
+					<ItemIcon size="sm" className="sui-tree-view__info-icon" />
+				)}
+				{/* Render the item's title */}
+				<span id={`${id}-title`}>{children}</span>
 			</div>
-		</>
+		</div>
 	)
 }
 
