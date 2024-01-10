@@ -19,27 +19,33 @@ interface SnippetProps {
 	language: string
 	dark?: boolean
 	children: string
+	isOpen?: boolean
+	hideToggle?: boolean
 }
 
 const Snippet: React.FunctionComponent<SnippetProps> = ({
 	language,
 	dark = false,
 	children,
+	isOpen = false,
+	hideToggle = false,
 }) => {
-	const [showCode, setShowCode] = useState(false)
+	const [showCode, setShowCode] = useState(isOpen)
 	const snippetClasses = classnames({
 		"csb-snippet": true,
 		"csb-snippet--dark": dark,
 	})
 	return (
 		<div className={snippetClasses}>
-			<Button
-				type="button"
-				style="secondary"
-				label={showCode ? "Hide code" : "Show code"}
-				className="csb-snippet__toggle-button"
-				onClick={() => setShowCode(!showCode)}
-			/>
+			{!hideToggle && (
+				<Button
+					type="button"
+					style="secondary"
+					label={showCode ? "Hide code" : "Show code"}
+					className="csb-snippet__toggle-button"
+					onClick={() => setShowCode(!showCode)}
+				/>
+			)}
 			{showCode && <Source code={children} language={language} dark={true} />}
 		</div>
 	)

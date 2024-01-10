@@ -1,0 +1,395 @@
+import { Section, Code, Table } from "@wpmudev/sui-docs"
+
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>Here is a list of utility methods/variables offered within this library that can be used in the development of your plugin</p>
+</Section>
+<Section title="1. Plugin Icons (not a method)" border={true}>
+	<p>The `PluginsIcons` object is a record mapping plugin IDs to Plugin icon object. It defines properties for various plugins, specifying their background color, text color, and associated icon identifier.</p>
+	<p>
+		<h4>Plugin Icon object structure:</h4>
+		<ul>
+			<li><strong>bg</strong>[string]: Background color for the plugin icon.</li>
+			<li><strong>color</strong>[string]: Text color for the plugin icon.</li>
+			<li><strong>icon</strong>[string]: Identifier for the plugin icon.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Available plugin icons:</h4>
+		<ol>
+			<li>`smush`</li>
+			<li>`defender`</li>
+			<li>`snapshot`</li>
+			<li>`hummingbird`</li>
+			<li>`forminator`</li>
+			<li>`beehive`</li>
+			<li>`hustle`</li>
+			<li>`smartcrawl`</li>
+			<li>`shipper`</li>
+			<li>`branda`</li>
+		</ol>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { PluginsIcons } from "@wpmudev/sui-utils";
+		const smushIconObj = PluginsIcons['smush'];
+		// Output: { bg: "#2dc4e0", color: "#FFF", icon: "PluginSmush" }
+		```
+	</p>
+</Section>
+<Section title="2. generateCN" border={true}>
+	<p>Generate class names based on the provided prop variables.</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>base</strong> [string]: The base class name.</li>
+			<li><strong>variants</strong> [object]: class modifier in object, eg. `{ active: true, small: true }`.</li>
+			<li><strong>extraClassNames</strong> [string][optional]: any extra className to append at the end.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[string]: The generated class names.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { generateCN } from "@wpmudev/sui-utils";
+		// generate className
+		const classNames = generateCN('sui-example', { active: true, small: false }, 'extra-class');
+		console.log(classNames); // "sui-example sui-example--active sui-example--small extra-class"
+		```
+	</p>
+</Section>
+<Section title="3. condContent" border={true}>
+	<p>Returns the content if the condition is true, otherwise returns undefined or fallback.</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>condition</strong> [any]: The condition to match.</li>
+			<li><strong>content</strong> [any]: The content to return if the condition is true.</li>
+			<li><strong>fallback</strong> [any][optional]: The fallback to return when condition false.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[any|undefined]: flag or undefined.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { condContent } from "@wpmudev/sui-utils";
+
+		const status = 'active';
+
+		// Get the status text based on "status"
+		const statusText = condContent('active' === status, 'Activated', 'Disabled');
+		console.log(statusText);
+		```
+	</p>
+</Section>
+<Section title="4. chunkArray" border={true}>
+	<p>This function breaks an array into chunks of a specified size.</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>arr</strong> [any[]]: The array to be chunked.</li>
+			<li><strong>size</strong> [number]: The size of each chunk.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[any[][]]: An array of arrays containing the chunks.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { chunkArray } from "@wpmudev/sui-utils";
+
+		// Example usage:
+		const originalArray = [1, 2, 3, 4, 5, 6, 7, 8];
+		const chunked = chunkArray(originalArray, 3);
+		// Output: [[1, 2, 3], [4, 5, 6], [7, 8]]
+		```
+	</p>
+</Section>
+<Section title="5. capitalizeText" border={true}>
+	<p>The `capitalizeText` function is designed to capitalize the first letter of a given string.</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>string</strong> [string]: The text string to be capitalized.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[string]: The capitalized text.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { capitalizeText } from "@wpmudev/sui-utils";
+		console.log(capitalizeText('example text')); // Example text
+		```
+	</p>
+</Section>
+<Section title="6. handleOnKeyDown" border={true}>
+	<p>Use this function as a callback for the `onKeyDown` event when making a `div` or `span` element clickable. (useful for accessibility)</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>event</strong> [KeyboardEvent]: The keyboard event triggered.</li>
+			<li><strong>callback</strong> [(`(() => void) | undefined`)]: An optional callback function to execute.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[string]: The capitalized text.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```javascript
+		import { handleOnKeyDown } from "@wpmudev/sui-utils";
+
+		const Demo = () => {
+			const handleClick = () => {
+				console.log("Element clicked!");
+			}
+
+			<div
+				tabIndex={0}
+				role="button"
+				onKeyDown={(e) => handleOnKeyDown(e, handleClick)}
+			>
+				Click
+			</div>
+		}
+		```
+	</p>
+</Section>
+<Section title="7. handleEventDefault" border={true}>
+	<p>This function is designed to handle common event operations such as stopping propagation and preventing default behavior.</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>e</strong> [MouseEvent | KeyboardEvent]: The keyboard event triggered.</li>
+			<li><strong>stopPropagation</strong> [boolean]: If `true`, stops the event from further propagation in the event chain.</li>
+			<li><strong>preventDefault</strong> [boolean]: If `true`, prevents the default behavior associated with the event.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[string]: The capitalized text.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```javascript
+		import { handleEventDefault } from "@wpmudev/sui-utils";
+
+		const Demo = () => {
+			// Example usage:
+			const handleClick = (event) => {
+				handleEventDefault(event, true, true);
+				// Perform additional operations
+			}
+
+			<div onClick={(e) => handleClick(e)}>
+				Clickable Element
+			</div>
+		}
+		```
+	</p>
+</Section>
+<Section title="8. isNull" border={true}>
+	<p>Check if the provided value is null.</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>value</strong> [unknown]: The value to be checked.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[boolean]: Returns true if the value is null.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { isNull } from "@wpmudev/sui-utils";
+		const fname = null;
+
+		isNull(fname); // true
+		```
+	</p>
+</Section>
+<Section title="9. isUndefined" border={true}>
+	<p>Check if the provided value is undefined.</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>value</strong> [unknown]: The value to be checked.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[boolean]: Returns true if the value is undefined.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { isUndefined } from "@wpmudev/sui-utils";
+		const fname;
+
+		isUndefined(fname); // true
+		```
+	</p>
+</Section>
+<Section title="10. isObject" border={true}>
+	<p>Check if the provided value is an object type (excluding arrays).</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>value</strong> [unknown]: The value to be checked.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[boolean]: Returns true if the value is of object type and not an array.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { isObject } from "@wpmudev/sui-utils";
+		isObject({}); // true
+		```
+	</p>
+</Section>
+<Section title="11. isArray" border={true}>
+	<p>Check if the provided value is an array.</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>value</strong> [unknown]: The value to be checked.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[boolean]: Returns true if the value is an array.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { isArray } from "@wpmudev/sui-utils";
+		isArray(new Array()); // true
+		```
+	</p>
+</Section>
+<Section title="12. isBoolean" border={true}>
+	<p>Check if the provided value is of boolean type.</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>value</strong> [unknown]: The value to be checked.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[boolean]: Returns true if the value is an boolean.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { isBoolean } from "@wpmudev/sui-utils";
+		isBoolean(false); // true
+		```
+	</p>
+</Section>
+<Section title="13. isNumber" border={true}>
+	<p>Check if the provided value is of number type.</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>value</strong> [unknown]: The value to be checked.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[boolean]: Returns true if the value is a number.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { isNumber } from "@wpmudev/sui-utils";
+		isNumber(1); // true
+		```
+	</p>
+</Section>
+<Section title="14. isFunction" border={true}>
+	<p>Check if the provided value is of function type.</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>value</strong> [unknown]: The value to be checked.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[boolean]: Returns true if the value is function.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { isFunction } from "@wpmudev/sui-utils";
+		isFunction(() => {}); // true
+		```
+	</p>
+</Section>
+<Section title="15. isString" border={true}>
+	<p>Check if the provided value is of string type.</p>
+	<p>
+		<h4>Parameters:</h4>
+		<ul>
+			<li><strong>value</strong> [unknown]: The value to be checked.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Returns:</h4>
+		<ul>
+			<li>[boolean]: Returns true if the value is string.</li>
+		</ul>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```js
+		import { isString } from "@wpmudev/sui-utils";
+		isString('example'); // true
+		```
+	</p>
+</Section>

@@ -18,6 +18,12 @@ $palettes: (
 		min-width: 1px;
 		flex: 1;
 		padding: 10px;
+
+		p {
+			.csb-page & {
+				font-size: 14px;
+			}
+		}
 	}
 
 	&__action {
