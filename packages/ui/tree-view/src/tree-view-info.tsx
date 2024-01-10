@@ -107,7 +107,6 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 				role: "button",
 				onClick,
 				onKeyDown: (e) => handleOnKeyDown(e, onClick),
-				ariaLabel: id,
 			})}
 			{...(interactionMethods ?? {})}
 		>
@@ -118,10 +117,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 					onClick={onClick}
 					onKeyDown={(e) => handleOnKeyDown(e, onClick)}
 					aria-label={id}
-					style={{
-						position: "absolute",
-						inset: 0,
-					}}
+					className="sui-accessible-cta"
 				></div>
 			)}
 			{_isGroup && <TickIcon size="sm" className="sui-tree-view__info-icon" />}
