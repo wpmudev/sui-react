@@ -1,13 +1,21 @@
 import { Page, Section } from '@wpmudev/sui-docs';
-import { Unstyled } from '@storybook/blocks';
+import { Unstyled } from "@storybook/blocks"
+
+[//]: # (import TabCode from "./tabs/TabCode.mdx")
+[//]: # (import TabExamples from "./tabs/TabExamples.mdx")
+[//]: # (import TabUsage from "./tabs/TabUsage.mdx")
 
 <Unstyled>
-	<Section title="Shhh... Not much to see here at the moment, but stay tuned!" contained={true}>
-		<p>
-			Quiet for now, but get ready! Exciting stuff is coming. Our developers are working really hard behind the scenes to make it happen. Stay curious and excited! 🌟👷
-		</p>
-		<p>
-			In the meantime, feel free to explore our demo page for this component.
-		</p>
-	</Section>
+	<Page.Tabs
+		title="Box"
+		subtitle=""
+    status="draft"
+	>
+			<div id="usage" label="Usage">
+			</div>
+			<div id="code" label="Code">
+			</div>
+			<div id="examples" label="Examples">
+			</div>
+	</Page.Tabs>
 </Unstyled>
