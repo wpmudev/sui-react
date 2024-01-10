@@ -14,7 +14,6 @@ import Icons from "@wpmudev/sui-icons"
 import { TreeViewInfoProps } from "./tree-view.types"
 import { useTreeViewContext } from "./tree-view-context"
 import { getCheckboxState } from "./helpers"
-import { createPortal } from "react-dom"
 
 /**
  * TreeViewInfo Component
@@ -129,27 +128,47 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 						onChange={onCheckClick}
 						isChecked={isChecked ?? false}
 						isIndeterminate={isIndeterminate}
+						isDisabled={isDisabled}
 					/>,
 					checkboxDomContainer,
 				)}
 			<div
-				tabIndex={isDisabled ? -1 : 0}
-				role="button"
 				className={classNames}
-				onClick={onClick}
-				onKeyDown={(e) => handleOnKeyDown(e, onClick)}
 				id={`info-${id}`}
 				data-testid={_isGroup ? "" : "tree-view-item-info"}
+				{...(!ctx?.allowCheck && {
+					tabIndex: isDisabled ? -1 : 0,
+					role: "button",
+					onClick,
+					onKeyDown: (e) => handleOnKeyDown(e, onClick),
+					ariaLabel: id,
+				})}
 				{...(interactionMethods ?? {})}
 			>
+				{ctx?.allowCheck && (
+					<div
+						tabIndex={isDisabled ? -1 : 0}
+						role="button"
+						onClick={onClick}
+						onKeyDown={(e) => handleOnKeyDown(e, onClick)}
+						aria-label={id}
+						style={{
+							position: "absolute",
+							inset: 0,
+						}}
+					></div>
+				)}
 				{_isGroup && (
 					<TickIcon size="sm" className="sui-tree-view__info-icon" />
 				)}
 				{ctx?.allowCheck && (
 					<div className="sui-tree-view__info-check">
-						{/* Render the Checkbox component for item selection */}
-						{/* The container where the checkbox element will be displayed if the Treeview has a Checkbox */}
-						<div ref={checkboxPortalRef} />
+						<Checkbox
+							onChange={onCheckClick}
+							isChecked={isChecked ?? false}
+							isIndeterminate={isIndeterminate}
+							isDisabled={isDisabled}
+						/>
 					</div>
 				)}
 				<div className="sui-tree-view__info-title">
