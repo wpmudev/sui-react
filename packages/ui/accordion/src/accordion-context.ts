@@ -22,7 +22,6 @@ const useAccordion = ({
 
 	// Set initail expand state
 	useEffect(() => {
-		console.log("Hi")
 		if (!isUndefined(isExpanded)) {
 			setExpandState({
 				[uniqueId]: isExpanded,
