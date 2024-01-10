@@ -3,10 +3,10 @@ import React from "react"
 /**
  * The Type of the error prop
  */
-type errorType = {
-	state: boolean
-	text: string
-}
+// type errorType = {
+// 	state: boolean
+// 	text: string
+// }
 
 /**
  * Represents the properties for a field component.
@@ -27,7 +27,7 @@ interface FormFieldProps {
 	/**
 	 * The error message or element for the field.
 	 */
-	error?: errorType
+	error?: string
 	/**
 	 * Optional CSS class name for the field.
 	 */
