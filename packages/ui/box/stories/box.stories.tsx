@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component(s)
-import { Box as SuiBox, BoxGroup } from "../src"
+import { Box as SuiBox, BoxGroup, BoxGroupProps } from "../src"
 import { Row, Col } from "@wpmudev/sui-grid"
 import { Button } from "@wpmudev/sui-button"
 
@@ -21,18 +21,20 @@ export default {
 }
 
 // Build story
-export const Box = ({ ...props }) => {
+export const Box = ({ ...props }: BoxGroupProps) => {
 	const styles = {
 		padding: 20,
 		borderRadius: 4,
 		background: "#F8F8F8",
 	}
 
+	const { hasPadding } = props
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<SuiBox {...props}>
-					<BoxGroup>
+					<BoxGroup hasPadding={hasPadding}>
 						<Row align={{ md: "inline" }}>
 							<Col size="6">
 								<div style={styles}>Left block</div>
@@ -64,4 +66,5 @@ Box.args = {
 			Run Action
 		</Button>,
 	],
+	hasPadding: true,
 }

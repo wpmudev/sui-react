@@ -15,6 +15,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	isDisabled,
 	icon,
 	hasCheckbox,
+	isExpanded,
 	onCheck,
 }) => {
 	// Checkbox is checked.
@@ -26,8 +27,11 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	// Custom hook to generate a unique ID for the accordion item.
 	const uniqueId = useId()
 
-	// Get the "toggle" method and "isExpanded" state from the current AccordionItem
-	const { toggle, isExpanded } = useAccordion({ uniqueId })
+	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
+	const { toggle, isCurrentlyExpanded } = useAccordion({
+		uniqueId,
+		isExpanded: isExpanded as boolean,
+	})
 
 	// IDs for the accordion and its panel to manage accessibility.
 	const accordionId = `sui-accordion-${uniqueId}`
@@ -54,14 +58,14 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			//e.preventDefault()
 			setIsChecked(e.target.checked)
 			if (onCheck) {
-				onCheck(isExpanded)
+				onCheck(isCurrentlyExpanded)
 			}
 		},
-		[isExpanded, onCheck],
+		[isCurrentlyExpanded, onCheck],
 	)
 
 	// Icon component to display a chevron icon based on the accordion's expanded state.
-	const Icon = isExpanded ? ChevronUp : ChevronDown
+	const Icon = isCurrentlyExpanded ? ChevronUp : ChevronDown
 
 	// The element ref where we render the checkbox
 	const checkboxPortalRef = useRef(null)
@@ -81,7 +85,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	return (
 		<div
 			className={generateCN("sui-accordion__item", {
-				expanded: isExpanded,
+				expanded: isCurrentlyExpanded,
 				hover: isHovered,
 				disabled: isDisabled,
 			})}
@@ -109,7 +113,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				tabIndex={isDisabled ? -1 : 0}
 				role="button"
 				id={accordionId}
-				aria-expanded={isExpanded}
+				aria-expanded={isCurrentlyExpanded}
 				aria-controls={accordionPanelId}
 				className={generateCN("sui-accordion__header", {
 					focus: isFocused || isPressed,
@@ -147,7 +151,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				id={accordionPanelId}
 				aria-labelledby={accordionId}
 				className={generateCN("sui-accordion__panel", {
-					open: isExpanded,
+					open: isCurrentlyExpanded,
 				})}
 				data-testid="accordion-item-panel"
 			>
