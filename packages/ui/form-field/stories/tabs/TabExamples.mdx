@@ -1,4 +1,4 @@
-import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/storybook"
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 import { FormField } from "../../src"
 import { Input } from "@wpmudev/sui-input"
 import { Select } from "@wpmudev/sui-select"
@@ -63,7 +63,7 @@ export const selectCode = dedent`
 <Section title="Error message" contained={true} style={{ paddingTop: 30 }}>
 	<Preview wrapper={true}>
 		<FormField
-			error={{ state: true, text: "Name must have at least 3 characters" }}
+			error="Name must have at least 3 characters"
 			label="Name"
 		>
 			<Input value="ab" id="input-example" placeholder="Placeholder" />
