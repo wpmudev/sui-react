@@ -1,0 +1,67 @@
+import { Section, Code, Snippet } from '@wpmudev/sui-docs';
+
+
+<style>{`
+.csb-browsers-list {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+.csb-browsers-list img {
+	margin: 0;
+	margin-right: 20px;
+}
+.csb-browsers-list img:last-child {
+	margin-right: 0;
+}
+`}</style>
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>
+		<Code>@wpmudev/sui-react</Code>, a package within our library, offers all the UI components required for your plugin. This package allows developers to load all these components from the library at once, ensuring convenience. Notably, please be aware that it doesn't includes following packages: <Code>@wpmudev/sui-utils</Code>, <Code>@wpmudev/sui-css</Code>, <Code>@wpmudev/sui-hooks</Code>, and <Code>@wpmudev/react-icons</Code>.
+	</p>
+	<p>
+		Before moving further, please ensure you have <a href="https://nodejs.org/" target="_blank">
+		Node.js
+	</a> installed on your device. You can get the latest version via their
+		website.
+	</p>
+	<p>
+		If you're planning on using Shared UI React Package in a project that
+		doesn't yet use <a href="https://www.npmjs.com" target="_blank">
+			Node Package Manager
+		</a>, you'll have to create a <a href="https://docs.npmjs.com/files/package.json" target="_blank">
+			package.json
+		</a> file first. To accomplish this, run <Code> npm init </Code> and follow
+		the steps provided. Once completed, you can install the CSS Framework by
+		following the instructions beneath.
+	</p>
+</Section>
+<Section
+	title={{
+		content: 'Install using NPM',
+		small: true,
+	}}
+	contained={true}
+	style={{ paddingTop: 0 }}
+>
+	<p>
+		In your project root directory (where the <Code> package.json </Code> file
+		lives), run the following command:
+	</p>
+	<Snippet>npm install --save @wpmudev/sui-react</Snippet>
+</Section>
+<Section
+	title={{
+		content: 'Install using Yarn',
+		small: true,
+	}}
+	contained={true}
+	style={{ paddingTop: 0 }}
+>
+	<p>
+		In your project root directory (where the <Code> package.json </Code> file
+		lives), run the following command:
+	</p>
+	<Snippet>yarn add @wpmudev/sui-react</Snippet>
+</Section>
