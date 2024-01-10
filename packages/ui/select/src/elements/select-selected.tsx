@@ -96,7 +96,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 			/>
 			<div id={`${id}-control`} className="sui-select__control" {...props}>
 				<div
-					className="sui-select__cta"
+					className="sui-accessible-cta"
 					ref={controlRef as LegacyRef<HTMLDivElement>}
 					role="button"
 					onClick={dropdownToggle}
