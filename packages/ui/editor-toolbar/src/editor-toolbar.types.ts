@@ -42,6 +42,14 @@ interface EditorToolbarProps {
 	 * Elements to be included in the middle of the toolbar.
 	 */
 	children?: ReactNode
+	/**
+	 * Whether to disable the settings button or not
+	 */
+	disableSetting?: boolean
+	/**
+	 * Whether to disable the back button or not
+	 */
+	disableBack?: boolean
 }
 
 // interface definition for the EditorToolbar
