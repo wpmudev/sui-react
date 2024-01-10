@@ -19,7 +19,6 @@ import { useOuterClick, useDetectRTL } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
 
 import { PopoverProps } from "./popover.types"
-import { Close } from "@wpmudev/sui-icons"
 
 // Popover component
 const Popover: React.FC<PopoverProps> = ({
