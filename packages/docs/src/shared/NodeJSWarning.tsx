@@ -19,7 +19,11 @@ const NodeJSWarning = () => {
 					Node Package Manager
 				</a>
 				{`, you'll have to create a`}{" "}
-				<a href="https://docs.npmjs.com/files/package.json" target="_blank">
+				<a
+					href="https://docs.npmjs.com/files/package.json"
+					target="_blank"
+					rel="noreferrer"
+				>
 					package.json
 				</a>{" "}
 				file first. To accomplish this, run <Code> npm init </Code> and follow
