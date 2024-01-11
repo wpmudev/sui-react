@@ -5,7 +5,7 @@ import React from "react"
  */
 interface IntegrationProps {
 	/** The title of the integration. */
-	title: string
+	title?: string
 
 	/** The description of the integration. */
 	description?: string
