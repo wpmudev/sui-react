@@ -49,7 +49,7 @@ const Integration: React.FC<IntegrationProps> = ({
 	const toggleProps = {
 		defaultValue: isActive,
 		isLabelHidden: true,
-		"aria-label": !isEmpty(title) ? title : "Integration",
+		label: !isEmpty(title) ? title : "Integration",
 		isDisabled,
 		onClick: (e) => {
 			setIsActive(!isActive)
