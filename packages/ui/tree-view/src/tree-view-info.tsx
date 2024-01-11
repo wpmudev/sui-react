@@ -121,7 +121,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 				></div>
 			)}
 			{_isGroup && <TickIcon size="sm" className="sui-tree-view__info-icon" />}
-			{ctx?.allowCheck && (
+			{ctx?.allowCheck && !isDisabled && (
 				<div className="sui-tree-view__info-check">
 					<Checkbox
 						onChange={onCheckClick}

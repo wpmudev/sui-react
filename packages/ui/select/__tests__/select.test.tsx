@@ -53,7 +53,7 @@ describe("@wpmudev/sui-select", () => {
 		expect(select).toBeInTheDocument()
 
 		// Select header element
-		const selectHeader = select.querySelector(".sui-select__control")
+		const selectHeader = select.querySelector(".sui-accessible-cta")
 
 		// Click on the select element header
 		fireEvent.click(selectHeader as Element)
@@ -74,7 +74,7 @@ describe("@wpmudev/sui-select", () => {
 		expect(select).toHaveClass("sui-select--multiselect")
 
 		// Open the "select" element
-		const selectHeader = select.querySelector(".sui-select__control")
+		const selectHeader = select.querySelector(".sui-accessible-cta")
 		fireEvent.click(selectHeader as Element)
 
 		// Get options elements
@@ -82,6 +82,8 @@ describe("@wpmudev/sui-select", () => {
 		const selectAll = options[0]
 		const firstOption = options[1]
 		const secondOption = options[2]
+		const firstOptionCta = firstOption.querySelector(".sui-accessible-cta")
+		const secondOptionCta = secondOption.querySelector(".sui-accessible-cta")
 
 		const firstOptionText = firstOption.textContent
 		const secondOptionText = secondOption.textContent
@@ -89,13 +91,13 @@ describe("@wpmudev/sui-select", () => {
 		const selectAllCheckbox = selectAll.querySelector(".sui-checkbox")
 
 		// Clicking on the first option to select it
-		fireEvent.click(firstOption)
+		fireEvent.click(firstOptionCta as Element)
 
 		// Expect selectAllCheckbox to be indeterminate
 		expect(selectAllCheckbox).toHaveClass("sui-checkbox--indeterminate")
 
 		// Clicking on the second option to select it
-		fireEvent.click(secondOption)
+		fireEvent.click(secondOptionCta as Element)
 
 		// Expect selectAllCheckbox to be selected as all options are selected
 		expect(selectAllCheckbox).toHaveClass("sui-checkbox--checked")

@@ -53,7 +53,7 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 	}
 
 	return (
-		<div className={classNames}>
+		<div className={classNames} data-testid="date-picker-input-container">
 			<Input
 				id={id}
 				icon="Calendar"
@@ -63,7 +63,7 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 				onClick={onInputClick}
 				onKeyDown={(e) => handleOnKeyDown(e, onInputClick)}
 				tabIndex={props.disabled ? -1 : 0}
-				data-testid="date-picker-input-container"
+				data-testid="date-picker-input-container-cta"
 				{...props}
 			/>
 		</div>
