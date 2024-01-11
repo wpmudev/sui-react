@@ -20,6 +20,7 @@ const Checkbox = ({
 	isSmall = false,
 	isIndeterminate = false,
 	onChange: propOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {},
+	...props
 }: CheckboxProps) => {
 	// Context for checkbox
 	const ctx = useCheckbox()
@@ -45,7 +46,7 @@ const Checkbox = ({
 		type: "checkbox",
 		name,
 		value,
-		className: "sui-screen-reader-only",
+		className: "sui-accessible-cta sui-checkbox__input",
 		checked: isChecked,
 		disabled: isDisabled,
 		onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,6 +61,7 @@ const Checkbox = ({
 			}
 		},
 		"aria-labelledby": `${uuid}-label`,
+		...props,
 	}
 
 	// Define container props

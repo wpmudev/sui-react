@@ -48,20 +48,23 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	const selectedContent = isArray(selected) ? (
 		(selected as Record<string, any>[]).map(
 			(selectedItem: Record<string, any>) => (
-				<span
-					key={selectedItem?.id}
-					tabIndex={0}
-					role="button"
-					className="sui-select__selected-options"
-					onClick={(event) => event.stopPropagation()}
-					onKeyDown={(event) => event.stopPropagation()}
-				>
-					{selectedItem?.label as ReactNode}
+				<span className="sui-select__selected-options" key={selectedItem?.id}>
+					<span
+						tabIndex={0}
+						role="button"
+						onClick={(event) => event.stopPropagation()}
+						onKeyDown={(event) => event.stopPropagation()}
+					>
+						{selectedItem?.label as ReactNode}
+					</span>
 					<Icon
 						name="Close"
 						size="xs"
 						{...(!!removeSelection && {
-							onClick: () => removeSelection(selectedItem?.id),
+							onClick: (event) => {
+								event.stopPropagation()
+								removeSelection(selectedItem?.id)
+							},
 						})}
 					/>
 				</span>
@@ -88,24 +91,25 @@ const Selected: React.FC<SelectSelectedProps> = ({
 				id={id}
 				aria-label="select-input-field"
 				className="sui-select__hidden-input"
+				tabIndex={-1}
 				{...interactionMethods}
 			/>
-			<div
-				id={`${id}-control`}
-				ref={controlRef as LegacyRef<HTMLDivElement>}
-				role="button"
-				className="sui-select__control"
-				onClick={dropdownToggle}
-				onKeyDown={(e) => {
-					if (e.key === "Enter") {
-						dropdownToggle()
-					}
-				}}
-				tabIndex={0}
-				aria-haspopup="listbox"
-				aria-expanded={expanded}
-				{...props}
-			>
+			<div id={`${id}-control`} className="sui-select__control" {...props}>
+				<div
+					className="sui-accessible-cta"
+					ref={controlRef as LegacyRef<HTMLDivElement>}
+					role="button"
+					onClick={dropdownToggle}
+					onKeyDown={(e) => {
+						if (e.key === "Enter") {
+							dropdownToggle()
+						}
+					}}
+					tabIndex={0}
+					aria-label={selectLabel}
+					aria-haspopup="listbox"
+					aria-expanded={expanded}
+				></div>
 				{selectedContent}
 				{isMultiSelect &&
 					!isUndefined(selected) &&
@@ -132,7 +136,7 @@ interface SelectSelectedSearchProps
 	}
 	selectLabel?: string
 	clearSelection: () => void
-	// ref?: LegacyRef<HTMLDivElement>
+	// ref?: LegacyRef<HTMLDivElement >
 	onChange?(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void
 	interactionMethods: object
 }

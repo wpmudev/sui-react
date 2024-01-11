@@ -501,14 +501,18 @@ const Table = ({ ...args }) => {
 					appearance="tertiary"
 					isSmall={true}
 					iconOnly={true}
-				/>
+				>
+					Edit
+				</Button>
 				<Button
 					icon="Settings"
 					color="black"
 					appearance="tertiary"
 					isSmall={true}
 					iconOnly={true}
-				/>
+				>
+					Settings
+				</Button>
 				{content}
 			</div>
 		)

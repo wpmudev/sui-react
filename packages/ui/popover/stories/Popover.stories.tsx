@@ -71,7 +71,7 @@ const Popover = ({
 // Set story arguments.
 Popover.args = {
 	example: "title",
-	title: (
+	header: (
 		<Fragment>
 			This is popover title
 			<Tag isSmall={true}>Tag</Tag>
@@ -113,7 +113,7 @@ Popover.argTypes = {
 			eq: "image",
 		},
 	},
-	title: {
+	header: {
 		name: "Title",
 		controls: {
 			type: "object",

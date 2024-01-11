@@ -7,7 +7,7 @@ import { Tag } from "@wpmudev/sui-tag"
 import { Button } from "@wpmudev/sui-button"
 
 import { useInteraction } from "@wpmudev/sui-hooks"
-import { isFunction, generateCN } from "@wpmudev/sui-utils"
+import { isFunction, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import { IntegrationProps } from "./integration.types"
 
@@ -49,6 +49,7 @@ const Integration: React.FC<IntegrationProps> = ({
 	const toggleProps = {
 		defaultValue: isActive,
 		isLabelHidden: true,
+		...(!isEmpty(title) && { label: `Toggle ${title}` }),
 		isDisabled,
 		onClick: (e) => {
 			setIsActive(!isActive)
