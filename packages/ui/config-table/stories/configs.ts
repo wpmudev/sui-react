@@ -59,5 +59,7 @@ export const configs = [
 			},
 		},
 		plugin: "1081721",
+		created_date: "March 22, 2021 10:03 am",
+		last_used_date: "March 22, 2021 10:03 am",
 	},
 ]

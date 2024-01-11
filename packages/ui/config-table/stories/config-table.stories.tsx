@@ -31,6 +31,18 @@ export const ConfigTable = ({ ...props }) => {
 	)
 }
 
-ConfigTable.args = {}
+ConfigTable.args = {
+	hasCreatedDate: true,
+	hasLastApplied: true,
+}
 
-ConfigTable.argTypes = {}
+ConfigTable.argTypes = {
+	hasCreatedDate: {
+		name: "Created Date",
+		type: "boolean",
+	},
+	hasLastApplied: {
+		name: "Last Applied Date",
+		type: "boolean",
+	},
+}

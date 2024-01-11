@@ -17,6 +17,12 @@ interface ConfigTableTypes {
 
 	// Function triggered when an action is clicked with a given ID and action type.
 	onActionClick?(id: ConfigId, type: ConfigActionTypes): void
+
+	// Created date
+	hasCreatedDate: boolean
+
+	// Last applied date
+	hasLastApplied: boolean
 }
 
 // Define the properties and methods config table details component
