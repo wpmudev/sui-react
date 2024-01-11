@@ -24,7 +24,7 @@ export const ConfigTable = ({ ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div>
-					<SuiConfigTable {...props} configs={configs} />
+					<SuiConfigTable configs={configs} {...props} />
 				</div>
 			</div>
 		</div>
@@ -34,15 +34,27 @@ export const ConfigTable = ({ ...props }) => {
 ConfigTable.args = {
 	hasCreatedDate: true,
 	hasLastApplied: true,
+	proItems: [
+		"High contrast mode",
+		"File change detection",
+		"Remove Emoji JS & CSS files",
+	],
 }
 
 ConfigTable.argTypes = {
 	hasCreatedDate: {
 		name: "Created Date",
-		type: "boolean",
+		control: {
+			type: "boolean",
+		},
 	},
 	hasLastApplied: {
 		name: "Last Applied Date",
-		type: "boolean",
+		control: {
+			type: "boolean",
+		},
+	},
+	proItems: {
+		name: "Pro Items",
 	},
 }

@@ -2,11 +2,15 @@ import React from "react"
 
 import { Table, TableBody, TableCell, TableRow } from "@wpmudev/sui-table"
 import { isEmpty } from "@wpmudev/sui-utils"
+import { Tag } from "@wpmudev/sui-tag"
 
 import { ConfigTableDetailsTypes } from "./config-table.types"
 
 // Render config options inside table content
-const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({ config }) => {
+const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({
+	config,
+	proItems,
+}) => {
 	let options: Array<any> = []
 
 	// Build options to render in the table
@@ -34,13 +38,35 @@ const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({ config }) => {
 					<TableBody>
 						{options.map((option: Record<string, any>, index: number) => {
 							const chunks = option.split("-")
+							const isPro = proItems?.includes(chunks[0].trim())
 
 							return (
 								<TableRow key={index} id={option.id}>
 									<TableCell>
 										<strong>{chunks[0]}</strong>
 									</TableCell>
-									<TableCell>{chunks[1]}</TableCell>
+									<TableCell>
+										<div
+											style={{
+												display: "flex",
+												gap: "4px",
+												alignItems: "center",
+											}}
+										>
+											{chunks[1]}
+											{isPro && (
+												<span
+													style={{
+														lineHeight: 1,
+													}}
+												>
+													<Tag design="outlined" color="black" isSmall={true}>
+														Pro
+													</Tag>
+												</span>
+											)}
+										</div>
+									</TableCell>
 								</TableRow>
 							)
 						})}

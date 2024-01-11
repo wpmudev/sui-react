@@ -25,6 +25,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	onActionClick,
 	hasCreatedDate = false,
 	hasLastApplied = false,
+	proItems = [],
 }) => {
 	/**
 	 * Render config options inside table content
@@ -58,11 +59,15 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 					<TableCell isHeading={true} isPrimary={true}>
 						Config
 					</TableCell>
-					{hasCreatedDate && (
+					{hasCreatedDate ? (
 						<TableCell isHeading={true}>Date Created</TableCell>
+					) : (
+						<></>
 					)}
-					{hasLastApplied && (
+					{hasLastApplied ? (
 						<TableCell isHeading={true}>Last Applied</TableCell>
+					) : (
+						<></>
 					)}
 				</TableRow>
 			</TableHead>
@@ -72,7 +77,9 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 						key={index}
 						id={config.id}
 						isExpandable={true}
-						expandableContent={<ConfigTableDetails config={config} />}
+						expandableContent={
+							<ConfigTableDetails config={config} proItems={proItems} />
+						}
 						actions={({ content }) => (
 							<Fragment>
 								<Button
@@ -118,8 +125,16 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 								)}
 							</div>
 						</TableCell>
-						{hasCreatedDate && <TableCell>May 21, 2022 @ 6:00 pm</TableCell>}
-						{hasLastApplied && <TableCell>May 21, 2022 @ 6:00 pm</TableCell>}
+						{hasCreatedDate && config.created_date ? (
+							<TableCell>{config.created_date}</TableCell>
+						) : (
+							<></>
+						)}
+						{hasLastApplied && config.last_used_date ? (
+							<TableCell>{config.last_used_date}</TableCell>
+						) : (
+							<></>
+						)}
 					</TableRow>
 				))}
 			</TableBody>
