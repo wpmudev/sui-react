@@ -86,7 +86,7 @@ Selector.args = {
 	isPro: true,
 	tag: "Tag",
 	tagColor: "default",
-	isFluid: false,
+	isFluid: true,
 }
 
 // Story props settings

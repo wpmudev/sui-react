@@ -60,8 +60,9 @@
 					padding-bottom: $select-control-options-padding-vertical;
 					padding-left: $select-control-options-padding-horizontal-left;
 					padding-right: $select-control-options-padding-horizontal-right;
-					margin-right: $select-control-options-margin-horizontal-right;
 					white-space: nowrap;
+					margin: 1px 0;
+					margin-right: $select-control-options-margin-horizontal-right;
 				}
 
 				@include modifies-element(control) {
