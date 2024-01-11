@@ -140,7 +140,7 @@ interface SelectSelectedSearchProps
 	}
 	selectLabel?: string
 	clearSelection: () => void
-	// ref?: LegacyRef<HTMLDivElement>
+	// ref?: LegacyRef<HTMLDivElement >
 	onChange?(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void
 	interactionMethods: object
 }
