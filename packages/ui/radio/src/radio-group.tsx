@@ -43,6 +43,7 @@ const RadioGroup = ({
 				asBlock,
 				isDisabled,
 				onChange,
+				isSmall,
 			}}
 		>
 			<div

@@ -53,18 +53,19 @@ export const Selector = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div>
-					<div style={{ display: "flex", gap: "8px" }}>
+					<Row align={{ sm: "inline" }}>
 						{options.map((option, index) => (
-							<SuiSelector
-								key={index}
-								onChange={onChange}
-								isChecked={val === option.value}
-								variation={variation}
-								value={option.value}
-								{...args}
-							/>
+							<Col key={index}>
+								<SuiSelector
+									onChange={onChange}
+									isChecked={val === option.value}
+									variation={variation}
+									value={option.value}
+									{...args}
+								/>
+							</Col>
 						))}
-					</div>
+					</Row>
 				</div>
 			</div>
 		</div>
