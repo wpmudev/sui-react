@@ -36,6 +36,10 @@
 				}
 			}
 
+			@include element(arrow) {
+				pointer-events: none;
+			}
+
 			@include element(selected) {
 				user-select: none;
 			}

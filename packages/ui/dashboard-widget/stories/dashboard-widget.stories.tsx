@@ -28,17 +28,6 @@ export default {
 export const DashboardWidget = ({ ...props }) => {
 	const [isExpanded, setIsExpanded] = useState<boolean>(true)
 
-	const box = {
-		display: "flex",
-		flexDirection: "column",
-		gap: "8px",
-		margin: "0 0 20px",
-		padding: "30px",
-		border: "1px solid #E6E6E6",
-		borderRadius: "4px",
-		// background: "#fff",
-	}
-
 	const actions = [
 		<Button
 			key={0}
@@ -55,23 +44,21 @@ export const DashboardWidget = ({ ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={box}>
-					<SuiDashboardWidget
-						{...props}
-						actions={actions}
-						isExpanded={isExpanded}
-						onToggle={setIsExpanded}
-					>
-						<Accordion noBorderRadius={true} noSideBorders={true}>
-							<AccordionItem title="Tab Title 1">
-								<AccordionItemBody>BODY CONTENT</AccordionItemBody>
-							</AccordionItem>
-							<AccordionItem title="Tab Title 1">
-								<AccordionItemBody>BODY CONTENT</AccordionItemBody>
-							</AccordionItem>
-						</Accordion>
-					</SuiDashboardWidget>
-				</div>
+				<SuiDashboardWidget
+					{...props}
+					actions={actions}
+					isExpanded={isExpanded}
+					onToggle={setIsExpanded}
+				>
+					<Accordion noBorderRadius={true} noSideBorders={true}>
+						<AccordionItem title="Tab Title 1">
+							<AccordionItemBody>BODY CONTENT</AccordionItemBody>
+						</AccordionItem>
+						<AccordionItem title="Tab Title 1">
+							<AccordionItemBody>BODY CONTENT</AccordionItemBody>
+						</AccordionItem>
+					</Accordion>
+				</SuiDashboardWidget>
 			</div>
 		</div>
 	)
