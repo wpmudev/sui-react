@@ -17,12 +17,24 @@ interface ConfigTableTypes {
 
 	// Function triggered when an action is clicked with a given ID and action type.
 	onActionClick?(id: ConfigId, type: ConfigActionTypes): void
+
+	// Created date
+	hasCreatedDate?: boolean
+
+	// Last applied date
+	hasLastApplied?: boolean
+
+	// Pro items disabled
+	proItems?: Array<string>
 }
 
 // Define the properties and methods config table details component
 interface ConfigTableDetailsTypes {
 	// Config object that can contain various properties.
 	config?: ConfigObj
+
+	// Pro items disabled
+	proItems?: Array<string>
 }
 
 export type {

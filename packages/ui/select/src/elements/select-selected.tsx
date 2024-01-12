@@ -120,7 +120,11 @@ const Selected: React.FC<SelectSelectedProps> = ({
 							onClick={onClearSelection}
 						/>
 					)}
-				{arrow && <Icon name={arrow} size="sm" />}
+				{arrow && (
+					<span className="sui-select__arrow">
+						<Icon name={arrow} size="sm" />
+					</span>
+				)}
 			</div>
 		</>
 	)

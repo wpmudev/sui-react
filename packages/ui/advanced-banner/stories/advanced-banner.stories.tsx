@@ -68,7 +68,7 @@ const AdvancedBanner = (props: AdvancedBannerProps) => {
 		case "newsletter":
 			children = (
 				<Fragment>
-					<div style={{ width: 260 }}>
+					<div>
 						<Input
 							id="newsletter-email"
 							placeholder="Enter your email to win today"

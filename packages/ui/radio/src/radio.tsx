@@ -23,6 +23,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			name,
 			asBlock,
 			isDisabled: isGroupDisabled,
+			isSmall,
 		} = useRadio()
 
 		// use ID from props list if exists
@@ -91,7 +92,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 						<Tag
 							design="outlined"
 							color="blue"
-							isSmall={false}
+							isSmall={isSmall}
 							isDisabled={isRadioDisabled ?? false}
 						>
 							{tag}
