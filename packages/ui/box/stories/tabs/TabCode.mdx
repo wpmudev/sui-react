@@ -1,0 +1,118 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>Box</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Box Props" border={true}>
+    	<Section
+    		title={{ content: "title", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The title of the box.</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "icon", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Hide icon on the mobile view.</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "hideMobileIcon", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Hide icon on the mobile view.</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "headerLeft", tag: 'ReactNode | string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The content for the left header section of the box.</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "headerRight", tag: 'React Node | string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The content for the right header section of the box.</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "style", tag: 'object', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Box inline styles </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "isSmall", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Make box small.</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "className", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Custom css class Name(s) </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "children", tag: 'React Node', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The content of the field, it could be any form element </p>
+    	</Section>
+
+</Section>
+
+
+<Section title="BoxGroup Props" border={true}>
+	<Section
+		title={{ content: "isInline", tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Whether the boxes should be displayed inline or not.</p>
+	</Section>
+
+	<Section
+		title={{ content: "isHeader", tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Whether the boxes should be displayed as box header.</p>
+	</Section>
+
+	<Section
+		title={{ content: "isFooter", tag: 'boolean', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Whether the boxes should be displayed as footer.</p>
+	</Section>
+
+	<Section
+		title={{ content: "style", tag: 'object', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>Box inline styles </p>
+	</Section>
+
+	<Section
+		title={{ content: "children", tag: 'React Node', small: true }}
+		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+	>
+		<p>The content of the field, it could be any form element </p>
+	</Section>
+
+</Section>
