@@ -1,10 +1,8 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.1/schema.json",
-  "changelog": [
-    "@changesets/changelog-github",
-    { "repo": "wpmudev/sui-react" }
-  ],
+  "changelog": "../scripts/changelog.js",
   "commit": false,
+  "fixed": [["@wpmudev/sui-*"]],
   "linked": [],
   "access": "restricted",
   "baseBranch": "release-branch",
