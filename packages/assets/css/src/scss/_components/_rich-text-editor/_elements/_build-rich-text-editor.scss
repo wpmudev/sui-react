@@ -44,6 +44,10 @@
 					height: $spacing-xxl;
 					margin: $spacing-sm;
 
+					@include media(max-width, sm) {
+						margin: 3px;
+					}
+
 					&.tox-tbtn--enabled,
 					&.tox-tbtn--enabled:hover,
 					&:hover,

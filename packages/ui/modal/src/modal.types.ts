@@ -22,7 +22,7 @@ interface ModalContextProps
 		Pick<ModalProps, "variant" | "size"> {}
 
 interface ModalHeaderProps {
-	title: string
+	title?: string
 	children?: React.ReactNode
 	icon?: IconsNamesType
 	iconSize?: "xms" | "xs" | "sm" | "md" | "lg" | "xl"

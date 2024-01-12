@@ -19,6 +19,10 @@
 					color: $color-extended-neutral-10;
 				}
 
+				.sui-input__icon--calendar {
+					pointer-events: none;
+				}
+
 				@include modifier(disabled) {
 					cursor: default;
 					pointer-events: none;

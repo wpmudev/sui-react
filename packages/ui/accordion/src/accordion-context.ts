@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useCallback, useEffect } from "react"
+import { createContext, useContext, useCallback, useEffect } from "react"
 import { AccordionContextProps } from "./accordion.types"
 import { isUndefined } from "@wpmudev/sui-utils"
 

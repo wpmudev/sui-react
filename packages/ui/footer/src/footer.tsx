@@ -106,6 +106,11 @@ const Footer: React.FC<FooterProps> = ({
 												rel="noopener noreferrer"
 											>
 												<SocialIcon size="sm" />
+												{socialLink?.type && (
+													<span className="sui-screen-reader-only">
+														{socialLink?.type}
+													</span>
+												)}
 											</a>
 										</li>
 									)

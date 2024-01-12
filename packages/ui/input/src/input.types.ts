@@ -1,5 +1,6 @@
 import React, { HTMLProps } from "react"
 import { InteractionTypes } from "@wpmudev/sui-hooks"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 /**
  * The `InputPropsTypes` interface represents the props for an input element.
@@ -17,6 +18,7 @@ interface InputProps
 			| "onMouseEnter"
 			| "onMouseLeave"
 			| "onMouseDownCapture"
+			| "onMouseUp"
 			| "onMouseUpCapture"
 			| "onFocus"
 			| "onBlur"
@@ -82,10 +84,14 @@ interface InputProps
 	 * A callback function to be invoked when the icon is clicked
 	 */
 	onClickIcon?: (event: React.MouseEvent) => void
+	/*
+	 * The callback function for handling input clear
+	 */
+	onClear?: (value: string | number) => void
 	/**
 	 * Optional icon to be displayed.
 	 */
-	icon?: string
+	icon?: IconsNamesType
 	/**
 	 * Optional icon position to be displayed before or after text.
 	 */

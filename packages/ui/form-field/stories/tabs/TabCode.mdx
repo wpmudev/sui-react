@@ -1,0 +1,86 @@
+import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+
+<Section
+	title="Installation"
+	contained={true}
+	style={{ paddingTop: 20, paddingBottom: 0 }}
+>
+	<p>
+		Install the <Code small={true}>FormField</Code> package as an individual
+		component or follow the Overview page instructions to get the complete SUI
+		Components package.
+	</p>
+</Section>
+
+<Section title="Props" border={true}>
+
+    	<Section
+    		title={{ content: "id*", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Unique Identifier for the field</p>
+
+    	</Section>
+
+    	<Section
+    		title={{ content: "label", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The text label for the field</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "helper", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Help text for the field</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "error", tag: 'object', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Error message to be displayed with the field, it has the following properties:</p>
+    		<List>
+    			<span label={<><Code small={true}>state</Code>: Boolean that idicates whether to show the error message or not</>} />
+    			<span label={<><Code small={true}>text</Code>: the actual error text</>} />
+    		</List>
+
+    	</Section>
+
+    	<Section
+    		title={{ content: "isSmall", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Indicates whether the field to be small or not.</p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "isDisabled", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Indicates whether the field is disabled or not. </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "isLabelHidden", tag: 'boolean', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Indicates whether the label should be hidden or not. </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "className", tag: 'string', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>Custom css class Name(s) </p>
+    	</Section>
+
+    	<Section
+    		title={{ content: "children", tag: 'React Node', small: true }}
+    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    	>
+    		<p>The content of the field, it could be any form element </p>
+    	</Section>
+
+</Section>

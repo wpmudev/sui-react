@@ -1,0 +1,11 @@
+# Ignore error logs.
+*.log
+.dccache
+
+# Ignore test package.
+*.tgz
+/package
+
+# Miscellaneous.
+node_modules
+.DS_Store

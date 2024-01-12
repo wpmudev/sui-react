@@ -11,6 +11,7 @@
 		@include block($block-name) {
 			@include element(menu) {
 				margin: 0;
+				padding: 0;
 			}
 		}
 	}

@@ -16,7 +16,7 @@ interface BoxProps
 	/**
 	 * Hide icon on the mobile view.
 	 */
-	hideMobileIcon?: Boolean
+	hideMobileIcon?: boolean
 	/**
 	 * The content for the left header section of the box.
 	 */
@@ -32,7 +32,7 @@ interface BoxProps
 	/**
 	 * Make box small.
 	 */
-	isSmall?: Boolean
+	isSmall?: boolean
 	/**
 	 * Add custom class name to the component.
 	 */

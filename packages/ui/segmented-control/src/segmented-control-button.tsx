@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useId } from "react"
 
 // Import required component(s)
@@ -52,6 +54,8 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 				disabled={isDisabled}
 				onChange={onClick}
 				aria-label={ariaLabel || "radio input"}
+				aria-checked={isActive}
+				aria-hidden={true}
 			/>
 			{/* The label element represents the segmented control button. */}
 			<label
@@ -63,8 +67,6 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 				})}
 				tabIndex={isDisabled ? -1 : 0}
 				htmlFor={buttonId}
-				aria-hidden={true}
-				aria-checked={isActive}
 				data-testid="segmented-control-label"
 				onKeyDown={(e) => handleOnKeyDown(e, onClick)}
 				{...methods}

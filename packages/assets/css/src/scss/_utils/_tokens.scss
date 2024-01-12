@@ -1,6 +1,6 @@
 
 // Do not edit directly
-// Generated on Fri, 12 Jan 2024 07:22:03 GMT
+// Generated on Fri, 12 Jan 2024 11:24:32 GMT
 
 $accordion-border-radius-sm: 10px;
 $advanced-banner-background: linear-gradient(90deg, #222 0%, #383323 48.96%, #514524 100%);
@@ -261,10 +261,12 @@ $color-extended-error-70: #fccecd;
 $color-extended-error-90: #feefee;
 $color-alpha-white-10: rgba(255, 255, 255, 0.1);
 $color-alpha-white-30: rgba(255, 255, 255, 0.3);
+$color-alpha-white-50: rgba(255, 255, 255, 0.5);
 $color-alpha-white-70: rgba(255, 255, 255, 0.7);
 $color-alpha-white-90: rgba(255, 255, 255, 0.9);
 $color-alpha-grey-10: rgba(26, 26, 26, 0.1);
 $color-alpha-grey-20: rgba(26, 26, 26, 0.2);
+$color-alpha-grey-30: rgba(26, 26, 26, 0.3);
 $color-alpha-grey-70: rgba(26, 26, 26, 0.7);
 $color-alpha-grey-90: rgba(26, 26, 26, 0.9);
 $color-alpha-grey-01: rgba(26, 26, 26, 0.01);
@@ -423,6 +425,13 @@ $password-font-height-sm: 16px;
 $password-padding: 4px;
 $password-input-padding-sm: 40px;
 $password-input-padding-md: 60px;
+$popover-size-height-md: 180px;
+$popover-size-width-md: 300px;
+$popover-size-width-lg: 360px;
+$popover-spacing-sm: 3px;
+$popover-spacing-md: 6px;
+$popover-spacing-xl: 14px;
+$popover-spacing-2xl: 15px;
 $progress-border-radius-md: 10px;
 $progress-size-height-xs: 4px;
 $progress-size-height-sm: 8px;
@@ -557,7 +566,10 @@ $select-search-padding-vertical: 8px;
 $selector-spacing-xs: 3px;
 $selector-spacing-lg: 12px;
 $selector-border-width: 37px;
-$selector-size-width: 32px;
+$selector-size-width-xs: 32px;
+$selector-size-width-sm: 72px;
+$selector-size-width-md: 130px;
+$selector-size-width-lg: 208px;
 $sidebar-spacing-md: 12px;
 $sidebar-size-width-md: 260px;
 $spinner-size-height-lg: 36px;

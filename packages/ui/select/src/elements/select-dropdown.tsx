@@ -78,7 +78,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							{...getOptProps(id)}
 						>
 							<Fragment>
-								{icon && <Icon name={icon} size={isSmall ? "sm" : "md"} />}
+								{icon && <Icon name={icon} size={isSmall ? "xs" : "sm"} />}
 								<span>
 									{boldLabel && <strong>{boldLabel}</strong>}
 									{newLabel}
@@ -99,7 +99,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		return (
 			<Fragment>
 				<div className="sui-select__search">
-					<Icon name="search" size="md" />
+					<Icon name="Search" size="sm" />
 					<Search
 						placeholder="Search"
 						{
@@ -108,12 +108,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						}
 					/>
 				</div>
-				<ul
-					className="sui-select__dropdown"
-					role="listbox"
-					aria-label="dropdown-options"
-				>
-					<li className="sui-select__dropdown--option" role="option">
+				<ul className="sui-select__dropdown" aria-label="dropdown-options">
+					<li className="sui-select__dropdown--option">
 						<Checkbox
 							name={name}
 							label="Select all"
@@ -123,19 +119,14 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						/>
 					</li>
 					{options.map(({ id, label, isSelected }) => (
-						<li
-							key={id}
-							id={id}
-							role="option"
-							className="sui-select__dropdown--option"
-							onClick={(e) => onSelect(e, id)}
-							onKeyDown={(e) => onSelect(e, id)}
-						>
+						<li key={id} id={id} className="sui-select__dropdown--option">
 							<Checkbox
 								id={id}
 								name={name}
 								label={label}
 								isChecked={isSelected}
+								onClick={(e) => onSelect(e, id)}
+								onKeyDown={(e) => onSelect(e, id)}
 							/>
 						</li>
 					))}

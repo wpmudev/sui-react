@@ -61,7 +61,7 @@ describe("@wpmudev/sui-date-picker", () => {
 		expect(monthBlocks).toHaveLength(1)
 
 		// Find the input container
-		const inputContainer = screen.getByTestId("date-picker-input-container")
+		const inputContainer = screen.getByTestId("date-picker-input-container-cta")
 
 		// Simulate a click on the input container
 		fireEvent.click(inputContainer)

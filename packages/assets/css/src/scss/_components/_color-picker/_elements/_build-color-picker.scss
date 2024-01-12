@@ -54,6 +54,7 @@
 					cursor: pointer;
 					font-size: $font-size-xs;
 					line-height: $font-height-xxs;
+					outline-color: $color-primary-50;
 				}
 
 				@include modifier(hex) {
@@ -119,6 +120,10 @@
 						color: $color-extended-neutral-0;
 						border-color: $color-extended-neutral-0;
 					}
+				}
+
+				@include modifier(select) {
+					outline-color: $color-extended-neutral-0;
 				}
 			}
 		}

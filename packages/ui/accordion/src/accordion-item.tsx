@@ -13,6 +13,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	description,
 	children,
 	isDisabled,
+	isExpanded: propIsExpended,
 	icon,
 	hasCheckbox,
 	isExpanded,
@@ -67,20 +68,6 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	// Icon component to display a chevron icon based on the accordion's expanded state.
 	const Icon = isCurrentlyExpanded ? ChevronUp : ChevronDown
 
-	// The element ref where we render the checkbox
-	const checkboxPortalRef = useRef(null)
-
-	// The DOM  element where we render the Accordion Checkbox
-	const [checkboxDomContainer, setCheckBoxDomContainer] =
-		useState<Element | null>(null)
-
-	// Updating the DOM element state when its "ref" becomes available
-	useEffect(() => {
-		if (checkboxPortalRef.current) {
-			setCheckBoxDomContainer(checkboxPortalRef.current)
-		}
-	}, [checkboxPortalRef])
-
 	// Render the AccordionItem component with proper accessibility attributes.
 	return (
 		<div
@@ -91,47 +78,57 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			})}
 			data-testid="accordion-item"
 		>
-			{/* 
-				Rendering the Checkbox component outside the Accordion Header, to comply with
-				the accessibility principle that "Interactive controls must not be nested." 
-				This approach ensures that the Checkbox can be interacted with by all users, 
-				including those relying on assistive technologies, without violating accessibility guidelines.
-			 */}
-			{hasCheckbox &&
-				checkboxDomContainer &&
-				createPortal(
-					<Checkbox
-						name={accordionId}
-						id={`${accordionId}-checkbox`}
-						onChange={onCheckBoxChange}
-						isChecked={isChecked}
-						isDisabled={isDisabled}
-					/>,
-					checkboxDomContainer,
-				)}
 			<div
-				tabIndex={isDisabled ? -1 : 0}
-				role="button"
 				id={accordionId}
 				aria-expanded={isCurrentlyExpanded}
 				aria-controls={accordionPanelId}
 				className={generateCN("sui-accordion__header", {
 					focus: isFocused || isPressed,
 				})}
-				onClick={toggle}
-				data-testid="accordion-item-button"
-				onKeyDown={(e) => {
-					e.stopPropagation()
-					handleOnKeyDown(e, toggle)
-				}}
+				{...(!hasCheckbox && {
+					tabIndex: isDisabled ? -1 : 0,
+					role: "button",
+					"aria-expanded": isExpanded,
+					"aria-controls": accordionPanelId,
+					onClick: toggle,
+					"data-testid": "accordion-item-button",
+					onKeyDown: (e) => {
+						e.stopPropagation()
+						handleOnKeyDown(e, toggle)
+					},
+				})}
 				{...(interactionMethods ?? {})}
 			>
+				{hasCheckbox && (
+					<div
+						className="sui-accessible-cta"
+						tabIndex={isDisabled ? -1 : 0}
+						role="button"
+						aria-label="Accordion Item"
+						aria-expanded={isExpanded}
+						aria-controls={accordionPanelId}
+						onClick={toggle}
+						data-testid="accordion-item-button"
+						onKeyDown={(e) => {
+							e.stopPropagation()
+							handleOnKeyDown(e, toggle)
+						}}
+					></div>
+				)}
+
 				{/* Content of the accordion item's header */}
 				<div className="sui-accordion__header-info">
 					{(!!hasCheckbox || !!icon) && (
 						<div className="sui-accordion__header-actions">
-							{/* The container where the checkbox element will be displayed if the Accordion has a Checkbox */}
-							{hasCheckbox && <div ref={checkboxPortalRef} />}
+							{hasCheckbox && (
+								<Checkbox
+									name={accordionId}
+									id={`${accordionId}-checkbox`}
+									onChange={onCheckBoxChange}
+									isChecked={isChecked}
+									isDisabled={isDisabled ?? false}
+								/>
+							)}
 							{!!icon && icon}
 						</div>
 					)}

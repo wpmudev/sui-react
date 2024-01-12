@@ -29,8 +29,8 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 
 	return (
 		<div className="sui-pagination" data-testid="pagination">
-			<ul className="sui-pagination__nav" role="tablist">
-				<li className="sui-pagination__item" role="tab">
+			<ul className="sui-pagination__nav">
+				<li className="sui-pagination__item">
 					<Tooltip
 						className="sui-pagination__button"
 						color="black"
@@ -47,7 +47,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 					</Tooltip>
 				</li>
 				{startIndex > 1 && skip && (
-					<li className="sui-pagination__item" role="tab">
+					<li className="sui-pagination__item">
 						<Button
 							className="sui-pagination__button"
 							color="black"
@@ -61,7 +61,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 					</li>
 				)}
 				{startIndex > 0 && (
-					<li className="sui-pagination__item" role="tab">
+					<li className="sui-pagination__item">
 						<Button
 							color="black"
 							appearance="tertiary"
@@ -70,19 +70,16 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							isSmall={true}
 							className="sui-pagination__button"
 							onClick={handlePreviousEllipsis}
-						/>
+						>
+							Skip pages
+						</Button>
 					</li>
 				)}
 				{pagesArray
 					?.slice(startIndex, endIndex)
 					?.map((data: number, index: number) => {
 						return (
-							<li
-								aria-selected={selectedPage === data}
-								className="sui-pagination__item"
-								key={index}
-								role="tab"
-							>
+							<li className="sui-pagination__item" key={index}>
 								<Button
 									color="black"
 									appearance="tertiary"
@@ -101,7 +98,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						)
 					})}
 				{endIndex < pages - 1 && (
-					<li className="sui-pagination__item" role="tab">
+					<li className="sui-pagination__item">
 						<Button
 							color="black"
 							appearance="tertiary"
@@ -111,15 +108,12 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							className="sui-pagination__button"
 							onClick={handleNextEllipsis}
 						>
-							<span
-								className="suicons suicons--more suicons--sm"
-								aria-hidden="true"
-							></span>
+							Skip pages
 						</Button>
 					</li>
 				)}
 				{endIndex < pages && skip && (
-					<li className="sui-pagination__item" role="tab">
+					<li className="sui-pagination__item">
 						<Button
 							color="black"
 							appearance="tertiary"
@@ -132,7 +126,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						</Button>
 					</li>
 				)}
-				<li className="sui-pagination__item" role="tab">
+				<li className="sui-pagination__item">
 					<Tooltip
 						className="sui-pagination__button"
 						color="black"

@@ -42,7 +42,9 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 					isSmall={true}
 					iconOnly={true}
 					slot="right"
-				/>
+				>
+					Close Modal
+				</Button>
 			</div>
 			{"app-connect" === variant && (
 				<div className="sui-modal__header-info">

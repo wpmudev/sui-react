@@ -1,0 +1,100 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build popover Wrapper
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-wrapper($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			position: relative;
+
+			@include element(popup-wrapper) {
+				border: $border-width-sm solid $color-extended-neutral-80;
+				box-shadow: 0 $spacing-xs $spacing-sm 0 $color-shadow-dark,
+					0 $spacing-2xs $spacing-lg 0 $color-shadow-light,
+					0 $popover-spacing-md $spacing-default 0 $color-shadow-default;
+				background: $color-extended-neutral-100;
+				border-radius: $border-radius-md;
+				overflow: hidden;
+			}
+
+			@include element(popup-header) {
+				display: flex;
+				gap: $spacing-sm;
+				align-items: center;
+				font-weight: $font-weight-md;
+				margin: 0 0 $spacing-md;
+				max-width: $popover-size-width-md;
+
+				> * {
+					margin: 0;
+				}
+			}
+
+			@include element(popup-close) {
+				left: auto;
+				position: absolute;
+				right: $spacing-lg;
+				top: $popover-spacing-xl;
+
+				.sui-button {
+					padding: $popover-spacing-sm;
+				}
+			}
+
+			@include element(popup-content, popup-footer) {
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
+			}
+
+			@include element(popup-footer) {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin: $spacing-lg 0 0;
+			}
+
+			@include modifier(open) {
+				@include modifies-element(popup) {
+					display: block;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popup-wrapper) {
+				border-color: $color-extended-neutral-0;
+				box-shadow: none;
+			}
+
+			@include element(popup-header, popup-content) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popup-close) {
+				right: auto;
+				left: $spacing-lg;
+			}
+		}
+	}
+}
