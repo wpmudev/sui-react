@@ -106,10 +106,7 @@ const changelogFunctions = {
 			links.pull === null ? "" : ` [${links.pull}]`,
 			links.commit === null ? "" : ` [${links.commit}]`,
 			users === null ? "" : `[${users}]`,
-		]
-			.join("")
-			.replace("\n", "")
-			.replace("\\", "")
+		].join(" ")
 
 		return `\n\n- ${
 			annotation ? `${annotation} ` : ""
