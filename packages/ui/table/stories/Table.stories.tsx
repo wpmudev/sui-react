@@ -528,6 +528,9 @@ const Table = ({ ...args }) => {
 							case "apply-filters":
 								break
 							case "sort-rows":
+								// @ts-ignore
+								dRows = data.map((id) => rows.find((item) => item.id === id))
+
 								break
 							case "search-items":
 								dRows = tempRows.filter((item) =>
