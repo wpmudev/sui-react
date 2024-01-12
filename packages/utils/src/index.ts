@@ -292,6 +292,10 @@ const a11yTest = async (component: React.ReactElement, config?: object) => {
 	}
 }
 
+const test = () => {
+	return "test"
+}
+
 // Publish required function(s).
 export {
 	isNull,
@@ -312,4 +316,5 @@ export {
 	chunkArray,
 	// jest utilities
 	a11yTest,
+	test,
 }
