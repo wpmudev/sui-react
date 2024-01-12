@@ -128,6 +128,7 @@ const Search: React.FC<SearchProps> = ({
 			/>
 			{isPopoverVisible && "smart" === variation && (
 				<div className="sui-search__popover">
+					Added something
 					{!isFiltered ? (
 						<div className="sui-search__hint">
 							<span>{searchHint.replace("#number#", searchMinChars)}</span>
