@@ -105,7 +105,7 @@ const changelogFunctions = {
 			users === null ? "" : `${users}`,
 		].join("")
 
-		return `\n- ${annotation ? `${annotation} ` : ""}${firstLine} ${
+		return `\n- ${annotation ? `${annotation} ` : ""}${firstLine}${
 			prefix ? `${prefix}` : ""
 		}`
 	},
