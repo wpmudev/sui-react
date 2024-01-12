@@ -100,12 +100,12 @@ const changelogFunctions = {
 		}
 
 		const prefix = [
-			links.pull === null ? "" : `${links.pull}`,
-			links.commit === null ? "" : `${links.commit}`,
-			users === null ? "" : `${users}`,
+			links.pull === null ? "" : ` ${links.pull}`,
+			links.commit === null ? "" : ` ${links.commit}`,
+			users === null ? "" : ` ${users}`,
 		].join("")
 
-		return `\n- ${annotation ? `${annotation} ` : ""}${firstLine}${
+		return `- ${annotation ? `${annotation} ` : ""}${firstLine}${
 			prefix ? `${prefix}` : ""
 		}`
 	},
