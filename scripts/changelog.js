@@ -40,7 +40,8 @@ const templateSeeRef = (links) => {
 	})
 
 	if (humanReadableLinks.length === 0) return ""
-	return `(See ${formatList.format(humanReadableLinks)})`
+	const str = formatList.format(humanReadableLinks)
+	return `[${str}]`
 }
 
 const changelogFunctions = {
