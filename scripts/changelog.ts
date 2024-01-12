@@ -85,10 +85,7 @@ const changelogFunctions = {
 
 		const users = usersFromSummary.length
 			? usersFromSummary
-					.map(
-						(userFromSummary) =>
-							`[@${userFromSummary}](https://github.com/${userFromSummary})`,
-					)
+					.map((userFromSummary) => `@${userFromSummary}`)
 					.join(", ")
 			: links.user
 
@@ -103,14 +100,14 @@ const changelogFunctions = {
 		}
 
 		const prefix = [
-			links.pull === null ? "" : ` ${links.pull}`,
-			links.commit === null ? "" : ` ${links.commit}`,
-			users === null ? "" : ` Thanks ${users}!`,
+			links.pull === null ? "" : `${links.pull}`,
+			links.commit === null ? "" : `${links.commit}`,
+			users === null ? "" : `${users}`,
 		].join("")
 
-		return `\n\n-${prefix ? `${prefix} -` : ""} ${firstLine}\n${futureLines
-			.map((l) => `  ${l}`)
-			.join("\n")}`
+		return `\n- ${annotation ? `${annotation} ` : ""}${firstLine} ${
+			prefix ? `${prefix}` : ""
+		}`
 	},
 }
 
