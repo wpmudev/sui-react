@@ -70,12 +70,11 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 						customWidth={65}
 						onClick={() => copyCodes(children ?? "")}
 					>
-						{isCopied && "Copied"}
+						{isCopied && "Copied!"}
 					</Tooltip>
 				)}
 			</div>
 			<div className="sui-code-editor__content">
-				{/* ReactPrismEditor is used as the code editor */}
 				<ReactPrismEditor
 					language={language}
 					theme="default"
