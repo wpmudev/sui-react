@@ -103,14 +103,16 @@ const changelogFunctions = {
 		}
 
 		const prefix = [
-			links.pull === null ? "" : ` ${links.pull}`,
-			links.commit === null ? "" : ` ${links.commit}`,
-			users === null ? "" : `${users}`,
+			links.pull === null ? "" : ` PR: ${links.pull} | `,
+			links.commit === null ? "" : ` Commit: ${links.commit} | `,
+			users === null ? "" : `By: ${users}`,
 		].join("")
 
-		return `\n- ${prefix ? `${prefix}` : ""} - ${
+		return `\n- ${
 			annotation ? `${annotation} ` : ""
-		} ${firstLine}\n${futureLines.map((l) => `  ${l}`).join("\n")}`
+		} ${firstLine}\n${futureLines.map((l) => `  ${l}`).join("\n")} \n${
+			prefix ? `${prefix}` : ""
+		}`
 	},
 }
 
