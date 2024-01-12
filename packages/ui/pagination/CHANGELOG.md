@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.0.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @wpmudev/sui-button@0.0.10
+  - @wpmudev/sui-tooltip@0.0.10
+
 ## 0.0.1
 
 ### Patch Changes
