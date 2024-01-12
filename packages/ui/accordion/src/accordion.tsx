@@ -33,6 +33,7 @@ const Accordion: React.FC<AccordionProps> = ({
 			value={{ allowMultipleExpand, expandState, setExpandState }}
 		>
 			<div className={classNames} {...props} />
+			This is a test
 		</AccordionProvider>
 	)
 }
