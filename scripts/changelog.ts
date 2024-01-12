@@ -105,7 +105,7 @@ const changelogFunctions = {
 			users === null ? "" : ` by ${users}`,
 		].join("")
 
-		return `\n\n-${prefix ? `${prefix} -` : ""} - ${
+		return `\n\n-${prefix ? `${prefix} - ` : ""}${
 			annotation ?? ""
 		} ${firstLine}\n${futureLines.map((l) => `  ${l}`).join("\n")}`
 	},
