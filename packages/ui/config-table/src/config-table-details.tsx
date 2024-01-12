@@ -46,20 +46,10 @@ const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({
 										<strong>{chunks[0]}</strong>
 									</TableCell>
 									<TableCell>
-										<div
-											style={{
-												display: "flex",
-												gap: "4px",
-												alignItems: "center",
-											}}
-										>
+										<div className="sui-config-table__details-item">
 											{chunks[1]}
 											{isPro && (
-												<span
-													style={{
-														lineHeight: 1,
-													}}
-												>
+												<span className="sui-config-table__tag">
 													<Tag design="outlined" color="black" isSmall={true}>
 														Pro
 													</Tag>

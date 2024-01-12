@@ -20,6 +20,16 @@
 				}
 			}
 
+			@include element(details-item) {
+				display: flex;
+				gap: $spacing-sm;
+				align-items: center;
+			}
+
+			@include element(tag) {
+				line-height: 1;
+			}
+
 			@include modifier(title) {
 				margin: 0;
 			}
