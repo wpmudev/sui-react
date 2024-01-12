@@ -270,6 +270,8 @@ const chunkArray = (arr: any[], size: number) => {
 		chunkedArray.push(chunk)
 	}
 
+	console.log("test")
+
 	return chunkedArray
 }
 
