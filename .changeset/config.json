@@ -7,7 +7,7 @@
   "commit": false,
   "linked": [],
   "access": "restricted",
-  "baseBranch": "development",
+  "baseBranch": "release-branch",
   "updateInternalDependencies": "patch",
   "ignore": []
 }
