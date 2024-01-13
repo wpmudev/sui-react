@@ -214,7 +214,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				// Interaction methods
 				...(!!disableInteractions ? {} : interactionMethods),
 				// Any additional props
-				isRequired,
+				required: isRequired,
 				pattern,
 				onKeyUp: onInputKeyUp,
 				...props,
