@@ -115,7 +115,7 @@
     "@types/jest-axe": "^3.5.7",
     "@types/mdx": "^2.0.8",
     "@types/node": "^16.18.38",
-    "@types/react": "^18.2.14",
+    "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.6",
     "@types/testing-library__jest-dom": "^6.0.0",
     "@types/testing-library__react": "^10.2.0",

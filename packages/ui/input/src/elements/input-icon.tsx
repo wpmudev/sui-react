@@ -32,6 +32,7 @@ const Icon: React.FC<IconPropsTypes> = ({
 			className={`suicons sui-input__icon sui-input__icon--${iconClass}`}
 			aria-hidden="true"
 			data-testid={`input-icon-${position}`}
+			onClick={onClick}
 		>
 			{IconName && <IconName size={size} />}
 		</span>
