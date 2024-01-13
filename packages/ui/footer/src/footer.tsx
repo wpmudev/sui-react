@@ -63,6 +63,7 @@ const Footer: React.FC<FooterProps> = ({
 						href={logoHref || "https://wpmudev.com"}
 						target="_blank"
 						rel="noreferrer nofollow"
+						aria-label="wpmudev-logo"
 					>
 						{logoImageLink ? (
 							<img
