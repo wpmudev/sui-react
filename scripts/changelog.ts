@@ -83,11 +83,11 @@ const changelogFunctions = {
 			}
 		})()
 
-		const users = usersFromSummary.length
-			? usersFromSummary
-					.map((userFromSummary) => `@${userFromSummary}`)
-					.join(", ")
-			: links.user
+		// const users = usersFromSummary.length
+		// 	? usersFromSummary
+		// 			.map((userFromSummary) => `@${userFromSummary}`)
+		// 			.join(", ")
+		// 	: links.user
 
 		const conventionalRegEx = new RegExp(
 			/^\s*(feat|fix|refactor|docs|build|test|ci|chore)/i,
@@ -104,9 +104,9 @@ const changelogFunctions = {
 			links.commit === null ? "" : `&nbsp;${links.commit}`,
 		].join("")
 
-		return `- &nbsp;${annotation}&nbsp;${firstLine}${
+		return `- ${annotation} ${firstLine}${
 			prefix ? `${prefix}` : ""
-		}\n${futureLines.map((l) => `&nbsp;${l}`).join("\n")}`
+		}\n${futureLines.map((l) => ` ${l}`).join("\n")}`
 	},
 }
 
