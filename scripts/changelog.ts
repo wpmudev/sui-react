@@ -63,7 +63,7 @@ const changelogFunctions = {
 					const shortCommitId = commitFromSummary.slice(0, 7)
 					links = {
 						...links,
-						commit: `[\`${shortCommitId}\`](https://github.com/${options.repo}/commit/${commitFromSummary})`,
+						commit: `${shortCommitId}`,
 					}
 				}
 				return links
@@ -104,9 +104,9 @@ const changelogFunctions = {
 			links.commit === null ? "" : `&nbsp;${links.commit}`,
 		].join("")
 
-		return `- ${firstLine}${prefix ? `${prefix}` : ""}\n${futureLines
-			.map((l) => ` ${l}`)
-			.join("\n")}`
+		return `- ${annotation} ${firstLine}${
+			prefix ? `${prefix}` : ""
+		}\n${futureLines.map((l) => ` ${l}`).join("\n")}`
 	},
 }
 
