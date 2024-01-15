@@ -104,9 +104,9 @@ const changelogFunctions = {
 			links.commit === null ? "" : `${links.commit}`,
 		].join("")
 
-		return `- ${
+		return `- ${annotation} ${firstLine}${
 			prefix ? `${prefix}` : ""
-		} ${annotation} ${firstLine}\n${futureLines.map((l) => ` ${l}`).join("\n")}`
+		}\n${futureLines.map((l) => ` ${l}`).join("\n")}`
 	},
 }
 
