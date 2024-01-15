@@ -35,10 +35,10 @@ To enhance our development process, we've implemented tooling and systems. SUI R
 
 ### Commands
 
-**`npm ci`**: Installs all the necessary dependencies for development.
-**`npm run storybook`**: Initiates the Storybook server. This is useful for visually testing components during development.
-**`npm run build`**: Executes the build process for all component packages.
-**`npm run test`**: Runs tests for all component packages.
+- **`npm ci`**: Installs all the necessary dependencies for development.
+- **`npm run storybook`**: Initiates the Storybook server. This is useful for visually testing components during development.
+- **`npm run build`**: Executes the build process for all component packages.
+- **`npm run test`**: Runs tests for all component packages.
 
 ## Making a Pull Request?
 
@@ -47,7 +47,6 @@ To enhance our development process, we've implemented tooling and systems. SUI R
 Before submitting Pull Request, ensure that your commits adhere to the commit conventions specified in this repository.
 
 When making a commit, please use the following format for your commit message: `category(scope or module): message`. Choose one of the following categories:
-
 
 - ✨`feat`: for changes introducing new code or features
 - 🐛`fix`: for changes addressing and fixing bugs (ideally, reference the related issue)
