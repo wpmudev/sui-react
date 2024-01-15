@@ -27,43 +27,43 @@ add_action('admin_enqueue_scripts', 'sui_load_mce_editor_scripts');
 <Section title="Props" border={true}>
 	<p>The RichText Editor has one prop:</p>
 	<Section
-		title={{ content: "defaultValue*", tag: "boolean", small: true }}
+		title={{ content: "defaultValue", tag: "boolean", small: true }}
 		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>The default content set in the editor</p>
 	</Section>
 	<Section
-		title={{ content: "isDisabled*", tag: "boolean", small: true }}
+		title={{ content: "isDisabled", tag: "boolean", small: true }}
 		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>When set to <Code isSmall={true}>true</Code> the editor will be disabled</p>
 	</Section>
 	<Section
-		title={{ content: "textareaId*", tag: "string", small: true }}
+		title={{ content: "textareaId", tag: "string", small: true }}
 		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>The id of the textarea</p>
 	</Section>
 	<Section
-		title={{ content: "className*", tag: "string", small: true }}
+		title={{ content: "className", tag: "string", small: true }}
 		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Custom css className(s)</p>
 	</Section>
 	<Section
-		title={{ content: "actions*", tag: "ReactNode", small: true }}
+		title={{ content: "actions", tag: "ReactNode", small: true }}
 		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Rich text editor also has extra button that can be used for additional control.</p>
 	</Section>
 	<Section
-		title={{ content: "tinyMCEOptions*", tag: "object", small: true }}
+		title={{ content: "tinyMCEOptions", tag: "object", small: true }}
 		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>TinyMCE configurations, see here: <a href="https://www.tiny.cloud/docs-3x/reference/Configuration3x/" target="_blank">https://www.tiny.cloud/docs-3x/reference/Configuration3x/</a></p>
 	</Section>
 	<Section
-		title={{ content: "onChange*", tag: "function", small: true }}
+		title={{ content: "onChange", tag: "function", small: true }}
 		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Catch textarea content</p>

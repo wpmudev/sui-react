@@ -15,7 +15,7 @@ import { Section, Code } from "@wpmudev/sui-docs"
 <Section title="Props" border={true}>
 
     	<Section
-    		title={{ content: "name", tag: 'string', small: true }}
+    		title={{ content: "name*", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Name of the radio input elements.</p>
@@ -23,28 +23,28 @@ import { Section, Code } from "@wpmudev/sui-docs"
     	</Section>
 
     	<Section
-    		title={{ content: "defaultValue*", tag: 'string', small: true }}
+    		title={{ content: "defaultValue", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>The default selected value.</p>
     	</Section>
 
     	<Section
-    		title={{ content: "onChange*", tag: 'function', small: true }}
+    		title={{ content: "onChange", tag: 'function', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>A callback function triggered when the value of the segmented control changes. the first parameter is the new selected value</p>
     	</Section>
 
     	<Section
-    		title={{ content: "isFullWidth*", tag: 'boolean', small: true }}
+    		title={{ content: "isFullWidth", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>A boolean indicating whether the segmented control should take full width</p>
     	</Section>
 
     	<Section
-    		title={{ content: "children", tag: "React Node", small: true }}
+    		title={{ content: "children*", tag: "React Node", small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>
@@ -65,31 +65,31 @@ import { Section, Code } from "@wpmudev/sui-docs"
     		This component represents an individual item or button for the segmented control component.
     	</p>
 
-    	<Section title={{ content: "value", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "value*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			The value associated with the button
     		</p>
     	</Section>
 
-    	<Section title={{ content: "icon*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "icon", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			An optional Custom icon for the button, you can check the available icons on [sui-icons](https://github.com/wpmudev/sui-icons) package.
     		</p>
     	</Section>
 
-    	<Section title={{ content: "ariaLabel*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "ariaLabel", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			Button label for accessibility purposes
     		</p>
     	</Section>
 
-    	<Section title={{ content: "isDisabled*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "isDisabled", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			When set to <Code isSmall={true}>true</Code>, the button will be disabled
     		</p>
     	</Section>
 
-    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			The child elements to be rendered inside
     		</p>

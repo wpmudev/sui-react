@@ -15,28 +15,28 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
 
 <Section title="Props" border={true}>
 		<Section
-    		title={{ content: "id*", tag: 'string', small: true }}
+    		title={{ content: "id", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>A unique identifier for the checkbox, within group context this will be generated automatically</p>
     	</Section>
 
 		<Section
-    		title={{ content: "name*", tag: 'string', small: true }}
+    		title={{ content: "name", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Represents the name of the checkbox</p>
     	</Section>
 
 		<Section
-    		title={{ content: "value*", tag: 'string', small: true }}
+    		title={{ content: "value", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Represents the value of the checkbox</p>
     	</Section>
 
     	<Section
-    		title={{ content: "label*", tag: 'string', small: true }}
+    		title={{ content: "label", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>The text label for the checkbox.</p>
@@ -44,14 +44,14 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	</Section>
 
 		<Section
-    		title={{ content: "isLabelHidden*", tag: 'boolean', small: true }}
+    		title={{ content: "isLabelHidden", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Indicates whether the label should be hidden or not.</p>
     	</Section>
 
 		<Section
-    		title={{ content: "isSmall*", tag: 'boolean', small: true }}
+    		title={{ content: "isSmall", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Indicates whether the checkbox should be displayed as small or not.</p>
@@ -59,7 +59,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	</Section>
 
 		<Section
-    		title={{ content: "isDisabled*", tag: 'boolean', small: true }}
+    		title={{ content: "isDisabled", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Indicates whether the checkbox is disabled or not.</p>
@@ -67,7 +67,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	</Section>
 
 		<Section
-    		title={{ content: "isIndeterminate*", tag: 'boolean', small: true }}
+    		title={{ content: "isIndeterminate", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Mark checkbox checked as indeterminate, for more information checkout the <a target="_blank" href="/?path=/docs/sui-components-forms-checkbox--docs">Usage Page</a></p>
@@ -75,7 +75,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	</Section>
 
 		<Section
-    		title={{ content: "isChecked*", tag: 'boolean', small: true }}
+    		title={{ content: "isChecked", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Default value for the checkbox, when set to <Code small={true}>true</Code> the Checkbox will be checked initially</p>
@@ -83,7 +83,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	</Section>
 
 		<Section
-    		title={{ content: "onChange*", tag: 'function', small: true }}
+    		title={{ content: "onChange", tag: 'function', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>A callback function to be invoked when the checkbox state is changed</p>
@@ -104,37 +104,37 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     		Use this component to group multiple checboxes together and display them horizontally or vertically, the <Code isSmall={true}>CheckboxGroup</Code> has the following props
     	</p>
 
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			The elements content of the component
     		</p>
     	</Section>
 
-    	<Section title={{ content: "title*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "title", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			Represents the group checkbox label
     		</p>
     	</Section>
 
-    	<Section title={{ content: "hasSubItems*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "hasSubItems", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			Whether the group has chldren checkboxes
     		</p>
     	</Section>
 
-    	<Section title={{ content: "isInline*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "isInline", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			When set to <Code isSmall={true}>true</Code> the checkboxes will be displayed horizontally
     		</p>
     	</Section>
 
-    	<Section title={{ content: "commonCheckboxProps*", tag: 'object', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "commonCheckboxProps", tag: 'object', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			The common checkbox props to be shared with all children checkboxes, accepted props are detailed in the <Code isSmall={true}>Checkbox</Code> section.
     		</p>
     	</Section>
 
-    	<Section title={{ content: "onChange*", tag: 'function', small: true }}   contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "onChange", tag: 'function', small: true }}   contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			Callback function to be executed when the state of any checkbox in the group is changed, the first parameter returns the state of all checkboxes in an array structure
     		</p>
@@ -147,19 +147,19 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     		Use this component to create hierarchical structure with nested checkboxes, it has the following props: 
     	</p>
     		
-			<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+			<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     			<p>
     				The elements children of the the component
     			</p>
     		</Section>
 
-			<Section title={{ content: "commonCheckboxProps*", tag: 'object', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+			<Section title={{ content: "commonCheckboxProps", tag: 'object', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
 				<p>
 					The common checkbox props to be shared with all children checkboxes, accepted props are detailed in the <Code isSmall={true}>Checkbox</Code> section.
 				</p>
     		</Section>
 
-			<Section title={{ content: "onChange*", tag: 'function', small: true }}   contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+			<Section title={{ content: "onChange", tag: 'function', small: true }}   contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
 				<p>
 					Callback function to be executed when the state of any checkbox in the group is changed, the first parameter returns the state of all checkboxes in an array structure
 				</p>
