@@ -181,17 +181,5 @@
     "parse-url": "^8.1.0",
     "trim": "^0.0.3",
     "trim-newlines": "^4.0.2"
-  },
-  "changelog": {
-    "repo": "wpmudev/sui-react",
-    "labels": {
-      "breaking": "💥 Breaking Change",
-      "new": "✨ New Feature",
-      "improvement": "🚀 Improvement",
-      "bug": "🐛 Bug Fix",
-      "accessibility": "♿️ Accessibility",
-      "documentation": "📝 Documentation",
-      "internal": "🏠 Internal"
-    }
   }
 }
