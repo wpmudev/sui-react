@@ -17,21 +17,6 @@ interface TextareaProps extends HTMLProps<HTMLTextAreaElement> {
 	/** The label for the textarea. */
 	label?: string
 
-	/** ID for the label element associated with the textarea. */
-	labelId?: string
-
-	/** Description or helper text for the textarea. */
-	description?: string
-
-	/** ID for the element associated with the textarea's description. */
-	descriptionId?: string
-
-	/** Error message to be displayed for the textarea. */
-	errorMessage?: string
-
-	/** ID for the element associated with the textarea's error message. */
-	errorId?: string
-
 	/** When the textarea has errors. */
 	isError?: boolean
 

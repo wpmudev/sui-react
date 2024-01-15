@@ -13,7 +13,7 @@ interface ScoreProps
 	/** Optional content to be rendered inside the score component. */
 	content?: React.ReactNode
 	/** The state of the score, represented as a string (e.g., "low", "medium", "high"). */
-	state?: string
+	state?: "default" | "error" | "warning" | "success"
 	/** Whether the score component should be displayed in a small size. */
 	isSmall?: boolean
 	/** Whether the value represents a percentage (e.g., 50% or 0.5). */

@@ -64,14 +64,13 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 					size: size ?? "sm",
 				}}
 			>
-				<section
-					tabIndex={-1}
-					role="dialog"
-					className={classNames}
-					aria-modal={true}
-					data-testid="modal"
-				>
-					<div className={generateCN("sui-modal__container", {})}>
+				<section className={classNames} data-testid="modal" tabIndex={-1}>
+					<div
+						className={generateCN("sui-modal__container", {})}
+						role="dialog"
+						aria-modal="true"
+						tabIndex={-1}
+					>
 						{children}
 					</div>
 				</section>

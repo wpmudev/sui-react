@@ -29,7 +29,7 @@ const PackageInstallGuide: React.FunctionComponent<
 				complete SUI Components package.
 			</p>
 			<p>
-				<Snippet language="javascript" isCollapsible={false}>
+				<Snippet language="javascript" hideToggle={true}>
 					{installCommand}
 				</Snippet>
 			</p>

@@ -92,7 +92,7 @@ interface RadioProps {
  * Define the props for the context of a Radio component, which includes properties inherited from RadioGroupProps.
  */
 interface RadioContextProps
-	extends Omit<RadioGroupProps, "isInline" | "isSmall" | "children"> {
+	extends Omit<RadioGroupProps, "isInline" | "children"> {
 	/**
 	 * The currently selected value within the radio group (optional).
 	 */

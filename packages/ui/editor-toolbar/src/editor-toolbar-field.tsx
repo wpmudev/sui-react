@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import { Refresh, Spinner, CheckAlt } from "@wpmudev/sui-icons"
-import { isEmpty } from "@wpmudev/sui-docs/src/utils"
+import { isEmpty } from "@wpmudev/sui-utils"
 import { EditorToolbarFieldProps } from "./editor-toolbar.types"
 
 const EditorToolbarField: FC<EditorToolbarFieldProps> = ({

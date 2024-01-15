@@ -3,6 +3,26 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 <PackageInstallGuide packageName="@wpmudev/sui-config-table" />
 
 <Section title="Props" border={true}>
+	<Section
+    	title={{ content: "hasCreatedDate", tag: 'Boolean', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Whether to show created date or not </p>
+    </Section>
+
+	<Section
+    	title={{ content: "hasLastApplied", tag: 'Boolean', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>Whether to show last applied date or not </p>
+    </Section>
+
+	<Section
+    	title={{ content: "proItems", tag: 'Array', small: true }}
+    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
+    >
+    	<p>The list of items, each item is an string which will be compared with the configs item and adds a pro tag </p>
+    </Section>
 
     <Section
     	title={{ content: "configs", tag: 'Array', small: true }}

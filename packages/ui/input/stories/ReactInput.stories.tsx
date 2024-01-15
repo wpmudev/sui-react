@@ -49,7 +49,7 @@ Input.args = {
 	icon: "",
 	iconPosition: "",
 	isSmall: false,
-	isReadOnly: true,
+	isReadOnly: false,
 	isDisabled: false,
 	allowClear: false,
 }

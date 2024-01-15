@@ -1,33 +1,42 @@
 import React, { MouseEventHandler } from "react"
-import { generateCN } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
+import { IconProps } from "@wpmudev/sui-icon"
 
 interface SelectIconProps {
-	name: string
-	size: "sm" | "md" | "lg"
+	name: IconsNamesType
+	size: "xs" | "sm" | "md"
 	onClick?: MouseEventHandler<HTMLSpanElement>
 }
 
 // Build "Icon" component.
 const Icon: React.FC<SelectIconProps> = ({
 	name,
-	size = "lg",
+	size = "md",
 	onClick = () => {},
 }) => {
-	if (!name) {
+	if (isEmpty(name ?? "")) {
 		throw new Error(
 			`Required parameter is empty. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Button\n\nThe "name" parameter in the icon element is required and must not be empty.\n\n`,
 		)
 	}
 
-	const className = generateCN("suicons", { [name]: true, [size]: true })
+	// Determine the IconTag based on the provided icon value
+	const IconName: React.ComponentType<IconProps> = Icons[name]
+
+	// get icon classname from name.
+	const iconClass = (name ?? "").replace(
+		/[A-Z]/g,
+		(match, index) => (index === 0 ? "" : "-") + match.toLowerCase(),
+	)
 
 	return (
 		<span
-			className={`sui-select__icon sui-select__icon--${name}`}
+			className={`suicons sui-select__icon sui-select__icon--${iconClass}`}
 			onClick={onClick}
 			aria-hidden="true"
 		>
-			<span className={className} />
+			{IconName && <IconName size={size} />}
 		</span>
 	)
 }

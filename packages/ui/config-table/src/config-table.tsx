@@ -23,6 +23,9 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	className = "",
 	configs,
 	onActionClick,
+	hasCreatedDate = false,
+	hasLastApplied = false,
+	proItems = [],
 }) => {
 	/**
 	 * Render config options inside table content
@@ -30,47 +33,6 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	 * @param {Record<string, any>} config
 	 * @return {JSX.Element} Expand content
 	 */
-	// const renderExpandContent = (config) => {
-	// 	let options = []
-
-	// 	// Build options to render in the table
-	// 	Object.values(config.config.strings).forEach((string) => {
-	// 		options = [
-	// 			...options,
-	// 			// Split string by new line and exclude blank
-	// 			...string[0].split("\n").filter((opt) => !isEmpty(opt)),
-	// 		]
-	// 	})
-
-	// 	return (
-	// 		<Box className="sui-config-table__details">
-	// 			<div className="sui-config-table__details-header">
-	// 				<h3 className="sui-config-table__details-header-title">
-	// 					{config.name}
-	// 				</h3>
-	// 				<p className="sui-config-table__details-header-desc">
-	// 					{config.description}
-	// 				</p>
-	// 			</div>
-	// 			<div className="sui-config-table__details-body">
-	// 				<Table hasToolbar={false} isStripped={true}>
-	// 					<TableBody>
-	// 						{options.map((option: Record<string, any>, index: number) => {
-	// 							const chunks = option.split("-")
-
-	// 							return (
-	// 								<TableRow key={index} id={option.id}>
-	// 									<TableCell>{chunks[0]}</TableCell>
-	// 									<TableCell>{chunks[1]}</TableCell>
-	// 								</TableRow>
-	// 							)
-	// 						})}
-	// 					</TableBody>
-	// 				</Table>
-	// 			</div>
-	// 		</Box>
-	// 	)
-	// }
 
 	/**
 	 * Handle an action click.
@@ -97,8 +59,16 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 					<TableCell isHeading={true} isPrimary={true}>
 						Config
 					</TableCell>
-					<TableCell isHeading={true}>Date Created</TableCell>
-					<TableCell isHeading={true}>Last Applied</TableCell>
+					{hasCreatedDate ? (
+						<TableCell isHeading={true}>Date Created</TableCell>
+					) : (
+						<></>
+					)}
+					{hasLastApplied ? (
+						<TableCell isHeading={true}>Last Applied</TableCell>
+					) : (
+						<></>
+					)}
 				</TableRow>
 			</TableHead>
 			<TableBody>
@@ -107,7 +77,9 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 						key={index}
 						id={config.id}
 						isExpandable={true}
-						expandableContent={<ConfigTableDetails config={config} />}
+						expandableContent={
+							<ConfigTableDetails config={config} proItems={proItems} />
+						}
 						actions={({ content }) => (
 							<Fragment>
 								<Button
@@ -153,9 +125,16 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 								)}
 							</div>
 						</TableCell>
-						{/* @todo: Make these dynamic */}
-						<TableCell>May 21, 2022 @ 6:00 pm</TableCell>
-						<TableCell>May 21, 2022 @ 6:00 pm</TableCell>
+						{hasCreatedDate && config.created_date ? (
+							<TableCell>{config.created_date}</TableCell>
+						) : (
+							<></>
+						)}
+						{hasLastApplied && config.last_used_date ? (
+							<TableCell>{config.last_used_date}</TableCell>
+						) : (
+							<></>
+						)}
 					</TableRow>
 				))}
 			</TableBody>

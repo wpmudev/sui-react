@@ -26,7 +26,7 @@ interface TagProps extends Omit<HTMLProps<HTMLSpanElement>, "style"> {
 	/**
 	 * Custom style for the tag.
 	 */
-	style?: string
+	style?: "multiline" | "truncated"
 	/**
 	 * Additional CSS class name for the tag.
 	 */

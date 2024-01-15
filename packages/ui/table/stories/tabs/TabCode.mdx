@@ -121,11 +121,16 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		This component represents the table heading wrapper, it uses the html tag <Code small={true}>thead</Code> under the hood. it has one prop
     	</p>
 
-    	<Section title={{ content: "children", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			The content of the table head
-    		</p>
-    	</Section>
+			<Section title={{ content: "hasActions", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+				<p>
+					When true, it reserve space for actions.
+				</p>
+			</Section>
+			<Section title={{ content: "children*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+				<p>
+					The content of the table head
+				</p>
+			</Section>
 
     </Section>
 

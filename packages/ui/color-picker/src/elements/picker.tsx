@@ -6,9 +6,13 @@ import React, {
 	ReactNode,
 	ChangeEvent,
 } from "react"
-import { ColorPickerProps } from "../color-picker.types"
+import { ColorPickerPickerProps, ColorPickerProps } from "../color-picker.types"
 import { CustomPicker, ColorResult } from "react-color"
-import { Saturation, Hue, Alpha } from "react-color/lib/components/common"
+import {
+	Saturation,
+	Hue,
+	Alpha,
+} from "react-color/lib/components/common/index.js"
 import tinycolor from "tinycolor2"
 import { Button } from "@wpmudev/sui-button"
 
@@ -29,7 +33,7 @@ const customPointer = (): ReactNode | undefined => {
 	return <div className="sui-color-picker__pointer"></div>
 }
 
-const Picker: React.FC<ColorPickerProps> = ({
+const Picker: React.FC<ColorPickerPickerProps> = ({
 	color = "",
 	type = "hex",
 	onColorChange = () => null,
@@ -204,6 +208,7 @@ const Picker: React.FC<ColorPickerProps> = ({
 				<div className="sui-color-picker__fields">
 					<div>
 						<select
+							aria-label="Color format"
 							className="sui-color-picker__fields--select"
 							value={selectedFormat}
 							onChange={handleFormatChange}
@@ -221,6 +226,7 @@ const Picker: React.FC<ColorPickerProps> = ({
 							<input
 								type="text"
 								className="sui-color-picker__fields--hex"
+								aria-label="Hex code"
 								value={hex}
 								onChange={handleHexInputChange}
 							/>
@@ -233,6 +239,7 @@ const Picker: React.FC<ColorPickerProps> = ({
 									min="0"
 									max="255"
 									value={red}
+									aria-label="Red code"
 									onChange={handleRGBInputChange}
 								/>
 								<input
@@ -240,6 +247,7 @@ const Picker: React.FC<ColorPickerProps> = ({
 									type="number"
 									min="0"
 									max="255"
+									aria-label="Green code"
 									value={green}
 									onChange={handleRGBInputChange}
 								/>
@@ -249,6 +257,7 @@ const Picker: React.FC<ColorPickerProps> = ({
 									min="0"
 									max="255"
 									value={blue}
+									aria-label="Blue code"
 									onChange={handleRGBInputChange}
 								/>
 							</React.Fragment>
@@ -259,6 +268,7 @@ const Picker: React.FC<ColorPickerProps> = ({
 							min="1"
 							step="1"
 							max="100"
+							aria-label="Color opacity"
 							pattern="[0-9]+"
 							value={`${Math.round(
 								(alpha !== undefined ? alpha : 100) * 100,

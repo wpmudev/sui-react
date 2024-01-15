@@ -14,7 +14,6 @@ import Icons from "@wpmudev/sui-icons"
 import { TreeViewInfoProps } from "./tree-view.types"
 import { useTreeViewContext } from "./tree-view-context"
 import { getCheckboxState } from "./helpers"
-import { createPortal } from "react-dom"
 
 /**
  * TreeViewInfo Component
@@ -40,14 +39,6 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 }) => {
 	// Manage interaction methods
 	const [isHovered, isFocused, interactionMethods] = useInteraction({})
-
-	// The DOM  element where we render the Treeview Checkbox
-	const [checkboxDomContainer, setCheckBoxDomContainer] =
-		useState<Element | null>(null)
-
-	// The element ref where we render the checkbox
-	const checkboxPortalRef: RefObject<HTMLDivElement> =
-		useRef<HTMLDivElement | null>(null)
 
 	// Generate class names
 	const classNames = generateCN("sui-tree-view__info", {
@@ -106,62 +97,49 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 		[_isGroup, ctx, id, _groupId, _onGroupCheckClick],
 	)
 
-	// Updating the DOM element state when its "ref" becomes available
-	useEffect(() => {
-		if (checkboxPortalRef.current) {
-			setCheckBoxDomContainer(checkboxPortalRef.current)
-		}
-	}, [checkboxPortalRef, ctx?.allowCheck])
-
 	return (
-		<>
-			{/*
-				Rendering the Checkbox component outside the Tree View Info, to comply with
-				the accessibility principle that "Interactive controls must not be nested."
-				This approach ensures that the Checkbox can be interacted with by all users,
-				including those relying on assistive technologies, without violating accessibility guidelines.
-			 */}
-			{ctx?.allowCheck &&
-				!isDisabled &&
-				checkboxDomContainer &&
-				createPortal(
+		<div
+			className={classNames}
+			id={`info-${id}`}
+			data-testid={_isGroup ? "" : "tree-view-item-info"}
+			{...(!ctx?.allowCheck && {
+				tabIndex: isDisabled ? -1 : 0,
+				role: "button",
+				onClick,
+				onKeyDown: (e) => handleOnKeyDown(e, onClick),
+			})}
+			{...(interactionMethods ?? {})}
+		>
+			{ctx?.allowCheck && (
+				<div
+					tabIndex={isDisabled ? -1 : 0}
+					role="button"
+					onClick={onClick}
+					onKeyDown={(e) => handleOnKeyDown(e, onClick)}
+					aria-label={id}
+					className="sui-accessible-cta"
+				></div>
+			)}
+			{_isGroup && <TickIcon size="sm" className="sui-tree-view__info-icon" />}
+			{ctx?.allowCheck && !isDisabled && (
+				<div className="sui-tree-view__info-check">
 					<Checkbox
 						onChange={onCheckClick}
 						isChecked={isChecked ?? false}
 						isIndeterminate={isIndeterminate}
-					/>,
-					checkboxDomContainer,
-				)}
-			<div
-				tabIndex={isDisabled ? -1 : 0}
-				role="button"
-				className={classNames}
-				onClick={onClick}
-				onKeyDown={(e) => handleOnKeyDown(e, onClick)}
-				id={`info-${id}`}
-				data-testid={_isGroup ? "" : "tree-view-item-info"}
-				{...(interactionMethods ?? {})}
-			>
-				{_isGroup && (
-					<TickIcon size="sm" className="sui-tree-view__info-icon" />
-				)}
-				{ctx?.allowCheck && (
-					<div className="sui-tree-view__info-check">
-						{/* Render the Checkbox component for item selection */}
-						{/* The container where the checkbox element will be displayed if the Treeview has a Checkbox */}
-						<div ref={checkboxPortalRef} />
-					</div>
-				)}
-				<div className="sui-tree-view__info-title">
-					{!!ItemIcon && (!!ctx?.showIcons || isDisabled) && (
-						// Render the item's icon, if available and allowed
-						<ItemIcon size="sm" className="sui-tree-view__info-icon" />
-					)}
-					{/* Render the item's title */}
-					<span id={`${id}-title`}>{children}</span>
+						isDisabled={isDisabled}
+					/>
 				</div>
+			)}
+			<div className="sui-tree-view__info-title">
+				{!!ItemIcon && (!!ctx?.showIcons || isDisabled) && (
+					// Render the item's icon, if available and allowed
+					<ItemIcon size="sm" className="sui-tree-view__info-icon" />
+				)}
+				{/* Render the item's title */}
+				<span id={`${id}-title`}>{children}</span>
 			</div>
-		</>
+		</div>
 	)
 }
 

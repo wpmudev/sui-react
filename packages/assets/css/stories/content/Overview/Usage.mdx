@@ -3,23 +3,27 @@ import dedent from 'ts-dedent';
 import { Section, Code, Snippet } from '@wpmudev/sui-docs';
 
 <Section contained={true} style={{ paddingTop: 0 }}>
+	<p>Once you've installed the CSS Framework package into your plugin, you can import the CSS either all at once or import the core and components separately, depending on your application's needs.</p>
+
+	```js
+	// Import the following CSS files based on your requirements:
+	import "@wpmudev/sui-css/dist/css/sui-css.min.css" // This file contains both core and component styles.
+	// OR
+	// Import this file for component styles.
+	import "@wpmudev/sui-css/dist/css/blocks/sui-components.min.css"
+	// Import this file for core styles.
+	import "@wpmudev/sui-css/dist/css/blocks/sui-core.min.css"
+	```
+
 	<p>
-		Once you've installed the CSS Framework package into your plugin, you
-		can import and minify the Sassy Cascading Stylesheets (
-		<Code>.scss</Code>) using Webpack, Gulp, or any other preprocessor.
+		After importing CSS into your application, proceed to enqueue the bundled CSS with your application's styles within your wp-admin.
 	</p>
-	<p>
-		The compressed file, obtained by the method mentioned before or directly
-		from the minified file existing in the CSS Framework package, should be
-		called using the enqueue method for WordPress, which will add a{' '}
-		<Code>&lt;link&gt;</Code> tag into the <Code>&lt;head&gt;</Code> section
-		of the plugin.
-	</p>
-	<Snippet language="php">{dedent`
-function myplugin_styles() {
-    $plugin_url = plugin_dir_url( __FILE__ );
-    wp_enqueue_style( 'style',  $plugin_url . "/css/shared-ui.css");
-}\n
+```php
+	function myplugin_styles() {
+	$plugin_url = plugin_dir_url( __FILE__ );
+	wp_enqueue_style( 'style',  $plugin_url . "/build/your-plugin-bundled.css");
+}
+
 add_action( 'admin_print_styles', myplugin_styles );
-	`}</Snippet>
+```
 </Section>

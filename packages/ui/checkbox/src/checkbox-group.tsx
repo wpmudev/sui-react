@@ -22,7 +22,8 @@ import { Checkbox } from "./checkbox"
 // _CheckboxGroupInner is a component handling the behavior of a group of checkboxes
 const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 	// Destructure props for easier access
-	const { hasSubItems, title, children, commonCheckboxProps, isInline } = props
+	const { hasSubItems, title, children, commonCheckboxProps, isInline, id } =
+		props
 
 	// Track the first render of the component
 	const [isFirstRender, setIsFirstRender] = useState(true)
@@ -34,7 +35,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 	const uuid = useId()
 
 	// Generate a unique ID for the checkbox group
-	const id = `sui-checkbox-group-${uuid}`
+	const checkboxGroupId = id ?? `sui-checkbox-group-${uuid}`
 
 	// Define CSS class names for the checkbox group
 	const className = generateCN("sui-checkbox__group", {
@@ -43,7 +44,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 	})
 
 	// Filter items belonging to the current group
-	const group = items.filter((item) => item.groupId === id)
+	const group = items.filter((item) => item.groupId === checkboxGroupId)
 
 	// Count checked items in the group
 	const checkedItemsCount = group?.filter((i) => i.isChecked).length
@@ -62,7 +63,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 
 		items.forEach((item) => {
 			// If the item is not from the same group, push it as is and continue
-			if (item.groupId !== id) {
+			if (item.groupId !== checkboxGroupId) {
 				toUpdate.push(item)
 				return
 			}
@@ -74,7 +75,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 		})
 
 		setItems([...toUpdate])
-	}, [items, allChecked, checkedItemsCount, id, setItems])
+	}, [items, allChecked, checkedItemsCount, checkboxGroupId, setItems])
 
 	useEffect(() => {
 		// Update isFirstRender state after first render
@@ -88,7 +89,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 			{hasSubItems && (
 				<Checkbox
 					{...commonCheckboxProps}
-					id={id}
+					id={checkboxGroupId}
 					// name={id}
 					label={(title as string) ?? ""}
 					isChecked={allChecked && hasCheckedItems}
@@ -113,7 +114,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 
 					// Find the current item based on ID and group
 					const currItem = items.find(
-						(i) => i.id === checkboxId && i.groupId === id,
+						(i) => i.id === checkboxId && i.groupId === checkboxGroupId,
 					)
 
 					// Clone the child element and pass necessary props
@@ -124,7 +125,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 							id: checkboxId,
 							// Individual checkbox props should override: common props and id
 							...(child as ReactElement)?.props,
-							groupId: id,
+							groupId: checkboxGroupId,
 							// On First render we should use the initial isChecked value
 							isChecked: isFirstRender
 								? initialIsChecked
@@ -139,6 +140,7 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 
 // CheckboxGroup is a component handling the behavior of a group of checkboxes
 const CheckboxGroup = ({
+	id,
 	children,
 	title = "",
 	hasSubItems = false,
@@ -161,6 +163,7 @@ const CheckboxGroup = ({
 	// Wrap the inner content with CheckboxProvider if necessary
 	return withWrapper(
 		<_CheckboxGroupInner
+			id={id}
 			title={title}
 			commonCheckboxProps={commonCheckboxProps ?? {}}
 			hasSubItems={hasSubItems ?? false}

@@ -1,3 +1,5 @@
+import "./index.css"
+
 // Import required packages.
 import Banner from "./components/banner/banner"
 import Body from "./components/body/body"
@@ -20,6 +22,9 @@ import Tabs from "./components/tabs/tabs"
 import Tag from "./components/tag/tag"
 import Tooltip from "./components/tooltip/tooltip"
 import PackageInstallGuide from "./components/package-install-guide/package-install-guide"
+
+// shared
+import { NodeJSWarning } from "./shared/NodeJSWarning"
 
 // Publish required component(s).
 export {
@@ -45,4 +50,6 @@ export {
 	Tag,
 	Tooltip,
 	PackageInstallGuide,
+	// shared
+	NodeJSWarning,
 }

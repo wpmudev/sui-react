@@ -70,12 +70,7 @@ const Toggle: React.FC<ToggleProps> = ({
 
 	return (
 		<label {...containerProps} htmlFor={id} data-testid="toggle">
-			<input
-				{...inputProps}
-				id={id}
-				onChange={handleOnChange}
-				aria-hidden={true}
-			/>
+			<input {...inputProps} id={id} onChange={handleOnChange} />
 			<span tabIndex={-1} className="sui-toggle__switch" aria-hidden={true} />
 			{isLabelHidden && <span className="sui-screen-reader-only">{label}</span>}
 			{!isLabelHidden && (

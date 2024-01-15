@@ -105,7 +105,9 @@ const Notification: React.FC<NotificationProps> = ({
 					iconOnly={true}
 					onClick={onClose}
 					data-testid="notification-dismiss"
-				/>
+				>
+					Close notification
+				</Button>
 			)}
 		</div>
 	)

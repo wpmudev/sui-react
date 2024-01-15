@@ -45,27 +45,18 @@ export const Selector = ({
 }: Omit<SelectorProps, "value">) => {
 	const [val, setVal] = useState<number>()
 
-	const boxStyles = {
-		padding: 20,
-		borderRadius: 4,
-		// background: "#fff",
-	}
-
 	const onChange = (_isChecked: boolean, value: number, _name: string) => {
 		setVal(value)
 	}
 
-	const colSize = "icon-only" === variation ? 1 : 3
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={boxStyles}>
+				<div>
 					<Row align={{ sm: "inline" }}>
 						{options.map((option, index) => (
-							<Col key={`col-${index}`} size={colSize}>
+							<Col key={index}>
 								<SuiSelector
-									key={index}
 									onChange={onChange}
 									isChecked={val === option.value}
 									variation={variation}
@@ -83,6 +74,7 @@ export const Selector = ({
 
 // Story props defaults
 Selector.args = {
+	name: "selector-demo",
 	title: "Option Title",
 	iconOrBrandUrl: "Info",
 	variation: "default",
@@ -94,6 +86,7 @@ Selector.args = {
 	isPro: true,
 	tag: "Tag",
 	tagColor: "default",
+	isFluid: true,
 }
 
 // Story props settings
@@ -106,6 +99,12 @@ Selector.argTypes = {
 	},
 	isPro: {
 		name: "Pro",
+		control: {
+			type: "boolean",
+		},
+	},
+	isFluid: {
+		name: "Fluid",
 		control: {
 			type: "boolean",
 		},
