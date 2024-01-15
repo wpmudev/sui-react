@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-uploader",
-  "version": "0.0.1",
+  "version": "0.0.10",
   "description": "The File uploader allows users to select one or more files to upload.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -53,11 +53,11 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-button": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1",
-    "@wpmudev/sui-hooks": "^0.0.1",
-    "@wpmudev/sui-icons": "^0.0.1",
-    "@wpmudev/sui-form-field": "^0.0.1",
+    "@wpmudev/sui-button": "^0.0.10",
+    "@wpmudev/sui-utils": "^0.0.10",
+    "@wpmudev/sui-hooks": "^0.0.10",
+    "@wpmudev/sui-icons": "^0.0.10",
+    "@wpmudev/sui-form-field": "^0.0.10",
     "react": "^18.2.0"
   }
 }

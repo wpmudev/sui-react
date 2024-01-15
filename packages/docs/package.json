@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-docs",
-  "version": "0.0.0",
+  "version": "0.0.10",
   "private": true,
   "description": "Storybook components to build and style WPMU DEV showcase.",
   "keywords": [

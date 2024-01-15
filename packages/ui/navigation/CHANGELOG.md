@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.0.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @wpmudev/sui-icons@0.0.10
+  - @wpmudev/sui-avatar@0.0.10
+  - @wpmudev/sui-dropdown@0.0.10
+  - @wpmudev/sui-icon@0.0.10
+  - @wpmudev/sui-utils@0.0.10
+
 ## 0.0.1
 
 ### Patch Changes
