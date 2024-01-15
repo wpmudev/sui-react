@@ -1,26 +1,5 @@
 # Change Log
 
-## 0.1.0
-
-### Minor Changes
-
-- initial changeset
-
-### Patch Changes
-
-- Updated dependencies
-  - @wpmudev/sui-form-field@0.1.0
-  - @wpmudev/sui-icons@0.1.0
-  - @wpmudev/sui-checkbox@0.1.0
-  - @wpmudev/sui-dropdown@0.1.0
-  - @wpmudev/sui-button@0.1.0
-  - @wpmudev/sui-select@0.1.0
-  - @wpmudev/sui-input@0.1.0
-  - @wpmudev/sui-grid@0.1.0
-  - @wpmudev/sui-box@0.1.0
-  - @wpmudev/sui-hooks@0.1.0
-  - @wpmudev/sui-utils@0.1.0
-
 ## 0.0.1
 
 ### Patch Changes

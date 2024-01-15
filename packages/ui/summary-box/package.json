@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-summary-box",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Summary box provides a concise overview or summary of information. It is typically used to highlight key details or data points in a user interface or presentation.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -53,14 +53,14 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "devDependencies": {
-    "@wpmudev/sui-box": "^0.1.0",
-    "@wpmudev/sui-grid": "^0.1.0",
-    "@wpmudev/sui-utils": "^0.1.0",
-    "@wpmudev/sui-hooks": "^0.1.0",
-    "@wpmudev/sui-tooltip": "^0.1.0",
-    "@wpmudev/sui-tag": "^0.1.0",
-    "@wpmudev/sui-icons": "^0.1.0",
-    "@wpmudev/sui-icon": "^0.1.0",
+    "@wpmudev/sui-box": "^0.0.1",
+    "@wpmudev/sui-grid": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1",
+    "@wpmudev/sui-hooks": "^0.0.1",
+    "@wpmudev/sui-tooltip": "^0.0.1",
+    "@wpmudev/sui-tag": "^0.0.1",
+    "@wpmudev/sui-icons": "^0.0.1",
+    "@wpmudev/sui-icon": "^0.0.1",
     "react": "^18.2.0"
   }
 }

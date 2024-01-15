@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-collections",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React sub-package for collections components",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -43,10 +43,10 @@
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/sui-config-table": "^0.1.0",
-    "@wpmudev/sui-footer": "^0.1.0",
-    "@wpmudev/sui-setup-banner": "^0.1.0",
-    "@wpmudev/sui-upsell": "^0.1.0",
-    "@wpmudev/sui-upsell-notice": "^0.1.0"
+    "@wpmudev/sui-config-table": "^0.0.1",
+    "@wpmudev/sui-footer": "^0.0.1",
+    "@wpmudev/sui-setup-banner": "^0.0.1",
+    "@wpmudev/sui-upsell": "^0.0.1",
+    "@wpmudev/sui-upsell-notice": "^0.0.1"
   }
 }

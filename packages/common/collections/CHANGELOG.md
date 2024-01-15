@@ -1,20 +1,5 @@
 # Change Log
 
-## 0.1.0
-
-### Minor Changes
-
-- initial changeset
-
-### Patch Changes
-
-- Updated dependencies
-  - @wpmudev/sui-upsell-notice@0.1.0
-  - @wpmudev/sui-config-table@0.1.0
-  - @wpmudev/sui-setup-banner@0.1.0
-  - @wpmudev/sui-footer@0.1.0
-  - @wpmudev/sui-upsell@0.1.0
-
 ## 0.0.1
 
 ### Patch Changes
