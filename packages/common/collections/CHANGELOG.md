@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.0.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @wpmudev/sui-config-table@0.0.10
+  - @wpmudev/sui-footer@0.0.10
+  - @wpmudev/sui-setup-banner@0.0.10
+  - @wpmudev/sui-upsell@0.0.10
+  - @wpmudev/sui-upsell-notice@0.0.10
+
 ## 0.0.1
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.0.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @wpmudev/sui-button@0.0.10
+  - @wpmudev/sui-checkbox@0.0.10
+  - @wpmudev/sui-form-field@0.0.10
+  - @wpmudev/sui-input@0.0.10
+  - @wpmudev/sui-radio@0.0.10
+  - @wpmudev/sui-textarea@0.0.10
+  - @wpmudev/sui-toggle@0.0.10
+
 ## 0.0.1
 
 ### Patch Changes
