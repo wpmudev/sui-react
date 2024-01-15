@@ -1,5 +1,3 @@
-Thank you for expressing your interest in contributing to SUI-React, you're awesome!
-
 ## Project Setup
 
 To start contributing to SUI React, follow these steps:
