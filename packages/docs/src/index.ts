@@ -19,6 +19,7 @@ import Table from "./components/table/table"
 import Tabs from "./components/tabs/tabs"
 import Tag from "./components/tag/tag"
 import Tooltip from "./components/tooltip/tooltip"
+import PackageInstallGuide from "./components/package-install-guide/package-install-guide"
 
 // Publish required component(s).
 export {
@@ -43,4 +44,5 @@ export {
 	Tabs,
 	Tag,
 	Tooltip,
+	PackageInstallGuide,
 }

@@ -1,4 +1,4 @@
-import { Section, Code, Snippet } from "@wpmudev/sui-docs"
+import { Section, Code, Snippet, PackageInstallGuide } from "@wpmudev/sui-docs"
 import dedent from "dedent"
 
 export const tinyMceCode = dedent`
@@ -9,20 +9,7 @@ add_action('admin_enqueue_scripts', 'sui_load_mce_editor_scripts');
     }
 `
 
-<Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
-	<p>
-		Install the <Code small={true}>RichText Editor</Code> package as an
-		individual component or follow the Overview page instructions to get the
-		complete SUI Components package.
-	</p>
-
-	<p>
-		Make sure to load TinyMCE bundled with WP
-		<Snippet language="php">
-			{tinyMceCode}
-		</Snippet>
-	</p>
-</Section>
+<PackageInstallGuide packageName="@wpmudev/sui-rich-text-editor" />
 
 <Section title="Props" border={true}>
 	<p>The RichText Editor has one prop:</p>

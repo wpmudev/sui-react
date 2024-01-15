@@ -19,12 +19,14 @@ interface SnippetProps {
 	language: string
 	dark?: boolean
 	children: string
+	isCollapsible?: boolean
 }
 
 const Snippet: React.FunctionComponent<SnippetProps> = ({
-	language,
+	language = "javascript",
 	dark = false,
 	children,
+	isCollapsible = true,
 }) => {
 	const [showCode, setShowCode] = useState(false)
 	const snippetClasses = classnames({
@@ -33,14 +35,24 @@ const Snippet: React.FunctionComponent<SnippetProps> = ({
 	})
 	return (
 		<div className={snippetClasses}>
-			<Button
-				type="button"
-				style="secondary"
-				label={showCode ? "Hide code" : "Show code"}
-				className="csb-snippet__toggle-button"
-				onClick={() => setShowCode(!showCode)}
-			/>
-			{showCode && <Source code={children} language={language} dark={true} />}
+			{isCollapsible && (
+				<>
+					<Button
+						type="button"
+						style="secondary"
+						label={showCode ? "Hide code" : "Show code"}
+						className="csb-snippet__toggle-button"
+						onClick={() => setShowCode(!showCode)}
+					/>
+					{showCode && (
+						<Source code={children} language={language} dark={true} />
+					)}
+				</>
+			)}
+
+			{!isCollapsible && (
+				<Source code={children} language={language} dark={true} />
+			)}
 		</div>
 	)
 }
