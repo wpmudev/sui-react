@@ -1,55 +1,45 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
 
-<Section
-	title="Installation"
-	contained={true}
-	style={{ paddingTop: 20, paddingBottom: 0 }}
->
-	<p>
-		Install the <Code small={true}>Pagination</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
-	</p>
-</Section>
+<PackageInstallGuide packageName="@wpmudev/sui-pagination" />
 
 <Section title="Props" border={true}>
 	<Section
-		title={{ content: "limit", tag: "number", small: true }}
+		title={{ content: "limit*", tag: "number", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Number of items per page</p>
 	</Section>
 
     <Section
-    	title={{ content: "numberOfItems*", tag: "number", small: true }}
+    	title={{ content: "numberOfItems", tag: "number", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Number of total items</p>
     </Section>
 
     <Section
-    	title={{ content: "previousLabel*", tag: "string", small: true }}
+    	title={{ content: "previousLabel", tag: "string", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>The screen reader text for the previous button</p>
     </Section>
 
      <Section
-    	title={{ content: "nextLabel*", tag: "string", small: true }}
+    	title={{ content: "nextLabel", tag: "string", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>The screen reader text for the next button</p>
     </Section>
 
     <Section
-    	title={{ content: "skip", tag: "string", small: true }}
+    	title={{ content: "skip*", tag: "string", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Whether to allow for skip navigation or not</p>
     </Section>
 
     <Section
-    	title={{ content: "onChange*", tag: "function", small: true }}
+    	title={{ content: "onChange", tag: "function", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>A callback function to be invoked when the page gets changed, the first parameter represents the new selected page </p>

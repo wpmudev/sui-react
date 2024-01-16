@@ -1,17 +1,11 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
 
-<Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
-	<p>
-		Install the <Code small={true}>ColorPicker</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
-	</p>
-</Section>
+<PackageInstallGuide packageName="@wpmudev/sui-color-picker" />
 
 <Section title="Props" border={true}>
 	<p>Color Picker Have the following components:</p>
 	<Section
-		title={{ content: "color", tag: "string", small: true }}
+		title={{ content: "color*", tag: "string", small: true }}
 		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>
@@ -19,7 +13,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
 		</p>
     </Section>
     <Section
-    	title={{ content: "onChange", tag: "function", small: true }}
+    	title={{ content: "onChange*", tag: "function", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>
@@ -27,7 +21,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	</p>
     </Section>
     <Section
-    	title={{ content: "type", tag: "string", small: true }}
+    	title={{ content: "type*", tag: "string", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>The type of the Color Picker, It accepts one of the following options:</p>
@@ -38,14 +32,14 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     </Section>
 
      <Section
-    	title={{ content: "onColorChange", tag: "function", small: true }}
+    	title={{ content: "onColorChange*", tag: "function", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>A callback function that will be invoked when the user picks a new color, The first parameter <Code isSmall={true}> color </Code> represnts the new color string</p>
     </Section>
 
     <Section
-    	title={{ content: "onApplyButton", tag: "function", small: true }}
+    	title={{ content: "onApplyButton*", tag: "function", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>A callback function that will be invoked when the user clicks on the Apply button, The first parameter <Code isSmall={true}> event </Code> represnts the click event object</p>

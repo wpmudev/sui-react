@@ -1,21 +1,11 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
 
-<Section
-	title="Installation"
-	contained={true}
-	style={{ paddingTop: 20, paddingBottom: 0 }}
->
-	<p>
-		Install the <Code small={true}>Dropdown</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
-	</p>
-</Section>
+<PackageInstallGuide packageName="@wpmudev/sui-dropdown" />
 
 <Section title="Props" border={true}>
 
     	<Section
-    		title={{ content: "Label*", tag: 'string', small: true }}
+    		title={{ content: "Label", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>The dropdown label</p>
@@ -23,49 +13,49 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	</Section>
 
     	<Section
-    		title={{ content: "isSmall*", tag: 'boolean', small: true }}
+    		title={{ content: "isSmall", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>If set to <Code isSmall={true}> true </Code> the dropdown menu will have a smaller width</p>
     	</Section>
 
     	<Section
-    		title={{ content: "isLabelHidden*", tag: 'boolean', small: true }}
+    		title={{ content: "isLabelHidden", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>If set to <Code isSmall={true}> true </Code> the label won't be displayed</p>
     	</Section>
 
     	<Section
-    		title={{ content: "isFixedHeight*", tag: 'boolean', small: true }}
+    		title={{ content: "isFixedHeight", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Whether the dorpdown has a fixed height with a scroll bar for overflow or it adapts its height to the content.  </p>
     	</Section>
 
     	<Section
-    		title={{ content: "current*", tag: 'number', small: true }}
+    		title={{ content: "current", tag: 'number', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>The current selected value </p>
     	</Section>
 
     	<Section
-    		title={{ content: "children*", tag: 'React Node', small: true }}
+    		title={{ content: "children", tag: 'React Node', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>The content that goes inside the Dropdown </p>
     	</Section>
 
     	<Section
-    		title={{ content: "direction*", tag: 'string', small: true }}
+    		title={{ content: "direction", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Dropdown popover location: <Code small={true}>left</Code> or <Code small={true}> right</Code> </p>
     	</Section>
 
     	<Section
-    		title={{ content: "buttonIcon*", tag: 'string', small: true }}
+    		title={{ content: "buttonIcon", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>The Drop down button icon name.</p>
@@ -73,7 +63,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	</Section>
 
     	<Section
-    		title={{ content: "onMenuClick*", tag: 'function', small: true }}
+    		title={{ content: "onMenuClick", tag: 'function', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>A callback function to be invoked when an item is clicked, it has the following parameters in order: </p>
@@ -94,13 +84,13 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	</Section>
 
     	<Section
-    		title={{ content: "menu*", tag: 'array', small: true }}
+    		title={{ content: "menu", tag: 'array', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>The menu items to be rendered, each item is an object that could be either a <strong>Menu Group</strong> or a <strong>Menu Item</strong>. </p>
 
     		<Section
-    			title={{ content: "Menu Item",small: true }}
+    			title={{ content: "Menu Item*",small: true }}
     			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     		>
     			<p>The menu Item object has the following properties </p>
@@ -126,7 +116,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     		</Section>
 
     		<Section
-    			title={{ content: "Menu Group",small: true }}
+    			title={{ content: "Menu Group*",small: true }}
     			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     		>
     			<p>The menu group object has the following properties </p>

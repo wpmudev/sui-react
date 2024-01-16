@@ -1,29 +1,23 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
 
-<Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
-	<p>
-		Install the <Code small={true}>Recipient</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
-	</p>
-</Section>
+<PackageInstallGuide packageName="@wpmudev/sui-recipient" />
 
 <Section title="Props" border={true}>
 	<p>Recipient `component` have the following props.</p>
 	<Section
-		title={{ content: "userName*", tag: "string", small: true }}
+		title={{ content: "userName", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>The name of the recipient</p>
 	</Section>
 	<Section
-		title={{ content: "userEmail*", tag: "string", small: true }}
+		title={{ content: "userEmail", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>The email of the recipient</p>
 	</Section>
 	<Section
-		title={{ content: "userImage*", tag: "object", small: true }}
+		title={{ content: "userImage", tag: "object", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>The recipient's avatar or picture, the object has two keys:</p>
@@ -45,7 +39,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
 		</List>
 	</Section>
 	<Section
-		title={{ content: "appearance*", tag: "string", small: true }}
+		title={{ content: "appearance", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Reflects the theme of the recipient.</p>
@@ -68,7 +62,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
 		</List>
 	</Section>
 	<Section
-		title={{ content: "isInvited*", tag: "boolean", small: true }}
+		title={{ content: "isInvited", tag: "boolean", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>
@@ -77,7 +71,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
 		</p>
 	</Section>
 	<Section
-		title={{ content: "status*", tag: "string", small: true }}
+		title={{ content: "status", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Reflects the status of the invitation</p>

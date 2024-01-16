@@ -24,7 +24,7 @@ interface SnippetProps {
 }
 
 const Snippet: React.FunctionComponent<SnippetProps> = ({
-	language,
+	language = "js",
 	dark = false,
 	children,
 	isOpen = false,
@@ -46,7 +46,9 @@ const Snippet: React.FunctionComponent<SnippetProps> = ({
 					onClick={() => setShowCode(!showCode)}
 				/>
 			)}
-			{showCode && <Source code={children} language={language} dark={true} />}
+			{(showCode || hideToggle) && (
+				<Source code={children} language={language} dark={true} />
+			)}
 		</div>
 	)
 }
