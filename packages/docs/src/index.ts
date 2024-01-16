@@ -21,10 +21,10 @@ import Table from "./components/table/table"
 import Tabs from "./components/tabs/tabs"
 import Tag from "./components/tag/tag"
 import Tooltip from "./components/tooltip/tooltip"
-import PackageInstallGuide from "./components/package-install-guide/package-install-guide"
 
 // shared
 import { NodeJSWarning } from "./shared/NodeJSWarning"
+import { PackageInstallGuide } from "./shared/PackageInstallGuide"
 
 // Publish required component(s).
 export {

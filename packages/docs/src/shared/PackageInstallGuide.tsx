@@ -6,7 +6,7 @@ import React from "react"
 /**
  * Internal Dependencies
  */
-import { Section, Snippet, Code } from "../../index"
+import { Section, Snippet, Code } from "../index"
 
 interface PackageInstallGuideProps {
 	packageName: string
@@ -67,4 +67,4 @@ const PackageInstallGuide: React.FunctionComponent<
 	)
 }
 
-export default PackageInstallGuide
+export { PackageInstallGuide }
