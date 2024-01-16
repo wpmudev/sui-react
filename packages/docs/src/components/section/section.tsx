@@ -16,14 +16,22 @@ import Tag from "../tag/tag"
 import { isEmpty } from "../../utils"
 import "./section.scss"
 
+type TagType =
+	| string
+	| {
+			content: string
+			helperText?: string
+			color: "" | "yellow" | "blue" | "red" | "green"
+	  }[]
+
 interface SectionProps {
 	title?:
 		| string
 		| {
 				content: string
 				date?: string
-				tag?: string
-				small?: boolean
+				tag?: TagType
+				small: boolean
 		  }
 	border?: boolean
 	container?: boolean
@@ -43,6 +51,36 @@ const Section: React.FunctionComponent<
 		"csb-section--border": !!border,
 	})
 
+	const renderTags = (tag: TagType) => {
+		if (!tag) {
+			return null
+		}
+
+		if (typeof tag === "string") {
+			if (!isEmpty(tag)) {
+				return <Tag color="yellow">{tag}</Tag>
+			}
+
+			return null
+		}
+
+		if (Array.isArray(tag) && tag.length > 0) {
+			return tag.map((el, index) =>
+				el.content ? (
+					<Tag
+						key={index}
+						color={el.color}
+						{...(el.helperText && { tooltip: el.helperText })}
+					>
+						{el.content}
+					</Tag>
+				) : null,
+			)
+		}
+
+		return null
+	}
+
 	const getTitle = () => {
 		if ("object" === typeof title) {
 			const objTitle = Object.assign(
@@ -52,7 +90,7 @@ const Section: React.FunctionComponent<
 					tag: "",
 					small: false,
 				},
-				title as object,
+				title as Record<string, any>,
 			)
 
 			const titleClass = classnames({
@@ -66,7 +104,7 @@ const Section: React.FunctionComponent<
 				<h2 className={titleClass}>
 					{objTitle.content}
 					{!isEmpty(objTitle.date) && <Tag color="blue">{objTitle.date}</Tag>}
-					{!isEmpty(objTitle.tag) && <Tag color="yellow">{objTitle.tag}</Tag>}
+					{renderTags(objTitle.tag)}
 				</h2>
 			)
 		}

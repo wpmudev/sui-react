@@ -1,17 +1,15 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-accordion" />
 
 <Section title="Props" border={true}>
-
-    	<Section
-    		title={{ content: "state", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+		
+		<PropSection title="state" type="string" defaultValue="default">
     		<p>Sets the semantic type for the accordion</p>
     		<p>
     		Allowed options:
     			<List>
+					<span label={<Code small={true}>default</Code>} />
     				<span label={<Code small={true}>neutral</Code>} />
     				<span label={<Code small={true}>informative</Code>} />
     				<span label={<Code small={true}>success</Code>} />
@@ -19,23 +17,28 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     				<span label={<Code small={true}>critical</Code>} />
     			</List>
     		</p>
-    	</Section>
+    	</PropSection>
 
-		<Section
-    		title={{ content: "allowMultipleExpand", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p>When set to <Code size="small">true</Code>, multiple accordions can be expanded at the same time, default is <Code small={true}>false</Code></p>
-    	</Section>
+		<PropSection title="allowMultipleExpand" type="boolean" defaultValue="false">
+    		When set to <Code size="small">true</Code>, multiple accordions can be expanded at the same time
+    	</PropSection>
 
+		<PropSection title="noBorderRadius" type="boolean" defaultValue="false">
+    		When set to <Code size="small">true</Code>, the accordion won't have border radius
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "className", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p>A custom className for the accordion </p>
-    	</Section>
+		<PropSection title="noSideBorders" type="boolean" defaultValue="false">
+    		When set to <Code size="small">true</Code>, the accordion won't have side borders
+    	</PropSection>
 
+		<PropSection title="children" type="React Node">
+    		The nested content inside the accordion
+    	</PropSection>
+
+		<PropSection title="className" type="string">
+    		Additional className(s) for further styling
+    	</PropSection>
+    	
 </Section>
 
 <Section
@@ -45,80 +48,62 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 >
 		<p>The Accordion component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
 
+
     <Section title="AccordionItem" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     	<p>
     		This component represents an individual item or section of the accordion and comes with its
     		own set of props.
     	</p>
 
-    	<Section title={{ content: "title", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Title of the accordion item
-    		</p>
-    	</Section>
+		<PropSection title="title" type="string" defaultValue="{title}">
+    		Title of the accordion item
+    	</PropSection>
 
-    	<Section title={{ content: "description", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Description of the accordion item
-    		</p>
-    	</Section>
+		<PropSection title="description" type="string">
+    		Description of the accordion item
+    	</PropSection>
 
-    	<Section title={{ content: "isDisabled", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Enables deactivation of the accordion item
-    		</p>
-    	</Section>
+		<PropSection title="isDisabled" type="boolean" defaultValue="false">
+    		When set to <Code isSmall={true}>true</Code>, the accordion item will be disabled
+    	</PropSection>
 
-    	<Section title={{ content: "icon", tag: 'React Element', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Adds an Icon to the accordion item
-    		</p>
-    	</Section>
+		<PropSection title="icon" type="string">
+    		Adds an Icon to the accordion item
+    	</PropSection>
 
-    	<Section title={{ content: "hasCheckbox", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Displays a checkbox if true
-    		</p>
-    	</Section>
+		<PropSection title="hasCheckbox" type="boolean" defaultValue="false">
+    		Whether to display the Checkbox or not
+    	</PropSection>
 
-    	<Section title={{ content: "onCheck", tag: 'function', small: true }}   contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			Callback function to be executed when the checkbox is clicked
-    		</p>
-    	</Section>
+		<PropSection title="onCheck" type="function">
+    		A callback function to be invoked when the the checkbox state changes
+    	</PropSection>
 
-    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    		<p>
-    			The content of the accordion item
-    		</p>
-    	</Section>
-
+		<PropSection title="children" type="React Node">
+    		The nested content inside the accordion item
+    	</PropSection>
 
     </Section>
 
-    	<Section title="AccordionBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title="AccordionItemBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     	<p>
     		This component serves as the body content
     	for each item and also accepts specific props to customize its behavior, it has the following props:
     	</p>
 
-    		<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    			<p>
-    				The content of the accordion item
-    			</p>
-    		</Section>
+    		<PropSection title="children" type="React Node">
+    			The nested content inside the accordion item body
+    		</PropSection>
     	</Section>
 
-    	<Section title="AccordionFooter" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title="AccordionItemFooter" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     	<p>
     		This component serves as the body content for each item and also accepts specific props to customize its behavior, it has the following props:
     	</p>
 
-    		<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    			<p>
-    				Custom content for the footer
-    			</p>
-    		</Section>
+    		<PropSection title="children" type="React Node">
+    			The nested content inside the accordion item footer
+    		</PropSection>
     	</Section>
 
 </Section>

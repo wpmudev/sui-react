@@ -1,6 +1,6 @@
 import React, { useCallback, useId, useState, useEffect, useRef } from "react"
 import { createPortal } from "react-dom"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useDefaultChildren } from "@wpmudev/sui-hooks"
 import { useAccordion } from "./accordion-context"
 import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
@@ -9,17 +9,20 @@ import { AccordionItemProps } from "./accordion.types"
 
 // The AccordionItem component is defined as a functional component using React.FC.
 const AccordionItem: React.FC<AccordionItemProps> = ({
-	title,
+	title = "{title}",
 	description,
 	children,
-	isDisabled,
+	isDisabled = false,
 	isExpanded: propIsExpended,
 	icon,
-	hasCheckbox,
-	onCheck,
+	hasCheckbox = false,
+	onCheck = () => null,
 }) => {
 	// Checkbox is checked.
 	const [isChecked, setIsChecked] = useState(false)
+
+	// Default content when children is empty
+	children = useDefaultChildren(children)
 
 	// Mouse is being pressed
 	const [isPressed, setIsPressed] = useState(false)
