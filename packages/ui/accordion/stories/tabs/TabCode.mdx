@@ -1,21 +1,11 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
 
-<Section
-	title="Installation"
-	contained={true}
-	style={{ paddingTop: 20, paddingBottom: 0 }}
->
-	<p>
-		Install the <Code small={true}>Accordion</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
-	</p>
-</Section>
+<PackageInstallGuide packageName="@wpmudev/sui-accordion" />
 
 <Section title="Props" border={true}>
 
     	<Section
-    		title={{ content: "state*", tag: 'string', small: true }}
+    		title={{ content: "state", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Sets the semantic type for the accordion</p>
@@ -32,7 +22,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	</Section>
 
 		<Section
-    		title={{ content: "allowMultipleExpand*", tag: 'string', small: true }}
+    		title={{ content: "allowMultipleExpand", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>When set to <Code size="small">true</Code>, multiple accordions can be expanded at the same time, default is <Code small={true}>false</Code></p>
@@ -40,7 +30,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
 
 
     	<Section
-    		title={{ content: "className*", tag: 'string', small: true }}
+    		title={{ content: "className", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>A custom className for the accordion </p>
@@ -61,43 +51,43 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     		own set of props.
     	</p>
 
-    	<Section title={{ content: "title*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "title", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			Title of the accordion item
     		</p>
     	</Section>
 
-    	<Section title={{ content: "description*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "description", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			Description of the accordion item
     		</p>
     	</Section>
 
-    	<Section title={{ content: "isDisabled*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "isDisabled", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			Enables deactivation of the accordion item
     		</p>
     	</Section>
 
-    	<Section title={{ content: "icon*", tag: 'React Element', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "icon", tag: 'React Element', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			Adds an Icon to the accordion item
     		</p>
     	</Section>
 
-    	<Section title={{ content: "hasCheckbox*", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "hasCheckbox", tag: 'boolean', small: true }}  contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			Displays a checkbox if true
     		</p>
     	</Section>
 
-    	<Section title={{ content: "onCheck*", tag: 'function', small: true }}   contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "onCheck", tag: 'function', small: true }}   contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			Callback function to be executed when the checkbox is clicked
     		</p>
     	</Section>
 
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			The content of the accordion item
     		</p>
@@ -112,7 +102,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	for each item and also accepts specific props to customize its behavior, it has the following props:
     	</p>
 
-    		<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     			<p>
     				The content of the accordion item
     			</p>
@@ -130,7 +120,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     		This component serves as the body content for each item and also accepts specific props to customize its behavior, it has the following props:
     	</p>
 
-    		<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     			<p>
     				Custom content for the footer
     			</p>

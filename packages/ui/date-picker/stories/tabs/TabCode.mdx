@@ -1,18 +1,11 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
 
-<Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
-	<p>
-		Install the <Code small={true}>DatePicker</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
-	</p>
-
-</Section>
+<PackageInstallGuide packageName="@wpmudev/sui-date-picker" />
 
 <Section title="Props" border={true}>
 
     	<Section
-    		title={{ content: "type", tag: 'string', small: true }}
+    		title={{ content: "type*", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Specifies the type of the DatePicker </p>
@@ -26,28 +19,28 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	</Section>
 
     	<Section
-    		title={{ content: "minDate*", tag: 'string', small: true }}
+    		title={{ content: "minDate", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Minimum selectable date</p>
     	</Section>
 
     	<Section
-    		title={{ content: "maxDate*", tag: 'string', small: true }}
+    		title={{ content: "maxDate", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Maximum selectable date</p>
     	</Section>
 
     	<Section
-    		title={{ content: "isDisabled*", tag: 'boolean', small: true }}
+    		title={{ content: "isDisabled", tag: 'boolean', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>When set to <Code small={true}>true</Code> the date picker will be disabled</p>
     	</Section>
 
     	<Section
-    		title={{ content: "startDate*", tag: 'string', small: true }}
+    		title={{ content: "startDate", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>The initial date value </p>
@@ -55,21 +48,21 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     	</Section>
 
     	<Section
-    		title={{ content: "endDate*", tag: 'string', small: true }}
+    		title={{ content: "endDate", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>In the range Date Picker type, this represents the end date value </p>
     	</Section>
 
     	<Section
-    		title={{ content: "onChange", tag: 'function', small: true }}
+    		title={{ content: "onChange*", tag: 'function', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>A callback function to be invoked when the date changes, the first parameter is the new selected date(s)  </p>
     	</Section>
 
     	<Section
-    		title={{ content: "className*", tag: 'string', small: true }}
+    		title={{ content: "className", tag: 'string', small: true }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p>Additional css classname(s)</p>

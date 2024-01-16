@@ -1,16 +1,6 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
 
-<Section
-	title="Installation"
-	contained={true}
-	style={{ paddingTop: 20, paddingBottom: 0 }}
->
-	<p>
-		Install the <Code small={true}>Modal</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
-	</p>
-</Section>
+<PackageInstallGuide packageName="@wpmudev/sui-modal" />
 
 <Section title="Props" border={true}>
 
@@ -94,7 +84,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     		</p>
     	</Section>
 
-    	<Section title={{ content: "children*", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     		<p>
     			The content of the component
     		</p>

@@ -1,12 +1,6 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
 
-<Section contained={true} style={{ paddingTop: 0, paddingBottom: 0 }}>
-	<p>
-		Install the <Code small={true}>EmptyState</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
-	</p>
-</Section>
+<PackageInstallGuide packageName="@wpmudev/sui-empty-state" />
 
 <Section title="Props" border={true}>
 	<Section
@@ -17,7 +11,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
 	</Section>
 
     <Section
-    	title={{ content: "children*", tag: "ReactNode", small: true }}
+    	title={{ content: "children", tag: "ReactNode", small: true }}
     	style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p> The content of the component, it could be any React element </p>

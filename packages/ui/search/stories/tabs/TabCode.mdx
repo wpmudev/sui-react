@@ -1,27 +1,17 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
 
-<Section
-	title="Installation"
-	contained={true}
-	style={{ paddingTop: 20, paddingBottom: 0 }}
->
-	<p>
-		Install the <Code small={true}>Search</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
-	</p>
-</Section>
+<PackageInstallGuide packageName="@wpmudev/sui-search" />
 
 <Section title="Props" border={true}>
 	<Section
-		title={{ content: "id*", tag: "string", small: true }}
+		title={{ content: "id", tag: "string", small: true }}
 		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
 	>
 		<p>Sets the search input id attribute</p>
 	</Section>
 
     <Section
-    	title={{ content: "variation*", tag: "string", small: true }}
+    	title={{ content: "variation", tag: "string", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Sets the variation of the search input</p>
@@ -33,56 +23,56 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     </Section>
 
     <Section
-    	title={{ content: "options*", tag: "array", small: true }}
+    	title={{ content: "options", tag: "array", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>The available options for search in the smart variation</p>
     </Section>
 
     <Section
-    	title={{ content: "defaultValue*", tag: "string", small: true }}
+    	title={{ content: "defaultValue", tag: "string", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Adds a custom default value to the search input</p>
     </Section>
 
     <Section
-    	title={{ content: "onChange*", tag: "function", small: true }}
+    	title={{ content: "onChange", tag: "function", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Callback function to be invoked upon text change</p>
     </Section>
 
     <Section
-    	title={{ content: "allowClear*", tag: "boolean", small: true }}
+    	title={{ content: "allowClear", tag: "boolean", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Whether to display clear button or not</p>
     </Section>
 
     <Section
-    	title={{ content: "isDisabled*", tag: "boolean", small: true }}
+    	title={{ content: "isDisabled", tag: "boolean", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>When set to <Code small={true}>true</Code> the search input will be disable</p>
     </Section>
 
     <Section
-    	title={{ content: "searchHint*", tag: "string", small: true }}
+    	title={{ content: "searchHint", tag: "string", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Provides a descriptive hint for search</p>
     </Section>
 
     <Section
-    	title={{ content: "searchMinChars*", tag: "number", small: true }}
+    	title={{ content: "searchMinChars", tag: "number", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>When set to <Code small={true}>true</Code> the search input will be disable</p>
     </Section>
 
     <Section
-    	title={{ content: "className*", tag: "string", small: true }}
+    	title={{ content: "className", tag: "string", small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Adds a custom css className(s) for further customization</p>

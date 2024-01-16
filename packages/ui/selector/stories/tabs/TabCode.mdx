@@ -1,83 +1,73 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
 
-<Section
-	title="Installation"
-	contained={true}
-	style={{ paddingTop: 20, paddingBottom: 0 }}
->
-	<p>
-		Install the <Code small={true}>Selector</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
-	</p>
-</Section>
+<PackageInstallGuide packageName="@wpmudev/sui-selector" />
 
 <Section title="Props" border={true}>
 	<Section
-    	title={{ content: "title", tag: 'string', small: true }}
+    	title={{ content: "title*", tag: 'string', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>The main heading text for the Selector </p>
     </Section>
 
 	<Section
-    	title={{ content: "description", tag: 'string', small: true }}
+    	title={{ content: "description*", tag: 'string', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>An additional text that accompagnes the title </p>
     </Section>
 
     <Section
-    	title={{ content: "iconOrBrandUrl", tag: 'string', small: true }}
+    	title={{ content: "iconOrBrandUrl*", tag: 'string', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p> Either an image url or an icon to be displayed, this wll appear beside the title </p>
     </Section>
 
     <Section
-    	title={{ content: "label", tag: 'string', small: true }}
+    	title={{ content: "label*", tag: 'string', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>A label text for the hidden radio input ( for screen readers ) </p>
     </Section>
 
     <Section
-    	title={{ content: "name", tag: 'string', small: true }}
+    	title={{ content: "name*", tag: 'string', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>A label text for screen readers</p>
     </Section>
 
     <Section
-    	title={{ content: "value", tag: 'string | number', small: true }}
+    	title={{ content: "value*", tag: 'string | number', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Value of the radio input</p>
     </Section>
 
     <Section
-    	title={{ content: "isChecked", tag: 'boolean', small: true }}
+    	title={{ content: "isChecked*", tag: 'boolean', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Whether the radio input is checked or not</p>
     </Section>
 
     <Section
-    	title={{ content: "isDisabled", tag: 'boolean', small: true }}
+    	title={{ content: "isDisabled*", tag: 'boolean', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Whether the radio input is disabled or not</p>
     </Section>
 
     <Section
-    	title={{ content: "isPro", tag: 'boolean', small: true }}
+    	title={{ content: "isPro*", tag: 'boolean', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>When set to <Code small={true}>true</Code>, the Selector appears in the pro variation</p>
     </Section>
 
     <Section
-    	title={{ content: "alignment", tag: 'string', small: true }}
+    	title={{ content: "alignment*", tag: 'string', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Specifies the alignment of the content, it could be one of two values:</p>
@@ -88,14 +78,14 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     </Section>
 
     <Section
-    	title={{ content: "allowRemove", tag: 'boolean', small: true }}
+    	title={{ content: "allowRemove*", tag: 'boolean', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>Whether to allow removing options or not, when set to true a remove button will appear on the option on hover</p>
     </Section>
 
     <Section
-    	title={{ content: "variation", tag: 'string', small: true }}
+    	title={{ content: "variation*", tag: 'string', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>The component variation style</p>
@@ -109,14 +99,14 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     </Section>
 
     <Section
-    	title={{ content: "tag", tag: 'string', small: true }}
+    	title={{ content: "tag*", tag: 'string', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p> A text to appear on a custom tag </p>
     </Section>
 
     <Section
-    	title={{ content: "tagColor", tag: 'string', small: true }}
+    	title={{ content: "tagColor*", tag: 'string', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p> The color variation for the tag </p>
@@ -134,14 +124,14 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     </Section>
 
     <Section
-    	title={{ content: "imageUrl", tag: 'string', small: true }}
+    	title={{ content: "imageUrl*", tag: 'string', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p> The url to the image to be displayed in the image variation </p>
     </Section>
 
     <Section
-    	title={{ content: "onChange", tag: 'function', small: true }}
+    	title={{ content: "onChange*", tag: 'function', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p>A callback function to be invoked upon radio input change, the function has the following parameter </p>
@@ -153,7 +143,7 @@ import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
     </Section>
 
     <Section
-    	title={{ content: "onRemove", tag: 'function', small: true }}
+    	title={{ content: "onRemove*", tag: 'function', small: true }}
     	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     >
     	<p> A callback function to be invoked upon removing an option </p>
