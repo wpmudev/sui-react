@@ -43,10 +43,6 @@ export interface AdvancedBannerBasePros
 // Props Specific for the black-friday variation
 type AdvancedBannerBlackFridayProps = {
 	/**
-	 * Black Friday Variation
-	 */
-	variation?: "plugin" | "hub" | "newsletter" | "black-friday"
-	/**
 	 * Represents the percentage value of a the discount applied
 	 */
 	discountPercentage?: number

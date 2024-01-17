@@ -82,8 +82,6 @@ const AdvancedBanner = (props: AdvancedBannerProps) => {
 			break
 	}
 
-	return <SuiAdvancedBanner></SuiAdvancedBanner>
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
