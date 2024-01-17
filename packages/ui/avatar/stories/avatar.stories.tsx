@@ -76,11 +76,11 @@ Avatar.argTypes = {
 	},
 	status: {
 		name: "Status",
-		options: ["", "confirmed", "awaiting", "not-accepted", "not-connected"],
+		options: ["none", "confirmed", "awaiting", "not-accepted", "not-connected"],
 		control: {
 			type: "select",
 			labels: {
-				"": "Status: None",
+				none: "Status: None",
 				confirmed: "Status: Confirmed",
 				awaiting: "Status: Awaiting",
 				"not-accepted": "Status: Not Accepted",

@@ -11,7 +11,7 @@ import { AvatarProps } from "./avatar.types"
 // Build "avatar" component
 const Avatar: React.FC<AvatarProps> = ({
 	image,
-	status,
+	status = "none",
 	isSmall = false,
 	className,
 	...props
@@ -39,7 +39,7 @@ const Avatar: React.FC<AvatarProps> = ({
 		<span className={classNames} {...props} data-testid="avatar">
 			{hasImage && <Image source={imageObj.src} text={imageObj.alt} />}
 			{!hasImage && <Icon />}
-			{hasStatus && <Status status={status ?? ""} />}
+			{hasStatus && status !== "none" && <Status status={status} />}
 		</span>
 	)
 }

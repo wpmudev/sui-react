@@ -4,10 +4,17 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 
 <Section title="Props" border={true}>
 	<p>Avatar component have the following props.</p>
-	<PropSection title="status*" type="string" defaultValue="{{default}}">
+	<PropSection title="status" type="string" defaultValue="none">
 		<p>Reflects the status of the avatar.</p>
 		<p>Allowed options:</p>
 		<List>
+			<span
+				label={
+					<>
+						<Code small={true}>none</Code>
+					</>
+				}
+			/>
 			<span
 				label={
 					<>
@@ -38,17 +45,18 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			/>
 		</List>
 	</PropSection>
-	<PropSection title="isSmall*" type="string" defaultValue="{{default}}">
+	<PropSection title="isSmall" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}>true</Code> the avatar will be smaller</p>
 	</PropSection>
-	<PropSection title="image*" type="object" defaultValue="{{default}}">
+	<PropSection title="image" type="object">
 		<p>Reflects the profile image of the avatar. the object accepts two properties</p>
 		<List>
 			<span label={<><Code>src</Code> The image link</>} />
 			<span label={<><Code>alt</Code> The image alternative text</>} />
 		</List>
+		<p>If the image is not specified an icon will be displayed instead</p>
 	</PropSection>
-	<PropSection title="className*" type="string" defaultValue="{{default}}">
+	<PropSection title="className" type="string">
 		<p>A custom className(s) for the avatar</p>
 	</PropSection>
 </Section>

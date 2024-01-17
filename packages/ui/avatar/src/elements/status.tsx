@@ -29,8 +29,7 @@ const Status: React.FC<StatusProps> = ({ status }) => {
 			set.element.class += " suicons--warning"
 			set.element.class += " sui-color-error--50"
 			break
-
-		default:
+		case "awaiting":
 			set.element.class += " suicons--clock"
 			set.element.class += " sui-color-neutral--60"
 			break
