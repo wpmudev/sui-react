@@ -42,6 +42,10 @@ interface ColorPickerProps {
 	 * callback when reset
 	 */
 	onReset?: Function
+	/**
+	 * callback when the color changes but not applied yet
+	 */
+	onColorChange?: (color: string) => void
 }
 
 interface ColorPickerColorProps {
@@ -51,7 +55,7 @@ interface ColorPickerColorProps {
 interface ColorPickerPickerProps {
 	color: ColorPickerProps["color"]
 	type: ColorPickerProps["type"]
-	onColorChange: ColorPickerProps["onChange"]
+	onColorChange: ColorPickerProps["onColorChange"]
 	onApplyButton: ColorPickerProps["onApplyButton"]
 }
 
