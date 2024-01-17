@@ -8,6 +8,7 @@ lib
 .idea
 storybook-static
 coverage
+verdaccio
 
 # Ignore all error logs.
 *.log
