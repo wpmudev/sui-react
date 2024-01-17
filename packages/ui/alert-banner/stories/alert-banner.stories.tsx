@@ -24,7 +24,6 @@ export default {
 export const AlertBanner = ({ variation, ...props }: AlertBannerProps) => {
 	const box = {
 		display: "flex",
-		flexDirection: "column",
 		gap: "8px",
 		margin: "0 0 20px",
 		padding: "30px",

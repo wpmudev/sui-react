@@ -2,13 +2,14 @@ import React, { useState, useCallback } from "react"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import Icons from "@wpmudev/sui-icons"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 import { AlertBannerProps } from "./alert-banner.types"
 
 const AlertBanner: React.FC<AlertBannerProps> = ({
 	children,
 	variation = "informative",
-	actions = null,
+	actions,
 	displayIcon = true,
 	isCenter = false,
 	isDismissible = true,
@@ -16,6 +17,9 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 }) => {
 	// State to control the visibility of the alert banner
 	const [isVisible, setIsVisible] = useState(true)
+
+	// default children content
+	children = useDefaultChildren(children)
 
 	/**
 	 * Callback function to hide the alert banner when clicking on the dismiss button.
