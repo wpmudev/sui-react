@@ -1,22 +1,25 @@
 import React from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useDefaultChildren } from "@wpmudev/sui-hooks"
 
 import { BasicBoxProps } from "./basic-box.types"
 
 // Build "basic-box" component
 const BasicBox: React.FC<BasicBoxProps> = ({
-	title,
+	title = "Box Title",
 	description,
-	headerActions = null,
-	footerActions = undefined,
+	headerActions,
+	footerActions,
 	className,
 	isPro = false,
 	children,
 }) => {
 	// Interaction methods
 	const [isHovered, isFocused, methods] = useInteraction({})
+
+	// Default children content
+	children = useDefaultChildren(children)
 
 	// Define class name based on various conditions
 	const classNames = generateCN(
