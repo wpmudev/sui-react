@@ -1,22 +1,16 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-tabs" />
 
 <Section title="Props" border={true}>
 
-    	<Section
-    		title={{ content: "children", tag: 'React Node', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
     		<p>The component children elements that includes the tabs individual items</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "className", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="className" type="string" defaultValue="{{default}}">
     		<p>Custom css class name(s) </p>
-    	</Section>
+    	</PropSection>
 
 </Section>
 
@@ -32,11 +26,11 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		This component represents the container for tab navigation
     	</p>
 
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
     		<p>
     			Content of the tab navigation
     		</p>
-    	</Section>
+    	</PropSection>
 
     </Section>
 
@@ -45,19 +39,19 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		Represents a single tab item in a tabbed interface
     	</p>
 
-    		<Section title={{ content: "id", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<PropSection title="id" type="string" defaultValue="{{default}}">
     			<p>
     				Unique id for the tab item
     			</p>
-    		</Section>
+    		</PropSection>
 
-    		<Section title={{ content: "icon", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<PropSection title="icon" type="React Node" defaultValue="{{default}}">
     			<p>
     				Icon to display with the tab item
     			</p>
-    		</Section>
+    		</PropSection>
 
-    		<Section title={{ content: "stateIcon", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<PropSection title="stateIcon" type="string" defaultValue="{{default}}">
     			<p>
     				An icon representing the state of the item, it accepts one of the following values:
     				<List>
@@ -65,9 +59,9 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     					<span label="CheckAlt" />
     				</List>
     			</p>
-    		</Section>
+    		</PropSection>
 
-    		<Section title={{ content: "stateIconColor", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<PropSection title="stateIconColor" type="string" defaultValue="{{default}}">
     			<p>
     				The color of the <Code small={true}>stateIcon</Code>, it accepts one of the following values:
     				<List>
@@ -78,9 +72,9 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     					<span label="critical" />
     				</List>
     			</p>
-    		</Section>
+    		</PropSection>
 
-    		<Section title={{ content: "isDisabled", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<PropSection title="isDisabled" type="boolean" defaultValue="{{default}}">
     			<p>
     				The color of the <Code small={true}>stateIcon</Code>, it accepts one of the following values:
     				<List>
@@ -91,13 +85,13 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     					<span label="critical" />
     				</List>
     			</p>
-    		</Section>
+    		</PropSection>
 
-    		<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<PropSection title="children" type="React Node" defaultValue="{{default}}">
     			<p>
     				Content of tab item
     			</p>
-    		</Section>
+    		</PropSection>
     	</Section>
 
     	<Section title="TabPanel" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
@@ -105,11 +99,11 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		This component represents the container for tab panels
     	</p>
 
-    		<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<PropSection title="children" type="React Node" defaultValue="{{default}}">
     			<p>
     				Content of the compoennt
     			</p>
-    		</Section>
+    		</PropSection>
     	</Section>
 
     	<Section title="TabPanelItem" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
@@ -117,17 +111,17 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		Represents a single tab panel in a tabbed interface
     	</p>
 
-    		<Section title={{ content: "id", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<PropSection title="id" type="string" defaultValue="{{default}}">
     			<p>
     				Unique id for the tab panel
     			</p>
-    		</Section>
+    		</PropSection>
 
-    		<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    		<PropSection title="children" type="React Node" defaultValue="{{default}}">
     			<p>
     				Content of the tab panel
     			</p>
-    		</Section>
+    		</PropSection>
     	</Section>
 
 </Section>

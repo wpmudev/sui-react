@@ -25,7 +25,7 @@ export interface AdvancedBannerBasePros
 	/**
 	 * Customizes the display of the Banner
 	 */
-	variation: "plugin" | "hub" | "newsletter" | "black-friday"
+	variation?: "plugin" | "hub" | "newsletter" | "black-friday"
 	/**
 	 * Custon css className(s)
 	 */
@@ -45,7 +45,7 @@ type AdvancedBannerBlackFridayProps = {
 	/**
 	 * Black Friday Variation
 	 */
-	variation: "plugin" | "hub" | "newsletter" | "black-friday"
+	variation?: "plugin" | "hub" | "newsletter" | "black-friday"
 	/**
 	 * Represents the percentage value of a the discount applied
 	 */

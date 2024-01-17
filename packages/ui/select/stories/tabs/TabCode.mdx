@@ -1,97 +1,58 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-select" />
 
 <Section title="Props" border={true}>
-	<Section
-		title={{ content: "id*", tag: "string", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="id*" type="string" defaultValue="{{default}}">
 		<p>A unique identifier for the select</p>
-	</Section>
+	</PropSection>
 
-    <Section
-    	title={{ content: "options*", tag: "Array", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="options*" type="Array" defaultValue="{{default}}">
     	<p>An array of options to be included in the select, each element is an object with a key as a string and value of any type </p>
-    </Section>
+    </PropSection>
 
-     <Section
-    	title={{ content: "selected", tag: "Array | string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+     <PropSection title="selected" type="Array | string" defaultValue="{{default}}">
     	<p>Currently selected option</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "className", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="className" type="string" defaultValue="{{default}}">
     	<p>Additional css className(s) for further customization</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "label", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="label" type="string" defaultValue="{{default}}">
     	<p>The label represents the placeholder for the select element</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "isDisabled", tag: "boolean", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="isDisabled" type="boolean" defaultValue="{{default}}">
     	<p>When set to <Code small={true}>true</Code> the select will be non-interactive</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "isSmall", tag: "boolean", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="isSmall" type="boolean" defaultValue="{{default}}">
     	<p>When set to <Code small={true}>true</Code> the select will have a smaller size</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "isError", tag: "boolean", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="isError" type="boolean" defaultValue="{{default}}">
     	<p>Whether the select is an error state or not, when the select is in an error state it will have a red border</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "isMultiselect", tag: "boolean", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="isMultiselect" type="boolean" defaultValue="{{default}}">
     	<p>Set this to <Code small={true}>true</Code> if you want to use the multiselect variation</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "isSearchable", tag: "boolean", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="isSearchable" type="boolean" defaultValue="{{default}}">
     	<p>Set this to <Code small={true}>true</Code> if you want to use the smart search variation variation</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "onChange*", tag: "function", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="onChange*" type="function" defaultValue="{{default}}">
     	<p>A callback function to be invoked upon the change of the option, the first parameter would be the new selected item(s)</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "onMouseEnter*", tag: "function", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="onMouseEnter*" type="function" defaultValue="{{default}}">
     	<p>A callback function to be invoked when the the mouse enters the select element</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "onMouseLeave*", tag: "function", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="onMouseLeave*" type="function" defaultValue="{{default}}">
     	<p>A callback function to be invoked when the the mouse leaves the select element</p>
-    </Section>
+    </PropSection>
 
 </Section>

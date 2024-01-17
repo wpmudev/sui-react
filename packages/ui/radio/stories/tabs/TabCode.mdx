@@ -1,49 +1,31 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-radio" />
 
 <Section title="Props" border={true}>
-	<Section
-		title={{ content: "id", tag: "string", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="id" type="string" defaultValue="{{default}}">
 		<p>Unique identifier for the radio</p>
-	</Section>
+	</PropSection>
 
-    <Section
-    	title={{ content: "label", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="label" type="string" defaultValue="{{default}}">
     	<p>The label text for the radio</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "description", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="description" type="string" defaultValue="{{default}}">
     	<p>Additional information about the radio</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "value", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="value" type="string" defaultValue="{{default}}">
     	<p>The value of the radio, This value represents the first parameter passed to the <Code small={true}>onChange</Code> function of the RadioGroup component discussted below</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "tag", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="tag" type="string" defaultValue="{{default}}">
     	<p>A tag associated with the radio button, this will appear in the right side of the label</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "isDisabled", tag: "boolean", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="isDisabled" type="boolean" defaultValue="{{default}}">
     	<p>Whether to disable the radio or not</p>
-    </Section>
+    </PropSection>
 
 </Section>
 
@@ -55,52 +37,52 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 	<p>Always Wrap the Radio component within this component, it has some essential props to change the variation and interact with the Radio changes </p>
 	<p>The RadioGroup component has the following props</p>
 
-	<Section title={{ content: "name*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+	<PropSection title="name*" type="string" defaultValue="{{default}}">
     	<p>
     		The name for the RadioGroup
     	</p>
-    </Section>
+    </PropSection>
 
-    <Section title={{ content: "isInline", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <PropSection title="isInline" type="boolean" defaultValue="{{default}}">
     	<p>
     		When set to <Code small={true}>true</Code> the radio elements will appear inline
     	</p>
-    </Section>
+    </PropSection>
 
-    <Section title={{ content: "children*", tag: 'ReactNode', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <PropSection title="children*" type="ReactNode" defaultValue="{{default}}">
     	<p>
     		The content of the RadioGroup
     	</p>
-    </Section>
+    </PropSection>
 
-    <Section title={{ content: "onChange*", tag: 'function', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <PropSection title="onChange*" type="function" defaultValue="{{default}}">
     	<p>
     		A callback function to be invoked upon the selection of one of the radio elements, the first parameter represents the <Code small={true}>value</Code> prop of the selected radio
     	</p>
-    </Section>
+    </PropSection>
 
-    <Section title={{ content: "defaultValue*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <PropSection title="defaultValue*" type="string" defaultValue="{{default}}">
     	<p>
     		Represnts the default selected radio value
     	</p>
-    </Section>
+    </PropSection>
 
-    <Section title={{ content: "isSmall*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <PropSection title="isSmall*" type="boolean" defaultValue="{{default}}">
     	<p>
     		Set this to <Code small={true}>true</Code> if you want to display the group in a smaller size
     	</p>
-    </Section>
+    </PropSection>
 
-    <Section title={{ content: "isDisabled*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <PropSection title="isDisabled*" type="boolean" defaultValue="{{default}}">
     	<p>
     		Set this to <Code small={true}>true</Code> to make all the radio elements within the group non-interactive
     	</p>
-    </Section>
+    </PropSection>
 
-    <Section title={{ content: "asBlock*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <PropSection title="asBlock*" type="boolean" defaultValue="{{default}}">
     	<p>
     		Whether to display each radio element as a block or not, a block appears as a standalone box with a border
     	</p>
-    </Section>
+    </PropSection>
 
 </Section>

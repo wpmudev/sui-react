@@ -1,13 +1,10 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '@wpmudev/sui-docs';
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from '@wpmudev/sui-docs';
 
 <PackageInstallGuide packageName="@wpmudev/sui-avatar" />
 
 <Section title="Props" border={true}>
 	<p>Avatar component have the following props.</p>
-	<Section
-		title={{ content: 'status*', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="status*" type="string" defaultValue="{{default}}">
 		<p>Reflects the status of the avatar.</p>
 		<p>Allowed options:</p>
 		<List>
@@ -40,27 +37,18 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '
 				}
 			/>
 		</List>
-	</Section>
-	<Section
-		title={{ content: 'isSmall*', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="isSmall*" type="string" defaultValue="{{default}}">
 		<p>When set to <Code small={true}>true</Code> the avatar will be smaller</p>
-	</Section>
-	<Section
-		title={{ content: 'image*', tag: 'object', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="image*" type="object" defaultValue="{{default}}">
 		<p>Reflects the profile image of the avatar. the object accepts two properties</p>
 		<List>
 			<span label={<><Code>src</Code> The image link</>} />
 			<span label={<><Code>alt</Code> The image alternative text</>} />
 		</List>
-	</Section>
-	<Section
-		title={{ content: 'className*', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="className*" type="string" defaultValue="{{default}}">
 		<p>A custom className(s) for the avatar</p>
-	</Section>
+	</PropSection>
 </Section>

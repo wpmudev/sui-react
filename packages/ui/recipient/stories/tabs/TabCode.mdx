@@ -1,25 +1,16 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-recipient" />
 
 <Section title="Props" border={true}>
 	<p>Recipient `component` have the following props.</p>
-	<Section
-		title={{ content: "userName", tag: "string", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="userName" type="string" defaultValue="{{default}}">
 		<p>The name of the recipient</p>
-	</Section>
-	<Section
-		title={{ content: "userEmail", tag: "string", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="userEmail" type="string" defaultValue="{{default}}">
 		<p>The email of the recipient</p>
-	</Section>
-	<Section
-		title={{ content: "userImage", tag: "object", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="userImage" type="object" defaultValue="{{default}}">
 		<p>The recipient's avatar or picture, the object has two keys:</p>
 		<List>
 			<span
@@ -37,11 +28,8 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 				}
 			/>
 		</List>
-	</Section>
-	<Section
-		title={{ content: "appearance", tag: "string", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="appearance" type="string" defaultValue="{{default}}">
 		<p>Reflects the theme of the recipient.</p>
 		<p>Allowed options:</p>
 		<List>
@@ -60,20 +48,14 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 				}
 			/>
 		</List>
-	</Section>
-	<Section
-		title={{ content: "isInvited", tag: "boolean", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="isInvited" type="boolean" defaultValue="{{default}}">
 		<p>
 			Reflects whether the user was already invited or not, if set to{" "}
 			<Code small={true}>true</Code>, a remove button will appear
 		</p>
-	</Section>
-	<Section
-		title={{ content: "status", tag: "string", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="status" type="string" defaultValue="{{default}}">
 		<p>Reflects the status of the invitation</p>
 		<p>Allowed options:</p>
 		<List>
@@ -81,5 +63,5 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 			<span label={<Code small={true}>not-accepted</Code>} />
 			<span label={<Code small={true}>not-connected</Code>} />
 		</List>
-	</Section>
+	</PropSection>
 </Section>

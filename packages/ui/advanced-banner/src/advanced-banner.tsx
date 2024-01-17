@@ -6,12 +6,12 @@ import { AdvancedBannerProps } from "./advanced-banner.types"
 
 // Build "advanced-banner" component
 const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
-	variation = "",
-	imageUrl = "",
+	variation = "plugin",
+	imageUrl = "https://placehold.co/100",
 	title = "Banner Title Goes Here",
 	description = "Banner Description Goes Here",
-	children = null,
-	helper = null,
+	children,
+	helper,
 	discountPercentage = "",
 	allowClose = true,
 	onClose = () => {},

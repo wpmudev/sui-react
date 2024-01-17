@@ -1,48 +1,33 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-color-picker" />
 
 <Section title="Props" border={true}>
 	<p>Color Picker Have the following components:</p>
-	<Section
-		title={{ content: "color*", tag: "string", small: true }}
-		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="color*" type="string" defaultValue="{{default}}">
 		<p>
 			The initial color value
 		</p>
-    </Section>
-    <Section
-    	title={{ content: "onChange*", tag: "function", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    </PropSection>
+    <PropSection title="onChange*" type="function" defaultValue="{{default}}">
     	<p>
     		A callback function that will be invoked when the color is changed and applied, The first parameter <Code isSmall={true}> color </Code> represnts the new color string
     	</p>
-    </Section>
-    <Section
-    	title={{ content: "type*", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    </PropSection>
+    <PropSection title="type*" type="string" defaultValue="{{default}}">
     	<p>The type of the Color Picker, It accepts one of the following options:</p>
     	<List>
     		<span label={<Code small={true}>hex</Code>} />
     		<span label={<Code small={true}>rgb</Code>} />
     	</List>
-    </Section>
+    </PropSection>
 
-     <Section
-    	title={{ content: "onColorChange*", tag: "function", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+     <PropSection title="onColorChange*" type="function" defaultValue="{{default}}">
     	<p>A callback function that will be invoked when the user picks a new color, The first parameter <Code isSmall={true}> color </Code> represnts the new color string</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "onApplyButton*", tag: "function", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="onApplyButton*" type="function" defaultValue="{{default}}">
     	<p>A callback function that will be invoked when the user clicks on the Apply button, The first parameter <Code isSmall={true}> event </Code> represnts the click event object</p>
-    </Section>
+    </PropSection>
 
 </Section>

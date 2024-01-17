@@ -1,19 +1,13 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-code-editor" />
 
 <Section title="Props" border={true}>
-    <Section
-    	title={{ content: "filename", tag: 'string', small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="filename" type="string" defaultValue="{{default}}">
     	<p>The file name that appears on top of the editor</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "language", tag: 'string', small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="language" type="string" defaultValue="{{default}}">
     	<p>The programming language of the code snippet</p>
     	<p>Allowed Options:</p>
     	<List>
@@ -22,41 +16,26 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		<span label={<Code small={true}>css</Code>} />
     		<span label={<Code small={true}>JavaScript</Code>} />
     	</List>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "allowCopy", tag: 'boolean', small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="allowCopy" type="boolean" defaultValue="{{default}}">
     	<p>When set to <Code small={true}>true</Code>, the code editor will feature a button in the upper-right corner, enabling the copying of code snippet.</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "displayLineNumbers", tag: 'boolean', small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="displayLineNumbers" type="boolean" defaultValue="{{default}}">
     	<p>If set to <Code small={true}>true</Code>, the line numbers will appear</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "readOnly", tag: 'boolean', small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="readOnly" type="boolean" defaultValue="{{default}}">
     	<p>When set to <Code small={true}>true</Code>, the code snippet won't be editable</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "className", tag: 'string', small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="className" type="string" defaultValue="{{default}}">
     	<p>Custom css className(s)</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "children", tag: 'React Node', small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="children" type="React Node" defaultValue="{{default}}">
     	<p>Content of the code editor, this is the code snippet itself</p>
-    </Section>
+    </PropSection>
 
 </Section>

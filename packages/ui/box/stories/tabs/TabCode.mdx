@@ -1,118 +1,66 @@
-import { Section, Row, Col, Table, List, Code, Tag } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
-<Section
-	title="Installation"
-	contained={true}
-	style={{ paddingTop: 20, paddingBottom: 0 }}
->
-	<p>
-		Install the <Code small={true}>Box</Code> package as an individual
-		component or follow the Overview page instructions to get the complete SUI
-		Components package.
-	</p>
-</Section>
+<PackageInstallGuide packageName="@wpmudev/sui-box" />
 
 <Section title="Box Props" border={true}>
-    	<Section
-    		title={{ content: "title", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="title" type="string" defaultValue="{{default}}">
     		<p>The title of the box.</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "icon", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="icon" type="string" defaultValue="{{default}}">
     		<p>Hide icon on the mobile view.</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "hideMobileIcon", tag: 'boolean', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="hideMobileIcon" type="boolean" defaultValue="{{default}}">
     		<p>Hide icon on the mobile view.</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "headerLeft", tag: 'ReactNode | string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="headerLeft" type="ReactNode | string" defaultValue="{{default}}">
     		<p>The content for the left header section of the box.</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "headerRight", tag: 'React Node | string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="headerRight" type="React Node | string" defaultValue="{{default}}">
     		<p>The content for the right header section of the box.</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "style", tag: 'object', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="style" type="object" defaultValue="{{default}}">
     		<p>Box inline styles </p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "isSmall", tag: 'boolean', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="isSmall" type="boolean" defaultValue="{{default}}">
     		<p>Make box small.</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "className", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="className" type="string" defaultValue="{{default}}">
     		<p>Custom css class Name(s) </p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "children", tag: 'React Node', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
     		<p>The content of the field, it could be any form element </p>
-    	</Section>
+    	</PropSection>
 
 </Section>
 
 
 <Section title="BoxGroup Props" border={true}>
-	<Section
-		title={{ content: "isInline", tag: 'boolean', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="isInline" type="boolean" defaultValue="{{default}}">
 		<p>Whether the boxes should be displayed inline or not.</p>
-	</Section>
+	</PropSection>
 
-	<Section
-		title={{ content: "isHeader", tag: 'boolean', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="isHeader" type="boolean" defaultValue="{{default}}">
 		<p>Whether the boxes should be displayed as box header.</p>
-	</Section>
+	</PropSection>
 
-	<Section
-		title={{ content: "isFooter", tag: 'boolean', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="isFooter" type="boolean" defaultValue="{{default}}">
 		<p>Whether the boxes should be displayed as footer.</p>
-	</Section>
+	</PropSection>
 
-	<Section
-		title={{ content: "style", tag: 'object', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="style" type="object" defaultValue="{{default}}">
 		<p>Box inline styles </p>
-	</Section>
+	</PropSection>
 
-	<Section
-		title={{ content: "children", tag: 'React Node', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="children" type="React Node" defaultValue="{{default}}">
 		<p>The content of the field, it could be any form element </p>
-	</Section>
+	</PropSection>
 
 </Section>

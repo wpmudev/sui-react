@@ -1,4 +1,4 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '@wpmudev/sui-docs';
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from '@wpmudev/sui-docs';
 
 <PackageInstallGuide packageName="@wpmudev/sui-tooltip" />
 
@@ -9,17 +9,11 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '
 	<p>
 		We compose the props into two categories, the first category is for the props of the button and the second for the tooltip.
 	</p>
-	<Section title="Button Props">
-		<Section
-			title={{ content: 'label', tag: 'string', small: true }}
-			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-		>
+	<Section title="Button Props" style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+		<PropSection title="label" type="string" defaultValue="{{default}}">
 			<p>Text content of the button</p>
-		</Section>
-		<Section
-			title={{ content: 'type', tag: 'string', small: true }}
-			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		<PropSection title="type" type="string" defaultValue="{{default}}">
 			<p>
 				The type of the button, leave it empty when you want to use the default type
 			</p>
@@ -47,62 +41,41 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '
 					}
 				/>
 			</List>
-		</Section>
-		<Section
-			title={{ content: 'href', tag: 'string', small: true }}
-			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		<PropSection title="href" type="string" defaultValue="{{default}}">
 			<p>Button url when the type is set to link <Code small={true}>link</Code></p>
-		</Section>
-		<Section
-			title={{ content: 'onClick', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		<PropSection title="onClick" type="function" defaultValue="{{default}}">
 			<p>
 				A callback function for click event
 			</p>
-		</Section>
-		<Section
-			title={{ content: 'onMouseEnter', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		<PropSection title="onMouseEnter" type="function" defaultValue="{{default}}">
 			<p>
 				A callback function to be triggered when the mouse pointer moves over the button
 			</p>
-		</Section>
-		<Section
-			title={{ content: 'onMouseLeave', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		<PropSection title="onMouseLeave" type="function" defaultValue="{{default}}">
 			<p>
 				A callback function to be triggered when the mouse pointer exits the button
 			</p>
-		</Section>
-		<Section
-			title={{ content: 'onFocus', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		<PropSection title="onFocus" type="function" defaultValue="{{default}}">
 			<p>
 				This function is called when the button receives keyboard focus, typically used to enhance accessibility.
 			</p>
-		</Section>
-		<Section
-			title={{ content: 'onBlur', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		<PropSection title="onBlur" type="function" defaultValue="{{default}}">
 			<p>
 				This function is called when the button loses keyboard focus.
 			</p>
-		</Section>
+		</PropSection>
 		<p>In addition to these props you can use any prop that the <a href="/?path=/docs/sui-components-core-button--docs" target="_blank">Button Component</a> accepts</p>
 	</Section>
 
 
-	<Section title="Tooltip props">
-		<Section
-			title={{ content: 'position', tag: 'string', small: true }}
-			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-		>
+	<Section title="Tooltip props" style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+		<PropSection title="position" type="string" defaultValue="{{default}}">
 			<p>
 				A tooltip can be placed at the top, bottom, left, or right of the
 				button.
@@ -206,36 +179,24 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '
 					}
 				/>
 			</List>
-		</Section>
-		<Section
-			title={{ content: 'className', tag: 'string', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		<PropSection title="className" type="string" defaultValue="{{default}}">
 			<p>Custom css classNames(s) to be added to the tooltip</p>
-		</Section>
-		<Section
-			title={{ content: 'customWidth', tag: 'number', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		<PropSection title="customWidth" type="number" defaultValue="{{default}}">
 			<p>
 				Add a fixed width to the tooltip
 			</p>
-		</Section>
-		<Section
-			title={{ content: 'customMobileWidth', tag: 'number', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		<PropSection title="customMobileWidth" type="number" defaultValue="{{default}}">
 			<p>
 				A fixed width for mobile
 			</p>
-		</Section>
-		<Section
-			title={{ content: 'children', tag: 'React Node', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		<PropSection title="children" type="React Node" defaultValue="{{default}}">
 			<p>
 				A fixed width for mobile
 			</p>
-		</Section>
+		</PropSection>
 	</Section>
 </Section>

@@ -1,13 +1,10 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-spinner" />
 
 <Section title="Props" border={true}>
 
-		<Section
-    		title={{ content: "color*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+		<PropSection title="color*" type="string" defaultValue="{{default}}">
     		<p>The spinner color</p>
     		<p>
     		Allowed options:
@@ -16,12 +13,9 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 					<span label={<Code small={true}>dark</Code>} />
     			</List>
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "size", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="size" type="string" defaultValue="{{default}}">
     		<p>Size for the spinner</p>
     		<p>
     		Allowed options:
@@ -30,14 +24,11 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 					<span label={<><Code small={true}>sm</Code> For a small spinner </>} />
     			</List>
     		</p>
-    	</Section>
+    	</PropSection>
 
-		<Section
-    		title={{ content: "isAbsolute", tag: 'boolean', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+		<PropSection title="isAbsolute" type="boolean" defaultValue="{{default}}">
     		<p>Whether the spinner should be absolutely positioned</p>
-    	</Section>
+    	</PropSection>
 
 </Section>
 
@@ -50,29 +41,29 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 
 	The <Code small={true}> useSpinner </Code> hook have two parameters:
 
-    <Section title={{ content: "targetRef*", tag: 'Ref Object', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <PropSection title="targetRef*" type="Ref Object" defaultValue="{{default}}">
 		The referance object of the React element where the spinner will cover as an overlay
-    </Section>
+    </PropSection>
 
-	<Section title={{ content: "props*", tag: 'object', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+	<PropSection title="props*" type="object" defaultValue="{{default}}">
 		The props to be passed to the actual spinner component in the overlay, the object accepts two properties:
 		<List>
 			<span label={<Code small={true}>color</Code>} />
 			<span label={<Code small={true}>size*</Code>} />
 		</List>
-    </Section>
+    </PropSection>
 
 	<p>The hook, returns an object which has properties to control and check the spinner state: </p>
-	<Section title={{ content: "isVisible*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+	<PropSection title="isVisible*" type="boolean" defaultValue="{{default}}">
 		A variable showing the current display state
-    </Section>
+    </PropSection>
 
-	<Section title={{ content: "show*", tag: 'function', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+	<PropSection title="show*" type="function" defaultValue="{{default}}">
 		A function to show the spinner
-    </Section>
+    </PropSection>
 
-	<Section title={{ content: "hide*", tag: 'function', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+	<PropSection title="hide*" type="function" defaultValue="{{default}}">
 		A function to hide the spinner
-    </Section>
+    </PropSection>
 
 </Section>

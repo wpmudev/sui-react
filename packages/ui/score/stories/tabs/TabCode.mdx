@@ -1,30 +1,18 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '@wpmudev/sui-docs';
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from '@wpmudev/sui-docs';
 
 <PackageInstallGuide packageName="@wpmudev/sui-score" />
 
 <Section title="Props" border={true}>
-	<Section
-		title={{ content: 'bar', tag: 'number', small: true }}
-		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="bar" type="number" defaultValue="{{default}}">
 		<p>The length of the score bar to be displayed. it accepts integers from <Code small={true}>0</Code> to <Code small={true}>100</Code> </p>
-	</Section>
-	<Section
-		title={{ content: 'value', tag: 'number', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="value" type="number" defaultValue="{{default}}">
 		<p>Reflects the value of the score which will be shown as a label beside the score.</p>
-	</Section>
-	<Section
-		title={{ content: 'content', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="content" type="string" defaultValue="{{default}}">
 		<p>A text to be shown beside the value</p>
-	</Section>
-	<Section
-		title={{ content: 'state', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="state" type="string" defaultValue="{{default}}">
 		<p>
 			Depending on the task's requirements, particular task conditions
 			can change the score type.
@@ -61,23 +49,14 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '
 				}
 			/>
 		</List>
-	</Section>
-	<Section
-		title={{ content: 'isPercentage', tag: 'boolean', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="isPercentage" type="boolean" defaultValue="{{default}}">
 		<p>Places a percentage after the score text.</p>
-	</Section>
-	<Section
-		title={{ content: 'isSmall', tag: 'boolean', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="isSmall" type="boolean" defaultValue="{{default}}">
 		<p>If set to <Code small={true}> true </Code> the score will have a smaller size</p>
-	</Section>
-	<Section
-		title={{ content: 'className', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="className" type="string" defaultValue="{{default}}">
 		<p>Add a class name to the score.</p>
-	</Section>
+	</PropSection>
 </Section>

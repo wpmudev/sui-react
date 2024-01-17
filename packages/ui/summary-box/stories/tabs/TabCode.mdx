@@ -1,49 +1,31 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-summary-box" />
 
 <Section title="Props" border={true}>
-	<Section
-		title={{ content: "title*", tag: "string", small: true }}
-		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="title*" type="string" defaultValue="{{default}}">
 		<p>The title of the summary box</p>
-	</Section>
+	</PropSection>
 
-    <Section
-    	title={{ content: "icon", tag: "string", small: true }}
-    	style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="icon" type="string" defaultValue="{{default}}">
     	<p>The icon of the Summary Box</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "hideMobileIcon", tag: "boolean", small: true }}
-    	style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="hideMobileIcon" type="boolean" defaultValue="{{default}}">
     	<p>When set to <Code small={true}>true</Code> the icon will be hidden on mobile</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "primaryActions", tag: "Array | string", small: true }}
-    	style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="primaryActions" type="Array | string" defaultValue="{{default}}">
     	<p>Primary actions to be displayed in the header left, it can be either a string or an array of React elements</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "secondaryActions", tag: "Array | string", small: true }}
-    	style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="secondaryActions" type="Array | string" defaultValue="{{default}}">
     	<p>Secondary actions to be displayed in the header right, it can be either a string or an array of React elements</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "children", tag: "React Node", small: true }}
-    	style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="children" type="React Node" defaultValue="{{default}}">
     	<p>The content of the Summary Box</p>
-    </Section>
+    </PropSection>
 
 </Section>
 
@@ -61,29 +43,29 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		This component represents the body of the Summary Box, it's composed of two columns and it has the following props:
     	</p>
 
-    	<Section title={{ content: "summaryItems", tag: 'Array', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="summaryItems" type="Array" defaultValue="{{default}}">
     		<p>
     			A list of summary items. it accepts an array of React Nodes, Usually instances of <Code small={true}> SummaryBoxItem </Code> component
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "reverseBlocks", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="reverseBlocks" type="boolean" defaultValue="{{default}}">
     		<p>
     			If set to <Code small={true}>true</Code>, The columns of the body will be reversed placing the items first
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
     		<p>
     			The content of the right column
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "className", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="className" type="React Node" defaultValue="{{default}}">
     		<p>
     			Custom css className(s)
     		</p>
-    	</Section>
+    	</PropSection>
 
     </Section>
 
@@ -92,17 +74,17 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		This component represents the footer of the Summary Box.
     	</p>
 
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
     		<p>
     			Content of the footer
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "className", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="className" type="string" defaultValue="{{default}}">
     		<p>
     			Custom className(s) for the footer element
     		</p>
-    	</Section>
+    	</PropSection>
 
     </Section>
 
@@ -111,37 +93,37 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		This component represents an item in the list of summary items, it has the following props:
     	</p>
 
-    	<Section title={{ content: "title", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="title" type="React Node" defaultValue="{{default}}">
     		<p>
     			The title of the summary item
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "titleUrl", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="titleUrl" type="string" defaultValue="{{default}}">
     		<p>
     			The link url of the item
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "description", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="description" type="string" defaultValue="{{default}}">
     		<p>
     			The description of the Summary item
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "actionTitle", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="actionTitle" type="string" defaultValue="{{default}}">
     		<p>
     			The title of the action associated with the item
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "actionIcon", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="actionIcon" type="string" defaultValue="{{default}}">
     		<p>
     			The item action icon
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "actionState", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="actionState" type="string" defaultValue="{{default}}">
     		<p>
     			The state of the action in form of a color
     		</p>
@@ -156,13 +138,13 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     			<span label={<Code small={true}>black</Code>} />
     			<span label={<Code small={true}>navy</Code>} />
     		</List>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "className", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="className" type="string" defaultValue="{{default}}">
     		<p>
     			Custom css className(s)
     		</p>
-    	</Section>
+    	</PropSection>
 
     </Section>
 

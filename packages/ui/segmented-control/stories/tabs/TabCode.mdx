@@ -1,46 +1,31 @@
-import { Section, Code, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Code, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-segmented-control" />
 
 <Section title="Props" border={true}>
 
-    	<Section
-    		title={{ content: "name*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="name*" type="string" defaultValue="{{default}}">
     		<p>Name of the radio input elements.</p>
     		<p>Under the hood of the segmented control component, the options are input radio elements</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "defaultValue", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="defaultValue" type="string" defaultValue="{{default}}">
     		<p>The default selected value.</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "onChange", tag: 'function', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="onChange" type="function" defaultValue="{{default}}">
     		<p>A callback function triggered when the value of the segmented control changes. the first parameter is the new selected value</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "isFullWidth", tag: 'boolean', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="isFullWidth" type="boolean" defaultValue="{{default}}">
     		<p>A boolean indicating whether the segmented control should take full width</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "children*", tag: "React Node", small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="children*" type="React Node" defaultValue="{{default}}">
     		<p>
     			The child elements to be rendered inside the segmented control these are the individual segments.
     		</p>
-    	</Section>
+    	</PropSection>
 
 </Section>
 
@@ -55,35 +40,35 @@ import { Section, Code, PackageInstallGuide } from "@wpmudev/sui-docs"
     		This component represents an individual item or button for the segmented control component.
     	</p>
 
-    	<Section title={{ content: "value*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="value*" type="string" defaultValue="{{default}}">
     		<p>
     			The value associated with the button
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "icon", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="icon" type="string" defaultValue="{{default}}">
     		<p>
     			An optional Custom icon for the button, you can check the available icons on [sui-icons](https://github.com/wpmudev/sui-icons) package.
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "ariaLabel", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="ariaLabel" type="string" defaultValue="{{default}}">
     		<p>
     			Button label for accessibility purposes
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "isDisabled", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="isDisabled" type="boolean" defaultValue="{{default}}">
     		<p>
     			When set to <Code isSmall={true}>true</Code>, the button will be disabled
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
     		<p>
     			The child elements to be rendered inside
     		</p>
-    	</Section>
+    	</PropSection>
     </Section>
 
 </Section>

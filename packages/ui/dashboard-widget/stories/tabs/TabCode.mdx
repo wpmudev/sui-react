@@ -1,89 +1,53 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-dashboard-widget" />
 
 <Section title="Props" border={true}>
-	<Section
-		title={{ content: "title", tag: "string", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="title" type="string" defaultValue="{{default}}">
 		<p>The heading text of the widget</p>
-	</Section>
+	</PropSection>
 
-    <Section
-    	title={{ content: "description", tag: "React Node", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="description" type="React Node" defaultValue="{{default}}">
     	<p>A descriptive text that accompagnes the title </p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "icon", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="icon" type="string" defaultValue="{{default}}">
     	<p>The name of the icon to be displayed beside the title</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "actions", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="actions" type="string" defaultValue="{{default}}">
     	<p>Actions to be displayed in the footer</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "isExpanded", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="isExpanded" type="string" defaultValue="{{default}}">
     	<p>Whether the widget is initially expanded</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "isDisabled", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="isDisabled" type="string" defaultValue="{{default}}">
     	<p>When set to <Code small={true}>true</Code> the widget will be disabled</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "onToggle", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="onToggle" type="string" defaultValue="{{default}}">
     	<p>Callback function to be invoked when the widget's expand/collapse state changes.</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "canCollapse", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="canCollapse" type="string" defaultValue="{{default}}">
     	<p> When set to <Code small={true}>true</Code> the widget will have a toggle button that allows for changing its expansion state </p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "tag", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="tag" type="string" defaultValue="{{default}}">
     	<p> A text to be displayed as a tag beside the title </p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "tagProps", tag: "object", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="tagProps" type="object" defaultValue="{{default}}">
     	<p> Add additional customization to the tag, the object accepts <a href="/?path=/docs/sui-components-core-tag--docs" target="_blank">the tag</a> props as keys </p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "statusIcon", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="statusIcon" type="string" defaultValue="{{default}}">
     	<p> An icon to show the status of the widget</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "statusProps", tag: "object", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="statusProps" type="object" defaultValue="{{default}}">
     	<p>Use this prop to customize the color of the status icon, the object has one key <Code small={true}>color</Code>, and it accepts the following values</p>
     	<p>Allowed Options</p>
     	<List>
@@ -93,20 +57,14 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		<span label="warning" />
     		<span label="critical" />
     	</List>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "children", tag: "React Node", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="children" type="React Node" defaultValue="{{default}}">
     	<p>The content of the widget</p>
-    </Section>
+    </PropSection>
 
-     <Section
-    	title={{ content: "actions", tag: "React Node", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+     <PropSection title="actions" type="React Node" defaultValue="{{default}}">
     	<p>Action buttons to be displayed in the footer</p>
-    </Section>
+    </PropSection>
 
 </Section>

@@ -1,27 +1,18 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-password-field" />
 
 <Section title="Props" border={true}>
 
-    	<Section
-    		title={{ content: "id*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="id*" type="string" defaultValue="{{default}}">
     		<p>A unique identifier for the password field</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "placholder*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="placholder*" type="string" defaultValue="{{default}}">
     		<p>A placholder for the password field</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "button*", tag: 'object', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="button*" type="object" defaultValue="{{default}}">
     		<p> Specifies the button type for showing and hiding the password. </p>
     		<p> button is an object that has a single property: <Code small={true}>type</Code> </p>
     		<p> Allowed values for the type property: </p>
@@ -29,20 +20,14 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     			<span label={<><Code small={true}>icon-button</Code> displays an icon button </>} />
     			<span label={<><Code small={true}>standard</Code> displays a text button instead ( show & hide ) </>} />
     		</List>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "isSmall", tag: 'boolean', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="isSmall" type="boolean" defaultValue="{{default}}">
     		<p> When set to <Code small={true}> true </Code> the field will be smaller </p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "isDisabled*", tag: 'boolean', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="isDisabled*" type="boolean" defaultValue="{{default}}">
     		<p> Indicates whether the field is disabled. </p>
-    	</Section>
+    	</PropSection>
 
 </Section>

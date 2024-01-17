@@ -1,12 +1,9 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-navigation" />
 
 <Section title="Props" border={true}>
-	<Section
-		title={{ content: "brand", tag: "object", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="brand" type="object" defaultValue="{{default}}">
 		<p>
 			Brand information, this represents one of our plugins, the object accepts
 			the following keys
@@ -30,12 +27,9 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 				/>
 			</List>
 		</p>
-	</Section>
+	</PropSection>
 
-    <Section
-    	title={{ content: "user", tag: "object", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="user" type="object" defaultValue="{{default}}">
     	<p>
     		The user information, it accepts two keys
     	</p>
@@ -57,16 +51,13 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     			/>
     		</List>
     	</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "children", tag: "object", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="children" type="object" defaultValue="{{default}}">
     	<p>
     		The content of the navigation, usually menu items and buttons
     	</p>
 
-    </Section>
+    </PropSection>
 
 </Section>

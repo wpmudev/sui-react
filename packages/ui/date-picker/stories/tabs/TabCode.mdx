@@ -1,13 +1,10 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-date-picker" />
 
 <Section title="Props" border={true}>
 
-    	<Section
-    		title={{ content: "type*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="type*" type="string" defaultValue="{{default}}">
     		<p>Specifies the type of the DatePicker </p>
     		<p>
     		Allowed options:
@@ -16,57 +13,36 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     				<span label={<Code small={true}>range</Code>} />
     			</List>
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "minDate", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="minDate" type="string" defaultValue="{{default}}">
     		<p>Minimum selectable date</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "maxDate", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="maxDate" type="string" defaultValue="{{default}}">
     		<p>Maximum selectable date</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "isDisabled", tag: 'boolean', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="isDisabled" type="boolean" defaultValue="{{default}}">
     		<p>When set to <Code small={true}>true</Code> the date picker will be disabled</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "startDate", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="startDate" type="string" defaultValue="{{default}}">
     		<p>The initial date value </p>
 
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "endDate", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="endDate" type="string" defaultValue="{{default}}">
     		<p>In the range Date Picker type, this represents the end date value </p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "onChange*", tag: 'function', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="onChange*" type="function" defaultValue="{{default}}">
     		<p>A callback function to be invoked when the date changes, the first parameter is the new selected date(s)  </p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "className", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="className" type="string" defaultValue="{{default}}">
     		<p>Additional css classname(s)</p>
-    	</Section>
+    	</PropSection>
 
 </Section>
 
