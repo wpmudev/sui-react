@@ -1,5 +1,9 @@
 import React, { forwardRef } from "react"
-import { InteractionTypes, useInteraction } from "@wpmudev/sui-hooks"
+import {
+	InteractionTypes,
+	useDefaultChildren,
+	useInteraction,
+} from "@wpmudev/sui-hooks"
 
 import {
 	isUndefined,
@@ -11,6 +15,8 @@ import {
 // Import required component(s).
 import { Label } from "./elements/button-label"
 import { Icon } from "./elements/button-icon"
+import { Loader } from "./elements/button-loader"
+
 import { ButtonProps } from "./button.types"
 
 // type ButtonProps = ButtonProps & InteractionTypes
@@ -25,8 +31,8 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			href,
 			target,
 			htmlFor,
-			appearance,
-			color,
+			appearance = "primary",
+			color = "blue",
 			isSmall = false,
 			isFullWidth = false,
 			isDisabled = false,
@@ -39,12 +45,21 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			iconOnly = false,
 			iconSize = "sm",
 			isResponsive = false,
+			isLoading = false,
 			...restProps
 		},
 		ref,
 	) => {
 		// base className
 		const baseClassName: string = "sui-button"
+
+		// Default children content
+		children = useDefaultChildren(children, "Button")
+
+		if (isLoading) {
+			isUnwrapped = true
+			children = <Loader>{children}</Loader>
+		}
 
 		// Manage interaction methods
 		const [isHovered, isFocused, interactionMethods] = useInteraction({
@@ -70,6 +85,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			[`${appearance}-${color}`]: !!appearance && !!color,
 			inline: iconOnly && !appearance,
 			responsive: isResponsive,
+			loading: isLoading,
 		}
 
 		const attrs = {
@@ -80,6 +96,8 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			// classname
 			className: generateCN(baseClassName, attrClasses, className ?? ""),
 			disabled: isDisabled,
+			"aria-busy": isLoading,
+			...(isLoading && { "aria-live": "polite" }),
 			"data-testid": "button",
 			// interaction methods
 			...(interactionMethods ?? {}),
@@ -96,12 +114,16 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 
 		return (
 			<TagName {...attrs}>
-				{(startIcon || icon) && <Icon name={startIcon ?? ""} size={iconSize} />}
+				{(startIcon || icon) && !isLoading && (
+					<Icon name={startIcon ?? ""} size={iconSize} />
+				)}
 				{isUnwrapped && children}
 				{!isUnwrapped && (
 					<Label {...(iconOnly && { hidden: true })}>{children}</Label>
 				)}
-				{isEndIcon && <Icon name={endIcon ?? ""} size={iconSize} />}
+				{isEndIcon && !isLoading && (
+					<Icon name={endIcon ?? ""} size={iconSize} />
+				)}
 			</TagName>
 		)
 	},

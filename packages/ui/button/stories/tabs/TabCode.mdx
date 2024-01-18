@@ -2,30 +2,17 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 
 <PackageInstallGuide packageName="@wpmudev/sui-button" />
 
-<Section>
-	<p>
-		The Button package provides 3 button components:
-	</p>
-	<List>
-		<span label={<><Code small={true}> Button </Code> This is the main button component and it is used by the other variations internally</>} />
-		<span label={<><Code small={true}> LoadingButton </Code> A button with a loading state </>} />
-		<span label={<><Code small={true}> ToggleButton </Code> This variation can be used in a group of related options. </>} />
-	</List>
+<Section title="Props" border={true}>
 
-	<p>
-		All three components share the same props of the base component and each variation has other props as explained below
-	</p>
-</Section>
-
-<Section title="Shared props" border={true}>
-
-	<PropSection title="href*" type="string" defaultValue="{{default}}">
+	<PropSection title="href" type="string">
 		<p>Link Url for the button</p>
 	</PropSection>
-	<PropSection title="htmlFor*" type="string" defaultValue="{{default}}">
+	
+	<PropSection title="htmlFor" type="string">
 		<p>Optional associated form element name for the button.</p>
 	</PropSection>
-	<PropSection title="appearance*" type="string" defaultValue="{{default}}">
+	
+	<PropSection title="appearance" type="string" defaultValue="primary">
 		<p>
 			The base styling to apply. It is empty by default to allow you keep
 			the markup and base styles but customize it in case is necessary.
@@ -55,7 +42,8 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			/>
 		</List>
 	</PropSection>
-	<PropSection title="color*" type="string" defaultValue="{{default}}">
+	
+	<PropSection title="color" type="string" defaultValue="blue">
 		<p>Color of the button</p>
 		<p>Allowed options:</p>
 		<List>
@@ -66,35 +54,44 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			<span label={<Code small={true}>white</Code>} />
 		</List>
 	</PropSection>
-	<PropSection title="isSmall*" type="boolean" defaultValue="{{default}}">
+	
+	<PropSection title="isSmall" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}>true</Code> the button will be small</p>
 	</PropSection>
-	<PropSection title="isDisabled*" type="boolean" defaultValue="{{default}}">
+	
+	<PropSection title="isDisabled*" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}>true</Code> the button will be disabled</p>
 	</PropSection>
-	<PropSection title="className*" type="string" defaultValue="{{default}}">
+	
+	<PropSection title="className" type="string">
 		<p>Custom css className(s) for the button</p>
 	</PropSection>
 
-	<PropSection title="startIcon*" type="string" defaultValue="{{default}}">
+	<PropSection title="startIcon*" type="string">
 		<p>An icon to be displayed before the label</p>
 	</PropSection>
-	<PropSection title="endIcon*" type="string" defaultValue="{{default}}">
+	
+	<PropSection title="endIcon*" type="string">
 		<p>An Icon to be displayed after the label</p>
 	</PropSection>
-	<PropSection title="target*" type="string" defaultValue="{{default}}">
+	
+	<PropSection title="target" type="string">
 		<p>Optional target window or frame to open the link.</p>
 	</PropSection>
-	<PropSection title="isFullWidth*" type="boolean" defaultValue="{{default}}">
+	
+	<PropSection title="isFullWidth" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}>true</Code> the button will have a full width</p>
 	</PropSection>
-	<PropSection title="isUnwrapped*" type="boolean" defaultValue="{{default}}">
+	
+	<PropSection title="isUnwrapped*" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}>true</Code> the button will be unwrapped from its container</p>
 	</PropSection>
-	<PropSection title="icon*" type="boolean" defaultValue="{{default}}">
+	
+	<PropSection title="icon" type="boolean">
 		<p>An icon to be displayed before the label</p>
 	</PropSection>
-	<PropSection title="iconSize*" type="string" defaultValue="{{default}}">
+	
+	<PropSection title="iconSize" type="string" defaultValue="sm">
 		<p>One of the following values to set a size for the icon</p>
 		<List>
 			<span label={<Code small={true}>sm</Code>} />
@@ -102,34 +99,20 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			<span label={<Code small={true}>lg</Code>} />
 		</List>
 	</PropSection>
-	<PropSection title="children*" type="React Node" defaultValue="{{default}}">
+	
+	<PropSection title="children" type="React Node" defaultValue="Button">
 		<p>The button text or any other React element</p>
 	</PropSection>
-	<PropSection title="iconOnly*" type="boolean" defaultValue="{{default}}">
+	
+	<PropSection title="iconOnly" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}> true </Code> the button will display the icon only</p>
 	</PropSection>
 
-	<PropSection title="isResponsive*" type="boolean" defaultValue="{{default}}">
-		<p>When set to <Code small={true}> true </Code> the button will be responsive</p>
+	<PropSection title="isResponsive" type="boolean" defaultValue="false">
+		<p>When set to <Code small={true}> true </Code> the label will be hidden in mobile devices</p>
 	</PropSection>
-</Section>
 
-<Section title="LoadingButton props" contained={true} border={true}>
-	<p>
-		The <Code small={true}>LoadingButton</Code> accepts all the shared props
-		and an optional <Code small={true}>isLoading</Code> prop.
-	</p>
-	<PropSection title="isLoading*" type="boolean" defaultValue="{{default}}">
-		<p> When set to <Code small={true}>true</Code> a spinner will be shown </p>
-	</PropSection>
-</Section>
-
-<Section title="ToggleButton props" contained={true}>
-	<p>
-		The <Code small={true}>ToggleButton</Code> accepts all the shared props
-		and an optional <Code small={true}>isSelected</Code> prop.
-	</p>
-	<PropSection title="isSelected*" type="boolean" defaultValue="{{default}}">
-		<p>When set to <Code small={true}> true </Code> the style changes to indicate that the button is selected</p>
+	<PropSection title="isLoading" type="boolean" defaultValue="false">
+		<p>When set to <Code small={true}> true </Code> a spinner will appear.</p>
 	</PropSection>
 </Section>
