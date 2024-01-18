@@ -1,5 +1,5 @@
 import { HTMLProps } from "react"
-
+import { AvatarProps } from "@wpmudev/sui-avatar"
 /**
  * Interface representing the properties of the recipient component component.
  */
@@ -22,7 +22,7 @@ interface RecipientProps extends HTMLProps<HTMLDivElement> {
 	/**
 	 * Reflects if the user is confirmed
 	 */
-	status?: string
+	status?: AvatarProps["status"]
 	/**
 	 * Reflects whether the user is invited or not.
 	 */
