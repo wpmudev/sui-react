@@ -20,10 +20,15 @@ import {
 import { Checkbox } from "./checkbox"
 
 // _CheckboxGroupInner is a component handling the behavior of a group of checkboxes
-const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
+const _CheckboxGroupInner = ({
+	hasSubItems,
+	title,
+	children,
+	commonCheckboxProps,
+	isInline,
+	id,
+}: _CheckboxGroupInnerProps) => {
 	// Destructure props for easier access
-	const { hasSubItems, title, children, commonCheckboxProps, isInline, id } =
-		props
 
 	// Track the first render of the component
 	const [isFirstRender, setIsFirstRender] = useState(true)
@@ -142,8 +147,8 @@ const _CheckboxGroupInner = (props: _CheckboxGroupInnerProps) => {
 const CheckboxGroup = ({
 	id,
 	children,
-	title = "",
-	hasSubItems = false,
+	title = "group title",
+	hasSubItems = true,
 	isInline = false,
 	commonCheckboxProps = {},
 	onChange = () => {},

@@ -54,7 +54,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 		const baseClassName: string = "sui-button"
 
 		// Default children content
-		children = useDefaultChildren(children, "Button")
+		children = useDefaultChildren(children, "button label")
 
 		if (isLoading) {
 			isUnwrapped = true
