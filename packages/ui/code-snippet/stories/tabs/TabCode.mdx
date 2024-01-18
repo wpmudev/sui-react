@@ -3,7 +3,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-code-snippet" />
 
 <Section title="Props" border={true}>
-	<PropSection title="language" type="string" defaultValue="{{default}}">
+	<PropSection title="language" type="string" defaultValue="javascript">
 		<p>The language for the code snippet for correct code highlighting</p>
 		<p>Allowed options:</p>
 		<List>
@@ -30,17 +30,17 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			/>
 		</List>
 	</PropSection>
-	<PropSection title="copy" type="string" defaultValue="{{default}}">
+	<PropSection title="copy" type="boolean" defaultValue="true">
 		<p>
 			If set to <Code small={true}>true</Code>, it will show a copy button to
 			copy the code. By default it is set to
 			<Code small={true}>true</Code>.
 		</p>
 	</PropSection>
-	<PropSection title="className" type="string" defaultValue="{{default}}">
+	<PropSection title="className" type="string">
 		<p>Add a class name to the code snippet.</p>
 	</PropSection>
-	<PropSection title="children*" type="React Node" defaultValue="{{default}}">
+	<PropSection title="children" type="React Node">
 		<p>The content of the code Snippet</p>
 	</PropSection>
 </Section>
