@@ -146,7 +146,7 @@ interface BuilderWrapperProps {
 	/**
 	 * Required children content as a React node.
 	 */
-	children: React.ReactNode
+	children?: React.ReactNode
 }
 
 export type {

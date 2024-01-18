@@ -23,6 +23,14 @@ export default {
 
 // Build footer story
 const Builder = ({ ...props }) => {
+	return (
+		<SuiBuilder>
+			<BuilderWrapper>
+				<BuilderField />
+			</BuilderWrapper>
+		</SuiBuilder>
+	)
+
 	const actionButton = (
 		<Dropdown
 			buttonIcon="Settings"

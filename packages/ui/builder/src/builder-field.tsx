@@ -12,16 +12,16 @@ import { BuilderFieldProps } from "./builder.types"
 const BuilderField: React.FC<BuilderFieldProps> = ({
 	columnSize = 12,
 	icon,
-	title = "",
-	subTitle = "",
+	title = "Field Title",
+	subTitle,
 	className,
 	action,
 	imgUrl,
-	customContent = null,
+	customContent,
 	allowDrag = true,
 	isDragging = false,
 	hasError = false,
-	children = null,
+	children,
 	onClick = () => {},
 	...props
 }) => {
