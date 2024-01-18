@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useId, useState } from "react"
 
 import { ColorPickerProps } from "./color-picker.types"
 import { Button } from "@wpmudev/sui-button"
@@ -21,17 +21,23 @@ import { generateCN } from "@wpmudev/sui-utils"
  */
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
-	id = "color-picker",
+	id,
 	color = "",
 	onChange,
 	placeholder = "Select color",
 	isError = false,
 	isDisabled = false,
+	type = "hex",
+	onApplyButton = () => null,
 	...props
 }) => {
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
 	const [tempColor, setTempColor] = useState(color)
+
+	const uniqueId = useId()
+
+	id = id || uniqueId
 
 	// Update tempColor when color prop value changes
 	useEffect(() => {
@@ -137,6 +143,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					color={tempColor}
 					onColorChange={handleColorChange}
 					onApplyButton={handleColorApply}
+					type={type}
 					{...props}
 				/>
 			)}

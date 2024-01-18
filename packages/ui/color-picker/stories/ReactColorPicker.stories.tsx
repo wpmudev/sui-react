@@ -62,6 +62,7 @@ const ColorPicker = ({
 							color={currentColor}
 							onChange={setCurrentColor}
 							isDisabled={isDisabled}
+							isError={isError}
 							{...props}
 						/>
 					</FormField>
@@ -79,6 +80,7 @@ ColorPicker.args = {
 	isError: false,
 	isDisabled: false,
 	errorMessage: "",
+	placeholder: "Select color",
 }
 
 // Set controls for story arguments.

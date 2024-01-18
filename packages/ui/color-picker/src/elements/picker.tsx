@@ -35,7 +35,7 @@ const customPointer = (): ReactNode | undefined => {
 
 const Picker: React.FC<ColorPickerPickerProps> = ({
 	color = "",
-	type = "hex",
+	type,
 	onColorChange = () => null,
 	onApplyButton,
 }) => {
