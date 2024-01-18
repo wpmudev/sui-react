@@ -7,6 +7,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 
 import { CodeEditorProps } from "./code-editor.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 /**
  * CodeEditor Component
@@ -18,12 +19,12 @@ import { CodeEditorProps } from "./code-editor.types"
  * @return {JSX.Element} - JSX Element representing the CodeEditor component
  */
 const CodeEditor: React.FC<CodeEditorProps> = ({
-	filename = "",
-	language = "markup",
+	filename = "App.js",
+	language = "javascript",
 	allowCopy = true,
 	readOnly = false,
 	displayLineNumbers = true,
-	className = "",
+	className,
 	children,
 }) => {
 	// Generate class names
@@ -37,6 +38,8 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 	const [isCopied, setIsCopied] = useState<boolean>(false)
 
 	const [code, setCode] = React.useState("")
+
+	children = useDefaultChildren(children)
 
 	useEffect(() => {
 		// Set code after a slight delay to prevent flickering
