@@ -9,11 +9,11 @@ interface FieldListProps {
 	/**
 	 * The label for the field list.
 	 */
-	label: string
+	label?: string
 	/**
 	 * The helper text for the field list.
 	 */
-	helper: string
+	helper?: string
 	/**
 	 * The content of the field list.
 	 */
@@ -31,7 +31,7 @@ interface FieldListItemProps extends ToggleProps {
 	/**
 	 * The ID for the field list item.
 	 */
-	id: string
+	id?: string
 	/**
 	 * Callback function when toggled
 	 */

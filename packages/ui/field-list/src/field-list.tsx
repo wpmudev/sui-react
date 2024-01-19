@@ -2,10 +2,11 @@ import React, { Children, cloneElement, ReactElement, useCallback } from "react"
 
 // Import required components
 import { FieldListItemProps, FieldListProps } from "./field-list.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 // Build "field list" component
 const FieldList: React.FC<FieldListProps> = ({
-	label,
+	label = "label",
 	helper,
 	children,
 	onToggle = () => null,
@@ -16,6 +17,12 @@ const FieldList: React.FC<FieldListProps> = ({
 			onToggle(id, checked)
 		},
 		[onToggle],
+	)
+
+	// Default children content
+	children = useDefaultChildren(
+		children,
+		<>{`{field List children content}`}</>,
 	)
 
 	return (

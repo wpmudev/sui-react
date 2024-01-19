@@ -3,19 +3,19 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-field-list" />
 
 <Section title="Props" border={true}>
-    	<PropSection title="label*" type="string" defaultValue="{{default}}">
+    	<PropSection title="label" type="string" defaultValue="label">
     		<p>Represents the title of the Field List</p>
     	</PropSection>
 
-    	<PropSection title="helper*" type="string" defaultValue="{{default}}">
+    	<PropSection title="helper" type="string">
     		<p>Represents the helper text</p>
     	</PropSection>
 
-    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>The content of the Field List</p>
     	</PropSection>
 
-    	<PropSection title="onToggle" type="function" defaultValue="{{default}}">
+    	<PropSection title="onToggle" type="function">
     		<p>A callback function to be invoked when one of the fields state changes, it has two parameters:</p>
     		<List>
     			<span label={<><Code small={true}>id</Code> id of the switched toggle</>} />
@@ -37,27 +37,27 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		This component represents an individual item in the Field List and it has the following properties:
     	</p>
 
-    	<PropSection title="id*" type="string" defaultValue="{{default}}">
+    	<PropSection title="id" type="string">
     		<p>
     			A unique identifier for the item
     		</p>
     	</PropSection>
 
-    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>
     			The content of the item, usually a string
     		</p>
     	</PropSection>
 
-    	<PropSection title="onToggle" type="function" defaultValue="{{default}}">
+    	<PropSection title="onToggle" type="function">
     		<p>A callback function to be invoked when one of the fields state changes, it has two parameters:</p>
     		<List>
-    			<span label={<><Code small={true}>id</Code> id of the switched toggle</>} />
-    			<span label={<><Code small={true}>checked</Code> A boolean value indicating the new state of the changed toggle</>} />
+    			<span label={<><Code small={true}>id*</Code> id of the switched toggle</>} />
+    			<span label={<><Code small={true}>checked*</Code> A boolean value indicating the new state of the changed toggle</>} />
     		</List>
     	</PropSection>
 
-    	<PropSection title="isChecked" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isChecked" type="boolean" defaultValue="false">
     		<p>The state of the toggle</p>
     	</PropSection>
 

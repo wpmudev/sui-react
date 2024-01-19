@@ -24,6 +24,11 @@ const FieldList = ({ ...args }: { label: string; helper: string }) => {
 	const [list, setList] = useState({})
 
 	return (
+		<SuiFieldList>
+			<FieldListItem />
+		</SuiFieldList>
+	)
+	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<SuiFieldList
