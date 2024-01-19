@@ -2,6 +2,7 @@ import React from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 import { EmptyStateProps } from "./empty-state.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 /**
  * Component for displaying an empty state message with an optional logo.
@@ -19,6 +20,9 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 
 	// Determine whether the logo is an image (string representing URL) or an HTML/SVG element.
 	const isImg = "string" === typeof logo
+
+	// Default children content
+	children = useDefaultChildren(children)
 
 	return (
 		<div className={classNames} {...props}>
