@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({
 	links,
 	socialLinks,
 	renderBlocks,
-	removeBGColor,
+	removeBGColor = false,
 	className,
 }) => {
 	let blocks: React.ReactNode[] = []

@@ -4,26 +4,32 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 
 <Section title="Props" border={true}>
 
-    	<PropSection title="links" type="array" defaultValue="{{default}}">
+    	<PropSection title="links" type="array">
     		<p>Links to be displayed in the footer, each item in the array is an object with the following keys</p>
     		<List>
     			<span label={<><Code small={true}>url</Code> The url of of the link</>} />
     			<span label={<><Code small={true}>title</Code> The link text</>} />
     		</List>
-
     	</PropSection>
 
-    	<PropSection title="socialLinks" type="array" defaultValue="{{default}}">
+    	<PropSection title="socialLinks" type="array">
     		<p>The social links to be displayed in the footer, each item in the array is an object with the following keys:</p>
     		<List>
     			<span label={<><Code small={true}>url</Code> The url to the social account or page</>} />
     			<span label={<><Code small={true}>type</Code> could be one of three values: facebook, twitter, instagram</>} />
     		</List>
-
     	</PropSection>
 
-    	<PropSection title="renderBlocks" type="function" defaultValue="{{default}}">
+    	<PropSection title="renderBlocks" type="function">
     		<p>A function to render additional content for the footer</p>
+    	</PropSection>
+
+		<PropSection title="removeBGColor" type="boolean" defaultValue="false">
+    		<p>When set to <Code isSmall={true}>true</Code>, the footer will have a transparent background</p>
+    	</PropSection>
+
+		<PropSection title="className" type="string">
+    		<p>Custom css className(s) for further styling</p>
     	</PropSection>
 
 </Section>
