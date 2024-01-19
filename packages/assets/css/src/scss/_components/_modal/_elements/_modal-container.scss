@@ -60,10 +60,32 @@
 		}
 	}
 
+	// Needs improvement
 	// auto fold
 	.folded {
 		.sui-modal {
 			left: 32px;
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			right: 160px;
+			left: 0;
+		}
+	}
+
+	// Needs improvement
+	// auto fold
+	body.rtl {
+		.folded {
+			.sui-wrap {
+				.sui-modal {
+					right: 32px;
+				}
+			}
 		}
 	}
 
