@@ -6,6 +6,7 @@ import DatePickerPopover from "./date-picker-popover"
 import { DatePickerProvider } from "./date-picker-context"
 import { DatePickerInput } from "./date-picker-input"
 import { DatePickerProps } from "./date-picker.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 // Define an object to store unique symbols associated with calendar types
 export const CALENDARS: { [key: string]: symbol } = {
@@ -18,14 +19,14 @@ export const CALENDARS: { [key: string]: symbol } = {
 // Define the DatePicker component as a functional component (React.FC)
 // It accepts a set of props as input, including a className and other possible props.
 const DatePicker: React.FC<DatePickerProps> = ({
-	className = "",
+	className,
 	type = "single",
 	startDate,
 	endDate,
 	minDate,
 	maxDate,
 	isDisabled = false,
-	children,
+	onChange = () => null,
 	...props
 }) => {
 	const pickType: string = type ?? "single"
@@ -48,8 +49,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 		minDate,
 		maxDate,
 		isDisabled,
-		children,
-		onChange: props?.onChange,
+		onChange,
 	}
 
 	return (
