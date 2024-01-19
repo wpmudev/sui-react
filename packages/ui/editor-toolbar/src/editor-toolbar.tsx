@@ -4,9 +4,10 @@ import { Button } from "@wpmudev/sui-button"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { EditorToolbarProps } from "./editor-toolbar.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 const EditorToolbar: FC<EditorToolbarProps> = ({
-	title,
+	title = "Toolbar Title",
 	actions,
 	children,
 	allowBack = true,
@@ -19,6 +20,9 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 		right: !alignCenter,
 		center: alignCenter,
 	})
+
+	// Default children content
+	children = useDefaultChildren(children)
 
 	const settingButton = (
 		<Button
