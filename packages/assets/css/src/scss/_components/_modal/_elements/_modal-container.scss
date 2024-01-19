@@ -16,16 +16,17 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			left: 0;
 			overflow: auto;
 			overscroll-behavior-y: none;
 			padding: $modal-spacing-lg 0;
 			position: fixed;
-			top: 0;
+			top: 32px;
+			left: 160px;
 			bottom: 0;
 			transition-duration: 0.4s;
 			visibility: hidden;
-			width: $modal-size-width-xxl;
+			// width: $modal-size-width-xxl;
+			right: 0;
 			z-index: 999999;
 
 			@include media(max-width, lg) {
@@ -56,6 +57,13 @@
 					padding: $spacing-lg 0;
 				}
 			}
+		}
+	}
+
+	// auto fold
+	.folded {
+		.sui-modal {
+			left: 32px;
 		}
 	}
 
