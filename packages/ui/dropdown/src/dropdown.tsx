@@ -26,17 +26,16 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		{
 			label,
 			className,
-			isSmall,
+			isSmall = false,
 			iconOnly,
 			isFixedHeight = true,
-			current,
 			children,
 			menu,
-			direction,
+			direction = "right",
 			buttonIcon,
 			onMenuClick,
-			trigger = null,
-			renderContentOnTop,
+			trigger,
+			renderContentOnTop = false,
 			...props
 		},
 		ref,
@@ -110,7 +109,6 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							color="black"
 							appearance="secondary"
 							isSmall={isSmall ?? false}
-							//aria-activedescendant={isOpen ? `${id}-${current}` : ""}
 							onClick={() => setIsOpen(!isOpen)}
 							{...(!iconOnly && { endIcon: "ChevronDown" })}
 							{...props}

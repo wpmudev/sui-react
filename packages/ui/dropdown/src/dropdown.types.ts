@@ -117,10 +117,6 @@ interface DropdownProps {
 	 */
 	isFixedHeight?: boolean
 	/**
-	 * The current selected value of the dropdown.
-	 */
-	current?: number
-	/**
 	 * Expected type for menu object in array
 	 */
 	menu?: Array<MenuItemProps | MenuGroupProps>
