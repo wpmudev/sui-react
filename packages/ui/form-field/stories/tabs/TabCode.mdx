@@ -4,45 +4,40 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 
 <Section title="Props" border={true}>
 
-    	<PropSection title="id*" type="string" defaultValue="{{default}}">
+    	<PropSection title="id" type="string">
     		<p>Unique Identifier for the field</p>
 
     	</PropSection>
 
-    	<PropSection title="label" type="string" defaultValue="{{default}}">
+    	<PropSection title="label" type="string" defaultValue="label">
     		<p>The text label for the field</p>
     	</PropSection>
 
-    	<PropSection title="helper" type="string" defaultValue="{{default}}">
+    	<PropSection title="helper" type="string">
     		<p>Help text for the field</p>
     	</PropSection>
 
-    	<PropSection title="error" type="object" defaultValue="{{default}}">
-    		<p>Error message to be displayed with the field, it has the following properties:</p>
-    		<List>
-    			<span label={<><Code small={true}>state</Code>: Boolean that idicates whether to show the error message or not</>} />
-    			<span label={<><Code small={true}>text</Code>: the actual error text</>} />
-    		</List>
-
+    	<PropSection title="error" type="string">
+    		<p>If there is an error, pass the error message to be displayed to this prop</p>
     	</PropSection>
 
-    	<PropSection title="isSmall" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isSmall" type="boolean" defaultValue="false">
     		<p>Indicates whether the field to be small or not.</p>
     	</PropSection>
 
-    	<PropSection title="isDisabled" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isDisabled" type="boolean" defaultValue="false">
     		<p>Indicates whether the field is disabled or not. </p>
     	</PropSection>
 
-    	<PropSection title="isLabelHidden" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isLabelHidden" type="boolean" defaultValue="false">
     		<p>Indicates whether the label should be hidden or not. </p>
     	</PropSection>
 
-    	<PropSection title="className" type="string" defaultValue="{{default}}">
-    		<p>Custom css class Name(s) </p>
+    	<PropSection title="className" type="string">
+    		<p>Custom css class Name(s) for further styling</p>
     	</PropSection>
 
-    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>The content of the field, it could be any form element </p>
     	</PropSection>
 
