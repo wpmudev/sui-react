@@ -144,6 +144,10 @@ interface DropdownProps {
 	 * Dropdown Trigger
 	 */
 	trigger?: React.ReactNode
+	/**
+	 * whther to hide the label of the button or not
+	 */
+	isResponsive?: boolean
 }
 
 // Type definition for the modal handling functions

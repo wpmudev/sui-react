@@ -3,7 +3,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-navigation" />
 
 <Section title="Props" border={true}>
-	<PropSection title="brand" type="object" defaultValue="{{default}}">
+	<PropSection title="brand" type="object" defaultValue='{ title: "title", description: "" }'>
 		<p>
 			Brand information, this represents one of our plugins, the object accepts
 			the following keys
@@ -13,14 +13,14 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 				<span
 					label={
 						<>
-							<Code small={true}>title*</Code>: The plugin title
+							<Code small={true}>title*</Code> The plugin title
 						</>
 					}
 				/>
 				<span
 					label={
 						<>
-							<Code small={true}>description*</Code> A subheading that
+							<Code small={true}>description</Code> A subheading that
 							accompagnes the plugin title{" "}
 						</>
 					}
@@ -29,7 +29,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 		</p>
 	</PropSection>
 
-    <PropSection title="user" type="object" defaultValue="{{default}}">
+    <PropSection title="user" type="object">
     	<p>
     		The user information, it accepts two keys
     	</p>
@@ -53,7 +53,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     	</p>
     </PropSection>
 
-    <PropSection title="children" type="object" defaultValue="{{default}}">
+    <PropSection title="children" type="object">
     	<p>
     		The content of the navigation, usually menu items and buttons
     	</p>

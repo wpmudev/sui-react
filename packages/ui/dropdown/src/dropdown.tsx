@@ -36,6 +36,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			onMenuClick,
 			trigger,
 			renderContentOnTop = false,
+			isResponsive = false,
 			...props
 		},
 		ref,
@@ -110,6 +111,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							appearance="secondary"
 							isSmall={isSmall ?? false}
 							onClick={() => setIsOpen(!isOpen)}
+							isResponsive={isResponsive}
 							{...(!iconOnly && { endIcon: "ChevronDown" })}
 							{...props}
 						>

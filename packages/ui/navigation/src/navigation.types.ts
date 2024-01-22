@@ -81,7 +81,7 @@ interface NavigationProps {
 	/*
 	 * Brand information.
 	 */
-	brand: NavigationBrandProps
+	brand?: NavigationBrandProps
 	/*
 	 * Optional: Navigation content.
 	 */
