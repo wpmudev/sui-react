@@ -8,8 +8,8 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 
 <Section title="Row Props" border={true}>
 
-    <PropSection title="align" type="object" defaultValue="{{default}}">
-    	<p>Reprsents the alignment options for the row, the object properties accepet the following keys:</p>
+    <PropSection title="align" type="object" defaultValue="{md: 'inline'}">
+    	<p>Reprsents the alignment options for the row, the object accepets the following properties:</p>
     	<List>
     		<span label={<Code small={true}>xs</Code>} />
     		<span label={<Code small={true}>sm</Code>} />
@@ -18,35 +18,35 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		<span label={<Code small={true}>xl</Code>} />
     	</List>
 
-		Which represent different screen sizes, the value for each, could be either <Code small={true}>inline</Code> or <Code small={true}>stacked</Code>
-		representing the behavior of the column in that particular screen
+		they represent different screen sizes, the value for each, could be either <Code small={true}>inline</Code> or <Code small={true}>stacked</Code>
+		representing the behavior of the columns for that screen size and larger. 
+		<p>For example, if we have <Code isSmall={true}>\{md: "inline"\}</Code>, the columns will be inline on medium screen sizes and larger</p>
     </PropSection>
 
-	<PropSection title="children*" type="React Node" defaultValue="{{default}}">
+	<PropSection title="children" type="React Node">
     	<p>The content of the Row, usually a set of columns </p>
 
     </PropSection>
 
-	<PropSection title="className" type="string" defaultValue="{{default}}">
+	<PropSection title="className" type="string">
     	<p>Additional custom className(s) for the row</p>
-
     </PropSection>
 
 </Section>
 
 <Section title="Column Props" border={true}>
 
- 		<p> You can add multiple columns within the row to display content side by side </p>
+ 		<p> You can add multiple columns within the row to display content side by side or stacked </p>
 
-		<PropSection title="size" type="number | string" defaultValue="{{default}}">
+		<PropSection title="size" type="number | string" defaultValue="6">
     		<p>The size of the column</p>
     	</PropSection>
 
-		<PropSection title="className" type="string" defaultValue="{{default}}">
+		<PropSection title="className" type="string">
     		<p>Additional custom className(s) </p>
     	</PropSection>
 
-		<PropSection title="children*" type="React Node" defaultValue="{{default}}">
+		<PropSection title="children*" type="React Node">
     		<p>The column's content</p>
     	</PropSection>
 </Section>

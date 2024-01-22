@@ -3,8 +3,14 @@ import React from "react"
 import { isEmpty } from "@wpmudev/sui-utils"
 
 import { RowProps } from "../grid.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
-const Row: React.FC<RowProps> = ({ align, className, children, ...props }) => {
+const Row: React.FC<RowProps> = ({
+	align = { md: "inline" },
+	className,
+	children,
+	...props
+}) => {
 	const expectedAligns: Record<string, any> = {
 		xs: "",
 		sm: "",
@@ -16,6 +22,9 @@ const Row: React.FC<RowProps> = ({ align, className, children, ...props }) => {
 
 	// Define main class
 	let classNames = "sui-row"
+
+	// Default row children
+	children = useDefaultChildren(children, "{Row children}")
 
 	// Define class name based on alignment
 	for (const key in expectedAligns) {
