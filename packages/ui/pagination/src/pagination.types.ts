@@ -39,7 +39,7 @@ interface PaginationProps extends PaginationCommonProps {
 	/**
 	 * Number of items per page
 	 */
-	limit: number
+	limit?: number
 	/**
 	 * number of items in a page.
 	 */

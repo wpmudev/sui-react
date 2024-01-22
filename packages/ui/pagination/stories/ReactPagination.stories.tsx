@@ -34,12 +34,14 @@ const records = generateRecords(60)
 
 // Build "Pagination" story
 export const Pagination = (args: PaginationProps): React.ReactNode => {
-	const [tableItems, setTableItems] = useState(chunkArray(records, args?.limit))
+	const [tableItems, setTableItems] = useState(
+		chunkArray(records, args?.limit as number),
+	)
 	const [rows, setRows] = useState<Record<string, any>>([])
 	const [page, setPage] = useState<number>(1)
 
 	useEffect(() => {
-		setTableItems(chunkArray(records, args?.limit))
+		setTableItems(chunkArray(records, args?.limit as number))
 	}, [args.limit])
 
 	useEffect(() => {

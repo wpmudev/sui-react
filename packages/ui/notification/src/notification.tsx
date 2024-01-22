@@ -15,7 +15,7 @@ const Notification: React.FC<NotificationProps> = ({
 	action,
 	icon = "Info",
 	isInline = true,
-	isDismissible,
+	isDismissible = false,
 	size,
 	variation,
 	timeout = 5000,
