@@ -14,6 +14,7 @@
 			@include element(menu-item) {
 				@include modifier(hover) {
 					background-color: $color-extended-neutral-90;
+					color: $color-extended-neutral-10;
 				}
 			}
 		}

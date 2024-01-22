@@ -9,4 +9,15 @@
 		padding: 0;
 		list-style: none;
 	}
+
+	h3 {
+		margin: 0;
+	}
+
+	a {
+		&:focus {
+			box-shadow: none;
+			outline: none;
+		}
+	}
 }
