@@ -12,10 +12,10 @@ import { isFunction, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { IntegrationProps } from "./integration.types"
 
 const Integration: React.FC<IntegrationProps> = ({
-	title,
+	title = "title",
 	description,
 	additionalInfo = "",
-	image,
+	image = { alt: "amazon", src: "https://placehold.co/50" },
 	isDisabled = false,
 	active = true,
 	isSettings = false,

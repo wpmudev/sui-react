@@ -29,6 +29,8 @@ export const Integration = ({ ...args }) => {
 		background: "#f8f8f8",
 	}
 
+	return <SuiIntegration />
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
