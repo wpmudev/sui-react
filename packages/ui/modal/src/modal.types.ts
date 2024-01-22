@@ -6,6 +6,7 @@ type ModalProps = {
 	variant?: "simple" | "advanced" | "app-connect" // Variant type of the modal
 	size?: "sm" | "md" | "lg" | "xl" // Size of the modal (small, medium, large, extra-large)
 	children?: React.ReactNode // Content of the modal (React children)
+	ref: object // Used to access the open and close modals of the modal
 }
 
 // Type definition for the modal handling functions

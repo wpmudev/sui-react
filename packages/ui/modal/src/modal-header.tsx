@@ -8,9 +8,14 @@ import { useValidateProps } from "@wpmudev/sui-hooks"
 import { ModalContext } from "./modal"
 import { ModalHeaderProps } from "./modal.types"
 
-const ModalHeader: React.FC<ModalHeaderProps> = ({ title = "", children }) => {
+const ModalHeader: React.FC<ModalHeaderProps> = ({
+	title = "header title",
+	children,
+}) => {
 	const ctx = useContext(ModalContext)
 	const { closeModal, variant } = ctx!
+
+	//
 
 	// validate props
 	useValidateProps({ component: ModalHeader, propsToCheck: { title } })

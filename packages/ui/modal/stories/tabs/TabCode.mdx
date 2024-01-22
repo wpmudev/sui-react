@@ -4,28 +4,24 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 
 <Section title="Props" border={true}>
 
-    	<PropSection title="id" type="string" defaultValue="{{default}}">
+    	<PropSection title="id" type="string">
     		<p>Unique id for the modal</p>
-
     	</PropSection>
 
-    	<PropSection title="variant" type="string" defaultValue="{{default}}">
+    	<PropSection title="variant" type="string" defaultValue="simple">
     		<p>Variant type of the modal </p>
-
     		<p>
     		Allowed options:
     			<List>
     				<span label={<Code small={true}>simple</Code>} />
     				<span label={<Code small={true}>advanced</Code>} />
     				<span label={<Code small={true}>app-connect</Code>} />
-
     			</List>
     		</p>
     	</PropSection>
 
-    	<PropSection title="size" type="string" defaultValue="{{default}}">
-    		<p>Indicates the size of the modal </p>
-
+    	<PropSection title="size" type="string" defaultValue="size">
+    		<p>Indicates the size of the modal</p>
     		<p>
     		Allowed options:
     			<List>
@@ -37,7 +33,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		</p>
     	</PropSection>
 
-    	<PropSection title="ref" type="object" defaultValue="{{default}}">
+    	<PropSection title="ref" type="object" isRequired={true}>
     		<p>The React ref object is utilized to access the methods responsible for opening and closing the modal. these functions are available in the <Code small={true}>current</Code> object property of the ref</p>
     			<List>
     				<span label={<><Code small={true}>ref.current.openModal</Code> Opens the modal</>} />
@@ -45,7 +41,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     			</List>
     	</PropSection>
 
-    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>Content of the modal</p>
     	</PropSection>
 
@@ -63,13 +59,13 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		This component represents the modal header
     	</p>
 
-    	<PropSection title="title" type="string" defaultValue="{{default}}">
+    	<PropSection title="title" type="string" defaultValue="header title">
     		<p>
     			Title for the modal header
     		</p>
     	</PropSection>
 
-    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node" >
     		<p>
     			The content of the component
     		</p>
@@ -82,7 +78,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		This component represents the modal body
     	</p>
 
-    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>
     			The content of the component
     		</p>
@@ -95,7 +91,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		This component represents the modal footer
     	</p>
 
-    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>
     			The content of the component
     		</p>
