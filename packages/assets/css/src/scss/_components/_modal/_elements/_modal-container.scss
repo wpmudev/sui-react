@@ -12,29 +12,36 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			align-items: flex-start;
 			display: flex;
-			justify-content: center;
-			align-items: center;
 			overflow: auto;
 			overscroll-behavior-y: none;
-			padding: $modal-spacing-lg 0;
+			padding: $modal-spacing-lg $spacing-lg;
 			position: fixed;
 			top: 32px;
 			left: 160px;
 			bottom: 0;
 			transition-duration: 0.4s;
 			visibility: hidden;
-			// width: $modal-size-width-xxl;
 			right: 0;
 			z-index: 999999;
 
 			@include media(max-width, lg) {
-				padding: $spacing-xl 0;
+				padding: $spacing-xl $spacing-lg;
 			}
 
+			/* only for wordpress */
+			@media (max-width: 960px) {
+				left: 36px;
+			}
+
+			@media (max-width: 782px) {
+				left: 0;
+				top: 46px;
+			}
+			/* only for wordpress */
+
 			@include media(max-width, sm) {
-				padding: $spacing-lg 0;
+				padding: $spacing-lg;
 			}
 
 			@include element(container) {
@@ -47,11 +54,8 @@
 				position: relative;
 				max-width: $modal-size-width-md;
 				width: 100%;
-				max-height: 100%;
-				display: flex;
-				flex-direction: column;
-				box-sizing: border-box;
-				margin: 0 $spacing-lg;
+				margin: auto;
+				flex: 0 0 auto;
 
 				@include media(max-width, sm) {
 					padding: $spacing-lg 0;
@@ -60,7 +64,6 @@
 		}
 	}
 
-	// Needs improvement
 	// auto fold
 	.folded {
 		.sui-modal {
@@ -74,16 +77,24 @@
 		@include block($block) {
 			right: 160px;
 			left: 0;
+
+			// only for wordpress
+			@media (max-width: 960px) {
+				right: 36px;
+			}
+
+			@media (max-width: 782px) {
+				right: 0;
+			}
 		}
 	}
 
-	// Needs improvement
 	// auto fold
 	body.rtl {
 		.folded {
 			.sui-wrap {
 				.sui-modal {
-					right: 32px;
+					right: 36px;
 				}
 			}
 		}
