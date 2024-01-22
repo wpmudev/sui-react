@@ -22,7 +22,6 @@ export default {
 
 // Build "Popover" story.
 const Popover = ({
-	example,
 	position,
 	displayOnHover,
 	footer,
@@ -32,6 +31,12 @@ const Popover = ({
 	const boxStyles = {
 		borderRadius: 4,
 	}
+
+	return (
+		<SuiPopover trigger={<button>open popup</button>} position="bottom">
+			content
+		</SuiPopover>
+	)
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
