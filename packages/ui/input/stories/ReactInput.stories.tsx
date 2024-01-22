@@ -27,7 +27,7 @@ const Input = (args: InputProps) => {
 		borderRadius: 4,
 		background: "#fff",
 	}
-
+	return <SuiInput />
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">

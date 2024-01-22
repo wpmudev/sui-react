@@ -4,36 +4,104 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 
 <Section title="Props" border={true}>
 	<p>Input component have the following props.</p>
-	<PropSection title="label" type="string" defaultValue="{{default}}">
-		<p>Reflects the label of the input field.</p>
-	</PropSection>
-	<PropSection title="id" type="string" defaultValue="{{default}}">
+
+	<PropSection title="id" type="string">
 		<p>Add a unique id to the input.</p>
 	</PropSection>
-	<PropSection title="className" type="string" defaultValue="{{default}}">
-		<p>Add a class name to the input.</p>
-	</PropSection>
-	<PropSection title="value" type="string" defaultValue="{{default}}">
-		<p>Reflects the value of the input field.</p>
-	</PropSection>
-	<PropSection title="type" type="string" defaultValue="{{default}}">
+
+	<PropSection title="placeholder" type="string">
 		<p>
-			Reflects the type of the input field whether it's text, number etc.
+			The input placeholder text
 		</p>
 	</PropSection>
-	<PropSection title="isError" type="string" defaultValue="{{default}}">
+
+	<PropSection title="type" type="string" defaultValue="text">
+		<p>
+			Reflects the type of the input field whether it's text, number etc. it accepts [any valid html type](https://www.w3schools.com/html/html_form_input_types.asp).
+		</p>
+	</PropSection>
+
+	<PropSection title="defaultValue" type="string">
+		<p>
+			The initial value of the input.
+		</p>
+	</PropSection>
+
+	<PropSection title="hint" type="string">
+		<p>
+			A text to appear initially in the input to give the user a hint ( a part of the text that he should type )
+		</p>
+	</PropSection>
+
+	<PropSection title="isMultiline" type="boolean" defaultValue="false">
+		<p>
+			If set to <Code isSmall={true}>true</Code>, it will use <Code isSmall={true}>textarea</Code> tag instead of the <Code isSmall={true}>input</Code>
+		</p>
+	</PropSection>
+
+	<PropSection title="isReadOnly" type="boolean" defaultValue="false">
+		<p>
+			If set to <Code isSmall={true}>true</Code> the input text won't be editable
+		</p>
+	</PropSection>
+
+	<PropSection title="onChange" type="function">
+		<p>A callback function to be invoked when the input text changes, the first parameter is the change event object</p>
+	</PropSection>
+
+	<PropSection title="allowClear" type="boolean" defaultValue="false">
+		<p>Whether to display the clear button or not</p>
+	</PropSection>
+
+	<PropSection title="onClear" type="function">
+		<p>A callback function to be invoked when the clear button is clicked</p>
+	</PropSection>
+	
+	<PropSection title="icon" type="string">
+		<p>An icon to be displayed in the input</p>
+	</PropSection>
+
+	<PropSection title="iconPosition" type="string" defaultValue="start">
+		<p>The position where to display the icon</p>
+		<p>Allowed options</p>
+		<List>
+			<span label="start"/>
+			<span label="end"/>
+		</List>
+	</PropSection>
+
+	<PropSection title="onMouseEnter" type="function">
+		<p>A callback function to be invoked when the mouse enters the input</p>
+	</PropSection>
+
+	<PropSection title="onMouseLeave" type="function">
+		<p>A callback function to be invoked when the mouse leaves the input</p>
+	</PropSection>
+	
+	<PropSection title="isError" type="string" defaultValue="false">
 		<p>Reflects the error status in the field.</p>
 	</PropSection>
-	<PropSection title="isSmall" type="boolean" defaultValue="{{default}}">
+	
+	<PropSection title="isSmall" type="boolean" defaultValue="false">
 		<p>Set if the input is small.</p>
 	</PropSection>
-	<PropSection title="isDisabled" type="boolean" defaultValue="{{default}}">
+	
+	<PropSection title="isDisabled" type="boolean" defaultValue="false">
 		<p>Set if the input is disabled.</p>
 	</PropSection>
-	<PropSection title="iconLead" type="string" defaultValue="{{default}}">
-		<p>Places an icon within the input, before the input's text.</p>
+
+	<PropSection title="disableInteractions" type="boolean" defaultValue="false">
+		<p>Disable default interaction methods which are used to set and unset focus under the hood,</p>
 	</PropSection>
-	<PropSection title="iconTrail" type="string" defaultValue="{{default}}">
-		<p>Places an icon within the input, after the input's text.</p>
+
+	<PropSection title="className" type="string">
+		<p>Add a class name to the input.</p>
 	</PropSection>
+
+	<PropSection title="inputClass" type="string">
+		<p>
+			Additional CSS classNames(s) for the actual input element 
+		</p>
+	</PropSection>
+	
 </Section>
