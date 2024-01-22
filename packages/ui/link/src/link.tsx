@@ -7,7 +7,7 @@ import {
 	isEmpty,
 } from "@wpmudev/sui-utils"
 import { ExternalLink } from "@wpmudev/sui-icons"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useInteraction } from "@wpmudev/sui-hooks"
 import { LinkProps } from "./link.types"
 
 // Link component represents a clickable link element with optional features
@@ -17,14 +17,18 @@ const Link: React.FC<LinkProps> = ({
 	as = "a",
 	className = "",
 	isInline = false,
-	isDisabled,
-	isExternal,
-	hasExternalIcon,
+	isDisabled = false,
+	isExternal = false,
+	hasExternalIcon = false,
 	children,
+	href = "#",
 	...props
 }) => {
 	// Determine the HTML tag name to use
 	const TagName = as ?? "a"
+
+	// Default children content
+	children = useDefaultChildren(children, "link text")
 
 	// Use the useInteraction hook to track hover and focus states
 	const [hover, focus, methods] = useInteraction({})
@@ -45,12 +49,12 @@ const Link: React.FC<LinkProps> = ({
 	// Prepare the link props
 	const linkProps: Record<string, any> = {
 		...props,
+		href,
 		className: classNames,
 		"data-testid": "link",
 	}
 
 	const onClickCallback = (e: MouseEvent<unknown> | KeyboardEvent<unknown>) => {
-		const { href } = linkProps
 		// Prevent the default link behavior
 		handleEventDefault(e, false, true)
 		// Open the link in a new tab or the same tab based on 'isExternal'
