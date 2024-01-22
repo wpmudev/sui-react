@@ -5,28 +5,28 @@ import dedent from "dedent"
 
 <Section title="Props" border={true}>
 
-    	<PropSection title="id*" type="string" defaultValue="{{default}}">
+    	<PropSection title="id" type="string">
     		<p>Unique ID for the notification</p>
     	</PropSection>
 
-    	<PropSection title="title" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="title" type="React Node" defaultValue="title">
     		<p>Title of the notification</p>
     	</PropSection>
 
-    	<PropSection title="desc" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="message" type="React Node" defaultValue="message">
     		<p> Description of the notification  </p>
     	</PropSection>
 
-    	<PropSection title="action" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="action" type="React Node">
     		<p> Enables the inclusion of interactive elements, like buttons, to facilitate immediate user actions within the notification   </p>
     	</PropSection>
 
-    	<PropSection title="icon" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="icon" type="React Node" defaultValue="Info">
     		<p> Custom icon besides the title   </p>
     	</PropSection>
 
-    	<PropSection title="size" type="string" defaultValue="{{default}}">
-    		<p> Size of the notification   </p>
+    	<PropSection title="size" type="string">
+    		<p> Size of the notification</p>
     		<p>
     		Allowed options:
     			<List>
@@ -36,7 +36,7 @@ import dedent from "dedent"
     		</p>
     	</PropSection>
 
-    	<PropSection title="variation" type="string" defaultValue="{{default}}">
+    	<PropSection title="variation" type="string">
     		<p>Size of the notification</p>
     		<p>
     		Allowed options:
@@ -54,15 +54,15 @@ import dedent from "dedent"
     		<Code small={true}> useNotifications </Code> hook
     	</p>
 
-    	<PropSection title="isInline" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isInline" type="boolean" defaultValue="true">
     		<p> Indicates if the notification is displayed inline </p>
     	</PropSection>
 
-    	<PropSection title="isDismissible" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isDismissible" type="boolean" defaultValue="false">
     		<p> When set to <Code small={true}>true</Code>, the notification will have a dismissing button  </p>
     	</PropSection>
 
-    	<PropSection title="timeout" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="timeout" type="boolean" defaultValue="5000">
     		<p> The amount of time (in ms) that should pass before automatically dismissing the notification.  </p>
     	</PropSection>
 
@@ -75,26 +75,26 @@ import dedent from "dedent"
 >
 		<p>The <Code small={true}>useNotifications</Code> hook facilitates dynamic addition and removal of Toast notifications.</p>
 
-    	<Snippet language="js">{dedent`const { push, remove } = useNotifcations()`}</Snippet>
+    	<Snippet language="js" hideToggle={true}>{dedent`const { push, remove } = useNotifcations()`}</Snippet>
 
     	<Section
-    		title={{ content: "push*", small: false }}
+    		title={{ content: "push", small: false }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p> A function that displays a new toast notification on the screen, it accepts one parameter:</p>
 
-    		<PropSection title="options*" type="object" defaultValue="{{default}}">
+    		<PropSection title="options*" type="object">
     		<p>The object keys represent the properties of the Notification component as explained above. </p>
     		</PropSection>
     	</Section>
 
     	<Section
-    		title={{ content: "remove*",  small: false }}
+    		title={{ content: "remove",  small: false }}
     		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
     	>
     		<p> A function to dismiss a notification with a specific id, it has one parameter:</p>
 
-    		<PropSection title="id*" type="string" defaultValue="{{default}}">
+    		<PropSection title="id*" type="string">
     		<p>Id of the notification to dismiss</p>
 
     		</PropSection>
