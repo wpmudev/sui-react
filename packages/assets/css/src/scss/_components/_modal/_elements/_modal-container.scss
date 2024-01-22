@@ -17,8 +17,8 @@
 			overscroll-behavior-y: none;
 			padding: $modal-spacing-lg $spacing-lg;
 			position: fixed;
-			top: 32px;
-			left: 160px;
+			top: $modal-spacing-sm;
+			left: $modal-spacing-xxl;
 			bottom: 0;
 			transition-duration: 0.4s;
 			visibility: hidden;
@@ -31,12 +31,12 @@
 
 			/* only for wordpress */
 			@media (max-width: 960px) {
-				left: 36px;
+				left: $modal-spacing-md;
 			}
 
 			@media (max-width: 782px) {
 				left: 0;
-				top: 46px;
+				top: $modal-spacing-xl;
 			}
 			/* only for wordpress */
 
@@ -67,7 +67,7 @@
 	// auto fold
 	.folded {
 		.sui-modal {
-			left: 32px;
+			left: $modal-spacing-md;
 		}
 	}
 
@@ -75,12 +75,12 @@
 	// THEME: None.
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
-			right: 160px;
+			right: $modal-spacing-xxl;
 			left: 0;
 
 			// only for wordpress
 			@media (max-width: 960px) {
-				right: 36px;
+				right: $modal-spacing-md;
 			}
 
 			@media (max-width: 782px) {
@@ -94,7 +94,7 @@
 		.folded {
 			.sui-wrap {
 				.sui-modal {
-					right: 36px;
+					right: $modal-spacing-md;
 				}
 			}
 		}

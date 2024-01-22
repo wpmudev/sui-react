@@ -1,8 +1,24 @@
 {
 	"modal": {
 		"spacing": {
+			"sm": {
+				"value": "32px",
+				"type": "spacing"
+			},
+			"md": {
+				"value": "36px",
+				"type": "spacing"
+			},
 			"lg": {
 				"value": "40px",
+				"type": "spacing"
+			},
+			"xl": {
+				"value": "46px",
+				"type": "spacing"
+			},
+			"xxl": {
+				"value": "160px",
 				"type": "spacing"
 			}
 		},
@@ -28,10 +44,6 @@
 				},
 				"xl": {
 					"value": "1024px",
-					"type": "sizing"
-				},
-				"xxl": {
-					"value": "100vw",
 					"type": "sizing"
 				}
 			},
