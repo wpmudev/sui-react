@@ -1,5 +1,7 @@
 import React from "react"
 import { generateCN, isEmpty, isUndefined } from "@wpmudev/sui-utils"
+import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
+import { IconProps } from "@wpmudev/sui-icon"
 
 import { BoxGroup } from "./box-group"
 import { BoxProps } from "./box.types"
@@ -23,6 +25,9 @@ const Box: React.FC<BoxProps> = ({
 	const hasLeft = !isUndefined(headerRight) && !!headerLeft
 	const hasRight = !isUndefined(headerRight) && !!headerRight
 
+	// Determine the IconTag based on the provided icon value
+	const IconTag: React.ComponentType<IconProps> = Icons[icon as IconsNamesType]
+
 	const classNames = generateCN("sui-box", { "size-sm": isSmall }, className)
 
 	return (
@@ -30,20 +35,19 @@ const Box: React.FC<BoxProps> = ({
 			{hasTitle && (
 				<BoxGroup isInline={true}>
 					<div slot="left">
-						{hasIcon && (
+						{hasIcon && IconTag && (
 							<span
 								className={generateCN(
 									"suicons",
-									{
-										[icon ?? ""]: true,
-										lg: true,
-									},
+									[],
 									hideMobileIcon
 										? "sui-box-group__item sui-icon--hide-sm"
 										: "sui-box-group__item",
 								)}
 								aria-hidden="true"
-							/>
+							>
+								<IconTag size="md" />
+							</span>
 						)}
 						{hasTitle && (
 							<h2 className="sui-heading sui-heading--h3 sui-box-group__item">

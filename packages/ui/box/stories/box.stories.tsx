@@ -50,7 +50,7 @@ export const Box = ({ ...props }) => {
 
 Box.args = {
 	title: "Box Label",
-	icon: "hub",
+	icon: "Hub",
 	headerLeft: [
 		<span
 			key="1"
