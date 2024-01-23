@@ -4,24 +4,24 @@ import { Section, Code, PackageInstallGuide, PropSection } from "@wpmudev/sui-do
 
 <Section title="Props" border={true}>
 
-    	<PropSection title="name*" type="string" defaultValue="{{default}}">
+    	<PropSection title="name" type="string" defaultValue="segmented-control">
     		<p>Name of the radio input elements.</p>
     		<p>Under the hood of the segmented control component, the options are input radio elements</p>
     	</PropSection>
 
-    	<PropSection title="defaultValue" type="string" defaultValue="{{default}}">
+    	<PropSection title="defaultValue" type="string">
     		<p>The default selected value.</p>
     	</PropSection>
 
-    	<PropSection title="onChange" type="function" defaultValue="{{default}}">
+    	<PropSection title="onChange" type="function">
     		<p>A callback function triggered when the value of the segmented control changes. the first parameter is the new selected value</p>
     	</PropSection>
 
-    	<PropSection title="isFullWidth" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isFullWidth" type="boolean" defaultValue="false">
     		<p>A boolean indicating whether the segmented control should take full width</p>
     	</PropSection>
 
-    	<PropSection title="children*" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>
     			The child elements to be rendered inside the segmented control these are the individual segments.
     		</p>
@@ -40,31 +40,31 @@ import { Section, Code, PackageInstallGuide, PropSection } from "@wpmudev/sui-do
     		This component represents an individual item or button for the segmented control component.
     	</p>
 
-    	<PropSection title="value*" type="string" defaultValue="{{default}}">
+    	<PropSection title="value" type="string">
     		<p>
     			The value associated with the button
     		</p>
     	</PropSection>
 
-    	<PropSection title="icon" type="string" defaultValue="{{default}}">
+    	<PropSection title="icon" type="string">
     		<p>
     			An optional Custom icon for the button, you can check the available icons on [sui-icons](https://github.com/wpmudev/sui-icons) package.
     		</p>
     	</PropSection>
 
-    	<PropSection title="ariaLabel" type="string" defaultValue="{{default}}">
+    	<PropSection title="ariaLabel" type="string">
     		<p>
     			Button label for accessibility purposes
     		</p>
     	</PropSection>
 
-    	<PropSection title="isDisabled" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isDisabled" type="boolean">
     		<p>
     			When set to <Code isSmall={true}>true</Code>, the button will be disabled
     		</p>
     	</PropSection>
 
-    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>
     			The child elements to be rendered inside
     		</p>
