@@ -190,6 +190,8 @@ export type PluginsSlug =
 	| "smartcrawl"
 	| "shipper"
 	| "branda"
+	| "blc"
+	| "thc"
 
 export type PluginIconTypes = {
 	bg?: string
@@ -247,6 +249,16 @@ const PluginsIcons: Record<PluginsSlug, PluginIconTypes> = {
 		bg: "#ff8184",
 		color: "#FFF",
 		icon: "PluginBranda",
+	},
+	blc: {
+		bg: "#03bfa5",
+		color: "#FFF",
+		icon: "PluginBlc",
+	},
+	thc: {
+		bg: "#F36056",
+		color: "#FFF",
+		icon: "PluginThc",
 	},
 }
 

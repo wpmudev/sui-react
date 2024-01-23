@@ -96,7 +96,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 
     </Section>
 
-    	<Section title="AccordionBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title="AccordionItemBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     	<p>
     		This component serves as the body content
     	for each item and also accepts specific props to customize its behavior, it has the following props:
@@ -107,9 +107,15 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     				The content of the accordion item
     			</p>
     		</Section>
+
+			<Section title={{ content: "hasPadding", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    			<p>
+    				Whether it has an inner padding or not
+    			</p>
+    		</Section>
     	</Section>
 
-    	<Section title="AccordionFooter" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<Section title="AccordionItemFooter" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
     	<p>
     		This component serves as the body content for each item and also accepts specific props to customize its behavior, it has the following props:
     	</p>

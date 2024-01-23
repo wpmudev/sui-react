@@ -4,7 +4,8 @@ import { Facebook, Twitter, Instagram } from "@wpmudev/sui-icons"
 import { generateCN } from "@wpmudev/sui-utils"
 
 // Import required element(s)
-import Logo from "./elements/logo.svg"
+import Logo from "./elements/Logo"
+
 import {
 	FooterLinkType,
 	FooterProps,
@@ -20,6 +21,8 @@ const socialIcons = {
 // Build footer component
 const Footer: React.FC<FooterProps> = ({
 	links,
+	logoImageLink,
+	logoHref,
 	socialLinks,
 	renderBlocks,
 	removeBGColor,
@@ -57,15 +60,20 @@ const Footer: React.FC<FooterProps> = ({
 			<div className="sui-footer__group sui-footer__group--links">
 				<div className="sui-footer__block">
 					<a
-						href="https://wpmudev.com"
+						href={logoHref || "https://wpmudev.com"}
 						target="_blank"
 						rel="noreferrer nofollow"
+						aria-label="wpmudev-logo"
 					>
-						<img
-							src={Logo}
-							className="sui-footer__block--logo"
-							alt="WPMU DEV"
-						/>
+						{logoImageLink ? (
+							<img
+								src={logoImageLink}
+								className="sui-footer__block--logo"
+								alt="WPMU DEV"
+							/>
+						) : (
+							<Logo />
+						)}
 					</a>
 				</div>
 				{(links ?? []).length > 0 && (

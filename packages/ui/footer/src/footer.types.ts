@@ -41,6 +41,15 @@ interface FooterProps {
 	 * Additional className
 	 */
 	className?: string
+	/**
+	 * The link to the logo image
+	 */
+	logoImageLink?: string
+
+	/**
+	 * the url the logo points to
+	 */
+	logoHref?: string
 }
 
 export type { FooterProps, FooterLinkType, FooterSocialLinkType }

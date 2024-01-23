@@ -3,7 +3,7 @@ import dedent from "dedent"
 import { SegmentedControl, SegmentedControlButton } from "../../src"
 
 export const sampleCode = dedent`
-        <SegmentedControl>
+        <SegmentedControl name="controls">
             <SegmentedControlButton value="administrator">Administrator</SegmentedControlButton>
             <SegmentedControlButton value="editor">Editor</SegmentedControlButton>
             <SegmentedControlButton value="author">Author</SegmentedControlButton>
@@ -12,7 +12,7 @@ export const sampleCode = dedent`
 `
 
 export const fullWidthCode = dedent`
-        <SegmentedControl isFullWidth={true}>
+        <SegmentedControl name="controls" isFullWidth={true}>
             <SegmentedControlButton value="administrator">Administrator</SegmentedControlButton>
             <SegmentedControlButton value="editor">Editor</SegmentedControlButton>
             <SegmentedControlButton value="author">Author</SegmentedControlButton>
@@ -21,7 +21,7 @@ export const fullWidthCode = dedent`
 `
 
 export const withIconsCode = dedent`
-        <SegmentedControl>
+        <SegmentedControl name="controls">
             <SegmentedControlButton value="administrator">Administrator</SegmentedControlButton>
             <SegmentedControlButton value="editor" icon="Calendar">Editor</SegmentedControlButton>
             <SegmentedControlButton value="author" icon="Bell">Author</SegmentedControlButton>
@@ -30,7 +30,7 @@ export const withIconsCode = dedent`
 `
 
 export const IconsOnly = dedent`
-        <SegmentedControl>
+        <SegmentedControl name="controls">
             <SegmentedControlButton value="calendar" icon="Calendar" />
             <SegmentedControlButton value="bell" icon="Bell" />
             <SegmentedControlButton value="add" icon="Add" />
@@ -39,7 +39,7 @@ export const IconsOnly = dedent`
 `
 
 export const disabledCode = dedent`
-        <SegmentedControl>
+        <SegmentedControl name="controls">
             <SegmentedControlButton value="administrator">Administrator</SegmentedControlButton>
             <SegmentedControlButton value="editor" icon="Calendar">Editor</SegmentedControlButton>
             <SegmentedControlButton value="author" icon="Bell">Author</SegmentedControlButton>

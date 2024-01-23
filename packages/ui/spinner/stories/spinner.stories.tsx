@@ -75,7 +75,7 @@ const Spinner = ({ ...args }) => {
 						padding: 20,
 					}}
 				>
-					<SControl {...args} />
+					<SControl {...args} isContained={true} />
 				</div>
 			</div>
 		</div>

@@ -22,6 +22,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	onBlur = () => {},
 	href,
 	icon,
+	iconSize = "sm",
 	...props
 }) => {
 	// use interaction
@@ -115,7 +116,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 					</span>
 				)
 			case "icon":
-				return <Icon name={icon} />
+				return <Icon name={icon} size={iconSize} />
 		}
 	}
 

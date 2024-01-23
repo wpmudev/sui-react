@@ -31,7 +31,7 @@ const Accordion = ({
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<SuiAccordion state={state} allowMultipleExpand={allowMultipleExpand}>
-						<AccordionItem title="Tab Title 1">
+						<AccordionItem title="Tab Title 1" isExpanded={true}>
 							<AccordionItemBody>
 								<p>
 									Lorem Ipsum is simply dummy text of the printing and

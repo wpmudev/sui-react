@@ -23,7 +23,7 @@
 				padding: $spacing-md $colorpicker-spacing-lg;
 			}
 
-			@include element(input-preview, clear, button) {
+			@include element(input-preview, icon, button) {
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);
@@ -51,7 +51,7 @@
 				line-height: $font-size-sm;
 			}
 
-			@include element(clear) {
+			@include element(icon) {
 				cursor: pointer;
 				color: $color-extended-neutral-70;
 				right: 0;
@@ -85,7 +85,7 @@
 				color: $color-extended-neutral-0;
 			}
 
-			@include element(clear) {
+			@include element(icon) {
 				color: $color-extended-neutral-0;
 			}
 		}
@@ -96,7 +96,7 @@
 	@include sui-class($rtl: true, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-			@include element(clear) {
+			@include element(icon) {
 				left: $spacing-md;
 				right: unset;
 			}

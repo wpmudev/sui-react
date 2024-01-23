@@ -5,24 +5,31 @@ import { Avatar } from "@wpmudev/sui-avatar"
 
 import { NavigationUserProps } from "./navigation.types"
 import { isEmpty } from "@wpmudev/sui-utils"
+import { Tooltip } from "@wpmudev/sui-tooltip"
 
-const NavigationUser: React.FC<NavigationUserProps> = ({ user, menu }) => {
+const NavigationUser: React.FC<NavigationUserProps> = ({
+	user,
+	menu,
+	isMenuDisabled = false,
+	status,
+}) => {
 	// Create a ref for the user dropdown button
 	const userBtnRef = useRef<DropdownRefProps | null>(null)
 
 	// Define the user's avatar button component
 	const userAvatarBtn = (
 		<Avatar
-			status="confirmed"
-			className=""
+			status={status}
 			image={{
 				src: user?.image ?? "",
 				alt: "User Avatar",
 			}}
-			onClick={() => {
-				// Toggle the user dropdown when the avatar is clicked
-				userBtnRef?.current?.toggle()
-			}}
+			{...(!isMenuDisabled && {
+				onClick: () => {
+					// Toggle the user dropdown when the avatar is clicked
+					userBtnRef?.current?.toggle()
+				},
+			})}
 		/>
 	)
 

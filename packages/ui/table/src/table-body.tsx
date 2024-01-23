@@ -30,7 +30,6 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 		Children.toArray(children),
 	)
 	const [rows, setRows] = useState<Record<string, any>[]>([])
-	const [action, setAction] = useState("")
 
 	// Table context
 	const ctx = useContext(TableContext)
@@ -40,44 +39,55 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 			Children.toArray(children).map((row) => (row as ReactElement)?.props?.id),
 		)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+	}, [el])
 
 	// Effect to update the rows array when children change
 	useEffect(() => {
-		if ("sort-rows" === action) {
-			setRows(
-				Children.toArray(children).map(
-					(row) => (row as ReactElement)?.props?.id,
-				),
-			)
-			// clear action
-			setAction("")
-		} else {
-			setEl(Children.toArray(children))
-		}
+		setEl(Children.toArray(children))
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [children])
 
 	// Effect to update the TableContext's rows when the rows array changes
-	useEffect(() => {
-		ctx?.setRows(
-			Children.toArray(children).map((row) => (row as ReactElement)?.props?.id),
-		)
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [children, rows])
+	// useEffect(() => {
+	// 	ctx?.setRows(
+	// 		Children.toArray(children).map((row) => (row as ReactElement)?.props?.id),
+	// 	)
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, [children, rows])
+
+	// Update order know the new and old indexes
+	function updateOrder(array: any[], oldIndex: number, newIndex: number) {
+		// Make a copy of the array to avoid mutating the original array
+		const newArray = [...array]
+
+		// Remove the element from the old index
+		const [draggedElement] = newArray.splice(oldIndex, 1)
+
+		// Insert the element at the new index
+		newArray.splice(newIndex, 0, draggedElement)
+
+		return newArray
+	}
 
 	// When dragging finished
-	const onSortEnd = useCallback(() => {
-		ctx?.setForceCollapse(false)
-		ctx?.triggerAction("sort-rows", rows)
-		// set temporary action
-		setAction("sort-rows")
-		// set column order
-		ctx?.setSortBy({
-			column: "",
-			order: "asc",
-		})
-	}, [ctx, rows])
+	const onSortEnd = useCallback(
+		(draggedEl: Record<string, any>) => {
+			const { newIndex, oldIndex } = draggedEl
+			const newRows = updateOrder(rows, oldIndex, newIndex)
+
+			ctx?.setForceCollapse(false)
+
+			ctx?.triggerAction("sort-rows", newRows)
+
+			// set column order
+			ctx?.setSortBy({
+				column: "",
+				order: "asc",
+			})
+		},
+		[ctx, rows],
+	)
 
 	// If the table is not draggable, render the TableBodyTag with children
 	if (!ctx?.isDraggable) {

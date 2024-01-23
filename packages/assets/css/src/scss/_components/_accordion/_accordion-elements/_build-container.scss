@@ -16,7 +16,7 @@
 		@include block($block) {
 			border: $border-width-sm solid $color-extended-neutral-80;
 			border-radius: $accordion-border-radius-sm;
-			overflow: hidden;
+			// overflow: hidden;
 
 			@include modifier(no-border-radius) {
 				border-radius: 0;

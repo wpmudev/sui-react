@@ -15,11 +15,11 @@ interface ButtonProps
 	/**
 	 * Link URL for the button.
 	 */
-	href?: Pick<HTMLProps<HTMLAnchorElement>, "href">
+	href?: string
 	/**
 	 * Optional target window or frame to open the link.
 	 */
-	target?: Pick<HTMLProps<HTMLAnchorElement>, "target">
+	target?: "_blank" | "_self" | "_parent" | "_top" | string
 	/**
 	 * Optional associated form element for the button.
 	 */
