@@ -3,10 +3,10 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-setup-banner" />
 
 <Section title="Props" border={true}>
-	<PropSection title="title" type="string" defaultValue="{{default}}">
+	<PropSection title="title" type="string" defaultValue="title">
 		<p>The main title for the Banner</p>
 	</PropSection>
-	<PropSection title="type" type="string" defaultValue="{{default}}">
+	<PropSection title="type" type="string" defaultValue="smush">
 		<p>The Banner variation, essentially the plugin name</p>
 		<p>Allowed options:</p>
 		<List>
@@ -22,10 +22,10 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			<span label={<Code small={true}>branda</Code>} />
 		</List>
 	</PropSection>
-	<PropSection title="description" type="React Node" defaultValue="{{default}}">
+	<PropSection title="description" type="React Node">
 		<p>Description text for the banner</p>
 	</PropSection>
-	<PropSection title="className" type="string" defaultValue="{{default}}">
+	<PropSection title="className" type="string">
 		<p>Custom css className(s)</p>
 	</PropSection>
 </Section>
