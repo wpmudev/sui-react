@@ -3,43 +3,43 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-selector" />
 
 <Section title="Props" border={true}>
-	<PropSection title="title*" type="string" defaultValue="{{default}}">
+	<PropSection title="title" type="string" defaultValue="title">
     	<p>The main heading text for the Selector </p>
     </PropSection>
 
-	<PropSection title="description*" type="string" defaultValue="{{default}}">
+	<PropSection title="description" type="string">
     	<p>An additional text that accompagnes the title </p>
     </PropSection>
 
-    <PropSection title="iconOrBrandUrl*" type="string" defaultValue="{{default}}">
+    <PropSection title="iconOrBrandUrl" type="string">
     	<p> Either an image url or an icon to be displayed, this wll appear beside the title </p>
     </PropSection>
 
-    <PropSection title="label*" type="string" defaultValue="{{default}}">
+    <PropSection title="label" type="string">
     	<p>A label text for the hidden radio input ( for screen readers ) </p>
     </PropSection>
 
-    <PropSection title="name*" type="string" defaultValue="{{default}}">
-    	<p>A label text for screen readers</p>
+    <PropSection title="name" type="string">
+    	<p>Name attribute for the hidden input</p>
     </PropSection>
 
-    <PropSection title="value*" type="string | number" defaultValue="{{default}}">
+    <PropSection title="value" type="string | number">
     	<p>Value of the radio input</p>
     </PropSection>
 
-    <PropSection title="isChecked*" type="boolean" defaultValue="{{default}}">
+    <PropSection title="isChecked" type="boolean" defaultValue="false">
     	<p>Whether the radio input is checked or not</p>
     </PropSection>
 
-    <PropSection title="isDisabled*" type="boolean" defaultValue="{{default}}">
+    <PropSection title="isDisabled" type="boolean" defaultValue="false">
     	<p>Whether the radio input is disabled or not</p>
     </PropSection>
 
-    <PropSection title="isPro*" type="boolean" defaultValue="{{default}}">
+    <PropSection title="isPro" type="boolean" defaultValue="false">
     	<p>When set to <Code small={true}>true</Code>, the Selector appears in the pro variation</p>
     </PropSection>
 
-    <PropSection title="alignment*" type="string" defaultValue="{{default}}">
+    <PropSection title="alignment" type="string" defaultValue="center">
     	<p>Specifies the alignment of the content, it could be one of two values:</p>
     	<List>
     		<span label={<Code small={true}>left</Code>}/>
@@ -47,11 +47,11 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     	</List>
     </PropSection>
 
-    <PropSection title="allowRemove*" type="boolean" defaultValue="{{default}}">
+    <PropSection title="allowRemove" type="boolean" defaultValue="false">
     	<p>Whether to allow removing options or not, when set to true a remove button will appear on the option on hover</p>
     </PropSection>
 
-    <PropSection title="variation*" type="string" defaultValue="{{default}}">
+    <PropSection title="variation" type="string" defaultValue="default">
     	<p>The component variation style</p>
     	<p>Allowed options</p>
     	<List>
@@ -62,30 +62,19 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     	</List>
     </PropSection>
 
-    <PropSection title="tag*" type="string" defaultValue="{{default}}">
+    <PropSection title="tag" type="string">
     	<p> A text to appear on a custom tag </p>
     </PropSection>
 
-    <PropSection title="tagColor*" type="string" defaultValue="{{default}}">
-    	<p> The color variation for the tag </p>
-    	<p> Allowed options </p>
-    	<List>
-    		<span label={<Code small={true}>default</Code>} />
-    		<span label={<Code small={true}>blue</Code>} />
-    		<span label={<Code small={true}>yellow</Code>} />
-    		<span label={<Code small={true}>red</Code>} />
-    		<span label={<Code small={true}>green</Code>} />
-    		<span label={<Code small={true}>white</Code>} />
-    		<span label={<Code small={true}>black</Code>} />
-    		<span label={<Code small={true}>navy</Code>} />
-    	</List>
+	<PropSection title="tagColor" type="string" defaultValue="default">
+    	<p> The color variation for the tag, check the Tag component for allowed values </p>
     </PropSection>
 
-    <PropSection title="imageUrl*" type="string" defaultValue="{{default}}">
+    <PropSection title="imageUrl" type="string">
     	<p> The url to the image to be displayed in the image variation </p>
     </PropSection>
 
-    <PropSection title="onChange*" type="function" defaultValue="{{default}}">
+    <PropSection title="onChange" type="function">
     	<p>A callback function to be invoked upon radio input change, the function has the following parameter </p>
     	<List>
     		<span label={<><Code small={true}>isChecked</Code> The new checked value of the input </>}/>
@@ -94,8 +83,12 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     	</List>
     </PropSection>
 
-    <PropSection title="onRemove*" type="function" defaultValue="{{default}}">
+    <PropSection title="onRemove" type="function">
     	<p> A callback function to be invoked upon removing an option </p>
+    </PropSection>
+
+	<PropSection title="isFluid" type="boolean" defaultValue="false">
+    	<p> When set to <Code isSmall={true}>true</Code>, the Selector will take all the available space horizonatally </p>
     </PropSection>
 
 </Section>

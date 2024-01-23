@@ -53,9 +53,9 @@ export const Selector = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div>
-					<Row align={{ sm: "inline" }}>
+					<Row>
 						{options.map((option, index) => (
-							<Col key={index}>
+							<Col key={index} size={25}>
 								<SuiSelector
 									onChange={onChange}
 									isChecked={val === option.value}
@@ -83,7 +83,7 @@ Selector.args = {
 	imageUrl: "https://placehold.co/200x100.png",
 	allowRemove: false,
 	isDisabled: false,
-	isPro: true,
+	isPro: false,
 	tag: "Tag",
 	tagColor: "default",
 	isFluid: true,

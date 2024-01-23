@@ -13,7 +13,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 	(
 		{
 			label,
-			name,
+			name = "",
 			value = "",
 			isChecked = false,
 			isDisabled = false,
@@ -27,7 +27,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			tag,
 			iconOrBrandUrl,
 			imageUrl,
-			title,
+			title = "title",
 			description,
 			tagColor = "default",
 			isFluid = false,
