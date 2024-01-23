@@ -23,3 +23,51 @@ const getFileImagePreview = (file: File): string => {
 
 // Export the utility functions and the array of allowed image file types
 export { isImageFile, getFileImagePreview, SUI_UPLOADER_IMAGE_EXTS }
+
+/**
+ * Get basename
+ *
+ * @param {string} str file url
+ */
+export const basename = (str: string) => {
+	let base = String(str).substring(str.lastIndexOf("/") + 1)
+
+	if (base.lastIndexOf(".") !== -1) {
+		base = base.substring(0, base.lastIndexOf("."))
+	}
+
+	return base
+}
+/**
+ * Fetches data from a file URL and creates a File object.
+ *
+ * @param {string} fileUrl - The file URL.
+ *
+ * @return {Promise<File | null>} - A Promise that resolves to a File object or null if the operation fails.
+ *
+ */
+export const getObjectFileFromUrl = async (
+	fileUrl: string,
+): Promise<File | null | Error> => {
+	try {
+		// Fetch the file data from the provided file URL
+		const response = await fetch(fileUrl)
+
+		// Check if the fetch operation was successful
+		if (response.ok) {
+			// Retrieve the file data as a Blob
+			const blobData = await response.blob()
+
+			// Create a new File object with the specified file name and type based on the Blob data
+			const file = new File([blobData], basename(fileUrl), {
+				type: blobData.type,
+			})
+
+			// Return the generated File object
+			return file
+		}
+	} catch (err) {
+		return null
+	}
+	return null
+}

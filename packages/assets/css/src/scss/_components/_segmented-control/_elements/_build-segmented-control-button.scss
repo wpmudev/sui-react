@@ -14,6 +14,9 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(button) {
+				display: flex;
+				min-height: $segmented-size-height;
+
 				&:first-child {
 					.sui-#{$block}__label {
 						border-radius: $segmented-border-radius 0 0 $segmented-border-radius;

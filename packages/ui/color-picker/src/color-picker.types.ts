@@ -34,6 +34,18 @@ interface ColorPickerProps {
 	 * Specifies if the color picker field is disabled.
 	 */
 	isDisabled?: boolean
+	/**
+	 * callback when cancel
+	 */
+	onCancel?: Function
+	/**
+	 * callback when reset
+	 */
+	onReset?: Function
+	/**
+	 * callback when the color changes but not applied yet
+	 */
+	onColorChange?: (color: string) => void
 }
 
 interface ColorPickerColorProps {
@@ -43,7 +55,7 @@ interface ColorPickerColorProps {
 interface ColorPickerPickerProps {
 	color: ColorPickerProps["color"]
 	type: ColorPickerProps["type"]
-	onColorChange: ColorPickerProps["onChange"]
+	onColorChange: ColorPickerProps["onColorChange"]
 	onApplyButton: ColorPickerProps["onApplyButton"]
 }
 

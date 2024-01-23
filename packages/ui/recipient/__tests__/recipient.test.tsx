@@ -11,7 +11,6 @@ describe("@wpmudev/sui-recipient", () => {
 		appearance: "primary",
 		userName: "Recipient Name",
 		userEmail: "example@email.com",
-		status: "",
 		isInvited: false,
 	}
 

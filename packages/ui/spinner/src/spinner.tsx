@@ -8,6 +8,7 @@ import { SpinnerLoader } from "./spinner-loader"
 // Spinner component
 const Spinner: React.FC<SpinnerProps> = ({
 	size = "lg",
+	isContained = false,
 	color,
 	isAbsolute = false,
 }) => {
@@ -16,6 +17,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 		absolute: isAbsolute,
 		[size]: !isEmpty(size ?? ""),
 		dark: !isEmpty(color) && "dark" === color,
+		contained: isContained,
 	})
 
 	return (
