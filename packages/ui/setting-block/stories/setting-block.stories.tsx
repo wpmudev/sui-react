@@ -20,6 +20,7 @@ export default {
 
 // Build "SettingBlock" story.
 const SettingBlock = ({ ...props }) => {
+	return <SuiSettingBlock />
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
