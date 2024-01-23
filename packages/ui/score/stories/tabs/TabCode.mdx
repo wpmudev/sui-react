@@ -3,16 +3,16 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-score" />
 
 <Section title="Props" border={true}>
-	<PropSection title="bar" type="number" defaultValue="{{default}}">
+	<PropSection title="bar" type="number" defaultValue="50">
 		<p>The length of the score bar to be displayed. it accepts integers from <Code small={true}>0</Code> to <Code small={true}>100</Code> </p>
 	</PropSection>
-	<PropSection title="value" type="number" defaultValue="{{default}}">
+	<PropSection title="value" type="number" defaultValue="50">
 		<p>Reflects the value of the score which will be shown as a label beside the score.</p>
 	</PropSection>
-	<PropSection title="content" type="string" defaultValue="{{default}}">
+	<PropSection title="content" type="string">
 		<p>A text to be shown beside the value</p>
 	</PropSection>
-	<PropSection title="state" type="string" defaultValue="{{default}}">
+	<PropSection title="state" type="string">
 		<p>
 			Depending on the task's requirements, particular task conditions
 			can change the score type.
@@ -50,13 +50,13 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			/>
 		</List>
 	</PropSection>
-	<PropSection title="isPercentage" type="boolean" defaultValue="{{default}}">
+	<PropSection title="isPercentage" type="boolean" defaultValue="true">
 		<p>Places a percentage after the score text.</p>
 	</PropSection>
-	<PropSection title="isSmall" type="boolean" defaultValue="{{default}}">
+	<PropSection title="isSmall" type="boolean" defaultValue="false">
 		<p>If set to <Code small={true}> true </Code> the score will have a smaller size</p>
 	</PropSection>
-	<PropSection title="className" type="string" defaultValue="{{default}}">
+	<PropSection title="className" type="string">
 		<p>Add a class name to the score.</p>
 	</PropSection>
 </Section>
