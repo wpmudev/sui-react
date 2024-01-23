@@ -13,8 +13,8 @@ import { SearchOptions } from "./search-options"
 const Search: React.FC<SearchProps> = ({
 	id,
 	className,
-	variation = "",
-	placeholder = "",
+	variation = "basic",
+	placeholder,
 	defaultValue,
 	options = [],
 	onChange = () => {},
