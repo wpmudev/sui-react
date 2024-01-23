@@ -4,6 +4,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 
 import { Provider } from "./radio-context"
 import { RadioGroupProps, RadioValueType } from "./radio.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 const RadioGroup = ({
 	isInline = true,
@@ -22,6 +23,9 @@ const RadioGroup = ({
 	useEffect(() => {
 		setCurrent(defaultValue)
 	}, [defaultValue])
+
+	// Default children content
+	children = useDefaultChildren(children, "{Radio Group Children Content}")
 
 	// radio group classname
 	const radioClassNames = generateCN(
