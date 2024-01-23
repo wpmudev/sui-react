@@ -4,6 +4,7 @@ import React, {
 	useRef,
 	HTMLProps,
 	ChangeEvent,
+	useId,
 } from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 import {
@@ -40,9 +41,9 @@ interface SelectBaseProps
 		"onMouseLeave" | "onMouseEnter" | "selected"
 	> {
 	/** Unique ID */
-	id: string
+	id?: string
 	/** An array of options for the select */
-	options: Record<string, any>[]
+	options?: Record<string, any>[]
 	/** Additional CSS class name for styling */
 	className?: string
 	/** Current selected option */
@@ -84,26 +85,30 @@ const Select: React.FC<SelectBaseProps> = ({
 	id,
 	options,
 	className,
-	selected = undefined,
-	label = "Select",
+	selected,
+	label = "select",
 	isDisabled = false,
 	isSmall = false,
 	isError = false,
 	isMultiSelect = false,
 	isSearchable = false,
+	onMouseEnter = () => null,
+	onMouseLeave = () => null,
 	onChange,
 	...props
 }) => {
+	const uniqueId = useId()
+
 	if (!id) {
-		throw new Error(
-			'Empty parameter is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Input\n\nThe parameter "id" in the "Input" component is required.\n\n',
-		)
+		id = `select-${uniqueId}`
 	}
 
 	if (!options) {
-		throw new Error(
-			'Empty parameter is not valid. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Select\n\nThe parameter "options" in the "Select" component is required and should be array.\n\n',
-		)
+		options = [
+			{ id: "option-1", label: "Option 1" },
+			{ id: "option-2", label: "Option 2" },
+			{ id: "option-3", label: "Option 3" },
+		]
 	}
 
 	// set ref to dropdown.
@@ -143,8 +148,8 @@ const Select: React.FC<SelectBaseProps> = ({
 
 	// Define states.
 	const [isHovered, isFocused, interactionMethods] = useInteraction({
-		onMouseLeave: props.onMouseLeave,
-		onMouseEnter: props.onMouseEnter,
+		onMouseLeave,
+		onMouseEnter,
 	} as InteractionTypes)
 
 	// UseEffect function to handle change in items
