@@ -21,7 +21,7 @@ describe("@wpmudev/sui-summary-box", () => {
 
 	const Component = () => (
 		<SummaryBox
-			icon="performance"
+			icon="Performance"
 			title={args.title}
 			hideMobileIcon={true}
 			primaryActions={[<Fragment key={0}>{args.primaryActions}</Fragment>]}
