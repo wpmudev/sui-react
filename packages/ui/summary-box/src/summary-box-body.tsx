@@ -5,6 +5,7 @@ import { Col, Row } from "@wpmudev/sui-grid"
 import { BoxGroup } from "@wpmudev/sui-box"
 
 import { SummaryBoxBodyProps } from "./summary-box.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 /**
  * SummaryBoxBody Component
@@ -26,6 +27,9 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 	reverseBlocks = false,
 }) => {
 	const classNames = generateCN("sui-summary-box__body", {}, className)
+
+	// Children default content
+	children = useDefaultChildren(children, "{summary box body children}")
 
 	// Create two columns to display the main content and the list of summary items.
 	const cols = [

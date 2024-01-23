@@ -10,7 +10,7 @@ import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 const Notification: React.FC<NotificationProps> = ({
 	id,
-	title = "title",
+	title,
 	message = "message",
 	action,
 	icon = "Info",
