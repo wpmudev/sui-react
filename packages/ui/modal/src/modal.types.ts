@@ -1,5 +1,6 @@
 // Type definition for the props of the Modal component
 import React from "react"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 type ModalProps = {
 	id?: string // ID for the modal element
@@ -23,6 +24,15 @@ interface ModalContextProps
 interface ModalHeaderProps {
 	title?: string
 	children?: React.ReactNode
+	icon?: IconsNamesType
+	iconSize?: "xms" | "xs" | "sm" | "md" | "lg" | "xl"
+	iconColor?:
+		| ""
+		| "neutral"
+		| "informative"
+		| "success"
+		| "warning"
+		| "critical"
 }
 
 interface ModalBodyProps {

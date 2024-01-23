@@ -35,7 +35,7 @@ type buttonTagAttributes = React.DetailedHTMLProps<
 // Signature for "button" tag
 function Button({
 	type,
-	style = "primary",
+	style,
 	color,
 	small,
 	icon,
@@ -46,7 +46,7 @@ function Button({
 // Signature for "a" tag
 function Button({
 	type,
-	style = "primary",
+	style,
 	color,
 	small,
 	icon,

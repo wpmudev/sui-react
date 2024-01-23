@@ -30,6 +30,12 @@
 				letter-spacing: 0;
 				transition: 0.1s ease;
 				width: 100%;
+
+				// To override potential defaults
+				&:focus {
+					box-shadow: none;
+					outline: 0;
+				}
 			}
 
 			@include element(input-clear) {

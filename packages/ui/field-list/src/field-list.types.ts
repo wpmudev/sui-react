@@ -9,11 +9,11 @@ interface FieldListProps {
 	/**
 	 * The label for the field list.
 	 */
-	label: string
+	label?: string
 	/**
 	 * The helper text for the field list.
 	 */
-	helper: string
+	helper?: string
 	/**
 	 * The content of the field list.
 	 */
@@ -44,6 +44,14 @@ interface FieldListItemProps extends ToggleProps {
 	 * Whether the toggle is checked or not
 	 */
 	isChecked?: boolean
+	/*
+	 * A callback function to be invoked when when one of the fields state changes
+	 */
+	hasToggle?: boolean
+	/*
+	 * Custom actions for the item
+	 */
+	actions?: React.ReactNode
 }
 
 export type { FieldListProps, FieldListItemProps }

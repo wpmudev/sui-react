@@ -14,7 +14,7 @@ const Recipient: React.FC<RecipientProps> = ({
 	userName = "",
 	userEmail = "",
 	userImage,
-	status = "",
+	status,
 	isInvited = false,
 	appearance,
 	...props

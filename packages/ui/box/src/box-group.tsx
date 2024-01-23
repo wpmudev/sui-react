@@ -9,6 +9,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 	children,
 	isHeader = false,
 	isFooter = false,
+	hasPadding = true,
 	style,
 }) => {
 	// Build content based in slots
@@ -34,6 +35,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 		inline: isInline,
 		header: isHeader,
 		footer: isFooter,
+		"no-padding": !hasPadding,
 	})
 
 	return (

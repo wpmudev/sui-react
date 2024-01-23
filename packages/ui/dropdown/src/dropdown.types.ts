@@ -56,6 +56,10 @@ interface DropdownMenuItemProps {
 	 * Children elements to be rendered inside the MenuItem.
 	 */
 	children?: React.ReactNode
+	/**
+	 * Specifies where the linked document should be opened when the user clicks on the hyperlink.
+	 */
+	target?: "_blank" | "_self" | "_parent" | "_top" | string
 }
 
 /**
