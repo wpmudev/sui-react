@@ -4,14 +4,14 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 
 <Section title="Props" border={true}>
 	<p>Recipient `component` have the following props.</p>
-	<PropSection title="userName" type="string" defaultValue="{{default}}">
+	<PropSection title="userName" type="string" defaultValue="name">
 		<p>The name of the recipient</p>
 	</PropSection>
-	<PropSection title="userEmail" type="string" defaultValue="{{default}}">
+	<PropSection title="userEmail" type="string">
 		<p>The email of the recipient</p>
 	</PropSection>
-	<PropSection title="userImage" type="object" defaultValue="{{default}}">
-		<p>The recipient's avatar or picture, the object has two keys:</p>
+	<PropSection title="userImage" type="object">
+		<p>The recipient's avatar or picture, the recipient will have aa default icon, the object has two keys</p>
 		<List>
 			<span
 				label={
@@ -29,7 +29,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			/>
 		</List>
 	</PropSection>
-	<PropSection title="appearance" type="string" defaultValue="{{default}}">
+	<PropSection title="appearance" type="string" defaultValue="primary">
 		<p>Reflects the theme of the recipient.</p>
 		<p>Allowed options:</p>
 		<List>
@@ -49,16 +49,17 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			/>
 		</List>
 	</PropSection>
-	<PropSection title="isInvited" type="boolean" defaultValue="{{default}}">
+	<PropSection title="isInvited" type="boolean" defaultValue="false">
 		<p>
 			Reflects whether the user was already invited or not, if set to{" "}
 			<Code small={true}>true</Code>, a remove button will appear
 		</p>
 	</PropSection>
-	<PropSection title="status" type="string" defaultValue="{{default}}">
+	<PropSection title="status" type="string" defaultValue="none">
 		<p>Reflects the status of the invitation</p>
 		<p>Allowed options:</p>
 		<List>
+			<span label={<Code small={true}>none</Code>} />
 			<span label={<Code small={true}>confirmed</Code>} />
 			<span label={<Code small={true}>not-accepted</Code>} />
 			<span label={<Code small={true}>not-connected</Code>} />
