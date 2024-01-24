@@ -39,7 +39,7 @@ const Box: React.FC<BoxProps> = ({
 							<span
 								className={generateCN(
 									"suicons",
-									[],
+									{},
 									hideMobileIcon
 										? "sui-box-group__item sui-icon--hide-sm"
 										: "sui-box-group__item",
