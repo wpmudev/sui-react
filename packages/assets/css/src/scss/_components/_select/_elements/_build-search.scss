@@ -26,8 +26,16 @@
 
 			@include modifier(multiselect) {
 				@include modifies-element(search) {
+					position: absolute;
+					left: 0;
+					right: 0;
 					border-top: 0;
 					border-bottom: 0;
+					background: $color-extended-neutral-100;
+				}
+
+				@include modifies-element(dropdown) {
+					margin-top: $select-dropdown-margin-md;
 				}
 			}
 		}
