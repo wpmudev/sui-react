@@ -8,7 +8,7 @@ import { UploaderButton } from "./uploader-button"
 
 // The Uploader component displays a file uploader with drag-and-drop support and file previews.
 const Uploader: React.FC<UploaderProps> = ({
-	btnTitle,
+	btnTitle = "Upload File",
 	multiple = true,
 	accept = "",
 	allowDragAndDrop = true,
