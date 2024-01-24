@@ -3,23 +3,23 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-upsell" />
 
 <Section title="Props" border={true}>
-	<PropSection title="title" type="string" defaultValue="{{default}}">
+	<PropSection title="title" type="string">
 		<p>The main heading text for the Upsell</p>
 	</PropSection>
 
-    <PropSection title="description" type="React Node" defaultValue="{{default}}">
+    <PropSection title="description" type="React Node">
     	<p>Descriptive text that accompagnes the title</p>
     </PropSection>
 
-    <PropSection title="actions" type="React Node" defaultValue="{{default}}">
+    <PropSection title="actions" type="React Node">
     	<p>Optional actions button to be displayed at the bottom</p>
     </PropSection>
 
-    <PropSection title="features" type="Array" defaultValue="{{default}}">
+    <PropSection title="features" type="Array">
     	<p>A list of features to be displayed, the array of items could be strings or React Nodes</p>
     </PropSection>
 
-    <PropSection title="size" type="string" defaultValue="{{default}}">
+    <PropSection title="size" type="string">
     	<p>The upsell size</p>
     	<p>Allowed options</p>
     	<List>
@@ -28,7 +28,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     	</List>
     </PropSection>
 
-    <PropSection title="variation" type="string" defaultValue="{{default}}">
+    <PropSection title="variation" type="string" defaultValue="hummingbird">
     	<p> The Upsell variation, which include our list of plugins:</p>
     	<List>
     		<span label={<Code small={true}>hummingbird</Code>} />
