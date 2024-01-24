@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useState, ReactElement } from "react"
+import React, {
+	useCallback,
+	useEffect,
+	useState,
+	ReactElement,
+	useId,
+} from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 
@@ -20,7 +26,7 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 	id,
 	parentGroupId,
 	icon,
-	title = "",
+	title = "group title",
 	className = "",
 	children,
 	isDisabled = false,
@@ -30,6 +36,13 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 
 	// Generate class names
 	const classNames = generateCN("sui-tree-view__group", {}, className ?? "")
+
+	// unique id
+	const uniqueId = useId()
+
+	if (!id) {
+		id = uniqueId
+	}
 
 	useEffect(() => {
 		if (undefined !== parentGroupId) {

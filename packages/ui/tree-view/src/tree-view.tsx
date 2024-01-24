@@ -4,6 +4,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 
 import { TreeViewCheckType, TreeViewProps } from "./tree-view.types"
 import { TreeViewProvider } from "./tree-view-context"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 /**
  * TreeView Component
@@ -16,11 +17,14 @@ import { TreeViewProvider } from "./tree-view-context"
 const TreeView: React.FC<TreeViewProps> = ({
 	className = "",
 	children,
-	allowCheck,
-	showIcons,
+	allowCheck = false,
+	showIcons = false,
 	onChange = () => {},
 }) => {
 	const [items, setItems] = useState<TreeViewCheckType[]>([])
+
+	// Default children content
+	children = useDefaultChildren(children, "{TreeView Content}")
 
 	useEffect(() => {
 		if (onChange) {
