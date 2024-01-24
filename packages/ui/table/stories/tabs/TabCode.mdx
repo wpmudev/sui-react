@@ -3,43 +3,43 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-table" />
 
 <Section title="Props" border={true}>
-	<PropSection title="children" type="React Node" defaultValue="{{default}}">
+	<PropSection title="children" type="React Node">
 		<p>The content of the table</p>
 	</PropSection>
 
-    <PropSection title="ariaLabel" type="string" defaultValue="{{default}}">
+    <PropSection title="ariaLabel" type="string">
     	<p>Aria label text for the table to improve accessibility </p>
     </PropSection>
 
-    <PropSection title="allowCheck" type="boolean" defaultValue="{{default}}">
+    <PropSection title="allowCheck" type="boolean" defaultValue="false">
     	<p>Determines if the table allows checkable rows with checkboxes.</p>
     </PropSection>
 
-    <PropSection title="isDraggable" type="boolean" defaultValue="{{default}}">
+    <PropSection title="isDraggable" type="boolean" defaultValue="false">
     	<p>Determines if the table supports drag-and-drop reordering of rows.</p>
     </PropSection>
 
-    <PropSection title="hasToolbar" type="boolean" defaultValue="{{default}}">
+    <PropSection title="hasToolbar" type="boolean" defaultValue="true">
     	<p>Determines if the table has a toolbar.</p>
     </PropSection>
 
-    <PropSection title="noBorderRadius" type="boolean" defaultValue="{{default}}">
+    <PropSection title="noBorderRadius" type="boolean" defaultValue="false">
     	<p>When set to <Code small={true}>true</Code>, the table will have no border radius</p>
     </PropSection>
 
-    <PropSection title="noSideBorder" type="boolean" defaultValue="{{default}}">
+    <PropSection title="noSideBorder" type="boolean" defaultValue="false">
     	<p>When set to <Code small={true}>true</Code>, the border from the sides will be removed</p>
     </PropSection>
 
-    <PropSection title="filtersPopover" type="boolean" defaultValue="{{default}}">
+    <PropSection title="filtersPopover" type="boolean" defaultValue="false">
     	<p>When set to <Code small={true}>true</Code>, the border from the sides will be removed</p>
     </PropSection>
 
-    <PropSection title="filters" type="array" defaultValue="{{default}}">
+    <PropSection title="filters" type="array">
     	<p>An array of filters that can be used in the table toolbar.</p>
     </PropSection>
 
-    <PropSection title="bulkActions" type="array" defaultValue="{{default}}">
+    <PropSection title="bulkActions" type="array">
     	<p>An array of bulk actions to be displayed in the select element in the toolbar, each item of the array is an object which has the following keys:</p>
     	<List>
     		<span label="id"/>
@@ -47,19 +47,19 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     	</List>
     </PropSection>
 
-    <PropSection title="isStripped" type="boolean" defaultValue="{{default}}">
+    <PropSection title="isStripped" type="boolean" defaultValue="false">
     	<p>When set to <Code small={true}>true</Code> The table will have a stripped design</p>
     </PropSection>
 
-    <PropSection title="onAction" type="function" defaultValue="{{default}}">
+    <PropSection title="onAction" type="function">
     	<p>Callback function triggered when an action is performed in the table toolbar.</p>
     </PropSection>
 
-    <PropSection title="className" type="string" defaultValue="{{default}}">
+    <PropSection title="className" type="string">
     	<p>Adds custom css className(s) </p>
     </PropSection>
 
-    <PropSection title="stickyCols" type="boolean" defaultValue="{{default}}">
+    <PropSection title="stickyCols" type="boolean" defaultValue="false">
     	<p>Makes columns sticky when set to <Code small={true}>true</Code></p>
     </PropSection>
 
@@ -78,18 +78,16 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     	<p>
     		This component represents the table heading wrapper, it uses the html tag <Code small={true}>thead</Code> under the hood. it has one prop
     	</p>
-
-			<PropSection title="hasActions" type="string" defaultValue="{{default}}">
+			<PropSection title="hasActions" type="boolean" defaultValue="false">
 				<p>
-					When true, it reserve space for actions.
+					When true, it reserves space for actions.
 				</p>
 			</PropSection>
-			<PropSection title="children*" type="string" defaultValue="{{default}}">
+			<PropSection title="children" isRequired={true} type="React Node">
 				<p>
 					The content of the table head
 				</p>
 			</PropSection>
-
     </Section>
 
     <Section title="TableBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
@@ -97,7 +95,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		This component represents the table body wrapper, it uses the html tag <Code small={true}>tbody</Code> under the hood. it has one prop
     	</p>
 
-    	<PropSection title="children" type="string" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>
     			The content of the table body
     		</p>
@@ -109,7 +107,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		This component represents the table footer wrapper, it uses the html tag <Code small={true}>tfoot</Code> under the hood. it has one prop
     	</p>
 
-    	<PropSection title="children" type="string" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>
     			The content of the table footer
     		</p>
@@ -122,49 +120,56 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		This component represents a single row in the table, nested below the <Code small={true}>TableBody</Code> component it has the following props
     	</p>
 
-    	<PropSection title="id" type="string" defaultValue="{{default}}">
+    	<PropSection title="id" type="string">
     		<p>
     			A unique id for the row
     		</p>
     	</PropSection>
 
-    	<PropSection title="children" type="string" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>
     			The content of the row
     		</p>
     	</PropSection>
 
-    	<PropSection title="isUnderHeader" type="string" defaultValue="{{default}}">
+    	<PropSection title="isUnderHeader" type="boolean" defaultValue="false">
     		<p>
     			Determines if the row is under the table header.
     		</p>
     	</PropSection>
 
-    	<PropSection title="isExpandable" type="string" defaultValue="{{default}}">
+    	<PropSection title="isExpandable" type="string" defaultValue="false">
     		<p>
     			Determines if the row is expandable (can show additional content when expanded).
     		</p>
     	</PropSection>
 
-    	<PropSection title="expandableContent" type="string" defaultValue="{{default}}">
+    	<PropSection title="expandableContent" type="React Node">
     		<p>
     			Content to display when the row is expanded (if isExpandable is set to true).
     		</p>
     	</PropSection>
 
-    	<PropSection title="status" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="status" type="string">
     		<p>
     			Status color to appear on the table row.
+				<p>Allowed Values</p>
+				<List>
+					<span label="info" />
+					<span label="success" />
+					<span label="warning" />
+					<span label="error" />
+				</List>
     		</p>
     	</PropSection>
 
-    	<PropSection title="actions" type="function" defaultValue="{{default}}">
+    	<PropSection title="actions" type="function">
     		<p>
     			The actions to be displayed at the last column, the function returns a React Node
     		</p>
     	</PropSection>
 
-    	<PropSection title="isUnderFooter" type="function" defaultValue="{{default}}">
+    	<PropSection title="isUnderFooter" type="boolean" defaultValue="false">
     		<p>
     			Specifies if the row is under the table footer
     		</p>
@@ -177,67 +182,71 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		This component represents a single cell in the table. it has the following props
     	</p>
 
-    	<PropSection title="id" type="string" defaultValue="{{default}}">
+    	<PropSection title="id" type="string">
     		<p>
     			Unique identifier for the <Code small={true}>TableCell</Code>
     		</p>
     	</PropSection>
 
-    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>
     			The content of the table cell
     		</p>
     	</PropSection>
 
-    	<PropSection title="isHeading" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isHeading" type="boolean" defaultValue="false">
     		<p>
     			Render table cell as header cell "th"
     		</p>
     	</PropSection>
 
-    	<PropSection title="isSticky" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isSticky" type="boolean" defaultValue="false">
     		<p>
     			Makes the cell sticky
     		</p>
     	</PropSection>
 
-    	<PropSection title="isTrim" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isTrim" type="boolean" defaultValue="false">
     		<p>
     			Make cell text single line and trimmable
     		</p>
     	</PropSection>
 
-    	<PropSection title="isPrimary" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isPrimary" type="boolean" defaultValue="false">
     		<p>
     			 Makes table cell as primary
     		</p>
     	</PropSection>
 
-    	<PropSection title="style" type="object" defaultValue="{{default}}">
+    	<PropSection title="style" type="object">
     		<p>
     			Style object for addtional customization
     		</p>
     	</PropSection>
 
-    	<PropSection title="hasDragIcon" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="hasDragIcon" type="boolean" defaultValue="false">
     		<p>
     			Determines if the cell should display a drag icon (Grip icon)
     		</p>
     	</PropSection>
 
-    	<PropSection title="className" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="className" type="string">
     		<p>
     			Additional css className(s) for further styling
     		</p>
     	</PropSection>
 
-    	<PropSection title="isSortable" type="boolean" defaultValue="{{default}}">
+    	<PropSection title="isSortable" type="boolean" defaultValue="false">
     		<p>
     			When set to <Code small={true}>true</Code> the cell will be sortable
     		</p>
     	</PropSection>
 
+		<PropSection title="isAction" type="boolean" defaultValue="false">
+    		<p>
+    			Indicates if the cell is an Action cell
+    		</p>
+    	</PropSection>
 
     </Section>
-
 </Section>

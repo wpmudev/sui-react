@@ -43,7 +43,7 @@ import { TableFields } from "./table-fields"
 const TableRow: React.FC<TableRowProps> = ({
 	id,
 	children,
-	actions = false,
+	actions,
 	isUnderHeader = false,
 	isExpandable = false,
 	expandableContent = null,

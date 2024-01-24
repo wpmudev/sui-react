@@ -13,7 +13,7 @@ const Checkbox = ({
 	groupId = "",
 	name,
 	value = "",
-	label = "checkbox label",
+	label,
 	isLabelHidden = false,
 	isChecked = false,
 	isDisabled = false,
