@@ -20,6 +20,10 @@
 				.sui-#{$block}__header {
 					align-items: center;
 					display: flex;
+
+					@include media(max-width, sm) {
+						align-items: flex-start;
+					}
 				}
 
 				.sui-#{$block}__info,
