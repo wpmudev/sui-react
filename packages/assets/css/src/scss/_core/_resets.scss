@@ -7,7 +7,11 @@
 		box-sizing: border-box;
 	}
 
-	h3 {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
 		margin: 0;
 	}
 
@@ -15,6 +19,32 @@
 		&:focus {
 			box-shadow: none;
 			outline: none;
+		}
+	}
+
+	input[type="checkbox"],
+	input[type="color"],
+	input[type="date"],
+	input[type="datetime-local"],
+	input[type="datetime"],
+	input[type="email"],
+	input[type="month"],
+	input[type="number"],
+	input[type="password"],
+	input[type="radio"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="text"],
+	input[type="time"],
+	input[type="url"],
+	input[type="week"],
+	select,
+	textarea {
+		border: none;
+		&:focus {
+			border-color: unset;
+			box-shadow: unset;
+			outline: unset;
 		}
 	}
 }
