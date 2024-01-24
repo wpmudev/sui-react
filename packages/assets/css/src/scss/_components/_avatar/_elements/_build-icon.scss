@@ -17,11 +17,11 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				color: $color-extended-neutral-10;
-				font-size: $avatar-icon-size-md;
 
-				&:before {
-					margin-top: -0.5px;
+				.sui-icon {
+					color: $color-extended-neutral-10;
+					height: $avatar-icon-size-md;
+					width: $avatar-icon-size-md;
 				}
 			}
 		}
