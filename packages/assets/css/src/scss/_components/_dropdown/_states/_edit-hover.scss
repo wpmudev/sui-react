@@ -11,8 +11,8 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			@include element(menu-item) {
-				@include modifier(hover) {
+			@include element(menu) {
+				.sui-#{$block}__menu-item--hover {
 					background-color: $color-extended-neutral-90;
 					color: $color-extended-neutral-10;
 				}
@@ -24,8 +24,8 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			@include element(menu-item) {
-				@include modifier(hover) {
+			@include element(menu) {
+				.sui-#{$block}__menu-item--hover {
 					background-color: $color-extended-neutral-0;
 					color: $color-extended-neutral-100;
 
