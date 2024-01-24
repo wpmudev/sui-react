@@ -1,7 +1,11 @@
 import React, { useEffect, useCallback, CSSProperties } from "react"
 import { Button } from "@wpmudev/sui-button"
 import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
-import { InteractionTypes, useInteraction } from "@wpmudev/sui-hooks"
+import {
+	InteractionTypes,
+	useDefaultChildren,
+	useInteraction,
+} from "@wpmudev/sui-hooks"
 
 import { Icon } from "./elements/tooltip-icon"
 import { TooltipProps } from "./tooltip.types"
@@ -35,6 +39,9 @@ const Tooltip: React.FC<TooltipProps> = ({
 	type TooltipAttrsTypes = {
 		style?: React.CSSProperties
 	}
+
+	// Default children content
+	children = useDefaultChildren(children, "{default tooltip content}")
 
 	const attrs: TooltipAttrsTypes = {}
 
@@ -89,7 +96,6 @@ const Tooltip: React.FC<TooltipProps> = ({
 	const renderTrigger = () => {
 		switch (type) {
 			case "button":
-			case "link":
 				return (
 					<Button
 						{...props}
@@ -103,7 +109,6 @@ const Tooltip: React.FC<TooltipProps> = ({
 			case "text":
 				return (
 					<span
-						{...props}
 						role="button"
 						tabIndex={0}
 						onClick={onClickCallback}
@@ -115,7 +120,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 					</span>
 				)
 			case "icon":
-				return <Icon name={icon} />
+				return <Icon name={icon} onClick={onClick} />
 		}
 	}
 

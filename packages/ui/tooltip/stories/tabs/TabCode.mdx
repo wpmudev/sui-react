@@ -4,78 +4,23 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 
 <Section title="Props" border={true}>
 	<p>
-		The tooltip component is composed of a button and the tooltip itselft, when the button is hovered the tooltip will appear
+		The tooltip component is composed of the trigger element and the tooltip itselft, when the trigger element is hovered the tooltip will appear.
 	</p>
-	<p>
-		We compose the props into two categories, the first category is for the props of the button and the second for the tooltip.
-	</p>
-	<Section title="Button Props" style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-		<PropSection title="label" type="string" defaultValue="{{default}}">
-			<p>Text content of the button</p>
-		</PropSection>
-		<PropSection title="type" type="string" defaultValue="{{default}}">
-			<p>
-				The type of the button, leave it empty when you want to use the default type
-			</p>
-			<p>Allowed options:</p>
+	<p> the trigger element is determined using the type prop, the default is <Code isSmall={true}>button</Code></p>
+	
+	<Section title="Props" style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+		
+		<PropSection title="type" type="string" defaultValue="button">
+			<p>The type for the trigger element</p>
+			<p>Allowed options</p>
 			<List>
-				<span
-					label={
-						<>
-							<Code small={true}>button</Code>
-						</>
-					}
-				/>
-				<span
-					label={
-						<>
-							<Code small={true}>text</Code>
-						</>
-					}
-				/>
-				<span
-					label={
-						<>
-							<Code small={true}>icon</Code> when you choose this make sure you provide the name prop, which is the name of the icon
-						</>
-					}
-				/>
+				<span label="button" />
+				<span label="text" />
+				<span label="icon" />
 			</List>
 		</PropSection>
-		<PropSection title="href" type="string" defaultValue="{{default}}">
-			<p>Button url when the type is set to link <Code small={true}>link</Code></p>
-		</PropSection>
-		<PropSection title="onClick" type="function" defaultValue="{{default}}">
-			<p>
-				A callback function for click event
-			</p>
-		</PropSection>
-		<PropSection title="onMouseEnter" type="function" defaultValue="{{default}}">
-			<p>
-				A callback function to be triggered when the mouse pointer moves over the button
-			</p>
-		</PropSection>
-		<PropSection title="onMouseLeave" type="function" defaultValue="{{default}}">
-			<p>
-				A callback function to be triggered when the mouse pointer exits the button
-			</p>
-		</PropSection>
-		<PropSection title="onFocus" type="function" defaultValue="{{default}}">
-			<p>
-				This function is called when the button receives keyboard focus, typically used to enhance accessibility.
-			</p>
-		</PropSection>
-		<PropSection title="onBlur" type="function" defaultValue="{{default}}">
-			<p>
-				This function is called when the button loses keyboard focus.
-			</p>
-		</PropSection>
-		<p>In addition to these props you can use any prop that the <a href="/?path=/docs/sui-components-core-button--docs" target="_blank">Button Component</a> accepts</p>
-	</Section>
-
-
-	<Section title="Tooltip props" style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-		<PropSection title="position" type="string" defaultValue="{{default}}">
+		
+		<PropSection title="position" type="string" defaultValue="top">
 			<p>
 				A tooltip can be placed at the top, bottom, left, or right of the
 				button.
@@ -180,23 +125,80 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 				/>
 			</List>
 		</PropSection>
-		<PropSection title="className" type="string" defaultValue="{{default}}">
+		
+		<PropSection title="className" type="string">
 			<p>Custom css classNames(s) to be added to the tooltip</p>
 		</PropSection>
-		<PropSection title="customWidth" type="number" defaultValue="{{default}}">
+		
+		<PropSection title="customWidth" type="number">
 			<p>
 				Add a fixed width to the tooltip
 			</p>
 		</PropSection>
-		<PropSection title="customMobileWidth" type="number" defaultValue="{{default}}">
+		
+		<PropSection title="customMobileWidth" type="number">
 			<p>
-				A fixed width for mobile
+				Add a fixed width for the tooltip in the mobile
 			</p>
 		</PropSection>
-		<PropSection title="children" type="React Node" defaultValue="{{default}}">
+		
+		<PropSection title="children" type="React Node">
 			<p>
-				A fixed width for mobile
+				The content of the tooltip
 			</p>
 		</PropSection>
+		
+		
+	</Section>
+	
+	<Section title="Trigger element props" style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+		<PropSection title="icon" type="React Node">
+			<p>
+				Icon name for the trigger
+			</p>
+		</PropSection>
+
+		<PropSection title="href" type="React Node">
+			<p>
+				The link that the trigger points to ( only applicable for the button type)
+			</p>
+		</PropSection>
+
+		<PropSection title="label" type="string">
+			<p>The text for the element to be hovered on to display the tooltip ( not applicable for the icon type )</p>
+		</PropSection>
+
+		<PropSection title="onClick" type="function">
+			<p>
+				A callback function to be invoked upon clicking on the trigger element
+			</p>
+		</PropSection>
+		
+		<PropSection title="onMouseEnter" type="function">
+			<p>
+				A callback function to be triggered when the mouse pointer moves over the button
+			</p>
+		</PropSection>
+		
+		<PropSection title="onMouseLeave" type="function">
+			<p>
+				A callback function to be triggered when the mouse pointer exits the button
+			</p>
+		</PropSection>
+		
+		<PropSection title="onFocus" type="function">
+			<p>
+				This function is called when the button receives keyboard focus, typically used to enhance accessibility.
+			</p>
+		</PropSection>
+		
+		<PropSection title="onBlur" type="function">
+			<p>
+				This function is called when the button loses keyboard focus.
+			</p>
+		</PropSection>
+		
+		<p>In addition to these props, and when you choose the type <Code isSmall={true}>button</Code> ( using the <Code isSmall={true}>type</Code> prop above ) you can add any prop that the <a href="/?path=/docs/sui-components-core-button--docs" target="_blank">Button Component</a> accepts.</p>
+		
 	</Section>
 </Section>

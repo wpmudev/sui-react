@@ -21,7 +21,7 @@ interface TooltipBaseProps
 	/**
 	 * Optional to define icon name of the tooltip.
 	 */
-	iconName?: string
+	icon?: string
 	/**
 	 * Optional additional CSS classes for the tooltip.
 	 */
