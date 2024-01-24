@@ -1,11 +1,12 @@
 import React from "react"
 import { generateCN, isEmpty, isUndefined } from "@wpmudev/sui-utils"
 import { TagProps } from "./tag.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 const Tag: React.FC<TagProps> = ({
 	design,
 	color,
-	style,
+	style = "default",
 	className,
 	isSmall = false,
 	isUppercase = false,
@@ -15,7 +16,7 @@ const Tag: React.FC<TagProps> = ({
 }) => {
 	const hasDesign = "outlined" === design
 	const hasColor = !isUndefined(color) && !isEmpty(color)
-	const hasStyle = ["multiline", "truncated"].includes(style ?? "")
+	const hasStyle = ["multiline", "truncated"].includes(style)
 
 	// Define tag design
 	// Limited to: solid (default) and outlined
@@ -32,6 +33,9 @@ const Tag: React.FC<TagProps> = ({
 		},
 		className,
 	)
+
+	// Default children content
+	children = useDefaultChildren(children, "{tag content}")
 
 	return (
 		<span className={classNames} {...props} data-testid="tag">

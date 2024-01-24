@@ -85,11 +85,11 @@ Tag.argTypes = {
 	},
 	style: {
 		name: "Style",
-		options: ["", "multiline", "truncated"],
+		options: ["default", "multiline", "truncated"],
 		control: {
 			type: "select",
 			labels: {
-				"": "Style: Default",
+				default: "Style: Default",
 				multiline: "Style: Multiline",
 				truncated: "Style: Truncated",
 			},
