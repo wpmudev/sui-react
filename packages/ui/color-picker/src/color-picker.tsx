@@ -59,12 +59,18 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	// Function to handle color change and call the parent component's onChange function
 	const handleColorChange = useCallback(
 		(colorCode: string) => {
+			if (colorCode === tempColor) {
+				return
+			}
+
 			setTempColor(colorCode)
-			onColorChange(colorCode)
 			setShowClearBtn(true)
+
+			if (onColorChange) {
+				onColorChange(colorCode)
+			}
 		},
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[],
+		[onColorChange, tempColor],
 	)
 
 	// Function to handle color apply and call the parent component's onApply function
@@ -76,9 +82,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 			}
 
 			setShowClearBtn(false)
-
 			setShowResetBtn(true)
-
 			setShowPicker(false)
 		}
 	}, [onChange, tempColor, showPicker])
@@ -94,9 +98,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 		(e: React.MouseEvent<HTMLElement>) => {
 			e.stopPropagation()
 			setShowPicker(false)
-
 			setShowClearBtn(false)
-
 			setTempColor(color)
 
 			if (onCancel) {
