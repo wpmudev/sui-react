@@ -10,7 +10,7 @@ import { IconProps } from "@wpmudev/sui-icon"
  */
 interface TabsProps extends HTMLProps<HTMLDivElement> {
 	className?: string // Additional CSS class names for the `Tabs` component.
-	children?: React.ReactNode[] // The children components rendered inside the `Tabs` component.
+	children?: React.ReactNode // The children components rendered inside the `Tabs` component.
 	activeIndex?: number
 	onSwitchTab?(tabIndex: number, tabId: string | number): void
 }

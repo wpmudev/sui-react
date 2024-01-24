@@ -3,15 +3,13 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-tabs" />
 
 <Section title="Props" border={true}>
+	<PropSection title="children" type="React Node">
+    	<p>The component children elements that includes the tabs individual items</p>
+    </PropSection>
 
-    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
-    		<p>The component children elements that includes the tabs individual items</p>
-    	</PropSection>
-
-    	<PropSection title="className" type="string" defaultValue="{{default}}">
-    		<p>Custom css class name(s) </p>
-    	</PropSection>
-
+    <PropSection title="className" type="string">
+    	<p>Custom css class name(s) </p>
+    </PropSection>
 </Section>
 
 <Section
@@ -26,7 +24,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		This component represents the container for tab navigation
     	</p>
 
-    	<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    	<PropSection title="children" type="React Node">
     		<p>
     			Content of the tab navigation
     		</p>
@@ -39,19 +37,19 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		Represents a single tab item in a tabbed interface
     	</p>
 
-    		<PropSection title="id" type="string" defaultValue="{{default}}">
+    		<PropSection title="id" type="string">
     			<p>
     				Unique id for the tab item
     			</p>
     		</PropSection>
 
-    		<PropSection title="icon" type="React Node" defaultValue="{{default}}">
+    		<PropSection title="icon" type="React Node">
     			<p>
     				Icon to display with the tab item
     			</p>
     		</PropSection>
 
-    		<PropSection title="stateIcon" type="string" defaultValue="{{default}}">
+    		<PropSection title="stateIcon" type="string">
     			<p>
     				An icon representing the state of the item, it accepts one of the following values:
     				<List>
@@ -61,7 +59,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     			</p>
     		</PropSection>
 
-    		<PropSection title="stateIconColor" type="string" defaultValue="{{default}}">
+    		<PropSection title="stateIconColor" type="string">
     			<p>
     				The color of the <Code small={true}>stateIcon</Code>, it accepts one of the following values:
     				<List>
@@ -74,7 +72,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     			</p>
     		</PropSection>
 
-    		<PropSection title="isDisabled" type="boolean" defaultValue="{{default}}">
+    		<PropSection title="isDisabled" type="boolean" defaultValue="false">
     			<p>
     				The color of the <Code small={true}>stateIcon</Code>, it accepts one of the following values:
     				<List>
@@ -87,7 +85,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     			</p>
     		</PropSection>
 
-    		<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    		<PropSection title="children" type="React Node">
     			<p>
     				Content of tab item
     			</p>
@@ -99,7 +97,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		This component represents the container for tab panels
     	</p>
 
-    		<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    		<PropSection title="children" type="React Node">
     			<p>
     				Content of the compoennt
     			</p>
@@ -111,13 +109,13 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		Represents a single tab panel in a tabbed interface
     	</p>
 
-    		<PropSection title="id" type="string" defaultValue="{{default}}">
+    		<PropSection title="id" type="string">
     			<p>
     				Unique id for the tab panel
     			</p>
     		</PropSection>
 
-    		<PropSection title="children" type="React Node" defaultValue="{{default}}">
+    		<PropSection title="children" type="React Node">
     			<p>
     				Content of the tab panel
     			</p>
