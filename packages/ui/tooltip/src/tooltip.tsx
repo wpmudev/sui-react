@@ -37,7 +37,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	iconSize = "sm",
 	...props
 }) => {
-	const [isVisible, setIsVisible] = useState(false)
+	const [isVisible, setIsVisible] = useState(true)
 	const [pos, setPos] = useState({ top: 0, left: 0 })
 
 	// detect RTL
@@ -53,6 +53,8 @@ const Tooltip: React.FC<TooltipProps> = ({
 			const parentRect = tooltipRef?.current?.getBoundingClientRect()
 			const trigger = triggerRef?.current?.getBoundingClientRect()
 			const popupEl = document.querySelector(".sui-tooltip__popup")
+			const tooltipHeight = popupEl?.clientHeight
+			const tooltipWidth = popupEl?.clientWidth
 
 			if (!popupEl) {
 				return
@@ -67,34 +69,52 @@ const Tooltip: React.FC<TooltipProps> = ({
 
 			switch (position) {
 				case "top":
-					attrs.top = parentRect.top - trigger.height / 2
+					attrs.top = parentRect.top - tooltipHeight - 10
 					attrs.left = parentRect.left + trigger.width / 2
-					// attrs.height = "30px"
+					break
+				case "top-left":
+					attrs.top = parentRect.top - tooltipHeight - 10
+					break
+				case "top-right":
+					attrs.top = parentRect.top - tooltipHeight - 10
+					attrs.left = parentRect.left - tooltipWidth + trigger?.width
 					break
 				case "bottom":
-					attrs.top = trigger.height + parentRect.top
+					attrs.top = parentRect.top + trigger.height + 10
 					attrs.left = parentRect.left + trigger.width / 2
 					break
-				case "bottom-right":
-					attrs.top = parentRect.top + trigger.height
-					attrs.left = parentRect.left - trigger.width / 2
-					attrs.right = "unset"
-					break
 				case "bottom-left":
-					attrs.top = parentRect.top + trigger.height
+					attrs.top = parentRect.top + trigger.height + 10
 					break
-				case "left":
-				case "left-top":
-				case "left-bottom":
-					attrs.left = parentRect.left - popupEl.clientWidth - 10
+				case "bottom-right":
+					attrs.top = parentRect.top + trigger.height + 10
+					attrs.left = parentRect.left - tooltipWidth + trigger?.width
 					break
 				case "right":
-				case "right-top":
-				case "right-bottom":
+					attrs.top = parentRect.top + trigger.height / 2
 					attrs.left = parentRect.left + trigger.width + 10
 					break
+				case "right-top":
+					attrs.top = parentRect.top
+					attrs.left = parentRect.left + trigger.width + 10
+					break
+				case "right-bottom":
+					attrs.top = parentRect.top + trigger.height - tooltipHeight
+					attrs.left = parentRect.left + trigger.width + 10
+					break
+				case "left":
+					attrs.top = parentRect.top + trigger.height / 2
+					attrs.left = parentRect.left - tooltipWidth - 10
+					break
+				case "left-top":
+					attrs.top = parentRect.top
+					attrs.left = parentRect.left - tooltipWidth - 10
+					break
+				case "left-bottom":
+					attrs.top = parentRect.top + trigger.height - tooltipHeight
+					attrs.left = parentRect.left - tooltipWidth - 10
+					break
 			}
-
 			setPos(attrs)
 		}
 
@@ -102,7 +122,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	}
 
 	const onMouseLeaveCallback = (e) => {
-		setIsVisible(false)
+		setIsVisible(true)
 	}
 
 	// use interaction
@@ -130,6 +150,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	// Custom tooltip width
 	if (customWidth || customMobileWidth) {
 		attrs.style = {
+			...pos,
 			...(customWidth && { "--tooltip-width": `${customWidth}px` }),
 			...(customMobileWidth && {
 				"--tooltip-width-mobile": `${customMobileWidth}px`,
@@ -223,6 +244,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 						aria-hidden={!isVisible}
 						tabIndex={isVisible ? 0 : -1}
 						style={pos}
+						{...attrs}
 					>
 						{children}
 					</div>,
