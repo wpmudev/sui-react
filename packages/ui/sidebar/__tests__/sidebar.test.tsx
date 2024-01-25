@@ -86,7 +86,7 @@ describe("@wpmudev/sui-sidebar", () => {
 		expect(disabledItem).toHaveClass("sui-sidebar__item--disabled")
 
 		// Check if the text of the first item matches the title in the Items array
-		expect(screen.getByText(Items[0].title)).toBeInTheDocument()
+		expect(screen.getByText(Items[0].title as string)).toBeInTheDocument()
 	})
 
 	// eslint-disable-next-line jest/expect-expect
