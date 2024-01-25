@@ -28,7 +28,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	customWidth,
 	customMobileWidth,
 	children,
-	onClick = () => {},
+	onClick,
 	onMouseEnter = () => {},
 	onMouseLeave = () => {},
 	onFocus = () => {},
@@ -281,7 +281,21 @@ const Tooltip: React.FC<TooltipProps> = ({
 					</span>
 				)
 			case "icon":
-				return <Icon name={icon} size={iconSize} />
+				if (!onClick) {
+					return <Icon name={icon} size={iconSize} />
+				}
+
+				return (
+					<span
+						className="sui-tooltip__trigger--icon"
+						role="button"
+						tabIndex={0}
+						onClick={onClickCallback}
+						onKeyDown={(e) => handleOnKeyDown(e, onClickCallback)}
+					>
+						<Icon name={icon} size={iconSize} />
+					</span>
+				)
 			default:
 				return <span {...props}>{label}</span>
 		}

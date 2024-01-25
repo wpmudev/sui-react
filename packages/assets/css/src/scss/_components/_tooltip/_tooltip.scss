@@ -3,5 +3,6 @@
 
 @include sui-tooltip--element.build-wrapper(tooltip);
 @include sui-tooltip--element.build-tooltip(tooltip);
+@include sui-tooltip--element.build-trigger(tooltip);
 
 @include sui-tooltip--modifier.build-position(tooltip);
