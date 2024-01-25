@@ -61,9 +61,8 @@ const ColorPicker = ({
 						<SuiColorPicker
 							id={id}
 							color={currentColor}
-							onChange={setSavedColor}
+							onApply={setSavedColor}
 							onColorChange={setCurrentColor}
-							onCancel={() => setCurrentColor("#000000")}
 							onReset={() => setCurrentColor("#ffffff")}
 							isDisabled={isDisabled}
 							isError={isError}
