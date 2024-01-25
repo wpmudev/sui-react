@@ -15,11 +15,15 @@
 		@include block($block) {
 			@include modifier(fluid) {
 				flex-direction: column;
-				gap: 0;
+				gap: $spacing-lg;
 
 				.sui-#{$block}__header {
 					align-items: center;
 					display: flex;
+
+					@include media(max-width, sm) {
+						align-items: flex-start;
+					}
 				}
 
 				.sui-#{$block}__info,

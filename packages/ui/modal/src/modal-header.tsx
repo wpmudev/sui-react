@@ -34,7 +34,9 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 		<header className="sui-modal__header">
 			<div className="sui-modal__header-actions">
 				{!!Icon && <Icon size={iconSize} color={iconColor} />}
-				{!isEmpty(title ?? "") && "app-connect" !== variant && <h4>{title}</h4>}
+				{!isEmpty(title ?? "") && "app-connect" !== variant && (
+					<h4 className="sui-heading--h4">{title}</h4>
+				)}
 				<Button
 					className="sui-modal__header-actions-close"
 					icon="Close"
@@ -50,7 +52,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 			</div>
 			{"app-connect" === variant && (
 				<div className="sui-modal__header-info">
-					<h3>{title}</h3>
+					<h3 className="sui-heading--h3">{title}</h3>
 					{!!children && (
 						<div className="sui-modal__header-info-content">{children}</div>
 					)}
