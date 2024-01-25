@@ -40,57 +40,59 @@ const Tooltip = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{"button" === example && (
-						<SuiTooltip
-							label={label}
-							appearance="primary"
-							color="black"
-							position={position}
-							customWidth={customWidth}
-							customMobileWidth={customMobileWidth}
-						>
-							{tootlipText}
-						</SuiTooltip>
-					)}
+					<div>
+						{"button" === example && (
+							<SuiTooltip
+								label={label}
+								appearance="primary"
+								color="black"
+								position={position}
+								customWidth={customWidth}
+								customMobileWidth={customMobileWidth}
+							>
+								{tootlipText}
+							</SuiTooltip>
+						)}
 
-					{"text" === example && (
-						<SuiTooltip
-							type="text"
-							label={label}
-							position={position}
-							customWidth={customWidth}
-							customMobileWidth={customMobileWidth}
-						>
-							{tootlipText}
-						</SuiTooltip>
-					)}
+						{"text" === example && (
+							<SuiTooltip
+								type="text"
+								label={label}
+								position={position}
+								customWidth={customWidth}
+								customMobileWidth={customMobileWidth}
+							>
+								{tootlipText}
+							</SuiTooltip>
+						)}
 
-					{"link" === example && (
-						<SuiTooltip
-							href={href}
-							target={target}
-							label={label}
-							appearance="primary"
-							color="black"
-							position={position}
-							customWidth={customWidth}
-							customMobileWidth={customMobileWidth}
-						>
-							{tootlipText}
-						</SuiTooltip>
-					)}
-					{"icon" === example && (
-						<SuiTooltip
-							label={label}
-							type="icon"
-							icon="Info"
-							position={position}
-							customWidth={customWidth}
-							customMobileWidth={customMobileWidth}
-						>
-							{tootlipText}
-						</SuiTooltip>
-					)}
+						{"link" === example && (
+							<SuiTooltip
+								href={href}
+								target={target}
+								label={label}
+								appearance="primary"
+								color="black"
+								position={position}
+								customWidth={customWidth}
+								customMobileWidth={customMobileWidth}
+							>
+								{tootlipText}
+							</SuiTooltip>
+						)}
+						{"icon" === example && (
+							<SuiTooltip
+								label={label}
+								type="icon"
+								icon="Info"
+								position={position}
+								customWidth={customWidth}
+								customMobileWidth={customMobileWidth}
+							>
+								{tootlipText}
+							</SuiTooltip>
+						)}
+					</div>
 				</div>
 			</div>
 		</div>
