@@ -16,7 +16,7 @@ interface SummaryBoxProps {
 	/**
 	 * The icon of the summary box (optional).
 	 */
-	icon?: string
+	icon?: IconsNamesType
 	/**
 	 * Whether to hide the icon on mobile or not
 	 */

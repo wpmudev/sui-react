@@ -1,5 +1,5 @@
 import React, { MouseEventHandler } from "react"
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { isEmpty } from "@wpmudev/sui-utils"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 

@@ -1,4 +1,5 @@
 import React, { CSSProperties, HTMLProps } from "react"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 /**
  * Represents the properties for a box component.
@@ -12,7 +13,7 @@ interface BoxProps
 	/**
 	 * The icon for the box.
 	 */
-	icon?: string
+	icon?: IconsNamesType
 	/**
 	 * Hide icon on the mobile view.
 	 */

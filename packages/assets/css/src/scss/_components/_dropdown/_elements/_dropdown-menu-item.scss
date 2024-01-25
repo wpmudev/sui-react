@@ -16,7 +16,6 @@
 		@include block($block) {
 			@include element(menu-item) {
 				align-items: center;
-				color: $color-extended-neutral-10;
 				cursor: pointer;
 				display: flex;
 				font-weight: $font-weight-md;
@@ -25,6 +24,12 @@
 				margin: 0;
 				padding: $spacing-md $menu-spacing-horizontal;
 				text-decoration: none;
+			}
+
+			@include element(menu) {
+				.sui-#{$block}__menu-item {
+					color: $color-extended-neutral-10;
+				}
 			}
 		}
 	}
@@ -35,8 +40,13 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(menu-item) {
-				color: $color-extended-neutral-0;
 				background: $color-extended-neutral-100;
+			}
+
+			@include element(menu) {
+				.sui-#{$block}__menu-item {
+					color: $color-extended-neutral-0;
+				}
 			}
 		}
 	}
