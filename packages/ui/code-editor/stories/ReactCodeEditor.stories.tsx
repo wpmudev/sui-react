@@ -27,8 +27,6 @@ const CodeEditor = ({ compare, ...props }: { compare: boolean }) => {
 		display: compare ? "flex" : "block",
 	}
 
-	return <SuiCodeEditor />
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">

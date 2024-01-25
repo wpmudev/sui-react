@@ -69,15 +69,6 @@ const Sidebar = ({}) => {
 	)
 
 	return (
-		<SuiSidebar>
-			<SidebarItem />
-			<SidebarItem />
-			<SidebarItem />
-			<SidebarDropdown />
-		</SuiSidebar>
-	)
-
-	return (
 		<div className="sui-layout">
 			<div className="sui-layout__content">
 				<BoxGroup>

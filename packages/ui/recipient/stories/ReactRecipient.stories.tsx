@@ -31,7 +31,6 @@ const Recipient = ({ ...props }: RecipientProps) => {
 		borderRadius: "4px",
 		background: "white" === props.color ? "#333" : "#fff",
 	}
-	return <SuiRecipient />
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
