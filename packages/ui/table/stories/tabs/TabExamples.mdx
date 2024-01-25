@@ -525,21 +525,22 @@ export const TableExample = ({ ...props }) => {
                         switch (actionType) {
                             case "bulk-action":
                             case "apply-filters":
-                                alert(
-                                    "ACTION:" + actionType + "\n\nData:" + \nJSON.stringify(data),
-                                )
                                 break
+                            // Drag and Drop
                             case "sort-rows":
+                                dRows = data.map((id) => rows.find((item) => item.id === id))
                                 break
                             case "search-items":
                                 dRows = tempRows.filter((item) =>
-                                    item.title.includes(data as string),
-                                )
-
+                                   item.title.includes(data as string),
+                                 )
                                 dRows = "" !== data ? dRows : tempRows
                                 break
-                            case "sort-columns":
-                                const { column, order } = data
+                                case "sort-columns":
+                                const { column, order } = data as {
+                                    column: string | number
+                                    order: string
+                                }
 
                                 // sort
                                 dRows.sort((a, b) =>
@@ -547,7 +548,6 @@ export const TableExample = ({ ...props }) => {
                                         ? b[column]?.localeCompare(a[column])
                                         : a[column]?.localeCompare(b[column]),
                                 )
-
                                 break
                         }
 

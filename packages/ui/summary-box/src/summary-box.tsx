@@ -38,7 +38,7 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	const attrs = {
 		title,
 		className: classNames,
-		icon: "", // The icon will be set later based on the provided icon prop or a default value.
+		icon, // The icon will be set later based on the provided icon prop or a default value.
 		isSmall: true, // Set the summary box size to small.
 		hideMobileIcon,
 	}
@@ -47,7 +47,9 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	children = useDefaultChildren(children)
 
 	// Determine the icon to be used.
-	attrs.icon = icon ?? ""
+	if (icon) {
+		attrs.icon = icon
+	}
 
 	return (
 		<Box

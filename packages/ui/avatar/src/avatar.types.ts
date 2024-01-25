@@ -14,7 +14,7 @@ interface AvatarProps extends HTMLProps<HTMLSpanElement> {
 	/**
 	 * The status of the avatar.
 	 */
-	status?: "none" | "awaiting" | "confirmed" | "not-accepted" | "not-connected"
+	status?: "none" | "confirmed" | "awaiting" | "not-accepted" | "not-connected"
 	/**
 	 * Indicates whether the avatar should be displayed as small or not.
 	 */

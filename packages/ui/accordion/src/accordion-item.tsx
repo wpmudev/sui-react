@@ -13,10 +13,10 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	description,
 	children,
 	isDisabled = false,
-	isExpanded: propIsExpended,
 	icon,
-	hasCheckbox = false,
-	onCheck = () => null,
+	hasCheckbox,
+	isExpanded,
+	onCheck,
 }) => {
 	// Checkbox is checked.
 	const [isChecked, setIsChecked] = useState(false)
@@ -30,10 +30,10 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	// Custom hook to generate a unique ID for the accordion item.
 	const uniqueId = useId()
 
-	// Get the "toggle" method and "isExpanded" state from the current AccordionItem
-	const { toggle, isExpanded } = useAccordion({
+	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
+	const { toggle, isCurrentlyExpanded } = useAccordion({
 		uniqueId,
-		isExpanded: propIsExpended,
+		isExpanded: isExpanded as boolean,
 	})
 
 	// IDs for the accordion and its panel to manage accessibility.
@@ -61,20 +61,20 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			//e.preventDefault()
 			setIsChecked(e.target.checked)
 			if (onCheck) {
-				onCheck(e.target.checked)
+				onCheck(isCurrentlyExpanded)
 			}
 		},
-		[onCheck],
+		[isCurrentlyExpanded, onCheck],
 	)
 
 	// Icon component to display a chevron icon based on the accordion's expanded state.
-	const Icon = isExpanded ? ChevronUp : ChevronDown
+	const Icon = isCurrentlyExpanded ? ChevronUp : ChevronDown
 
 	// Render the AccordionItem component with proper accessibility attributes.
 	return (
 		<div
 			className={generateCN("sui-accordion__item", {
-				expanded: isExpanded,
+				expanded: isCurrentlyExpanded,
 				hover: isHovered,
 				disabled: isDisabled,
 			})}
@@ -82,6 +82,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 		>
 			<div
 				id={accordionId}
+				aria-expanded={isCurrentlyExpanded}
+				aria-controls={accordionPanelId}
 				className={generateCN("sui-accordion__header", {
 					focus: isFocused || isPressed,
 				})}
@@ -148,7 +150,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				id={accordionPanelId}
 				aria-labelledby={accordionId}
 				className={generateCN("sui-accordion__panel", {
-					open: isExpanded,
+					open: isCurrentlyExpanded,
 				})}
 				data-testid="accordion-item-panel"
 			>

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useCallback, useEffect, useId, useState } from "react"
+import React, { useCallback, useEffect, useState, useRef, useId } from "react"
 
 import { ColorPickerProps } from "./color-picker.types"
 import { Button } from "@wpmudev/sui-button"
@@ -9,6 +9,7 @@ import PreviewImage from "./static/opaque.png"
 
 import Picker from "./elements/picker"
 import { generateCN } from "@wpmudev/sui-utils"
+import { useOuterClick } from "@wpmudev/sui-hooks"
 
 /**
  * ColorPicker Component
@@ -24,16 +25,19 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	id,
 	color = "",
 	onChange,
+	onCancel,
 	placeholder = "Select color",
 	isError = false,
 	isDisabled = false,
-	type = "hex",
-	onApplyButton = () => null,
+	onReset = () => null,
+	onColorChange = () => null,
 	...props
 }) => {
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
-	const [tempColor, setTempColor] = useState(color)
+	const [tempColor, setTempColor] = useState("")
+	const [showClearBtn, setShowClearBtn] = useState(false)
+	const [showResetBtn, setShowResetBtn] = useState(false)
 
 	const uniqueId = useId()
 
@@ -41,45 +45,96 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 
 	// Update tempColor when color prop value changes
 	useEffect(() => {
-		if (tempColor !== color) {
-			setTempColor(color)
-		}
+		setTempColor(color)
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [color])
 
+	// Handle reset
+	const handleReset = useCallback(
+		(e) => {
+			e.stopPropagation()
+			setShowResetBtn(false)
+			onReset()
+		},
+		[onReset],
+	)
+
 	// Function to handle color change and call the parent component's onChange function
 	const handleColorChange = useCallback(
-		(colorCode: string) => setTempColor(colorCode),
-		[],
+		(colorCode: string) => {
+			if (colorCode === tempColor) {
+				return
+			}
+
+			setTempColor(colorCode)
+			setShowClearBtn(true)
+
+			if (onColorChange) {
+				onColorChange(colorCode)
+			}
+		},
+		[onColorChange, tempColor],
 	)
 
 	// Function to handle color apply and call the parent component's onApply function
 	const handleColorApply = useCallback(() => {
-		if (onChange) {
-			onChange(tempColor)
+		// Apply only if color picker is open
+		if (showPicker) {
+			if (onChange) {
+				onChange(tempColor)
+			}
+
+			setShowClearBtn(false)
+			setShowResetBtn(true)
+			setShowPicker(false)
 		}
-		setShowPicker(false)
-	}, [onChange, tempColor])
+	}, [onChange, tempColor, showPicker])
+
+	// The component ref
+	const colorPickerRef = useRef()
+
+	// Clicking outside should apply color change
+	useOuterClick(colorPickerRef, handleColorApply)
 
 	// Handle color picker close
 	const closeColorPicker = useCallback(
 		(e: React.MouseEvent<HTMLElement>) => {
 			e.stopPropagation()
-			setTempColor("")
+			setShowPicker(false)
+			setShowClearBtn(false)
+			setTempColor(color)
+
+			if (onCancel) {
+				onCancel()
+			}
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[color],
+		[onCancel, color],
 	)
 
 	// Handle input color change
 	const inputColorChange = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+			e.stopPropagation()
 			const inputValue = e?.target?.value
 			setTempColor(inputValue)
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[tempColor],
 	)
+
+	// Render Button Text According to current state
+	const renderBtnText = () => {
+		if (showClearBtn) {
+			return "Clear"
+		}
+
+		if (showResetBtn) {
+			return "Reset"
+		}
+		return "Select"
+	}
 
 	return (
 		<div
@@ -88,6 +143,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 				disabled: isDisabled,
 			})}
 			data-testid="color-picker"
+			ref={colorPickerRef}
 		>
 			<div className="sui-color-picker__color">
 				<Input
@@ -120,22 +176,31 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					/>
 				</div>
 				<Button
-					className={`sui-color-picker__${tempColor ? "clear" : "button"}`}
-					{...(tempColor && {
-						icon: "CloseAlt",
+					className={`sui-color-picker__${
+						showClearBtn || showResetBtn ? "icon" : "button"
+					}`}
+					{...(showClearBtn && {
+						icon: showClearBtn ? "CloseAlt" : "RotateLeft",
 						iconOnly: true,
 						iconSize: "md",
 						onClick: closeColorPicker,
 					})}
-					{...(!tempColor && {
-						color: "blue",
-						appearance: "tertiary",
-						onClick: () => setShowPicker(!showPicker),
+					{...(showResetBtn && {
+						icon: "RotateLeft",
+						iconOnly: true,
+						iconSize: "sm",
+						onClick: handleReset,
 					})}
+					{...(!showClearBtn &&
+						!showResetBtn && {
+							color: "blue",
+							appearance: "tertiary",
+							onClick: () => setShowPicker(!showPicker),
+						})}
 					isSmall={true}
 					isDisabled={isDisabled}
 				>
-					{tempColor ? "Clear" : "Select"}
+					{renderBtnText()}
 				</Button>
 			</div>
 			{showPicker && (

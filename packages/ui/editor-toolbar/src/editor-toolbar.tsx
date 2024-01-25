@@ -9,6 +9,8 @@ import { useDefaultChildren } from "@wpmudev/sui-hooks"
 const EditorToolbar: FC<EditorToolbarProps> = ({
 	title = "Toolbar Title",
 	actions,
+	disableSetting = false,
+	disableBack = false,
 	children,
 	allowBack = true,
 	alignCenter = false,
@@ -32,6 +34,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 			iconOnly={true}
 			aria-label="settings"
 			onClick={onSettingClick}
+			isDisabled={disableSetting}
 		/>
 	)
 
@@ -64,6 +67,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 									onClick={onBackClick}
 									aria-label="back"
 									data-testid="editor-toolbar-back-btn"
+									isDisabled={disableBack}
 								/>
 							</div>
 						)}

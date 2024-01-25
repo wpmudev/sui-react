@@ -18,7 +18,8 @@
 				height: $avatar-container-size-sm;
 
 				@include modifies-element(icon) {
-					font-size: $font-size-sm;
+					width: $font-size-sm;
+					height: $font-size-sm;
 				}
 
 				@include modifies-element(status) {
@@ -30,7 +31,6 @@
 				@include modifies-element(status-icon) {
 					width: $avatar-status-size-sm;
 					height: $avatar-status-size-sm;
-					font-size: $avatar-status-size-sm;
 				}
 			}
 		}

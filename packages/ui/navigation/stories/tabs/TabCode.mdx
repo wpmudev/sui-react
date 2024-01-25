@@ -42,6 +42,19 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     					</>
     				}
     			/>
+				<span
+    				label={
+    					<>
+    						<Code small={true}>status*</Code>
+							Indicates the user status and dispalys an icon for it, could be one of these values:   
+							<strong> none </strong>
+							<strong> confirmed </strong> 
+							<strong> awaiting </strong>
+							<strong> not-accepted </strong>
+							<strong> not-connected </strong>
+						</>
+    				}
+    			/>
     			<span
     				label={
     					<>
@@ -49,15 +62,24 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     					</>
     				}
     			/>
+				<span
+    				label={
+    					<>
+    						<Code small={true}>isMenuDisabled*</Code> A boolean to indicate the state of the menu
+    					</>
+    				}
+    			/>
     		</List>
     	</p>
+		<p>
+		  Check the examples tab for more details
+		</p>
     </PropSection>
-
-    <PropSection title="children" type="object">
+		
+    <PropSection title="children" type="React Node">
     	<p>
     		The content of the navigation, usually menu items and buttons
     	</p>
-
     </PropSection>
 
 </Section>

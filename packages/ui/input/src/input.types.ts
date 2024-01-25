@@ -48,6 +48,7 @@ interface InputProps
 			| "onFocus"
 			| "onBlur"
 			| "onBlurCapture"
+			| "onMouseUp"
 		>,
 		InteractionTypes {
 	/**
@@ -105,6 +106,10 @@ interface InputProps
 		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string,
 	) => void
 	/**
+	 * A callback function to be invoked when the icon is clicked
+	 */
+	onClickIcon?: (event: React.MouseEvent) => void
+	/*
 	 * The callback function for handling input clear
 	 */
 	onClear?: (value: string | number) => void
@@ -124,6 +129,18 @@ interface InputProps
 	 * Disable interactions such as hover and focus
 	 */
 	disableInteractions?: boolean
+	/**
+	 * Whether the input is required or not
+	 */
+	isRequired?: boolean
+	/**
+	 * Validate value on mount
+	 */
+	validateOnMount?: boolean
+	/**
+	 * On validation callback
+	 */
+	onValidate?: (id: string, value: string | number | boolean) => void
 }
 
 export type { InputProps }

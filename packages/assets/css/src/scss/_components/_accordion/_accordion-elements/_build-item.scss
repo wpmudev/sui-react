@@ -16,7 +16,7 @@
 		@include block($block) {
 			@include element(item) {
 				border-top: $border-width-sm solid $color-extended-neutral-80;
-				overflow: hidden;
+				// overflow: hidden;
 				position: relative;
 				transition: 0.3s all ease;
 
@@ -39,6 +39,14 @@
 						.sui-box-group {
 							padding-top: $spacing-xxl;
 							padding-bottom: $spacing-xxl;
+						}
+					}
+				}
+
+				@include modifier(no-padding) {
+					> .sui-box {
+						.sui-box-group {
+							padding: 0;
 						}
 					}
 				}

@@ -9,6 +9,7 @@ import { SpinnerLoader } from "./spinner-loader"
 const Spinner: React.FC<SpinnerProps> = ({
 	size = "lg",
 	color = "primary",
+	isContained = false,
 	isAbsolute = false,
 }) => {
 	// Generate class names for the spinner container
@@ -16,6 +17,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 		absolute: isAbsolute,
 		[size]: !isEmpty(size ?? ""),
 		dark: !isEmpty(color) && "dark" === color,
+		contained: isContained,
 	})
 
 	return (

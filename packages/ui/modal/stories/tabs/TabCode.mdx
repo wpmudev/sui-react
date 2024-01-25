@@ -71,6 +71,42 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		</p>
     	</PropSection>
 
+		<PropSection title="icon" type="string">
+    		<p>
+    			Icon to appear above the title
+    		</p>
+    	</PropSection>
+
+		<PropSection title="iconSize" type="string" defaultValue="sm">
+    		<p>
+    			The size of the icon, it could be one of these values.
+    		</p>
+			<p>Allowed Values:</p>
+			<List>
+				<span label="xms" />
+				<span label="xs" />
+				<span label="sm" />
+				<span label="md" />
+				<span label="lg" />
+				<span label="xl" />
+			</List>
+    	</PropSection>
+
+		<PropSection title="iconColor" type="string">
+    		<p>
+    			The color of the icon.
+    		</p>
+			<p>Allowed Values:</p>
+			<List>
+				<span label="" />
+				<span label="neutral" />
+				<span label="informative" />
+				<span label="success" />
+				<span label="warning" />
+				<span label="critical" />
+			</List>
+    	</PropSection>
+
     </Section>
 
     <Section title="ModalBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>

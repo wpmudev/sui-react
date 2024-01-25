@@ -15,9 +15,10 @@
 		@include block($block) {
 			@include element(dropdown) {
 				position: absolute;
+				left: 0;
+				right: 0;
 				overflow-y: auto;
 				background: $color-extended-neutral-100;
-				width: $select-dropdown-container-size-width;
 				padding: $select-dropdown-container-padding-vertical
 					$select-dropdown-container-padding-horizontal;
 				margin: $select-dropdown-container-margin;

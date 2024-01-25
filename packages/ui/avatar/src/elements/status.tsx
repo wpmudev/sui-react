@@ -1,44 +1,48 @@
 import React from "react"
+import { Clock, CheckAlt, Warning } from "@wpmudev/sui-icons"
 
 import { StatusProps } from "./status.types"
 
 // Build "status" element
 const Status: React.FC<StatusProps> = ({ status }) => {
-	const set: any = {}
-
-	set.wrapper = {}
-	set.element = {}
-
-	// Define main class
-	set.wrapper.class = "sui-avatar__status"
-	set.element.class = "sui-avatar__status-icon suicons"
+	// Determine the IconTag based on the provided icon value
+	let IconName,
+		classes = "sui-avatar__status-icon"
 
 	// Define status
 	switch (status) {
 		case "confirmed":
-			set.element.class += " suicons--check-alt"
-			set.element.class += " sui-color-success--50"
+			IconName = CheckAlt
+			classes += " sui-color-success--50"
 			break
 
 		case "not-accepted":
-			set.element.class += " suicons--warning"
-			set.element.class += " sui-color-warning--50"
+			IconName = Warning
+			classes += " sui-color-warning--50"
 			break
 
 		case "not-connected":
-			set.element.class += " suicons--warning"
-			set.element.class += " sui-color-error--50"
+			IconName = Warning
+			classes += " sui-color-error--50"
 			break
+
 		case "awaiting":
-			set.element.class += " suicons--clock"
-			set.element.class += " sui-color-neutral--60"
+			IconName = Clock
+			classes += " sui-color-neutral--60"
+			break
+
+		default:
 			break
 	}
 
 	// Return element
 	return (
-		<span className={set.wrapper.class} data-testid="avatar-status">
-			<span className={set.element.class} aria-hidden="true" />
+		<span
+			className="sui-avatar__status"
+			data-testid="avatar-status"
+			aria-hidden="true"
+		>
+			{IconName && <IconName className={classes} size="sm" />}
 		</span>
 	)
 }

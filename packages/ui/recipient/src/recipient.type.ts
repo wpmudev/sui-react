@@ -1,5 +1,6 @@
 import { HTMLProps } from "react"
 import { AvatarProps } from "@wpmudev/sui-avatar"
+
 /**
  * Interface representing the properties of the recipient component component.
  */

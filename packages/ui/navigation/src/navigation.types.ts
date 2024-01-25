@@ -7,6 +7,8 @@ import { DropdownMenuItemProps } from "@wpmudev/sui-dropdown"
 
 import { PluginsSlug } from "@wpmudev/sui-utils"
 
+import { AvatarProps } from "@wpmudev/sui-avatar"
+
 // Represents the base props for a DropdownMenu component.
 interface NavigationUserMenuBaseProps {
 	/*
@@ -74,6 +76,14 @@ interface NavigationUserProps {
 	 * Array of menu items or groups in the user's navigation menu.
 	 */
 	menu?: Array<NavigationUserMenuItemProps | NavigationUserMenuGroupProps>
+	/*
+	 * When set to true the menu will be disabled
+	 */
+	isMenuDisabled?: boolean
+	/*
+	 * The user status
+	 */
+	status?: AvatarProps["status"]
 }
 
 // interface definition for the Navigation

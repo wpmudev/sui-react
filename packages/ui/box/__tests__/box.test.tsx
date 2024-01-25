@@ -3,12 +3,18 @@ import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { Box, BoxGroup } from "../src"
 import { a11yTest } from "@wpmudev/sui-utils"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 describe("@wpmudev/box", () => {
 	// Define the props for the BoxComponent
-	const props = {
+	const props: {
+		title: string
+		icon: IconsNamesType
+		headerLeft: string
+		headerRight: string
+	} = {
 		title: "__BOX_LABEL__", // Set the title
-		icon: "hub", // Set the icon
+		icon: "Hub", // Set the icon
 		headerLeft: "__HEADER_LEFT__", // Set the headerLeft content
 		headerRight: "__HEADER_RIGHT__", // Set the headerRight content
 	}

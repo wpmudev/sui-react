@@ -2,14 +2,15 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 
 <PackageInstallGuide packageName="@wpmudev/sui-tooltip" />
 
-<Section title="Props" border={true}>
+<Section>
 	<p>
 		The tooltip component is composed of the trigger element and the tooltip itselft, when the trigger element is hovered the tooltip will appear.
 	</p>
-	<p> the trigger element is determined using the type prop, the default is <Code isSmall={true}>button</Code></p>
+	<p> the trigger element type is determined using the type prop, the default is <Code isSmall={true}>button</Code></p>
+</Section>
+
+<Section title="Props" border={true}>
 	
-	<Section title="Props" style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-		
 		<PropSection title="type" type="string" defaultValue="button">
 			<p>The type for the trigger element</p>
 			<p>Allowed options</p>
@@ -148,13 +149,17 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			</p>
 		</PropSection>
 		
-		
-	</Section>
-	
 	<Section title="Trigger element props" style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+		
 		<PropSection title="icon" type="React Node">
 			<p>
 				Icon name for the trigger
+			</p>
+		</PropSection>
+
+		<PropSection title="iconSize" type="string">
+			<p>
+				This function is called when the button loses keyboard focus. ( only applicable for the icon type )
 			</p>
 		</PropSection>
 
@@ -197,8 +202,9 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 				This function is called when the button loses keyboard focus.
 			</p>
 		</PropSection>
-		
-		<p>In addition to these props, and when you choose the type <Code isSmall={true}>button</Code> ( using the <Code isSmall={true}>type</Code> prop above ) you can add any prop that the <a href="/?path=/docs/sui-components-core-button--docs" target="_blank">Button Component</a> accepts.</p>
-		
+
+		<p>In addition to these props, and when you use the type <Code isSmall={true}>button</Code>, you can customize the button further by using any prop that the <a href="/?path=/docs/sui-components-core-button--docs" target="_blank">Button Component</a> accepts.</p>
+
 	</Section>
+
 </Section>

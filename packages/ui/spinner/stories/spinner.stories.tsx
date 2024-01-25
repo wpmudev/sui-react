@@ -87,6 +87,7 @@ Spinner.args = {
 	isAbsolute: false,
 	size: "lg",
 	color: "primary",
+	isContained: false,
 }
 
 // Set controls for story arguments.

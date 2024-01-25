@@ -24,6 +24,10 @@ interface BoxGroupProps {
 	 * Box styles
 	 */
 	style?: CSSProperties
+	/**
+	 * Wether the element has padding or not
+	 */
+	hasPadding?: boolean
 }
 
 export type { BoxGroupProps }

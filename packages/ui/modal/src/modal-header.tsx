@@ -1,16 +1,19 @@
 import React, { useContext } from "react"
 
-import { Bell } from "@wpmudev/sui-icons"
 import { isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 import { useValidateProps } from "@wpmudev/sui-hooks"
-
+import { IconProps } from "@wpmudev/sui-icon"
+import Icons from "@wpmudev/sui-icons"
 import { ModalContext } from "./modal"
 import { ModalHeaderProps } from "./modal.types"
 
 const ModalHeader: React.FC<ModalHeaderProps> = ({
 	title = "header title",
 	children,
+	icon,
+	iconSize = "sm",
+	iconColor = "success",
 }) => {
 	const ctx = useContext(ModalContext)
 	const { closeModal, variant } = ctx!
@@ -20,10 +23,17 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 	// validate props
 	useValidateProps({ component: ModalHeader, propsToCheck: { title } })
 
+	// Get SVG Icon
+	let Icon: React.ComponentType<IconProps> | null = null
+
+	if (icon) {
+		Icon = Icons?.[icon]
+	}
+
 	return (
 		<header className="sui-modal__header">
 			<div className="sui-modal__header-actions">
-				<Bell className="sui-modal__header-actions-icon" />
+				{!!Icon && <Icon size={iconSize} color={iconColor} />}
 				{!isEmpty(title ?? "") && "app-connect" !== variant && <h4>{title}</h4>}
 				<Button
 					className="sui-modal__header-actions-close"
