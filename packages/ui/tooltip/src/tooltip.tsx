@@ -238,6 +238,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 							focus: isFocused,
 							"custom-width": !!customWidth,
 							[position]: true,
+							icon: !!icon,
 						})}
 						role="tooltip"
 						aria-live="polite"
