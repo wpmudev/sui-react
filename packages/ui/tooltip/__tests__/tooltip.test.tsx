@@ -28,10 +28,10 @@ describe("@wpmudev/sui-tooltip", () => {
 		)
 
 		// Get the tooltip element by its data-testid attribute
-		const tooltipEl = screen.getByTestId("tooltip")
+		const tooltipElPopup = screen.getByTestId("tooltip-popup")
 
 		// Use assertions to check if the tooltip element has the expected CSS class
-		expect(tooltipEl).toHaveClass("sui-tooltip--bottom")
+		expect(tooltipElPopup).toHaveClass("sui-tooltip__popup--bottom")
 
 		// Use an assertion to check if the description is present in the rendered content
 		expect(screen.getByText(description)).toBeInTheDocument()

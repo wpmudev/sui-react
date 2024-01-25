@@ -48,13 +48,13 @@ const Tooltip: React.FC<TooltipProps> = ({
 
 	const [render] = usePortal("body")
 
-	const onMouseEnterCallback = (e) => {
+	const onMouseEnterCallback = (e: React.MouseEvent) => {
 		if (tooltipRef.current) {
 			const parentRect = tooltipRef?.current?.getBoundingClientRect()
 			const trigger = triggerRef?.current?.getBoundingClientRect()
 			const popupEl = document.querySelector(".sui-tooltip__popup")
-			const tooltipHeight = popupEl?.clientHeight
-			const tooltipWidth = popupEl?.clientWidth
+			const tooltipHeight = popupEl?.clientHeight || 0
+			const tooltipWidth = popupEl?.clientWidth || 0
 			const alignName = isRTL ? "right" : "left"
 
 			let align = parentRect.left
@@ -84,12 +84,12 @@ const Tooltip: React.FC<TooltipProps> = ({
 					if (position === "top-right") {
 						attrs = {
 							...attrs,
-							[alignName]: align - tooltipWidth + trigger?.width,
+							[alignName]: align - tooltipWidth + (trigger?.width ?? 0),
 						}
 					} else if (position === "top") {
 						attrs = {
 							...attrs,
-							left: parentRect.left + trigger.width / 2,
+							left: parentRect.left + (trigger?.width ?? 0) / 2,
 						}
 					} else if (position === "top-left") {
 						attrs = {
@@ -104,17 +104,17 @@ const Tooltip: React.FC<TooltipProps> = ({
 				case "bottom-right":
 					attrs = {
 						...attrs,
-						top: parentRect.top + trigger.height + 10,
+						top: parentRect.top + (trigger?.height ?? 0) + 10,
 					}
 					if (position === "bottom-right") {
 						attrs = {
 							...attrs,
-							[alignName]: align - tooltipWidth + trigger?.width,
+							[alignName]: align - tooltipWidth + (trigger?.width ?? 0),
 						}
 					} else if (position === "bottom") {
 						attrs = {
 							...attrs,
-							left: parentRect.left + trigger.width / 2,
+							left: parentRect.left + (trigger?.width ?? 0) / 2,
 						}
 					} else if (position === "bottom-left") {
 						attrs = {
@@ -129,7 +129,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 				case "right-bottom":
 					attrs = {
 						...attrs,
-						[alignName]: align + trigger.width + 10,
+						[alignName]: align + (trigger?.width ?? 0) + 10,
 					}
 					if (position === "right-top") {
 						attrs = {
@@ -139,12 +139,12 @@ const Tooltip: React.FC<TooltipProps> = ({
 					} else if (position === "right-bottom") {
 						attrs = {
 							...attrs,
-							top: parentRect.top + trigger.height - tooltipHeight,
+							top: parentRect.top + (trigger?.height ?? 0) - tooltipHeight,
 						}
 					} else {
 						attrs = {
 							...attrs,
-							top: parentRect.top + trigger.height / 2,
+							top: parentRect.top + (trigger?.height ?? 0) / 2,
 						}
 					}
 					break
@@ -164,12 +164,12 @@ const Tooltip: React.FC<TooltipProps> = ({
 					} else if (position === "left-bottom") {
 						attrs = {
 							...attrs,
-							top: parentRect.top + trigger.height - tooltipHeight,
+							top: parentRect.top + (trigger?.height ?? 0) - tooltipHeight,
 						}
 					} else {
 						attrs = {
 							...attrs,
-							top: parentRect.top + trigger.height / 2,
+							top: parentRect.top + (trigger?.height ?? 0) / 2,
 						}
 					}
 					break
@@ -181,7 +181,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 		setIsVisible(true)
 	}
 
-	const onMouseLeaveCallback = (e) => {
+	const onMouseLeaveCallback = () => {
 		setIsVisible(false)
 	}
 
@@ -304,6 +304,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 						aria-live="polite"
 						aria-hidden={!isVisible}
 						tabIndex={isVisible ? 0 : -1}
+						data-testid="tooltip-popup"
 						style={pos}
 						{...attrs}
 					>
