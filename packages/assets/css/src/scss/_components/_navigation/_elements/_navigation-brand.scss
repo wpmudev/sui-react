@@ -43,6 +43,7 @@
 					display: none;
 				}
 				@include modifier(desc) {
+					display: block;
 					color: $color-extended-neutral-60;
 					font-size: $font-size-xs;
 					line-height: $font-height-xs;

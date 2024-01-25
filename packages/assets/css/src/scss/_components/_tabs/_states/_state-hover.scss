@@ -13,6 +13,7 @@
 		@include block($block) {
 			@include element(nav-item) {
 				@include modifier(hover) {
+					color: $color-extended-neutral-10;
 					background: $color-primary-90;
 					border-color: $color-primary-80;
 				}
