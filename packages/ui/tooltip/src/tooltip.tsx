@@ -5,6 +5,7 @@ import React, {
 	useRef,
 	useState,
 	LegacyRef,
+	useId,
 } from "react"
 import { Button } from "@wpmudev/sui-button"
 import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
@@ -39,6 +40,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 }) => {
 	// detect RTL
 	const isRTL = useDetectRTL()
+	const uniqueId = useId()
 
 	const [isVisible, setIsVisible] = useState(false)
 	const [pos, setPos] = useState({ top: 0, left: 0 })
@@ -52,7 +54,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 		if (tooltipRef.current) {
 			const parentRect = tooltipRef?.current?.getBoundingClientRect()
 			const trigger = triggerRef?.current?.getBoundingClientRect()
-			const popupEl = document.querySelector(".sui-tooltip__popup")
+			const popupEl = document.getElementById(`sui-tooltip-${uniqueId}`)
 			const tooltipHeight = popupEl?.clientHeight || 0
 			const tooltipWidth = popupEl?.clientWidth || 0
 			const alignName = isRTL ? "right" : "left"
@@ -301,6 +303,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			{!!children &&
 				render(
 					<div
+						id={`sui-tooltip-${uniqueId}`}
 						className={generateCN("sui-tooltip__popup", {
 							show: isVisible,
 							focus: isFocused,
