@@ -37,11 +37,11 @@ const Tooltip: React.FC<TooltipProps> = ({
 	iconSize = "sm",
 	...props
 }) => {
-	const [isVisible, setIsVisible] = useState(true)
-	const [pos, setPos] = useState({ top: 0, left: 0 })
-
 	// detect RTL
-	// const isRTL = useDetectRTL()
+	const isRTL = useDetectRTL()
+
+	const [isVisible, setIsVisible] = useState(false)
+	const [pos, setPos] = useState({ top: 0, left: 0 })
 
 	const tooltipRef = useRef<HTMLDivElement | null>(null)
 	const triggerRef = useRef<HTMLSpanElement | null>(null)
@@ -55,66 +55,126 @@ const Tooltip: React.FC<TooltipProps> = ({
 			const popupEl = document.querySelector(".sui-tooltip__popup")
 			const tooltipHeight = popupEl?.clientHeight
 			const tooltipWidth = popupEl?.clientWidth
+			const alignName = isRTL ? "right" : "left"
+
+			let align = parentRect.left
 
 			if (!popupEl) {
 				return
 			}
 
+			if (isRTL) {
+				align = window.innerWidth - parentRect.right
+			}
+
 			const styles = !!popupEl ? window.getComputedStyle(popupEl) : {}
 
-			const attrs: any = {
+			let attrs: any = {
 				top: `${parentRect.top + window.scrollY}px`,
-				left: `${parentRect.left + window.scrollX}px`,
 			}
 
 			switch (position) {
 				case "top":
-					attrs.top = parentRect.top - tooltipHeight - 10
-					attrs.left = parentRect.left + trigger.width / 2
-					break
 				case "top-left":
-					attrs.top = parentRect.top - tooltipHeight - 10
-					break
 				case "top-right":
-					attrs.top = parentRect.top - tooltipHeight - 10
-					attrs.left = parentRect.left - tooltipWidth + trigger?.width
+					attrs = {
+						...attrs,
+						top: parentRect.top - tooltipHeight - 10,
+					}
+					if (position === "top-right") {
+						attrs = {
+							...attrs,
+							[alignName]: align - tooltipWidth + trigger?.width,
+						}
+					} else if (position === "top") {
+						attrs = {
+							...attrs,
+							left: parentRect.left + trigger.width / 2,
+						}
+					} else if (position === "top-left") {
+						attrs = {
+							...attrs,
+							[alignName]: align,
+						}
+					}
 					break
+
 				case "bottom":
-					attrs.top = parentRect.top + trigger.height + 10
-					attrs.left = parentRect.left + trigger.width / 2
-					break
 				case "bottom-left":
-					attrs.top = parentRect.top + trigger.height + 10
-					break
 				case "bottom-right":
-					attrs.top = parentRect.top + trigger.height + 10
-					attrs.left = parentRect.left - tooltipWidth + trigger?.width
+					attrs = {
+						...attrs,
+						top: parentRect.top + trigger.height + 10,
+					}
+					if (position === "bottom-right") {
+						attrs = {
+							...attrs,
+							[alignName]: align - tooltipWidth + trigger?.width,
+						}
+					} else if (position === "bottom") {
+						attrs = {
+							...attrs,
+							left: parentRect.left + trigger.width / 2,
+						}
+					} else if (position === "bottom-left") {
+						attrs = {
+							...attrs,
+							[alignName]: align,
+						}
+					}
 					break
+
 				case "right":
-					attrs.top = parentRect.top + trigger.height / 2
-					attrs.left = parentRect.left + trigger.width + 10
-					break
 				case "right-top":
-					attrs.top = parentRect.top
-					attrs.left = parentRect.left + trigger.width + 10
-					break
 				case "right-bottom":
-					attrs.top = parentRect.top + trigger.height - tooltipHeight
-					attrs.left = parentRect.left + trigger.width + 10
+					attrs = {
+						...attrs,
+						[alignName]: align + trigger.width + 10,
+					}
+					if (position === "right-top") {
+						attrs = {
+							...attrs,
+							top: parentRect.top,
+						}
+					} else if (position === "right-bottom") {
+						attrs = {
+							...attrs,
+							top: parentRect.top + trigger.height - tooltipHeight,
+						}
+					} else {
+						attrs = {
+							...attrs,
+							top: parentRect.top + trigger.height / 2,
+						}
+					}
 					break
+
 				case "left":
-					attrs.top = parentRect.top + trigger.height / 2
-					attrs.left = parentRect.left - tooltipWidth - 10
-					break
 				case "left-top":
-					attrs.top = parentRect.top
-					attrs.left = parentRect.left - tooltipWidth - 10
-					break
 				case "left-bottom":
-					attrs.top = parentRect.top + trigger.height - tooltipHeight
-					attrs.left = parentRect.left - tooltipWidth - 10
+					attrs = {
+						...attrs,
+						[alignName]: align - tooltipWidth - 10,
+					}
+					if (position === "left-top") {
+						attrs = {
+							...attrs,
+							top: parentRect.top,
+						}
+					} else if (position === "left-bottom") {
+						attrs = {
+							...attrs,
+							top: parentRect.top + trigger.height - tooltipHeight,
+						}
+					} else {
+						attrs = {
+							...attrs,
+							top: parentRect.top + trigger.height / 2,
+						}
+					}
 					break
 			}
+
 			setPos(attrs)
 		}
 
@@ -122,7 +182,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	}
 
 	const onMouseLeaveCallback = (e) => {
-		setIsVisible(true)
+		setIsVisible(false)
 	}
 
 	// use interaction

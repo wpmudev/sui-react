@@ -40,13 +40,7 @@ const Tooltip = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<div
-						style={{
-							width: "100px",
-							border: "solid 1px red",
-							overflow: "hidden",
-						}}
-					>
+					<div>
 						{"button" === example && (
 							<SuiTooltip
 								label={label}
