@@ -47,6 +47,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				icon,
 				iconPosition,
 				iconHint = "",
+				iconTooltipWidth,
 				allowClear = false,
 				disableInteractions = false,
 				isRequired = false,
@@ -235,6 +236,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 						<Tooltip
 							type="icon"
 							icon={icon}
+							customWidth={iconTooltipWidth as number}
 							iconSize={isSmall ? "sm" : "md"}
 							position="top"
 							onClick={() => {

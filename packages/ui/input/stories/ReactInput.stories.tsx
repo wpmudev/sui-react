@@ -49,6 +49,7 @@ Input.args = {
 	icon: "",
 	iconPosition: "",
 	iconHint: "",
+	iconTooltipWidth: "",
 	isSmall: false,
 	isReadOnly: false,
 	isDisabled: false,
@@ -70,6 +71,10 @@ Input.argTypes = {
 	},
 	defaultValue: {
 		name: "Value",
+	},
+	iconTooltipWidth: {
+		name: "iconTooltipWidth",
+		control: "number",
 	},
 	isSmall: {
 		name: "Small",

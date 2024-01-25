@@ -100,6 +100,10 @@ interface InputProps
 	 */
 	iconHint?: string
 	/**
+	 * Icon tooltip width
+	 */
+	iconTooltipWidth?: number
+	/**
 	 * Specifies whether the value can be cleared or not
 	 */
 	allowClear?: boolean
