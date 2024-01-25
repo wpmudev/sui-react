@@ -15,7 +15,7 @@
 			display: flex;
 			overflow: auto;
 			overscroll-behavior-y: none;
-			padding: $modal-spacing-lg;
+			padding: $modal-spacing-lg $spacing-lg;
 			position: fixed;
 			top: $modal-spacing-sm;
 			left: $modal-spacing-xxl;
@@ -25,8 +25,8 @@
 			right: 0;
 			z-index: 999999;
 
-			@include media(max-width, md) {
-				padding: $spacing-xl;
+			@include media(max-width, lg) {
+				padding: $spacing-xl $spacing-lg;
 			}
 
 			/* only for wordpress */
