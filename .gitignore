@@ -9,6 +9,7 @@ lib
 storybook-static
 coverage
 verdaccio
+.vscode
 
 # Ignore all error logs.
 *.log
