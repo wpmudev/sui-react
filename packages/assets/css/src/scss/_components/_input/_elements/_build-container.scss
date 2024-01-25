@@ -30,6 +30,11 @@
 				border-radius: $input-border-radius;
 				transition: 0.1s ease;
 			}
+
+			@include modifier(readonly) {
+				background: $color-extended-neutral-95;
+				border-radius: $input-border-radius;
+			}
 		}
 	}
 

@@ -233,8 +233,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				if (!isEmpty(iconHint)) {
 					return (
 						<Tooltip
-							type="button"
-							iconOnly={true}
+							type="icon"
 							icon={icon}
 							iconSize={isSmall ? "sm" : "md"}
 							position="top"
