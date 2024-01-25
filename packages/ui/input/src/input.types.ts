@@ -82,7 +82,7 @@ interface InputProps
 	/**
 	 * A callback function to be invoked when the icon is clicked
 	 */
-	onClickIcon?: (event: React.MouseEvent) => void
+	onClickIcon?: (event?: React.MouseEvent) => void
 	/*
 	 * The callback function for handling input clear
 	 */

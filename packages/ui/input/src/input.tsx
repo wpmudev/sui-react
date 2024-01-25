@@ -46,7 +46,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				onClear,
 				icon,
 				iconPosition,
-				iconHint,
+				iconHint = "",
 				allowClear = false,
 				disableInteractions = false,
 				isRequired = false,
@@ -236,9 +236,13 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							type="button"
 							iconOnly={true}
 							icon={icon}
-							iconSize="lg"
+							iconSize={isSmall ? "sm" : "md"}
 							position="top"
-							onClick={onClickIcon}
+							onClick={() => {
+								if (onClickIcon) {
+									onClickIcon()
+								}
+							}}
 						>
 							{iconHint}
 						</Tooltip>
@@ -249,8 +253,12 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 					<Icon
 						name={icon}
 						size={isSmall ? "sm" : "md"}
-						position={iconPosition}
-						onClick={onClickIcon}
+						position={iconPosition ?? "start"}
+						onClick={(e: React.MouseEvent) => {
+							if (onClickIcon) {
+								onClickIcon(e)
+							}
+						}}
 					/>
 				)
 			}
