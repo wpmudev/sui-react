@@ -3,7 +3,7 @@ import React from "react"
 import { Tag } from "@wpmudev/sui-tag"
 
 import { generateCN } from "@wpmudev/sui-utils"
-import { useDefaultChildren, useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction } from "@wpmudev/sui-hooks"
 
 import { SettingBlockProps } from "./setting-block.types"
 
@@ -31,9 +31,6 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 		},
 		className,
 	)
-
-	// Default children content
-	children = useDefaultChildren(children)
 
 	return (
 		<div className={classNames} {...methods} data-testid="setting-block">
