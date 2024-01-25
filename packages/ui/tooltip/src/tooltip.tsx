@@ -1,7 +1,19 @@
-import React, { useEffect, useCallback, CSSProperties } from "react"
+import React, {
+	useEffect,
+	useCallback,
+	CSSProperties,
+	useRef,
+	useState,
+	LegacyRef,
+} from "react"
 import { Button } from "@wpmudev/sui-button"
 import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
-import { InteractionTypes, useInteraction } from "@wpmudev/sui-hooks"
+import {
+	InteractionTypes,
+	useDetectRTL,
+	useInteraction,
+	usePortal,
+} from "@wpmudev/sui-hooks"
 
 import { Icon } from "./elements/tooltip-icon"
 import { TooltipProps } from "./tooltip.types"
@@ -25,10 +37,78 @@ const Tooltip: React.FC<TooltipProps> = ({
 	iconSize = "sm",
 	...props
 }) => {
+	const [isVisible, setIsVisible] = useState(false)
+	const [pos, setPos] = useState({ top: 0, left: 0 })
+
+	// detect RTL
+	// const isRTL = useDetectRTL()
+
+	const tooltipRef = useRef<HTMLDivElement | null>(null)
+	const triggerRef = useRef<HTMLSpanElement | null>(null)
+
+	const [render] = usePortal("body")
+
+	const onMouseEnterCallback = (e) => {
+		if (tooltipRef.current) {
+			const parentRect = tooltipRef?.current?.getBoundingClientRect()
+			const trigger = triggerRef?.current?.getBoundingClientRect()
+			const popupEl = document.querySelector(".sui-tooltip__popup")
+
+			if (!popupEl) {
+				return
+			}
+
+			const styles = !!popupEl ? window.getComputedStyle(popupEl) : {}
+
+			const attrs: any = {
+				top: `${parentRect.top + window.scrollY}px`,
+				left: `${parentRect.left + window.scrollX}px`,
+			}
+
+			switch (position) {
+				case "top":
+					attrs.top = parentRect.top - trigger.height / 2
+					attrs.left = parentRect.left + trigger.width / 2
+					// attrs.height = "30px"
+					break
+				case "bottom":
+					attrs.top = trigger.height + parentRect.top
+					attrs.left = parentRect.left + trigger.width / 2
+					break
+				case "bottom-right":
+					attrs.top = parentRect.top + trigger.height
+					attrs.left = parentRect.left - trigger.width / 2
+					attrs.right = "unset"
+					break
+				case "bottom-left":
+					attrs.top = parentRect.top + trigger.height
+					break
+				case "left":
+				case "left-top":
+				case "left-bottom":
+					attrs.left = parentRect.left - popupEl.clientWidth - 10
+					break
+				case "right":
+				case "right-top":
+				case "right-bottom":
+					attrs.left = parentRect.left + trigger.width + 10
+					break
+			}
+
+			setPos(attrs)
+		}
+
+		setIsVisible(true)
+	}
+
+	const onMouseLeaveCallback = (e) => {
+		setIsVisible(false)
+	}
+
 	// use interaction
 	const [isHovered, isFocused, methods, toggleHover] = useInteraction({
-		onMouseEnter,
-		onMouseLeave,
+		onMouseEnter: onMouseEnterCallback,
+		onMouseLeave: onMouseLeaveCallback,
 		onFocus,
 		onBlur,
 	} as InteractionTypes)
@@ -42,11 +122,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	const classNames = generateCN(
 		"sui-tooltip",
 		{
-			// Add show hide class based on tooltip open
-			show: isHovered,
 			focus: isFocused,
-			"custom-width": !!customWidth,
-			[position]: true,
 		},
 		className ?? "",
 	)
@@ -121,20 +197,36 @@ const Tooltip: React.FC<TooltipProps> = ({
 	}
 
 	return (
-		<div className={classNames} {...methods} data-testid="tooltip">
-			{renderTrigger()}
-			{!!children && (
-				<span
-					className="sui-tooltip__content"
-					role="tooltip"
-					aria-live="polite"
-					aria-hidden={!isHovered}
-					tabIndex={isHovered ? 0 : -1}
-					{...attrs}
-				>
-					{children}
-				</span>
-			)}
+		<div
+			{...methods}
+			className={classNames}
+			data-testid="tooltip"
+			ref={tooltipRef as LegacyRef<HTMLDivElement>}
+		>
+			<div
+				className="sui-tooltip__trigger"
+				ref={triggerRef as LegacyRef<HTMLDivElement>}
+			>
+				{renderTrigger()}
+			</div>
+			{!!children &&
+				render(
+					<div
+						className={generateCN("sui-tooltip__popup", {
+							show: isVisible,
+							focus: isFocused,
+							"custom-width": !!customWidth,
+							[position]: true,
+						})}
+						role="tooltip"
+						aria-live="polite"
+						aria-hidden={!isVisible}
+						tabIndex={isVisible ? 0 : -1}
+						style={pos}
+					>
+						{children}
+					</div>,
+				)}
 		</div>
 	)
 }

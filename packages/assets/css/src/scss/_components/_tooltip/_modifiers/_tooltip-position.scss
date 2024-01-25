@@ -12,11 +12,13 @@
 @mixin build-position($block) {
 	// DIR: Left to right.
 	// THEME: None.
-	@include sui-class($rtl: false, $theme: null) {
+	@include body-class($rtl: false) {
 		// Block wrapper.
 		@include block($block) {
-			@include modifier(top) {
-				@include modifies-element(content) {
+			@include element(popup) {
+				position: absolute;
+
+				@include modifier(top) {
 					left: 50%;
 					transform: translateX(-50%);
 
@@ -25,10 +27,8 @@
 						transform: translateX(-50%);
 					}
 				}
-			}
 
-			@include modifier(top-left) {
-				@include modifies-element(content) {
+				@include modifier(top-left) {
 					left: 0;
 					transform: translateX(0);
 
@@ -36,20 +36,16 @@
 						left: 8px;
 					}
 				}
-			}
 
-			@include modifier(top-right) {
-				@include modifies-element(content) {
+				@include modifier(top-right) {
 					right: 0;
 
 					&:after {
 						right: 8px;
 					}
 				}
-			}
 
-			@include modifier(top, top-left, top-right) {
-				@include modifies-element(content) {
+				@include modifier(top, top-left, top-right) {
 					bottom: 100%;
 					margin-bottom: $tooltip-spacing-margin;
 
@@ -62,11 +58,9 @@
 						bottom: -6px;
 					}
 				}
-			}
 
-			@include modifier(bottom) {
-				@include modifies-element(content) {
-					left: 50%;
+				@include modifier(bottom) {
+					//left: 50%;
 					transform: translateX(-50%);
 
 					&:after {
@@ -74,30 +68,24 @@
 						transform: translateX(-50%);
 					}
 				}
-			}
 
-			@include modifier(bottom-left) {
-				@include modifies-element(content) {
+				@include modifier(bottom-left) {
 					left: 0;
 
 					&:after {
 						left: 8px;
 					}
 				}
-			}
 
-			@include modifier(bottom-right) {
-				@include modifies-element(content) {
+				@include modifier(bottom-right) {
 					right: 0;
 
 					&:after {
 						right: 8px;
 					}
 				}
-			}
 
-			@include modifier(bottom, bottom-left, bottom-right) {
-				@include modifies-element(content) {
+				@include modifier(bottom, bottom-left, bottom-right) {
 					top: 100%;
 					margin-top: $tooltip-spacing-margin;
 
@@ -106,42 +94,33 @@
 						top: -6px;
 					}
 				}
-			}
 
-			@include modifier(left) {
-				@include modifies-element(content) {
-					top: 50%;
-					transform: translateY(-50%);
+				@include modifier(left) {
+					//top: 50%;
+					//transform: translateY(-50%);
+					top: 0;
 
 					&:after {
 						top: 50%;
 						transform: translateY(-50%);
 					}
 				}
-			}
 
-			@include modifier(left-top) {
-				@include modifies-element(content) {
+				@include modifier(left-top) {
 					top: 0;
 
 					&:after {
 						top: 8px;
 					}
 				}
-			}
 
-			@include modifier(left-bottom) {
-				@include modifies-element(content) {
-					bottom: 0;
-
+				@include modifier(left-bottom) {
 					&:after {
 						bottom: 8px;
 					}
 				}
-			}
 
-			@include modifier(left, left-top, left-bottom) {
-				@include modifies-element(content) {
+				@include modifier(left, left-top, left-bottom) {
 					right: calc(100% + $tooltip-spacing-margin);
 
 					&:after {
@@ -153,42 +132,34 @@
 						);
 					}
 				}
-			}
 
-			@include modifier(right) {
-				@include modifies-element(content) {
-					top: 50%;
-					transform: translateY(-50%);
+				@include modifier(right) {
+					//top: 50%;
+					//transform: translateY(-50%);
 
 					&:after {
 						top: 50%;
 						transform: translateY(-50%);
 					}
 				}
-			}
 
-			@include modifier(right-top) {
-				@include modifies-element(content) {
+				@include modifier(right-top) {
 					top: 0;
 
 					&:after {
 						top: 8px;
 					}
 				}
-			}
 
-			@include modifier(right-bottom) {
-				@include modifies-element(content) {
-					bottom: 0;
+				@include modifier(right-bottom) {
+					//bottom: 0;
 
 					&:after {
 						bottom: 8px;
 					}
 				}
-			}
 
-			@include modifier(right, right-top, right-bottom) {
-				@include modifies-element(content) {
+				@include modifier(right, right-top, right-bottom) {
 					left: calc(100% + $tooltip-spacing-margin);
 
 					&:after {
@@ -280,46 +251,46 @@
 		}
 	}
 
-	// DIR: Left to right.
-	// THEME: Dark.
-	@include sui-class($rtl: false, $theme: dark) {
-		// Block wrapper.
-		@include block($block) {
-			@include modifier(top, top-left, top-right) {
-				@include modifies-element(content) {
-					&:after {
-						@include equilateral-triangle(down, 6px, $color-extended-neutral-0);
-					}
-				}
-			}
-
-			@include modifier(bottom, bottom-left, bottom-right) {
-				@include modifies-element(content) {
-					&:after {
-						@include equilateral-triangle(up, 6px, $color-extended-neutral-0);
-					}
-				}
-			}
-
-			@include modifier(left, left-top, left-bottom) {
-				@include modifies-element(content) {
-					&:after {
-						@include equilateral-triangle(
-							right,
-							6px,
-							$color-extended-neutral-0
-						);
-					}
-				}
-			}
-
-			@include modifier(right, right-top, right-bottom) {
-				@include modifies-element(content) {
-					&:after {
-						@include equilateral-triangle(left, 6px, $color-extended-neutral-0);
-					}
-				}
-			}
-		}
-	}
+	//// DIR: Left to right.
+	//// THEME: Dark.
+	//@include sui-class($rtl: false, $theme: dark) {
+	//	// Block wrapper.
+	//	@include block($block) {
+	//		@include modifier(top, top-left, top-right) {
+	//			@include modifies-element(content) {
+	//				&:after {
+	//					@include equilateral-triangle(down, 6px, $color-extended-neutral-0);
+	//				}
+	//			}
+	//		}
+	//
+	//		@include modifier(bottom, bottom-left, bottom-right) {
+	//			@include modifies-element(content) {
+	//				&:after {
+	//					@include equilateral-triangle(up, 6px, $color-extended-neutral-0);
+	//				}
+	//			}
+	//		}
+	//
+	//		@include modifier(left, left-top, left-bottom) {
+	//			@include modifies-element(content) {
+	//				&:after {
+	//					@include equilateral-triangle(
+	//						right,
+	//						6px,
+	//						$color-extended-neutral-0
+	//					);
+	//				}
+	//			}
+	//		}
+	//
+	//		@include modifier(right, right-top, right-bottom) {
+	//			@include modifies-element(content) {
+	//				&:after {
+	//					@include equilateral-triangle(left, 6px, $color-extended-neutral-0);
+	//				}
+	//			}
+	//		}
+	//	}
+	//}
 }
