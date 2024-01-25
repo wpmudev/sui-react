@@ -25,7 +25,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	id,
 	type = "hex",
 	color = "",
-	onChange,
+	onApply,
 	placeholder = "Select color",
 	isError = false,
 	isDisabled = false,
