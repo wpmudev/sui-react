@@ -63,7 +63,6 @@ const ColorPicker = ({
 							color={currentColor}
 							onChange={setSavedColor}
 							onColorChange={setCurrentColor}
-							onCancel={() => setCurrentColor("#000000")}
 							onReset={() => setCurrentColor("#ffffff")}
 							isDisabled={isDisabled}
 							isError={isError}

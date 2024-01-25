@@ -17,7 +17,7 @@ interface ColorPickerProps {
 	/**
 	 * Callback for color change
 	 */
-	onChange?: (color: string) => void
+	onApply?: (color: string) => void
 	/**
 	 * Color type hex | rgb
 	 */
@@ -34,10 +34,6 @@ interface ColorPickerProps {
 	 * Specifies if the color picker field is disabled.
 	 */
 	isDisabled?: boolean
-	/**
-	 * callback when cancel
-	 */
-	onCancel?: Function
 	/**
 	 * callback when reset
 	 */
