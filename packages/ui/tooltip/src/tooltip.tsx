@@ -79,7 +79,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 				case "top-right":
 					attrs = {
 						...attrs,
-						top: parentRect.top - tooltipHeight - 10,
+						top: parentRect.top - tooltipHeight - 10 + window.scrollY,
 					}
 					if (position === "top-right") {
 						attrs = {
@@ -89,7 +89,8 @@ const Tooltip: React.FC<TooltipProps> = ({
 					} else if (position === "top") {
 						attrs = {
 							...attrs,
-							left: parentRect.left + (trigger?.width ?? 0) / 2,
+							left:
+								parentRect.left + (trigger?.width ?? 0) / 2 + window.scrollX,
 						}
 					} else if (position === "top-left") {
 						attrs = {
@@ -104,7 +105,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 				case "bottom-right":
 					attrs = {
 						...attrs,
-						top: parentRect.top + (trigger?.height ?? 0) + 10,
+						top: parentRect.top + (trigger?.height ?? 0) + 10 + window.scrollY,
 					}
 					if (position === "bottom-right") {
 						attrs = {
@@ -114,7 +115,8 @@ const Tooltip: React.FC<TooltipProps> = ({
 					} else if (position === "bottom") {
 						attrs = {
 							...attrs,
-							left: parentRect.left + (trigger?.width ?? 0) / 2,
+							left:
+								parentRect.left + (trigger?.width ?? 0) / 2 + window.scrollY,
 						}
 					} else if (position === "bottom-left") {
 						attrs = {
@@ -134,12 +136,16 @@ const Tooltip: React.FC<TooltipProps> = ({
 					if (position === "right-top") {
 						attrs = {
 							...attrs,
-							top: parentRect.top,
+							top: parentRect.top + window.scrollY,
 						}
 					} else if (position === "right-bottom") {
 						attrs = {
 							...attrs,
-							top: parentRect.top + (trigger?.height ?? 0) - tooltipHeight,
+							top:
+								parentRect.top +
+								(trigger?.height ?? 0) -
+								tooltipHeight +
+								window.scrollY,
 						}
 					} else {
 						attrs = {
@@ -274,6 +280,8 @@ const Tooltip: React.FC<TooltipProps> = ({
 				)
 			case "icon":
 				return <Icon name={icon} size={iconSize} />
+			default:
+				return <span {...props}>{label}</span>
 		}
 	}
 

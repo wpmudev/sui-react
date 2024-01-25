@@ -20,6 +20,7 @@ import { Button } from "@wpmudev/sui-button"
 
 import { Icon } from "./elements/input-icon"
 import { InputProps } from "./input.types"
+import { Tooltip } from "@wpmudev/sui-tooltip"
 
 // Build input component
 const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
@@ -45,6 +46,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				onClear,
 				icon,
 				iconPosition,
+				iconHint = "",
 				allowClear = false,
 				disableInteractions = false,
 				isRequired = false,
@@ -220,17 +222,51 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				...props,
 			}
 
+			/**
+			 * Render icon
+			 */
+			const renderIcon = () => {
+				if (!(icon && !isMultiLine)) {
+					return null
+				}
+
+				if (!isEmpty(iconHint)) {
+					return (
+						<Tooltip
+							type="button"
+							iconOnly={true}
+							icon={icon}
+							iconSize={isSmall ? "sm" : "md"}
+							position="top"
+							onClick={() => {
+								if (onClickIcon) {
+									onClickIcon()
+								}
+							}}
+						>
+							{iconHint}
+						</Tooltip>
+					)
+				}
+
+				return (
+					<Icon
+						name={icon}
+						size={isSmall ? "sm" : "md"}
+						position={iconPosition ?? "start"}
+						onClick={(e: React.MouseEvent) => {
+							if (onClickIcon) {
+								onClickIcon(e)
+							}
+						}}
+					/>
+				)
+			}
+
 			// Render component
 			return (
 				<div className={classNames} data-testid="input">
-					{icon && !isMultiLine && "start" === iconPosition && (
-						<Icon
-							name={icon}
-							size={isSmall ? "sm" : "md"}
-							position={iconPosition}
-							onClick={onClickIcon}
-						/>
-					)}
+					{"start" === iconPosition && renderIcon()}
 					<div
 						className={generateCN("sui-input__input-field", {
 							"has-hint": hasHintText,
@@ -248,14 +284,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							</Fragment>
 						)}
 					</div>
-					{icon && !isMultiLine && "end" === iconPosition && (
-						<Icon
-							name={icon}
-							size={isSmall ? "sm" : "md"}
-							position={iconPosition}
-							onClick={onClickIcon}
-						/>
-					)}
+					{"end" === iconPosition && renderIcon()}
 					{allowClear && !isEmpty(value as string) && !isMultiLine && (
 						<Button
 							className="sui-input__input-clear"
