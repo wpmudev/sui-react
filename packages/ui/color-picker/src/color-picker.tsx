@@ -23,6 +23,7 @@ import { useOuterClick } from "@wpmudev/sui-hooks"
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
 	id,
+	type = "hex",
 	color = "",
 	onChange,
 	onCancel,
