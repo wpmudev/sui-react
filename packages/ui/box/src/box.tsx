@@ -3,6 +3,7 @@ import { generateCN, isEmpty, isUndefined } from "@wpmudev/sui-utils"
 
 import { BoxGroup } from "./box-group"
 import { BoxProps } from "./box.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 // Create box component
 const Box: React.FC<BoxProps> = ({
@@ -12,7 +13,7 @@ const Box: React.FC<BoxProps> = ({
 	headerLeft,
 	headerRight,
 	children,
-	isSmall,
+	isSmall = false,
 	className = "",
 	style = {},
 	...props
@@ -24,6 +25,9 @@ const Box: React.FC<BoxProps> = ({
 	const hasRight = !isUndefined(headerRight) && !!headerRight
 
 	const classNames = generateCN("sui-box", { "size-sm": isSmall }, className)
+
+	// Default children content
+	children = useDefaultChildren(children)
 
 	return (
 		<div className={classNames} style={style ?? {}} {...props}>

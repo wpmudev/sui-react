@@ -2,6 +2,7 @@ import React, { Children, Fragment, ReactElement } from "react"
 import { generateCN, isObject } from "@wpmudev/sui-utils"
 
 import { BoxGroupProps } from "./box-group.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 // Create box group component
 const BoxGroup: React.FC<BoxGroupProps> = ({
