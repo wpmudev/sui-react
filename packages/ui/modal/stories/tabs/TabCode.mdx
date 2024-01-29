@@ -1,40 +1,27 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-modal" />
 
 <Section title="Props" border={true}>
 
-    	<Section
-    		title={{ content: "id", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="id" type="string">
     		<p>Unique id for the modal</p>
+    	</PropSection>
 
-    	</Section>
-
-    	<Section
-    		title={{ content: "variant", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="variant" type="string" defaultValue="simple">
     		<p>Variant type of the modal </p>
-
     		<p>
     		Allowed options:
     			<List>
     				<span label={<Code small={true}>simple</Code>} />
     				<span label={<Code small={true}>advanced</Code>} />
     				<span label={<Code small={true}>app-connect</Code>} />
-
     			</List>
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "size", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p>Indicates the size of the modal </p>
-
+    	<PropSection title="size" type="string" defaultValue="size">
+    		<p>Indicates the size of the modal</p>
     		<p>
     		Allowed options:
     			<List>
@@ -44,25 +31,19 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     				<span label={<Code small={true}>xl</Code>} />
     			</List>
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "ref", tag: 'object', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="ref" type="object" isRequired={true}>
     		<p>The React ref object is utilized to access the methods responsible for opening and closing the modal. these functions are available in the <Code small={true}>current</Code> object property of the ref</p>
     			<List>
     				<span label={<><Code small={true}>ref.current.openModal</Code> Opens the modal</>} />
     				<span label={<><Code small={true}>ref.current.closeModal</Code> Closes the modal</>} />
     			</List>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "children", tag: 'React Node', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="children" type="React Node">
     		<p>Content of the modal</p>
-    	</Section>
+    	</PropSection>
 
 </Section>
 
@@ -78,35 +59,53 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		This component represents the modal header
     	</p>
 
-    	<Section title={{ content: "title", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="title" type="string" defaultValue="header title">
     		<p>
     			Title for the modal header
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="children" type="React Node" >
     		<p>
     			The content of the component
     		</p>
-    	</Section>
+    	</PropSection>
 
-		<Section title={{ content: "icon*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+		<PropSection title="icon" type="string">
     		<p>
     			Icon to appear above the title
     		</p>
-    	</Section>
+    	</PropSection>
 
-		<Section title={{ content: "iconSize*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+		<PropSection title="iconSize" type="string" defaultValue="sm">
     		<p>
-    			The size of the icon, it could be one of these values: "xms" | "xs" | "sm" | "md" | "lg" | "xl"
+    			The size of the icon, it could be one of these values.
     		</p>
-    	</Section>
+			<p>Allowed Values:</p>
+			<List>
+				<span label="xms" />
+				<span label="xs" />
+				<span label="sm" />
+				<span label="md" />
+				<span label="lg" />
+				<span label="xl" />
+			</List>
+    	</PropSection>
 
-		<Section title={{ content: "iconColor*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+		<PropSection title="iconColor" type="string">
     		<p>
-    			The color of the icon, it could be one of these values:  "" | "neutral" | "informative" | "success" | "warning" | "critical"
+    			The color of the icon.
     		</p>
-    	</Section>
+			<p>Allowed Values:</p>
+			<List>
+				<span label="" />
+				<span label="neutral" />
+				<span label="informative" />
+				<span label="success" />
+				<span label="warning" />
+				<span label="critical" />
+			</List>
+    	</PropSection>
 
     </Section>
 
@@ -115,12 +114,11 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		This component represents the modal body
     	</p>
 
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="children" type="React Node">
     		<p>
     			The content of the component
     		</p>
-    	</Section>
-
+    	</PropSection>
     </Section>
 
     <Section title="ModalFooter" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
@@ -128,12 +126,11 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		This component represents the modal footer
     	</p>
 
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="children" type="React Node">
     		<p>
     			The content of the component
     		</p>
-    	</Section>
-
+    	</PropSection>
     </Section>
 
 </Section>

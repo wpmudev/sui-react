@@ -27,13 +27,17 @@ interface SearchBaseProps {
 	 * Disables the input
 	 */
 	isDisabled?: boolean
+	/**
+	 * Options availabe to search
+	 */
 	options?: SearchOptionType[]
-	allowClear?: never
-	searchMinChars?: never
-	searchHint?: never
+	/**
+	 * Whether to dsiplay the clear button or not
+	 */
+	allowClear?: boolean
 }
 
-type SearchSmartType = {
+type SearchSmartType = SearchBaseProps & {
 	/**
 	 * Smart search variation
 	 */
@@ -50,17 +54,13 @@ type SearchSmartType = {
 	 * Provides a descriptive hint for search
 	 */
 	searchHint?: string
-	/**
-	 * The available options for search
-	 */
-	allowClear?: boolean
 } & SearchBaseProps
 
 type SearchBasicType = {
 	/**
 	 * The variation of the search
 	 */
-	variation?: "" | "basic"
+	variation?: "basic"
 } & SearchBaseProps
 
 type SearchProps = SearchSmartType | SearchBasicType

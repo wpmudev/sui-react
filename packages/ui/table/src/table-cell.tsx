@@ -2,7 +2,7 @@ import React, { Fragment, useCallback, useContext, useRef } from "react"
 
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
 import Icons from "@wpmudev/sui-icons"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useInteraction } from "@wpmudev/sui-hooks"
 
 import { TableCellProps } from "./table.types"
 import { TableContext, TableSortBy } from "./table-context"
@@ -31,7 +31,7 @@ import { TableContext, TableSortBy } from "./table-context"
 const TableCell: React.FC<TableCellProps> = ({
 	id,
 	children,
-	isHeading,
+	isHeading = false,
 	className = "",
 	hasDragIcon = false,
 	isAction = false,
@@ -46,6 +46,9 @@ const TableCell: React.FC<TableCellProps> = ({
 	const TagName: "td" | "th" = isHeading ? "th" : "td"
 
 	const [hovered, focused, methods] = useInteraction({})
+
+	// Default children content
+	children = useDefaultChildren(children, "{cell children content}")
 
 	// Table context
 	const ctx = useContext(TableContext)

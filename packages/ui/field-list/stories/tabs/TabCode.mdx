@@ -1,39 +1,27 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-field-list" />
 
 <Section title="Props" border={true}>
-    	<Section
-    		title={{ content: "label*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="label" type="string" defaultValue="label">
     		<p>Represents the title of the Field List</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "helper*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="helper" type="string">
     		<p>Represents the helper text</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "children", tag: 'React Node', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="children" type="React Node">
     		<p>The content of the Field List</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section
-    		title={{ content: "onToggle", tag: 'function', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+    	<PropSection title="onToggle" type="function">
     		<p>A callback function to be invoked when one of the fields state changes, it has two parameters:</p>
     		<List>
     			<span label={<><Code small={true}>id</Code> id of the switched toggle</>} />
     			<span label={<><Code small={true}>checked</Code> a boolean value indicating the new state of the changed toggle</>} />
     		</List>
-    	</Section>
+    	</PropSection>
 
 </Section>
 
@@ -49,38 +37,37 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		This component represents an individual item in the Field List and it has the following properties:
     	</p>
 
-    	<Section title={{ content: "id*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="id" type="string">
     		<p>
     			A unique identifier for the item
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="children" type="React Node">
     		<p>
     			The content of the item, usually a string
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "onToggle", tag: 'function', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="onToggle" type="function">
     		<p>A callback function to be invoked when one of the fields state changes, it has two parameters:</p>
     		<List>
-    			<span label={<><Code small={true}>id</Code> id of the switched toggle</>} />
-    			<span label={<><Code small={true}>checked</Code> A boolean value indicating the new state of the changed toggle</>} />
+    			<span label={<><Code small={true}>id*</Code> id of the switched toggle</>} />
+    			<span label={<><Code small={true}>checked*</Code> A boolean value indicating the new state of the changed toggle</>} />
     		</List>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "isChecked", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="isChecked" type="boolean" defaultValue="false">
     		<p>The state of the toggle</p>
-    	</Section>
-		
-		<Section title={{ content: "hasToggle*", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	</PropSection>
+
+		<PropSection title="hasToggle" type="boolean" defaultValue="true">
     		<p>Whether the item has a toggle or not</p>
-    	</Section>
+    	</PropSection>
 
-
-		<Section title={{ content: "actions*", tag: 'ReactNode', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+		<PropSection title="actions" type="Ract Node">
     		<p>Custom actions for the item</p>
-    	</Section>
+    	</PropSection>
 
     </Section>
 

@@ -3,6 +3,7 @@ import React from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { SummaryFooterBodyProps } from "./summary-box.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 /**
  * SummaryFooterBody Component
@@ -21,6 +22,8 @@ const SummaryFooterBody: React.FC<SummaryFooterBodyProps> = ({
 }) => {
 	const classNames = generateCN("sui-summary-box__footer", {}, className)
 
+	// Default children content
+	children = useDefaultChildren(children, "{summary footer body}")
 	// Render the SummaryFooterBody component with a div element, applying the specified CSS classes.
 	return (
 		<div className={classNames} data-testid="summary-box-footer">

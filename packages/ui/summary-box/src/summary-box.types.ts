@@ -12,7 +12,7 @@ interface SummaryBoxProps {
 	/**
 	 * The title of the summary box (required).
 	 */
-	title: string
+	title?: string
 	/**
 	 * The icon of the summary box (optional).
 	 */
@@ -25,12 +25,12 @@ interface SummaryBoxProps {
 	 * Primary actions to be displayed in the header left (optional).
 	 * It can be either an array of objects or a string.
 	 */
-	primaryActions?: React.ReactElement[] | string
+	primaryActions?: React.ReactNode
 	/**
 	 * Secondary actions to be displayed in the header right (optional).
 	 * It can be either an array of objects or a string.
 	 */
-	secondaryActions?: React.ReactElement[] | string
+	secondaryActions?: React.ReactNode
 	/**
 	 * Additional CSS class names for the summary box element (optional).
 	 */

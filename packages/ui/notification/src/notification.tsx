@@ -6,15 +6,16 @@ import { NotificationProps } from "./notification.types"
 import { IconProps } from "@wpmudev/sui-icon"
 import Icons from "@wpmudev/sui-icons"
 import { useNotifications } from "./use-notification"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 const Notification: React.FC<NotificationProps> = ({
 	id,
 	title,
-	message,
+	message = "message",
 	action,
-	icon,
+	icon = "Info",
 	isInline = true,
-	isDismissible,
+	isDismissible = false,
 	size,
 	variation,
 	timeout = 5000,
@@ -24,6 +25,9 @@ const Notification: React.FC<NotificationProps> = ({
 
 	// Create notification ID
 	const uniqueId = useId()
+	if (!id) {
+		id = uniqueId
+	}
 	const notificationId = `sui-notification-${uniqueId}`
 
 	useEffect(() => {
@@ -50,7 +54,7 @@ const Notification: React.FC<NotificationProps> = ({
 	// do not render
 	if (!isVisible) return null
 
-	// generate classnames
+	// Generate classnames
 	const classNames = generateCN("sui-notification", {
 		inline: isInline,
 		[size as string]: !isEmpty(size ?? ""),

@@ -26,9 +26,12 @@ const Status: React.FC<StatusProps> = ({ status }) => {
 			classes += " sui-color-error--50"
 			break
 
-		default:
+		case "awaiting":
 			IconName = Clock
 			classes += " sui-color-neutral--60"
+			break
+
+		default:
 			break
 	}
 

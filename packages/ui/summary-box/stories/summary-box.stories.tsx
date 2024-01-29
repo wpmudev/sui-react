@@ -30,29 +30,32 @@ const SummaryBox = ({}) => {
 						icon="performance"
 						title="Performance Summary"
 						hideMobileIcon={true}
-						primaryActions={[
-							<SegmentedControl
-								key={0}
-								name="type"
-								defaultValue={mode}
-								onChange={(type: string) => setMode(type ?? "")}
-							>
-								<SegmentedControlButton value="visual" icon="Mobile" />
-								<SegmentedControlButton value="code" icon="Desktop" />
-							</SegmentedControl>,
-							<div key={0}>
-								<Button
-									appearance="secondary"
-									icon="Trash"
-									color="black"
-									isSmall={true}
-									isResponsive={true}
+						primaryActions={
+							<>
+								<SegmentedControl
+									key={0}
+									name="type"
+									defaultValue={mode}
+									onChange={(type: string) => setMode(type ?? "")}
 								>
-									Clear Cache
-								</Button>
-							</div>,
-						]}
-						secondaryActions={[
+									<SegmentedControlButton value="visual" icon="Mobile" />
+									<SegmentedControlButton value="code" icon="Desktop" />
+								</SegmentedControl>
+								,
+								<div key={0}>
+									<Button
+										appearance="secondary"
+										icon="Trash"
+										color="black"
+										isSmall={true}
+										isResponsive={true}
+									>
+										Clear Cache
+									</Button>
+								</div>
+							</>
+						}
+						secondaryActions={
 							<Button
 								key={2}
 								appearance="primary"
@@ -62,8 +65,8 @@ const SummaryBox = ({}) => {
 								isFullWidth={true}
 							>
 								New test
-							</Button>,
-						]}
+							</Button>
+						}
 					>
 						<SummaryBoxBody
 							summaryItems={[

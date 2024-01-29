@@ -9,7 +9,7 @@ import { SettingBlockProps } from "./setting-block.types"
 
 // Build "setting-block" component
 const SettingBlock: React.FC<SettingBlockProps> = ({
-	title,
+	title = "title",
 	description,
 	className,
 	isPro = false,

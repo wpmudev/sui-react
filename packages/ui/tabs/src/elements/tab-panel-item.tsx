@@ -5,6 +5,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 
 import { TabContext } from "./tab-context"
 import { TabContextProps, TabPanelItemProps } from "../tabs.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 // Define the TabPanelItem component as a functional component
 const TabPanelItem: React.FC<TabPanelItemProps> = ({ children, id }) => {
@@ -19,6 +20,9 @@ const TabPanelItem: React.FC<TabPanelItemProps> = ({ children, id }) => {
 
 	// Check if the current tab panel is active based on its ID
 	const isActive = current === parseInt(id as string)
+
+	// children default content
+	children = useDefaultChildren(children, "Tab panel item")
 
 	// Render the tab panel (div element) with appropriate attributes and CSS classes
 	return (

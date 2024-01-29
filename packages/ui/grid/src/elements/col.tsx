@@ -2,6 +2,7 @@ import React from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 import { ColProps } from "../grid.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 const Col: React.FC<ColProps> = ({ size, children, className, ...props }) => {
 	const classNames = generateCN(
@@ -12,6 +13,9 @@ const Col: React.FC<ColProps> = ({ size, children, className, ...props }) => {
 		},
 		className,
 	)
+
+	// Default children content
+	children = useDefaultChildren(children, "{Column children content}")
 
 	// remove if exists
 	if ("colSize" in props) {

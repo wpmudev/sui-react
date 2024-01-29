@@ -10,6 +10,10 @@ interface LinkProps
 		Omit<HTMLAnchorElement, "className" | "children" | "toString">
 	> {
 	/**
+	 * Link location
+	 */
+	href?: string
+	/**
 	 * Link theme
 	 */
 	theme?: string
@@ -41,6 +45,9 @@ interface LinkProps
 	 * If true, an external link icon may be displayed alongside the link text.
 	 */
 	hasExternalIcon?: boolean
+	/**
+	 * The text of the link
+	 */
 	children?: React.ReactNode
 }
 

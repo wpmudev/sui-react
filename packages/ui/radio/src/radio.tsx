@@ -9,13 +9,27 @@ import { useRadio } from "./radio-context"
 
 const Radio = forwardRef<HTMLInputElement, RadioProps>(
 	(
-		{ id, label, description = "", tag = "", value = "", isDisabled = false },
+		{
+			id,
+			label = "label",
+			description = "",
+			tag = "",
+			value = "",
+			isDisabled = false,
+		},
 		ref,
 	) => {
 		// const [checked, setChecked] = useState(isChecked)
 		const [isHovered, isFocused, methods] = useInteraction({})
 
-		let uuid = `sui-radio-${useId()}`
+		const uniqueId = useId()
+
+		let uuid = `sui-radio-${uniqueId}`
+
+		// If value not provided add a unique one
+		if (!value) {
+			value = `value-${uniqueId}`
+		}
 
 		const {
 			onChange,

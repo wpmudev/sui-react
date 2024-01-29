@@ -25,7 +25,7 @@ const Footer: React.FC<FooterProps> = ({
 	logoHref,
 	socialLinks,
 	renderBlocks,
-	removeBGColor,
+	removeBGColor = false,
 	className,
 }) => {
 	let blocks: React.ReactNode[] = []

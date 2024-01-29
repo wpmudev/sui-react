@@ -4,8 +4,8 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { ScoreProps } from "./score.types"
 
 const Score: React.FC<ScoreProps> = ({
-	bar,
-	value,
+	bar = 50,
+	value = 50,
 	content,
 	state,
 	isSmall = false,

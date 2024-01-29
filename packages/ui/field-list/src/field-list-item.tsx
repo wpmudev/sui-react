@@ -4,6 +4,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 // Import required components
 import { Toggle } from "@wpmudev/sui-toggle"
 import { FieldListItemProps } from "./field-list.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 const FieldListItem: React.FC<FieldListItemProps> = ({
 	id,
@@ -15,15 +16,21 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 	...props
 }) => {
 	// Generate a unique ID for the Toggle component
-	let tempId = useId()
-	tempId = `sui-field-list-${tempId}-${id}`
+	const uniqueId = useId()
+
+	if (!id) {
+		id = `sui-field-list-${uniqueId}`
+	}
+
+	// Default children content
+	children = useDefaultChildren(children, "{field list item content}")
 
 	// Handle the checkbox change event
 	const onChange = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => {
 			// Call the provided onToggle callback with the item's ID and the new checked state
 			if (onToggle) {
-				onToggle(id, e?.target?.checked)
+				onToggle(id as string, e?.target?.checked)
 			}
 		},
 		[id, onToggle],
@@ -42,7 +49,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 				<div className="sui-field-list__item-checkbox">
 					{/* Render the Toggle component with appropriate props */}
 					<Toggle
-						id={tempId}
+						id={id}
 						label={children}
 						isLabelHidden={true}
 						defaultValue={isChecked ?? false}

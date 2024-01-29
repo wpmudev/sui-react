@@ -7,7 +7,7 @@ import { IconsNamesType } from "@wpmudev/sui-icons"
 
 // interface definition for the NotificationProps
 interface NotificationProps {
-	id: string // unique ID for the notification
+	id?: string // unique ID for the notification
 	title?: ReactNode // title content of the notification (can be any valid React node)
 	message?: ReactNode // message content of the notification (can be any valid React node)
 	action?: ReactNode // notification action

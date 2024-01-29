@@ -19,7 +19,7 @@ interface EmptyStateProps
 	/**
 	 * Additional content to be displayed alongside the main content in the empty state.
 	 */
-	children: React.ReactNode
+	children?: React.ReactNode
 }
 
 export type { EmptyStateProps }

@@ -16,10 +16,18 @@ interface TooltipIconProps {
 	 * @type {string}
 	 */
 	size?: IconProps["size"]
+	/**
+	 * Callback function to be invoked onClick
+	 */
+	onClick?: () => void
 }
 
 // Build "Icon" component.
-const Icon: React.FC<TooltipIconProps> = ({ name = "Info", size = "sm" }) => {
+const Icon: React.FC<TooltipIconProps> = ({
+	name = "Info",
+	size = "sm",
+	onClick = () => null,
+}) => {
 	const hasIcon = !isUndefined(name) && !isEmpty(name ?? "")
 
 	if (!hasIcon) {
@@ -34,7 +42,7 @@ const Icon: React.FC<TooltipIconProps> = ({ name = "Info", size = "sm" }) => {
 	const IconTag = Icons[IconName as IconsNamesType]
 
 	return (
-		<span className="sui-tooltip__icon" aria-hidden="true">
+		<span className="sui-tooltip__icon" aria-hidden="true" onClick={onClick}>
 			<IconTag size={size} />
 		</span>
 	)

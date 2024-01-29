@@ -1,48 +1,50 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-color-picker" />
 
 <Section title="Props" border={true}>
 	<p>Color Picker Have the following components:</p>
-	<Section
-		title={{ content: "color*", tag: "string", small: true }}
-		style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-	>
+
+	<PropSection title="id" type="string">
+		<p>
+			Unique identifier for the color picker
+		</p>
+    </PropSection>
+
+	<PropSection title="color" type="string">
 		<p>
 			The initial color value
 		</p>
-    </Section>
-    <Section
-    	title={{ content: "onChange*", tag: "function", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    </PropSection>
+
+    <PropSection title="onApply" type="function">
     	<p>
     		A callback function that will be invoked when the color is changed and applied, The first parameter <Code isSmall={true}> color </Code> represnts the new color string
     	</p>
-    </Section>
-    <Section
-    	title={{ content: "type*", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    </PropSection>
+
+    <PropSection title="type" type="string" defaultValue="hex">
     	<p>The type of the Color Picker, It accepts one of the following options:</p>
     	<List>
     		<span label={<Code small={true}>hex</Code>} />
     		<span label={<Code small={true}>rgb</Code>} />
     	</List>
-    </Section>
+    </PropSection>
 
-     <Section
-    	title={{ content: "onColorChange*", tag: "function", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
-    	<p>A callback function that will be invoked when the user picks a new color, The first parameter <Code isSmall={true}> color </Code> represnts the new color string</p>
-    </Section>
+	 <PropSection title="placeholder" type="string" defaultValue="Select Color">
+    	<p>Thr descriptive label in the input</p>
+    </PropSection>
 
-    <Section
-    	title={{ content: "onApplyButton*", tag: "function", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+	<PropSection title="isError" type="boolean" defaultValue="false">
+    	<p>Sets the error state</p>
+    </PropSection>
+
+	<PropSection title="isDisabled" type="boolean" defaultValue="false">
+    	<p>Whether the ColorPicker is disabled or not</p>
+    </PropSection>
+
+    <PropSection title="onApplyButton*" type="function">
     	<p>A callback function that will be invoked when the user clicks on the Apply button, The first parameter <Code isSmall={true}> event </Code> represnts the click event object</p>
-    </Section>
+    </PropSection>
 
 </Section>

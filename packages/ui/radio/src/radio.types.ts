@@ -10,7 +10,7 @@ interface RadioGroupProps {
 	/**
 	 * The name of the radio group.
 	 */
-	name: string
+	name?: string
 
 	/**
 	 * Indicates whether the radio buttons should be displayed inline.
@@ -20,7 +20,7 @@ interface RadioGroupProps {
 	/**
 	 * The children components rendered inside the radio group.
 	 */
-	children: ReactNode
+	children?: ReactNode
 
 	/**
 	 * A callback function to handle radio button selection changes.
@@ -75,7 +75,7 @@ interface RadioProps {
 	/**
 	 * Radio value
 	 */
-	value: string
+	value?: string
 
 	/**
 	 * A tag associated with the radio button (optional).

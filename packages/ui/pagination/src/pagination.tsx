@@ -5,11 +5,11 @@ import { PaginationProps } from "./pagination.types"
 import { PaginationNav } from "./pagination-nav"
 
 const Pagination: React.FC<PaginationProps> = ({
-	limit,
+	limit = 5,
 	skip,
-	previousLabel,
-	nextLabel,
-	numberOfItems = 1,
+	previousLabel = "Previous label",
+	nextLabel = "Next label",
+	numberOfItems = 20,
 	onChange,
 }) => {
 	// Calculate the number of pages

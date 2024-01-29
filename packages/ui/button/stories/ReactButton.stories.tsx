@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
 
 // Import required component(s).
-import { Button as StandardButton, LoadingButton } from "../src"
+import { Button as StandardButton } from "../src"
 import { ButtonProps } from "../src/button.types"
 
 // Import documentation main page.
@@ -76,9 +76,9 @@ const Button = ({
 											<Fragment>
 												{"button-load" === example && (
 													// @ts-ignore
-													<LoadingButton {...attributes}>
+													<StandardButton {...attributes} isLoading={true}>
 														{content}
-													</LoadingButton>
+													</StandardButton>
 												)}
 												{"button-load" !== example && (
 													<StandardButton {...attributes}>

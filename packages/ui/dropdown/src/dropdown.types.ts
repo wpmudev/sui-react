@@ -121,10 +121,6 @@ interface DropdownProps {
 	 */
 	isFixedHeight?: boolean
 	/**
-	 * The current selected value of the dropdown.
-	 */
-	current?: number
-	/**
 	 * Expected type for menu object in array
 	 */
 	menu?: Array<MenuItemProps | MenuGroupProps>
@@ -152,6 +148,10 @@ interface DropdownProps {
 	 * Dropdown Trigger
 	 */
 	trigger?: React.ReactNode
+	/**
+	 * whther to hide the label of the button or not
+	 */
+	isResponsive?: boolean
 }
 
 // Type definition for the modal handling functions

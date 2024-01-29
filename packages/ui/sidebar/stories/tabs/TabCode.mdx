@@ -1,21 +1,15 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-sidebar" />
 
 <Section title="Props" border={true}>
-	<Section
-		title={{ content: "children", tag: "React Node", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="children" type="React Node">
 		<p>The content of the Sidebar component </p>
-	</Section>
+	</PropSection>
 
-    <Section
-    	title={{ content: "className", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="className" type="string">
     	<p>Custom css className(s) </p>
-    </Section>
+    </PropSection>
 
 </Section>
 
@@ -33,53 +27,53 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		The <Code small={true}>SidebarItem</Code> component represents a single item in the Sidebar, you can add as many items as needed
     	</p>
 
-    	<Section title={{ content: "url", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="url" type="string" defaultValue="#">
     		<p>
     			The url associated with the SidebarItem
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "icon", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="icon" type="string">
     		<p>
     			An optional icon to be displayed within the SidebarItem
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "title*", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="title" type="string" defaultValue="Sidebar Item">
     		<p>
     			The title or the text of the item
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "isActive", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="isActive" type="boolean" defaultValue="false">
     		<p>
     			Whether the sidebar item is active or not
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "action", tag: 'ReactNode', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="action" type="React Node">
     		<p>
     			An optional action component to be displayed alongside the title in the SidebarItem.
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "isDisabled", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="isDisabled" type="boolean" defaultValue="false">
     		<p>
     			When set to <Code small={true}>true</Code> the item will be disabled.
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "onClick", tag: 'boolean', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="onClick" type="function">
     		<p>
     			A callback function to be invoked when the item is clicked
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "className", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="className" type="string">
     		<p>
     			Custom css className(s)
     		</p>
-    	</Section>
+    	</PropSection>
 
     </Section>
 
@@ -88,23 +82,23 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		This's the Sidebar dropdown menu that appear on mobile, This component could have multiple instances of the <Code small={true}>SidebarItem</Code> component to be displayed on mobile only
     	</p>
 
-    	<Section title={{ content: "children", tag: 'React Node', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="children" type="React Node">
     		<p>
     			<p> The content of the Dropdown </p>
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "className", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="className" type="string">
     		<p>
     			Custom css className(s)
     		</p>
-    	</Section>
+    	</PropSection>
 
-    	<Section title={{ content: "selectedItemName", tag: 'string', small: true }} contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<PropSection title="selectedItemName" type="string">
     		<p>
-    			The currently selected item title
+    			The currently selected item title ( use the same title prop passed to SidebarItem)
     		</p>
-    	</Section>
+    	</PropSection>
     </Section>
 
 </Section>

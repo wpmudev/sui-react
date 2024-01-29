@@ -19,3 +19,6 @@ export { useDetectRTL } from "./use-rtl-detect"
 
 // usePrevious hook
 export { usePrevious } from "./use-previous"
+
+// useDefaultChildren hook
+export { useDefaultChildren } from "./useDefaultChildren"

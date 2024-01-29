@@ -19,6 +19,8 @@ const Accordion = ({
 	color,
 	state,
 	allowMultipleExpand,
+	noBorderRadius,
+	noSideBorders,
 }: { color: string } & AccordionProps) => {
 	const boxStyles = {
 		padding: 20,
@@ -30,8 +32,13 @@ const Accordion = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiAccordion state={state} allowMultipleExpand={allowMultipleExpand}>
-						<AccordionItem title="Tab Title 1" isExpanded={true}>
+					<SuiAccordion
+						state={state}
+						allowMultipleExpand={allowMultipleExpand}
+						noBorderRadius={noBorderRadius}
+						noSideBorders={noSideBorders}
+					>
+						<AccordionItem title="Tab Title 1">
 							<AccordionItemBody>
 								<p>
 									Lorem Ipsum is simply dummy text of the printing and
@@ -147,11 +154,19 @@ const Accordion = ({
 // Set controls for story arguments.
 Accordion.argTypes = {
 	state: {
-		name: "Status",
-		options: ["neutral", "informative", "success", "warning", "critical"],
+		name: "State",
+		options: [
+			"default",
+			"neutral",
+			"informative",
+			"success",
+			"warning",
+			"critical",
+		],
 		control: {
 			type: "select",
 			labels: {
+				default: "Default",
 				neutral: "Neutral",
 				informative: "Informative",
 				success: "Success",
@@ -162,6 +177,18 @@ Accordion.argTypes = {
 	},
 	allowMultipleExpand: {
 		name: "Multiple Expands",
+		control: {
+			type: "boolean",
+		},
+	},
+	noBorderRadius: {
+		name: "No Border Radius",
+		control: {
+			type: "boolean",
+		},
+	},
+	noSideBorders: {
+		name: "No Side Borders",
 		control: {
 			type: "boolean",
 		},

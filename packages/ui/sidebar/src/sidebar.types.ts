@@ -43,7 +43,7 @@ interface SidebarItemProps
 	/**
 	 * The title or text to be displayed for the SidebarItem.
 	 */
-	title: string
+	title?: string
 
 	/**
 	 * Make sidebar item active

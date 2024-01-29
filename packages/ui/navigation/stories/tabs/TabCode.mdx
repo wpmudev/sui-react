@@ -1,12 +1,9 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-navigation" />
 
 <Section title="Props" border={true}>
-	<Section
-		title={{ content: "brand", tag: "object", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="brand" type="object" defaultValue='{ title: "title", description: "" }'>
 		<p>
 			Brand information, this represents one of our plugins, the object accepts
 			the following keys
@@ -16,26 +13,23 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 				<span
 					label={
 						<>
-							<Code small={true}>title*</Code>: The plugin title
+							<Code small={true}>title*</Code> The plugin title
 						</>
 					}
 				/>
 				<span
 					label={
 						<>
-							<Code small={true}>description*</Code> A subheading that
+							<Code small={true}>description</Code> A subheading that
 							accompagnes the plugin title{" "}
 						</>
 					}
 				/>
 			</List>
 		</p>
-	</Section>
+	</PropSection>
 
-    <Section
-    	title={{ content: "user", tag: "object", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="user" type="object">
     	<p>
     		The user information, it accepts two keys
     	</p>
@@ -78,17 +72,14 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		</List>
     	</p>
 		<p>
-		Check the examples tab for more details
+		  Check the examples tab for more details
 		</p>
-    </Section>
-
-    <Section
-    	title={{ content: "children", tag: "object", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    </PropSection>
+		
+    <PropSection title="children" type="React Node">
     	<p>
     		The content of the navigation, usually menu items and buttons
     	</p>
-    </Section>
+    </PropSection>
 
 </Section>

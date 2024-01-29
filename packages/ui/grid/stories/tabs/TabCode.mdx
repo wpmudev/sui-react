@@ -1,4 +1,4 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-grid" />
 
@@ -8,11 +8,8 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 
 <Section title="Row Props" border={true}>
 
-    <Section
-    	title={{ content: "align", tag: 'object', small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
-    	<p>Reprsents the alignment options for the row, the object properties accepet the following keys:</p>
+    <PropSection title="align" type="object" defaultValue="{md: 'inline'}">
+    	<p>Reprsents the alignment options for the row, the object accepets the following properties:</p>
     	<List>
     		<span label={<Code small={true}>xs</Code>} />
     		<span label={<Code small={true}>sm</Code>} />
@@ -21,50 +18,35 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		<span label={<Code small={true}>xl</Code>} />
     	</List>
 
-		Which represent different screen sizes, the value for each, could be either <Code small={true}>inline</Code> or <Code small={true}>stacked</Code>
-		representing the behavior of the column in that particular screen
-    </Section>
+		they represent different screen sizes, the value for each, could be either <Code small={true}>inline</Code> or <Code small={true}>stacked</Code>
+		representing the behavior of the columns for that screen size and larger. 
+		<p>For example, if we have <Code isSmall={true}>\{md: "inline"\}</Code>, the columns will be inline on medium screen sizes and larger</p>
+    </PropSection>
 
-	<Section
-    	title={{ content: "children*", tag: 'React Node', small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+	<PropSection title="children" type="React Node">
     	<p>The content of the Row, usually a set of columns </p>
 
-    </Section>
+    </PropSection>
 
-	<Section
-    	title={{ content: "className", tag: 'string', small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+	<PropSection title="className" type="string">
     	<p>Additional custom className(s) for the row</p>
-
-    </Section>
+    </PropSection>
 
 </Section>
 
 <Section title="Column Props" border={true}>
 
- 		<p> You can add multiple columns within the row to display content side by side </p>
+ 		<p> You can add multiple columns within the row to display content side by side or stacked </p>
 
-		<Section
-    		title={{ content: "size", tag: 'number | string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+		<PropSection title="size" type="number | string">
     		<p>The size of the column</p>
-    	</Section>
+    	</PropSection>
 
-		<Section
-    		title={{ content: "className", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+		<PropSection title="className" type="string">
     		<p>Additional custom className(s) </p>
-    	</Section>
+    	</PropSection>
 
-		<Section
-    		title={{ content: "children*", tag: 'React Node', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
+		<PropSection title="children*" type="React Node">
     		<p>The column's content</p>
-    	</Section>
+    	</PropSection>
 </Section>

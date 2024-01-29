@@ -11,12 +11,12 @@ import { RecipientProps } from "./recipient.type"
 
 // Build "recipient" component
 const Recipient: React.FC<RecipientProps> = ({
-	userName = "",
+	userName = "name",
 	userEmail = "",
 	userImage,
-	status,
+	status = "none",
 	isInvited = false,
-	appearance,
+	appearance = "primary",
 	...props
 }) => {
 	// Define recipient class.

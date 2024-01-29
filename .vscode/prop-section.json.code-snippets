@@ -1,0 +1,9 @@
+{
+	"Prop Section": {
+		"prefix": ["PropSec"],
+		"body": [
+			"<PropSection title=\"{prop}\" type=\"{type}\" defaultValue=\"{defaultValue}\">\n{description}\n</PropSection>$0"
+		],
+		"description": "PropSection for sui-3 docs"
+	}
+}

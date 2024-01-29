@@ -20,16 +20,14 @@ export default {
 
 // Build "Tooltip" story.
 const Tooltip = ({
-	example,
+	type,
 	label,
-	href,
 	tootlipText,
-	target,
 	position,
 	customWidth,
 	customMobileWidth,
 	color,
-}: { example: string; tootlipText: string } & TooltipBaseProps) => {
+}: { tootlipText: string } & TooltipBaseProps) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -40,59 +38,17 @@ const Tooltip = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<div>
-						{"button" === example && (
-							<SuiTooltip
-								label={label}
-								appearance="primary"
-								color="black"
-								position={position}
-								customWidth={customWidth}
-								customMobileWidth={customMobileWidth}
-							>
-								{tootlipText}
-							</SuiTooltip>
-						)}
-
-						{"text" === example && (
-							<SuiTooltip
-								type="text"
-								label={label}
-								position={position}
-								customWidth={customWidth}
-								customMobileWidth={customMobileWidth}
-							>
-								{tootlipText}
-							</SuiTooltip>
-						)}
-
-						{"link" === example && (
-							<SuiTooltip
-								href={href}
-								target={target}
-								label={label}
-								appearance="primary"
-								color="black"
-								position={position}
-								customWidth={customWidth}
-								customMobileWidth={customMobileWidth}
-							>
-								{tootlipText}
-							</SuiTooltip>
-						)}
-						{"icon" === example && (
-							<SuiTooltip
-								label={label}
-								type="icon"
-								icon="Info"
-								position={position}
-								customWidth={customWidth}
-								customMobileWidth={customMobileWidth}
-							>
-								{tootlipText}
-							</SuiTooltip>
-						)}
-					</div>
+					<SuiTooltip
+						type={type}
+						label={label}
+						appearance="primary"
+						color="black"
+						position={position}
+						customWidth={customWidth}
+						customMobileWidth={customMobileWidth}
+					>
+						{tootlipText}
+					</SuiTooltip>
 				</div>
 			</div>
 		</div>
@@ -101,10 +57,8 @@ const Tooltip = ({
 
 // Set story arguments.
 Tooltip.args = {
-	example: "button",
+	type: "button",
 	tootlipText: "Tooltip text",
-	href: "",
-	target: "_blank",
 	label: "Button",
 	position: "top",
 	customWidth: "",
@@ -113,9 +67,9 @@ Tooltip.args = {
 
 // Set controls for story arguments.
 Tooltip.argTypes = {
-	example: {
-		name: "Example",
-		options: ["link", "button", "text", "icon"],
+	type: {
+		name: "Type",
+		options: ["button", "text", "icon"],
 		control: {
 			type: "select",
 			labels: {
@@ -133,27 +87,6 @@ Tooltip.argTypes = {
 		name: "Label",
 		control: {
 			type: "text",
-		},
-	},
-	href: {
-		name: "Link",
-		control: {
-			type: "text",
-		},
-		if: {
-			arg: "example",
-			eq: "link",
-		},
-	},
-	target: {
-		name: "Target",
-		options: ["_self", "_blank"],
-		control: {
-			type: "select",
-		},
-		if: {
-			arg: "example",
-			eq: "link",
 		},
 	},
 	position: {

@@ -24,6 +24,14 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	const uniqueId = useId()
 	const buttonId = `sui-radio-${uniqueId}`
 
+	if (!value) {
+		value = `example-value-${uniqueId}`
+	}
+
+	if (!children && !icon) {
+		children = "example option"
+	}
+
 	// Retrieve context values and interaction methods for the button.
 	const { onClick, name, value: ctxValue } = useSegmentedControl(value)
 	const [isHovered, isFocused, methods] = useInteraction({})

@@ -1,10 +1,11 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useId } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { TreeViewItemProps } from "./tree-view.types"
 import { TreeViewInfo } from "./tree-view-info"
 import { useTreeViewContext } from "./tree-view-context"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 /**
  * TreeViewItem Component
@@ -31,7 +32,17 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 
 	// Get the tree view context to access configuration
 	const context = useTreeViewContext()
+
+	const uniqueId = useId()
+
+	if (!id) {
+		id = uniqueId
+	}
+
 	const itemId = id
+
+	// Default children content
+	children = useDefaultChildren(children, "{item content}")
 
 	useEffect(() => {
 		if (!isGroup && !isDisabled) {

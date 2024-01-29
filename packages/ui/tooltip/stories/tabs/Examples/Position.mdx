@@ -8,7 +8,7 @@ export const topCode = dedent`
   <Tooltip label="Top Left" position="top-left">Tooltip Text</Tooltip>
 
   // Top Center
-  <Tooltip label="Top Center" position="bottom">Tooltip Text</Tooltip>
+  <Tooltip label="Top Center" position="top">Tooltip Text</Tooltip>
 
   // Top Right
   <Tooltip label="Top Right" position="top-right">Tooltip Text</Tooltip>
@@ -54,9 +54,9 @@ export const leftCode = dedent`
 >
     <Preview wrapper={true}>
         <div style={ { padding: 40, display: "flex", justifyContent: "space-around" } }>
-    	    <Tooltip label="Top Left" position="top-left" className="sui-tooltip--show">Tooltip Text</Tooltip>
-            <Tooltip label="Top Center" position="top" className="sui-tooltip--show">Tooltip Text</Tooltip>
-            <Tooltip label="Top Right" position="top-right" className="sui-tooltip--show">Tooltip Text</Tooltip>
+    	    <Tooltip label="Top Left" position="top-left">Tooltip Text</Tooltip>
+            <Tooltip label="Top Center" position="top">Tooltip Text</Tooltip>
+            <Tooltip label="Top Right" position="top-right">Tooltip Text</Tooltip>
          </div>
     </Preview>
     <Snippet language="js">{topCode}</Snippet>
@@ -70,9 +70,9 @@ export const leftCode = dedent`
 >
     <Preview wrapper={true}>
         <div style={ { padding: 40, display: "flex", justifyContent: "space-around" } }>
-    	    <Tooltip label="Bottom Left" position="bottom-left" className="sui-tooltip--show">Tooltip Text</Tooltip>
-            <Tooltip label="Bottom Center" position="bottom" className="sui-tooltip--show">Tooltip Text</Tooltip>
-            <Tooltip label="Bottom Right" position="bottom-right" className="sui-tooltip--show">Tooltip Text</Tooltip>
+    	    <Tooltip label="Bottom Left" position="bottom-left">Tooltip Text</Tooltip>
+            <Tooltip label="Bottom Center" position="bottom">Tooltip Text</Tooltip>
+            <Tooltip label="Bottom Right" position="bottom-right">Tooltip Text</Tooltip>
          </div>
     </Preview>
     <Snippet language="js">{bottomCode}</Snippet>
@@ -84,10 +84,10 @@ export const leftCode = dedent`
 >
     <Preview wrapper={true}>
         <div style={ { display: "flex", justifyContent: "space-around" } }>
-    	    <Tooltip label="Left Top" position="left-top" className="sui-tooltip--show">Tooltip Text</Tooltip>
-            <Tooltip label="Left Center" position="left" className="sui-tooltip--show">Tooltip Text</Tooltip>
-            <Tooltip label="Left Bottom" position="left-bottom" className="sui-tooltip--show">Tooltip Text</Tooltip>
-         </div>
+    	    <Tooltip label="Left Top" position="left-top">Tooltip Text</Tooltip>
+            <Tooltip label="Left Center" position="left">Tooltip Text</Tooltip>
+            <Tooltip label="Left Bottom" position="left-bottom">Tooltip Text</Tooltip>
+        </div>
     </Preview>
     <Snippet language="js">{leftCode}</Snippet>
 </Section>
@@ -98,9 +98,9 @@ export const leftCode = dedent`
 >
     <Preview wrapper={true}>
         <div style={ { display: "flex", justifyContent: "space-around" } }>
-    	    <Tooltip label="Right Top" position="right-top" className="sui-tooltip--show">Tooltip Text</Tooltip>
-            <Tooltip label="Right Center" position="right" className="sui-tooltip--show">Tooltip Text</Tooltip>
-            <Tooltip label="Right Bottom" position="right-bottom" className="sui-tooltip--show">Tooltip Text</Tooltip>
+    	    <Tooltip label="Right Top" position="right-top">Tooltip Text</Tooltip>
+            <Tooltip label="Right Center" position="right">Tooltip Text</Tooltip>
+            <Tooltip label="Right Bottom" position="right-bottom">Tooltip Text</Tooltip>
          </div>
     </Preview>
     <Snippet language="js">{rightCode}</Snippet>

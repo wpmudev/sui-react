@@ -1,52 +1,34 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-upsell" />
 
 <Section title="Props" border={true}>
-	<Section
-		title={{ content: "title", tag: "string", small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="title" type="string">
 		<p>The main heading text for the Upsell</p>
-	</Section>
+	</PropSection>
 
-    <Section
-    	title={{ content: "description", tag: "React Node", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="description" type="React Node">
     	<p>Descriptive text that accompagnes the title</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "actions", tag: "React Node", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="actions" type="React Node">
     	<p>Optional actions button to be displayed at the bottom</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "features", tag: "Array", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="features" type="Array">
     	<p>A list of features to be displayed, the array of items could be strings or React Nodes</p>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "size", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="size" type="string">
     	<p>The upsell size</p>
     	<p>Allowed options</p>
     	<List>
     		<span label={<><Code small={true}>sm</Code> for small size</>} />
     		<span label={<><Code small={true}>lg</Code> for a larger size</>} />
     	</List>
-    </Section>
+    </PropSection>
 
-    <Section
-    	title={{ content: "variation", tag: "string", small: true }}
-    	style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    >
+    <PropSection title="variation" type="string" defaultValue="hummingbird">
     	<p> The Upsell variation, which include our list of plugins:</p>
     	<List>
     		<span label={<Code small={true}>hummingbird</Code>} />
@@ -60,6 +42,6 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
     		<span label={<Code small={true}>branda</Code>} />
     		<span label={<Code small={true}>beehive</Code>} />
     	</List>
-    </Section>
+    </PropSection>
 
 </Section>

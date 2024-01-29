@@ -10,7 +10,7 @@ export const sampleCode = dedent`
 `
 
 export const customWidth = dedent`
-    <Tooltip customWidth={10} label="Button Text">Custom Width</Tooltip>
+    <Tooltip customWidth={50} label="Button Text">Custom Width</Tooltip>
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
@@ -27,7 +27,7 @@ export const customWidth = dedent`
 	<p>Use <Code small={true}> customWidth </Code> prop to set a custom width for the tooltip</p>
 	<Preview wrapper={true}>
 		<div style={ { padding: 60 } }>
-			<Tooltip customWidth={10} label="Button Text">Custom Width</Tooltip>
+			<Tooltip customWidth={50} label="Button Text">Custom Width</Tooltip>
 		</div>
 	</Preview>
 	<Snippet language="js">{customWidth}</Snippet>

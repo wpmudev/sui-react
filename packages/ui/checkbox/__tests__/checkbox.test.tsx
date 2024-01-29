@@ -88,7 +88,7 @@ describe("@wpmudev/sui-checkbox", () => {
 		const checkboxes = container.querySelectorAll(".sui-checkbox > input")
 
 		// Expect to have two checkboxes
-		expect(checkboxes).toHaveLength(2)
+		expect(checkboxes).toHaveLength(3)
 
 		// Expect all checkboxes to have the attribute "name" with the value "group-checkbox"
 		checkboxes.forEach((checkbox) =>

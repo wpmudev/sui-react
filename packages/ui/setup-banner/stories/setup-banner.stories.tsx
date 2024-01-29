@@ -16,7 +16,6 @@ const SetupBanner = ({
 		borderRadius: 4,
 		background: color !== "white" ? "#fff" : "#333",
 	}
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">

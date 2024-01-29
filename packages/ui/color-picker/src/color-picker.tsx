@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useCallback, useEffect, useState, useRef } from "react"
+import React, { useCallback, useEffect, useState, useRef, useId } from "react"
 
 import { ColorPickerProps } from "./color-picker.types"
 import { Button } from "@wpmudev/sui-button"
@@ -22,10 +22,10 @@ import { useOuterClick } from "@wpmudev/sui-hooks"
  */
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
-	id = "color-picker",
+	id,
+	type = "hex",
 	color = "",
-	onChange,
-	onCancel,
+	onApply,
 	placeholder = "Select color",
 	isError = false,
 	isDisabled = false,
@@ -36,8 +36,11 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
 	const [tempColor, setTempColor] = useState("")
-	const [showClearBtn, setShowClearBtn] = useState(false)
 	const [showResetBtn, setShowResetBtn] = useState(false)
+
+	const uniqueId = useId()
+
+	id = id || uniqueId
 
 	// Update tempColor when color prop value changes
 	useEffect(() => {
@@ -51,6 +54,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 		(e) => {
 			e.stopPropagation()
 			setShowResetBtn(false)
+			setShowPicker(false)
 			onReset()
 		},
 		[onReset],
@@ -63,8 +67,9 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 				return
 			}
 
+			setShowResetBtn(true)
+
 			setTempColor(colorCode)
-			setShowClearBtn(true)
 
 			if (onColorChange) {
 				onColorChange(colorCode)
@@ -77,15 +82,14 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	const handleColorApply = useCallback(() => {
 		// Apply only if color picker is open
 		if (showPicker) {
-			if (onChange) {
-				onChange(tempColor)
+			if (onApply) {
+				onApply(tempColor)
 			}
 
-			setShowClearBtn(false)
 			setShowResetBtn(true)
 			setShowPicker(false)
 		}
-	}, [onChange, tempColor, showPicker])
+	}, [tempColor, showPicker])
 
 	// The component ref
 	const colorPickerRef = useRef()
@@ -93,21 +97,20 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	// Clicking outside should apply color change
 	useOuterClick(colorPickerRef, handleColorApply)
 
-	// Handle color picker close
-	const closeColorPicker = useCallback(
-		(e: React.MouseEvent<HTMLElement>) => {
-			e.stopPropagation()
-			setShowPicker(false)
-			setShowClearBtn(false)
-			setTempColor(color)
+	// // Handle color picker close
+	// const closeColorPicker = useCallback(
+	// 	(e: React.MouseEvent<HTMLElement>) => {
+	// 		e.stopPropagation()
+	// 		setShowPicker(false)
+	// 		setTempColor(color)
 
-			if (onCancel) {
-				onCancel()
-			}
-		},
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[onCancel, color],
-	)
+	// 		if (onReset) {
+	// 			onReset()
+	// 		}
+	// 	},
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// 	[onReset, color],
+	// )
 
 	// Handle input color change
 	const inputColorChange = useCallback(
@@ -122,10 +125,6 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 
 	// Render Button Text According to current state
 	const renderBtnText = () => {
-		if (showClearBtn) {
-			return "Clear"
-		}
-
 		if (showResetBtn) {
 			return "Reset"
 		}
@@ -172,27 +171,18 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					/>
 				</div>
 				<Button
-					className={`sui-color-picker__${
-						showClearBtn || showResetBtn ? "icon" : "button"
-					}`}
-					{...(showClearBtn && {
-						icon: showClearBtn ? "CloseAlt" : "RotateLeft",
+					className={`sui-color-picker__${showResetBtn ? "icon" : "button"}`}
+					{...(showResetBtn && {
+						icon: "CloseAlt",
 						iconOnly: true,
 						iconSize: "md",
-						onClick: closeColorPicker,
-					})}
-					{...(showResetBtn && {
-						icon: "RotateLeft",
-						iconOnly: true,
-						iconSize: "sm",
 						onClick: handleReset,
 					})}
-					{...(!showClearBtn &&
-						!showResetBtn && {
-							color: "blue",
-							appearance: "tertiary",
-							onClick: () => setShowPicker(!showPicker),
-						})}
+					{...(!showResetBtn && {
+						color: "blue",
+						appearance: "tertiary",
+						onClick: () => setShowPicker(!showPicker),
+					})}
 					isSmall={true}
 					isDisabled={isDisabled}
 				>
@@ -204,6 +194,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					color={tempColor}
 					onColorChange={handleColorChange}
 					onApplyButton={handleColorApply}
+					type={type}
 					{...props}
 				/>
 			)}

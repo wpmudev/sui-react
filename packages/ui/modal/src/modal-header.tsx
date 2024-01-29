@@ -9,14 +9,16 @@ import { ModalContext } from "./modal"
 import { ModalHeaderProps } from "./modal.types"
 
 const ModalHeader: React.FC<ModalHeaderProps> = ({
-	title = "",
+	title = "header title",
 	children,
 	icon,
-	iconSize,
+	iconSize = "sm",
 	iconColor = "success",
 }) => {
 	const ctx = useContext(ModalContext)
 	const { closeModal, variant } = ctx!
+
+	//
 
 	// validate props
 	useValidateProps({ component: ModalHeader, propsToCheck: { title } })
