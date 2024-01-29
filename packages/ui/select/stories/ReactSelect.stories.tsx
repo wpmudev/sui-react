@@ -153,6 +153,12 @@ Select.argTypes = {
 			type: "text",
 		},
 	},
+	customWidth: {
+		name: "Custom Width",
+		control: {
+			type: "number",
+		},
+	},
 	label: {
 		name: "Label",
 		control: {

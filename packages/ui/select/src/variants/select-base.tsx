@@ -60,6 +60,8 @@ interface SelectBaseProps
 	isMultiSelect?: boolean
 	/** Whether the select has a search functionality */
 	isSearchable?: boolean
+	/** Add a custom width in pixels  */
+	customWidth?: number
 
 	/**
 	 * Event handler for mouse enter event.
@@ -94,6 +96,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	isSearchable = false,
 	onMouseEnter = () => null,
 	onMouseLeave = () => null,
+	customWidth,
 	onChange,
 	...props
 }) => {
@@ -211,6 +214,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	const selectProps = {
 		className: classNames,
 		ref,
+		...(customWidth && { style: { maxWidth: `${customWidth}px` } }),
 		// onBlurCapture: () => set.focus(false),
 	}
 
