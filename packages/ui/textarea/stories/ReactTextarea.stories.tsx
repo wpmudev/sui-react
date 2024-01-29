@@ -43,6 +43,10 @@ Textarea.argTypes = {
 		name: "Placeholder",
 		type: "string",
 	},
+	customWidth: {
+		name: "customWidth",
+		type: "number",
+	},
 	isError: {
 		name: "Error",
 		type: "boolean",

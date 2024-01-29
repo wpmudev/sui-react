@@ -54,6 +54,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				pattern,
 				onKeyUp,
 				validateOnMount = false,
+				customWidth,
 				onValidate,
 				...props
 			},
@@ -223,6 +224,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				required: isRequired,
 				pattern,
 				onKeyUp: onInputKeyUp,
+
 				...props,
 			}
 
@@ -269,7 +271,11 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 
 			// Render component
 			return (
-				<div className={classNames} data-testid="input">
+				<div
+					className={classNames}
+					data-testid="input"
+					{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
+				>
 					{"start" === iconPosition && renderIcon()}
 					<div
 						className={generateCN("sui-input__input-field", {

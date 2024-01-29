@@ -141,6 +141,10 @@ interface InputProps
 	 */
 	validateOnMount?: boolean
 	/**
+	 * Custom Width in pixels
+	 */
+	customWidth?: number
+	/**
 	 * On validation callback
 	 */
 	onValidate?: (id?: string, value?: string | number | boolean) => void
