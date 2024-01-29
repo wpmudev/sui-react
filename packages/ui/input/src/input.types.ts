@@ -48,7 +48,6 @@ interface InputProps
 			| "onFocus"
 			| "onBlur"
 			| "onBlurCapture"
-			| "onMouseUp"
 		>,
 		InteractionTypes {
 	/**
@@ -108,7 +107,7 @@ interface InputProps
 	/**
 	 * A callback function to be invoked when the icon is clicked
 	 */
-	onClickIcon?: (event: React.MouseEvent) => void
+	onClickIcon?: (event?: React.MouseEvent) => void
 	/*
 	 * The callback function for handling input clear
 	 */
@@ -121,6 +120,10 @@ interface InputProps
 	 * Optional icon position to be displayed before or after text.
 	 */
 	iconPosition?: "start" | "end"
+	/*
+	 * Icon hint
+	 */
+	iconHint?: string
 	/**
 	 * Specifies whether the value can be cleared or not
 	 */

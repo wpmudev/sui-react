@@ -12,12 +12,13 @@
 @mixin build-position($block) {
 	// DIR: Left to right.
 	// THEME: None.
-	@include sui-class($rtl: false, $theme: null) {
+	@include body-class($rtl: false) {
 		// Block wrapper.
 		@include block($block) {
-			@include modifier(top) {
-				@include modifies-element(content) {
-					left: 50%;
+			@include element(popup) {
+				position: absolute;
+
+				@include modifier(top) {
 					transform: translateX(-50%);
 
 					&:after {
@@ -25,34 +26,20 @@
 						transform: translateX(-50%);
 					}
 				}
-			}
 
-			@include modifier(top-left) {
-				@include modifies-element(content) {
-					left: 0;
-					transform: translateX(0);
-
+				@include modifier(top-left) {
 					&:after {
 						left: 8px;
 					}
 				}
-			}
 
-			@include modifier(top-right) {
-				@include modifies-element(content) {
-					right: 0;
-
+				@include modifier(top-right) {
 					&:after {
 						right: 8px;
 					}
 				}
-			}
 
-			@include modifier(top, top-left, top-right) {
-				@include modifies-element(content) {
-					bottom: 100%;
-					margin-bottom: $tooltip-spacing-margin;
-
+				@include modifier(top, top-left, top-right) {
 					&:after {
 						@include equilateral-triangle(
 							down,
@@ -62,11 +49,8 @@
 						bottom: -6px;
 					}
 				}
-			}
 
-			@include modifier(bottom) {
-				@include modifies-element(content) {
-					left: 50%;
+				@include modifier(bottom) {
 					transform: translateX(-50%);
 
 					&:after {
@@ -74,76 +58,47 @@
 						transform: translateX(-50%);
 					}
 				}
-			}
 
-			@include modifier(bottom-left) {
-				@include modifies-element(content) {
-					left: 0;
-
+				@include modifier(bottom-left) {
 					&:after {
 						left: 8px;
 					}
 				}
-			}
 
-			@include modifier(bottom-right) {
-				@include modifies-element(content) {
-					right: 0;
-
+				@include modifier(bottom-right) {
 					&:after {
 						right: 8px;
 					}
 				}
-			}
 
-			@include modifier(bottom, bottom-left, bottom-right) {
-				@include modifies-element(content) {
-					top: 100%;
-					margin-top: $tooltip-spacing-margin;
-
+				@include modifier(bottom, bottom-left, bottom-right) {
 					&:after {
 						@include equilateral-triangle(up, 6px, $color-extended-neutral-20);
 						top: -6px;
 					}
 				}
-			}
 
-			@include modifier(left) {
-				@include modifies-element(content) {
-					top: 50%;
+				@include modifier(left) {
 					transform: translateY(-50%);
-
 					&:after {
 						top: 50%;
 						transform: translateY(-50%);
 					}
 				}
-			}
 
-			@include modifier(left-top) {
-				@include modifies-element(content) {
-					top: 0;
-
+				@include modifier(left-top) {
 					&:after {
 						top: 8px;
 					}
 				}
-			}
 
-			@include modifier(left-bottom) {
-				@include modifies-element(content) {
-					bottom: 0;
-
+				@include modifier(left-bottom) {
 					&:after {
 						bottom: 8px;
 					}
 				}
-			}
 
-			@include modifier(left, left-top, left-bottom) {
-				@include modifies-element(content) {
-					right: calc(100% + $tooltip-spacing-margin);
-
+				@include modifier(left, left-top, left-bottom) {
 					&:after {
 						right: -6px;
 						@include equilateral-triangle(
@@ -153,44 +108,28 @@
 						);
 					}
 				}
-			}
 
-			@include modifier(right) {
-				@include modifies-element(content) {
-					top: 50%;
+				@include modifier(right) {
 					transform: translateY(-50%);
-
 					&:after {
 						top: 50%;
 						transform: translateY(-50%);
 					}
 				}
-			}
 
-			@include modifier(right-top) {
-				@include modifies-element(content) {
-					top: 0;
-
+				@include modifier(right-top) {
 					&:after {
 						top: 8px;
 					}
 				}
-			}
 
-			@include modifier(right-bottom) {
-				@include modifies-element(content) {
-					bottom: 0;
-
+				@include modifier(right-bottom) {
 					&:after {
 						bottom: 8px;
 					}
 				}
-			}
 
-			@include modifier(right, right-top, right-bottom) {
-				@include modifies-element(content) {
-					left: calc(100% + $tooltip-spacing-margin);
-
+				@include modifier(right, right-top, right-bottom) {
 					&:after {
 						left: -6px;
 						@include equilateral-triangle(
@@ -200,76 +139,58 @@
 						);
 					}
 				}
-			}
 
-			@include modifier(icon) {
-				line-height: 1;
-
-				&.sui-#{$block}--top-left {
-					.sui-#{$block}__content {
+				@include modifier(icon) {
+					&.sui-#{$block}__popup--top-left {
 						&:after {
 							left: 2px;
 							bottom: -5px;
 						}
 					}
-				}
 
-				&.sui-#{$block}--top-right {
-					.sui-#{$block}__content {
+					&.sui-#{$block}__popup--top-right {
 						&:after {
 							right: 2px;
 							bottom: -5px;
 						}
 					}
-				}
 
-				&.sui-#{$block}--bottom-left {
-					.sui-#{$block}__content {
+					&.sui-#{$block}__popup--bottom-left {
 						&:after {
 							top: -5px;
 							left: 2px;
 						}
 					}
-				}
 
-				&.sui-#{$block}--bottom-right {
-					.sui-#{$block}__content {
+					&.sui-#{$block}__popup--bottom-right {
 						&:after {
 							top: -5px;
 							right: 2px;
 						}
 					}
-				}
 
-				&.sui-#{$block}--left-top {
-					.sui-#{$block}__content {
+					&.sui-#{$block}__popup--left-top {
 						&:after {
 							right: -5px;
 							top: 2px;
 						}
 					}
-				}
 
-				&.sui-#{$block}--left-bottom {
-					.sui-#{$block}__content {
+					&.sui-#{$block}__popup--left-bottom {
 						&:after {
 							right: -5px;
 							bottom: 2px;
 						}
 					}
-				}
 
-				&.sui-#{$block}--right-top {
-					.sui-#{$block}__content {
+					&.sui-#{$block}__popup--right-top {
 						&:after {
 							left: -5px;
 							top: 2px;
 						}
 					}
-				}
 
-				&.sui-#{$block}--right-bottom {
-					.sui-#{$block}__content {
+					&.sui-#{$block}__popup--right-bottom {
 						&:after {
 							left: -5px;
 							bottom: 2px;
@@ -281,42 +202,46 @@
 	}
 
 	// DIR: Left to right.
-	// THEME: Dark.
-	@include sui-class($rtl: false, $theme: dark) {
+	// THEME: None.
+	@include body-class($rtl: true) {
 		// Block wrapper.
 		@include block($block) {
-			@include modifier(top, top-left, top-right) {
-				@include modifies-element(content) {
+			@include element(popup) {
+				@include modifier(top-left, bottom-left) {
 					&:after {
-						@include equilateral-triangle(down, 6px, $color-extended-neutral-0);
+						right: 8px;
+						left: unset;
 					}
 				}
-			}
 
-			@include modifier(bottom, bottom-left, bottom-right) {
-				@include modifies-element(content) {
+				@include modifier(top-right, bottom-right) {
 					&:after {
-						@include equilateral-triangle(up, 6px, $color-extended-neutral-0);
+						right: unset;
+						left: 8px;
 					}
 				}
-			}
 
-			@include modifier(left, left-top, left-bottom) {
-				@include modifies-element(content) {
+				@include modifier(left, left-top, left-bottom) {
 					&:after {
+						left: -6px;
+						right: unset;
 						@include equilateral-triangle(
-							right,
+							left,
 							6px,
-							$color-extended-neutral-0
+							$color-extended-neutral-20
 						);
 					}
 				}
-			}
 
-			@include modifier(right, right-top, right-bottom) {
-				@include modifies-element(content) {
+				@include modifier(right, right-top, right-bottom) {
 					&:after {
-						@include equilateral-triangle(left, 6px, $color-extended-neutral-0);
+						right: -6px;
+						left: unset;
+						@include equilateral-triangle(
+							right,
+							6px,
+							$color-extended-neutral-20
+						);
 					}
 				}
 			}

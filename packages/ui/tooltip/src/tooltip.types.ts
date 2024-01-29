@@ -13,7 +13,7 @@ interface TooltipBaseProps
 	/**
 	 * The text label for the tooltip.
 	 */
-	label?: string
+	label?: React.ReactNode
 	/**
 	 * Optional type of the tooltip.
 	 */

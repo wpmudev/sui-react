@@ -11,10 +11,10 @@
 @mixin build-tooltip($block) {
 	// DIR: Left to right.
 	// THEME: None.
-	@include sui-class($rtl: false, $theme: null) {
+	@include body-class($rtl: false) {
 		// Block wrapper.
 		@include block($block) {
-			@include element(content) {
+			@include element(popup) {
 				min-width: var(--tooltip-width, $tooltip-size-width-sm);
 				opacity: 0;
 				position: absolute;
@@ -27,13 +27,19 @@
 				line-height: $font-height-xs;
 				letter-spacing: $tooltip-font-spacing;
 				text-align: center;
-				transition: 0.2s;
+				transition: opacity 0.2s;
 				pointer-events: none;
-				white-space: nowrap;
+				z-index: 99999999;
+				width: 0;
 
 				&:after {
 					content: "";
 					position: absolute;
+				}
+
+				@include modifier(show) {
+					opacity: 1;
+					transition: opacity 0.2s;
 				}
 			}
 
@@ -44,13 +50,6 @@
 					@include media(max-width, sm) {
 						min-width: var(--tooltip-width-mobile, $tooltip-size-width-md);
 					}
-				}
-			}
-
-			@include modifier(show) {
-				@include modifies-element(content) {
-					opacity: 1;
-					transition: 0.2s;
 				}
 			}
 

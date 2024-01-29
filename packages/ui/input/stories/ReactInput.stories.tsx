@@ -48,6 +48,7 @@ Input.args = {
 	defaultValue: "Hello World",
 	icon: "",
 	iconPosition: "",
+	iconHint: "",
 	isSmall: false,
 	isReadOnly: false,
 	isDisabled: false,

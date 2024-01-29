@@ -22,9 +22,7 @@ export default {
 const Tooltip = ({
 	type,
 	label,
-	href,
 	tootlipText,
-	target,
 	position,
 	customWidth,
 	customMobileWidth,
@@ -40,43 +38,17 @@ const Tooltip = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{"button" === type && (
-						<SuiTooltip
-							label={label}
-							appearance="primary"
-							color="black"
-							position={position}
-							customWidth={customWidth}
-							customMobileWidth={customMobileWidth}
-						>
-							{tootlipText}
-						</SuiTooltip>
-					)}
-
-					{"text" === type && (
-						<SuiTooltip
-							type="text"
-							label={label}
-							position={position}
-							customWidth={customWidth}
-							customMobileWidth={customMobileWidth}
-						>
-							{tootlipText}
-						</SuiTooltip>
-					)}
-
-					{"icon" === type && (
-						<SuiTooltip
-							label={label}
-							type="icon"
-							icon="Info"
-							position={position}
-							customWidth={customWidth}
-							customMobileWidth={customMobileWidth}
-						>
-							{tootlipText}
-						</SuiTooltip>
-					)}
+					<SuiTooltip
+						type={type}
+						label={label}
+						appearance="primary"
+						color="black"
+						position={position}
+						customWidth={customWidth}
+						customMobileWidth={customMobileWidth}
+					>
+						{tootlipText}
+					</SuiTooltip>
 				</div>
 			</div>
 		</div>
@@ -87,8 +59,6 @@ const Tooltip = ({
 Tooltip.args = {
 	type: "button",
 	tootlipText: "Tooltip text",
-	href: "",
-	target: "_blank",
 	label: "Button",
 	position: "top",
 	customWidth: "",
@@ -117,27 +87,6 @@ Tooltip.argTypes = {
 		name: "Label",
 		control: {
 			type: "text",
-		},
-	},
-	href: {
-		name: "Link",
-		control: {
-			type: "text",
-		},
-		if: {
-			arg: "example",
-			eq: "link",
-		},
-	},
-	target: {
-		name: "Target",
-		options: ["_self", "_blank"],
-		control: {
-			type: "select",
-		},
-		if: {
-			arg: "example",
-			eq: "link",
 		},
 	},
 	position: {
