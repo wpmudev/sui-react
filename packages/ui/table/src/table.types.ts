@@ -157,6 +157,10 @@ type TableCellBaseProps = {
 	 * Display drag icon when true
 	 */
 	hasDragIcon?: boolean
+	/**
+	 * Specifies the number of columns a cell should span
+	 */
+	colSpan?: number
 } & Omit<HTMLProps<HTMLTableCellElement | HTMLTableHeaderCellElement>, "id">
 
 type TableCellWithSortingProps = {
