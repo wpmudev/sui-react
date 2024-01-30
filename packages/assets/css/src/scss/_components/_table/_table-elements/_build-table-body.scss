@@ -28,6 +28,14 @@
 						background: transparent;
 						pointer-events: none;
 					}
+
+					.sui-#{$block}__cell {
+						&:first-child {
+							&:not(.sui-table__cell--sticky) {
+								position: relative;
+							}
+						}
+					}
 				}
 
 				td {
