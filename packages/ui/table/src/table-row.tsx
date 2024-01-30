@@ -260,12 +260,8 @@ const TableRow: React.FC<TableRowProps> = ({
 					tabIndex={isExpanded ? 0 : -1}
 				>
 					<td colSpan={numberOfCols}>
-						<Box>
-							<BoxGroup isInline={false}>
-								<TableFields>{children}</TableFields>
-								{expandableContent}
-							</BoxGroup>
-						</Box>
+						<TableFields>{children}</TableFields>
+						{expandableContent}
 					</td>
 				</tr>
 			)}
