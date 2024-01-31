@@ -114,6 +114,7 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 			handle=".sui-table__cell--drag"
 			onStart={() => ctx?.setForceCollapse(true)}
 			onEnd={onSortEnd}
+			forceFallback={true}
 		>
 			{(el as ReactNode[])?.map((item: ReactNode) => (
 				<Fragment key={(item as ReactElement)?.props?.id}>{item}</Fragment>

@@ -44,10 +44,6 @@
 				}
 
 				@include modifier(actions) {
-					align-items: center;
-					display: flex;
-					justify-content: flex-end;
-
 					.sui-button {
 						margin: 0 $spacing-sm;
 
@@ -98,7 +94,6 @@
 					}
 
 					@include media(max-width, sm) {
-						position: unset;
 						border: none;
 					}
 

@@ -18,7 +18,6 @@ import { Checkbox } from "@wpmudev/sui-checkbox"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
-import { Box, BoxGroup } from "@wpmudev/sui-box"
 
 import { TableCell } from "./table-cell"
 import { TableContext } from "./table-context"
