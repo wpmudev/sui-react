@@ -12,6 +12,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	isError = false,
 	isDisabled = false,
 	placeholder,
+	customWidth,
 	...props
 }) => {
 	// Generate unique id if not provided
@@ -62,7 +63,11 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	}
 
 	return (
-		<div className="sui-password" data-testid="password-field">
+		<div
+			className="sui-password"
+			data-testid="password-field"
+			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
+		>
 			<Input {...(inputAttrs as InputProps)} />
 			<Button {...(buttonProps as ButtonProps)}>{buttonProps.label}</Button>
 		</div>

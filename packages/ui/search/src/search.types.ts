@@ -35,6 +35,10 @@ interface SearchBaseProps {
 	 * Whether to dsiplay the clear button or not
 	 */
 	allowClear?: boolean
+	/**
+	 * Custom Width in pixels
+	 */
+	customWidth?: number
 }
 
 type SearchSmartType = SearchBaseProps & {

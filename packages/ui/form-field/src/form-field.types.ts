@@ -48,6 +48,10 @@ interface FormFieldProps {
 	 * The content of the field.
 	 */
 	children?: React.ReactNode
+	/**
+	 * Custom width in pixels
+	 */
+	customWidth?: number
 }
 
 /**

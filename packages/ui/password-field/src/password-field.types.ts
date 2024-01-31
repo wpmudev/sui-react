@@ -28,6 +28,10 @@ interface PasswordFieldProps extends Omit<HTMLProps<HTMLDivElement>, "id"> {
 	 * Placeholder text for the password input
 	 */
 	placeholder?: string
+	/**
+	 * Custom width in pixels
+	 */
+	customWidth?: number
 }
 
 export type { PasswordFieldProps }

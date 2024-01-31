@@ -27,6 +27,7 @@ const FormField: React.FC<FormFieldProps> = ({
 	isDisabled = false,
 	isLabelHidden = false,
 	children,
+	customWidth,
 	...props
 }) => {
 	// Define a unique id.
@@ -67,7 +68,12 @@ const FormField: React.FC<FormFieldProps> = ({
 
 	// Render field
 	return (
-		<div className={classNames} {...props} data-testid="form-field">
+		<div
+			className={classNames}
+			{...props}
+			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
+			data-testid="form-field"
+		>
 			{!isEmpty(label ?? "") && (
 				<Label id={fieldId} hidden={isLabelHidden ?? false}>
 					{label}

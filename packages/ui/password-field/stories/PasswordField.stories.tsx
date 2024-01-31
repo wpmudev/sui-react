@@ -121,4 +121,8 @@ PasswordField.argTypes = {
 		name: "Small",
 		control: "boolean",
 	},
+	customWidth: {
+		name: "customWidth",
+		control: "number",
+	},
 }
