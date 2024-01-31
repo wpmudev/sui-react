@@ -34,6 +34,11 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 	// Table context
 	const ctx = useContext(TableContext)
 
+	// Safari 3.0+ "[object HTMLElementConstructor]"
+	const isSafari: boolean = /^((?!chrome|android).)*safari/i.test(
+		navigator.userAgent,
+	)
+
 	useEffect(() => {
 		setRows(
 			Children.toArray(children).map((row) => (row as ReactElement)?.props?.id),
@@ -114,7 +119,7 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 			handle=".sui-table__cell--drag"
 			onStart={() => ctx?.setForceCollapse(true)}
 			onEnd={onSortEnd}
-			forceFallback={true}
+			{...(isSafari && { forceFallback: true })}
 		>
 			{(el as ReactNode[])?.map((item: ReactNode) => (
 				<Fragment key={(item as ReactElement)?.props?.id}>{item}</Fragment>
