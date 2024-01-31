@@ -17,7 +17,7 @@ import { DrawerProvider } from "./drawer-context"
 const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 	(
 		{
-			className,
+			className = "",
 			children,
 			isOpen: propIsOpen = false,
 			size,
@@ -37,11 +37,12 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 				open: isOpen,
 				"has-container": !!hasContainer,
 				"no-shadow": !!disableShadow,
+				overlay: !hasContainer,
 				hidden: !isVisible,
 				[size]: !!size,
 				[position]: !!position,
 			},
-			className,
+			`${!hasContainer && "sui-wp-overlay"} ${className}`,
 		)
 
 		/**

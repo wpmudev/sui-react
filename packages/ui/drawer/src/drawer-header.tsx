@@ -22,14 +22,14 @@ const DrawerHeader = ({
 	return (
 		<div className={classNames}>
 			<div className="sui-drawer__header-title">
-				<span className="">{title}</span>
+				<span className="sui-heading--h4">{title}</span>
 				{!isEmpty(hintText) && (
 					<Tooltip
 						type="icon"
 						name="info"
 						icon="Info"
 						customWidth={160}
-						iconSize="md"
+						iconSize="sm"
 						{...tooltipOptions}
 					>
 						{hintText}

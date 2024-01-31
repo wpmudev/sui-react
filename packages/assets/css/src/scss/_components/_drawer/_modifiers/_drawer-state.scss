@@ -15,9 +15,8 @@
 			@include modifier(open) {
 				transition: none;
 
-				.sui-#{$block}__inner,
-				&.sui-#{$block}--left .sui-#{$block}__inner {
-					transform: translateX(0);
+				@include modifies-element(inner) {
+					transform: translateX(0) !important;
 					visibility: visible;
 				}
 			}

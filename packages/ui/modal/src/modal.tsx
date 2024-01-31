@@ -63,11 +63,15 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 		}
 
 		// Generate class names for the modal based on its state
-		const classNames = generateCN("sui-modal", {
-			"is-open": isOpen,
-			[variant]: !isEmpty(variant ?? ""),
-			[size]: !isEmpty(size ?? ""),
-		})
+		const classNames = generateCN(
+			"sui-modal",
+			{
+				"is-open": isOpen,
+				[variant]: !isEmpty(variant ?? ""),
+				[size]: !isEmpty(size ?? ""),
+			},
+			"sui-wp-overlay",
+		)
 
 		return render(
 			// Render the modal content using the 'ModalContext.Provider' to make the 'openModal' and 'closeModal' functions available to children components

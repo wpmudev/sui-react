@@ -13,21 +13,19 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(header) {
-				align-items: center;
-				align-self: stretch;
-				border-bottom: 1px solid #e6e6e6;
 				display: flex;
-				padding: 16px 24px;
-				gap: 8px;
 				justify-content: space-between;
+				align-items: center;
+				gap: $spacing-md;
+				border-bottom: $border-width-sm solid $color-extended-neutral-80;
+				padding: $spacing-lg $spacing-xl;
 			}
 
 			@include element(header-title) {
-				align-items: center;
-				color: #1a1a1a;
 				display: flex;
-				font: $font-weight-lg 18px/28px $font-family-default;
-				gap: 4px;
+				align-items: center;
+				font-weight: $font-weight-lg;
+				gap: $spacing-sm;
 			}
 		}
 	}

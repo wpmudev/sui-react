@@ -65,12 +65,14 @@ const _internalDrawer = ({
 				</div>
 			</DrawerBody>
 			<DrawerFooter>
-				<Button appearance="secondary" color="blue" isSmall={true}>
-					Secondary
-				</Button>
-				<Button appearance="primary" color="blue" isSmall={true}>
-					Primary
-				</Button>
+				<div>
+					<Button appearance="secondary" color="blue" isSmall={true}>
+						Secondary
+					</Button>
+					<Button appearance="primary" color="blue" isSmall={true}>
+						Primary
+					</Button>
+				</div>
 			</DrawerFooter>
 		</SuiDrawer>
 	)

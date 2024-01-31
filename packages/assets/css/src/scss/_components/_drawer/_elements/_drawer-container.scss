@@ -12,13 +12,18 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			height: 100vh;
-			max-width: 550px;
 			overflow: hidden;
 			position: fixed;
-			right: 0;
-			top: 0;
+			inset: 0;
 			z-index: 999999;
+
+			@include modifier(overlay) {
+				background: $color-alpha-grey-90;
+			}
+
+			@include modifier(has-container) {
+				z-index: 1;
+			}
 		}
 	}
 }

@@ -12,14 +12,22 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			width: 100%;
-
 			@include modifier(sm) {
-				max-width: 320px;
-			}
+				@include modifies-element(inner) {
+					max-width: $drawer-size-sm;
+				}
 
-			@include modifier(large) {
-				max-width: 520px;
+				&.sui-#{$block}--overlay {
+					@include modifies-element(inner) {
+						@include media(max-width, sm) {
+							max-width: calc(100% - 32px);
+						}
+					}
+				}
+
+				@include modifies-element(header, footer) {
+					padding: $spacing-lg;
+				}
 			}
 		}
 	}
