@@ -1,0 +1,21 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Drawer has container
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $item - Main item name
+@mixin build-has-container($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(has-container) {
+				height: 100%;
+				position: absolute;
+			}
+		}
+	}
+}
