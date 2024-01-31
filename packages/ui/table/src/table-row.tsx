@@ -130,7 +130,10 @@ const TableRow: React.FC<TableRowProps> = ({
 
 	// Handle children nodes and add drag icon if needed
 	children = Children.toArray(children).map((child, index) => {
-		const p: Record<string, any> = { hasDragIcon: false, colSpan: undefined }
+		const p: Record<string, any> = {
+			hasDragIcon: false,
+			colSpan: (child as React.ReactElement).props.colSpan || undefined,
+		}
 
 		if (0 === index) {
 			// Make column sticky
