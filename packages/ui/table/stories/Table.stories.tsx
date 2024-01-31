@@ -18,6 +18,7 @@ import { chunkArray } from "@wpmudev/sui-utils"
 
 // Import documentation main page
 import docs from "./ReactTable.mdx"
+import { Box, BoxGroup } from "@wpmudev/sui-box"
 
 // Configure default options
 export default {
@@ -40,7 +41,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -58,7 +67,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -69,7 +86,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -80,7 +105,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -91,7 +124,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -102,7 +143,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -120,7 +169,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -138,7 +195,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -156,7 +221,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -167,7 +240,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -192,7 +273,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -210,7 +299,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -228,7 +325,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -253,7 +358,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -264,7 +377,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -282,7 +403,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -307,7 +436,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -325,7 +462,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -350,7 +495,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -368,7 +521,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -386,7 +547,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -404,7 +573,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -422,7 +599,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -433,7 +618,15 @@ const records = [
 		status: "info",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -444,7 +637,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{
@@ -455,7 +656,15 @@ const records = [
 		status: "success",
 		props: {
 			isExpandable: true,
-			expandableContent: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s`,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						`Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s`,
+					</BoxGroup>
+				</Box>
+			),
 		},
 	},
 	{

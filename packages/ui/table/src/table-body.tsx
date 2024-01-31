@@ -15,6 +15,7 @@ import { ReactSortable as Sortable } from "react-sortablejs"
 
 import { TableSectionProps } from "./table.types"
 import { TableContext } from "./table-context"
+import { useDetectBrowser } from "@wpmudev/sui-hooks"
 
 /**
  * TableBody component represents the body section of a table.
@@ -33,6 +34,11 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 
 	// Table context
 	const ctx = useContext(TableContext)
+
+	const { name } = useDetectBrowser()
+
+	// Safari 3.0+ "[object HTMLElementConstructor]"
+	const isSafari: boolean = "safari" === name
 
 	useEffect(() => {
 		setRows(
@@ -114,6 +120,7 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 			handle=".sui-table__cell--drag"
 			onStart={() => ctx?.setForceCollapse(true)}
 			onEnd={onSortEnd}
+			{...(isSafari && { forceFallback: true })}
 		>
 			{(el as ReactNode[])?.map((item: ReactNode) => (
 				<Fragment key={(item as ReactElement)?.props?.id}>{item}</Fragment>
