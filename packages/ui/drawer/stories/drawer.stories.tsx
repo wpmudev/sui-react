@@ -203,6 +203,7 @@ const Drawer = (props) => {
 Drawer.args = {
 	position: "right",
 	size: "large",
+	outerClickClose: false,
 	hasContainer: false,
 	disableShadow: false,
 }
@@ -229,6 +230,18 @@ Drawer.argTypes = {
 				sm: "Small",
 				large: "Large (default)",
 			},
+		},
+	},
+	hasContainer: {
+		name: "Inside Container",
+		control: {
+			type: "boolean",
+		},
+	},
+	outerClickClose: {
+		name: "Outer click close",
+		control: {
+			type: "boolean",
 		},
 	},
 }

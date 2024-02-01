@@ -43,6 +43,11 @@ export interface DrawerTypes {
 	 * Indicates whether shadow should be disabled for the Drawer
 	 */
 	disableShadow?: boolean
+
+	/**
+	 * Indicates whether Drawer should close when clicked outside
+	 */
+	outerClickClose?: boolean
 }
 
 /**

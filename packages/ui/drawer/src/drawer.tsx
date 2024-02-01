@@ -4,12 +4,13 @@ import React, {
 	useEffect,
 	useImperativeHandle,
 	useState,
+	useRef,
 } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 
 // Import required element(s)
-import { useDefaultChildren, usePrevious } from "@wpmudev/sui-hooks"
+import { useOuterClick, usePrevious } from "@wpmudev/sui-hooks"
 import { DrawerActions, DrawerTypes } from "./drawer.types"
 import { DrawerProvider } from "./drawer-context"
 
@@ -24,11 +25,20 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 			position = "right",
 			hasContainer = false,
 			disableShadow = false,
+			outerClickClose = true,
 		},
 		ref,
 	) => {
 		const [isVisible, setIsVisible] = useState<boolean>(false)
 		const [isOpen, setIsOpen] = useState<boolean>(propIsOpen ?? false)
+		const drawerRef = useRef<HTMLDivElement | null>(null)
+
+		// Hide dropdown when click outside of it
+		useOuterClick(drawerRef, () => {
+			if (isOpen && outerClickClose) {
+				_toggleIsOpen(false)
+			}
+		})
 
 		// generate classnames
 		const classNames = generateCN(
@@ -82,7 +92,9 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 		return (
 			<DrawerProvider value={{ isOpen, setIsOpen, toggle }}>
 				<div className={classNames} data-testid="drawer">
-					<div className="sui-drawer__inner">{children}</div>
+					<div className="sui-drawer__inner" ref={drawerRef}>
+						{children}
+					</div>
 				</div>
 			</DrawerProvider>
 		)
