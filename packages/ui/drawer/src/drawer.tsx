@@ -21,7 +21,7 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 			className = "",
 			children,
 			isOpen: propIsOpen = false,
-			size,
+			size = "default",
 			position = "right",
 			hasContainer = false,
 			disableShadow = false,
@@ -60,7 +60,7 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 		 *
 		 * @param {boolean} value
 		 */
-		const _toggleIsOpen = (value) => {
+		const _toggleIsOpen = (value: boolean) => {
 			const fMethod = value ? setIsVisible : setIsOpen
 			const sMethod = value ? setIsOpen : setIsVisible
 
@@ -84,7 +84,7 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 			if (prevIsOpen !== propIsOpen && isOpen !== propIsOpen) {
 				toggle()
 			}
-		}, [propIsOpen])
+		}, [isOpen, prevIsOpen, propIsOpen, toggle])
 
 		// Default children content
 		// children = useDefaultChildren(children, "{drawer children content}")

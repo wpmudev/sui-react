@@ -203,7 +203,7 @@ const Drawer = (props) => {
 Drawer.args = {
 	position: "right",
 	size: "large",
-	outerClickClose: false,
+	outerClickClose: true,
 	hasContainer: false,
 	disableShadow: false,
 }
