@@ -1,9 +1,9 @@
-import { TooltipProps } from "@wpmudev/sui-tooltip"
-
 /**
  * Importing React from "react"
  */
 import React from "react"
+
+import { TooltipProps } from "@wpmudev/sui-tooltip"
 
 /**
  * Define props for the Drawer component
