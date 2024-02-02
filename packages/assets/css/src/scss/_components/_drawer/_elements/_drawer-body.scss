@@ -14,7 +14,7 @@
 		@include block($block) {
 			@include element(body) {
 				height: 100%;
-				overflow: scroll;
+				overflow: auto;
 			}
 		}
 	}
