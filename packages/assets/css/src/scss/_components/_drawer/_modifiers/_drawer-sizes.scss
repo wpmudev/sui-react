@@ -1,0 +1,34 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Drawer sizes
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $item - Main item name
+@mixin build-size($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(sm) {
+				@include modifies-element(inner) {
+					max-width: $drawer-size-sm;
+				}
+
+				&.sui-#{$block}--overlay {
+					@include modifies-element(inner) {
+						@include media(max-width, sm) {
+							max-width: calc(100% - 32px);
+						}
+					}
+				}
+
+				@include modifies-element(header, footer) {
+					padding: $spacing-lg;
+				}
+			}
+		}
+	}
+}

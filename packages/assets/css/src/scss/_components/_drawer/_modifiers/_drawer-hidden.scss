@@ -1,0 +1,20 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Drawer hidden
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $item - Main item name
+@mixin build-hidden($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(hidden) {
+				display: none;
+			}
+		}
+	}
+}

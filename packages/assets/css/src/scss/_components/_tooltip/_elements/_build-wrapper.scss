@@ -17,6 +17,10 @@
 			position: relative;
 			display: inline-block;
 			line-height: normal;
+
+			@include element(icon) {
+				display: flex;
+			}
 		}
 	}
 

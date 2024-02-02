@@ -1,0 +1,14 @@
+{
+	"drawer": {
+		"size": {
+			"sm": {
+				"value": "320px",
+				"type": "sizing"
+			},
+			"lg": {
+				"value": "520px",
+				"type": "sizing"
+			}
+		}
+	}
+}
