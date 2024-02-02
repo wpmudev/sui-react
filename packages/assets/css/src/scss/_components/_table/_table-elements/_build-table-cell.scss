@@ -44,10 +44,6 @@
 				}
 
 				@include modifier(actions) {
-					align-items: center;
-					display: flex;
-					justify-content: flex-end;
-
 					.sui-button {
 						margin: 0 $spacing-sm;
 
@@ -84,31 +80,40 @@
 					position: sticky;
 					width: $table-width-xs;
 
+					&.sui-#{$block}__cell--is-sticky-active {
+						&:after {
+							content: "";
+							position: absolute;
+							inset: 0;
+							pointer-events: none;
+							border-width: 0;
+							border-right-width: $border-width-md;
+							border-style: solid;
+							border-color: $color-extended-neutral-80;
+						}
+					}
+
 					@include media(max-width, sm) {
-						position: unset;
 						border: none;
 					}
 
 					&.sui-#{$block}__cell--selection {
-						border-right: 0;
 						left: 0;
-					}
-
-					&.sui-#{$block}__cell--is-sticky-active:not(
-							.sui-#{$block}__cell--selection
-						) {
-						border-right: $border-width-md solid $color-extended-neutral-80;
+						&:after {
+							border: 0;
+						}
 					}
 
 					&.sui-#{$block}__cell--actions {
-						border-right: 0;
 						left: auto;
 						right: 0;
 						width: auto;
 
 						&.sui-#{$block}__cell--is-sticky-active {
-							border-left: $border-width-md solid $color-extended-neutral-80;
-							border-right: none;
+							&:after {
+								border-left-width: $border-width-md;
+								border-right-width: 0;
+							}
 						}
 
 						@include media(max-width, sm) {
@@ -213,8 +218,11 @@
 				@include modifier(sticky) {
 					right: calc(62px - $border-width-md);
 					left: unset;
-					border-left: $border-width-md solid $color-extended-neutral-80;
-					border-right: 0;
+
+					&:after {
+						border-left-width: $border-width-md;
+						border-right-width: 0;
+					}
 
 					@include media(max-width, sm) {
 						border: none;
@@ -227,10 +235,13 @@
 					}
 
 					&.sui-#{$block}__cell--actions {
-						border-left: 0;
-						border-right: $border-width-md solid $color-extended-neutral-80;
 						right: auto;
 						left: 0;
+
+						&:after {
+							border-right-width: $border-width-md;
+							border-left-width: 0;
+						}
 
 						@include media(max-width, sm) {
 							border: none;

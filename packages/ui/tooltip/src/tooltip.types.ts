@@ -8,7 +8,7 @@ import { ButtonProps } from "@wpmudev/sui-button"
 interface TooltipBaseProps
 	extends Omit<
 		HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>,
-		"onClick"
+		"onClick" | "label"
 	> {
 	/**
 	 * The text label for the tooltip.

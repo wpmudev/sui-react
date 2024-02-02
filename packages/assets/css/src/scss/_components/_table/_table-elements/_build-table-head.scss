@@ -21,6 +21,10 @@
 					color: $color-extended-neutral-10;
 					min-height: $table-height-sm;
 				}
+
+				.sui-#{$block}__row {
+					border-top: 0;
+				}
 			}
 		}
 	}

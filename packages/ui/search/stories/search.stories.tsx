@@ -85,6 +85,12 @@ Search.argTypes = {
 			type: "boolean",
 		},
 	},
+	customWidth: {
+		name: "customWidth",
+		control: {
+			type: "number",
+		},
+	},
 }
 
 // Publish required stories.

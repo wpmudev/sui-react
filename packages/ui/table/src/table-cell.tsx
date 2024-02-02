@@ -25,6 +25,7 @@ import { TableContext, TableSortBy } from "./table-context"
  * @param {boolean} [props.isTrim=false]      - Indicates whether the cell content should be trimmed.
  * @param {boolean} [props.isPrimary=false]   - Indicates whether the cell is the primary cell.
  * @param {Object}  [props.style]             - Additional inline styles to apply to the cell.
+ * @param {Object}  [props.colSpan]           - specifies the number of columns a cell should span
  *
  * @return {JSX.Element} The JSX representation of the TableCell component.
  */
@@ -40,6 +41,7 @@ const TableCell: React.FC<TableCellProps> = ({
 	isTrim = false,
 	isPrimary = false,
 	style = {},
+	colSpan,
 	...props
 }) => {
 	// Define element tag name based on whether it's a heading cell (th) or a regular cell (td).
@@ -115,6 +117,7 @@ const TableCell: React.FC<TableCellProps> = ({
 			{...(isHeading && { scope: "col" })}
 			role={isHeading ? "rowheader" : "cell"}
 			style={style}
+			colSpan={colSpan}
 			{...props}
 		>
 			{hasDragIcon && (

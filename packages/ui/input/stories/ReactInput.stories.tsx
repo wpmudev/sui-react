@@ -64,6 +64,10 @@ Input.argTypes = {
 			type: "select",
 		},
 	},
+	customWidth: {
+		name: "customWidth",
+		control: "number",
+	},
 	id: {
 		name: "ID",
 		control: "text",

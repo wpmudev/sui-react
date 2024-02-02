@@ -21,4 +21,7 @@ export { useDetectRTL } from "./use-rtl-detect"
 export { usePrevious } from "./use-previous"
 
 // useDefaultChildren hook
-export { useDefaultChildren } from "./useDefaultChildren"
+export { useDefaultChildren } from "./use-default-children"
+
+// detect browser
+export { useDetectBrowser } from "./use-detect-browser"

@@ -15,6 +15,7 @@ const Textarea: React.FC<TextareaProps> = ({
 	isDisabled = false,
 	onChange = () => {},
 	label,
+	customWidth,
 	...props
 }) => {
 	const [currentValue, setCurrentValue] = useState(value)
@@ -51,7 +52,11 @@ const Textarea: React.FC<TextareaProps> = ({
 	)
 
 	return (
-		<div className={classNames} data-testid="textarea">
+		<div
+			className={classNames}
+			data-testid="textarea"
+			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
+		>
 			<textarea
 				id={id}
 				className="sui-textarea__field"
