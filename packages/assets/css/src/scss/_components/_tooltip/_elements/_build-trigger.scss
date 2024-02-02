@@ -2,21 +2,22 @@
 
 @use "../../../_utils/utils" as *;
 
-/// Icon
+/// Build Tooltip Trigger
 ///
-/// @type modifier
+/// @type block
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin has-icon($block) {
+@mixin build-trigger($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
 		@include block($block) {
-			@include modifier(has-icon) {
-				align-items: center;
-				display: flex;
-				padding-right: 10px;
+			@include element(trigger) {
+				@include modifier(icon) {
+					cursor: pointer;
+				}
 			}
 		}
 	}
