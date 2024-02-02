@@ -5,9 +5,10 @@ import { generateCN } from "@wpmudev/sui-utils"
 
 import { SegmentedControlProps } from "./segmented-control.types"
 import { SegmentedControlContext } from "./segmented-control-context"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 const SegmentedControl: React.FC<SegmentedControlProps> = ({
-	name = "",
+	name = "segmented-control",
 	defaultValue = "",
 	onChange = () => {},
 	children,
@@ -17,6 +18,9 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	 * State to track the current selected value of the segmented control.
 	 */
 	const [value, setValue] = useState<string | number>(defaultValue)
+
+	// default children content
+	children = useDefaultChildren(children)
 
 	/**
 	 * Generate class names for the segmented control based on the isFullWidth prop.

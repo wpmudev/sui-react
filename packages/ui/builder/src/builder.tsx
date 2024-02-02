@@ -6,6 +6,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { BuilderProps } from "./builder.types"
 import { BuilderButton } from "./builder-button"
 import { BuilderEmpty } from "./builder-empty"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 // Build builder component
 const Builder: React.FC<BuilderProps> = ({
@@ -15,6 +16,9 @@ const Builder: React.FC<BuilderProps> = ({
 	isScrollable = false,
 	hasNoFields = false,
 }) => {
+	// Default children content
+	children = useDefaultChildren(children)
+
 	const classNames = generateCN("sui-builder", {}, `sui-layout ${className}`)
 	return (
 		<div className={classNames} data-testid="builder">

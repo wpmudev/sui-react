@@ -33,4 +33,66 @@
 			display: none;
 		}
 	}
+
+	// .sui-wp-overlay is to show modal or component over the wordpress content
+	@include block(wp-overlay) {
+		position: fixed;
+		top: $spacing-xxl !important;
+		left: 160px !important;
+		bottom: 0;
+		right: 0;
+
+		/* only for wordpress */
+		@media (max-width: 960px) {
+			left: 36px !important;
+		}
+
+		@media (max-width: 782px) {
+			left: 0 !important;
+			top: 46px !important;
+		}
+		/* only for wordpress */
+	}
+}
+
+// Body root class
+// DIR: Left to right.
+// THEME: None.
+@include body-class($rtl: false) {
+	.folded {
+		@include block(wp-overlay) {
+			left: 36px !important;
+		}
+	}
+}
+
+// DIR: Right to left.
+// THEME: None.
+@include sui-class($rtl: true, $theme: null) {
+	@include block(wp-overlay) {
+		right: 160px !important;
+		left: 0 !important;
+
+		// only for wordpress
+		@media (max-width: 960px) {
+			right: 36px !important;
+		}
+
+		@media (max-width: 782px) {
+			right: 0 !important;
+		}
+	}
+}
+
+// Body root class
+// DIR: Left to right.
+// THEME: None.
+@include body-class($rtl: true) {
+	.folded {
+		.sui-wrap {
+			@include block(wp-overlay) {
+				right: 36px !important;
+			}
+		}
+	}
 }

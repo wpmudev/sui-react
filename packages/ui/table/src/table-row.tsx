@@ -18,7 +18,6 @@ import { Checkbox } from "@wpmudev/sui-checkbox"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
-import { Box, BoxGroup } from "@wpmudev/sui-box"
 
 import { TableCell } from "./table-cell"
 import { TableContext } from "./table-context"
@@ -43,7 +42,7 @@ import { TableFields } from "./table-fields"
 const TableRow: React.FC<TableRowProps> = ({
 	id,
 	children,
-	actions = false,
+	actions,
 	isUnderHeader = false,
 	isExpandable = false,
 	expandableContent = null,
@@ -131,7 +130,10 @@ const TableRow: React.FC<TableRowProps> = ({
 
 	// Handle children nodes and add drag icon if needed
 	children = Children.toArray(children).map((child, index) => {
-		const p: Record<string, any> = { hasDragIcon: false, colSpan: undefined }
+		const p: Record<string, any> = {
+			hasDragIcon: false,
+			colSpan: (child as React.ReactElement).props.colSpan || undefined,
+		}
 
 		if (0 === index) {
 			// Make column sticky
@@ -260,12 +262,8 @@ const TableRow: React.FC<TableRowProps> = ({
 					tabIndex={isExpanded ? 0 : -1}
 				>
 					<td colSpan={numberOfCols}>
-						<Box>
-							<BoxGroup isInline={false}>
-								<TableFields>{children}</TableFields>
-								{expandableContent}
-							</BoxGroup>
-						</Box>
+						<TableFields>{children}</TableFields>
+						{expandableContent}
 					</td>
 				</tr>
 			)}

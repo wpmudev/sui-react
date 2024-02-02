@@ -31,7 +31,7 @@ export const PasswordField = ({
 	...args
 }: {
 	id: string
-	buttonType: string
+	buttonType: "icon" | "text"
 	label: string
 	helper: string
 	error: string
@@ -42,10 +42,6 @@ export const PasswordField = ({
 		padding: 20,
 		borderRadius: 4,
 		background: "#fff",
-	}
-
-	const button = {
-		type: buttonType,
 	}
 
 	// Field settings
@@ -67,7 +63,7 @@ export const PasswordField = ({
 							{...args}
 							isDisabled={isDisabled}
 							isSmall={isSmall}
-							button={button}
+							buttonType={buttonType}
 							id={id}
 						/>
 					</FormField>
@@ -124,5 +120,9 @@ PasswordField.argTypes = {
 	isSmall: {
 		name: "Small",
 		control: "boolean",
+	},
+	customWidth: {
+		name: "customWidth",
+		control: "number",
 	},
 }

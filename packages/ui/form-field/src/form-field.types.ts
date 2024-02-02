@@ -15,7 +15,7 @@ interface FormFieldProps {
 	/**
 	 * The unique identifier of the field.
 	 */
-	id: string
+	id?: string
 	/**
 	 * The label for the field.
 	 */
@@ -48,6 +48,10 @@ interface FormFieldProps {
 	 * The content of the field.
 	 */
 	children?: React.ReactNode
+	/**
+	 * Custom width in pixels
+	 */
+	customWidth?: number
 }
 
 /**

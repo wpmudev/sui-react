@@ -1,0 +1,60 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Drawer positions
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $item - Main item name
+@mixin build-positions($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(left) {
+				@include modifies-element(inner) {
+					border-left: 0;
+					border-right: $border-width-sm solid $color-extended-neutral-80;
+					transform: translateX(-100%);
+				}
+			}
+
+			@include modifier(right) {
+				@include modifies-element(inner) {
+					right: 0;
+					left: auto;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(inner) {
+				transform: translateX(-100%);
+			}
+
+			@include modifier(left) {
+				@include modifies-element(inner) {
+					border-right: 0;
+					border-left: $border-width-sm solid $color-extended-neutral-80;
+					right: 0;
+					left: auto;
+					transform: translateX(100%);
+				}
+			}
+
+			@include modifier(right) {
+				@include modifies-element(inner) {
+					border-left: 0;
+					border-right: $border-width-sm solid $color-extended-neutral-80;
+					left: 0;
+					right: auto;
+				}
+			}
+		}
+	}
+}

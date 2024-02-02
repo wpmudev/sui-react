@@ -16,6 +16,7 @@ type RadioStoryProps = {
 	name: string
 	isInline: boolean
 	isSmall: boolean
+	asBlock: boolean
 } & RadioProps
 
 // Default settings
@@ -36,6 +37,7 @@ export const Radio = ({
 	name,
 	isInline,
 	isSmall,
+	asBlock,
 	...args
 }: RadioStoryProps) => {
 	const boxStyles = {
@@ -57,7 +59,7 @@ export const Radio = ({
 						<RadioGroup
 							isInline={isInline}
 							name={name}
-							asBlock={args?.asBlock}
+							asBlock={asBlock}
 							onChange={(data) => {}}
 						>
 							<SuiRadio value="in" {...args} />

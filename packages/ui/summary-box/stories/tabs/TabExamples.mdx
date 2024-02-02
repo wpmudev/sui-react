@@ -28,18 +28,19 @@ import { Score } from "@wpmudev/sui-score"
                 icon="performance"
                 title="Performance Summary"
                 hideMobileIcon={true}
-                primaryActions={["Primary Actions Go Here"]}
+                primaryActions="Primary Actions Go Here"
                 secondaryActions={["Secondary Actions Go Here"]}
             >
                 <SummaryBoxBody
-                    summaryItems={[
+                    summaryItems={
+                    <>
                         <SummaryBoxItem
                             key={0}
                             title="Browser Caching"
                             description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                             actionIcon="InfoAlt"
                             actionState="green"
-                        />,
+                        />
                         <SummaryBoxItem
                             key={1}
                             title="Gzip compression"
@@ -48,7 +49,7 @@ import { Score } from "@wpmudev/sui-score"
                             actionIcon={false}
                             actionTitle="10.33%"
                             actionState="green"
-                        />,
+                        />
                         <SummaryBoxItem
                             key={2}
                             title="Assets Optimization"
@@ -56,8 +57,9 @@ import { Score } from "@wpmudev/sui-score"
                             actionIcon="CheckAlt"
                             actionTitle="10.33%"
                             actionState="success"
-                        />,
-                    ]}
+                        />
+                    </>
+					}
                 >
                     The body content
                 </SummaryBoxBody>
@@ -80,7 +82,8 @@ import { Score } from "@wpmudev/sui-score"
                 icon="performance"
                 title="Performance Summary"
                 hideMobileIcon={true}
-                primaryActions={[
+                primaryActions={
+                <>
                     <SegmentedControl key={0} name="type">
                         <SegmentedControlButton value="visual" icon="Mobile" />
                         <SegmentedControlButton value="code" icon="Desktop" />
@@ -95,9 +98,10 @@ import { Score } from "@wpmudev/sui-score"
                         >
                             Clear Cache
                         </Button>
-                    </div>,
-                ]}
-                secondaryActions={[
+                    </div>
+                </>
+				}
+                secondaryActions={
                     <Button
                         key={2}
                         appearance="primary"
@@ -108,17 +112,18 @@ import { Score } from "@wpmudev/sui-score"
                     >
                         New test
                      </Button>,
-                   ]}
+                   }
                 >
                 <SummaryBoxBody
-                    summaryItems={[
+                    summaryItems={
+                      <>
                         <SummaryBoxItem
                             key={0}
                             title="Browser Caching"
                             description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                             actionIcon="InfoAlt"
                             actionState="green"
-                        />,
+                        />
                         <SummaryBoxItem
                             key={1}
                             title="Gzip compression"
@@ -127,7 +132,7 @@ import { Score } from "@wpmudev/sui-score"
                             actionIcon={false}
                             actionTitle="10.33%"
                             actionState="green"
-                        />,
+                        />
                         <SummaryBoxItem
                             key={2}
                             title="Assets Optimization"
@@ -135,8 +140,9 @@ import { Score } from "@wpmudev/sui-score"
                             actionIcon="CheckAlt"
                             actionTitle="10.33%"
                             actionState="success"
-                        />,
-                    ]}
+                        />
+                      <>
+					}
                 >
                     <Score bar={95} isSmall={false} value={10} state="success" />
                     <h4>Desktop Site Performance Score</h4>

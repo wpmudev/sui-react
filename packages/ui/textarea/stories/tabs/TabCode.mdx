@@ -1,66 +1,43 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '@wpmudev/sui-docs';
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from '@wpmudev/sui-docs';
 
 <PackageInstallGuide packageName="@wpmudev/sui-textarea" />
 
 <Section title="Props" border={true}>
 	<p>Textarea component have the following props.</p>
-	<Section
-		title={{ content: 'id', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+
+	<PropSection title="id" type="string">
 		<p>Add a unique id to the textarea.</p>
-	</Section>
-	<Section
-		title={{ content: 'className', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	
+	<PropSection title="label" type="string">
+		<p>Label for screen readers</p>
+	</PropSection>
+
+	<PropSection title="customWidth" type="number" >
+    	<p>Custom width in <Code isSmall={true}>pixels</Code></p>
+    </PropSection>
+
+	<PropSection title="className" type="string">
 		<p>Add a class name to the textarea.</p>
-	</Section>
-	<Section
-		title={{ content: 'value', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+
+	<PropSection title="value" type="string">
 		<p>Reflects the value of the input field.</p>
-	</Section>
-	<Section
-		title={{ content: 'description', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>Reflects the description of the input field.</p>
-	</Section>
-	<Section
-		title={{ content: 'descriptionId', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>
-			It helps screen reader to announce the description message of the
-			field.
-		</p>
-	</Section>
-	<Section
-		title={{ content: 'errorMessage', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>Reflects the error message of the input field.</p>
-	</Section>
-	<Section
-		title={{ content: 'errorId', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>
-			It helps screen reader to announce the error message of the field.
-		</p>
-	</Section>
-	<Section
-		title={{ content: 'isSmall', tag: 'boolean', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	
+	<PropSection title="isSmall" type="boolean" defaultValue="false">
 		<p>Set if the input is small.</p>
-	</Section>
-	<Section
-		title={{ content: 'isDisabled', tag: 'boolean', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+
+	<PropSection title="isDisabled" type="boolean" defaultValue="false">
 		<p>Set if the input is disabled.</p>
-	</Section>
+	</PropSection>
+
+	<PropSection title="isError" type="boolean" defaultValue="false">
+		<p>Set if the input is disabled.</p>
+	</PropSection>
+
+	<PropSection title="onChange" type="boolean" defaultValue="false">
+		<p>A callback function to be invoked when the textarea value changes, the first parameter represents the change event object</p>
+	</PropSection>
 </Section>

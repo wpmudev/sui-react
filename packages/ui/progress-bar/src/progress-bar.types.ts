@@ -17,7 +17,7 @@ interface ProgressBarProps {
 	/**
 	 * Size of the progress bar.
 	 */
-	size?: string
+	size?: "sm" | "md" | "lg"
 
 	/**
 	 * Indicates whether the progress bar should be displayed inline.

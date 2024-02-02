@@ -11,8 +11,9 @@ import { Button } from "@wpmudev/sui-button"
 import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
-	useDetectRTL,
+	useDefaultChildren,
 	useInteraction,
+	useDetectRTL,
 	usePortal,
 } from "@wpmudev/sui-hooks"
 
@@ -205,6 +206,9 @@ const Tooltip: React.FC<TooltipProps> = ({
 		style?: React.CSSProperties
 	}
 
+	// Default children content
+	children = useDefaultChildren(children, "{default tooltip content}")
+
 	const attrs: TooltipAttrsTypes = {}
 
 	const classNames = generateCN(
@@ -255,7 +259,6 @@ const Tooltip: React.FC<TooltipProps> = ({
 	const renderTrigger = () => {
 		switch (type) {
 			case "button":
-			case "link":
 				return (
 					<Button
 						{...props}
@@ -269,7 +272,6 @@ const Tooltip: React.FC<TooltipProps> = ({
 			case "text":
 				return (
 					<span
-						{...props}
 						role="button"
 						tabIndex={0}
 						onClick={onClickCallback}

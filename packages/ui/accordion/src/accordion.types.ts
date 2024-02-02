@@ -14,7 +14,8 @@ interface AccordionProps extends Omit<HTMLProps<HTMLDivElement>, "className"> {
 	/** Accordion state */
 	state?: "" | "neutral" | "informative" | "success" | "warning" | "critical" // The semantic types for the accordion,
 	/** Whether to allow multiple accordion items to be expanded or not */
-	allowMultipleExpand?: boolean
+	allowMultipleExpand?: boolean // Whether to allow multiple expands at the same time or not
+	children: React.ReactNode // The content of the Accordion
 }
 
 type AccordionCheckboxProps =

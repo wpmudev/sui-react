@@ -4,6 +4,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { Box } from "@wpmudev/sui-box"
 
 import { SummaryBoxProps } from "./summary-box.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 /**
  * SummaryBox Component
@@ -23,11 +24,11 @@ import { SummaryBoxProps } from "./summary-box.types"
  * @return {JSX.Element} The SummaryBox component.
  */
 const SummaryBox: React.FC<SummaryBoxProps> = ({
-	title,
+	title = "title",
 	icon,
 	hideMobileIcon = true,
-	primaryActions = [],
-	secondaryActions = [],
+	primaryActions = null,
+	secondaryActions = null,
 	className,
 	children,
 }) => {
@@ -42,17 +43,23 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 		hideMobileIcon,
 	}
 
+	// Default children content
+	children = useDefaultChildren(children)
+
+	// Determine the icon to be used.
+	if (icon) {
+		attrs.icon = icon
+	}
+
 	return (
 		<Box
 			{...attrs}
 			data-testid="summary-box"
 			className="sui-summary-box"
 			headerLeft={
-				<div className="sui-summary-box__quick-actions">
-					{primaryActions ?? []}
-				</div>
+				<div className="sui-summary-box__quick-actions">{primaryActions}</div>
 			} // Display primary actions in the header left.
-			headerRight={secondaryActions ?? []} // Display secondary actions in the header right.
+			headerRight={secondaryActions} // Display secondary actions in the header right.
 		>
 			{children}
 		</Box>

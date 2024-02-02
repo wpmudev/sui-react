@@ -1,12 +1,9 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-popover" />
 
 <Section title="Props" border={true}>
-		<Section
-			title={{ content: 'position', tag: 'string', small: true }}
-			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-		>
+	<PropSection title="position" type="string" defaultValue="top">
 			<p>
 				A tooltip can be placed at the top, bottom, left, or right of the
 				button.
@@ -110,59 +107,51 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from "
 					}
 				/>
 			</List>
-		</Section>
-		<Section
-			title={{ content: 'className', tag: 'string', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>Custom css classNames(s) to be added to the tooltip</p>
-		</Section>
-		<Section
-			title={{ content: 'isOpen', tag: 'boolean', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				It will make popup visible on initial load.
-			</p>
-		</Section>
-	<Section
-		title={{ content: 'image', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	
+	<PropSection title="className" type="string">
+		<p>Custom css classNames(s) to be added to the tooltip</p>
+	</PropSection>
+	
+	<PropSection title="isOpen" type="boolean" defaultValue="false">
+		<p>
+			It will make popup visible on initial load.
+		</p>
+	</PropSection>
+	
+	<PropSection title="image" type="string" >
 		<p>
 			Thumbnail URL to be displayed inside the popup.
 		</p>
-	</Section>
-	<Section
-		title={{ content: 'trigger', tag: 'node', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	
+	<PropSection title="trigger" type="React Node" defaultValue="Open Popup">
 		<p>
 			Trigger element, it can be button, icon, text, anything.
 		</p>
-	</Section>
-	<Section
-		title={{ content: 'title', tag: 'node', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	
+	<PropSection title="header" type="React Node">
 		<p>
-			Popup title, it can be any type, not just string.
+			Popup header, contents to be displayed in the top of the popup.
 		</p>
-	</Section>
-	<Section
-		title={{ content: 'footer', tag: 'node', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	
+	<PropSection title="footer" type="React Node">
 		<p>
-			Popup footer, contents to be displayed in bottom of popup.
+			Popup footer, contents to be displayed in the bottom of the popup.
 		</p>
-	</Section>
-		<Section
-			title={{ content: 'children', tag: 'React Node', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				A fixed width for mobile
-			</p>
-	</Section>
+	</PropSection>
+	
+	<PropSection title="children" type="React Node">
+		<p>
+			The content to be displayed in the popup
+		</p>
+	</PropSection>
+
+	<PropSection title="displayOnHover" type="React Node" defaultValue="false">
+		<p>
+			Whether to display the popover on hover or not
+		</p>
+	</PropSection>
 </Section>

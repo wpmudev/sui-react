@@ -6,6 +6,7 @@ import React, {
 	useState,
 	useEffect,
 	Fragment,
+	useId,
 } from "react"
 
 import {
@@ -17,7 +18,7 @@ import {
 } from "@wpmudev/sui-utils"
 import { useInteraction } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
-
+import { typeValues } from "./type-values"
 import { Icon } from "./elements/input-icon"
 import { InputProps } from "./input.types"
 import { Tooltip } from "@wpmudev/sui-tooltip"
@@ -27,7 +28,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 	forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 		(
 			{
-				type,
+				type = "text",
 				defaultValue,
 				placeholder,
 				hint,
@@ -54,11 +55,19 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				pattern,
 				onKeyUp,
 				validateOnMount = false,
+				customWidth,
 				onValidate,
 				...props
 			},
 			ref,
 		) => {
+			// Generate an id for the input if it's not provided
+			const uniqueId = useId()
+
+			if (!id) {
+				id = uniqueId
+			}
+
 			// Define states
 			const [value, setValue] = useState<typeof defaultValue>(defaultValue)
 			const [isHovered, isFocused, interactionMethods] = useInteraction({})
@@ -109,11 +118,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			let inputType: string | undefined = "text"
 
 			// expected types
-			if (
-				["email", "number", "password", "search", "tel", "url"].includes(
-					type as string,
-				)
-			) {
+			if (typeValues.includes(type as string)) {
 				inputType = type
 			}
 
@@ -220,6 +225,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				required: isRequired,
 				pattern,
 				onKeyUp: onInputKeyUp,
+
 				...props,
 			}
 
@@ -266,7 +272,11 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 
 			// Render component
 			return (
-				<div className={classNames} data-testid="input">
+				<div
+					className={classNames}
+					data-testid="input"
+					{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
+				>
 					{"start" === iconPosition && renderIcon()}
 					<div
 						className={generateCN("sui-input__input-field", {

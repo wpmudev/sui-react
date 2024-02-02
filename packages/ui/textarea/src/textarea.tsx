@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react"
+import React, { useCallback, useState, useId } from "react"
 import { isFunction, generateCN } from "@wpmudev/sui-utils"
 
 import { useInteraction } from "@wpmudev/sui-hooks"
@@ -15,10 +15,18 @@ const Textarea: React.FC<TextareaProps> = ({
 	isDisabled = false,
 	onChange = () => {},
 	label,
+	customWidth,
 	...props
 }) => {
 	const [currentValue, setCurrentValue] = useState(value)
 	const [isHovered, isFocused, methods] = useInteraction({})
+
+	// generate a unique id if not provided
+	const uniqueId = useId()
+
+	if (!id) {
+		id = uniqueId
+	}
 
 	const classNames = generateCN(
 		"sui-textarea",
@@ -44,9 +52,13 @@ const Textarea: React.FC<TextareaProps> = ({
 	)
 
 	return (
-		<div className={classNames} data-testid="textarea">
+		<div
+			className={classNames}
+			data-testid="textarea"
+			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
+		>
 			<textarea
-				id={id ?? ""}
+				id={id}
 				className="sui-textarea__field"
 				value={currentValue}
 				disabled={isDisabled}

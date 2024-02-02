@@ -14,11 +14,12 @@ import { Helper } from "./elements/helper"
 import { ErrorMessage } from "./elements/error-message"
 
 import { FormFieldProps } from "./form-field.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 // Build form field component
 const FormField: React.FC<FormFieldProps> = ({
 	id = "",
-	label,
+	label = "label",
 	helper,
 	error,
 	className,
@@ -26,6 +27,7 @@ const FormField: React.FC<FormFieldProps> = ({
 	isDisabled = false,
 	isLabelHidden = false,
 	children,
+	customWidth,
 	...props
 }) => {
 	// Define a unique id.
@@ -34,6 +36,9 @@ const FormField: React.FC<FormFieldProps> = ({
 	if (!isEmpty(id)) {
 		fieldId = id
 	}
+
+	// Default children content
+	children = useDefaultChildren(children, "{add form element as children}")
 
 	const isErrored =
 		"string" === typeof error ? !isEmpty((error as string) ?? "") : !!error
@@ -63,7 +68,12 @@ const FormField: React.FC<FormFieldProps> = ({
 
 	// Render field
 	return (
-		<div className={classNames} {...props} data-testid="form-field">
+		<div
+			className={classNames}
+			{...props}
+			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
+			data-testid="form-field"
+		>
 			{!isEmpty(label ?? "") && (
 				<Label id={fieldId} hidden={isLabelHidden ?? false}>
 					{label}

@@ -13,8 +13,8 @@ import { SearchOptions } from "./search-options"
 const Search: React.FC<SearchProps> = ({
 	id,
 	className,
-	variation = "",
-	placeholder = "",
+	variation = "basic",
+	placeholder,
 	defaultValue,
 	options = [],
 	onChange = () => {},
@@ -22,6 +22,7 @@ const Search: React.FC<SearchProps> = ({
 	searchMinChars = 2,
 	searchHint = "Please enter #number# or more characters",
 	isDisabled = false,
+	customWidth,
 }) => {
 	const [value, setValue] = useState<string>((defaultValue as string) ?? "")
 	const [isPopoverVisible, setIsPopoverVisible] = useState(false)
@@ -109,6 +110,7 @@ const Search: React.FC<SearchProps> = ({
 			ref={searchRef}
 			className={classNames}
 			data-testid="search"
+			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
 			{...methods}
 		>
 			<Input

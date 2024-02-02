@@ -15,7 +15,11 @@ import {
 	isEmpty,
 	isUndefined,
 } from "@wpmudev/sui-utils"
-import { useOuterClick, useDetectRTL } from "@wpmudev/sui-hooks"
+import {
+	useOuterClick,
+	useDetectRTL,
+	useDefaultChildren,
+} from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
 
 import { PopoverProps } from "./popover.types"
@@ -24,7 +28,7 @@ import { PopoverProps } from "./popover.types"
 const Popover: React.FC<PopoverProps> = ({
 	isOpen = false,
 	image,
-	trigger,
+	trigger = "Open Popup",
 	className,
 	header,
 	children,
@@ -37,6 +41,9 @@ const Popover: React.FC<PopoverProps> = ({
 		top: 0,
 		right: "auto",
 	})
+
+	// default children content
+	children = useDefaultChildren(children)
 
 	// detect RTL
 	const isRTL = useDetectRTL()

@@ -13,7 +13,7 @@ import { SetupBannerProps } from "./setup-banner.types"
  */
 const SetupBanner: React.FC<SetupBannerProps> = ({
 	type = "smush",
-	title,
+	title = "title",
 	className,
 	description,
 }) => {

@@ -27,10 +27,7 @@
 			@include element(table) {
 				position: relative;
 				width: 100%;
-
-				@include modifier(footer) {
-					border-collapse: collapse;
-				}
+				border-collapse: collapse;
 			}
 
 			@include modifier(no-border-radius) {

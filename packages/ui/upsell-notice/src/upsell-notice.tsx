@@ -7,7 +7,7 @@ import { Check } from "@wpmudev/sui-icons"
 import { Tag } from "@wpmudev/sui-tag"
 
 const UpsellNotice: React.FC<UpsellNoticeProps> = ({
-	title,
+	title = "Title of Upsell",
 	tagTitle = "",
 	description = "",
 	variation = "hummingbird",
@@ -23,7 +23,7 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 		<div className={classNames} data-testid="upsell-notice">
 			<div className="sui-upsell-notice__header">
 				<h3 className="sui-upsell-notice__header-title sui-heading--h5">
-					{title ?? "Title of Upsell"}
+					{title}
 					{!isEmpty(tagTitle ?? "") && (
 						<Tag design="outlined" isSmall={true} color="black">
 							{tagTitle}

@@ -6,11 +6,12 @@ import { Tooltip } from "@wpmudev/sui-tooltip"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { CodeSnippetProps } from "./code-snippet.types"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 const CodeSnippet: React.FC<CodeSnippetProps> = ({
-	language = "markup",
+	language = "javascript",
 	copy = true,
-	className = "",
+	className,
 	children,
 }) => {
 	// generate class names
@@ -21,6 +22,9 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 	useEffect(() => {
 		Prism?.highlightAll()
 	}, [])
+
+	// Default children content
+	children = useDefaultChildren(children)
 
 	// copy text to clipboard
 	const copyCodes = useCallback((text: React.ReactNode) => {

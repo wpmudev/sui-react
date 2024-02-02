@@ -7,11 +7,11 @@ interface PasswordFieldProps extends Omit<HTMLProps<HTMLDivElement>, "id"> {
 	/**
 	 * ID of the password field.
 	 */
-	id: string
+	id?: string
 	/**
 	 * Button text for the password field.
 	 */
-	button?: { type: "icon-button" | "text" }
+	buttonType?: "icon" | "text"
 	/**
 	 * Indicates the size of the field.
 	 */
@@ -24,6 +24,14 @@ interface PasswordFieldProps extends Omit<HTMLProps<HTMLDivElement>, "id"> {
 	 * Indicates whether the field is disabled.
 	 */
 	isDisabled?: boolean
+	/**
+	 * Placeholder text for the password input
+	 */
+	placeholder?: string
+	/**
+	 * Custom width in pixels
+	 */
+	customWidth?: number
 }
 
 export type { PasswordFieldProps }

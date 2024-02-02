@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useId, useState } from "react"
 
 import { Input, InputProps } from "@wpmudev/sui-input"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
@@ -7,13 +7,21 @@ import { PasswordFieldProps } from "./password-field.types"
 
 const PasswordField: React.FC<PasswordFieldProps> = ({
 	id,
-	button = { type: "text" },
+	buttonType = "icon",
 	isSmall = false,
 	isError = false,
 	isDisabled = false,
-	onClick = () => null,
+	placeholder,
+	customWidth,
 	...props
 }) => {
+	// Generate unique id if not provided
+	const uniqueId = useId()
+
+	if (!id) {
+		id = uniqueId
+	}
+
 	// Define password visibility
 	const [hasValue, setHasValue] = useState(false)
 	const [isVisible, setVisible] = useState(false)
@@ -25,8 +33,11 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 		isError,
 		isDisabled,
 		iconPosition: "end",
+		placeholder,
 		onKeyUp: () => {
-			const inputElement = document.getElementById(id) as HTMLInputElement
+			const inputElement = document.getElementById(
+				id as string,
+			) as HTMLInputElement
 			const getValue = inputElement?.value
 			setHasValue(getValue?.length > 0)
 		},
@@ -42,7 +53,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 		className: "sui-password__button",
 		isDisabled: isDisabled || !hasValue,
 		onClick: () => setVisible(!isVisible),
-		...(button.type === "icon-button" && {
+		...(buttonType === "icon" && {
 			icon: isVisible ? "Hide" : "Show",
 			appearance: "tertiary",
 			iconOnly: true,
@@ -52,7 +63,11 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	}
 
 	return (
-		<div className="sui-password" data-testid="password-field">
+		<div
+			className="sui-password"
+			data-testid="password-field"
+			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
+		>
 			<Input {...(inputAttrs as InputProps)} />
 			<Button {...(buttonProps as ButtonProps)}>{buttonProps.label}</Button>
 		</div>

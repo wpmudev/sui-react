@@ -15,6 +15,10 @@ interface RowProps {
 	 * The content of the row.
 	 */
 	children?: React.ReactNode
+	/**
+	 * custom classname for further styling
+	 */
+	className?: string
 }
 
 export type { RowProps, RowAlignments }

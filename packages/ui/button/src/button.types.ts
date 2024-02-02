@@ -76,6 +76,10 @@ interface ButtonProps
 	 * Optional: handle responsive when true
 	 */
 	isResponsive?: boolean
+	/**
+	 * Whether the Button is Loading or not
+	 */
+	isLoading?: boolean
 }
 
 export type { ButtonProps }

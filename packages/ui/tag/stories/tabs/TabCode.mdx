@@ -1,12 +1,9 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '@wpmudev/sui-docs';
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from '@wpmudev/sui-docs';
 
 <PackageInstallGuide packageName="@wpmudev/sui-tag" />
 
 <Section title="Props" border={true}>
-	<Section
-		title={{ content: 'color', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	<PropSection title="color" type="string">
 		<p>The color of the tag</p>
 		<p>Allowed options:</p>
 		<List>
@@ -17,50 +14,36 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '
 			<span label={<Code small={true}>white</Code>} />
 			<span label={<Code small={true}>black</Code>} />
 		</List>
-	</Section>
-	<Section
-		title={{ content: 'design', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="design" type="string">
 		<p>The design of the tag</p>
 		<p>Allowed options:</p>
 		<List>
 			<span label={<><Code small={true}>solid</Code> The tag will have a solid background</>} />
 			<span label={<><Code small={true}>outlined</Code> The tag will have a transparent background</>} />
 		</List>
-	</Section>
-	<Section
-		title={{ content: 'isSmall', tag: 'boolean', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="isSmall" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}> true </Code> the tag will have a smaller size</p>
-	</Section>
-	<Section
-		title={{ content: 'isUppercase', tag: 'boolean', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="isUppercase" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}> true </Code>, the tag text will be in uppercase</p>
-	</Section>
-	<Section
-		title={{ content: 'className', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="isDisabled" type="boolean" defaultValue="false">
+		<p>When set to <Code small={true}> true </Code>, the tag  will be disabled and it will have a diffrent style</p>
+	</PropSection>
+	<PropSection title="className" type="string">
 		<p>A custom className </p>
-	</Section>
-	<Section
-		title={{ content: 'style', tag: 'string', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
-		<p>When the available space is unsufficient, the tag could have one of two styles: </p>
+	</PropSection>
+	<PropSection title="style" type="string" defaultValue="default">
+		<p>When the available space is unsufficient, the tag could have one of three styles: </p>
 		<List>
+		<span label={<><Code small={true}>default</Code> for single line text. </>} />
 			<span label={<><Code small={true}>multiline</Code> for a multilined text. </>} />
 			<span label={<><Code small={true}>truncated</Code> for a truncated text. </>} />
 		</List>
-	</Section>
-	<Section
-		title={{ content: 'children', tag: 'React Node', small: true }}
-		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-	>
+	</PropSection>
+	<PropSection title="children" type="React Node">
 		<p>The content of the tag</p>
-	</Section>
+	</PropSection>
 </Section>

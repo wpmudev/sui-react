@@ -6,6 +6,7 @@ import { Tag } from "@wpmudev/sui-tag"
 import { IconProps } from "@wpmudev/sui-icon"
 import { DashboardWidgetProps } from "./dashboard-widget.types"
 import { Toggle } from "@wpmudev/sui-toggle"
+import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 /**
  * DashboardWidget component displays a widget with optional title, description,
@@ -14,8 +15,8 @@ import { Toggle } from "@wpmudev/sui-toggle"
  * @param {DashboardWidgetProps} props - The component's props.
  */
 const DashboardWidget: React.FC<DashboardWidgetProps> = ({
-	title,
-	description = "",
+	title = "Widget Title",
+	description = "Widget Description",
 	icon,
 	tag,
 	tagProps,
@@ -25,14 +26,17 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	isDisabled = false,
 	canCollapse = false,
 	onToggle = () => {},
-	children = null,
-	actions = null,
+	children,
+	actions,
 }) => {
 	// Generate classnames for the dashboard widget
 	const classNames: string = generateCN("sui-dashboard-widget", {
 		expanded: isExpanded,
 		disabled: isDisabled,
 	})
+
+	// Default children content
+	children = useDefaultChildren(children)
 
 	/**
 	 * Callback function to toggle the widget's expand/collapse state.
@@ -69,7 +73,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 						{IconTag && <IconTag size="md" />}
 						{/* Display the title and optional tag */}
 						<h4 className="sui-heading--h4 sui-dashboard-widget__header-title">
-							{title ?? "Title of Upsell"}
+							{title}
 							{tag && (
 								<Tag color="black" design="outlined" {...(tagAttrs ?? {})}>
 									{tag}

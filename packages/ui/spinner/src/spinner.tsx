@@ -8,8 +8,8 @@ import { SpinnerLoader } from "./spinner-loader"
 // Spinner component
 const Spinner: React.FC<SpinnerProps> = ({
 	size = "lg",
+	color = "primary",
 	isContained = false,
-	color,
 	isAbsolute = false,
 }) => {
 	// Generate class names for the spinner container
@@ -22,7 +22,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 
 	return (
 		<div className={classNames} data-testid="spinner">
-			<SpinnerLoader color={color ?? "primary"} size={size ?? "lg"} />
+			<SpinnerLoader color={color} size={size ?? "lg"} />
 		</div>
 	)
 }

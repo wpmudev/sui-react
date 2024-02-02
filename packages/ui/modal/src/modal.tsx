@@ -4,11 +4,16 @@ import React, {
 	useCallback,
 	useImperativeHandle,
 	useState,
+	useId,
 } from "react"
 
 // Import required module(s)
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { usePortal, useValidateProps } from "@wpmudev/sui-hooks"
+import {
+	useDefaultChildren,
+	usePortal,
+	useValidateProps,
+} from "@wpmudev/sui-hooks"
 import { ModalActionsProps, ModalContextProps, ModalProps } from "./modal.types"
 
 // Create a context for the modal
@@ -17,6 +22,16 @@ export const ModalContext = createContext<ModalContextProps | null>(null)
 // Build modal
 const Modal = forwardRef<ModalActionsProps, ModalProps>(
 	({ id, size = "sm", children, variant = "simple", ...props }, ref) => {
+		// generate id if not provided
+		const uniqueId = useId()
+
+		if (!id) {
+			id = uniqueId
+		}
+
+		// Default children content
+		children = useDefaultChildren(children)
+
 		// State to track whether the modal is open or not
 		const [isOpen, setIsOpen] = useState<boolean>(false)
 
@@ -48,11 +63,15 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 		}
 
 		// Generate class names for the modal based on its state
-		const classNames = generateCN("sui-modal", {
-			"is-open": isOpen,
-			[variant]: !isEmpty(variant ?? ""),
-			[size]: !isEmpty(size ?? ""),
-		})
+		const classNames = generateCN(
+			"sui-modal",
+			{
+				"is-open": isOpen,
+				[variant]: !isEmpty(variant ?? ""),
+				[size]: !isEmpty(size ?? ""),
+			},
+			"sui-wp-overlay",
+		)
 
 		return render(
 			// Render the modal content using the 'ModalContext.Provider' to make the 'openModal' and 'closeModal' functions available to children components

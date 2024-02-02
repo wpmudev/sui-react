@@ -2,6 +2,31 @@ import React, { HTMLProps } from "react"
 import { InteractionTypes } from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 
+// Possible values for input type
+type InputType =
+	| "button"
+	| "checkbox"
+	| "color"
+	| "date"
+	| "datetime-local"
+	| "email"
+	| "file"
+	| "hidden"
+	| "image"
+	| "month"
+	| "number"
+	| "password"
+	| "radio"
+	| "range"
+	| "reset"
+	| "search"
+	| "submit"
+	| "tel"
+	| "text"
+	| "time"
+	| "url"
+	| "week"
+
 /**
  * The `InputPropsTypes` interface represents the props for an input element.
  * It extends the `HTMLProps<HTMLInputElement>` interface and includes additional props for interaction types.
@@ -28,7 +53,7 @@ interface InputProps
 	/**
 	 * The type of the input element.
 	 */
-	type?: string
+	type?: InputType
 	/**
 	 * The placeholder text for the input element.
 	 */
@@ -40,7 +65,7 @@ interface InputProps
 	/**
 	 * The unique identifier for the input element.
 	 */
-	id: string
+	id?: string
 	/**
 	 * The CSS class name for the input element.
 	 */
@@ -120,9 +145,13 @@ interface InputProps
 	 */
 	validateOnMount?: boolean
 	/**
+	 * Custom Width in pixels
+	 */
+	customWidth?: number
+	/**
 	 * On validation callback
 	 */
-	onValidate?: (id: string, value: string | number | boolean) => void
+	onValidate?: (id?: string, value?: string | number | boolean) => void
 }
 
 export type { InputProps }

@@ -5,7 +5,7 @@ import { IconsNamesType } from "@wpmudev/sui-icons"
  */
 interface SegmentedControlProps {
 	// Radio button name
-	name: string
+	name?: string
 	// The child elements to be rendered inside the segmented control (the individual segments).
 	children?: React.ReactNode
 	// A boolean indicating whether the segmented control should take full width (optional).
@@ -21,7 +21,7 @@ interface SegmentedControlProps {
  */
 interface SegmentedControlButtonProps {
 	// The value associated with the button.
-	value: string | number
+	value?: string | number
 	// A boolean indicating whether the button is disabled (optional).
 	isDisabled?: boolean
 	// A boolean indicating whether the segmented control should hide label in mobile view (optional).

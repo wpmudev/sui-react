@@ -75,7 +75,7 @@ const Spinner = ({ ...args }) => {
 						padding: 20,
 					}}
 				>
-					<SControl {...args} isContained={true} />
+					<SControl {...args} />
 				</div>
 			</div>
 		</div>
@@ -87,6 +87,7 @@ Spinner.args = {
 	isAbsolute: false,
 	size: "lg",
 	color: "primary",
+	isContained: false,
 }
 
 // Set controls for story arguments.

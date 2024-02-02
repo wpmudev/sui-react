@@ -1,7 +1,7 @@
 import React, { KeyboardEvent, useCallback } from "react"
 
 import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useDefaultChildren } from "@wpmudev/sui-hooks"
 import Icons from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 
@@ -13,11 +13,11 @@ import { SidebarItemProps } from "./sidebar.types"
 const SidebarItem: React.FC<SidebarItemProps> = ({
 	url = "#",
 	icon,
-	title = "",
+	title = "Sidebar Item",
 	className,
 	action,
-	isActive,
-	isDisabled,
+	isActive = false,
+	isDisabled = false,
 	onClick = () => {},
 	...props
 }) => {

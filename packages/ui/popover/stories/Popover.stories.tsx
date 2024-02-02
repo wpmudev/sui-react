@@ -22,7 +22,6 @@ export default {
 
 // Build "Popover" story.
 const Popover = ({
-	example,
 	position,
 	displayOnHover,
 	footer,

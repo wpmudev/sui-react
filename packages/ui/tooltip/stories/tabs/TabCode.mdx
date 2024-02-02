@@ -1,108 +1,27 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '@wpmudev/sui-docs';
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from '@wpmudev/sui-docs';
 
 <PackageInstallGuide packageName="@wpmudev/sui-tooltip" />
 
+<Section>
+	<p>
+		The tooltip component is composed of the trigger element and the tooltip itselft, when the trigger element is hovered the tooltip will appear.
+	</p>
+	<p> the trigger element type is determined using the type prop, the default is <Code isSmall={true}>button</Code></p>
+</Section>
+
 <Section title="Props" border={true}>
-	<p>
-		The tooltip component is composed of a button and the tooltip itselft, when the button is hovered the tooltip will appear
-	</p>
-	<p>
-		We compose the props into two categories, the first category is for the props of the button and the second for the tooltip.
-	</p>
-	<Section title="Button Props">
-		<Section
-			title={{ content: 'label', tag: 'string', small: true }}
-			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>Text content of the button</p>
-		</Section>
-		<Section
-			title={{ content: 'type', tag: 'string', small: true }}
-			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				The type of the button, leave it empty when you want to use the default type
-			</p>
-			<p>Allowed options:</p>
+	
+		<PropSection title="type" type="string" defaultValue="button">
+			<p>The type for the trigger element</p>
+			<p>Allowed options</p>
 			<List>
-				<span
-					label={
-						<>
-							<Code small={true}>button</Code>
-						</>
-					}
-				/>
-				<span
-					label={
-						<>
-							<Code small={true}>text</Code>
-						</>
-					}
-				/>
-				<span
-					label={
-						<>
-							<Code small={true}>icon</Code> when you choose this make sure you provide the name prop, which is the name of the icon
-						</>
-					}
-				/>
+				<span label="button" />
+				<span label="text" />
+				<span label="icon" />
 			</List>
-		</Section>
-		<Section
-			title={{ content: 'href', tag: 'string', small: true }}
-			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>Button url when the type is set to link <Code small={true}>link</Code></p>
-		</Section>
-		<Section
-			title={{ content: 'onClick', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				A callback function for click event
-			</p>
-		</Section>
-		<Section
-			title={{ content: 'onMouseEnter', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				A callback function to be triggered when the mouse pointer moves over the button
-			</p>
-		</Section>
-		<Section
-			title={{ content: 'onMouseLeave', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				A callback function to be triggered when the mouse pointer exits the button
-			</p>
-		</Section>
-		<Section
-			title={{ content: 'onFocus', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				This function is called when the button receives keyboard focus, typically used to enhance accessibility.
-			</p>
-		</Section>
-		<Section
-			title={{ content: 'onBlur', tag: 'function', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>
-				This function is called when the button loses keyboard focus.
-			</p>
-		</Section>
-		<p>In addition to these props you can use any prop that the <a href="/?path=/docs/sui-components-core-button--docs" target="_blank">Button Component</a> accepts</p>
-	</Section>
-
-
-	<Section title="Tooltip props">
-		<Section
-			title={{ content: 'position', tag: 'string', small: true }}
-			style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		
+		<PropSection title="position" type="string" defaultValue="top">
 			<p>
 				A tooltip can be placed at the top, bottom, left, or right of the
 				button.
@@ -206,44 +125,86 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide } from '
 					}
 				/>
 			</List>
-		</Section>
-		<Section
-			title={{ content: 'className', tag: 'string', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>Custom css classNames(s) to be added to the tooltip</p>
-		</Section>
+		</PropSection>
 		
-		<Section
-			title={{ content: 'customWidth', tag: 'number', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
+		<PropSection title="className" type="string">
+			<p>Custom css classNames(s) to be added to the tooltip</p>
+		</PropSection>
+		
+		<PropSection title="customWidth" type="number">
 			<p>
 				Add a fixed width to the tooltip
 			</p>
-		</Section>
-		<Section
-			title={{ content: 'customMobileWidth', tag: 'number', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		
+		<PropSection title="customMobileWidth" type="number">
 			<p>
-				A fixed width for mobile
+				Add a fixed width for the tooltip in the mobile
 			</p>
-		</Section>
-		<Section
-			title={{ content: 'children', tag: 'React Node', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
+		</PropSection>
+		
+		<PropSection title="children" type="React Node">
 			<p>
-				A fixed width for mobile
+				The content of the tooltip
 			</p>
-		</Section>
+		</PropSection>
+		
+	<Section title="Trigger element props" style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+		
+		<PropSection title="icon" type="React Node">
+			<p>
+				Icon name for the trigger
+			</p>
+		</PropSection>
 
-		<Section
-			title={{ content: 'iconSize', tag: 'string', small: true }}
-			style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-		>
-			<p>The size of the icon</p>
-		</Section>
+		<PropSection title="iconSize" type="string">
+			<p>
+				This function is called when the button loses keyboard focus. ( only applicable for the icon type )
+			</p>
+		</PropSection>
+
+		<PropSection title="href" type="React Node">
+			<p>
+				The link that the trigger points to ( only applicable for the button type)
+			</p>
+		</PropSection>
+
+		<PropSection title="label" type="string">
+			<p>The text for the element to be hovered on to display the tooltip ( not applicable for the icon type )</p>
+		</PropSection>
+
+		<PropSection title="onClick" type="function">
+			<p>
+				A callback function to be invoked upon clicking on the trigger element
+			</p>
+		</PropSection>
+		
+		<PropSection title="onMouseEnter" type="function">
+			<p>
+				A callback function to be triggered when the mouse pointer moves over the button
+			</p>
+		</PropSection>
+		
+		<PropSection title="onMouseLeave" type="function">
+			<p>
+				A callback function to be triggered when the mouse pointer exits the button
+			</p>
+		</PropSection>
+		
+		<PropSection title="onFocus" type="function">
+			<p>
+				This function is called when the button receives keyboard focus, typically used to enhance accessibility.
+			</p>
+		</PropSection>
+		
+		<PropSection title="onBlur" type="function">
+			<p>
+				This function is called when the button loses keyboard focus.
+			</p>
+		</PropSection>
+
+		<p>In addition to these props, and when you use the type <Code isSmall={true}>button</Code>, you can customize the button further by using any prop that the <a href="/?path=/docs/sui-components-core-button--docs" target="_blank">Button Component</a> accepts.</p>
+
 	</Section>
+
 </Section>

@@ -28,6 +28,9 @@ interface TextareaProps extends HTMLProps<HTMLTextAreaElement> {
 
 	/** Event handler for the onChange event of the textarea. */
 	onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+
+	/** Custom width in pixels. */
+	customWidth?: number
 }
 
 export type { TextareaProps }

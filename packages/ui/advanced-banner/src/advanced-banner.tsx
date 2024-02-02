@@ -6,19 +6,19 @@ import { AdvancedBannerProps } from "./advanced-banner.types"
 
 // Build "advanced-banner" component
 const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
-	variation = "",
-	imageUrl = "",
-	title = "Banner Title Goes Here",
-	description = "Banner Description Goes Here",
-	children = null,
-	helper = null,
-	discountPercentage = "",
+	variation = "plugin",
+	imageUrl = "https://placehold.co/100",
+	title = "Banner Title",
+	description = "Banner Description",
+	children,
+	helper,
+	discountPercentage = 50,
 	allowClose = true,
 	onClose = () => {},
-	// Black friday variation props
-	ctaTitle = "",
-	onCTAClick = () => {},
 	className,
+	// Black friday variation props
+	ctaTitle = "cta title",
+	onCTAClick = () => {},
 }) => {
 	// Define class name
 	const classNames = generateCN(

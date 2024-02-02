@@ -9,7 +9,7 @@ import { ToggleProps } from "./toggle.types"
 const Toggle: React.FC<ToggleProps> = ({
 	label,
 	description,
-	defaultValue,
+	defaultValue = false,
 	isLabelHidden = false,
 	isDisabled = false,
 	onClick,

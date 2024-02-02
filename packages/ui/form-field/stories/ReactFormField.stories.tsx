@@ -53,7 +53,6 @@ export const FormField = ({
 								isError={isError}
 								isSmall={args.isSmall}
 								isDisabled={args.isDisabled}
-								type={type}
 							/>
 						)}
 						{"textarea" === example && (
@@ -154,5 +153,9 @@ FormField.argTypes = {
 	isLabelHidden: {
 		name: "SR Label",
 		control: "boolean",
+	},
+	customWidth: {
+		name: "customWidth",
+		control: "number",
 	},
 }

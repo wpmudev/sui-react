@@ -2,7 +2,7 @@ import React, { Fragment, useCallback, useContext, useRef } from "react"
 
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
 import Icons from "@wpmudev/sui-icons"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useInteraction } from "@wpmudev/sui-hooks"
 
 import { TableCellProps } from "./table.types"
 import { TableContext, TableSortBy } from "./table-context"
@@ -25,13 +25,14 @@ import { TableContext, TableSortBy } from "./table-context"
  * @param {boolean} [props.isTrim=false]      - Indicates whether the cell content should be trimmed.
  * @param {boolean} [props.isPrimary=false]   - Indicates whether the cell is the primary cell.
  * @param {Object}  [props.style]             - Additional inline styles to apply to the cell.
+ * @param {Object}  [props.colSpan]           - specifies the number of columns a cell should span
  *
  * @return {JSX.Element} The JSX representation of the TableCell component.
  */
 const TableCell: React.FC<TableCellProps> = ({
 	id,
 	children,
-	isHeading,
+	isHeading = false,
 	className = "",
 	hasDragIcon = false,
 	isAction = false,
@@ -40,12 +41,16 @@ const TableCell: React.FC<TableCellProps> = ({
 	isTrim = false,
 	isPrimary = false,
 	style = {},
+	colSpan,
 	...props
 }) => {
 	// Define element tag name based on whether it's a heading cell (th) or a regular cell (td).
 	const TagName: "td" | "th" = isHeading ? "th" : "td"
 
 	const [hovered, focused, methods] = useInteraction({})
+
+	// Default children content
+	children = useDefaultChildren(children, "{cell children content}")
 
 	// Table context
 	const ctx = useContext(TableContext)
@@ -112,6 +117,7 @@ const TableCell: React.FC<TableCellProps> = ({
 			{...(isHeading && { scope: "col" })}
 			role={isHeading ? "rowheader" : "cell"}
 			style={style}
+			colSpan={colSpan}
 			{...props}
 		>
 			{hasDragIcon && (

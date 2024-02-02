@@ -25,6 +25,7 @@ import Tooltip from "./components/tooltip/tooltip"
 // shared
 import { NodeJSWarning } from "./shared/NodeJSWarning"
 import { PackageInstallGuide } from "./shared/PackageInstallGuide"
+import { PropSection } from "./shared/PropSection"
 
 // Publish required component(s).
 export {
@@ -50,6 +51,7 @@ export {
 	Tag,
 	Tooltip,
 	PackageInstallGuide,
+	PropSection,
 	// shared
 	NodeJSWarning,
 }

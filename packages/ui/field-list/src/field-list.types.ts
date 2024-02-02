@@ -31,7 +31,7 @@ interface FieldListItemProps extends ToggleProps {
 	/**
 	 * The ID for the field list item.
 	 */
-	id: string
+	id?: string
 	/**
 	 * Callback function when toggled
 	 */

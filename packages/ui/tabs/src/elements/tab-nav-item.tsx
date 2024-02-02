@@ -2,7 +2,7 @@
 import React, { FC, useCallback, useContext } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useInteraction } from "@wpmudev/sui-hooks"
 import { InfoAlt, CheckAlt } from "@wpmudev/sui-icons"
 
 import { TabContextProps, TabNavItemProps } from "../tabs.types"
@@ -22,6 +22,9 @@ const TabNavItem: FC<TabNavItemProps> = ({
 
 	// Get the tab ID from the tab context
 	const tabId = tabCtx?.id
+
+	// Default children content
+	children = useDefaultChildren(children, "Nav Item")
 
 	// Get the current active index from the tab context
 	const current = tabCtx?.currentIndex

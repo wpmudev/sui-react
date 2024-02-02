@@ -1,5 +1,6 @@
 import React from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { TagProps } from "@wpmudev/sui-tag"
 /**
  * Represents the properties for a Selector component.
  */
@@ -8,11 +9,11 @@ interface SelectorProps
 		Omit<HTMLInputElement, "name" | "value" | "onChange" | "children">
 	> {
 	/** The label text for the radio input */
-	label: string
+	label?: string
 	/** The name attribute for the radio input */
-	name: string
+	name?: string
 	/** The value of the radio input */
-	value: string | number
+	value?: string | number
 	/** Whether the radio input is checked */
 	isChecked?: boolean
 	/** Whether the radio input is disabled */
@@ -42,15 +43,7 @@ interface SelectorProps
 	/** Event handler for removing the Selector */
 	onRemove?(): void
 	/** Specifiy the color of the tag */
-	tagColor?:
-		| "default"
-		| "blue"
-		| "yellow"
-		| "red"
-		| "green"
-		| "white"
-		| "black"
-		| "navy"
+	tagColor?: TagProps["color"]
 }
 
 interface SelectorOptionProps {
