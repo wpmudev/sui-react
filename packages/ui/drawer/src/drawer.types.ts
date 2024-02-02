@@ -82,7 +82,7 @@ export interface DrawerFooterTypes {
 	/**
 	 * Optional class name for styling
 	 */
-	classNames?: string
+	className?: string
 
 	/**
 	 * Content to be rendered inside the DrawerFooter
