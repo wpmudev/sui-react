@@ -62,7 +62,7 @@ export interface DrawerHeaderTypes {
 	/**
 	 * Optional class name for styling
 	 */
-	classNames?: string
+	className?: string
 
 	/**
 	 * Optional hint text to be displayed
@@ -88,6 +88,11 @@ export interface DrawerFooterTypes {
 	 * Content to be rendered inside the DrawerFooter
 	 */
 	children: React.ReactNode
+
+	/**
+	 * Additional className(s) for further styling
+	 */
+	className: string
 }
 
 /**
