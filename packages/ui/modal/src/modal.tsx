@@ -57,8 +57,11 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 		// Get the 'render' function from the 'usePortal' hook
 		const [render] = usePortal()
 
+		document.body.classList.add("sui-locked")
+
 		// Return nothing if the modal is not open
 		if (!isOpen) {
+			document.body.classList.remove("sui-locked")
 			return null
 		}
 
