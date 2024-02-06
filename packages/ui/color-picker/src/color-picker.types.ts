@@ -23,10 +23,6 @@ interface ColorPickerProps {
 	 */
 	type?: "hex" | "rgb"
 	/**
-	 * Callback for color button click
-	 */
-	onApplyButton?: () => void
-	/**
 	 * Specifies if the color picker field has errors.
 	 */
 	isError?: boolean
@@ -52,7 +48,7 @@ interface ColorPickerPickerProps {
 	color: ColorPickerProps["color"]
 	type: ColorPickerProps["type"]
 	onColorChange: ColorPickerProps["onColorChange"]
-	onApplyButton: ColorPickerProps["onApplyButton"]
+	onApplyButton: () => void
 }
 
 export type { ColorPickerProps, ColorPickerColorProps, ColorPickerPickerProps }
