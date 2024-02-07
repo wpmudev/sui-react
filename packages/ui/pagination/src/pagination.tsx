@@ -77,8 +77,6 @@ const Pagination: React.FC<PaginationProps> = ({
 		}
 	}, [selectedPage, limit])
 
-	// Handle navigation functions
-
 	// Go to the first page
 	const handleSkipToFirstPage = () => {
 		setSelectedPage(1)
