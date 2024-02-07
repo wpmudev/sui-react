@@ -1,6 +1,13 @@
-import React, { useCallback, useId, useState, useEffect, useRef } from "react"
+import React, {
+	useCallback,
+	useId,
+	useState,
+	useEffect,
+	useRef,
+	useContext,
+} from "react"
 import { useInteraction, useDefaultChildren } from "@wpmudev/sui-hooks"
-import { useAccordion } from "./accordion-context"
+import { AccordionContext, useAccordion } from "./accordion-context"
 import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
 import { Checkbox } from "@wpmudev/sui-checkbox"
@@ -30,10 +37,11 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const uniqueId = useId()
 
 	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
-	const { toggle, isCurrentlyExpanded, spacing } = useAccordion({
+	const { toggle, isCurrentlyExpanded } = useAccordion({
 		uniqueId,
 		isExpanded: isExpanded as boolean,
 	})
+	const { spacing } = useContext(AccordionContext)
 
 	// IDs for the accordion and its panel to manage accessibility.
 	const accordionId = `sui-accordion-${uniqueId}`
