@@ -1,5 +1,4 @@
 import React, { useCallback, useId, useState, useEffect, useRef } from "react"
-import { createPortal } from "react-dom"
 import { useInteraction, useDefaultChildren } from "@wpmudev/sui-hooks"
 import { useAccordion } from "./accordion-context"
 import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
@@ -31,7 +30,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const uniqueId = useId()
 
 	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
-	const { toggle, isCurrentlyExpanded } = useAccordion({
+	const { toggle, isCurrentlyExpanded, spacing } = useAccordion({
 		uniqueId,
 		isExpanded: isExpanded as boolean,
 	})
@@ -70,6 +69,15 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	// Icon component to display a chevron icon based on the accordion's expanded state.
 	const Icon = isCurrentlyExpanded ? ChevronUp : ChevronDown
 
+	let styles = {}
+
+	// custom spacing
+	if (spacing) {
+		styles = {
+			padding: spacing,
+		}
+	}
+
 	// Render the AccordionItem component with proper accessibility attributes.
 	return (
 		<div
@@ -87,6 +95,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				className={generateCN("sui-accordion__header", {
 					focus: isFocused || isPressed,
 				})}
+				{...(Object.keys(styles).length > 0 && { style: styles })}
 				{...(!hasCheckbox && {
 					tabIndex: isDisabled ? -1 : 0,
 					role: "button",
@@ -151,6 +160,9 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				aria-labelledby={accordionId}
 				className={generateCN("sui-accordion__panel", {
 					open: isCurrentlyExpanded,
+				})}
+				{...(Object.keys(styles).length > 0 && {
+					style: { ...styles, paddingTop: 0 },
 				})}
 				data-testid="accordion-item-panel"
 			>

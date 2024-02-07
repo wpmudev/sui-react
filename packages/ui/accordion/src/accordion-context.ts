@@ -6,6 +6,10 @@ const AccordionContext = createContext<AccordionContextProps>({
 	allowMultipleExpand: false,
 	expandState: {},
 	setExpandState: () => null,
+	spacing: {
+		desktop: "16px",
+		mobile: "4px",
+	},
 })
 
 const AccordionProvider = AccordionContext.Provider
@@ -17,7 +21,7 @@ const useAccordion = ({
 	uniqueId: string
 	isExpanded: boolean
 }) => {
-	const { allowMultipleExpand, expandState, setExpandState } =
+	const { allowMultipleExpand, expandState, setExpandState, spacing } =
 		useContext(AccordionContext)
 
 	// Set initail expand state
@@ -48,6 +52,7 @@ const useAccordion = ({
 	return {
 		toggle,
 		isCurrentlyExpanded,
+		spacing,
 	}
 }
 
