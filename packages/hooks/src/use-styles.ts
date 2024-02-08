@@ -23,7 +23,7 @@ export type CSSPropertiesTypes = {
 		| ReadonlyArray<Extract<CSSProperties[K], string>>
 }
 
-export interface StylesTypes extends CSSPropertiesTypes {
+export interface useStylesTypes extends CSSPropertiesTypes {
 	// padding shorthands
 	p?: StringPropertyType
 	px?: StringPropertyType
@@ -42,9 +42,18 @@ export interface StylesTypes extends CSSPropertiesTypes {
 	ml?: StringPropertyType
 }
 
-// check _breakpoints.scss
-export const breakpoints = [600, 1024, 1200, 1600]
+/**
+ * These are supported breakpoints (check _breakpoints.scss)
+ *
+ * 	sm: 600
+ * 	md: 1024
+ * 	lg: 1200
+ * 	xl: 1600
+ * 	null: it applied value outside of @media
+ */
+export const breakpoints = [600, 1024, 1200, 1600, null]
 
+// Shorthands for spacing params
 export const CSS_SHORTHAND_MAPS: Record<string, string> = {
 	// paddings
 	p: "padding",
@@ -64,28 +73,49 @@ export const CSS_SHORTHAND_MAPS: Record<string, string> = {
 	ml: "marginLeft",
 }
 
+/**
+ * Build style object based on prop name and value
+ *
+ * @param {string}             propName CSS property name
+ * @param {StringPropertyType} value    CSS property value
+ */
 export const buildStyleSheet = (
 	propName: string,
 	value: StringPropertyType,
-) => {
-	// convert to valid css property
+): { [key: string]: string } => {
+	// Convert to valid CSS property using shorthand maps if available
 	propName = CSS_SHORTHAND_MAPS[propName] ?? propName
 
 	switch (typeof value) {
 		case "string":
+			// for single string values, return a simple CSS property object
 			return { [propName]: value }
-		// css for breakpoints
+
 		case "object":
+			// for object values, create responsive CSS
 			return value.reduce((acc, val, index) => {
-				acc[`@media(min-width:${breakpoints[index]}px)`] = { [propName]: val }
-				return acc
+				val = { [propName]: val }
+				const size = breakpoints[index]
+				const query = index === 4 ? "" : `@media(max-width:${size}px)`
+
+				return {
+					...acc,
+					[query]: val,
+				}
 			}, {})
+
 		default:
 			return {}
 	}
 }
 
-export const useStyles = (styleProps: StylesTypes, attachWith = "") => {
+/**
+ * SUI custom hook for generating className based on passed CSS properties
+ *
+ * @param {useStylesTypes} styleProps CSS Properties
+ * @param {string}         attachWith Existing className
+ */
+export const useStyles = (styleProps: useStylesTypes, attachWith = "") => {
 	const styles: Record<string, any> = { [`${SUI_PREFIX}`]: {} }
 
 	// go through all props
