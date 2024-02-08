@@ -5,7 +5,7 @@ import { IconProps } from "@wpmudev/sui-icon"
 
 import { BoxGroup } from "./box-group"
 import { BoxProps } from "./box.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Create box component
 const Box: React.FC<BoxProps> = ({
@@ -29,7 +29,14 @@ const Box: React.FC<BoxProps> = ({
 	// Determine the IconTag based on the provided icon value
 	const IconTag: React.ComponentType<IconProps> = Icons[icon as IconsNamesType]
 
-	const classNames = generateCN("sui-box", { "size-sm": isSmall }, className)
+	const { cssCN } = useStyles(
+		{
+			backgroundColor: ["red", "blue", "green", "yellow"],
+		},
+		className,
+	)
+
+	const classNames = generateCN("sui-box", { "size-sm": isSmall }, cssCN)
 
 	// Default children content
 	children = useDefaultChildren(children)
