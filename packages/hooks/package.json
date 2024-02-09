@@ -37,8 +37,6 @@
   "clean-package": "../../postpack.config.json",
   "dependencies": {
     "@wpmudev/sui-utils": "^0.0.1",
-    "jss": "^10.10.0",
-    "jss-preset-default": "^10.10.0",
     "react-jss": "^10.10.0"
   }
 }
