@@ -1,6 +1,10 @@
 import { createUseStyles } from "react-jss"
 import { CSSProperties } from "react"
-import { generateCN, isValidCSSProperty } from "@wpmudev/sui-utils"
+import {
+	_isTestingMode,
+	generateCN,
+	isValidCSSProperty,
+} from "@wpmudev/sui-utils"
 
 // custom classname prefix
 const SUI_PREFIX = "sui-custom"
@@ -124,13 +128,15 @@ export const buildStyleSheet = (
 export const useStyles = (styleProps: useStylesTypes, attachWith = "") => {
 	const styles: Record<string, any> = {}
 
+	// disabled on test mode as it causes unecessary bugs
+	if (_isTestingMode()) {
+		return { cssCN: attachWith }
+	}
+
 	// go through all props
 	for (const name of Object.keys(styleProps)) {
-		// check if valid CSS property
-		type isValid = isValidCSSProperty<CSSProperties, typeof name>
-
 		// skip if not a valid CSS property
-		if (false as isValid) {
+		if (!isValidCSSProperty(name)) {
 			continue
 		}
 

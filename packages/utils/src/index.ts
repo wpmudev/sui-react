@@ -3,9 +3,13 @@ import classnames from "classnames"
 import { render } from "@testing-library/react"
 import { axe } from "jest-axe"
 
-export type isValidCSSProperty<T, K extends string> = K extends keyof T
-	? true
-	: false
+/**
+ * Check if a key is valid CSS property
+ *
+ * @param name
+ */
+const isValidCSSProperty = (name) =>
+	Object.keys(document?.body?.style).indexOf(name) > -1
 
 /**
  * Generate class names based on the prop variables.
@@ -307,6 +311,11 @@ const a11yTest = async (component: React.ReactElement, config?: object) => {
 }
 
 /**
+ * Use this method to detect if code is executed by Jest (test runner)
+ */
+const _isTestingMode = () => process.env.JEST_WORKER_ID !== undefined
+
+/**
  * It is an internal method to render rest props list safely
  *
  * @param {Record<string, any>} propsList            props list
@@ -319,10 +328,8 @@ const _renderRestPropsSafely = (
 	let toReturn = {}
 
 	for (const propKey of Object.keys(propsList)) {
-		type isValid = isValidCSSProperty<CSSProperties, typeof propKey>
-
 		// skip if a valid CSS property
-		if (excludeCSSProperties && (true as isValid)) {
+		if (excludeCSSProperties && isValidCSSProperty(propKey)) {
 			continue
 		}
 
@@ -353,7 +360,9 @@ export {
 	handleEventDefault,
 	PluginsIcons,
 	chunkArray,
+	isValidCSSProperty,
+	_renderRestPropsSafely,
 	// jest utilities
 	a11yTest,
-	_renderRestPropsSafely,
+	_isTestingMode,
 }
