@@ -9,7 +9,7 @@ const AccordionItemFooter: React.FC<{
 	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
 }> = ({ children }) => {
 	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
-	const { spacing } = useContext(AccordionContext)
+	const { spacing, isFlushed } = useContext(AccordionContext)
 
 	let styles = {}
 
@@ -25,11 +25,15 @@ const AccordionItemFooter: React.FC<{
 
 	return (
 		<div className="sui-accordion__item--footer">
-			<Box>
-				<BoxGroup style={styles} isInline={false}>
-					{children}
-				</BoxGroup>
-			</Box>
+			{!isFlushed ? (
+				<Box>
+					<BoxGroup style={styles} isInline={false}>
+						{children}
+					</BoxGroup>
+				</Box>
+			) : (
+				children
+			)}
 		</div>
 	)
 }

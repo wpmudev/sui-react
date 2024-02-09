@@ -23,6 +23,23 @@
 					}
 				}
 			}
+
+			@include modifier(flushed) {
+				.sui-#{$block}__item--expanded {
+					.sui-#{$block}__header,
+					.sui-#{$block}__panel {
+						background: $color-extended-neutral-100;
+					}
+
+					.sui-#{$block}__panel--content {
+						box-shadow: none;
+					}
+				}
+
+				.sui-#{$block}__item--footer {
+					padding-top: $spacing-xl;
+				}
+			}
 		}
 	}
 
