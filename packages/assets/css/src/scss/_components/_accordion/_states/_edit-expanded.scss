@@ -36,6 +36,10 @@
 					}
 				}
 
+				.sui-#{$block}__item--content {
+					padding-bottom: $spacing-md;
+				}
+
 				.sui-#{$block}__item--footer {
 					padding-top: $spacing-xl;
 				}
