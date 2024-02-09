@@ -20,7 +20,7 @@ const Accordion: React.FC<AccordionProps> = ({
 
 	// Default children content
 	children = useDefaultChildren(children)
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Generate CSS class names for the Accordion component
 	const classNames = generateCN(
@@ -30,7 +30,7 @@ const Accordion: React.FC<AccordionProps> = ({
 			"no-border-radius": noBorderRadius,
 			"no-side-borders": noSideBorders,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Return a div element with the generated CSS class names and spread any additional props

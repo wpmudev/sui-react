@@ -54,7 +54,7 @@ const Popover: React.FC<PopoverProps> = ({
 	const triggerRef = useRef<HTMLDivElement | null>(null)
 	const popupRef = useRef<HTMLDivElement | null>(null)
 
-	const { cssCN } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(props, className ?? "")
 
 	// class names
 	const classNames = generateCN(
@@ -64,7 +64,7 @@ const Popover: React.FC<PopoverProps> = ({
 			image: !isUndefined(image) && !isEmpty(image),
 			[`${position}`]: true,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	useOuterClick(ref, () => {

@@ -10,7 +10,7 @@ const RecipientEmail: React.FC<RecipientEmailProps> = ({
 	children,
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	if (!!children && !isString(children)) {
 		throw new Error(
@@ -21,7 +21,9 @@ const RecipientEmail: React.FC<RecipientEmailProps> = ({
 	return (
 		<Fragment>
 			{children && (
-				<span className={generateCN("sui-recipient__email", {}, cssCN)}>
+				<span
+					className={generateCN("sui-recipient__email", {}, suiInlineClassname)}
+				>
 					{children}
 				</span>
 			)}

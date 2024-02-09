@@ -36,7 +36,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({ ...props }) => {
 	const bodyId = `sui-table-toolbar-body-${uniqueId}`
 	const bulkDropdown = `sui-table-toolbar-bulk-${uniqueId}`
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 	const ctx = useContext(TableContext)
 	// const dropdownRef = useRef<DropdownRefProps | null>(null)
 
@@ -62,7 +62,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({ ...props }) => {
 	)
 
 	return (
-		<div className={generateCN("sui-table__toolbar", {}, cssCN)}>
+		<div className={generateCN("sui-table__toolbar", {}, suiInlineClassname)}>
 			<div className="sui-table__toolbar-header">
 				<div className="sui-table__toolbar-header-bulk">
 					{!!ctx?.bulkActions && (

@@ -36,7 +36,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 		[id, onToggle],
 	)
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	return (
 		<div
@@ -45,7 +45,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 				{
 					disabled: props?.isDisabled,
 				},
-				cssCN,
+				suiInlineClassname,
 			)}
 			data-testid="field-list-item"
 		>

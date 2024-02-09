@@ -24,7 +24,7 @@ const TabPanelItem: React.FC<TabPanelItemProps> = ({
 
 	// Check if the current tab panel is active based on its ID
 	const isActive = current === parseInt(id as string)
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// children default content
 	children = useDefaultChildren(children, "Tab panel item")
@@ -41,7 +41,7 @@ const TabPanelItem: React.FC<TabPanelItemProps> = ({
 				{
 					active: isActive,
 				},
-				cssCN,
+				suiInlineClassname,
 			)}
 		>
 			{/* Render the content of the tab panel */}

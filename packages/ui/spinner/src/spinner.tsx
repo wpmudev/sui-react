@@ -14,7 +14,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 	isAbsolute = false,
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Generate class names for the spinner container
 	const classNames = generateCN(
@@ -25,7 +25,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 			dark: !isEmpty(color) && "dark" === color,
 			contained: isContained,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

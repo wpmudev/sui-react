@@ -30,7 +30,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	...props
 }) => {
 	const pickType: string = type ?? "single"
-	const { cssCN } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(props, className ?? "")
 
 	// Generate class names for the component
 	const classNames = generateCN(
@@ -39,7 +39,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 			[pickType]: !isEmpty(pickType),
 		},
 		// Append any custom className provided by the parent component
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Define aria attributes.

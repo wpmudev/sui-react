@@ -35,7 +35,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	interactionMethods,
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 	const generatedId = useId()
 
 	// Random search ID
@@ -87,7 +87,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	return (
 		<Input
 			ref={controlRef}
-			className={generateCN("sui-select__input", {}, cssCN)}
+			className={generateCN("sui-select__input", {}, suiInlineClassname)}
 			id={inputId}
 			icon="Search"
 			iconPosition="start"

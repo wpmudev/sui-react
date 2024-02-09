@@ -13,7 +13,7 @@ const SearchOptionItem: React.FC<SearchOptionItemProps> = ({
 }) => {
 	const [isHovered, isFocused, methods] = useInteraction({})
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Classname
 	const className = generateCN(
@@ -22,7 +22,7 @@ const SearchOptionItem: React.FC<SearchOptionItemProps> = ({
 			hover: isHovered && !isFocused,
 			focus: isFocused,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Handle on click

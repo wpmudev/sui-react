@@ -19,7 +19,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 }) => {
 	// Generate unique id if not provided
 	const uniqueId = useId()
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	if (!id) {
 		id = uniqueId
@@ -67,7 +67,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 
 	return (
 		<div
-			className={generateCN("sui-password", {}, cssCN)}
+			className={generateCN("sui-password", {}, suiInlineClassname)}
 			data-testid="password-field"
 			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
 		>

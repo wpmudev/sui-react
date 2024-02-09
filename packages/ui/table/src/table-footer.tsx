@@ -5,12 +5,12 @@ import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // TableFooter component represents the footer section of a table.
 const TableFooter: React.FC<TableSectionProps> = ({ children, ...props }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	return (
 		<table className="sui-table__table sui-table__table--footer">
 			<tfoot
-				className={generateCN("sui-table__footer", {}, cssCN)}
+				className={generateCN("sui-table__footer", {}, suiInlineClassname)}
 				{..._renderRestPropsSafely(props)}
 			>
 				{Children.toArray(children).map((child: React.ReactNode) =>

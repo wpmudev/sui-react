@@ -30,7 +30,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 
 	// Hook for managing interaction state
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Generate class names based on interaction and disabled state
 	const classNames = generateCN(
@@ -42,7 +42,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 			error: hasError,
 			expanded: isExpanded,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Determine the IconTag based on the provided icon value

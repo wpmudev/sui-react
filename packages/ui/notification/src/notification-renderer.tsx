@@ -5,7 +5,7 @@ import { useStyles, useStylesTypes } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
 const NotificationRenderer = (props: useStylesTypes) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 	const { queue } = useNotifications()
 
 	if (queue.length <= 0) {
@@ -13,7 +13,13 @@ const NotificationRenderer = (props: useStylesTypes) => {
 	}
 
 	return (
-		<div className={generateCN("sui-notification__renderer", {}, cssCN)}>
+		<div
+			className={generateCN(
+				"sui-notification__renderer",
+				{},
+				suiInlineClassname,
+			)}
+		>
 			{(queue ?? [])?.map((notification: any, index: number) => (
 				<Notification {...notification} isInline={false} key={index} />
 			))}

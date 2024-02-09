@@ -14,7 +14,7 @@ const Score: React.FC<ScoreProps> = ({
 	className,
 	...props
 }) => {
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	const classNames = generateCN(
 		"sui-score",
@@ -27,7 +27,7 @@ const Score: React.FC<ScoreProps> = ({
 			// add class based on state type
 			[state as string]: !!state,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

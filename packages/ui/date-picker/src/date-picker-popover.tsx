@@ -15,7 +15,7 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 }) => {
 	// Context of the DatePicker, which contains various state variables and functions
 	const ctx = useContext(DatePickerContext)
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	const { startMonth, endMonth, helpers, handlers } = ctx!
 
@@ -40,7 +40,7 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 			className={generateCN(
 				"sui-date-picker__popover",
 				{ open: ctx?.isOpen },
-				cssCN,
+				suiInlineClassname,
 			)}
 			data-testid="date-picker-popover"
 			ref={popoverRef as LegacyRef<HTMLDivElement>}

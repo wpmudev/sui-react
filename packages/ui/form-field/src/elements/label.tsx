@@ -13,7 +13,7 @@ const Label: React.FC<FormFieldLabelProps> = ({
 	children,
 	...styleProps
 }) => {
-	const { cssCN } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(styleProps)
 
 	const hasContent =
 		"string" === typeof children
@@ -36,7 +36,7 @@ const Label: React.FC<FormFieldLabelProps> = ({
 		<label
 			htmlFor={id}
 			id={`${id}-label`}
-			className={generateCN(classNames, {}, cssCN)}
+			className={generateCN(classNames, {}, suiInlineClassname)}
 		>
 			{children}
 		</label>

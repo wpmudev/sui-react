@@ -25,10 +25,10 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 	// Custom hook to handle interaction states (hover, focus, etc.)
 	const [isHovered, _isFocused, methods] = useInteraction({})
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Generate CSS class names
-	const classNames = generateCN("sui-selector__option", {}, cssCN)
+	const classNames = generateCN("sui-selector__option", {}, suiInlineClassname)
 
 	let Icon: React.ComponentType<IconProps> | null = null
 

@@ -37,13 +37,13 @@ const Footer: React.FC<FooterProps> = ({
 		blocks = renderBlocks(builtWithText)
 	}
 
-	const { cssCN } = useStyles(styleProps, className)
+	const { suiInlineClassname } = useStyles(styleProps, className)
 
 	// footer classname
 	const footerCN = generateCN(
 		"sui-footer",
 		{ transparent: removeBGColor },
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

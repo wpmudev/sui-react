@@ -27,7 +27,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 	const ctx = useContext(TableContext)
 	// Get filters from context
 	const filters = ctx?.filters
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// If there are no filters, return null to hide the toolbar content
 	if (!filters) {
@@ -119,7 +119,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 					expanded: isExpanded || !!ctx?.filtersPopover,
 					inline: !ctx?.filtersPopover,
 				},
-				cssCN,
+				suiInlineClassname,
 			)}
 		>
 			{ctx?.filtersPopover ? (

@@ -33,8 +33,8 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	children,
 	...props
 }) => {
-	const { cssCN } = useStyles(props, className)
-	const classNames = generateCN("sui-summary-box", {}, cssCN)
+	const { suiInlineClassname } = useStyles(props, className)
+	const classNames = generateCN("sui-summary-box", {}, suiInlineClassname)
 
 	// Define the attributes for the Box component that will be used to display the summary box.
 	const attrs = {

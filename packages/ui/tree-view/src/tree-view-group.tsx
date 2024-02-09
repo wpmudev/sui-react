@@ -35,10 +35,10 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const context = useTreeViewContext()
 
-	const { cssCN } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(props, className ?? "")
 
 	// Generate class names
-	const classNames = generateCN("sui-tree-view__group", {}, cssCN)
+	const classNames = generateCN("sui-tree-view__group", {}, suiInlineClassname)
 
 	// unique id
 	const uniqueId = useId()

@@ -32,7 +32,7 @@ const Textarea: React.FC<TextareaProps> = ({
 		id = uniqueId
 	}
 
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	const classNames = generateCN(
 		"sui-textarea",
@@ -44,7 +44,7 @@ const Textarea: React.FC<TextareaProps> = ({
 			hover: isHovered,
 			focus: isFocused,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	const handleOnChange = useCallback(

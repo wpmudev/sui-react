@@ -17,7 +17,7 @@ const Icon: React.FC<SelectIconProps> = ({
 	onClick = () => {},
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	if (isEmpty(name ?? "")) {
 		throw new Error(
@@ -39,7 +39,7 @@ const Icon: React.FC<SelectIconProps> = ({
 			className={generateCN(
 				`suicons sui-select__icon sui-select__icon--${iconClass}`,
 				{},
-				cssCN,
+				suiInlineClassname,
 			)}
 			onClick={onClick}
 			aria-hidden="true"

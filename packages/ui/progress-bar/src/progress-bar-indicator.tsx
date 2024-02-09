@@ -24,7 +24,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	...props
 }) => {
 	const has = {}
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Props validation
 	// has.label = !isUndefined(label) && !isEmpty(label) ? true : false
@@ -37,7 +37,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 			lg: "lg" === size,
 			inline: isInline,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	const labelClass = `sui-progress-bar${!!label ? "--float-left" : "__label"}`

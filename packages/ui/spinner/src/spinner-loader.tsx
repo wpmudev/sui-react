@@ -5,7 +5,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
 const SpinnerLoader = ({ color, ...props }: SpinnerLoaderProps) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// const colors = {
 	// 	primary: "#286EF1",
@@ -21,7 +21,7 @@ const SpinnerLoader = ({ color, ...props }: SpinnerLoaderProps) => {
 
 	// Render the SpinnerLoader component
 	return (
-		<div className={generateCN("sui-spinner__loader", {}, cssCN)}>
+		<div className={generateCN("sui-spinner__loader", {}, suiInlineClassname)}>
 			<svg className="sui-spinner__icon" viewBox="0 0 100 100">
 				<title>loading</title>
 				<circle className="sui-spinner__icon--background" {...attrs} />

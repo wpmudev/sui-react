@@ -27,8 +27,8 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 	reverseBlocks = false,
 	...props
 }) => {
-	const { cssCN } = useStyles(props, className)
-	const classNames = generateCN("sui-summary-box__body", {}, cssCN)
+	const { suiInlineClassname } = useStyles(props, className)
+	const classNames = generateCN("sui-summary-box__body", {}, suiInlineClassname)
 
 	// Children default content
 	children = useDefaultChildren(children, "{summary box body children}")

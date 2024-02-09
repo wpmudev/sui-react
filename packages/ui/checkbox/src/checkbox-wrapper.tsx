@@ -11,8 +11,8 @@ const CheckBoxGroups: React.FC<CheckboxGroupsProps> = ({
 	onChange = () => {},
 	...styleProps
 }) => {
-	const { cssCN } = useStyles(styleProps)
-	const className = generateCN("sui-checkbox-wrapper", {}, cssCN)
+	const { suiInlineClassname } = useStyles(styleProps)
+	const className = generateCN("sui-checkbox-wrapper", {}, suiInlineClassname)
 
 	return (
 		<CheckboxProvider onChange={onChange}>

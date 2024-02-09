@@ -16,7 +16,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 	iconColor = "success",
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 	const ctx = useContext(ModalContext)
 	const { closeModal, variant } = ctx!
 
@@ -31,7 +31,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 	}
 
 	return (
-		<header className={generateCN("sui-modal__header", {}, cssCN)}>
+		<header className={generateCN("sui-modal__header", {}, suiInlineClassname)}>
 			<div className="sui-modal__header-actions">
 				{!!Icon && <Icon size={iconSize} color={iconColor} />}
 				{!isEmpty(title ?? "") && "app-connect" !== variant && (

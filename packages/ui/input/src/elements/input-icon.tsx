@@ -14,7 +14,7 @@ const Icon: React.FC<IconPropsTypes> = ({
 	onClick,
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	if (isEmpty(name ?? "")) {
 		throw new Error(
@@ -34,7 +34,7 @@ const Icon: React.FC<IconPropsTypes> = ({
 	const className = generateCN(
 		`suicons sui-input__icon sui-input__icon--${iconClass}`,
 		{},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

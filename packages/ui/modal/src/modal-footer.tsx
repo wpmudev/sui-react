@@ -4,13 +4,13 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
 const ModalFooter: React.FC<ModalFooterProps> = ({ children, ...props }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Default children content
 	children = useDefaultChildren(children, "{modal footer content}")
 
 	return (
-		<footer className={generateCN("sui-modal__footer", {}, cssCN)}>
+		<footer className={generateCN("sui-modal__footer", {}, suiInlineClassname)}>
 			{children}
 		</footer>
 	)

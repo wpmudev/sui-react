@@ -19,8 +19,11 @@ const Builder: React.FC<BuilderProps> = ({
 }) => {
 	// Default children content
 	children = useDefaultChildren(children)
-	const { cssCN } = useStyles(styleProps, `sui-layout ${className}`)
-	const classNames = generateCN("sui-builder", {}, cssCN)
+	const { suiInlineClassname } = useStyles(
+		styleProps,
+		`sui-layout ${className}`,
+	)
+	const classNames = generateCN("sui-builder", {}, suiInlineClassname)
 
 	return (
 		<div className={classNames} data-testid="builder">

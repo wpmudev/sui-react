@@ -13,7 +13,7 @@ const FieldList: React.FC<FieldListProps> = ({
 	onToggle = () => null,
 	...styleProps
 }) => {
-	const { cssCN } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(styleProps)
 
 	// Callback function to handle item toggling
 	const onChangeItem = useCallback(
@@ -32,7 +32,7 @@ const FieldList: React.FC<FieldListProps> = ({
 	return (
 		// Render the FieldList component
 		<div
-			className={generateCN("sui-field-list", {}, cssCN)}
+			className={generateCN("sui-field-list", {}, suiInlineClassname)}
 			data-testid="field-list"
 		>
 			{/* Render the label and helper elements if they are provided */}

@@ -21,7 +21,7 @@ const AccordionItemBody: React.FC<AccordionItemBodyType> = ({
 }) => {
 	// Default children content
 	children = useDefaultChildren(children)
-	const { cssCN } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(styleProps)
 
 	const classNames = generateCN(
 		"sui-accordion__item",
@@ -29,7 +29,7 @@ const AccordionItemBody: React.FC<AccordionItemBodyType> = ({
 			body: true,
 			"no-padding": !hasPadding,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

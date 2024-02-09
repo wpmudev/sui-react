@@ -14,10 +14,10 @@ import { generateCN } from "@wpmudev/sui-utils"
  * @return {JSX.Element} The TabPanel component.
  */
 const TabPanel: React.FC<TabPanelProps> = ({ children, ...props }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	return (
-		<div className={generateCN("sui-tab__panel", {}, cssCN)}>
+		<div className={generateCN("sui-tab__panel", {}, suiInlineClassname)}>
 			{/* Map through the children to clone and update their props */}
 			{Children.map(children, (child: ReactNode, index: number) => {
 				if (isValidElement(child)) {

@@ -21,8 +21,12 @@ const SummaryFooterBody: React.FC<SummaryFooterBodyProps> = ({
 	children,
 	...props
 }) => {
-	const { cssCN } = useStyles(props, className)
-	const classNames = generateCN("sui-summary-box__footer", {}, cssCN)
+	const { suiInlineClassname } = useStyles(props, className)
+	const classNames = generateCN(
+		"sui-summary-box__footer",
+		{},
+		suiInlineClassname,
+	)
 
 	// Default children content
 	children = useDefaultChildren(children, "{summary footer body}")

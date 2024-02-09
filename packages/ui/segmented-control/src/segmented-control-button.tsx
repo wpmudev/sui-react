@@ -40,10 +40,14 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	// Retrieve context values and interaction methods for the button.
 	const { onClick, name, value: ctxValue } = useSegmentedControl(value)
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Generate class names for the button.
-	const classNames = generateCN("sui-segmented-control__button", {}, cssCN)
+	const classNames = generateCN(
+		"sui-segmented-control__button",
+		{},
+		suiInlineClassname,
+	)
 
 	// Check if the button is active based on its value and the context value.
 	const isActive = value === ctxValue

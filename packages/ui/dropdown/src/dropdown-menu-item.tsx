@@ -32,7 +32,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 		TagName = "a"
 	}
 
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Generate class names for the menu item
 	const classNames = generateCN(
@@ -43,7 +43,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 			disabled: isDisabled,
 			[variation]: !isEmpty(variation),
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Check if an icon is specified and assign it to IconTag

@@ -43,7 +43,7 @@ const Icon = forwardRef<"svg", IconProps>(
 		},
 		ref,
 	) => {
-		const { cssCN } = useStyles(props, className)
+		const { suiInlineClassname } = useStyles(props, className)
 
 		// Add variations to the classnames
 		className = generateCN(
@@ -52,7 +52,7 @@ const Icon = forwardRef<"svg", IconProps>(
 				[color]: !isEmpty(color),
 				[size]: !isEmpty(size),
 			},
-			cssCN,
+			suiInlineClassname,
 		)
 
 		// SVG props

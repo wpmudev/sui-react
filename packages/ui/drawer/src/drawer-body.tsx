@@ -8,8 +8,8 @@ const DrawerBody = ({
 	children,
 	...styleProps
 }: DrawerFooterTypes) => {
-	const { cssCN } = useStyles(styleProps, className)
-	const classNames = generateCN("sui-drawer__body", {}, cssCN)
+	const { suiInlineClassname } = useStyles(styleProps, className)
+	const classNames = generateCN("sui-drawer__body", {}, suiInlineClassname)
 
 	return <div className={classNames}>{children}</div>
 }

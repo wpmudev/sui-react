@@ -56,7 +56,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	const ctx = useContext(TableContext)
 	// State for row hover and focus
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Generate unique IDs for accessibility
 	const uniqueID = useId()
@@ -103,7 +103,7 @@ const TableRow: React.FC<TableRowProps> = ({
 			expanded: isExpanded,
 			[status as string]: !isEmpty(status ?? ""),
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Generate toggle button

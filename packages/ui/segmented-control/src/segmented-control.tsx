@@ -23,7 +23,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	// default children content
 	children = useDefaultChildren(children)
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	/**
 	 * Generate class names for the segmented control based on the isFullWidth prop.
@@ -33,7 +33,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 		{
 			"full-width": isFullWidth,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	/**

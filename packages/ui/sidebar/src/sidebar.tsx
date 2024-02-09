@@ -12,8 +12,8 @@ const Sidebar: React.FC<Omit<SidebarProps, "selectedItemName">> = ({
 	children,
 	...props
 }) => {
-	const { cssCN } = useStyles(props, className)
-	const classNames = generateCN("sui-sidebar", {}, cssCN)
+	const { suiInlineClassname } = useStyles(props, className)
+	const classNames = generateCN("sui-sidebar", {}, suiInlineClassname)
 
 	// Default children content
 	children = useDefaultChildren(children, "{sidebar children content}")

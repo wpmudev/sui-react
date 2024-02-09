@@ -22,7 +22,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	className = "",
 	...props
 }) => {
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// generate classnames
 	const classNames = generateCN(
@@ -33,7 +33,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 			lg: "lg" === size,
 			inline: isInline,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	const attrs: Record<string, any> = {}

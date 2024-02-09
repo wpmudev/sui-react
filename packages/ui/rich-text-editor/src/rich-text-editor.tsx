@@ -145,13 +145,13 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 		[content],
 	)
 
-	const { cssCN } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(props, className ?? "")
 
 	// Generate class names
 	const classNames = generateCN(
 		"sui-rich-text-editor",
 		{ disabled: isDisabled },
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

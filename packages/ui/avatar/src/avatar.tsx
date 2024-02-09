@@ -31,7 +31,7 @@ const Avatar: React.FC<AvatarProps> = ({
 		image,
 	)
 
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Props validation
 	const hasStatus = !isUndefined(status) && !isEmpty(status)
@@ -44,7 +44,7 @@ const Avatar: React.FC<AvatarProps> = ({
 			sm: isSmall,
 			clickable: !!props?.onClick,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

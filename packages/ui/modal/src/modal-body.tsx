@@ -4,13 +4,15 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
 const ModalBody: React.FC<ModalBodyProps> = ({ children, ...props }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Default children content
 	children = useDefaultChildren(children, "{modal body content}")
 
 	return (
-		<div className={generateCN("sui-modal__body", {}, cssCN)}>{children}</div>
+		<div className={generateCN("sui-modal__body", {}, suiInlineClassname)}>
+			{children}
+		</div>
 	)
 }
 

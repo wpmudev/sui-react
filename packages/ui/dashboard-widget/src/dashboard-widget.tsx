@@ -30,7 +30,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	actions,
 	...styleProps
 }) => {
-	const { cssCN } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(styleProps)
 
 	// Generate classnames for the dashboard widget
 	const classNames: string = generateCN(
@@ -39,7 +39,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 			expanded: isExpanded,
 			disabled: isDisabled,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Default children content

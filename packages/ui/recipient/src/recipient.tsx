@@ -20,7 +20,7 @@ const Recipient: React.FC<RecipientProps> = ({
 	appearance = "primary",
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Define recipient class.
 	const className = generateCN(
@@ -29,7 +29,7 @@ const Recipient: React.FC<RecipientProps> = ({
 			// Define recipient appearance.
 			[appearance as string]: !isEmpty(appearance ?? ""),
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

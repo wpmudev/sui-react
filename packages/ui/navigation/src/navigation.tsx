@@ -14,9 +14,9 @@ const Navigation: React.FC<NavigationProps> = ({
 	user,
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 	// Generate CSS class names for the navigation component
-	const classNames = generateCN("sui-navigation", {}, cssCN)
+	const classNames = generateCN("sui-navigation", {}, suiInlineClassname)
 
 	return (
 		// Render the navigation component

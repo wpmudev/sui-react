@@ -68,6 +68,8 @@ export const CSS_SHORTHAND_MAPS: Record<string, string> = {
 	ml: "marginLeft",
 }
 
+const parentSelector = "body .sui-wrap &"
+
 /**
  * Build style object based on prop name and value
  *
@@ -82,33 +84,44 @@ export const buildStyleSheet = (
 
 	// build single value
 	const buildSingleValue = (val: string) => ({
-		"body .sui-wrap &": {
-			[shorthandPropName]: val,
-		},
+		[shorthandPropName]: val,
 	})
 
 	// build media queries
 	const buildMediaQueries = (val: string, pos: number, acc: object) => {
-		// last breakpoint value is for default value
-		if (pos === 4) {
-			return buildSingleValue(val)
-		}
-
 		const prevSize = breakpoints[pos - 1]
 		const size = breakpoints[pos]
 		const styleVal = buildSingleValue(val)
+
+		// last breakpoint value is for default value
+		if (null === size) {
+			return {
+				...acc,
+				[parentSelector.replace("body ", "")]: {
+					...acc[parentSelector],
+					...styleVal,
+				},
+			}
+		}
 
 		const query =
 			pos > 0
 				? `@media(min-width:${(prevSize ?? 0) + 1}px) and (max-width:${size}px)`
 				: `@media(max-width:${size}px)`
 
-		return { ...acc, [query]: styleVal }
+		return {
+			...acc,
+			[query]: {
+				[parentSelector]: styleVal,
+			},
+		}
 	}
 
 	switch (typeof value) {
 		case "string":
-			return buildSingleValue(value)
+			return {
+				[parentSelector]: buildSingleValue(value),
+			}
 		case "object":
 			return value.reduce(
 				(acc, val, index) => ({
@@ -136,7 +149,7 @@ export const useStyles = (styleProps: useStylesTypes, attachWith = "") => {
 
 	// disabled on test mode as it causes unecessary bugs
 	if (_isTestingMode()) {
-		return { cssCN: attachWith }
+		return { suiInlineClassname: attachWith }
 	}
 
 	// go through all props
@@ -156,10 +169,12 @@ export const useStyles = (styleProps: useStylesTypes, attachWith = "") => {
 		}
 	}
 
+	console.log("styles", styles)
+
 	// generated classnames
 	const generatedCN = createUseStyles(styles)
 
 	return {
-		cssCN: generateCN(attachWith, {}, generatedCN()?.[prefix]),
+		suiInlineClassname: generateCN(attachWith, {}, generatedCN()?.[prefix]),
 	}
 }

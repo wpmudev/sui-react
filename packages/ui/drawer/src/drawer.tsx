@@ -41,7 +41,7 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 			}
 		})
 
-		const { cssCN } = useStyles(
+		const { suiInlineClassname } = useStyles(
 			styleProps,
 			`${!hasContainer && "sui-wp-overlay"} ${className}`,
 		)
@@ -58,7 +58,7 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 				[size]: !!size,
 				[position]: !!position,
 			},
-			cssCN,
+			suiInlineClassname,
 		)
 
 		/**

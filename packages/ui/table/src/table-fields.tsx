@@ -16,10 +16,10 @@ const TableFields: React.FC<TableFieldsProps> = ({ children, ...props }) => {
 		(col: TableColumnType) => col.isPrimary,
 	)
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	return (
-		<div className={generateCN("sui-table__fields", {}, cssCN)}>
+		<div className={generateCN("sui-table__fields", {}, suiInlineClassname)}>
 			{/** Render primary column as header */}
 			{!!primaryCol && !!primaryColIndex && (
 				<div className="sui-table__fields-primary">

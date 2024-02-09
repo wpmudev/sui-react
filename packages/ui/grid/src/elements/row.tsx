@@ -11,7 +11,7 @@ const Row: React.FC<RowProps> = ({
 	children,
 	...props
 }) => {
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	const expectedAligns: Record<string, any> = {
 		xs: "",
@@ -23,7 +23,7 @@ const Row: React.FC<RowProps> = ({
 	}
 
 	// Define main class
-	let classNames = generateCN("sui-row", {}, cssCN)
+	let classNames = generateCN("sui-row", {}, suiInlineClassname)
 
 	// Default row children
 	children = useDefaultChildren(children, "{Row children}")

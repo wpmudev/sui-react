@@ -15,7 +15,7 @@ const Upsell: React.FC<UpsellProps> = ({
 	actions = null,
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Generate classnames for the upsell
 	const classNames = generateCN(
@@ -24,7 +24,7 @@ const Upsell: React.FC<UpsellProps> = ({
 			[variation as string]: !isEmpty(variation ?? ""),
 			[size as string]: !isEmpty(size ?? ""),
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Get current variation options

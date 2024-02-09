@@ -61,7 +61,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			toggle: () => setIsOpen(!isOpen),
 		}))
 
-		const { cssCN } = useStyles(props, className)
+		const { suiInlineClassname } = useStyles(props, className)
 
 		// Generate classes for the dropdown's wrapper based on the component's props.
 		const wrapperClasses = generateCN(
@@ -70,7 +70,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 				sm: isSmall,
 				open: isOpen,
 			},
-			cssCN,
+			suiInlineClassname,
 		)
 
 		// Function to recursively render menu items and groups.

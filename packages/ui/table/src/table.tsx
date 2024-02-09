@@ -29,7 +29,7 @@ const Table: React.FC<TableProps> = ({
 	const ref = useRef<HTMLTableElement | null>(null)
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
 
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Define tag design
 	// Limited to: solid (default) and outlined
@@ -42,7 +42,7 @@ const Table: React.FC<TableProps> = ({
 			sticky: stickyCols,
 			draggable: isDraggable,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Component name to exclude from the children array

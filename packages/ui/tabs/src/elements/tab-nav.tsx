@@ -101,11 +101,11 @@ const TabNav: FC<TabNavProps> = ({ children, ...props }) => {
 		}
 	}, [handleScroll])
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	return (
 		<div
-			className={generateCN("sui-tab__nav", {}, cssCN)}
+			className={generateCN("sui-tab__nav", {}, suiInlineClassname)}
 			role="tablist"
 			aria-orientation="horizontal"
 		>

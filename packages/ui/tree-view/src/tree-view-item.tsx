@@ -27,9 +27,9 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 	children,
 	...props
 }) => {
-	const { cssCN } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(props, className ?? "")
 	// Generate class names
-	const classNames = generateCN("sui-tree-view__item", {}, cssCN)
+	const classNames = generateCN("sui-tree-view__item", {}, suiInlineClassname)
 
 	// Get the tree view context to access configuration
 	const context = useTreeViewContext()

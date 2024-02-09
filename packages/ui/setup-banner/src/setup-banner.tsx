@@ -18,14 +18,14 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 	description,
 	...props
 }) => {
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	const classNames = generateCN(
 		"sui-setup-banner",
 		{
 			[type]: true,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	const Plugin: PluginIconTypes = PluginsIcons?.[type] ?? "Plugin"

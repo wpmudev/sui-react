@@ -11,9 +11,13 @@ const DropdownMenuGroup: React.FC<DropdownMenuGroupProps> = ({
 	children,
 	...props
 }) => {
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 	// Generate class names for the menu group
-	const classNames = generateCN("sui-dropdown__menu-group", {}, cssCN)
+	const classNames = generateCN(
+		"sui-dropdown__menu-group",
+		{},
+		suiInlineClassname,
+	)
 
 	// Prepare attributes for the menu group element
 	const attrs = {

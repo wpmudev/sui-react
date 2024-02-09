@@ -39,8 +39,12 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 			toggle: () => setIsOpen(!isOpen),
 		}))
 
-		const { cssCN } = useStyles(props, className)
-		const classNames = generateCN("sui-sidebar__dropdown", {}, cssCN)
+		const { suiInlineClassname } = useStyles(props, className)
+		const classNames = generateCN(
+			"sui-sidebar__dropdown",
+			{},
+			suiInlineClassname,
+		)
 
 		const childrenWithProps = React.Children.map(children, (child) => {
 			if (React.isValidElement(child)) {

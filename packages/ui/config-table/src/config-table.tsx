@@ -44,10 +44,10 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 		[onActionClick],
 	)
 
-	const { cssCN } = useStyles(styleProps, className)
+	const { suiInlineClassname } = useStyles(styleProps, className)
 
 	// classnames
-	const classNames = generateCN("sui-config-table", {}, cssCN)
+	const classNames = generateCN("sui-config-table", {}, suiInlineClassname)
 
 	return (
 		<Table className={classNames} hasToolbar={false}>

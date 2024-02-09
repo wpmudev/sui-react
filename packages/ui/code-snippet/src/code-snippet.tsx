@@ -15,9 +15,9 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 	children,
 	...styleProps
 }) => {
-	const { cssCN } = useStyles(styleProps, className ?? "")
+	const { suiInlineClassname } = useStyles(styleProps, className ?? "")
 	// generate class names
-	const classNames = generateCN("sui-code-snippet", {}, cssCN)
+	const classNames = generateCN("sui-code-snippet", {}, suiInlineClassname)
 	const [isCopied, setIsCopied] = useState<boolean>(false)
 
 	// highlight the code

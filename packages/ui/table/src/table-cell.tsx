@@ -57,7 +57,7 @@ const TableCell: React.FC<TableCellProps> = ({
 	const TagName: "td" | "th" = isHeading ? "th" : "td"
 
 	const [hovered, focused, methods] = useInteraction({})
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Default children content
 	children = useDefaultChildren(children, "{cell children content}")
@@ -122,7 +122,7 @@ const TableCell: React.FC<TableCellProps> = ({
 					primary: isPrimary,
 					"is-sticky-active": hasStickyCols && isSticky,
 				},
-				cssCN,
+				suiInlineClassname,
 			)}
 			{...(isHeading && { scope: "col" })}
 			role={isHeading ? "rowheader" : "cell"}

@@ -12,8 +12,8 @@ const SearchOptions: React.FC<SearchOptionsProps> = ({
 	setIsPopoverVisible,
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
-	const className = generateCN("sui-search__options", {}, cssCN)
+	const { suiInlineClassname } = useStyles(props)
+	const className = generateCN("sui-search__options", {}, suiInlineClassname)
 
 	// Handle option item click
 	const onOptionClick = useCallback(

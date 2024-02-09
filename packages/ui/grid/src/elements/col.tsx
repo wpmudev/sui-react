@@ -5,7 +5,7 @@ import { ColProps } from "../grid.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const Col: React.FC<ColProps> = ({ size, children, className, ...props }) => {
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	const classNames = generateCN(
 		"sui-col",
@@ -13,7 +13,7 @@ const Col: React.FC<ColProps> = ({ size, children, className, ...props }) => {
 			// Define class based on the column size
 			[size as string]: !!size,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Default children content

@@ -41,7 +41,7 @@ const _CheckboxGroupInner = ({
 	// unique id to be used in different places
 	const uuid = useId()
 
-	const { cssCN } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(styleProps)
 
 	// Generate a unique ID for the checkbox group
 	const checkboxGroupId = id ?? `sui-checkbox-group-${uuid}`
@@ -53,7 +53,7 @@ const _CheckboxGroupInner = ({
 			nested: hasSubItems,
 			inline: isInline,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Filter items belonging to the current group

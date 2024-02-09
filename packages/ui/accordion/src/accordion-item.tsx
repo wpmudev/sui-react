@@ -27,7 +27,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 
 	// Default content when children is empty
 	children = useDefaultChildren(children)
-	const { cssCN } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(styleProps)
 
 	// Mouse is being pressed
 	const [isPressed, setIsPressed] = useState(false)
@@ -85,7 +85,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 					hover: isHovered,
 					disabled: isDisabled,
 				},
-				cssCN,
+				suiInlineClassname,
 			)}
 			data-testid="accordion-item"
 		>

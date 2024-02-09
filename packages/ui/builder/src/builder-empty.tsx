@@ -11,9 +11,9 @@ const BuilderEmpty: React.FC<BuilderEmptyProps> = ({
 	className,
 	...styleProps
 }) => {
-	const { cssCN } = useStyles(styleProps, className)
+	const { suiInlineClassname } = useStyles(styleProps, className)
 	// Class names based on interaction and disabled state.
-	const classNames = generateCN("sui-builder__empty", {}, cssCN)
+	const classNames = generateCN("sui-builder__empty", {}, suiInlineClassname)
 
 	return (
 		<div className={classNames} data-testid="builder-empty">

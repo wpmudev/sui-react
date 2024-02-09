@@ -23,7 +23,7 @@ const Tag: React.FC<TagProps> = ({
 	const hasColor = !isUndefined(color) && !isEmpty(color)
 	const hasStyle = ["multiline", "truncated"].includes(style)
 
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Define tag design
 	// Limited to: solid (default) and outlined
@@ -38,7 +38,7 @@ const Tag: React.FC<TagProps> = ({
 			uppercase: isUppercase,
 			disabled: isDisabled,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Default children content

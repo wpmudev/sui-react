@@ -21,7 +21,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 
 	// default children content
 	children = useDefaultChildren(children)
-	const { cssCN } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(styleProps)
 
 	/**
 	 * Callback function to hide the alert banner when clicking on the dismiss button.
@@ -42,7 +42,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 		{
 			[variation as string]: !isEmpty(variation ?? ""),
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Set Icon & iconColor based on "variation" value

@@ -58,7 +58,7 @@ const TabNavItem: FC<TabNavItemProps> = ({
 	// Manage interaction methods
 	const [isHovered, isFocused, interactionMethods] = useInteraction({})
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Render the tab header (button element) with appropriate attributes and event handlers
 	return (
@@ -75,7 +75,7 @@ const TabNavItem: FC<TabNavItemProps> = ({
 					focus: isFocused && !isActive,
 					disabled: isDisabled,
 				},
-				cssCN,
+				suiInlineClassname,
 			)}
 			aria-selected={isActive}
 			aria-controls={`${tabId}--panel-${id}`}

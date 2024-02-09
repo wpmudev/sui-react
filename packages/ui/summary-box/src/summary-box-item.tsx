@@ -40,7 +40,7 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 }) => {
 	// Hook for handling interaction state (hover, focus).
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	const classNames = generateCN(
 		"sui-summary-box__list-item",
@@ -48,7 +48,7 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 			hover: isHovered,
 			focus: isFocused,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Dynamically determine the IconTag based on the provided actionIcon prop.

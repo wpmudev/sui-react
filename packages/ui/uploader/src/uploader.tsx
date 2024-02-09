@@ -154,13 +154,13 @@ const Uploader: React.FC<UploaderProps> = ({
 		[files],
 	)
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	return (
 		<Fragment>
 			<NotificationRenderer />
 			<div
-				className={generateCN("sui-uploader", {}, cssCN)}
+				className={generateCN("sui-uploader", {}, suiInlineClassname)}
 				data-testid="uploader"
 			>
 				{/* Hidden input field to handle file selection */}

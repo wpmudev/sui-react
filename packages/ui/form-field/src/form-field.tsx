@@ -43,7 +43,7 @@ const FormField: React.FC<FormFieldProps> = ({
 	const isErrored =
 		"string" === typeof error ? !isEmpty((error as string) ?? "") : !!error
 
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Generate classnames
 	const classNames = generateCN(
@@ -52,7 +52,7 @@ const FormField: React.FC<FormFieldProps> = ({
 			sm: isSmall,
 			disabled: isDisabled,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Define aria attributes.

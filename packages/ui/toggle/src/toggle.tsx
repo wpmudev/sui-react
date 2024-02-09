@@ -45,7 +45,7 @@ const Toggle: React.FC<ToggleProps> = ({
 		[onClick, state],
 	)
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Define container props
 	const containerProps = {
@@ -60,7 +60,7 @@ const Toggle: React.FC<ToggleProps> = ({
 				"checked-hover": state && isHovered,
 				"checked-focus": state && isFocused,
 			},
-			cssCN,
+			suiInlineClassname,
 		),
 		...methods,
 	}

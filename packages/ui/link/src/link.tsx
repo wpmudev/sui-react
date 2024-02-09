@@ -38,7 +38,7 @@ const Link: React.FC<LinkProps> = ({
 	// Use the useInteraction hook to track hover and focus states
 	const [hover, focus, methods] = useInteraction({})
 
-	const { cssCN } = useStyles(props as useStylesTypes, className)
+	const { suiInlineClassname } = useStyles(props as useStylesTypes, className)
 
 	// Generate CSS class names for the link
 	const classNames = generateCN(
@@ -50,7 +50,7 @@ const Link: React.FC<LinkProps> = ({
 			focus,
 			[theme]: !isEmpty(theme ?? ""),
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Prepare the link props

@@ -34,7 +34,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 }) => {
 	// generate unique name for checkbox
 	const name = "select-" + useId()
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	const onSelect = useCallback(
 		(e: any, id: string) => {
@@ -57,7 +57,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		// Render regular options
 		return (
 			<ul
-				className={generateCN("sui-select__dropdown", {}, cssCN)}
+				className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
 				role="listbox"
 				aria-label="dropdown-options"
 			>
@@ -112,7 +112,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 					/>
 				</div>
 				<ul
-					className={generateCN("sui-select__dropdown", {}, cssCN)}
+					className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
 					aria-label="dropdown-options"
 				>
 					<li className="sui-select__dropdown--option">

@@ -184,7 +184,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [filteredItems])
 
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	const classNames = generateCN(
 		"sui-select",
@@ -198,7 +198,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			multiselect: isMultiSelect,
 			searchable: isSearchable,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Select search function.

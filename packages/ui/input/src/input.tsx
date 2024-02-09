@@ -122,7 +122,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				inputType = type
 			}
 
-			const { cssCN } = useStyles(props, className ?? "")
+			const { suiInlineClassname } = useStyles(props, className ?? "")
 
 			// Generate class names based on the prop values
 			const classNames = generateCN(
@@ -141,7 +141,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 					// Define multiline class name
 					[`multiline${isSmall ? "-sm" : ""}`]: isMultiLine,
 				},
-				cssCN,
+				suiInlineClassname,
 			)
 
 			// Generate input class names

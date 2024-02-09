@@ -28,7 +28,7 @@ const RadioGroup = ({
 	// Default children content
 	children = useDefaultChildren(children, "{Radio Group Children Content}")
 
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// radio group classname
 	const radioClassNames = generateCN(
@@ -37,7 +37,7 @@ const RadioGroup = ({
 			inline: isInline,
 			sm: isSmall,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

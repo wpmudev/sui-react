@@ -13,7 +13,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 	hasPadding = true,
 	...styleProps
 }) => {
-	const { cssCN } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(styleProps)
 
 	// Build content based in slots
 	const slots = Children.map(children, (child, index) => {
@@ -42,7 +42,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 			footer: isFooter,
 			"no-padding": !hasPadding,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

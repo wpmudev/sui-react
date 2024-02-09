@@ -37,7 +37,7 @@ const Integration: React.FC<IntegrationProps> = ({
 
 	// Define component states
 	const [isActive, setIsActive] = useState(active)
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Define container props
 	const classNames = generateCN(
@@ -48,7 +48,7 @@ const Integration: React.FC<IntegrationProps> = ({
 			hover: !isDisabled && !isPro && isHovered,
 			focus: !isDisabled && !isPro && isFocused,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Define toggle props

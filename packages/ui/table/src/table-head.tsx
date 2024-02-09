@@ -18,7 +18,7 @@ const TableHead: React.FC<TableHeadProps> = ({
 	hasActions = false,
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// convert table columns to array
 	const tableCols = Children.toArray(children!)
@@ -42,7 +42,7 @@ const TableHead: React.FC<TableHeadProps> = ({
 
 	return (
 		<thead
-			className={generateCN("sui-table__head", {}, cssCN)}
+			className={generateCN("sui-table__head", {}, suiInlineClassname)}
 			{..._renderRestPropsSafely(props)}
 		>
 			{tableCols.map((child: ReactNode) =>

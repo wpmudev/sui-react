@@ -12,7 +12,7 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 	description = "",
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 	// Icon for the specified plugin or use a default "Plugin" icon.
 	const PluginIcon: PluginIconTypes = plugin
 		? PluginsIcons?.[plugin]
@@ -25,7 +25,9 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 	}
 
 	return (
-		<div className={generateCN("sui-navigation__brand", {}, cssCN)}>
+		<div
+			className={generateCN("sui-navigation__brand", {}, suiInlineClassname)}
+		>
 			<div
 				className="sui-navigation__icon"
 				style={{ backgroundColor: PluginIcon?.bg }}

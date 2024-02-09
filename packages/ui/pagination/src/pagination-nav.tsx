@@ -25,7 +25,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 	skip,
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Do not render if pagesArray is blank
 	if (pagesArray.length < 1) {
@@ -34,7 +34,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 
 	return (
 		<div
-			className={generateCN("sui-pagination", {}, cssCN)}
+			className={generateCN("sui-pagination", {}, suiInlineClassname)}
 			data-testid="pagination"
 		>
 			<ul className="sui-pagination__nav">

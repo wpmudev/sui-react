@@ -17,7 +17,7 @@ const BuilderButton: FC<BuilderButtonProps> = ({
 }) => {
 	// `useInteraction` returns interaction state and methods.
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { cssCN } = useStyles(styleProps, className)
+	const { suiInlineClassname } = useStyles(styleProps, className)
 
 	// Class names based on interaction and disabled state.
 	const classNames = generateCN(
@@ -27,7 +27,7 @@ const BuilderButton: FC<BuilderButtonProps> = ({
 			focus: isFocused && !isDisabled,
 			disabled: isDisabled,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	const onButtonClick = useCallback(() => {

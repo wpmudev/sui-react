@@ -52,7 +52,7 @@ const Notification: React.FC<NotificationProps> = ({
 		}
 	}, [id, isInline, notifications])
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// do not render
 	if (!isVisible) return null
@@ -67,7 +67,7 @@ const Notification: React.FC<NotificationProps> = ({
 				variation ?? "",
 			),
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Get SVG Icon

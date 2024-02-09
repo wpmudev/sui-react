@@ -36,13 +36,13 @@ const TreeView: React.FC<TreeViewProps> = ({
 		}
 	}, [items, onChange])
 
-	const { cssCN } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(props, className ?? "")
 
 	return (
 		<TreeViewProvider value={{ allowCheck, showIcons, items, setItems }}>
 			{/* TreeView component renders a tree structure with a list */}
 			<nav
-				className={generateCN("sui-tree-view", {}, cssCN)}
+				className={generateCN("sui-tree-view", {}, suiInlineClassname)}
 				data-testid="tree-view"
 			>
 				<ul role="tree">{children}</ul>

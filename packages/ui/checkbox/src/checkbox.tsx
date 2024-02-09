@@ -25,7 +25,7 @@ const Checkbox = ({
 	// Context for checkbox
 	const ctx = useCheckbox()
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Generate a dynamic ID for the checkbox
 	let uuid = `sui-checkbox-${useId()}`
@@ -78,7 +78,7 @@ const Checkbox = ({
 				checked: isChecked,
 				sm: isSmall,
 			},
-			cssCN,
+			suiInlineClassname,
 		),
 		...methods,
 	}

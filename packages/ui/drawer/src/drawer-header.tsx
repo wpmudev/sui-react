@@ -13,8 +13,8 @@ const DrawerHeader = ({
 	tooltipOptions = {},
 	...styleProps
 }: DrawerHeaderTypes) => {
-	const { cssCN } = useStyles(styleProps, className)
-	const classNames = generateCN("sui-drawer__header", {}, cssCN)
+	const { suiInlineClassname } = useStyles(styleProps, className)
+	const classNames = generateCN("sui-drawer__header", {}, suiInlineClassname)
 
 	const ctx = useDrawerContext()
 

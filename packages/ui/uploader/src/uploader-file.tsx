@@ -24,12 +24,12 @@ const UploaderFile: React.FC<UploaderFileProps> = ({
 	onRemove,
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// @todo: add error variation support
 	return (
 		<div
-			className={generateCN("sui-uploader__file", {}, cssCN)}
+			className={generateCN("sui-uploader__file", {}, suiInlineClassname)}
 			data-testid="uploader-file"
 		>
 			<div className="sui-uploader__file--preview">

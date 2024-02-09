@@ -20,14 +20,14 @@ const AccordionItemFooter: React.FC<AccordionItemFooterTypes> = ({
 	// Default content when children is empty
 	children = useDefaultChildren(children)
 
-	const { cssCN } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(styleProps)
 
 	const classNames = generateCN(
 		"sui-accordion__item",
 		{
 			footer: true,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

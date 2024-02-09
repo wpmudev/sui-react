@@ -27,7 +27,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 }) => {
 	// `useInteraction` returns interaction state and methods.
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Class names based on interaction and disabled state.
 	const classNames = generateCN(
@@ -38,7 +38,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 			disabled: isDisabled,
 			active: isActive,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Determine the IconTag based on the provided icon value.

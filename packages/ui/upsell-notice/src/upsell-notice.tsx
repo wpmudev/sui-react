@@ -16,7 +16,7 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 	actions = null,
 	...props
 }) => {
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Generate classnames for the upsell
 	const classNames = generateCN(
@@ -24,7 +24,7 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 		{
 			[variation]: !isEmpty(variation ?? ""),
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

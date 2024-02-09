@@ -22,7 +22,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 	onCTAClick = () => {},
 	...styleProps
 }) => {
-	const { cssCN } = useStyles(styleProps, className)
+	const { suiInlineClassname } = useStyles(styleProps, className)
 
 	// Define class name
 	const classNames = generateCN(
@@ -30,7 +30,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 		{
 			[variation]: !isEmpty(variation),
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	let closeBtnColor: ButtonProps["color"] = "black"

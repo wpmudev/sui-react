@@ -10,9 +10,13 @@ const EditorToolbarField: FC<EditorToolbarFieldProps> = ({
 	children,
 	...styleProps
 }) => {
-	const { cssCN } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(styleProps)
 	// Generate CSS class names for the editor toolbar component
-	const classNames = generateCN("sui-editor-toolbar__field", {}, cssCN)
+	const classNames = generateCN(
+		"sui-editor-toolbar__field",
+		{},
+		suiInlineClassname,
+	)
 
 	let StatusTag = <CheckAlt size="sm" color="success" />
 	let StatusText = "Saved"

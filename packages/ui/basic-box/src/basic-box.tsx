@@ -25,7 +25,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 
 	// Default children content
 	children = useDefaultChildren(children)
-	const { cssCN } = useStyles(styleProps, className)
+	const { suiInlineClassname } = useStyles(styleProps, className)
 
 	// Define class name based on various conditions
 	const classNames = generateCN(
@@ -35,7 +35,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 			hover: isHovered && !isFocused,
 			pro: isPro,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	return (

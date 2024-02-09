@@ -34,7 +34,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	// Manage interaction methods
 	const [isHovered, isFocused, interactionMethods] = useInteraction({})
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Generate class names
 	const classNames = generateCN(
@@ -45,7 +45,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 			hover: isHovered,
 			focus: isFocused,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Get the tree view context to access configuration

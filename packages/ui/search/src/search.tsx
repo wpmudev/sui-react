@@ -41,7 +41,7 @@ const Search: React.FC<SearchProps> = ({
 	// Make options searchable if input value is above min chars required for search
 	const isFiltered = value?.length >= searchMinChars
 
-	const { cssCN } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Define class name
 	const classNames = generateCN(
@@ -51,7 +51,7 @@ const Search: React.FC<SearchProps> = ({
 			hover: isHovered && !isFocused,
 			disabled: isDisabled,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Handle when input value get changes

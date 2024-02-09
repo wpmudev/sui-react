@@ -130,7 +130,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 		return "Select"
 	}
 
-	const { cssCN } = useStyles(props)
+	const { suiInlineClassname } = useStyles(props)
 
 	return (
 		<div
@@ -140,7 +140,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					error: isError,
 					disabled: isDisabled,
 				},
-				cssCN,
+				suiInlineClassname,
 			)}
 			data-testid="color-picker"
 			ref={colorPickerRef}

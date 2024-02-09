@@ -33,8 +33,12 @@ const Box: React.FC<BoxProps> = ({
 
 	// Determine the IconTag based on the provided icon value
 	const IconTag: React.ComponentType<IconProps> = Icons[icon as IconsNamesType]
-	const { cssCN } = useStyles(props, className)
-	const classNames = generateCN("sui-box", { "size-sm": isSmall }, cssCN)
+	const { suiInlineClassname } = useStyles(props, className)
+	const classNames = generateCN(
+		"sui-box",
+		{ "size-sm": isSmall },
+		suiInlineClassname,
+	)
 
 	// Default children content
 	children = useDefaultChildren(children)

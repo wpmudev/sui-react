@@ -18,7 +18,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 	onSettingClick = () => {},
 	...styleProps
 }) => {
-	const { cssCN } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(styleProps)
 	// Generate CSS class names for the editor toolbar component
 	const classNames = generateCN(
 		"sui-editor-toolbar",
@@ -26,7 +26,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 			right: !alignCenter,
 			center: alignCenter,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Default children content

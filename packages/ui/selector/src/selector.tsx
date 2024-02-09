@@ -49,7 +49,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			[name, onChange, value],
 		)
 
-		const { cssCN } = useStyles(props as useStylesTypes)
+		const { suiInlineClassname } = useStyles(props as useStylesTypes)
 
 		return (
 			<label
@@ -67,7 +67,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 						[alignment]: !isEmpty(alignment ?? ""),
 						[variation]: !isEmpty(variation ?? ""),
 					},
-					cssCN,
+					suiInlineClassname,
 				)}
 				{...interactionMethods} // Spread interaction methods onto the label element
 			>

@@ -57,7 +57,7 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 
 		// Get the 'render' function from the 'usePortal' hook
 		const [render] = usePortal()
-		const { cssCN } = useStyles(props, "sui-wp-overlay")
+		const { suiInlineClassname } = useStyles(props, "sui-wp-overlay")
 
 		// Return nothing if the modal is not open
 		if (!isOpen) {
@@ -72,7 +72,7 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 				[variant]: !isEmpty(variant ?? ""),
 				[size]: !isEmpty(size ?? ""),
 			},
-			cssCN,
+			suiInlineClassname,
 		)
 
 		return render(

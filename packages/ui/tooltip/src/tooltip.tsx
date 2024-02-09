@@ -216,14 +216,14 @@ const Tooltip: React.FC<TooltipProps> = ({
 
 	const attrs: TooltipAttrsTypes = {}
 
-	const { cssCN } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(props, className ?? "")
 
 	const classNames = generateCN(
 		"sui-tooltip",
 		{
 			focus: isFocused,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 
 	// Custom tooltip width

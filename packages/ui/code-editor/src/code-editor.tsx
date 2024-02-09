@@ -28,7 +28,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 	children,
 	...styleProps
 }) => {
-	const { cssCN } = useStyles(styleProps, className ?? "")
+	const { suiInlineClassname } = useStyles(styleProps, className ?? "")
 
 	// Generate class names
 	const classNames = generateCN(
@@ -36,7 +36,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 		{
 			numbers: displayLineNumbers,
 		},
-		cssCN,
+		suiInlineClassname,
 	)
 	const [isCopied, setIsCopied] = useState<boolean>(false)
 
