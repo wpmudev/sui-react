@@ -4,7 +4,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 // Import required components
 import { Toggle } from "@wpmudev/sui-toggle"
 import { FieldListItemProps } from "./field-list.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const FieldListItem: React.FC<FieldListItemProps> = ({
 	id,
@@ -36,11 +36,17 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 		[id, onToggle],
 	)
 
+	const { cssCN } = useStyles(props)
+
 	return (
 		<div
-			className={generateCN("sui-field-list__item", {
-				disabled: props?.isDisabled,
-			})}
+			className={generateCN(
+				"sui-field-list__item",
+				{
+					disabled: props?.isDisabled,
+				},
+				cssCN,
+			)}
 			data-testid="field-list-item"
 		>
 			{/* Display the item's content */}

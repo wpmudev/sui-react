@@ -1,7 +1,7 @@
 import React from "react"
 import { generateCN, isEmpty, isUndefined } from "@wpmudev/sui-utils"
 import { TagProps } from "./tag.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const Tag: React.FC<TagProps> = ({
 	design,
@@ -18,6 +18,8 @@ const Tag: React.FC<TagProps> = ({
 	const hasColor = !isUndefined(color) && !isEmpty(color)
 	const hasStyle = ["multiline", "truncated"].includes(style)
 
+	const { cssCN } = useStyles(props, className)
+
 	// Define tag design
 	// Limited to: solid (default) and outlined
 	const classNames = generateCN(
@@ -31,7 +33,7 @@ const Tag: React.FC<TagProps> = ({
 			uppercase: isUppercase,
 			disabled: isDisabled,
 		},
-		className,
+		cssCN,
 	)
 
 	// Default children content

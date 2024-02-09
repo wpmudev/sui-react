@@ -2,6 +2,7 @@ import React from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { ScoreProps } from "./score.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const Score: React.FC<ScoreProps> = ({
 	bar = 50,
@@ -13,6 +14,8 @@ const Score: React.FC<ScoreProps> = ({
 	className,
 	...props
 }) => {
+	const { cssCN } = useStyles(props, className)
+
 	const classNames = generateCN(
 		"sui-score",
 		{
@@ -24,7 +27,7 @@ const Score: React.FC<ScoreProps> = ({
 			// add class based on state type
 			[state as string]: !!state,
 		},
-		className,
+		cssCN,
 	)
 
 	return (

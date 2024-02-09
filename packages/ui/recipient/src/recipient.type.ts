@@ -1,10 +1,13 @@
 import { HTMLProps } from "react"
 import { AvatarProps } from "@wpmudev/sui-avatar"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Interface representing the properties of the recipient component component.
  */
-interface RecipientProps extends HTMLProps<HTMLDivElement> {
+interface RecipientProps
+	extends HTMLProps<HTMLDivElement>,
+		Omit<useStylesTypes, "appearance"> {
 	/**
 	 * Name of the receipient
 	 */

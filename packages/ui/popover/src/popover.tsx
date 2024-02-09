@@ -19,6 +19,7 @@ import {
 	useOuterClick,
 	useDetectRTL,
 	useDefaultChildren,
+	useStyles,
 } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
 
@@ -35,6 +36,7 @@ const Popover: React.FC<PopoverProps> = ({
 	position = "top",
 	footer,
 	displayOnHover = false,
+	...props
 }) => {
 	const [isPopupOpen, setIsPopupOpen] = useState<boolean>(isOpen ?? false)
 	const [popupPositions, setPopupPositions] = useState<Record<string, any>>({
@@ -52,6 +54,8 @@ const Popover: React.FC<PopoverProps> = ({
 	const triggerRef = useRef<HTMLDivElement | null>(null)
 	const popupRef = useRef<HTMLDivElement | null>(null)
 
+	const { cssCN } = useStyles(props, className ?? "")
+
 	// class names
 	const classNames = generateCN(
 		"sui-popover",
@@ -60,7 +64,7 @@ const Popover: React.FC<PopoverProps> = ({
 			image: !isUndefined(image) && !isEmpty(image),
 			[`${position}`]: true,
 		},
-		className ?? "",
+		cssCN,
 	)
 
 	useOuterClick(ref, () => {

@@ -2,16 +2,18 @@ import React from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 import { ColProps } from "../grid.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const Col: React.FC<ColProps> = ({ size, children, className, ...props }) => {
+	const { cssCN } = useStyles(props, className)
+
 	const classNames = generateCN(
 		"sui-col",
 		{
 			// Define class based on the column size
 			[size as string]: !!size,
 		},
-		className,
+		cssCN,
 	)
 
 	// Default children content

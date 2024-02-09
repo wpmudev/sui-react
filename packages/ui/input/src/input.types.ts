@@ -1,5 +1,5 @@
 import React, { HTMLProps } from "react"
-import { InteractionTypes } from "@wpmudev/sui-hooks"
+import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 
 // Possible values for input type
@@ -49,7 +49,8 @@ interface InputProps
 			| "onBlur"
 			| "onBlurCapture"
 		>,
-		InteractionTypes {
+		InteractionTypes,
+		useStylesTypes {
 	/**
 	 * The type of the input element.
 	 */

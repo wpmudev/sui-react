@@ -3,7 +3,7 @@ import React, { useRef } from "react"
 
 import { Button } from "@wpmudev/sui-button"
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
-import { useDragAndDrop } from "@wpmudev/sui-hooks"
+import { useDragAndDrop, useStyles } from "@wpmudev/sui-hooks"
 import { Upload } from "@wpmudev/sui-icons"
 
 import { UploaderButtonProps } from "./uploader.types"
@@ -12,6 +12,7 @@ import { UploaderButtonProps } from "./uploader.types"
  * The UploaderButton component represents the button for selecting/uploading files in the Uploader.
  *
  * @param {UploaderButtonProps} props                  - The properties for the UploaderButton component.
+ * @param {string}              btnTitle               - Button title
  * @param {boolean}             props.allowDragAndDrop - Determines whether to allow drag-and-drop functionality (default: false).
  * @param {Function}            props.onClick          - Callback function for button click event (default: () => {}).
  * @param {Function}            props.onDrag           - Callback function for drag event (default: () => {}).
@@ -22,6 +23,7 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 	allowDragAndDrop = false,
 	onClick = () => {},
 	onDrag = () => {},
+	...props
 }) => {
 	// Ref for the div used to handle drag-and-drop
 	const dragRef = useRef<HTMLDivElement | null>(null)
@@ -43,6 +45,8 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 	if (isEmpty(btnTitle ?? "")) {
 		btnTitle = "Upload File"
 	}
+
+	const { cssCN } = useStyles(props)
 
 	// Return the UploaderButton component with drag-and-drop or regular button appearance
 	if (allowDragAndDrop) {
@@ -68,7 +72,7 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 
 	return (
 		<Button
-			className="sui-uploader__button"
+			className={generateCN("sui-uploader__button", {}, cssCN)}
 			appearance="primary"
 			color="blue"
 			icon="Upload"

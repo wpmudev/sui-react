@@ -14,17 +14,20 @@ import { Select, SelectOptionType } from "@wpmudev/sui-select"
 import { Button } from "@wpmudev/sui-button"
 
 import { TableContext } from "./table-context"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Table toolbar content component displays filter options and actions.
 const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 	id,
 	filterBtnId,
 	isExpanded,
+	...props
 }) => {
 	// Get table context
 	const ctx = useContext(TableContext)
 	// Get filters from context
 	const filters = ctx?.filters
+	const { cssCN } = useStyles(props)
 
 	// If there are no filters, return null to hide the toolbar content
 	if (!filters) {
@@ -110,10 +113,14 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 		<div
 			id={id}
 			aria-labelledby={filterBtnId}
-			className={generateCN("sui-table__toolbar-body", {
-				expanded: isExpanded || !!ctx?.filtersPopover,
-				inline: !ctx?.filtersPopover,
-			})}
+			className={generateCN(
+				"sui-table__toolbar-body",
+				{
+					expanded: isExpanded || !!ctx?.filtersPopover,
+					inline: !ctx?.filtersPopover,
+				},
+				cssCN,
+			)}
 		>
 			{ctx?.filtersPopover ? (
 				<Fragment>

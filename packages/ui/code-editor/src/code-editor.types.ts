@@ -1,9 +1,10 @@
 import React from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Represents the properties for a code snippet component.
  */
-interface CodeEditorProps {
+interface CodeEditorProps extends useStylesTypes {
 	/**
 	 * File name
 	 */

@@ -1,17 +1,37 @@
 import React from "react"
 
 import { Box, BoxGroup } from "@wpmudev/sui-box"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import {
+	useDefaultChildren,
+	useStyles,
+	useStylesTypes,
+} from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
+
+interface AccordionItemFooterTypes extends useStylesTypes {
+	children?: React.ReactNode
+}
 
 // The AccordionFooter component is defined as a functional component using React.FC.
-const AccordionItemFooter: React.FC<{
-	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
-}> = ({ children }) => {
+const AccordionItemFooter: React.FC<AccordionItemFooterTypes> = ({
+	children,
+	...styleProps
+}) => {
 	// Default content when children is empty
 	children = useDefaultChildren(children)
 
+	const { cssCN } = useStyles(styleProps)
+
+	const classNames = generateCN(
+		"sui-accordion__item",
+		{
+			footer: true,
+		},
+		cssCN,
+	)
+
 	return (
-		<div className="sui-accordion__item--footer">
+		<div className={classNames}>
 			<Box>
 				<BoxGroup isInline={false}>{children}</BoxGroup>
 			</Box>

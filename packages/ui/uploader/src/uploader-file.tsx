@@ -6,6 +6,8 @@ import { Button } from "@wpmudev/sui-button"
 
 import { UploaderFileProps } from "./uploader.types"
 import { getFileImagePreview, isImageFile } from "./helper"
+import { generateCN } from "@wpmudev/sui-utils"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * Represents a single file item in the Uploader component.
@@ -16,10 +18,20 @@ import { getFileImagePreview, isImageFile } from "./helper"
  * @param {Function}          props.onRemove - Callback function to remove the file.
  * @return {JSX.Element} The JSX representation of the UploaderFile component.
  */
-const UploaderFile: React.FC<UploaderFileProps> = ({ id, file, onRemove }) => {
+const UploaderFile: React.FC<UploaderFileProps> = ({
+	id,
+	file,
+	onRemove,
+	...props
+}) => {
+	const { cssCN } = useStyles(props)
+
 	// @todo: add error variation support
 	return (
-		<div className="sui-uploader__file" data-testid="uploader-file">
+		<div
+			className={generateCN("sui-uploader__file", {}, cssCN)}
+			data-testid="uploader-file"
+		>
 			<div className="sui-uploader__file--preview">
 				{/* Render image preview if the file is an image, otherwise render a generic file icon */}
 				{isImageFile(file?.type) ? (

@@ -16,7 +16,7 @@ import {
 	condContent,
 	handleOnKeyDown,
 } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
 import { typeValues } from "./type-values"
 import { Icon } from "./elements/input-icon"
@@ -122,6 +122,8 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				inputType = type
 			}
 
+			const { cssCN } = useStyles(props, className ?? "")
+
 			// Generate class names based on the prop values
 			const classNames = generateCN(
 				"sui-input",
@@ -139,7 +141,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 					// Define multiline class name
 					[`multiline${isSmall ? "-sm" : ""}`]: isMultiLine,
 				},
-				className ?? "",
+				cssCN,
 			)
 
 			// Generate input class names

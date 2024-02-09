@@ -4,7 +4,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { Box } from "@wpmudev/sui-box"
 
 import { SummaryBoxProps } from "./summary-box.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * SummaryBox Component
@@ -31,8 +31,10 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	secondaryActions = null,
 	className,
 	children,
+	...props
 }) => {
-	const classNames = generateCN("sui-summary-box", {}, className)
+	const { cssCN } = useStyles(props, className)
+	const classNames = generateCN("sui-summary-box", {}, cssCN)
 
 	// Define the attributes for the Box component that will be used to display the summary box.
 	const attrs = {

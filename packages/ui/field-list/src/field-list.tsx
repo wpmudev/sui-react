@@ -2,7 +2,8 @@ import React, { Children, cloneElement, ReactElement, useCallback } from "react"
 
 // Import required components
 import { FieldListItemProps, FieldListProps } from "./field-list.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 
 // Build "field list" component
 const FieldList: React.FC<FieldListProps> = ({
@@ -10,7 +11,10 @@ const FieldList: React.FC<FieldListProps> = ({
 	helper,
 	children,
 	onToggle = () => null,
+	...styleProps
 }) => {
+	const { cssCN } = useStyles(styleProps)
+
 	// Callback function to handle item toggling
 	const onChangeItem = useCallback(
 		(id: string, checked: boolean) => {
@@ -27,7 +31,10 @@ const FieldList: React.FC<FieldListProps> = ({
 
 	return (
 		// Render the FieldList component
-		<div className="sui-field-list" data-testid="field-list">
+		<div
+			className={generateCN("sui-field-list", {}, cssCN)}
+			data-testid="field-list"
+		>
 			{/* Render the label and helper elements if they are provided */}
 			{(label || helper) && (
 				<div className="sui-field-list__row">

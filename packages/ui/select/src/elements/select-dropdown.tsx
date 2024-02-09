@@ -9,8 +9,10 @@ import React, {
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { Icon } from "./select-icon"
 import { Search } from "./multiselect-search"
+import { useStyles, useStylesTypes } from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 
-interface SelectDropdownProps {
+interface SelectDropdownProps extends useStylesTypes {
 	options: Record<string, any>[]
 	onEvent?: (id: string | number) => void
 	selectAll?: () => void
@@ -32,6 +34,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 }) => {
 	// generate unique name for checkbox
 	const name = "select-" + useId()
+	const { cssCN } = useStyles(props)
 
 	const onSelect = useCallback(
 		(e: any, id: string) => {
@@ -54,7 +57,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		// Render regular options
 		return (
 			<ul
-				className="sui-select__dropdown"
+				className={generateCN("sui-select__dropdown", {}, cssCN)}
 				role="listbox"
 				aria-label="dropdown-options"
 			>
@@ -108,7 +111,10 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						}
 					/>
 				</div>
-				<ul className="sui-select__dropdown" aria-label="dropdown-options">
+				<ul
+					className={generateCN("sui-select__dropdown", {}, cssCN)}
+					aria-label="dropdown-options"
+				>
 					<li className="sui-select__dropdown--option">
 						<Checkbox
 							name={name}

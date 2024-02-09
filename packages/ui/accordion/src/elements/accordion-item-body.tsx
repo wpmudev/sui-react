@@ -1,21 +1,37 @@
 import React from "react"
 
 import { Box, BoxGroup } from "@wpmudev/sui-box"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import {
+	useDefaultChildren,
+	useStyles,
+	useStylesTypes,
+} from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
-// The AccordionBody component is defined as a functional component using React.FC.
-const AccordionItemBody: React.FC<{
+interface AccordionItemBodyType extends useStylesTypes {
 	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
 	hasPadding?: boolean
-}> = ({ children, hasPadding = true }) => {
+}
+
+// The AccordionBody component is defined as a functional component using React.FC.
+const AccordionItemBody: React.FC<AccordionItemBodyType> = ({
+	children,
+	hasPadding = true,
+	...styleProps
+}) => {
 	// Default children content
 	children = useDefaultChildren(children)
+	const { cssCN } = useStyles(styleProps)
 
-	const classNames = generateCN("sui-accordion__item", {
-		body: true,
-		"no-padding": !hasPadding,
-	})
+	const classNames = generateCN(
+		"sui-accordion__item",
+		{
+			body: true,
+			"no-padding": !hasPadding,
+		},
+		cssCN,
+	)
+
 	return (
 		<div className={classNames} data-testid="accordion-body">
 			<Box>

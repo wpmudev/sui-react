@@ -2,11 +2,14 @@
  * Interface representing the properties of a tag component.
  */
 import React, { HTMLProps } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Interface representing the properties of a tag component.
  */
-interface TagProps extends Omit<HTMLProps<HTMLSpanElement>, "style"> {
+interface TagProps
+	extends Omit<HTMLProps<HTMLSpanElement>, "style">,
+		useStylesTypes {
 	/**
 	 * Design of the tag.
 	 */

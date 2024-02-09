@@ -4,14 +4,13 @@ import { generateCN } from "@wpmudev/sui-utils"
 
 import { TreeViewCheckType, TreeViewProps } from "./tree-view.types"
 import { TreeViewProvider } from "./tree-view-context"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * TreeView Component
  *
  * A tree view component that renders a hierarchical tree structure.
  *
- * @param {TreeViewProps} props - Component props
  * @return {JSX.Element} - JSX Element representing the TreeView component
  */
 const TreeView: React.FC<TreeViewProps> = ({
@@ -20,6 +19,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 	allowCheck = false,
 	showIcons = false,
 	onChange = () => {},
+	...props
 }) => {
 	const [items, setItems] = useState<TreeViewCheckType[]>([])
 
@@ -36,11 +36,13 @@ const TreeView: React.FC<TreeViewProps> = ({
 		}
 	}, [items, onChange])
 
+	const { cssCN } = useStyles(props, className ?? "")
+
 	return (
 		<TreeViewProvider value={{ allowCheck, showIcons, items, setItems }}>
 			{/* TreeView component renders a tree structure with a list */}
 			<nav
-				className={generateCN("sui-tree-view", {}, className ?? "")}
+				className={generateCN("sui-tree-view", {}, cssCN)}
 				data-testid="tree-view"
 			>
 				<ul role="tree">{children}</ul>

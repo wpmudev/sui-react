@@ -1,9 +1,10 @@
 import React from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Interface representing the properties of an icon component.
  */
-interface IconProps {
+interface IconProps extends useStylesTypes {
 	/**
 	 * Custom element type to be used for rendering the icon.
 	 */

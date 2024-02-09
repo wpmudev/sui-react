@@ -4,6 +4,8 @@ import { Input, InputProps } from "@wpmudev/sui-input"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 
 import { PasswordFieldProps } from "./password-field.types"
+import { useStyles } from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 
 const PasswordField: React.FC<PasswordFieldProps> = ({
 	id,
@@ -17,6 +19,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 }) => {
 	// Generate unique id if not provided
 	const uniqueId = useId()
+	const { cssCN } = useStyles(props)
 
 	if (!id) {
 		id = uniqueId
@@ -64,7 +67,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 
 	return (
 		<div
-			className="sui-password"
+			className={generateCN("sui-password", {}, cssCN)}
 			data-testid="password-field"
 			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
 		>

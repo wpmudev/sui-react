@@ -1,9 +1,10 @@
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Represents the properties for an icon component.
  */
-interface IconPropsTypes {
+interface IconPropsTypes extends Omit<useStylesTypes, "position"> {
 	/**
 	 * The name of the icon.
 	 */

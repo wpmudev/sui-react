@@ -1,13 +1,15 @@
 import React, { HTMLProps } from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Represents the properties for a button component.
  */
 interface ButtonProps
 	extends React.HTMLAttributes<
-		HTMLButtonElement | HTMLAnchorElement | HTMLInputElement
-	> {
+			HTMLButtonElement | HTMLAnchorElement | HTMLInputElement
+		>,
+		Omit<useStylesTypes, "appearance"> {
 	/**
 	 * Optional CSS class name for the button.
 	 */

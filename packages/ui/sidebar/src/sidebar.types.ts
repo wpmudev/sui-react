@@ -1,10 +1,11 @@
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import React, { HTMLProps } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Interface defining the props that can be passed to a Sidebar component.
  */
-interface SidebarProps {
+interface SidebarProps extends useStylesTypes {
 	/**
 	 * An optional class name to be applied to the Sidebar component.
 	 */
@@ -27,9 +28,10 @@ interface SidebarProps {
  */
 interface SidebarItemProps
 	extends Omit<
-		HTMLProps<HTMLAnchorElement>,
-		"action" | "onClick" | "className" | "title"
-	> {
+			HTMLProps<HTMLAnchorElement>,
+			"action" | "onClick" | "className" | "title"
+		>,
+		useStylesTypes {
 	/**
 	 * The URL associated with the SidebarItem.
 	 */

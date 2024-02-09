@@ -1,7 +1,7 @@
 import React from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { Row } from "@wpmudev/sui-grid"
 import { Tag } from "@wpmudev/sui-tag"
@@ -36,9 +36,11 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	tagColor = "default",
 	actionIcon,
 	actionIconColor = "",
+	...props
 }) => {
 	// Hook for handling interaction state (hover, focus).
 	const [isHovered, isFocused, methods] = useInteraction({})
+	const { cssCN } = useStyles(props, className)
 
 	const classNames = generateCN(
 		"sui-summary-box__list-item",
@@ -46,7 +48,7 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 			hover: isHovered,
 			focus: isFocused,
 		},
-		className,
+		cssCN,
 	)
 
 	// Dynamically determine the IconTag based on the provided actionIcon prop.

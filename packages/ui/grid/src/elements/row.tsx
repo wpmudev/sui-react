@@ -1,9 +1,9 @@
 import React from "react"
 
-import { isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import { RowProps } from "../grid.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const Row: React.FC<RowProps> = ({
 	align = { md: "inline" },
@@ -11,6 +11,8 @@ const Row: React.FC<RowProps> = ({
 	children,
 	...props
 }) => {
+	const { cssCN } = useStyles(props, className)
+
 	const expectedAligns: Record<string, any> = {
 		xs: "",
 		sm: "",
@@ -21,7 +23,7 @@ const Row: React.FC<RowProps> = ({
 	}
 
 	// Define main class
-	let classNames = "sui-row"
+	let classNames = generateCN("sui-row", {}, cssCN)
 
 	// Default row children
 	children = useDefaultChildren(children, "{Row children}")

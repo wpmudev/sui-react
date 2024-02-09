@@ -1,10 +1,11 @@
 import React, { HTMLProps, KeyboardEvent } from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Props for Menu component.
  */
-interface DropdownMenuProps {
+interface DropdownMenuProps extends useStylesTypes {
 	/** Additional class name(s) to be applied to the Menu. */
 	className?: string
 	/** Children elements to be rendered inside the Menu. */
@@ -14,7 +15,7 @@ interface DropdownMenuProps {
 /**
  * Props for MenuItem component.
  */
-interface DropdownMenuItemProps {
+interface DropdownMenuItemProps extends useStylesTypes {
 	/**
 	 * URL to navigate to when the item is clicked (if the item is an anchor).
 	 */
@@ -65,7 +66,9 @@ interface DropdownMenuItemProps {
 /**
  * Props for MenuGroup component.
  */
-interface DropdownMenuGroupProps extends HTMLProps<HTMLLIElement> {
+interface DropdownMenuGroupProps
+	extends HTMLProps<HTMLLIElement>,
+		useStylesTypes {
 	/** Title of the MenuGroup. */
 	title: string
 	/** URL to navigate to when the MenuGroup is clicked. */
@@ -77,7 +80,7 @@ interface DropdownMenuGroupProps extends HTMLProps<HTMLLIElement> {
 }
 
 // Represents the base props for a DropdownMenu component.
-interface DropdownMenuBaseProps {
+interface DropdownMenuBaseProps extends useStylesTypes {
 	id: string | number // Unique identifier for the dropdown menu item.
 	label: React.ReactNode | string // Content to display as the label for the dropdown menu item.
 }
@@ -95,7 +98,7 @@ interface MenuGroupProps extends DropdownMenuBaseProps {
 /**
  * Represents the properties for a dropdown component.
  */
-interface DropdownProps {
+interface DropdownProps extends useStylesTypes {
 	/**
 	 * The label for the dropdown.
 	 */

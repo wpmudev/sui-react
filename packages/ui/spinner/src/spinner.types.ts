@@ -1,9 +1,10 @@
 import { RefObject } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Describes the props that can be passed to the Spinner component.
  */
-interface SpinnerProps {
+interface SpinnerProps extends useStylesTypes {
 	/**
 	 * Size of the spinner
 	 */
@@ -26,7 +27,9 @@ interface SpinnerProps {
  * Describes the props that can be passed to the SpinnerLoader component,
  * using a subset of SpinnerProps (size and color).
  */
-interface SpinnerLoaderProps extends Pick<SpinnerProps, "size" | "color"> {}
+interface SpinnerLoaderProps
+	extends Pick<SpinnerProps, "size" | "color">,
+		useStylesTypes {}
 
 /**
  * Describes the props required for the SpinnerHook, used to control spinner visibility.

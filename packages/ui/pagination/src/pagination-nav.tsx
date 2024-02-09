@@ -3,6 +3,8 @@ import React from "react"
 import { Button } from "@wpmudev/sui-button"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { PaginationNavProps } from "./pagination.types"
+import { useStyles } from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 
 export const PaginationNav: React.FC<PaginationNavProps> = ({
 	pagesArray,
@@ -21,14 +23,20 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 	endIndex,
 	pages,
 	skip,
+	...props
 }) => {
+	const { cssCN } = useStyles(props)
+
 	// Do not render if pagesArray is blank
 	if (pagesArray.length < 1) {
 		return null
 	}
 
 	return (
-		<div className="sui-pagination" data-testid="pagination">
+		<div
+			className={generateCN("sui-pagination", {}, cssCN)}
+			data-testid="pagination"
+		>
 			<ul className="sui-pagination__nav">
 				<li className="sui-pagination__item">
 					<Tooltip

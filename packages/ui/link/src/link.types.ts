@@ -1,4 +1,5 @@
 import React, { ElementType } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * LinkProps is an interface that extends the HTMLAnchorElement interface
@@ -7,8 +8,9 @@ import React, { ElementType } from "react"
  */
 interface LinkProps
 	extends Partial<
-		Omit<HTMLAnchorElement, "className" | "children" | "toString">
-	> {
+			Omit<HTMLAnchorElement, "className" | "children" | "toString">
+		>,
+		useStylesTypes {
 	/**
 	 * Link location
 	 */

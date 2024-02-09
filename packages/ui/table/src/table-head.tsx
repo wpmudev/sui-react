@@ -9,6 +9,8 @@ import React, {
 
 import { TableHeadProps } from "./table.types"
 import { TableContext } from "./table-context"
+import { useStyles } from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 
 // TableHead component represents the head section of a table.
 const TableHead: React.FC<TableHeadProps> = ({
@@ -16,6 +18,8 @@ const TableHead: React.FC<TableHeadProps> = ({
 	hasActions = false,
 	...props
 }) => {
+	const { cssCN } = useStyles(props)
+
 	// convert table columns to array
 	const tableCols = Children.toArray(children!)
 
@@ -37,7 +41,7 @@ const TableHead: React.FC<TableHeadProps> = ({
 	}, [children, setColumns])
 
 	return (
-		<thead className="sui-table__head" {...props}>
+		<thead className={generateCN("sui-table__head", {}, cssCN)} {...props}>
 			{tableCols.map((child: ReactNode) =>
 				cloneElement(child! as ReactElement, {
 					...(child as ReactElement)?.props,

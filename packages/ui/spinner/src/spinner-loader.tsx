@@ -1,8 +1,12 @@
 import React from "react"
 
 import { SpinnerLoaderProps } from "./spinner.types"
+import { useStyles } from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 
-const SpinnerLoader = ({ color }: SpinnerLoaderProps) => {
+const SpinnerLoader = ({ color, ...props }: SpinnerLoaderProps) => {
+	const { cssCN } = useStyles(props)
+
 	// const colors = {
 	// 	primary: "#286EF1",
 	// 	dark: "#FFFFFF",
@@ -17,7 +21,7 @@ const SpinnerLoader = ({ color }: SpinnerLoaderProps) => {
 
 	// Render the SpinnerLoader component
 	return (
-		<div className="sui-spinner__loader">
+		<div className={generateCN("sui-spinner__loader", {}, cssCN)}>
 			<svg className="sui-spinner__icon" viewBox="0 0 100 100">
 				<title>loading</title>
 				<circle className="sui-spinner__icon--background" {...attrs} />

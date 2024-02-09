@@ -1,10 +1,11 @@
 import React, { HTMLProps } from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Interface defining the props that can be passed to a Builder component.
  */
-interface BuilderProps {
+interface BuilderProps extends useStylesTypes {
 	/**
 	 * An optional class name to be applied to the Builder component.
 	 */
@@ -27,7 +28,9 @@ interface BuilderProps {
 	children?: React.ReactNode
 }
 
-interface BuilderButtonProps extends HTMLProps<HTMLAnchorElement> {
+interface BuilderButtonProps
+	extends HTMLProps<HTMLAnchorElement>,
+		useStylesTypes {
 	/**
 	 * An optional icon to be displayed within in button.
 	 */
@@ -52,7 +55,7 @@ interface BuilderButtonProps extends HTMLProps<HTMLAnchorElement> {
 /**
  * Interface for props that can be passed to the BuilderEmpty component.
  */
-interface BuilderEmptyProps {
+interface BuilderEmptyProps extends useStylesTypes {
 	/**
 	 * Optional title for the BuilderEmpty component.
 	 */
@@ -67,7 +70,7 @@ interface BuilderEmptyProps {
 /**
  * Interface for props that can be passed to the BuilderField component.
  */
-interface BuilderFieldProps {
+interface BuilderFieldProps extends useStylesTypes {
 	/**
 	 * Optional number specifying the column size.
 	 */
@@ -137,7 +140,7 @@ interface BuilderFieldProps {
 /**
  * Interface for props that can be passed to the BuilderWrapper component.
  */
-interface BuilderWrapperProps {
+interface BuilderWrapperProps extends useStylesTypes {
 	/**
 	 * Optional CSS class name for styling the BuilderWrapper component.
 	 */

@@ -2,7 +2,11 @@ import React, { Fragment, useCallback, useContext, useRef } from "react"
 
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
 import Icons from "@wpmudev/sui-icons"
-import { useDefaultChildren, useInteraction } from "@wpmudev/sui-hooks"
+import {
+	useDefaultChildren,
+	useInteraction,
+	useStyles,
+} from "@wpmudev/sui-hooks"
 
 import { TableCellProps } from "./table.types"
 import { TableContext, TableSortBy } from "./table-context"
@@ -48,6 +52,7 @@ const TableCell: React.FC<TableCellProps> = ({
 	const TagName: "td" | "th" = isHeading ? "th" : "td"
 
 	const [hovered, focused, methods] = useInteraction({})
+	const { cssCN } = useStyles(props, className)
 
 	// Default children content
 	children = useDefaultChildren(children, "{cell children content}")
@@ -112,7 +117,7 @@ const TableCell: React.FC<TableCellProps> = ({
 					primary: isPrimary,
 					"is-sticky-active": hasStickyCols && isSticky,
 				},
-				className,
+				cssCN,
 			)}
 			{...(isHeading && { scope: "col" })}
 			role={isHeading ? "rowheader" : "cell"}

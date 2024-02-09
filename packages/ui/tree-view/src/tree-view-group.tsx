@@ -13,13 +13,13 @@ import { TreeViewItem } from "./tree-view-item"
 import { TreeViewInfo } from "./tree-view-info"
 import { useTreeViewContext } from "./tree-view-context"
 import { getGroupState } from "./helpers"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * TreeViewGroup Component
  *
  * A component that represents a group in the tree view.
  *
- * @param {TreeViewGroupProps} props - Component props
  * @return {JSX.Element} - JSX Element representing the TreeViewGroup component
  */
 const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
@@ -30,12 +30,15 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 	className = "",
 	children,
 	isDisabled = false,
+	...props
 }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const context = useTreeViewContext()
 
+	const { cssCN } = useStyles(props, className ?? "")
+
 	// Generate class names
-	const classNames = generateCN("sui-tree-view__group", {}, className ?? "")
+	const classNames = generateCN("sui-tree-view__group", {}, cssCN)
 
 	// unique id
 	const uniqueId = useId()

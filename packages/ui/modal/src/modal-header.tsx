@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
 
-import { isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
-import { useValidateProps } from "@wpmudev/sui-hooks"
+import { useStyles, useValidateProps } from "@wpmudev/sui-hooks"
 import { IconProps } from "@wpmudev/sui-icon"
 import Icons from "@wpmudev/sui-icons"
 import { ModalContext } from "./modal"
@@ -14,11 +14,11 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 	icon,
 	iconSize = "sm",
 	iconColor = "success",
+	...props
 }) => {
+	const { cssCN } = useStyles(props)
 	const ctx = useContext(ModalContext)
 	const { closeModal, variant } = ctx!
-
-	//
 
 	// validate props
 	useValidateProps({ component: ModalHeader, propsToCheck: { title } })
@@ -31,7 +31,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 	}
 
 	return (
-		<header className="sui-modal__header">
+		<header className={generateCN("sui-modal__header", {}, cssCN)}>
 			<div className="sui-modal__header-actions">
 				{!!Icon && <Icon size={iconSize} color={iconColor} />}
 				{!isEmpty(title ?? "") && "app-connect" !== variant && (

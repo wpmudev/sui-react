@@ -3,6 +3,7 @@ import React from "react"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import { AdvancedBannerProps } from "./advanced-banner.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build "advanced-banner" component
 const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
@@ -19,14 +20,17 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 	// Black friday variation props
 	ctaTitle = "cta title",
 	onCTAClick = () => {},
+	...styleProps
 }) => {
+	const { cssCN } = useStyles(styleProps, className)
+
 	// Define class name
 	const classNames = generateCN(
 		"sui-advanced-banner",
 		{
 			[variation]: !isEmpty(variation),
 		},
-		className,
+		cssCN,
 	)
 
 	let closeBtnColor: ButtonProps["color"] = "black"

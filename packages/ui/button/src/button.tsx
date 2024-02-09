@@ -3,6 +3,7 @@ import {
 	InteractionTypes,
 	useDefaultChildren,
 	useInteraction,
+	useStyles,
 } from "@wpmudev/sui-hooks"
 
 import {
@@ -55,6 +56,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 
 		// Default children content
 		children = useDefaultChildren(children, "button label")
+		const { cssCN } = useStyles(restProps, className ?? "")
 
 		if (isLoading) {
 			isUnwrapped = true
@@ -94,7 +96,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			target: target || "_blank",
 			htmlFor: condContent(label),
 			// classname
-			className: generateCN(baseClassName, attrClasses, className ?? ""),
+			className: generateCN(baseClassName, attrClasses, cssCN),
 			disabled: isDisabled,
 			"aria-busy": isLoading,
 			...(isLoading && { "aria-live": "polite" }),

@@ -3,14 +3,17 @@ import React, { useCallback } from "react"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { SearchOptionItem } from "./search-option-item"
 import { SearchOptionsProps } from "./search.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const SearchOptions: React.FC<SearchOptionsProps> = ({
 	options,
 	value,
 	setValue,
 	setIsPopoverVisible,
+	...props
 }) => {
-	const className = generateCN("sui-search__options", {})
+	const { cssCN } = useStyles(props)
+	const className = generateCN("sui-search__options", {}, cssCN)
 
 	// Handle option item click
 	const onOptionClick = useCallback(

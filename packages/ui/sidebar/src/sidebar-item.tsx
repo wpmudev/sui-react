@@ -1,7 +1,7 @@
 import React, { KeyboardEvent, useCallback } from "react"
 
 import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
-import { useInteraction, useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import Icons from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 
@@ -23,6 +23,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 }) => {
 	// `useInteraction` returns interaction state and methods.
 	const [isHovered, isFocused, methods] = useInteraction({})
+	const { cssCN } = useStyles(props, className)
 
 	// Class names based on interaction and disabled state.
 	const classNames = generateCN(
@@ -33,7 +34,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 			disabled: isDisabled,
 			active: isActive,
 		},
-		className,
+		cssCN,
 	)
 
 	// Determine the IconTag based on the provided icon value.

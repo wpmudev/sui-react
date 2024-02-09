@@ -9,6 +9,7 @@ import { Value } from "./elements/value"
 import { Indicator } from "./elements/indicator"
 
 import { ProgressBarProps } from "./progress-bar.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build "progress bar" component
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -20,8 +21,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	hasAction = false,
 	onClick,
 	className = "",
+	...props
 }) => {
 	const has = {}
+	const { cssCN } = useStyles(props, className)
 
 	// Props validation
 	// has.label = !isUndefined(label) && !isEmpty(label) ? true : false
@@ -34,7 +37,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 			lg: "lg" === size,
 			inline: isInline,
 		},
-		className,
+		cssCN,
 	)
 
 	const labelClass = `sui-progress-bar${!!label ? "--float-left" : "__label"}`

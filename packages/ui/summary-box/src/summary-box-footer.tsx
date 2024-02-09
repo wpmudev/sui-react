@@ -3,7 +3,7 @@ import React from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { SummaryFooterBodyProps } from "./summary-box.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * SummaryFooterBody Component
@@ -19,8 +19,10 @@ import { useDefaultChildren } from "@wpmudev/sui-hooks"
 const SummaryFooterBody: React.FC<SummaryFooterBodyProps> = ({
 	className,
 	children,
+	...props
 }) => {
-	const classNames = generateCN("sui-summary-box__footer", {}, className)
+	const { cssCN } = useStyles(props, className)
+	const classNames = generateCN("sui-summary-box__footer", {}, cssCN)
 
 	// Default children content
 	children = useDefaultChildren(children, "{summary footer body}")

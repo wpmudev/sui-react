@@ -17,6 +17,7 @@ import {
 	ConfigActionTypes,
 } from "./config-table.types"
 import { ConfigTableDetails } from "./config-table-details"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Render options to be displayed in a table.
 const ConfigTable: React.FC<ConfigTableTypes> = ({
@@ -26,14 +27,8 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	hasCreatedDate = false,
 	hasLastApplied = false,
 	proItems = [],
+	...styleProps
 }) => {
-	/**
-	 * Render config options inside table content
-	 *
-	 * @param {Record<string, any>} config
-	 * @return {JSX.Element} Expand content
-	 */
-
 	/**
 	 * Handle an action click.
 	 *
@@ -49,8 +44,10 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 		[onActionClick],
 	)
 
+	const { cssCN } = useStyles(styleProps, className)
+
 	// classnames
-	const classNames = generateCN("sui-config-table", {}, className)
+	const classNames = generateCN("sui-config-table", {}, cssCN)
 
 	return (
 		<Table className={classNames} hasToolbar={false}>

@@ -2,9 +2,10 @@
  * Props for the Notification component.
  */
 import { ReactNode } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 // interface definition for the Alert Banner
-interface AlertBannerProps {
+interface AlertBannerProps extends useStylesTypes {
 	/**
 	 * Alert Banner content
 	 */

@@ -15,6 +15,7 @@ import {
 	useInteraction,
 	useDetectRTL,
 	usePortal,
+	useStyles,
 } from "@wpmudev/sui-hooks"
 
 import { Icon } from "./elements/tooltip-icon"
@@ -211,12 +212,14 @@ const Tooltip: React.FC<TooltipProps> = ({
 
 	const attrs: TooltipAttrsTypes = {}
 
+	const { cssCN } = useStyles(props, className ?? "")
+
 	const classNames = generateCN(
 		"sui-tooltip",
 		{
 			focus: isFocused,
 		},
-		className ?? "",
+		cssCN,
 	)
 
 	// Custom tooltip width

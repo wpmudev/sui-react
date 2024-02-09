@@ -9,7 +9,7 @@ import React, {
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
-import { useOuterClick } from "@wpmudev/sui-hooks"
+import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 import { DropdownMenu } from "./dropdown-menu"
 import { DropdownMenuItem } from "./dropdown-menu-item"
 import { DropdownMenuGroup } from "./dropdown-menu-group"
@@ -61,6 +61,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			toggle: () => setIsOpen(!isOpen),
 		}))
 
+		const { cssCN } = useStyles(props, className)
+
 		// Generate classes for the dropdown's wrapper based on the component's props.
 		const wrapperClasses = generateCN(
 			"sui-dropdown",
@@ -68,7 +70,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 				sm: isSmall,
 				open: isOpen,
 			},
-			className,
+			cssCN,
 		)
 
 		// Function to recursively render menu items and groups.

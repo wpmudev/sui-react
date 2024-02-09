@@ -8,6 +8,7 @@ import { RecipientEmail } from "./recipient-email"
 import { RecipientButton } from "./recipient-button"
 
 import { RecipientProps } from "./recipient.type"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build "recipient" component
 const Recipient: React.FC<RecipientProps> = ({
@@ -19,11 +20,17 @@ const Recipient: React.FC<RecipientProps> = ({
 	appearance = "primary",
 	...props
 }) => {
+	const { cssCN } = useStyles(props)
+
 	// Define recipient class.
-	const className = generateCN("sui-recipient", {
-		// Define recipient appearance.
-		[appearance as string]: !isEmpty(appearance ?? ""),
-	})
+	const className = generateCN(
+		"sui-recipient",
+		{
+			// Define recipient appearance.
+			[appearance as string]: !isEmpty(appearance ?? ""),
+		},
+		cssCN,
+	)
 
 	return (
 		<div className={className} {...props}>

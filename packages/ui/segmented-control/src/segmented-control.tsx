@@ -5,7 +5,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 
 import { SegmentedControlProps } from "./segmented-control.types"
 import { SegmentedControlContext } from "./segmented-control-context"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	name = "segmented-control",
@@ -13,6 +13,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	onChange = () => {},
 	children,
 	isFullWidth = false,
+	...props
 }) => {
 	/**
 	 * State to track the current selected value of the segmented control.
@@ -22,12 +23,18 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	// default children content
 	children = useDefaultChildren(children)
 
+	const { cssCN } = useStyles(props)
+
 	/**
 	 * Generate class names for the segmented control based on the isFullWidth prop.
 	 */
-	const classNames = generateCN("sui-segmented-control", {
-		"full-width": isFullWidth,
-	})
+	const classNames = generateCN(
+		"sui-segmented-control",
+		{
+			"full-width": isFullWidth,
+		},
+		cssCN,
+	)
 
 	/**
 	 * Handle click events on the segmented control items.

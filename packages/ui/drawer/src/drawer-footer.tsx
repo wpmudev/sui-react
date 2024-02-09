@@ -1,9 +1,15 @@
 import React from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 import { DrawerFooterTypes } from "./drawer.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
-const DrawerFooter = ({ className = "", children }: DrawerFooterTypes) => {
-	const classNames = generateCN("sui-drawer__footer", {}, className)
+const DrawerFooter = ({
+	className = "",
+	children,
+	...styleProps
+}: DrawerFooterTypes) => {
+	const { cssCN } = useStyles(styleProps, className)
+	const classNames = generateCN("sui-drawer__footer", {}, cssCN)
 
 	return <div className={classNames}>{children}</div>
 }

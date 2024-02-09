@@ -7,11 +7,15 @@ import { DatePickerMonth } from "./date-picker-month"
 import { CALENDARS } from "./date-picker"
 import { DatePickerContext } from "./date-picker-context"
 import { DatePickerRange } from "./date-picker-ranges"
-import { useOuterClick } from "@wpmudev/sui-hooks"
+import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
+import { DatePickerPopoverProps } from "./date-picker.types"
 
-const DatePickerPopover: React.FunctionComponent<any> = () => {
+const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
+	...props
+}) => {
 	// Context of the DatePicker, which contains various state variables and functions
 	const ctx = useContext(DatePickerContext)
+	const { cssCN } = useStyles(props)
 
 	const { startMonth, endMonth, helpers, handlers } = ctx!
 
@@ -33,7 +37,11 @@ const DatePickerPopover: React.FunctionComponent<any> = () => {
 
 	return (
 		<div
-			className={generateCN("sui-date-picker__popover", { open: ctx?.isOpen })}
+			className={generateCN(
+				"sui-date-picker__popover",
+				{ open: ctx?.isOpen },
+				cssCN,
+			)}
 			data-testid="date-picker-popover"
 			ref={popoverRef}
 		>

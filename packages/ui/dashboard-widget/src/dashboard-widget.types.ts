@@ -3,11 +3,12 @@ import { ReactNode } from "react"
 import { TagProps } from "@wpmudev/sui-tag"
 
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * DashboardWidgetProps is the set of properties that can be passed to the DashboardWidget component.
  */
-interface DashboardWidgetProps {
+interface DashboardWidgetProps extends useStylesTypes {
 	/** The title of the widget */
 	title?: string
 

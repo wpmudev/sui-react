@@ -5,7 +5,6 @@ import { Avatar } from "@wpmudev/sui-avatar"
 
 import { NavigationUserProps } from "./navigation.types"
 import { isEmpty } from "@wpmudev/sui-utils"
-import { Tooltip } from "@wpmudev/sui-tooltip"
 
 const NavigationUser: React.FC<NavigationUserProps> = ({
 	user,

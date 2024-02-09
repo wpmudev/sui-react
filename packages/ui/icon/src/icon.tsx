@@ -10,6 +10,7 @@ import React, {
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
 
 import { IconProps } from "./icon.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * Default icon configuration.
@@ -42,6 +43,8 @@ const Icon = forwardRef<"svg", IconProps>(
 		},
 		ref,
 	) => {
+		const { cssCN } = useStyles(props, className)
+
 		// Add variations to the classnames
 		className = generateCN(
 			"sui-icon",
@@ -49,7 +52,7 @@ const Icon = forwardRef<"svg", IconProps>(
 				[color]: !isEmpty(color),
 				[size]: !isEmpty(size),
 			},
-			className,
+			cssCN,
 		)
 
 		// SVG props

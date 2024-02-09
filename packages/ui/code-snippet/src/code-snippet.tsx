@@ -6,16 +6,18 @@ import { Tooltip } from "@wpmudev/sui-tooltip"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { CodeSnippetProps } from "./code-snippet.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const CodeSnippet: React.FC<CodeSnippetProps> = ({
 	language = "javascript",
 	copy = true,
 	className,
 	children,
+	...styleProps
 }) => {
+	const { cssCN } = useStyles(styleProps, className ?? "")
 	// generate class names
-	const classNames = generateCN("sui-code-snippet", {}, className ?? "")
+	const classNames = generateCN("sui-code-snippet", {}, cssCN)
 	const [isCopied, setIsCopied] = useState<boolean>(false)
 
 	// highlight the code

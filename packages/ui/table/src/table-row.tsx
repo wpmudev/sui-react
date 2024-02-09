@@ -15,7 +15,7 @@ import React, {
 import { TableRowProps } from "./table.types"
 
 import { Checkbox } from "@wpmudev/sui-checkbox"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 
@@ -56,6 +56,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	const ctx = useContext(TableContext)
 	// State for row hover and focus
 	const [isHovered, isFocused, methods] = useInteraction({})
+	const { cssCN } = useStyles(props)
 
 	// Generate unique IDs for accessibility
 	const uniqueID = useId()
@@ -93,13 +94,17 @@ const TableRow: React.FC<TableRowProps> = ({
 	}
 
 	// Generate class names
-	const classNames = generateCN("sui-table__row", {
-		focus: !isUnderFooter && !isUnderHeader && isFocused,
-		hover: !isUnderFooter && !isUnderHeader && isHovered,
-		expandable: isExpandable,
-		expanded: isExpanded,
-		[status as string]: !isEmpty(status ?? ""),
-	})
+	const classNames = generateCN(
+		"sui-table__row",
+		{
+			focus: !isUnderFooter && !isUnderHeader && isFocused,
+			hover: !isUnderFooter && !isUnderHeader && isHovered,
+			expandable: isExpandable,
+			expanded: isExpanded,
+			[status as string]: !isEmpty(status ?? ""),
+		},
+		cssCN,
+	)
 
 	// Generate toggle button
 	const toggleBtn = isExpandable && (

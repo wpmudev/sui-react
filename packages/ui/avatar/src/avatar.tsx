@@ -7,6 +7,7 @@ import { Image } from "./elements/image-avatar"
 import { Status } from "./elements/status"
 
 import { AvatarProps } from "./avatar.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build "avatar" component
 const Avatar: React.FC<AvatarProps> = ({
@@ -25,15 +26,21 @@ const Avatar: React.FC<AvatarProps> = ({
 		image,
 	)
 
+	const { cssCN } = useStyles(props, className)
+
 	// Props validation
 	const hasStatus = !isUndefined(status) && !isEmpty(status)
 	const hasImage = !isUndefined(image) && !isEmpty(imageObj.src)
 
 	// Define class name
-	const classNames = generateCN("sui-avatar", {
-		sm: isSmall,
-		clickable: !!props?.onClick,
-	})
+	const classNames = generateCN(
+		"sui-avatar",
+		{
+			sm: isSmall,
+			clickable: !!props?.onClick,
+		},
+		cssCN,
+	)
 
 	return (
 		<span className={classNames} {...props} data-testid="avatar">

@@ -2,7 +2,11 @@
 import React, { FC, useCallback, useContext } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
-import { useDefaultChildren, useInteraction } from "@wpmudev/sui-hooks"
+import {
+	useDefaultChildren,
+	useInteraction,
+	useStyles,
+} from "@wpmudev/sui-hooks"
 import { InfoAlt, CheckAlt } from "@wpmudev/sui-icons"
 
 import { TabContextProps, TabNavItemProps } from "../tabs.types"
@@ -16,6 +20,7 @@ const TabNavItem: FC<TabNavItemProps> = ({
 	stateIconColor,
 	children,
 	isDisabled = false,
+	...props
 }) => {
 	// Get the tab context using the useContext hook
 	const tabCtx = useContext<TabContextProps | null>(TabContext)
@@ -53,6 +58,8 @@ const TabNavItem: FC<TabNavItemProps> = ({
 	// Manage interaction methods
 	const [isHovered, isFocused, interactionMethods] = useInteraction({})
 
+	const { cssCN } = useStyles(props)
+
 	// Render the tab header (button element) with appropriate attributes and event handlers
 	return (
 		<button
@@ -60,12 +67,16 @@ const TabNavItem: FC<TabNavItemProps> = ({
 			data-index={id}
 			role="tab"
 			type="button"
-			className={generateCN("sui-tab__nav-item", {
-				active: isActive,
-				hover: isHovered,
-				focus: isFocused && !isActive,
-				disabled: isDisabled,
-			})}
+			className={generateCN(
+				"sui-tab__nav-item",
+				{
+					active: isActive,
+					hover: isHovered,
+					focus: isFocused && !isActive,
+					disabled: isDisabled,
+				},
+				cssCN,
+			)}
 			aria-selected={isActive}
 			aria-controls={`${tabId}--panel-${id}`}
 			tabIndex={isDisabled ? -1 : 0}

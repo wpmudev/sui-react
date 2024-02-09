@@ -4,11 +4,12 @@
 import React from "react"
 
 import { TooltipProps } from "@wpmudev/sui-tooltip"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Define props for the Drawer component
  */
-export interface DrawerTypes {
+export interface DrawerTypes extends Omit<useStylesTypes, "position"> {
 	/**
 	 * Optional class name for styling
 	 */
@@ -53,7 +54,7 @@ export interface DrawerTypes {
 /**
  * Define props for the DrawerHeader component
  */
-export interface DrawerHeaderTypes {
+export interface DrawerHeaderTypes extends useStylesTypes {
 	/**
 	 * Title to be displayed in the DrawerHeader
 	 */
@@ -78,7 +79,7 @@ export interface DrawerHeaderTypes {
 /**
  * Define props for the DrawerFooter component
  */
-export interface DrawerFooterTypes {
+export interface DrawerFooterTypes extends useStylesTypes {
 	/**
 	 * Optional class name for styling
 	 */

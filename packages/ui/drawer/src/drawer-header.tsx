@@ -4,14 +4,17 @@ import { Tooltip } from "@wpmudev/sui-tooltip"
 import { DrawerHeaderTypes } from "./drawer.types"
 import { useDrawerContext } from "./drawer-context"
 import { Button } from "@wpmudev/sui-button"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const DrawerHeader = ({
 	className = "",
 	title = "",
 	hintText = "",
 	tooltipOptions = {},
+	...styleProps
 }: DrawerHeaderTypes) => {
-	const classNames = generateCN("sui-drawer__header", {}, className)
+	const { cssCN } = useStyles(styleProps, className)
+	const classNames = generateCN("sui-drawer__header", {}, cssCN)
 
 	const ctx = useDrawerContext()
 

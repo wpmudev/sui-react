@@ -3,7 +3,7 @@ import React from "react"
 import { Tag } from "@wpmudev/sui-tag"
 
 import { generateCN } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 
 import { SettingBlockProps } from "./setting-block.types"
 
@@ -16,9 +16,12 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 	isFluid = false,
 	children,
 	actions,
+	...props
 }) => {
 	// Interaction methods
 	const [isHovered, isFocused, methods] = useInteraction({})
+
+	const { cssCN } = useStyles(props, className)
 
 	// Define class name based on various conditions
 	const classNames = generateCN(
@@ -29,7 +32,7 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 			pro: isPro,
 			fluid: isFluid,
 		},
-		className,
+		cssCN,
 	)
 
 	return (

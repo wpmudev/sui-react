@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useId } from "react"
 
 import { Tag } from "@wpmudev/sui-tag"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { RadioProps } from "./radio.types"
@@ -16,6 +16,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			tag = "",
 			value = "",
 			isDisabled = false,
+			...props
 		},
 		ref,
 	) => {
@@ -76,16 +77,22 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			"aria-hidden": true,
 		}
 
+		const { cssCN } = useStyles(props)
+
 		// Define container props
 		const containerProps = {
-			className: generateCN("sui-radio", {
-				// sm: isSmall,
-				hover: isHovered && !checked,
-				focus: isFocused,
-				disabled: isRadioDisabled,
-				block: asBlock,
-				checked,
-			}),
+			className: generateCN(
+				"sui-radio",
+				{
+					// sm: isSmall,
+					hover: isHovered && !checked,
+					focus: isFocused,
+					disabled: isRadioDisabled,
+					block: asBlock,
+					checked,
+				},
+				cssCN,
+			),
 		}
 
 		return (

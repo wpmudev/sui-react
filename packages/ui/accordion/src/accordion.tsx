@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { AccordionProps } from "./accordion.types"
 import { AccordionProvider } from "./accordion-context"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Define the Accordion component as a functional component (React.FC)
 const Accordion: React.FC<AccordionProps> = ({
@@ -20,6 +20,7 @@ const Accordion: React.FC<AccordionProps> = ({
 
 	// Default children content
 	children = useDefaultChildren(children)
+	const { cssCN } = useStyles(props, className)
 
 	// Generate CSS class names for the Accordion component
 	const classNames = generateCN(
@@ -29,7 +30,7 @@ const Accordion: React.FC<AccordionProps> = ({
 			"no-border-radius": noBorderRadius,
 			"no-side-borders": noSideBorders,
 		},
-		className,
+		cssCN,
 	)
 
 	// Return a div element with the generated CSS class names and spread any additional props

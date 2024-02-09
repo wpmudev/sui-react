@@ -1,4 +1,5 @@
 import React from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * The Type of the error prop
@@ -11,7 +12,7 @@ import React from "react"
 /**
  * Represents the properties for a field component.
  */
-interface FormFieldProps {
+interface FormFieldProps extends useStylesTypes {
 	/**
 	 * The unique identifier of the field.
 	 */
@@ -75,7 +76,7 @@ interface FormFieldErrorProps {
 /**
  * Represents the properties for a helper component.
  */
-interface FormFieldHelperProps {
+interface FormFieldHelperProps extends useStylesTypes {
 	/**
 	 * The unique identifier of the helper.
 	 */
@@ -89,7 +90,7 @@ interface FormFieldHelperProps {
 /**
  * Represents the properties for an error message component.
  */
-interface FormFieldLabelProps {
+interface FormFieldLabelProps extends useStylesTypes {
 	/**
 	 * The unique identifier of the error message.
 	 */

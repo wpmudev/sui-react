@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useId } from "react"
 import { isFunction, generateCN } from "@wpmudev/sui-utils"
 
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 
 import { TextareaProps } from "./textarea.types"
 
@@ -28,6 +28,8 @@ const Textarea: React.FC<TextareaProps> = ({
 		id = uniqueId
 	}
 
+	const { cssCN } = useStyles(props, className)
+
 	const classNames = generateCN(
 		"sui-textarea",
 		{
@@ -38,7 +40,7 @@ const Textarea: React.FC<TextareaProps> = ({
 			hover: isHovered,
 			focus: isFocused,
 		},
-		className,
+		cssCN,
 	)
 
 	const handleOnChange = useCallback(

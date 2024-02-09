@@ -2,15 +2,19 @@
 import React from "react"
 import classnames from "classnames"
 
-import { isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { FormFieldLabelProps } from "../form-field.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build field label element
 const Label: React.FC<FormFieldLabelProps> = ({
 	id,
 	hidden = false,
 	children,
+	...styleProps
 }) => {
+	const { cssCN } = useStyles(styleProps)
+
 	const hasContent =
 		"string" === typeof children
 			? !isEmpty((children as string) ?? "")
@@ -29,7 +33,11 @@ const Label: React.FC<FormFieldLabelProps> = ({
 	})
 
 	return (
-		<label htmlFor={id} id={`${id}-label`} className={classNames}>
+		<label
+			htmlFor={id}
+			id={`${id}-label`}
+			className={generateCN(classNames, {}, cssCN)}
+		>
 			{children}
 		</label>
 	)

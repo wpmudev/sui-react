@@ -1,9 +1,10 @@
 import React, { CSSProperties } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Represents the properties for a box group component.
  */
-interface BoxGroupProps {
+interface BoxGroupProps extends useStylesTypes {
 	/**
 	 * Indicates whether the boxes should be displayed inline or not.
 	 */

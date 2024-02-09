@@ -5,7 +5,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { TreeViewItemProps } from "./tree-view.types"
 import { TreeViewInfo } from "./tree-view-info"
 import { useTreeViewContext } from "./tree-view-context"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * TreeViewItem Component
@@ -13,7 +13,6 @@ import { useDefaultChildren } from "@wpmudev/sui-hooks"
  * A component that represents an item in the tree view. It can be either a leaf node
  * (not a group) or a group node with nested items.
  *
- * @param {TreeViewItemProps} props - Component props
  * @return {JSX.Element} - JSX Element representing the TreeViewItem component
  */
 const TreeViewItem: React.FC<TreeViewItemProps> = ({
@@ -26,9 +25,11 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 	isDisabled = false,
 	className = "",
 	children,
+	...props
 }) => {
+	const { cssCN } = useStyles(props, className ?? "")
 	// Generate class names
-	const classNames = generateCN("sui-tree-view__item", {}, className ?? "")
+	const classNames = generateCN("sui-tree-view__item", {}, cssCN)
 
 	// Get the tree view context to access configuration
 	const context = useTreeViewContext()

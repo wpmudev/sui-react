@@ -7,7 +7,7 @@ import React, {
 } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
-import { useOuterClick } from "@wpmudev/sui-hooks"
+import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
 
 // Import required element(s)
@@ -39,7 +39,8 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 			toggle: () => setIsOpen(!isOpen),
 		}))
 
-		const classNames = generateCN("sui-sidebar__dropdown", {}, className)
+		const { cssCN } = useStyles(props, className)
+		const classNames = generateCN("sui-sidebar__dropdown", {}, cssCN)
 
 		const childrenWithProps = React.Children.map(children, (child) => {
 			if (React.isValidElement(child)) {

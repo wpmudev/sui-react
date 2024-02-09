@@ -14,7 +14,7 @@ import { Helper } from "./elements/helper"
 import { ErrorMessage } from "./elements/error-message"
 
 import { FormFieldProps } from "./form-field.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Build form field component
 const FormField: React.FC<FormFieldProps> = ({
@@ -43,6 +43,8 @@ const FormField: React.FC<FormFieldProps> = ({
 	const isErrored =
 		"string" === typeof error ? !isEmpty((error as string) ?? "") : !!error
 
+	const { cssCN } = useStyles(props, className)
+
 	// Generate classnames
 	const classNames = generateCN(
 		"sui-form-field",
@@ -50,7 +52,7 @@ const FormField: React.FC<FormFieldProps> = ({
 			sm: isSmall,
 			disabled: isDisabled,
 		},
-		className,
+		cssCN,
 	)
 
 	// Define aria attributes.

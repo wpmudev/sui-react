@@ -13,7 +13,7 @@ import {
 } from "@wpmudev/sui-segmented-control"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Textarea } from "@wpmudev/sui-textarea"
-import { useDetectRTL } from "@wpmudev/sui-hooks"
+import { useDetectRTL, useStyles } from "@wpmudev/sui-hooks"
 
 import { RichTextEditorProps } from "./rich-text-editor.types"
 
@@ -24,7 +24,6 @@ declare const tinymce: Record<string, any>
  *
  * A code editor component that allows displaying and editing code.
  *
- * @param {RichTextEditorProps} props - Component props
  * @return {JSX.Element} - JSX Element representing the RichTextEditor component
  */
 const RichTextEditor: React.FC<RichTextEditorProps> = ({
@@ -35,6 +34,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 	isDisabled = false,
 	defaultValue = "",
 	onChange = () => null,
+	...props
 }) => {
 	const [content, setContent] = useState<string>(defaultValue ?? "")
 	const [editorType, setEditorType] = useState<"visual" | "code">("visual")
@@ -145,11 +145,13 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 		[content],
 	)
 
+	const { cssCN } = useStyles(props, className ?? "")
+
 	// Generate class names
 	const classNames = generateCN(
 		"sui-rich-text-editor",
 		{ disabled: isDisabled },
-		className ?? "",
+		cssCN,
 	)
 
 	return (

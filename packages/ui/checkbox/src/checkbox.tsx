@@ -1,7 +1,7 @@
 import React, { useEffect, useId } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 
 import { Indeterminate } from "./elements/indeterminate"
 import { Tick } from "./elements/tick"
@@ -25,6 +25,7 @@ const Checkbox = ({
 	// Context for checkbox
 	const ctx = useCheckbox()
 	const [isHovered, isFocused, methods] = useInteraction({})
+	const { cssCN } = useStyles(props)
 
 	// Generate a dynamic ID for the checkbox
 	let uuid = `sui-checkbox-${useId()}`
@@ -66,15 +67,19 @@ const Checkbox = ({
 
 	// Define container props
 	const containerProps = {
-		className: generateCN("sui-checkbox", {
-			"hidden-label": isLabelHidden,
-			indeterminate: isIndeterminate,
-			hover: isHovered,
-			focus: isFocused,
-			disabled: isDisabled,
-			checked: isChecked,
-			sm: isSmall,
-		}),
+		className: generateCN(
+			"sui-checkbox",
+			{
+				"hidden-label": isLabelHidden,
+				indeterminate: isIndeterminate,
+				hover: isHovered,
+				focus: isFocused,
+				disabled: isDisabled,
+				checked: isChecked,
+				sm: isSmall,
+			},
+			cssCN,
+		),
 		...methods,
 	}
 

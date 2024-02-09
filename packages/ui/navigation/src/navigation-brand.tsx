@@ -1,15 +1,18 @@
 import React from "react"
 
-import { PluginIconTypes, PluginsIcons } from "@wpmudev/sui-utils"
+import { generateCN, PluginIconTypes, PluginsIcons } from "@wpmudev/sui-utils"
 import { IconProps } from "@wpmudev/sui-icon"
 import { NavigationBrandProps } from "./navigation.types"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const NavigationBrand: React.FC<NavigationBrandProps> = ({
 	plugin,
 	title = "",
 	description = "",
+	...props
 }) => {
+	const { cssCN } = useStyles(props)
 	// Icon for the specified plugin or use a default "Plugin" icon.
 	const PluginIcon: PluginIconTypes = plugin
 		? PluginsIcons?.[plugin]
@@ -22,7 +25,7 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 	}
 
 	return (
-		<div className="sui-navigation__brand">
+		<div className={generateCN("sui-navigation__brand", {}, cssCN)}>
 			<div
 				className="sui-navigation__icon"
 				style={{ backgroundColor: PluginIcon?.bg }}

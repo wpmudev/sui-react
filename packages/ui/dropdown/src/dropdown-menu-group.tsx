@@ -2,6 +2,7 @@ import React from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 import { DropdownMenuGroupProps } from "./dropdown.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Define the MenuGroup component
 const DropdownMenuGroup: React.FC<DropdownMenuGroupProps> = ({
@@ -10,8 +11,9 @@ const DropdownMenuGroup: React.FC<DropdownMenuGroupProps> = ({
 	children,
 	...props
 }) => {
+	const { cssCN } = useStyles(props, className)
 	// Generate class names for the menu group
-	const classNames = generateCN("sui-dropdown__menu-group", {}, className)
+	const classNames = generateCN("sui-dropdown__menu-group", {}, cssCN)
 
 	// Prepare attributes for the menu group element
 	const attrs = {

@@ -5,6 +5,7 @@ import { isEmpty, generateCN } from "@wpmudev/sui-utils"
 import { TableProps } from "./table.types"
 import { TableContextProvider } from "./table-context"
 import { TableToolbar } from "./table-toolbar"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Table component to display a table with optional toolbar and context
 const Table: React.FC<TableProps> = ({
@@ -28,6 +29,8 @@ const Table: React.FC<TableProps> = ({
 	const ref = useRef<HTMLTableElement | null>(null)
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
 
+	const { cssCN } = useStyles(props, className)
+
 	// Define tag design
 	// Limited to: solid (default) and outlined
 	const classNames = generateCN(
@@ -39,7 +42,7 @@ const Table: React.FC<TableProps> = ({
 			sticky: stickyCols,
 			draggable: isDraggable,
 		},
-		className,
+		cssCN,
 	)
 
 	// Component name to exclude from the children array

@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect, useId, LegacyRef } from "react"
 import { Input } from "@wpmudev/sui-input"
+import { useStyles, useStylesTypes } from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 
-interface InputWithAutoCompleteProps {
+interface InputWithAutoCompleteProps extends useStylesTypes {
 	id?: string
 	expanded?: boolean
 	controlRef: HTMLDivElement | HTMLInputElement | null
@@ -33,6 +35,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	interactionMethods,
 	...props
 }) => {
+	const { cssCN } = useStyles(props)
 	const generatedId = useId()
 
 	// Random search ID
@@ -84,7 +87,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	return (
 		<Input
 			ref={controlRef}
-			className="sui-select__input"
+			className={generateCN("sui-select__input", {}, cssCN)}
 			id={inputId}
 			icon="Search"
 			iconPosition="start"

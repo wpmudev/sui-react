@@ -2,13 +2,14 @@ import React, { HTMLProps, ReactNode } from "react"
 import { TagProps } from "@wpmudev/sui-tag"
 import { IconProps } from "@wpmudev/sui-icon"
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * SummaryBoxProps Interface
  *
  * Represents the props for the SummaryBox component.
  */
-interface SummaryBoxProps {
+interface SummaryBoxProps extends useStylesTypes {
 	/**
 	 * The title of the summary box (required).
 	 */
@@ -46,7 +47,7 @@ interface SummaryBoxProps {
  *
  * Represents the props for the SummaryBoxBody component.
  */
-interface SummaryBoxBodyProps {
+interface SummaryBoxBodyProps extends useStylesTypes {
 	/**
 	 * Additional CSS class names for the summary box body element (optional).
 	 */
@@ -70,7 +71,9 @@ interface SummaryBoxBodyProps {
  *
  * Represents the props for the SummaryBoxItem component.
  */
-interface SummaryBoxItemProps extends HTMLProps<HTMLDivElement> {
+interface SummaryBoxItemProps
+	extends HTMLProps<HTMLDivElement>,
+		useStylesTypes {
 	/**
 	 * The title of the summary item (optional).
 	 */
@@ -110,7 +113,7 @@ interface SummaryBoxItemProps extends HTMLProps<HTMLDivElement> {
  *
  * Represents the props for the SummaryFooterBody component.
  */
-interface SummaryFooterBodyProps {
+interface SummaryFooterBodyProps extends useStylesTypes {
 	/**
 	 * Additional CSS class names for the summary box footer element (optional).
 	 */

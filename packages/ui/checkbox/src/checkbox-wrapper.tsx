@@ -3,13 +3,16 @@ import React, { Children, cloneElement, ReactElement } from "react"
 import { generateCN } from "@wpmudev/sui-utils"
 import { CheckboxProvider } from "./checkbox-context"
 import { CheckboxGroupsProps } from "./checkbox.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const CheckBoxGroups: React.FC<CheckboxGroupsProps> = ({
 	children,
 	commonCheckboxProps = {},
 	onChange = () => {},
+	...styleProps
 }) => {
-	const className = generateCN("sui-checkbox-wrapper", {})
+	const { cssCN } = useStyles(styleProps)
+	const className = generateCN("sui-checkbox-wrapper", {}, cssCN)
 
 	return (
 		<CheckboxProvider onChange={onChange}>

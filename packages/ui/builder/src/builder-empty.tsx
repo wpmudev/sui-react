@@ -4,13 +4,16 @@ import { generateCN } from "@wpmudev/sui-utils"
 
 // Import required element(s)
 import { BuilderEmptyProps } from "./builder.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const BuilderEmpty: React.FC<BuilderEmptyProps> = ({
 	title = "No fields added. Insert new field.",
 	className,
+	...styleProps
 }) => {
+	const { cssCN } = useStyles(styleProps, className)
 	// Class names based on interaction and disabled state.
-	const classNames = generateCN("sui-builder__empty", {}, className)
+	const classNames = generateCN("sui-builder__empty", {}, cssCN)
 
 	return (
 		<div className={classNames} data-testid="builder-empty">

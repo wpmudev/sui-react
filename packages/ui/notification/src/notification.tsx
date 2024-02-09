@@ -6,7 +6,7 @@ import { NotificationProps } from "./notification.types"
 import { IconProps } from "@wpmudev/sui-icon"
 import Icons from "@wpmudev/sui-icons"
 import { useNotifications } from "./use-notification"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const Notification: React.FC<NotificationProps> = ({
 	id,
@@ -19,6 +19,7 @@ const Notification: React.FC<NotificationProps> = ({
 	size,
 	variation,
 	timeout = 5000,
+	...props
 }) => {
 	const [isVisible, setIsVisible] = useState(true)
 	const notifications = useNotifications()
@@ -51,17 +52,23 @@ const Notification: React.FC<NotificationProps> = ({
 		}
 	}, [id, isInline, notifications])
 
+	const { cssCN } = useStyles(props)
+
 	// do not render
 	if (!isVisible) return null
 
 	// Generate classnames
-	const classNames = generateCN("sui-notification", {
-		inline: isInline,
-		[size as string]: !isEmpty(size ?? ""),
-		[variation as string]: ["success", "warning", "error", "info"].includes(
-			variation ?? "",
-		),
-	})
+	const classNames = generateCN(
+		"sui-notification",
+		{
+			inline: isInline,
+			[size as string]: !isEmpty(size ?? ""),
+			[variation as string]: ["success", "warning", "error", "info"].includes(
+				variation ?? "",
+			),
+		},
+		cssCN,
+	)
 
 	// Get SVG Icon
 	let Icon: React.ComponentType<IconProps> | null = null

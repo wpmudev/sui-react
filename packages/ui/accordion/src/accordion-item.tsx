@@ -1,6 +1,9 @@
 import React, { useCallback, useId, useState, useEffect, useRef } from "react"
-import { createPortal } from "react-dom"
-import { useInteraction, useDefaultChildren } from "@wpmudev/sui-hooks"
+import {
+	useInteraction,
+	useDefaultChildren,
+	useStyles,
+} from "@wpmudev/sui-hooks"
 import { useAccordion } from "./accordion-context"
 import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
@@ -17,12 +20,14 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	hasCheckbox,
 	isExpanded,
 	onCheck,
+	...styleProps
 }) => {
 	// Checkbox is checked.
 	const [isChecked, setIsChecked] = useState(false)
 
 	// Default content when children is empty
 	children = useDefaultChildren(children)
+	const { cssCN } = useStyles(styleProps)
 
 	// Mouse is being pressed
 	const [isPressed, setIsPressed] = useState(false)
@@ -73,11 +78,15 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	// Render the AccordionItem component with proper accessibility attributes.
 	return (
 		<div
-			className={generateCN("sui-accordion__item", {
-				expanded: isCurrentlyExpanded,
-				hover: isHovered,
-				disabled: isDisabled,
-			})}
+			className={generateCN(
+				"sui-accordion__item",
+				{
+					expanded: isCurrentlyExpanded,
+					hover: isHovered,
+					disabled: isDisabled,
+				},
+				cssCN,
+			)}
 			data-testid="accordion-item"
 		>
 			<div

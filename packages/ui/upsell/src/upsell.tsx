@@ -4,6 +4,7 @@ import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { UpsellProps } from "./upsell.types"
 import Icons, { IconsNamesType, Check } from "@wpmudev/sui-icons"
 import { variationsList } from "./helpers"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const Upsell: React.FC<UpsellProps> = ({
 	title,
@@ -12,12 +13,19 @@ const Upsell: React.FC<UpsellProps> = ({
 	variation = "hummingbird",
 	features = [],
 	actions = null,
+	...props
 }) => {
+	const { cssCN } = useStyles(props)
+
 	// Generate classnames for the upsell
-	const classNames = generateCN("sui-upsell", {
-		[variation as string]: !isEmpty(variation ?? ""),
-		[size as string]: !isEmpty(size ?? ""),
-	})
+	const classNames = generateCN(
+		"sui-upsell",
+		{
+			[variation as string]: !isEmpty(variation ?? ""),
+			[size as string]: !isEmpty(size ?? ""),
+		},
+		cssCN,
+	)
 
 	// Get current variation options
 	const currentVar = variationsList[variation]

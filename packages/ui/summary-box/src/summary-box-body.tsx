@@ -5,7 +5,7 @@ import { Col, Row } from "@wpmudev/sui-grid"
 import { BoxGroup } from "@wpmudev/sui-box"
 
 import { SummaryBoxBodyProps } from "./summary-box.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * SummaryBoxBody Component
@@ -25,8 +25,10 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 	children,
 	summaryItems = [],
 	reverseBlocks = false,
+	...props
 }) => {
-	const classNames = generateCN("sui-summary-box__body", {}, className)
+	const { cssCN } = useStyles(props, className)
+	const classNames = generateCN("sui-summary-box__body", {}, cssCN)
 
 	// Children default content
 	children = useDefaultChildren(children, "{summary box body children}")

@@ -1,11 +1,12 @@
 import React from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 type UnknownObject = { [key: string]: unknown }
 
 /**
  * Represents the common properties for pagination components
  */
-interface PaginationCommonProps {
+interface PaginationCommonProps extends useStylesTypes {
 	/**
 	 * Show or hide skip buttons on pagination
 	 */

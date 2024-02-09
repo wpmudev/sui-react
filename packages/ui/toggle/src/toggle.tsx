@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useId, useCallback } from "react"
 
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { isBoolean, generateCN } from "@wpmudev/sui-utils"
 
 import { ToggleProps } from "./toggle.types"
@@ -45,17 +45,23 @@ const Toggle: React.FC<ToggleProps> = ({
 		[onClick, state],
 	)
 
+	const { cssCN } = useStyles(props)
+
 	// Define container props
 	const containerProps = {
-		className: generateCN("sui-toggle", {
-			"hidden-label": isLabelHidden,
-			checked: state,
-			disabled: isDisabled,
-			hover: !state && isHovered,
-			focus: !state && isFocused,
-			"checked-hover": state && isHovered,
-			"checked-focus": state && isFocused,
-		}),
+		className: generateCN(
+			"sui-toggle",
+			{
+				"hidden-label": isLabelHidden,
+				checked: state,
+				disabled: isDisabled,
+				hover: !state && isHovered,
+				focus: !state && isFocused,
+				"checked-hover": state && isHovered,
+				"checked-focus": state && isFocused,
+			},
+			cssCN,
+		),
 		...methods,
 	}
 

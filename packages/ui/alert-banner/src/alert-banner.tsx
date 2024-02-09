@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import Icons from "@wpmudev/sui-icons"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 import { AlertBannerProps } from "./alert-banner.types"
 
@@ -14,12 +14,14 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	isCenter = false,
 	isDismissible = true,
 	onDismiss = () => {},
+	...styleProps
 }) => {
 	// State to control the visibility of the alert banner
 	const [isVisible, setIsVisible] = useState(true)
 
 	// default children content
 	children = useDefaultChildren(children)
+	const { cssCN } = useStyles(styleProps)
 
 	/**
 	 * Callback function to hide the alert banner when clicking on the dismiss button.
@@ -35,9 +37,13 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	if (!isVisible) return null
 
 	// Generate classnames for the alert banner
-	const classNames = generateCN("sui-alert-banner", {
-		[variation as string]: !isEmpty(variation ?? ""),
-	})
+	const classNames = generateCN(
+		"sui-alert-banner",
+		{
+			[variation as string]: !isEmpty(variation ?? ""),
+		},
+		cssCN,
+	)
 
 	// Set Icon & iconColor based on "variation" value
 	let Icon

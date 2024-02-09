@@ -12,6 +12,7 @@ import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import {
 	useDefaultChildren,
 	usePortal,
+	useStyles,
 	useValidateProps,
 } from "@wpmudev/sui-hooks"
 import { ModalActionsProps, ModalContextProps, ModalProps } from "./modal.types"
@@ -56,6 +57,7 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 
 		// Get the 'render' function from the 'usePortal' hook
 		const [render] = usePortal()
+		const { cssCN } = useStyles(props, "sui-wp-overlay")
 
 		// Return nothing if the modal is not open
 		if (!isOpen) {
@@ -70,7 +72,7 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 				[variant]: !isEmpty(variant ?? ""),
 				[size]: !isEmpty(size ?? ""),
 			},
-			"sui-wp-overlay",
+			cssCN,
 		)
 
 		return render(
