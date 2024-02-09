@@ -1,5 +1,5 @@
 import { createUseStyles } from "react-jss"
-import { CSSProperties } from "react"
+import { CSSProperties, useId } from "react"
 import {
 	_isTestingMode,
 	generateCN,
@@ -7,7 +7,7 @@ import {
 } from "@wpmudev/sui-utils"
 
 // custom classname prefix
-const SUI_PREFIX = "sui-custom"
+const SUI_PREFIX = "sui-inline"
 
 export type StringPropertyType = string | Array<string>
 
@@ -81,7 +81,11 @@ export const buildStyleSheet = (
 	const shorthandPropName = CSS_SHORTHAND_MAPS[propName] ?? propName
 
 	// build single value
-	const buildSingleValue = (val: string) => ({ [shorthandPropName]: val })
+	const buildSingleValue = (val: string) => ({
+		"body .sui-wrap &": {
+			[shorthandPropName]: val,
+		},
+	})
 
 	// build media queries
 	const buildMediaQueries = (val: string, pos: number, acc: object) => {
@@ -127,6 +131,8 @@ export const buildStyleSheet = (
  */
 export const useStyles = (styleProps: useStylesTypes, attachWith = "") => {
 	const styles: Record<string, any> = {}
+	const id = useId()
+	const prefix = `${SUI_PREFIX}-${id}`
 
 	// disabled on test mode as it causes unecessary bugs
 	if (_isTestingMode()) {
@@ -141,14 +147,12 @@ export const useStyles = (styleProps: useStylesTypes, attachWith = "") => {
 		}
 
 		// build styles
-		styles[SUI_PREFIX] = {
-			...styles[SUI_PREFIX],
-			"body .sui-wrap &": {
-				...buildStyleSheet(
-					name,
-					styleProps[name as keyof CSSProperties] as StringPropertyType,
-				),
-			},
+		styles[prefix] = {
+			...styles[prefix],
+			...buildStyleSheet(
+				name,
+				styleProps[name as keyof CSSProperties] as StringPropertyType,
+			),
 		}
 	}
 
@@ -156,6 +160,6 @@ export const useStyles = (styleProps: useStylesTypes, attachWith = "") => {
 	const generatedCN = createUseStyles(styles)
 
 	return {
-		cssCN: generateCN(attachWith, {}, generatedCN()?.[SUI_PREFIX]),
+		cssCN: generateCN(attachWith, {}, generatedCN()?.[prefix]),
 	}
 }
