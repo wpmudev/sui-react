@@ -7,6 +7,7 @@ const AccordionContext = createContext<AccordionContextProps>({
 	expandState: {},
 	setExpandState: () => null,
 	spacing: "",
+	isFlushed: false,
 })
 
 const AccordionProvider = AccordionContext.Provider

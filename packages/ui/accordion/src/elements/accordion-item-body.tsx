@@ -11,7 +11,7 @@ const AccordionItemBody: React.FC<{
 	hasPadding?: boolean
 }> = ({ children, hasPadding = true }) => {
 	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
-	const { spacing } = useContext(AccordionContext)
+	const { spacing, isFlushed } = useContext(AccordionContext)
 
 	let styles = {}
 
@@ -31,11 +31,15 @@ const AccordionItemBody: React.FC<{
 	})
 	return (
 		<div className={classNames} data-testid="accordion-body">
-			<Box>
-				<BoxGroup style={styles} isInline={false}>
-					{children}
-				</BoxGroup>
-			</Box>
+			{!isFlushed ? (
+				<Box>
+					<BoxGroup style={styles} isInline={false}>
+						{children}
+					</BoxGroup>
+				</Box>
+			) : (
+				children
+			)}
 		</div>
 	)
 }

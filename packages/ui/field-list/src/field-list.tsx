@@ -6,7 +6,7 @@ import { useDefaultChildren } from "@wpmudev/sui-hooks"
 
 // Build "field list" component
 const FieldList: React.FC<FieldListProps> = ({
-	label = "label",
+	label,
 	helper,
 	children,
 	spacing = "",
