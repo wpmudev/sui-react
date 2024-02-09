@@ -19,6 +19,10 @@ interface FieldListProps {
 	 */
 	children?: React.ReactNode
 	/**
+	 * The helper text for the field list.
+	 */
+	spacing?: string
+	/**
 	 * A callback function to be invoked when when one of the fields state changes
 	 */
 	onToggle?: (id: string, checked: boolean) => void

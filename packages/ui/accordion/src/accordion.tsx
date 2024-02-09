@@ -14,6 +14,7 @@ const Accordion: React.FC<AccordionProps> = ({
 	noSideBorders = false,
 	allowMultipleExpand = false,
 	children,
+	spacing = "",
 	...props
 }) => {
 	const [expandState, setExpandState] = useState<Record<string, boolean>>({})
@@ -35,7 +36,7 @@ const Accordion: React.FC<AccordionProps> = ({
 	// Return a div element with the generated CSS class names and spread any additional props
 	return (
 		<AccordionProvider
-			value={{ allowMultipleExpand, expandState, setExpandState }}
+			value={{ allowMultipleExpand, expandState, setExpandState, spacing }}
 		>
 			<div className={classNames} {...props}>
 				{children}
