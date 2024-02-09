@@ -30,6 +30,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	isError = false,
 	isSmall,
 	isDisabled = false,
+	isFluid = false,
 	onReset = () => null,
 	onColorChange = () => null,
 	...props
@@ -137,6 +138,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 			className={generateCN("sui-color-picker", {
 				error: isError,
 				disabled: isDisabled,
+				fluid: isFluid,
 			})}
 			data-testid="color-picker"
 			ref={colorPickerRef}
