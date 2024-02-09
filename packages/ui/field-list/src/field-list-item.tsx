@@ -13,6 +13,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 	hasToggle = true,
 	actions,
 	onToggle,
+	style,
 	...props
 }) => {
 	// Generate a unique ID for the Toggle component
@@ -41,6 +42,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 			className={generateCN("sui-field-list__item", {
 				disabled: props?.isDisabled,
 			})}
+			style={style}
 			data-testid="field-list-item"
 		>
 			{/* Display the item's content */}
