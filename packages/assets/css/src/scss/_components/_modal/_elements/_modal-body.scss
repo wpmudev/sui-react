@@ -15,10 +15,15 @@
 			@include element(body) {
 				padding: $spacing-xxl;
 				flex: 1;
-				overflow-y: scroll;
 
 				@include media(max-width, sm) {
 					padding: $spacing-lg;
+				}
+			}
+
+			@include modifier(advanced) {
+				@include modifies-element(body) {
+					overflow-y: scroll;
 				}
 			}
 		}
