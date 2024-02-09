@@ -2,14 +2,24 @@ import React, { MouseEvent, KeyboardEvent, CSSProperties } from "react"
 import classnames from "classnames"
 import { render } from "@testing-library/react"
 import { axe } from "jest-axe"
+import { CSS_SHORTHAND_MAPS } from "@wpmudev/sui-hooks"
 
 /**
  * Check if a key is valid CSS property
  *
- * @param name
+ * @param {string}  name             prop key
+ * @param {boolean} includeShorthand include shorthand props
  */
-const isValidCSSProperty = (name) =>
-	Object.keys(document?.body?.style).indexOf(name) > -1
+const isValidCSSProperty = (name: string, includeShorthand = true) => {
+	let cssProps = Object.keys(document?.body?.style)
+
+	// include shorthand css properties
+	if (includeShorthand) {
+		cssProps = [...cssProps, ...Object.keys(CSS_SHORTHAND_MAPS)]
+	}
+
+	return cssProps?.indexOf(name) > -1
+}
 
 /**
  * Generate class names based on the prop variables.
