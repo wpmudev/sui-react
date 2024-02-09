@@ -68,7 +68,7 @@ export const CSS_SHORTHAND_MAPS: Record<string, string> = {
 	ml: "marginLeft",
 }
 
-const parentSelector = "body .sui-wrap &"
+const parentSelector: string = "body .sui-wrap &"
 
 /**
  * Build style object based on prop name and value
@@ -79,7 +79,7 @@ const parentSelector = "body .sui-wrap &"
 export const buildStyleSheet = (
 	propName: string,
 	value: StringPropertyType,
-): { [key: string]: string } => {
+) => {
 	const shorthandPropName = CSS_SHORTHAND_MAPS[propName] ?? propName
 
 	// build single value
@@ -88,7 +88,11 @@ export const buildStyleSheet = (
 	})
 
 	// build media queries
-	const buildMediaQueries = (val: string, pos: number, acc: object) => {
+	const buildMediaQueries = (
+		val: string,
+		pos: number,
+		acc: Record<string, any>,
+	) => {
 		const prevSize = breakpoints[pos - 1]
 		const size = breakpoints[pos]
 		const styleVal = buildSingleValue(val)
@@ -98,7 +102,7 @@ export const buildStyleSheet = (
 			return {
 				...acc,
 				[parentSelector.replace("body ", "")]: {
-					...acc[parentSelector],
+					...acc[parentSelector as string],
 					...styleVal,
 				},
 			}
@@ -112,7 +116,7 @@ export const buildStyleSheet = (
 		return {
 			...acc,
 			[query]: {
-				[parentSelector]: styleVal,
+				[parentSelector as string]: styleVal,
 			},
 		}
 	}
@@ -120,7 +124,7 @@ export const buildStyleSheet = (
 	switch (typeof value) {
 		case "string":
 			return {
-				[parentSelector]: buildSingleValue(value),
+				[parentSelector as string]: buildSingleValue(value),
 			}
 		case "object":
 			return value.reduce(
@@ -168,8 +172,6 @@ export const useStyles = (styleProps: useStylesTypes, attachWith = "") => {
 			),
 		}
 	}
-
-	console.log("styles", styles)
 
 	// generated classnames
 	const generatedCN = createUseStyles(styles)
