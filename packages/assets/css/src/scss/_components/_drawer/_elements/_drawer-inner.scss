@@ -25,13 +25,13 @@
 				transition: transform 0.3s, visibility 0.3s;
 				transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
 				visibility: hidden;
-				max-width: $drawer-size-lg;
+				width: $drawer-size-lg;
 			}
 
 			@include modifier(overlay) {
 				@include modifies-element(inner) {
 					@include media(max-width, sm) {
-						max-width: calc(100% - 32px);
+						width: calc(100% - 32px);
 					}
 				}
 			}

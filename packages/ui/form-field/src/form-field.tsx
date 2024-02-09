@@ -23,7 +23,7 @@ const FormField: React.FC<FormFieldProps> = ({
 	helper,
 	error,
 	className,
-	isSmall = false,
+	isSmall,
 	isDisabled = false,
 	isLabelHidden = false,
 	children,
@@ -82,7 +82,7 @@ const FormField: React.FC<FormFieldProps> = ({
 			{Object.keys(ariaAttrs).length > 0
 				? Children.map(children, (child: ReactNode) => {
 						return isValidElement(child)
-							? cloneElement(child, { ...ariaAttrs })
+							? cloneElement(child, { ...ariaAttrs, ...child.props })
 							: child
 				  })
 				: children}

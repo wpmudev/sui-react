@@ -82,6 +82,7 @@ ColorPicker.args = {
 	type: "hex",
 	isError: false,
 	isDisabled: false,
+	isFluid: false,
 	errorMessage: "",
 	placeholder: "Select color",
 }
@@ -102,6 +103,10 @@ ColorPicker.argTypes = {
 	},
 	isError: {
 		name: "Error",
+		control: "boolean",
+	},
+	isFluid: {
+		name: "Full width",
 		control: "boolean",
 	},
 	errorMessage: {
