@@ -48,7 +48,7 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 				</div>
 				{actions && <div className="sui-setting-block__actions">{actions}</div>}
 			</div>
-			<div className="sui-setting-block__body">{children}</div>
+			{children && <div className="sui-setting-block__body">{children}</div>}
 		</div>
 	)
 }
