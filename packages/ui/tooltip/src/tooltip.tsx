@@ -8,7 +8,11 @@ import React, {
 	useId,
 } from "react"
 import { Button } from "@wpmudev/sui-button"
-import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
+import {
+	_renderRestPropsSafely,
+	generateCN,
+	handleOnKeyDown,
+} from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
 	useDefaultChildren,
@@ -302,7 +306,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 					</span>
 				)
 			default:
-				return <span {...props}>{label}</span>
+				return <span {..._renderRestPropsSafely(props)}>{label}</span>
 		}
 	}
 

@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { ColProps } from "../grid.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
@@ -30,7 +30,7 @@ const Col: React.FC<ColProps> = ({ size, children, className, ...props }) => {
 	}
 
 	return (
-		<div className={classNames} {...props}>
+		<div className={classNames} {..._renderRestPropsSafely(props)}>
 			{children}
 		</div>
 	)

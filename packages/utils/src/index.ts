@@ -1,7 +1,11 @@
-import React, { MouseEvent, KeyboardEvent } from "react"
+import React, { MouseEvent, KeyboardEvent, CSSProperties } from "react"
 import classnames from "classnames"
 import { render } from "@testing-library/react"
 import { axe } from "jest-axe"
+
+export type isValidCSSProperty<T, K extends string> = K extends keyof T
+	? true
+	: false
 
 /**
  * Generate class names based on the prop variables.
@@ -302,6 +306,35 @@ const a11yTest = async (component: React.ReactElement, config?: object) => {
 	}
 }
 
+/**
+ * It is an internal method to render rest props list safely
+ *
+ * @param {Record<string, any>} propsList            props list
+ * @param {boolean}             excludeCSSProperties exclude CSSProperties
+ */
+const _renderRestPropsSafely = (
+	propsList: Record<string, any>,
+	excludeCSSProperties = true,
+) => {
+	let toReturn = {}
+
+	for (const propKey of Object.keys(propsList)) {
+		type isValid = isValidCSSProperty<CSSProperties, typeof propKey>
+
+		// skip if a valid CSS property
+		if (excludeCSSProperties && (true as isValid)) {
+			continue
+		}
+
+		toReturn = {
+			...toReturn,
+			[propKey]: propsList[propKey],
+		}
+	}
+
+	return toReturn
+}
+
 // Publish required function(s).
 export {
 	isNull,
@@ -322,4 +355,5 @@ export {
 	chunkArray,
 	// jest utilities
 	a11yTest,
+	_renderRestPropsSafely,
 }

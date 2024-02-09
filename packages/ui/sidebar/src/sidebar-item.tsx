@@ -1,6 +1,10 @@
 import React, { KeyboardEvent, useCallback } from "react"
 
-import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
+import {
+	_renderRestPropsSafely,
+	generateCN,
+	handleOnKeyDown,
+} from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import Icons from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
@@ -64,7 +68,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 			onKeyDown={(e) => handleOnKeyDown(e, onClickCallback)}
 			data-testid="sidebar-item"
 			{...methods}
-			{...props}
+			{..._renderRestPropsSafely(props)}
 		>
 			{/* Display item info, including optional icon and title */}
 			<div className="sui-sidebar__item-info">

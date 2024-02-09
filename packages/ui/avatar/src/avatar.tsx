@@ -1,5 +1,10 @@
 import React from "react"
-import { generateCN, isEmpty, isUndefined } from "@wpmudev/sui-utils"
+import {
+	_renderRestPropsSafely,
+	generateCN,
+	isEmpty,
+	isUndefined,
+} from "@wpmudev/sui-utils"
 
 // Import required component(s)
 import { Icon } from "./elements/icon-avatar"
@@ -43,7 +48,11 @@ const Avatar: React.FC<AvatarProps> = ({
 	)
 
 	return (
-		<span className={classNames} {...props} data-testid="avatar">
+		<span
+			className={classNames}
+			{..._renderRestPropsSafely(props)}
+			data-testid="avatar"
+		>
 			{hasImage && <Image source={imageObj.src} text={imageObj.alt} />}
 			{!hasImage && <Icon />}
 			{hasStatus && status !== "none" && <Status status={status} />}

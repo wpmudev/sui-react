@@ -1,5 +1,10 @@
 import React from "react"
-import { generateCN, isEmpty, isUndefined } from "@wpmudev/sui-utils"
+import {
+	_renderRestPropsSafely,
+	generateCN,
+	isEmpty,
+	isUndefined,
+} from "@wpmudev/sui-utils"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 
@@ -35,7 +40,11 @@ const Box: React.FC<BoxProps> = ({
 	children = useDefaultChildren(children)
 
 	return (
-		<div className={classNames} style={style ?? {}} {...props}>
+		<div
+			className={classNames}
+			style={style ?? {}}
+			{..._renderRestPropsSafely(props)}
+		>
 			{hasTitle && (
 				<BoxGroup isInline={true}>
 					<div slot="left">

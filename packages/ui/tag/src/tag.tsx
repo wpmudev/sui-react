@@ -1,5 +1,10 @@
 import React from "react"
-import { generateCN, isEmpty, isUndefined } from "@wpmudev/sui-utils"
+import {
+	_renderRestPropsSafely,
+	generateCN,
+	isEmpty,
+	isUndefined,
+} from "@wpmudev/sui-utils"
 import { TagProps } from "./tag.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
@@ -40,7 +45,11 @@ const Tag: React.FC<TagProps> = ({
 	children = useDefaultChildren(children, "{tag content}")
 
 	return (
-		<span className={classNames} {...props} data-testid="tag">
+		<span
+			className={classNames}
+			{..._renderRestPropsSafely(props)}
+			data-testid="tag"
+		>
 			<span className="sui-tag__label">{children}</span>
 		</span>
 	)

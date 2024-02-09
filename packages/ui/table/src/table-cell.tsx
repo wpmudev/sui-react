@@ -1,6 +1,11 @@
 import React, { Fragment, useCallback, useContext, useRef } from "react"
 
-import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
+import {
+	_renderRestPropsSafely,
+	generateCN,
+	handleOnKeyDown,
+	isEmpty,
+} from "@wpmudev/sui-utils"
 import Icons from "@wpmudev/sui-icons"
 import {
 	useDefaultChildren,
@@ -123,7 +128,7 @@ const TableCell: React.FC<TableCellProps> = ({
 			role={isHeading ? "rowheader" : "cell"}
 			style={style}
 			colSpan={colSpan}
-			{...props}
+			{..._renderRestPropsSafely(props)}
 		>
 			{hasDragIcon && (
 				<Icons.Grip className="sui-table__cell--drag" size="sm" />

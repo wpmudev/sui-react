@@ -1,7 +1,7 @@
 // Import necessary modules and types
 import React, { useState } from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { AccordionProps } from "./accordion.types"
 import { AccordionProvider } from "./accordion-context"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
@@ -38,7 +38,7 @@ const Accordion: React.FC<AccordionProps> = ({
 		<AccordionProvider
 			value={{ allowMultipleExpand, expandState, setExpandState }}
 		>
-			<div className={classNames} {...props}>
+			<div className={classNames} {..._renderRestPropsSafely(props)}>
 				{children}
 			</div>
 		</AccordionProvider>

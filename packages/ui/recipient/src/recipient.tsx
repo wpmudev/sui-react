@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { isEmpty, generateCN } from "@wpmudev/sui-utils"
+import { isEmpty, generateCN, _renderRestPropsSafely } from "@wpmudev/sui-utils"
 
 import { Avatar } from "@wpmudev/sui-avatar"
 
@@ -33,7 +33,7 @@ const Recipient: React.FC<RecipientProps> = ({
 	)
 
 	return (
-		<div className={className} {...props}>
+		<div className={className} {..._renderRestPropsSafely(props)}>
 			<div className="sui-recipient__info">
 				<Avatar
 					className="sui-recipient__avatar"

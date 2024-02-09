@@ -22,7 +22,7 @@ import {
 	isImageFile,
 	getObjectFileFromUrl,
 } from "./helper"
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 // The Uploader component displays a file uploader with drag-and-drop support and file previews.
@@ -173,7 +173,7 @@ const Uploader: React.FC<UploaderProps> = ({
 					multiple={multiple}
 					accept={accept}
 					hidden={true}
-					{...props}
+					{..._renderRestPropsSafely(props)}
 				/>
 
 				{/* Render the uploader button when multiple selection is allowed or no files are selected */}

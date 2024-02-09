@@ -1,5 +1,5 @@
 import React from "react"
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { ScoreProps } from "./score.types"
 import { useStyles } from "@wpmudev/sui-hooks"
@@ -31,7 +31,11 @@ const Score: React.FC<ScoreProps> = ({
 	)
 
 	return (
-		<div className={classNames} {...props} data-testid="score">
+		<div
+			className={classNames}
+			{..._renderRestPropsSafely(props)}
+			data-testid="score"
+		>
 			<svg
 				viewBox="0 0 100 100"
 				className="sui-score__svg"

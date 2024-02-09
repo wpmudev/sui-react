@@ -1,6 +1,6 @@
 import { createUseStyles } from "react-jss"
 import { CSSProperties } from "react"
-import { generateCN } from "@wpmudev/sui-utils"
+import { generateCN, isValidCSSProperty } from "@wpmudev/sui-utils"
 
 // custom classname prefix
 const SUI_PREFIX = "sui-custom"
@@ -92,7 +92,7 @@ export const buildStyleSheet = (
 
 		const query =
 			pos > 0
-				? `@media(min-width:${prevSize + 1}px) and (max-width:${size}px)`
+				? `@media(min-width:${(prevSize ?? 0) + 1}px) and (max-width:${size}px)`
 				: `@media(max-width:${size}px)`
 
 		return { ...acc, [query]: styleVal }
@@ -114,8 +114,6 @@ export const buildStyleSheet = (
 			return {}
 	}
 }
-
-type isValidCSSProperty<T, K extends string> = K extends keyof T ? true : false
 
 /**
  * SUI custom hook for generating className based on passed CSS properties
@@ -140,7 +138,10 @@ export const useStyles = (styleProps: useStylesTypes, attachWith = "") => {
 		styles[SUI_PREFIX] = {
 			...styles[SUI_PREFIX],
 			"body .sui-wrap &": {
-				...buildStyleSheet(name, styleProps[name]),
+				...buildStyleSheet(
+					name,
+					styleProps[name as keyof CSSProperties] as StringPropertyType,
+				),
 			},
 		}
 	}

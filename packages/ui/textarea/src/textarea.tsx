@@ -1,5 +1,9 @@
 import React, { useCallback, useState, useId } from "react"
-import { isFunction, generateCN } from "@wpmudev/sui-utils"
+import {
+	isFunction,
+	generateCN,
+	_renderRestPropsSafely,
+} from "@wpmudev/sui-utils"
 
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 
@@ -67,7 +71,7 @@ const Textarea: React.FC<TextareaProps> = ({
 				onChange={handleOnChange}
 				aria-label={label || "textarea"}
 				data-testid="textarea-input"
-				{...props}
+				{..._renderRestPropsSafely(props)}
 				{...methods}
 			/>
 		</div>

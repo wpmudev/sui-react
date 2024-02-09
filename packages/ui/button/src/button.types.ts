@@ -9,7 +9,7 @@ interface ButtonProps
 	extends React.HTMLAttributes<
 			HTMLButtonElement | HTMLAnchorElement | HTMLInputElement
 		>,
-		Omit<useStylesTypes, "appearance"> {
+		Omit<useStylesTypes, "appearance" | "color" | "position"> {
 	/**
 	 * Optional CSS class name for the button.
 	 */

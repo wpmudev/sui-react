@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import { RowProps } from "../grid.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
@@ -46,7 +46,11 @@ const Row: React.FC<RowProps> = ({
 	}
 
 	return (
-		<div className={classNames} data-testid="grid" {...props}>
+		<div
+			className={classNames}
+			data-testid="grid"
+			{..._renderRestPropsSafely(props)}
+		>
 			{children}
 		</div>
 	)

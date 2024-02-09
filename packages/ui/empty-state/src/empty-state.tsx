@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { EmptyStateProps } from "./empty-state.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
@@ -26,7 +26,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 	children = useDefaultChildren(children)
 
 	return (
-		<div className={classNames} {...props}>
+		<div className={classNames} {..._renderRestPropsSafely(props)}>
 			<div className="sui-empty-state__wrapper">
 				{/* Render the logo if provided. If it's an image URL, display it as an <img> element; otherwise, render it as is. */}
 				{!!logo && (

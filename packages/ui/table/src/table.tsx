@@ -1,6 +1,6 @@
 import React, { useRef, Children as RChild } from "react"
 
-import { isEmpty, generateCN } from "@wpmudev/sui-utils"
+import { isEmpty, generateCN, _renderRestPropsSafely } from "@wpmudev/sui-utils"
 
 import { TableProps } from "./table.types"
 import { TableContextProvider } from "./table-context"
@@ -75,7 +75,7 @@ const Table: React.FC<TableProps> = ({
 				{hasToolbar && <TableToolbar />}
 				<div className="sui-table__wrapper" ref={wrapperRef}>
 					<table
-						{...props}
+						{..._renderRestPropsSafely(props)}
 						className="sui-table__table"
 						ref={ref}
 						// Ignore eslint here as the table have expandable elements which makes it interactive

@@ -3,7 +3,12 @@
 import React, { useId } from "react"
 
 // Import required component(s)
-import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
+import {
+	generateCN,
+	isEmpty,
+	handleOnKeyDown,
+	_renderRestPropsSafely,
+} from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import Icons from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
@@ -51,7 +56,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	}
 
 	return (
-		<span className={classNames} {...props}>
+		<span className={classNames} {..._renderRestPropsSafely(props)}>
 			{/* The input element serves as the radio button, connected to the label element. */}
 			<input
 				type="radio"

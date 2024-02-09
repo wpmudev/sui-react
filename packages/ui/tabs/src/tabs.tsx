@@ -1,7 +1,7 @@
 // Import necessary modules and types
 import React from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { TabProvider } from "./elements/tab-context"
 import { TabsProps } from "./tabs.types"
@@ -22,7 +22,11 @@ const Tabs: React.FC<TabsProps> = ({ className, children, ...props }) => {
 			onSwitchTab={props?.onSwitchTab}
 			activeIndex={props?.activeIndex}
 		>
-			<div className={classNames} {...props} data-testid="tabs">
+			<div
+				className={classNames}
+				{..._renderRestPropsSafely(props)}
+				data-testid="tabs"
+			>
 				{children}
 			</div>
 		</TabProvider>

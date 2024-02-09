@@ -27,7 +27,9 @@ type RowAlignments = "xs" | "sm" | "md" | "lg" | "xl"
 /**
  * Represents the properties for a row component.
  */
-interface RowProps extends HTMLProps<HTMLDivElement>, useStylesTypes {
+interface RowProps
+	extends HTMLProps<HTMLDivElement>,
+		Omit<useStylesTypes, "align"> {
 	/**
 	 * The alignment of the row.
 	 */

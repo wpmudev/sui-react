@@ -1,4 +1,5 @@
 import React, { HTMLProps, RefObject, useCallback } from "react"
+import { _renderRestPropsSafely } from "@wpmudev/sui-utils"
 
 interface SelectSearchInputProps
 	extends Omit<HTMLProps<HTMLInputElement>, "onChange" | "ref" | "onKeyDown"> {
@@ -29,7 +30,7 @@ const Search: React.FC<SelectSearchInputProps> = ({
 			className="sui-select__search--input"
 			onChange={handleInputChange}
 			autoComplete="off"
-			{...props}
+			{..._renderRestPropsSafely(props)}
 		/>
 	)
 }
