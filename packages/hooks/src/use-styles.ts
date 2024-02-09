@@ -5,7 +5,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 // custom classname prefix
 const SUI_PREFIX = "sui-custom"
 
-export type StringPropertyType = string | [...string]
+export type StringPropertyType = string | Array<string>
 
 // mapped type using the helper type
 export type CSSPropertiesTypes = {

@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useRef } from "react"
+import React, { Fragment, LegacyRef, useContext, useRef } from "react"
 
 import { Button } from "@wpmudev/sui-button"
 import { generateCN } from "@wpmudev/sui-utils"
@@ -43,7 +43,7 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 				cssCN,
 			)}
 			data-testid="date-picker-popover"
-			ref={popoverRef}
+			ref={popoverRef as LegacyRef<HTMLDivElement>}
 		>
 			{/* Render the DatePickerRange component in the header (only in non-single mode) */}
 			{!ctx?.isSingle && (

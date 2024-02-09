@@ -42,7 +42,7 @@ interface SelectBaseProps
 			HTMLProps<HTMLDivElement>,
 			"onMouseLeave" | "onMouseEnter" | "selected"
 		>,
-		useStylesTypes {
+		Omit<useStylesTypes, "color"> {
 	/** Unique ID */
 	id?: string
 	/** An array of options for the select */
