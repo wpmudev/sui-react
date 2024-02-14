@@ -73,7 +73,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 				<div className="sui-progress-bar__action">
 					<Button
 						type="tertiary"
-						color="blue"
+						colorScheme="blue"
 						{...(onClick && {
 							onClick: (e) => onClick(e),
 						})}

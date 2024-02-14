@@ -41,7 +41,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 					data-testid="code-snippet-copy-btn"
 					label="Copy"
 					type="secondary"
-					color="black"
+					colorScheme="black"
 					position="top"
 					aria-label={isCopied ? "Copied" : ""}
 					onMouseLeave={() => setIsCopied(false)}

@@ -110,7 +110,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	const toggleBtn = isExpandable && (
 		<Button
 			icon={isExpanded ? "ChevronUp" : "ChevronDown"}
-			color="black"
+			colorScheme="black"
 			type="tertiary"
 			isSmall={true}
 			iconOnly={true}

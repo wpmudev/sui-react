@@ -74,7 +74,7 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 		<Button
 			className={generateCN("sui-uploader__button", {}, suiInlineClassname)}
 			type="primary"
-			color="blue"
+			colorScheme="blue"
 			icon="Upload"
 			onClick={onClick}
 		>

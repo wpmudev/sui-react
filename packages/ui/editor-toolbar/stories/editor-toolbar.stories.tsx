@@ -45,7 +45,7 @@ export const EditorToolbar = ({
 				key={0}
 				type="secondary"
 				icon="Show"
-				color="black"
+				colorScheme="black"
 				isFullWidth={true}
 				isResponsive={true}
 			>
@@ -55,7 +55,7 @@ export const EditorToolbar = ({
 				key={1}
 				type="primary"
 				icon="Globe"
-				color="blue"
+				colorScheme="blue"
 				isFullWidth={true}
 			>
 				Publish

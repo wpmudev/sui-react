@@ -43,7 +43,7 @@ const DrawerHeader = ({
 				<Button
 					icon="Close"
 					type="tertiary"
-					color="black"
+					colorScheme="black"
 					isSmall={true}
 					iconOnly={true}
 					onClick={onClose}

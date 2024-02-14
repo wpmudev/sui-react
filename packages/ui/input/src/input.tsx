@@ -302,7 +302,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 						<Button
 							className="sui-input__input-clear"
 							icon="CloseAlt"
-							color="black"
+							colorScheme="black"
 							type="tertiary"
 							iconOnly={true}
 							iconSize={isSmall ? "sm" : "md"}

@@ -81,7 +81,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 							<Fragment>
 								<Button
 									isSmall={true}
-									color="blue"
+									colorScheme="blue"
 									type="tertiary"
 									onClick={(e) => {
 										e.preventDefault()
@@ -94,7 +94,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 									icon="Settings"
 									isSmall={true}
 									iconOnly={true}
-									color="black"
+									colorScheme="black"
 									aria-label="settings"
 									type="tertiary"
 									onClick={(e) => {

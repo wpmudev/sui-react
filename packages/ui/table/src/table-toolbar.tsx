@@ -76,7 +76,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({ ...props }) => {
 							/>
 							<Button
 								type="primary"
-								color="black"
+								colorScheme="black"
 								isSmall={true}
 								isDisabled={isEmpty(bulkAction ?? "")}
 								onClick={onApplyBulkAction}
@@ -111,7 +111,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({ ...props }) => {
 							id={filterBtnId}
 							className="sui-table__toolbar-filter"
 							icon="Filter"
-							color="black"
+							colorScheme="black"
 							type="secondary"
 							isSmall={true}
 							onClick={() => setIsExpanded(!isExpanded)}

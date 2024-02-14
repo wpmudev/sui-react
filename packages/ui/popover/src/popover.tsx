@@ -235,7 +235,7 @@ const Popover: React.FC<PopoverProps> = ({
 							<Button
 								icon="Close"
 								iconOnly={true}
-								color="black"
+								colorScheme="black"
 								isSmall={true}
 								type="tertiary"
 								onClick={onTriggerClick}

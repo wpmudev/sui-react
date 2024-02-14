@@ -41,7 +41,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 					className="sui-modal__header-actions-close"
 					icon="Close"
 					type="tertiary"
-					color="black"
+					colorScheme="black"
 					onClick={!!closeModal ? closeModal : () => {}}
 					isSmall={true}
 					iconOnly={true}

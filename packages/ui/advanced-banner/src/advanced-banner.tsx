@@ -33,7 +33,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 		suiInlineClassname,
 	)
 
-	let closeBtnColor: ButtonProps["color"] = "black"
+	let closeBtnColor: ButtonProps["colorScheme"] = "black"
 
 	// Display white button for following variations
 	if (["black-friday", "hub"].includes(variation)) {
@@ -99,7 +99,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 						type="tertiary"
 						isSmall={true}
 						iconOnly={true}
-						color={closeBtnColor}
+						colorScheme={closeBtncolorScheme}
 						onClick={onClose}
 						aria-label="close"
 					/>

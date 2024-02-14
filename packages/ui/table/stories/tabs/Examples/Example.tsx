@@ -481,14 +481,14 @@ export const TableExample = ({ ...props }) => {
 			>
 				<Button
 					icon="Edit"
-					color="black"
+					colorScheme="black"
 					type="tertiary"
 					isSmall={true}
 					iconOnly={true}
 				/>
 				<Button
 					icon="Settings"
-					color="black"
+					colorScheme="black"
 					type="tertiary"
 					isSmall={true}
 					iconOnly={true}

@@ -78,7 +78,7 @@ export const Navigation = (props: {
 						<Button
 							type="tertiary"
 							icon="Bell"
-							color="black"
+							colorScheme="black"
 							isResponsive={true}
 						>
 							Help
@@ -86,7 +86,7 @@ export const Navigation = (props: {
 						<Button
 							icon="Bell"
 							type="tertiary"
-							color="black"
+							colorScheme="black"
 							isResponsive={true}
 						>
 							Documentation
@@ -94,7 +94,7 @@ export const Navigation = (props: {
 						<Button
 							icon="PluginSmush"
 							type="tertiary"
-							color="black"
+							colorScheme="black"
 							isResponsive={true}
 						>
 							Support Smush
@@ -150,7 +150,7 @@ export const Navigation = (props: {
 								<Button
 									type="primary"
 									icon="Package"
-									color="blue"
+									colorScheme="blue"
 									isSmall={true}
 									isFullWidth={true}
 								>

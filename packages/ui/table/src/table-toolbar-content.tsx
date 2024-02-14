@@ -90,7 +90,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 		<div className="sui-table__toolbar-cta">
 			<Button
 				type="tertiary"
-				color="black"
+				colorScheme="black"
 				isSmall={true}
 				isDisabled={ctx?.filterValues?.length <= 0}
 				onClick={() => ctx?.clearFilters()}
@@ -99,7 +99,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 			</Button>
 			<Button
 				type="secondary"
-				color="black"
+				colorScheme="black"
 				isSmall={true}
 				isDisabled={ctx?.filterValues?.length <= 0}
 				onClick={() => ctx?.triggerAction("apply-filters", ctx?.filterValues)}

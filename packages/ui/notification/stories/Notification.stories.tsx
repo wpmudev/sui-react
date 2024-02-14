@@ -54,7 +54,7 @@ export default {
 // 				<Button
 // 					className="csb-banner__cta"
 // 					type="secondary"
-// 					color="blue"
+// 					colorScheme="blue"
 // 					isSmall={true}
 // 				>
 // 					Action
@@ -74,7 +74,7 @@ export default {
 // 				<Button
 // 					className="csb-banner__cta"
 // 					type="secondary"
-// 					color="blue"
+// 					colorScheme="blue"
 // 					isSmall={true}
 // 				>
 // 					Action
@@ -94,7 +94,7 @@ export default {
 // 				<Button
 // 					className="csb-banner__cta"
 // 					type="secondary"
-// 					color="blue"
+// 					colorScheme="blue"
 // 					isSmall={true}
 // 				>
 // 					Action
@@ -114,7 +114,7 @@ export default {
 // 				<Button
 // 					className="csb-banner__cta"
 // 					type="secondary"
-// 					color="blue"
+// 					colorScheme="blue"
 // 					isSmall={true}
 // 				>
 // 					Action
@@ -135,7 +135,7 @@ export default {
 // 				<Button
 // 					className="csb-banner__cta"
 // 					type="secondary"
-// 					color="blue"
+// 					colorScheme="blue"
 // 					isSmall={true}
 // 				>
 // 					Action
@@ -191,7 +191,7 @@ export const Notification = ({
 							<div>
 								<Button
 									type="secondary"
-									color="blue"
+									colorScheme="blue"
 									isSmall={true}
 									onClick={() => {
 										notifications.push({ ...options, id: "notification-1" })
@@ -227,7 +227,7 @@ Notification.args = {
 		<Button
 			className="csb-banner__cta"
 			type="secondary"
-			color="blue"
+			colorScheme="blue"
 			isSmall={true}
 		>
 			Action

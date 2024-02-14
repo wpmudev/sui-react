@@ -13,7 +13,7 @@ const actions = [
 	<Button
 		key={0}
 		type="secondary"
-		color="black"
+		colorScheme="black"
 		isSmall={true}
 		// onClick={onApplyButton}
 	>

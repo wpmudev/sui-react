@@ -44,13 +44,13 @@ const Popover = ({
 							footer ? (
 								<Fragment>{footer}</Fragment>
 							) : (
-								<Button isSmall={true} type="secondary" color="black">
+								<Button isSmall={true} type="secondary" colorScheme="black">
 									Know more
 								</Button>
 							)
 						}
 						trigger={
-							<Button isSmall={true} type="primary" color="blue">
+							<Button isSmall={true} type="primary" colorScheme="blue">
 								Open popup
 							</Button>
 						}
@@ -80,7 +80,7 @@ Popover.args = {
 	footer: (
 		<Fragment>
 			1/2
-			<Button isSmall={true} type="secondary" color="black">
+			<Button isSmall={true} type="secondary" colorScheme="black">
 				Know more
 			</Button>
 		</Fragment>

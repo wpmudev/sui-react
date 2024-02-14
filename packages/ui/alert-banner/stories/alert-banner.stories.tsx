@@ -39,7 +39,7 @@ export const AlertBanner = ({ variation, ...props }: AlertBannerProps) => {
 		<Button
 			key={0}
 			type={theme ? "primary" : "secondary"}
-			color={theme ? "white" : "black"}
+			colorScheme={theme ? "white" : "black"}
 			isSmall={true}
 		>
 			Primary
@@ -47,7 +47,7 @@ export const AlertBanner = ({ variation, ...props }: AlertBannerProps) => {
 		<Button
 			key={1}
 			type="tertiary"
-			color={theme ? "white" : "black"}
+			colorScheme={theme ? "white" : "black"}
 			isSmall={true}
 		>
 			Secondary

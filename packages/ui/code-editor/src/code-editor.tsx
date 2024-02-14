@@ -68,7 +68,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 					<Tooltip
 						label="Copy"
 						type="secondary"
-						color="black"
+						colorScheme="black"
 						position="top"
 						isSmall={true}
 						aria-label={isCopied ? "Copied" : ""}

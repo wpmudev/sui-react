@@ -22,7 +22,7 @@ import { Button } from "@wpmudev/sui-button"
             <>
                 <Button
                     type="secondary"
-                    color="black"
+                    colorScheme="black"
                     isSmall={true}
                     onClick={() => (loader.isVisible ? loader.hide() : loader.show())}
                 >
@@ -61,7 +61,7 @@ export const SpinnerHookExample = () => {
 		<>
 			<Button
 				type="secondary"
-				color="black"
+				colorScheme="black"
 				isSmall={true}
 				onClick={() => (loader.isVisible ? loader.hide() : loader.show())}
 			>

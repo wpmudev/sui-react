@@ -78,7 +78,7 @@ describe("@wpmudev/sui-notification", () => {
 					<NotificationRenderer />
 					<Button
 						type="secondary"
-						color="blue"
+						colorScheme="blue"
 						isSmall={true}
 						onClick={() => {
 							notification.push(commonProps) // Use commonProps for consistency

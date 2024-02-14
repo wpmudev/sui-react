@@ -109,7 +109,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						<Button
 							startIcon={buttonIcon ?? "Menu"}
 							iconOnly={iconOnly ?? false}
-							color="black"
+							colorScheme="black"
 							type="secondary"
 							isSmall={isSmall ?? false}
 							onClick={() => setIsOpen(!isOpen)}

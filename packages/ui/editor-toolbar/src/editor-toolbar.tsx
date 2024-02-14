@@ -36,7 +36,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 		<Button
 			type="tertiary"
 			icon="Settings"
-			color="black"
+			colorScheme="black"
 			iconOnly={true}
 			aria-label="settings"
 			onClick={onSettingClick}
@@ -68,7 +68,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 								<Button
 									type="tertiary"
 									icon="ChevronLeft"
-									color="black"
+									colorScheme="black"
 									iconOnly={true}
 									onClick={onBackClick}
 									aria-label="back"

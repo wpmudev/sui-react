@@ -46,7 +46,7 @@ const SummaryBox = ({}) => {
 									<Button
 										type="secondary"
 										icon="Trash"
-										color="black"
+										colorScheme="black"
 										isSmall={true}
 										isResponsive={true}
 									>
@@ -60,7 +60,7 @@ const SummaryBox = ({}) => {
 								key={2}
 								type="primary"
 								icon="Add"
-								color="blue"
+								colorScheme="blue"
 								isSmall={true}
 								isFullWidth={true}
 							>

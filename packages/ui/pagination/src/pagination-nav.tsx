@@ -41,7 +41,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 				<li className="sui-pagination__item">
 					<Tooltip
 						className="sui-pagination__button"
-						color="black"
+						colorScheme="black"
 						type="tertiary"
 						icon="ChevronLeft"
 						iconOnly={true}
@@ -58,7 +58,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 					<li className="sui-pagination__item">
 						<Button
 							className="sui-pagination__button"
-							color="black"
+							colorScheme="black"
 							type="tertiary"
 							isSmall={true}
 							isDisabled={selectedPage <= 1}
@@ -71,7 +71,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 				{startIndex > 0 && (
 					<li className="sui-pagination__item">
 						<Button
-							color="black"
+							colorScheme="black"
 							type="tertiary"
 							icon="More"
 							iconOnly={true}
@@ -89,7 +89,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						return (
 							<li className="sui-pagination__item" key={index}>
 								<Button
-									color="black"
+									colorScheme="black"
 									type="tertiary"
 									isSmall={true}
 									className={`sui-pagination__button${
@@ -108,7 +108,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 				{endIndex < pages - 1 && (
 					<li className="sui-pagination__item">
 						<Button
-							color="black"
+							colorScheme="black"
 							type="tertiary"
 							icon="More"
 							iconOnly={true}
@@ -123,7 +123,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 				{endIndex < pages && skip && (
 					<li className="sui-pagination__item">
 						<Button
-							color="black"
+							colorScheme="black"
 							type="tertiary"
 							isSmall={true}
 							className="sui-pagination__button"
@@ -137,7 +137,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 				<li className="sui-pagination__item">
 					<Tooltip
 						className="sui-pagination__button"
-						color="black"
+						colorScheme="black"
 						type="tertiary"
 						icon="ChevronRight"
 						iconOnly={true}

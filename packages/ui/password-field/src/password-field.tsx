@@ -52,7 +52,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	const buttonProps = {
 		label: isVisible ? "Hide" : "Show",
 		type: "secondary",
-		color: "black",
+		colorScheme: "black",
 		className: "sui-password__button",
 		isDisabled: isDisabled || !hasValue,
 		onClick: () => setVisible(!isVisible),

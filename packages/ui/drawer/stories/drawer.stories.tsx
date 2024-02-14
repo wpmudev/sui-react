@@ -66,10 +66,10 @@ const _internalDrawer = ({
 			</DrawerBody>
 			<DrawerFooter>
 				<div>
-					<Button type="secondary" color="blue" isSmall={true}>
+					<Button type="secondary" colorScheme="blue" isSmall={true}>
 						Secondary
 					</Button>
-					<Button type="primary" color="blue" isSmall={true}>
+					<Button type="primary" colorScheme="blue" isSmall={true}>
 						Primary
 					</Button>
 				</div>
@@ -154,7 +154,7 @@ const Drawer = (props) => {
 										/>
 										<Button
 											type="primary"
-											color="blue"
+											colorScheme="blue"
 											isSmall={true}
 											onClick={() => {
 												ref?.current?.toggle()
@@ -166,7 +166,7 @@ const Drawer = (props) => {
 										</Button>
 										<Button
 											type="primary"
-											color="blue"
+											colorScheme="blue"
 											isSmall={true}
 											onClick={() => {
 												overNavRef?.current?.toggle()
@@ -178,7 +178,7 @@ const Drawer = (props) => {
 										</Button>
 										<Button
 											type="primary"
-											color="blue"
+											colorScheme="blue"
 											isSmall={true}
 											onClick={() => {
 												underNavRef?.current?.toggle()

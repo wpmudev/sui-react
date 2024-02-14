@@ -25,12 +25,12 @@ export default {
 export const Upsell = ({ ...props }) => {
 	const actions = [
 		<div key={0}>
-			<Button type="primary" color="black" isSmall={true}>
+			<Button type="primary" colorScheme="black" isSmall={true}>
 				Upgrade now
 			</Button>
 		</div>,
 		<div key={1}>
-			<Button type="tertiary" color="black" isSmall={true}>
+			<Button type="tertiary" colorScheme="black" isSmall={true}>
 				Learn more
 			</Button>
 		</div>,

@@ -111,7 +111,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 					<Button
 						icon="Close"
 						type="tertiary"
-						color={dismissBtnColor}
+						colorScheme={dismissBtnColor}
 						isSmall={true}
 						iconOnly={true}
 						onClick={onClose}

@@ -42,7 +42,7 @@ const Spinner = ({ ...args }) => {
 				</h5>
 				<Button
 					type="secondary"
-					color="black"
+					colorScheme="black"
 					isSmall={true}
 					onClick={() => (loader.isVisible ? loader.hide() : loader.show())}
 				>

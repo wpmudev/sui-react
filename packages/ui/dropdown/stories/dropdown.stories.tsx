@@ -167,7 +167,7 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 							<Button
 								type="primary"
 								icon="Package"
-								color="blue"
+								colorScheme="blue"
 								isSmall={true}
 								isFullWidth={true}
 							>
