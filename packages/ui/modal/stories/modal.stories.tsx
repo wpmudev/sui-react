@@ -50,20 +50,20 @@ const Modal = ({ ...props }) => {
 						</ModalBody>
 						<ModalFooter>
 							<Button
-								appearance="secondary"
+								type="secondary"
 								color="blue"
 								isSmall={true}
 								onClick={() => ref.current?.closeModal()}
 							>
 								Cancel
 							</Button>
-							<Button appearance="primary" color="blue" isSmall={true}>
+							<Button type="primary" color="blue" isSmall={true}>
 								Apply
 							</Button>
 						</ModalFooter>
 					</SuiModal>
 					<Button
-						appearance="primary"
+						type="primary"
 						color="blue"
 						onClick={() => {
 							ref.current?.openModal()

@@ -110,7 +110,7 @@ const Notification: React.FC<NotificationProps> = ({
 				<Button
 					className="sui-modal__header-actions-close"
 					icon="Close"
-					appearance="tertiary"
+					type="tertiary"
 					color="black"
 					isSmall={true}
 					iconOnly={true}

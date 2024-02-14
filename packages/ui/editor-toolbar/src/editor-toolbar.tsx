@@ -34,7 +34,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 
 	const settingButton = (
 		<Button
-			appearance="tertiary"
+			type="tertiary"
 			icon="Settings"
 			color="black"
 			iconOnly={true}
@@ -66,7 +66,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 						{allowBack && (
 							<div>
 								<Button
-									appearance="tertiary"
+									type="tertiary"
 									icon="ChevronLeft"
 									color="black"
 									iconOnly={true}

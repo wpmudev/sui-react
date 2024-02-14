@@ -96,7 +96,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 				>
 					<Button
 						icon="Close"
-						appearance="tertiary"
+						type="tertiary"
 						isSmall={true}
 						iconOnly={true}
 						color={closeBtnColor}

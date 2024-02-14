@@ -12,7 +12,7 @@ import { Notification } from "@wpmudev/sui-notification"
 const actions = [
 	<Button
 		key={0}
-		appearance="secondary"
+		type="secondary"
 		color="black"
 		isSmall={true}
 		// onClick={onApplyButton}

@@ -31,7 +31,7 @@ export const DashboardWidget = ({ ...props }) => {
 	const actions = [
 		<Button
 			key={0}
-			appearance="secondary"
+			type="secondary"
 			color="black"
 			isSmall={true}
 			// onClick={onApplyButton}

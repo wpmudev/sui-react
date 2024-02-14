@@ -62,7 +62,7 @@ Box.args = {
 		</span>,
 	],
 	headerRight: [
-		<Button key="1" appearance="primary" color="blue" isSmall={true}>
+		<Button key="1" type="primary" color="blue" isSmall={true}>
 			Run Action
 		</Button>,
 	],

@@ -8,10 +8,10 @@ export const sampleCode = dedent`
 `
 
 export const actionButtonCode = dedent`
-    <RichTextEditor 
+    <RichTextEditor
         actions={
-            <Button appearance="secondary" icon="Add" color="black">Add Field</Button>
-        } 
+            <Button type="secondary" icon="Add" color="black">Add Field</Button>
+        }
     />
 `
 
@@ -26,7 +26,7 @@ export const actionButtonCode = dedent`
 <Section title="With an Action Button" contained={true} style={{ paddingTop: 0 }}>
 	<p>You can optionally add custom action button(s) using the <Code isSmall={true}>actions</Code> prop</p>
 	<Preview contained={true} wrapper={true}>
-		<RichTextEditor actions={<Button appearance="secondary" icon="Add" color="black">Add Field</Button>} />
+		<RichTextEditor actions={<Button type="secondary" icon="Add" color="black">Add Field</Button>} />
 	</Preview>
 	<Snippet language="js">{actionButtonCode}</Snippet>
 </Section>

@@ -43,7 +43,7 @@ export const EditorToolbar = ({
 		return [
 			<Button
 				key={0}
-				appearance="secondary"
+				type="secondary"
 				icon="Show"
 				color="black"
 				isFullWidth={true}
@@ -53,7 +53,7 @@ export const EditorToolbar = ({
 			</Button>,
 			<Button
 				key={1}
-				appearance="primary"
+				type="primary"
 				icon="Globe"
 				color="blue"
 				isFullWidth={true}

@@ -77,7 +77,7 @@ describe("@wpmudev/sui-notification", () => {
 				<Fragment>
 					<NotificationRenderer />
 					<Button
-						appearance="secondary"
+						type="secondary"
 						color="blue"
 						isSmall={true}
 						onClick={() => {

@@ -72,7 +72,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 			{allowCancel && (
 				<div className="sui-progress-bar__action">
 					<Button
-						appearance="tertiary"
+						type="tertiary"
 						color="blue"
 						{...(onClick && {
 							onClick: (e) => onClick(e),

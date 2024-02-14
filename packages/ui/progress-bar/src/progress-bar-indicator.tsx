@@ -55,7 +55,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 			{hasAction && (
 				<div className="sui-progress-bar__action">
 					<Button
-						appearance="tertiary"
+						type="tertiary"
 						color="blue"
 						{...(isFunction(onClick) && {
 							onClick: (e) => onClick(e),
