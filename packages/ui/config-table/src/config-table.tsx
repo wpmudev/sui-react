@@ -113,7 +113,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 									<Tooltip
 										type="icon"
 										icon="InfoAlt"
-										position="right-bottom"
+										placement="right-bottom"
 										customWidth={160}
 										customMobileWidth={160}
 									>

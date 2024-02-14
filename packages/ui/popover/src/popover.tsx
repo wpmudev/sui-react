@@ -33,7 +33,7 @@ const Popover: React.FC<PopoverProps> = ({
 	className,
 	header,
 	children,
-	position = "top",
+	placement = "top",
 	footer,
 	displayOnHover = false,
 	...props
@@ -62,7 +62,7 @@ const Popover: React.FC<PopoverProps> = ({
 		{
 			open: isPopupOpen,
 			image: !isUndefined(image) && !isEmpty(image),
-			[`${position}`]: true,
+			[`${placement}`]: true,
 		},
 		suiInlineClassname,
 	)
@@ -113,7 +113,7 @@ const Popover: React.FC<PopoverProps> = ({
 
 		let pos = {}
 
-		switch (position) {
+		switch (placement) {
 			case "top":
 				pos = {
 					[isRTL ? "right" : "left"]: 0 - popupW / 2 + clientWidth / 2,
@@ -193,7 +193,7 @@ const Popover: React.FC<PopoverProps> = ({
 			...pos,
 		})
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [trigger, popupRef, isPopupOpen, position])
+	}, [trigger, popupRef, isPopupOpen, placement])
 
 	return (
 		<div

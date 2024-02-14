@@ -69,7 +69,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 						label="Copy"
 						type="secondary"
 						colorScheme="black"
-						position="top"
+						placement="top"
 						isSmall={true}
 						aria-label={isCopied ? "Copied" : ""}
 						onMouseLeave={() => setIsCopied(false)}

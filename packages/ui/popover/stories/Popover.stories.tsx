@@ -22,7 +22,7 @@ export default {
 
 // Build "Popover" story.
 const Popover = ({
-	position,
+	placement,
 	displayOnHover,
 	footer,
 	header,
@@ -37,7 +37,7 @@ const Popover = ({
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<SuiPopover
-						position={position ?? "bottom"}
+						placement={placement ?? "bottom"}
 						displayOnHover={displayOnHover ?? false}
 						header={header}
 						footer={
@@ -85,7 +85,7 @@ Popover.args = {
 			</Button>
 		</Fragment>
 	),
-	position: "right-bottom",
+	placement: "right-bottom",
 	displayOnHover: false,
 }
 
@@ -124,8 +124,8 @@ Popover.argTypes = {
 			type: "object",
 		},
 	},
-	position: {
-		name: "Position",
+	placement: {
+		name: "Placement",
 		options: [
 			"top",
 			"top-left",

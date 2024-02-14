@@ -246,7 +246,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							icon={icon}
 							customWidth={iconTooltipWidth as number}
 							iconSize={isSmall ? "sm" : "md"}
-							position="top"
+							placement="top"
 							onClick={() => {
 								if (onClickIcon) {
 									onClickIcon()
@@ -262,7 +262,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 					<Icon
 						name={icon}
 						size={isSmall ? "sm" : "md"}
-						position={iconPosition ?? "start"}
+						placement={iconPosition ?? "start"}
 						onClick={(e: React.MouseEvent) => {
 							if (onClickIcon) {
 								onClickIcon(e)

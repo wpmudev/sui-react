@@ -23,7 +23,7 @@ const Tooltip = ({
 	type,
 	label,
 	tootlipText,
-	position,
+	placement,
 	customWidth,
 	customMobileWidth,
 	color,
@@ -43,7 +43,7 @@ const Tooltip = ({
 						label={label}
 						type="primary"
 						color="black"
-						position={position}
+						placement={placement}
 						customWidth={customWidth}
 						customMobileWidth={customMobileWidth}
 					>
@@ -60,7 +60,7 @@ Tooltip.args = {
 	type: "button",
 	tootlipText: "Tooltip text",
 	label: "Button",
-	position: "top",
+	placement: "top",
 	customWidth: "",
 	customMobileWidth: "",
 }
@@ -89,8 +89,8 @@ Tooltip.argTypes = {
 			type: "text",
 		},
 	},
-	position: {
-		name: "Position",
+	placement: {
+		name: "placement",
 		options: [
 			"top",
 			"top-left",

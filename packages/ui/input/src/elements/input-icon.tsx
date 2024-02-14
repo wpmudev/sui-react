@@ -10,7 +10,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 const Icon: React.FC<IconPropsTypes> = ({
 	name,
 	size = "md",
-	position = "start",
+	placement = "start",
 	onClick,
 	...props
 }) => {
@@ -41,7 +41,7 @@ const Icon: React.FC<IconPropsTypes> = ({
 		<span
 			className={className}
 			aria-hidden="true"
-			data-testid={`input-icon-${position}`}
+			data-testid={`input-icon-${placement}`}
 			onClick={onClick}
 		>
 			{IconName && <IconName size={size} />}

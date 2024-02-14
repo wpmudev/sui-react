@@ -56,7 +56,7 @@ const _internalDrawer = ({
 			<DrawerHeader
 				title={title}
 				hintText={desc}
-				tooltipOptions={{ position: "bottom" }}
+				tooltipOptions={{ placement: "bottom" }}
 			/>
 			<DrawerBody>
 				<div style={{ padding: "16px" }}>
@@ -96,7 +96,7 @@ const Drawer = (props) => {
 				<_internalDrawer
 					toggleRef={ref}
 					{...props}
-					tooltipOptions={{ position: "bottom" }}
+					tooltipOptions={{ placement: "bottom" }}
 					title="Drawer title"
 					desc="Drawer for body container, it is fixed positioned"
 				/>
@@ -115,7 +115,7 @@ const Drawer = (props) => {
 									<_internalDrawer
 										toggleRef={overNavRef}
 										{...props}
-										tooltipOptions={{ position: "bottom" }}
+										tooltipOptions={{ placement: "bottom" }}
 										title="Drawer title"
 										desc="Above the top navigation"
 										hasContainer={true}
@@ -146,7 +146,7 @@ const Drawer = (props) => {
 										<_internalDrawer
 											toggleRef={underNavRef}
 											{...props}
-											tooltipOptions={{ position: "bottom" }}
+											tooltipOptions={{ placement: "bottom" }}
 											title="Drawer title"
 											desc="Below the top navigation"
 											hasContainer={true}
@@ -201,7 +201,7 @@ const Drawer = (props) => {
 
 // Set story arguments
 Drawer.args = {
-	position: "right",
+	placement: "right",
 	size: "large",
 	outerClickClose: true,
 	hasContainer: false,
@@ -210,8 +210,8 @@ Drawer.args = {
 
 // Set controls for story arguments
 Drawer.argTypes = {
-	position: {
-		name: "Position",
+	placement: {
+		name: "Placement",
 		options: ["right", "left"],
 		control: {
 			type: "select",

@@ -34,11 +34,11 @@ describe("@wpmudev/sui-popover", () => {
 		expect(imgEL).toBeInTheDocument()
 	})
 
-	// Test case to check if the position prop works as expected
-	it("Position prop works correctly", () => {
-		// Render the Popover component with the provided label, description, and position="bottom"
+	// Test case to check if the placement prop works as expected
+	it("Placement prop works correctly", () => {
+		// Render the Popover component with the provided label, description, and placement="bottom"
 		render(
-			<Popover header={label} position="bottom" trigger="Test Button">
+			<Popover header={label} placement="bottom" trigger="Test Button">
 				{description}
 			</Popover>,
 		)
@@ -56,7 +56,7 @@ describe("@wpmudev/sui-popover", () => {
 	// eslint-disable-next-line jest/expect-expect
 	it("passes a11y test", async () => {
 		await a11yTest(
-			<Popover label={label} trigger="Test Button" position="top">
+			<Popover label={label} trigger="Test Button" placement="top">
 				{description}
 			</Popover>,
 		)

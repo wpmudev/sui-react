@@ -67,7 +67,7 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 						label="(info)"
 						type="icon"
 						icon="InfoAlt"
-						position="top"
+						placement="top"
 						customWidth={300}
 						customMobileWidth={200}
 					>

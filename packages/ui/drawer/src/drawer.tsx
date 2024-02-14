@@ -22,7 +22,7 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 			children,
 			isOpen: propIsOpen = false,
 			size = "default",
-			position = "right",
+			placement = "right",
 			hasContainer = false,
 			disableShadow = false,
 			outerClickClose = true,
@@ -56,7 +56,7 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 				overlay: !hasContainer,
 				hidden: !isVisible,
 				[size]: !!size,
-				[position]: !!position,
+				[placement]: !!placement,
 			},
 			suiInlineClassname,
 		)

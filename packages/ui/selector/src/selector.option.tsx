@@ -66,7 +66,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 						isSmall={true}
 						className="sui-selector__option-delete-btn"
 						onClick={() => onRemove()}
-						position="top-right"
+						placement="top-right"
 						customWidth={70}
 					>
 						Remove

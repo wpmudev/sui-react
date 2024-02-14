@@ -30,7 +30,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	label,
 	type = "button",
 	className,
-	position = "top",
+	placement = "top",
 	customWidth,
 	customMobileWidth,
 	children,
@@ -81,7 +81,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 				top: `${parentRect.top + window.scrollY}px`,
 			}
 
-			switch (position) {
+			switch (placement) {
 				case "top":
 				case "top-left":
 				case "top-right":
@@ -89,18 +89,18 @@ const Tooltip: React.FC<TooltipProps> = ({
 						...attrs,
 						top: parentRect.top - tooltipHeight - 10 + window.scrollY,
 					}
-					if (position === "top-right") {
+					if (placement === "top-right") {
 						attrs = {
 							...attrs,
 							[alignName]: align - tooltipWidth + (trigger?.width ?? 0),
 						}
-					} else if (position === "top") {
+					} else if (placement === "top") {
 						attrs = {
 							...attrs,
 							left:
 								parentRect.left + (trigger?.width ?? 0) / 2 + window.scrollX,
 						}
-					} else if (position === "top-left") {
+					} else if (placement === "top-left") {
 						attrs = {
 							...attrs,
 							[alignName]: align,
@@ -115,18 +115,18 @@ const Tooltip: React.FC<TooltipProps> = ({
 						...attrs,
 						top: parentRect.top + (trigger?.height ?? 0) + 10 + window.scrollY,
 					}
-					if (position === "bottom-right") {
+					if (placement === "bottom-right") {
 						attrs = {
 							...attrs,
 							[alignName]: align - tooltipWidth + (trigger?.width ?? 0),
 						}
-					} else if (position === "bottom") {
+					} else if (placement === "bottom") {
 						attrs = {
 							...attrs,
 							left:
 								parentRect.left + (trigger?.width ?? 0) / 2 + window.scrollY,
 						}
-					} else if (position === "bottom-left") {
+					} else if (placement === "bottom-left") {
 						attrs = {
 							...attrs,
 							[alignName]: align,
@@ -141,12 +141,12 @@ const Tooltip: React.FC<TooltipProps> = ({
 						...attrs,
 						[alignName]: align + (trigger?.width ?? 0) + 10,
 					}
-					if (position === "right-top") {
+					if (placement === "right-top") {
 						attrs = {
 							...attrs,
 							top: parentRect.top + window.scrollY,
 						}
-					} else if (position === "right-bottom") {
+					} else if (placement === "right-bottom") {
 						attrs = {
 							...attrs,
 							top:
@@ -170,12 +170,12 @@ const Tooltip: React.FC<TooltipProps> = ({
 						...attrs,
 						[alignName]: align - tooltipWidth - 10,
 					}
-					if (position === "left-top") {
+					if (placement === "left-top") {
 						attrs = {
 							...attrs,
 							top: parentRect.top,
 						}
-					} else if (position === "left-bottom") {
+					} else if (placement === "left-bottom") {
 						attrs = {
 							...attrs,
 							top: parentRect.top + (trigger?.height ?? 0) - tooltipHeight,
@@ -331,7 +331,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 							show: isVisible,
 							focus: isFocused,
 							"custom-width": !!customWidth,
-							[position]: true,
+							[placement]: true,
 							icon: !!icon,
 						})}
 						role="tooltip"

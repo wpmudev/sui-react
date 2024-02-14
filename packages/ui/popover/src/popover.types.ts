@@ -39,7 +39,7 @@ interface PopoverBaseProps
 	/**
 	 * Popup directions
 	 */
-	position?:
+	placement?:
 		| "top"
 		| "top-left"
 		| "top-right"

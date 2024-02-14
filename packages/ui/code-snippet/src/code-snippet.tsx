@@ -42,7 +42,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 					label="Copy"
 					type="secondary"
 					colorScheme="black"
-					position="top"
+					placement="top"
 					aria-label={isCopied ? "Copied" : ""}
 					onMouseLeave={() => setIsCopied(false)}
 					customWidth={65}

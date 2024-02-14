@@ -11,7 +11,7 @@ interface TooltipBaseProps
 			HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>,
 			"onClick" | "label"
 		>,
-		Omit<useStylesTypes, "position"> {
+		useStylesTypes {
 	/**
 	 * The text label for the tooltip.
 	 */
@@ -31,7 +31,7 @@ interface TooltipBaseProps
 	/**
 	 * Optional position of the tooltip.
 	 */
-	position?: string
+	placement?: string
 	/**
 	 * Optional custom width of the tooltip.
 	 */
