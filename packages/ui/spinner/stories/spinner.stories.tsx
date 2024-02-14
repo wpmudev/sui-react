@@ -93,7 +93,7 @@ Spinner.args = {
 // Set controls for story arguments.
 Spinner.argTypes = {
 	isAbsolute: {
-		name: "isAbsolute",
+		name: "Absolute",
 		type: "boolean",
 	},
 	size: {
@@ -111,6 +111,10 @@ Spinner.argTypes = {
 			type: "select",
 			labels: { primary: "Primary", dark: "Dark" },
 		},
+	},
+	isContained: {
+		name: "Contained",
+		type: "boolean",
 	},
 }
 

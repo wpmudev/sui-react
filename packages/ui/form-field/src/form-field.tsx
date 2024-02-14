@@ -19,7 +19,7 @@ import { useDefaultChildren } from "@wpmudev/sui-hooks"
 // Build form field component
 const FormField: React.FC<FormFieldProps> = ({
 	id = "",
-	label = "label",
+	label,
 	helper,
 	error,
 	className,

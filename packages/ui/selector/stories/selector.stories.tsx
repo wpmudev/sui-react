@@ -91,6 +91,12 @@ Selector.args = {
 
 // Story props settings
 Selector.argTypes = {
+	name: {
+		name: "Name",
+		control: {
+			type: "text",
+		},
+	},
 	title: {
 		name: "Title",
 		control: {
@@ -162,6 +168,10 @@ Selector.argTypes = {
 				center: "Center",
 			},
 		},
+	},
+	tag: {
+		name: "Tag",
+		control: "text",
 	},
 	tagColor: {
 		name: "Tag Color",

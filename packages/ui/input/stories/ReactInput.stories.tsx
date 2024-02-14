@@ -32,7 +32,13 @@ const Input = (args: InputProps) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<FormField id="input-1" isSmall={isSmall} isDisabled={isDisabled}>
+					<FormField
+						id="input-1"
+						label="Label"
+						helper="Helper Text"
+						isSmall={isSmall}
+						isDisabled={isDisabled}
+					>
 						<SuiInput {...args} />
 					</FormField>
 				</div>
@@ -66,7 +72,7 @@ Input.argTypes = {
 		},
 	},
 	customWidth: {
-		name: "customWidth",
+		name: "Custom Width",
 		control: "number",
 	},
 	id: {
@@ -77,7 +83,7 @@ Input.argTypes = {
 		name: "Value",
 	},
 	iconTooltipWidth: {
-		name: "iconTooltipWidth",
+		name: "Icon Tooltip Width",
 		control: "number",
 	},
 	isSmall: {
