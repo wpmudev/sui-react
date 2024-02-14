@@ -25,11 +25,6 @@ export const Link = ({ ...props }: LinkProps) => {
 		backgroundColor = "#0059FF"
 	}
 
-	// No need for global theme in stories
-	// if ("dark" === theme && "secondary" === props?.theme) {
-	// 	backgroundColor = "#000"
-	// }
-
 	const box = {
 		margin: "0 0 20px",
 		padding: "30px",
@@ -78,33 +73,27 @@ Link.argTypes = {
 		},
 	},
 	isInline: {
-		name: "isInline",
+		name: "Inline",
 		control: {
 			type: "boolean",
 		},
 	},
 	isDisabled: {
-		name: "isDisabled",
+		name: "Disabled",
 		control: {
 			type: "boolean",
 		},
 	},
 	isExternal: {
-		name: "isExternal",
+		name: "External",
 		control: {
 			type: "boolean",
 		},
 	},
 	hasExternalIcon: {
-		name: "hasExternalIcon",
+		name: "External Icon",
 		control: {
 			type: "boolean",
-		},
-	},
-	className: {
-		name: "className",
-		control: {
-			type: "text",
 		},
 	},
 }

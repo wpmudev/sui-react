@@ -67,4 +67,31 @@ Box.args = {
 		</Button>,
 	],
 	hasPadding: true,
+	hideMobileIcon: false,
+}
+
+// Set controls for story arguments.
+Box.argTypes = {
+	title: {
+		name: "Title",
+		control: "text",
+	},
+	icon: {
+		name: "Icon",
+		control: "text",
+	},
+	hideMobileIcon: {
+		name: "Hide icon on mobile",
+		control: "boolean",
+	},
+	headerLeft: {
+		name: "Header Left",
+	},
+	headerRight: {
+		name: "Header Right",
+	},
+	hasPadding: {
+		name: "Spacing",
+		control: "boolean",
+	},
 }
