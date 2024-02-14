@@ -22,7 +22,7 @@ export default {
 }
 
 // Build "Avatar" story.
-const Avatar = ({ ...props }) => {
+const Avatar = ({ example, ...props }: { example: string }) => {
 	const boxStyle = {
 		padding: 20,
 		borderRadius: 4,
