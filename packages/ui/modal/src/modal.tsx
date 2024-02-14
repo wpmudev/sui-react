@@ -59,8 +59,11 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 		const [render] = usePortal()
 		const { suiInlineClassname } = useStyles(props, "sui-wp-overlay")
 
+		document.body.classList.add("sui-locked")
+
 		// Return nothing if the modal is not open
 		if (!isOpen) {
+			document.body.classList.remove("sui-locked")
 			return null
 		}
 

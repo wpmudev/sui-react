@@ -1,10 +1,13 @@
-import React, { useCallback, useId, useState, useEffect, useRef } from "react"
-import {
-	useInteraction,
-	useDefaultChildren,
-	useStyles,
-} from "@wpmudev/sui-hooks"
-import { useAccordion } from "./accordion-context"
+import React, {
+	useCallback,
+	useId,
+	useState,
+	useEffect,
+	useRef,
+	useContext,
+} from "react"
+import { useInteraction, useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
+import { AccordionContext, useAccordion } from "./accordion-context"
 import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
 import { Checkbox } from "@wpmudev/sui-checkbox"
@@ -40,6 +43,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 		uniqueId,
 		isExpanded: isExpanded as boolean,
 	})
+	const { spacing } = useContext(AccordionContext)
 
 	// IDs for the accordion and its panel to manage accessibility.
 	const accordionId = `sui-accordion-${uniqueId}`
@@ -75,6 +79,15 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	// Icon component to display a chevron icon based on the accordion's expanded state.
 	const Icon = isCurrentlyExpanded ? ChevronUp : ChevronDown
 
+	let styles = {}
+
+	// custom spacing
+	if (spacing) {
+		styles = {
+			padding: spacing,
+		}
+	}
+
 	// Render the AccordionItem component with proper accessibility attributes.
 	return (
 		<div
@@ -96,6 +109,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				className={generateCN("sui-accordion__header", {
 					focus: isFocused || isPressed,
 				})}
+				{...(Object.keys(styles).length > 0 && { style: styles })}
 				{...(!hasCheckbox && {
 					tabIndex: isDisabled ? -1 : 0,
 					role: "button",
@@ -160,6 +174,9 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				aria-labelledby={accordionId}
 				className={generateCN("sui-accordion__panel", {
 					open: isCurrentlyExpanded,
+				})}
+				{...(Object.keys(styles).length > 0 && {
+					style: { ...styles, paddingTop: 0 },
 				})}
 				data-testid="accordion-item-panel"
 			>

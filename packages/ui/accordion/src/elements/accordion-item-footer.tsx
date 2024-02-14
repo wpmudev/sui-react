@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 import {
@@ -7,6 +7,7 @@ import {
 	useStylesTypes,
 } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
+import { AccordionContext } from "../accordion-context"
 
 interface AccordionItemFooterTypes extends useStylesTypes {
 	children?: React.ReactNode
@@ -17,6 +18,23 @@ const AccordionItemFooter: React.FC<AccordionItemFooterTypes> = ({
 	children,
 	...styleProps
 }) => {
+
+// The AccordionFooter component is defined as a functional component using React.FC.
+const AccordionItemFooter: React.FC<{
+	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
+}> = ({ children, ...styleProps }) => {
+	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
+	const { spacing, isFlushed } = useContext(AccordionContext)
+
+	let styles = {}
+
+	// custom spacing
+	if (spacing) {
+		styles = {
+			padding: spacing,
+		}
+	}
+  
 	// Default content when children is empty
 	children = useDefaultChildren(children)
 
@@ -32,9 +50,15 @@ const AccordionItemFooter: React.FC<AccordionItemFooterTypes> = ({
 
 	return (
 		<div className={classNames}>
-			<Box>
-				<BoxGroup isInline={false}>{children}</BoxGroup>
-			</Box>
+			{!isFlushed ? (
+				<Box>
+					<BoxGroup style={styles} isInline={false}>
+						{children}
+					</BoxGroup>
+				</Box>
+			) : (
+				children
+			)}
 		</div>
 	)
 }

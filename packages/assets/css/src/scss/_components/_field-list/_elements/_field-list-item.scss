@@ -14,10 +14,14 @@
 		@include block($block) {
 			@include element(item) {
 				align-items: center;
-				border-top: $border-width-sm solid $color-extended-neutral-80;
+				border-bottom: $border-width-sm solid $color-extended-neutral-80;
 				display: flex;
 				justify-content: space-between;
 				padding: $fieldlist-spacing-md $spacing-xl;
+
+				&:last-child {
+					border-bottom: 0;
+				}
 			}
 		}
 	}

@@ -37,6 +37,14 @@ interface ColorPickerProps extends useStylesTypes {
 	 */
 	isDisabled?: boolean
 	/**
+	 * Specifies if the color picker field is small.
+	 */
+	isSmall?: boolean
+	/**
+	 * Specifies if the color picker is full width.
+	 */
+	isFluid?: boolean
+	/**
 	 * callback when reset
 	 */
 	onReset?: Function

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 import {
@@ -7,6 +7,7 @@ import {
 	useStylesTypes,
 } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
+import { AccordionContext } from "../accordion-context"
 
 interface AccordionItemBodyType extends useStylesTypes {
 	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
@@ -19,6 +20,18 @@ const AccordionItemBody: React.FC<AccordionItemBodyType> = ({
 	hasPadding = true,
 	...styleProps
 }) => {
+	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
+	const { spacing, isFlushed } = useContext(AccordionContext)
+
+	let styles = {}
+
+	// custom spacing
+	if (spacing) {
+		styles = {
+			padding: spacing,
+		}
+	}
+
 	// Default children content
 	children = useDefaultChildren(children)
 	const { suiInlineClassname } = useStyles(styleProps)
@@ -34,9 +47,15 @@ const AccordionItemBody: React.FC<AccordionItemBodyType> = ({
 
 	return (
 		<div className={classNames} data-testid="accordion-body">
-			<Box>
-				<BoxGroup isInline={false}>{children}</BoxGroup>
-			</Box>
+			{!isFlushed ? (
+				<Box>
+					<BoxGroup style={styles} isInline={false}>
+						{children}
+					</BoxGroup>
+				</Box>
+			) : (
+				children
+			)}
 		</div>
 	)
 }

@@ -21,6 +21,7 @@ const Accordion = ({
 	allowMultipleExpand,
 	noBorderRadius,
 	noSideBorders,
+	isFlushed,
 }: { color: string } & AccordionProps) => {
 	const boxStyles = {
 		padding: 20,
@@ -37,6 +38,7 @@ const Accordion = ({
 						allowMultipleExpand={allowMultipleExpand}
 						noBorderRadius={noBorderRadius}
 						noSideBorders={noSideBorders}
+						isFlushed={isFlushed}
 					>
 						<AccordionItem title="Tab Title 1">
 							<AccordionItemBody>
@@ -189,6 +191,12 @@ Accordion.argTypes = {
 	},
 	noSideBorders: {
 		name: "No Side Borders",
+		control: {
+			type: "boolean",
+		},
+	},
+	isFlushed: {
+		name: "Content wrapper",
 		control: {
 			type: "boolean",
 		},

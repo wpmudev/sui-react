@@ -7,9 +7,10 @@ import { generateCN } from "@wpmudev/sui-utils"
 
 // Build "field list" component
 const FieldList: React.FC<FieldListProps> = ({
-	label = "label",
+	label,
 	helper,
 	children,
+	spacing = "",
 	onToggle = () => null,
 	...styleProps
 }) => {
@@ -29,6 +30,15 @@ const FieldList: React.FC<FieldListProps> = ({
 		<>{`{field List children content}`}</>,
 	)
 
+	let styles = {}
+
+	// custom spacing
+	if (spacing) {
+		styles = {
+			padding: spacing,
+		}
+	}
+
 	return (
 		// Render the FieldList component
 		<div
@@ -37,7 +47,7 @@ const FieldList: React.FC<FieldListProps> = ({
 		>
 			{/* Render the label and helper elements if they are provided */}
 			{(label || helper) && (
-				<div className="sui-field-list__row">
+				<div className="sui-field-list__row" style={styles}>
 					{/* Render the label element if provided */}
 					{label && (
 						<h3 className="sui-heading sui-heading--h4 sui-field-list__title">
@@ -56,6 +66,7 @@ const FieldList: React.FC<FieldListProps> = ({
 					(child: ReactElement<FieldListItemProps>) =>
 						cloneElement(child, {
 							onToggle: onChangeItem,
+							style: styles,
 						} as object),
 				)}
 			</div>

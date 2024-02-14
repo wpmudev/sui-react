@@ -64,6 +64,11 @@
 			left: 36px !important;
 		}
 	}
+
+	// stop body from scrolling
+	@include block(locked) {
+		overflow-y: hidden;
+	}
 }
 
 // DIR: Right to left.

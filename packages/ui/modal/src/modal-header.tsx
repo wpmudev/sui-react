@@ -12,7 +12,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 	title = "header title",
 	children,
 	icon,
-	iconSize = "sm",
+	iconSize = "md",
 	iconColor = "success",
 	...props
 }) => {

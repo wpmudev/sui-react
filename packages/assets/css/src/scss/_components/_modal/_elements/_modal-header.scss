@@ -28,7 +28,7 @@
 			@include element(header-actions) {
 				align-items: center;
 				display: flex;
-				justify-content: space-between;
+				justify-content: flex-end;
 				width: 100%;
 				gap: $spacing-lg;
 

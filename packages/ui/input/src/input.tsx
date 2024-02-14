@@ -36,7 +36,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				className,
 				inputClass,
 				isMultiLine = false,
-				isSmall = false,
+				isSmall,
 				isReadOnly = false,
 				isError = false,
 				isDisabled = false,

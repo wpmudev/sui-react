@@ -27,7 +27,9 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	onApply,
 	placeholder = "Select color",
 	isError = false,
+	isSmall,
 	isDisabled = false,
+	isFluid = false,
 	onReset = () => null,
 	onColorChange = () => null,
 	...props
@@ -139,6 +141,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 				{
 					error: isError,
 					disabled: isDisabled,
+				  fluid: isFluid,
 				},
 				suiInlineClassname,
 			)}
@@ -155,6 +158,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					isError={isError ?? false}
 					isDisabled={isDisabled ?? false}
 					id={id}
+					{...(isSmall && { isSmall })}
 					{...props}
 				/>
 
