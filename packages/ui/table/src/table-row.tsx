@@ -111,7 +111,7 @@ const TableRow: React.FC<TableRowProps> = ({
 		<Button
 			icon={isExpanded ? "ChevronUp" : "ChevronDown"}
 			color="black"
-			appearance="tertiary"
+			type="tertiary"
 			isSmall={true}
 			iconOnly={true}
 			onClick={() => setIsExpanded(!isExpanded)}

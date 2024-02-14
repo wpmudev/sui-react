@@ -56,10 +56,10 @@ const Accordion = ({
 								</p>
 							</AccordionItemBody>
 							<AccordionItemFooter>
-								<Button color="black" appearance="secondary">
+								<Button color="black" type="secondary">
 									Secondary
 								</Button>
-								<Button color="blue" appearance="primary">
+								<Button color="blue" type="primary">
 									Primary
 								</Button>
 							</AccordionItemFooter>

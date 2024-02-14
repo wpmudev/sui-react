@@ -42,7 +42,7 @@ const DrawerHeader = ({
 			<div className="sui-drawer__header-close">
 				<Button
 					icon="Close"
-					appearance="tertiary"
+					type="tertiary"
 					color="black"
 					isSmall={true}
 					iconOnly={true}

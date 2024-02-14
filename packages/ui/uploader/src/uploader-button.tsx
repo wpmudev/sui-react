@@ -48,7 +48,7 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 
 	const { suiInlineClassname } = useStyles(props)
 
-	// Return the UploaderButton component with drag-and-drop or regular button appearance
+	// Return the UploaderButton component with drag-and-drop or regular button type
 	if (allowDragAndDrop) {
 		return (
 			<div
@@ -73,7 +73,7 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 	return (
 		<Button
 			className={generateCN("sui-uploader__button", {}, suiInlineClassname)}
-			appearance="primary"
+			type="primary"
 			color="blue"
 			icon="Upload"
 			onClick={onClick}

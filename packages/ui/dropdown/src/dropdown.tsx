@@ -110,7 +110,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							startIcon={buttonIcon ?? "Menu"}
 							iconOnly={iconOnly ?? false}
 							color="black"
-							appearance="secondary"
+							type="secondary"
 							isSmall={isSmall ?? false}
 							onClick={() => setIsOpen(!isOpen)}
 							isResponsive={isResponsive}

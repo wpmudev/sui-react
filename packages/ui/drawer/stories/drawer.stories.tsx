@@ -66,10 +66,10 @@ const _internalDrawer = ({
 			</DrawerBody>
 			<DrawerFooter>
 				<div>
-					<Button appearance="secondary" color="blue" isSmall={true}>
+					<Button type="secondary" color="blue" isSmall={true}>
 						Secondary
 					</Button>
-					<Button appearance="primary" color="blue" isSmall={true}>
+					<Button type="primary" color="blue" isSmall={true}>
 						Primary
 					</Button>
 				</div>
@@ -153,7 +153,7 @@ const Drawer = (props) => {
 											disableShadow={true}
 										/>
 										<Button
-											appearance="primary"
+											type="primary"
 											color="blue"
 											isSmall={true}
 											onClick={() => {
@@ -165,7 +165,7 @@ const Drawer = (props) => {
 											Body drawer
 										</Button>
 										<Button
-											appearance="primary"
+											type="primary"
 											color="blue"
 											isSmall={true}
 											onClick={() => {
@@ -177,7 +177,7 @@ const Drawer = (props) => {
 											Over navigation drawer
 										</Button>
 										<Button
-											appearance="primary"
+											type="primary"
 											color="blue"
 											isSmall={true}
 											onClick={() => {

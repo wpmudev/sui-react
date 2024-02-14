@@ -40,7 +40,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 				<Button
 					className="sui-modal__header-actions-close"
 					icon="Close"
-					appearance="tertiary"
+					type="tertiary"
 					color="black"
 					onClick={!!closeModal ? closeModal : () => {}}
 					isSmall={true}

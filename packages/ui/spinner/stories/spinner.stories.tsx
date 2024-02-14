@@ -41,7 +41,7 @@ const Spinner = ({ ...args }) => {
 					content with a spinner overlay.
 				</h5>
 				<Button
-					appearance="secondary"
+					type="secondary"
 					color="black"
 					isSmall={true}
 					onClick={() => (loader.isVisible ? loader.hide() : loader.show())}

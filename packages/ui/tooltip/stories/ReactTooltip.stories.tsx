@@ -41,7 +41,7 @@ const Tooltip = ({
 					<SuiTooltip
 						type={type}
 						label={label}
-						appearance="primary"
+						type="primary"
 						color="black"
 						position={position}
 						customWidth={customWidth}

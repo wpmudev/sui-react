@@ -110,7 +110,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 			{hasAccordion && (
 				<div className="sui-builder__field-actions-item sui-builder__field-actions-item--accordion">
 					<Button
-						appearance="tertiary"
+						type="tertiary"
 						startIcon={isExpanded ? "ChevronUp" : "ChevronDown"}
 						iconOnly={true}
 						color="black"

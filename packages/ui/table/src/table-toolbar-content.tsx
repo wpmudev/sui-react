@@ -89,7 +89,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 	const filterActions = (
 		<div className="sui-table__toolbar-cta">
 			<Button
-				appearance="tertiary"
+				type="tertiary"
 				color="black"
 				isSmall={true}
 				isDisabled={ctx?.filterValues?.length <= 0}
@@ -98,7 +98,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 				Clear filters
 			</Button>
 			<Button
-				appearance="secondary"
+				type="secondary"
 				color="black"
 				isSmall={true}
 				isDisabled={ctx?.filterValues?.length <= 0}
