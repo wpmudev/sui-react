@@ -18,11 +18,6 @@ const AccordionItemFooter: React.FC<AccordionItemFooterTypes> = ({
 	children,
 	...styleProps
 }) => {
-
-// The AccordionFooter component is defined as a functional component using React.FC.
-const AccordionItemFooter: React.FC<{
-	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
-}> = ({ children, ...styleProps }) => {
 	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
 	const { spacing, isFlushed } = useContext(AccordionContext)
 
@@ -34,7 +29,7 @@ const AccordionItemFooter: React.FC<{
 			padding: spacing,
 		}
 	}
-  
+
 	// Default content when children is empty
 	children = useDefaultChildren(children)
 
