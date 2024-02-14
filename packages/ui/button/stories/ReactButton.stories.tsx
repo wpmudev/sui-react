@@ -30,7 +30,7 @@ const Button = ({
 	let content = "Cancel"
 
 	// @ts-ignore
-	const { color } = attributes
+	const { colorScheme } = attributes
 
 	if ("link" === example) {
 		content = "Try Pro For Free"
@@ -41,9 +41,9 @@ const Button = ({
 	const boxStyle = {
 		margin: 0,
 		padding: "30px",
-		border: "white" === color ? "1px solid #E6E6E6" : 0,
+		border: "white" === colorScheme ? "1px solid #E6E6E6" : 0,
 		borderRadius: "4px",
-		background: "white" === color ? "#333" : "#fff",
+		background: "white" === colorScheme ? "#333" : "#fff",
 	}
 
 	return (
@@ -102,8 +102,8 @@ Button.args = {
 	href: "",
 	target: "_blank",
 	htmlFor: "",
-	appearance: "primary",
-	color: "blue",
+	type: "primary",
+	colorScheme: "blue",
 	isSmall: false,
 	isLoading: true,
 	isDisabled: false,
@@ -156,8 +156,8 @@ Button.argTypes = {
 			eq: "button-toggle",
 		},
 	},
-	appearance: {
-		name: "Appearance",
+	type: {
+		name: "Type",
 		options: ["", "primary", "secondary", "tertiary"],
 		control: {
 			type: "select",
@@ -173,8 +173,8 @@ Button.argTypes = {
 			neq: "button-toggle",
 		},
 	},
-	color: {
-		name: "Color",
+	colorScheme: {
+		name: "colorScheme",
 		options: ["", "blue", "black", "red", "navy", "white"],
 		control: {
 			type: "select",

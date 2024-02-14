@@ -29,7 +29,7 @@ type RowAlignments = "xs" | "sm" | "md" | "lg" | "xl"
  */
 interface RowProps
 	extends HTMLProps<HTMLDivElement>,
-		Omit<useStylesTypes, "align"> {
+		Omit<useStylesTypes, "align" | "height"> {
 	/**
 	 * The alignment of the row.
 	 */

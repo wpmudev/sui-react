@@ -9,7 +9,7 @@ interface ButtonProps
 	extends React.HTMLAttributes<
 			HTMLButtonElement | HTMLAnchorElement | HTMLInputElement
 		>,
-		Omit<useStylesTypes, "appearance" | "color" | "position"> {
+		useStylesTypes {
 	/**
 	 * Optional CSS class name for the button.
 	 */
@@ -27,13 +27,13 @@ interface ButtonProps
 	 */
 	htmlFor?: string
 	/**
-	 * Appearance style of the button.
+	 * Type style of the button.
 	 */
-	appearance?: "primary" | "secondary" | "tertiary"
+	type?: "primary" | "secondary" | "tertiary"
 	/**
 	 * Color of the button.
 	 */
-	color?: "blue" | "black" | "red" | "navy" | "white"
+	colorScheme?: "blue" | "black" | "red" | "navy" | "white"
 	/**
 	 * Optional flag to make the button small.
 	 */

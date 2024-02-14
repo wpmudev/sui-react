@@ -7,12 +7,12 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 	<PropSection title="href" type="string">
 		<p>Link Url for the button</p>
 	</PropSection>
-	
+
 	<PropSection title="htmlFor" type="string">
 		<p>Optional associated form element name for the button.</p>
 	</PropSection>
-	
-	<PropSection title="appearance" type="string">
+
+	<PropSection title="type" type="string">
 		<p>
 			The base styling to apply. It is empty by default to allow you keep
 			the markup and base styles but customize it in case is necessary.
@@ -42,8 +42,8 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			/>
 		</List>
 	</PropSection>
-	
-	<PropSection title="color" type="string">
+
+	<PropSection title="colorScheme" type="string">
 		<p>Color of the button</p>
 		<p>Allowed options:</p>
 		<List>
@@ -54,15 +54,15 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			<span label={<Code small={true}>white</Code>} />
 		</List>
 	</PropSection>
-	
+
 	<PropSection title="isSmall" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}>true</Code> the button will be small</p>
 	</PropSection>
-	
+
 	<PropSection title="isDisabled*" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}>true</Code> the button will be disabled</p>
 	</PropSection>
-	
+
 	<PropSection title="className" type="string">
 		<p>Custom css className(s) for the button</p>
 	</PropSection>
@@ -70,27 +70,27 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 	<PropSection title="startIcon*" type="string">
 		<p>An icon to be displayed before the label</p>
 	</PropSection>
-	
+
 	<PropSection title="endIcon*" type="string">
 		<p>An Icon to be displayed after the label</p>
 	</PropSection>
-	
+
 	<PropSection title="target" type="string">
 		<p>Optional target window or frame to open the link.</p>
 	</PropSection>
-	
+
 	<PropSection title="isFullWidth" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}>true</Code> the button will have a full width</p>
 	</PropSection>
-	
+
 	<PropSection title="isUnwrapped*" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}>true</Code> the button will be unwrapped from its container</p>
 	</PropSection>
-	
+
 	<PropSection title="icon" type="boolean">
 		<p>An icon to be displayed before the label</p>
 	</PropSection>
-	
+
 	<PropSection title="iconSize" type="string" defaultValue="sm">
 		<p>One of the following values to set a size for the icon</p>
 		<List>
@@ -99,11 +99,11 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			<span label={<Code small={true}>lg</Code>} />
 		</List>
 	</PropSection>
-	
+
 	<PropSection title="children" type="React Node" defaultValue="button label">
 		<p>The button text or any other React element</p>
 	</PropSection>
-	
+
 	<PropSection title="iconOnly" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}> true </Code> the button will display the icon only</p>
 	</PropSection>
