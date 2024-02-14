@@ -44,7 +44,7 @@ const SummaryBox = ({}) => {
 								,
 								<div key={0}>
 									<Button
-										appearance="secondary"
+										type="secondary"
 										icon="Trash"
 										color="black"
 										isSmall={true}
@@ -58,7 +58,7 @@ const SummaryBox = ({}) => {
 						secondaryActions={
 							<Button
 								key={2}
-								appearance="primary"
+								type="primary"
 								icon="Add"
 								color="blue"
 								isSmall={true}

@@ -46,10 +46,10 @@ EmptyState.args = {
 			</Row>
 
 			<Row align={{ md: "center" }}>
-				<Button appearance="secondary" color="blue">
+				<Button type="secondary" color="blue">
 					Primary
 				</Button>
-				<Button appearance="primary" color="blue">
+				<Button type="primary" color="blue">
 					Secondary
 				</Button>
 			</Row>

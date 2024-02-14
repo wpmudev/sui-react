@@ -22,7 +22,7 @@ const RecipientButton: React.FC<RecipientButtonProps> = ({
 	return (
 		<Tooltip
 			label={children as string}
-			appearance="tertiary"
+			type="tertiary"
 			iconOnly={true}
 			isSmall={true}
 			{...props}

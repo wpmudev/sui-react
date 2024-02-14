@@ -42,7 +42,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 					<Tooltip
 						className="sui-pagination__button"
 						color="black"
-						appearance="tertiary"
+						type="tertiary"
 						icon="ChevronLeft"
 						iconOnly={true}
 						isSmall={true}
@@ -59,7 +59,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						<Button
 							className="sui-pagination__button"
 							color="black"
-							appearance="tertiary"
+							type="tertiary"
 							isSmall={true}
 							isDisabled={selectedPage <= 1}
 							onClick={handleSkipToFirstPage}
@@ -72,7 +72,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 					<li className="sui-pagination__item">
 						<Button
 							color="black"
-							appearance="tertiary"
+							type="tertiary"
 							icon="More"
 							iconOnly={true}
 							isSmall={true}
@@ -90,7 +90,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							<li className="sui-pagination__item" key={index}>
 								<Button
 									color="black"
-									appearance="tertiary"
+									type="tertiary"
 									isSmall={true}
 									className={`sui-pagination__button${
 										selectedPage === data
@@ -109,7 +109,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 					<li className="sui-pagination__item">
 						<Button
 							color="black"
-							appearance="tertiary"
+							type="tertiary"
 							icon="More"
 							iconOnly={true}
 							isSmall={true}
@@ -124,7 +124,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 					<li className="sui-pagination__item">
 						<Button
 							color="black"
-							appearance="tertiary"
+							type="tertiary"
 							isSmall={true}
 							className="sui-pagination__button"
 							isDisabled={selectedPage >= pages}
@@ -138,7 +138,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 					<Tooltip
 						className="sui-pagination__button"
 						color="black"
-						appearance="tertiary"
+						type="tertiary"
 						icon="ChevronRight"
 						iconOnly={true}
 						isSmall={true}

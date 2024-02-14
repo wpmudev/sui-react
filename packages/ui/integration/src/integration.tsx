@@ -72,7 +72,7 @@ const Integration: React.FC<IntegrationProps> = ({
 		className: "sui-integration-setting-btn",
 		icon: "Settings",
 		label: "settings",
-		appearance: "tertiary",
+		type: "tertiary",
 		color: "black",
 		iconOnly: true,
 		isSmall: true,

@@ -189,7 +189,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					})}
 					{...(!showResetBtn && {
 						color: "blue",
-						appearance: "tertiary",
+						type: "tertiary",
 						onClick: () => setShowPicker(!showPicker),
 					})}
 					isSmall={true}

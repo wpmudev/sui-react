@@ -40,7 +40,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 				<Tooltip
 					data-testid="code-snippet-copy-btn"
 					label="Copy"
-					appearance="secondary"
+					type="secondary"
 					color="black"
 					position="top"
 					aria-label={isCopied ? "Copied" : ""}

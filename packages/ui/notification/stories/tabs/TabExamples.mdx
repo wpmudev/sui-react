@@ -17,7 +17,7 @@ export const ToastButton = () => {
 	const notification = useNotifications()
 	return (
 		<Button
-			appearance="secondary"
+			type="secondary"
 			color="blue"
 			isSmall={true}
 			onClick={() => {
@@ -37,7 +37,7 @@ export const TimeOutToastButton = () => {
 	const notification = useNotifications()
 	return (
 		<Button
-			appearance="secondary"
+			type="secondary"
 			color="blue"
 			isSmall={true}
 			onClick={() => {
@@ -81,7 +81,7 @@ export const ActionCode = dedent`
             action={
                   <Button
                     className="csb-banner__cta"
-                    appearance="secondary"
+                    type="secondary"
                     color="blue"
                     isSmall={true}
                 >
@@ -98,7 +98,7 @@ export const ToastCode = dedent`
         <>
         <NotificationRenderer />
         <Button
-            appearance="secondary"
+            type="secondary"
             color="blue"
             isSmall={true}
             onClick={() => {
@@ -123,7 +123,7 @@ export const TimeOutToastCode = dedent`
         <>
         <NotificationRenderer />
         <Button
-            appearance="secondary"
+            type="secondary"
             color="blue"
             isSmall={true}
             onClick={() => {
@@ -225,7 +225,7 @@ export const TimeOutToastCode = dedent`
 			action={
 				<Button
 					className="csb-banner__cta"
-					appearance="secondary"
+					type="secondary"
 					color="blue"
 					isSmall={true}
 				>

@@ -82,7 +82,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 								<Button
 									isSmall={true}
 									color="blue"
-									appearance="tertiary"
+									type="tertiary"
 									onClick={(e) => {
 										e.preventDefault()
 										actionClick(config.id, "apply")
@@ -96,7 +96,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 									iconOnly={true}
 									color="black"
 									aria-label="settings"
-									appearance="tertiary"
+									type="tertiary"
 									onClick={(e) => {
 										e.preventDefault()
 										actionClick(config.id, "configure")

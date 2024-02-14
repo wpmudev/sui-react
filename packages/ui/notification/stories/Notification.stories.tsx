@@ -53,7 +53,7 @@ export default {
 // 			action: (
 // 				<Button
 // 					className="csb-banner__cta"
-// 					appearance="secondary"
+// 					type="secondary"
 // 					color="blue"
 // 					isSmall={true}
 // 				>
@@ -73,7 +73,7 @@ export default {
 // 			action: (
 // 				<Button
 // 					className="csb-banner__cta"
-// 					appearance="secondary"
+// 					type="secondary"
 // 					color="blue"
 // 					isSmall={true}
 // 				>
@@ -93,7 +93,7 @@ export default {
 // 			action: (
 // 				<Button
 // 					className="csb-banner__cta"
-// 					appearance="secondary"
+// 					type="secondary"
 // 					color="blue"
 // 					isSmall={true}
 // 				>
@@ -113,7 +113,7 @@ export default {
 // 			action: (
 // 				<Button
 // 					className="csb-banner__cta"
-// 					appearance="secondary"
+// 					type="secondary"
 // 					color="blue"
 // 					isSmall={true}
 // 				>
@@ -134,7 +134,7 @@ export default {
 // 			action: (
 // 				<Button
 // 					className="csb-banner__cta"
-// 					appearance="secondary"
+// 					type="secondary"
 // 					color="blue"
 // 					isSmall={true}
 // 				>
@@ -190,7 +190,7 @@ export const Notification = ({
 							<h2 style={{ marginTop: 0 }}>Toast Notifications</h2>
 							<div>
 								<Button
-									appearance="secondary"
+									type="secondary"
 									color="blue"
 									isSmall={true}
 									onClick={() => {
@@ -226,7 +226,7 @@ Notification.args = {
 	action: (
 		<Button
 			className="csb-banner__cta"
-			appearance="secondary"
+			type="secondary"
 			color="blue"
 			isSmall={true}
 		>

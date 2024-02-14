@@ -77,7 +77,7 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 				<div className="sui-date-picker__footer">
 					<div className="sui-date-picker__footer--item">
 						<Button
-							appearance="tertiary"
+							type="tertiary"
 							color="black"
 							isSmall={true}
 							onClick={() => ctx?.setIsOpen(false)}
@@ -87,7 +87,7 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 					</div>
 					<div className="sui-date-picker__footer--item">
 						<Button
-							appearance="secondary"
+							type="secondary"
 							color="black"
 							isSmall={true}
 							onClick={() => ctx?.setIsOpen(false)}

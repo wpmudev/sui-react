@@ -76,7 +76,7 @@ export const Navigation = (props: {
 						}}
 					>
 						<Button
-							appearance="tertiary"
+							type="tertiary"
 							icon="Bell"
 							color="black"
 							isResponsive={true}
@@ -85,7 +85,7 @@ export const Navigation = (props: {
 						</Button>
 						<Button
 							icon="Bell"
-							appearance="tertiary"
+							type="tertiary"
 							color="black"
 							isResponsive={true}
 						>
@@ -93,7 +93,7 @@ export const Navigation = (props: {
 						</Button>
 						<Button
 							icon="PluginSmush"
-							appearance="tertiary"
+							type="tertiary"
 							color="black"
 							isResponsive={true}
 						>
@@ -148,7 +148,7 @@ export const Navigation = (props: {
 								}}
 							>
 								<Button
-									appearance="primary"
+									type="primary"
 									icon="Package"
 									color="blue"
 									isSmall={true}

@@ -35,7 +35,7 @@ const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 				<div>
 					<Button
 						icon="ChevronLeft"
-						appearance="tertiary"
+						type="tertiary"
 						color="black"
 						iconOnly={true}
 						onClick={() => onNavClick("prev")}
@@ -49,7 +49,7 @@ const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 				<div>
 					<Button
 						className="sui-date-picker__nav--btn"
-						appearance="tertiary"
+						type="tertiary"
 						color="black"
 						endIcon="CaretDown"
 						onClick={() => openToggle("months", marker)}
@@ -64,7 +64,7 @@ const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 			<div>
 				<Button
 					className="sui-date-picker__nav--btn"
-					appearance="tertiary"
+					type="tertiary"
 					color="black"
 					endIcon="CaretDown"
 					onClick={() => ctx.openToggle("years", marker)}
@@ -80,7 +80,7 @@ const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 			{(CALENDARS.END_MONTH === marker || ctx.isSingle) && (
 				<div>
 					<Button
-						appearance="tertiary"
+						type="tertiary"
 						color="black"
 						icon="ChevronRight"
 						iconOnly={true}
