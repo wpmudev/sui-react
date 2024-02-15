@@ -48,6 +48,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	expandableContent = null,
 	status,
 	isUnderFooter = false,
+	htmlProps = {},
 	...props
 }) => {
 	// State for row expansion
@@ -223,7 +224,7 @@ const TableRow: React.FC<TableRowProps> = ({
 				role="row"
 				className={classNames}
 				{...methods}
-				{..._renderRestPropsSafely(props)}
+				{..._renderRestPropsSafely(htmlProps)}
 				{...a11yProps}
 			>
 				{ctx?.allowCheck && !isUnderFooter && (

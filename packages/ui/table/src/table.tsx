@@ -23,6 +23,7 @@ const Table: React.FC<TableProps> = ({
 	isStripped = false,
 	stickyCols = false,
 	className = "",
+	htmlProps = {},
 	...props
 }) => {
 	// Reference to the table element
@@ -75,7 +76,6 @@ const Table: React.FC<TableProps> = ({
 				{hasToolbar && <TableToolbar />}
 				<div className="sui-table__wrapper" ref={wrapperRef}>
 					<table
-						{..._renderRestPropsSafely(props)}
 						className="sui-table__table"
 						ref={ref}
 						// Ignore eslint here as the table have expandable elements which makes it interactive
@@ -86,6 +86,7 @@ const Table: React.FC<TableProps> = ({
 						cellPadding="0"
 						// Set the aria-label attribute if ariaLabel is provided and not empty
 						{...(!isEmpty(ariaLabel ?? "") && { "aria-label": ariaLabel })}
+						{...htmlProps}
 					>
 						{childrenArray?.filter(
 							({ type: cType }: any) => componentToExclude !== cType.name,

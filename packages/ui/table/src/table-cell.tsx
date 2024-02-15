@@ -22,19 +22,20 @@ import { TableContext, TableSortBy } from "./table-context"
  * Represents a cell within a table row, either a regular cell (td) or a heading cell (th).
  * It can display content, optionally have a drag icon, and accepts additional classNames and props.
  *
- * @param {Object}  props                     - The props for the TableCell component.
- * @param {string}  [props.id]                - The unique identifier for the cell.
- * @param {*}       props.children            - The content to be displayed within the cell.
- * @param {boolean} [props.isHeading]         - Specifies whether the cell is a heading cell (th).
- * @param {string}  [props.className=""]      - Additional CSS classes to apply to the cell.
- * @param {boolean} [props.hasDragIcon=false] - Indicates whether the cell should display a drag icon.
- * @param {boolean} [props.isAction=false]    - Indicates whether the cell is an action cell.
- * @param {boolean} [props.isSortable=false]  - Indicates whether the cell is sortable.
- * @param {boolean} [props.isSticky=false]    - Indicates whether the cell should stick to a fixed position.
- * @param {boolean} [props.isTrim=false]      - Indicates whether the cell content should be trimmed.
- * @param {boolean} [props.isPrimary=false]   - Indicates whether the cell is the primary cell.
- * @param {Object}  [props.style]             - Additional inline styles to apply to the cell.
- * @param {Object}  [props.colSpan]           - specifies the number of columns a cell should span
+ * @param  root0
+ * @param  root0.id
+ * @param  root0.children
+ * @param  root0.isHeading
+ * @param  root0.className
+ * @param  root0.hasDragIcon
+ * @param  root0.isAction
+ * @param  root0.isSortable
+ * @param  root0.isSticky
+ * @param  root0.isTrim
+ * @param  root0.isPrimary
+ * @param  root0.style
+ * @param  root0.colSpan
+ * @param  root0.htmlProps
  *
  * @return {JSX.Element} The JSX representation of the TableCell component.
  */
@@ -51,8 +52,9 @@ const TableCell: React.FC<TableCellProps> = ({
 	isPrimary = false,
 	style = {},
 	colSpan,
+	htmlProps = {},
 	...props
-}) => {
+}): JSX.Element => {
 	// Define element tag name based on whether it's a heading cell (th) or a regular cell (td).
 	const TagName: "td" | "th" = isHeading ? "th" : "td"
 
@@ -128,7 +130,7 @@ const TableCell: React.FC<TableCellProps> = ({
 			role={isHeading ? "rowheader" : "cell"}
 			style={style}
 			colSpan={colSpan}
-			{..._renderRestPropsSafely(props)}
+			{..._renderRestPropsSafely(htmlProps)}
 		>
 			{hasDragIcon && (
 				<Icons.Grip className="sui-table__cell--drag" size="sm" />

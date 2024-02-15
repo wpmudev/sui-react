@@ -16,6 +16,7 @@ import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 const TableHead: React.FC<TableHeadProps> = ({
 	children,
 	hasActions = false,
+	htmlProps = {},
 	...props
 }) => {
 	const { suiInlineClassname } = useStyles(props)
@@ -43,7 +44,7 @@ const TableHead: React.FC<TableHeadProps> = ({
 	return (
 		<thead
 			className={generateCN("sui-table__head", {}, suiInlineClassname)}
-			{..._renderRestPropsSafely(props)}
+			{..._renderRestPropsSafely(htmlProps)}
 		>
 			{tableCols.map((child: ReactNode) =>
 				cloneElement(child! as ReactElement, {

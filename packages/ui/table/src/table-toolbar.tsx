@@ -25,7 +25,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
  * @param {any}               props... - Additional props for the TableToolbar component.
  * @return {JSX.Element} The JSX representation of the TableToolbar component.
  */
-const TableToolbar: React.FC<TableSectionProps> = ({ ...props }) => {
+const TableToolbar: React.FC<TableSectionProps> = ({ htmlProps, ...props }) => {
 	// State for expansion of the toolbar content
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
 	const [bulkAction, setBulkAction] = useState<string>("")
@@ -62,7 +62,10 @@ const TableToolbar: React.FC<TableSectionProps> = ({ ...props }) => {
 	)
 
 	return (
-		<div className={generateCN("sui-table__toolbar", {}, suiInlineClassname)}>
+		<div
+			className={generateCN("sui-table__toolbar", {}, suiInlineClassname)}
+			{...htmlProps}
+		>
 			<div className="sui-table__toolbar-header">
 				<div className="sui-table__toolbar-header-bulk">
 					{!!ctx?.bulkActions && (

@@ -21,6 +21,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 	id,
 	filterBtnId,
 	isExpanded,
+	htmlProps = {},
 	...props
 }) => {
 	// Get table context
@@ -45,7 +46,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 	const renderField = (
 		filter: TableToolbarFilterSelect | TableToolbarFilterText,
 		index: number,
-	) => (
+	): JSX.Element => (
 		<FormField
 			key={index}
 			id={filter?.id ?? ""}
@@ -121,6 +122,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 				},
 				suiInlineClassname,
 			)}
+			{...htmlProps}
 		>
 			{ctx?.filtersPopover ? (
 				<Fragment>

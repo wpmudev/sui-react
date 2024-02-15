@@ -1,19 +1,22 @@
-import React, { CSSProperties, HTMLProps, RefObject } from "react"
+import React, { CSSProperties, HTMLProps, Ref, RefObject } from "react"
 
 import { InputProps } from "@wpmudev/sui-input"
 import { SelectBaseProps } from "@wpmudev/sui-select"
 import { TableColumnType, TableSortBy } from "./table-context"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { OmitNestedKey, SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Interface representing the properties of a table section.
  */
 interface TableSectionProps
-	extends Omit<
-			HTMLProps<HTMLTableSectionElement>,
-			"height" | "content" | "translate" | "width" | "color"
+	extends SuiHTMLAttributes<
+			HTMLProps<HTMLTableSectionElement | HTMLDivElement>
 		>,
-		useStylesTypes {}
+		useStylesTypes {
+	children?: React.ReactNode
+	ref?: Ref<HTMLTableSectionElement>
+}
 
 /**
  * Interface representing the types of filters that can be used in the table toolbar.
@@ -46,12 +49,7 @@ type TableOnActionType = (action: TableExpectedAction, data: unknown) => void
 /**
  * Interface representing the properties of a table.
  */
-interface TableProps
-	extends Omit<
-			HTMLProps<HTMLTableElement>,
-			"height" | "content" | "translate" | "width" | "color"
-		>,
-		useStylesTypes {
+interface TableProps extends SuiHTMLAttributes, useStylesTypes {
 	/**
 	 * Custom css className(s)
 	 */
@@ -172,7 +170,11 @@ type TableCellBaseProps = {
 	 * Specifies the number of columns a cell should span
 	 */
 	colSpan?: number
-} & Omit<HTMLProps<HTMLTableCellElement | HTMLTableHeaderCellElement>, "id"> &
+} & OmitNestedKey<
+	SuiHTMLAttributes,
+	"htmlProps",
+	"id" | "style" | "className"
+> &
 	useStylesTypes
 
 type TableCellWithSortingProps = {
@@ -195,10 +197,7 @@ type TableHeadProps = TableSectionProps & {
  * Interface representing the properties of a table row.
  */
 interface TableRowProps
-	extends Omit<
-			HTMLProps<HTMLTableRowElement>,
-			"id" | "height" | "content" | "translate" | "width" | "color"
-		>,
+	extends OmitNestedKey<SuiHTMLAttributes, "htmlProps", "id">,
 		useStylesTypes {
 	/**
 	 * The unique ID of the table row.
@@ -406,7 +405,13 @@ interface TableContextProviderProps {
 /**
  * Interface for the table toolbar content.
  */
-interface TableToolbarContentProps extends useStylesTypes {
+interface TableToolbarContentProps
+	extends OmitNestedKey<
+			SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+			"htmlProps",
+			"id" | "className"
+		>,
+		useStylesTypes {
 	/**
 	 * ID of the table toolbar content.
 	 */
