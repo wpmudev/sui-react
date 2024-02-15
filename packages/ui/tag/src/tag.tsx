@@ -17,6 +17,7 @@ const Tag: React.FC<TagProps> = ({
 	isUppercase = false,
 	isDisabled = false,
 	children,
+	htmlProps = {},
 	...props
 }) => {
 	const hasDesign = "outlined" === design
@@ -47,7 +48,7 @@ const Tag: React.FC<TagProps> = ({
 	return (
 		<span
 			className={classNames}
-			{..._renderRestPropsSafely(props)}
+			{..._renderRestPropsSafely(htmlProps)}
 			data-testid="tag"
 		>
 			<span className="sui-tag__label">{children}</span>

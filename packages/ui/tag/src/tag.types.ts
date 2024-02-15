@@ -1,16 +1,18 @@
 /**
  * Interface representing the properties of a tag component.
  */
-import React, { HTMLProps } from "react"
+import React, { HTMLAttributes, HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { OmitNestedKey, SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Interface representing the properties of a tag component.
  */
 interface TagProps
-	extends Omit<
-			HTMLProps<HTMLSpanElement>,
-			"style" | "height" | "content" | "translate" | "width" | "color"
+	extends OmitNestedKey<
+			SuiHTMLAttributes<HTMLAttributes<HTMLSpanElement>>,
+			"htmlProps",
+			"className" | "color"
 		>,
 		useStylesTypes {
 	/**
