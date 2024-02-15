@@ -101,6 +101,12 @@ ColorPicker.argTypes = {
 			type: "text",
 		},
 	},
+	placeholder: {
+		name: "Placeholder",
+		control: {
+			type: "text",
+		},
+	},
 	isError: {
 		name: "Error",
 		control: "boolean",

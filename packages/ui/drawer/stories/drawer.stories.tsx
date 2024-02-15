@@ -244,6 +244,12 @@ Drawer.argTypes = {
 			type: "boolean",
 		},
 	},
+	disableShadow: {
+		name: "Disable shadow",
+		control: {
+			type: "boolean",
+		},
+	},
 }
 
 // Publish required stories
