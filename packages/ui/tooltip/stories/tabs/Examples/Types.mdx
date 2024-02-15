@@ -10,8 +10,7 @@ export const buttonCode = dedent`
   <Tooltip
       label="Button"
       type="button"
-      type="primary"
-      color="black"
+      buttonProps={{ type: "primary", colorScheme: "black" }}
   >
         Tooltip Text
   </Tooltip>
@@ -33,7 +32,7 @@ export const iconCode = dedent`
 <Section title="Button" contained={true} style={{ padding: "30px 0px" }}>
 	<Preview wrapper={true}>
 		<div style={{padding: 40}}>
-			<Tooltip label="Button" type="button" type="primary" color="black">Tooltip Text</Tooltip>
+			<Tooltip label="Button" type="button" buttonProps={{ type: "primary", colorScheme: "black" }}>Tooltip Text</Tooltip>
 		</div>
 	</Preview>
 	<Snippet language="js">{buttonCode}</Snippet>

@@ -41,11 +41,12 @@ const Tooltip = ({
 					<SuiTooltip
 						type={type}
 						label={label}
-						type="primary"
-						color="black"
 						placement={placement}
 						customWidth={customWidth}
 						customMobileWidth={customMobileWidth}
+						{...("button" === type
+							? { buttonProps: { type: "primary", colorScheme: "black" } }
+							: {})}
 					>
 						{tootlipText}
 					</SuiTooltip>

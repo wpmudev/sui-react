@@ -66,9 +66,8 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 				</span>
 				{allowCopy && (
 					<Tooltip
+						buttonProps={{ type: "secondary", colorScheme: "black" }}
 						label="Copy"
-						type="secondary"
-						colorScheme="black"
 						placement="top"
 						isSmall={true}
 						aria-label={isCopied ? "Copied" : ""}

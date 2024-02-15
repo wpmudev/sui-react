@@ -45,11 +45,15 @@ interface TooltipBaseProps
 	 */
 	children?: React.ReactNode
 	/**
+	 * Button props
+	 */
+	buttonProps?: ButtonProps
+	/**
 	 * Callback function for the click event.
 	 */
 	onClick?: () => void
 }
 
-type TooltipProps = TooltipBaseProps & ButtonProps
+type TooltipProps = TooltipBaseProps
 
 export type { TooltipProps, TooltipBaseProps }

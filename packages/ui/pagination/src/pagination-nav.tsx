@@ -40,9 +40,8 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 			<ul className="sui-pagination__nav">
 				<li className="sui-pagination__item">
 					<Tooltip
+						buttonProps={{ type: "tertiary", colorScheme: "black" }}
 						className="sui-pagination__button"
-						colorScheme="black"
-						type="tertiary"
 						icon="ChevronLeft"
 						iconOnly={true}
 						isSmall={true}
@@ -136,9 +135,8 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 				)}
 				<li className="sui-pagination__item">
 					<Tooltip
+						buttonProps={{ type: "tertiary", colorScheme: "black" }}
 						className="sui-pagination__button"
-						colorScheme="black"
-						type="tertiary"
 						icon="ChevronRight"
 						iconOnly={true}
 						isSmall={true}

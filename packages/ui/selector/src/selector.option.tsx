@@ -57,11 +57,10 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 					data-testid="selector-remove"
 				>
 					<Tooltip
+						buttonProps={{ type: "primary", colorScheme: "red" }}
 						type="button"
 						icon="Trash"
 						iconSize="sm"
-						type="primary"
-						colorScheme="red"
 						iconOnly={true}
 						isSmall={true}
 						className="sui-selector__option-delete-btn"

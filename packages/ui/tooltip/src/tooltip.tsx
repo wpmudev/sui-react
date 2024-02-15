@@ -42,6 +42,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	href,
 	icon,
 	iconSize = "sm",
+	buttonProps,
 	...props
 }) => {
 	// detect RTL
@@ -268,7 +269,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			case "button":
 				return (
 					<Button
-						{...props}
+						{...buttonProps}
 						{...(icon && { icon })}
 						href={href}
 						onClick={onClickCallback}
