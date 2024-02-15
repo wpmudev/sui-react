@@ -10,7 +10,7 @@ const NotificationRenderer = () => {
 	}
 
 	return (
-		<div className="sui-notification__renderer">
+		<div className="sui-notification__renderer sui-wp-overlay">
 			{(queue ?? [])?.map((notification: any, index: number) => (
 				<Notification {...notification} isInline={false} key={index} />
 			))}
