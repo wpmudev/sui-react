@@ -40,14 +40,17 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 			<ul className="sui-pagination__nav">
 				<li className="sui-pagination__item">
 					<Tooltip
-						buttonProps={{ type: "tertiary", colorScheme: "black" }}
+						buttonProps={{
+							type: "tertiary",
+							colorScheme: "black",
+							iconOnly: true,
+							isSmall: true,
+							isDisabled: selectedPage <= 1,
+							"data-testid": "pagination-prev-page",
+						}}
 						className="sui-pagination__button"
 						icon="ChevronLeft"
-						iconOnly={true}
-						isSmall={true}
-						isDisabled={selectedPage <= 1}
 						onClick={handlePreviousPage}
-						data-testid="pagination-prev-page"
 						aria-label={previousLabel}
 					>
 						{previousLabel}
@@ -135,14 +138,17 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 				)}
 				<li className="sui-pagination__item">
 					<Tooltip
-						buttonProps={{ type: "tertiary", colorScheme: "black" }}
+						buttonProps={{
+							type: "tertiary",
+							colorScheme: "black",
+							iconOnly: true,
+							isSmall: true,
+							isDisabled: selectedPage >= pages,
+							"data-testid": "pagination-next-page",
+						}}
 						className="sui-pagination__button"
 						icon="ChevronRight"
-						iconOnly={true}
-						isSmall={true}
-						isDisabled={selectedPage >= pages}
 						onClick={handleNextPage}
-						data-testid="pagination-next-page"
 						aria-label={nextLabel}
 					>
 						{nextLabel}

@@ -6,7 +6,7 @@ import { SpinnerHook, SpinnerProps } from "./spinner.types"
 
 const useSpinner = (
 	targetRef: RefObject<HTMLDivElement>,
-	{ color, size }: Pick<SpinnerProps, "size" | "color">,
+	{ colorScheme, loaderSize }: Pick<SpinnerProps, "loaderSize" | "colorScheme">,
 ): SpinnerHook => {
 	// State to track spinner visibility
 	const [isVisible, setIsVisible] = useState<boolean>(false)
@@ -45,9 +45,13 @@ const useSpinner = (
 			createRoot(fakeDiv!).render(
 				<Fragment>
 					<div
-						className={`sui-spinner__overlay sui-spinner__overlay--${color}`}
+						className={`sui-spinner__overlay sui-spinner__overlay--${colorScheme}`}
 					/>
-					<Spinner color={color} size={size} isAbsolute={true} />
+					<Spinner
+						colorScheme={colorScheme}
+						loaderSize={loaderSize}
+						isAbsolute={true}
+					/>
 				</Fragment>,
 			)
 
@@ -64,7 +68,7 @@ const useSpinner = (
 				}
 			}
 		}
-	}, [color, size, targetRef, isVisible, spinnerId])
+	}, [colorScheme, loaderSize, targetRef, isVisible, spinnerId])
 
 	// Function to show the spinner
 	const show = () => setIsVisible(true)

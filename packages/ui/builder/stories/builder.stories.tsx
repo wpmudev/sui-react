@@ -27,7 +27,7 @@ const Builder = ({ ...props }) => {
 		<Dropdown
 			buttonIcon="Settings"
 			label="Connect features"
-			direction="left"
+			placement="left"
 			isSmall={true}
 			iconOnly={true}
 			menu={[]}
@@ -79,7 +79,7 @@ const Builder = ({ ...props }) => {
 								<Dropdown
 									buttonIcon="Settings"
 									label="Connect features"
-									direction="left"
+									placement="left"
 									isSmall={true}
 									iconOnly={true}
 									menu={[]}

@@ -7,7 +7,7 @@ import React, {
 	LegacyRef,
 	useId,
 } from "react"
-import { Button } from "@wpmudev/sui-button"
+import { Button, ButtonProps } from "@wpmudev/sui-button"
 import {
 	_renderRestPropsSafely,
 	generateCN,
@@ -269,8 +269,8 @@ const Tooltip: React.FC<TooltipProps> = ({
 			case "button":
 				return (
 					<Button
-						{...buttonProps}
-						{...(icon && { icon })}
+						{...(buttonProps as ButtonProps)}
+						{...(icon && { icon: icon as ButtonProps["icon"] })}
 						href={href}
 						onClick={onClickCallback}
 					>

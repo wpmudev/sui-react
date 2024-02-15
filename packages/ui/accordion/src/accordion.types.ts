@@ -6,7 +6,10 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
  * It extends the HTMLProps<HTMLDivElement> type to inherit standard HTML div element props.
  */
 interface AccordionProps
-	extends Omit<HTMLProps<HTMLDivElement>, "className">,
+	extends Omit<
+			HTMLProps<HTMLDivElement>,
+			"className" | "height" | "content" | "translate" | "width" | "color"
+		>,
 		useStylesTypes {
 	/** Additional CSS class name for styling the accordion component. */
 	className?: string

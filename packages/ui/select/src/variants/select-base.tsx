@@ -40,9 +40,16 @@ export type SelectOptionType =
 interface SelectBaseProps
 	extends Omit<
 			HTMLProps<HTMLDivElement>,
-			"onMouseLeave" | "onMouseEnter" | "selected"
+			| "onMouseLeave"
+			| "onMouseEnter"
+			| "selected"
+			| "height"
+			| "content"
+			| "translate"
+			| "width"
+			| "color"
 		>,
-		Omit<useStylesTypes, "color"> {
+		useStylesTypes {
 	/** Unique ID */
 	id?: string
 	/** An array of options for the select */

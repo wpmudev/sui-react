@@ -1,10 +1,14 @@
-import React, { createRef, useState } from "react"
+import React, { createRef, RefObject, useState } from "react"
 
 import { Tag } from "@wpmudev/sui-tag"
-import { IconsNamesType } from "@wpmudev/sui-icons"
 
 // Import required component
-import { Drawer as SuiDrawer, DrawerActions, DrawerHeader } from "../src"
+import {
+	Drawer as SuiDrawer,
+	DrawerActions,
+	DrawerHeader,
+	DrawerTypes,
+} from "../src"
 
 // Import documentation main page.
 import docs from "./Drawer.mdx"
@@ -50,6 +54,11 @@ const _internalDrawer = ({
 	title = "Drawer header",
 	desc = "",
 	...props
+}: {
+	toggleRef: RefObject<DrawerActions | null>
+	title: string
+	desc: string
+	[key: string]: any
 }) => {
 	return (
 		<SuiDrawer ref={toggleRef} {...props}>
@@ -79,7 +88,7 @@ const _internalDrawer = ({
 }
 
 // Build footer story
-const Drawer = (props) => {
+const Drawer = (props: DrawerTypes) => {
 	const [currentTab, setCurrentTab] = useState<string>("Option 2")
 
 	const handleDrawerItemClick = (option: string) => () => {

@@ -38,8 +38,11 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 		<div className={classNames} data-testid="code-snippet">
 			{copy && (
 				<Tooltip
-					buttonProps={{ type: "secondary", colorScheme: "black" }}
-					data-testid="code-snippet-copy-btn"
+					buttonProps={{
+						type: "secondary",
+						colorScheme: "black",
+						"data-testid": "code-snippet-copy-btn",
+					}}
 					label="Copy"
 					placement="top"
 					aria-label={isCopied ? "Copied" : ""}

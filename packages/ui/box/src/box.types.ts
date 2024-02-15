@@ -6,7 +6,16 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
  * Represents the properties for a box component.
  */
 interface BoxProps
-	extends Omit<HTMLProps<HTMLDivElement>, "style" | "className">,
+	extends Omit<
+			HTMLProps<HTMLDivElement>,
+			| "style"
+			| "className"
+			| "height"
+			| "content"
+			| "translate"
+			| "width"
+			| "color"
+		>,
 		useStylesTypes {
 	/**
 	 * The title of the box.

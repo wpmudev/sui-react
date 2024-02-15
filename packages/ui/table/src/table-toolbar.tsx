@@ -100,7 +100,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({ ...props }) => {
 							label="Filter"
 							className="sui-table__toolbar-filter"
 							buttonIcon="Filter"
-							direction="left"
+							placement="left"
 							isSmall={true}
 							isFixedHeight={false}
 						>

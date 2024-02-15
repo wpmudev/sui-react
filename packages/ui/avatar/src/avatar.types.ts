@@ -4,7 +4,12 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
 /**
  * Represents the properties for an avatar component.
  */
-interface AvatarProps extends HTMLProps<HTMLSpanElement>, useStylesTypes {
+interface AvatarProps
+	extends Omit<
+			HTMLProps<HTMLSpanElement>,
+			"className" | "height" | "content" | "translate" | "width" | "color"
+		>,
+		useStylesTypes {
 	/**
 	 * The image source for the avatar.
 	 */

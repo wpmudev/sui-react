@@ -7,7 +7,16 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
  * Represents the props for the EmptyState component.
  */
 interface EmptyStateProps
-	extends Omit<HTMLProps<HTMLDivElement>, "className" | "children">,
+	extends Omit<
+			HTMLProps<HTMLDivElement>,
+			| "className"
+			| "children"
+			| "height"
+			| "content"
+			| "translate"
+			| "width"
+			| "color"
+		>,
 		useStylesTypes {
 	/**
 	 * The logo to be displayed in the empty state.

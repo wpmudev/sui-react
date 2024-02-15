@@ -25,8 +25,8 @@ const Spinner = ({ ...args }) => {
 	const boxRef = useRef<HTMLDivElement>(null)
 
 	const loader = useSpinner(boxRef, {
-		color: args.color,
-		size: args.size,
+		colorScheme: args.colorScheme,
+		loaderSize: args.loaderSize,
 	})
 
 	return (
@@ -96,16 +96,16 @@ Spinner.argTypes = {
 		name: "isAbsolute",
 		type: "boolean",
 	},
-	size: {
-		name: "Size",
+	loaderSize: {
+		name: "Loader Size",
 		options: ["lg", "sm"],
 		control: {
 			type: "select",
 			labels: { sm: "Small", lg: "Large - lg ( default )" },
 		},
 	},
-	color: {
-		name: "Color",
+	colorScheme: {
+		name: "Color Scheme",
 		options: ["primary", "dark"],
 		control: {
 			type: "select",

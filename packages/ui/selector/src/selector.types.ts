@@ -7,7 +7,18 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
  */
 interface SelectorProps
 	extends Partial<
-			Omit<HTMLInputElement, "name" | "value" | "onChange" | "children">
+			Omit<
+				HTMLInputElement,
+				| "name"
+				| "value"
+				| "onChange"
+				| "children"
+				| "height"
+				| "content"
+				| "translate"
+				| "width"
+				| "color"
+			>
 		>,
 		useStylesTypes {
 	/** The label text for the radio input */

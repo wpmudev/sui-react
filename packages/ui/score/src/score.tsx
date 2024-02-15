@@ -7,7 +7,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 const Score: React.FC<ScoreProps> = ({
 	bar = 50,
 	value = 50,
-	content,
+	description,
 	state,
 	isSmall = false,
 	isPercentage = true,
@@ -81,7 +81,7 @@ const Score: React.FC<ScoreProps> = ({
 			<span className="sui-score--content">
 				{value}
 				{isPercentage && <span className="sui-score--percentage">%</span>}{" "}
-				{!!content && !!isSmall && content}
+				{!!description && !!isSmall && description}
 			</span>
 			<span className="sui-screen-reader-only" tabIndex={0}>
 				Score {value} out of 100

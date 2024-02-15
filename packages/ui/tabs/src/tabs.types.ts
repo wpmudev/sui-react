@@ -9,7 +9,12 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
  * @interface TabsProps
  * @augments {HTMLProps<HTMLDivElement>}
  */
-interface TabsProps extends HTMLProps<HTMLDivElement>, useStylesTypes {
+interface TabsProps
+	extends Omit<
+			HTMLProps<HTMLDivElement>,
+			"height" | "content" | "translate" | "width" | "color"
+		>,
+		useStylesTypes {
 	className?: string // Additional CSS class names for the `Tabs` component.
 	children?: React.ReactNode // The children components rendered inside the `Tabs` component.
 	activeIndex?: number

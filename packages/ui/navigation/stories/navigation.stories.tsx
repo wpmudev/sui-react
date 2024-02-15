@@ -102,7 +102,7 @@ export const Navigation = (props: {
 						<Dropdown
 							buttonIcon="Bell"
 							label="Connect features"
-							direction="left"
+							placement="left"
 							menu={[
 								{
 									id: "group-1",

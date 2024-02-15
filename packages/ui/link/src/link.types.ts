@@ -8,7 +8,10 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
  */
 interface LinkProps
 	extends Partial<
-			Omit<HTMLAnchorElement, "className" | "children" | "toString">
+			Omit<
+				HTMLAnchorElement,
+				"className" | "children" | "toString" | "translate"
+			>
 		>,
 		useStylesTypes {
 	/**

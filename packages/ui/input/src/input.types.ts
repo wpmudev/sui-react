@@ -48,6 +48,11 @@ interface InputProps
 			| "onFocus"
 			| "onBlur"
 			| "onBlurCapture"
+			| "height"
+			| "content"
+			| "translate"
+			| "width"
+			| "color"
 		>,
 		InteractionTypes,
 		useStylesTypes {

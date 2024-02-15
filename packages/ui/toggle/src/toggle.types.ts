@@ -7,7 +7,14 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
 interface ToggleProps
 	extends Omit<
 			HTMLProps<HTMLInputElement>,
-			"defaultValue" | "onClick" | "label"
+			| "defaultValue"
+			| "onClick"
+			| "label"
+			| "height"
+			| "content"
+			| "translate"
+			| "width"
+			| "color"
 		>,
 		useStylesTypes {
 	/**

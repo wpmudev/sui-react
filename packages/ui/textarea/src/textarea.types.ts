@@ -5,7 +5,12 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
  * This interface defines the props for the Textarea component.
  * It extends the HTMLProps<HTMLTextAreaElement> type to inherit standard HTML textarea element props.
  */
-interface TextareaProps extends HTMLProps<HTMLTextAreaElement>, useStylesTypes {
+interface TextareaProps
+	extends Omit<
+			HTMLProps<HTMLTextAreaElement>,
+			"height" | "content" | "translate" | "width" | "color"
+		>,
+		useStylesTypes {
 	/** ID for the textarea element. */
 	id?: string
 

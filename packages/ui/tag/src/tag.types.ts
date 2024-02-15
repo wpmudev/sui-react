@@ -8,7 +8,10 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
  * Interface representing the properties of a tag component.
  */
 interface TagProps
-	extends Omit<HTMLProps<HTMLSpanElement>, "style">,
+	extends Omit<
+			HTMLProps<HTMLSpanElement>,
+			"style" | "height" | "content" | "translate" | "width" | "color"
+		>,
 		useStylesTypes {
 	/**
 	 * Design of the tag.

@@ -8,8 +8,8 @@ import { useStyles } from "@wpmudev/sui-hooks"
 
 // Spinner component
 const Spinner: React.FC<SpinnerProps> = ({
-	size = "lg",
-	color = "primary",
+	loaderSize = "lg",
+	colorScheme = "primary",
 	isContained = false,
 	isAbsolute = false,
 	...props
@@ -21,8 +21,8 @@ const Spinner: React.FC<SpinnerProps> = ({
 		"sui-spinner",
 		{
 			absolute: isAbsolute,
-			[size]: !isEmpty(size ?? ""),
-			dark: !isEmpty(color) && "dark" === color,
+			[loaderSize]: !isEmpty(loaderSize ?? ""),
+			dark: !isEmpty(colorScheme) && "dark" === colorScheme,
 			contained: isContained,
 		},
 		suiInlineClassname,
@@ -30,7 +30,10 @@ const Spinner: React.FC<SpinnerProps> = ({
 
 	return (
 		<div className={classNames} data-testid="spinner">
-			<SpinnerLoader color={color} size={size ?? "lg"} />
+			<SpinnerLoader
+				colorScheme={colorScheme}
+				loaderSize={loaderSize ?? "lg"}
+			/>
 		</div>
 	)
 }

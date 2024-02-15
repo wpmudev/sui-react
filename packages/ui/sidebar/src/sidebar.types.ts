@@ -29,7 +29,15 @@ interface SidebarProps extends useStylesTypes {
 interface SidebarItemProps
 	extends Omit<
 			HTMLProps<HTMLAnchorElement>,
-			"action" | "onClick" | "className" | "title"
+			| "action"
+			| "onClick"
+			| "className"
+			| "title"
+			| "height"
+			| "content"
+			| "translate"
+			| "width"
+			| "color"
 		>,
 		useStylesTypes {
 	/**

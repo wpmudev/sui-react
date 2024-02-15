@@ -134,7 +134,10 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 // ForwardRef to forward the ref passed to this component to the underlying tbody element.
 const TableBodyTag = forwardRef<
 	HTMLTableSectionElement,
-	HTMLProps<HTMLTableSectionElement>
+	Omit<
+		HTMLProps<HTMLTableSectionElement>,
+		"value" | "content" | "height" | "translate" | "width" | "color"
+	>
 >((props, ref) => (
 	<tbody
 		ref={ref}

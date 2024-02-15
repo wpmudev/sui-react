@@ -67,7 +67,10 @@ interface DropdownMenuItemProps extends useStylesTypes {
  * Props for MenuGroup component.
  */
 interface DropdownMenuGroupProps
-	extends HTMLProps<HTMLLIElement>,
+	extends Omit<
+			HTMLProps<HTMLLIElement>,
+			"label" | "height" | "content" | "translate" | "width" | "color"
+		>,
 		useStylesTypes {
 	/** Title of the MenuGroup. */
 	title: string
@@ -138,7 +141,7 @@ interface DropdownProps extends useStylesTypes {
 	/**
 	 * Dropdown popover direction
 	 */
-	direction?: "" | "left" | "right"
+	placement?: "" | "left" | "right"
 	/**
 	 * Render custom content on top of the menu items
 	 */

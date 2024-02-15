@@ -5,6 +5,7 @@ import React, {
 	KeyboardEvent,
 	MouseEvent,
 	useId,
+	HTMLProps,
 } from "react"
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { Icon } from "./select-icon"
@@ -78,7 +79,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							className={`sui-select__dropdown--option ${
 								isSelected ? "sui-select__dropdown--selected" : ""
 							}`}
-							{...getOptProps(id)}
+							{...(getOptProps(id) as HTMLProps<HTMLLIElement>)}
 						>
 							<Fragment>
 								{icon && <Icon name={icon} size={isSmall ? "xs" : "sm"} />}

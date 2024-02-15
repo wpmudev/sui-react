@@ -76,7 +76,13 @@ const Sidebar = ({}) => {
 						<Col size="3">
 							<SuiSidebar>
 								{items.map(({ title, url, icon, isDisabled, hasAction }) =>
-									renderSidebarItem(title, url, icon, hasAction, isDisabled),
+									renderSidebarItem(
+										title,
+										url,
+										icon as IconsNamesType,
+										hasAction,
+										isDisabled,
+									),
 								)}
 							</SuiSidebar>
 							<SidebarDropdown selectedItemName={currentTab}>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { HTMLProps } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 import { DropdownMenuGroupProps } from "./dropdown.types"
@@ -26,7 +26,7 @@ const DropdownMenuGroup: React.FC<DropdownMenuGroupProps> = ({
 	}
 
 	return (
-		<li {...attrs}>
+		<li {...(attrs as HTMLProps<HTMLLIElement>)}>
 			{/* Render the menu group title */}
 			<span className="sui-dropdown__menu-group-title">{title}</span>
 			{/* Render the list of menu items within the group */}

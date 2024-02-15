@@ -9,7 +9,10 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
  * Interface representing the properties of a table section.
  */
 interface TableSectionProps
-	extends HTMLProps<HTMLTableSectionElement>,
+	extends Omit<
+			HTMLProps<HTMLTableSectionElement>,
+			"height" | "content" | "translate" | "width" | "color"
+		>,
 		useStylesTypes {}
 
 /**
@@ -43,7 +46,12 @@ type TableOnActionType = (action: TableExpectedAction, data: unknown) => void
 /**
  * Interface representing the properties of a table.
  */
-interface TableProps extends HTMLProps<HTMLTableElement>, useStylesTypes {
+interface TableProps
+	extends Omit<
+			HTMLProps<HTMLTableElement>,
+			"height" | "content" | "translate" | "width" | "color"
+		>,
+		useStylesTypes {
 	/**
 	 * Custom css className(s)
 	 */
@@ -187,7 +195,10 @@ type TableHeadProps = TableSectionProps & {
  * Interface representing the properties of a table row.
  */
 interface TableRowProps
-	extends Omit<HTMLProps<HTMLTableRowElement>, "id">,
+	extends Omit<
+			HTMLProps<HTMLTableRowElement>,
+			"id" | "height" | "content" | "translate" | "width" | "color"
+		>,
 		useStylesTypes {
 	/**
 	 * The unique ID of the table row.

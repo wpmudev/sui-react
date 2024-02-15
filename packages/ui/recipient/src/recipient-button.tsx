@@ -21,10 +21,13 @@ const RecipientButton: React.FC<RecipientButtonProps> = ({
 
 	return (
 		<Tooltip
-			buttonProps={{ type: "tertiary", colorScheme: "black" }}
+			buttonProps={{
+				type: "tertiary",
+				colorScheme: "black",
+				iconOnly: true,
+				isSmall: true,
+			}}
 			label={children as string}
-			iconOnly={true}
-			isSmall={true}
 			{...props}
 		>
 			{children}

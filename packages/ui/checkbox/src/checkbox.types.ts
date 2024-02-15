@@ -80,7 +80,16 @@ interface CheckboxGroupProps extends useStylesTypes {
  * Represents the properties for a checkbox component.
  */
 interface CheckboxProps
-	extends Omit<HTMLAttributes<HTMLInputElement>, "defaultValue" | "label">,
+	extends Omit<
+			HTMLAttributes<HTMLInputElement>,
+			| "defaultValue"
+			| "label"
+			| "height"
+			| "content"
+			| "translate"
+			| "width"
+			| "color"
+		>,
 		useStylesTypes {
 	/**
 	 * The unique identifier for the checkbox button (optional).

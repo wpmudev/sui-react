@@ -8,7 +8,7 @@ import React, {
 
 import { generateCN } from "@wpmudev/sui-utils"
 import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
-import { Button } from "@wpmudev/sui-button"
+import { Button, ButtonProps } from "@wpmudev/sui-button"
 
 // Import required element(s)
 import { SidebarProps } from "./sidebar.types"
@@ -76,7 +76,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 						onClick={() => setIsOpen(!isOpen)}
 						endIcon="Hamburger"
 						isFullWidth={true}
-						{...props}
+						{...(props as ButtonProps)}
 					>
 						{selectedItemName}
 					</Button>

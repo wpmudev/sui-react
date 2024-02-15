@@ -59,7 +59,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 			<Dropdown
 				ref={userBtnRef}
 				label="Menu Button"
-				direction="left"
+				placement="left"
 				trigger={userAvatarBtn}
 				renderContentOnTop={true}
 				menu={menu ?? []}

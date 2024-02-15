@@ -1,8 +1,33 @@
-import React, { MouseEvent, KeyboardEvent, CSSProperties } from "react"
+import React, { MouseEvent, KeyboardEvent, HTMLAttributes } from "react"
 import classnames from "classnames"
 import { render } from "@testing-library/react"
 import { axe } from "jest-axe"
 import { CSS_SHORTHAND_MAPS } from "@wpmudev/sui-hooks"
+
+type _HTMLAttributes = Omit<
+	HTMLAttributes<
+		| HTMLDivElement
+		| HTMLSpanElement
+		| HTMLButtonElement
+		| HTMLAnchorElement
+		| HTMLLIElement
+	>,
+	| "id"
+	| "className"
+	| "label"
+	| "height"
+	| "content"
+	| "translate"
+	| "width"
+	| "color"
+	| "style"
+>
+
+type DataAttributeKey = `data-${string}`
+
+interface _DataAttributeTypes {
+	[dataAttribute: DataAttributeKey]: any
+}
 
 /**
  * Check if a key is valid CSS property
@@ -376,3 +401,5 @@ export {
 	a11yTest,
 	_isTestingMode,
 }
+
+export type { _DataAttributeTypes, _HTMLAttributes }

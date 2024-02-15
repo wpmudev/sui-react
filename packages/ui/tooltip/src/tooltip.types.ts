@@ -9,7 +9,13 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
 interface TooltipBaseProps
 	extends Omit<
 			HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>,
-			"onClick" | "label"
+			| "onClick"
+			| "label"
+			| "height"
+			| "content"
+			| "translate"
+			| "width"
+			| "color"
 		>,
 		useStylesTypes {
 	/**
@@ -24,6 +30,10 @@ interface TooltipBaseProps
 	 * Optional to define icon name of the tooltip.
 	 */
 	icon?: string
+	/**
+	 * Optional to define icon size
+	 */
+	iconSize?: ButtonProps["iconSize"]
 	/**
 	 * Optional additional CSS classes for the tooltip.
 	 */

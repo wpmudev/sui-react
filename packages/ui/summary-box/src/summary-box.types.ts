@@ -72,7 +72,10 @@ interface SummaryBoxBodyProps extends useStylesTypes {
  * Represents the props for the SummaryBoxItem component.
  */
 interface SummaryBoxItemProps
-	extends HTMLProps<HTMLDivElement>,
+	extends Omit<
+			HTMLProps<HTMLDivElement>,
+			"height" | "content" | "translate" | "width" | "color"
+		>,
 		useStylesTypes {
 	/**
 	 * The title of the summary item (optional).

@@ -29,7 +29,10 @@ interface BuilderProps extends useStylesTypes {
 }
 
 interface BuilderButtonProps
-	extends HTMLProps<HTMLAnchorElement>,
+	extends Omit<
+			HTMLProps<HTMLAnchorElement>,
+			"height" | "content" | "translate" | "width" | "color"
+		>,
 		useStylesTypes {
 	/**
 	 * An optional icon to be displayed within in button.

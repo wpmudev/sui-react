@@ -33,7 +33,7 @@ export interface DrawerTypes extends Omit<useStylesTypes, "position"> {
 	/**
 	 * Position of the Drawer, default is "right" or can be "left"
 	 */
-	position?: "left" | "right"
+	placement?: "left" | "right"
 
 	/**
 	 * Indicates whether the Drawer has a container

@@ -54,7 +54,7 @@ export const SpinnerHookExample = () => {
 	const boxRef = useRef<HTMLDivElement>(null)
 
 	const loader = useSpinner(boxRef, {
-		color: "dark",
+		colorScheme: "dark",
 	})
 
 	return (

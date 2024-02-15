@@ -8,7 +8,7 @@ import React, {
 } from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { Button } from "@wpmudev/sui-button"
+import { Button, ButtonProps } from "@wpmudev/sui-button"
 import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 import { DropdownMenu } from "./dropdown-menu"
 import { DropdownMenuItem } from "./dropdown-menu-item"
@@ -31,7 +31,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			isFixedHeight = true,
 			children,
 			menu,
-			direction = "right",
+			placement = "right",
 			buttonIcon,
 			onMenuClick,
 			trigger,
@@ -109,13 +109,13 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						<Button
 							startIcon={buttonIcon ?? "Menu"}
 							iconOnly={iconOnly ?? false}
-							colorScheme="black"
 							type="secondary"
 							isSmall={isSmall ?? false}
 							onClick={() => setIsOpen(!isOpen)}
 							isResponsive={isResponsive}
 							{...(!iconOnly && { endIcon: "ChevronDown" })}
 							{...props}
+							colorScheme={props?.colorScheme as ButtonProps["colorScheme"]}
 						>
 							{label}
 						</Button>
@@ -125,7 +125,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					id={id}
 					tabIndex={-1}
 					className={generateCN("sui-dropdown__popover", {
-						[`direction-${direction}`]: !isEmpty(direction ?? ""),
+						[`placement-${placement}`]: !isEmpty(placement ?? ""),
 						"fixed-height": isFixedHeight,
 					})}
 					{...(label && {

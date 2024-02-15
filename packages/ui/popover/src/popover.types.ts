@@ -9,7 +9,13 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
 interface PopoverBaseProps
 	extends Omit<
 			HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>,
-			"onClick" | "title"
+			| "onClick"
+			| "title"
+			| "height"
+			| "content"
+			| "translate"
+			| "width"
+			| "color"
 		>,
 		useStylesTypes {
 	/**
