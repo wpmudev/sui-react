@@ -95,5 +95,9 @@ Link.argTypes = {
 		control: {
 			type: "boolean",
 		},
+		if: {
+			arg: "isExternal",
+			eq: true,
+		},
 	},
 }

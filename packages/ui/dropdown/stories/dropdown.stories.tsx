@@ -24,6 +24,8 @@ export default {
 // Build story
 export const Dropdown = ({ color, ...props }: { color: string }) => {
 	const boxStyle = {
+		display: "flex",
+		gap: "8px",
 		margin: 0,
 		padding: "30px",
 		border: "white" === color ? "1px solid #E6E6E6" : 0,

@@ -6,6 +6,7 @@ import { ButtonProps } from "../src/button.types"
 
 // Import documentation main page.
 import docs from "./ReactButton.mdx"
+import { IconsName } from "@wpmudev/sui-icons"
 
 // Configure default options.
 export default {
@@ -65,7 +66,7 @@ const Button = ({
 								)
 							case "icon":
 								return (
-									<StandardButton icon="Add" iconOnly={true} {...attributes}>
+									<StandardButton iconOnly={true} {...attributes}>
 										Add
 									</StandardButton>
 								)
@@ -108,6 +109,8 @@ Button.args = {
 	isLoading: true,
 	isDisabled: false,
 	isResponsive: false,
+	iconOnly: true,
+	icon: "Add",
 }
 
 Button.argTypes = {
@@ -171,6 +174,21 @@ Button.argTypes = {
 		if: {
 			arg: "example",
 			neq: "button-toggle",
+		},
+	},
+	iconOnly: {
+		name: "Icon only",
+		control: "boolean",
+	},
+	icon: {
+		name: "Icon",
+		options: IconsName,
+		control: {
+			type: "select",
+		},
+		if: {
+			arg: "iconOnly",
+			eq: true,
 		},
 	},
 	color: {

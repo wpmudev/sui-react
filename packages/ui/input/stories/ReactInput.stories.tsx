@@ -6,6 +6,7 @@ import { Input as SuiInput, InputProps } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactInput.mdx"
+import { IconsName } from "@wpmudev/sui-icons"
 
 // Configure default options.
 export default {
@@ -53,7 +54,7 @@ Input.args = {
 	id: "myCustomId",
 	defaultValue: "Hello World",
 	icon: "",
-	iconPosition: "",
+	iconPosition: "start",
 	iconHint: "",
 	iconTooltipWidth: "",
 	isSmall: false,
@@ -82,19 +83,42 @@ Input.argTypes = {
 	defaultValue: {
 		name: "Value",
 	},
-	iconTooltipWidth: {
-		name: "Icon Tooltip Width",
-		control: "number",
-	},
 	isSmall: {
 		name: "Small",
 		control: "boolean",
+	},
+	icon: {
+		name: "Icon",
+		options: IconsName,
+		control: {
+			type: "select",
+		},
 	},
 	iconPosition: {
 		name: "Icon Position",
 		options: ["start", "end"],
 		control: {
 			type: "select",
+		},
+		if: {
+			arg: "icon",
+			neq: "",
+		},
+	},
+	iconHint: {
+		name: "Icon Hint",
+		control: "text",
+		if: {
+			arg: "iconPosition",
+			eq: "end",
+		},
+	},
+	iconTooltipWidth: {
+		name: "Icon Tooltip Width",
+		control: "number",
+		if: {
+			arg: "iconPosition",
+			eq: "end",
 		},
 	},
 	isReadOnly: {

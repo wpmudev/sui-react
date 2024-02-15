@@ -5,6 +5,8 @@ import { Box as SuiBox, BoxGroup, BoxGroupProps } from "../src"
 import { Row, Col } from "@wpmudev/sui-grid"
 import { Button } from "@wpmudev/sui-button"
 
+import { IconsName } from "@wpmudev/sui-icons"
+
 // Import documentation main page
 import docs from "./box.mdx"
 
@@ -78,7 +80,8 @@ Box.argTypes = {
 	},
 	icon: {
 		name: "Icon",
-		control: "text",
+		options: IconsName,
+		control: "select",
 	},
 	hideMobileIcon: {
 		name: "Hide icon on mobile",
