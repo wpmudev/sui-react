@@ -14,7 +14,9 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(pro) {
-				background: var(--color-nutral-grey-95, #f8f8f8);
+				background: $color-extended-neutral-95;
+				pointer-events: none;
+				user-select: none;
 			}
 		}
 	}

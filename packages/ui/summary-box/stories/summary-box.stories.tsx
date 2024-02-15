@@ -17,9 +17,10 @@ import {
 	SummaryBoxItem,
 	SummaryFooterBody,
 } from "../src"
+import { IconsName } from "@wpmudev/sui-icons"
 
 // Build "SummaryBox" story.
-const SummaryBox = ({}) => {
+const SummaryBox = ({ ...props }) => {
 	const [mode, setMode] = useState<string>("desktop")
 
 	return (
@@ -27,9 +28,7 @@ const SummaryBox = ({}) => {
 			<div className="sui-layout__content">
 				<div>
 					<SuiSummaryBox
-						icon="performance"
-						title="Performance Summary"
-						hideMobileIcon={true}
+						{...props}
 						primaryActions={
 							<>
 								<SegmentedControl
@@ -41,7 +40,6 @@ const SummaryBox = ({}) => {
 									<SegmentedControlButton value="visual" icon="Mobile" />
 									<SegmentedControlButton value="code" icon="Desktop" />
 								</SegmentedControl>
-								,
 								<div key={0}>
 									<Button
 										appearance="secondary"
@@ -127,10 +125,30 @@ const SummaryBox = ({}) => {
 }
 
 // Set story arguments.
-SummaryBox.args = {}
+SummaryBox.args = {
+	icon: "Performance",
+	title: "Performance Summary",
+	hideMobileIcon: true,
+}
 
 // Set controls for story arguments.
-SummaryBox.argTypes = {}
+SummaryBox.argTypes = {
+	icon: {
+		name: "Icon",
+		options: IconsName,
+		control: {
+			type: "select",
+		},
+	},
+	title: {
+		name: "Title",
+		control: "text",
+	},
+	hideMobileIcon: {
+		name: "Hide icon on mobile",
+		control: "boolean",
+	},
+}
 
 // Configure default options.
 export default {

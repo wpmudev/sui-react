@@ -44,33 +44,33 @@ SettingBlock.args = {
 // Set controls for story arguments.
 SettingBlock.argTypes = {
 	title: {
-		name: "title",
+		name: "Title",
 		control: {
 			type: "text",
 		},
 	},
 	description: {
-		name: "description",
+		name: "Description",
 		control: {
 			type: "text",
 		},
 	},
 	isPro: {
-		name: "isPro",
+		name: "Pro",
 		control: {
 			type: "boolean",
 		},
 	},
 	isFluid: {
-		name: "isFluid",
+		name: "Fluid",
 		control: {
 			type: "boolean",
 		},
 	},
 	actions: {
-		name: "actions",
+		name: "Actions",
 		control: {
-			type: "string",
+			type: Function,
 		},
 	},
 }
