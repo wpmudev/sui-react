@@ -174,6 +174,12 @@ Navigation.args = {
 }
 
 Navigation.argTypes = {
+	isMenuDisabled: {
+		name: "Menu Disabled",
+		control: {
+			type: "boolean",
+		},
+	},
 	status: {
 		name: "User Status",
 		options: ["none", "confirmed", "awaiting", "not-accepted", "not-connected"],
@@ -220,6 +226,18 @@ Navigation.argTypes = {
 				blc: "blc",
 				thc: "thc",
 			},
+		},
+	},
+	title: {
+		name: "Title",
+		control: {
+			type: "text",
+		},
+	},
+	description: {
+		name: "Description",
+		control: {
+			type: "text",
 		},
 	},
 }
