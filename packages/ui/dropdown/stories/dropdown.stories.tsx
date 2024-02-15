@@ -4,6 +4,8 @@ import React from "react"
 import { Dropdown as SuiDropdown } from "../src"
 import { Button } from "@wpmudev/sui-button"
 
+import { IconsName } from "@wpmudev/sui-icons"
+
 // Import documentation main page
 import docs from "./ReactDropdown.mdx"
 
@@ -196,19 +198,53 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 Dropdown.args = {
 	label: "Menu Button",
 	isSmall: false,
+	isFixedHeight: true,
 	iconOnly: false,
+	renderContentOnTop: false,
+	direction: "right",
+	buttonIcon: "Menu",
 	onMenuClick: () => {},
 }
 
 Dropdown.argTypes = {
+	label: {
+		name: "Label",
+		control: "text",
+	},
 	isSmall: {
 		name: "Small",
+		control: "boolean",
+	},
+	isFixedHeight: {
+		name: "Fixed Height",
+		control: "boolean",
+	},
+	renderContentOnTop: {
+		name: "Render content on top",
+		control: "boolean",
 	},
 	iconOnly: {
 		name: "Icon Button",
+		control: "boolean",
+	},
+	buttonIcon: {
+		name: "Icon",
+		options: IconsName,
+		control: "select",
 	},
 	onMenuClick: {
-		name: "onMenuClick",
+		name: "On Click",
 		type: Function,
+	},
+	direction: {
+		name: "Direction",
+		options: ["left", "right"],
+		control: {
+			type: "select",
+			labels: {
+				left: "Left",
+				right: "Right",
+			},
+		},
 	},
 }
