@@ -29,6 +29,18 @@ interface _DataAttributeTypes {
 	[dataAttribute: DataAttributeKey]: any
 }
 
+type SuiHTMLAttributes<T = any> = {
+	htmlProps?: T
+}
+
+type OmitNestedKey<T, K extends keyof T, NK extends keyof NonNullable<T[K]>> = {
+	[P in keyof T]: P extends K
+		? NonNullable<T[P]> extends Record<NK, any>
+			? Omit<NonNullable<T[P]>, NK>
+			: T[P]
+		: T[P]
+}
+
 /**
  * Check if a key is valid CSS property
  *
@@ -357,10 +369,11 @@ const _isTestingMode = () => process.env.JEST_WORKER_ID !== undefined
  * @param {boolean}             excludeCSSProperties exclude CSSProperties
  */
 const _renderRestPropsSafely = (
-	propsList: Record<string, any>,
+	propsList?: Record<string, any>,
 	excludeCSSProperties = true,
 ) => {
 	let toReturn = {}
+	propsList = propsList ?? {}
 
 	for (const propKey of Object.keys(propsList)) {
 		// skip if a valid CSS property
@@ -402,4 +415,9 @@ export {
 	_isTestingMode,
 }
 
-export type { _DataAttributeTypes, _HTMLAttributes }
+export type {
+	_DataAttributeTypes,
+	_HTMLAttributes,
+	SuiHTMLAttributes,
+	OmitNestedKey,
+}
