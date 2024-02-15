@@ -2,6 +2,7 @@
 import React, { HTMLProps, ProviderProps } from "react"
 import { IconProps } from "@wpmudev/sui-icon"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Props for the main `Tabs` component that represents the container for all tabs.
@@ -10,10 +11,7 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
  * @augments {HTMLProps<HTMLDivElement>}
  */
 interface TabsProps
-	extends Omit<
-			HTMLProps<HTMLDivElement>,
-			"height" | "content" | "translate" | "width" | "color"
-		>,
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		useStylesTypes {
 	className?: string // Additional CSS class names for the `Tabs` component.
 	children?: React.ReactNode // The children components rendered inside the `Tabs` component.

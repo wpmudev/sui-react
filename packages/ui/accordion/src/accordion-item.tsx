@@ -1,14 +1,16 @@
-import React, {
-	useCallback,
-	useId,
-	useState,
-	useEffect,
-	useRef,
-	useContext,
-} from "react"
-import { useInteraction, useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
+import React, { useCallback, useId, useState, useContext } from "react"
+import {
+	useInteraction,
+	useDefaultChildren,
+	useStyles,
+} from "@wpmudev/sui-hooks"
 import { AccordionContext, useAccordion } from "./accordion-context"
-import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
+import {
+	generateCN,
+	isEmpty,
+	handleOnKeyDown,
+	_renderRestPropsSafely,
+} from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { AccordionItemProps } from "./accordion.types"
@@ -23,6 +25,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	hasCheckbox,
 	isExpanded,
 	onCheck,
+	htmlProps = {},
 	...styleProps
 }) => {
 	// Checkbox is checked.
@@ -101,6 +104,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				suiInlineClassname,
 			)}
 			data-testid="accordion-item"
+			{..._renderRestPropsSafely(htmlProps)}
 		>
 			<div
 				id={accordionId}

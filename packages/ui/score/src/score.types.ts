@@ -1,21 +1,13 @@
 import React, { HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * This interface defines the props for the Score component.
  * It extends the HTMLProps<HTMLDivElement> type to inherit standard HTML div element props.
  */
 interface ScoreProps
-	extends Omit<
-			HTMLProps<HTMLDivElement>,
-			| "className"
-			| "value"
-			| "content"
-			| "height"
-			| "translate"
-			| "width"
-			| "color"
-		>,
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		useStylesTypes {
 	/** The length of the score bar to be displayed. */
 	bar: number

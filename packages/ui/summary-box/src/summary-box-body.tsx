@@ -25,8 +25,9 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 	children,
 	summaryItems = [],
 	reverseBlocks = false,
+	htmlProps = {},
 	...props
-}) => {
+}): JSX.Element => {
 	const { suiInlineClassname } = useStyles(props, className)
 	const classNames = generateCN("sui-summary-box__body", {}, suiInlineClassname)
 
@@ -51,7 +52,7 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 	}
 
 	return (
-		<BoxGroup isInline={true}>
+		<BoxGroup isInline={true} htmlProps={htmlProps}>
 			<Row align={{ md: "inline" }} className={classNames}>
 				{cols.map((col) => col)}
 			</Row>

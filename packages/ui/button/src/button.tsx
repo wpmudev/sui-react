@@ -11,6 +11,7 @@ import {
 	condContent,
 	generateCN,
 	isEmpty,
+	_renderRestPropsSafely,
 } from "@wpmudev/sui-utils"
 
 // Import required component(s).
@@ -23,7 +24,7 @@ import { ButtonProps } from "./button.types"
 // type ButtonProps = ButtonProps & InteractionTypes
 
 // Build "Base Button" component.
-const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
+const Button: React.FC<ButtonProps> = forwardRef<
 	HTMLButtonElement | HTMLAnchorElement,
 	ButtonProps
 >(
@@ -47,6 +48,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			iconSize = "sm",
 			isResponsive = false,
 			isLoading = false,
+			htmlProps = {},
 			...restProps
 		},
 		ref,
@@ -101,6 +103,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			"aria-busy": isLoading,
 			...(isLoading && { "aria-live": "polite" }),
 			"data-testid": "button",
+			..._renderRestPropsSafely(htmlProps),
 			// interaction methods
 			...(interactionMethods ?? {}),
 			...restProps,

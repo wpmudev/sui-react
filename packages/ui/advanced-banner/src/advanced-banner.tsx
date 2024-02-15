@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import { AdvancedBannerProps } from "./advanced-banner.types"
 import { useStyles } from "@wpmudev/sui-hooks"
@@ -20,6 +20,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 	// Black friday variation props
 	ctaTitle = "cta title",
 	onCTAClick = () => {},
+	htmlProps = {},
 	...styleProps
 }) => {
 	const { suiInlineClassname } = useStyles(styleProps, className)
@@ -41,7 +42,11 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 	}
 
 	return (
-		<div className={classNames} data-testid="advanced-banner">
+		<div
+			className={classNames}
+			data-testid="advanced-banner"
+			{..._renderRestPropsSafely(htmlProps)}
+		>
 			{"black-friday" === variation && !!discountPercentage && (
 				<div className="sui-advanced-banner__graphic">
 					<div className="sui-heading--h3 sui-advanced-banner__graphic-text">

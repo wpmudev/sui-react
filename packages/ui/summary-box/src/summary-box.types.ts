@@ -3,13 +3,16 @@ import { TagProps } from "@wpmudev/sui-tag"
 import { IconProps } from "@wpmudev/sui-icon"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * SummaryBoxProps Interface
  *
  * Represents the props for the SummaryBox component.
  */
-interface SummaryBoxProps extends useStylesTypes {
+interface SummaryBoxProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+		useStylesTypes {
 	/**
 	 * The title of the summary box (required).
 	 */
@@ -47,7 +50,9 @@ interface SummaryBoxProps extends useStylesTypes {
  *
  * Represents the props for the SummaryBoxBody component.
  */
-interface SummaryBoxBodyProps extends useStylesTypes {
+interface SummaryBoxBodyProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+		useStylesTypes {
 	/**
 	 * Additional CSS class names for the summary box body element (optional).
 	 */
@@ -72,10 +77,7 @@ interface SummaryBoxBodyProps extends useStylesTypes {
  * Represents the props for the SummaryBoxItem component.
  */
 interface SummaryBoxItemProps
-	extends Omit<
-			HTMLProps<HTMLDivElement>,
-			"height" | "content" | "translate" | "width" | "color"
-		>,
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		useStylesTypes {
 	/**
 	 * The title of the summary item (optional).
@@ -116,7 +118,9 @@ interface SummaryBoxItemProps
  *
  * Represents the props for the SummaryFooterBody component.
  */
-interface SummaryFooterBodyProps extends useStylesTypes {
+interface SummaryFooterBodyProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+		useStylesTypes {
 	/**
 	 * Additional CSS class names for the summary box footer element (optional).
 	 */

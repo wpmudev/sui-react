@@ -6,7 +6,7 @@ import React, {
 	forwardRef,
 } from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 
@@ -16,7 +16,13 @@ import { SidebarProps } from "./sidebar.types"
 // Build sidebar component
 const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 	(
-		{ className, selectedItemName = "", children, ...props }: SidebarProps,
+		{
+			className,
+			selectedItemName = "",
+			children,
+			htmlProps,
+			...props
+		}: SidebarProps,
 		ref,
 	) => {
 		// Create a ref to access the dropdown's outer container element.
@@ -67,7 +73,11 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 		})
 
 		return (
-			<div ref={dropdownRef} className={classNames}>
+			<div
+				ref={dropdownRef}
+				className={classNames}
+				{..._renderRestPropsSafely(htmlProps)}
+			>
 				<div>
 					<Button
 						id={`${id}__label`}

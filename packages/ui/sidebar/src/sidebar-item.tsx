@@ -23,6 +23,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 	isActive = false,
 	isDisabled = false,
 	onClick = () => {},
+	htmlProps = {},
 	...props
 }) => {
 	// `useInteraction` returns interaction state and methods.
@@ -68,7 +69,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 			onKeyDown={(e) => handleOnKeyDown(e, onClickCallback)}
 			data-testid="sidebar-item"
 			{...methods}
-			{..._renderRestPropsSafely(props)}
+			{..._renderRestPropsSafely(htmlProps)}
 		>
 			{/* Display item info, including optional icon and title */}
 			<div className="sui-sidebar__item-info">

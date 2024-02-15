@@ -53,7 +53,9 @@ const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 						colorScheme="black"
 						endIcon="CaretDown"
 						onClick={() => openToggle("months", marker)}
-						onKeyDown={() => openToggle("months", marker)}
+						htmlProps={{
+							onKeyDown: () => openToggle("months", marker),
+						}}
 					>
 						{/* Display the current month name */}
 						{format(date, "MMMM")}
@@ -68,9 +70,10 @@ const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 					colorScheme="black"
 					endIcon="CaretDown"
 					onClick={() => ctx.openToggle("years", marker)}
-					onKeyDown={(e) =>
-						handleOnKeyDown(e, () => ctx.openToggle("years", marker))
-					}
+					htmlProps={{
+						onKeyDown: (e) =>
+							handleOnKeyDown(e, () => ctx.openToggle("years", marker)),
+					}}
 				>
 					{/* Display the current month and year */}
 					{ctx.isSingle && format(date, "MMMM")} {format(date, "yyyy")}

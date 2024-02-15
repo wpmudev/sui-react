@@ -42,7 +42,6 @@ const BuilderButton: FC<BuilderButtonProps> = ({
 			className={classNames}
 			{...methods}
 			onClick={onButtonClick}
-			data-testid="builder-add-more"
 		>
 			{!isEmpty(title ?? "") && <span>{title}</span>}
 		</Button>

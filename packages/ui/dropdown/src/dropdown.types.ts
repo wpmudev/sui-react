@@ -1,6 +1,7 @@
 import React, { HTMLProps, KeyboardEvent } from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { OmitNestedKey, SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Props for Menu component.
@@ -67,9 +68,10 @@ interface DropdownMenuItemProps extends useStylesTypes {
  * Props for MenuGroup component.
  */
 interface DropdownMenuGroupProps
-	extends Omit<
-			HTMLProps<HTMLLIElement>,
-			"label" | "height" | "content" | "translate" | "width" | "color"
+	extends OmitNestedKey<
+			SuiHTMLAttributes<HTMLProps<HTMLLIElement>>,
+			"htmlProps",
+			"className" | "title" | "href"
 		>,
 		useStylesTypes {
 	/** Title of the MenuGroup. */
@@ -101,7 +103,13 @@ interface MenuGroupProps extends DropdownMenuBaseProps {
 /**
  * Represents the properties for a dropdown component.
  */
-interface DropdownProps extends useStylesTypes {
+interface DropdownProps
+	extends OmitNestedKey<
+			SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+			"htmlProps",
+			"className"
+		>,
+		useStylesTypes {
 	/**
 	 * The label for the dropdown.
 	 */

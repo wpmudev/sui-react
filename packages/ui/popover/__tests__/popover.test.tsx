@@ -56,7 +56,7 @@ describe("@wpmudev/sui-popover", () => {
 	// eslint-disable-next-line jest/expect-expect
 	it("passes a11y test", async () => {
 		await a11yTest(
-			<Popover label={label} trigger="Test Button" placement="top">
+			<Popover header={label} trigger="Test Button" placement="top">
 				{description}
 			</Popover>,
 		)

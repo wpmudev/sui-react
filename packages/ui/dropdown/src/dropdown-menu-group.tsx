@@ -1,6 +1,6 @@
 import React, { HTMLProps } from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { DropdownMenuGroupProps } from "./dropdown.types"
 import { useStyles } from "@wpmudev/sui-hooks"
 
@@ -9,6 +9,7 @@ const DropdownMenuGroup: React.FC<DropdownMenuGroupProps> = ({
 	title = "",
 	className = "",
 	children,
+	htmlProps = {},
 	...props
 }) => {
 	const { suiInlineClassname } = useStyles(props, className)
@@ -22,7 +23,7 @@ const DropdownMenuGroup: React.FC<DropdownMenuGroupProps> = ({
 	// Prepare attributes for the menu group element
 	const attrs = {
 		className: classNames,
-		...props,
+		..._renderRestPropsSafely(htmlProps),
 	}
 
 	return (

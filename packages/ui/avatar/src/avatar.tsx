@@ -20,6 +20,7 @@ const Avatar: React.FC<AvatarProps> = ({
 	status = "none",
 	isSmall = false,
 	className,
+	htmlProps = {},
 	...props
 }) => {
 	// Define image object
@@ -50,7 +51,7 @@ const Avatar: React.FC<AvatarProps> = ({
 	return (
 		<span
 			className={classNames}
-			{..._renderRestPropsSafely(props)}
+			{..._renderRestPropsSafely(htmlProps)}
 			data-testid="avatar"
 		>
 			{hasImage && <Image source={imageObj.src} text={imageObj.alt} />}

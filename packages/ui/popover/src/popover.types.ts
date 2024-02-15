@@ -2,20 +2,14 @@ import React, { HTMLProps } from "react"
 
 import { ButtonProps } from "@wpmudev/sui-button"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Props for the Popover component.
  */
 interface PopoverBaseProps
-	extends Omit<
-			HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>,
-			| "onClick"
-			| "title"
-			| "height"
-			| "content"
-			| "translate"
-			| "width"
-			| "color"
+	extends SuiHTMLAttributes<
+			HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>
 		>,
 		useStylesTypes {
 	/**

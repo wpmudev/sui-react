@@ -15,6 +15,7 @@ import {
 	generateCN,
 	condContent,
 	handleOnKeyDown,
+	_renderRestPropsSafely,
 } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
@@ -57,6 +58,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				validateOnMount = false,
 				customWidth,
 				onValidate,
+				htmlProps = {},
 				...props
 			},
 			ref,
@@ -69,7 +71,8 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			}
 
 			// Define states
-			const [value, setValue] = useState<typeof defaultValue>(defaultValue)
+			const [value, setValue] =
+				useState<InputProps["defaultValue"]>(defaultValue)
 			const [isHovered, isFocused, interactionMethods] = useInteraction({})
 			const [hasError, setHasError] = useState(false)
 
@@ -91,7 +94,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				(e: React.ChangeEvent<HTMLInputElement>) => {
 					// update value if input isn't read-only
 					if (!isReadOnly) {
-						setValue(e?.target?.value ?? "")
+						setValue((e?.target?.value ?? "") as InputProps["defaultValue"])
 					}
 
 					if (!!onChange) {
@@ -103,7 +106,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 
 			// Clear input value
 			const onClearCallback = useCallback(() => {
-				setValue("")
+				setValue("" as InputProps["defaultValue"])
 				if (!!onClear) {
 					onClear("")
 				}
@@ -167,6 +170,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			// Call onValidate when hasError changes
 			useEffect(() => {
 				if (onValidate) onValidate(id, hasError)
+				// eslint-disable-next-line react-hooks/exhaustive-deps
 			}, [hasError])
 
 			/**
@@ -227,8 +231,6 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				required: isRequired,
 				pattern,
 				onKeyUp: onInputKeyUp,
-
-				...props,
 			}
 
 			/**
@@ -285,7 +287,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							"has-hint": hasHintText,
 						})}
 					>
-						<TagName {...attrs}></TagName>
+						<TagName {...attrs} {..._renderRestPropsSafely(htmlProps)} />
 						{hasHintText && (
 							<Fragment>
 								{!isEmpty(value as string) && (
@@ -308,9 +310,11 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							iconSize={isSmall ? "sm" : "md"}
 							onClick={onClearCallback}
 							isSmall={isSmall ?? false}
-							onKeyDown={(
-								e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
-							) => handleOnKeyDown(e, onClear)}
+							htmlProps={{
+								onKeyDown: (
+									e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
+								) => handleOnKeyDown(e, onClear),
+							}}
 						>
 							Clear
 						</Button>

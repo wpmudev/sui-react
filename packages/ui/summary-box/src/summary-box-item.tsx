@@ -36,8 +36,9 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	tagColor = "default",
 	actionIcon,
 	actionIconColor = "",
+	htmlProps = {},
 	...props
-}) => {
+}: SummaryBoxItemProps): JSX.Element => {
 	// Hook for handling interaction state (hover, focus).
 	const [isHovered, isFocused, methods] = useInteraction({})
 	const { suiInlineClassname } = useStyles(props, className)
@@ -59,7 +60,11 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	}
 
 	return (
-		<Row className={classNames} {...methods} data-testid="summary-box-item">
+		<Row
+			className={classNames}
+			{...methods}
+			htmlProps={{ "data-testid": "summary-box-item", ...htmlProps }}
+		>
 			<div className="sui-summary-box__list-item-info">
 				{!isEmpty(titleUrl) ? <a href={titleUrl}>{title}</a> : title}
 				{!isEmpty(description ?? "") && (

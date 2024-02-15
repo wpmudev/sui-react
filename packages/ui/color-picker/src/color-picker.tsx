@@ -141,7 +141,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 				{
 					error: isError,
 					disabled: isDisabled,
-				  fluid: isFluid,
+					fluid: isFluid,
 				},
 				suiInlineClassname,
 			)}
@@ -151,7 +151,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 			<div className="sui-color-picker__color">
 				<Input
 					className="sui-color-picker__color--code"
-					value={tempColor}
+					defaultValue={tempColor}
 					onChange={inputColorChange}
 					placeholder={placeholder ?? ""}
 					onClick={() => setShowPicker(true)}

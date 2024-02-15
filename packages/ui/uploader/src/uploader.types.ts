@@ -1,14 +1,14 @@
 // @ts-nocheck
 import { HTMLProps } from "react"
 
-import { FormFieldProps } from "@wpmudev/sui-form-field"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for an uploader component.
  */
 interface UploaderProps
-	extends Omit<HTMLProps<HTMLInputElement>, "onChange">,
+	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
 		useStylesTypes {
 	/**
 	 * Upload button title

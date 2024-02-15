@@ -1,21 +1,13 @@
 import React, { CSSProperties, HTMLProps } from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a box component.
  */
 interface BoxProps
-	extends Omit<
-			HTMLProps<HTMLDivElement>,
-			| "style"
-			| "className"
-			| "height"
-			| "content"
-			| "translate"
-			| "width"
-			| "color"
-		>,
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		useStylesTypes {
 	/**
 	 * The title of the box.

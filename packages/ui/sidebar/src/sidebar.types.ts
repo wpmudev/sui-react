@@ -1,11 +1,14 @@
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import React, { HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Interface defining the props that can be passed to a Sidebar component.
  */
-interface SidebarProps extends useStylesTypes {
+interface SidebarProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+		useStylesTypes {
 	/**
 	 * An optional class name to be applied to the Sidebar component.
 	 */
@@ -27,18 +30,7 @@ interface SidebarProps extends useStylesTypes {
  * Extends HTMLProps<HTMLAnchorElement> to include standard HTML anchor element props.
  */
 interface SidebarItemProps
-	extends Omit<
-			HTMLProps<HTMLAnchorElement>,
-			| "action"
-			| "onClick"
-			| "className"
-			| "title"
-			| "height"
-			| "content"
-			| "translate"
-			| "width"
-			| "color"
-		>,
+	extends SuiHTMLAttributes<HTMLProps<HTMLAnchorElement>>,
 		useStylesTypes {
 	/**
 	 * The URL associated with the SidebarItem.

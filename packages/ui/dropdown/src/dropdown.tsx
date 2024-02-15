@@ -7,7 +7,7 @@ import React, {
 	ChangeEvent,
 } from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 import { DropdownMenu } from "./dropdown-menu"
@@ -37,6 +37,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			trigger,
 			renderContentOnTop = false,
 			isResponsive = false,
+			htmlProps = {},
 			...props
 		},
 		ref,
@@ -101,7 +102,12 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		}
 
 		return (
-			<div ref={dropdownRef} className={wrapperClasses} data-testid="dropdown">
+			<div
+				ref={dropdownRef}
+				className={wrapperClasses}
+				data-testid="dropdown"
+				{..._renderRestPropsSafely(htmlProps)}
+			>
 				{!!trigger ? (
 					trigger
 				) : (

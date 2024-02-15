@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // Import required element(s)
 import { BuilderProps } from "./builder.types"
@@ -15,6 +15,7 @@ const Builder: React.FC<BuilderProps> = ({
 	allowAddFields = true,
 	isScrollable = false,
 	hasNoFields = false,
+	htmlProps = {},
 	...styleProps
 }) => {
 	// Default children content
@@ -26,7 +27,11 @@ const Builder: React.FC<BuilderProps> = ({
 	const classNames = generateCN("sui-builder", {}, suiInlineClassname)
 
 	return (
-		<div className={classNames} data-testid="builder">
+		<div
+			className={classNames}
+			data-testid="builder"
+			{..._renderRestPropsSafely(htmlProps)}
+		>
 			<div
 				className={generateCN("sui-builder__fields", {
 					scrollable: isScrollable && !hasNoFields,
@@ -37,7 +42,7 @@ const Builder: React.FC<BuilderProps> = ({
 				</div>
 			</div>
 			{allowAddFields && (
-				<div className="sui-builder__footer">
+				<div className="sui-builder__footer" data-testid="builder-add-more">
 					<BuilderButton />
 				</div>
 			)}

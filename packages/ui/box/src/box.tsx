@@ -23,6 +23,7 @@ const Box: React.FC<BoxProps> = ({
 	isSmall = false,
 	className = "",
 	style = {},
+	htmlProps = {},
 	...props
 }) => {
 	// Prop(s) validation
@@ -47,7 +48,7 @@ const Box: React.FC<BoxProps> = ({
 		<div
 			className={classNames}
 			style={style ?? {}}
-			{..._renderRestPropsSafely(props)}
+			{..._renderRestPropsSafely(htmlProps)}
 		>
 			{hasTitle && (
 				<BoxGroup isInline={true}>

@@ -43,6 +43,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	icon,
 	iconSize = "sm",
 	buttonProps,
+	htmlProps = {},
 	...props
 }) => {
 	// detect RTL
@@ -317,6 +318,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			className={classNames}
 			data-testid="tooltip"
 			ref={tooltipRef as LegacyRef<HTMLDivElement>}
+			{..._renderRestPropsSafely(htmlProps)}
 		>
 			<div
 				className="sui-tooltip__trigger"

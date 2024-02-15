@@ -9,6 +9,7 @@ const Row: React.FC<RowProps> = ({
 	align = { md: "inline" },
 	className,
 	children,
+	htmlProps = {},
 	...props
 }) => {
 	const { suiInlineClassname } = useStyles(props, className)
@@ -49,7 +50,7 @@ const Row: React.FC<RowProps> = ({
 		<div
 			className={classNames}
 			data-testid="grid"
-			{..._renderRestPropsSafely(props)}
+			{..._renderRestPropsSafely(htmlProps)}
 		>
 			{children}
 		</div>

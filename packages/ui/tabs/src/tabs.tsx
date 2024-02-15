@@ -8,7 +8,12 @@ import { TabsProps } from "./tabs.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Define the Accordion component as a functional component (React.FC)
-const Tabs: React.FC<TabsProps> = ({ className, children, ...props }) => {
+const Tabs: React.FC<TabsProps> = ({
+	className,
+	children,
+	htmlProps,
+	...props
+}) => {
 	const { suiInlineClassname } = useStyles(props, className)
 	// Generate CSS class names for the Accordion component
 	const classNames = generateCN("sui-tab", {}, suiInlineClassname)
@@ -24,7 +29,7 @@ const Tabs: React.FC<TabsProps> = ({ className, children, ...props }) => {
 		>
 			<div
 				className={classNames}
-				{..._renderRestPropsSafely(props)}
+				{..._renderRestPropsSafely(htmlProps)}
 				data-testid="tabs"
 			>
 				{children}

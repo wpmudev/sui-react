@@ -93,7 +93,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({ htmlProps, ...props }) => {
 					<Input
 						id="input-id-4"
 						className="sui-table__toolbar-search"
-						label="Label"
 						placeholder="Search"
 						onChange={onSearch}
 						isSmall={true}

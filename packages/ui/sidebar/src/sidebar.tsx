@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // Import required element(s)
 import { SidebarProps } from "./sidebar.types"
@@ -10,6 +10,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 const Sidebar: React.FC<Omit<SidebarProps, "selectedItemName">> = ({
 	className,
 	children,
+	htmlProps = {},
 	...props
 }) => {
 	const { suiInlineClassname } = useStyles(props, className)
@@ -19,7 +20,11 @@ const Sidebar: React.FC<Omit<SidebarProps, "selectedItemName">> = ({
 	children = useDefaultChildren(children, "{sidebar children content}")
 
 	return (
-		<div className={classNames} data-testid="sidebar">
+		<div
+			className={classNames}
+			data-testid="sidebar"
+			{..._renderRestPropsSafely(htmlProps)}
+		>
 			{children}
 		</div>
 	)

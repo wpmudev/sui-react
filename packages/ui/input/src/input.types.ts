@@ -1,6 +1,7 @@
 import React, { HTMLProps } from "react"
 import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 // Possible values for input type
 type InputType =
@@ -36,26 +37,17 @@ type InputType =
  * @augments {InteractionTypes}
  */
 interface InputProps
-	extends Omit<
-			HTMLProps<HTMLInputElement>,
-			| "onChange"
-			| "selected"
-			| "onMouseEnter"
-			| "onMouseLeave"
-			| "onMouseDownCapture"
-			| "onMouseUp"
-			| "onMouseUpCapture"
-			| "onFocus"
-			| "onBlur"
-			| "onBlurCapture"
-			| "height"
-			| "content"
-			| "translate"
-			| "width"
-			| "color"
-		>,
+	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
 		InteractionTypes,
 		useStylesTypes {
+	/**
+	 * Input field default value
+	 */
+	pattern?: HTMLProps<HTMLInputElement>["pattern"]
+	/**
+	 * Input field default value
+	 */
+	defaultValue?: HTMLProps<HTMLInputElement>["defaultValue"]
 	/**
 	 * The type of the input element.
 	 */
@@ -110,6 +102,12 @@ interface InputProps
 	onChange?: (
 		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string,
 	) => void
+	/**
+	 * When key up in input field
+	 *
+	 * @param e
+	 */
+	onKeyUp?: (e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>) => void
 	/**
 	 * A callback function to be invoked when the icon is clicked
 	 */

@@ -12,6 +12,7 @@ const Score: React.FC<ScoreProps> = ({
 	isSmall = false,
 	isPercentage = true,
 	className,
+	htmlProps = {},
 	...props
 }) => {
 	const { suiInlineClassname } = useStyles(props, className)
@@ -33,7 +34,7 @@ const Score: React.FC<ScoreProps> = ({
 	return (
 		<div
 			className={classNames}
-			{..._renderRestPropsSafely(props)}
+			{..._renderRestPropsSafely(htmlProps)}
 			data-testid="score"
 		>
 			<svg
