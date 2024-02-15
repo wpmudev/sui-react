@@ -153,6 +153,10 @@ const Accordion = ({
 	)
 }
 
+Accordion.args = {
+	state: "default",
+}
+
 // Set controls for story arguments.
 Accordion.argTypes = {
 	state: {
