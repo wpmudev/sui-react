@@ -10,8 +10,8 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const Tag: React.FC<TagProps> = ({
 	design,
-	color,
-	style = "default",
+	colorScheme,
+	contentWrap = "default",
 	className,
 	isSmall = false,
 	isUppercase = false,
@@ -21,8 +21,8 @@ const Tag: React.FC<TagProps> = ({
 	...props
 }) => {
 	const hasDesign = "outlined" === design
-	const hasColor = !isUndefined(color) && !isEmpty(color)
-	const hasStyle = ["multiline", "truncated"].includes(style)
+	const hasColor = !isUndefined(colorScheme) && !isEmpty(colorScheme)
+	const hasStyle = ["multiline", "truncated"].includes(contentWrap)
 
 	const { suiInlineClassname } = useStyles(props, className)
 
@@ -31,10 +31,10 @@ const Tag: React.FC<TagProps> = ({
 	const classNames = generateCN(
 		"sui-tag",
 		{
-			[`${design}-${color}`]: hasDesign && hasColor,
+			[`${design}-${colorScheme}`]: hasDesign && hasColor,
 			[design as string]: hasDesign && !hasColor,
-			[color as string]: !hasDesign && hasColor,
-			[style as string]: hasStyle,
+			[colorScheme as string]: !hasDesign && hasColor,
+			[contentWrap as string]: hasStyle,
 			sm: isSmall,
 			uppercase: isUppercase,
 			disabled: isDisabled,

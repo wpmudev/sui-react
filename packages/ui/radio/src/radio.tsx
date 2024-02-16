@@ -112,7 +112,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 					{tag && (
 						<Tag
 							design="outlined"
-							color="blue"
+							colorScheme="blue"
 							isSmall={isSmall}
 							isDisabled={isRadioDisabled ?? false}
 						>

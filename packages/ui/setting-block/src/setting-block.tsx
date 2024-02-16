@@ -42,7 +42,7 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 					<div className="sui-setting-block__info-title sui-heading--h5">
 						{title}
 						{isPro && (
-							<Tag design="outlined" color="black" isSmall={true}>
+							<Tag design="outlined" colorScheme="black" isSmall={true}>
 								Pro
 							</Tag>
 						)}

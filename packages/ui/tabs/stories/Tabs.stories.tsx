@@ -46,7 +46,7 @@ const Tabs = ({ color, state }: any) => {
 							CDN{" "}
 							<Tag
 								design="outlined"
-								color="black"
+								colorScheme="black"
 								isDisabled={true}
 								isSmall={true}
 							>

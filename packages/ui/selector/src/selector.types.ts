@@ -56,7 +56,7 @@ interface SelectorProps
 	/** Event handler for removing the Selector */
 	onRemove?(): void
 	/** Specifiy the color of the tag */
-	tagColor?: TagProps["color"]
+	tagColor?: TagProps["colorScheme"]
 }
 
 interface SelectorOptionProps extends useStylesTypes {

@@ -22,7 +22,7 @@ interface TagProps
 	/**
 	 * Color of the tag.
 	 */
-	color?:
+	colorScheme?:
 		| "default"
 		| "blue"
 		| "yellow"
@@ -34,7 +34,7 @@ interface TagProps
 	/**
 	 * Custom style for the tag.
 	 */
-	style?: "multiline" | "truncated"
+	contentWrap?: "default" | "multiline" | "truncated"
 	/**
 	 * Additional CSS class name for the tag.
 	 */

@@ -98,7 +98,7 @@ interface SummaryBoxItemProps
 	/**
 	 * Tag color
 	 */
-	tagColor?: TagProps["color"]
+	tagColor?: TagProps["colorScheme"]
 	/**
 	 * The item action icon
 	 */

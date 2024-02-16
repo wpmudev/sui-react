@@ -31,7 +31,7 @@ export default {
 }
 
 const tag = (
-	<Tag color="black" design="outlined" isSmall={true}>
+	<Tag colorScheme="black" design="outlined" isSmall={true}>
 		PRO
 	</Tag>
 )

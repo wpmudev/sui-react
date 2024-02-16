@@ -15,7 +15,7 @@ import { Col, Row } from "@wpmudev/sui-grid"
 import { Tag } from "@wpmudev/sui-tag"
 
 const tag = (
-    <Tag color="black" design="outlined" isSmall={true}>
+    <Tag colorScheme="black" design="outlined" isSmall={true}>
        PRO
     </Tag>
 )
@@ -84,7 +84,7 @@ export const BasicSidebar = () => {
 `
 
 const tag = (
-	<Tag color="black" design="outlined" isSmall={true}>
+	<Tag colorScheme="black" design="outlined" isSmall={true}>
 		PRO
 	</Tag>
 )

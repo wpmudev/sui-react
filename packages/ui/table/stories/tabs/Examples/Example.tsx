@@ -578,7 +578,11 @@ export const TableExample = ({ ...props }) => {
 									<strong>{record.title}</strong>
 								</TableCell>
 								<TableCell>
-									<Tag color={"Published" === record.tag ? "blue" : "default"}>
+									<Tag
+										colorScheme={
+											"Published" === record.tag ? "blue" : "default"
+										}
+									>
 										{record.tag}
 									</Tag>
 								</TableCell>

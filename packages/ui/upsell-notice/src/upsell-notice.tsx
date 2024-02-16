@@ -33,7 +33,7 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 				<h3 className="sui-upsell-notice__header-title sui-heading--h5">
 					{title}
 					{!isEmpty(tagTitle ?? "") && (
-						<Tag design="outlined" isSmall={true} color="black">
+						<Tag design="outlined" isSmall={true} colorScheme="black">
 							{tagTitle}
 						</Tag>
 					)}

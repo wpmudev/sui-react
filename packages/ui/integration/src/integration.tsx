@@ -107,7 +107,7 @@ const Integration: React.FC<IntegrationProps> = ({
 					</Tooltip>
 				)}
 				{isPro && (
-					<Tag design="outlined" color="black" isSmall={true}>
+					<Tag design="outlined" colorScheme="black" isSmall={true}>
 						PRO
 					</Tag>
 				)}

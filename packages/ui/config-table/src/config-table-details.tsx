@@ -50,7 +50,11 @@ const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({
 											{chunks[1]}
 											{isPro && (
 												<span className="sui-config-table__tag">
-													<Tag design="outlined" color="black" isSmall={true}>
+													<Tag
+														design="outlined"
+														colorScheme="black"
+														isSmall={true}
+													>
 														Pro
 													</Tag>
 												</span>

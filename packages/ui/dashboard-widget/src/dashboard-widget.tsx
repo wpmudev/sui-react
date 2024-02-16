@@ -82,7 +82,11 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 						<h4 className="sui-heading--h4 sui-dashboard-widget__header-title">
 							{title}
 							{tag && (
-								<Tag color="black" design="outlined" {...(tagAttrs ?? {})}>
+								<Tag
+									colorScheme="black"
+									design="outlined"
+									{...(tagAttrs ?? {})}
+								>
 									{tag}
 								</Tag>
 							)}

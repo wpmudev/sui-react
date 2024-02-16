@@ -98,7 +98,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 							{isPro && (
 								<Tag
 									design="outlined"
-									color="black"
+									colorScheme="black"
 									isSmall={true}
 									isUppercase={true}
 								>
@@ -106,7 +106,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 								</Tag>
 							)}
 							{!!tag && !isPro && (
-								<Tag style="truncated" color={tagColor}>
+								<Tag contentWrap="truncated" colorScheme={tagColor}>
 									{tag}
 								</Tag>
 							)}

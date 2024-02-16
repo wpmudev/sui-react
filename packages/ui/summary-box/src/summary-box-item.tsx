@@ -86,7 +86,7 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 					{IconTag ? (
 						<IconTag color={actionIconColor} size="md" />
 					) : (
-						<Tag color={tagColor}>{tagTitle}</Tag>
+						<Tag colorScheme={tagColor}>{tagTitle}</Tag>
 					)}
 				</div>
 			)}
