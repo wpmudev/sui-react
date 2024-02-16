@@ -34,15 +34,15 @@ const AdvancedBanner = (props: AdvancedBannerProps) => {
 		case "plugin":
 			children = (
 				<Fragment>
-					<Button appearance="primary" color="blue">
+					<Button type="primary" colorScheme="blue">
 						Primary
 					</Button>
 
-					<Button appearance="secondary" color="blue">
+					<Button type="secondary" colorScheme="blue">
 						Secondary
 					</Button>
 
-					<Button appearance="tertiary" color="blue">
+					<Button type="tertiary" colorScheme="blue">
 						Tertiary
 					</Button>
 				</Fragment>
@@ -51,15 +51,15 @@ const AdvancedBanner = (props: AdvancedBannerProps) => {
 		case "hub":
 			children = (
 				<Fragment>
-					<Button appearance="primary" color="white">
+					<Button type="primary" colorScheme="white">
 						Primary
 					</Button>
 
-					<Button appearance="secondary" color="white">
+					<Button type="secondary" colorScheme="white">
 						Secondary
 					</Button>
 
-					<Button appearance="tertiary" color="white">
+					<Button type="tertiary" colorScheme="white">
 						Tertiary
 					</Button>
 				</Fragment>
@@ -74,7 +74,7 @@ const AdvancedBanner = (props: AdvancedBannerProps) => {
 							placeholder="Enter your email to win today"
 						/>
 					</div>
-					<Button appearance="primary" color="blue">
+					<Button type="primary" colorScheme="blue">
 						Subscribe now
 					</Button>
 				</Fragment>

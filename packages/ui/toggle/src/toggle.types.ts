@@ -1,13 +1,18 @@
 import React, { HTMLProps, ReactNode } from "react"
+import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a toggle component.
  */
 interface ToggleProps
-	extends Omit<
-		HTMLProps<HTMLInputElement>,
-		"defaultValue" | "onClick" | "label"
-	> {
+	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement | HTMLDivElement>>,
+		useStylesTypes,
+		InteractionTypes {
+	/**
+	 * Toggle ID
+	 */
+	id?: string
 	/**
 	 * The label for the toggle component.
 	 */

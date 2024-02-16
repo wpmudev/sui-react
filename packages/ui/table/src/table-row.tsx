@@ -15,8 +15,8 @@ import React, {
 import { TableRowProps } from "./table.types"
 
 import { Checkbox } from "@wpmudev/sui-checkbox"
-import { useInteraction } from "@wpmudev/sui-hooks"
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
+import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 
 import { TableCell } from "./table-cell"
@@ -48,6 +48,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	expandableContent = null,
 	status,
 	isUnderFooter = false,
+	htmlProps = {},
 	...props
 }) => {
 	// State for row expansion
@@ -56,6 +57,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	const ctx = useContext(TableContext)
 	// State for row hover and focus
 	const [isHovered, isFocused, methods] = useInteraction({})
+	const { suiInlineClassname } = useStyles(props)
 
 	// Generate unique IDs for accessibility
 	const uniqueID = useId()
@@ -93,20 +95,24 @@ const TableRow: React.FC<TableRowProps> = ({
 	}
 
 	// Generate class names
-	const classNames = generateCN("sui-table__row", {
-		focus: !isUnderFooter && !isUnderHeader && isFocused,
-		hover: !isUnderFooter && !isUnderHeader && isHovered,
-		expandable: isExpandable,
-		expanded: isExpanded,
-		[status as string]: !isEmpty(status ?? ""),
-	})
+	const classNames = generateCN(
+		"sui-table__row",
+		{
+			focus: !isUnderFooter && !isUnderHeader && isFocused,
+			hover: !isUnderFooter && !isUnderHeader && isHovered,
+			expandable: isExpandable,
+			expanded: isExpanded,
+			[status as string]: !isEmpty(status ?? ""),
+		},
+		suiInlineClassname,
+	)
 
 	// Generate toggle button
 	const toggleBtn = isExpandable && (
 		<Button
 			icon={isExpanded ? "ChevronUp" : "ChevronDown"}
-			color="black"
-			appearance="tertiary"
+			colorScheme="black"
+			type="tertiary"
 			isSmall={true}
 			iconOnly={true}
 			onClick={() => setIsExpanded(!isExpanded)}
@@ -218,7 +224,7 @@ const TableRow: React.FC<TableRowProps> = ({
 				role="row"
 				className={classNames}
 				{...methods}
-				{...props}
+				{..._renderRestPropsSafely(htmlProps)}
 				{...a11yProps}
 			>
 				{ctx?.allowCheck && !isUnderFooter && (

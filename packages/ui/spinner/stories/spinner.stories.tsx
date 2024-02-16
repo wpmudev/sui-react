@@ -25,8 +25,8 @@ const Spinner = ({ ...args }) => {
 	const boxRef = useRef<HTMLDivElement>(null)
 
 	const loader = useSpinner(boxRef, {
-		color: args.color,
-		size: args.size,
+		colorScheme: args.colorScheme,
+		loaderSize: args.loaderSize,
 	})
 
 	return (
@@ -41,8 +41,8 @@ const Spinner = ({ ...args }) => {
 					content with a spinner overlay.
 				</h5>
 				<Button
-					appearance="secondary"
-					color="black"
+					type="secondary"
+					colorScheme="black"
 					isSmall={true}
 					onClick={() => (loader.isVisible ? loader.hide() : loader.show())}
 				>
@@ -96,16 +96,16 @@ Spinner.argTypes = {
 		name: "Absolute",
 		type: "boolean",
 	},
-	size: {
-		name: "Size",
+	loaderSize: {
+		name: "Loader Size",
 		options: ["lg", "sm"],
 		control: {
 			type: "select",
 			labels: { sm: "Small", lg: "Large - lg ( default )" },
 		},
 	},
-	color: {
-		name: "Color",
+	colorScheme: {
+		name: "Color Scheme",
 		options: ["primary", "dark"],
 		control: {
 			type: "select",

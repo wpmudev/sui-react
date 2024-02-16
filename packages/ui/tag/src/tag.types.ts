@@ -1,12 +1,20 @@
 /**
  * Interface representing the properties of a tag component.
  */
-import React, { HTMLProps } from "react"
+import React, { HTMLAttributes, HTMLProps } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { OmitNestedKey, SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Interface representing the properties of a tag component.
  */
-interface TagProps extends Omit<HTMLProps<HTMLSpanElement>, "style"> {
+interface TagProps
+	extends OmitNestedKey<
+			SuiHTMLAttributes<HTMLAttributes<HTMLSpanElement>>,
+			"htmlProps",
+			"className" | "color"
+		>,
+		useStylesTypes {
 	/**
 	 * Design of the tag.
 	 */
@@ -14,7 +22,7 @@ interface TagProps extends Omit<HTMLProps<HTMLSpanElement>, "style"> {
 	/**
 	 * Color of the tag.
 	 */
-	color?:
+	colorScheme?:
 		| "default"
 		| "blue"
 		| "yellow"
@@ -26,7 +34,7 @@ interface TagProps extends Omit<HTMLProps<HTMLSpanElement>, "style"> {
 	/**
 	 * Custom style for the tag.
 	 */
-	style?: "multiline" | "truncated"
+	contentWrap?: "default" | "multiline" | "truncated"
 	/**
 	 * Additional CSS class name for the tag.
 	 */

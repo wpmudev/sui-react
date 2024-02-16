@@ -5,10 +5,14 @@ import { generateCN } from "@wpmudev/sui-utils"
 
 import { TabContext } from "./tab-context"
 import { TabContextProps, TabPanelItemProps } from "../tabs.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Define the TabPanelItem component as a functional component
-const TabPanelItem: React.FC<TabPanelItemProps> = ({ children, id }) => {
+const TabPanelItem: React.FC<TabPanelItemProps> = ({
+	children,
+	id,
+	...props
+}) => {
 	// Get the tab context using the useContext hook
 	const tabCtx = useContext<TabContextProps | null>(TabContext)
 
@@ -20,6 +24,7 @@ const TabPanelItem: React.FC<TabPanelItemProps> = ({ children, id }) => {
 
 	// Check if the current tab panel is active based on its ID
 	const isActive = current === parseInt(id as string)
+	const { suiInlineClassname } = useStyles(props)
 
 	// children default content
 	children = useDefaultChildren(children, "Tab panel item")
@@ -31,9 +36,13 @@ const TabPanelItem: React.FC<TabPanelItemProps> = ({ children, id }) => {
 			id={`${tabId}--panel-${id}`}
 			aria-labelledby={`${tabId}--tab-${id}`}
 			tabIndex={isActive ? 0 : -1}
-			className={generateCN("sui-tab__panel-item", {
-				active: isActive,
-			})}
+			className={generateCN(
+				"sui-tab__panel-item",
+				{
+					active: isActive,
+				},
+				suiInlineClassname,
+			)}
 		>
 			{/* Render the content of the tab panel */}
 			{children}

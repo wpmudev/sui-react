@@ -25,7 +25,12 @@ describe("@wpmudev/box", () => {
 	// Define the BoxComponent as a functional component
 	const BoxComponent = () => {
 		return (
-			<Box {...props} data-testid="box">
+			<Box
+				{...props}
+				htmlProps={{
+					"data-testid": "box",
+				}}
+			>
 				<BoxGroup>{boxContent}</BoxGroup>
 			</Box>
 		)
@@ -60,7 +65,12 @@ describe("@wpmudev/box", () => {
 	// eslint-disable-next-line jest/expect-expect
 	it("passes a11y test", async () => {
 		await a11yTest(
-			<Box {...props} data-testid="box">
+			<Box
+				{...props}
+				htmlProps={{
+					"data-testid": "box",
+				}}
+			>
 				<BoxGroup>{boxContent}</BoxGroup>
 			</Box>,
 		)

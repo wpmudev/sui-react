@@ -2,7 +2,7 @@ import React from "react"
 
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { generateCN } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { IconProps } from "@wpmudev/sui-icon"
 import { Tag } from "@wpmudev/sui-tag"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
@@ -20,12 +20,15 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 	onRemove = () => {},
 	isPro,
 	tagColor,
+	...props
 }) => {
 	// Custom hook to handle interaction states (hover, focus, etc.)
 	const [isHovered, _isFocused, methods] = useInteraction({})
 
+	const { suiInlineClassname } = useStyles(props)
+
 	// Generate CSS class names
-	const classNames = generateCN("sui-selector__option", {})
+	const classNames = generateCN("sui-selector__option", {}, suiInlineClassname)
 
 	let Icon: React.ComponentType<IconProps> | null = null
 
@@ -54,16 +57,18 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 					data-testid="selector-remove"
 				>
 					<Tooltip
+						buttonProps={{
+							type: "primary",
+							colorScheme: "red",
+							iconOnly: true,
+							isSmall: true,
+						}}
 						type="button"
 						icon="Trash"
 						iconSize="sm"
-						appearance="primary"
-						color="red"
-						iconOnly={true}
-						isSmall={true}
 						className="sui-selector__option-delete-btn"
 						onClick={() => onRemove()}
-						position="top-right"
+						placement="top-right"
 						customWidth={70}
 					>
 						Remove
@@ -93,7 +98,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 							{isPro && (
 								<Tag
 									design="outlined"
-									color="black"
+									colorScheme="black"
 									isSmall={true}
 									isUppercase={true}
 								>
@@ -101,7 +106,7 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 								</Tag>
 							)}
 							{!!tag && !isPro && (
-								<Tag style="truncated" color={tagColor}>
+								<Tag contentWrap="truncated" colorScheme={tagColor}>
 									{tag}
 								</Tag>
 							)}

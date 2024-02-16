@@ -11,6 +11,7 @@ import {
 	FooterProps,
 	FooterSocialLinkType,
 } from "./footer.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const socialIcons = {
 	facebook: Facebook,
@@ -27,6 +28,7 @@ const Footer: React.FC<FooterProps> = ({
 	renderBlocks,
 	removeBGColor = false,
 	className,
+	...styleProps
 }) => {
 	let blocks: React.ReactNode[] = []
 
@@ -35,11 +37,13 @@ const Footer: React.FC<FooterProps> = ({
 		blocks = renderBlocks(builtWithText)
 	}
 
+	const { suiInlineClassname } = useStyles(styleProps, className)
+
 	// footer classname
 	const footerCN = generateCN(
 		"sui-footer",
 		{ transparent: removeBGColor },
-		className,
+		suiInlineClassname,
 	)
 
 	return (

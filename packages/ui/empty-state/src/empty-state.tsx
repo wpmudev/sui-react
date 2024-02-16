@@ -1,8 +1,8 @@
 import React from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { EmptyStateProps } from "./empty-state.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * Component for displaying an empty state message with an optional logo.
@@ -14,9 +14,11 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 	logo,
 	className,
 	children,
+	htmlProps = {},
 	...props
-}) => {
-	const classNames = generateCN("sui-empty-state", {}, className)
+}: EmptyStateProps): JSX.Element => {
+	const { suiInlineClassname } = useStyles(props, className)
+	const classNames = generateCN("sui-empty-state", {}, suiInlineClassname)
 
 	// Determine whether the logo is an image (string representing URL) or an HTML/SVG element.
 	const isImg = "string" === typeof logo
@@ -25,7 +27,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 	children = useDefaultChildren(children)
 
 	return (
-		<div className={classNames} {...props}>
+		<div className={classNames} {..._renderRestPropsSafely(htmlProps)}>
 			<div className="sui-empty-state__wrapper">
 				{/* Render the logo if provided. If it's an image URL, display it as an <img> element; otherwise, render it as is. */}
 				{!!logo && (

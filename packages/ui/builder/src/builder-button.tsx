@@ -1,7 +1,7 @@
 import React, { FC, useCallback } from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
 
 // Import required element(s)
@@ -13,9 +13,11 @@ const BuilderButton: FC<BuilderButtonProps> = ({
 	className,
 	isDisabled = false,
 	onClick = () => {},
+	...styleProps
 }) => {
 	// `useInteraction` returns interaction state and methods.
 	const [isHovered, isFocused, methods] = useInteraction({})
+	const { suiInlineClassname } = useStyles(styleProps, className)
 
 	// Class names based on interaction and disabled state.
 	const classNames = generateCN(
@@ -25,7 +27,7 @@ const BuilderButton: FC<BuilderButtonProps> = ({
 			focus: isFocused && !isDisabled,
 			disabled: isDisabled,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	const onButtonClick = useCallback(() => {
@@ -40,7 +42,6 @@ const BuilderButton: FC<BuilderButtonProps> = ({
 			className={classNames}
 			{...methods}
 			onClick={onButtonClick}
-			data-testid="builder-add-more"
 		>
 			{!isEmpty(title ?? "") && <span>{title}</span>}
 		</Button>

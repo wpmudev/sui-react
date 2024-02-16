@@ -4,7 +4,7 @@ import { Button } from "@wpmudev/sui-button"
 import { generateCN } from "@wpmudev/sui-utils"
 
 import { EditorToolbarProps } from "./editor-toolbar.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const EditorToolbar: FC<EditorToolbarProps> = ({
 	title = "Toolbar Title",
@@ -16,21 +16,27 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 	alignCenter = false,
 	onBackClick = () => {},
 	onSettingClick = () => {},
+	...styleProps
 }) => {
+	const { suiInlineClassname } = useStyles(styleProps)
 	// Generate CSS class names for the editor toolbar component
-	const classNames = generateCN("sui-editor-toolbar", {
-		right: !alignCenter,
-		center: alignCenter,
-	})
+	const classNames = generateCN(
+		"sui-editor-toolbar",
+		{
+			right: !alignCenter,
+			center: alignCenter,
+		},
+		suiInlineClassname,
+	)
 
 	// Default children content
 	children = useDefaultChildren(children)
 
 	const settingButton = (
 		<Button
-			appearance="tertiary"
+			type="tertiary"
 			icon="Settings"
-			color="black"
+			colorScheme="black"
 			iconOnly={true}
 			aria-label="settings"
 			onClick={onSettingClick}
@@ -60,9 +66,9 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 						{allowBack && (
 							<div>
 								<Button
-									appearance="tertiary"
+									type="tertiary"
 									icon="ChevronLeft"
-									color="black"
+									colorScheme="black"
 									iconOnly={true}
 									onClick={onBackClick}
 									aria-label="back"

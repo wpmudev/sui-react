@@ -7,9 +7,15 @@ import React, {
 	ReactSVGElement,
 } from "react"
 
-import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
+import {
+	_renderRestPropsSafely,
+	generateCN,
+	handleOnKeyDown,
+	isEmpty,
+} from "@wpmudev/sui-utils"
 
 import { IconProps } from "./icon.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * Default icon configuration.
@@ -32,24 +38,27 @@ const Icon = forwardRef<"svg", IconProps>(
 			className,
 			title, // use fallback values
 			viewBox = params?.viewBox,
-			height = params.height,
-			width = params.width,
-			color = "",
+			iconHeight = params.height,
+			iconWidth = params.width,
+			colorScheme = "",
 			size = "",
 			onClick,
 			fill = "currentColor",
+			htmlProps = {},
 			...props
 		},
 		ref,
 	) => {
+		const { suiInlineClassname } = useStyles(props, className)
+
 		// Add variations to the classnames
 		className = generateCN(
 			"sui-icon",
 			{
-				[color]: !isEmpty(color),
+				[colorScheme]: !isEmpty(colorScheme),
 				[size]: !isEmpty(size),
 			},
-			className,
+			suiInlineClassname,
 		)
 
 		// SVG props
@@ -58,8 +67,8 @@ const Icon = forwardRef<"svg", IconProps>(
 			className,
 			title,
 			viewBox,
-			height,
-			width,
+			height: iconHeight,
+			width: iconWidth,
 			onClick,
 			fill,
 		}
@@ -85,6 +94,7 @@ const Icon = forwardRef<"svg", IconProps>(
 				version="1.1"
 				xmlns="http://www.w3.org/2000/svg"
 				{...svgProps}
+				{..._renderRestPropsSafely(htmlProps)}
 				data-testid="svg-icon"
 			>
 				{!!title && <title>{title}</title>}

@@ -4,7 +4,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { Box } from "@wpmudev/sui-box"
 
 import { SummaryBoxProps } from "./summary-box.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * SummaryBox Component
@@ -19,7 +19,8 @@ import { useDefaultChildren } from "@wpmudev/sui-hooks"
  * @param {Array<JSX.Element>} [props.primaryActions=[]]   - An array of primary action elements.
  * @param {Array<JSX.Element>} [props.secondaryActions=[]] - An array of secondary action elements.
  * @param {string}             props.className             - Additional CSS classes to apply to the component.
- * @param {*}                  props.children              - Optional additional content within the summary box.
+ * @param {React.ReactNode}    props.children              - Optional additional content within the summary box.
+ * @param                      props.htmlProps
  *
  * @return {JSX.Element} The SummaryBox component.
  */
@@ -31,8 +32,11 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	secondaryActions = null,
 	className,
 	children,
-}) => {
-	const classNames = generateCN("sui-summary-box", {}, className)
+	htmlProps = {},
+	...props
+}: SummaryBoxProps): JSX.Element => {
+	const { suiInlineClassname } = useStyles(props, className)
+	const classNames = generateCN("sui-summary-box", {}, suiInlineClassname)
 
 	// Define the attributes for the Box component that will be used to display the summary box.
 	const attrs = {
@@ -41,6 +45,10 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 		icon, // The icon will be set later based on the provided icon prop or a default value.
 		isSmall: true, // Set the summary box size to small.
 		hideMobileIcon,
+		htmlProps: {
+			...htmlProps,
+			"data-testid": "summary-box",
+		},
 	}
 
 	// Default children content
@@ -54,7 +62,6 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	return (
 		<Box
 			{...attrs}
-			data-testid="summary-box"
 			className="sui-summary-box"
 			headerLeft={
 				<div className="sui-summary-box__quick-actions">{primaryActions}</div>

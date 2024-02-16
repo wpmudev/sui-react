@@ -5,7 +5,7 @@ import { Col, Row } from "@wpmudev/sui-grid"
 import { BoxGroup } from "@wpmudev/sui-box"
 
 import { SummaryBoxBodyProps } from "./summary-box.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * SummaryBoxBody Component
@@ -18,6 +18,7 @@ import { useDefaultChildren } from "@wpmudev/sui-hooks"
  * @param  root0.children
  * @param  root0.summaryItems
  * @param  root0.reverseBlocks
+ * @param  root0.htmlProps
  * @return {JSX.Element} The SummaryBoxBody component.
  */
 const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
@@ -25,8 +26,11 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 	children,
 	summaryItems = [],
 	reverseBlocks = false,
-}) => {
-	const classNames = generateCN("sui-summary-box__body", {}, className)
+	htmlProps = {},
+	...props
+}): JSX.Element => {
+	const { suiInlineClassname } = useStyles(props, className)
+	const classNames = generateCN("sui-summary-box__body", {}, suiInlineClassname)
 
 	// Children default content
 	children = useDefaultChildren(children, "{summary box body children}")
@@ -49,7 +53,7 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 	}
 
 	return (
-		<BoxGroup isInline={true}>
+		<BoxGroup isInline={true} htmlProps={htmlProps}>
 			<Row align={{ md: "inline" }} className={classNames}>
 				{cols.map((col) => col)}
 			</Row>

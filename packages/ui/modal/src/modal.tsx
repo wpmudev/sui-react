@@ -12,6 +12,7 @@ import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import {
 	useDefaultChildren,
 	usePortal,
+	useStyles,
 	useValidateProps,
 } from "@wpmudev/sui-hooks"
 import { ModalActionsProps, ModalContextProps, ModalProps } from "./modal.types"
@@ -56,6 +57,7 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 
 		// Get the 'render' function from the 'usePortal' hook
 		const [render] = usePortal()
+		const { suiInlineClassname } = useStyles(props, "sui-wp-overlay")
 
 		document.body.classList.add("sui-locked")
 
@@ -73,7 +75,7 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 				[variant]: !isEmpty(variant ?? ""),
 				[size]: !isEmpty(size ?? ""),
 			},
-			"sui-wp-overlay",
+			suiInlineClassname,
 		)
 
 		return render(

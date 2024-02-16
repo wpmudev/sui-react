@@ -12,6 +12,8 @@ import {
 	useInteraction,
 	useOuterClick,
 	usePrevious,
+	useStyles,
+	useStylesTypes,
 } from "@wpmudev/sui-hooks"
 
 import { Dropdown } from "../elements/select-dropdown"
@@ -37,9 +39,17 @@ export type SelectOptionType =
  */
 interface SelectBaseProps
 	extends Omit<
-		HTMLProps<HTMLDivElement>,
-		"onMouseLeave" | "onMouseEnter" | "selected"
-	> {
+			HTMLProps<HTMLDivElement>,
+			| "onMouseLeave"
+			| "onMouseEnter"
+			| "selected"
+			| "height"
+			| "content"
+			| "translate"
+			| "width"
+			| "color"
+		>,
+		useStylesTypes {
 	/** Unique ID */
 	id?: string
 	/** An array of options for the select */
@@ -181,6 +191,8 @@ const Select: React.FC<SelectBaseProps> = ({
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [filteredItems])
 
+	const { suiInlineClassname } = useStyles(props, className)
+
 	const classNames = generateCN(
 		"sui-select",
 		{
@@ -193,7 +205,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			multiselect: isMultiSelect,
 			searchable: isSearchable,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	// Select search function.

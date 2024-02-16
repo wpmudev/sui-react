@@ -4,7 +4,7 @@ import React, { useCallback, useEffect, useId, useRef, useState } from "react"
 import { Input } from "@wpmudev/sui-input"
 
 import { generateCN } from "@wpmudev/sui-utils"
-import { useInteraction, useOuterClick } from "@wpmudev/sui-hooks"
+import { useInteraction, useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 
 import { SearchProps } from "./search.types"
 import { SearchOptions } from "./search-options"
@@ -23,6 +23,7 @@ const Search: React.FC<SearchProps> = ({
 	searchHint = "Please enter #number# or more characters",
 	isDisabled = false,
 	customWidth,
+	...props
 }) => {
 	const [value, setValue] = useState<string>((defaultValue as string) ?? "")
 	const [isPopoverVisible, setIsPopoverVisible] = useState(false)
@@ -40,6 +41,8 @@ const Search: React.FC<SearchProps> = ({
 	// Make options searchable if input value is above min chars required for search
 	const isFiltered = value?.length >= searchMinChars
 
+	const { suiInlineClassname } = useStyles(props, className)
+
 	// Define class name
 	const classNames = generateCN(
 		"sui-search",
@@ -48,7 +51,7 @@ const Search: React.FC<SearchProps> = ({
 			hover: isHovered && !isFocused,
 			disabled: isDisabled,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	// Handle when input value get changes

@@ -7,7 +7,12 @@ import {
 	isEmpty,
 } from "@wpmudev/sui-utils"
 import { ExternalLink } from "@wpmudev/sui-icons"
-import { useDefaultChildren, useInteraction } from "@wpmudev/sui-hooks"
+import {
+	useDefaultChildren,
+	useInteraction,
+	useStyles,
+	useStylesTypes,
+} from "@wpmudev/sui-hooks"
 import { LinkProps } from "./link.types"
 
 // Link component represents a clickable link element with optional features
@@ -33,6 +38,8 @@ const Link: React.FC<LinkProps> = ({
 	// Use the useInteraction hook to track hover and focus states
 	const [hover, focus, methods] = useInteraction({})
 
+	const { suiInlineClassname } = useStyles(props as useStylesTypes, className)
+
 	// Generate CSS class names for the link
 	const classNames = generateCN(
 		"sui-link",
@@ -43,7 +50,7 @@ const Link: React.FC<LinkProps> = ({
 			focus,
 			[theme]: !isEmpty(theme ?? ""),
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	// Prepare the link props

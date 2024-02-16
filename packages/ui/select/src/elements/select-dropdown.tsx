@@ -5,12 +5,15 @@ import React, {
 	KeyboardEvent,
 	MouseEvent,
 	useId,
+	HTMLProps,
 } from "react"
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { Icon } from "./select-icon"
 import { Search } from "./multiselect-search"
+import { useStyles, useStylesTypes } from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 
-interface SelectDropdownProps {
+interface SelectDropdownProps extends useStylesTypes {
 	options: Record<string, any>[]
 	onEvent?: (id: string | number) => void
 	selectAll?: () => void
@@ -32,6 +35,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 }) => {
 	// generate unique name for checkbox
 	const name = "select-" + useId()
+	const { suiInlineClassname } = useStyles(props)
 
 	const onSelect = useCallback(
 		(e: any, id: string) => {
@@ -54,7 +58,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		// Render regular options
 		return (
 			<ul
-				className="sui-select__dropdown"
+				className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
 				role="listbox"
 				aria-label="dropdown-options"
 			>
@@ -75,7 +79,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							className={`sui-select__dropdown--option ${
 								isSelected ? "sui-select__dropdown--selected" : ""
 							}`}
-							{...getOptProps(id)}
+							{...(getOptProps(id) as HTMLProps<HTMLLIElement>)}
 						>
 							<Fragment>
 								{icon && <Icon name={icon} size={isSmall ? "xs" : "sm"} />}
@@ -108,7 +112,10 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						}
 					/>
 				</div>
-				<ul className="sui-select__dropdown" aria-label="dropdown-options">
+				<ul
+					className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
+					aria-label="dropdown-options"
+				>
 					<li className="sui-select__dropdown--option">
 						<Checkbox
 							name={name}
@@ -125,8 +132,10 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 								name={name}
 								label={label}
 								isChecked={isSelected}
-								onClick={(e) => onSelect(e, id)}
-								onKeyDown={(e) => onSelect(e, id)}
+								htmlProps={{
+									onClick: (e) => onSelect(e, id),
+									onKeyDown: (e) => onSelect(e, id),
+								}}
 							/>
 						</li>
 					))}

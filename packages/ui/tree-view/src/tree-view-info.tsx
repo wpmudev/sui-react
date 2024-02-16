@@ -1,12 +1,6 @@
-import React, {
-	useCallback,
-	useState,
-	useRef,
-	useEffect,
-	RefObject,
-} from "react"
+import React, { useCallback } from "react"
 
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import Icons from "@wpmudev/sui-icons"
@@ -21,7 +15,18 @@ import { getCheckboxState } from "./helpers"
  * A component that represents the information displayed for each item
  * in the tree view, such as the item's title, icon, and expand/collapse button.
  *
- * @param {TreeViewInfoProps} props - Component props
+ * @param  root0
+ * @param  root0.id
+ * @param  root0.icon
+ * @param  root0.isExpanded
+ * @param  root0.isChecked
+ * @param  root0.isIndeterminate
+ * @param  root0.isDisabled
+ * @param  root0.children
+ * @param  root0.onClick
+ * @param  root0._onGroupCheckClick
+ * @param  root0._groupId
+ * @param  root0._isGroup
  * @return {JSX.Element} - JSX Element representing the TreeViewInfo component
  */
 const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
@@ -36,17 +41,24 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	_onGroupCheckClick = () => {},
 	_groupId,
 	_isGroup = false,
-}) => {
+	...props
+}: TreeViewInfoProps): JSX.Element => {
 	// Manage interaction methods
 	const [isHovered, isFocused, interactionMethods] = useInteraction({})
 
+	const { suiInlineClassname } = useStyles(props)
+
 	// Generate class names
-	const classNames = generateCN("sui-tree-view__info", {
-		active: isExpanded,
-		disabled: isDisabled,
-		hover: isHovered,
-		focus: isFocused,
-	})
+	const classNames = generateCN(
+		"sui-tree-view__info",
+		{
+			active: isExpanded,
+			disabled: isDisabled,
+			hover: isHovered,
+			focus: isFocused,
+		},
+		suiInlineClassname,
+	)
 
 	// Get the tree view context to access configuration
 	const ctx = useTreeViewContext()

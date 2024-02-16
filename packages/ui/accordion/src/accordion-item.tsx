@@ -1,14 +1,16 @@
-import React, {
-	useCallback,
-	useId,
-	useState,
-	useEffect,
-	useRef,
-	useContext,
-} from "react"
-import { useInteraction, useDefaultChildren } from "@wpmudev/sui-hooks"
+import React, { useCallback, useId, useState, useContext } from "react"
+import {
+	useInteraction,
+	useDefaultChildren,
+	useStyles,
+} from "@wpmudev/sui-hooks"
 import { AccordionContext, useAccordion } from "./accordion-context"
-import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
+import {
+	generateCN,
+	isEmpty,
+	handleOnKeyDown,
+	_renderRestPropsSafely,
+} from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { AccordionItemProps } from "./accordion.types"
@@ -23,12 +25,15 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	hasCheckbox,
 	isExpanded,
 	onCheck,
+	htmlProps = {},
+	...styleProps
 }) => {
 	// Checkbox is checked.
 	const [isChecked, setIsChecked] = useState(false)
 
 	// Default content when children is empty
 	children = useDefaultChildren(children)
+	const { suiInlineClassname } = useStyles(styleProps)
 
 	// Mouse is being pressed
 	const [isPressed, setIsPressed] = useState(false)
@@ -89,12 +94,17 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	// Render the AccordionItem component with proper accessibility attributes.
 	return (
 		<div
-			className={generateCN("sui-accordion__item", {
-				expanded: isCurrentlyExpanded,
-				hover: isHovered,
-				disabled: isDisabled,
-			})}
+			className={generateCN(
+				"sui-accordion__item",
+				{
+					expanded: isCurrentlyExpanded,
+					hover: isHovered,
+					disabled: isDisabled,
+				},
+				suiInlineClassname,
+			)}
 			data-testid="accordion-item"
+			{..._renderRestPropsSafely(htmlProps)}
 		>
 			<div
 				id={accordionId}
@@ -158,7 +168,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				</div>
 				{/* Icon component to display a chevron icon */}
 				<div className="sui-accordion__header-icon">
-					<Icon height={16} width={16} />
+					<Icon iconHeight={16} iconWidth={16} />
 				</div>
 			</div>
 			{/* Content of the accordion item's panel */}

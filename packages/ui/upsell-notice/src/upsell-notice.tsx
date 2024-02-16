@@ -5,6 +5,7 @@ import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { UpsellNoticeProps } from "./upsell-notice.types"
 import { Check } from "@wpmudev/sui-icons"
 import { Tag } from "@wpmudev/sui-tag"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 	title = "Title of Upsell",
@@ -13,11 +14,18 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 	variation = "hummingbird",
 	features = [],
 	actions = null,
+	...props
 }) => {
+	const { suiInlineClassname } = useStyles(props)
+
 	// Generate classnames for the upsell
-	const classNames = generateCN("sui-upsell-notice", {
-		[variation]: !isEmpty(variation ?? ""),
-	})
+	const classNames = generateCN(
+		"sui-upsell-notice",
+		{
+			[variation]: !isEmpty(variation ?? ""),
+		},
+		suiInlineClassname,
+	)
 
 	return (
 		<div className={classNames} data-testid="upsell-notice">
@@ -25,7 +33,7 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 				<h3 className="sui-upsell-notice__header-title sui-heading--h5">
 					{title}
 					{!isEmpty(tagTitle ?? "") && (
-						<Tag design="outlined" isSmall={true} color="black">
+						<Tag design="outlined" isSmall={true} colorScheme="black">
 							{tagTitle}
 						</Tag>
 					)}

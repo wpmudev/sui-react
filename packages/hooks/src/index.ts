@@ -25,3 +25,6 @@ export { useDefaultChildren } from "./use-default-children"
 
 // detect browser
 export { useDetectBrowser } from "./use-detect-browser"
+
+// useStyles
+export * from "./use-styles"

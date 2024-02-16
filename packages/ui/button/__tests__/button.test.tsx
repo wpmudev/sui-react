@@ -40,10 +40,10 @@ describe("@wpmudev/sui-button", () => {
 		expect(screen.getByTestId("button-icon")).toBeInTheDocument()
 	})
 
-	test("Appearance + Color", () => {
-		// Render the button component with a specific appearance and color
+	test("Type + colorScheme", () => {
+		// Render the button component with a specific type and colorScheme
 		render(
-			<Button appearance="primary" color="red">
+			<Button type="primary" colorScheme="red">
 				ERROR
 			</Button>,
 		)

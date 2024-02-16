@@ -4,6 +4,7 @@ import { BoxGroup } from "@wpmudev/sui-box"
 import { Col, Row } from "@wpmudev/sui-grid"
 import { Tag } from "@wpmudev/sui-tag"
 import dedent from "dedent"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 export const GeneralSidebarCode = dedent`
 
@@ -14,7 +15,7 @@ import { Col, Row } from "@wpmudev/sui-grid"
 import { Tag } from "@wpmudev/sui-tag"
 
 const tag = (
-    <Tag color="black" design="outlined" isSmall={true}>
+    <Tag colorScheme="black" design="outlined" isSmall={true}>
        PRO
     </Tag>
 )
@@ -83,7 +84,7 @@ export const BasicSidebar = () => {
 `
 
 const tag = (
-	<Tag color="black" design="outlined" isSmall={true}>
+	<Tag colorScheme="black" design="outlined" isSmall={true}>
 		PRO
 	</Tag>
 )
@@ -115,7 +116,7 @@ export const BasicSidebar = () => {
 								title={title}
 								action={action}
 								url={url}
-								icon={icon}
+								icon={icon as IconsNamesType}
 								isDisabled={isDisabled}
 								onClick={() => setSelectedItem(title)}
 							/>
@@ -128,7 +129,7 @@ export const BasicSidebar = () => {
 								title={title}
 								action={action}
 								url={url}
-								icon={icon}
+								icon={icon as IconsNamesType}
 								isDisabled={isDisabled}
 								onClick={() => setSelectedItem(title)}
 							/>

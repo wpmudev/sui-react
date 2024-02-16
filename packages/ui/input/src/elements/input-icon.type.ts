@@ -1,9 +1,10 @@
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Represents the properties for an icon component.
  */
-interface IconPropsTypes {
+interface IconPropsTypes extends useStylesTypes {
 	/**
 	 * The name of the icon.
 	 */
@@ -15,7 +16,7 @@ interface IconPropsTypes {
 	/**
 	 * Icon position
 	 */
-	position: "start" | "end"
+	placement: "start" | "end"
 	/**
 	 * Whether the cursor to be pointer on hover
 	 */

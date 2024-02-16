@@ -1,9 +1,10 @@
 import React, { MouseEventHandler } from "react"
-import { isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
+import { useStyles, useStylesTypes } from "@wpmudev/sui-hooks"
 
-interface SelectIconProps {
+interface SelectIconProps extends useStylesTypes {
 	name: IconsNamesType
 	size: "xs" | "sm" | "md"
 	onClick?: MouseEventHandler<HTMLSpanElement>
@@ -14,7 +15,10 @@ const Icon: React.FC<SelectIconProps> = ({
 	name,
 	size = "md",
 	onClick = () => {},
+	...props
 }) => {
+	const { suiInlineClassname } = useStyles(props)
+
 	if (isEmpty(name ?? "")) {
 		throw new Error(
 			`Required parameter is empty. More details below:\n\n⬇️ ⬇️ ⬇️\n\n📦 Shared UI - Components: Button\n\nThe "name" parameter in the icon element is required and must not be empty.\n\n`,
@@ -32,7 +36,11 @@ const Icon: React.FC<SelectIconProps> = ({
 
 	return (
 		<span
-			className={`suicons sui-select__icon sui-select__icon--${iconClass}`}
+			className={generateCN(
+				`suicons sui-select__icon sui-select__icon--${iconClass}`,
+				{},
+				suiInlineClassname,
+			)}
 			onClick={onClick}
 			aria-hidden="true"
 		>

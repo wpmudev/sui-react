@@ -1,8 +1,8 @@
 import React, { forwardRef, useCallback, useId } from "react"
 
 import { Tag } from "@wpmudev/sui-tag"
-import { useInteraction } from "@wpmudev/sui-hooks"
-import { generateCN } from "@wpmudev/sui-utils"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { RadioProps } from "./radio.types"
 import { useRadio } from "./radio-context"
@@ -16,6 +16,8 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			tag = "",
 			value = "",
 			isDisabled = false,
+			htmlProps = {},
+			...props
 		},
 		ref,
 	) => {
@@ -68,6 +70,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			onChange: handleOnChange,
 			"aria-labelledby": `${uuid}-label`,
 			...(description && { "aria-describedby": `${uuid}-description` }),
+			..._renderRestPropsSafely(htmlProps),
 		}
 
 		// Define box props
@@ -76,16 +79,22 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			"aria-hidden": true,
 		}
 
+		const { suiInlineClassname } = useStyles(props)
+
 		// Define container props
 		const containerProps = {
-			className: generateCN("sui-radio", {
-				// sm: isSmall,
-				hover: isHovered && !checked,
-				focus: isFocused,
-				disabled: isRadioDisabled,
-				block: asBlock,
-				checked,
-			}),
+			className: generateCN(
+				"sui-radio",
+				{
+					// sm: isSmall,
+					hover: isHovered && !checked,
+					focus: isFocused,
+					disabled: isRadioDisabled,
+					block: asBlock,
+					checked,
+				},
+				suiInlineClassname,
+			),
 		}
 
 		return (
@@ -105,7 +114,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 					{tag && (
 						<Tag
 							design="outlined"
-							color="blue"
+							colorScheme="blue"
 							isSmall={isSmall}
 							isDisabled={isRadioDisabled ?? false}
 						>

@@ -1,15 +1,22 @@
 import React, { HTMLProps } from "react"
 
 import { ButtonProps } from "@wpmudev/sui-button"
+import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Props for the Tooltip component.
  */
 interface TooltipBaseProps
-	extends Omit<
-		HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>,
-		"onClick" | "label"
-	> {
+	extends SuiHTMLAttributes<
+			HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLButtonElement>
+		>,
+		useStylesTypes,
+		InteractionTypes {
+	/**
+	 * Button link
+	 */
+	href?: string
 	/**
 	 * The text label for the tooltip.
 	 */
@@ -23,13 +30,17 @@ interface TooltipBaseProps
 	 */
 	icon?: string
 	/**
+	 * Optional to define icon size
+	 */
+	iconSize?: ButtonProps["iconSize"]
+	/**
 	 * Optional additional CSS classes for the tooltip.
 	 */
 	className?: string
 	/**
 	 * Optional position of the tooltip.
 	 */
-	position?: string
+	placement?: string
 	/**
 	 * Optional custom width of the tooltip.
 	 */
@@ -43,11 +54,15 @@ interface TooltipBaseProps
 	 */
 	children?: React.ReactNode
 	/**
+	 * Button props
+	 */
+	buttonProps?: ButtonProps
+	/**
 	 * Callback function for the click event.
 	 */
 	onClick?: () => void
 }
 
-type TooltipProps = TooltipBaseProps & ButtonProps
+type TooltipProps = TooltipBaseProps
 
 export type { TooltipProps, TooltipBaseProps }

@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useId } from "react"
 
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles, useStylesTypes } from "@wpmudev/sui-hooks"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import { SelectorOption } from "./selector.option"
@@ -49,20 +49,26 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			[name, onChange, value],
 		)
 
+		const { suiInlineClassname } = useStyles(props as useStylesTypes)
+
 		return (
 			<label
 				htmlFor={id}
 				tabIndex={isDisabled ? -1 : 0}
 				data-testid="selector"
-				className={generateCN("sui-selector", {
-					disabled: isDisabled || isPro,
-					hover: isHovered,
-					focus: isFocused,
-					checked: isChecked,
-					fluid: isFluid,
-					[alignment]: !isEmpty(alignment ?? ""),
-					[variation]: !isEmpty(variation ?? ""),
-				})}
+				className={generateCN(
+					"sui-selector",
+					{
+						disabled: isDisabled || isPro,
+						hover: isHovered,
+						focus: isFocused,
+						checked: isChecked,
+						fluid: isFluid,
+						[alignment]: !isEmpty(alignment ?? ""),
+						[variation]: !isEmpty(variation ?? ""),
+					},
+					suiInlineClassname,
+				)}
 				{...interactionMethods} // Spread interaction methods onto the label element
 			>
 				{/* Hidden radio input */}

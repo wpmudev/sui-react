@@ -1,8 +1,12 @@
 import React, { Children, Fragment, ReactElement } from "react"
-import { generateCN, isObject } from "@wpmudev/sui-utils"
+import {
+	_renderRestPropsSafely,
+	generateCN,
+	isObject,
+} from "@wpmudev/sui-utils"
 
 import { BoxGroupProps } from "./box-group.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Create box group component
 const BoxGroup: React.FC<BoxGroupProps> = ({
@@ -11,8 +15,11 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 	isHeader = false,
 	isFooter = false,
 	hasPadding = true,
-	style,
+	htmlProps = {},
+	...styleProps
 }) => {
+	const { suiInlineClassname } = useStyles(styleProps)
+
 	// Build content based in slots
 	const slots = Children.map(children, (child, index) => {
 		const { slot, children: content } = (child as ReactElement)?.props ?? {}
@@ -32,15 +39,23 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 	})
 
 	// Generate classnames
-	const classNames = generateCN("sui-box-group", {
-		inline: isInline,
-		header: isHeader,
-		footer: isFooter,
-		"no-padding": !hasPadding,
-	})
+	const classNames = generateCN(
+		"sui-box-group",
+		{
+			inline: isInline,
+			header: isHeader,
+			footer: isFooter,
+			"no-padding": !hasPadding,
+		},
+		suiInlineClassname,
+	)
 
 	return (
-		<div className={classNames} style={style} data-testid="box-group">
+		<div
+			className={classNames}
+			data-testid="box-group"
+			{..._renderRestPropsSafely(htmlProps)}
+		>
 			{slots}
 		</div>
 	)

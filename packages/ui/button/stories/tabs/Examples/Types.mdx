@@ -3,15 +3,15 @@ import { Button } from '../../../src';
 import dedent from 'dedent';
 
 export const PrimaryButtonCode = dedent`
-<Button appearance="primary" color="blue">Primary button</Button>
+<Button type="primary" colorScheme="blue">Primary button</Button>
 `;
 
 export const SecondaryButtonCode = dedent`
-<Button appearance="secondary" color="blue">Secondary button</Button>
+<Button type="secondary" colorScheme="blue">Secondary button</Button>
 `;
 
 export const TertiaryButtonCode = dedent`
-<Button appearance="tertiary" color="blue">Tertiary button</Button>
+<Button type="tertiary" colorScheme="blue">Tertiary button</Button>
 `;
 
 <Section
@@ -22,11 +22,11 @@ export const TertiaryButtonCode = dedent`
 >
 	<p>
 		Use <Code small={true}>primary</Code> button to call attention to
-		action. Combined with <Code small={true}>blue</Code> color prop
+		action. Combined with <Code small={true}>blue</Code> colorScheme prop
 		highlights the strongest call to action on a page.
 	</p>
 	<Preview wrapper={true}>
-		<Button appearance="primary" color="blue">Primary button</Button>
+		<Button type="primary" colorScheme="blue">Primary button</Button>
 	</Preview>
 	<Snippet language="js">{PrimaryButtonCode}</Snippet>
 </Section>
@@ -42,7 +42,7 @@ export const TertiaryButtonCode = dedent`
 		"Cancel."
 	</p>
 	<Preview wrapper={true}>
-		<Button appearance="secondary" color="blue">Secondary button</Button>
+		<Button type="secondary" colorScheme="blue">Secondary button</Button>
 	</Preview>
 	<Snippet language="js">{SecondaryButtonCode}</Snippet>
 </Section>
@@ -56,7 +56,7 @@ export const TertiaryButtonCode = dedent`
 		Link style button commonly used as navigation menu or in special cases.
 	</p>
 	<Preview wrapper={true}>
-		<Button appearance="tertiary" color="blue">Tertiary button</Button>
+		<Button type="tertiary" colorScheme="blue">Tertiary button</Button>
 	</Preview>
 	<Snippet language="js">{TertiaryButtonCode}</Snippet>
 </Section>

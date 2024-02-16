@@ -5,16 +5,18 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { NavigationProps } from "./navigation.types"
 import { NavigationBrand } from "./navigation-brand"
 import { NavigationUser } from "./navigation-user"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Navigation component
 const Navigation: React.FC<NavigationProps> = ({
 	children,
 	brand = { title: "title", description: "" },
 	user,
+	...props
 }) => {
+	const { suiInlineClassname } = useStyles(props)
 	// Generate CSS class names for the navigation component
-	const classNames = generateCN("sui-navigation", {})
+	const classNames = generateCN("sui-navigation", {}, suiInlineClassname)
 
 	return (
 		// Render the navigation component

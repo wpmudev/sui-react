@@ -280,8 +280,8 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 				</div>
 				<div>
 					<Button
-						appearance="secondary"
-						color="black"
+						type="secondary"
+						colorScheme="black"
 						isSmall={true}
 						isFullWidth={true}
 						onClick={onApplyButton}

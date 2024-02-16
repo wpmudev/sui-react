@@ -22,7 +22,7 @@ describe("@wpmudev/sui-tag", () => {
 	it("Design and color props work fine", () => {
 		// Render the Tag component with design "outlined" and color "blue".
 		render(
-			<Tag design="outlined" color="blue">
+			<Tag design="outlined" colorScheme="blue">
 				Pro
 			</Tag>,
 		)

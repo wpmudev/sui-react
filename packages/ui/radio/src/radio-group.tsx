@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { Provider } from "./radio-context"
 import { RadioGroupProps, RadioValueType } from "./radio.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const RadioGroup = ({
 	isInline = true,
@@ -16,6 +16,8 @@ const RadioGroup = ({
 	isDisabled = false,
 	onChange = () => {},
 	className = "",
+	htmlProps = {},
+	...props
 }: RadioGroupProps) => {
 	const [current, setCurrent] = useState<RadioValueType>(defaultValue)
 
@@ -27,6 +29,8 @@ const RadioGroup = ({
 	// Default children content
 	children = useDefaultChildren(children, "{Radio Group Children Content}")
 
+	const { suiInlineClassname } = useStyles(props, className)
+
 	// radio group classname
 	const radioClassNames = generateCN(
 		"sui-radio-group",
@@ -34,7 +38,7 @@ const RadioGroup = ({
 			inline: isInline,
 			sm: isSmall,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	return (
@@ -54,6 +58,7 @@ const RadioGroup = ({
 				className={radioClassNames}
 				role="radiogroup"
 				data-testid="radio-group"
+				{..._renderRestPropsSafely(htmlProps)}
 			>
 				{children}
 			</div>

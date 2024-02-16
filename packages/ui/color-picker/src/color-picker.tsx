@@ -9,7 +9,7 @@ import PreviewImage from "./static/opaque.png"
 
 import Picker from "./elements/picker"
 import { generateCN } from "@wpmudev/sui-utils"
-import { useOuterClick } from "@wpmudev/sui-hooks"
+import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * ColorPicker Component
@@ -17,7 +17,6 @@ import { useOuterClick } from "@wpmudev/sui-hooks"
  * A code editor component that allows displaying and editing code.
  * Uses ReactPrismEditor as the code editor.
  *
- * @param {ColorPickerProps} props - Component props
  * @return {JSX.Element} - JSX Element representing the CodeEditor component
  */
 
@@ -34,7 +33,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	onReset = () => null,
 	onColorChange = () => null,
 	...props
-}) => {
+}: ColorPickerProps): JSX.Element => {
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
 	const [tempColor, setTempColor] = useState("")
@@ -91,6 +90,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 			setShowResetBtn(true)
 			setShowPicker(false)
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [tempColor, showPicker])
 
 	// The component ref
@@ -133,20 +133,26 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 		return "Select"
 	}
 
+	const { suiInlineClassname } = useStyles(props)
+
 	return (
 		<div
-			className={generateCN("sui-color-picker", {
-				error: isError,
-				disabled: isDisabled,
-				fluid: isFluid,
-			})}
+			className={generateCN(
+				"sui-color-picker",
+				{
+					error: isError,
+					disabled: isDisabled,
+					fluid: isFluid,
+				},
+				suiInlineClassname,
+			)}
 			data-testid="color-picker"
 			ref={colorPickerRef}
 		>
 			<div className="sui-color-picker__color">
 				<Input
 					className="sui-color-picker__color--code"
-					value={tempColor}
+					defaultValue={tempColor}
 					onChange={inputColorChange}
 					placeholder={placeholder ?? ""}
 					onClick={() => setShowPicker(true)}
@@ -184,7 +190,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					})}
 					{...(!showResetBtn && {
 						color: "blue",
-						appearance: "tertiary",
+						type: "tertiary",
 						onClick: () => setShowPicker(!showPicker),
 					})}
 					isSmall={true}

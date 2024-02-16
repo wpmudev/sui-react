@@ -42,9 +42,9 @@ const SummaryBox = ({ ...props }) => {
 								</SegmentedControl>
 								<div key={0}>
 									<Button
-										appearance="secondary"
+										type="secondary"
 										icon="Trash"
-										color="black"
+										colorScheme="black"
 										isSmall={true}
 										isResponsive={true}
 									>
@@ -56,9 +56,9 @@ const SummaryBox = ({ ...props }) => {
 						secondaryActions={
 							<Button
 								key={2}
-								appearance="primary"
+								type="primary"
 								icon="Add"
-								color="blue"
+								colorScheme="blue"
 								isSmall={true}
 								isFullWidth={true}
 							>

@@ -7,6 +7,7 @@ import { Button } from "@wpmudev/sui-button"
 // import { Indicator } from "./elements/indicator"
 
 import { ProgressBarProps } from "./progress-bar.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build "progress bar" component
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -19,7 +20,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	showValue = true,
 	onClick,
 	className = "",
+	...props
 }) => {
+	const { suiInlineClassname } = useStyles(props, className)
+
 	// generate classnames
 	const classNames = generateCN(
 		"sui-progress-bar",
@@ -29,7 +33,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 			lg: "lg" === size,
 			inline: isInline,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	const attrs: Record<string, any> = {}
@@ -68,8 +72,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 			{allowCancel && (
 				<div className="sui-progress-bar__action">
 					<Button
-						appearance="tertiary"
-						color="blue"
+						type="tertiary"
+						colorScheme="blue"
 						{...(onClick && {
 							onClick: (e) => onClick(e),
 						})}

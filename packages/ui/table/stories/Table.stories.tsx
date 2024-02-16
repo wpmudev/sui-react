@@ -8,7 +8,6 @@ import {
 	TableFooter,
 	TableHead,
 	TableRow,
-	TableOnActionType,
 } from "../src"
 
 import { Tag } from "@wpmudev/sui-tag"
@@ -707,7 +706,7 @@ const Table = ({ ...args }) => {
 				<Button
 					icon="Edit"
 					color="black"
-					appearance="tertiary"
+					type="tertiary"
 					isSmall={true}
 					iconOnly={true}
 				>
@@ -716,7 +715,7 @@ const Table = ({ ...args }) => {
 				<Button
 					icon="Settings"
 					color="black"
-					appearance="tertiary"
+					type="tertiary"
 					isSmall={true}
 					iconOnly={true}
 				>
@@ -733,6 +732,9 @@ const Table = ({ ...args }) => {
 				<SUITable
 					{...args}
 					stickyCols={true}
+					htmlProps={{
+						disabled: true,
+					}}
 					onAction={(actionType, data) => {
 						let dRows: Record<string, any>[] = [...rows]
 
@@ -810,7 +812,11 @@ const Table = ({ ...args }) => {
 									<strong>{record.title}</strong>
 								</TableCell>
 								<TableCell>
-									<Tag color={"Published" === record.tag ? "blue" : "default"}>
+									<Tag
+										colorScheme={
+											"Published" === record.tag ? "blue" : "default"
+										}
+									>
 										{record.tag}
 									</Tag>
 								</TableCell>

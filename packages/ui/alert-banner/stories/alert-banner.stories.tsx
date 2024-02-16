@@ -36,16 +36,16 @@ export const AlertBanner = ({ variation, ...props }: AlertBannerProps) => {
 	const actions = [
 		<Button
 			key={0}
-			appearance={theme ? "primary" : "secondary"}
-			color={theme ? "white" : "black"}
+			type={theme ? "primary" : "secondary"}
+			colorScheme={theme ? "white" : "black"}
 			isSmall={true}
 		>
 			Primary
 		</Button>,
 		<Button
 			key={1}
-			appearance="tertiary"
-			color={theme ? "white" : "black"}
+			type="tertiary"
+			colorScheme={theme ? "white" : "black"}
 			isSmall={true}
 		>
 			Secondary

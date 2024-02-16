@@ -11,8 +11,9 @@ import React, {
 } from "react"
 import { ChevronLeft, ChevronRight } from "@wpmudev/sui-icons"
 
-import { useDetectRTL } from "@wpmudev/sui-hooks"
+import { useDetectRTL, useStyles } from "@wpmudev/sui-hooks"
 import { TabNavProps, TabNavScrollDirection } from "../tabs.types"
+import { generateCN } from "@wpmudev/sui-utils"
 
 /**
  * TabNav
@@ -23,7 +24,7 @@ import { TabNavProps, TabNavScrollDirection } from "../tabs.types"
  * @param {TabNavProps} props - Props for the TabNav component.
  * @return {JSX.Element} The TabNav component.
  */
-const TabNav: FC<TabNavProps> = ({ children }) => {
+const TabNav: FC<TabNavProps> = ({ children, ...props }) => {
 	const [isScrollableRight, setIsScrollableRight] = useState<boolean>(false)
 	const [isScrollableLeft, setIsScrollableLeft] = useState<boolean>(false)
 	const [navRefCurrent, setNavRefCurrent] = useState<HTMLDivElement | null>(
@@ -100,8 +101,14 @@ const TabNav: FC<TabNavProps> = ({ children }) => {
 		}
 	}, [handleScroll])
 
+	const { suiInlineClassname } = useStyles(props)
+
 	return (
-		<div className="sui-tab__nav" role="tablist" aria-orientation="horizontal">
+		<div
+			className={generateCN("sui-tab__nav", {}, suiInlineClassname)}
+			role="tablist"
+			aria-orientation="horizontal"
+		>
 			{isScrollableLeft && (
 				<button
 					className="sui-tab__arrow sui-tab__arrow--left"

@@ -3,6 +3,8 @@ import React from "react"
 import { Button } from "@wpmudev/sui-button"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { PaginationNavProps } from "./pagination.types"
+import { useStyles } from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 
 export const PaginationNav: React.FC<PaginationNavProps> = ({
 	pagesArray,
@@ -21,26 +23,36 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 	endIndex,
 	pages,
 	skip,
+	...props
 }) => {
+	const { suiInlineClassname } = useStyles(props)
+
 	// Do not render if pagesArray is blank
 	if (pagesArray.length < 1) {
 		return null
 	}
 
 	return (
-		<div className="sui-pagination" data-testid="pagination">
+		<div
+			className={generateCN("sui-pagination", {}, suiInlineClassname)}
+			data-testid="pagination"
+		>
 			<ul className="sui-pagination__nav">
 				<li className="sui-pagination__item">
 					<Tooltip
+						buttonProps={{
+							type: "tertiary",
+							colorScheme: "black",
+							iconOnly: true,
+							isSmall: true,
+							isDisabled: selectedPage <= 1,
+							htmlProps: {
+								"data-testid": "pagination-prev-page",
+							},
+						}}
 						className="sui-pagination__button"
-						color="black"
-						appearance="tertiary"
 						icon="ChevronLeft"
-						iconOnly={true}
-						isSmall={true}
-						isDisabled={selectedPage <= 1}
 						onClick={handlePreviousPage}
-						data-testid="pagination-prev-page"
 						aria-label={previousLabel}
 					>
 						{previousLabel}
@@ -50,8 +62,8 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 					<li className="sui-pagination__item">
 						<Button
 							className="sui-pagination__button"
-							color="black"
-							appearance="tertiary"
+							colorScheme="black"
+							type="tertiary"
 							isSmall={true}
 							isDisabled={selectedPage <= 1}
 							onClick={handleSkipToFirstPage}
@@ -63,8 +75,8 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 				{startIndex > 0 && (
 					<li className="sui-pagination__item">
 						<Button
-							color="black"
-							appearance="tertiary"
+							colorScheme="black"
+							type="tertiary"
 							icon="More"
 							iconOnly={true}
 							isSmall={true}
@@ -81,8 +93,8 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						return (
 							<li className="sui-pagination__item" key={index}>
 								<Button
-									color="black"
-									appearance="tertiary"
+									colorScheme="black"
+									type="tertiary"
 									isSmall={true}
 									className={`sui-pagination__button${
 										selectedPage === data
@@ -100,8 +112,8 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 				{endIndex < pages - 1 && (
 					<li className="sui-pagination__item">
 						<Button
-							color="black"
-							appearance="tertiary"
+							colorScheme="black"
+							type="tertiary"
 							icon="More"
 							iconOnly={true}
 							isSmall={true}
@@ -115,8 +127,8 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 				{endIndex < pages && skip && (
 					<li className="sui-pagination__item">
 						<Button
-							color="black"
-							appearance="tertiary"
+							colorScheme="black"
+							type="tertiary"
 							isSmall={true}
 							className="sui-pagination__button"
 							isDisabled={selectedPage >= pages}
@@ -128,15 +140,19 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 				)}
 				<li className="sui-pagination__item">
 					<Tooltip
+						buttonProps={{
+							type: "tertiary",
+							colorScheme: "black",
+							iconOnly: true,
+							isSmall: true,
+							isDisabled: selectedPage >= pages,
+							htmlProps: {
+								"data-testid": "pagination-next-page",
+							},
+						}}
 						className="sui-pagination__button"
-						color="black"
-						appearance="tertiary"
 						icon="ChevronRight"
-						iconOnly={true}
-						isSmall={true}
-						isDisabled={selectedPage >= pages}
 						onClick={handleNextPage}
-						data-testid="pagination-next-page"
 						aria-label={nextLabel}
 					>
 						{nextLabel}

@@ -22,7 +22,7 @@ describe("@wpmudev/sui-tooltip", () => {
 	it("Position prop works correctly", () => {
 		// Render the Tooltip component with the provided label, description, and position="bottom"
 		render(
-			<Tooltip label={label} position="bottom">
+			<Tooltip label={label} placement="bottom">
 				{description}
 			</Tooltip>,
 		)
