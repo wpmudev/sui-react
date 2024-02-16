@@ -9,6 +9,11 @@ import { useStyles } from "@wpmudev/sui-hooks"
 /**
  * SetupBanner renders a banner with optional icon and description.
  *
+ * @param  root0
+ * @param  root0.type
+ * @param  root0.title
+ * @param  root0.className
+ * @param  root0.description
  * @return {JSX.Element} - The rendered SetupBanner component.
  */
 const SetupBanner: React.FC<SetupBannerProps> = ({
@@ -17,7 +22,7 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 	className,
 	description,
 	...props
-}) => {
+}: SetupBannerProps): JSX.Element => {
 	const { suiInlineClassname } = useStyles(props, className)
 
 	const classNames = generateCN(

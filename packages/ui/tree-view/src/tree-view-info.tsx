@@ -15,6 +15,18 @@ import { getCheckboxState } from "./helpers"
  * A component that represents the information displayed for each item
  * in the tree view, such as the item's title, icon, and expand/collapse button.
  *
+ * @param  root0
+ * @param  root0.id
+ * @param  root0.icon
+ * @param  root0.isExpanded
+ * @param  root0.isChecked
+ * @param  root0.isIndeterminate
+ * @param  root0.isDisabled
+ * @param  root0.children
+ * @param  root0.onClick
+ * @param  root0._onGroupCheckClick
+ * @param  root0._groupId
+ * @param  root0._isGroup
  * @return {JSX.Element} - JSX Element representing the TreeViewInfo component
  */
 const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
@@ -30,7 +42,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	_groupId,
 	_isGroup = false,
 	...props
-}) => {
+}: TreeViewInfoProps): JSX.Element => {
 	// Manage interaction methods
 	const [isHovered, isFocused, interactionMethods] = useInteraction({})
 

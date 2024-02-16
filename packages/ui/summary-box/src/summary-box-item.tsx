@@ -25,6 +25,7 @@ import { SummaryBoxItemProps } from "./summary-box.types"
  * @param {string} [props.actionIcon=""]      - An optional action icon for the item.
  * @param {string} [props.actionIconColor=""] - The color of the action icon.
  *
+ * @param          props.htmlProps
  * @return {JSX.Element} The SummaryBoxItem component.
  */
 const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({

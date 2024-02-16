@@ -20,6 +20,7 @@ const DrawerHeader = ({
 
 	const onClose = useCallback(() => {
 		ctx?.toggle(false)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ctx.isOpen])
 
 	return (

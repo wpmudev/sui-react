@@ -11,6 +11,12 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  *
  * A tree view component that renders a hierarchical tree structure.
  *
+ * @param  root0
+ * @param  root0.className
+ * @param  root0.children
+ * @param  root0.allowCheck
+ * @param  root0.showIcons
+ * @param  root0.onChange
  * @return {JSX.Element} - JSX Element representing the TreeView component
  */
 const TreeView: React.FC<TreeViewProps> = ({
@@ -20,7 +26,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 	showIcons = false,
 	onChange = () => {},
 	...props
-}) => {
+}: TreeViewProps): JSX.Element => {
 	const [items, setItems] = useState<TreeViewCheckType[]>([])
 
 	// Default children content

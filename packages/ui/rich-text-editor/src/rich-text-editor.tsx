@@ -24,6 +24,14 @@ declare const tinymce: Record<string, any>
  *
  * A code editor component that allows displaying and editing code.
  *
+ * @param  root0
+ * @param  root0.textareaId
+ * @param  root0.actions
+ * @param  root0.tinyMCEOptions
+ * @param  root0.className
+ * @param  root0.isDisabled
+ * @param  root0.defaultValue
+ * @param  root0.onChange
  * @return {JSX.Element} - JSX Element representing the RichTextEditor component
  */
 const RichTextEditor: React.FC<RichTextEditorProps> = ({

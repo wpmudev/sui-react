@@ -18,9 +18,9 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param {boolean}            [props.hideMobileIcon=true] - Whether to hide the icon on mobile devices.
  * @param {Array<JSX.Element>} [props.primaryActions=[]]   - An array of primary action elements.
  * @param {Array<JSX.Element>} [props.secondaryActions=[]] - An array of secondary action elements.
- * @param {string}             	props.className             - Additional CSS classes to apply to the component.
- * @param {React.ReactNode}     props.children              - Optional additional content within the summary box.
- * @param props.htmlProps
+ * @param {string}             props.className             - Additional CSS classes to apply to the component.
+ * @param {React.ReactNode}    props.children              - Optional additional content within the summary box.
+ * @param                      props.htmlProps
  *
  * @return {JSX.Element} The SummaryBox component.
  */

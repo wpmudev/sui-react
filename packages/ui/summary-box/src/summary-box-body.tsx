@@ -18,6 +18,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param  root0.children
  * @param  root0.summaryItems
  * @param  root0.reverseBlocks
+ * @param  root0.htmlProps
  * @return {JSX.Element} The SummaryBoxBody component.
  */
 const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({

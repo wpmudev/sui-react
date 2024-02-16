@@ -33,7 +33,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	onReset = () => null,
 	onColorChange = () => null,
 	...props
-}) => {
+}: ColorPickerProps): JSX.Element => {
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
 	const [tempColor, setTempColor] = useState("")
@@ -90,6 +90,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 			setShowResetBtn(true)
 			setShowPicker(false)
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [tempColor, showPicker])
 
 	// The component ref

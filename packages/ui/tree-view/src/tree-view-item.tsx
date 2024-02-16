@@ -13,6 +13,16 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * A component that represents an item in the tree view. It can be either a leaf node
  * (not a group) or a group node with nested items.
  *
+ * @param  root0
+ * @param  root0.id
+ * @param  root0.groupId
+ * @param  root0.icon
+ * @param  root0.isChecked
+ * @param  root0.isGroup
+ * @param  root0.isExpanded
+ * @param  root0.isDisabled
+ * @param  root0.className
+ * @param  root0.children
  * @return {JSX.Element} - JSX Element representing the TreeViewItem component
  */
 const TreeViewItem: React.FC<TreeViewItemProps> = ({
@@ -26,7 +36,7 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 	className = "",
 	children,
 	...props
-}) => {
+}: TreeViewItemProps): JSX.Element => {
 	const { suiInlineClassname } = useStyles(props, className ?? "")
 	// Generate class names
 	const classNames = generateCN("sui-tree-view__item", {}, suiInlineClassname)

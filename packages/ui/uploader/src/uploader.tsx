@@ -88,6 +88,7 @@ const Uploader: React.FC<UploaderProps> = ({
 		if (onChange) {
 			onChange(files)
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [files])
 
 	// Callback to handle file selection
@@ -137,6 +138,7 @@ const Uploader: React.FC<UploaderProps> = ({
 			// Append new files to the existing files array
 			setFiles([...files, ...tempSelectedFiles])
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[files],
 	)
 

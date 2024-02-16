@@ -12,7 +12,7 @@ import { UploaderButtonProps } from "./uploader.types"
  * The UploaderButton component represents the button for selecting/uploading files in the Uploader.
  *
  * @param {UploaderButtonProps} props                  - The properties for the UploaderButton component.
- * @param {string}              btnTitle               - Button title
+ * @param {string}              props.btnTitle         - Button title
  * @param {boolean}             props.allowDragAndDrop - Determines whether to allow drag-and-drop functionality (default: false).
  * @param {Function}            props.onClick          - Callback function for button click event (default: () => {}).
  * @param {Function}            props.onDrag           - Callback function for drag event (default: () => {}).
@@ -24,7 +24,7 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 	onClick = () => {},
 	onDrag = () => {},
 	...props
-}) => {
+}: UploaderButtonProps): JSX.Element => {
 	// Ref for the div used to handle drag-and-drop
 	const dragRef = useRef<HTMLDivElement | null>(null)
 
