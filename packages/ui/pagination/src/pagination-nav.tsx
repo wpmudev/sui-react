@@ -46,7 +46,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							iconOnly: true,
 							isSmall: true,
 							isDisabled: selectedPage <= 1,
-							"data-testid": "pagination-prev-page",
+							htmlProps: {
+								"data-testid": "pagination-prev-page",
+							},
 						}}
 						className="sui-pagination__button"
 						icon="ChevronLeft"
@@ -144,7 +146,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							iconOnly: true,
 							isSmall: true,
 							isDisabled: selectedPage >= pages,
-							"data-testid": "pagination-next-page",
+							htmlProps: {
+								"data-testid": "pagination-next-page",
+							},
 						}}
 						className="sui-pagination__button"
 						icon="ChevronRight"

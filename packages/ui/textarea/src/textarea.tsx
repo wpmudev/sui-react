@@ -20,6 +20,8 @@ const Textarea: React.FC<TextareaProps> = ({
 	onChange = () => {},
 	label,
 	customWidth,
+	placeholder = "",
+	rows,
 	htmlProps = {},
 	...props
 }) => {
@@ -72,6 +74,8 @@ const Textarea: React.FC<TextareaProps> = ({
 				onChange={handleOnChange}
 				aria-label={label || "textarea"}
 				data-testid="textarea-input"
+				placeholder={placeholder}
+				rows={rows}
 				{..._renderRestPropsSafely(htmlProps)}
 				{...methods}
 			/>

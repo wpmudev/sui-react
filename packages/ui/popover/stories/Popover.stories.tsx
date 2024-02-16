@@ -27,7 +27,7 @@ const Popover = ({
 	footer,
 	header,
 	src,
-}: PopoverBaseProps) => {
+}: PopoverBaseProps & { src?: string }) => {
 	const boxStyles = {
 		borderRadius: 4,
 	}

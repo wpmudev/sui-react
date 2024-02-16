@@ -35,6 +35,12 @@ interface TextareaProps
 
 	/** Custom width in pixels. */
 	customWidth?: number
+
+	/* Textarea placeholder */
+	placeholder?: string
+
+	// Textarea number
+	rows?: number
 }
 
 export type { TextareaProps }

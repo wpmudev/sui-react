@@ -6,9 +6,13 @@ import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
  * Represents the properties for a toggle component.
  */
 interface ToggleProps
-	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
+	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement | HTMLDivElement>>,
 		useStylesTypes,
 		InteractionTypes {
+	/**
+	 * Toggle ID
+	 */
+	id?: string
 	/**
 	 * The label for the toggle component.
 	 */

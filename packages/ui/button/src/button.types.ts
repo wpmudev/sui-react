@@ -92,7 +92,7 @@ interface ButtonProps
 	/**
 	 * Button onClick
 	 */
-	onClick?(): void
+	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export type { ButtonProps }

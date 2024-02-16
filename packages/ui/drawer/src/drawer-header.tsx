@@ -29,7 +29,6 @@ const DrawerHeader = ({
 				{!isEmpty(hintText) && (
 					<Tooltip
 						type="icon"
-						name="info"
 						icon="Info"
 						customWidth={160}
 						iconSize="sm"

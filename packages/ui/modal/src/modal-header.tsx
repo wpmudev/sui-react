@@ -45,7 +45,6 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 					onClick={!!closeModal ? closeModal : () => {}}
 					isSmall={true}
 					iconOnly={true}
-					slot="right"
 				>
 					Close Modal
 				</Button>

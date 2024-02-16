@@ -35,7 +35,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 	defaultValue = "",
 	onChange = () => null,
 	...props
-}) => {
+}: RichTextEditorProps): JSX.Element => {
 	const [content, setContent] = useState<string>(defaultValue ?? "")
 	const [editorType, setEditorType] = useState<"visual" | "code">("visual")
 	const [editor, setEditor] = useState<Record<string, any> | null>(null)

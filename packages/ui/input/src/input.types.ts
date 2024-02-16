@@ -105,9 +105,15 @@ interface InputProps
 	/**
 	 * When key up in input field
 	 *
-	 * @param e
+	 * @param {React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>} e
 	 */
 	onKeyUp?: (e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>) => void
+	/**
+	 * Input onClick
+	 *
+	 * @param {React.MouseEvent<HTMLInputElement>} e
+	 */
+	onClick?: (e: React.MouseEvent<HTMLInputElement>) => void
 	/**
 	 * A callback function to be invoked when the icon is clicked
 	 */

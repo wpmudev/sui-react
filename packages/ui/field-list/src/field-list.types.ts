@@ -1,4 +1,4 @@
-import React from "react"
+import React, { CSSProperties } from "react"
 
 import { ToggleProps } from "@wpmudev/sui-toggle"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
@@ -57,6 +57,10 @@ interface FieldListItemProps extends ToggleProps, useStylesTypes {
 	 * Custom actions for the item
 	 */
 	actions?: React.ReactNode
+	/**
+	 * Custom style
+	 */
+	style?: CSSProperties
 }
 
 export type { FieldListProps, FieldListItemProps }
