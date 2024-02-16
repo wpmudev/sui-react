@@ -33,7 +33,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 	return (
 		<header className={generateCN("sui-modal__header", {}, suiInlineClassname)}>
 			<div className="sui-modal__header-actions">
-				{!!Icon && <Icon size={iconSize} color={iconColor} />}
+				{!!Icon && <Icon size={iconSize} colorScheme={iconColor} />}
 				{!isEmpty(title ?? "") && "app-connect" !== variant && (
 					<h4 className="sui-heading--h4">{title}</h4>
 				)}

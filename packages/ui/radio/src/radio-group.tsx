@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { Provider } from "./radio-context"
 import { RadioGroupProps, RadioValueType } from "./radio.types"
@@ -16,6 +16,7 @@ const RadioGroup = ({
 	isDisabled = false,
 	onChange = () => {},
 	className = "",
+	htmlProps = {},
 	...props
 }: RadioGroupProps) => {
 	const [current, setCurrent] = useState<RadioValueType>(defaultValue)
@@ -57,6 +58,7 @@ const RadioGroup = ({
 				className={radioClassNames}
 				role="radiogroup"
 				data-testid="radio-group"
+				{..._renderRestPropsSafely(htmlProps)}
 			>
 				{children}
 			</div>

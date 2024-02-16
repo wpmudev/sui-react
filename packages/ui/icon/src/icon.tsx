@@ -7,7 +7,12 @@ import React, {
 	ReactSVGElement,
 } from "react"
 
-import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
+import {
+	_renderRestPropsSafely,
+	generateCN,
+	handleOnKeyDown,
+	isEmpty,
+} from "@wpmudev/sui-utils"
 
 import { IconProps } from "./icon.types"
 import { useStyles } from "@wpmudev/sui-hooks"
@@ -33,12 +38,13 @@ const Icon = forwardRef<"svg", IconProps>(
 			className,
 			title, // use fallback values
 			viewBox = params?.viewBox,
-			height = params.height,
-			width = params.width,
-			color = "",
+			iconHeight = params.height,
+			iconWidth = params.width,
+			colorScheme = "",
 			size = "",
 			onClick,
 			fill = "currentColor",
+			htmlProps = {},
 			...props
 		},
 		ref,
@@ -49,7 +55,7 @@ const Icon = forwardRef<"svg", IconProps>(
 		className = generateCN(
 			"sui-icon",
 			{
-				[color]: !isEmpty(color),
+				[colorScheme]: !isEmpty(colorScheme),
 				[size]: !isEmpty(size),
 			},
 			suiInlineClassname,
@@ -61,8 +67,8 @@ const Icon = forwardRef<"svg", IconProps>(
 			className,
 			title,
 			viewBox,
-			height,
-			width,
+			height: iconHeight,
+			width: iconWidth,
 			onClick,
 			fill,
 		}
@@ -88,6 +94,7 @@ const Icon = forwardRef<"svg", IconProps>(
 				version="1.1"
 				xmlns="http://www.w3.org/2000/svg"
 				{...svgProps}
+				{..._renderRestPropsSafely(htmlProps)}
 				data-testid="svg-icon"
 			>
 				{!!title && <title>{title}</title>}

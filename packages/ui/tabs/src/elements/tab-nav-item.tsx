@@ -88,7 +88,7 @@ const TabNavItem: FC<TabNavItemProps> = ({
 			{!!icon && icon}
 			{/* Render the content of the tab item */}
 			{children}
-			{!!stateIcon && <StateIcon color={stateIconColor} size="sm" />}
+			{!!stateIcon && <StateIcon colorScheme={stateIconColor} size="sm" />}
 		</button>
 	)
 }

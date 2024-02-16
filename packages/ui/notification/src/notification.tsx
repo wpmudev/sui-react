@@ -6,7 +6,7 @@ import { NotificationProps } from "./notification.types"
 import { IconProps } from "@wpmudev/sui-icon"
 import Icons from "@wpmudev/sui-icons"
 import { useNotifications } from "./use-notification"
-import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const Notification: React.FC<NotificationProps> = ({
 	id,

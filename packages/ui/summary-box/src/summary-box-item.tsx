@@ -84,7 +84,10 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 			{(!isEmpty(tagTitle) || !isEmpty(actionIcon)) && (
 				<div className="sui-summary-box__list-item-status">
 					{IconTag ? (
-						<IconTag color={actionIconColor} size="md" />
+						<IconTag
+							colorScheme={actionIconColor as IconProps["colorScheme"]}
+							size="md"
+						/>
 					) : (
 						<Tag colorScheme={tagColor}>{tagTitle}</Tag>
 					)}

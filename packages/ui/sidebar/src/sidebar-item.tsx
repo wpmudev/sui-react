@@ -76,7 +76,9 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 				{IconTag && (
 					<IconTag
 						size="sm"
-						color={(isHovered && !isFocused) || isActive ? "informative" : ""}
+						colorScheme={
+							(isHovered && !isFocused) || isActive ? "informative" : ""
+						}
 					/>
 				)}
 				<span>{title}</span>

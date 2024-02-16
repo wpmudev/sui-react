@@ -1,5 +1,5 @@
 import React from "react"
-import { isUndefined, isEmpty, generateCN } from "@wpmudev/sui-utils"
+import { isUndefined, isEmpty } from "@wpmudev/sui-utils"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 

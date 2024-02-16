@@ -18,14 +18,14 @@ const EditorToolbarField: FC<EditorToolbarFieldProps> = ({
 		suiInlineClassname,
 	)
 
-	let StatusTag = <CheckAlt size="sm" color="success" />
+	let StatusTag = <CheckAlt size="sm" colorScheme="success" />
 	let StatusText = "Saved"
 
 	if ("saving" === status) {
-		StatusTag = <Spinner size="sm" color="neutral" />
+		StatusTag = <Spinner size="sm" colorScheme="neutral" />
 		StatusText = "Saving"
 	} else if ("unsaved" === status) {
-		StatusTag = <Refresh size="sm" color="warning" />
+		StatusTag = <Refresh size="sm" colorScheme="warning" />
 		StatusText = "Unsaved changes"
 	}
 

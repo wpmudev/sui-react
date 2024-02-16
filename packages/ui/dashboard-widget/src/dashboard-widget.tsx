@@ -29,7 +29,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	children,
 	actions,
 	...styleProps
-}) => {
+}: DashboardWidgetProps) => {
 	const { suiInlineClassname } = useStyles(styleProps)
 
 	// Generate classnames for the dashboard widget

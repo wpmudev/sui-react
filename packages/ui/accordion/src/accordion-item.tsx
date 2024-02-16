@@ -168,7 +168,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				</div>
 				{/* Icon component to display a chevron icon */}
 				<div className="sui-accordion__header-icon">
-					<Icon height={16} width={16} />
+					<Icon iconHeight={16} iconWidth={16} />
 				</div>
 			</div>
 			{/* Content of the accordion item's panel */}

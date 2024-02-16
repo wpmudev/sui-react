@@ -8,7 +8,7 @@ import { Sidebar as SuiSidebar, SidebarItem, SidebarDropdown } from "../src"
 
 // Import documentation main page.
 import docs from "./Sidebar.mdx"
-import { Box, BoxGroup } from "@wpmudev/sui-box"
+import { BoxGroup } from "@wpmudev/sui-box"
 import { Col, Row } from "@wpmudev/sui-grid"
 
 // Configure default options

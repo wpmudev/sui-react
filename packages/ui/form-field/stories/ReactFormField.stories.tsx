@@ -45,12 +45,7 @@ export const FormField = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyle}>
-					<SUIFormField
-						{...args}
-						label={args.label}
-						id="form-field-1"
-						border="solid 1px red"
-					>
+					<SUIFormField {...args} label={args.label} id="form-field-1">
 						{"input" === example && (
 							<Input
 								id="input-1"
