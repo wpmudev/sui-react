@@ -1,6 +1,7 @@
 import React, { KeyboardEvent, MouseEvent } from "react"
 
 import {
+	_renderRestPropsSafely,
 	generateCN,
 	handleEventDefault,
 	handleOnKeyDown,
@@ -27,6 +28,7 @@ const Link: React.FC<LinkProps> = ({
 	hasExternalIcon = false,
 	children,
 	href = "#",
+	htmlProps = {},
 	...props
 }) => {
 	// Determine the HTML tag name to use
@@ -59,6 +61,7 @@ const Link: React.FC<LinkProps> = ({
 		href,
 		className: classNames,
 		"data-testid": "link",
+		..._renderRestPropsSafely(htmlProps),
 	}
 
 	const onClickCallback = (e: MouseEvent<unknown> | KeyboardEvent<unknown>) => {

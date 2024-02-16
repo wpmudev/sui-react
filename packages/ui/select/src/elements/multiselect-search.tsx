@@ -1,21 +1,12 @@
 import React, { HTMLProps, RefObject, useCallback } from "react"
-import { _renderRestPropsSafely } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 interface SelectSearchInputProps
-	extends Omit<
-		HTMLProps<HTMLInputElement>,
-		| "onChange"
-		| "ref"
-		| "onKeyDown"
-		| "color"
-		| "height"
-		| "content"
-		| "translate"
-		| "width"
-	> {
+	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>> {
 	id?: string
 	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 	ref?: RefObject<HTMLInputElement>
+	placeholder?: string
 }
 
 const Search: React.FC<SelectSearchInputProps> = ({
