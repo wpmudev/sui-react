@@ -1,5 +1,6 @@
 import React, { ReactNode, HTMLAttributes } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 interface _CheckboxGroupInnerProps
 	extends Omit<CheckboxGroupProps, "_isMultiGroup" | "id">,
@@ -80,16 +81,7 @@ interface CheckboxGroupProps extends useStylesTypes {
  * Represents the properties for a checkbox component.
  */
 interface CheckboxProps
-	extends Omit<
-			HTMLAttributes<HTMLInputElement>,
-			| "defaultValue"
-			| "label"
-			| "height"
-			| "content"
-			| "translate"
-			| "width"
-			| "color"
-		>,
+	extends SuiHTMLAttributes<HTMLAttributes<HTMLInputElement>>,
 		useStylesTypes {
 	/**
 	 * The unique identifier for the checkbox button (optional).

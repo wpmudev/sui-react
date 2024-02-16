@@ -20,6 +20,7 @@ const Checkbox = ({
 	isSmall = false,
 	isIndeterminate = false,
 	onChange: propOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {},
+	htmlProps = {},
 	...props
 }: CheckboxProps) => {
 	// Context for checkbox
@@ -62,7 +63,7 @@ const Checkbox = ({
 			}
 		},
 		"aria-labelledby": `${uuid}-label`,
-		...props,
+		...htmlProps,
 	}
 
 	// Define container props
