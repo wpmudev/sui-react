@@ -19,6 +19,14 @@
 				max-width: $colorpicker-size-width-lg;
 			}
 
+			@include modifier(fluid) {
+				display: block;
+
+				@include modifies-element(color) {
+					max-width: 100%;
+				}
+			}
+
 			.sui-input__input {
 				padding: $spacing-md $colorpicker-spacing-lg;
 			}

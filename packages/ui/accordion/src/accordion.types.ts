@@ -11,11 +11,15 @@ interface AccordionProps extends Omit<HTMLProps<HTMLDivElement>, "className"> {
 	noBorderRadius?: boolean
 	/** Remove side borders */
 	noSideBorders?: boolean
+	/** Remove content wrapper and apply white bg */
+	isFlushed?: boolean
 	/** Accordion state */
 	state?: "" | "neutral" | "informative" | "success" | "warning" | "critical" // The semantic types for the accordion,
 	/** Whether to allow multiple accordion items to be expanded or not */
 	allowMultipleExpand?: boolean // Whether to allow multiple expands at the same time or not
 	children: React.ReactNode // The content of the Accordion
+	/** Additional CSS class name for styling the accordion component. */
+	spacing?: string
 }
 
 type AccordionCheckboxProps =
@@ -40,6 +44,8 @@ interface AccordionContextProps {
 	allowMultipleExpand: boolean
 	expandState: Record<string, boolean>
 	setExpandState: Function
+	spacing: string
+	isFlushed: boolean
 }
 
 // Type when hasCheckbox is true

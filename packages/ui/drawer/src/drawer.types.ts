@@ -82,17 +82,12 @@ export interface DrawerFooterTypes {
 	/**
 	 * Optional class name for styling
 	 */
-	classNames?: string
+	className?: string
 
 	/**
 	 * Content to be rendered inside the DrawerFooter
 	 */
 	children: React.ReactNode
-
-	/**
-	 * Additional className(s) for further styling
-	 */
-	className: string
 }
 
 /**

@@ -14,13 +14,13 @@
 		@include block($block) {
 			@include modifier(sm) {
 				@include modifies-element(inner) {
-					max-width: $drawer-size-sm;
+					width: $drawer-size-sm;
 				}
 
 				&.sui-#{$block}--overlay {
 					@include modifies-element(inner) {
 						@include media(max-width, sm) {
-							max-width: calc(100% - 32px);
+							width: calc(100% - 32px);
 						}
 					}
 				}
