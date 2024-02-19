@@ -43,10 +43,6 @@ interface InputProps
 	/**
 	 * Input field default value
 	 */
-	pattern?: HTMLProps<HTMLInputElement>["pattern"]
-	/**
-	 * Input field default value
-	 */
 	defaultValue?: HTMLProps<HTMLInputElement>["defaultValue"]
 	/**
 	 * The type of the input element.
@@ -162,6 +158,10 @@ interface InputProps
 	 * On validation callback
 	 */
 	onValidate?: (id?: string, value?: string | number | boolean) => void
+	/**
+	 * Regex validation string
+	 */
+	pattern?: string
 }
 
 export type { InputProps }

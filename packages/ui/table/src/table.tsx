@@ -15,6 +15,7 @@ const Table: React.FC<TableProps> = ({
 	allowCheck = false,
 	isDraggable = false,
 	filtersPopover = false,
+	showFiltersBtn = true,
 	filters,
 	onAction,
 	bulkActions,
@@ -69,6 +70,7 @@ const Table: React.FC<TableProps> = ({
 				stickyCols,
 				ref,
 				wrapperRef,
+				showFiltersBtn,
 			}}
 		>
 			<div className={classNames} data-testid="table">

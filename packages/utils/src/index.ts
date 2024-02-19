@@ -339,7 +339,13 @@ const a11yTest = async (component: React.ReactElement, config?: object) => {
 /**
  * Use this method to detect if code is executed by Jest (test runner)
  */
-const _isTestingMode = () => process.env.JEST_WORKER_ID !== undefined
+const _isTestingMode = () => {
+	try {
+		return process?.env?.JEST_WORKER_ID !== undefined
+	} catch {
+		return false
+	}
+}
 
 /**
  * It is an internal method to render rest props list safely

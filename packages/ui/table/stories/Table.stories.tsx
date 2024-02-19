@@ -857,6 +857,7 @@ Table.args = {
 			label: "Publish",
 		},
 	],
+	showFiltersBtn: true,
 	filters: [
 		{
 			id: "sort-by",
@@ -944,6 +945,12 @@ Table.argTypes = {
 		name: "Aria Label",
 		control: {
 			type: "text",
+		},
+	},
+	showFilterBtn: {
+		name: "Show Filter Button",
+		control: {
+			type: "boolean",
 		},
 	},
 	allowCheck: {
