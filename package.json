@@ -76,8 +76,7 @@
   ],
   "dependencies": {
     "@types/dedent": "^0.7.0",
-    "classnames": "^2.3.2",
-    "use-deep-compare-effect": "^1.8.1"
+    "classnames": "^2.3.2"
   },
   "devDependencies": {
     "@appnest/readme": "^1.2.7",
