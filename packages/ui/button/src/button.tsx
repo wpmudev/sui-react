@@ -49,6 +49,11 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			isResponsive = false,
 			isLoading = false,
 			htmlProps = {},
+			onMouseEnter,
+			onMouseLeave,
+			onFocus,
+			onBlur,
+			onClick,
 			...restProps
 		},
 		ref,
@@ -67,10 +72,10 @@ const Button: React.FC<ButtonProps> = forwardRef<
 
 		// Manage interaction methods
 		const [isHovered, isFocused, interactionMethods] = useInteraction({
-			onMouseEnter: restProps?.onMouseEnter,
-			onMouseLeave: restProps?.onMouseLeave,
-			onFocus: restProps?.onFocus,
-			onBlur: restProps?.onBlur,
+			onMouseEnter,
+			onMouseLeave,
+			onFocus,
+			onBlur,
 		})
 
 		const isLink = !isUndefined(href)
@@ -106,7 +111,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			..._renderRestPropsSafely(htmlProps),
 			// interaction methods
 			...(interactionMethods ?? {}),
-			...restProps,
+			onClick,
 		}
 
 		// Root tag
