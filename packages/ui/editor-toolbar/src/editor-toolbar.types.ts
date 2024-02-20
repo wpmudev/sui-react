@@ -2,9 +2,10 @@
  * Props for the EditorToolbar component.
  */
 import { ReactNode } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 // interface definition for the EditorToolbar
-interface EditorToolbarProps {
+interface EditorToolbarProps extends useStylesTypes {
 	/**
 	 * The title displayed in the editor toolbar.
 	 */
@@ -53,7 +54,7 @@ interface EditorToolbarProps {
 }
 
 // interface definition for the EditorToolbar
-interface EditorToolbarFieldProps {
+interface EditorToolbarFieldProps extends useStylesTypes {
 	/**
 	 * The title displayed in the editor toolbar.
 	 */

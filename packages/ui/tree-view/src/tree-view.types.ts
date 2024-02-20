@@ -1,10 +1,11 @@
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import React from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Represents the properties for a tree view component.
  */
-interface TreeViewProps {
+interface TreeViewProps extends useStylesTypes {
 	title?: string // Title for the tree view
 	className?: string // CSS class name for the tree view
 	children?: React.ReactNode // Content of the tree view
@@ -16,7 +17,7 @@ interface TreeViewProps {
 /**
  * Represents the properties for a tree view item component.
  */
-interface TreeViewItemProps extends TreeViewProps {
+interface TreeViewItemProps extends TreeViewProps, useStylesTypes {
 	id?: string // Unique ID for the tree view item
 	groupId?: string
 	icon?: IconsNamesType // Icon to display with the tree view item
@@ -31,15 +32,16 @@ interface TreeViewItemProps extends TreeViewProps {
  */
 interface TreeViewGroupProps
 	extends Pick<
-		TreeViewItemProps,
-		| "isGroup"
-		| "isExpanded"
-		| "id"
-		| "icon"
-		| "isDisabled"
-		| "className"
-		| "title"
-	> {
+			TreeViewItemProps,
+			| "isGroup"
+			| "isExpanded"
+			| "id"
+			| "icon"
+			| "isDisabled"
+			| "className"
+			| "title"
+		>,
+		useStylesTypes {
 	children?: React.ReactNode
 	parentGroupId?: string
 }
@@ -48,7 +50,8 @@ interface TreeViewGroupProps
  * Represents the properties for a tree view item with additional information component.
  */
 interface TreeViewInfoProps
-	extends Pick<TreeViewItemProps, "isExpanded" | "isDisabled" | "id"> {
+	extends Pick<TreeViewItemProps, "isExpanded" | "isDisabled" | "id">,
+		useStylesTypes {
 	icon: TreeViewItemProps["icon"]
 	isChecked?: boolean
 	children?: React.ReactNode // Additional information to display with the item

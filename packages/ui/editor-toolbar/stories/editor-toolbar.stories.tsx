@@ -43,9 +43,9 @@ export const EditorToolbar = ({
 		return [
 			<Button
 				key={0}
-				appearance="secondary"
+				type="secondary"
 				icon="Show"
-				color="black"
+				colorScheme="black"
 				isFullWidth={true}
 				isResponsive={true}
 			>
@@ -53,9 +53,9 @@ export const EditorToolbar = ({
 			</Button>,
 			<Button
 				key={1}
-				appearance="primary"
+				type="primary"
 				icon="Globe"
-				color="blue"
+				colorScheme="blue"
 				isFullWidth={true}
 			>
 				Publish

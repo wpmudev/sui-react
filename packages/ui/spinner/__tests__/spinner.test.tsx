@@ -26,7 +26,7 @@ describe("@wpmudev/sui-spinner", () => {
 	// Test the behavior of the 'size' prop.
 	it("size prop works well", () => {
 		// Render the Spinner component with size set to "lg".
-		render(<Spinner size="lg" />)
+		render(<Spinner loaderSize="lg" />)
 
 		// Get the spinner element by its test ID.
 		const spinner = screen.getByTestId("spinner")
@@ -38,7 +38,7 @@ describe("@wpmudev/sui-spinner", () => {
 	// Test the behavior of the 'color' prop.
 	it("color prop works well", () => {
 		// Render the Spinner component with color set to "dark".
-		render(<Spinner color="dark" />)
+		render(<Spinner colorScheme="dark" />)
 
 		// Get the spinner element by its test ID.
 		const spinner = screen.getByTestId("spinner")

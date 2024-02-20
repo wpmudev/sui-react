@@ -4,11 +4,16 @@ import { generateCN, PluginIconTypes, PluginsIcons } from "@wpmudev/sui-utils"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 
 import { SetupBannerProps } from "./setup-banner.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * SetupBanner renders a banner with optional icon and description.
  *
- * @param {SetupBannerProps} props - The props for the SetupBanner component.
+ * @param  root0
+ * @param  root0.type
+ * @param  root0.title
+ * @param  root0.className
+ * @param  root0.description
  * @return {JSX.Element} - The rendered SetupBanner component.
  */
 const SetupBanner: React.FC<SetupBannerProps> = ({
@@ -16,13 +21,16 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 	title = "title",
 	className,
 	description,
-}) => {
+	...props
+}: SetupBannerProps): JSX.Element => {
+	const { suiInlineClassname } = useStyles(props, className)
+
 	const classNames = generateCN(
 		"sui-setup-banner",
 		{
 			[type]: true,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	const Plugin: PluginIconTypes = PluginsIcons?.[type] ?? "Plugin"

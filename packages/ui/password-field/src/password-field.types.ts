@@ -1,9 +1,15 @@
 import React, { HTMLProps } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Interface representing the properties of a password field.
  */
-interface PasswordFieldProps extends Omit<HTMLProps<HTMLDivElement>, "id"> {
+interface PasswordFieldProps
+	extends Omit<
+			HTMLProps<HTMLDivElement>,
+			"id" | "height" | "content" | "translate" | "width" | "color"
+		>,
+		useStylesTypes {
 	/**
 	 * ID of the password field.
 	 */

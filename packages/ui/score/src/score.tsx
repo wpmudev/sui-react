@@ -1,18 +1,22 @@
 import React from "react"
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { ScoreProps } from "./score.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const Score: React.FC<ScoreProps> = ({
 	bar = 50,
 	value = 50,
-	content,
+	description,
 	state,
 	isSmall = false,
 	isPercentage = true,
 	className,
+	htmlProps = {},
 	...props
 }) => {
+	const { suiInlineClassname } = useStyles(props, className)
+
 	const classNames = generateCN(
 		"sui-score",
 		{
@@ -24,11 +28,15 @@ const Score: React.FC<ScoreProps> = ({
 			// add class based on state type
 			[state as string]: !!state,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	return (
-		<div className={classNames} {...props} data-testid="score">
+		<div
+			className={classNames}
+			{..._renderRestPropsSafely(htmlProps)}
+			data-testid="score"
+		>
 			<svg
 				viewBox="0 0 100 100"
 				className="sui-score__svg"
@@ -74,7 +82,7 @@ const Score: React.FC<ScoreProps> = ({
 			<span className="sui-score--content">
 				{value}
 				{isPercentage && <span className="sui-score--percentage">%</span>}{" "}
-				{!!content && !!isSmall && content}
+				{!!description && !!isSmall && description}
 			</span>
 			<span className="sui-screen-reader-only" tabIndex={0}>
 				Score {value} out of 100

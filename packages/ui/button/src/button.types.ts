@@ -1,13 +1,22 @@
 import React, { HTMLProps } from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
+import { OmitNestedKey, SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a button component.
  */
 interface ButtonProps
-	extends React.HTMLAttributes<
-		HTMLButtonElement | HTMLAnchorElement | HTMLInputElement
-	> {
+	extends OmitNestedKey<
+			SuiHTMLAttributes<
+				HTMLProps<HTMLButtonElement | HTMLAnchorElement | HTMLInputElement>
+			>,
+			"htmlProps",
+			"id" | "className" | "href" | "target" | "htmlFor"
+		>,
+		useStylesTypes,
+		InteractionTypes {
+	id?: string
 	/**
 	 * Optional CSS class name for the button.
 	 */
@@ -25,13 +34,13 @@ interface ButtonProps
 	 */
 	htmlFor?: string
 	/**
-	 * Appearance style of the button.
+	 * Type style of the button.
 	 */
-	appearance?: "primary" | "secondary" | "tertiary"
+	type?: "primary" | "secondary" | "tertiary"
 	/**
 	 * Color of the button.
 	 */
-	color?: "blue" | "black" | "red" | "navy" | "white"
+	colorScheme?: "blue" | "black" | "red" | "navy" | "white"
 	/**
 	 * Optional flag to make the button small.
 	 */
@@ -80,6 +89,10 @@ interface ButtonProps
 	 * Whether the Button is Loading or not
 	 */
 	isLoading?: boolean
+	/**
+	 * Button onClick
+	 */
+	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export type { ButtonProps }

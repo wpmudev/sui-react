@@ -1,10 +1,14 @@
 import React, { HTMLProps } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * This interface defines the props for the Score component.
  * It extends the HTMLProps<HTMLDivElement> type to inherit standard HTML div element props.
  */
-interface AccordionProps extends Omit<HTMLProps<HTMLDivElement>, "className"> {
+interface AccordionProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+		useStylesTypes {
 	/** Additional CSS class name for styling the accordion component. */
 	className?: string
 	/** Remove border-radius when true */
@@ -30,7 +34,9 @@ type AccordionCheckboxProps =
 	| { onCheck: never; hasCheckBox: false } // If `hasCheckbox` is false, the `onCheck` prop should not be provided.
 
 // The AccordionItemProps interface extends the AccordionCheckboxProps, adding additional props for the AccordionItem component.
-interface AccordionItemBaseProps {
+interface AccordionItemBaseProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+		useStylesTypes {
 	title?: string // The title of the accordion item.
 	description?: string // The description of the accordion item.
 	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.

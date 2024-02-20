@@ -1,7 +1,8 @@
 import { ReactNode } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 // Define the UpsellProps interface to specify the expected props for the Upsell component
-interface UpsellProps {
+interface UpsellProps extends useStylesTypes {
 	// Optional title of the upsell, can be a string
 	title?: string
 

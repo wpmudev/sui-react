@@ -1,9 +1,13 @@
-import React, { CSSProperties } from "react"
+import React, { CSSProperties, HTMLProps } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a box group component.
  */
-interface BoxGroupProps {
+interface BoxGroupProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+		useStylesTypes {
 	/**
 	 * Indicates whether the boxes should be displayed inline or not.
 	 */

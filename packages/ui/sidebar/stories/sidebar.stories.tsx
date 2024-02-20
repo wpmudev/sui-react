@@ -8,7 +8,7 @@ import { Sidebar as SuiSidebar, SidebarItem, SidebarDropdown } from "../src"
 
 // Import documentation main page.
 import docs from "./Sidebar.mdx"
-import { Box, BoxGroup } from "@wpmudev/sui-box"
+import { BoxGroup } from "@wpmudev/sui-box"
 import { Col, Row } from "@wpmudev/sui-grid"
 
 // Configure default options
@@ -24,7 +24,7 @@ export default {
 }
 
 const tag = (
-	<Tag color="black" design="outlined" isSmall={true}>
+	<Tag colorScheme="black" design="outlined" isSmall={true}>
 		PRO
 	</Tag>
 )
@@ -76,7 +76,13 @@ const Sidebar = ({}) => {
 						<Col size="3">
 							<SuiSidebar>
 								{items.map(({ title, url, icon, isDisabled, hasAction }) =>
-									renderSidebarItem(title, url, icon, hasAction, isDisabled),
+									renderSidebarItem(
+										title,
+										url,
+										icon as IconsNamesType,
+										hasAction,
+										isDisabled,
+									),
 								)}
 							</SuiSidebar>
 							<SidebarDropdown selectedItemName={currentTab}>

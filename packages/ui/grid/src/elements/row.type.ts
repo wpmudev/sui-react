@@ -1,3 +1,5 @@
+import { useStylesTypes } from "@wpmudev/sui-hooks"
+
 /**
  * Represents the alignment options for a row component.
  */
@@ -6,7 +8,7 @@ type RowAlignments = "xs" | "sm" | "md" | "lg" | "xl"
 /**
  * Represents the properties for a row component.
  */
-interface RowProps {
+interface RowProps extends useStylesTypes {
 	/**
 	 * The alignment of the row.
 	 */

@@ -1,7 +1,11 @@
 import React, { useCallback, useState, useId } from "react"
-import { isFunction, generateCN } from "@wpmudev/sui-utils"
+import {
+	isFunction,
+	generateCN,
+	_renderRestPropsSafely,
+} from "@wpmudev/sui-utils"
 
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 
 import { TextareaProps } from "./textarea.types"
 
@@ -16,6 +20,9 @@ const Textarea: React.FC<TextareaProps> = ({
 	onChange = () => {},
 	label,
 	customWidth,
+	placeholder = "",
+	rows,
+	htmlProps = {},
 	...props
 }) => {
 	const [currentValue, setCurrentValue] = useState(value)
@@ -28,6 +35,8 @@ const Textarea: React.FC<TextareaProps> = ({
 		id = uniqueId
 	}
 
+	const { suiInlineClassname } = useStyles(props, className)
+
 	const classNames = generateCN(
 		"sui-textarea",
 		{
@@ -38,7 +47,7 @@ const Textarea: React.FC<TextareaProps> = ({
 			hover: isHovered,
 			focus: isFocused,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	const handleOnChange = useCallback(
@@ -65,7 +74,9 @@ const Textarea: React.FC<TextareaProps> = ({
 				onChange={handleOnChange}
 				aria-label={label || "textarea"}
 				data-testid="textarea-input"
-				{...props}
+				placeholder={placeholder}
+				rows={rows}
+				{..._renderRestPropsSafely(htmlProps)}
 				{...methods}
 			/>
 		</div>

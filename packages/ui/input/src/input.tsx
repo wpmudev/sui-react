@@ -15,8 +15,9 @@ import {
 	generateCN,
 	condContent,
 	handleOnKeyDown,
+	_renderRestPropsSafely,
 } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
 import { typeValues } from "./type-values"
 import { Icon } from "./elements/input-icon"
@@ -57,6 +58,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				validateOnMount = false,
 				customWidth,
 				onValidate,
+				htmlProps = {},
 				...props
 			},
 			ref,
@@ -69,7 +71,8 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			}
 
 			// Define states
-			const [value, setValue] = useState<typeof defaultValue>(defaultValue)
+			const [value, setValue] =
+				useState<InputProps["defaultValue"]>(defaultValue)
 			const [isHovered, isFocused, interactionMethods] = useInteraction({})
 			const [hasError, setHasError] = useState(false)
 
@@ -91,7 +94,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				(e: React.ChangeEvent<HTMLInputElement>) => {
 					// update value if input isn't read-only
 					if (!isReadOnly) {
-						setValue(e?.target?.value ?? "")
+						setValue((e?.target?.value ?? "") as InputProps["defaultValue"])
 					}
 
 					if (!!onChange) {
@@ -103,7 +106,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 
 			// Clear input value
 			const onClearCallback = useCallback(() => {
-				setValue("")
+				setValue("" as InputProps["defaultValue"])
 				if (!!onClear) {
 					onClear("")
 				}
@@ -122,6 +125,8 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				inputType = type
 			}
 
+			const { suiInlineClassname } = useStyles(props, className ?? "")
+
 			// Generate class names based on the prop values
 			const classNames = generateCN(
 				"sui-input",
@@ -139,7 +144,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 					// Define multiline class name
 					[`multiline${isSmall ? "-sm" : ""}`]: isMultiLine,
 				},
-				className ?? "",
+				suiInlineClassname,
 			)
 
 			// Generate input class names
@@ -165,6 +170,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			// Call onValidate when hasError changes
 			useEffect(() => {
 				if (onValidate) onValidate(id, hasError)
+				// eslint-disable-next-line react-hooks/exhaustive-deps
 			}, [hasError])
 
 			/**
@@ -205,6 +211,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				if (validateOnMount) {
 					validation()
 				}
+				// eslint-disable-next-line react-hooks/exhaustive-deps
 			}, [])
 
 			// Input field props
@@ -225,8 +232,6 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				required: isRequired,
 				pattern,
 				onKeyUp: onInputKeyUp,
-
-				...props,
 			}
 
 			/**
@@ -244,7 +249,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							icon={icon}
 							customWidth={iconTooltipWidth as number}
 							iconSize={isSmall ? "sm" : "md"}
-							position="top"
+							placement="top"
 							onClick={() => {
 								if (onClickIcon) {
 									onClickIcon()
@@ -260,7 +265,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 					<Icon
 						name={icon}
 						size={isSmall ? "sm" : "md"}
-						position={iconPosition ?? "start"}
+						placement={iconPosition ?? "start"}
 						onClick={(e: React.MouseEvent) => {
 							if (onClickIcon) {
 								onClickIcon(e)
@@ -283,7 +288,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							"has-hint": hasHintText,
 						})}
 					>
-						<TagName {...attrs}></TagName>
+						<TagName {...attrs} {..._renderRestPropsSafely(htmlProps)} />
 						{hasHintText && (
 							<Fragment>
 								{!isEmpty(value as string) && (
@@ -300,15 +305,17 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 						<Button
 							className="sui-input__input-clear"
 							icon="CloseAlt"
-							color="black"
-							appearance="tertiary"
+							colorScheme="black"
+							type="tertiary"
 							iconOnly={true}
 							iconSize={isSmall ? "sm" : "md"}
 							onClick={onClearCallback}
 							isSmall={isSmall ?? false}
-							onKeyDown={(
-								e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
-							) => handleOnKeyDown(e, onClear)}
+							htmlProps={{
+								onKeyDown: (
+									e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
+								) => handleOnKeyDown(e, onClear),
+							}}
 						>
 							Clear
 						</Button>

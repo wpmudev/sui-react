@@ -24,13 +24,13 @@ export const UpsellNotice = (props: UpsellNoticeProps) => {
 	const actions = [
 		<Button
 			key={0}
-			appearance="primary"
-			color={"hub" === props?.variation ? "blue" : "black"}
+			type="primary"
+			colorScheme={"hub" === props?.variation ? "blue" : "black"}
 			isSmall={true}
 		>
 			Primary
 		</Button>,
-		<Button key={1} appearance="tertiary" color="black" isSmall={true}>
+		<Button key={1} type="tertiary" colorScheme="black" isSmall={true}>
 			Learn more
 		</Button>,
 	]

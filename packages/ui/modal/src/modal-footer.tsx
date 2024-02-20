@@ -1,12 +1,19 @@
 import React from "react"
 import { ModalFooterProps } from "./modal.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 
-const ModalFooter: React.FC<ModalFooterProps> = ({ children }) => {
+const ModalFooter: React.FC<ModalFooterProps> = ({ children, ...props }) => {
+	const { suiInlineClassname } = useStyles(props)
+
 	// Default children content
 	children = useDefaultChildren(children, "{modal footer content}")
 
-	return <footer className="sui-modal__footer">{children}</footer>
+	return (
+		<footer className={generateCN("sui-modal__footer", {}, suiInlineClassname)}>
+			{children}
+		</footer>
+	)
 }
 
 export { ModalFooter }

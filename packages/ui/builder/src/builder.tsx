@@ -1,12 +1,12 @@
 import React from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // Import required element(s)
 import { BuilderProps } from "./builder.types"
 import { BuilderButton } from "./builder-button"
 import { BuilderEmpty } from "./builder-empty"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Build builder component
 const Builder: React.FC<BuilderProps> = ({
@@ -15,13 +15,23 @@ const Builder: React.FC<BuilderProps> = ({
 	allowAddFields = true,
 	isScrollable = false,
 	hasNoFields = false,
+	htmlProps = {},
+	...styleProps
 }) => {
 	// Default children content
 	children = useDefaultChildren(children)
+	const { suiInlineClassname } = useStyles(
+		styleProps,
+		`sui-layout ${className}`,
+	)
+	const classNames = generateCN("sui-builder", {}, suiInlineClassname)
 
-	const classNames = generateCN("sui-builder", {}, `sui-layout ${className}`)
 	return (
-		<div className={classNames} data-testid="builder">
+		<div
+			className={classNames}
+			data-testid="builder"
+			{..._renderRestPropsSafely(htmlProps)}
+		>
 			<div
 				className={generateCN("sui-builder__fields", {
 					scrollable: isScrollable && !hasNoFields,
@@ -32,7 +42,7 @@ const Builder: React.FC<BuilderProps> = ({
 				</div>
 			</div>
 			{allowAddFields && (
-				<div className="sui-builder__footer">
+				<div className="sui-builder__footer" data-testid="builder-add-more">
 					<BuilderButton />
 				</div>
 			)}

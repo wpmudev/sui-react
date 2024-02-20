@@ -1,6 +1,7 @@
 // Type definition for the props of the Modal component
 import React from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 type ModalProps = {
 	id?: string // ID for the modal element
@@ -8,7 +9,7 @@ type ModalProps = {
 	size?: "sm" | "md" | "lg" | "xl" // Size of the modal (small, medium, large, extra-large)
 	children?: React.ReactNode // Content of the modal (React children)
 	ref: object // Used to access the open and close modals of the modal
-}
+} & useStylesTypes
 
 // Type definition for the modal handling functions
 type ModalActionsProps = {
@@ -22,7 +23,7 @@ interface ModalContextProps
 	extends ModalActionsProps,
 		Pick<ModalProps, "variant" | "size"> {}
 
-interface ModalHeaderProps {
+interface ModalHeaderProps extends useStylesTypes {
 	title?: string
 	children?: React.ReactNode
 	icon?: IconsNamesType
@@ -36,12 +37,12 @@ interface ModalHeaderProps {
 		| "critical"
 }
 
-interface ModalBodyProps {
+interface ModalBodyProps extends useStylesTypes {
 	children?: React.ReactNode
 }
 
 // Props expected by the ModalFooter component.
-interface ModalFooterProps {
+interface ModalFooterProps extends useStylesTypes {
 	// ModalFooter content
 	children?: React.ReactNode
 }

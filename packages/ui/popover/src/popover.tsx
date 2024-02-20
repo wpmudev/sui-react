@@ -10,6 +10,7 @@ import React, {
 	ReactElement,
 } from "react"
 import {
+	_renderRestPropsSafely,
 	generateCN,
 	handleOnKeyDown,
 	isEmpty,
@@ -19,6 +20,7 @@ import {
 	useOuterClick,
 	useDetectRTL,
 	useDefaultChildren,
+	useStyles,
 } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
 
@@ -32,9 +34,11 @@ const Popover: React.FC<PopoverProps> = ({
 	className,
 	header,
 	children,
-	position = "top",
+	placement = "top",
 	footer,
 	displayOnHover = false,
+	htmlProps = {},
+	...props
 }) => {
 	const [isPopupOpen, setIsPopupOpen] = useState<boolean>(isOpen ?? false)
 	const [popupPositions, setPopupPositions] = useState<Record<string, any>>({
@@ -52,15 +56,17 @@ const Popover: React.FC<PopoverProps> = ({
 	const triggerRef = useRef<HTMLDivElement | null>(null)
 	const popupRef = useRef<HTMLDivElement | null>(null)
 
+	const { suiInlineClassname } = useStyles(props, className ?? "")
+
 	// class names
 	const classNames = generateCN(
 		"sui-popover",
 		{
 			open: isPopupOpen,
 			image: !isUndefined(image) && !isEmpty(image),
-			[`${position}`]: true,
+			[`${placement}`]: true,
 		},
-		className ?? "",
+		suiInlineClassname,
 	)
 
 	useOuterClick(ref, () => {
@@ -109,7 +115,7 @@ const Popover: React.FC<PopoverProps> = ({
 
 		let pos = {}
 
-		switch (position) {
+		switch (placement) {
 			case "top":
 				pos = {
 					[isRTL ? "right" : "left"]: 0 - popupW / 2 + clientWidth / 2,
@@ -189,7 +195,7 @@ const Popover: React.FC<PopoverProps> = ({
 			...pos,
 		})
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [trigger, popupRef, isPopupOpen, position])
+	}, [trigger, popupRef, isPopupOpen, placement])
 
 	return (
 		<div
@@ -223,6 +229,7 @@ const Popover: React.FC<PopoverProps> = ({
 				ref={popupRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__popup"
 				style={{ ...popupPositions } as CSSProperties}
+				{..._renderRestPropsSafely(htmlProps)}
 			>
 				<div className="sui-popover__popup-arrow"></div>
 				<div className="sui-popover__popup-wrapper">
@@ -231,9 +238,9 @@ const Popover: React.FC<PopoverProps> = ({
 							<Button
 								icon="Close"
 								iconOnly={true}
-								color="black"
+								colorScheme="black"
 								isSmall={true}
-								appearance="tertiary"
+								type="tertiary"
 								onClick={onTriggerClick}
 							>
 								{"Close"}

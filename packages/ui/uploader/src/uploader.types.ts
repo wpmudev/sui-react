@@ -1,12 +1,15 @@
 // @ts-nocheck
 import { HTMLProps } from "react"
 
-import { FormFieldProps } from "@wpmudev/sui-form-field"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for an uploader component.
  */
-interface UploaderProps extends Omit<HTMLProps<HTMLInputElement>, "onChange"> {
+interface UploaderProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
+		useStylesTypes {
 	/**
 	 * Upload button title
 	 */
@@ -51,7 +54,7 @@ interface UploaderProps extends Omit<HTMLProps<HTMLInputElement>, "onChange"> {
 /**
  * Represents the properties for a file in the uploader component.
  */
-interface UploaderFileProps {
+interface UploaderFileProps extends useStylesTypes {
 	/**
 	 * The unique ID of the file.
 	 */
@@ -75,7 +78,8 @@ interface UploaderFileProps {
  */
 interface UploaderButtonProps
 	extends Pick<UploaderProps, "btnTitle" | "multiple" | "allowDragAndDrop">,
-		Pick<UploaderFileProps, "files"> {
+		Pick<UploaderFileProps, "files">,
+		useStylesTypes {
 	/**
 	 * Callback function for button click event.
 	 */

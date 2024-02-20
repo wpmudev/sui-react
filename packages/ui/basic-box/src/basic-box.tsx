@@ -1,7 +1,11 @@
 import React from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
-import { useInteraction, useDefaultChildren } from "@wpmudev/sui-hooks"
+import {
+	useInteraction,
+	useDefaultChildren,
+	useStyles,
+} from "@wpmudev/sui-hooks"
 
 import { BasicBoxProps } from "./basic-box.types"
 
@@ -14,12 +18,14 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	className,
 	isPro = false,
 	children,
+	...styleProps
 }) => {
 	// Interaction methods
 	const [isHovered, isFocused, methods] = useInteraction({})
 
 	// Default children content
 	children = useDefaultChildren(children)
+	const { suiInlineClassname } = useStyles(styleProps, className)
 
 	// Define class name based on various conditions
 	const classNames = generateCN(
@@ -29,7 +35,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 			hover: isHovered && !isFocused,
 			pro: isPro,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	return (

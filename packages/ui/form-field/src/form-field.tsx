@@ -6,7 +6,7 @@ import React, {
 	ReactNode,
 	useId,
 } from "react"
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 // Import required modules
 import { Label } from "./elements/label"
@@ -14,7 +14,7 @@ import { Helper } from "./elements/helper"
 import { ErrorMessage } from "./elements/error-message"
 
 import { FormFieldProps } from "./form-field.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Build form field component
 const FormField: React.FC<FormFieldProps> = ({
@@ -28,6 +28,7 @@ const FormField: React.FC<FormFieldProps> = ({
 	isLabelHidden = false,
 	children,
 	customWidth,
+	htmlProps = {},
 	...props
 }) => {
 	// Define a unique id.
@@ -43,6 +44,8 @@ const FormField: React.FC<FormFieldProps> = ({
 	const isErrored =
 		"string" === typeof error ? !isEmpty((error as string) ?? "") : !!error
 
+	const { suiInlineClassname } = useStyles(props, className)
+
 	// Generate classnames
 	const classNames = generateCN(
 		"sui-form-field",
@@ -50,7 +53,7 @@ const FormField: React.FC<FormFieldProps> = ({
 			sm: isSmall,
 			disabled: isDisabled,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	// Define aria attributes.
@@ -70,7 +73,7 @@ const FormField: React.FC<FormFieldProps> = ({
 	return (
 		<div
 			className={classNames}
-			{...props}
+			{..._renderRestPropsSafely(htmlProps)}
 			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
 			data-testid="form-field"
 		>

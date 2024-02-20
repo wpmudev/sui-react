@@ -1,10 +1,14 @@
-import React, { createRef, useState } from "react"
+import React, { createRef, RefObject, useState } from "react"
 
 import { Tag } from "@wpmudev/sui-tag"
-import { IconsNamesType } from "@wpmudev/sui-icons"
 
 // Import required component
-import { Drawer as SuiDrawer, DrawerActions, DrawerHeader } from "../src"
+import {
+	Drawer as SuiDrawer,
+	DrawerActions,
+	DrawerHeader,
+	DrawerTypes,
+} from "../src"
 
 // Import documentation main page.
 import docs from "./Drawer.mdx"
@@ -27,7 +31,7 @@ export default {
 }
 
 const tag = (
-	<Tag color="black" design="outlined" isSmall={true}>
+	<Tag colorScheme="black" design="outlined" isSmall={true}>
 		PRO
 	</Tag>
 )
@@ -50,13 +54,18 @@ const _internalDrawer = ({
 	title = "Drawer header",
 	desc = "",
 	...props
+}: {
+	toggleRef: RefObject<DrawerActions | null>
+	title: string
+	desc: string
+	[key: string]: any
 }) => {
 	return (
 		<SuiDrawer ref={toggleRef} {...props}>
 			<DrawerHeader
 				title={title}
 				hintText={desc}
-				tooltipOptions={{ position: "bottom" }}
+				tooltipOptions={{ placement: "bottom" }}
 			/>
 			<DrawerBody>
 				<div style={{ padding: "16px" }}>
@@ -66,10 +75,10 @@ const _internalDrawer = ({
 			</DrawerBody>
 			<DrawerFooter>
 				<div>
-					<Button appearance="secondary" color="blue" isSmall={true}>
+					<Button type="secondary" colorScheme="blue" isSmall={true}>
 						Secondary
 					</Button>
-					<Button appearance="primary" color="blue" isSmall={true}>
+					<Button type="primary" colorScheme="blue" isSmall={true}>
 						Primary
 					</Button>
 				</div>
@@ -79,7 +88,7 @@ const _internalDrawer = ({
 }
 
 // Build footer story
-const Drawer = (props) => {
+const Drawer = (props: DrawerTypes) => {
 	const [currentTab, setCurrentTab] = useState<string>("Option 2")
 
 	const handleDrawerItemClick = (option: string) => () => {
@@ -96,7 +105,7 @@ const Drawer = (props) => {
 				<_internalDrawer
 					toggleRef={ref}
 					{...props}
-					tooltipOptions={{ position: "bottom" }}
+					tooltipOptions={{ placement: "bottom" }}
 					title="Drawer title"
 					desc="Drawer for body container, it is fixed positioned"
 				/>
@@ -115,7 +124,7 @@ const Drawer = (props) => {
 									<_internalDrawer
 										toggleRef={overNavRef}
 										{...props}
-										tooltipOptions={{ position: "bottom" }}
+										tooltipOptions={{ placement: "bottom" }}
 										title="Drawer title"
 										desc="Above the top navigation"
 										hasContainer={true}
@@ -146,15 +155,15 @@ const Drawer = (props) => {
 										<_internalDrawer
 											toggleRef={underNavRef}
 											{...props}
-											tooltipOptions={{ position: "bottom" }}
+											tooltipOptions={{ placement: "bottom" }}
 											title="Drawer title"
 											desc="Below the top navigation"
 											hasContainer={true}
 											disableShadow={true}
 										/>
 										<Button
-											appearance="primary"
-											color="blue"
+											type="primary"
+											colorScheme="blue"
 											isSmall={true}
 											onClick={() => {
 												ref?.current?.toggle()
@@ -165,8 +174,8 @@ const Drawer = (props) => {
 											Body drawer
 										</Button>
 										<Button
-											appearance="primary"
-											color="blue"
+											type="primary"
+											colorScheme="blue"
 											isSmall={true}
 											onClick={() => {
 												overNavRef?.current?.toggle()
@@ -177,8 +186,8 @@ const Drawer = (props) => {
 											Over navigation drawer
 										</Button>
 										<Button
-											appearance="primary"
-											color="blue"
+											type="primary"
+											colorScheme="blue"
 											isSmall={true}
 											onClick={() => {
 												underNavRef?.current?.toggle()
@@ -201,7 +210,7 @@ const Drawer = (props) => {
 
 // Set story arguments
 Drawer.args = {
-	position: "right",
+	placement: "right",
 	size: "large",
 	outerClickClose: true,
 	hasContainer: false,
@@ -210,8 +219,8 @@ Drawer.args = {
 
 // Set controls for story arguments
 Drawer.argTypes = {
-	position: {
-		name: "Position",
+	placement: {
+		name: "Placement",
 		options: ["right", "left"],
 		control: {
 			type: "select",

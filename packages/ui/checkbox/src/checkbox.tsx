@@ -1,7 +1,7 @@
 import React, { useEffect, useId } from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { generateCN, _renderRestPropsSafely } from "@wpmudev/sui-utils"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 
 import { Indeterminate } from "./elements/indeterminate"
 import { Tick } from "./elements/tick"
@@ -20,11 +20,13 @@ const Checkbox = ({
 	isSmall = false,
 	isIndeterminate = false,
 	onChange: propOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {},
+	htmlProps = {},
 	...props
 }: CheckboxProps) => {
 	// Context for checkbox
 	const ctx = useCheckbox()
 	const [isHovered, isFocused, methods] = useInteraction({})
+	const { suiInlineClassname } = useStyles(props)
 
 	// Generate a dynamic ID for the checkbox
 	let uuid = `sui-checkbox-${useId()}`
@@ -61,20 +63,24 @@ const Checkbox = ({
 			}
 		},
 		"aria-labelledby": `${uuid}-label`,
-		...props,
+		...htmlProps,
 	}
 
 	// Define container props
 	const containerProps = {
-		className: generateCN("sui-checkbox", {
-			"hidden-label": isLabelHidden,
-			indeterminate: isIndeterminate,
-			hover: isHovered,
-			focus: isFocused,
-			disabled: isDisabled,
-			checked: isChecked,
-			sm: isSmall,
-		}),
+		className: generateCN(
+			"sui-checkbox",
+			{
+				"hidden-label": isLabelHidden,
+				indeterminate: isIndeterminate,
+				hover: isHovered,
+				focus: isFocused,
+				disabled: isDisabled,
+				checked: isChecked,
+				sm: isSmall,
+			},
+			suiInlineClassname,
+		),
 		...methods,
 	}
 
@@ -94,7 +100,7 @@ const Checkbox = ({
 		>
 			{/* Checkbox input */}
 			<input
-				{...inputProps}
+				{..._renderRestPropsSafely(inputProps)}
 				aria-label={label || "checkbox"}
 				data-testid="checkbox-input"
 			/>

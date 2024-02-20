@@ -1,21 +1,31 @@
 import React, { FC } from "react"
 import { Refresh, Spinner, CheckAlt } from "@wpmudev/sui-icons"
-import { isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { EditorToolbarFieldProps } from "./editor-toolbar.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const EditorToolbarField: FC<EditorToolbarFieldProps> = ({
 	status = "saved",
 	statusText = "",
 	children,
+	...styleProps
 }) => {
-	let StatusTag = <CheckAlt size="sm" color="success" />
+	const { suiInlineClassname } = useStyles(styleProps)
+	// Generate CSS class names for the editor toolbar component
+	const classNames = generateCN(
+		"sui-editor-toolbar__field",
+		{},
+		suiInlineClassname,
+	)
+
+	let StatusTag = <CheckAlt size="sm" colorScheme="success" />
 	let StatusText = "Saved"
 
 	if ("saving" === status) {
-		StatusTag = <Spinner size="sm" color="neutral" />
+		StatusTag = <Spinner size="sm" colorScheme="neutral" />
 		StatusText = "Saving"
 	} else if ("unsaved" === status) {
-		StatusTag = <Refresh size="sm" color="warning" />
+		StatusTag = <Refresh size="sm" colorScheme="warning" />
 		StatusText = "Unsaved changes"
 	}
 
@@ -25,7 +35,7 @@ const EditorToolbarField: FC<EditorToolbarFieldProps> = ({
 
 	return (
 		// Render the editor-toolbar component
-		<div className="sui-editor-toolbar__field">
+		<div className={classNames}>
 			{children}
 			<div className="sui-editor-toolbar__field--status">
 				{StatusTag}

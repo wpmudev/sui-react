@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { isEmpty, generateCN } from "@wpmudev/sui-utils"
+import { isEmpty, generateCN, _renderRestPropsSafely } from "@wpmudev/sui-utils"
 
 import { Avatar } from "@wpmudev/sui-avatar"
 
@@ -8,6 +8,7 @@ import { RecipientEmail } from "./recipient-email"
 import { RecipientButton } from "./recipient-button"
 
 import { RecipientProps } from "./recipient.type"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build "recipient" component
 const Recipient: React.FC<RecipientProps> = ({
@@ -19,14 +20,20 @@ const Recipient: React.FC<RecipientProps> = ({
 	appearance = "primary",
 	...props
 }) => {
+	const { suiInlineClassname } = useStyles(props)
+
 	// Define recipient class.
-	const className = generateCN("sui-recipient", {
-		// Define recipient appearance.
-		[appearance as string]: !isEmpty(appearance ?? ""),
-	})
+	const className = generateCN(
+		"sui-recipient",
+		{
+			// Define recipient appearance.
+			[appearance as string]: !isEmpty(appearance ?? ""),
+		},
+		suiInlineClassname,
+	)
 
 	return (
-		<div className={className} {...props}>
+		<div className={className} {..._renderRestPropsSafely(props)}>
 			<div className="sui-recipient__info">
 				<Avatar
 					className="sui-recipient__avatar"

@@ -3,6 +3,7 @@ import {
 	InteractionTypes,
 	useDefaultChildren,
 	useInteraction,
+	useStyles,
 } from "@wpmudev/sui-hooks"
 
 import {
@@ -10,6 +11,7 @@ import {
 	condContent,
 	generateCN,
 	isEmpty,
+	_renderRestPropsSafely,
 } from "@wpmudev/sui-utils"
 
 // Import required component(s).
@@ -22,7 +24,7 @@ import { ButtonProps } from "./button.types"
 // type ButtonProps = ButtonProps & InteractionTypes
 
 // Build "Base Button" component.
-const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
+const Button: React.FC<ButtonProps> = forwardRef<
 	HTMLButtonElement | HTMLAnchorElement,
 	ButtonProps
 >(
@@ -31,8 +33,8 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			href,
 			target,
 			htmlFor,
-			appearance,
-			color,
+			type,
+			colorScheme,
 			isSmall = false,
 			isFullWidth = false,
 			isDisabled = false,
@@ -46,6 +48,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			iconSize = "sm",
 			isResponsive = false,
 			isLoading = false,
+			htmlProps = {},
 			...restProps
 		},
 		ref,
@@ -55,6 +58,7 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 
 		// Default children content
 		children = useDefaultChildren(children, "button label")
+		const { suiInlineClassname } = useStyles(restProps, className ?? "")
 
 		if (isLoading) {
 			isUnwrapped = true
@@ -82,8 +86,8 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			disabled: isDisabled,
 			"full-width": isFullWidth,
 			"is-icon": (startIcon || endIcon) && iconOnly,
-			[`${appearance}-${color}`]: !!appearance && !!color,
-			inline: iconOnly && !appearance,
+			[`${type}-${colorScheme}`]: !!type && !!colorScheme,
+			inline: iconOnly && !type,
 			responsive: isResponsive,
 			loading: isLoading,
 		}
@@ -94,14 +98,15 @@ const Button: React.FC<ButtonProps & InteractionTypes> = forwardRef<
 			target: target || "_blank",
 			htmlFor: condContent(label),
 			// classname
-			className: generateCN(baseClassName, attrClasses, className ?? ""),
+			className: generateCN(baseClassName, attrClasses, suiInlineClassname),
 			disabled: isDisabled,
 			"aria-busy": isLoading,
 			...(isLoading && { "aria-live": "polite" }),
 			"data-testid": "button",
+			..._renderRestPropsSafely(htmlProps),
 			// interaction methods
 			...(interactionMethods ?? {}),
-			...restProps,
+			..._renderRestPropsSafely(restProps),
 		}
 
 		// Root tag

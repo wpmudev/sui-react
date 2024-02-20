@@ -4,19 +4,23 @@ import { Tooltip } from "@wpmudev/sui-tooltip"
 import { DrawerHeaderTypes } from "./drawer.types"
 import { useDrawerContext } from "./drawer-context"
 import { Button } from "@wpmudev/sui-button"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const DrawerHeader = ({
 	className = "",
 	title = "",
 	hintText = "",
 	tooltipOptions = {},
+	...styleProps
 }: DrawerHeaderTypes) => {
-	const classNames = generateCN("sui-drawer__header", {}, className)
+	const { suiInlineClassname } = useStyles(styleProps, className)
+	const classNames = generateCN("sui-drawer__header", {}, suiInlineClassname)
 
 	const ctx = useDrawerContext()
 
 	const onClose = useCallback(() => {
 		ctx?.toggle(false)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ctx.isOpen])
 
 	return (
@@ -26,7 +30,6 @@ const DrawerHeader = ({
 				{!isEmpty(hintText) && (
 					<Tooltip
 						type="icon"
-						name="info"
 						icon="Info"
 						customWidth={160}
 						iconSize="sm"
@@ -39,8 +42,8 @@ const DrawerHeader = ({
 			<div className="sui-drawer__header-close">
 				<Button
 					icon="Close"
-					appearance="tertiary"
-					color="black"
+					type="tertiary"
+					colorScheme="black"
 					isSmall={true}
 					iconOnly={true}
 					onClick={onClose}

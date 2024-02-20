@@ -1,6 +1,8 @@
 // Interface definition for the TabContextProps
 import React, { HTMLProps, ProviderProps } from "react"
 import { IconProps } from "@wpmudev/sui-icon"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Props for the main `Tabs` component that represents the container for all tabs.
@@ -8,7 +10,9 @@ import { IconProps } from "@wpmudev/sui-icon"
  * @interface TabsProps
  * @augments {HTMLProps<HTMLDivElement>}
  */
-interface TabsProps extends HTMLProps<HTMLDivElement> {
+interface TabsProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+		useStylesTypes {
 	className?: string // Additional CSS class names for the `Tabs` component.
 	children?: React.ReactNode // The children components rendered inside the `Tabs` component.
 	activeIndex?: number
@@ -32,7 +36,7 @@ interface TabContextProps {
  *
  * @interface TabNavProps
  */
-interface TabNavProps {
+interface TabNavProps extends useStylesTypes {
 	children?: React.ReactNode // Content of the tab navigation (can be any valid React node).
 }
 
@@ -60,7 +64,7 @@ interface TabPanelItemProps extends TabNavProps {
  *
  * @interface TabNavItemProps
  */
-interface TabNavItemProps {
+interface TabNavItemProps extends useStylesTypes {
 	id?: string // Unique ID for the tab item.
 	children?: React.ReactNode // Content of the tab item (can be any valid React node).
 	icon?: React.ReactNode | never // An optional icon to display with the tab item.

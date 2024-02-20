@@ -6,7 +6,7 @@ import { Tooltip } from "@wpmudev/sui-tooltip"
 import { Tag } from "@wpmudev/sui-tag"
 import { Button } from "@wpmudev/sui-button"
 
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { isFunction, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import { IntegrationProps } from "./integration.types"
@@ -22,6 +22,7 @@ const Integration: React.FC<IntegrationProps> = ({
 	isPro = false,
 	onSettingsClick,
 	onClick,
+	...props
 }) => {
 	// Define image object
 	const icon = Object.assign(
@@ -36,14 +37,19 @@ const Integration: React.FC<IntegrationProps> = ({
 
 	// Define component states
 	const [isActive, setIsActive] = useState(active)
+	const { suiInlineClassname } = useStyles(props)
 
 	// Define container props
-	const classNames = generateCN("sui-integration", {
-		active: isActive && !isDisabled,
-		disabled: isDisabled || isPro,
-		hover: !isDisabled && !isPro && isHovered,
-		focus: !isDisabled && !isPro && isFocused,
-	})
+	const classNames = generateCN(
+		"sui-integration",
+		{
+			active: isActive && !isDisabled,
+			disabled: isDisabled || isPro,
+			hover: !isDisabled && !isPro && isHovered,
+			focus: !isDisabled && !isPro && isFocused,
+		},
+		suiInlineClassname,
+	)
 
 	// Define toggle props
 	const toggleProps = {
@@ -66,7 +72,7 @@ const Integration: React.FC<IntegrationProps> = ({
 		className: "sui-integration-setting-btn",
 		icon: "Settings",
 		label: "settings",
-		appearance: "tertiary",
+		type: "tertiary",
 		color: "black",
 		iconOnly: true,
 		isSmall: true,
@@ -101,7 +107,7 @@ const Integration: React.FC<IntegrationProps> = ({
 					</Tooltip>
 				)}
 				{isPro && (
-					<Tag design="outlined" color="black" isSmall={true}>
+					<Tag design="outlined" colorScheme="black" isSmall={true}>
 						PRO
 					</Tag>
 				)}

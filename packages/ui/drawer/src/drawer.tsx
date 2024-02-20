@@ -10,7 +10,7 @@ import React, {
 import { generateCN } from "@wpmudev/sui-utils"
 
 // Import required element(s)
-import { useOuterClick, usePrevious } from "@wpmudev/sui-hooks"
+import { useOuterClick, usePrevious, useStyles } from "@wpmudev/sui-hooks"
 import { DrawerActions, DrawerTypes } from "./drawer.types"
 import { DrawerProvider } from "./drawer-context"
 
@@ -22,10 +22,11 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 			children,
 			isOpen: propIsOpen = false,
 			size = "default",
-			position = "right",
+			placement = "right",
 			hasContainer = false,
 			disableShadow = false,
 			outerClickClose = true,
+			...styleProps
 		},
 		ref,
 	) => {
@@ -40,6 +41,11 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 			}
 		})
 
+		const { suiInlineClassname } = useStyles(
+			styleProps,
+			`${!hasContainer && "sui-wp-overlay"} ${className}`,
+		)
+
 		// generate classnames
 		const classNames = generateCN(
 			"sui-drawer",
@@ -50,9 +56,9 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 				overlay: !hasContainer,
 				hidden: !isVisible,
 				[size]: !!size,
-				[position]: !!position,
+				[placement]: !!placement,
 			},
-			`${!hasContainer && "sui-wp-overlay"} ${className}`,
+			suiInlineClassname,
 		)
 
 		/**

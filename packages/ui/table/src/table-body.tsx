@@ -2,7 +2,7 @@ import React, {
 	Children,
 	forwardRef,
 	Fragment,
-	HTMLProps,
+	HTMLAttributes,
 	ReactElement,
 	ReactNode,
 	Ref,
@@ -16,6 +16,7 @@ import { ReactSortable as Sortable } from "react-sortablejs"
 import { TableSectionProps } from "./table.types"
 import { TableContext } from "./table-context"
 import { useDetectBrowser } from "@wpmudev/sui-hooks"
+import { _renderRestPropsSafely } from "@wpmudev/sui-utils"
 
 /**
  * TableBody component represents the body section of a table.
@@ -25,7 +26,7 @@ import { useDetectBrowser } from "@wpmudev/sui-hooks"
  * @return {JSX.Element} The JSX representation of the TableBody component.
  */
 const TableBody: React.FC<TableSectionProps> = (props) => {
-	const { children } = props
+	const { children, htmlProps } = props
 	// State to keep track of the table rows
 	const [el, setEl] = useState<ReactNode | ReactNode[]>(
 		Children.toArray(children),
@@ -98,7 +99,11 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 	// If the table is not draggable, render the TableBodyTag with children
 	if (!ctx?.isDraggable) {
 		return (
-			<TableBodyTag {...props} ref={props?.ref as Ref<HTMLTableSectionElement>}>
+			<TableBodyTag
+				{...props}
+				htmlProps={htmlProps}
+				ref={props?.ref as Ref<HTMLTableSectionElement>}
+			>
 				{children}
 			</TableBodyTag>
 		)
@@ -131,10 +136,18 @@ const TableBody: React.FC<TableSectionProps> = (props) => {
 
 // This is just like a normal component, but now has a ref.
 // ForwardRef to forward the ref passed to this component to the underlying tbody element.
-const TableBodyTag = forwardRef<
-	HTMLTableSectionElement,
-	HTMLProps<HTMLTableSectionElement>
->((props, ref) => <tbody ref={ref} {...props} className="sui-table__body" />)
+const TableBodyTag = forwardRef<HTMLTableSectionElement, TableSectionProps>(
+	({ htmlProps, ...props }, ref) => (
+		<tbody
+			ref={ref}
+			{..._renderRestPropsSafely(htmlProps)}
+			className="sui-table__body"
+			{..._renderRestPropsSafely(
+				props as HTMLAttributes<HTMLTableSectionElement>,
+			)}
+		/>
+	),
+)
 
 TableBodyTag.displayName = "TableBodyTag"
 

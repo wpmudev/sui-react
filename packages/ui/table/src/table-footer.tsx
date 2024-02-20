@@ -1,11 +1,22 @@
 import React, { Children, cloneElement } from "react"
 import { TableSectionProps } from "./table.types"
+import { useStyles } from "@wpmudev/sui-hooks"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // TableFooter component represents the footer section of a table.
-const TableFooter: React.FC<TableSectionProps> = ({ children, ...props }) => {
+const TableFooter: React.FC<TableSectionProps> = ({
+	children,
+	htmlProps = {},
+	...props
+}) => {
+	const { suiInlineClassname } = useStyles(props)
+
 	return (
 		<table className="sui-table__table sui-table__table--footer">
-			<tfoot className="sui-table__footer" {...props}>
+			<tfoot
+				className={generateCN("sui-table__footer", {}, suiInlineClassname)}
+				{..._renderRestPropsSafely(htmlProps)}
+			>
 				{Children.toArray(children).map((child: React.ReactNode) =>
 					cloneElement(child as React.ReactElement, {
 						...(child as React.ReactElement).props,

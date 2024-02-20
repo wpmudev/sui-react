@@ -7,7 +7,7 @@ import { generateCN } from "@wpmudev/sui-utils"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 
 import { CodeEditorProps } from "./code-editor.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * CodeEditor Component
@@ -26,14 +26,17 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 	displayLineNumbers = true,
 	className,
 	children,
+	...styleProps
 }) => {
+	const { suiInlineClassname } = useStyles(styleProps, className ?? "")
+
 	// Generate class names
 	const classNames = generateCN(
 		"sui-code-editor",
 		{
 			numbers: displayLineNumbers,
 		},
-		className ?? "",
+		suiInlineClassname,
 	)
 	const [isCopied, setIsCopied] = useState<boolean>(false)
 
@@ -63,10 +66,9 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 				</span>
 				{allowCopy && (
 					<Tooltip
+						buttonProps={{ type: "secondary", colorScheme: "black" }}
 						label="Copy"
-						appearance="secondary"
-						color="black"
-						position="top"
+						placement="top"
 						isSmall={true}
 						aria-label={isCopied ? "Copied" : ""}
 						onMouseLeave={() => setIsCopied(false)}

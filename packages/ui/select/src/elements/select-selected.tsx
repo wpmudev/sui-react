@@ -7,7 +7,11 @@ import React, {
 	useCallback,
 	useState,
 } from "react"
-import { isArray, isUndefined } from "@wpmudev/sui-utils"
+import {
+	_renderRestPropsSafely,
+	isArray,
+	isUndefined,
+} from "@wpmudev/sui-utils"
 import { Icon } from "./select-icon"
 import { InputWithAutoComplete } from "./select-input"
 import { IconsNamesType } from "@wpmudev/sui-icons"
@@ -94,7 +98,11 @@ const Selected: React.FC<SelectSelectedProps> = ({
 				tabIndex={-1}
 				{...interactionMethods}
 			/>
-			<div id={`${id}-control`} className="sui-select__control" {...props}>
+			<div
+				id={`${id}-control`}
+				className="sui-select__control"
+				{..._renderRestPropsSafely(props)}
+			>
 				<div
 					className="sui-accessible-cta"
 					ref={controlRef as LegacyRef<HTMLDivElement>}
