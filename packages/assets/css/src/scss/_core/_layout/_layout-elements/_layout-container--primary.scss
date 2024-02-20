@@ -13,11 +13,11 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-			// margin-left: $layout-spacing-main-md;
+			margin-left: $layout-spacing-main-md;
 
-			// @include media(min-width, sm) {
-			// 	margin-left: $layout-spacing-main-sm;
-			// }
+			@include media(min-width, sm) {
+				margin-left: $layout-spacing-main-sm;
+			}
 
 			* {
 				box-sizing: border-box;
