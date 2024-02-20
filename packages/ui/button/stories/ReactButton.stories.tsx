@@ -109,8 +109,10 @@ Button.args = {
 	isLoading: true,
 	isDisabled: false,
 	isResponsive: false,
-	iconOnly: true,
+	isFullWidth: false,
 	icon: "Add",
+	iconSize: "sm",
+	htmlProps: {},
 }
 
 Button.argTypes = {
@@ -171,14 +173,6 @@ Button.argTypes = {
 				tertiary: "Tertiary",
 			},
 		},
-		if: {
-			arg: "example",
-			neq: "button-toggle",
-		},
-	},
-	iconOnly: {
-		name: "Icon only",
-		control: "boolean",
 	},
 	icon: {
 		name: "Icon",
@@ -187,12 +181,28 @@ Button.argTypes = {
 			type: "select",
 		},
 		if: {
-			arg: "iconOnly",
-			eq: true,
+			arg: "example",
+			eq: "icon",
+		},
+	},
+	iconSize: {
+		name: "Icon Size",
+		options: ["sm", "md", "lg"],
+		control: {
+			type: "select",
+			labels: {
+				sm: "Small",
+				md: "Medium",
+				lg: "Large",
+			},
+		},
+		if: {
+			arg: "example",
+			eq: "icon",
 		},
 	},
 	colorScheme: {
-		name: "colorScheme",
+		name: "Color Scheme",
 		options: ["", "blue", "black", "red", "navy", "white"],
 		control: {
 			type: "select",
@@ -205,13 +215,15 @@ Button.argTypes = {
 				white: "White",
 			},
 		},
-		if: {
-			arg: "example",
-			neq: "button-toggle",
-		},
 	},
 	isSmall: {
 		name: "Small",
+		control: {
+			type: "boolean",
+		},
+	},
+	isFullWidth: {
+		name: "Full Width",
 		control: {
 			type: "boolean",
 		},
@@ -240,6 +252,12 @@ Button.argTypes = {
 		if: {
 			arg: "example",
 			eq: "label-icon",
+		},
+	},
+	htmlProps: {
+		name: "HTML Props",
+		control: {
+			type: "object",
 		},
 	},
 }

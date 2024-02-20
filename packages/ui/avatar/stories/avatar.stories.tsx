@@ -45,7 +45,7 @@ const Avatar = ({ example, ...props }: { example: string }) => {
 // Set story arguments.
 Avatar.args = {
 	example: "icon",
-	status: "",
+	status: "none",
 	image: {
 		alt: "Unreal Person avatar image",
 		src: image,
