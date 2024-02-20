@@ -119,4 +119,6 @@ Radio.argTypes = {
 		name: "Compound radio",
 		type: "boolean",
 	},
+	value: { table: { disable: true } },
+	htmlProps: { table: { disable: true } },
 }

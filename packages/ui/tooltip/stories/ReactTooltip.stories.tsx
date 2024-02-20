@@ -91,7 +91,7 @@ Tooltip.argTypes = {
 		},
 	},
 	placement: {
-		name: "placement",
+		name: "Placement",
 		options: [
 			"top",
 			"top-left",

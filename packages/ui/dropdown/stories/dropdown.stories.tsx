@@ -203,7 +203,7 @@ Dropdown.args = {
 	isFixedHeight: true,
 	iconOnly: false,
 	renderContentOnTop: false,
-	direction: "right",
+	placement: "right",
 	buttonIcon: "Menu",
 	onMenuClick: () => {},
 }
@@ -238,8 +238,8 @@ Dropdown.argTypes = {
 		name: "On Click",
 		type: Function,
 	},
-	direction: {
-		name: "Direction",
+	placement: {
+		name: "Placement",
 		options: ["left", "right"],
 		control: {
 			type: "select",
@@ -249,4 +249,6 @@ Dropdown.argTypes = {
 			},
 		},
 	},
+	isResponsive: { table: { disable: true } },
+	htmlProps: { table: { disable: true } },
 }

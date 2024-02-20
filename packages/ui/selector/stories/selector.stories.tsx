@@ -199,4 +199,9 @@ Selector.argTypes = {
 			},
 		},
 	},
+	onChange: { table: { disable: true } },
+	onRemove: { table: { disable: true } },
+	value: { table: { disable: true } },
+	isChecked: { table: { disable: true } },
+	defaultValue: { table: { disable: true } },
 }

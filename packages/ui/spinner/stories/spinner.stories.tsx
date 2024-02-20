@@ -11,7 +11,7 @@ import docs from "./Spinner.mdx"
 // Configure default options
 export default {
 	title: "SUI/Components/Core/Spinner",
-	// component: Button,
+	component: SControl,
 	parameters: {
 		layout: "fullscreen",
 		docs: {
@@ -85,8 +85,8 @@ const Spinner = ({ ...args }) => {
 // Set story arguments.
 Spinner.args = {
 	isAbsolute: false,
-	size: "lg",
-	color: "primary",
+	loaderSize: "lg",
+	colorScheme: "primary",
 	isContained: false,
 }
 

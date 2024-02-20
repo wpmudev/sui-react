@@ -53,7 +53,7 @@ Textarea.argTypes = {
 		type: "string",
 	},
 	customWidth: {
-		name: "customWidth",
+		name: "Custom Width",
 		type: "number",
 	},
 	isError: {

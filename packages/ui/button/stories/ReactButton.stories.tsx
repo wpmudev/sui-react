@@ -112,7 +112,6 @@ Button.args = {
 	isFullWidth: false,
 	icon: "Add",
 	iconSize: "sm",
-	htmlProps: {},
 }
 
 Button.argTypes = {
@@ -254,12 +253,9 @@ Button.argTypes = {
 			eq: "label-icon",
 		},
 	},
-	htmlProps: {
-		name: "HTML Props",
-		control: {
-			type: "object",
-		},
-	},
+	htmlProps: { table: { disable: true } },
+	isUnwrapped: { table: { disable: true } },
+	startIcon: { table: { disable: true } },
 }
 
 // Publish required stories.

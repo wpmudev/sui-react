@@ -259,6 +259,8 @@ Drawer.argTypes = {
 			type: "boolean",
 		},
 	},
+	className: { table: { disable: true } },
+	isOpen: { table: { disable: true } },
 }
 
 // Publish required stories

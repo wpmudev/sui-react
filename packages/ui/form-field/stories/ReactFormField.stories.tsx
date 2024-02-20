@@ -141,7 +141,10 @@ FormField.argTypes = {
 			neq: false,
 		},
 	},
-	className: {},
+	className: {
+		name: "Class Name",
+		control: "text",
+	},
 	isSmall: {
 		name: "Small",
 		control: "boolean",
@@ -155,7 +158,11 @@ FormField.argTypes = {
 		control: "boolean",
 	},
 	customWidth: {
-		name: "customWidth",
+		name: "Custom Width",
 		control: "number",
+		if: {
+			arg: "example",
+			neq: "",
+		},
 	},
 }
