@@ -41,10 +41,6 @@ interface ColorPickerProps extends useStylesTypes {
 	 */
 	isFluid?: boolean
 	/**
-	 * Small sized
-	 */
-	isSmall?: boolean
-	/**
 	 * callback when reset
 	 */
 	onReset?: Function
