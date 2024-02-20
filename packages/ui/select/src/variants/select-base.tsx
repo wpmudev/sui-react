@@ -140,6 +140,11 @@ const Select: React.FC<SelectBaseProps> = ({
 		setIsDropdownOpen(false)
 	})
 
+	// update options
+	useEffect(() => {
+		setItems(options ?? [])
+	}, [options])
+
 	useEffect(() => {
 		setSelectedItems(selected)
 	}, [selected])
@@ -180,8 +185,8 @@ const Select: React.FC<SelectBaseProps> = ({
 		const currentItems = filteredItemList.length > 0 ? filteredItemList : label
 
 		if (isMultiSelect) {
-			updateItem(currentItems ?? "")
-		} else if (currentItems?.length) {
+			updateItem("string" === typeof currentItems ? [] : currentItems)
+		} else if (currentItems?.length && !isMultiSelect) {
 			// Select the first item
 			const item = currentItems?.[0]
 			// @ts-ignore: improve
