@@ -106,7 +106,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			..._renderRestPropsSafely(htmlProps),
 			// interaction methods
 			...(interactionMethods ?? {}),
-			...restProps,
+			..._renderRestPropsSafely(restProps),
 		}
 
 		// Root tag
