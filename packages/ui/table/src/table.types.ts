@@ -119,6 +119,11 @@ interface TableProps extends SuiHTMLAttributes, useStylesTypes {
 	 * Make columns sticky
 	 */
 	stickyCols?: boolean
+
+	/**
+	 * Whether to show filters or not
+	 */
+	showFiltersBtn?: boolean
 }
 
 /**
@@ -376,6 +381,11 @@ interface TableContextProps {
 	 * Function to set the hasStickyCols state.
 	 */
 	setHasStickyCols(hasColumn: boolean): void
+
+	/**
+	 * Whether to show filters or not
+	 */
+	showFiltersBtn?: boolean
 }
 
 /**
@@ -398,7 +408,11 @@ interface TableContextProviderProps {
 		onAction?: TableOnActionType
 	} & Pick<
 		TableContextProps,
-		"allowCheck" | "isDraggable" | "bulkActions" | "stickyCols"
+		| "allowCheck"
+		| "isDraggable"
+		| "bulkActions"
+		| "stickyCols"
+		| "showFiltersBtn"
 	>
 }
 

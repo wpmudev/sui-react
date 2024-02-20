@@ -89,6 +89,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({ htmlProps, ...props }) => {
 						</Fragment>
 					)}
 				</div>
+
 				<div className="sui-table__toolbar-header-actions">
 					<Input
 						id="input-id-4"
@@ -97,31 +98,35 @@ const TableToolbar: React.FC<TableSectionProps> = ({ htmlProps, ...props }) => {
 						onChange={onSearch}
 						isSmall={true}
 					/>
-					{ctx?.filtersPopover ? (
-						<Dropdown
-							label="Filter"
-							className="sui-table__toolbar-filter"
-							buttonIcon="Filter"
-							placement="left"
-							isSmall={true}
-							isFixedHeight={false}
-						>
-							{content}
-						</Dropdown>
-					) : (
-						<Button
-							id={filterBtnId}
-							className="sui-table__toolbar-filter"
-							icon="Filter"
-							colorScheme="black"
-							type="secondary"
-							isSmall={true}
-							onClick={() => setIsExpanded(!isExpanded)}
-							aria-controls={bodyId}
-							aria-expanded={isExpanded}
-						>
-							Filter
-						</Button>
+					{ctx?.showFiltersBtn && (
+						<>
+							{ctx?.filtersPopover ? (
+								<Dropdown
+									label="Filter"
+									className="sui-table__toolbar-filter"
+									buttonIcon="Filter"
+									placement="left"
+									isSmall={true}
+									isFixedHeight={false}
+								>
+									{content}
+								</Dropdown>
+							) : (
+								<Button
+									id={filterBtnId}
+									className="sui-table__toolbar-filter"
+									icon="Filter"
+									colorScheme="black"
+									type="secondary"
+									isSmall={true}
+									onClick={() => setIsExpanded(!isExpanded)}
+									aria-controls={bodyId}
+									aria-expanded={isExpanded}
+								>
+									Filter
+								</Button>
+							)}
+						</>
 					)}
 				</div>
 			</div>
