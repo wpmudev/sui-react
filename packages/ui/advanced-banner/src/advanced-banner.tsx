@@ -1,8 +1,9 @@
 import React from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import { AdvancedBannerProps } from "./advanced-banner.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build "advanced-banner" component
 const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
@@ -19,17 +20,21 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 	// Black friday variation props
 	ctaTitle = "cta title",
 	onCTAClick = () => {},
+	htmlProps = {},
+	...styleProps
 }) => {
+	const { suiInlineClassname } = useStyles(styleProps, className)
+
 	// Define class name
 	const classNames = generateCN(
 		"sui-advanced-banner",
 		{
 			[variation]: !isEmpty(variation),
 		},
-		className,
+		suiInlineClassname,
 	)
 
-	let closeBtnColor: ButtonProps["color"] = "black"
+	let closeBtnColor: ButtonProps["colorScheme"] = "black"
 
 	// Display white button for following variations
 	if (["black-friday", "hub"].includes(variation)) {
@@ -37,7 +42,11 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 	}
 
 	return (
-		<div className={classNames} data-testid="advanced-banner">
+		<div
+			className={classNames}
+			data-testid="advanced-banner"
+			{..._renderRestPropsSafely(htmlProps)}
+		>
 			{"black-friday" === variation && !!discountPercentage && (
 				<div className="sui-advanced-banner__graphic">
 					<div className="sui-heading--h3 sui-advanced-banner__graphic-text">
@@ -92,10 +101,10 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 				>
 					<Button
 						icon="Close"
-						appearance="tertiary"
+						type="tertiary"
 						isSmall={true}
 						iconOnly={true}
-						color={closeBtnColor}
+						colorScheme={closeBtnColor}
 						onClick={onClose}
 						aria-label="close"
 					/>

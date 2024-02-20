@@ -2,6 +2,40 @@ import React, { MouseEvent, KeyboardEvent } from "react"
 import classnames from "classnames"
 import { render } from "@testing-library/react"
 import { axe } from "jest-axe"
+import { CSS_SHORTHAND_MAPS } from "@wpmudev/sui-hooks"
+
+type DataAttributeKey = `data-${string}`
+
+// HTMLAttributes with data-* attribute
+type SuiHTMLAttributes<T = any> = {
+	htmlProps?: T & { [dataAttribute: DataAttributeKey]: any }
+}
+
+// Removes key from nested types
+type OmitNestedKey<T, K extends keyof T, NK extends keyof NonNullable<T[K]>> = {
+	[P in keyof T]: P extends K
+		? NonNullable<T[P]> extends Record<NK, any>
+			? Omit<NonNullable<T[P]>, NK>
+			: T[P]
+		: T[P]
+}
+
+/**
+ * Check if a key is valid CSS property
+ *
+ * @param {string}  name             prop key
+ * @param {boolean} includeShorthand include shorthand props
+ */
+const isValidCSSProperty = (name: string, includeShorthand: boolean = true) => {
+	let cssProps = Object.keys(document?.body?.style)
+
+	// include shorthand css properties
+	if (includeShorthand) {
+		cssProps = [...cssProps, ...Object.keys(CSS_SHORTHAND_MAPS)]
+	}
+
+	return cssProps?.indexOf(name) > -1
+}
 
 /**
  * Generate class names based on the prop variables.
@@ -15,8 +49,8 @@ import { axe } from "jest-axe"
 const generateCN = (
 	base: string,
 	variants: Record<string, any> = {},
-	extraClassNames = "",
-) => {
+	extraClassNames: string = "",
+): string => {
 	// append variant's class name
 	const classes = Object.keys(variants).map((attr: string) => ({
 		[`${base}--${attr}`]: !!variants?.[attr],
@@ -37,8 +71,8 @@ const generateCN = (
 const condContent = (
 	condition: unknown,
 	content: unknown = null,
-	fallback = undefined,
-) => {
+	fallback: any = undefined,
+): any | undefined => {
 	// use condition as content if passed
 	if (isNull(content)) {
 		content = condition
@@ -72,7 +106,7 @@ const isUndefined = (value: unknown) => "undefined" === typeof value
  *
  * @return {boolean} returns True if value is an object type
  */
-const isObject = (value: unknown) => {
+const isObject = (value: unknown): boolean => {
 	return "object" === typeof value && !Array.isArray(value)
 }
 
@@ -92,7 +126,7 @@ const isArray = (value: unknown): boolean => Array.isArray(value)
  *
  * @return {boolean} Returns true if boolean
  */
-const isBoolean = (value: unknown) => "boolean" === typeof value
+const isBoolean = (value: unknown): boolean => "boolean" === typeof value
 
 /**
  * Check if value is number
@@ -101,7 +135,7 @@ const isBoolean = (value: unknown) => "boolean" === typeof value
  *
  * @return {boolean} Returns true if value is number
  */
-const isNumber = (value: unknown) => {
+const isNumber = (value: unknown): boolean => {
 	return "number" === typeof value || !Number.isNaN(value)
 }
 
@@ -111,7 +145,7 @@ const isNumber = (value: unknown) => {
  * @param {unknown} value Value to be checked
  * @return {boolean} Returns true if variable is function
  */
-const isFunction = (value: unknown) => "function" === typeof value
+const isFunction = (value: unknown): boolean => "function" === typeof value
 
 /**
  * Check if value is string
@@ -119,7 +153,7 @@ const isFunction = (value: unknown) => "function" === typeof value
  * @param {unknown} value Value to be checked
  * @return {boolean} Returns true if a variable is string
  */
-const isString = (value: unknown) => "string" === typeof value
+const isString = (value: unknown): boolean => "string" === typeof value
 
 /**
  * Check if string is empty
@@ -127,7 +161,7 @@ const isString = (value: unknown) => "string" === typeof value
  * @param {string | undefined} value string to be checked
  * @return {boolean} Returns true if string is blank
  */
-const isEmpty = (value?: string) => "" === value
+const isEmpty = (value?: string): boolean => "" === value
 
 /**
  * Capitalize text
@@ -136,7 +170,7 @@ const isEmpty = (value?: string) => "" === value
  *
  * @return {string} Capitalize text
  */
-const capitalizeText = (string: string) => {
+const capitalizeText = (string: string): string => {
 	return string?.charAt(0)?.toUpperCase() + string?.slice(1)
 }
 
@@ -270,7 +304,7 @@ const PluginsIcons: Record<PluginsSlug, PluginIconTypes> = {
  *
  * @return {any[][]} - An array of arrays containing the chunks
  */
-const chunkArray = (arr: any[], size: number) => {
+const chunkArray = (arr: any[], size: number): any[][] => {
 	const chunkedArray = []
 
 	// Iterate through the input array, creating chunks of the specified size
@@ -302,6 +336,39 @@ const a11yTest = async (component: React.ReactElement, config?: object) => {
 	}
 }
 
+/**
+ * Use this method to detect if code is executed by Jest (test runner)
+ */
+const _isTestingMode = () => process.env.JEST_WORKER_ID !== undefined
+
+/**
+ * It is an internal method to render rest props list safely
+ *
+ * @param {Record<string, any>} propsList            props list
+ * @param {boolean}             excludeCSSProperties exclude CSSProperties
+ */
+const _renderRestPropsSafely = (
+	propsList?: Record<string, any>,
+	excludeCSSProperties: boolean = true,
+) => {
+	let toReturn = {}
+	propsList = propsList ?? {}
+
+	for (const propKey of Object.keys(propsList)) {
+		// skip if a valid CSS property
+		if (excludeCSSProperties && isValidCSSProperty(propKey)) {
+			continue
+		}
+
+		toReturn = {
+			...toReturn,
+			[propKey]: propsList[propKey],
+		}
+	}
+
+	return toReturn
+}
+
 // Publish required function(s).
 export {
 	isNull,
@@ -320,6 +387,11 @@ export {
 	handleEventDefault,
 	PluginsIcons,
 	chunkArray,
+	isValidCSSProperty,
+	_renderRestPropsSafely,
 	// jest utilities
 	a11yTest,
+	_isTestingMode,
 }
+
+export type { SuiHTMLAttributes, OmitNestedKey }

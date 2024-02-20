@@ -9,6 +9,7 @@ import React, {
 } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 import { CheckboxProvider, useCheckbox } from "./checkbox-context"
 import {
@@ -27,6 +28,7 @@ const _CheckboxGroupInner = ({
 	commonCheckboxProps,
 	isInline,
 	id,
+	...styleProps
 }: _CheckboxGroupInnerProps) => {
 	// Destructure props for easier access
 
@@ -36,17 +38,23 @@ const _CheckboxGroupInner = ({
 	// Access checkbox context methods and items
 	const { items, setItems, addToList } = useCheckbox()
 
-	// unique id to be used in diffrent places
+	// unique id to be used in different places
 	const uuid = useId()
+
+	const { suiInlineClassname } = useStyles(styleProps)
 
 	// Generate a unique ID for the checkbox group
 	const checkboxGroupId = id ?? `sui-checkbox-group-${uuid}`
 
 	// Define CSS class names for the checkbox group
-	const className = generateCN("sui-checkbox__group", {
-		nested: hasSubItems,
-		inline: isInline,
-	})
+	const className = generateCN(
+		"sui-checkbox__group",
+		{
+			nested: hasSubItems,
+			inline: isInline,
+		},
+		suiInlineClassname,
+	)
 
 	// Filter items belonging to the current group
 	const group = items.filter((item) => item.groupId === checkboxGroupId)
@@ -153,6 +161,7 @@ const CheckboxGroup = ({
 	commonCheckboxProps = {},
 	onChange = () => {},
 	_isMultiGroup = false,
+	...styleProps
 }: CheckboxGroupProps) => {
 	// Function to conditionally wrap content with CheckboxProvider for managing checkbox state
 	const withWrapper = (content: ReactElement | null = null) => {
@@ -173,6 +182,7 @@ const CheckboxGroup = ({
 			commonCheckboxProps={commonCheckboxProps ?? {}}
 			hasSubItems={hasSubItems ?? false}
 			isInline={isInline ?? false}
+			{...styleProps}
 		>
 			{children}
 		</_CheckboxGroupInner>,

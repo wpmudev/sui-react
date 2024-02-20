@@ -6,7 +6,7 @@ import DatePickerPopover from "./date-picker-popover"
 import { DatePickerProvider } from "./date-picker-context"
 import { DatePickerInput } from "./date-picker-input"
 import { DatePickerProps } from "./date-picker.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Define an object to store unique symbols associated with calendar types
 export const CALENDARS: { [key: string]: symbol } = {
@@ -30,6 +30,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	...props
 }) => {
 	const pickType: string = type ?? "single"
+	const { suiInlineClassname } = useStyles(props, className ?? "")
 
 	// Generate class names for the component
 	const classNames = generateCN(
@@ -38,7 +39,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 			[pickType]: !isEmpty(pickType),
 		},
 		// Append any custom className provided by the parent component
-		className ?? "",
+		suiInlineClassname,
 	)
 
 	// Define aria attributes.

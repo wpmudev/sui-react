@@ -22,7 +22,8 @@ import {
 	isImageFile,
 	getObjectFileFromUrl,
 } from "./helper"
-import { isEmpty } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // The Uploader component displays a file uploader with drag-and-drop support and file previews.
 const Uploader: React.FC<UploaderProps> = ({
@@ -34,6 +35,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	onChange = () => {},
 	maxSize,
 	maxSizeText = "Message to appear when file size exeeds the max given",
+	htmlProps = {},
 	...props
 }) => {
 	// To display notifications
@@ -86,6 +88,7 @@ const Uploader: React.FC<UploaderProps> = ({
 		if (onChange) {
 			onChange(files)
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [files])
 
 	// Callback to handle file selection
@@ -135,6 +138,7 @@ const Uploader: React.FC<UploaderProps> = ({
 			// Append new files to the existing files array
 			setFiles([...files, ...tempSelectedFiles])
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[files],
 	)
 
@@ -153,10 +157,16 @@ const Uploader: React.FC<UploaderProps> = ({
 		[files],
 	)
 
+	const { suiInlineClassname } = useStyles(props)
+
 	return (
 		<Fragment>
 			<NotificationRenderer />
-			<div className="sui-uploader" data-testid="uploader">
+			<div
+				className={generateCN("sui-uploader", {}, suiInlineClassname)}
+				data-testid="uploader"
+				{..._renderRestPropsSafely(htmlProps)}
+			>
 				{/* Hidden input field to handle file selection */}
 				<input
 					type="file"
@@ -167,7 +177,7 @@ const Uploader: React.FC<UploaderProps> = ({
 					multiple={multiple}
 					accept={accept}
 					hidden={true}
-					{...props}
+					{..._renderRestPropsSafely(props)}
 				/>
 
 				{/* Render the uploader button when multiple selection is allowed or no files are selected */}

@@ -8,6 +8,7 @@ import { DropdownMenuItemProps } from "@wpmudev/sui-dropdown"
 import { PluginsSlug } from "@wpmudev/sui-utils"
 
 import { AvatarProps } from "@wpmudev/sui-avatar"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 // Represents the base props for a DropdownMenu component.
 interface NavigationUserMenuBaseProps {
@@ -37,7 +38,7 @@ interface NavigationUserMenuGroupProps extends NavigationUserMenuBaseProps {
 	menus: Array<NavigationUserMenuItemProps>
 }
 
-interface NavigationBrandProps {
+interface NavigationBrandProps extends useStylesTypes {
 	/*
 	 * Optional: Plugin information for the brand.
 	 */
@@ -87,7 +88,7 @@ interface NavigationUserProps {
 }
 
 // interface definition for the Navigation
-interface NavigationProps {
+interface NavigationProps extends useStylesTypes {
 	/*
 	 * Brand information.
 	 */

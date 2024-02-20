@@ -3,8 +3,13 @@
 import React, { useId } from "react"
 
 // Import required component(s)
-import { generateCN, isEmpty, handleOnKeyDown } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import {
+	generateCN,
+	isEmpty,
+	handleOnKeyDown,
+	_renderRestPropsSafely,
+} from "@wpmudev/sui-utils"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import Icons from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 import { SegmentedControlButtonProps } from "./segmented-control.types"
@@ -35,9 +40,14 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	// Retrieve context values and interaction methods for the button.
 	const { onClick, name, value: ctxValue } = useSegmentedControl(value)
 	const [isHovered, isFocused, methods] = useInteraction({})
+	const { suiInlineClassname } = useStyles(props)
 
 	// Generate class names for the button.
-	const classNames = generateCN("sui-segmented-control__button", {})
+	const classNames = generateCN(
+		"sui-segmented-control__button",
+		{},
+		suiInlineClassname,
+	)
 
 	// Check if the button is active based on its value and the context value.
 	const isActive = value === ctxValue
@@ -50,7 +60,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	}
 
 	return (
-		<span className={classNames} {...props}>
+		<span className={classNames} {..._renderRestPropsSafely(props)}>
 			{/* The input element serves as the radio button, connected to the label element. */}
 			<input
 				type="radio"

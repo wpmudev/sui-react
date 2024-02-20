@@ -4,9 +4,10 @@
 import { ReactNode } from "react"
 
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 // interface definition for the NotificationProps
-interface NotificationProps {
+interface NotificationProps extends useStylesTypes {
 	id?: string // unique ID for the notification
 	title?: ReactNode // title content of the notification (can be any valid React node)
 	message?: ReactNode // message content of the notification (can be any valid React node)

@@ -34,7 +34,11 @@ describe("@wpmudev/sui-input", () => {
 	it("allowClear prop works fine", () => {
 		// Render the Input component with allowClear set to true and a value
 		render(
-			<Input id="allow-clear-check" allowClear={true} value="Hello World" />,
+			<Input
+				id="allow-clear-check"
+				allowClear={true}
+				defaultValue="Hello World"
+			/>,
 		)
 
 		// Check if the "Clear" text is present in the document

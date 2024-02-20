@@ -1,7 +1,9 @@
+import { useStylesTypes } from "@wpmudev/sui-hooks"
+
 /**
  * Represents the properties for a column component.
  */
-interface ColProps {
+interface ColProps extends useStylesTypes {
 	/**
 	 * The size of the column.
 	 */

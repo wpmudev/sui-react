@@ -1,9 +1,13 @@
-import React from "react"
+import React, { HTMLProps } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Interface representing the properties of an icon component.
  */
-interface IconProps {
+interface IconProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLOrSVGElement>>,
+		useStylesTypes {
 	/**
 	 * Custom element type to be used for rendering the icon.
 	 */
@@ -23,11 +27,11 @@ interface IconProps {
 	/**
 	 * SVG icon height
 	 */
-	height?: number
+	iconHeight?: number
 	/**
 	 * SVG icon width
 	 */
-	width?: number
+	iconWidth?: number
 	/**
 	 * SVG icon size
 	 */
@@ -39,7 +43,13 @@ interface IconProps {
 	/**
 	 * SVG icon state (color)
 	 */
-	color?: "" | "neutral" | "informative" | "success" | "warning" | "critical"
+	colorScheme?:
+		| ""
+		| "neutral"
+		| "informative"
+		| "success"
+		| "warning"
+		| "critical"
 	/**
 	 * When click on icon
 	 *

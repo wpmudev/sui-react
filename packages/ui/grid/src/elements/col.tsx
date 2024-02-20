@@ -1,34 +1,32 @@
 import React from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { ColProps } from "../grid.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
-const Col: React.FC<ColProps> = ({ size, children, className, ...props }) => {
+const Col: React.FC<ColProps> = ({
+	size,
+	children,
+	className,
+	htmlProps = {},
+	...props
+}) => {
+	const { suiInlineClassname } = useStyles(props, className)
+
 	const classNames = generateCN(
 		"sui-col",
 		{
 			// Define class based on the column size
 			[size as string]: !!size,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	// Default children content
 	children = useDefaultChildren(children, "{Column children content}")
 
-	// remove if exists
-	if ("colSize" in props) {
-		delete props?.colSize
-	}
-
-	// remove if exists
-	if ("size" in props) {
-		delete props?.size
-	}
-
 	return (
-		<div className={classNames} {...props}>
+		<div className={classNames} {..._renderRestPropsSafely(htmlProps)}>
 			{children}
 		</div>
 	)

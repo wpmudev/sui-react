@@ -17,6 +17,7 @@ import {
 	ConfigActionTypes,
 } from "./config-table.types"
 import { ConfigTableDetails } from "./config-table-details"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Render options to be displayed in a table.
 const ConfigTable: React.FC<ConfigTableTypes> = ({
@@ -26,14 +27,8 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	hasCreatedDate = false,
 	hasLastApplied = false,
 	proItems = [],
+	...styleProps
 }) => {
-	/**
-	 * Render config options inside table content
-	 *
-	 * @param {Record<string, any>} config
-	 * @return {JSX.Element} Expand content
-	 */
-
 	/**
 	 * Handle an action click.
 	 *
@@ -49,8 +44,10 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 		[onActionClick],
 	)
 
+	const { suiInlineClassname } = useStyles(styleProps, className)
+
 	// classnames
-	const classNames = generateCN("sui-config-table", {}, className)
+	const classNames = generateCN("sui-config-table", {}, suiInlineClassname)
 
 	return (
 		<Table className={classNames} hasToolbar={false}>
@@ -84,8 +81,8 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 							<Fragment>
 								<Button
 									isSmall={true}
-									color="blue"
-									appearance="tertiary"
+									colorScheme="blue"
+									type="tertiary"
 									onClick={(e) => {
 										e.preventDefault()
 										actionClick(config.id, "apply")
@@ -97,9 +94,9 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 									icon="Settings"
 									isSmall={true}
 									iconOnly={true}
-									color="black"
+									colorScheme="black"
 									aria-label="settings"
-									appearance="tertiary"
+									type="tertiary"
 									onClick={(e) => {
 										e.preventDefault()
 										actionClick(config.id, "configure")
@@ -116,7 +113,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 									<Tooltip
 										type="icon"
 										icon="InfoAlt"
-										position="right-bottom"
+										placement="right-bottom"
 										customWidth={160}
 										customMobileWidth={160}
 									>

@@ -1,5 +1,7 @@
 import React, { Children, cloneElement, isValidElement, ReactNode } from "react"
 import { TabPanelProps } from "../tabs.types"
+import { useStyles } from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 
 /**
  * TabPanel Component
@@ -11,9 +13,11 @@ import { TabPanelProps } from "../tabs.types"
  *
  * @return {JSX.Element} The TabPanel component.
  */
-const TabPanel: React.FC<TabPanelProps> = ({ children }) => {
+const TabPanel: React.FC<TabPanelProps> = ({ children, ...props }) => {
+	const { suiInlineClassname } = useStyles(props)
+
 	return (
-		<div className="sui-tab__panel">
+		<div className={generateCN("sui-tab__panel", {}, suiInlineClassname)}>
 			{/* Map through the children to clone and update their props */}
 			{Children.map(children, (child: ReactNode, index: number) => {
 				if (isValidElement(child)) {

@@ -6,7 +6,7 @@ import { Tag } from "@wpmudev/sui-tag"
 import { IconProps } from "@wpmudev/sui-icon"
 import { DashboardWidgetProps } from "./dashboard-widget.types"
 import { Toggle } from "@wpmudev/sui-toggle"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * DashboardWidget component displays a widget with optional title, description,
@@ -28,12 +28,19 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	onToggle = () => {},
 	children,
 	actions,
-}) => {
+	...styleProps
+}: DashboardWidgetProps) => {
+	const { suiInlineClassname } = useStyles(styleProps)
+
 	// Generate classnames for the dashboard widget
-	const classNames: string = generateCN("sui-dashboard-widget", {
-		expanded: isExpanded,
-		disabled: isDisabled,
-	})
+	const classNames: string = generateCN(
+		"sui-dashboard-widget",
+		{
+			expanded: isExpanded,
+			disabled: isDisabled,
+		},
+		suiInlineClassname,
+	)
 
 	// Default children content
 	children = useDefaultChildren(children)
@@ -75,7 +82,11 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 						<h4 className="sui-heading--h4 sui-dashboard-widget__header-title">
 							{title}
 							{tag && (
-								<Tag color="black" design="outlined" {...(tagAttrs ?? {})}>
+								<Tag
+									colorScheme="black"
+									design="outlined"
+									{...(tagAttrs ?? {})}
+								>
 									{tag}
 								</Tag>
 							)}

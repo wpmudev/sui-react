@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import Icons from "@wpmudev/sui-icons"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 import { AlertBannerProps } from "./alert-banner.types"
 
@@ -14,12 +14,14 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	isCenter = false,
 	isDismissible = true,
 	onDismiss = () => {},
+	...styleProps
 }) => {
 	// State to control the visibility of the alert banner
 	const [isVisible, setIsVisible] = useState(true)
 
 	// default children content
 	children = useDefaultChildren(children)
+	const { suiInlineClassname } = useStyles(styleProps)
 
 	/**
 	 * Callback function to hide the alert banner when clicking on the dismiss button.
@@ -35,9 +37,13 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	if (!isVisible) return null
 
 	// Generate classnames for the alert banner
-	const classNames = generateCN("sui-alert-banner", {
-		[variation as string]: !isEmpty(variation ?? ""),
-	})
+	const classNames = generateCN(
+		"sui-alert-banner",
+		{
+			[variation as string]: !isEmpty(variation ?? ""),
+		},
+		suiInlineClassname,
+	)
 
 	// Set Icon & iconColor based on "variation" value
 	let Icon
@@ -68,7 +74,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	}
 
 	// Set the dismiss button color and center flag based on variation
-	let dismissBtnColor: ButtonProps["color"] = "black"
+	let dismissBtnColor: ButtonProps["colorScheme"] = "black"
 	if (["hub-upsell", "plugin-upsell"].includes(variation ?? "")) {
 		dismissBtnColor = "white"
 		isCenter = true
@@ -104,8 +110,8 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 				>
 					<Button
 						icon="Close"
-						appearance="tertiary"
-						color={dismissBtnColor}
+						type="tertiary"
+						colorScheme={dismissBtnColor}
 						isSmall={true}
 						iconOnly={true}
 						onClick={onClose}

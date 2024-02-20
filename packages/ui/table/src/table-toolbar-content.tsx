@@ -14,17 +14,21 @@ import { Select, SelectOptionType } from "@wpmudev/sui-select"
 import { Button } from "@wpmudev/sui-button"
 
 import { TableContext } from "./table-context"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 // Table toolbar content component displays filter options and actions.
 const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 	id,
 	filterBtnId,
 	isExpanded,
+	htmlProps = {},
+	...props
 }) => {
 	// Get table context
 	const ctx = useContext(TableContext)
 	// Get filters from context
 	const filters = ctx?.filters
+	const { suiInlineClassname } = useStyles(props)
 
 	// If there are no filters, return null to hide the toolbar content
 	if (!filters) {
@@ -42,7 +46,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 	const renderField = (
 		filter: TableToolbarFilterSelect | TableToolbarFilterText,
 		index: number,
-	) => (
+	): JSX.Element => (
 		<FormField
 			key={index}
 			id={filter?.id ?? ""}
@@ -86,8 +90,8 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 	const filterActions = (
 		<div className="sui-table__toolbar-cta">
 			<Button
-				appearance="tertiary"
-				color="black"
+				type="tertiary"
+				colorScheme="black"
 				isSmall={true}
 				isDisabled={ctx?.filterValues?.length <= 0}
 				onClick={() => ctx?.clearFilters()}
@@ -95,8 +99,8 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 				Clear filters
 			</Button>
 			<Button
-				appearance="secondary"
-				color="black"
+				type="secondary"
+				colorScheme="black"
 				isSmall={true}
 				isDisabled={ctx?.filterValues?.length <= 0}
 				onClick={() => ctx?.triggerAction("apply-filters", ctx?.filterValues)}
@@ -110,10 +114,15 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 		<div
 			id={id}
 			aria-labelledby={filterBtnId}
-			className={generateCN("sui-table__toolbar-body", {
-				expanded: isExpanded || !!ctx?.filtersPopover,
-				inline: !ctx?.filtersPopover,
-			})}
+			className={generateCN(
+				"sui-table__toolbar-body",
+				{
+					expanded: isExpanded || !!ctx?.filtersPopover,
+					inline: !ctx?.filtersPopover,
+				},
+				suiInlineClassname,
+			)}
+			{...htmlProps}
 		>
 			{ctx?.filtersPopover ? (
 				<Fragment>

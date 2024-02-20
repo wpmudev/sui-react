@@ -1,10 +1,14 @@
 import React, { HTMLProps } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * This interface defines the props for the Textarea component.
  * It extends the HTMLProps<HTMLTextAreaElement> type to inherit standard HTML textarea element props.
  */
-interface TextareaProps extends HTMLProps<HTMLTextAreaElement> {
+interface TextareaProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLTextAreaElement>>,
+		useStylesTypes {
 	/** ID for the textarea element. */
 	id?: string
 
@@ -31,6 +35,12 @@ interface TextareaProps extends HTMLProps<HTMLTextAreaElement> {
 
 	/** Custom width in pixels. */
 	customWidth?: number
+
+	/* Textarea placeholder */
+	placeholder?: string
+
+	// Textarea number
+	rows?: number
 }
 
 export type { TextareaProps }

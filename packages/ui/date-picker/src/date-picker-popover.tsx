@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useRef } from "react"
+import React, { Fragment, LegacyRef, useContext, useRef } from "react"
 
 import { Button } from "@wpmudev/sui-button"
 import { generateCN } from "@wpmudev/sui-utils"
@@ -7,11 +7,15 @@ import { DatePickerMonth } from "./date-picker-month"
 import { CALENDARS } from "./date-picker"
 import { DatePickerContext } from "./date-picker-context"
 import { DatePickerRange } from "./date-picker-ranges"
-import { useOuterClick } from "@wpmudev/sui-hooks"
+import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
+import { DatePickerPopoverProps } from "./date-picker.types"
 
-const DatePickerPopover: React.FunctionComponent<any> = () => {
+const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
+	...props
+}) => {
 	// Context of the DatePicker, which contains various state variables and functions
 	const ctx = useContext(DatePickerContext)
+	const { suiInlineClassname } = useStyles(props)
 
 	const { startMonth, endMonth, helpers, handlers } = ctx!
 
@@ -33,9 +37,13 @@ const DatePickerPopover: React.FunctionComponent<any> = () => {
 
 	return (
 		<div
-			className={generateCN("sui-date-picker__popover", { open: ctx?.isOpen })}
+			className={generateCN(
+				"sui-date-picker__popover",
+				{ open: ctx?.isOpen },
+				suiInlineClassname,
+			)}
 			data-testid="date-picker-popover"
-			ref={popoverRef}
+			ref={popoverRef as LegacyRef<HTMLDivElement>}
 		>
 			{/* Render the DatePickerRange component in the header (only in non-single mode) */}
 			{!ctx?.isSingle && (
@@ -69,8 +77,8 @@ const DatePickerPopover: React.FunctionComponent<any> = () => {
 				<div className="sui-date-picker__footer">
 					<div className="sui-date-picker__footer--item">
 						<Button
-							appearance="tertiary"
-							color="black"
+							type="tertiary"
+							colorScheme="black"
 							isSmall={true}
 							onClick={() => ctx?.setIsOpen(false)}
 						>
@@ -79,8 +87,8 @@ const DatePickerPopover: React.FunctionComponent<any> = () => {
 					</div>
 					<div className="sui-date-picker__footer--item">
 						<Button
-							appearance="secondary"
-							color="black"
+							type="secondary"
+							colorScheme="black"
 							isSmall={true}
 							onClick={() => ctx?.setIsOpen(false)}
 						>

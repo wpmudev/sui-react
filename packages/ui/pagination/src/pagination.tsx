@@ -11,6 +11,7 @@ const Pagination: React.FC<PaginationProps> = ({
 	nextLabel = "Next label",
 	numberOfItems = 20,
 	onChange,
+	...props
 }) => {
 	// Calculate the number of pages
 	const pages = Math.ceil(numberOfItems / limit)
@@ -167,6 +168,7 @@ const Pagination: React.FC<PaginationProps> = ({
 		previousLabel,
 		nextLabel,
 		skip,
+		...props,
 	}
 
 	return <PaginationNav {...properties} />

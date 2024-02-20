@@ -1,7 +1,17 @@
-import React, { useState, useEffect, useId, useCallback } from "react"
+import React, {
+	useState,
+	useEffect,
+	useId,
+	useCallback,
+	HTMLProps,
+} from "react"
 
-import { useInteraction } from "@wpmudev/sui-hooks"
-import { isBoolean, generateCN } from "@wpmudev/sui-utils"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
+import {
+	isBoolean,
+	generateCN,
+	_renderRestPropsSafely,
+} from "@wpmudev/sui-utils"
 
 import { ToggleProps } from "./toggle.types"
 
@@ -13,6 +23,7 @@ const Toggle: React.FC<ToggleProps> = ({
 	isLabelHidden = false,
 	isDisabled = false,
 	onClick,
+	htmlProps = {},
 	...props
 }) => {
 	// use id
@@ -45,17 +56,23 @@ const Toggle: React.FC<ToggleProps> = ({
 		[onClick, state],
 	)
 
+	const { suiInlineClassname } = useStyles(props)
+
 	// Define container props
 	const containerProps = {
-		className: generateCN("sui-toggle", {
-			"hidden-label": isLabelHidden,
-			checked: state,
-			disabled: isDisabled,
-			hover: !state && isHovered,
-			focus: !state && isFocused,
-			"checked-hover": state && isHovered,
-			"checked-focus": state && isFocused,
-		}),
+		className: generateCN(
+			"sui-toggle",
+			{
+				"hidden-label": isLabelHidden,
+				checked: state,
+				disabled: isDisabled,
+				hover: !state && isHovered,
+				focus: !state && isFocused,
+				"checked-hover": state && isHovered,
+				"checked-focus": state && isFocused,
+			},
+			suiInlineClassname,
+		),
 		...methods,
 	}
 
@@ -70,7 +87,12 @@ const Toggle: React.FC<ToggleProps> = ({
 
 	return (
 		<label {...containerProps} htmlFor={id} data-testid="toggle">
-			<input {...inputProps} id={id} onChange={handleOnChange} />
+			<input
+				{...(inputProps as HTMLProps<HTMLInputElement>)}
+				id={id}
+				onChange={handleOnChange}
+				{..._renderRestPropsSafely(htmlProps)}
+			/>
 			<span tabIndex={-1} className="sui-toggle__switch" aria-hidden={true} />
 			{isLabelHidden && <span className="sui-screen-reader-only">{label}</span>}
 			{!isLabelHidden && (

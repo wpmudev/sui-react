@@ -1,9 +1,10 @@
 import { MouseEventHandler } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * Interface representing the properties of a progress bar component.
  */
-interface ProgressBarProps {
+interface ProgressBarProps extends useStylesTypes {
 	/**
 	 * Label for the progress bar.
 	 */

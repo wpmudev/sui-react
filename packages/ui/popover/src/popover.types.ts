@@ -1,15 +1,17 @@
 import React, { HTMLProps } from "react"
 
 import { ButtonProps } from "@wpmudev/sui-button"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * Props for the Popover component.
  */
 interface PopoverBaseProps
-	extends Omit<
-		HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>,
-		"onClick" | "title"
-	> {
+	extends SuiHTMLAttributes<
+			HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>
+		>,
+		useStylesTypes {
 	/**
 	 * Open popup on initial load
 	 */
@@ -37,7 +39,7 @@ interface PopoverBaseProps
 	/**
 	 * Popup directions
 	 */
-	position?:
+	placement?:
 		| "top"
 		| "top-left"
 		| "top-right"

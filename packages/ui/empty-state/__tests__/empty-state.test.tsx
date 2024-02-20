@@ -2,15 +2,17 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
 import { a11yTest } from "@wpmudev/sui-utils"
-import { EmptyState } from "../src"
+import { EmptyState, EmptyStateProps } from "../src"
 
 describe("@wpmudev/sui-empty-state", () => {
 	// Common props for the EmptyState component
-	const props = {
+	const props: EmptyStateProps = {
 		logo: "https://placehold.co/600x400/EEE/31343C",
 		className: "__CLASSNAME__",
 		children: "__BODY__",
-		"data-testid": "empty-state",
+		htmlProps: {
+			"data-testid": "empty-state",
+		},
 	}
 
 	describe("EmptyState component", () => {
@@ -26,7 +28,7 @@ describe("@wpmudev/sui-empty-state", () => {
 
 			// Verify that the component has the specified className
 			const component = screen.getByTestId("empty-state")
-			expect(component).toHaveClass(props.className)
+			expect(component).toHaveClass(props?.className as string)
 		})
 
 		it("displays the logo with alt text 'LOGO'", () => {

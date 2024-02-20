@@ -1,13 +1,19 @@
 import React, { KeyboardEvent, MouseEvent } from "react"
 
 import {
+	_renderRestPropsSafely,
 	generateCN,
 	handleEventDefault,
 	handleOnKeyDown,
 	isEmpty,
 } from "@wpmudev/sui-utils"
 import { ExternalLink } from "@wpmudev/sui-icons"
-import { useDefaultChildren, useInteraction } from "@wpmudev/sui-hooks"
+import {
+	useDefaultChildren,
+	useInteraction,
+	useStyles,
+	useStylesTypes,
+} from "@wpmudev/sui-hooks"
 import { LinkProps } from "./link.types"
 
 // Link component represents a clickable link element with optional features
@@ -22,6 +28,7 @@ const Link: React.FC<LinkProps> = ({
 	hasExternalIcon = false,
 	children,
 	href = "#",
+	htmlProps = {},
 	...props
 }) => {
 	// Determine the HTML tag name to use
@@ -33,6 +40,8 @@ const Link: React.FC<LinkProps> = ({
 	// Use the useInteraction hook to track hover and focus states
 	const [hover, focus, methods] = useInteraction({})
 
+	const { suiInlineClassname } = useStyles(props as useStylesTypes, className)
+
 	// Generate CSS class names for the link
 	const classNames = generateCN(
 		"sui-link",
@@ -43,7 +52,7 @@ const Link: React.FC<LinkProps> = ({
 			focus,
 			[theme]: !isEmpty(theme ?? ""),
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	// Prepare the link props
@@ -52,6 +61,7 @@ const Link: React.FC<LinkProps> = ({
 		href,
 		className: classNames,
 		"data-testid": "link",
+		..._renderRestPropsSafely(htmlProps),
 	}
 
 	const onClickCallback = (e: MouseEvent<unknown> | KeyboardEvent<unknown>) => {

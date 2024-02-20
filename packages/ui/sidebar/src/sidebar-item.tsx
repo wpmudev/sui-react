@@ -1,7 +1,11 @@
 import React, { KeyboardEvent, useCallback } from "react"
 
-import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
-import { useInteraction, useDefaultChildren } from "@wpmudev/sui-hooks"
+import {
+	_renderRestPropsSafely,
+	generateCN,
+	handleOnKeyDown,
+} from "@wpmudev/sui-utils"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import Icons from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 
@@ -19,10 +23,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 	isActive = false,
 	isDisabled = false,
 	onClick = () => {},
+	htmlProps = {},
 	...props
 }) => {
 	// `useInteraction` returns interaction state and methods.
 	const [isHovered, isFocused, methods] = useInteraction({})
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Class names based on interaction and disabled state.
 	const classNames = generateCN(
@@ -33,7 +39,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 			disabled: isDisabled,
 			active: isActive,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	// Determine the IconTag based on the provided icon value.
@@ -63,14 +69,16 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 			onKeyDown={(e) => handleOnKeyDown(e, onClickCallback)}
 			data-testid="sidebar-item"
 			{...methods}
-			{...props}
+			{..._renderRestPropsSafely(htmlProps)}
 		>
 			{/* Display item info, including optional icon and title */}
 			<div className="sui-sidebar__item-info">
 				{IconTag && (
 					<IconTag
 						size="sm"
-						color={(isHovered && !isFocused) || isActive ? "informative" : ""}
+						colorScheme={
+							(isHovered && !isFocused) || isActive ? "informative" : ""
+						}
 					/>
 				)}
 				<span>{title}</span>

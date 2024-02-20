@@ -1,6 +1,6 @@
 import React, { Fragment, useCallback, useState } from "react"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { Col } from "@wpmudev/sui-grid"
 import { Button } from "@wpmudev/sui-button"
 import { IconProps } from "@wpmudev/sui-icon"
@@ -30,6 +30,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 
 	// Hook for managing interaction state
 	const [isHovered, isFocused, methods] = useInteraction({})
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Generate class names based on interaction and disabled state
 	const classNames = generateCN(
@@ -41,7 +42,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 			error: hasError,
 			expanded: isExpanded,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	// Determine the IconTag based on the provided icon value
@@ -109,10 +110,10 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 			{hasAccordion && (
 				<div className="sui-builder__field-actions-item sui-builder__field-actions-item--accordion">
 					<Button
-						appearance="tertiary"
+						type="tertiary"
 						startIcon={isExpanded ? "ChevronUp" : "ChevronDown"}
 						iconOnly={true}
-						color="black"
+						colorScheme="black"
 						isSmall={true}
 						className="sui-builder__field-toggle-btn"
 						onClick={toggleBody}

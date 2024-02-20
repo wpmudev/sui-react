@@ -1,6 +1,6 @@
 import React, { FC, useId } from "react"
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
-import { useInteraction } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import Icons from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 import { DropdownMenuItemProps } from "./dropdown.types"
@@ -32,6 +32,8 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 		TagName = "a"
 	}
 
+	const { suiInlineClassname } = useStyles(props, className)
+
 	// Generate class names for the menu item
 	const classNames = generateCN(
 		"sui-dropdown__menu-item",
@@ -41,7 +43,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 			disabled: isDisabled,
 			[variation]: !isEmpty(variation),
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	// Check if an icon is specified and assign it to IconTag

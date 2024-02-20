@@ -1,11 +1,16 @@
 import React from "react"
-import { generateCN, isEmpty, isUndefined } from "@wpmudev/sui-utils"
+import {
+	_renderRestPropsSafely,
+	generateCN,
+	isEmpty,
+	isUndefined,
+} from "@wpmudev/sui-utils"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 
 import { BoxGroup } from "./box-group"
 import { BoxProps } from "./box.types"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Create box component
 const Box: React.FC<BoxProps> = ({
@@ -18,6 +23,7 @@ const Box: React.FC<BoxProps> = ({
 	isSmall = false,
 	className = "",
 	style = {},
+	htmlProps = {},
 	...props
 }) => {
 	// Prop(s) validation
@@ -28,14 +34,22 @@ const Box: React.FC<BoxProps> = ({
 
 	// Determine the IconTag based on the provided icon value
 	const IconTag: React.ComponentType<IconProps> = Icons[icon as IconsNamesType]
-
-	const classNames = generateCN("sui-box", { "size-sm": isSmall }, className)
+	const { suiInlineClassname } = useStyles(props, className)
+	const classNames = generateCN(
+		"sui-box",
+		{ "size-sm": isSmall },
+		suiInlineClassname,
+	)
 
 	// Default children content
 	children = useDefaultChildren(children)
 
 	return (
-		<div className={classNames} style={style ?? {}} {...props}>
+		<div
+			className={classNames}
+			style={style ?? {}}
+			{..._renderRestPropsSafely(htmlProps)}
+		>
 			{hasTitle && (
 				<BoxGroup isInline={true}>
 					<div slot="left">

@@ -1,10 +1,10 @@
 // Import necessary modules and types
 import React, { useState } from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { AccordionProps } from "./accordion.types"
 import { AccordionProvider } from "./accordion-context"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Define the Accordion component as a functional component (React.FC)
 const Accordion: React.FC<AccordionProps> = ({
@@ -16,12 +16,14 @@ const Accordion: React.FC<AccordionProps> = ({
 	isFlushed = false,
 	children,
 	spacing = "",
+	htmlProps = {},
 	...props
 }) => {
 	const [expandState, setExpandState] = useState<Record<string, boolean>>({})
 
 	// Default children content
 	children = useDefaultChildren(children)
+	const { suiInlineClassname } = useStyles(props, className)
 
 	// Generate CSS class names for the Accordion component
 	const classNames = generateCN(
@@ -32,7 +34,7 @@ const Accordion: React.FC<AccordionProps> = ({
 			"no-side-borders": noSideBorders,
 			flushed: isFlushed,
 		},
-		className,
+		suiInlineClassname,
 	)
 
 	// Return a div element with the generated CSS class names and spread any additional props
@@ -46,7 +48,7 @@ const Accordion: React.FC<AccordionProps> = ({
 				isFlushed,
 			}}
 		>
-			<div className={classNames} {...props}>
+			<div className={classNames} {..._renderRestPropsSafely(htmlProps)}>
 				{children}
 			</div>
 		</AccordionProvider>

@@ -15,7 +15,8 @@ import { Dropdown } from "@wpmudev/sui-dropdown"
 
 import { TableToolbarContent } from "./table-toolbar-content"
 import { TableContext } from "./table-context"
-import { isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 /**
  * TableToolbar component represents the toolbar section of a table.
@@ -24,7 +25,7 @@ import { isEmpty } from "@wpmudev/sui-utils"
  * @param {any}               props... - Additional props for the TableToolbar component.
  * @return {JSX.Element} The JSX representation of the TableToolbar component.
  */
-const TableToolbar: React.FC<TableSectionProps> = ({}) => {
+const TableToolbar: React.FC<TableSectionProps> = ({ htmlProps, ...props }) => {
 	// State for expansion of the toolbar content
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
 	const [bulkAction, setBulkAction] = useState<string>("")
@@ -35,6 +36,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 	const bodyId = `sui-table-toolbar-body-${uniqueId}`
 	const bulkDropdown = `sui-table-toolbar-bulk-${uniqueId}`
 
+	const { suiInlineClassname } = useStyles(props)
 	const ctx = useContext(TableContext)
 	// const dropdownRef = useRef<DropdownRefProps | null>(null)
 
@@ -60,7 +62,10 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 	)
 
 	return (
-		<div className="sui-table__toolbar">
+		<div
+			className={generateCN("sui-table__toolbar", {}, suiInlineClassname)}
+			{...htmlProps}
+		>
 			<div className="sui-table__toolbar-header">
 				<div className="sui-table__toolbar-header-bulk">
 					{!!ctx?.bulkActions && (
@@ -73,8 +78,8 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 								onChange={setBulkAction}
 							/>
 							<Button
-								appearance="primary"
-								color="black"
+								type="primary"
+								colorScheme="black"
 								isSmall={true}
 								isDisabled={isEmpty(bulkAction ?? "")}
 								onClick={onApplyBulkAction}
@@ -88,7 +93,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 					<Input
 						id="input-id-4"
 						className="sui-table__toolbar-search"
-						label="Label"
 						placeholder="Search"
 						onChange={onSearch}
 						isSmall={true}
@@ -98,7 +102,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 							label="Filter"
 							className="sui-table__toolbar-filter"
 							buttonIcon="Filter"
-							direction="left"
+							placement="left"
 							isSmall={true}
 							isFixedHeight={false}
 						>
@@ -109,8 +113,8 @@ const TableToolbar: React.FC<TableSectionProps> = ({}) => {
 							id={filterBtnId}
 							className="sui-table__toolbar-filter"
 							icon="Filter"
-							color="black"
-							appearance="secondary"
+							colorScheme="black"
+							type="secondary"
 							isSmall={true}
 							onClick={() => setIsExpanded(!isExpanded)}
 							aria-controls={bodyId}

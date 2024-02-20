@@ -27,7 +27,7 @@ const SummaryBox = ({}) => {
 			<div className="sui-layout__content">
 				<div>
 					<SuiSummaryBox
-						icon="performance"
+						icon="Performance"
 						title="Performance Summary"
 						hideMobileIcon={true}
 						primaryActions={
@@ -44,9 +44,9 @@ const SummaryBox = ({}) => {
 								,
 								<div key={0}>
 									<Button
-										appearance="secondary"
+										type="secondary"
 										icon="Trash"
-										color="black"
+										colorScheme="black"
 										isSmall={true}
 										isResponsive={true}
 									>
@@ -58,9 +58,9 @@ const SummaryBox = ({}) => {
 						secondaryActions={
 							<Button
 								key={2}
-								appearance="primary"
+								type="primary"
 								icon="Add"
-								color="blue"
+								colorScheme="blue"
 								isSmall={true}
 								isFullWidth={true}
 							>

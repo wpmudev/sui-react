@@ -32,27 +32,27 @@ const BasicBox = ({ ...props }) => {
 						headerActions={
 							<Fragment>
 								<Button
-									appearance="secondary"
-									color="black"
+									type="secondary"
+									colorScheme="black"
 									isSmall={true}
 									icon="Upload"
 								>
 									Upload
 								</Button>
-								<Button appearance="primary" color="blue" isSmall={true}>
+								<Button type="primary" colorScheme="blue" isSmall={true}>
 									Create new
 								</Button>
 							</Fragment>
 						}
 						footerActions={[
-							<Button key={0} appearance="primary" color="blue" isSmall={true}>
+							<Button key={0} type="primary" colorScheme="blue" isSmall={true}>
 								Save changes
 							</Button>,
 							<Button
 								key={1}
 								startIcon="PowerOff"
-								appearance="tertiary"
-								color="red"
+								type="tertiary"
+								colorScheme="red"
 								isSmall={true}
 							>
 								Deactivate
@@ -70,9 +70,9 @@ const BasicBox = ({ ...props }) => {
 							</p>
 							<div>
 								<Button
-									appearance="secondary"
+									type="secondary"
 									icon="Upload"
-									color="black"
+									colorScheme="black"
 									isSmall={true}
 								>
 									Upload file
@@ -84,9 +84,9 @@ const BasicBox = ({ ...props }) => {
 							description="Export your blocklist and allowlist for use on another website."
 						>
 							<Button
-								appearance="secondary"
+								type="secondary"
 								icon="Upload"
-								color="black"
+								colorScheme="black"
 								isSmall={true}
 							>
 								Export

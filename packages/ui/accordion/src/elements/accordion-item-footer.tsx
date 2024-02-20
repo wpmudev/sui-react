@@ -1,13 +1,23 @@
 import React, { useContext } from "react"
 
 import { Box, BoxGroup } from "@wpmudev/sui-box"
-import { useDefaultChildren } from "@wpmudev/sui-hooks"
+import {
+	useDefaultChildren,
+	useStyles,
+	useStylesTypes,
+} from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 import { AccordionContext } from "../accordion-context"
 
+interface AccordionItemFooterTypes extends useStylesTypes {
+	children?: React.ReactNode
+}
+
 // The AccordionFooter component is defined as a functional component using React.FC.
-const AccordionItemFooter: React.FC<{
-	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
-}> = ({ children }) => {
+const AccordionItemFooter: React.FC<AccordionItemFooterTypes> = ({
+	children,
+	...styleProps
+}) => {
 	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
 	const { spacing, isFlushed } = useContext(AccordionContext)
 
@@ -23,8 +33,18 @@ const AccordionItemFooter: React.FC<{
 	// Default content when children is empty
 	children = useDefaultChildren(children)
 
+	const { suiInlineClassname } = useStyles(styleProps)
+
+	const classNames = generateCN(
+		"sui-accordion__item",
+		{
+			footer: true,
+		},
+		suiInlineClassname,
+	)
+
 	return (
-		<div className="sui-accordion__item--footer">
+		<div className={classNames}>
 			{!isFlushed ? (
 				<Box>
 					<BoxGroup style={styles} isInline={false}>

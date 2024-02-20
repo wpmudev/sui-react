@@ -53,8 +53,8 @@ export default {
 // 			action: (
 // 				<Button
 // 					className="csb-banner__cta"
-// 					appearance="secondary"
-// 					color="blue"
+// 					type="secondary"
+// 					colorScheme="blue"
 // 					isSmall={true}
 // 				>
 // 					Action
@@ -73,8 +73,8 @@ export default {
 // 			action: (
 // 				<Button
 // 					className="csb-banner__cta"
-// 					appearance="secondary"
-// 					color="blue"
+// 					type="secondary"
+// 					colorScheme="blue"
 // 					isSmall={true}
 // 				>
 // 					Action
@@ -93,8 +93,8 @@ export default {
 // 			action: (
 // 				<Button
 // 					className="csb-banner__cta"
-// 					appearance="secondary"
-// 					color="blue"
+// 					type="secondary"
+// 					colorScheme="blue"
 // 					isSmall={true}
 // 				>
 // 					Action
@@ -113,8 +113,8 @@ export default {
 // 			action: (
 // 				<Button
 // 					className="csb-banner__cta"
-// 					appearance="secondary"
-// 					color="blue"
+// 					type="secondary"
+// 					colorScheme="blue"
 // 					isSmall={true}
 // 				>
 // 					Action
@@ -134,8 +134,8 @@ export default {
 // 			action: (
 // 				<Button
 // 					className="csb-banner__cta"
-// 					appearance="secondary"
-// 					color="blue"
+// 					type="secondary"
+// 					colorScheme="blue"
 // 					isSmall={true}
 // 				>
 // 					Action
@@ -190,8 +190,8 @@ export const Notification = ({
 							<h2 style={{ marginTop: 0 }}>Toast Notifications</h2>
 							<div>
 								<Button
-									appearance="secondary"
-									color="blue"
+									type="secondary"
+									colorScheme="blue"
 									isSmall={true}
 									onClick={() => {
 										notifications.push({ ...options, id: "notification-1" })
@@ -226,8 +226,8 @@ Notification.args = {
 	action: (
 		<Button
 			className="csb-banner__cta"
-			appearance="secondary"
-			color="blue"
+			type="secondary"
+			colorScheme="blue"
 			isSmall={true}
 		>
 			Action

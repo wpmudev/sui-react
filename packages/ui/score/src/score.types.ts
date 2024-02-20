@@ -1,17 +1,20 @@
 import React, { HTMLProps } from "react"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 /**
  * This interface defines the props for the Score component.
  * It extends the HTMLProps<HTMLDivElement> type to inherit standard HTML div element props.
  */
 interface ScoreProps
-	extends Omit<HTMLProps<HTMLDivElement>, "className" | "value" | "content"> {
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+		useStylesTypes {
 	/** The length of the score bar to be displayed. */
 	bar: number
 	/** The value to be displayed in the score component. */
 	value: number
-	/** Optional content to be rendered inside the score component. */
-	content?: React.ReactNode
+	/** Optional description to be rendered inside the score component. */
+	description?: React.ReactNode
 	/** The state of the score, represented as a string (e.g., "low", "medium", "high"). */
 	state?: "default" | "error" | "warning" | "success"
 	/** Whether the score component should be displayed in a small size. */

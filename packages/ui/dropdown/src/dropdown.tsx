@@ -7,9 +7,9 @@ import React, {
 	ChangeEvent,
 } from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { Button } from "@wpmudev/sui-button"
-import { useOuterClick } from "@wpmudev/sui-hooks"
+import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { Button, ButtonProps } from "@wpmudev/sui-button"
+import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 import { DropdownMenu } from "./dropdown-menu"
 import { DropdownMenuItem } from "./dropdown-menu-item"
 import { DropdownMenuGroup } from "./dropdown-menu-group"
@@ -31,12 +31,13 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			isFixedHeight = true,
 			children,
 			menu,
-			direction = "right",
+			placement = "right",
 			buttonIcon,
 			onMenuClick,
 			trigger,
 			renderContentOnTop = false,
 			isResponsive = false,
+			htmlProps = {},
 			...props
 		},
 		ref,
@@ -61,6 +62,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			toggle: () => setIsOpen(!isOpen),
 		}))
 
+		const { suiInlineClassname } = useStyles(props, className)
+
 		// Generate classes for the dropdown's wrapper based on the component's props.
 		const wrapperClasses = generateCN(
 			"sui-dropdown",
@@ -68,7 +71,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 				sm: isSmall,
 				open: isOpen,
 			},
-			className,
+			suiInlineClassname,
 		)
 
 		// Function to recursively render menu items and groups.
@@ -99,7 +102,12 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		}
 
 		return (
-			<div ref={dropdownRef} className={wrapperClasses} data-testid="dropdown">
+			<div
+				ref={dropdownRef}
+				className={wrapperClasses}
+				data-testid="dropdown"
+				{..._renderRestPropsSafely(htmlProps)}
+			>
 				{!!trigger ? (
 					trigger
 				) : (
@@ -107,13 +115,13 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						<Button
 							startIcon={buttonIcon ?? "Menu"}
 							iconOnly={iconOnly ?? false}
-							color="black"
-							appearance="secondary"
+							type="secondary"
 							isSmall={isSmall ?? false}
 							onClick={() => setIsOpen(!isOpen)}
 							isResponsive={isResponsive}
 							{...(!iconOnly && { endIcon: "ChevronDown" })}
 							{...props}
+							colorScheme={props?.colorScheme as ButtonProps["colorScheme"]}
 						>
 							{label}
 						</Button>
@@ -123,7 +131,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					id={id}
 					tabIndex={-1}
 					className={generateCN("sui-dropdown__popover", {
-						[`direction-${direction}`]: !isEmpty(direction ?? ""),
+						[`placement-${placement}`]: !isEmpty(placement ?? ""),
 						"fixed-height": isFixedHeight,
 					})}
 					{...(label && {

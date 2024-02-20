@@ -56,8 +56,8 @@ describe("@wpmudev/sui-modal", () => {
 					<ModalFooter>
 						{/* Close button */}
 						<Button
-							appearance="secondary"
-							color="blue"
+							type="secondary"
+							colorScheme="blue"
 							isSmall={true}
 							onClick={() => {
 								ref?.current?.closeModal()
@@ -67,8 +67,8 @@ describe("@wpmudev/sui-modal", () => {
 						</Button>
 						{/* Apply button */}
 						<Button
-							appearance="primary"
-							color="blue"
+							type="primary"
+							colorScheme="blue"
 							isSmall={true}
 							onClick={jest.fn()}
 						>
@@ -79,8 +79,8 @@ describe("@wpmudev/sui-modal", () => {
 
 				{/* Button to open the modal */}
 				<Button
-					appearance="primary"
-					color="blue"
+					type="primary"
+					colorScheme="blue"
 					onClick={() => {
 						ref?.current?.openModal()
 					}}
