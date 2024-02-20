@@ -95,6 +95,12 @@ export const buildStyleSheet = (
 	) => {
 		const prevSize = breakpoints[pos - 1]
 		const size = breakpoints[pos]
+
+		// skip if value is null
+		if (null === val) {
+			return acc
+		}
+
 		const styleVal = buildSingleValue(val)
 
 		// last breakpoint value is for default value
