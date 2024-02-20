@@ -38,7 +38,6 @@ SettingBlock.args = {
 		"Block IP addresses that send POST requests with empty Referer and User-Agent headers.",
 	isPro: false,
 	isFluid: false,
-	actions: null,
 }
 
 // Set controls for story arguments.
@@ -67,12 +66,7 @@ SettingBlock.argTypes = {
 			type: "boolean",
 		},
 	},
-	actions: {
-		name: "Actions",
-		control: {
-			type: Function,
-		},
-	},
+	actions: { table: { disable: true } },
 }
 
 // Publish required stories.

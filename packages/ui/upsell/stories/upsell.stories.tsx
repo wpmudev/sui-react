@@ -41,7 +41,7 @@ export const Upsell = ({ ...props }) => {
 			<div className="sui-layout__content">
 				<div>
 					<Row align={{ md: "inline" }}>
-						<Col size={4}>
+						<Col size={"lg" === props?.size ? 12 : 4}>
 							<SuiUpsell
 								{...props}
 								actions={actions}
