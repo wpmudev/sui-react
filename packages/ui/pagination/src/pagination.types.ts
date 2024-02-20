@@ -30,6 +30,10 @@ interface PaginationProps extends PaginationCommonProps {
 	 */
 	previousLabel?: string
 	/**
+	 * The screen reader text for the previous button
+	 */
+	hideOnSinglePage?: boolean
+	/**
 	 * The screen reader text for the next button
 	 */
 	nextLabel?: string
