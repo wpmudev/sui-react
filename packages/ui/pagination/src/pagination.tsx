@@ -14,6 +14,13 @@ const Pagination: React.FC<PaginationProps> = ({
 	hideOnSinglePage = false,
 	...props
 }) => {
+	// Number of Items should not be 0
+	if (numberOfItems === 0) {
+		throw new Error(
+			`Shared UI - Components: Pagination, 'numberOfItems' prop should not be 0.`,
+		)
+	}
+
 	// Calculate the number of pages
 	const pages = Math.ceil(numberOfItems / limit)
 
