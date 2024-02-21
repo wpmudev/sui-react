@@ -145,10 +145,6 @@ const Select: React.FC<SelectBaseProps> = ({
 		setItems(options ?? [])
 	}, [options])
 
-	useEffect(() => {
-		setSelectedItems(selected)
-	}, [selected])
-
 	// hold isDropdownOpen's previous val
 	const prevIsDropdownOpen = usePrevious(isDropdownOpen)
 
@@ -173,27 +169,23 @@ const Select: React.FC<SelectBaseProps> = ({
 	// UseEffect function to handle change in items
 	useEffect(() => {
 		const updatedItems = items.map((option) => {
-			const filterItem = filteredItems.find(
-				(filterOpt) => filterOpt.id === option.id,
-			)
-			if (filterItem) {
-				return { ...filterItem }
-			}
-			return option
+			const filterItem = filteredItems.find((opt) => opt.id === option.id)
+			return filterItem ? { ...filterItem } : option
 		})
+
 		const filteredItemList = updatedItems.filter((option) => option?.isSelected)
+
 		const currentItems = filteredItemList.length > 0 ? filteredItemList : label
 
 		if (isMultiSelect) {
-			updateItem("string" === typeof currentItems ? [] : currentItems)
-		} else if (currentItems?.length && !isMultiSelect) {
+			updateItem(filteredItemList)
+		} else if (currentItems?.length) {
 			// Select the first item
 			const item = currentItems?.[0]
 			// @ts-ignore: improve
 			if (item && item.id) updateItem(item)
 		}
 		setItems(updatedItems)
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [filteredItems])
 
 	const { suiInlineClassname } = useStyles(props, className)
