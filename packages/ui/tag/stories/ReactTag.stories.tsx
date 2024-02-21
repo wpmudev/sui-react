@@ -48,6 +48,8 @@ Tag.args = {
 	isUppercase: false,
 	isSmall: false,
 	isDisabled: false,
+	isDismissable: false,
+	onDismiss: () => {},
 }
 
 // Set controls for story arguments.
@@ -111,6 +113,24 @@ Tag.argTypes = {
 		name: "Disabled",
 		control: {
 			type: "boolean",
+		},
+	},
+	isDismissable: {
+		name: "Dismissable",
+		control: {
+			type: "boolean",
+		},
+		if: {
+			arg: "contentWrap",
+			eq: "default",
+		},
+	},
+	onDismiss: {
+		name: "On Dismiss",
+		control: Function,
+		if: {
+			arg: "isDismissable",
+			eq: true,
 		},
 	},
 }

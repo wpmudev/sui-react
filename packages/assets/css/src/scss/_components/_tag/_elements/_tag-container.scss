@@ -25,6 +25,11 @@
 			text-align: center;
 			text-decoration: none;
 
+			@include element(wrapper) {
+				display: flex;
+				align-items: center;
+			}
+
 			&:first-child {
 				margin-left: 0;
 			}
