@@ -43,6 +43,7 @@ interface AccordionItemBaseProps
 	icon?: React.ReactNode // An optional icon to be displayed in the accordion item.
 	isExpanded?: boolean // Indicates whether the accordion item is initially expanded.
 	isDisabled?: boolean // Indicates whether the accordion item is disabled and cannot be interacted with.
+	contentShadow?: boolean // Indicates whether the content have shadow or not
 }
 
 // Accordion Context Props

@@ -26,6 +26,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	isExpanded,
 	onCheck,
 	htmlProps = {},
+	contentShadow = true,
 	...styleProps
 }) => {
 	// Checkbox is checked.
@@ -90,6 +91,11 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			padding: spacing,
 		}
 	}
+
+	// Panel content className
+	const panelContentClassName = contentShadow
+		? "sui-accordion__panel--content"
+		: "sui-accordion__panel--content-no-shadow"
 
 	// Render the AccordionItem component with proper accessibility attributes.
 	return (
@@ -184,7 +190,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				})}
 				data-testid="accordion-item-panel"
 			>
-				<div className="sui-accordion__panel--content">{children}</div>
+				<div className={panelContentClassName}>{children}</div>
 			</div>
 		</div>
 	)

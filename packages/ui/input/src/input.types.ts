@@ -162,10 +162,6 @@ interface InputProps
 	 * On validation callback
 	 */
 	onValidate?: (id?: string, value?: string | number | boolean) => void
-	/**
-	 * Regex validation string
-	 */
-	pattern?: string
 }
 
 export type { InputProps }

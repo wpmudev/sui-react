@@ -189,7 +189,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 						onClick: handleReset,
 					})}
 					{...(!showResetBtn && {
-						color: "blue",
+						colorScheme: "blue",
 						type: "tertiary",
 						onClick: () => setShowPicker(!showPicker),
 					})}

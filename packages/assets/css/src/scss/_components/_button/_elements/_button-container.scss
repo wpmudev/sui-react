@@ -54,7 +54,7 @@
 
 			@include modifier(is-icon) {
 				min-width: auto;
-				padding: $spacing-md;
+				padding: #{$spacing-lg - 5px};
 			}
 		}
 	}
