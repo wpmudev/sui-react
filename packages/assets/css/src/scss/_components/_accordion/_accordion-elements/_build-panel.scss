@@ -29,6 +29,11 @@
 					border-radius: $border-radius-md;
 					// overflow: hidden;
 				}
+
+				@include modifier(no-shadow-content) {
+					border-radius: $border-radius-md;
+					// overflow: hidden;
+				}
 			}
 		}
 	}

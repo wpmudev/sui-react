@@ -73,12 +73,14 @@ const parentSelector: string = "body .sui-wrap &"
 /**
  * Build style object based on prop name and value
  *
- * @param {string}             propName CSS property name
- * @param {StringPropertyType} value    CSS property value
+ * @param {string}             propName       CSS property name
+ * @param {StringPropertyType} value          CSS property value
+ * @param {Object}             existingStyles existing CSS
  */
 export const buildStyleSheet = (
 	propName: string,
 	value: StringPropertyType,
+	existingStyles: Record<string, any>,
 ) => {
 	const shorthandPropName = CSS_SHORTHAND_MAPS[propName] ?? propName
 
@@ -121,18 +123,17 @@ export const buildStyleSheet = (
 
 		return {
 			...acc,
-			[parentSelector as string]: {
-				...acc[parentSelector as string],
-				[query]: styleVal,
+			[query]: {
+				...acc[query],
+				...(existingStyles?.[query] ?? {}),
+				...styleVal,
 			},
 		}
 	}
 
 	switch (typeof value) {
 		case "string":
-			return {
-				[parentSelector as string]: buildSingleValue(value),
-			}
+			return buildSingleValue(value)
 		case "object":
 			return value.reduce(
 				(acc, val, index) => ({
@@ -206,18 +207,17 @@ export const useStyles = (
 		if (isValidCSSPropExists(styleObject)) {
 			// go through all props
 			for (const name of Object.keys(styleObject)) {
+				const val = styleObject[name as keyof CSSProperties]
+
 				// build styles
 				generatedCSS = {
 					...generatedCSS,
-					...buildStyleSheet(
-						name,
-						styleObject[name as keyof CSSProperties] as StringPropertyType,
-					),
+					...buildStyleSheet(name, val, generatedCSS),
 				}
 			}
 		}
 
-		setCalculatedStyles(generatedCSS)
+		setCalculatedStyles({ [parentSelector]: generatedCSS })
 	}, [stringifiedStyles])
 
 	return {

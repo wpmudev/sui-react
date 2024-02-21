@@ -40,7 +40,7 @@ const Accordion = ({
 						noSideBorders={noSideBorders}
 						isFlushed={isFlushed}
 					>
-						<AccordionItem title="Tab Title 1">
+						<AccordionItem title="Tab Title 1" contentShadow={false}>
 							<AccordionItemBody>
 								<p>
 									Lorem Ipsum is simply dummy text of the printing and

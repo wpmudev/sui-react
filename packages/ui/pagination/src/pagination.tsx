@@ -11,8 +11,16 @@ const Pagination: React.FC<PaginationProps> = ({
 	nextLabel = "Next label",
 	numberOfItems = 20,
 	onChange,
+	hideOnSinglePage = false,
 	...props
 }) => {
+	// Number of Items should not be 0
+	if (numberOfItems === 0) {
+		throw new Error(
+			`Shared UI - Components: Pagination, 'numberOfItems' prop should not be 0.`,
+		)
+	}
+
 	// Calculate the number of pages
 	const pages = Math.ceil(numberOfItems / limit)
 
@@ -167,6 +175,11 @@ const Pagination: React.FC<PaginationProps> = ({
 		nextLabel,
 		skip,
 		...props,
+	}
+
+	// Hide pagination when the number of pages is one
+	if (hideOnSinglePage && pages === 1) {
+		return null
 	}
 
 	return <PaginationNav {...properties} />

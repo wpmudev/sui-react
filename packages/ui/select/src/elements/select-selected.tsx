@@ -49,38 +49,39 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	...props
 }) => {
 	// Prepare the selected content
-	const selectedContent = isArray(selected) ? (
-		(selected as Record<string, any>[]).map(
-			(selectedItem: Record<string, any>) => (
-				<span className="sui-select__selected-options" key={selectedItem?.id}>
-					<span
-						tabIndex={0}
-						role="button"
-						onClick={(event) => event.stopPropagation()}
-						onKeyDown={(event) => event.stopPropagation()}
-					>
-						{selectedItem?.label as ReactNode}
+	const selectedContent =
+		isArray(selected) && (selected ?? [])?.length > 0 ? (
+			(selected as Record<string, any>[]).map(
+				(selectedItem: Record<string, any>) => (
+					<span className="sui-select__selected-options" key={selectedItem?.id}>
+						<span
+							tabIndex={0}
+							role="button"
+							onClick={(event) => event.stopPropagation()}
+							onKeyDown={(event) => event.stopPropagation()}
+						>
+							{selectedItem?.label as ReactNode}
+						</span>
+						<Icon
+							name="Close"
+							size="xs"
+							{...(!!removeSelection && {
+								onClick: (event) => {
+									event.stopPropagation()
+									removeSelection(selectedItem?.id)
+								},
+							})}
+						/>
 					</span>
-					<Icon
-						name="Close"
-						size="xs"
-						{...(!!removeSelection && {
-							onClick: (event) => {
-								event.stopPropagation()
-								removeSelection(selectedItem?.id)
-							},
-						})}
-					/>
-				</span>
-			),
+				),
+			)
+		) : (
+			<span className="sui-select__selected">
+				{selected && typeof selected === "object" && "label" in selected
+					? selected.label
+					: selectLabel}
+			</span>
 		)
-	) : (
-		<span className="sui-select__selected">
-			{selected && typeof selected === "object" && "label" in selected
-				? selected.label
-				: selectLabel}
-		</span>
-	)
 
 	const onClearSelection = useCallback(
 		(event: MouseEvent<HTMLSpanElement>) => {
@@ -121,7 +122,8 @@ const Selected: React.FC<SelectSelectedProps> = ({
 				{selectedContent}
 				{isMultiSelect &&
 					!isUndefined(selected) &&
-					selectLabel !== selected && (
+					selectLabel !== selected &&
+					(selected ?? []).length > 0 && (
 						<Icon
 							name="CloseAlt"
 							size={isSmall ? "sm" : "md"}
