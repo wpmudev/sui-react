@@ -80,7 +80,7 @@ PasswordField.args = {
 	label: "Password",
 	helper: "Create a password of minimum 8 characters",
 	error: "",
-	buttonType: "icon-button",
+	buttonType: "icon",
 	isDisabled: false,
 	isSmall: false,
 }
@@ -104,12 +104,12 @@ PasswordField.argTypes = {
 	},
 	buttonType: {
 		name: "Button Style",
-		options: ["icon-button", "text"],
+		options: ["icon", "text"],
 		control: {
 			type: "select",
 			labels: {
-				"icon-button": "Icon Button (Default)",
-				standard: "text",
+				icon: "Icon Button (Default)",
+				text: "Text",
 			},
 		},
 	},
@@ -122,7 +122,7 @@ PasswordField.argTypes = {
 		control: "boolean",
 	},
 	customWidth: {
-		name: "customWidth",
+		name: "Custom Width",
 		control: "number",
 	},
 }

@@ -144,6 +144,10 @@ Checkbox.argTypes = {
 			},
 		},
 	},
+	name: {
+		name: "Name",
+		control: "text",
+	},
 	defaultValue: {
 		table: {
 			disable: true,

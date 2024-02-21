@@ -43,8 +43,8 @@ const Tag = ({ children, ...props }: TagProps) => {
 Tag.args = {
 	children: "Hello, I am a tag",
 	design: "",
-	color: "",
-	style: "",
+	colorScheme: "",
+	contentWrap: "default",
 	isUppercase: false,
 	isSmall: false,
 	isDisabled: false,
@@ -66,8 +66,8 @@ Tag.argTypes = {
 			},
 		},
 	},
-	color: {
-		name: "Color",
+	colorScheme: {
+		name: "Color Scheme",
 		options: ["", "blue", "navy", "yellow", "red", "green", "black", "white"],
 		control: {
 			type: "select",
@@ -83,8 +83,8 @@ Tag.argTypes = {
 			},
 		},
 	},
-	style: {
-		name: "Style",
+	contentWrap: {
+		name: "Content Wrap",
 		options: ["default", "multiline", "truncated"],
 		control: {
 			type: "select",

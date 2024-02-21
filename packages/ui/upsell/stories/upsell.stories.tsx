@@ -22,7 +22,7 @@ export default {
 
 // Build story
 // eslint-disable-next-line react/prop-types
-export const Upsell = ({ ...props }) => {
+export const Upsell = ({ size, ...props }: { size: "sm" | "lg" }) => {
 	const actions = [
 		<div key={0}>
 			<Button type="primary" colorScheme="black" isSmall={true}>
@@ -41,9 +41,10 @@ export const Upsell = ({ ...props }) => {
 			<div className="sui-layout__content">
 				<div>
 					<Row align={{ md: "inline" }}>
-						<Col size={4}>
+						<Col size={"lg" === size ? 12 : 4}>
 							<SuiUpsell
 								{...props}
+								size={size}
 								actions={actions}
 								features={[
 									"Performance Test Reporting",

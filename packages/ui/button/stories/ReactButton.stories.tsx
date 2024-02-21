@@ -6,6 +6,7 @@ import { ButtonProps } from "../src/button.types"
 
 // Import documentation main page.
 import docs from "./ReactButton.mdx"
+import { IconsName } from "@wpmudev/sui-icons"
 
 // Configure default options.
 export default {
@@ -65,7 +66,7 @@ const Button = ({
 								)
 							case "icon":
 								return (
-									<StandardButton icon="Add" iconOnly={true} {...attributes}>
+									<StandardButton iconOnly={true} {...attributes}>
 										Add
 									</StandardButton>
 								)
@@ -108,6 +109,9 @@ Button.args = {
 	isLoading: true,
 	isDisabled: false,
 	isResponsive: false,
+	isFullWidth: false,
+	icon: "Add",
+	iconSize: "sm",
 }
 
 Button.argTypes = {
@@ -168,13 +172,36 @@ Button.argTypes = {
 				tertiary: "Tertiary",
 			},
 		},
+	},
+	icon: {
+		name: "Icon",
+		options: IconsName,
+		control: {
+			type: "select",
+		},
 		if: {
 			arg: "example",
-			neq: "button-toggle",
+			eq: "icon",
+		},
+	},
+	iconSize: {
+		name: "Icon Size",
+		options: ["sm", "md", "lg"],
+		control: {
+			type: "select",
+			labels: {
+				sm: "Small",
+				md: "Medium",
+				lg: "Large",
+			},
+		},
+		if: {
+			arg: "example",
+			eq: "icon",
 		},
 	},
 	colorScheme: {
-		name: "colorScheme",
+		name: "Color Scheme",
 		options: ["", "blue", "black", "red", "navy", "white"],
 		control: {
 			type: "select",
@@ -187,13 +214,15 @@ Button.argTypes = {
 				white: "White",
 			},
 		},
-		if: {
-			arg: "example",
-			neq: "button-toggle",
-		},
 	},
 	isSmall: {
 		name: "Small",
+		control: {
+			type: "boolean",
+		},
+	},
+	isFullWidth: {
+		name: "Full Width",
 		control: {
 			type: "boolean",
 		},
@@ -224,6 +253,9 @@ Button.argTypes = {
 			eq: "label-icon",
 		},
 	},
+	htmlProps: { table: { disable: true } },
+	isUnwrapped: { table: { disable: true } },
+	startIcon: { table: { disable: true } },
 }
 
 // Publish required stories.

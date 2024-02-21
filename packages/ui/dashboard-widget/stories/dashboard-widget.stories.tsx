@@ -12,6 +12,7 @@ import {
 
 // Import documentation main page
 import docs from "./dashboard-widget.mdx"
+import { IconsName } from "@wpmudev/sui-icons"
 
 export default {
 	title: "SUI/Components/Modules/Dashboard Widget",
@@ -106,8 +107,9 @@ DashboardWidget.argTypes = {
 	},
 	icon: {
 		name: "Icon",
+		options: IconsName,
 		control: {
-			type: "text",
+			type: "select",
 		},
 	},
 	tag: {
@@ -124,8 +126,9 @@ DashboardWidget.argTypes = {
 	},
 	statusIcon: {
 		name: "Status",
+		options: IconsName,
 		control: {
-			type: "text",
+			type: "select",
 		},
 	},
 	statusProps: {

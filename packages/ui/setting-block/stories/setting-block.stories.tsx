@@ -38,41 +38,35 @@ SettingBlock.args = {
 		"Block IP addresses that send POST requests with empty Referer and User-Agent headers.",
 	isPro: false,
 	isFluid: false,
-	actions: null,
 }
 
 // Set controls for story arguments.
 SettingBlock.argTypes = {
 	title: {
-		name: "title",
+		name: "Title",
 		control: {
 			type: "text",
 		},
 	},
 	description: {
-		name: "description",
+		name: "Description",
 		control: {
 			type: "text",
 		},
 	},
 	isPro: {
-		name: "isPro",
+		name: "Pro",
 		control: {
 			type: "boolean",
 		},
 	},
 	isFluid: {
-		name: "isFluid",
+		name: "Fluid",
 		control: {
 			type: "boolean",
 		},
 	},
-	actions: {
-		name: "actions",
-		control: {
-			type: "string",
-		},
-	},
+	actions: { table: { disable: true } },
 }
 
 // Publish required stories.

@@ -30,9 +30,6 @@
 					font-size: $select-input-search-font-size-md;
 					line-height: $select-input-search-font-height-md;
 					width: $select-input-default-size-width;
-					border-width: $select-input-search-border-width;
-					border-style: $select-input-search-border-style;
-					border-color: $select-input-search-border-color;
 					border-radius: $select-input-search-border-radius;
 					padding-top: $select-input-search-padding-vertical;
 					padding-right: $select-input-search-padding-horizontal-right;
@@ -40,6 +37,12 @@
 					padding-left: $select-input-search-padding-horizontal-left;
 					cursor: text;
 					outline: none;
+				}
+
+				input[type="text"] {
+					border-width: $select-input-search-border-width;
+					border-style: $select-input-search-border-style;
+					border-color: $select-input-search-border-color;
 				}
 			}
 
@@ -74,7 +77,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(search) {
-				@include modifier(input) {
+				input[type="text"] {
 					border-color: $color-extended-neutral-0;
 				}
 			}

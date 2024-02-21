@@ -12,3 +12,8 @@ export default Icons as IconsModule
 
 // Usefull for importing Icons individually, ex. import { ExternalLink } from "@wpmudev/sui-icons"
 export * from "./exports"
+
+// Exporting keys of Icons as IconsName
+export const IconsName: IconsNamesType[] = Object.keys(
+	Icons,
+) as IconsNamesType[]

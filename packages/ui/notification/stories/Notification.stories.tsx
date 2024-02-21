@@ -11,6 +11,7 @@ import {
 import docs from "./Notification.mdx"
 import { Button } from "@wpmudev/sui-button"
 import { useNotifications } from "../src/use-notification"
+import { IconsName } from "@wpmudev/sui-icons"
 
 // Configure default options
 export default {
@@ -252,8 +253,9 @@ Notification.argTypes = {
 	},
 	icon: {
 		name: "Icon",
+		options: IconsName,
 		control: {
-			type: "text",
+			type: "select",
 		},
 	},
 	isInline: {

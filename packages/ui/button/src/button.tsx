@@ -44,7 +44,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			icon,
 			startIcon = icon,
 			endIcon,
-			iconOnly = false,
+			iconOnly,
 			iconSize = "sm",
 			isResponsive = false,
 			isLoading = false,

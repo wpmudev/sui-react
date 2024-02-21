@@ -60,11 +60,19 @@ const RichTextEditor = ({ color, ...props }: { color: string }) => {
 RichTextEditor.args = {
 	textareaId: "",
 	isDisabled: false,
-	className: "",
 }
 
 // Set controls for story arguments.
-RichTextEditor.argTypes = {}
+RichTextEditor.argTypes = {
+	textareaId: {
+		name: "ID",
+		control: "text",
+	},
+	isDisabled: {
+		name: "Disabled",
+		control: "boolean",
+	},
+}
 
 // Publish required stories.
 export { RichTextEditor }

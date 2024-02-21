@@ -5,6 +5,8 @@ import { Box as SuiBox, BoxGroup, BoxGroupProps } from "../src"
 import { Row, Col } from "@wpmudev/sui-grid"
 import { Button } from "@wpmudev/sui-button"
 
+import { IconsName } from "@wpmudev/sui-icons"
+
 // Import documentation main page
 import docs from "./box.mdx"
 
@@ -67,4 +69,32 @@ Box.args = {
 		</Button>,
 	],
 	hasPadding: true,
+	hideMobileIcon: false,
+}
+
+// Set controls for story arguments.
+Box.argTypes = {
+	title: {
+		name: "Title",
+		control: "text",
+	},
+	icon: {
+		name: "Icon",
+		options: IconsName,
+		control: "select",
+	},
+	hideMobileIcon: {
+		name: "Hide icon on mobile",
+		control: "boolean",
+	},
+	headerLeft: {
+		name: "Header Left",
+	},
+	headerRight: {
+		name: "Header Right",
+	},
+	hasPadding: {
+		name: "Spacing",
+		control: "boolean",
+	},
 }

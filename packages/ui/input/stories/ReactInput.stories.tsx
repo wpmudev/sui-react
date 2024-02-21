@@ -6,6 +6,7 @@ import { Input as SuiInput, InputProps } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactInput.mdx"
+import { IconsName } from "@wpmudev/sui-icons"
 
 // Configure default options.
 export default {
@@ -32,7 +33,13 @@ const Input = (args: InputProps) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<FormField id="input-1" isSmall={isSmall} isDisabled={isDisabled}>
+					<FormField
+						id="input-1"
+						label="Label"
+						helper="Helper Text"
+						isSmall={isSmall}
+						isDisabled={isDisabled}
+					>
 						<SuiInput {...args} />
 					</FormField>
 				</div>
@@ -47,7 +54,7 @@ Input.args = {
 	id: "myCustomId",
 	defaultValue: "Hello World",
 	icon: "",
-	iconPosition: "",
+	iconPosition: "start",
 	iconHint: "",
 	iconTooltipWidth: "",
 	isSmall: false,
@@ -66,7 +73,7 @@ Input.argTypes = {
 		},
 	},
 	customWidth: {
-		name: "customWidth",
+		name: "Custom Width",
 		control: "number",
 	},
 	id: {
@@ -76,19 +83,42 @@ Input.argTypes = {
 	defaultValue: {
 		name: "Value",
 	},
-	iconTooltipWidth: {
-		name: "iconTooltipWidth",
-		control: "number",
-	},
 	isSmall: {
 		name: "Small",
 		control: "boolean",
+	},
+	icon: {
+		name: "Icon",
+		options: IconsName,
+		control: {
+			type: "select",
+		},
 	},
 	iconPosition: {
 		name: "Icon Position",
 		options: ["start", "end"],
 		control: {
 			type: "select",
+		},
+		if: {
+			arg: "icon",
+			neq: "",
+		},
+	},
+	iconHint: {
+		name: "Icon Hint",
+		control: "text",
+		if: {
+			arg: "iconPosition",
+			eq: "end",
+		},
+	},
+	iconTooltipWidth: {
+		name: "Icon Tooltip Width",
+		control: "number",
+		if: {
+			arg: "iconPosition",
+			eq: "end",
 		},
 	},
 	isReadOnly: {

@@ -17,7 +17,7 @@ const NotificationRenderer = (props: useStylesTypes) => {
 			className={generateCN(
 				"sui-notification__renderer",
 				{},
-				suiInlineClassname,
+				suiInlineClassname + "sui-wp-overlay",
 			)}
 		>
 			{(queue ?? [])?.map((notification: any, index: number) => (

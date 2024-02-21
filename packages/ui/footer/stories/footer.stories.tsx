@@ -130,7 +130,7 @@ Footer.argTypes = {
 		},
 	},
 	removeBGColor: {
-		name: "removeBGColor",
+		name: "Remove Background",
 		type: "boolean",
 	},
 }

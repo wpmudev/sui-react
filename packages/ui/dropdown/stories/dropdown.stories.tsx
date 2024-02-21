@@ -4,6 +4,8 @@ import React from "react"
 import { Dropdown as SuiDropdown } from "../src"
 import { Button } from "@wpmudev/sui-button"
 
+import { IconsName } from "@wpmudev/sui-icons"
+
 // Import documentation main page
 import docs from "./ReactDropdown.mdx"
 
@@ -22,6 +24,8 @@ export default {
 // Build story
 export const Dropdown = ({ color, ...props }: { color: string }) => {
 	const boxStyle = {
+		display: "flex",
+		gap: "8px",
 		margin: 0,
 		padding: "30px",
 		border: "white" === color ? "1px solid #E6E6E6" : 0,
@@ -196,19 +200,55 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 Dropdown.args = {
 	label: "Menu Button",
 	isSmall: false,
+	isFixedHeight: true,
 	iconOnly: false,
+	renderContentOnTop: false,
+	placement: "right",
+	buttonIcon: "Menu",
 	onMenuClick: () => {},
 }
 
 Dropdown.argTypes = {
+	label: {
+		name: "Label",
+		control: "text",
+	},
 	isSmall: {
 		name: "Small",
+		control: "boolean",
+	},
+	isFixedHeight: {
+		name: "Fixed Height",
+		control: "boolean",
+	},
+	renderContentOnTop: {
+		name: "Render content on top",
+		control: "boolean",
 	},
 	iconOnly: {
 		name: "Icon Button",
+		control: "boolean",
+	},
+	buttonIcon: {
+		name: "Icon",
+		options: IconsName,
+		control: "select",
 	},
 	onMenuClick: {
-		name: "onMenuClick",
+		name: "On Click",
 		type: Function,
 	},
+	placement: {
+		name: "Placement",
+		options: ["left", "right"],
+		control: {
+			type: "select",
+			labels: {
+				left: "Left",
+				right: "Right",
+			},
+		},
+	},
+	isResponsive: { table: { disable: true } },
+	htmlProps: { table: { disable: true } },
 }

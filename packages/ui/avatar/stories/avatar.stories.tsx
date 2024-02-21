@@ -22,7 +22,7 @@ export default {
 }
 
 // Build "Avatar" story.
-const Avatar = ({ ...props }) => {
+const Avatar = ({ example, ...props }: { example: string }) => {
 	const boxStyle = {
 		padding: 20,
 		borderRadius: 4,
@@ -45,7 +45,7 @@ const Avatar = ({ ...props }) => {
 // Set story arguments.
 Avatar.args = {
 	example: "icon",
-	status: "",
+	status: "none",
 	image: {
 		alt: "Unreal Person avatar image",
 		src: image,

@@ -25,7 +25,7 @@ const Search = ({ ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={{ padding: "20px", backgroundColor: "white" }}>
-					<SuiSearch {...props} options={options} />
+					<SuiSearch {...props} />
 				</div>
 			</div>
 		</div>
@@ -36,10 +36,12 @@ const Search = ({ ...props }) => {
 Search.args = {
 	variation: "basic",
 	placeholder: "Search",
+	options,
 	allowClear: true,
 	searchMinChars: 2,
 	defaultValue: "",
 	isDisabled: false,
+	searchHint: "Please enter 2 or more characters",
 }
 
 // Set controls for story arguments.
@@ -54,6 +56,9 @@ Search.argTypes = {
 				smart: "Smart Search",
 			},
 		},
+	},
+	options: {
+		name: "Options",
 	},
 	placeholder: {
 		name: "Placeholder",
@@ -79,6 +84,16 @@ Search.argTypes = {
 			type: "number",
 		},
 	},
+	searchHint: {
+		name: "Search hint",
+		control: {
+			type: "text",
+		},
+		if: {
+			arg: "variation",
+			eq: "smart",
+		},
+	},
 	isDisabled: {
 		name: "Disabled",
 		control: {
@@ -86,7 +101,7 @@ Search.argTypes = {
 		},
 	},
 	customWidth: {
-		name: "customWidth",
+		name: "Custom width",
 		control: {
 			type: "number",
 		},

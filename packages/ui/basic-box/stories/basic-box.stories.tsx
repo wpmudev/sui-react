@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React, { Fragment, ReactNode } from "react"
 
 // Import required component
 import { BasicBox as SuiBasicBlock } from "../src"
@@ -27,38 +27,7 @@ const BasicBox = ({ ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={{ backgroundColor: "white", borderRadius: "4px" }}>
-					<SuiBasicBlock
-						{...props}
-						headerActions={
-							<Fragment>
-								<Button
-									type="secondary"
-									colorScheme="black"
-									isSmall={true}
-									icon="Upload"
-								>
-									Upload
-								</Button>
-								<Button type="primary" colorScheme="blue" isSmall={true}>
-									Create new
-								</Button>
-							</Fragment>
-						}
-						footerActions={[
-							<Button key={0} type="primary" colorScheme="blue" isSmall={true}>
-								Save changes
-							</Button>,
-							<Button
-								key={1}
-								startIcon="PowerOff"
-								type="tertiary"
-								colorScheme="red"
-								isSmall={true}
-							>
-								Deactivate
-							</Button>,
-						]}
-					>
+					<SuiBasicBlock {...props}>
 						<SettingBlock
 							title="Import"
 							description="Import your blocklist and allowlist from another website."
@@ -103,21 +72,58 @@ const BasicBox = ({ ...props }) => {
 BasicBox.args = {
 	title: "Example with setting block",
 	description: "This is example of the basic box with setting blocks.",
+	isPro: false,
+	headerActions: (
+		<Fragment>
+			<Button type="secondary" colorScheme="black" isSmall={true} icon="Upload">
+				Upload
+			</Button>
+			<Button type="primary" colorScheme="blue" isSmall={true}>
+				Create new
+			</Button>
+		</Fragment>
+	),
+	footerActions: [
+		<Button key={0} type="primary" colorScheme="blue" isSmall={true}>
+			Save changes
+		</Button>,
+		<Button
+			key={1}
+			startIcon="PowerOff"
+			type="tertiary"
+			colorScheme="red"
+			isSmall={true}
+		>
+			Deactivate
+		</Button>,
+	],
 }
 
 // Set controls for story arguments.
 BasicBox.argTypes = {
 	title: {
-		name: "title",
+		name: "Title",
 		control: {
 			type: "text",
 		},
 	},
 	description: {
-		name: "description",
+		name: "Description",
 		control: {
 			type: "text",
 		},
+	},
+	isPro: {
+		name: "Pro",
+		control: {
+			type: "boolean",
+		},
+	},
+	headerActions: {
+		name: "Header actions",
+	},
+	footerActions: {
+		name: "Footer actions",
 	},
 }
 

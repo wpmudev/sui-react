@@ -91,6 +91,12 @@ Selector.args = {
 
 // Story props settings
 Selector.argTypes = {
+	name: {
+		name: "Name",
+		control: {
+			type: "text",
+		},
+	},
 	title: {
 		name: "Title",
 		control: {
@@ -163,6 +169,10 @@ Selector.argTypes = {
 			},
 		},
 	},
+	tag: {
+		name: "Tag",
+		control: "text",
+	},
 	tagColor: {
 		name: "Tag Color",
 		options: [
@@ -189,4 +199,9 @@ Selector.argTypes = {
 			},
 		},
 	},
+	onChange: { table: { disable: true } },
+	onRemove: { table: { disable: true } },
+	value: { table: { disable: true } },
+	isChecked: { table: { disable: true } },
+	defaultValue: { table: { disable: true } },
 }

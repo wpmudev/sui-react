@@ -22,11 +22,7 @@
 			padding: $spacing-md $spacing-lg;
 
 			@include element(renderer) {
-				position: fixed;
-				top: $notification-spacing-lg;
-				left: 50%;
-				transform: translate(-50%, 0);
-				padding: $notification-spacing-md;
+				padding: 0 $notification-spacing-md;
 				z-index: 999;
 
 				.sui-#{$block-name} {

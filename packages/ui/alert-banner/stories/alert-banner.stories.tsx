@@ -23,8 +23,6 @@ export default {
 // Build story
 export const AlertBanner = ({ variation, ...props }: AlertBannerProps) => {
 	const box = {
-		display: "flex",
-		gap: "8px",
 		margin: "0 0 20px",
 		padding: "30px",
 		border: "1px solid #E6E6E6",
