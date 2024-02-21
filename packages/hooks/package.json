@@ -38,5 +38,8 @@
   "dependencies": {
     "@wpmudev/sui-utils": "^0.0.1",
     "react-jss": "^10.10.0"
+  },
+  "devDependencies": {
+    "@emotion/hash": "^0.9.1"
   }
 }
