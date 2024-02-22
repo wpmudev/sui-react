@@ -36,6 +36,7 @@ import { TableContext, TableSortBy } from "./table-context"
  * @param  root0.style
  * @param  root0.colSpan
  * @param  root0.htmlProps
+ * @param  root0._style
  *
  * @return {JSX.Element} The JSX representation of the TableCell component.
  */
@@ -53,13 +54,13 @@ const TableCell: React.FC<TableCellProps> = ({
 	style = {},
 	colSpan,
 	htmlProps = {},
-	...props
+	_style = {},
 }): JSX.Element => {
 	// Define element tag name based on whether it's a heading cell (th) or a regular cell (td).
 	const TagName: "td" | "th" = isHeading ? "th" : "td"
 
 	const [hovered, focused, methods] = useInteraction({})
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Default children content
 	children = useDefaultChildren(children, "{cell children content}")

@@ -24,6 +24,7 @@ const Toggle: React.FC<ToggleProps> = ({
 	isDisabled = false,
 	onClick,
 	htmlProps = {},
+	_style = {},
 	...props
 }) => {
 	// use id
@@ -56,7 +57,7 @@ const Toggle: React.FC<ToggleProps> = ({
 		[onClick, state],
 	)
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Define container props
 	const containerProps = {

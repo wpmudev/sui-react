@@ -29,7 +29,7 @@ const FormField: React.FC<FormFieldProps> = ({
 	children,
 	customWidth,
 	htmlProps = {},
-	...props
+	_style,
 }) => {
 	// Define a unique id.
 	let fieldId = useId()
@@ -44,7 +44,7 @@ const FormField: React.FC<FormFieldProps> = ({
 	const isErrored =
 		"string" === typeof error ? !isEmpty((error as string) ?? "") : !!error
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Generate classnames
 	const classNames = generateCN(

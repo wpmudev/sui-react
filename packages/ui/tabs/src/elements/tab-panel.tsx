@@ -10,11 +10,12 @@ import { generateCN } from "@wpmudev/sui-utils"
  *
  * @param {Object} props          - The props for the TabPanel component.
  * @param {*}      props.children - The content to be displayed within the TabPanel.
+ * @param {Object} props._style
  *
  * @return {JSX.Element} The TabPanel component.
  */
-const TabPanel: React.FC<TabPanelProps> = ({ children, ...props }) => {
-	const { suiInlineClassname } = useStyles(props)
+const TabPanel: React.FC<TabPanelProps> = ({ children, _style = {} }) => {
+	const { suiInlineClassname } = useStyles(_style)
 
 	return (
 		<div className={generateCN("sui-tab__panel", {}, suiInlineClassname)}>

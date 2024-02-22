@@ -4,8 +4,8 @@ import { SpinnerLoaderProps } from "./spinner.types"
 import { useStyles } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
-const SpinnerLoader = ({ colorScheme, ...props }: SpinnerLoaderProps) => {
-	const { suiInlineClassname } = useStyles(props)
+const SpinnerLoader = ({ colorScheme, _style }: SpinnerLoaderProps) => {
+	const { suiInlineClassname } = useStyles(_style)
 
 	// const colors = {
 	// 	primary: "#286EF1",

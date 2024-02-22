@@ -17,6 +17,7 @@ const RadioGroup = ({
 	onChange = () => {},
 	className = "",
 	htmlProps = {},
+	_style,
 	...props
 }: RadioGroupProps) => {
 	const [current, setCurrent] = useState<RadioValueType>(defaultValue)
@@ -29,7 +30,7 @@ const RadioGroup = ({
 	// Default children content
 	children = useDefaultChildren(children, "{Radio Group Children Content}")
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// radio group classname
 	const radioClassNames = generateCN(

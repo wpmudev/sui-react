@@ -15,9 +15,9 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 	className,
 	children,
 	htmlProps = {},
-	...props
+	_style = {},
 }: EmptyStateProps): JSX.Element => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-empty-state", {}, suiInlineClassname)
 
 	// Determine whether the logo is an image (string representing URL) or an HTML/SVG element.

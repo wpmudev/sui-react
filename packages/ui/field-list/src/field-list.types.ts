@@ -2,11 +2,12 @@ import React, { CSSProperties } from "react"
 
 import { ToggleProps } from "@wpmudev/sui-toggle"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a field list.
  */
-interface FieldListProps extends useStylesTypes {
+interface FieldListProps extends SuiStyleType {
 	/**
 	 * The label for the field list.
 	 */
@@ -32,7 +33,7 @@ interface FieldListProps extends useStylesTypes {
 /**
  * Represents the properties for a field list item.
  */
-interface FieldListItemProps extends ToggleProps, useStylesTypes {
+interface FieldListItemProps extends ToggleProps, SuiStyleType {
 	/**
 	 * The ID for the field list item.
 	 */

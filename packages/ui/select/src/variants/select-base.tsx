@@ -6,14 +6,13 @@ import React, {
 	ChangeEvent,
 	useId,
 } from "react"
-import { generateCN } from "@wpmudev/sui-utils"
+import { SuiStyleType, generateCN } from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
 	useInteraction,
 	useOuterClick,
 	usePrevious,
 	useStyles,
-	useStylesTypes,
 } from "@wpmudev/sui-hooks"
 
 import { Dropdown } from "../elements/select-dropdown"
@@ -49,7 +48,7 @@ interface SelectBaseProps
 			| "width"
 			| "color"
 		>,
-		useStylesTypes {
+		SuiStyleType {
 	/** Unique ID */
 	id?: string
 	/** An array of options for the select */
@@ -72,7 +71,6 @@ interface SelectBaseProps
 	isSearchable?: boolean
 	/** Add a custom width in pixels  */
 	customWidth?: number
-
 	/**
 	 * Event handler for mouse enter event.
 	 * It is of type Pick<InteractionTypes, "onMouseEnter">, which means it selects
@@ -108,6 +106,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	onMouseLeave = () => null,
 	customWidth,
 	onChange,
+	_style = {},
 	...props
 }) => {
 	const uniqueId = useId()
@@ -188,7 +187,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		setItems(updatedItems)
 	}, [filteredItems])
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
 		"sui-select",

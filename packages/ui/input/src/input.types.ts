@@ -1,7 +1,7 @@
 import React, { HTMLProps } from "react"
 import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 // Possible values for input type
 type InputType =
@@ -39,7 +39,7 @@ type InputType =
 interface InputProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
 		InteractionTypes,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * Input field default value
 	 */

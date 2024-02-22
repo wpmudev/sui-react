@@ -25,13 +25,13 @@ const Table: React.FC<TableProps> = ({
 	stickyCols = false,
 	className = "",
 	htmlProps = {},
-	...props
+	_style = {},
 }) => {
 	// Reference to the table element
 	const ref = useRef<HTMLTableElement | null>(null)
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Define tag design
 	// Limited to: solid (default) and outlined

@@ -49,6 +49,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	status,
 	isUnderFooter = false,
 	htmlProps = {},
+	_style = {},
 	...props
 }) => {
 	// State for row expansion
@@ -57,7 +58,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	const ctx = useContext(TableContext)
 	// State for row hover and focus
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate unique IDs for accessibility
 	const uniqueID = useId()

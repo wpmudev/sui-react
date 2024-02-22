@@ -17,7 +17,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			value = "",
 			isDisabled = false,
 			htmlProps = {},
-			...props
+			_style = {},
 		},
 		ref,
 	) => {
@@ -79,7 +79,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			"aria-hidden": true,
 		}
 
-		const { suiInlineClassname } = useStyles(props)
+		const { suiInlineClassname } = useStyles(_style)
 
 		// Define container props
 		const containerProps = {

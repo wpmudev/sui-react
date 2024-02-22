@@ -36,6 +36,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	maxSize,
 	maxSizeText = "Message to appear when file size exeeds the max given",
 	htmlProps = {},
+	_style = {},
 	...props
 }) => {
 	// To display notifications
@@ -157,7 +158,7 @@ const Uploader: React.FC<UploaderProps> = ({
 		[files],
 	)
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	return (
 		<Fragment>

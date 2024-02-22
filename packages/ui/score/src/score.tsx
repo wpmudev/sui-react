@@ -13,9 +13,9 @@ const Score: React.FC<ScoreProps> = ({
 	isPercentage = true,
 	className,
 	htmlProps = {},
-	...props
+	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
 		"sui-score",

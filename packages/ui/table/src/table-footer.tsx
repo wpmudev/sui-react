@@ -7,9 +7,9 @@ import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 const TableFooter: React.FC<TableSectionProps> = ({
 	children,
 	htmlProps = {},
-	...props
+	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	return (
 		<table className="sui-table__table sui-table__table--footer">

@@ -18,9 +18,10 @@ const Recipient: React.FC<RecipientProps> = ({
 	status = "none",
 	isInvited = false,
 	appearance = "primary",
+	_style,
 	...props
 }) => {
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Define recipient class.
 	const className = generateCN(

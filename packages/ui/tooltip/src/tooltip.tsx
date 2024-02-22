@@ -44,6 +44,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	iconSize = "sm",
 	buttonProps,
 	htmlProps = {},
+	_style = {},
 	...props
 }) => {
 	// detect RTL
@@ -218,7 +219,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
 	const attrs: TooltipAttrsTypes = {}
 
-	const { suiInlineClassname } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 	const classNames = generateCN(
 		"sui-tooltip",

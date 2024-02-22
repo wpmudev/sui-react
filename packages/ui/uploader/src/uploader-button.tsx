@@ -23,7 +23,7 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 	allowDragAndDrop = false,
 	onClick = () => {},
 	onDrag = () => {},
-	...props
+	_style = {},
 }: UploaderButtonProps): JSX.Element => {
 	// Ref for the div used to handle drag-and-drop
 	const dragRef = useRef<HTMLDivElement | null>(null)
@@ -46,7 +46,7 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 		btnTitle = "Upload File"
 	}
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Return the UploaderButton component with drag-and-drop or regular button type
 	if (allowDragAndDrop) {

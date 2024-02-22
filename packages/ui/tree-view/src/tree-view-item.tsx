@@ -23,6 +23,8 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param  root0.isDisabled
  * @param  root0.className
  * @param  root0.children
+ * @param  root0._style
+ *
  * @return {JSX.Element} - JSX Element representing the TreeViewItem component
  */
 const TreeViewItem: React.FC<TreeViewItemProps> = ({
@@ -35,9 +37,10 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 	isDisabled = false,
 	className = "",
 	children,
+	_style = {},
 	...props
 }: TreeViewItemProps): JSX.Element => {
-	const { suiInlineClassname } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(_style, className ?? "")
 	// Generate class names
 	const classNames = generateCN("sui-tree-view__item", {}, suiInlineClassname)
 

@@ -45,11 +45,11 @@ const Icon = forwardRef<"svg", IconProps>(
 			onClick,
 			fill = "currentColor",
 			htmlProps = {},
-			...props
+			_style = {},
 		},
 		ref,
 	) => {
-		const { suiInlineClassname } = useStyles(props, className)
+		const { suiInlineClassname } = useStyles(_style, className)
 
 		// Add variations to the classnames
 		className = generateCN(

@@ -59,7 +59,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				customWidth,
 				onValidate,
 				htmlProps = {},
-				...props
+				_style = {},
 			},
 			ref,
 		) => {
@@ -125,7 +125,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				inputType = type
 			}
 
-			const { suiInlineClassname } = useStyles(props, className ?? "")
+			const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 			// Generate class names based on the prop values
 			const classNames = generateCN(

@@ -9,9 +9,9 @@ const Col: React.FC<ColProps> = ({
 	children,
 	className,
 	htmlProps = {},
-	...props
+	_style,
 }) => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
 		"sui-col",

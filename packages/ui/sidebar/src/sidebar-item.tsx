@@ -24,11 +24,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 	isDisabled = false,
 	onClick = () => {},
 	htmlProps = {},
-	...props
+	_style = {},
 }) => {
 	// `useInteraction` returns interaction state and methods.
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Class names based on interaction and disabled state.
 	const classNames = generateCN(

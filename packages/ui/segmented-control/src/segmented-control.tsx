@@ -13,7 +13,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	onChange = () => {},
 	children,
 	isFullWidth = false,
-	...props
+	_style = {},
 }) => {
 	/**
 	 * State to track the current selected value of the segmented control.
@@ -23,7 +23,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	// default children content
 	children = useDefaultChildren(children)
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	/**
 	 * Generate class names for the segmented control based on the isFullWidth prop.

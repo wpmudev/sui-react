@@ -26,6 +26,7 @@ import { SummaryBoxItemProps } from "./summary-box.types"
  * @param {string} [props.actionIconColor=""] - The color of the action icon.
  *
  * @param          props.htmlProps
+ * @param          props._style
  * @return {JSX.Element} The SummaryBoxItem component.
  */
 const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
@@ -38,11 +39,11 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	actionIcon,
 	actionIconColor = "",
 	htmlProps = {},
-	...props
+	_style = {},
 }: SummaryBoxItemProps): JSX.Element => {
 	// Hook for handling interaction state (hover, focus).
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
 		"sui-summary-box__list-item",

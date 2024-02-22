@@ -12,9 +12,9 @@ const FieldList: React.FC<FieldListProps> = ({
 	children,
 	spacing = "",
 	onToggle = () => null,
-	...styleProps
+	_style,
 }) => {
-	const { suiInlineClassname } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Callback function to handle item toggling
 	const onChangeItem = useCallback(

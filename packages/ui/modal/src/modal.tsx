@@ -22,7 +22,10 @@ export const ModalContext = createContext<ModalContextProps | null>(null)
 
 // Build modal
 const Modal = forwardRef<ModalActionsProps, ModalProps>(
-	({ id, size = "sm", children, variant = "simple", ...props }, ref) => {
+	(
+		{ id, size = "sm", _style, children, variant = "simple", ...props },
+		ref,
+	) => {
 		// generate id if not provided
 		const uniqueId = useId()
 
@@ -57,7 +60,7 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 
 		// Get the 'render' function from the 'usePortal' hook
 		const [render] = usePortal()
-		const { suiInlineClassname } = useStyles(props, "sui-wp-overlay")
+		const { suiInlineClassname } = useStyles(_style, "sui-wp-overlay")
 
 		document.body.classList.add("sui-locked")
 

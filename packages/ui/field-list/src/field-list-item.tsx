@@ -15,6 +15,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 	onToggle,
 	htmlProps = {},
 	style,
+	_style,
 	...props
 }) => {
 	// Generate a unique ID for the Toggle component
@@ -38,7 +39,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 		[id, onToggle],
 	)
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	return (
 		<div

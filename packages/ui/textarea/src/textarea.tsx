@@ -23,7 +23,7 @@ const Textarea: React.FC<TextareaProps> = ({
 	placeholder = "",
 	rows,
 	htmlProps = {},
-	...props
+	_style = {},
 }) => {
 	const [currentValue, setCurrentValue] = useState(value)
 	const [isHovered, isFocused, methods] = useInteraction({})
@@ -35,7 +35,7 @@ const Textarea: React.FC<TextareaProps> = ({
 		id = uniqueId
 	}
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
 		"sui-textarea",

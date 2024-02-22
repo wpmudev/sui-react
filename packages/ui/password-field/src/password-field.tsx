@@ -15,11 +15,12 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	isDisabled = false,
 	placeholder,
 	customWidth,
+	_style = {},
 	...props
 }) => {
 	// Generate unique id if not provided
 	const uniqueId = useId()
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	if (!id) {
 		id = uniqueId

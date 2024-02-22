@@ -1,6 +1,6 @@
 import React, { HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * EmptyStateProps Interface
@@ -9,7 +9,7 @@ import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
  */
 interface EmptyStateProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * The logo to be displayed in the empty state.
 	 * It can be a string representing the URL of an image or an HTML/SVG element.

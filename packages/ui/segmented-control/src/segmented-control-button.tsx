@@ -23,6 +23,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	ariaLabel,
 	isDisabled,
 	isResponsive = false,
+	_style = {},
 	...props
 }) => {
 	// Generate a unique ID for the radio button and set its ID attribute.
@@ -40,7 +41,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	// Retrieve context values and interaction methods for the button.
 	const { onClick, name, value: ctxValue } = useSegmentedControl(value)
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate class names for the button.
 	const classNames = generateCN(

@@ -1,6 +1,6 @@
 import { HTMLProps, ReactNode } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 // Define a type that represents the possible values for a radio button.
 type RadioValueType = string | number | undefined
@@ -10,7 +10,7 @@ type RadioValueType = string | number | undefined
  */
 interface RadioGroupProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * The name of the radio group.
 	 */
@@ -62,7 +62,7 @@ interface RadioGroupProps
  */
 interface RadioProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * The unique identifier for the radio button (optional).
 	 */

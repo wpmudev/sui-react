@@ -3,9 +3,10 @@
  */
 import { ReactNode } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
 // interface definition for the EditorToolbar
-interface EditorToolbarProps extends useStylesTypes {
+interface EditorToolbarProps extends SuiStyleType {
 	/**
 	 * The title displayed in the editor toolbar.
 	 */
@@ -54,7 +55,7 @@ interface EditorToolbarProps extends useStylesTypes {
 }
 
 // interface definition for the EditorToolbar
-interface EditorToolbarFieldProps extends useStylesTypes {
+interface EditorToolbarFieldProps extends SuiStyleType {
 	/**
 	 * The title displayed in the editor toolbar.
 	 */

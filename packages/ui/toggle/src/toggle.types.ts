@@ -1,13 +1,13 @@
 import React, { HTMLProps, ReactNode } from "react"
 import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a toggle component.
  */
 interface ToggleProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement | HTMLDivElement>>,
-		useStylesTypes,
+		SuiStyleType,
 		InteractionTypes {
 	/**
 	 * Toggle ID

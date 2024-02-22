@@ -22,9 +22,10 @@ const UploaderFile: React.FC<UploaderFileProps> = ({
 	id,
 	file,
 	onRemove,
+	_style = {},
 	...props
 }: UploaderFileProps): JSX.Element => {
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// @todo: add error variation support
 	return (

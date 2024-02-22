@@ -38,7 +38,7 @@ const Popover: React.FC<PopoverProps> = ({
 	footer,
 	displayOnHover = false,
 	htmlProps = {},
-	...props
+	_style = {},
 }) => {
 	const [isPopupOpen, setIsPopupOpen] = useState<boolean>(isOpen ?? false)
 	const [popupPositions, setPopupPositions] = useState<Record<string, any>>({
@@ -56,7 +56,7 @@ const Popover: React.FC<PopoverProps> = ({
 	const triggerRef = useRef<HTMLDivElement | null>(null)
 	const popupRef = useRef<HTMLDivElement | null>(null)
 
-	const { suiInlineClassname } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 	// class names
 	const classNames = generateCN(

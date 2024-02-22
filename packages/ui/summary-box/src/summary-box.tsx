@@ -21,6 +21,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param {string}             props.className             - Additional CSS classes to apply to the component.
  * @param {React.ReactNode}    props.children              - Optional additional content within the summary box.
  * @param                      props.htmlProps
+ * @param                      props._style
  *
  * @return {JSX.Element} The SummaryBox component.
  */
@@ -33,9 +34,10 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	className,
 	children,
 	htmlProps = {},
+	_style = {},
 	...props
 }: SummaryBoxProps): JSX.Element => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-summary-box", {}, suiInlineClassname)
 
 	// Define the attributes for the Box component that will be used to display the summary box.

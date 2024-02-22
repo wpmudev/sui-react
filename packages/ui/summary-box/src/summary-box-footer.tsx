@@ -13,15 +13,16 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param {Object} props           - The props for the SummaryFooterBody component.
  * @param {string} props.className - Additional CSS classes to apply to the component.
  * @param {*}      props.children  - The content to be displayed within the component.
- *
+ * @param          props._style
  * @return {JSX.Element} The SummaryFooterBody component.
  */
 const SummaryFooterBody: React.FC<SummaryFooterBodyProps> = ({
 	className,
 	children,
+	_style = {},
 	...props
 }) => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN(
 		"sui-summary-box__footer",
 		{},

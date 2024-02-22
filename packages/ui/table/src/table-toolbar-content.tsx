@@ -22,13 +22,14 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 	filterBtnId,
 	isExpanded,
 	htmlProps = {},
+	_style = {},
 	...props
 }) => {
 	// Get table context
 	const ctx = useContext(TableContext)
 	// Get filters from context
 	const filters = ctx?.filters
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// If there are no filters, return null to hide the toolbar content
 	if (!filters) {

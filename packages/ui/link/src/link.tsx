@@ -29,6 +29,7 @@ const Link: React.FC<LinkProps> = ({
 	children,
 	href = "#",
 	htmlProps = {},
+	_style = {},
 	...props
 }) => {
 	// Determine the HTML tag name to use
@@ -40,7 +41,7 @@ const Link: React.FC<LinkProps> = ({
 	// Use the useInteraction hook to track hover and focus states
 	const [hover, focus, methods] = useInteraction({})
 
-	const { suiInlineClassname } = useStyles(props as useStylesTypes, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Generate CSS class names for the link
 	const classNames = generateCN(

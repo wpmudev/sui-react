@@ -21,6 +21,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 			selectedItemName = "",
 			children,
 			htmlProps,
+			_style = {},
 			...props
 		}: SidebarProps,
 		ref,
@@ -45,7 +46,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 			toggle: () => setIsOpen(!isOpen),
 		}))
 
-		const { suiInlineClassname } = useStyles(props, className)
+		const { suiInlineClassname } = useStyles(_style, className)
 		const classNames = generateCN(
 			"sui-sidebar__dropdown",
 			{},

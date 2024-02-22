@@ -1,7 +1,7 @@
 import React from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { TagProps } from "@wpmudev/sui-tag"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 /**
  * Represents the properties for a Selector component.
  */
@@ -20,7 +20,7 @@ interface SelectorProps
 				| "color"
 			>
 		>,
-		useStylesTypes {
+		SuiStyleType {
 	/** The label text for the radio input */
 	label?: string
 	/** The name attribute for the radio input */
@@ -59,7 +59,7 @@ interface SelectorProps
 	tagColor?: TagProps["colorScheme"]
 }
 
-interface SelectorOptionProps extends useStylesTypes {
+interface SelectorOptionProps extends SuiStyleType {
 	iconOrBrandUrl: SelectorProps["iconOrBrandUrl"]
 	title: SelectorProps["title"]
 	description: SelectorProps["description"]

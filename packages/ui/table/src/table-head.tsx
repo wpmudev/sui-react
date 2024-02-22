@@ -17,9 +17,10 @@ const TableHead: React.FC<TableHeadProps> = ({
 	children,
 	hasActions = false,
 	htmlProps = {},
+	_style = {},
 	...props
 }) => {
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// convert table columns to array
 	const tableCols = Children.toArray(children!)

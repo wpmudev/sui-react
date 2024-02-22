@@ -32,6 +32,7 @@ declare const tinymce: Record<string, any>
  * @param  root0.isDisabled
  * @param  root0.defaultValue
  * @param  root0.onChange
+ * @param  root0._style
  * @return {JSX.Element} - JSX Element representing the RichTextEditor component
  */
 const RichTextEditor: React.FC<RichTextEditorProps> = ({
@@ -42,7 +43,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 	isDisabled = false,
 	defaultValue = "",
 	onChange = () => null,
-	...props
+	_style = {},
 }: RichTextEditorProps): JSX.Element => {
 	const [content, setContent] = useState<string>(defaultValue ?? "")
 	const [editorType, setEditorType] = useState<"visual" | "code">("visual")
@@ -153,7 +154,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 		[content],
 	)
 
-	const { suiInlineClassname } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 	// Generate class names
 	const classNames = generateCN(

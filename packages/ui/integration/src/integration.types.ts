@@ -1,10 +1,10 @@
 import React from "react"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * This interface defines the props for the Integration component.
  */
-interface IntegrationProps extends useStylesTypes {
+interface IntegrationProps extends SuiStyleType {
 	/** The title of the integration. */
 	title?: string
 

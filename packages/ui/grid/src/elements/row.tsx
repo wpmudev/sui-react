@@ -10,9 +10,10 @@ const Row: React.FC<RowProps> = ({
 	className,
 	children,
 	htmlProps = {},
+	_style,
 	...props
 }) => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	const expectedAligns: Record<string, any> = {
 		xs: "",

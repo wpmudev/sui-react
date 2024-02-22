@@ -23,9 +23,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 	endIndex,
 	pages,
 	skip,
-	...props
+	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Do not render if pagesArray is blank
 	if (pagesArray.length < 1) {

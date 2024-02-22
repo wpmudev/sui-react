@@ -1,8 +1,7 @@
 import React, { HTMLProps } from "react"
 
 import { ButtonProps } from "@wpmudev/sui-button"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Props for the Popover component.
@@ -11,7 +10,7 @@ interface PopoverBaseProps
 	extends SuiHTMLAttributes<
 			HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>
 		>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * Open popup on initial load
 	 */

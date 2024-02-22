@@ -1,11 +1,12 @@
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import React from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a tree view component.
  */
-interface TreeViewProps extends useStylesTypes {
+interface TreeViewProps extends SuiStyleType {
 	title?: string // Title for the tree view
 	className?: string // CSS class name for the tree view
 	children?: React.ReactNode // Content of the tree view
@@ -17,7 +18,7 @@ interface TreeViewProps extends useStylesTypes {
 /**
  * Represents the properties for a tree view item component.
  */
-interface TreeViewItemProps extends TreeViewProps, useStylesTypes {
+interface TreeViewItemProps extends TreeViewProps, SuiStyleType {
 	id?: string // Unique ID for the tree view item
 	groupId?: string
 	icon?: IconsNamesType // Icon to display with the tree view item
@@ -41,7 +42,7 @@ interface TreeViewGroupProps
 			| "className"
 			| "title"
 		>,
-		useStylesTypes {
+		SuiStyleType {
 	children?: React.ReactNode
 	parentGroupId?: string
 }
@@ -51,7 +52,7 @@ interface TreeViewGroupProps
  */
 interface TreeViewInfoProps
 	extends Pick<TreeViewItemProps, "isExpanded" | "isDisabled" | "id">,
-		useStylesTypes {
+		SuiStyleType {
 	icon: TreeViewItemProps["icon"]
 	isChecked?: boolean
 	children?: React.ReactNode // Additional information to display with the item

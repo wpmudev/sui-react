@@ -1,13 +1,13 @@
 import React, { HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Interface representing the properties of an icon component.
  */
 interface IconProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLOrSVGElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * Custom element type to be used for rendering the icon.
 	 */

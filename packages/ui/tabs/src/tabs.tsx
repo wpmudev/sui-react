@@ -12,9 +12,10 @@ const Tabs: React.FC<TabsProps> = ({
 	className,
 	children,
 	htmlProps,
+	_style = {},
 	...props
 }) => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 	// Generate CSS class names for the Accordion component
 	const classNames = generateCN("sui-tab", {}, suiInlineClassname)
 
