@@ -1,13 +1,13 @@
 import { HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for an avatar component.
  */
 interface AvatarProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLSpanElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * The image source for the avatar.
 	 */
