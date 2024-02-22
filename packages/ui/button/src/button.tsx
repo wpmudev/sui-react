@@ -49,6 +49,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			isResponsive = false,
 			isLoading = false,
 			htmlProps = {},
+			_style,
 			...restProps
 		},
 		ref,
@@ -58,7 +59,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 
 		// Default children content
 		children = useDefaultChildren(children, "button label")
-		const { suiInlineClassname } = useStyles(restProps, className ?? "")
+		const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 		if (isLoading) {
 			isUnwrapped = true

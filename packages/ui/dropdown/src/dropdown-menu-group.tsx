@@ -10,9 +10,9 @@ const DropdownMenuGroup: React.FC<DropdownMenuGroupProps> = ({
 	className = "",
 	children,
 	htmlProps = {},
-	...props
+	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 	// Generate class names for the menu group
 	const classNames = generateCN(
 		"sui-dropdown__menu-group",

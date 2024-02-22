@@ -16,9 +16,9 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 	isFooter = false,
 	hasPadding = true,
 	htmlProps = {},
-	...styleProps
+	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Build content based in slots
 	const slots = Children.map(children, (child, index) => {

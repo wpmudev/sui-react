@@ -16,6 +16,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	isDisabled,
 	onClick,
 	variation = "",
+	_style = {},
 	...props
 }) => {
 	// Use the useInteraction hook to manage hover and focus states
@@ -32,7 +33,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 		TagName = "a"
 	}
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Generate class names for the menu item
 	const classNames = generateCN(

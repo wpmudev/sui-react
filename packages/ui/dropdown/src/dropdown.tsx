@@ -38,6 +38,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			renderContentOnTop = false,
 			isResponsive = false,
 			htmlProps = {},
+			_style = {},
 			...props
 		},
 		ref,
@@ -62,7 +63,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			toggle: () => setIsOpen(!isOpen),
 		}))
 
-		const { suiInlineClassname } = useStyles(props, className)
+		const { suiInlineClassname } = useStyles(_style, className)
 
 		// Generate classes for the dropdown's wrapper based on the component's props.
 		const wrapperClasses = generateCN(

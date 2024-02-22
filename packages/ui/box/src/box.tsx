@@ -24,7 +24,7 @@ const Box: React.FC<BoxProps> = ({
 	className = "",
 	style = {},
 	htmlProps = {},
-	...props
+	_style,
 }) => {
 	// Prop(s) validation
 	const hasTitle = !isUndefined(title) && !isEmpty(title)
@@ -34,7 +34,7 @@ const Box: React.FC<BoxProps> = ({
 
 	// Determine the IconTag based on the provided icon value
 	const IconTag: React.ComponentType<IconProps> = Icons[icon as IconsNamesType]
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN(
 		"sui-box",
 		{ "size-sm": isSmall },

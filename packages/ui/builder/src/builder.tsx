@@ -16,14 +16,11 @@ const Builder: React.FC<BuilderProps> = ({
 	isScrollable = false,
 	hasNoFields = false,
 	htmlProps = {},
-	...styleProps
+	_style = {},
 }) => {
 	// Default children content
 	children = useDefaultChildren(children)
-	const { suiInlineClassname } = useStyles(
-		styleProps,
-		`sui-layout ${className}`,
-	)
+	const { suiInlineClassname } = useStyles(_style, `sui-layout ${className}`)
 	const classNames = generateCN("sui-builder", {}, suiInlineClassname)
 
 	return (

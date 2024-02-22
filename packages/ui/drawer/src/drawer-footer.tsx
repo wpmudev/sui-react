@@ -6,9 +6,10 @@ import { useStyles } from "@wpmudev/sui-hooks"
 const DrawerFooter = ({
 	className = "",
 	children,
+	_style,
 	...styleProps
 }: DrawerFooterTypes) => {
-	const { suiInlineClassname } = useStyles(styleProps, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-drawer__footer", {}, suiInlineClassname)
 
 	return <div className={classNames}>{children}</div>

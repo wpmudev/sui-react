@@ -9,9 +9,9 @@ const CheckBoxGroups: React.FC<CheckboxGroupsProps> = ({
 	children,
 	commonCheckboxProps = {},
 	onChange = () => {},
-	...styleProps
+	_style,
 }) => {
-	const { suiInlineClassname } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(_style)
 	const className = generateCN("sui-checkbox-wrapper", {}, suiInlineClassname)
 
 	return (

@@ -26,9 +26,9 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 	displayLineNumbers = true,
 	className,
 	children,
-	...styleProps
+	_style,
 }) => {
-	const { suiInlineClassname } = useStyles(styleProps, className ?? "")
+	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 	// Generate class names
 	const classNames = generateCN(

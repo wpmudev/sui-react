@@ -21,12 +21,12 @@ const Checkbox = ({
 	isIndeterminate = false,
 	onChange: propOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {},
 	htmlProps = {},
-	...props
+	_style,
 }: CheckboxProps) => {
 	// Context for checkbox
 	const ctx = useCheckbox()
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate a dynamic ID for the checkbox
 	let uuid = `sui-checkbox-${useId()}`

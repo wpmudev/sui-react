@@ -10,9 +10,9 @@ const BuilderEmpty: React.FC<BuilderEmptyProps> = ({
 	title = "No fields added. Insert new field.",
 	className,
 	htmlProps = {},
-	...styleProps
+	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(styleProps, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 	// Class names based on interaction and disabled state.
 	const classNames = generateCN("sui-builder__empty", {}, suiInlineClassname)
 

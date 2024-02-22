@@ -23,7 +23,6 @@ const Avatar: React.FC<AvatarProps> = ({
 	htmlProps = {},
 	_style = {},
 	onClick,
-	...props
 }) => {
 	// Define image object
 	const imageObj = Object.assign(

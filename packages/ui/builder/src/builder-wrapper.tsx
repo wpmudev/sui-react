@@ -9,9 +9,10 @@ const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 	className,
 	children,
 	htmlProps = {},
+	_style = {},
 	...props
 }) => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Class names based on interaction and disabled state.
 	const classNames = generateCN("sui-builder__wrapper", {}, suiInlineClassname)

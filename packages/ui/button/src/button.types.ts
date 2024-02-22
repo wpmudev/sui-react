@@ -1,7 +1,11 @@
 import React, { HTMLProps } from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
-import { OmitNestedKey, SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import {
+	OmitNestedKey,
+	SuiHTMLAttributes,
+	SuiStyleType,
+} from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a button component.
@@ -14,7 +18,7 @@ interface ButtonProps
 			"htmlProps",
 			"id" | "className" | "href" | "target" | "htmlFor"
 		>,
-		useStylesTypes,
+		SuiStyleType,
 		InteractionTypes {
 	id?: string
 	/**

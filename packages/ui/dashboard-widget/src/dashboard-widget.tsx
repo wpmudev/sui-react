@@ -28,9 +28,9 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	onToggle = () => {},
 	children,
 	actions,
-	...styleProps
+	_style = {},
 }: DashboardWidgetProps) => {
-	const { suiInlineClassname } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate classnames for the dashboard widget
 	const classNames: string = generateCN(
