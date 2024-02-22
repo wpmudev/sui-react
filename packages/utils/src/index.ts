@@ -169,6 +169,18 @@ const isString = (value: unknown): boolean => "string" === typeof value
 const isEmpty = (value?: string): boolean => "" === value
 
 /**
+ * Check if object is empty
+ *
+ * @param {object | undefined} obj object to be checked
+ * @return {boolean} Returns true if object is empty
+ */
+const isObjectEmpty = (obj?: object): boolean => {
+	if (!obj) return false
+
+	return Object.keys(obj).length === 0
+}
+
+/**
  * Capitalize text
  *
  * @param {string} string Text to be capitalized
@@ -388,6 +400,7 @@ export {
 	isBoolean,
 	isNumber,
 	isEmpty,
+	isObjectEmpty,
 	isFunction,
 	isString,
 	generateCN,

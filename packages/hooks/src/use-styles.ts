@@ -6,6 +6,7 @@ import {
 	_isTestingMode,
 	generateCN,
 	isValidCSSProperty,
+	isObjectEmpty,
 } from "@wpmudev/sui-utils"
 
 export type StringPropertyType = string | Array<string>
@@ -204,7 +205,7 @@ export const useStyles = (
 		let generatedCSS: Record<string, any> = {}
 
 		// process if styleProps has valid CSS properties
-		if (isValidCSSPropExists(styleObject)) {
+		if (!isObjectEmpty(styleObject) && isValidCSSPropExists(styleObject)) {
 			// go through all props
 			for (const name of Object.keys(styleObject)) {
 				const val = styleObject[name as keyof CSSProperties]
@@ -215,9 +216,9 @@ export const useStyles = (
 					...buildStyleSheet(name, val, generatedCSS),
 				}
 			}
-		}
 
-		setCalculatedStyles({ [parentSelector]: generatedCSS })
+			setCalculatedStyles({ [parentSelector]: generatedCSS })
+		}
 	}, [stringifiedStyles])
 
 	return {
