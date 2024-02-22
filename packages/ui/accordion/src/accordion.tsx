@@ -17,13 +17,13 @@ const Accordion: React.FC<AccordionProps> = ({
 	children,
 	spacing = "",
 	htmlProps = {},
-	...props
+	_style = {},
 }) => {
 	const [expandState, setExpandState] = useState<Record<string, boolean>>({})
 
 	// Default children content
 	children = useDefaultChildren(children)
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Generate CSS class names for the Accordion component
 	const classNames = generateCN(

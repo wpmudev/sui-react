@@ -188,7 +188,7 @@ const isValidCSSPropExists = (props: object): boolean =>
  * @param {string}         attachWith Existing className
  */
 export const useStyles = (
-	styleProps: useStylesTypes,
+	styleProps: useStylesTypes = {},
 	attachWith: string = "",
 ) => {
 	const [calculatedStyles, setCalculatedStyles] = useState({})

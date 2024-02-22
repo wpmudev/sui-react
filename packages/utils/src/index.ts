@@ -12,7 +12,7 @@ type SuiHTMLAttributes<T = any> = {
 }
 
 // HTMLAttributes with data-* attribute
-type SuiStyleProp = {
+type SuiStyleType = {
 	_style?: useStylesTypes
 }
 
@@ -417,4 +417,4 @@ export {
 	_isTestingMode,
 }
 
-export type { SuiHTMLAttributes, OmitNestedKey }
+export type { SuiHTMLAttributes, SuiStyleType, OmitNestedKey }

@@ -27,14 +27,14 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	onCheck,
 	htmlProps = {},
 	contentShadow = true,
-	...styleProps
+	_style = {},
 }) => {
 	// Checkbox is checked.
 	const [isChecked, setIsChecked] = useState(false)
 
 	// Default content when children is empty
 	children = useDefaultChildren(children)
-	const { suiInlineClassname } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Mouse is being pressed
 	const [isPressed, setIsPressed] = useState(false)
