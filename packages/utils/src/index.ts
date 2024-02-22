@@ -2,13 +2,18 @@ import React, { MouseEvent, KeyboardEvent } from "react"
 import classnames from "classnames"
 import { render } from "@testing-library/react"
 import { axe } from "jest-axe"
-import { CSS_SHORTHAND_MAPS } from "@wpmudev/sui-hooks"
+import { CSS_SHORTHAND_MAPS, useStylesTypes } from "@wpmudev/sui-hooks"
 
 type DataAttributeKey = `data-${string}`
 
 // HTMLAttributes with data-* attribute
 type SuiHTMLAttributes<T = any> = {
 	htmlProps?: T & { [dataAttribute: DataAttributeKey]: any }
+}
+
+// HTMLAttributes with data-* attribute
+type SuiStyleProp = {
+	_style?: useStylesTypes
 }
 
 // Removes key from nested types
