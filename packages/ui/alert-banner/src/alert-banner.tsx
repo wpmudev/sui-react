@@ -14,14 +14,14 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	isCenter = false,
 	isDismissible = true,
 	onDismiss = () => {},
-	...styleProps
+	_style = {},
 }) => {
 	// State to control the visibility of the alert banner
 	const [isVisible, setIsVisible] = useState(true)
 
 	// default children content
 	children = useDefaultChildren(children)
-	const { suiInlineClassname } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(_style)
 
 	/**
 	 * Callback function to hide the alert banner when clicking on the dismiss button.

@@ -21,9 +21,9 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 	ctaTitle = "cta title",
 	onCTAClick = () => {},
 	htmlProps = {},
-	...styleProps
+	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(styleProps, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Define class name
 	const classNames = generateCN(
