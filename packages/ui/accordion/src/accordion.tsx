@@ -16,7 +16,7 @@ const Accordion: React.FC<AccordionProps> = ({
 	isFlushed = false,
 	children,
 	spacing = "",
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 }) => {
 	const [expandState, setExpandState] = useState<Record<string, boolean>>({})
@@ -48,7 +48,7 @@ const Accordion: React.FC<AccordionProps> = ({
 				isFlushed,
 			}}
 		>
-			<div className={classNames} {..._renderRestPropsSafely(htmlProps)}>
+			<div className={classNames} {..._renderRestPropsSafely(_htmlProps)}>
 				{children}
 			</div>
 		</AccordionProvider>

@@ -8,7 +8,7 @@ type DataAttributeKey = `data-${string}`
 
 // HTMLAttributes with data-* attribute
 type SuiHTMLAttributes<T = any> = {
-	htmlProps?: T & { [dataAttribute: DataAttributeKey]: any }
+	_htmlProps?: T & { [dataAttribute: DataAttributeKey]: any }
 }
 
 // HTMLAttributes with data-* attribute

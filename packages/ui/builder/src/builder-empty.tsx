@@ -9,7 +9,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 const BuilderEmpty: React.FC<BuilderEmptyProps> = ({
 	title = "No fields added. Insert new field.",
 	className,
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 }) => {
 	const { suiInlineClassname } = useStyles(_style, className)
@@ -20,7 +20,7 @@ const BuilderEmpty: React.FC<BuilderEmptyProps> = ({
 		<div
 			className={classNames}
 			data-testid="builder-empty"
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 		>
 			<div className="sui-builder__empty--icon">
 				<svg

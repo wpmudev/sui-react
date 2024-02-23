@@ -15,7 +15,7 @@ interface ButtonProps
 			SuiHTMLAttributes<
 				HTMLProps<HTMLButtonElement | HTMLAnchorElement | HTMLInputElement>
 			>,
-			"htmlProps",
+			"_htmlProps",
 			"id" | "className" | "href" | "target" | "htmlFor"
 		>,
 		SuiStyleType,

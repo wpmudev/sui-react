@@ -24,7 +24,7 @@ const Table: React.FC<TableProps> = ({
 	isStripped = false,
 	stickyCols = false,
 	className = "",
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 }) => {
 	// Reference to the table element
@@ -88,7 +88,7 @@ const Table: React.FC<TableProps> = ({
 						cellPadding="0"
 						// Set the aria-label attribute if ariaLabel is provided and not empty
 						{...(!isEmpty(ariaLabel ?? "") && { "aria-label": ariaLabel })}
-						{...htmlProps}
+						{..._htmlProps}
 					>
 						{childrenArray?.filter(
 							({ type: cType }: any) => componentToExclude !== cType.name,

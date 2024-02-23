@@ -20,7 +20,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 	// Black friday variation props
 	ctaTitle = "cta title",
 	onCTAClick = () => {},
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 }) => {
 	const { suiInlineClassname } = useStyles(_style, className)
@@ -45,7 +45,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 		<div
 			className={classNames}
 			data-testid="advanced-banner"
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 		>
 			{"black-friday" === variation && !!discountPercentage && (
 				<div className="sui-advanced-banner__graphic">

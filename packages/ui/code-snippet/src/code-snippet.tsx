@@ -41,7 +41,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 					buttonProps={{
 						type: "secondary",
 						colorScheme: "black",
-						htmlProps: {
+						_htmlProps: {
 							"data-testid": "code-snippet-copy-btn",
 						},
 					}}

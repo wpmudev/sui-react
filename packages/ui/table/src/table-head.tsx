@@ -16,7 +16,7 @@ import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 const TableHead: React.FC<TableHeadProps> = ({
 	children,
 	hasActions = false,
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 	...props
 }) => {
@@ -45,7 +45,7 @@ const TableHead: React.FC<TableHeadProps> = ({
 	return (
 		<thead
 			className={generateCN("sui-table__head", {}, suiInlineClassname)}
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 		>
 			{tableCols.map((child: ReactNode) =>
 				cloneElement(child! as ReactElement, {

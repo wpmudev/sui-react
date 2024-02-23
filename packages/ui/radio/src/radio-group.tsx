@@ -16,7 +16,7 @@ const RadioGroup = ({
 	isDisabled = false,
 	onChange = () => {},
 	className = "",
-	htmlProps = {},
+	_htmlProps = {},
 	_style,
 	...props
 }: RadioGroupProps) => {
@@ -59,7 +59,7 @@ const RadioGroup = ({
 				className={radioClassNames}
 				role="radiogroup"
 				data-testid="radio-group"
-				{..._renderRestPropsSafely(htmlProps)}
+				{..._renderRestPropsSafely(_htmlProps)}
 			>
 				{children}
 			</div>

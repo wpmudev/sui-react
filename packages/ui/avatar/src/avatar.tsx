@@ -20,7 +20,7 @@ const Avatar: React.FC<AvatarProps> = ({
 	status = "none",
 	isSmall = false,
 	className,
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 	onClick,
 }) => {
@@ -51,7 +51,7 @@ const Avatar: React.FC<AvatarProps> = ({
 
 	const attributes = {
 		className: classNames,
-		..._renderRestPropsSafely(htmlProps),
+		..._renderRestPropsSafely(_htmlProps),
 		"data-testid": "avatar",
 		onClick,
 	}

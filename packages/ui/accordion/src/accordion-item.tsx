@@ -25,7 +25,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	hasCheckbox,
 	isExpanded,
 	onCheck,
-	htmlProps = {},
+	_htmlProps = {},
 	contentShadow = true,
 	_style = {},
 }) => {
@@ -110,7 +110,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				suiInlineClassname,
 			)}
 			data-testid="accordion-item"
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 		>
 			<div
 				id={accordionId}

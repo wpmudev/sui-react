@@ -8,7 +8,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 	className,
 	children,
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 	...props
 }) => {
@@ -25,8 +25,8 @@ const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 			className={classNames}
 			align={{ sm: "inline" }}
 			{...props}
-			htmlProps={{
-				..._renderRestPropsSafely(htmlProps),
+			_htmlProps={{
+				..._renderRestPropsSafely(_htmlProps),
 				"data-testid": "builder-wrapper",
 			}}
 		>

@@ -46,7 +46,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							iconOnly: true,
 							isSmall: true,
 							isDisabled: selectedPage <= 1,
-							htmlProps: {
+							_htmlProps: {
 								"data-testid": "pagination-prev-page",
 							},
 						}}
@@ -146,7 +146,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							iconOnly: true,
 							isSmall: true,
 							isDisabled: selectedPage >= pages,
-							htmlProps: {
+							_htmlProps: {
 								"data-testid": "pagination-next-page",
 							},
 						}}

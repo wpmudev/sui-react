@@ -37,7 +37,7 @@ const Popover: React.FC<PopoverProps> = ({
 	placement = "top",
 	footer,
 	displayOnHover = false,
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 }) => {
 	const [isPopupOpen, setIsPopupOpen] = useState<boolean>(isOpen ?? false)
@@ -229,7 +229,7 @@ const Popover: React.FC<PopoverProps> = ({
 				ref={popupRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__popup"
 				style={{ ...popupPositions } as CSSProperties}
-				{..._renderRestPropsSafely(htmlProps)}
+				{..._renderRestPropsSafely(_htmlProps)}
 			>
 				<div className="sui-popover__popup-arrow"></div>
 				<div className="sui-popover__popup-wrapper">

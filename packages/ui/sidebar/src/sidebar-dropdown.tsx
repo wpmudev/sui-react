@@ -20,7 +20,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 			className,
 			selectedItemName = "",
 			children,
-			htmlProps,
+			_htmlProps,
 			_style = {},
 			...props
 		}: SidebarProps,
@@ -77,7 +77,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 			<div
 				ref={dropdownRef}
 				className={classNames}
-				{..._renderRestPropsSafely(htmlProps)}
+				{..._renderRestPropsSafely(_htmlProps)}
 			>
 				<div>
 					<Button

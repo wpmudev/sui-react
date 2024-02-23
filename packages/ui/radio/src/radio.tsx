@@ -16,7 +16,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			tag = "",
 			value = "",
 			isDisabled = false,
-			htmlProps = {},
+			_htmlProps = {},
 			_style = {},
 		},
 		ref,
@@ -70,7 +70,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			onChange: handleOnChange,
 			"aria-labelledby": `${uuid}-label`,
 			...(description && { "aria-describedby": `${uuid}-description` }),
-			..._renderRestPropsSafely(htmlProps),
+			..._renderRestPropsSafely(_htmlProps),
 		}
 
 		// Define box props

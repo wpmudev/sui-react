@@ -21,7 +21,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 	id,
 	filterBtnId,
 	isExpanded,
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 	...props
 }) => {
@@ -123,7 +123,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 				},
 				suiInlineClassname,
 			)}
-			{...htmlProps}
+			{..._htmlProps}
 		>
 			{ctx?.filtersPopover ? (
 				<Fragment>

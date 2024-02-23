@@ -35,7 +35,7 @@ import { TableContext, TableSortBy } from "./table-context"
  * @param  root0.isPrimary
  * @param  root0.style
  * @param  root0.colSpan
- * @param  root0.htmlProps
+ * @param  root0._htmlProps
  * @param  root0._style
  *
  * @return {JSX.Element} The JSX representation of the TableCell component.
@@ -53,7 +53,7 @@ const TableCell: React.FC<TableCellProps> = ({
 	isPrimary = false,
 	style = {},
 	colSpan,
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 }): JSX.Element => {
 	// Define element tag name based on whether it's a heading cell (th) or a regular cell (td).
@@ -131,7 +131,7 @@ const TableCell: React.FC<TableCellProps> = ({
 			role={isHeading ? "rowheader" : "cell"}
 			style={style}
 			colSpan={colSpan}
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 		>
 			{hasDragIcon && (
 				<Icons.Grip className="sui-table__cell--drag" size="sm" />

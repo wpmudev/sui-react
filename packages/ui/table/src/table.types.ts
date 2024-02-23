@@ -181,7 +181,7 @@ type TableCellBaseProps = {
 	colSpan?: number
 } & OmitNestedKey<
 	SuiHTMLAttributes,
-	"htmlProps",
+	"_htmlProps",
 	"id" | "style" | "className"
 > &
 	SuiStyleType
@@ -206,7 +206,7 @@ type TableHeadProps = TableSectionProps & {
  * Interface representing the properties of a table row.
  */
 interface TableRowProps
-	extends OmitNestedKey<SuiHTMLAttributes, "htmlProps", "id">,
+	extends OmitNestedKey<SuiHTMLAttributes, "_htmlProps", "id">,
 		SuiStyleType {
 	/**
 	 * The unique ID of the table row.
@@ -426,7 +426,7 @@ interface TableContextProviderProps {
 interface TableToolbarContentProps
 	extends OmitNestedKey<
 			SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-			"htmlProps",
+			"_htmlProps",
 			"id" | "className"
 		>,
 		SuiStyleType {

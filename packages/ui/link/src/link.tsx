@@ -28,7 +28,7 @@ const Link: React.FC<LinkProps> = ({
 	hasExternalIcon = false,
 	children,
 	href = "#",
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 	...props
 }) => {
@@ -62,7 +62,7 @@ const Link: React.FC<LinkProps> = ({
 		href,
 		className: classNames,
 		"data-testid": "link",
-		..._renderRestPropsSafely(htmlProps),
+		..._renderRestPropsSafely(_htmlProps),
 	}
 
 	const onClickCallback = (e: MouseEvent<unknown> | KeyboardEvent<unknown>) => {

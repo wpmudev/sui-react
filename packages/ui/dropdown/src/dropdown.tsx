@@ -37,7 +37,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			trigger,
 			renderContentOnTop = false,
 			isResponsive = false,
-			htmlProps = {},
+			_htmlProps = {},
 			_style = {},
 			...props
 		},
@@ -107,7 +107,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 				ref={dropdownRef}
 				className={wrapperClasses}
 				data-testid="dropdown"
-				{..._renderRestPropsSafely(htmlProps)}
+				{..._renderRestPropsSafely(_htmlProps)}
 			>
 				{!!trigger ? (
 					trigger

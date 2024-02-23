@@ -22,7 +22,7 @@ const Textarea: React.FC<TextareaProps> = ({
 	customWidth,
 	placeholder = "",
 	rows,
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 }) => {
 	const [currentValue, setCurrentValue] = useState(value)
@@ -76,7 +76,7 @@ const Textarea: React.FC<TextareaProps> = ({
 				data-testid="textarea-input"
 				placeholder={placeholder}
 				rows={rows}
-				{..._renderRestPropsSafely(htmlProps)}
+				{..._renderRestPropsSafely(_htmlProps)}
 				{...methods}
 			/>
 		</div>

@@ -48,7 +48,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			iconSize = "sm",
 			isResponsive = false,
 			isLoading = false,
-			htmlProps = {},
+			_htmlProps = {},
 			_style,
 			...restProps
 		},
@@ -104,7 +104,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			"aria-busy": isLoading,
 			...(isLoading && { "aria-live": "polite" }),
 			"data-testid": "button",
-			..._renderRestPropsSafely(htmlProps),
+			..._renderRestPropsSafely(_htmlProps),
 			// interaction methods
 			...(interactionMethods ?? {}),
 			..._renderRestPropsSafely(restProps),

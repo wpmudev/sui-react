@@ -43,7 +43,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	icon,
 	iconSize = "sm",
 	buttonProps,
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 	...props
 }) => {
@@ -319,7 +319,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			className={classNames}
 			data-testid="tooltip"
 			ref={tooltipRef as LegacyRef<HTMLDivElement>}
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 		>
 			<div
 				className="sui-tooltip__trigger"

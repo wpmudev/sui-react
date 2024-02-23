@@ -74,7 +74,7 @@ interface DropdownMenuItemProps extends SuiStyleType {
 interface DropdownMenuGroupProps
 	extends OmitNestedKey<
 			SuiHTMLAttributes<HTMLProps<HTMLLIElement>>,
-			"htmlProps",
+			"_htmlProps",
 			"className" | "title" | "href"
 		>,
 		SuiStyleType {
@@ -110,7 +110,7 @@ interface MenuGroupProps extends DropdownMenuBaseProps {
 interface DropdownProps
 	extends OmitNestedKey<
 			SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-			"htmlProps",
+			"_htmlProps",
 			"className"
 		>,
 		SuiStyleType {

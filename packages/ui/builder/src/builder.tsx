@@ -15,7 +15,7 @@ const Builder: React.FC<BuilderProps> = ({
 	allowAddFields = true,
 	isScrollable = false,
 	hasNoFields = false,
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 }) => {
 	// Default children content
@@ -27,7 +27,7 @@ const Builder: React.FC<BuilderProps> = ({
 		<div
 			className={classNames}
 			data-testid="builder"
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 		>
 			<div
 				className={generateCN("sui-builder__fields", {

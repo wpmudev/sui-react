@@ -26,7 +26,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
  * @return {JSX.Element} The JSX representation of the TableToolbar component.
  */
 const TableToolbar: React.FC<TableSectionProps> = ({
-	htmlProps,
+	_htmlProps,
 	_style = {},
 	...props
 }) => {
@@ -68,7 +68,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 	return (
 		<div
 			className={generateCN("sui-table__toolbar", {}, suiInlineClassname)}
-			{...htmlProps}
+			{..._htmlProps}
 		>
 			<div className="sui-table__toolbar-header">
 				<div className="sui-table__toolbar-header-bulk">

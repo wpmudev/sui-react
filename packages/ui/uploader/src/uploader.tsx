@@ -35,7 +35,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	onChange = () => {},
 	maxSize,
 	maxSizeText = "Message to appear when file size exeeds the max given",
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 	...props
 }) => {
@@ -166,7 +166,7 @@ const Uploader: React.FC<UploaderProps> = ({
 			<div
 				className={generateCN("sui-uploader", {}, suiInlineClassname)}
 				data-testid="uploader"
-				{..._renderRestPropsSafely(htmlProps)}
+				{..._renderRestPropsSafely(_htmlProps)}
 			>
 				{/* Hidden input field to handle file selection */}
 				<input

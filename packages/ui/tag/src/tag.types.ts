@@ -15,7 +15,7 @@ import {
 interface TagProps
 	extends OmitNestedKey<
 			SuiHTMLAttributes<HTMLAttributes<HTMLSpanElement>>,
-			"htmlProps",
+			"_htmlProps",
 			"className" | "color"
 		>,
 		SuiStyleType {

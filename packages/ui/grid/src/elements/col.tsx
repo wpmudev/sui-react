@@ -8,7 +8,7 @@ const Col: React.FC<ColProps> = ({
 	size,
 	children,
 	className,
-	htmlProps = {},
+	_htmlProps = {},
 	_style,
 }) => {
 	const { suiInlineClassname } = useStyles(_style, className)
@@ -26,7 +26,7 @@ const Col: React.FC<ColProps> = ({
 	children = useDefaultChildren(children, "{Column children content}")
 
 	return (
-		<div className={classNames} {..._renderRestPropsSafely(htmlProps)}>
+		<div className={classNames} {..._renderRestPropsSafely(_htmlProps)}>
 			{children}
 		</div>
 	)

@@ -48,7 +48,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	expandableContent = null,
 	status,
 	isUnderFooter = false,
-	htmlProps = {},
+	_htmlProps = {},
 	_style = {},
 	...props
 }) => {
@@ -225,7 +225,7 @@ const TableRow: React.FC<TableRowProps> = ({
 				role="row"
 				className={classNames}
 				{...methods}
-				{..._renderRestPropsSafely(htmlProps)}
+				{..._renderRestPropsSafely(_htmlProps)}
 				{...a11yProps}
 			>
 				{ctx?.allowCheck && !isUnderFooter && (

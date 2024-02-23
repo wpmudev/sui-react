@@ -9,7 +9,6 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
 	className = "",
 	children,
 	_style = {},
-	...props
 }) => {
 	const { suiInlineClassname } = useStyles(_style, className)
 
