@@ -141,10 +141,10 @@ const TableBodyTag = forwardRef<HTMLTableSectionElement, TableSectionProps>(
 		<tbody
 			ref={ref}
 			{..._renderRestPropsSafely(htmlProps)}
-			className="sui-table__body"
 			{..._renderRestPropsSafely(
 				props as HTMLAttributes<HTMLTableSectionElement>,
 			)}
+			className="sui-table__body"
 		/>
 	),
 )
