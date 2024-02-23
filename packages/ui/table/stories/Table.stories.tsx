@@ -705,7 +705,7 @@ const Table = ({ ...args }) => {
 			>
 				<Button
 					icon="Edit"
-					color="black"
+					colorScheme="black"
 					type="tertiary"
 					isSmall={true}
 					iconOnly={true}
@@ -714,7 +714,7 @@ const Table = ({ ...args }) => {
 				</Button>
 				<Button
 					icon="Settings"
-					color="black"
+					colorScheme="black"
 					type="tertiary"
 					isSmall={true}
 					iconOnly={true}
