@@ -44,6 +44,7 @@
 				}
 
 				@include modifier(actions) {
+					text-align: right;
 					.sui-button {
 						margin: 0 $spacing-sm;
 
@@ -187,6 +188,10 @@
 					right: 0;
 					left: auto;
 					transform: translate(-50%, -$spacing-md);
+				}
+
+				@include modifier(actions) {
+					text-align: left;
 				}
 
 				@include modifier(selection) {
