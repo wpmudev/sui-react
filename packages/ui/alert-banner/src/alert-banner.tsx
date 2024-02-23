@@ -92,7 +92,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 							className="sui-alert-banner__icon"
 							data-testid="alert-banner-icon"
 						>
-							<Icon color={iconColor} />
+							<Icon colorScheme={iconColor} />
 						</div>
 					)}
 					{children}
