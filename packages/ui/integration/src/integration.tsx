@@ -73,7 +73,7 @@ const Integration: React.FC<IntegrationProps> = ({
 		icon: "Settings",
 		label: "settings",
 		type: "tertiary",
-		color: "black",
+		colorScheme: "black",
 		iconOnly: true,
 		isSmall: true,
 		isDisabled,
