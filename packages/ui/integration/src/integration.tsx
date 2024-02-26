@@ -17,7 +17,7 @@ const Integration: React.FC<IntegrationProps> = ({
 	additionalInfo = "",
 	image = { alt: "amazon", src: "https://placehold.co/50" },
 	isDisabled = false,
-	active = true,
+	active = false,
 	isSettings = false,
 	isPro = false,
 	onSettingsClick,
@@ -56,7 +56,7 @@ const Integration: React.FC<IntegrationProps> = ({
 		defaultValue: isActive,
 		isLabelHidden: true,
 		...(!isEmpty(title) && { label: `Toggle ${title}` }),
-		isDisabled,
+		isDisabled: isDisabled || isPro,
 		onClick: (e) => {
 			setIsActive(!isActive)
 
@@ -76,7 +76,7 @@ const Integration: React.FC<IntegrationProps> = ({
 		colorScheme: "black",
 		iconOnly: true,
 		isSmall: true,
-		isDisabled,
+		isDisabled: isDisabled || isPro,
 		onClick: (e) => {
 			if (isFunction(onSettingsClick)) {
 				onSettingsClick(e)
