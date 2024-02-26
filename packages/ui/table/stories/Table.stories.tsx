@@ -947,10 +947,14 @@ Table.argTypes = {
 			type: "text",
 		},
 	},
-	showFilterBtn: {
+	showFiltersBtn: {
 		name: "Show Filter Button",
 		control: {
 			type: "boolean",
+		},
+		if: {
+			arg: "hasToolbar",
+			eq: true,
 		},
 	},
 	allowCheck: {
@@ -970,11 +974,19 @@ Table.argTypes = {
 	},
 	filters: {
 		name: "Filters",
+		if: {
+			arg: "hasToolbar",
+			eq: true,
+		},
 	},
 	filtersPopover: {
 		name: "Filter Popover",
 		control: {
 			type: "boolean",
+		},
+		if: {
+			arg: "hasToolbar",
+			eq: true,
 		},
 	},
 	isStripped: {
