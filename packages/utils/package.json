@@ -35,12 +35,14 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "dependencies": {
-    "@wpmudev/sui-hooks": "^0.0.1",
     "jest-axe": "^8.0.0",
     "react": "^18.2.0"
   },
   "devDependencies": {
     "@testing-library/react": "^14.0.0"
+  },
+  "peerDependencies": {
+    "@wpmudev/sui-hooks": "^0.0.2"
   },
   "clean-package": "../../postpack.config.json"
 }
