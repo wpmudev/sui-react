@@ -42,7 +42,7 @@
     "@testing-library/react": "^14.0.0"
   },
   "peerDependencies": {
-    "@wpmudev/sui-hooks": "^0.0.2"
+    "@wpmudev/sui-hooks": "^0.0.1"
   },
   "clean-package": "../../postpack.config.json"
 }
