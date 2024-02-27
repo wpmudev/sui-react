@@ -23,7 +23,7 @@ export default {
 }
 
 // Build "Recipient" story.
-const Recipient = ({ ...props }: RecipientProps) => {
+const Recipient = ({ ...props }: RecipientProps & { color?: string }) => {
 	const boxStyle = {
 		margin: 0,
 		padding: "10px",

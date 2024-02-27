@@ -19,13 +19,13 @@ export default {
 }
 
 // Build "Tag" story.
-const Tag = ({ children, ...props }: TagProps) => {
+const Tag = ({ children, ...props }: TagProps & { color?: string }) => {
 	const boxStyle = {
 		margin: 0,
 		padding: "30px",
 		border: "1px solid #E6E6E6",
 		borderRadius: "4px",
-		background: props.color === "white" ? "#333" : "#fff",
+		background: props?.color === "white" ? "#333" : "#fff",
 	}
 
 	return (
@@ -48,6 +48,8 @@ Tag.args = {
 	isUppercase: false,
 	isSmall: false,
 	isDisabled: false,
+	isDismissable: false,
+	onDismiss: () => {},
 }
 
 // Set controls for story arguments.
@@ -111,6 +113,24 @@ Tag.argTypes = {
 		name: "Disabled",
 		control: {
 			type: "boolean",
+		},
+	},
+	isDismissable: {
+		name: "Dismissable",
+		control: {
+			type: "boolean",
+		},
+		if: {
+			arg: "contentWrap",
+			eq: "default",
+		},
+	},
+	onDismiss: {
+		name: "On Dismiss",
+		control: Function,
+		if: {
+			arg: "isDismissable",
+			eq: true,
 		},
 	},
 }

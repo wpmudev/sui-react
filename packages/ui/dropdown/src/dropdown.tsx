@@ -37,6 +37,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			trigger,
 			renderContentOnTop = false,
 			isResponsive = false,
+			colorScheme = "black",
 			_htmlProps = {},
 			_style = {},
 			...props
@@ -122,7 +123,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							isResponsive={isResponsive}
 							{...(!iconOnly && { endIcon: "ChevronDown" })}
 							{...props}
-							colorScheme={props?.colorScheme as ButtonProps["colorScheme"]}
+							colorScheme={colorScheme as ButtonProps["colorScheme"]}
 						>
 							{label}
 						</Button>

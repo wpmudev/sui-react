@@ -27,7 +27,7 @@ const Tooltip = ({
 	customWidth,
 	customMobileWidth,
 	color,
-}: { tootlipText: string } & TooltipBaseProps) => {
+}: { tootlipText: string; color?: string } & TooltipBaseProps) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,

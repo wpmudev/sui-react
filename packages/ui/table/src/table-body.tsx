@@ -2,7 +2,6 @@ import React, {
 	Children,
 	forwardRef,
 	Fragment,
-	HTMLAttributes,
 	ReactElement,
 	ReactNode,
 	Ref,
@@ -25,7 +24,9 @@ import { _renderRestPropsSafely } from "@wpmudev/sui-utils"
  * @param {TableSectionProps} props - The properties for the TableBody component.
  * @return {JSX.Element} The JSX representation of the TableBody component.
  */
-const TableBody: React.FC<TableSectionProps> = (props) => {
+const TableBody: React.FC<TableSectionProps> = (
+	props: TableSectionProps,
+): JSX.Element => {
 	const { children, _htmlProps } = props
 	// State to keep track of the table rows
 	const [el, setEl] = useState<ReactNode | ReactNode[]>(
@@ -142,9 +143,7 @@ const TableBodyTag = forwardRef<HTMLTableSectionElement, TableSectionProps>(
 			ref={ref}
 			{..._renderRestPropsSafely(_htmlProps)}
 			className="sui-table__body"
-			{..._renderRestPropsSafely(
-				props as HTMLAttributes<HTMLTableSectionElement>,
-			)}
+			{...props}
 		/>
 	),
 )

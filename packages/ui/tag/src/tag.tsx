@@ -7,6 +7,7 @@ import {
 } from "@wpmudev/sui-utils"
 import { TagProps } from "./tag.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
+import { Close } from "@wpmudev/sui-icons"
 
 const Tag: React.FC<TagProps> = ({
 	design,
@@ -16,7 +17,9 @@ const Tag: React.FC<TagProps> = ({
 	isSmall = false,
 	isUppercase = false,
 	isDisabled = false,
+	isDismissable = false,
 	children,
+	onDismiss = () => {},
 	_htmlProps = {},
 	_style = {},
 }) => {
@@ -51,7 +54,19 @@ const Tag: React.FC<TagProps> = ({
 			{..._renderRestPropsSafely(_htmlProps)}
 			data-testid="tag"
 		>
-			<span className="sui-tag__label">{children}</span>
+			<div className="sui-tag__wrapper">
+				<span className="sui-tag__label">{children}</span>
+				{isDismissable && (
+					<button className="sui-tag__cta" onClick={onDismiss}>
+						<span aria-hidden="true">
+							<Close size="xs" />
+						</span>
+						<span className="sui-screen-reader-only" tabIndex={-1}>
+							Dismiss
+						</span>
+					</button>
+				)}
+			</div>
 		</span>
 	)
 }

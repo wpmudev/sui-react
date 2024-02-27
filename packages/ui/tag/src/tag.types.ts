@@ -52,6 +52,10 @@ interface TagProps
 	 */
 	isDisabled?: boolean
 	/**
+	 * Indicates whether the tag has dismiss.
+	 */
+	isDismissable?: boolean
+	/**
 	 * Indicates whether the tag text should be in uppercase.
 	 */
 	isUppercase?: boolean
@@ -59,6 +63,10 @@ interface TagProps
 	 * Children nodes of the tag.
 	 */
 	children?: React.ReactNode
+	/**
+	 * Indicates whether the tag has dismiss.
+	 */
+	onDismiss?: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export type { TagProps }

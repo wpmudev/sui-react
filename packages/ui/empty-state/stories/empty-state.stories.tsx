@@ -3,7 +3,7 @@ import React from "react"
 // Import required component.
 import { EmptyState as SuiEmptyState } from "../src"
 import { Button } from "@wpmudev/sui-button"
-import { Row } from "@wpmudev/sui-grid"
+import { Col, Row } from "@wpmudev/sui-grid"
 import { EmptyStateProps } from "../src/empty-state.types"
 
 import SvgImage from "./images/empty-state.svg"
@@ -36,22 +36,28 @@ EmptyState.args = {
 	children: (
 		<>
 			<Row>
-				<h3 className="sui-heading--h3">This site has not yet been scanned.</h3>
-				<p>
-					{" "}
-					Defender watches and protects your login area for attackers trying to
-					randomly guess login details for your site and locks them out after a
-					set number of failed attempts.{" "}
-				</p>
+				<Col>
+					<h3 className="sui-heading--h3">
+						This site has not yet been scanned.
+					</h3>
+					<p>
+						{" "}
+						Defender watches and protects your login area for attackers trying
+						to randomly guess login details for your site and locks them out
+						after a set number of failed attempts.{" "}
+					</p>
+				</Col>
 			</Row>
 
-			<Row align={{ md: "center" }}>
-				<Button type="secondary" colorScheme="blue">
-					Primary
-				</Button>
-				<Button type="primary" colorScheme="blue">
-					Secondary
-				</Button>
+			<Row>
+				<Col>
+					<Button type="secondary" colorScheme="blue">
+						Primary
+					</Button>
+					<Button type="primary" colorScheme="blue">
+						Secondary
+					</Button>
+				</Col>
 			</Row>
 		</>
 	),

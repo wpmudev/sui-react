@@ -4,6 +4,7 @@
 
 @include sui-tag--element.build-container(tag);
 @include sui-tag--element.build-label(tag);
+@include sui-tag--element.build-dismiss(tag);
 
 @include sui-tag--modifier.build-color(tag);
 @include sui-tag--modifier.build-size(tag);

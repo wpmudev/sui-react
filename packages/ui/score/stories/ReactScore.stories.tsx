@@ -10,12 +10,12 @@ import docs from "./ReactScore.mdx"
 const Score = ({
 	bar,
 	value,
-	content,
+	description,
 	state,
 	isSmall,
 	isPercentage,
 	color,
-}: ScoreProps) => {
+}: ScoreProps & { color?: string }) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -29,7 +29,7 @@ const Score = ({
 					<SuiScore
 						bar={bar}
 						value={value}
-						content={content}
+						description={description}
 						state={state}
 						isSmall={isSmall}
 						isPercentage={isPercentage}
@@ -67,8 +67,8 @@ Score.argTypes = {
 		description: "The score value to display.",
 		control: "number",
 	},
-	content: {
-		name: "Content",
+	description: {
+		name: "Description",
 		description: "The score content to display.",
 		control: "text",
 		if: {

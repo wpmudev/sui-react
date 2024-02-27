@@ -705,7 +705,7 @@ const Table = ({ ...args }) => {
 			>
 				<Button
 					icon="Edit"
-					color="black"
+					colorScheme="black"
 					type="tertiary"
 					isSmall={true}
 					iconOnly={true}
@@ -714,7 +714,7 @@ const Table = ({ ...args }) => {
 				</Button>
 				<Button
 					icon="Settings"
-					color="black"
+					colorScheme="black"
 					type="tertiary"
 					isSmall={true}
 					iconOnly={true}
@@ -947,10 +947,14 @@ Table.argTypes = {
 			type: "text",
 		},
 	},
-	showFilterBtn: {
+	showFiltersBtn: {
 		name: "Show Filter Button",
 		control: {
 			type: "boolean",
+		},
+		if: {
+			arg: "hasToolbar",
+			eq: true,
 		},
 	},
 	allowCheck: {
@@ -970,11 +974,19 @@ Table.argTypes = {
 	},
 	filters: {
 		name: "Filters",
+		if: {
+			arg: "hasToolbar",
+			eq: true,
+		},
 	},
 	filtersPopover: {
 		name: "Filter Popover",
 		control: {
 			type: "boolean",
+		},
+		if: {
+			arg: "hasToolbar",
+			eq: true,
 		},
 	},
 	isStripped: {
