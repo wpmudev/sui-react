@@ -732,7 +732,7 @@ const Table = ({ ...args }) => {
 				<SUITable
 					{...args}
 					stickyCols={true}
-					htmlProps={{
+					_htmlProps={{
 						disabled: true,
 					}}
 					onAction={(actionType, data) => {

@@ -2,13 +2,18 @@ import React, { MouseEvent, KeyboardEvent } from "react"
 import classnames from "classnames"
 import { render } from "@testing-library/react"
 import { axe } from "jest-axe"
-import { CSS_SHORTHAND_MAPS } from "@wpmudev/sui-hooks"
+import { CSS_SHORTHAND_MAPS, useStylesTypes } from "@wpmudev/sui-hooks"
 
 type DataAttributeKey = `data-${string}`
 
 // HTMLAttributes with data-* attribute
 type SuiHTMLAttributes<T = any> = {
-	htmlProps?: T & { [dataAttribute: DataAttributeKey]: any }
+	_htmlProps?: T & { [dataAttribute: DataAttributeKey]: any }
+}
+
+// HTMLAttributes with data-* attribute
+type SuiStyleType = {
+	_style?: useStylesTypes
 }
 
 // Removes key from nested types
@@ -162,6 +167,18 @@ const isString = (value: unknown): boolean => "string" === typeof value
  * @return {boolean} Returns true if string is blank
  */
 const isEmpty = (value?: string): boolean => "" === value
+
+/**
+ * Check if object is empty
+ *
+ * @param {object | undefined} obj object to be checked
+ * @return {boolean} Returns true if object is empty
+ */
+const isObjectEmpty = (obj?: object): boolean => {
+	if (!obj) return false
+
+	return Object.keys(obj).length === 0
+}
 
 /**
  * Capitalize text
@@ -383,6 +400,7 @@ export {
 	isBoolean,
 	isNumber,
 	isEmpty,
+	isObjectEmpty,
 	isFunction,
 	isString,
 	generateCN,
@@ -399,4 +417,4 @@ export {
 	_isTestingMode,
 }
 
-export type { SuiHTMLAttributes, OmitNestedKey }
+export type { SuiHTMLAttributes, SuiStyleType, OmitNestedKey }

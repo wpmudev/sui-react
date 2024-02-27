@@ -1,10 +1,10 @@
 import { RefObject } from "react"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Describes the props that can be passed to the Spinner component.
  */
-interface SpinnerProps extends useStylesTypes {
+interface SpinnerProps extends SuiStyleType {
 	/**
 	 * Size of the spinner
 	 */
@@ -27,7 +27,7 @@ interface SpinnerProps extends useStylesTypes {
  * Describes the props that can be passed to the SpinnerLoader component,
  * using a subset of SpinnerProps (size and color).
  */
-interface SpinnerLoaderProps extends useStylesTypes {
+interface SpinnerLoaderProps extends SuiStyleType {
 	loaderSize: SpinnerProps["loaderSize"]
 	colorScheme: SpinnerProps["colorScheme"]
 }

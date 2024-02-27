@@ -16,12 +16,12 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 	isFluid = false,
 	children,
 	actions,
-	...props
+	_style = {},
 }) => {
 	// Interaction methods
 	const [isHovered, isFocused, methods] = useInteraction({})
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Define class name based on various conditions
 	const classNames = generateCN(

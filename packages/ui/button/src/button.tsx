@@ -48,7 +48,8 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			iconSize = "sm",
 			isResponsive = false,
 			isLoading = false,
-			htmlProps = {},
+			_htmlProps = {},
+			_style,
 			...restProps
 		},
 		ref,
@@ -58,7 +59,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 
 		// Default children content
 		children = useDefaultChildren(children, "button label")
-		const { suiInlineClassname } = useStyles(restProps, className ?? "")
+		const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 		if (isLoading) {
 			isUnwrapped = true
@@ -103,7 +104,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			"aria-busy": isLoading,
 			...(isLoading && { "aria-live": "polite" }),
 			"data-testid": "button",
-			..._renderRestPropsSafely(htmlProps),
+			..._renderRestPropsSafely(_htmlProps),
 			// interaction methods
 			...(interactionMethods ?? {}),
 			..._renderRestPropsSafely(restProps),

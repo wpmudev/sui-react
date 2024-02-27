@@ -1,4 +1,5 @@
 import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
+import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx"
 
 <PackageInstallGuide packageName="@wpmudev/sui-dropdown" />
 
@@ -41,6 +42,11 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 		<PropSection title="iconOnly" type="boolean" defaultValue="false">
     		<p>Indicates whether the label should be hidden or not.</p>
     	</PropSection>
+
+		<PropSection title="colorScheme" type="string">
+    		<p>Indicates the color of the button, check <Code isSmall={true}>Button</Code> component for allowed values </p>
+    	</PropSection>
+
 
 		<PropSection title="className" type="boolean">
     		<p>Custom classNames(s) for further styling</p>

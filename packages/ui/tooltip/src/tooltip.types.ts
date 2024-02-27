@@ -2,7 +2,7 @@ import React, { HTMLProps } from "react"
 
 import { ButtonProps } from "@wpmudev/sui-button"
 import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Props for the Tooltip component.
@@ -11,7 +11,7 @@ interface TooltipBaseProps
 	extends SuiHTMLAttributes<
 			HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLButtonElement>
 		>,
-		useStylesTypes,
+		SuiStyleType,
 		InteractionTypes {
 	/**
 	 * Button link

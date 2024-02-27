@@ -25,7 +25,8 @@ import { SummaryBoxItemProps } from "./summary-box.types"
  * @param {string} [props.actionIcon=""]      - An optional action icon for the item.
  * @param {string} [props.actionIconColor=""] - The color of the action icon.
  *
- * @param          props.htmlProps
+ * @param          props._htmlProps
+ * @param          props._style
  * @return {JSX.Element} The SummaryBoxItem component.
  */
 const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
@@ -37,12 +38,12 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	tagColor = "default",
 	actionIcon,
 	actionIconColor = "",
-	htmlProps = {},
-	...props
+	_htmlProps = {},
+	_style = {},
 }: SummaryBoxItemProps): JSX.Element => {
 	// Hook for handling interaction state (hover, focus).
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
 		"sui-summary-box__list-item",
@@ -64,7 +65,7 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 		<Row
 			className={classNames}
 			{...methods}
-			htmlProps={{ "data-testid": "summary-box-item", ...htmlProps }}
+			_htmlProps={{ "data-testid": "summary-box-item", ..._htmlProps }}
 		>
 			<div className="sui-summary-box__list-item-info">
 				{!isEmpty(titleUrl) ? <a href={titleUrl}>{title}</a> : title}

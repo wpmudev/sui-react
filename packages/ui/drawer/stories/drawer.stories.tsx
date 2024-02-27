@@ -121,20 +121,20 @@ const Drawer = (props: DrawerTypes) => {
 										position: "relative",
 									}}
 								>
-									<_internalDrawer
-										toggleRef={overNavRef}
-										{...props}
-										tooltipOptions={{ placement: "bottom" }}
-										title="Drawer title"
-										desc="Above the top navigation"
-										hasContainer={true}
-									/>
 									<div
 										style={{
 											padding: "20px 24px",
 											borderBottom: "solid 1px #e0e0e0",
 										}}
 									>
+										<_internalDrawer
+											toggleRef={overNavRef}
+											{...props}
+											tooltipOptions={{ placement: "bottom" }}
+											title="Drawer title"
+											desc="Above the top navigation"
+											hasContainer={true}
+										/>
 										<div
 											style={{
 												display: "flex",
@@ -145,6 +145,7 @@ const Drawer = (props: DrawerTypes) => {
 											<div>Header actions</div>
 										</div>
 									</div>
+
 									<div
 										style={{
 											padding: "20px",

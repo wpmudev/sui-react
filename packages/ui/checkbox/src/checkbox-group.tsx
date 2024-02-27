@@ -28,7 +28,7 @@ const _CheckboxGroupInner = ({
 	commonCheckboxProps,
 	isInline,
 	id,
-	...styleProps
+	_style,
 }: _CheckboxGroupInnerProps) => {
 	// Destructure props for easier access
 
@@ -41,7 +41,7 @@ const _CheckboxGroupInner = ({
 	// unique id to be used in different places
 	const uuid = useId()
 
-	const { suiInlineClassname } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate a unique ID for the checkbox group
 	const checkboxGroupId = id ?? `sui-checkbox-group-${uuid}`

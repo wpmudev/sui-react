@@ -24,7 +24,7 @@ import { generateCN } from "@wpmudev/sui-utils"
  * @param {TabNavProps} props - Props for the TabNav component.
  * @return {JSX.Element} The TabNav component.
  */
-const TabNav: FC<TabNavProps> = ({ children, ...props }) => {
+const TabNav: FC<TabNavProps> = ({ children, _style = {} }) => {
 	const [isScrollableRight, setIsScrollableRight] = useState<boolean>(false)
 	const [isScrollableLeft, setIsScrollableLeft] = useState<boolean>(false)
 	const [navRefCurrent, setNavRefCurrent] = useState<HTMLDivElement | null>(
@@ -101,7 +101,7 @@ const TabNav: FC<TabNavProps> = ({ children, ...props }) => {
 		}
 	}, [handleScroll])
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	return (
 		<div

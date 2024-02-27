@@ -22,8 +22,8 @@ const Textarea: React.FC<TextareaProps> = ({
 	customWidth,
 	placeholder = "",
 	rows,
-	htmlProps = {},
-	...props
+	_htmlProps = {},
+	_style = {},
 }) => {
 	const [currentValue, setCurrentValue] = useState(value)
 	const [isHovered, isFocused, methods] = useInteraction({})
@@ -35,7 +35,7 @@ const Textarea: React.FC<TextareaProps> = ({
 		id = uniqueId
 	}
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
 		"sui-textarea",
@@ -76,7 +76,7 @@ const Textarea: React.FC<TextareaProps> = ({
 				data-testid="textarea-input"
 				placeholder={placeholder}
 				rows={rows}
-				{..._renderRestPropsSafely(htmlProps)}
+				{..._renderRestPropsSafely(_htmlProps)}
 				{...methods}
 			/>
 		</div>

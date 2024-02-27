@@ -27,6 +27,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	hasCreatedDate = false,
 	hasLastApplied = false,
 	proItems = [],
+	_style = {},
 	...styleProps
 }) => {
 	/**
@@ -44,7 +45,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 		[onActionClick],
 	)
 
-	const { suiInlineClassname } = useStyles(styleProps, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// classnames
 	const classNames = generateCN("sui-config-table", {}, suiInlineClassname)

@@ -20,7 +20,7 @@ const TabNavItem: FC<TabNavItemProps> = ({
 	stateIconColor,
 	children,
 	isDisabled = false,
-	...props
+	_style = {},
 }) => {
 	// Get the tab context using the useContext hook
 	const tabCtx = useContext<TabContextProps | null>(TabContext)
@@ -58,7 +58,7 @@ const TabNavItem: FC<TabNavItemProps> = ({
 	// Manage interaction methods
 	const [isHovered, isFocused, interactionMethods] = useInteraction({})
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Render the tab header (button element) with appropriate attributes and event handlers
 	return (

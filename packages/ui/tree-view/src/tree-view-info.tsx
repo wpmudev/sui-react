@@ -27,6 +27,8 @@ import { getCheckboxState } from "./helpers"
  * @param  root0._onGroupCheckClick
  * @param  root0._groupId
  * @param  root0._isGroup
+ * @param  root0._style
+ *
  * @return {JSX.Element} - JSX Element representing the TreeViewInfo component
  */
 const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
@@ -41,12 +43,13 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	_onGroupCheckClick = () => {},
 	_groupId,
 	_isGroup = false,
+	_style = {},
 	...props
 }: TreeViewInfoProps): JSX.Element => {
 	// Manage interaction methods
 	const [isHovered, isFocused, interactionMethods] = useInteraction({})
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate class names
 	const classNames = generateCN(

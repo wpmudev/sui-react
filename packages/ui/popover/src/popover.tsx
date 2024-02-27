@@ -37,8 +37,8 @@ const Popover: React.FC<PopoverProps> = ({
 	placement = "top",
 	footer,
 	displayOnHover = false,
-	htmlProps = {},
-	...props
+	_htmlProps = {},
+	_style = {},
 }) => {
 	const [isPopupOpen, setIsPopupOpen] = useState<boolean>(isOpen ?? false)
 	const [popupPositions, setPopupPositions] = useState<Record<string, any>>({
@@ -56,7 +56,7 @@ const Popover: React.FC<PopoverProps> = ({
 	const triggerRef = useRef<HTMLDivElement | null>(null)
 	const popupRef = useRef<HTMLDivElement | null>(null)
 
-	const { suiInlineClassname } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 	// class names
 	const classNames = generateCN(
@@ -229,7 +229,7 @@ const Popover: React.FC<PopoverProps> = ({
 				ref={popupRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__popup"
 				style={{ ...popupPositions } as CSSProperties}
-				{..._renderRestPropsSafely(htmlProps)}
+				{..._renderRestPropsSafely(_htmlProps)}
 			>
 				<div className="sui-popover__popup-arrow"></div>
 				<div className="sui-popover__popup-wrapper">

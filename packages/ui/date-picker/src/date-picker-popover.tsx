@@ -11,11 +11,11 @@ import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 import { DatePickerPopoverProps } from "./date-picker.types"
 
 const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
-	...props
+	_style,
 }) => {
 	// Context of the DatePicker, which contains various state variables and functions
 	const ctx = useContext(DatePickerContext)
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	const { startMonth, endMonth, helpers, handlers } = ctx!
 

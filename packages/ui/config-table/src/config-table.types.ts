@@ -1,5 +1,5 @@
 // Define a custom type `ConfigId` which can be either a string or a number.
-import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
 type ConfigId = string | number
 
@@ -10,7 +10,7 @@ type ConfigActionTypes = "apply" | "configure"
 type ConfigObj = Record<string, any>
 
 // Define the properties and methods configuration table component.
-interface ConfigTableTypes extends useStylesTypes {
+interface ConfigTableTypes extends SuiStyleType {
 	// Optional property to specify a custom CSS class for the component.
 	className?: string
 

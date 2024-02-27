@@ -58,8 +58,8 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				validateOnMount = false,
 				customWidth,
 				onValidate,
-				htmlProps = {},
-				...props
+				_htmlProps = {},
+				_style = {},
 			},
 			ref,
 		) => {
@@ -125,7 +125,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				inputType = type
 			}
 
-			const { suiInlineClassname } = useStyles(props, className ?? "")
+			const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 			// Generate class names based on the prop values
 			const classNames = generateCN(
@@ -288,7 +288,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							"has-hint": hasHintText,
 						})}
 					>
-						<TagName {...attrs} {..._renderRestPropsSafely(htmlProps)} />
+						<TagName {...attrs} {..._renderRestPropsSafely(_htmlProps)} />
 						{hasHintText && (
 							<Fragment>
 								{!isEmpty(value as string) && (
@@ -311,7 +311,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							iconSize={isSmall ? "sm" : "md"}
 							onClick={onClearCallback}
 							isSmall={isSmall ?? false}
-							htmlProps={{
+							_htmlProps={{
 								onKeyDown: (
 									e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>,
 								) => handleOnKeyDown(e, onClear),

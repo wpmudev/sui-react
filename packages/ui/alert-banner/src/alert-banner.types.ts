@@ -3,9 +3,10 @@
  */
 import { ReactNode } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
 // interface definition for the Alert Banner
-interface AlertBannerProps extends useStylesTypes {
+interface AlertBannerProps extends SuiStyleType {
 	/**
 	 * Alert Banner content
 	 */

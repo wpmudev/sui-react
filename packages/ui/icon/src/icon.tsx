@@ -44,12 +44,12 @@ const Icon = forwardRef<"svg", IconProps>(
 			size = "",
 			onClick,
 			fill = "currentColor",
-			htmlProps = {},
-			...props
+			_htmlProps = {},
+			_style = {},
 		},
 		ref,
 	) => {
-		const { suiInlineClassname } = useStyles(props, className)
+		const { suiInlineClassname } = useStyles(_style, className)
 
 		// Add variations to the classnames
 		className = generateCN(
@@ -94,7 +94,7 @@ const Icon = forwardRef<"svg", IconProps>(
 				version="1.1"
 				xmlns="http://www.w3.org/2000/svg"
 				{...svgProps}
-				{..._renderRestPropsSafely(htmlProps)}
+				{..._renderRestPropsSafely(_htmlProps)}
 				data-testid="svg-icon"
 			>
 				{!!title && <title>{title}</title>}

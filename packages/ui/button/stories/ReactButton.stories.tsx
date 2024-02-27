@@ -253,7 +253,7 @@ Button.argTypes = {
 			eq: "label-icon",
 		},
 	},
-	htmlProps: { table: { disable: true } },
+	_htmlProps: { table: { disable: true } },
 	isUnwrapped: { table: { disable: true } },
 	startIcon: { table: { disable: true } },
 }

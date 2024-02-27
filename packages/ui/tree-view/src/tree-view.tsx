@@ -17,6 +17,8 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param  root0.allowCheck
  * @param  root0.showIcons
  * @param  root0.onChange
+ * @param  root0._style
+ *
  * @return {JSX.Element} - JSX Element representing the TreeView component
  */
 const TreeView: React.FC<TreeViewProps> = ({
@@ -25,7 +27,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 	allowCheck = false,
 	showIcons = false,
 	onChange = () => {},
-	...props
+	_style = {},
 }: TreeViewProps): JSX.Element => {
 	const [items, setItems] = useState<TreeViewCheckType[]>([])
 
@@ -42,7 +44,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 		}
 	}, [items, onChange])
 
-	const { suiInlineClassname } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 	return (
 		<TreeViewProvider value={{ allowCheck, showIcons, items, setItems }}>

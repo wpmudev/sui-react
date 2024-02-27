@@ -1,10 +1,12 @@
 import React from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
+
 /**
  * This interface defines the props for the SegmentedButton component.
  */
-interface SegmentedControlProps extends useStylesTypes {
+interface SegmentedControlProps extends SuiStyleType {
 	// Radio button name
 	name?: string
 	// The child elements to be rendered inside the segmented control (the individual segments).
@@ -20,7 +22,7 @@ interface SegmentedControlProps extends useStylesTypes {
 /**
  * This interface defines the props for the SegmentedControlButton component.
  */
-interface SegmentedControlButtonProps extends useStylesTypes {
+interface SegmentedControlButtonProps extends SuiStyleType {
 	// The value associated with the button.
 	value?: string | number
 	// A boolean indicating whether the button is disabled (optional).

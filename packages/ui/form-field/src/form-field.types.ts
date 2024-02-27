@@ -1,6 +1,6 @@
 import React, { HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * The Type of the error prop
@@ -15,7 +15,7 @@ import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
  */
 interface FormFieldProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * The unique identifier of the field.
 	 */

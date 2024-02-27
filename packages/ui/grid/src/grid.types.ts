@@ -1,13 +1,13 @@
 import React, { HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a column component.
  */
 interface ColProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * The size of the column.
 	 */
@@ -32,7 +32,7 @@ type RowAlignments = "xs" | "sm" | "md" | "lg" | "xl"
  */
 interface RowProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-		Omit<useStylesTypes, "align" | "height"> {
+		Omit<SuiStyleType, "align" | "height"> {
 	/**
 	 * The alignment of the row
 	 */

@@ -20,8 +20,9 @@ const Avatar: React.FC<AvatarProps> = ({
 	status = "none",
 	isSmall = false,
 	className,
-	htmlProps = {},
-	...props
+	_htmlProps = {},
+	_style = {},
+	onClick,
 }) => {
 	// Define image object
 	const imageObj = Object.assign(
@@ -32,7 +33,7 @@ const Avatar: React.FC<AvatarProps> = ({
 		image,
 	)
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Props validation
 	const hasStatus = !isUndefined(status) && !isEmpty(status)
@@ -43,17 +44,20 @@ const Avatar: React.FC<AvatarProps> = ({
 		"sui-avatar",
 		{
 			sm: isSmall,
-			clickable: !!props?.onClick,
+			clickable: !!onClick,
 		},
 		suiInlineClassname,
 	)
 
+	const attributes = {
+		className: classNames,
+		..._renderRestPropsSafely(_htmlProps),
+		"data-testid": "avatar",
+		onClick,
+	}
+
 	return (
-		<span
-			className={classNames}
-			{..._renderRestPropsSafely(htmlProps)}
-			data-testid="avatar"
-		>
+		<span {...attributes}>
 			{hasImage && <Image source={imageObj.src} text={imageObj.alt} />}
 			{!hasImage && <Icon />}
 			{hasStatus && status !== "none" && <Status status={status} />}

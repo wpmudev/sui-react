@@ -10,10 +10,11 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 const Sidebar: React.FC<Omit<SidebarProps, "selectedItemName">> = ({
 	className,
 	children,
-	htmlProps = {},
+	_htmlProps = {},
+	_style = {},
 	...props
 }) => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-sidebar", {}, suiInlineClassname)
 
 	// Default children content
@@ -23,7 +24,7 @@ const Sidebar: React.FC<Omit<SidebarProps, "selectedItemName">> = ({
 		<div
 			className={classNames}
 			data-testid="sidebar"
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 		>
 			{children}
 		</div>

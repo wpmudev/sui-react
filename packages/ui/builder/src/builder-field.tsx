@@ -23,6 +23,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 	hasError = false,
 	children,
 	onClick = () => {},
+	_style = {},
 	...props
 }) => {
 	// State to manage the expanded/collapsed state of the field
@@ -30,7 +31,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 
 	// Hook for managing interaction state
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Generate class names based on interaction and disabled state
 	const classNames = generateCN(

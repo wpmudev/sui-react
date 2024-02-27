@@ -23,6 +23,7 @@ const Search: React.FC<SearchProps> = ({
 	searchHint = "Please enter #number# or more characters",
 	isDisabled = false,
 	customWidth,
+	_style = {},
 	...props
 }) => {
 	const [value, setValue] = useState<string>((defaultValue as string) ?? "")
@@ -41,7 +42,7 @@ const Search: React.FC<SearchProps> = ({
 	// Make options searchable if input value is above min chars required for search
 	const isFiltered = value?.length >= searchMinChars
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Define class name
 	const classNames = generateCN(

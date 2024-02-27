@@ -13,9 +13,9 @@ const Upsell: React.FC<UpsellProps> = ({
 	variation = "hummingbird",
 	features = [],
 	actions = null,
-	...props
+	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate classnames for the upsell
 	const classNames = generateCN(

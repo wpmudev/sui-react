@@ -18,14 +18,14 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	className,
 	isPro = false,
 	children,
-	...styleProps
+	_style,
 }) => {
 	// Interaction methods
 	const [isHovered, isFocused, methods] = useInteraction({})
 
 	// Default children content
 	children = useDefaultChildren(children)
-	const { suiInlineClassname } = useStyles(styleProps, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Define class name based on various conditions
 	const classNames = generateCN(

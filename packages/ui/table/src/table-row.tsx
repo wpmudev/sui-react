@@ -48,7 +48,8 @@ const TableRow: React.FC<TableRowProps> = ({
 	expandableContent = null,
 	status,
 	isUnderFooter = false,
-	htmlProps = {},
+	_htmlProps = {},
+	_style = {},
 	...props
 }) => {
 	// State for row expansion
@@ -57,7 +58,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	const ctx = useContext(TableContext)
 	// State for row hover and focus
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate unique IDs for accessibility
 	const uniqueID = useId()
@@ -224,7 +225,7 @@ const TableRow: React.FC<TableRowProps> = ({
 				role="row"
 				className={classNames}
 				{...methods}
-				{..._renderRestPropsSafely(htmlProps)}
+				{..._renderRestPropsSafely(_htmlProps)}
 				{...a11yProps}
 			>
 				{ctx?.allowCheck && !isUnderFooter && (

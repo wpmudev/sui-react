@@ -29,7 +29,7 @@ describe("@wpmudev/sui-accordion", () => {
 
 	const AccordionDemo = () => {
 		return (
-			<Accordion state="success" htmlProps={{ "data-testid": "accordion" }}>
+			<Accordion state="success" _htmlProps={{ "data-testid": "accordion" }}>
 				<AccordionItem
 					title={accordionProps[0].accordionTitle}
 					description={accordionProps[0].accordionDesc}

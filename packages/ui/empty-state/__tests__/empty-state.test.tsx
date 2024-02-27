@@ -10,7 +10,7 @@ describe("@wpmudev/sui-empty-state", () => {
 		logo: "https://placehold.co/600x400/EEE/31343C",
 		className: "__CLASSNAME__",
 		children: "__BODY__",
-		htmlProps: {
+		_htmlProps: {
 			"data-testid": "empty-state",
 		},
 	}

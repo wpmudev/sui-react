@@ -18,7 +18,8 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param  root0.children
  * @param  root0.summaryItems
  * @param  root0.reverseBlocks
- * @param  root0.htmlProps
+ * @param  root0._htmlProps
+ * @param  root0._style
  * @return {JSX.Element} The SummaryBoxBody component.
  */
 const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
@@ -26,10 +27,10 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 	children,
 	summaryItems = [],
 	reverseBlocks = false,
-	htmlProps = {},
-	...props
+	_htmlProps = {},
+	_style = {},
 }): JSX.Element => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-summary-box__body", {}, suiInlineClassname)
 
 	// Children default content
@@ -53,7 +54,7 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 	}
 
 	return (
-		<BoxGroup isInline={true} htmlProps={htmlProps}>
+		<BoxGroup isInline={true} _htmlProps={_htmlProps}>
 			<Row align={{ md: "inline" }} className={classNames}>
 				{cols.map((col) => col)}
 			</Row>

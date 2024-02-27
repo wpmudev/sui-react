@@ -1,10 +1,9 @@
 import { HTMLProps, ReactNode } from "react"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 export interface AdvancedBannerBasePros
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * Sets the headline text
 	 */

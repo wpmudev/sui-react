@@ -27,7 +27,7 @@ describe("@wpmudev/box", () => {
 		return (
 			<Box
 				{...props}
-				htmlProps={{
+				_htmlProps={{
 					"data-testid": "box",
 				}}
 			>
@@ -67,7 +67,7 @@ describe("@wpmudev/box", () => {
 		await a11yTest(
 			<Box
 				{...props}
-				htmlProps={{
+				_htmlProps={{
 					"data-testid": "box",
 				}}
 			>

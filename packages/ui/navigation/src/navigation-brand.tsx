@@ -10,9 +10,9 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 	plugin,
 	title = "",
 	description = "",
-	...props
+	_style,
 }) => {
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 	// Icon for the specified plugin or use a default "Plugin" icon.
 	const PluginIcon: PluginIconTypes = plugin
 		? PluginsIcons?.[plugin]

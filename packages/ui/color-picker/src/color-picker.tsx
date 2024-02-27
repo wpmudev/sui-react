@@ -32,6 +32,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	isFluid = false,
 	onReset = () => null,
 	onColorChange = () => null,
+	_style = {},
 	...props
 }: ColorPickerProps): JSX.Element => {
 	// State to manage the visibility of the color picker
@@ -133,7 +134,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 		return "Select"
 	}
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	return (
 		<div

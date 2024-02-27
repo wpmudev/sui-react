@@ -9,11 +9,11 @@ const SearchOptionItem: React.FC<SearchOptionItemProps> = ({
 	children,
 	option,
 	onClick,
-	...props
+	_style = {},
 }) => {
 	const [isHovered, isFocused, methods] = useInteraction({})
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Classname
 	const className = generateCN(

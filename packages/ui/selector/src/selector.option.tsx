@@ -20,12 +20,12 @@ const SelectorOption: React.FC<SelectorOptionProps> = ({
 	onRemove = () => {},
 	isPro,
 	tagColor,
-	...props
+	_style = {},
 }) => {
 	// Custom hook to handle interaction states (hover, focus, etc.)
 	const [isHovered, _isFocused, methods] = useInteraction({})
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate CSS class names
 	const classNames = generateCN("sui-selector__option", {}, suiInlineClassname)

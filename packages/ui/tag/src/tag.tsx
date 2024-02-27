@@ -17,14 +17,14 @@ const Tag: React.FC<TagProps> = ({
 	isUppercase = false,
 	isDisabled = false,
 	children,
-	htmlProps = {},
-	...props
+	_htmlProps = {},
+	_style = {},
 }) => {
 	const hasDesign = "outlined" === design
 	const hasColor = !isUndefined(colorScheme) && !isEmpty(colorScheme)
 	const hasStyle = ["multiline", "truncated"].includes(contentWrap)
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Define tag design
 	// Limited to: solid (default) and outlined
@@ -48,7 +48,7 @@ const Tag: React.FC<TagProps> = ({
 	return (
 		<span
 			className={classNames}
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 			data-testid="tag"
 		>
 			<span className="sui-tag__label">{children}</span>

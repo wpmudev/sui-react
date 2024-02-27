@@ -12,9 +12,9 @@ const Navigation: React.FC<NavigationProps> = ({
 	children,
 	brand = { title: "title", description: "" },
 	user,
-	...props
+	_style,
 }) => {
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 	// Generate CSS class names for the navigation component
 	const classNames = generateCN("sui-navigation", {}, suiInlineClassname)
 

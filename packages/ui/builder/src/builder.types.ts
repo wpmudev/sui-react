@@ -1,14 +1,14 @@
 import React, { HTMLProps } from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Interface defining the props that can be passed to a Builder component.
  */
 interface BuilderProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * An optional class name to be applied to the Builder component.
 	 */
@@ -31,7 +31,7 @@ interface BuilderProps
 	children?: React.ReactNode
 }
 
-interface BuilderButtonProps extends useStylesTypes {
+interface BuilderButtonProps extends SuiStyleType {
 	/**
 	 * An optional icon to be displayed within in button.
 	 */
@@ -58,7 +58,7 @@ interface BuilderButtonProps extends useStylesTypes {
  */
 interface BuilderEmptyProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * Optional title for the BuilderEmpty component.
 	 */
@@ -73,7 +73,7 @@ interface BuilderEmptyProps
 /**
  * Interface for props that can be passed to the BuilderField component.
  */
-interface BuilderFieldProps extends useStylesTypes {
+interface BuilderFieldProps extends SuiStyleType {
 	/**
 	 * Optional number specifying the column size.
 	 */
@@ -145,7 +145,7 @@ interface BuilderFieldProps extends useStylesTypes {
  */
 interface BuilderWrapperProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * Optional CSS class name for styling the BuilderWrapper component.
 	 */
