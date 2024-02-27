@@ -1,0 +1,33 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Table footer
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-table-footer($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(footer) {
+				.sui-#{$block}__row {
+					border-top: none;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	//@include sui-class($rtl: false, $theme: dark) {
+	//	// Block wrapper.
+	//	@include block($block) {
+	//		@include element(footer) {}
+	//	}
+	//}
+}

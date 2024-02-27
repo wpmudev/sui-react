@@ -19,6 +19,10 @@
 				position: relative;
 				background: $color-extended-neutral-100;
 
+				.sui-#{$block}__footer & {
+					border-top: none;
+				}
+
 				@include modifier(expanded) {
 					.sui-#{$block}__cell--sticky {
 						background: $color-extended-neutral-95;
