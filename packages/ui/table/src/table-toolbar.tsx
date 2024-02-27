@@ -100,6 +100,8 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 						className="sui-table__toolbar-search"
 						placeholder="Search"
 						onChange={onSearch}
+						icon="Search"
+						iconPosition="start"
 						isSmall={true}
 					/>
 					{ctx?.showFiltersBtn && (
