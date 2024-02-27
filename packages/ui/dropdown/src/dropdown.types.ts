@@ -1,12 +1,16 @@
 import React, { HTMLProps, KeyboardEvent } from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { OmitNestedKey, SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { ButtonProps } from "@wpmudev/sui-button"
+import {
+	OmitNestedKey,
+	SuiHTMLAttributes,
+	SuiStyleType,
+} from "@wpmudev/sui-utils"
 
 /**
  * Props for Menu component.
  */
-interface DropdownMenuProps extends useStylesTypes {
+interface DropdownMenuProps extends SuiStyleType {
 	/** Additional class name(s) to be applied to the Menu. */
 	className?: string
 	/** Children elements to be rendered inside the Menu. */
@@ -16,7 +20,7 @@ interface DropdownMenuProps extends useStylesTypes {
 /**
  * Props for MenuItem component.
  */
-interface DropdownMenuItemProps extends useStylesTypes {
+interface DropdownMenuItemProps extends SuiStyleType {
 	/**
 	 * URL to navigate to when the item is clicked (if the item is an anchor).
 	 */
@@ -70,10 +74,10 @@ interface DropdownMenuItemProps extends useStylesTypes {
 interface DropdownMenuGroupProps
 	extends OmitNestedKey<
 			SuiHTMLAttributes<HTMLProps<HTMLLIElement>>,
-			"htmlProps",
+			"_htmlProps",
 			"className" | "title" | "href"
 		>,
-		useStylesTypes {
+		SuiStyleType {
 	/** Title of the MenuGroup. */
 	title: string
 	/** URL to navigate to when the MenuGroup is clicked. */
@@ -85,7 +89,7 @@ interface DropdownMenuGroupProps
 }
 
 // Represents the base props for a DropdownMenu component.
-interface DropdownMenuBaseProps extends useStylesTypes {
+interface DropdownMenuBaseProps extends SuiStyleType {
 	id: string | number // Unique identifier for the dropdown menu item.
 	label: React.ReactNode | string // Content to display as the label for the dropdown menu item.
 }
@@ -106,10 +110,10 @@ interface MenuGroupProps extends DropdownMenuBaseProps {
 interface DropdownProps
 	extends OmitNestedKey<
 			SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-			"htmlProps",
+			"_htmlProps",
 			"className"
 		>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * The label for the dropdown.
 	 */
@@ -142,6 +146,10 @@ interface DropdownProps
 	 * Filter button icon
 	 */
 	buttonIcon?: IconsNamesType
+	/**
+	 * Filter button icon
+	 */
+	colorScheme?: ButtonProps["colorScheme"]
 	/**
 	 * On click on Menu Item
 	 */

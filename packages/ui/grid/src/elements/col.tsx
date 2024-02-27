@@ -8,10 +8,10 @@ const Col: React.FC<ColProps> = ({
 	size,
 	children,
 	className,
-	htmlProps = {},
-	...props
+	_htmlProps = {},
+	_style,
 }) => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
 		"sui-col",
@@ -26,7 +26,7 @@ const Col: React.FC<ColProps> = ({
 	children = useDefaultChildren(children, "{Column children content}")
 
 	return (
-		<div className={classNames} {..._renderRestPropsSafely(htmlProps)}>
+		<div className={classNames} {..._renderRestPropsSafely(_htmlProps)}>
 			{children}
 		</div>
 	)

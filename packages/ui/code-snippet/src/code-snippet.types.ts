@@ -1,10 +1,11 @@
 import React from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a code snippet component.
  */
-interface CodeSnippetProps extends useStylesTypes {
+interface CodeSnippetProps extends SuiStyleType {
 	/**
 	 * The language of the code snippet.
 	 */

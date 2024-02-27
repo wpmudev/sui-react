@@ -28,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({
 	renderBlocks,
 	removeBGColor = false,
 	className,
-	...styleProps
+	_style,
 }) => {
 	let blocks: React.ReactNode[] = []
 
@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({
 		blocks = renderBlocks(builtWithText)
 	}
 
-	const { suiInlineClassname } = useStyles(styleProps, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// footer classname
 	const footerCN = generateCN(

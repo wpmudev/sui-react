@@ -15,10 +15,10 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 	isHeader = false,
 	isFooter = false,
 	hasPadding = true,
-	htmlProps = {},
-	...styleProps
+	_htmlProps = {},
+	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Build content based in slots
 	const slots = Children.map(children, (child, index) => {
@@ -54,7 +54,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 		<div
 			className={classNames}
 			data-testid="box-group"
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 		>
 			{slots}
 		</div>

@@ -2,14 +2,14 @@
 import { HTMLProps } from "react"
 
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for an uploader component.
  */
 interface UploaderProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * Upload button title
 	 */
@@ -54,7 +54,7 @@ interface UploaderProps
 /**
  * Represents the properties for a file in the uploader component.
  */
-interface UploaderFileProps extends useStylesTypes {
+interface UploaderFileProps extends SuiStyleType {
 	/**
 	 * The unique ID of the file.
 	 */
@@ -79,7 +79,7 @@ interface UploaderFileProps extends useStylesTypes {
 interface UploaderButtonProps
 	extends Pick<UploaderProps, "btnTitle" | "multiple" | "allowDragAndDrop">,
 		Pick<UploaderFileProps, "files">,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * Callback function for button click event.
 	 */

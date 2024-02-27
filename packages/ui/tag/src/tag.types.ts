@@ -3,7 +3,11 @@
  */
 import React, { HTMLAttributes, HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { OmitNestedKey, SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import {
+	OmitNestedKey,
+	SuiHTMLAttributes,
+	SuiStyleType,
+} from "@wpmudev/sui-utils"
 
 /**
  * Interface representing the properties of a tag component.
@@ -11,10 +15,10 @@ import { OmitNestedKey, SuiHTMLAttributes } from "@wpmudev/sui-utils"
 interface TagProps
 	extends OmitNestedKey<
 			SuiHTMLAttributes<HTMLAttributes<HTMLSpanElement>>,
-			"htmlProps",
+			"_htmlProps",
 			"className" | "color"
 		>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * Design of the tag.
 	 */

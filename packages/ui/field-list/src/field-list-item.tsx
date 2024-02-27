@@ -13,8 +13,9 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 	hasToggle = true,
 	actions,
 	onToggle,
-	htmlProps = {},
+	_htmlProps = {},
 	style,
+	_style,
 	...props
 }) => {
 	// Generate a unique ID for the Toggle component
@@ -38,7 +39,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 		[id, onToggle],
 	)
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	return (
 		<div
@@ -51,7 +52,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 			)}
 			style={style}
 			data-testid="field-list-item"
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 		>
 			{/* Display the item's content */}
 			<div className="sui-field-list__item-label">{children}</div>

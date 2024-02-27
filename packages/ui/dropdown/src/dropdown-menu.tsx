@@ -8,9 +8,9 @@ import { useStyles } from "@wpmudev/sui-hooks"
 const DropdownMenu: React.FC<DropdownMenuProps> = ({
 	className = "",
 	children,
-	...props
+	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN("sui-dropdown__menu", {}, suiInlineClassname)
 	// Render the Menu component with the provided children

@@ -14,10 +14,10 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 	logo,
 	className,
 	children,
-	htmlProps = {},
-	...props
+	_htmlProps = {},
+	_style = {},
 }: EmptyStateProps): JSX.Element => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-empty-state", {}, suiInlineClassname)
 
 	// Determine whether the logo is an image (string representing URL) or an HTML/SVG element.
@@ -27,7 +27,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 	children = useDefaultChildren(children)
 
 	return (
-		<div className={classNames} {..._renderRestPropsSafely(htmlProps)}>
+		<div className={classNames} {..._renderRestPropsSafely(_htmlProps)}>
 			<div className="sui-empty-state__wrapper">
 				{/* Render the logo if provided. If it's an image URL, display it as an <img> element; otherwise, render it as is. */}
 				{!!logo && (

@@ -19,7 +19,7 @@ const Notification: React.FC<NotificationProps> = ({
 	size,
 	variation,
 	timeout = 5000,
-	...props
+	_style,
 }) => {
 	const [isVisible, setIsVisible] = useState(true)
 	const notifications = useNotifications()
@@ -52,7 +52,7 @@ const Notification: React.FC<NotificationProps> = ({
 		}
 	}, [id, isInline, notifications])
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// do not render
 	if (!isVisible) return null

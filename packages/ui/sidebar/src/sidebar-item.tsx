@@ -23,12 +23,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 	isActive = false,
 	isDisabled = false,
 	onClick = () => {},
-	htmlProps = {},
-	...props
+	_htmlProps = {},
+	_style = {},
 }) => {
 	// `useInteraction` returns interaction state and methods.
 	const [isHovered, isFocused, methods] = useInteraction({})
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Class names based on interaction and disabled state.
 	const classNames = generateCN(
@@ -69,7 +69,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 			onKeyDown={(e) => handleOnKeyDown(e, onClickCallback)}
 			data-testid="sidebar-item"
 			{...methods}
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 		>
 			{/* Display item info, including optional icon and title */}
 			<div className="sui-sidebar__item-info">

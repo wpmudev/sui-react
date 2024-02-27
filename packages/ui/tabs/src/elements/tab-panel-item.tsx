@@ -11,7 +11,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 const TabPanelItem: React.FC<TabPanelItemProps> = ({
 	children,
 	id,
-	...props
+	_style = {},
 }) => {
 	// Get the tab context using the useContext hook
 	const tabCtx = useContext<TabContextProps | null>(TabContext)
@@ -24,7 +24,7 @@ const TabPanelItem: React.FC<TabPanelItemProps> = ({
 
 	// Check if the current tab panel is active based on its ID
 	const isActive = current === parseInt(id as string)
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// children default content
 	children = useDefaultChildren(children, "Tab panel item")

@@ -1,6 +1,6 @@
 import React, { HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * This interface defines the props for the Score component.
@@ -8,7 +8,7 @@ import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
  */
 interface ScoreProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/** The length of the score bar to be displayed. */
 	bar: number
 	/** The value to be displayed in the score component. */

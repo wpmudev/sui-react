@@ -1,6 +1,6 @@
 import React, { ElementType, HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * LinkProps is an interface that extends the HTMLAnchorElement interface
@@ -9,7 +9,7 @@ import { SuiHTMLAttributes } from "@wpmudev/sui-utils"
  */
 interface LinkProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLAnchorElement>>,
-		useStylesTypes {
+		SuiStyleType {
 	/**
 	 * Link location
 	 */

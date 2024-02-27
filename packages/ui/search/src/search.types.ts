@@ -1,9 +1,9 @@
 import React from "react"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
 type SearchOptionType = string
 
-interface SearchBaseProps extends useStylesTypes {
+interface SearchBaseProps extends SuiStyleType {
 	/**
 	 * The search input id
 	 */
@@ -70,13 +70,13 @@ type SearchBasicType = {
 
 type SearchProps = SearchSmartType | SearchBasicType
 
-interface SearchOptionItemProps extends useStylesTypes {
+interface SearchOptionItemProps extends SuiStyleType {
 	children?: React.ReactNode
 	option: SearchOptionType
 	onClick(option: SearchOptionType): void
 }
 
-interface SearchOptionsProps extends useStylesTypes {
+interface SearchOptionsProps extends SuiStyleType {
 	options: SearchOptionType[]
 	value: string
 	setValue(label: string): void

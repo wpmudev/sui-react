@@ -4,11 +4,12 @@ import { TagProps } from "@wpmudev/sui-tag"
 
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * DashboardWidgetProps is the set of properties that can be passed to the DashboardWidget component.
  */
-interface DashboardWidgetProps extends useStylesTypes {
+interface DashboardWidgetProps extends SuiStyleType {
 	/** The title of the widget */
 	title?: string
 

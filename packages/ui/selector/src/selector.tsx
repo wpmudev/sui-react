@@ -31,6 +31,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			description,
 			tagColor = "default",
 			isFluid = false,
+			_style = {},
 			...props
 		}: SelectorProps,
 		ref,
@@ -49,7 +50,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			[name, onChange, value],
 		)
 
-		const { suiInlineClassname } = useStyles(props as useStylesTypes)
+		const { suiInlineClassname } = useStyles(_style)
 
 		return (
 			<label

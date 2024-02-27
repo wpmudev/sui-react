@@ -15,22 +15,19 @@ const Builder: React.FC<BuilderProps> = ({
 	allowAddFields = true,
 	isScrollable = false,
 	hasNoFields = false,
-	htmlProps = {},
-	...styleProps
+	_htmlProps = {},
+	_style = {},
 }) => {
 	// Default children content
 	children = useDefaultChildren(children)
-	const { suiInlineClassname } = useStyles(
-		styleProps,
-		`sui-layout ${className}`,
-	)
+	const { suiInlineClassname } = useStyles(_style, `sui-layout ${className}`)
 	const classNames = generateCN("sui-builder", {}, suiInlineClassname)
 
 	return (
 		<div
 			className={classNames}
 			data-testid="builder"
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 		>
 			<div
 				className={generateCN("sui-builder__fields", {

@@ -1,5 +1,6 @@
 import React from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a code snippet component.

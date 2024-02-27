@@ -20,9 +20,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	showValue = true,
 	onClick,
 	className = "",
-	...props
+	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// generate classnames
 	const classNames = generateCN(

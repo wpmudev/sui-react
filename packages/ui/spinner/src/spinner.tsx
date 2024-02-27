@@ -12,9 +12,9 @@ const Spinner: React.FC<SpinnerProps> = ({
 	colorScheme = "primary",
 	isContained = false,
 	isAbsolute = false,
-	...props
+	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate class names for the spinner container
 	const classNames = generateCN(

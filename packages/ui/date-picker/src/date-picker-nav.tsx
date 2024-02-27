@@ -53,7 +53,7 @@ const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 						colorScheme="black"
 						endIcon="CaretDown"
 						onClick={() => openToggle("months", marker)}
-						htmlProps={{
+						_htmlProps={{
 							onKeyDown: () => openToggle("months", marker),
 						}}
 					>
@@ -70,7 +70,7 @@ const DatePickerNav: React.FC<any> = ({ date, marker }) => {
 					colorScheme="black"
 					endIcon="CaretDown"
 					onClick={() => ctx.openToggle("years", marker)}
-					htmlProps={{
+					_htmlProps={{
 						onKeyDown: (e) =>
 							handleOnKeyDown(e, () => ctx.openToggle("years", marker)),
 					}}

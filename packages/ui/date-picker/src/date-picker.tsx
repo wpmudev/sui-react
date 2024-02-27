@@ -27,10 +27,11 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	maxDate,
 	isDisabled = false,
 	onChange = () => null,
+	_style,
 	...props
 }) => {
 	const pickType: string = type ?? "single"
-	const { suiInlineClassname } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 	// Generate class names for the component
 	const classNames = generateCN(

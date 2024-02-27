@@ -132,7 +132,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 								name={name}
 								label={label}
 								isChecked={isSelected}
-								htmlProps={{
+								_htmlProps={{
 									onClick: (e) => onSelect(e, id),
 									onKeyDown: (e) => onSelect(e, id),
 								}}

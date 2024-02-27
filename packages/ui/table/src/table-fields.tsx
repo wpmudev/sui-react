@@ -5,7 +5,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
 // Table Fields renders columns in table accordion body
-const TableFields: React.FC<TableFieldsProps> = ({ children, ...props }) => {
+const TableFields: React.FC<TableFieldsProps> = ({ children, _style = {} }) => {
 	const ctx = useContext(TableContext)
 	const { columns } = ctx!
 
@@ -16,7 +16,7 @@ const TableFields: React.FC<TableFieldsProps> = ({ children, ...props }) => {
 		(col: TableColumnType) => col.isPrimary,
 	)
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	return (
 		<div className={generateCN("sui-table__fields", {}, suiInlineClassname)}>

@@ -28,8 +28,8 @@ const FormField: React.FC<FormFieldProps> = ({
 	isLabelHidden = false,
 	children,
 	customWidth,
-	htmlProps = {},
-	...props
+	_htmlProps = {},
+	_style,
 }) => {
 	// Define a unique id.
 	let fieldId = useId()
@@ -44,7 +44,7 @@ const FormField: React.FC<FormFieldProps> = ({
 	const isErrored =
 		"string" === typeof error ? !isEmpty((error as string) ?? "") : !!error
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Generate classnames
 	const classNames = generateCN(
@@ -73,7 +73,7 @@ const FormField: React.FC<FormFieldProps> = ({
 	return (
 		<div
 			className={classNames}
-			{..._renderRestPropsSafely(htmlProps)}
+			{..._renderRestPropsSafely(_htmlProps)}
 			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
 			data-testid="form-field"
 		>

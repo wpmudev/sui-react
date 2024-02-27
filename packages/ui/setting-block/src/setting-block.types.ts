@@ -1,10 +1,10 @@
 import React from "react"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Defines the props for a SettingBlock component.
  */
-interface SettingBlockProps extends useStylesTypes {
+interface SettingBlockProps extends SuiStyleType {
 	/**
 	 * The title of the setting block.
 	 * This prop is required and should be a string.

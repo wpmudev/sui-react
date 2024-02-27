@@ -28,6 +28,8 @@ import { useStyles } from "@wpmudev/sui-hooks"
  * @param  root0.className
  * @param  root0.children
  * @param  root0.isDisabled
+ * @param  root0._style
+ *
  * @return {JSX.Element} - JSX Element representing the TreeViewGroup component
  */
 const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
@@ -38,12 +40,13 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 	className = "",
 	children,
 	isDisabled = false,
+	_style = {},
 	...props
 }: TreeViewGroupProps): JSX.Element => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const context = useTreeViewContext()
 
-	const { suiInlineClassname } = useStyles(props, className ?? "")
+	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 	// Generate class names
 	const classNames = generateCN("sui-tree-view__group", {}, suiInlineClassname)

@@ -20,7 +20,8 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param {Array<JSX.Element>} [props.secondaryActions=[]] - An array of secondary action elements.
  * @param {string}             props.className             - Additional CSS classes to apply to the component.
  * @param {React.ReactNode}    props.children              - Optional additional content within the summary box.
- * @param                      props.htmlProps
+ * @param                      props._htmlProps
+ * @param                      props._style
  *
  * @return {JSX.Element} The SummaryBox component.
  */
@@ -32,10 +33,11 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	secondaryActions = null,
 	className,
 	children,
-	htmlProps = {},
+	_htmlProps = {},
+	_style = {},
 	...props
 }: SummaryBoxProps): JSX.Element => {
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-summary-box", {}, suiInlineClassname)
 
 	// Define the attributes for the Box component that will be used to display the summary box.
@@ -45,8 +47,8 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 		icon, // The icon will be set later based on the provided icon prop or a default value.
 		isSmall: true, // Set the summary box size to small.
 		hideMobileIcon,
-		htmlProps: {
-			...htmlProps,
+		_htmlProps: {
+			..._htmlProps,
 			"data-testid": "summary-box",
 		},
 	}

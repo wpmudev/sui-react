@@ -1,16 +1,17 @@
 import React, { Fragment } from "react"
-import { generateCN, isString } from "@wpmudev/sui-utils"
-import { useStyles, useStylesTypes } from "@wpmudev/sui-hooks"
+import { generateCN, isString, SuiStyleType } from "@wpmudev/sui-utils"
+import { useStyles } from "@wpmudev/sui-hooks"
 
-interface RecipientEmailProps extends useStylesTypes {
+interface RecipientEmailProps extends SuiStyleType {
 	children?: React.ReactNode
 }
 
 const RecipientEmail: React.FC<RecipientEmailProps> = ({
 	children,
+	_style = {},
 	...props
 }) => {
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	if (!!children && !isString(children)) {
 		throw new Error(

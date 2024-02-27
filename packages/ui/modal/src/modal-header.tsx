@@ -14,9 +14,10 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 	icon,
 	iconSize = "md",
 	iconColor = "success",
+	_style,
 	...props
 }) => {
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 	const ctx = useContext(ModalContext)
 	const { closeModal, variant } = ctx!
 

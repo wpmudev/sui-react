@@ -16,14 +16,14 @@ const Accordion: React.FC<AccordionProps> = ({
 	isFlushed = false,
 	children,
 	spacing = "",
-	htmlProps = {},
-	...props
+	_htmlProps = {},
+	_style = {},
 }) => {
 	const [expandState, setExpandState] = useState<Record<string, boolean>>({})
 
 	// Default children content
 	children = useDefaultChildren(children)
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Generate CSS class names for the Accordion component
 	const classNames = generateCN(
@@ -48,7 +48,7 @@ const Accordion: React.FC<AccordionProps> = ({
 				isFlushed,
 			}}
 		>
-			<div className={classNames} {..._renderRestPropsSafely(htmlProps)}>
+			<div className={classNames} {..._renderRestPropsSafely(_htmlProps)}>
 				{children}
 			</div>
 		</AccordionProvider>

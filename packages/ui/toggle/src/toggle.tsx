@@ -23,7 +23,8 @@ const Toggle: React.FC<ToggleProps> = ({
 	isLabelHidden = false,
 	isDisabled = false,
 	onClick,
-	htmlProps = {},
+	_htmlProps = {},
+	_style = {},
 	...props
 }) => {
 	// use id
@@ -56,7 +57,7 @@ const Toggle: React.FC<ToggleProps> = ({
 		[onClick, state],
 	)
 
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Define container props
 	const containerProps = {
@@ -91,7 +92,7 @@ const Toggle: React.FC<ToggleProps> = ({
 				{...(inputProps as HTMLProps<HTMLInputElement>)}
 				id={id}
 				onChange={handleOnChange}
-				{..._renderRestPropsSafely(htmlProps)}
+				{..._renderRestPropsSafely(_htmlProps)}
 			/>
 			<span tabIndex={-1} className="sui-toggle__switch" aria-hidden={true} />
 			{isLabelHidden && <span className="sui-screen-reader-only">{label}</span>}

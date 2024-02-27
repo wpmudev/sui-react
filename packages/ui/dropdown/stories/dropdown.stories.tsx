@@ -250,5 +250,5 @@ Dropdown.argTypes = {
 		},
 	},
 	isResponsive: { table: { disable: true } },
-	htmlProps: { table: { disable: true } },
+	_htmlProps: { table: { disable: true } },
 }

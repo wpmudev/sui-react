@@ -24,14 +24,14 @@ const Table: React.FC<TableProps> = ({
 	isStripped = false,
 	stickyCols = false,
 	className = "",
-	htmlProps = {},
-	...props
+	_htmlProps = {},
+	_style = {},
 }) => {
 	// Reference to the table element
 	const ref = useRef<HTMLTableElement | null>(null)
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
 
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Define tag design
 	// Limited to: solid (default) and outlined
@@ -88,7 +88,7 @@ const Table: React.FC<TableProps> = ({
 						cellPadding="0"
 						// Set the aria-label attribute if ariaLabel is provided and not empty
 						{...(!isEmpty(ariaLabel ?? "") && { "aria-label": ariaLabel })}
-						{...htmlProps}
+						{..._htmlProps}
 					>
 						{childrenArray?.filter(
 							({ type: cType }: any) => componentToExclude !== cType.name,

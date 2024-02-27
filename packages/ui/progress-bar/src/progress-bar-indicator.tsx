@@ -21,10 +21,10 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	hasAction = false,
 	onClick,
 	className = "",
-	...props
+	_style = {},
 }) => {
 	const has = {}
-	const { suiInlineClassname } = useStyles(props, className)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Props validation
 	// has.label = !isUndefined(label) && !isEmpty(label) ? true : false

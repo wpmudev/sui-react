@@ -1,9 +1,9 @@
 /**
  * Represents the properties for a code snippet component.
  */
-import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { SuiStyleType } from "@wpmudev/sui-utils"
 
-interface ColorPickerProps extends useStylesTypes {
+interface ColorPickerProps extends SuiStyleType {
 	/**
 	 * Unique identifier for the color-picker
 	 */

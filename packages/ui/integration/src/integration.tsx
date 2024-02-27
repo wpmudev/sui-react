@@ -22,7 +22,7 @@ const Integration: React.FC<IntegrationProps> = ({
 	isPro = false,
 	onSettingsClick,
 	onClick,
-	...props
+	_style = {},
 }) => {
 	// Define image object
 	const icon = Object.assign(
@@ -37,7 +37,7 @@ const Integration: React.FC<IntegrationProps> = ({
 
 	// Define component states
 	const [isActive, setIsActive] = useState(active)
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Define container props
 	const classNames = generateCN(

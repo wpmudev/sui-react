@@ -18,9 +18,10 @@ const Recipient: React.FC<RecipientProps> = ({
 	status = "none",
 	isInvited = false,
 	appearance = "primary",
+	_style,
 	...props
 }) => {
-	const { suiInlineClassname } = useStyles(props)
+	const { suiInlineClassname } = useStyles(_style)
 
 	// Define recipient class.
 	const className = generateCN(
@@ -54,7 +55,9 @@ const Recipient: React.FC<RecipientProps> = ({
 					<RecipientButton
 						className="sui-recipient__button"
 						icon="Add"
-						color="black"
+						buttonProps={{
+							colorScheme: "black",
+						}}
 					>
 						Add recipient
 					</RecipientButton>
@@ -64,14 +67,18 @@ const Recipient: React.FC<RecipientProps> = ({
 						<RecipientButton
 							className="sui-recipient__button"
 							icon="Submit"
-							color="black"
+							buttonProps={{
+								colorScheme: "black",
+							}}
 						>
 							Send recipient
 						</RecipientButton>
 						<RecipientButton
 							className="sui-recipient__button"
 							icon="Trash"
-							color="red"
+							buttonProps={{
+								colorScheme: "black",
+							}}
 						>
 							Delete recipient
 						</RecipientButton>
