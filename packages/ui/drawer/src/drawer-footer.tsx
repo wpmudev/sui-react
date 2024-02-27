@@ -7,7 +7,6 @@ const DrawerFooter = ({
 	className = "",
 	children,
 	_style,
-	...styleProps
 }: DrawerFooterTypes) => {
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-drawer__footer", {}, suiInlineClassname)
