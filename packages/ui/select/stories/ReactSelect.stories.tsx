@@ -19,7 +19,11 @@ const Select = ({
 	isSmall,
 	isDisabled,
 	...props
-}: { example: string; errorMessage: string } & SelectBaseProps) => {
+}: {
+	example: string
+	errorMessage: string
+	color?: string
+} & SelectBaseProps) => {
 	const boxStyle = {
 		margin: 0,
 		padding: "30px",

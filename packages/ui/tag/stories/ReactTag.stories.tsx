@@ -19,13 +19,13 @@ export default {
 }
 
 // Build "Tag" story.
-const Tag = ({ children, ...props }: TagProps) => {
+const Tag = ({ children, ...props }: TagProps & { color?: string }) => {
 	const boxStyle = {
 		margin: 0,
 		padding: "30px",
 		border: "1px solid #E6E6E6",
 		borderRadius: "4px",
-		background: props.color === "white" ? "#333" : "#fff",
+		background: props?.color === "white" ? "#333" : "#fff",
 	}
 
 	return (

@@ -21,7 +21,7 @@ const Tag: React.FC<TagProps> = ({
 	children,
 	onDismiss = () => {},
 	_htmlProps = {},
-	_style = {}
+	_style = {},
 }) => {
 	const hasDesign = "outlined" === design
 	const hasColor = !isUndefined(colorScheme) && !isEmpty(colorScheme)
