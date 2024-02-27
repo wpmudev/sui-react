@@ -61,6 +61,7 @@
 				&:first-child {
 					padding-left: $spacing-xxl;
 					padding-right: $spacing-md;
+					position: relative;
 
 					@include media(max-width, sm) {
 						padding-left: $spacing-lg;
