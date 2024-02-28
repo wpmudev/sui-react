@@ -23,6 +23,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	ariaLabel,
 	isDisabled,
 	isResponsive = false,
+	_htmlProps,
 	_style = {},
 	...props
 }) => {
@@ -61,7 +62,11 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	}
 
 	return (
-		<span className={classNames} {..._renderHTMLPropsSafely(props)}>
+		<span
+			className={classNames}
+			{..._renderHTMLPropsSafely(props)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			{/* The input element serves as the radio button, connected to the label element. */}
 			<input
 				type="radio"

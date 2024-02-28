@@ -11,7 +11,6 @@ const Row: React.FC<RowProps> = ({
 	children,
 	_htmlProps = {},
 	_style,
-	...props
 }) => {
 	const { suiInlineClassname } = useStyles(_style, className)
 

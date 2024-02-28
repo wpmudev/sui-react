@@ -1,11 +1,13 @@
 /*
  * Props for the Notification component.
  */
-import { ReactNode } from "react"
+import { ReactNode, HTMLProps } from "react"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 // interface definition for the Alert Banner
-interface AlertBannerProps extends SuiStyleType, SuiHTMLAttributes {
+interface AlertBannerProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
 	 * Alert Banner content
 	 */

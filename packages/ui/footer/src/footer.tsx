@@ -1,7 +1,7 @@
 import React from "react"
 
 import { Facebook, Twitter, Instagram } from "@wpmudev/sui-icons"
-import { generateCN } from "@wpmudev/sui-utils"
+import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 
 // Import required element(s)
 import Logo from "./elements/Logo"
@@ -28,6 +28,7 @@ const Footer: React.FC<FooterProps> = ({
 	renderBlocks,
 	removeBGColor = false,
 	className,
+	_htmlProps,
 	_style,
 }) => {
 	let blocks: React.ReactNode[] = []
@@ -47,7 +48,11 @@ const Footer: React.FC<FooterProps> = ({
 	)
 
 	return (
-		<div className={footerCN} data-testid="footer">
+		<div
+			className={footerCN}
+			data-testid="footer"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			{blocks.length > 0 && (
 				<div
 					className={`sui-footer__group sui-footer__group--credits${

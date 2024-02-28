@@ -1,6 +1,11 @@
 import React from "react"
 
-import { generateCN, PluginIconTypes, PluginsIcons } from "@wpmudev/sui-utils"
+import {
+	_renderHTMLPropsSafely,
+	generateCN,
+	PluginIconTypes,
+	PluginsIcons,
+} from "@wpmudev/sui-utils"
 import { IconProps } from "@wpmudev/sui-icon"
 import { NavigationBrandProps } from "./navigation.types"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"

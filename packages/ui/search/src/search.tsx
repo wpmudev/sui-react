@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useId, useRef, useState } from "react"
 
 import { Input } from "@wpmudev/sui-input"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { useInteraction, useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 
 import { SearchProps } from "./search.types"
@@ -23,8 +23,8 @@ const Search: React.FC<SearchProps> = ({
 	searchHint = "Please enter #number# or more characters",
 	isDisabled = false,
 	customWidth,
+	_htmlProps,
 	_style = {},
-	...props
 }) => {
 	const [value, setValue] = useState<string>((defaultValue as string) ?? "")
 	const [isPopoverVisible, setIsPopoverVisible] = useState(false)
@@ -116,6 +116,7 @@ const Search: React.FC<SearchProps> = ({
 			data-testid="search"
 			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
 			{...methods}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<Input
 				ref={inputRef}

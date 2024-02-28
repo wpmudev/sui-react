@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useId, useCallback } from "react"
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import { Button } from "@wpmudev/sui-button"
 import { NotificationProps } from "./notification.types"
@@ -19,6 +19,7 @@ const Notification: React.FC<NotificationProps> = ({
 	size,
 	variation,
 	timeout = 5000,
+	_htmlProps,
 	_style,
 }) => {
 	const [isVisible, setIsVisible] = useState(true)
@@ -85,6 +86,7 @@ const Notification: React.FC<NotificationProps> = ({
 			aria-labelledby={`${notificationId}-title`}
 			aria-describedby={`${notificationId}-message`}
 			data-testid="notification"
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{!!Icon && <Icon size="md" className="sui-notification__icon" />}
 			<div className="sui-notification__content">

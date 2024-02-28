@@ -1,13 +1,15 @@
-import React, { CSSProperties } from "react"
+import React, { CSSProperties, HTMLProps } from "react"
 
 import { ToggleProps } from "@wpmudev/sui-toggle"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a field list.
  */
-interface FieldListProps extends SuiStyleType {
+interface FieldListProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
 	 * The label for the field list.
 	 */

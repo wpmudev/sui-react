@@ -12,7 +12,6 @@ import {
 	useDefaultChildren,
 	useInteraction,
 	useStyles,
-	useStylesTypes,
 } from "@wpmudev/sui-hooks"
 import { LinkProps } from "./link.types"
 

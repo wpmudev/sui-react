@@ -1,14 +1,15 @@
 /*
  * Props for the Notification component.
  */
-import { ReactNode } from "react"
+import { ReactNode, HTMLProps } from "react"
 
 import { IconsNamesType } from "@wpmudev/sui-icons"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 // interface definition for the NotificationProps
-interface NotificationProps extends SuiStyleType {
+interface NotificationProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	id?: string // unique ID for the notification
 	title?: ReactNode // title content of the notification (can be any valid React node)
 	message?: ReactNode // message content of the notification (can be any valid React node)

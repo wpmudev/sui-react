@@ -7,7 +7,12 @@ import { Tag } from "@wpmudev/sui-tag"
 import { Button } from "@wpmudev/sui-button"
 
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
-import { isFunction, generateCN, isEmpty } from "@wpmudev/sui-utils"
+import {
+	isFunction,
+	generateCN,
+	isEmpty,
+	_renderHTMLPropsSafely,
+} from "@wpmudev/sui-utils"
 
 import { IntegrationProps } from "./integration.types"
 
@@ -22,6 +27,7 @@ const Integration: React.FC<IntegrationProps> = ({
 	isPro = false,
 	onSettingsClick,
 	onClick,
+	_htmlProps,
 	_style = {},
 }) => {
 	// Define image object
@@ -85,7 +91,11 @@ const Integration: React.FC<IntegrationProps> = ({
 	}
 
 	return (
-		<div className={classNames} data-testid="integration">
+		<div
+			className={classNames}
+			data-testid="integration"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className="sui-integration__header">
 				{!!icon?.src && (
 					<img

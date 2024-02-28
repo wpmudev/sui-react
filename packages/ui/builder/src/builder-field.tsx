@@ -1,5 +1,5 @@
 import React, { Fragment, useCallback, useState } from "react"
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { Col } from "@wpmudev/sui-grid"
 import { Button } from "@wpmudev/sui-button"
@@ -23,6 +23,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 	hasError = false,
 	children,
 	onClick = () => {},
+	_htmlProps,
 	_style = {},
 	...props
 }) => {
@@ -127,7 +128,12 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 	)
 
 	return (
-		<Col size={columnSize ?? 12} {...props} {...methods}>
+		<Col
+			size={columnSize ?? 12}
+			{...props}
+			{...methods}
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className={classNames} data-testid="builder-field">
 				<div className="sui-builder__field-header">
 					{allowDrag && (

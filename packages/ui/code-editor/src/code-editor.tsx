@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from "react"
 // @ts-ignore
 import ReactPrismEditor from "react-prism-editor"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 
 import { CodeEditorProps } from "./code-editor.types"
@@ -26,6 +26,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 	displayLineNumbers = true,
 	className,
 	children,
+	_htmlProps,
 	_style,
 }) => {
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
@@ -58,7 +59,11 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 	}, [])
 
 	return (
-		<div className={classNames} data-testid="code-editor">
+		<div
+			className={classNames}
+			data-testid="code-editor"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className="sui-code-editor__header">
 				{/* Display filename if available */}
 				<span className="sui-code-editor__header--title">

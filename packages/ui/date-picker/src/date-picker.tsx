@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import DatePickerPopover from "./date-picker-popover"
 import { DatePickerProvider } from "./date-picker-context"
@@ -27,6 +27,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	maxDate,
 	isDisabled = false,
 	onChange = () => null,
+	_htmlProps,
 	_style,
 	...props
 }) => {
@@ -52,6 +53,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 		maxDate,
 		isDisabled,
 		onChange,
+		..._renderHTMLPropsSafely(_htmlProps),
 	}
 
 	return (

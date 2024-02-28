@@ -8,7 +8,7 @@ import {
 	TableRow,
 } from "@wpmudev/sui-table"
 import { Button } from "@wpmudev/sui-button"
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 
 import {
@@ -27,8 +27,8 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	hasCreatedDate = false,
 	hasLastApplied = false,
 	proItems = [],
+	_htmlProps,
 	_style = {},
-	...styleProps
 }) => {
 	/**
 	 * Handle an action click.
@@ -51,7 +51,11 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	const classNames = generateCN("sui-config-table", {}, suiInlineClassname)
 
 	return (
-		<Table className={classNames} hasToolbar={false}>
+		<Table
+			className={classNames}
+			hasToolbar={false}
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<TableHead>
 				<TableRow actions={() => null}>
 					<TableCell isHeading={true} isPrimary={true}>

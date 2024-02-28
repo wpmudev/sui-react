@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from "react"
 
 // Import required component(s)
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { SegmentedControlProps } from "./segmented-control.types"
 import { SegmentedControlContext } from "./segmented-control-context"
@@ -13,6 +13,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	onChange = () => {},
 	children,
 	isFullWidth = false,
+	_htmlProps,
 	_style = {},
 }) => {
 	/**
@@ -67,7 +68,11 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 			}}
 		>
 			{/* Render the segmented control with the provided children inside a div with appropriate class names. */}
-			<div className={classNames} data-testid="segmented-control">
+			<div
+				className={classNames}
+				data-testid="segmented-control"
+				{..._renderHTMLPropsSafely(_htmlProps)}
+			>
 				{children}
 			</div>
 		</SegmentedControlContext.Provider>

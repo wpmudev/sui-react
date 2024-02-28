@@ -18,6 +18,7 @@ const Recipient: React.FC<RecipientProps> = ({
 	status = "none",
 	isInvited = false,
 	appearance = "primary",
+	_htmlProps,
 	_style,
 	...props
 }) => {
@@ -34,7 +35,11 @@ const Recipient: React.FC<RecipientProps> = ({
 	)
 
 	return (
-		<div className={className} {..._renderHTMLPropsSafely(props)}>
+		<div
+			className={className}
+			{..._renderHTMLPropsSafely(props)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className="sui-recipient__info">
 				<Avatar
 					className="sui-recipient__avatar"

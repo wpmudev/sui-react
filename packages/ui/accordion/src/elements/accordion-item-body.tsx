@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, HTMLProps } from "react"
 
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
@@ -10,7 +10,9 @@ import {
 } from "@wpmudev/sui-utils"
 import { AccordionContext } from "../accordion-context"
 
-interface AccordionItemBodyType extends SuiStyleType, SuiHTMLAttributes {
+interface AccordionItemBodyType
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
 	hasPadding?: boolean
 }
