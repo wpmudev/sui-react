@@ -10,7 +10,7 @@ import React, {
 	ReactElement,
 } from "react"
 import {
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 	generateCN,
 	handleOnKeyDown,
 	isEmpty,
@@ -229,7 +229,7 @@ const Popover: React.FC<PopoverProps> = ({
 				ref={popupRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__popup"
 				style={{ ...popupPositions } as CSSProperties}
-				{..._renderRestPropsSafely(_htmlProps)}
+				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
 				<div className="sui-popover__popup-arrow"></div>
 				<div className="sui-popover__popup-wrapper">

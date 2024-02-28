@@ -1,5 +1,5 @@
 import React, { HTMLProps, RefObject, useCallback } from "react"
-import { _renderRestPropsSafely, SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, SuiHTMLAttributes } from "@wpmudev/sui-utils"
 
 interface SelectSearchInputProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>> {
@@ -31,7 +31,7 @@ const Search: React.FC<SelectSearchInputProps> = ({
 			className="sui-select__search--input"
 			onChange={handleInputChange}
 			autoComplete="off"
-			{..._renderRestPropsSafely(props)}
+			{..._renderHTMLPropsSafely(props)}
 		/>
 	)
 }

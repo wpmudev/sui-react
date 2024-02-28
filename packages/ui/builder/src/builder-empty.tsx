@@ -1,6 +1,6 @@
 import React from "react"
 
-import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // Import required element(s)
 import { BuilderEmptyProps } from "./builder.types"
@@ -20,7 +20,7 @@ const BuilderEmpty: React.FC<BuilderEmptyProps> = ({
 		<div
 			className={classNames}
 			data-testid="builder-empty"
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div className="sui-builder__empty--icon">
 				<svg

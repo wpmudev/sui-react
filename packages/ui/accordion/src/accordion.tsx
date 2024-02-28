@@ -1,7 +1,7 @@
 // Import necessary modules and types
 import React, { useState } from "react"
 
-import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { AccordionProps } from "./accordion.types"
 import { AccordionProvider } from "./accordion-context"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
@@ -48,7 +48,7 @@ const Accordion: React.FC<AccordionProps> = ({
 				isFlushed,
 			}}
 		>
-			<div className={classNames} {..._renderRestPropsSafely(_htmlProps)}>
+			<div className={classNames} {..._htmlProps}>
 				{children}
 			</div>
 		</AccordionProvider>

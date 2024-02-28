@@ -16,7 +16,7 @@ import { TableRowProps } from "./table.types"
 
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
-import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 
 import { TableCell } from "./table-cell"
@@ -225,7 +225,7 @@ const TableRow: React.FC<TableRowProps> = ({
 				role="row"
 				className={classNames}
 				{...methods}
-				{..._renderRestPropsSafely(_htmlProps)}
+				{..._renderHTMLPropsSafely(_htmlProps)}
 				{...a11yProps}
 			>
 				{ctx?.allowCheck && !isUnderFooter && (

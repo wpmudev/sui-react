@@ -1,6 +1,6 @@
 import React from "react"
 
-import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // Import required element(s)
 import { SidebarProps } from "./sidebar.types"
@@ -24,7 +24,7 @@ const Sidebar: React.FC<Omit<SidebarProps, "selectedItemName">> = ({
 		<div
 			className={classNames}
 			data-testid="sidebar"
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{children}
 		</div>

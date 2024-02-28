@@ -6,7 +6,7 @@ import React, {
 	ReactNode,
 	useId,
 } from "react"
-import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 // Import required modules
 import { Label } from "./elements/label"
@@ -73,7 +73,7 @@ const FormField: React.FC<FormFieldProps> = ({
 	return (
 		<div
 			className={classNames}
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 			{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
 			data-testid="form-field"
 		>

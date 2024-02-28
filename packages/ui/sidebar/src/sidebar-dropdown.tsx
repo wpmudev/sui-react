@@ -6,7 +6,7 @@ import React, {
 	forwardRef,
 } from "react"
 
-import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 
@@ -77,7 +77,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 			<div
 				ref={dropdownRef}
 				className={classNames}
-				{..._renderRestPropsSafely(_htmlProps)}
+				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
 				<div>
 					<Button

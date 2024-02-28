@@ -1,6 +1,6 @@
 import React, { Children, cloneElement } from "react"
 
-import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { Row } from "@wpmudev/sui-grid"
 import { BuilderWrapperProps } from "./builder.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
@@ -26,7 +26,7 @@ const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 			align={{ sm: "inline" }}
 			{...props}
 			_htmlProps={{
-				..._renderRestPropsSafely(_htmlProps),
+				..._renderHTMLPropsSafely(_htmlProps),
 				"data-testid": "builder-wrapper",
 			}}
 		>

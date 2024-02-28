@@ -1,6 +1,6 @@
 import React from "react"
 
-import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import { AdvancedBannerProps } from "./advanced-banner.types"
 import { useStyles } from "@wpmudev/sui-hooks"
@@ -45,7 +45,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 		<div
 			className={classNames}
 			data-testid="advanced-banner"
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{"black-friday" === variation && !!discountPercentage && (
 				<div className="sui-advanced-banner__graphic">

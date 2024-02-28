@@ -11,7 +11,7 @@ import {
 	condContent,
 	generateCN,
 	isEmpty,
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 } from "@wpmudev/sui-utils"
 
 // Import required component(s).
@@ -104,10 +104,10 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			"aria-busy": isLoading,
 			...(isLoading && { "aria-live": "polite" }),
 			"data-testid": "button",
-			..._renderRestPropsSafely(_htmlProps),
+			..._renderHTMLPropsSafely(_htmlProps),
 			// interaction methods
 			...(interactionMethods ?? {}),
-			..._renderRestPropsSafely(restProps),
+			..._renderHTMLPropsSafely(restProps),
 		}
 
 		// Root tag

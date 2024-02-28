@@ -1,6 +1,6 @@
 import React from "react"
 
-import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // Import required element(s)
 import { BuilderProps } from "./builder.types"
@@ -27,7 +27,7 @@ const Builder: React.FC<BuilderProps> = ({
 		<div
 			className={classNames}
 			data-testid="builder"
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div
 				className={generateCN("sui-builder__fields", {

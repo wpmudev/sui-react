@@ -15,7 +15,7 @@ import {
 	generateCN,
 	condContent,
 	handleOnKeyDown,
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
@@ -288,7 +288,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							"has-hint": hasHintText,
 						})}
 					>
-						<TagName {...attrs} {..._renderRestPropsSafely(_htmlProps)} />
+						<TagName {...attrs} {..._renderHTMLPropsSafely(_htmlProps)} />
 						{hasHintText && (
 							<Fragment>
 								{!isEmpty(value as string) && (
