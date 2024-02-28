@@ -1,11 +1,11 @@
 import React from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Defines the props for a BasicBox component.
  */
-interface BasicBoxProps extends SuiStyleType {
+interface BasicBoxProps extends SuiStyleType, SuiHTMLAttributes {
 	/**
 	 * The title of the BasicBox, which can contain React nodes.
 	 */

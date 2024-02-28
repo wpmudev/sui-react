@@ -48,7 +48,7 @@ const Accordion: React.FC<AccordionProps> = ({
 				isFlushed,
 			}}
 		>
-			<div className={classNames} {..._htmlProps}>
+			<div className={classNames} {..._renderHTMLPropsSafely(_htmlProps)}>
 				{children}
 			</div>
 		</AccordionProvider>
