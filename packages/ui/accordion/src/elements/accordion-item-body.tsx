@@ -1,15 +1,11 @@
 import React, { useContext } from "react"
 
 import { Box, BoxGroup } from "@wpmudev/sui-box"
-import {
-	useDefaultChildren,
-	useStyles,
-	useStylesTypes,
-} from "@wpmudev/sui-hooks"
-import { generateCN } from "@wpmudev/sui-utils"
+import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
+import { SuiStyleType, generateCN } from "@wpmudev/sui-utils"
 import { AccordionContext } from "../accordion-context"
 
-interface AccordionItemBodyType extends useStylesTypes {
+interface AccordionItemBodyType extends SuiStyleType {
 	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.
 	hasPadding?: boolean
 }
@@ -18,7 +14,7 @@ interface AccordionItemBodyType extends useStylesTypes {
 const AccordionItemBody: React.FC<AccordionItemBodyType> = ({
 	children,
 	hasPadding = true,
-	...styleProps
+	_style,
 }) => {
 	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
 	const { spacing, isFlushed } = useContext(AccordionContext)
@@ -34,7 +30,7 @@ const AccordionItemBody: React.FC<AccordionItemBodyType> = ({
 
 	// Default children content
 	children = useDefaultChildren(children)
-	const { suiInlineClassname } = useStyles(styleProps)
+	const { suiInlineClassname } = useStyles(_style)
 
 	const classNames = generateCN(
 		"sui-accordion__item",
