@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { Box } from "@wpmudev/sui-box"
 
 import { SummaryBoxProps } from "./summary-box.types"
@@ -35,7 +35,6 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	children,
 	_htmlProps = {},
 	_style = {},
-	...props
 }: SummaryBoxProps): JSX.Element => {
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-summary-box", {}, suiInlineClassname)
@@ -47,10 +46,12 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 		icon, // The icon will be set later based on the provided icon prop or a default value.
 		isSmall: true, // Set the summary box size to small.
 		hideMobileIcon,
-		_htmlProps: {
-			..._htmlProps,
-			"data-testid": "summary-box",
-		},
+		"data-testid": "summary-box",
+		headerLeft: (
+			<div className="sui-summary-box__quick-actions">{primaryActions}</div>
+		),
+		headerRight: secondaryActions,
+		_htmlProps,
 	}
 
 	// Default children content
@@ -61,18 +62,7 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 		attrs.icon = icon
 	}
 
-	return (
-		<Box
-			{...attrs}
-			className="sui-summary-box"
-			headerLeft={
-				<div className="sui-summary-box__quick-actions">{primaryActions}</div>
-			} // Display primary actions in the header left.
-			headerRight={secondaryActions} // Display secondary actions in the header right.
-		>
-			{children}
-		</Box>
-	)
+	return <Box {...attrs}>{children}</Box>
 }
 
 // Publish required component.
