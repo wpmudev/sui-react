@@ -51,11 +51,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	const classNames = generateCN("sui-config-table", {}, suiInlineClassname)
 
 	return (
-		<Table
-			className={classNames}
-			hasToolbar={false}
-			{..._renderHTMLPropsSafely(_htmlProps)}
-		>
+		<Table className={classNames} hasToolbar={false} _htmlProps={_htmlProps}>
 			<TableHead>
 				<TableRow actions={() => null}>
 					<TableCell isHeading={true} isPrimary={true}>
