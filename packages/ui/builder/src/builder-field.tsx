@@ -132,7 +132,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 			size={columnSize ?? 12}
 			{...props}
 			{...methods}
-			{..._renderHTMLPropsSafely(_htmlProps)}
+			_htmlProps={_htmlProps}
 		>
 			<div className={classNames} data-testid="builder-field">
 				<div className="sui-builder__field-header">

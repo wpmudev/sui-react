@@ -57,6 +57,7 @@ const Builder = ({ ...props }) => {
 							title="Block 1"
 							subTitle="Field text"
 							icon="Desktop"
+							_htmlProps={{ "data-testsss": "00" }}
 						/>
 						<BuilderField
 							columnSize={4}
