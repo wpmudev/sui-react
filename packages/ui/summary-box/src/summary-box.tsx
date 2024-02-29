@@ -46,12 +46,14 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 		icon, // The icon will be set later based on the provided icon prop or a default value.
 		isSmall: true, // Set the summary box size to small.
 		hideMobileIcon,
-		"data-testid": "summary-box",
 		headerLeft: (
 			<div className="sui-summary-box__quick-actions">{primaryActions}</div>
 		),
 		headerRight: secondaryActions,
-		_htmlProps,
+		_htmlProps: {
+			..._htmlProps,
+			"data-testid": "summary-box",
+		},
 	}
 
 	// Default children content
