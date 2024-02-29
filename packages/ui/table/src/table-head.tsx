@@ -18,7 +18,6 @@ const TableHead: React.FC<TableHeadProps> = ({
 	hasActions = false,
 	_htmlProps = {},
 	_style = {},
-	...props
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
 

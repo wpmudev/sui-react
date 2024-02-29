@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import { SpinnerProps } from "./spinner.types"
 import { SpinnerLoader } from "./spinner-loader"
@@ -12,6 +12,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 	colorScheme = "primary",
 	isContained = false,
 	isAbsolute = false,
+	_htmlProps = {},
 	_style = {},
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
@@ -29,7 +30,11 @@ const Spinner: React.FC<SpinnerProps> = ({
 	)
 
 	return (
-		<div className={classNames} data-testid="spinner">
+		<div
+			className={classNames}
+			data-testid="spinner"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<SpinnerLoader
 				colorScheme={colorScheme}
 				loaderSize={loaderSize ?? "lg"}

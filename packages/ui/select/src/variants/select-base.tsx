@@ -6,7 +6,12 @@ import React, {
 	ChangeEvent,
 	useId,
 } from "react"
-import { SuiStyleType, generateCN } from "@wpmudev/sui-utils"
+import {
+	SuiStyleType,
+	generateCN,
+	_renderHTMLPropsSafely,
+	SuiHTMLAttributes,
+} from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
 	useInteraction,
@@ -48,7 +53,8 @@ interface SelectBaseProps
 			| "width"
 			| "color"
 		>,
-		SuiStyleType {
+		SuiStyleType,
+		SuiHTMLAttributes {
 	/** Unique ID */
 	id?: string
 	/** An array of options for the select */
@@ -107,6 +113,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	customWidth,
 	onChange,
 	_style = {},
+	_htmlProps = {},
 	...props
 }) => {
 	const uniqueId = useId()
@@ -289,6 +296,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			},
 		}),
 		...props,
+		..._renderHTMLPropsSafely(_htmlProps),
 	}
 
 	// Dropdown props
@@ -306,6 +314,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			},
 		}),
 		...props,
+		..._renderHTMLPropsSafely(_htmlProps),
 	}
 
 	// Render component

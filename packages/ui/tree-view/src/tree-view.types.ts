@@ -1,12 +1,14 @@
 import { IconsNamesType } from "@wpmudev/sui-icons"
-import React from "react"
+import React, { HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a tree view component.
  */
-interface TreeViewProps extends SuiStyleType {
+interface TreeViewProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	title?: string // Title for the tree view
 	className?: string // CSS class name for the tree view
 	children?: React.ReactNode // Content of the tree view

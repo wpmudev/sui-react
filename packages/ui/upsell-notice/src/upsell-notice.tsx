@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import { UpsellNoticeProps } from "./upsell-notice.types"
 import { Check } from "@wpmudev/sui-icons"
@@ -14,6 +14,7 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 	variation = "hummingbird",
 	features = [],
 	actions = null,
+	_htmlProps = {},
 	_style = {},
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
@@ -28,7 +29,11 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 	)
 
 	return (
-		<div className={classNames} data-testid="upsell-notice">
+		<div
+			className={classNames}
+			data-testid="upsell-notice"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className="sui-upsell-notice__header">
 				<h3 className="sui-upsell-notice__header-title sui-heading--h5">
 					{title}

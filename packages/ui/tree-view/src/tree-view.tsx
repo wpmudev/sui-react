@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { TreeViewCheckType, TreeViewProps } from "./tree-view.types"
 import { TreeViewProvider } from "./tree-view-context"
@@ -18,6 +18,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param  root0.showIcons
  * @param  root0.onChange
  * @param  root0._style
+ * @param  root0._htmlProps
  *
  * @return {JSX.Element} - JSX Element representing the TreeView component
  */
@@ -27,6 +28,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 	allowCheck = false,
 	showIcons = false,
 	onChange = () => {},
+	_htmlProps = {},
 	_style = {},
 }: TreeViewProps): JSX.Element => {
 	const [items, setItems] = useState<TreeViewCheckType[]>([])
@@ -52,6 +54,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 			<nav
 				className={generateCN("sui-tree-view", {}, suiInlineClassname)}
 				data-testid="tree-view"
+				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
 				<ul role="tree">{children}</ul>
 			</nav>

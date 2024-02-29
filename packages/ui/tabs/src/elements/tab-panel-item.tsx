@@ -1,7 +1,7 @@
 // Import necessary modules and types
 import React, { useContext } from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { TabContext } from "./tab-context"
 import { TabContextProps, TabPanelItemProps } from "../tabs.types"
@@ -11,6 +11,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 const TabPanelItem: React.FC<TabPanelItemProps> = ({
 	children,
 	id,
+	_htmlProps = {},
 	_style = {},
 }) => {
 	// Get the tab context using the useContext hook
@@ -43,6 +44,7 @@ const TabPanelItem: React.FC<TabPanelItemProps> = ({
 				},
 				suiInlineClassname,
 			)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{/* Render the content of the tab panel */}
 			{children}

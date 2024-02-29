@@ -2,7 +2,7 @@ import React from "react"
 
 import { Tag } from "@wpmudev/sui-tag"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 
 import { SettingBlockProps } from "./setting-block.types"
@@ -16,6 +16,7 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 	isFluid = false,
 	children,
 	actions,
+	_htmlProps,
 	_style = {},
 }) => {
 	// Interaction methods
@@ -36,7 +37,12 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 	)
 
 	return (
-		<div className={classNames} {...methods} data-testid="setting-block">
+		<div
+			className={classNames}
+			{...methods}
+			data-testid="setting-block"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className="sui-setting-block__header">
 				<div className="sui-setting-block__info">
 					<div className="sui-setting-block__info-title sui-heading--h5">

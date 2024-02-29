@@ -1,10 +1,12 @@
-import { RefObject } from "react"
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { RefObject, HTMLProps } from "react"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Describes the props that can be passed to the Spinner component.
  */
-interface SpinnerProps extends SuiStyleType {
+interface SpinnerProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
 	 * Size of the spinner
 	 */

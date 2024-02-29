@@ -60,6 +60,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				onValidate,
 				_htmlProps = {},
 				_style = {},
+				...props // Added temporarly to fix _htmlProps not being passed in Select component
 			},
 			ref,
 		) => {
@@ -288,7 +289,11 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							"has-hint": hasHintText,
 						})}
 					>
-						<TagName {...attrs} {..._renderHTMLPropsSafely(_htmlProps)} />
+						<TagName
+							{...attrs}
+							{..._renderHTMLPropsSafely(props)}
+							{..._renderHTMLPropsSafely(_htmlProps)}
+						/>
 						{hasHintText && (
 							<Fragment>
 								{!isEmpty(value as string) && (

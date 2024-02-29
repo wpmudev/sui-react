@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useId } from "react"
 
-import { useInteraction, useStyles, useStylesTypes } from "@wpmudev/sui-hooks"
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import { SelectorOption } from "./selector.option"
 import { SelectorProps } from "./selector.types"
@@ -32,6 +32,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			tagColor = "default",
 			isFluid = false,
 			_style = {},
+			_htmlProps,
 			...props
 		}: SelectorProps,
 		ref,
@@ -71,6 +72,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 					suiInlineClassname,
 				)}
 				{...interactionMethods} // Spread interaction methods onto the label element
+				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
 				{/* Hidden radio input */}
 				<input
