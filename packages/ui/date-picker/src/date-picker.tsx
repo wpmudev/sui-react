@@ -53,13 +53,16 @@ const DatePicker: React.FC<DatePickerProps> = ({
 		maxDate,
 		isDisabled,
 		onChange,
-		..._renderHTMLPropsSafely(_htmlProps),
 	}
 
 	return (
 		// Wrap the component with the DatePickerProvider and pass the props down to it
 		<DatePickerProvider {...datepickerProps}>
-			<div className={classNames} data-testid="date-picker">
+			<div
+				className={classNames}
+				data-testid="date-picker"
+				{..._renderHTMLPropsSafely(_htmlProps)}
+			>
 				<DatePickerInput isDisabled={isDisabled} {...props} />
 				<DatePickerPopover />
 			</div>
