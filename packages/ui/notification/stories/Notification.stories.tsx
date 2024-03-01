@@ -156,6 +156,7 @@ export const Notification = ({
 	message,
 	action,
 	isInline = false,
+	isFluid,
 	size,
 	isDismissible,
 	icon,
@@ -175,6 +176,7 @@ export const Notification = ({
 		action,
 		size,
 		isDismissible,
+		isFluid,
 		icon,
 		variation,
 	}
@@ -222,6 +224,7 @@ Notification.args = {
 	message: "This is a toast message.",
 	isInline: false,
 	isDismissible: true,
+	isFluid: false,
 	size: "lg",
 	icon: "InfoAlt",
 	action: (
@@ -264,6 +267,12 @@ Notification.argTypes = {
 			type: "boolean",
 		},
 	},
+	isFluid: {
+		name: "Fluid",
+		control: {
+			type: "boolean",
+		},
+	},
 	isDismissible: {
 		name: "Dismissible",
 		control: {
@@ -279,6 +288,10 @@ Notification.argTypes = {
 				"": "Default",
 				lg: "Large",
 			},
+		},
+		if: {
+			arg: "isFluid",
+			eq: false,
 		},
 	},
 	title: {

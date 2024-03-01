@@ -15,6 +15,7 @@ const Notification: React.FC<NotificationProps> = ({
 	action,
 	icon = "Info",
 	isInline = true,
+	isFluid = false,
 	isDismissible = false,
 	size,
 	variation,
@@ -62,6 +63,7 @@ const Notification: React.FC<NotificationProps> = ({
 		"sui-notification",
 		{
 			inline: isInline,
+			fluid: isFluid,
 			[size as string]: !isEmpty(size ?? ""),
 			[variation as string]: ["success", "warning", "error", "info"].includes(
 				variation ?? "",
