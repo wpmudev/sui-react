@@ -119,9 +119,9 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 						isSmall={true}
 						className="sui-builder__field-toggle-btn"
 						onClick={toggleBody}
-						data-testid="builder-field-toggle"
 						_htmlProps={{
 							"aria-label": "builder-toggle",
+							"data-testid": "builder-field-toggle",
 						}}
 					/>
 				</div>

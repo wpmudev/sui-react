@@ -102,7 +102,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 											: ""
 									}`}
 									onClick={() => handlePageClick(Math.floor(data))}
-									data-testid="pagination-item"
+									_htmlProps={{
+										"data-testid": "pagination-item",
+									}}
 								>
 									{data}
 								</Button>

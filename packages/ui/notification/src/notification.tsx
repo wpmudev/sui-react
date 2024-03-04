@@ -117,7 +117,9 @@ const Notification: React.FC<NotificationProps> = ({
 					isSmall={true}
 					iconOnly={true}
 					onClick={onClose}
-					data-testid="notification-dismiss"
+					_htmlProps={{
+						"data-testid": "notification-dismiss",
+					}}
 				>
 					Close notification
 				</Button>

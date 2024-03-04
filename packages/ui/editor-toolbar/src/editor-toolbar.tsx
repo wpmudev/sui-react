@@ -78,10 +78,10 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 									colorScheme="black"
 									iconOnly={true}
 									onClick={onBackClick}
-									data-testid="editor-toolbar-back-btn"
 									isDisabled={disableBack}
 									_htmlProps={{
 										"aria-label": "back",
+										"data-testid": "editor-toolbar-back-btn",
 									}}
 								/>
 							</div>

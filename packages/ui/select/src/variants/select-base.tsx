@@ -313,7 +313,7 @@ const Select: React.FC<SelectBaseProps> = ({
 				handleMultiSelectSearch(e)
 			},
 		}),
-		_htmlProps,
+		..._renderHTMLPropsSafely(_htmlProps),
 	}
 
 	// Render component
