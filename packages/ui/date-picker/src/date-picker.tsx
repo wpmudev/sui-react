@@ -29,7 +29,6 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	onChange = () => null,
 	_htmlProps,
 	_style,
-	...props
 }) => {
 	const pickType: string = type ?? "single"
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
@@ -63,7 +62,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 				data-testid="date-picker"
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
-				<DatePickerInput isDisabled={isDisabled} {...props} />
+				<DatePickerInput isDisabled={isDisabled} />
 				<DatePickerPopover />
 			</div>
 		</DatePickerProvider>
