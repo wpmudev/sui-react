@@ -97,6 +97,46 @@ interface ButtonProps
 	 * Button onClick
 	 */
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+
+	/**
+	 * Triggered when the mouse cursor enters the target element.
+	 */
+	onMouseEnter?: React.MouseEventHandler<HTMLElement>
+
+	/**
+	 * Triggered when the mouse cursor leaves the target element.
+	 */
+	onMouseLeave?: React.MouseEventHandler<HTMLElement>
+
+	/**
+	 * Triggered when the target element gains focus.
+	 */
+	onFocus?: React.FocusEventHandler<HTMLElement>
+
+	/**
+	 * Triggered when the target element loses focus.
+	 */
+	onBlur?: React.FocusEventHandler<HTMLElement>
+
+	/**
+	 * Triggered when a mouse button is released while the cursor is over the target element.
+	 */
+	onMouseUp?: React.MouseEventHandler<HTMLElement>
+
+	/**
+	 * Triggered when a mouse button is pressed down on the target element, capturing the event before it reaches any other elements.
+	 */
+	onMouseDownCapture?: React.MouseEventHandler<HTMLElement>
+
+	/**
+	 * Triggered when a mouse button is released while the cursor is over the target element, capturing the event before it reaches any other elements.
+	 */
+	onMouseUpCapture?: React.MouseEventHandler<HTMLElement>
+
+	/**
+	 * Triggered when the target element loses focus, capturing the event before it reaches any other elements.
+	 */
+	onBlurCapture?: React.FocusEventHandler<HTMLElement>
 }
 
 export type { ButtonProps }

@@ -40,7 +40,6 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			colorScheme = "black",
 			_htmlProps = {},
 			_style = {},
-			...props
 		},
 		ref,
 	) => {
@@ -122,7 +121,6 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							onClick={() => setIsOpen(!isOpen)}
 							isResponsive={isResponsive}
 							{...(!iconOnly && { endIcon: "ChevronDown" })}
-							{...props}
 							colorScheme={colorScheme as ButtonProps["colorScheme"]}
 						>
 							{label}

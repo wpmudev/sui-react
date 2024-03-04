@@ -48,7 +48,9 @@ const DrawerHeader = ({
 					isSmall={true}
 					iconOnly={true}
 					onClick={onClose}
-					aria-label="close"
+					_htmlProps={{
+						"aria-label": "close",
+					}}
 				/>
 			</div>
 		</div>

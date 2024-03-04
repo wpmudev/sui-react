@@ -106,7 +106,9 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 						iconOnly={true}
 						colorScheme={closeBtnColor}
 						onClick={onClose}
-						aria-label="close"
+						_htmlProps={{
+							"aria-label": "close",
+						}}
 					/>
 				</div>
 			)}

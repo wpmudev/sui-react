@@ -120,7 +120,9 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 						isSmall={true}
 						iconOnly={true}
 						onClick={onClose}
-						aria-label="close"
+						_htmlProps={{
+							"aria-label": "close",
+						}}
 					/>
 				</div>
 			)}

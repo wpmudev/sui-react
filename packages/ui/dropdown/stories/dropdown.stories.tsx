@@ -49,7 +49,6 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 										label: "Beehive",
 										props: {
 											href: "#",
-
 											icon: "PluginBeehive",
 											variation: "beehive",
 										},

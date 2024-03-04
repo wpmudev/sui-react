@@ -48,6 +48,14 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			iconSize = "sm",
 			isResponsive = false,
 			isLoading = false,
+			onMouseEnter,
+			onMouseLeave,
+			onFocus,
+			onBlur,
+			onMouseUp,
+			onMouseDownCapture,
+			onMouseUpCapture,
+			onBlurCapture,
 			_htmlProps = {},
 			_style,
 			...restProps
@@ -68,15 +76,18 @@ const Button: React.FC<ButtonProps> = forwardRef<
 
 		// Manage interaction methods
 		const [isHovered, isFocused, interactionMethods] = useInteraction({
-			onMouseEnter: restProps?.onMouseEnter,
-			onMouseLeave: restProps?.onMouseLeave,
-			onFocus: restProps?.onFocus,
-			onBlur: restProps?.onBlur,
+			onMouseEnter,
+			onMouseLeave,
+			onFocus,
+			onBlur,
+			onMouseUp,
+			onMouseDownCapture,
+			onMouseUpCapture,
+			onBlurCapture,
 		})
 
 		const isLink = !isUndefined(href)
 		const label = !isUndefined(htmlFor)
-		const isStartIcon = !isEmpty(startIcon ?? "")
 		const isEndIcon = !isEmpty(endIcon ?? "")
 
 		// Classname based on the attributes

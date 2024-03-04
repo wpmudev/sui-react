@@ -96,11 +96,13 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 									isSmall={true}
 									iconOnly={true}
 									colorScheme="black"
-									aria-label="settings"
 									type="tertiary"
 									onClick={(e) => {
 										e.preventDefault()
 										actionClick(config.id, "configure")
+									}}
+									_htmlProps={{
+										"aria-label": "settings",
 									}}
 								/>
 								{content}
