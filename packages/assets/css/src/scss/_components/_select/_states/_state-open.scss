@@ -16,15 +16,8 @@
 			@include modifier(open) {
 				z-index: 1;
 				@include modifies-element(control) {
-					border-bottom-color: transparent;
-					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px $color-primary-80;
-					border-bottom-left-radius: 0;
-					border-bottom-right-radius: 0;
 					&::after {
 						border: $border-width-md solid $color-primary-50;
-						border-bottom-left-radius: 0;
-						border-bottom-right-radius: 0;
-						border-bottom: 0;
 					}
 				}
 

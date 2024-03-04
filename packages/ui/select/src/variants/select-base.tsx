@@ -263,11 +263,11 @@ const Select: React.FC<SelectBaseProps> = ({
 		selected: selectedItem,
 		selectLabel: label,
 		isSmall,
-		dropdownToggle: () => setIsDropdownOpen(!isDropdownOpen),
 		clearSelection: () => {
 			RemoveAll(updateItem, items, setFilteredItems)
 		},
 		...(!isSearchable && {
+			dropdownToggle: () => setIsDropdownOpen(!isDropdownOpen),
 			arrow: isDropdownOpen ? "ChevronUp" : "ChevronDown",
 		}),
 		...(isSearchable && {
@@ -281,6 +281,9 @@ const Select: React.FC<SelectBaseProps> = ({
 				})
 			},
 			onEvent: (optionId: number | string) => updateSelected(optionId),
+			onClick: () => setIsDropdownOpen(true),
+			onFocus: () => setIsDropdownOpen(true),
+			onBlur: () => setIsDropdownOpen(false),
 		}),
 		...(isMultiSelect && {
 			isMultiSelect,

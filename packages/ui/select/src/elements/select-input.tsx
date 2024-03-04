@@ -12,7 +12,6 @@ interface InputWithAutoCompleteProps extends useStylesTypes {
 		label: string
 	}
 	dropdownItems?: Record<string, any>[]
-	dropdownToggle?: () => void
 	onChange?: (
 		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => void
@@ -28,7 +27,6 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	expanded = false,
 	selected = { label: "" },
 	dropdownItems = [],
-	dropdownToggle,
 	onValueChange = () => {},
 	onChange = () => {},
 	onEvent = () => {},
@@ -91,7 +89,6 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 			id={inputId}
 			icon="Search"
 			iconPosition="start"
-			onClick={dropdownToggle}
 			onChange={onInputChange}
 			defaultValue={value}
 			allowClear={false}

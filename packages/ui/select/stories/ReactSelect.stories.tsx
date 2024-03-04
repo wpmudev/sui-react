@@ -2,12 +2,7 @@ import React from "react"
 import { FormField } from "@wpmudev/sui-form-field"
 
 // Import required component(s).
-import {
-	Select as StandardSelect,
-	SearchSelect,
-	MultiSelect,
-	SelectBaseProps,
-} from "../src"
+import { Select as StandardSelect, MultiSelect, SelectBaseProps } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactSelect.mdx"
@@ -46,18 +41,6 @@ const Select = ({
 							isDisabled={isDisabled}
 						>
 							<StandardSelect {...props} />
-						</FormField>
-					)}
-					{"search" === example && (
-						<FormField
-							id="select"
-							label="Label"
-							helper="Description"
-							error={errorMessage}
-							isSmall={isSmall}
-							isDisabled={isDisabled}
-						>
-							<SearchSelect {...props} />
 						</FormField>
 					)}
 					{"multi-select" === example && (
@@ -136,18 +119,18 @@ Select.args = {
 	errorMessage: "Error message",
 	isDisabled: false,
 	isSmall: false,
+	isSearchable: false,
 }
 
 Select.argTypes = {
 	example: {
 		name: "Example",
-		options: ["select", "multi-select", "search"],
+		options: ["select", "multi-select"],
 		control: {
 			type: "select",
 			labels: {
 				select: "Example: Select",
 				"multi-select": "Example: Multiselect",
-				search: "Example: Search",
 			},
 		},
 	},
@@ -174,6 +157,14 @@ Select.argTypes = {
 	},
 	isError: {
 		name: "Error",
+	},
+	isSearchable: {
+		name: "Searchable",
+		control: "boolean",
+		if: {
+			arg: "example",
+			eq: "select",
+		},
 	},
 	errorMessage: {
 		name: "Error message",
