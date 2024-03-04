@@ -34,7 +34,6 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	onColorChange = () => null,
 	_htmlProps,
 	_style = {},
-	...props
 }: ColorPickerProps): JSX.Element => {
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
@@ -148,7 +147,6 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					isDisabled={isDisabled ?? false}
 					id={id}
 					{...(isSmall && { isSmall })}
-					{...props}
 				/>
 
 				<div
@@ -193,7 +191,6 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					onColorChange={handleColorChange}
 					onApplyButton={handleColorApply}
 					type={type}
-					{...props}
 				/>
 			)}
 		</div>

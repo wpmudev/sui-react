@@ -60,7 +60,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				onValidate,
 				_htmlProps = {},
 				_style = {},
-				...props // Added temporarly to fix _htmlProps not being passed in Select component
+				...props // Added temporarly to fix `_htmlProps` not being passed in Select component
 			},
 			ref,
 		) => {
