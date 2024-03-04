@@ -39,9 +39,11 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 			icon="Settings"
 			colorScheme="black"
 			iconOnly={true}
-			aria-label="settings"
 			onClick={onSettingClick}
 			isDisabled={disableSetting}
+			_htmlProps={{
+				"aria-label": "settings",
+			}}
 		/>
 	)
 
@@ -76,9 +78,11 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 									colorScheme="black"
 									iconOnly={true}
 									onClick={onBackClick}
-									aria-label="back"
 									data-testid="editor-toolbar-back-btn"
 									isDisabled={disableBack}
+									_htmlProps={{
+										"aria-label": "back",
+									}}
 								/>
 							</div>
 						)}

@@ -56,9 +56,9 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			onMouseDownCapture,
 			onMouseUpCapture,
 			onBlurCapture,
+			onClick,
 			_htmlProps = {},
 			_style,
-			...restProps
 		},
 		ref,
 	) => {
@@ -115,10 +115,10 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			"aria-busy": isLoading,
 			...(isLoading && { "aria-live": "polite" }),
 			"data-testid": "button",
+			onClick,
 			..._renderHTMLPropsSafely(_htmlProps),
 			// interaction methods
 			...(interactionMethods ?? {}),
-			..._renderHTMLPropsSafely(restProps),
 		}
 
 		// Root tag

@@ -1,7 +1,7 @@
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import React, { HTMLProps } from "react"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
+import { ButtonProps } from "@wpmudev/sui-button"
 
 /**
  * Interface defining the props that can be passed to a Sidebar component.
@@ -23,6 +23,11 @@ interface SidebarProps
 	 * Children components to be rendered within the Sidebar.
 	 */
 	children?: React.ReactNode
+
+	/**
+	 * Object that represents button props
+	 */
+	buttonProps?: ButtonProps
 }
 
 /**
