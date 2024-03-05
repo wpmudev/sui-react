@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useCallback, useEffect, useId, useRef, useState } from "react"
 
-import { Input } from "@wpmudev/sui-input"
+import { Input, InputProps } from "@wpmudev/sui-input"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { useInteraction, useOuterClick, useStyles } from "@wpmudev/sui-hooks"
@@ -100,7 +100,7 @@ const Search: React.FC<SearchProps> = ({
 		[filteredOptions],
 	)
 
-	const inputProps: Record<string, any> = {}
+	const inputProps: InputProps = {}
 
 	// Add additional props for smart search
 	if ("smart" === variation) {

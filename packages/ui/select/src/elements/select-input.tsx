@@ -99,9 +99,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 			hint={(isFiltered && filteredOptions[0]?.label) || ""}
 			disableInteractions={true}
 			placeholder={placeholder}
-			_htmlProps={{
-				onKeyDown: onInputKeyDown,
-			}}
+			onKeyDown={onInputKeyDown}
 			{...interactionMethods}
 		/>
 	)

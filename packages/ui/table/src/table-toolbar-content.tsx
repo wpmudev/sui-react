@@ -23,7 +23,6 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 	isExpanded,
 	_htmlProps = {},
 	_style = {},
-	...props
 }) => {
 	// Get table context
 	const ctx = useContext(TableContext)
@@ -71,7 +70,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 					text: (
 						<Input
 							id={filter?.id ?? ""}
-							{...(filter?.props as any)}
+							//{...(filter?.props as any)}
 							// @ts-ignore
 							defaultValue={ctx?.filterValues?.[filter?.id]}
 							onChange={(
