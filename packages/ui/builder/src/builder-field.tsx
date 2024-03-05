@@ -22,10 +22,8 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 	isDragging = false,
 	hasError = false,
 	children,
-	onClick = () => {},
 	_htmlProps,
 	_style = {},
-	...props
 }) => {
 	// State to manage the expanded/collapsed state of the field
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
@@ -130,12 +128,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 	)
 
 	return (
-		<Col
-			size={columnSize ?? 12}
-			{...props}
-			{...methods}
-			_htmlProps={_htmlProps}
-		>
+		<Col size={columnSize ?? 12} {...methods} _htmlProps={_htmlProps}>
 			<div className={classNames} data-testid="builder-field">
 				<div className="sui-builder__field-header">
 					{allowDrag && (

@@ -10,7 +10,6 @@ const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 	children,
 	_htmlProps = {},
 	_style = {},
-	...props
 }) => {
 	const { suiInlineClassname } = useStyles(_style, className)
 
@@ -24,7 +23,6 @@ const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 		<Row
 			className={classNames}
 			align={{ sm: "inline" }}
-			{...props}
 			_htmlProps={{
 				..._renderHTMLPropsSafely(_htmlProps),
 				"data-testid": "builder-wrapper",
