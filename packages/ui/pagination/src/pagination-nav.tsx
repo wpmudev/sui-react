@@ -55,7 +55,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						className="sui-pagination__button"
 						icon="ChevronLeft"
 						onClick={handlePreviousPage}
-						aria-label={previousLabel}
+						_htmlProps={{
+							"aria-label": previousLabel,
+						}}
 					>
 						{previousLabel}
 					</Tooltip>
@@ -157,7 +159,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						className="sui-pagination__button"
 						icon="ChevronRight"
 						onClick={handleNextPage}
-						aria-label={nextLabel}
+						_htmlProps={{
+							"aria-label": nextLabel,
+						}}
 					>
 						{nextLabel}
 					</Tooltip>

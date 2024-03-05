@@ -12,7 +12,6 @@ const DrawerHeader = ({
 	hintText = "",
 	tooltipOptions = {},
 	_style,
-	...styleProps
 }: DrawerHeaderTypes) => {
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-drawer__header", {}, suiInlineClassname)

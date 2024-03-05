@@ -15,7 +15,6 @@ import {
 } from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
-	useDefaultChildren,
 	useInteraction,
 	useDetectRTL,
 	usePortal,
@@ -45,7 +44,6 @@ const Tooltip: React.FC<TooltipProps> = ({
 	buttonProps,
 	_htmlProps = {},
 	_style = {},
-	...props
 }) => {
 	// detect RTL
 	const isRTL = useDetectRTL()
@@ -214,9 +212,6 @@ const Tooltip: React.FC<TooltipProps> = ({
 		style?: React.CSSProperties
 	}
 
-	// Default children content
-	children = useDefaultChildren(children, "{default tooltip content}")
-
 	const attrs: TooltipAttrsTypes = {}
 
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
@@ -309,7 +304,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 					</span>
 				)
 			default:
-				return <span {..._renderHTMLPropsSafely(props)}>{label}</span>
+				return <span>{label}</span>
 		}
 	}
 

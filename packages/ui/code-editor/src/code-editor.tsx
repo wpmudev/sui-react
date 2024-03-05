@@ -74,13 +74,11 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 						buttonProps={{ type: "secondary", colorScheme: "black" }}
 						label="Copy"
 						placement="top"
-						isSmall={true}
-						aria-label={isCopied ? "Copied" : ""}
 						onMouseLeave={() => setIsCopied(false)}
 						customWidth={65}
 						onClick={() => copyCodes(children ?? "")}
 					>
-						{isCopied && "Copied"}
+						{isCopied ? "Copied" : "Click to Copy"}
 					</Tooltip>
 				)}
 			</div>

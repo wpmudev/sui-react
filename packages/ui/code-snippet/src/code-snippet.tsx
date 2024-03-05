@@ -52,7 +52,9 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 					}}
 					label="Copy"
 					placement="top"
-					aria-label={isCopied ? "Copied" : ""}
+					_htmlProps={{
+						"aria-label": isCopied ? "Copied" : "",
+					}}
 					onMouseLeave={() => setIsCopied(false)}
 					customWidth={65}
 					onClick={() => copyCodes(children)}
