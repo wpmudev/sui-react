@@ -18,7 +18,6 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			isChecked = false,
 			isDisabled = false,
 			isPro = false,
-			defaultValue = "",
 			alignment = "center",
 			variation = "default",
 			onChange = () => {},
@@ -32,8 +31,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 			tagColor = "default",
 			isFluid = false,
 			_style = {},
-			_htmlProps,
-			...props
+			_htmlProps = {},
 		}: SelectorProps,
 		ref,
 	) => {
@@ -89,7 +87,6 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 					data-testid="selector-input"
 				/>
 				<SelectorOption
-					{...props}
 					tagColor={tagColor}
 					allowRemove={allowRemove}
 					onRemove={onRemove}
