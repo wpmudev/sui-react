@@ -114,7 +114,6 @@ const Select: React.FC<SelectBaseProps> = ({
 	onChange,
 	_style = {},
 	_htmlProps = {},
-	...props
 }) => {
 	const uniqueId = useId()
 
@@ -295,8 +294,6 @@ const Select: React.FC<SelectBaseProps> = ({
 				RemoveSelection(optionId, filteredItems, setFilteredItems)
 			},
 		}),
-		...props,
-		..._renderHTMLPropsSafely(_htmlProps),
 	}
 
 	// Dropdown props
@@ -313,12 +310,16 @@ const Select: React.FC<SelectBaseProps> = ({
 				handleMultiSelectSearch(e)
 			},
 		}),
-		..._renderHTMLPropsSafely(_htmlProps),
 	}
 
 	// Render component
 	return (
-		<div {...selectProps} data-check="check" data-testid="select">
+		<div
+			{...selectProps}
+			data-check="check"
+			data-testid="select"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			{!isSearchable && (
 				// @ts-ignore
 				<Selected {...headerProps} interactionMethods={interactionMethods} />

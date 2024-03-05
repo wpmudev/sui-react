@@ -9,11 +9,7 @@ interface SelectSearchInputProps
 	placeholder?: string
 }
 
-const Search: React.FC<SelectSearchInputProps> = ({
-	id,
-	onChange,
-	...props
-}) => {
+const Search: React.FC<SelectSearchInputProps> = ({ id, onChange }) => {
 	// handle on change input
 	const handleInputChange = useCallback(
 		(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +27,6 @@ const Search: React.FC<SelectSearchInputProps> = ({
 			className="sui-select__search--input"
 			onChange={handleInputChange}
 			autoComplete="off"
-			{..._renderHTMLPropsSafely(props)}
 		/>
 	)
 }

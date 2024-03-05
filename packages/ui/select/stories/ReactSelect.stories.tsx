@@ -60,7 +60,7 @@ const Select = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
-							<SearchSelect {...props} _htmlProps={{ "data-testtttt": "20" }} />
+							<SearchSelect {...props} label="Search..." />
 						</FormField>
 					)}
 					{"multi-select" === example && (
@@ -72,7 +72,7 @@ const Select = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
-							<MultiSelect {...props} _htmlProps={{ "data-testtttt": "20" }} />
+							<MultiSelect {...props} />
 						</FormField>
 					)}
 				</div>

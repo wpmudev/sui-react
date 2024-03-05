@@ -10,8 +10,7 @@ import React, {
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { Icon } from "./select-icon"
 import { Search } from "./multiselect-search"
-import { useStyles, useStylesTypes } from "@wpmudev/sui-hooks"
-import { generateCN } from "@wpmudev/sui-utils"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 interface SelectDropdownProps extends useStylesTypes {
 	options: Record<string, any>[]
@@ -31,11 +30,9 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	isSmall = false,
 	isMultiSelect = false,
 	selected = "",
-	...props
 }) => {
 	// generate unique name for checkbox
 	const name = "select-" + useId()
-	const { suiInlineClassname } = useStyles(props)
 
 	const onSelect = useCallback(
 		(e: any, id: string) => {
@@ -47,7 +44,6 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	)
 
 	const getOptProps = (id: string) => ({
-		...props,
 		ref: undefined,
 		onClick: (e: MouseEvent<HTMLElement>) => onSelect(e, id),
 		onKeyDown: (e?: KeyboardEvent<HTMLElement>) => onSelect(e, id),
@@ -58,7 +54,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		// Render regular options
 		return (
 			<ul
-				className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
+				className="sui-select__dropdown"
 				role="listbox"
 				aria-label="dropdown-options"
 			>
@@ -104,18 +100,9 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			<Fragment>
 				<div className="sui-select__search">
 					<Icon name="Search" size="sm" />
-					<Search
-						placeholder="Search"
-						{
-							// @ts-ignore
-							...props
-						}
-					/>
+					<Search placeholder="Search" />
 				</div>
-				<ul
-					className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
-					aria-label="dropdown-options"
-				>
+				<ul className="sui-select__dropdown" aria-label="dropdown-options">
 					<li className="sui-select__dropdown--option">
 						<Checkbox
 							name={name}

@@ -20,6 +20,7 @@ interface InputWithAutoCompleteProps extends useStylesTypes {
 	onEvent?: (event: React.ChangeEvent<HTMLInputElement>) => void
 	ref?: LegacyRef<HTMLInputElement>
 	interactionMethods: object
+	placeholder: string
 }
 
 const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
@@ -27,15 +28,14 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	controlRef,
 	expanded = false,
 	selected = { label: "" },
+	placeholder,
 	dropdownItems = [],
 	dropdownToggle,
 	onValueChange = () => {},
 	onChange = () => {},
 	onEvent = () => {},
 	interactionMethods,
-	...props
 }) => {
-	const { suiInlineClassname } = useStyles(props)
 	const generatedId = useId()
 
 	// Random search ID
@@ -86,8 +86,9 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 
 	return (
 		<Input
+			//@ts-ignore
 			ref={controlRef}
-			className={generateCN("sui-select__input", {}, suiInlineClassname)}
+			className="sui-select__input"
 			id={inputId}
 			icon="Search"
 			iconPosition="start"
@@ -97,10 +98,10 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 			allowClear={false}
 			hint={(isFiltered && filteredOptions[0]?.label) || ""}
 			disableInteractions={true}
+			placeholder={placeholder}
 			_htmlProps={{
 				onKeyDown: onInputKeyDown,
 			}}
-			{...props}
 			{...interactionMethods}
 		/>
 	)

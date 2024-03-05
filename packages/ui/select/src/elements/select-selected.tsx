@@ -181,7 +181,7 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 	return (
 		<div className="sui-select__control">
 			<InputWithAutoComplete
-				placeholder="Search"
+				placeholder={selectLabel}
 				isSmall={isSmall ?? false}
 				onValueChange={onValueChange}
 				selected={selected}
