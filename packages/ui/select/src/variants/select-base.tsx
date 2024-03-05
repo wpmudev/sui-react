@@ -282,8 +282,6 @@ const Select: React.FC<SelectBaseProps> = ({
 			},
 			onEvent: (optionId: number | string) => updateSelected(optionId),
 			onClick: () => setIsDropdownOpen(true),
-			onFocus: () => setIsDropdownOpen(true),
-			onBlur: () => setIsDropdownOpen(false),
 		}),
 		...(isMultiSelect && {
 			isMultiSelect,

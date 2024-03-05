@@ -54,14 +54,6 @@
 					border-radius: $select-dropdown-empty-border-radius;
 				}
 			}
-
-			@include modifier(open) {
-				@include modifies-element(dropdown) {
-					// border-top: 0;
-					// border-width: $select-dropdown-open-border-width;
-					// border-color: $select-dropdown-open-border-color;
-				}
-			}
 		}
 	}
 

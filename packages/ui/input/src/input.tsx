@@ -60,7 +60,6 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				onValidate,
 				_htmlProps = {},
 				_style = {},
-				...props
 			},
 			ref,
 		) => {
@@ -233,7 +232,6 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				required: isRequired,
 				pattern,
 				onKeyUp: onInputKeyUp,
-				...props,
 			}
 
 			/**

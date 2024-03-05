@@ -16,6 +16,7 @@ interface InputWithAutoCompleteProps extends useStylesTypes {
 		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => void
 	onValueChange: (val: string) => void
+	onClick?: () => void
 	onEvent?: (event: React.ChangeEvent<HTMLInputElement>) => void
 	ref?: LegacyRef<HTMLInputElement>
 	interactionMethods: object
@@ -30,9 +31,12 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	onValueChange = () => {},
 	onChange = () => {},
 	onEvent = () => {},
+	onClick = () => {},
 	interactionMethods,
 	...props
 }) => {
+	const { _htmlProps } = props
+
 	const { suiInlineClassname } = useStyles(props)
 	const generatedId = useId()
 
@@ -96,9 +100,10 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 			disableInteractions={true}
 			_htmlProps={{
 				onKeyDown: onInputKeyDown,
+				onClick,
+				..._htmlProps,
+				...interactionMethods,
 			}}
-			{...props}
-			{...interactionMethods}
 		/>
 	)
 }
