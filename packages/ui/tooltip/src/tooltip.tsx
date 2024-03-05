@@ -294,7 +294,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 				)
 			case "icon":
 				if (!onClick) {
-					return <Button {...(buttonProps as ButtonProps)} />
+					return <Icon name={icon} size={iconSize} />
 				}
 
 				return (

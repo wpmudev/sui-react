@@ -30,7 +30,7 @@ const RecipientButton: React.FC<RecipientButtonProps> = ({
 				isSmall: true,
 				...buttonProps,
 			}}
-			type="icon"
+			type="button"
 			label={children as string}
 			className={className}
 			customWidth={customWidth}
