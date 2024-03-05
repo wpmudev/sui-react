@@ -6,6 +6,7 @@ import { Select as StandardSelect, MultiSelect, SelectBaseProps } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactSelect.mdx"
+import { Checkbox } from "@wpmudev/sui-checkbox"
 
 // Build "Select" story.
 const Select = ({
@@ -70,12 +71,22 @@ Select.args = {
 			icon: "Settings",
 			id: "option-1",
 			label: "Option 1 is the option.",
+			labelContent: (
+				<>
+					<Checkbox /> Option 1 is the option.
+				</>
+			),
 			isSelected: false,
 		},
 		{
 			icon: "Settings",
 			id: "option-2",
 			label: "Option 2",
+			labelContent: (
+				<>
+					<Checkbox /> Option 2.
+				</>
+			),
 			isSelected: false,
 		},
 		{

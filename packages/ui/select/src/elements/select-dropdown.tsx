@@ -19,6 +19,7 @@ interface SelectDropdownProps extends useStylesTypes {
 	selectAll?: () => void
 	isSmall?: boolean
 	isMultiSelect?: boolean
+	isSearchable?: boolean
 	selected?: Record<string, any> | string
 	ref?: RefObject<HTMLInputElement>
 	onKeyDown?(e?: any): void
@@ -31,6 +32,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	isSmall = false,
 	isMultiSelect = false,
 	selected = "",
+	isSearchable = false,
 	...props
 }) => {
 	// generate unique name for checkbox
@@ -70,6 +72,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						isSelected,
 						newLabel = label,
 						boldLabel = "",
+						labelContent = label,
 					}) => (
 						<li
 							key={id}
@@ -83,9 +86,9 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						>
 							<Fragment>
 								{icon && <Icon name={icon} size={isSmall ? "xs" : "sm"} />}
-								<span>
+								<span className="sui-select__dropdown--content">
 									{boldLabel && <strong>{boldLabel}</strong>}
-									{newLabel}
+									{!isSearchable ? labelContent : newLabel}
 								</span>
 							</Fragment>
 						</li>

@@ -39,6 +39,16 @@
 					margin: $select-dropdown-option-margin;
 				}
 
+				@include modifier(content) {
+					display: flex;
+					gap: $spacing-sm;
+					width: 100%;
+
+					.sui-checkbox {
+						width: auto !important;
+					}
+				}
+
 				@include modifier(selected) {
 					color: $color-primary-50;
 				}

@@ -5,6 +5,7 @@ import React, {
 	HTMLProps,
 	ChangeEvent,
 	useId,
+	ReactNode,
 } from "react"
 import { SuiStyleType, generateCN } from "@wpmudev/sui-utils"
 import {
@@ -297,6 +298,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		options: filteredItems,
 		selected: selectedItem,
 		isSmall,
+		isSearchable,
 		...(isMultiSelect && {
 			isMultiSelect,
 			selectAll: () => {
