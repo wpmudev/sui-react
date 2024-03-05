@@ -25,7 +25,6 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	isResponsive = false,
 	_htmlProps,
 	_style = {},
-	...props
 }) => {
 	// Generate a unique ID for the radio button and set its ID attribute.
 	const uniqueId = useId()
@@ -62,11 +61,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	}
 
 	return (
-		<span
-			className={classNames}
-			{..._renderHTMLPropsSafely(props)}
-			{..._renderHTMLPropsSafely(_htmlProps)}
-		>
+		<span className={classNames} {..._renderHTMLPropsSafely(_htmlProps)}>
 			{/* The input element serves as the radio button, connected to the label element. */}
 			<input
 				type="radio"
