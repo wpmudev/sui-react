@@ -8,6 +8,89 @@ import { Select as StandardSelect, MultiSelect, SelectBaseProps } from "../src"
 import docs from "./ReactSelect.mdx"
 import { Checkbox } from "@wpmudev/sui-checkbox"
 
+const options = [
+	{
+		icon: "Settings",
+		id: "option-1",
+		label: "Option 1",
+		optionContent: (
+			<>
+				<Checkbox /> Option 1
+			</>
+		),
+	},
+	{
+		icon: "Settings",
+		id: "option-2",
+		label: "Option 2",
+		optionContent: (
+			<>
+				<Checkbox /> Option 2
+			</>
+		),
+	},
+	{
+		icon: "Settings",
+		id: "option-3",
+		label: "Option 3",
+		optionContent: (
+			<>
+				<Checkbox /> Option 3
+			</>
+		),
+	},
+	{
+		icon: "Settings",
+		id: "option-4",
+		label: "Option 4",
+		optionContent: (
+			<>
+				<Checkbox /> Option 4
+			</>
+		),
+	},
+	{
+		icon: "Settings",
+		id: "option-5",
+		label: "Option 5",
+		optionContent: (
+			<>
+				<Checkbox /> Option 5
+			</>
+		),
+	},
+	{
+		icon: "Settings",
+		id: "option-6",
+		label: "Option 6",
+		optionContent: (
+			<>
+				<Checkbox /> Option 6
+			</>
+		),
+	},
+	{
+		icon: "Settings",
+		id: "option-7",
+		label: "Option 7",
+		optionContent: (
+			<>
+				<Checkbox /> Option 7
+			</>
+		),
+	},
+	{
+		icon: "Settings",
+		id: "option-8",
+		label: "India",
+		optionContent: (
+			<>
+				<Checkbox /> Option 8
+			</>
+		),
+	},
+]
+
 // Build "Select" story.
 const Select = ({
 	example,
@@ -66,71 +149,12 @@ Select.args = {
 	example: "select",
 	id: "id-1",
 	label: "Select",
-	options: [
-		{
-			icon: "Settings",
-			id: "option-1",
-			label: "Option 1 is the option.",
-			labelContent: (
-				<>
-					<Checkbox /> Option 1 is the option.
-				</>
-			),
-			isSelected: false,
-		},
-		{
-			icon: "Settings",
-			id: "option-2",
-			label: "Option 2",
-			labelContent: (
-				<>
-					<Checkbox /> Option 2.
-				</>
-			),
-			isSelected: false,
-		},
-		{
-			icon: "Settings",
-			id: "option-3",
-			label: "Option 3",
-			isSelected: false,
-		},
-		{
-			icon: "Settings",
-			id: "option-4",
-			label: "Option 4",
-			isSelected: false,
-		},
-		{
-			icon: "Settings",
-			id: "option-5",
-			label: "Option 5",
-			isSelected: false,
-		},
-		{
-			icon: "Settings",
-			id: "option-6",
-			label: "Option 6",
-			isSelected: false,
-		},
-		{
-			icon: "Settings",
-			id: "option-7",
-			label: "Option 7",
-			isSelected: false,
-		},
-		{
-			icon: "Settings",
-			id: "option-8",
-			label: "India",
-			isSelected: false,
-		},
-	],
 	isError: false,
 	errorMessage: "Error message",
 	isDisabled: false,
 	isSmall: false,
 	isSearchable: false,
+	options,
 }
 
 Select.argTypes = {
