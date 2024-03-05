@@ -17,7 +17,6 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	customWidth,
 	_htmlProps,
 	_style = {},
-	...props
 }) => {
 	// Generate unique id if not provided
 	const uniqueId = useId()
@@ -47,7 +46,6 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 			setHasValue(getValue?.length > 0)
 		},
 		isSmall,
-		...props,
 	}
 
 	// Button settings
