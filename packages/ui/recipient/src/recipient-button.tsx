@@ -10,8 +10,10 @@ interface RecipientButtonProps extends TooltipProps {
 
 // Build "Button" component.
 const RecipientButton: React.FC<RecipientButtonProps> = ({
+	className,
 	children,
-	...props
+	customWidth,
+	buttonProps,
 }) => {
 	if (!!children && !isString(children)) {
 		throw new Error(
@@ -26,9 +28,12 @@ const RecipientButton: React.FC<RecipientButtonProps> = ({
 				colorScheme: "black",
 				iconOnly: true,
 				isSmall: true,
+				...buttonProps,
 			}}
+			type="icon"
 			label={children as string}
-			{...props}
+			className={className}
+			customWidth={customWidth}
 		>
 			{children}
 		</Tooltip>

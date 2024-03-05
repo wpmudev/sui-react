@@ -9,7 +9,6 @@ interface RecipientNameProps extends SuiStyleType {
 const RecipientName: React.FC<RecipientNameProps> = ({
 	children,
 	_style = {},
-	...props
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
 
