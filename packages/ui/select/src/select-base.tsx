@@ -200,11 +200,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		},
 		...(!isSearchable && {
 			dropdownToggle: () => {
-				if (isDropdownOpen) {
-					dropdownRef.current?.close()
-				} else {
-					dropdownRef.current?.open()
-				}
+				dropdownRef.current?.toggle()
 			},
 			arrow: isDropdownOpen ? "ChevronUp" : "ChevronDown",
 		}),
@@ -220,11 +216,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			},
 			onEvent: (optionId: number | string) => updateSelected(optionId),
 			onClick: () => {
-				if (isDropdownOpen) {
-					dropdownRef.current?.close()
-				} else {
-					dropdownRef.current?.open()
-				}
+				dropdownRef.current?.toggle()
 			},
 		}),
 		...(isMultiSelect && {
