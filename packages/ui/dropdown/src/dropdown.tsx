@@ -5,6 +5,7 @@ import React, {
 	forwardRef,
 	useImperativeHandle,
 	ChangeEvent,
+	useCallback,
 } from "react"
 
 import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
@@ -37,7 +38,10 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			trigger,
 			renderContentOnTop = false,
 			isResponsive = false,
+			isFluid = false,
+			closeOnOuterClick = true,
 			colorScheme = "black",
+			onToggle = () => {},
 			_htmlProps = {},
 			_style = {},
 			...props
@@ -55,13 +59,15 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 		// Handle the closing of the dropdown when clicking outside the component.
 		useOuterClick(dropdownRef, () => {
-			setIsOpen(false)
+			if (closeOnOuterClick) {
+				handleOnOpen(false)
+			}
 		})
 
 		useImperativeHandle(ref, () => ({
-			open: () => setIsOpen(true),
-			close: () => setIsOpen(false),
-			toggle: () => setIsOpen(!isOpen),
+			open: () => handleOnOpen(true),
+			close: () => handleOnOpen(false),
+			toggle: () => handleOnOpen(!isOpen),
 		}))
 
 		const { suiInlineClassname } = useStyles(_style, className)
@@ -74,6 +80,18 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 				open: isOpen,
 			},
 			suiInlineClassname,
+		)
+
+		/**
+		 * Handle open and close actions
+		 */
+		const handleOnOpen = useCallback(
+			(isDropdownOpen: boolean) => {
+				setIsOpen(isDropdownOpen)
+				// Pass state to parent component
+				onToggle(isDropdownOpen)
+			},
+			[onToggle],
 		)
 
 		// Function to recursively render menu items and groups.
@@ -119,7 +137,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							iconOnly={iconOnly ?? false}
 							type="secondary"
 							isSmall={isSmall ?? false}
-							onClick={() => setIsOpen(!isOpen)}
+							onClick={() => handleOnOpen(!isOpen)}
 							isResponsive={isResponsive}
 							{...(!iconOnly && { endIcon: "ChevronDown" })}
 							{...props}
@@ -135,6 +153,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					className={generateCN("sui-dropdown__popover", {
 						[`placement-${placement}`]: !isEmpty(placement ?? ""),
 						"fixed-height": isFixedHeight,
+						fluid: isFluid,
 					})}
 					{...(label && {
 						"aria-labelledby": `${id}__label`,

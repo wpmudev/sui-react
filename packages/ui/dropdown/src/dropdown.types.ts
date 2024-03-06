@@ -155,6 +155,12 @@ interface DropdownProps
 	 */
 	onMenuClick?(id: string | number, e?: React.ChangeEvent<unknown>): void
 	/**
+	 * Detect dropdown state (open or closed)
+	 *
+	 * @param isOpen
+	 */
+	onToggle?(isOpen: boolean): void
+	/**
 	 * Dropdown popover direction
 	 */
 	placement?: "" | "left" | "right"
@@ -174,6 +180,14 @@ interface DropdownProps
 	 * whther to hide the label of the button or not
 	 */
 	isResponsive?: boolean
+	/**
+	 * Display in full width
+	 */
+	isFluid?: boolean
+	/**
+	 * Close dropdown on outer click
+	 */
+	closeOnOuterClick?: boolean
 }
 
 // Type definition for the modal handling functions
