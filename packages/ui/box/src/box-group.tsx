@@ -1,6 +1,6 @@
 import React, { Children, Fragment, ReactElement } from "react"
 import {
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 	generateCN,
 	isObject,
 } from "@wpmudev/sui-utils"
@@ -54,7 +54,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 		<div
 			className={classNames}
 			data-testid="box-group"
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{slots}
 		</div>

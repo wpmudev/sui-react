@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import {
 	useInteraction,
 	useDefaultChildren,
@@ -18,6 +18,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	className,
 	isPro = false,
 	children,
+	_htmlProps,
 	_style,
 }) => {
 	// Interaction methods
@@ -39,7 +40,12 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	)
 
 	return (
-		<div className={classNames} {...methods} data-testid="basic-box">
+		<div
+			className={classNames}
+			{...methods}
+			data-testid="basic-box"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className="sui-basic-box__header">
 				<div className="sui-basic-box__header-info">
 					{!!title && (

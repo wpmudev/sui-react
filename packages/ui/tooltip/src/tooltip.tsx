@@ -9,13 +9,12 @@ import React, {
 } from "react"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import {
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 	generateCN,
 	handleOnKeyDown,
 } from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
-	useDefaultChildren,
 	useInteraction,
 	useDetectRTL,
 	usePortal,
@@ -45,7 +44,6 @@ const Tooltip: React.FC<TooltipProps> = ({
 	buttonProps,
 	_htmlProps = {},
 	_style = {},
-	...props
 }) => {
 	// detect RTL
 	const isRTL = useDetectRTL()
@@ -214,9 +212,6 @@ const Tooltip: React.FC<TooltipProps> = ({
 		style?: React.CSSProperties
 	}
 
-	// Default children content
-	children = useDefaultChildren(children, "{default tooltip content}")
-
 	const attrs: TooltipAttrsTypes = {}
 
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
@@ -309,7 +304,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 					</span>
 				)
 			default:
-				return <span {..._renderRestPropsSafely(props)}>{label}</span>
+				return <span>{label}</span>
 		}
 	}
 
@@ -319,7 +314,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			className={classNames}
 			data-testid="tooltip"
 			ref={tooltipRef as LegacyRef<HTMLDivElement>}
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div
 				className="sui-tooltip__trigger"

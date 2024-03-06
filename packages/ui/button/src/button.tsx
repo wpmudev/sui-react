@@ -11,7 +11,7 @@ import {
 	condContent,
 	generateCN,
 	isEmpty,
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 } from "@wpmudev/sui-utils"
 
 // Import required component(s).
@@ -48,9 +48,17 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			iconSize = "sm",
 			isResponsive = false,
 			isLoading = false,
+			onMouseEnter,
+			onMouseLeave,
+			onFocus,
+			onBlur,
+			onMouseUp,
+			onMouseDownCapture,
+			onMouseUpCapture,
+			onBlurCapture,
+			onClick,
 			_htmlProps = {},
 			_style,
-			...restProps
 		},
 		ref,
 	) => {
@@ -68,15 +76,18 @@ const Button: React.FC<ButtonProps> = forwardRef<
 
 		// Manage interaction methods
 		const [isHovered, isFocused, interactionMethods] = useInteraction({
-			onMouseEnter: restProps?.onMouseEnter,
-			onMouseLeave: restProps?.onMouseLeave,
-			onFocus: restProps?.onFocus,
-			onBlur: restProps?.onBlur,
+			onMouseEnter,
+			onMouseLeave,
+			onFocus,
+			onBlur,
+			onMouseUp,
+			onMouseDownCapture,
+			onMouseUpCapture,
+			onBlurCapture,
 		})
 
 		const isLink = !isUndefined(href)
 		const label = !isUndefined(htmlFor)
-		const isStartIcon = !isEmpty(startIcon ?? "")
 		const isEndIcon = !isEmpty(endIcon ?? "")
 
 		// Classname based on the attributes
@@ -104,10 +115,10 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			"aria-busy": isLoading,
 			...(isLoading && { "aria-live": "polite" }),
 			"data-testid": "button",
-			..._renderRestPropsSafely(_htmlProps),
+			onClick,
+			..._renderHTMLPropsSafely(_htmlProps),
 			// interaction methods
 			...(interactionMethods ?? {}),
-			..._renderRestPropsSafely(restProps),
 		}
 
 		// Root tag

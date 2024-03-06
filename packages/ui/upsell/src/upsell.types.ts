@@ -1,8 +1,10 @@
-import { ReactNode } from "react"
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { ReactNode, HTMLProps } from "react"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 // Define the UpsellProps interface to specify the expected props for the Upsell component
-interface UpsellProps extends SuiStyleType {
+interface UpsellProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	// Optional title of the upsell, can be a string
 	title?: string
 

@@ -9,7 +9,7 @@ import {
 	generateCN,
 	isEmpty,
 	handleOnKeyDown,
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 } from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
 import { Checkbox } from "@wpmudev/sui-checkbox"
@@ -110,7 +110,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				suiInlineClassname,
 			)}
 			data-testid="accordion-item"
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div
 				id={accordionId}

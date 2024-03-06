@@ -2,7 +2,7 @@ import React, { useCallback, useState, useId } from "react"
 import {
 	isFunction,
 	generateCN,
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 } from "@wpmudev/sui-utils"
 
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
@@ -76,7 +76,7 @@ const Textarea: React.FC<TextareaProps> = ({
 				data-testid="textarea-input"
 				placeholder={placeholder}
 				rows={rows}
-				{..._renderRestPropsSafely(_htmlProps)}
+				{..._renderHTMLPropsSafely(_htmlProps)}
 				{...methods}
 			/>
 		</div>

@@ -12,7 +12,8 @@ const Pagination: React.FC<PaginationProps> = ({
 	numberOfItems = 20,
 	onChange,
 	hideOnSinglePage = false,
-	...props
+	_style,
+	_htmlProps,
 }) => {
 	// Number of Items should not be 0
 	if (numberOfItems === 0) {
@@ -174,7 +175,8 @@ const Pagination: React.FC<PaginationProps> = ({
 		previousLabel,
 		nextLabel,
 		skip,
-		...props,
+		_style,
+		_htmlProps,
 	}
 
 	// Hide pagination when the number of pages is one

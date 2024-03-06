@@ -1,12 +1,16 @@
 import React from "react"
 
-import { PluginsSlug, SuiStyleType } from "@wpmudev/sui-utils"
+import {
+	PluginsSlug,
+	SuiHTMLAttributes,
+	SuiStyleType,
+} from "@wpmudev/sui-utils"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 /**
  * SetupBannerProps interface defines the props accepted by the SetupBanner component.
  */
-interface SetupBannerProps extends SuiStyleType {
+interface SetupBannerProps extends SuiStyleType, SuiHTMLAttributes {
 	/**
 	 * The title to be displayed in the empty state (optional).
 	 */

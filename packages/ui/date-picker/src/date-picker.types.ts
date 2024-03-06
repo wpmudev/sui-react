@@ -1,4 +1,5 @@
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { HTMLProps } from "react"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 interface DatePickerDateRange {
 	startDate?: number | Date
@@ -15,7 +16,9 @@ type DatePickerPredefined = {
 /**
  * Represents the properties for a code snippet component.
  */
-interface DatePickerProps extends SuiStyleType {
+interface DatePickerProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
 	 * Specifies the type of DatePicker (e.g., single date, date range)
 	 */

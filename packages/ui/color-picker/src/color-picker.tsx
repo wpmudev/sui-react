@@ -8,7 +8,7 @@ import { Input } from "@wpmudev/sui-input"
 import PreviewImage from "./static/opaque.png"
 
 import Picker from "./elements/picker"
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 
 /**
@@ -32,8 +32,8 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	isFluid = false,
 	onReset = () => null,
 	onColorChange = () => null,
+	_htmlProps,
 	_style = {},
-	...props
 }: ColorPickerProps): JSX.Element => {
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
@@ -100,21 +100,6 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	// Clicking outside should apply color change
 	useOuterClick(colorPickerRef, handleColorApply)
 
-	// // Handle color picker close
-	// const closeColorPicker = useCallback(
-	// 	(e: React.MouseEvent<HTMLElement>) => {
-	// 		e.stopPropagation()
-	// 		setShowPicker(false)
-	// 		setTempColor(color)
-
-	// 		if (onReset) {
-	// 			onReset()
-	// 		}
-	// 	},
-	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	// 	[onReset, color],
-	// )
-
 	// Handle input color change
 	const inputColorChange = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -149,6 +134,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 			)}
 			data-testid="color-picker"
 			ref={colorPickerRef}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div className="sui-color-picker__color">
 				<Input
@@ -161,7 +147,6 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					isDisabled={isDisabled ?? false}
 					id={id}
 					{...(isSmall && { isSmall })}
-					{...props}
 				/>
 
 				<div
@@ -206,7 +191,6 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					onColorChange={handleColorChange}
 					onApplyButton={handleColorApply}
 					type={type}
-					{...props}
 				/>
 			)}
 		</div>

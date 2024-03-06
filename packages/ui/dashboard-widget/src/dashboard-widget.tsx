@@ -1,6 +1,6 @@
 import React, { Fragment, useCallback } from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import Icons from "@wpmudev/sui-icons"
 import { Tag } from "@wpmudev/sui-tag"
 import { IconProps } from "@wpmudev/sui-icon"
@@ -28,6 +28,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	onToggle = () => {},
 	children,
 	actions,
+	_htmlProps,
 	_style = {},
 }: DashboardWidgetProps) => {
 	const { suiInlineClassname } = useStyles(_style)
@@ -72,7 +73,11 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	}
 
 	return (
-		<div className={classNames} data-testid="dashboard-widget">
+		<div
+			className={classNames}
+			data-testid="dashboard-widget"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className="sui-dashboard-widget__header">
 				<div className="sui-dashboard-widget__header-title">
 					<div className="sui-dashboard-widget__header-info">

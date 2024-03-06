@@ -7,7 +7,7 @@ import React, {
 	useRef,
 } from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // Import required element(s)
 import { useOuterClick, usePrevious, useStyles } from "@wpmudev/sui-hooks"
@@ -26,8 +26,8 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 			hasContainer = false,
 			disableShadow = false,
 			outerClickClose = true,
+			_htmlProps,
 			_style,
-			...styleProps
 		},
 		ref,
 	) => {
@@ -98,7 +98,11 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 
 		return (
 			<DrawerProvider value={{ isOpen, setIsOpen, toggle }}>
-				<div className={classNames} data-testid="drawer">
+				<div
+					className={classNames}
+					data-testid="drawer"
+					{..._renderHTMLPropsSafely(_htmlProps)}
+				>
 					<div className="sui-drawer__inner" ref={drawerRef}>
 						{children}
 					</div>

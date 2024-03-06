@@ -3,7 +3,7 @@ import Prism from "prismjs"
 // import dedent from "dedent"
 
 import { Tooltip } from "@wpmudev/sui-tooltip"
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { CodeSnippetProps } from "./code-snippet.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
@@ -13,6 +13,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 	copy = true,
 	className,
 	children,
+	_htmlProps,
 	_style,
 }) => {
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
@@ -35,7 +36,11 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 	}, [])
 
 	return (
-		<div className={classNames} data-testid="code-snippet">
+		<div
+			className={classNames}
+			data-testid="code-snippet"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			{copy && (
 				<Tooltip
 					buttonProps={{
@@ -47,12 +52,14 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 					}}
 					label="Copy"
 					placement="top"
-					aria-label={isCopied ? "Copied" : ""}
+					_htmlProps={{
+						"aria-label": isCopied ? "Copied" : "",
+					}}
 					onMouseLeave={() => setIsCopied(false)}
-					customWidth={65}
+					customWidth={isCopied ? 65 : 90}
 					onClick={() => copyCodes(children)}
 				>
-					{isCopied && "Copied"}
+					{isCopied ? "Copied" : "Click to Copy"}
 				</Tooltip>
 			)}
 			<pre>

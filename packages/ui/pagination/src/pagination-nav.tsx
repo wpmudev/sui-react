@@ -4,7 +4,7 @@ import { Button } from "@wpmudev/sui-button"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { PaginationNavProps } from "./pagination.types"
 import { useStyles } from "@wpmudev/sui-hooks"
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 export const PaginationNav: React.FC<PaginationNavProps> = ({
 	pagesArray,
@@ -23,6 +23,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 	endIndex,
 	pages,
 	skip,
+	_htmlProps = {},
 	_style = {},
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
@@ -36,6 +37,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 		<div
 			className={generateCN("sui-pagination", {}, suiInlineClassname)}
 			data-testid="pagination"
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<ul className="sui-pagination__nav">
 				<li className="sui-pagination__item">
@@ -53,7 +55,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						className="sui-pagination__button"
 						icon="ChevronLeft"
 						onClick={handlePreviousPage}
-						aria-label={previousLabel}
+						_htmlProps={{
+							"aria-label": previousLabel,
+						}}
 					>
 						{previousLabel}
 					</Tooltip>
@@ -102,7 +106,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 											: ""
 									}`}
 									onClick={() => handlePageClick(Math.floor(data))}
-									data-testid="pagination-item"
+									_htmlProps={{
+										"data-testid": "pagination-item",
+									}}
 								>
 									{data}
 								</Button>
@@ -153,7 +159,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 						className="sui-pagination__button"
 						icon="ChevronRight"
 						onClick={handleNextPage}
-						aria-label={nextLabel}
+						_htmlProps={{
+							"aria-label": nextLabel,
+						}}
 					>
 						{nextLabel}
 					</Tooltip>

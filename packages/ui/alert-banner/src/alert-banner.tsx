@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react"
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import Icons from "@wpmudev/sui-icons"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
@@ -15,6 +15,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	isDismissible = true,
 	onDismiss = () => {},
 	_style = {},
+	_htmlProps,
 }) => {
 	// State to control the visibility of the alert banner
 	const [isVisible, setIsVisible] = useState(true)
@@ -81,7 +82,11 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	}
 
 	return (
-		<div className={classNames} data-testid="alert-banner">
+		<div
+			className={classNames}
+			data-testid="alert-banner"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div
 				className={generateCN("sui-alert-banner__body", { center: isCenter })}
 			>
@@ -115,7 +120,9 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 						isSmall={true}
 						iconOnly={true}
 						onClick={onClose}
-						aria-label="close"
+						_htmlProps={{
+							"aria-label": "close",
+						}}
 					/>
 				</div>
 			)}

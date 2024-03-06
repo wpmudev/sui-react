@@ -1,6 +1,6 @@
 import React from "react"
 import {
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 	generateCN,
 	isEmpty,
 	isUndefined,
@@ -51,7 +51,7 @@ const Tag: React.FC<TagProps> = ({
 	return (
 		<span
 			className={classNames}
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 			data-testid="tag"
 		>
 			<div className="sui-tag__wrapper">

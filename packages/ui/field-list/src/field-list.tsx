@@ -3,7 +3,7 @@ import React, { Children, cloneElement, ReactElement, useCallback } from "react"
 // Import required components
 import { FieldListItemProps, FieldListProps } from "./field-list.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // Build "field list" component
 const FieldList: React.FC<FieldListProps> = ({
@@ -12,6 +12,7 @@ const FieldList: React.FC<FieldListProps> = ({
 	children,
 	spacing = "",
 	onToggle = () => null,
+	_htmlProps,
 	_style,
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
@@ -44,6 +45,7 @@ const FieldList: React.FC<FieldListProps> = ({
 		<div
 			className={generateCN("sui-field-list", {}, suiInlineClassname)}
 			data-testid="field-list"
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{/* Render the label and helper elements if they are provided */}
 			{(label || helper) && (

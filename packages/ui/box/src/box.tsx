@@ -1,6 +1,6 @@
 import React from "react"
 import {
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 	generateCN,
 	isEmpty,
 	isUndefined,
@@ -48,7 +48,7 @@ const Box: React.FC<BoxProps> = ({
 		<div
 			className={classNames}
 			style={style ?? {}}
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{hasTitle && (
 				<BoxGroup isInline={true}>

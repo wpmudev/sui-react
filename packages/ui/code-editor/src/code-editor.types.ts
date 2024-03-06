@@ -1,11 +1,12 @@
-import React from "react"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import React, { HTMLProps } from "react"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties for a code snippet component.
  */
-interface CodeEditorProps extends useStylesTypes {
+interface CodeEditorProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
 	 * File name
 	 */

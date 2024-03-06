@@ -1,7 +1,7 @@
-import React from "react"
+import React, { HTMLProps } from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { TagProps } from "@wpmudev/sui-tag"
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 /**
  * Represents the properties for a Selector component.
  */
@@ -20,7 +20,8 @@ interface SelectorProps
 				| "color"
 			>
 		>,
-		SuiStyleType {
+		SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLLabelElement>> {
 	/** The label text for the radio input */
 	label?: string
 	/** The name attribute for the radio input */

@@ -20,7 +20,7 @@ interface DropdownMenuProps extends SuiStyleType {
 /**
  * Props for MenuItem component.
  */
-interface DropdownMenuItemProps extends SuiStyleType {
+interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
 	/**
 	 * URL to navigate to when the item is clicked (if the item is an anchor).
 	 */

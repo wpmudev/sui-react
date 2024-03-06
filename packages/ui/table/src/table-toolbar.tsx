@@ -127,8 +127,10 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 									type="secondary"
 									isSmall={true}
 									onClick={() => setIsExpanded(!isExpanded)}
-									aria-controls={bodyId}
-									aria-expanded={isExpanded}
+									_htmlProps={{
+										"aria-controls": bodyId,
+										"aria-expanded": isExpanded,
+									}}
 								>
 									Filter
 								</Button>

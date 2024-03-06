@@ -170,7 +170,7 @@ const _createUseStyles = createUseStyles(
 			return cssProperties
 		},
 	},
-	{ generateId: (rule) => hash(`sui-inline-${rule.key}`) },
+	{ generateId: (rule) => `sui-inline-${hash(rule.key)}` },
 )
 
 /**

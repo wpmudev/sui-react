@@ -23,6 +23,7 @@ import Tag from "./components/tag/tag"
 import Tooltip from "./components/tooltip/tooltip"
 
 // shared
+import { CommonPropsNotice } from "./shared/CommonPropsNotice"
 import { NodeJSWarning } from "./shared/NodeJSWarning"
 import { PackageInstallGuide } from "./shared/PackageInstallGuide"
 import { PropSection } from "./shared/PropSection"
@@ -50,8 +51,9 @@ export {
 	Tabs,
 	Tag,
 	Tooltip,
+	// shared
 	PackageInstallGuide,
 	PropSection,
-	// shared
 	NodeJSWarning,
+	CommonPropsNotice,
 }

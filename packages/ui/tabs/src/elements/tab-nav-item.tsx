@@ -1,7 +1,7 @@
 // Import necessary modules and types
 import React, { FC, useCallback, useContext } from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import {
 	useDefaultChildren,
 	useInteraction,
@@ -20,6 +20,7 @@ const TabNavItem: FC<TabNavItemProps> = ({
 	stateIconColor,
 	children,
 	isDisabled = false,
+	_htmlProps = {},
 	_style = {},
 }) => {
 	// Get the tab context using the useContext hook
@@ -83,6 +84,7 @@ const TabNavItem: FC<TabNavItemProps> = ({
 			onClick={onTabClick}
 			{...(isDisabled && { disabled: true })}
 			{...(interactionMethods ?? {})}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{/* Render the optional icon if provided */}
 			{!!icon && icon}

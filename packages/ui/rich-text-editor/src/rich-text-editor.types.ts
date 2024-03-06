@@ -1,10 +1,12 @@
-import React from "react"
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import React, { HTMLProps } from "react"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Represents the properties of the Rich Text Editor component
  */
-interface RichTextEditorProps extends SuiStyleType {
+interface RichTextEditorProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
 	 * Id for the textarea that contains the editor
 	 */

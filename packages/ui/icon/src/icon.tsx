@@ -8,7 +8,7 @@ import React, {
 } from "react"
 
 import {
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 	generateCN,
 	handleOnKeyDown,
 	isEmpty,
@@ -94,7 +94,7 @@ const Icon = forwardRef<"svg", IconProps>(
 				version="1.1"
 				xmlns="http://www.w3.org/2000/svg"
 				{...svgProps}
-				{..._renderRestPropsSafely(_htmlProps)}
+				{..._renderHTMLPropsSafely(_htmlProps)}
 				data-testid="svg-icon"
 			>
 				{!!title && <title>{title}</title>}

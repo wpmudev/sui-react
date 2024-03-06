@@ -35,7 +35,9 @@ interface TabContextProps {
  *
  * @interface TabNavProps
  */
-interface TabNavProps extends SuiStyleType {
+interface TabNavProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	children?: React.ReactNode // Content of the tab navigation (can be any valid React node).
 }
 
@@ -63,7 +65,9 @@ interface TabPanelItemProps extends TabNavProps {
  *
  * @interface TabNavItemProps
  */
-interface TabNavItemProps extends SuiStyleType {
+interface TabNavItemProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLButtonElement>> {
 	id?: string // Unique ID for the tab item.
 	children?: React.ReactNode // Content of the tab item (can be any valid React node).
 	icon?: React.ReactNode | never // An optional icon to display with the tab item.

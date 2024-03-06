@@ -56,6 +56,7 @@ const Select = ({
 	errorMessage,
 	isSmall,
 	isDisabled,
+	isSearchable,
 	...props
 }: {
 	example: string
@@ -83,7 +84,14 @@ const Select = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
-							<StandardSelect {...props} />
+							<StandardSelect
+								{...props}
+								_htmlProps={{ "data-testtttt": "20" }}
+								{...(isSearchable && {
+									isSearchable,
+									label: "Search...",
+								})}
+							/>
 						</FormField>
 					)}
 					{"multi-select" === example && (

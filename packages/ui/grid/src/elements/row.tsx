@@ -1,6 +1,6 @@
 import React from "react"
 
-import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import { RowProps } from "../grid.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
@@ -11,7 +11,6 @@ const Row: React.FC<RowProps> = ({
 	children,
 	_htmlProps = {},
 	_style,
-	...props
 }) => {
 	const { suiInlineClassname } = useStyles(_style, className)
 
@@ -51,7 +50,7 @@ const Row: React.FC<RowProps> = ({
 		<div
 			className={classNames}
 			data-testid="grid"
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{children}
 		</div>

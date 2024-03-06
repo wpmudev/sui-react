@@ -1,6 +1,6 @@
 import React, { useEffect, useId } from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { TreeViewItemProps } from "./tree-view.types"
 import { TreeViewInfo } from "./tree-view-info"
@@ -24,6 +24,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param  root0.className
  * @param  root0.children
  * @param  root0._style
+ * @param  root0._htmlProps
  *
  * @return {JSX.Element} - JSX Element representing the TreeViewItem component
  */
@@ -37,8 +38,8 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 	isDisabled = false,
 	className = "",
 	children,
+	_htmlProps = {},
 	_style = {},
-	...props
 }: TreeViewItemProps): JSX.Element => {
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
 	// Generate class names
@@ -79,6 +80,7 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 			aria-describedby={`${id} ${itemId}-info-title`}
 			aria-expanded={isExpanded}
 			aria-selected={false}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{/* Render the children directly if the item is a group */}
 			{isGroup ? (

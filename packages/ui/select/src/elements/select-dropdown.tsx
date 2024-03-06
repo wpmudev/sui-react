@@ -60,6 +60,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	optionAppreance,
 	dropdownRef = null,
 	onToggle = (isOpen: boolean) => {},
+	_htmlProps,
 	...props
 }) => {
 	// generate unique name for checkbox
@@ -76,7 +77,6 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	)
 
 	const getOptProps = (id: SelectOptionType["id"]) => ({
-		...props,
 		ref: undefined,
 		onClick: (e: MouseEvent<HTMLElement>) => onSelect(e, id),
 		onKeyDown: (e?: KeyboardEvent<HTMLElement>) => onSelect(e, id),
@@ -137,10 +137,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 
 		return wrapper(
 			<Fragment>
-				<ul
-					// className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
-					aria-label="dropdown-options"
-				>
+				<ul aria-label="dropdown-options">
 					<li className="sui-select__dropdown--option">
 						<Checkbox
 							name={name}
@@ -181,11 +178,10 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 					<div className="sui-select__search">
 						<Icon name="Search" size="sm" />
 						<Search
-							placeholder="Search"
-							{
-								// @ts-ignore
-								...props
-							}
+							_htmlProps={{
+								placeholder: "Search",
+								..._htmlProps,
+							}}
 						/>
 					</div>
 					{renderMultiselectOptions()}

@@ -1,5 +1,5 @@
 import { color } from "@storybook/theming"
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
 import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx"
 
 <PackageInstallGuide packageName="@wpmudev/sui-color-picker" />
@@ -49,6 +49,10 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
     	<p>The descriptive label in the input</p>
     </PropSection>
 
+	<PropSection title="isFluid" type="boolean" defaultValue="false">
+    	<p>Specifies if the color picker is full width</p>
+    </PropSection>
+
 	<PropSection title="isError" type="boolean" defaultValue="false">
     	<p>Sets the error state</p>
     </PropSection>
@@ -58,3 +62,5 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
     </PropSection>
 
 </Section>
+
+<CommonPropsNotice />

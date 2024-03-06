@@ -1,6 +1,6 @@
 import React, { useRef, Children as RChild } from "react"
 
-import { isEmpty, generateCN, _renderRestPropsSafely } from "@wpmudev/sui-utils"
+import { isEmpty, generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 
 import { TableProps } from "./table.types"
 import { TableContextProvider } from "./table-context"

@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from "react"
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 
 // Import required components
@@ -20,6 +20,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	showValue = true,
 	onClick,
 	className = "",
+	_htmlProps,
 	_style = {},
 }) => {
 	const { suiInlineClassname } = useStyles(_style, className)
@@ -44,7 +45,11 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	}
 
 	return (
-		<div className={classNames} data-testid="progress-bar">
+		<div
+			className={classNames}
+			data-testid="progress-bar"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className="sui-progress-bar__main">
 				{!!label && (
 					<span className="sui-progress-bar__text" aria-live="polite">

@@ -1,6 +1,11 @@
 import React from "react"
 
-import { generateCN, PluginIconTypes, PluginsIcons } from "@wpmudev/sui-utils"
+import {
+	_renderHTMLPropsSafely,
+	generateCN,
+	PluginIconTypes,
+	PluginsIcons,
+} from "@wpmudev/sui-utils"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 
 import { SetupBannerProps } from "./setup-banner.types"
@@ -15,6 +20,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
  * @param  root0.className
  * @param  root0.description
  * @param  root0._style
+ * @param  root0._htmlProps
  * @return {JSX.Element} - The rendered SetupBanner component.
  */
 const SetupBanner: React.FC<SetupBannerProps> = ({
@@ -22,6 +28,7 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 	title = "title",
 	className,
 	description,
+	_htmlProps = {},
 	_style = {},
 }: SetupBannerProps): JSX.Element => {
 	const { suiInlineClassname } = useStyles(_style, className)
@@ -43,7 +50,11 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 	}
 
 	return (
-		<div className={classNames} data-testid="setup-banner">
+		<div
+			className={classNames}
+			data-testid="setup-banner"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			{IconTag && (
 				<div className="sui-setup-banner__bg" data-testid="setup-banner-bg">
 					<IconTag className="sui-setup-banner__bg-icon" />

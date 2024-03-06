@@ -1,26 +1,42 @@
 import React, { useState, useEffect, useId, LegacyRef } from "react"
 
 import { Input } from "@wpmudev/sui-input"
-import { useStyles } from "@wpmudev/sui-hooks"
-import { generateCN } from "@wpmudev/sui-utils"
-import { SearchInputWithAutoCompleteProps } from "../select.types"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
-const InputWithAutoComplete: React.FC<SearchInputWithAutoCompleteProps> = ({
+interface InputWithAutoCompleteProps extends useStylesTypes {
+	id?: string
+	expanded?: boolean
+	controlRef: HTMLDivElement | HTMLInputElement | null
+	isSmall?: boolean
+	selected?: {
+		label: string
+	}
+	dropdownItems?: Record<string, any>[]
+	dropdownToggle?: () => void
+	onChange?: (
+		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+	) => void
+	onClick?: () => void
+	onValueChange: (val: string) => void
+	onEvent?: (event: React.ChangeEvent<HTMLInputElement>) => void
+	ref?: LegacyRef<HTMLInputElement>
+	interactionMethods: object
+	placeholder: string
+}
+
+const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	id,
 	controlRef,
 	expanded = false,
 	selected = { label: "" },
+	placeholder,
 	dropdownItems = [],
 	onValueChange = () => {},
 	onChange = () => {},
 	onEvent = () => {},
 	onClick = () => {},
 	interactionMethods,
-	...props
 }) => {
-	const { _htmlProps } = props
-
-	const { suiInlineClassname } = useStyles(props)
 	const generatedId = useId()
 
 	// Random search ID
@@ -71,7 +87,7 @@ const InputWithAutoComplete: React.FC<SearchInputWithAutoCompleteProps> = ({
 
 	return (
 		<Input
-			className={generateCN("sui-select__input", {}, suiInlineClassname)}
+			className="sui-select__input"
 			id={inputId}
 			icon="Search"
 			iconPosition="start"
@@ -80,12 +96,12 @@ const InputWithAutoComplete: React.FC<SearchInputWithAutoCompleteProps> = ({
 			allowClear={false}
 			hint={(isFiltered && filteredOptions[0]?.label) || ""}
 			disableInteractions={true}
+			placeholder={placeholder}
 			_htmlProps={{
 				autoComplete: "off",
 				ref: controlRef as LegacyRef<HTMLInputElement> | undefined,
 				onKeyDown: onInputKeyDown,
 				onClick,
-				..._htmlProps,
 				...interactionMethods,
 			}}
 		/>

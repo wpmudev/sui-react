@@ -366,29 +366,14 @@ const _isTestingMode = () => {
 /**
  * It is an internal method to render rest props list safely
  *
- * @param {Record<string, any>} propsList            props list
- * @param {boolean}             excludeCSSProperties exclude CSSProperties
+ * @param {Record<string, any>} propsList     props list
+ * @param {boolean}             componentName component name
  */
-const _renderRestPropsSafely = (
+const _renderHTMLPropsSafely = (
 	propsList?: Record<string, any>,
-	excludeCSSProperties: boolean = true,
+	componentName: string = "",
 ) => {
-	let toReturn = {}
-	propsList = propsList ?? {}
-
-	for (const propKey of Object.keys(propsList)) {
-		// skip if a valid CSS property
-		if (excludeCSSProperties && isValidCSSProperty(propKey)) {
-			continue
-		}
-
-		toReturn = {
-			...toReturn,
-			[propKey]: propsList[propKey],
-		}
-	}
-
-	return toReturn
+	return propsList
 }
 
 // Publish required function(s).
@@ -411,7 +396,7 @@ export {
 	PluginsIcons,
 	chunkArray,
 	isValidCSSProperty,
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 	// jest utilities
 	a11yTest,
 	_isTestingMode,

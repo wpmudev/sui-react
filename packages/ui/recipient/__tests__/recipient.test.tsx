@@ -16,7 +16,7 @@ describe("@wpmudev/sui-recipient", () => {
 
 	// Common setup for rendering the Recipient component
 	const renderRecipient = () => {
-		render(<Recipient {...props} data-testid="recipients" />)
+		render(<Recipient {...props} />)
 	}
 
 	// Test case: Ensure that the Recipient component renders correctly
@@ -43,6 +43,6 @@ describe("@wpmudev/sui-recipient", () => {
 
 	// eslint-disable-next-line jest/expect-expect
 	it("passes a11y test", async () => {
-		await a11yTest(<Recipient {...props} data-testid="recipients" />)
+		await a11yTest(<Recipient {...props} />)
 	})
 })

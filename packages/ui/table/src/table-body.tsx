@@ -15,7 +15,7 @@ import { ReactSortable as Sortable } from "react-sortablejs"
 import { TableSectionProps } from "./table.types"
 import { TableContext } from "./table-context"
 import { useDetectBrowser } from "@wpmudev/sui-hooks"
-import { _renderRestPropsSafely } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 
 /**
  * TableBody component represents the body section of a table.
@@ -141,7 +141,7 @@ const TableBodyTag = forwardRef<HTMLTableSectionElement, TableSectionProps>(
 	({ _htmlProps, ...props }, ref) => (
 		<tbody
 			ref={ref}
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 			className="sui-table__body"
 			{...props}
 		/>

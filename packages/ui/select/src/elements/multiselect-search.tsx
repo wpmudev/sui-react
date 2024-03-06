@@ -1,12 +1,11 @@
-import React, { useCallback } from "react"
-
-import { _renderRestPropsSafely } from "@wpmudev/sui-utils"
+import React, { HTMLProps, RefObject, useCallback } from "react"
+import { _renderHTMLPropsSafely, SuiHTMLAttributes } from "@wpmudev/sui-utils"
 import { SelectSearchInputProps } from "../select.types"
 
 const Search: React.FC<SelectSearchInputProps> = ({
 	id,
 	onChange,
-	...props
+	_htmlProps,
 }) => {
 	// handle on change input
 	const handleInputChange = useCallback(
@@ -25,7 +24,7 @@ const Search: React.FC<SelectSearchInputProps> = ({
 			className="sui-select__search--input"
 			onChange={handleInputChange}
 			autoComplete="off"
-			{..._renderRestPropsSafely(props)}
+			{..._htmlProps}
 		/>
 	)
 }

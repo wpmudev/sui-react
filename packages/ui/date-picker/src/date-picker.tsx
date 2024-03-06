@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 import DatePickerPopover from "./date-picker-popover"
 import { DatePickerProvider } from "./date-picker-context"
@@ -27,8 +27,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	maxDate,
 	isDisabled = false,
 	onChange = () => null,
+	_htmlProps,
 	_style,
-	...props
 }) => {
 	const pickType: string = type ?? "single"
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
@@ -57,8 +57,12 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	return (
 		// Wrap the component with the DatePickerProvider and pass the props down to it
 		<DatePickerProvider {...datepickerProps}>
-			<div className={classNames} data-testid="date-picker">
-				<DatePickerInput isDisabled={isDisabled} {...props} />
+			<div
+				className={classNames}
+				data-testid="date-picker"
+				{..._renderHTMLPropsSafely(_htmlProps)}
+			>
+				<DatePickerInput isDisabled={isDisabled} />
 				<DatePickerPopover />
 			</div>
 		</DatePickerProvider>

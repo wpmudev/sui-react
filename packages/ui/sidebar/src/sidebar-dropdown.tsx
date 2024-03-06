@@ -6,9 +6,9 @@ import React, {
 	forwardRef,
 } from "react"
 
-import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
-import { Button, ButtonProps } from "@wpmudev/sui-button"
+import { Button } from "@wpmudev/sui-button"
 
 // Import required element(s)
 import { SidebarProps } from "./sidebar.types"
@@ -22,7 +22,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 			children,
 			_htmlProps,
 			_style = {},
-			...props
+			buttonProps = {},
 		}: SidebarProps,
 		ref,
 	) => {
@@ -77,7 +77,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 			<div
 				ref={dropdownRef}
 				className={classNames}
-				{..._renderRestPropsSafely(_htmlProps)}
+				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
 				<div>
 					<Button
@@ -87,7 +87,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 						onClick={() => setIsOpen(!isOpen)}
 						endIcon="Hamburger"
 						isFullWidth={true}
-						{...(props as ButtonProps)}
+						{...buttonProps}
 					>
 						{selectedItemName}
 					</Button>

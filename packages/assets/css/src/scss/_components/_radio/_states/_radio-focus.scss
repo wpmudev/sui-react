@@ -27,8 +27,6 @@
 				}
 
 				&.sui-#{$block}--block {
-					background: transparent;
-
 					&:after {
 						border-width: $border-width-md;
 					}

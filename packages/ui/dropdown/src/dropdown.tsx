@@ -8,7 +8,7 @@ import React, {
 	useCallback,
 } from "react"
 
-import { _renderRestPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 import { DropdownMenu } from "./dropdown-menu"
@@ -44,7 +44,6 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			onToggle = () => {},
 			_htmlProps = {},
 			_style = {},
-			...props
 		},
 		ref,
 	) => {
@@ -126,7 +125,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 				ref={dropdownRef}
 				className={wrapperClasses}
 				data-testid="dropdown"
-				{..._renderRestPropsSafely(_htmlProps)}
+				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
 				{!!trigger ? (
 					trigger
@@ -140,7 +139,6 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							onClick={() => handleOnOpen(!isOpen)}
 							isResponsive={isResponsive}
 							{...(!iconOnly && { endIcon: "ChevronDown" })}
-							{...props}
 							colorScheme={colorScheme as ButtonProps["colorScheme"]}
 						>
 							{label}
