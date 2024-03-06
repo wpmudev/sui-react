@@ -162,6 +162,7 @@ interface InputProps
 	 * Custom Width in pixels
 	 */
 	customWidth?: number
+
 	/**
 	 * On validation callback
 	 */
