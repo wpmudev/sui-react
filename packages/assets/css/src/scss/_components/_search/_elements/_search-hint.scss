@@ -17,10 +17,16 @@
 			}
 
 			@include element(hint) {
+				display: flex;
+				align-items: center;
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
+				gap: $spacing-sm;
 				border-radius: $border-radius-sm;
-				background: $color-primary-90;
+				background: $color-extended-neutral-95;
 				color: $color-extended-neutral-50;
 				padding: $spacing-lg;
+				border-radius: $border-radius-sm;
 			}
 		}
 	}

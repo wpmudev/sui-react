@@ -8,6 +8,7 @@ import { useInteraction, useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 
 import { SearchProps } from "./search.types"
 import { SearchOptions } from "./search-options"
+import { Info } from "@wpmudev/sui-icons"
 
 // Build "search" component
 const Search: React.FC<SearchProps> = ({
@@ -139,6 +140,7 @@ const Search: React.FC<SearchProps> = ({
 					{!isFiltered ? (
 						<div className="sui-search__hint-wrapper">
 							<div className="sui-search__hint">
+								<Info size="sm" />
 								<span>{searchHint.replace("#number#", searchMinChars)}</span>
 							</div>
 						</div>
