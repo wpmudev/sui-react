@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useId, useRef, useState } from "react"
 
 import { Input } from "@wpmudev/sui-input"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { useInteraction, useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 
 import { SearchProps } from "./search.types"
@@ -130,13 +130,17 @@ const Search: React.FC<SearchProps> = ({
 				disableInteractions={true}
 				isDisabled={isDisabled ?? false}
 				placeholder={placeholder ?? ""}
-				{...inputProps}
+				_htmlProps={{
+					..._renderRestPropsSafely(inputProps),
+				}}
 			/>
 			{isPopoverVisible && "smart" === variation && (
 				<div className="sui-search__popover">
 					{!isFiltered ? (
-						<div className="sui-search__hint">
-							<span>{searchHint.replace("#number#", searchMinChars)}</span>
+						<div className="sui-search__hint-wrapper">
+							<div className="sui-search__hint">
+								<span>{searchHint.replace("#number#", searchMinChars)}</span>
+							</div>
 						</div>
 					) : (
 						<SearchOptions

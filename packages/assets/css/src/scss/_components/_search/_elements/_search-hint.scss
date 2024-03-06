@@ -12,11 +12,14 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			@include element(hint-wrapper) {
+				padding: $spacing-md;
+			}
+
 			@include element(hint) {
 				border-radius: $border-radius-sm;
 				background: $color-primary-90;
 				color: $color-extended-neutral-50;
-				margin: $spacing-md;
 				padding: $spacing-lg;
 			}
 		}
