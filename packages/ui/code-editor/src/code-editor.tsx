@@ -75,7 +75,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 						label="Copy"
 						placement="top"
 						onMouseLeave={() => setIsCopied(false)}
-						customWidth={65}
+						customWidth={isCopied ? 65 : 90}
 						onClick={() => copyCodes(children ?? "")}
 					>
 						{isCopied ? "Copied" : "Click to Copy"}
