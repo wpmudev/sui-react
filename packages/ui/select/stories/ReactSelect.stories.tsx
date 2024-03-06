@@ -6,88 +6,47 @@ import { Select as StandardSelect, MultiSelect, SelectBaseProps } from "../src"
 
 // Import documentation main page.
 import docs from "./ReactSelect.mdx"
-import { Checkbox } from "@wpmudev/sui-checkbox"
 
 const options = [
 	{
 		icon: "Settings",
 		id: "option-1",
 		label: "Option 1",
-		optionContent: (
-			<>
-				<Checkbox /> Option 1
-			</>
-		),
 	},
 	{
 		icon: "Settings",
 		id: "option-2",
 		label: "Option 2",
-		optionContent: (
-			<>
-				<Checkbox /> Option 2
-			</>
-		),
 	},
 	{
 		icon: "Settings",
 		id: "option-3",
 		label: "Option 3",
-		optionContent: (
-			<>
-				<Checkbox /> Option 3
-			</>
-		),
 	},
 	{
 		icon: "Settings",
 		id: "option-4",
 		label: "Option 4",
-		optionContent: (
-			<>
-				<Checkbox /> Option 4
-			</>
-		),
 	},
 	{
 		icon: "Settings",
 		id: "option-5",
 		label: "Option 5",
-		optionContent: (
-			<>
-				<Checkbox /> Option 5
-			</>
-		),
 	},
 	{
 		icon: "Settings",
 		id: "option-6",
 		label: "Option 6",
-		optionContent: (
-			<>
-				<Checkbox /> Option 6
-			</>
-		),
 	},
 	{
 		icon: "Settings",
 		id: "option-7",
 		label: "Option 7",
-		optionContent: (
-			<>
-				<Checkbox /> Option 7
-			</>
-		),
 	},
 	{
 		icon: "Settings",
 		id: "option-8",
 		label: "India",
-		optionContent: (
-			<>
-				<Checkbox /> Option 8
-			</>
-		),
 	},
 ]
 
@@ -136,7 +95,24 @@ const Select = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
-							<MultiSelect {...props} />
+							<MultiSelect
+								{...props}
+								// optionAppreance={(option, rawOption) => {
+								// 	return (
+								// 		<div
+								// 			style={{
+								// 				alignItems: "center",
+								// 				display: "flex",
+								// 				width: "100%",
+								// 				backgroundColor: rawOption?.isHovered ? "red" : "white",
+								// 			}}
+								// 		>
+								// 			{option}
+								// 			<span>Hellow</span>
+								// 		</div>
+								// 	)
+								// }}
+							/>
 						</FormField>
 					)}
 				</div>

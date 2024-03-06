@@ -1,13 +1,5 @@
-import React, {
-	useState,
-	useEffect,
-	useRef,
-	HTMLProps,
-	ChangeEvent,
-	useId,
-	ReactNode,
-} from "react"
-import { SuiStyleType, generateCN } from "@wpmudev/sui-utils"
+import React, { useState, useEffect, useRef, ChangeEvent, useId } from "react"
+import { generateCN } from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
 	useInteraction,
@@ -16,81 +8,16 @@ import {
 	useStyles,
 } from "@wpmudev/sui-hooks"
 
-import { Dropdown } from "../elements/select-dropdown"
-import { Selected, SelectedSearch } from "../elements/select-selected"
+import { SelectBaseProps, SelectOptionType } from "./select.types"
+import { Dropdown } from "./elements/select-dropdown"
+import { Selected, SelectedSearch } from "./elements/select-selected"
 import {
 	SearchDropdown,
 	RemoveAll,
 	SelectAll,
 	RemoveSelection,
 	MultiSelectSearch,
-} from "../utils/functions"
-
-export type SelectOptionType =
-	| Record<string, any>
-	| Record<string, any>[]
-	| string
-	| undefined
-
-/**
- * This interface defines the props for the SelectBase component.
- * It extends the Omit utility to remove 'onMouseLeave' and 'onMouseEnter' properties
- * from the HTMLProps<HTMLDivElement> type.
- */
-interface SelectBaseProps
-	extends Omit<
-			HTMLProps<HTMLDivElement>,
-			| "onMouseLeave"
-			| "onMouseEnter"
-			| "selected"
-			| "height"
-			| "content"
-			| "translate"
-			| "width"
-			| "color"
-		>,
-		SuiStyleType {
-	/** Unique ID */
-	id?: string
-	/** An array of options for the select */
-	options?: Record<string, any>[]
-	/** Additional CSS class name for styling */
-	className?: string
-	/** Current selected option */
-	selected?: Record<string, any> | string
-	/** Label for the select component */
-	label?: string
-	/** Whether the select is disabled or not */
-	isDisabled?: boolean
-	/** Whether the select is displayed in a small size */
-	isSmall?: boolean
-	/** Whether the select has an error state */
-	isError?: boolean
-	/** Whether the select allows multiple selections */
-	isMultiSelect?: boolean
-	/** Whether the select has a search functionality */
-	isSearchable?: boolean
-	/** Add a custom width in pixels  */
-	customWidth?: number
-	/**
-	 * Event handler for mouse enter event.
-	 * It is of type Pick<InteractionTypes, "onMouseEnter">, which means it selects
-	 * the "onMouseEnter" property from the "InteractionTypes" type.
-	 */
-	onMouseEnter?: Pick<InteractionTypes, "onMouseEnter">
-	/**
-	 * Event handler for mouse leave event.
-	 * It is of type Pick<InteractionTypes, "onMouseLeave">, which means it selects
-	 * the "onMouseLeave" property from the "InteractionTypes" type.
-	 */
-	onMouseLeave?: Pick<InteractionTypes, "onMouseLeave">
-	/**
-	 * Pass selected item to parent component
-	 *
-	 * @param {Record<string, any> | Record<string, any>[]} option option or options list
-	 */
-	onChange?(option: SelectOptionType): void
-}
+} from "./utils/functions"
 
 const Select: React.FC<SelectBaseProps> = ({
 	id,
@@ -107,6 +34,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	onMouseLeave = () => null,
 	customWidth,
 	onChange,
+	optionAppreance,
 	_style = {},
 	...props
 }) => {
@@ -129,8 +57,9 @@ const Select: React.FC<SelectBaseProps> = ({
 	const controlRef = useRef<HTMLDivElement | HTMLInputElement | null>(null)
 
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
-	const [items, setItems] = useState<Record<string, any>[]>(options)
-	const [filteredItems, setFilteredItems] = useState(options)
+	const [items, setItems] = useState<SelectOptionType[]>(options)
+	const [filteredItems, setFilteredItems] =
+		useState<SelectOptionType[]>(options)
 	const [selectedItem, setSelectedItems] = useState<
 		Record<string, any> | string | undefined
 	>(selected)
@@ -232,7 +161,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	 *
 	 * @param {string|number|Object} option Option ID or object
 	 */
-	const updateItem = (option: Record<string, any> | string | undefined) => {
+	const updateItem = (option: SelectOptionType | SelectOptionType[]) => {
 		setSelectedItems(option)
 		if (onChange) {
 			onChange(option)
@@ -277,7 +206,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			onChange: (e: ChangeEvent<HTMLInputElement>) => {
 				handleSearchDropdown(e)
 				updateItem({
-					...(selectedItem as Record<string, any>),
+					...(selectedItem as SelectOptionType),
 					label: e.target.value,
 				})
 			},
@@ -295,6 +224,7 @@ const Select: React.FC<SelectBaseProps> = ({
 
 	// Dropdown props
 	const dropdownProps = {
+		optionAppreance,
 		options: filteredItems,
 		selected: selectedItem,
 		isSmall,

@@ -1,28 +1,11 @@
-import React, { useState, useRef, useEffect, useId, LegacyRef } from "react"
+import React, { useState, useEffect, useId, LegacyRef } from "react"
+
 import { Input } from "@wpmudev/sui-input"
-import { useStyles, useStylesTypes } from "@wpmudev/sui-hooks"
+import { useStyles } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
+import { SearchInputWithAutoCompleteProps } from "../select.types"
 
-interface InputWithAutoCompleteProps extends useStylesTypes {
-	id?: string
-	expanded?: boolean
-	controlRef: HTMLDivElement | HTMLInputElement | null
-	isSmall?: boolean
-	selected?: {
-		label: string
-	}
-	dropdownItems?: Record<string, any>[]
-	onChange?: (
-		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-	) => void
-	onValueChange: (val: string) => void
-	onClick?: () => void
-	onEvent?: (event: React.ChangeEvent<HTMLInputElement>) => void
-	ref?: LegacyRef<HTMLInputElement>
-	interactionMethods: object
-}
-
-const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
+const InputWithAutoComplete: React.FC<SearchInputWithAutoCompleteProps> = ({
 	id,
 	controlRef,
 	expanded = false,
@@ -88,7 +71,6 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 
 	return (
 		<Input
-			ref={controlRef}
 			className={generateCN("sui-select__input", {}, suiInlineClassname)}
 			id={inputId}
 			icon="Search"
@@ -99,6 +81,7 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 			hint={(isFiltered && filteredOptions[0]?.label) || ""}
 			disableInteractions={true}
 			_htmlProps={{
+				ref: controlRef as LegacyRef<HTMLInputElement> | undefined,
 				onKeyDown: onInputKeyDown,
 				onClick,
 				..._htmlProps,
