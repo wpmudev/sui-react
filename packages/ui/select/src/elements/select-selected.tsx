@@ -8,7 +8,7 @@ import React, {
 	useState,
 } from "react"
 import {
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 	isArray,
 	isUndefined,
 } from "@wpmudev/sui-utils"
@@ -102,7 +102,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 			<div
 				id={`${id}-control`}
 				className="sui-select__control"
-				{..._renderRestPropsSafely(props)}
+				{..._renderHTMLPropsSafely(props)}
 			>
 				<div
 					className="sui-accessible-cta"
@@ -181,7 +181,7 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 	return (
 		<div className="sui-select__control">
 			<InputWithAutoComplete
-				placeholder="Search"
+				placeholder={selectLabel}
 				isSmall={isSmall ?? false}
 				onValueChange={onValueChange}
 				selected={selected}

@@ -1,5 +1,6 @@
+import { HTMLProps } from "react"
 // Define a custom type `ConfigId` which can be either a string or a number.
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 type ConfigId = string | number
 
@@ -10,7 +11,9 @@ type ConfigActionTypes = "apply" | "configure"
 type ConfigObj = Record<string, any>
 
 // Define the properties and methods configuration table component.
-interface ConfigTableTypes extends SuiStyleType {
+interface ConfigTableTypes
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	// Optional property to specify a custom CSS class for the component.
 	className?: string
 

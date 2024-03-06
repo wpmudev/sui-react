@@ -2,7 +2,7 @@ import React, { forwardRef, useCallback, useId } from "react"
 
 import { Tag } from "@wpmudev/sui-tag"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
-import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { RadioProps } from "./radio.types"
 import { useRadio } from "./radio-context"
@@ -70,7 +70,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			onChange: handleOnChange,
 			"aria-labelledby": `${uuid}-label`,
 			...(description && { "aria-describedby": `${uuid}-description` }),
-			..._renderRestPropsSafely(_htmlProps),
+			..._renderHTMLPropsSafely(_htmlProps),
 		}
 
 		// Define box props

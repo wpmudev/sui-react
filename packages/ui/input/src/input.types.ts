@@ -109,6 +109,10 @@ interface InputProps
 	 */
 	onKeyUp?: (e: React.KeyboardEvent<HTMLDivElement | HTMLSpanElement>) => void
 	/**
+	 * When key down in input field
+	 */
+	onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void
+	/**
 	 * Input onClick
 	 *
 	 * @param {React.MouseEvent<HTMLInputElement>} e

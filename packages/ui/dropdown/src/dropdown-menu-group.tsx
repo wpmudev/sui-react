@@ -1,6 +1,6 @@
 import React, { HTMLProps } from "react"
 
-import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { DropdownMenuGroupProps } from "./dropdown.types"
 import { useStyles } from "@wpmudev/sui-hooks"
 
@@ -23,7 +23,7 @@ const DropdownMenuGroup: React.FC<DropdownMenuGroupProps> = ({
 	// Prepare attributes for the menu group element
 	const attrs = {
 		className: classNames,
-		..._renderRestPropsSafely(_htmlProps),
+		..._renderHTMLPropsSafely(_htmlProps),
 	}
 
 	return (

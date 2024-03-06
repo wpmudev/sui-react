@@ -21,6 +21,7 @@ interface MessageProps {
 	}
 	color: "blue" | "green" | "yellow" | "red"
 	children: React.ReactNode
+	className: string
 }
 
 const Message: React.FunctionComponent<
@@ -29,10 +30,11 @@ const Message: React.FunctionComponent<
 			React.HTMLAttributes<HTMLDivElement>,
 			HTMLDivElement
 		>
-> = ({ action, color, children, ...props }) => {
+> = ({ action, color, children, className, ...props }) => {
 	const messageClasses = classnames({
 		"csb-message": true,
 		[`csb-message--${color}`]: !isEmpty(color),
+		[className]: !!className,
 	})
 
 	const cta = Object.assign(

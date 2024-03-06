@@ -1,7 +1,7 @@
 import React, { KeyboardEvent, MouseEvent } from "react"
 
 import {
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 	generateCN,
 	handleEventDefault,
 	handleOnKeyDown,
@@ -12,7 +12,6 @@ import {
 	useDefaultChildren,
 	useInteraction,
 	useStyles,
-	useStylesTypes,
 } from "@wpmudev/sui-hooks"
 import { LinkProps } from "./link.types"
 
@@ -62,7 +61,7 @@ const Link: React.FC<LinkProps> = ({
 		href,
 		className: classNames,
 		"data-testid": "link",
-		..._renderRestPropsSafely(_htmlProps),
+		..._renderHTMLPropsSafely(_htmlProps),
 	}
 
 	const onClickCallback = (e: MouseEvent<unknown> | KeyboardEvent<unknown>) => {

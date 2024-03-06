@@ -1,9 +1,12 @@
+import { HTMLProps } from "react"
 /**
  * Represents the properties for a code snippet component.
  */
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
-interface ColorPickerProps extends SuiStyleType {
+interface ColorPickerProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
 	 * Unique identifier for the color-picker
 	 */

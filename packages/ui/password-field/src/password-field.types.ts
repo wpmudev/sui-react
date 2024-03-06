@@ -1,6 +1,6 @@
 import React, { HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Interface representing the properties of a password field.
@@ -10,7 +10,8 @@ interface PasswordFieldProps
 			HTMLProps<HTMLDivElement>,
 			"id" | "height" | "content" | "translate" | "width" | "color"
 		>,
-		SuiStyleType {
+		SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
 	 * ID of the password field.
 	 */

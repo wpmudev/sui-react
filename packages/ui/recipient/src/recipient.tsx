@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { isEmpty, generateCN, _renderRestPropsSafely } from "@wpmudev/sui-utils"
+import { isEmpty, generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 
 import { Avatar } from "@wpmudev/sui-avatar"
 
@@ -18,8 +18,8 @@ const Recipient: React.FC<RecipientProps> = ({
 	status = "none",
 	isInvited = false,
 	appearance = "primary",
+	_htmlProps,
 	_style,
-	...props
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
 
@@ -34,7 +34,11 @@ const Recipient: React.FC<RecipientProps> = ({
 	)
 
 	return (
-		<div className={className} {..._renderRestPropsSafely(props)}>
+		<div
+			className={className}
+			data-testid="recipients"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className="sui-recipient__info">
 				<Avatar
 					className="sui-recipient__avatar"
@@ -54,9 +58,8 @@ const Recipient: React.FC<RecipientProps> = ({
 				{!isInvited && (
 					<RecipientButton
 						className="sui-recipient__button"
-						icon="Add"
 						buttonProps={{
-							colorScheme: "black",
+							icon: "Add",
 						}}
 					>
 						Add recipient
@@ -66,21 +69,21 @@ const Recipient: React.FC<RecipientProps> = ({
 					<Fragment>
 						<RecipientButton
 							className="sui-recipient__button"
-							icon="Submit"
 							buttonProps={{
-								colorScheme: "black",
+								icon: "Submit",
 							}}
 						>
 							Send recipient
 						</RecipientButton>
 						<RecipientButton
 							className="sui-recipient__button"
-							icon="Trash"
+							customWidth={120}
 							buttonProps={{
-								colorScheme: "black",
+								colorScheme: "red",
+								icon: "Trash",
 							}}
 						>
-							Delete recipient
+							Remove recipient
 						</RecipientButton>
 					</Fragment>
 				)}

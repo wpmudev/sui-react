@@ -1,7 +1,7 @@
 import React, { FC } from "react"
 
 import { Button } from "@wpmudev/sui-button"
-import { generateCN } from "@wpmudev/sui-utils"
+import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 
 import { EditorToolbarProps } from "./editor-toolbar.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
@@ -16,6 +16,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 	alignCenter = false,
 	onBackClick = () => {},
 	onSettingClick = () => {},
+	_htmlProps,
 	_style = {},
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
@@ -38,9 +39,11 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 			icon="Settings"
 			colorScheme="black"
 			iconOnly={true}
-			aria-label="settings"
 			onClick={onSettingClick}
 			isDisabled={disableSetting}
+			_htmlProps={{
+				"aria-label": "settings",
+			}}
 		/>
 	)
 
@@ -59,7 +62,11 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 
 	return (
 		// Render the editor-toolbar component
-		<div className={classNames} data-testid="editor-toolbar">
+		<div
+			className={classNames}
+			data-testid="editor-toolbar"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			{(!!title || !!allowBack) && (
 				<div className="sui-editor-toolbar__content--left">
 					<div className="sui-editor-toolbar__main">
@@ -71,9 +78,11 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 									colorScheme="black"
 									iconOnly={true}
 									onClick={onBackClick}
-									aria-label="back"
-									data-testid="editor-toolbar-back-btn"
 									isDisabled={disableBack}
+									_htmlProps={{
+										"aria-label": "back",
+										"data-testid": "editor-toolbar-back-btn",
+									}}
 								/>
 							</div>
 						)}

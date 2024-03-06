@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 import { useStyles, useValidateProps } from "@wpmudev/sui-hooks"
 import { IconProps } from "@wpmudev/sui-icon"
@@ -14,8 +14,8 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 	icon,
 	iconSize = "md",
 	iconColor = "success",
+	_htmlProps,
 	_style,
-	...props
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
 	const ctx = useContext(ModalContext)
@@ -32,7 +32,10 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 	}
 
 	return (
-		<header className={generateCN("sui-modal__header", {}, suiInlineClassname)}>
+		<header
+			className={generateCN("sui-modal__header", {}, suiInlineClassname)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className="sui-modal__header-actions">
 				{!!Icon && <Icon size={iconSize} colorScheme={iconColor} />}
 				{!isEmpty(title ?? "") && "app-connect" !== variant && (

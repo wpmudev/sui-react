@@ -10,7 +10,7 @@ import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import {
 	isBoolean,
 	generateCN,
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 } from "@wpmudev/sui-utils"
 
 import { ToggleProps } from "./toggle.types"
@@ -92,7 +92,7 @@ const Toggle: React.FC<ToggleProps> = ({
 				{...(inputProps as HTMLProps<HTMLInputElement>)}
 				id={id}
 				onChange={handleOnChange}
-				{..._renderRestPropsSafely(_htmlProps)}
+				{..._renderHTMLPropsSafely(_htmlProps)}
 			/>
 			<span tabIndex={-1} className="sui-toggle__switch" aria-hidden={true} />
 			{isLabelHidden && <span className="sui-screen-reader-only">{label}</span>}

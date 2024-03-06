@@ -1,6 +1,6 @@
 import React, { Children } from "react"
 
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { NavigationProps } from "./navigation.types"
 import { NavigationBrand } from "./navigation-brand"
@@ -12,6 +12,7 @@ const Navigation: React.FC<NavigationProps> = ({
 	children,
 	brand = { title: "title", description: "" },
 	user,
+	_htmlProps,
 	_style,
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
@@ -20,7 +21,11 @@ const Navigation: React.FC<NavigationProps> = ({
 
 	return (
 		// Render the navigation component
-		<nav className={classNames} data-testid="navigation">
+		<nav
+			className={classNames}
+			data-testid="navigation"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			{/* Render the navigation brand component */}
 			<NavigationBrand {...brand} />
 			<ul className="sui-navigation__nav">

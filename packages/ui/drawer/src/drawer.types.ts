@@ -1,16 +1,17 @@
 /**
  * Importing React from "react"
  */
-import React from "react"
+import React, { HTMLProps } from "react"
 
 import { TooltipProps } from "@wpmudev/sui-tooltip"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
  * Define props for the Drawer component
  */
-export interface DrawerTypes extends SuiStyleType {
+export interface DrawerTypes
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
 	 * Optional class name for styling
 	 */

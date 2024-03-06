@@ -1,5 +1,5 @@
 import React from "react"
-import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { ScoreProps } from "./score.types"
 import { useStyles } from "@wpmudev/sui-hooks"
@@ -34,7 +34,7 @@ const Score: React.FC<ScoreProps> = ({
 	return (
 		<div
 			className={classNames}
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 			data-testid="score"
 		>
 			<svg

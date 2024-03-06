@@ -6,7 +6,12 @@ import React, {
 	ChangeEvent,
 	useId,
 } from "react"
-import { SuiStyleType, generateCN } from "@wpmudev/sui-utils"
+import {
+	SuiStyleType,
+	generateCN,
+	_renderHTMLPropsSafely,
+	SuiHTMLAttributes,
+} from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
 	useInteraction,
@@ -48,7 +53,8 @@ interface SelectBaseProps
 			| "width"
 			| "color"
 		>,
-		SuiStyleType {
+		SuiStyleType,
+		SuiHTMLAttributes {
 	/** Unique ID */
 	id?: string
 	/** An array of options for the select */
@@ -107,7 +113,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	customWidth,
 	onChange,
 	_style = {},
-	...props
+	_htmlProps = {},
 }) => {
 	const uniqueId = useId()
 
@@ -288,7 +294,6 @@ const Select: React.FC<SelectBaseProps> = ({
 				RemoveSelection(optionId, filteredItems, setFilteredItems)
 			},
 		}),
-		...props,
 	}
 
 	// Dropdown props
@@ -305,12 +310,16 @@ const Select: React.FC<SelectBaseProps> = ({
 				handleMultiSelectSearch(e)
 			},
 		}),
-		...props,
 	}
 
 	// Render component
 	return (
-		<div {...selectProps} data-check="check" data-testid="select">
+		<div
+			{...selectProps}
+			data-check="check"
+			data-testid="select"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			{!isSearchable && (
 				// @ts-ignore
 				<Selected {...headerProps} interactionMethods={interactionMethods} />

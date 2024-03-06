@@ -1,6 +1,6 @@
 import React from "react"
 
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { UpsellProps } from "./upsell.types"
 import Icons, { IconsNamesType, Check } from "@wpmudev/sui-icons"
 import { variationsList } from "./helpers"
@@ -13,6 +13,7 @@ const Upsell: React.FC<UpsellProps> = ({
 	variation = "hummingbird",
 	features = [],
 	actions = null,
+	_htmlProps = {},
 	_style = {},
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
@@ -34,7 +35,11 @@ const Upsell: React.FC<UpsellProps> = ({
 	const Icon = Icons?.[currentVar?.icon as IconsNamesType]
 
 	return (
-		<div className={classNames} data-testid="upsell">
+		<div
+			className={classNames}
+			data-testid="upsell"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className="sui-upsell__header">
 				{Icon && (
 					<div className="sui-upsell__header-icon" data-testid="upsell-icon">

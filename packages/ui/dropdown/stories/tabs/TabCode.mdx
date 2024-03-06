@@ -1,4 +1,4 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
 import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx"
 
 <PackageInstallGuide packageName="@wpmudev/sui-dropdown" />
@@ -91,11 +91,67 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
 						} />
 					<span label={
 						<>
-							<Code small={true}>props</Code> An object representing the props of the <a href="/docs/sui-components-core-menu--docs" target="_blank">Menu component</a> with the exception of <Code small={true}> children </Code>
+							<Code small={true}>props</Code> An object that accepts the following properties
 						</>
 						}
 					/>
+
+					
 				</List>
+				<Section
+						style={{ paddingTop: 0, paddingLeft: 40, paddingRight: 0 }}
+					>
+						<List>
+							<span label={
+								<>
+									<Code small={true}>icon</Code> The icon for the menu item
+								</>
+							} />
+
+							<span label={
+								<>
+									<Code small={true}>href</Code> the link of the menu
+								</>
+							} />
+
+							<span label={
+								<>
+									<Code small={true}>className</Code> Additional className(s) for further styling
+								</>
+							} />
+							<span label={
+								<>
+									<Code small={true}>children</Code> The menu item content
+								</>
+							} />
+							<span label={
+								<>
+									<Code small={true}>isDisabled</Code> Set this to true for a disabled menu
+								</>
+							} />
+							<span label={
+								<>
+									<Code small={true}>onClick</Code> A callback function to be invoked upong clicking the menu item
+								</>
+							} />
+							<span label={
+								<>
+									<Code small={true}>variation</Code> represents the variation based on the plugin name, 
+									the values accepted are similar to <Code small={true}>type</Code> prop in the [Setup Banner](https://wpmudev.github.io/sui-react/?path=/docs/sui-components-collections-setup-banner--docs) component
+								</>
+							} />
+							<span label={
+								<>
+									<Code small={true}>_style</Code>Inline styles for the menu item
+								</>
+							} />
+							<span label={
+								<>
+									<Code small={true}>_htmlProps</Code>object with any valid html attributes to pass
+								</>
+							} />
+						</List>
+    				</Section>
 			</Section>
 
 			<Section
@@ -128,3 +184,5 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
     	</PropSection>
 
 </Section>
+
+<CommonPropsNotice />

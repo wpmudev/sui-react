@@ -1,5 +1,10 @@
 import React, { FC, useId } from "react"
-import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
+import {
+	generateCN,
+	handleOnKeyDown,
+	isEmpty,
+	_renderHTMLPropsSafely,
+} from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import Icons from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
@@ -16,8 +21,8 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	isDisabled,
 	onClick,
 	variation = "",
+	_htmlProps = {},
 	_style = {},
-	...props
 }) => {
 	// Use the useInteraction hook to manage hover and focus states
 	const [isHovered, isFocused, methods] = useInteraction({})
@@ -67,7 +72,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 				<span id={menuTitleId}>{children}</span>
 			</>
 		),
-		...props,
+		..._renderHTMLPropsSafely(_htmlProps),
 	}
 
 	// Prepare attributes for a button element if onClick is provided

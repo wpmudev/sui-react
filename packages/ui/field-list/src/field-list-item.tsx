@@ -1,5 +1,5 @@
 import React, { useCallback, useId } from "react"
-import { _renderRestPropsSafely, generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // Import required components
 import { Toggle } from "@wpmudev/sui-toggle"
@@ -52,7 +52,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 			)}
 			style={style}
 			data-testid="field-list-item"
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{/* Display the item's content */}
 			<div className="sui-field-list__item-label">{children}</div>

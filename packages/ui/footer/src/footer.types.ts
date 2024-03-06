@@ -1,6 +1,5 @@
-import { ReactNode } from "react"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
-import { SuiStyleType } from "@wpmudev/sui-utils"
+import { HTMLProps, ReactNode } from "react"
+import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 // Structure of a footer link.
 type FooterLinkType = {
@@ -15,7 +14,9 @@ type FooterSocialLinkType = {
 }
 
 // Defining an interface to specify the props that can be passed to a Footer component.
-interface FooterProps extends SuiStyleType {
+interface FooterProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
 	 * An optional function that can be used to render additional blocks within the footer.
 	 *

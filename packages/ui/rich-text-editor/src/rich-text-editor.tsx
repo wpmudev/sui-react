@@ -1,17 +1,11 @@
-import React, {
-	useState,
-	useId,
-	useCallback,
-	useEffect,
-	useLayoutEffect,
-} from "react"
+import React, { useState, useId, useCallback, useEffect } from "react"
 
 import { FormField } from "@wpmudev/sui-form-field"
 import {
 	SegmentedControl,
 	SegmentedControlButton,
 } from "@wpmudev/sui-segmented-control"
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Textarea } from "@wpmudev/sui-textarea"
 import { useDetectRTL, useStyles } from "@wpmudev/sui-hooks"
 
@@ -33,6 +27,7 @@ declare const tinymce: Record<string, any>
  * @param  root0.defaultValue
  * @param  root0.onChange
  * @param  root0._style
+ * @param  root0._htmlProps
  * @return {JSX.Element} - JSX Element representing the RichTextEditor component
  */
 const RichTextEditor: React.FC<RichTextEditorProps> = ({
@@ -43,6 +38,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 	isDisabled = false,
 	defaultValue = "",
 	onChange = () => null,
+	_htmlProps,
 	_style = {},
 }: RichTextEditorProps): JSX.Element => {
 	const [content, setContent] = useState<string>(defaultValue ?? "")
@@ -165,7 +161,11 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 
 	return (
 		<FormField id={id} label="Label" helper="Helper text for rich text editor.">
-			<div className={classNames} data-testid="rich-text-editor">
+			<div
+				className={classNames}
+				data-testid="rich-text-editor"
+				{..._renderHTMLPropsSafely(_htmlProps)}
+			>
 				<div className="sui-rich-text-editor__header">
 					<SegmentedControl
 						name="type"

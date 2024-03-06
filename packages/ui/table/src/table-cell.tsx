@@ -1,7 +1,7 @@
 import React, { Fragment, useCallback, useContext, useRef } from "react"
 
 import {
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 	generateCN,
 	handleOnKeyDown,
 	isEmpty,
@@ -131,7 +131,7 @@ const TableCell: React.FC<TableCellProps> = ({
 			role={isHeading ? "rowheader" : "cell"}
 			style={style}
 			colSpan={colSpan}
-			{..._renderRestPropsSafely(_htmlProps)}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{hasDragIcon && (
 				<Icons.Grip className="sui-table__cell--drag" size="sm" />

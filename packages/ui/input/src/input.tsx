@@ -15,7 +15,7 @@ import {
 	generateCN,
 	condContent,
 	handleOnKeyDown,
-	_renderRestPropsSafely,
+	_renderHTMLPropsSafely,
 } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { Button } from "@wpmudev/sui-button"
@@ -42,8 +42,16 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				isError = false,
 				isDisabled = false,
 				onClickIcon,
-				onMouseEnter = () => {},
-				onMouseLeave = () => {},
+				onClick,
+				onFocus,
+				onKeyDown,
+				onMouseEnter,
+				onMouseLeave,
+				onMouseDownCapture,
+				onMouseUp,
+				onMouseUpCapture,
+				onBlur,
+				onBlurCapture,
 				onChange,
 				onClear,
 				icon,
@@ -73,7 +81,15 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 			// Define states
 			const [value, setValue] =
 				useState<InputProps["defaultValue"]>(defaultValue)
-			const [isHovered, isFocused, interactionMethods] = useInteraction({})
+			const [isHovered, isFocused, interactionMethods] = useInteraction({
+				onMouseEnter,
+				onMouseLeave,
+				onMouseDownCapture,
+				onMouseUp,
+				onMouseUpCapture,
+				onBlur,
+				onBlurCapture,
+			})
 			const [hasError, setHasError] = useState(false)
 
 			// Properties validation
@@ -232,6 +248,9 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				required: isRequired,
 				pattern,
 				onKeyUp: onInputKeyUp,
+				onClick,
+				onFocus,
+				onKeyDown,
 			}
 
 			/**
@@ -288,7 +307,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 							"has-hint": hasHintText,
 						})}
 					>
-						<TagName {...attrs} {..._renderRestPropsSafely(_htmlProps)} />
+						<TagName {...attrs} {..._renderHTMLPropsSafely(_htmlProps)} />
 						{hasHintText && (
 							<Fragment>
 								{!isEmpty(value as string) && (

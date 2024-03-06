@@ -66,8 +66,8 @@
 		color: var(--csb-mono-color--white);
 	}
 
-	.search-field[aria-expanded='true'] svg,
-	.search-field[aria-expanded='true'] code {
+	.search-field[aria-expanded="true"] svg,
+	.search-field[aria-expanded="true"] code {
 		color: var(--csb-primary-color--light);
 	}
 
@@ -124,37 +124,37 @@
 		color: var(--csb-primary-color--base);
 	}
 
-	#storybook-explorer-menu .sidebar-item[data-selected='true'] {
+	#storybook-explorer-menu .sidebar-item[data-selected="true"] {
 		pointer-events: none;
 		color: var(--csb-primary-color--base);
 	}
 
 	#storybook-explorer-menu
-		.sidebar-item[data-parent-id='sui'][data-selected='true'],
+		.sidebar-item[data-parent-id="sui"][data-selected="true"],
 	#storybook-explorer-menu
-		.sidebar-item[data-parent-id='sui'][aria-expanded='true'] {
+		.sidebar-item[data-parent-id="sui"][aria-expanded="true"] {
 		box-shadow: inset 2px 0 0 0 var(--csb-primary-color--base);
 		-moz-box-shadow: inset 2px 0 0 0 var(--csb-primary-color--base);
 		-webkit-box-shadow: inset 2px 0 0 0 var(--csb-primary-color--base);
 		color: var(--csb-primary-color--base);
 	}
 
-	#storybook-explorer-menu .sidebar-item[data-nodetype='component'] svg {
+	#storybook-explorer-menu .sidebar-item[data-nodetype="component"] svg {
 		display: block;
 		margin-top: 6px;
 		margin-right: 8px;
 	}
 
 	#storybook-explorer-menu
-		.sidebar-item[data-nodetype='component'][aria-expanded='true'],
+		.sidebar-item[data-nodetype="component"][aria-expanded="true"],
 	#storybook-explorer-menu
-		.sidebar-item[data-nodetype='group'][data-highlightable='true'][aria-expanded='true'] {
+		.sidebar-item[data-nodetype="group"][data-highlightable="true"][aria-expanded="true"] {
 		color: var(--csb-primary-color--base);
 	}
 
-	#storybook-explorer-menu .sidebar-item[data-nodetype='group']:after,
-	#storybook-explorer-menu .sidebar-item[data-nodetype='component']:after {
-		content: ' ';
+	#storybook-explorer-menu .sidebar-item[data-nodetype="group"]:after,
+	#storybook-explorer-menu .sidebar-item[data-nodetype="component"]:after {
+		content: " ";
 		position: absolute;
 		top: 10px;
 		right: 20px;
@@ -165,16 +165,16 @@
 	}
 
 	#storybook-explorer-menu
-		.sidebar-item[data-nodetype='group'][aria-expanded='true']:after,
+		.sidebar-item[data-nodetype="group"][aria-expanded="true"]:after,
 	#storybook-explorer-menu
-		.sidebar-item[data-nodetype='component'][aria-expanded='true']:after {
+		.sidebar-item[data-nodetype="component"][aria-expanded="true"]:after {
 		transform: rotate(90deg);
 		-ms-transform: rotate(90deg);
 		-moz-transform: rotate(90deg);
 	}
 
 	/** Hide "Skip to canvas" link. */
-	a[href='#storybook-preview-wrapper'] {
+	a[href="#storybook-preview-wrapper"] {
 		display: none;
 	}
 
@@ -197,45 +197,44 @@
 		display: none !important;
 	}
 
-	div[role=main] > div {
+	div[role="main"] > div {
 		box-shadow: none !important;
 	}
 
 	/** Hide footer pages from sidebar. */
-	*[data-item-id='sui-terms--page'] {
+	*[data-item-id="sui-terms--page"] {
 		display: none !important;
+	}
+
+	/** Hide common props page from the menu */
+	div[data-item-id="sui-common-props--docs"] {
+		display: none;
 	}
 </style>
 
 <script>
 	// Workaround to increase the left panel width just enough to show even the longer story names
 	// based on https://github.com/storybookjs/storybook/issues/9682#issuecomment-983356523
-	const DEFAULT_MINIMUM_LEFT_PANEL_WIDTH = 260; // Original default is 230
-	let storybookConfig = JSON.parse(localStorage.getItem('storybook-layout'));
+	const DEFAULT_MINIMUM_LEFT_PANEL_WIDTH = 260 // Original default is 230
+	let storybookConfig = JSON.parse(localStorage.getItem("storybook-layout"))
 
 	// We only resize the left panel if it is set to a value lower than DEFAULT_MINIMUM_LEFT_PANEL_WIDTH
 	if (
-		typeof storybookConfig === 'object' &&
+		typeof storybookConfig === "object" &&
 		storybookConfig !== null &&
 		storybookConfig.resizerNav.x < DEFAULT_MINIMUM_LEFT_PANEL_WIDTH
 	) {
-		storybookConfig.resizerNav.x = DEFAULT_MINIMUM_LEFT_PANEL_WIDTH;
-		localStorage.setItem(
-			'storybook-layout',
-			JSON.stringify(storybookConfig)
-		);
-		document.location.reload();
+		storybookConfig.resizerNav.x = DEFAULT_MINIMUM_LEFT_PANEL_WIDTH
+		localStorage.setItem("storybook-layout", JSON.stringify(storybookConfig))
+		document.location.reload()
 	} else if (storybookConfig === null) {
 		storybookConfig = {
 			resizerNav: {
 				x: DEFAULT_MINIMUM_LEFT_PANEL_WIDTH,
 				y: 0,
 			},
-		};
-		localStorage.setItem(
-			'storybook-layout',
-			JSON.stringify(storybookConfig)
-		);
-		document.location.reload();
+		}
+		localStorage.setItem("storybook-layout", JSON.stringify(storybookConfig))
+		document.location.reload()
 	}
 </script>

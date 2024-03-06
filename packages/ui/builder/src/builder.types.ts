@@ -73,7 +73,9 @@ interface BuilderEmptyProps
 /**
  * Interface for props that can be passed to the BuilderField component.
  */
-interface BuilderFieldProps extends SuiStyleType {
+interface BuilderFieldProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
 	 * Optional number specifying the column size.
 	 */

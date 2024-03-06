@@ -45,7 +45,10 @@ const Select = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
-							<StandardSelect {...props} />
+							<StandardSelect
+								{...props}
+								_htmlProps={{ "data-testtttt": "20" }}
+							/>
 						</FormField>
 					)}
 					{"search" === example && (
@@ -57,7 +60,7 @@ const Select = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
-							<SearchSelect {...props} />
+							<SearchSelect {...props} label="Search..." />
 						</FormField>
 					)}
 					{"multi-select" === example && (

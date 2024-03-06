@@ -1,8 +1,8 @@
 import React from "react"
-import { _renderRestPropsSafely } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 
 export const Indeterminate = ({ ...props }) => (
-	<span {..._renderRestPropsSafely(props)}>
+	<span {..._renderHTMLPropsSafely(props)}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="10"

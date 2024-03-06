@@ -8,7 +8,7 @@ import React, {
 } from "react"
 
 // Import required module(s)
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import {
 	useDefaultChildren,
 	usePortal,
@@ -23,7 +23,7 @@ export const ModalContext = createContext<ModalContextProps | null>(null)
 // Build modal
 const Modal = forwardRef<ModalActionsProps, ModalProps>(
 	(
-		{ id, size = "sm", _style, children, variant = "simple", ...props },
+		{ id, size = "sm", _style, children, variant = "simple", _htmlProps },
 		ref,
 	) => {
 		// generate id if not provided
@@ -91,7 +91,12 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 					size: size ?? "sm",
 				}}
 			>
-				<section className={classNames} data-testid="modal" tabIndex={-1}>
+				<section
+					className={classNames}
+					data-testid="modal"
+					tabIndex={-1}
+					{..._renderHTMLPropsSafely(_htmlProps)}
+				>
 					<div
 						className={generateCN("sui-modal__container", {})}
 						role="dialog"

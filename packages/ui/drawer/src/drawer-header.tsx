@@ -12,7 +12,6 @@ const DrawerHeader = ({
 	hintText = "",
 	tooltipOptions = {},
 	_style,
-	...styleProps
 }: DrawerHeaderTypes) => {
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-drawer__header", {}, suiInlineClassname)
@@ -48,7 +47,9 @@ const DrawerHeader = ({
 					isSmall={true}
 					iconOnly={true}
 					onClick={onClose}
-					aria-label="close"
+					_htmlProps={{
+						"aria-label": "close",
+					}}
 				/>
 			</div>
 		</div>

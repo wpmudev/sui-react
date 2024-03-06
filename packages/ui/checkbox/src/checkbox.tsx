@@ -1,6 +1,6 @@
 import React, { useEffect, useId } from "react"
 
-import { generateCN, _renderRestPropsSafely } from "@wpmudev/sui-utils"
+import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 
 import { Indeterminate } from "./elements/indeterminate"
@@ -100,7 +100,7 @@ const Checkbox = ({
 		>
 			{/* Checkbox input */}
 			<input
-				{..._renderRestPropsSafely(inputProps)}
+				{..._renderHTMLPropsSafely(inputProps)}
 				aria-label={label || "checkbox"}
 				data-testid="checkbox-input"
 			/>

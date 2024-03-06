@@ -1,4 +1,4 @@
-import { Section, Code, Snippet, PackageInstallGuide, PropSection } from "@wpmudev/sui-docs"
+import { Section, Code, Snippet, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
 import dedent from "dedent"
 
 export const tinyMceCode = dedent`
@@ -35,3 +35,5 @@ add_action('admin_enqueue_scripts', 'sui_load_mce_editor_scripts');
 		<p>Catch textarea content</p>
 	</PropSection>
 </Section>
+
+<CommonPropsNotice />

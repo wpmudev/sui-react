@@ -9,7 +9,6 @@ interface RecipientEmailProps extends SuiStyleType {
 const RecipientEmail: React.FC<RecipientEmailProps> = ({
 	children,
 	_style = {},
-	...props
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
 
