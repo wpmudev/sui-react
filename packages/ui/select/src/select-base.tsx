@@ -7,6 +7,7 @@ import {
 	usePrevious,
 	useStyles,
 } from "@wpmudev/sui-hooks"
+import { DropdownRefProps } from "@wpmudev/sui-dropdown"
 
 import { SelectBaseProps, SelectOptionType } from "./select.types"
 import { Dropdown } from "./elements/select-dropdown"
@@ -55,6 +56,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	// set ref to dropdown.
 	const ref = useRef<HTMLDivElement | null>(null)
 	const controlRef = useRef<HTMLDivElement | HTMLInputElement | null>(null)
+	const dropdownRef = useRef<DropdownRefProps | null>(null)
 
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
 	const [items, setItems] = useState<SelectOptionType[]>(options)
@@ -66,7 +68,7 @@ const Select: React.FC<SelectBaseProps> = ({
 
 	// Hide dropdown when click outside of it
 	useOuterClick(ref, () => {
-		setIsDropdownOpen(false)
+		dropdownRef.current?.close()
 	})
 
 	// update options
@@ -137,14 +139,14 @@ const Select: React.FC<SelectBaseProps> = ({
 	// Select search function.
 	const handleSearchDropdown = (event: ChangeEvent<HTMLInputElement>) => {
 		const searchValue = event.target.value.toLowerCase()
-		setIsDropdownOpen(true)
+		dropdownRef.current?.open()
 		SearchDropdown(searchValue, items, setFilteredItems)
 	}
 
 	// Multiselect search function.
 	const handleMultiSelectSearch = (event: ChangeEvent<HTMLInputElement>) => {
 		const searchValue = event.target.value.toLowerCase()
-		setIsDropdownOpen(true)
+		dropdownRef.current?.open()
 		MultiSelectSearch(searchValue, items, setFilteredItems)
 	}
 
@@ -178,7 +180,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			updatedItems.forEach((option) => (option.isSelected = false))
 			updatedItems[optionIndex].isSelected = true
 			setFilteredItems(updatedItems)
-			setIsDropdownOpen(false)
+			dropdownRef.current?.close()
 		} else {
 			updatedItems[optionIndex].isSelected = !isSelected
 			setFilteredItems(updatedItems)
@@ -197,7 +199,9 @@ const Select: React.FC<SelectBaseProps> = ({
 			RemoveAll(updateItem, items, setFilteredItems)
 		},
 		...(!isSearchable && {
-			dropdownToggle: () => setIsDropdownOpen(!isDropdownOpen),
+			dropdownToggle: () => {
+				dropdownRef.current?.open()
+			},
 			arrow: isDropdownOpen ? "ChevronUp" : "ChevronDown",
 		}),
 		...(isSearchable && {
@@ -211,7 +215,9 @@ const Select: React.FC<SelectBaseProps> = ({
 				})
 			},
 			onEvent: (optionId: number | string) => updateSelected(optionId),
-			onClick: () => setIsDropdownOpen(true),
+			onClick: () => {
+				dropdownRef.current?.open()
+			},
 		}),
 		...(isMultiSelect && {
 			isMultiSelect,
@@ -255,15 +261,17 @@ const Select: React.FC<SelectBaseProps> = ({
 					interactionMethods={interactionMethods}
 				/>
 			)}
-			{isDropdownOpen && (
-				// @ts-ignore
-				<Dropdown
-					{...dropdownProps}
-					onEvent={(optionId: number | string) => {
-						updateSelected(optionId)
-					}}
-				/>
-			)}
+			{/*// @ts-ignore*/}
+			<Dropdown
+				{...dropdownProps}
+				dropdownRef={dropdownRef}
+				onToggle={(isOpen) => {
+					setIsDropdownOpen(isOpen)
+				}}
+				onEvent={(optionId: number | string) => {
+					updateSelected(optionId)
+				}}
+			/>
 		</div>
 	)
 }

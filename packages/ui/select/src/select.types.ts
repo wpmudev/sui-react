@@ -1,7 +1,8 @@
-import React, { HTMLProps, LegacyRef, ReactNode, RefObject } from "react"
+import React, { HTMLProps, LegacyRef, ReactNode, Ref, RefObject } from "react"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { DropdownRefProps } from "@wpmudev/sui-dropdown"
 
 type SelectOptionType = {
 	id: string
@@ -131,6 +132,7 @@ interface SelectDropdownProps extends useStylesTypes {
 	options: SelectBaseProps["options"]
 	onEvent?: (id: string | number) => void
 	selectAll?: () => void
+	onToggle: (isOpen: boolean) => void
 	isSmall?: boolean
 	isMultiSelect?: boolean
 	isSearchable?: boolean
@@ -138,6 +140,7 @@ interface SelectDropdownProps extends useStylesTypes {
 	ref?: RefObject<HTMLInputElement>
 	onKeyDown?(e?: any): void
 	optionAppreance: SelectBaseProps["optionAppreance"]
+	dropdownRef?: Ref<DropdownRefProps | null>
 }
 
 interface SelectDropdownOptionProps {

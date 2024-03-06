@@ -10,6 +10,7 @@ import React, {
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { InteractionTypes, useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
+import { Dropdown as SuiDropdown } from "@wpmudev/sui-dropdown"
 
 import { Icon } from "./select-icon"
 import { Search } from "./multiselect-search"
@@ -57,6 +58,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	selected = "",
 	isSearchable = false,
 	optionAppreance,
+	dropdownRef = null,
+	onToggle = (isOpen: boolean) => {},
 	...props
 }) => {
 	// generate unique name for checkbox
@@ -79,45 +82,59 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		onKeyDown: (e?: KeyboardEvent<HTMLElement>) => onSelect(e, id),
 	})
 
-	// Render options for the dropdown
-	const renderOptions = () => (
-		<ul
+	const wrapper = (content: JSX.Element) => (
+		<SuiDropdown
+			ref={dropdownRef}
+			closeOnOuterClick={false}
+			trigger={<Fragment />}
+			onToggle={onToggle}
+			isFluid={true}
 			className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
-			role="listbox"
-			aria-label="dropdown-options"
+			_htmlProps={{
+				role: "listbox",
+				"aria-label": "dropdown-options",
+			}}
 		>
-			{options?.map((option) => (
-				<DropdownOption
-					key={option.id}
-					optionAppreance={optionAppreance}
-					option={option}
-					tabIndex={0}
-					{...(getOptProps(option?.id) as HTMLProps<HTMLLIElement>)}
-				>
-					<Fragment>
-						{option?.icon && (
-							<Icon name={option?.icon} size={isSmall ? "xs" : "sm"} />
-						)}
-						<span className="sui-select__dropdown--content">
-							{option?.boldLabel && <strong>{option?.boldLabel}</strong>}
-							{
-								option?.[
-									isSearchable && !!option?.boldLabel ? "newLabel" : "label"
-								]
-							}
-						</span>
-					</Fragment>
-				</DropdownOption>
-			))}
-		</ul>
+			{content}
+		</SuiDropdown>
 	)
+
+	// Render options for the dropdown
+	const renderOptions = () =>
+		wrapper(
+			<ul>
+				{options?.map((option) => (
+					<DropdownOption
+						key={option.id}
+						optionAppreance={optionAppreance}
+						option={option}
+						tabIndex={0}
+						{...(getOptProps(option?.id) as HTMLProps<HTMLLIElement>)}
+					>
+						<Fragment>
+							{option?.icon && (
+								<Icon name={option?.icon} size={isSmall ? "xs" : "sm"} />
+							)}
+							<span className="sui-select__dropdown--content">
+								{option?.boldLabel && <strong>{option?.boldLabel}</strong>}
+								{
+									option?.[
+										isSearchable && !!option?.boldLabel ? "newLabel" : "label"
+									]
+								}
+							</span>
+						</Fragment>
+					</DropdownOption>
+				))}
+			</ul>,
+		)
 
 	// Render options for the multiselect dropdown
 	const renderMultiselectOptions = () => {
 		const allSelected = options?.every((option) => option.isSelected)
 		const isIndeterminate = options?.find((option) => option.isSelected)
 
-		return (
+		return wrapper(
 			<Fragment>
 				<div className="sui-select__search">
 					<Icon name="Search" size="sm" />
@@ -161,7 +178,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						</DropdownOption>
 					))}
 				</ul>
-			</Fragment>
+			</Fragment>,
 		)
 	}
 
