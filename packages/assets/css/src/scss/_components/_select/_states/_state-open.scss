@@ -27,6 +27,10 @@
 					border-bottom-color: transparent;
 					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px $color-primary-80;
 				}
+
+				@include modifies-element(search) {
+					display: block;
+				}
 			}
 		}
 	}

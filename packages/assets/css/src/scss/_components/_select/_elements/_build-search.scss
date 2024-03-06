@@ -23,6 +23,7 @@
 
 			@include modifier(multiselect) {
 				@include modifies-element(search) {
+					display: none;
 					position: absolute;
 					left: 0;
 					right: 0;
@@ -51,6 +52,10 @@
 		@include block($block) {
 			@include element(search) {
 				border-color: $color-extended-neutral-0;
+				border-top: $border-width-sm;
+				border-left: $border-width-sm;
+				border-right: $border-width-sm;
+				border-style: solid;
 			}
 		}
 	}

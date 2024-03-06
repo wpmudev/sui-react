@@ -81,6 +81,7 @@ const InputWithAutoComplete: React.FC<SearchInputWithAutoCompleteProps> = ({
 			hint={(isFiltered && filteredOptions[0]?.label) || ""}
 			disableInteractions={true}
 			_htmlProps={{
+				autoComplete: "off",
 				ref: controlRef as LegacyRef<HTMLInputElement> | undefined,
 				onKeyDown: onInputKeyDown,
 				onClick,

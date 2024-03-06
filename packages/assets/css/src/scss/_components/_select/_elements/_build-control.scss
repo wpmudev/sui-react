@@ -51,6 +51,11 @@
 			}
 
 			@include modifier(multiselect) {
+				.sui-dropdown__popover {
+					border-top-left-radius: 0;
+					border-top-right-radius: 0;
+				}
+
 				@include modifies-element(selected-options) {
 					position: relative;
 					display: inline-block;
@@ -114,6 +119,10 @@
 			}
 
 			@include modifier(multiselect) {
+				.sui-dropdown__popover {
+					border-top: 0;
+				}
+
 				@include modifies-element(selected-options) {
 					color: $color-extended-neutral-100;
 					background: $color-extended-neutral-0;

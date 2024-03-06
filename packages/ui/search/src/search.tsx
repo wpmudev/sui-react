@@ -132,6 +132,7 @@ const Search: React.FC<SearchProps> = ({
 				isDisabled={isDisabled ?? false}
 				placeholder={placeholder ?? ""}
 				_htmlProps={{
+					autoComplete: "off",
 					..._renderRestPropsSafely(inputProps),
 				}}
 			/>

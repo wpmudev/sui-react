@@ -89,6 +89,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			trigger={<Fragment />}
 			onToggle={onToggle}
 			isFluid={true}
+			isFixedHeight={true}
 			className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
 			_htmlProps={{
 				role: "listbox",
@@ -136,18 +137,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 
 		return wrapper(
 			<Fragment>
-				<div className="sui-select__search">
-					<Icon name="Search" size="sm" />
-					<Search
-						placeholder="Search"
-						{
-							// @ts-ignore
-							...props
-						}
-					/>
-				</div>
 				<ul
-					className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
+					// className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
 					aria-label="dropdown-options"
 				>
 					<li className="sui-select__dropdown--option">
@@ -185,7 +176,23 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	// Render the appropriate dropdown options based on isMultiSelect
 	return (
 		<Fragment>
-			{isMultiSelect ? renderMultiselectOptions() : renderOptions()}
+			{isMultiSelect ? (
+				<Fragment>
+					<div className="sui-select__search">
+						<Icon name="Search" size="sm" />
+						<Search
+							placeholder="Search"
+							{
+								// @ts-ignore
+								...props
+							}
+						/>
+					</div>
+					{renderMultiselectOptions()}
+				</Fragment>
+			) : (
+				renderOptions()
+			)}
 		</Fragment>
 	)
 }
