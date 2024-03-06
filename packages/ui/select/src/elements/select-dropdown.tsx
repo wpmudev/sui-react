@@ -36,8 +36,9 @@ const DropdownOption = ({
 	return (
 		<li
 			role="option"
-			className={generateCN("sui-select__dropdown--option", {
-				selected: option?.isSelected,
+			className={generateCN("", {
+				"sui-select__dropdown--option": true,
+				"sui-select__dropdown--selected": option?.isSelected,
 			})}
 			{...props}
 			{...methods}

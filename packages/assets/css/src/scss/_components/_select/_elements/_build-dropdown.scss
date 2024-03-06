@@ -41,7 +41,6 @@
 
 				@include modifier(content) {
 					display: flex;
-					gap: $spacing-sm;
 					width: 100%;
 
 					.sui-checkbox {

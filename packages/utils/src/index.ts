@@ -58,7 +58,7 @@ const generateCN = (
 ): string => {
 	// append variant's class name
 	const classes = Object.keys(variants).map((attr: string) => ({
-		[`${base}--${attr}`]: !!variants?.[attr],
+		[base ? `${base}--${attr}` : `${attr}`]: !!variants?.[attr],
 	}))
 
 	return classnames(base, classes, extraClassNames)
