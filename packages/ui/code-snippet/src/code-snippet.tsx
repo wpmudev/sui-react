@@ -56,10 +56,10 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 						"aria-label": isCopied ? "Copied" : "",
 					}}
 					onMouseLeave={() => setIsCopied(false)}
-					customWidth={65}
+					customWidth={isCopied ? 65 : 90}
 					onClick={() => copyCodes(children)}
 				>
-					{isCopied && "Copied"}
+					{isCopied ? "Copied" : "Click to Copy"}
 				</Tooltip>
 			)}
 			<pre>
