@@ -34,7 +34,8 @@ interface SelectBaseProps
 			| "color"
 			| "onChange"
 		>,
-		SuiStyleType {
+		SuiStyleType,
+		SuiHTMLAttributes {
 	/** Unique ID */
 	id?: string
 	/** An array of options for the select */
@@ -128,7 +129,7 @@ interface SelectSearchInputProps
 	placeholder?: string
 }
 
-interface SelectDropdownProps extends useStylesTypes {
+interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 	options: SelectBaseProps["options"]
 	onEvent?: (id: string | number) => void
 	selectAll?: () => void
