@@ -28,7 +28,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 const TableToolbar: React.FC<TableSectionProps> = ({
 	_htmlProps,
 	_style = {},
-}) => {
+}: TableSectionProps): JSX.Element => {
 	// State for expansion of the toolbar content
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
 	const [bulkAction, setBulkAction] = useState<string>("")

@@ -21,7 +21,7 @@ interface MessageProps {
 	}
 	color: "blue" | "green" | "yellow" | "red"
 	children: React.ReactNode
-	className: string
+	className?: string
 }
 
 const Message: React.FunctionComponent<
@@ -34,7 +34,7 @@ const Message: React.FunctionComponent<
 	const messageClasses = classnames({
 		"csb-message": true,
 		[`csb-message--${color}`]: !isEmpty(color),
-		[className]: !!className,
+		[className ?? ""]: !!className,
 	})
 
 	const cta = Object.assign(
