@@ -6,7 +6,7 @@ import { a11yTest } from "@wpmudev/sui-utils"
 import { Select, SelectBaseProps } from "../src"
 
 describe("@wpmudev/sui-select", () => {
-	const props = {
+	const props: SelectBaseProps = {
 		id: "standard-select",
 		label: "Select",
 		options: [
