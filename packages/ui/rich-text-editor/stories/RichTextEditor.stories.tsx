@@ -48,6 +48,11 @@ const RichTextEditor = ({ color, ...props }: { color: string }) => {
 				setIsScriptLoaded(true)
 			}
 		}, 500) // Check every 500 milliseconds
+
+		// Cleanup function to clear interval on unmount
+		return () => {
+			clearInterval(checkTinyMCEInterval)
+		}
 	}, [])
 
 	return (
