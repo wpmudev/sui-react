@@ -134,7 +134,7 @@ const Search: React.FC<SearchProps> = ({
 				placeholder={placeholder ?? ""}
 				_htmlProps={{
 					autoComplete: "off",
-					..._renderRestPropsSafely(inputProps),
+					..._renderHTMLPropsSafely(inputProps),
 				}}
 			/>
 			{isPopoverVisible && "smart" === variation && (
