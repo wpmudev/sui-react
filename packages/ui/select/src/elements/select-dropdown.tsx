@@ -36,7 +36,6 @@ const DropdownOption = ({
 
 	return (
 		<li
-			role="option"
 			className={generateCN("", {
 				"sui-select__dropdown--option": true,
 				"sui-select__dropdown--selected": option?.isSelected,
@@ -92,7 +91,6 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			isFixedHeight={true}
 			className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
 			_htmlProps={{
-				role: "listbox",
 				"aria-label": "dropdown-options",
 			}}
 		>
