@@ -89,6 +89,9 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 		<Input
 			className="sui-select__input"
 			id={inputId}
+			icon={expanded ? "ChevronUp" : "ChevronDown"}
+			iconPosition="end"
+			iconSize="sm"
 			onChange={onInputChange}
 			defaultValue={value}
 			allowClear={false}

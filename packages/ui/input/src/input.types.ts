@@ -134,6 +134,10 @@ interface InputProps
 	 * Optional icon position to be displayed before or after text.
 	 */
 	iconPosition?: "start" | "end"
+	/**
+	 * Optional icon position to be displayed before or after text.
+	 */
+	iconSize?: "sm" | "md"
 	/*
 	 * Icon hint
 	 */
