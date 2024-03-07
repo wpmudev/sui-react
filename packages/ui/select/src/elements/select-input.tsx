@@ -89,8 +89,6 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 		<Input
 			className="sui-select__input"
 			id={inputId}
-			icon="Search"
-			iconPosition="start"
 			onChange={onInputChange}
 			defaultValue={value}
 			allowClear={false}
