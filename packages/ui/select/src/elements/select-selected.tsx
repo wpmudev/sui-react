@@ -175,13 +175,6 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 				interactionMethods={interactionMethods}
 				{...props}
 			/>
-			{(close || selected?.label) && (
-				<Icon
-					name="CloseAlt"
-					size={isSmall ? "sm" : "md"}
-					onClick={onClearSelection}
-				/>
-			)}
 		</div>
 	)
 }
