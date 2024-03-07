@@ -106,7 +106,7 @@ interface TableProps extends SuiHTMLAttributes, SuiStyleType {
 	/**
 	 * An array of bulk actions available in the table toolbar.
 	 */
-	bulkActions?: Record<string, any>[]
+	bulkActions?: SelectOptionType[]
 
 	/**
 	 * Display table row in stripped design

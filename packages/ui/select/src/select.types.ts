@@ -75,7 +75,7 @@ interface SelectBaseProps
 	 *
 	 * @param {Record<string, any> | Record<string, any>[]} option option or options list
 	 */
-	onChange?(option: SelectOptionType | SelectOptionType[]): void
+	onChange?(option: SelectOptionType | SelectOptionType[] | string): void
 	/**
 	 * Use this method to adjust option item
 	 *

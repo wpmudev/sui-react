@@ -78,7 +78,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 								className="sui-table__toolbar-actions"
 								isSmall={true}
 								options={ctx?.bulkActions}
-								onChange={setBulkAction}
+								onChange={() => setBulkAction}
 							/>
 							<Button
 								type="primary"

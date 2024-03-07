@@ -11,13 +11,13 @@ describe("@wpmudev/sui-select", () => {
 		label: "Select",
 		options: [
 			{
-				icon: "settings",
+				icon: "Settings",
 				id: "option-1",
 				label: "Option 1 is the option.",
 				isSelected: false,
 			},
 			{
-				icon: "settings",
+				icon: "Settings",
 				id: "option-2",
 				label: "Option 2",
 				isSelected: false,
