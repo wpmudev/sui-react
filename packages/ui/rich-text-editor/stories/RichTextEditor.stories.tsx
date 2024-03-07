@@ -40,9 +40,14 @@ const RichTextEditor = ({ color, ...props }: { color: string }) => {
 		script.async = true
 		document.head.appendChild(script)
 
-		setTimeout(() => {
-			setIsScriptLoaded(true)
-		}, 500)
+		const checkTinyMCEInterval = setInterval(() => {
+			// @ts-ignore
+			if (typeof tinymce !== "undefined") {
+				// TinyMCE script has been loaded
+				clearInterval(checkTinyMCEInterval) // Stop checking
+				setIsScriptLoaded(true)
+			}
+		}, 500) // Check every 500 milliseconds
 	}, [])
 
 	return (
