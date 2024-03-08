@@ -17,6 +17,7 @@ interface NotificationProps
 	icon?: IconsNamesType // icon to display with the notification (can be a React node or a string)
 	iconState?: string | never // icon state (unused in the current implementation)
 	isInline?: boolean // flag to indicate if the notification is displayed inline
+	isFluid?: boolean // flag to indicate if the notification is displayed inline
 	isDismissible?: boolean // make notification dismissible
 	timeout?: number // make notification invisible
 	size?: "sm" | "lg" | "fluid" | string // size variation for the notification (small, large, or fluid)
