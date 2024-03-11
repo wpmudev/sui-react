@@ -61,7 +61,7 @@ const Input: ForwardRefExoticComponent<PropsWithoutRef<InputProps>> =
 				iconTooltipWidth,
 				allowClear = false,
 				disableInteractions = false,
-				isRequired = false,
+				isRequired = false, //
 				pattern,
 				onKeyUp,
 				validateOnMount = false,
