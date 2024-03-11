@@ -9,7 +9,7 @@ import React, {
 
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { InteractionTypes, useInteraction, useStyles } from "@wpmudev/sui-hooks"
-import { generateCN } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { Dropdown as SuiDropdown } from "@wpmudev/sui-dropdown"
 
 import { Icon } from "./select-icon"
@@ -178,7 +178,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						<Search
 							_htmlProps={{
 								placeholder: "Search",
-								..._htmlProps,
+								..._renderHTMLPropsSafely(_htmlProps),
 							}}
 						/>
 					</div>

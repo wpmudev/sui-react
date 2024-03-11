@@ -24,7 +24,7 @@ const Search: React.FC<SelectSearchInputProps> = ({
 			className="sui-select__search--input"
 			onChange={handleInputChange}
 			autoComplete="off"
-			{..._htmlProps}
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		/>
 	)
 }
