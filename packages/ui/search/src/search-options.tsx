@@ -11,7 +11,6 @@ const SearchOptions: React.FC<SearchOptionsProps> = ({
 	setValue,
 	setIsPopoverVisible,
 	_style = {},
-	...props
 }) => {
 	const { suiInlineClassname } = useStyles(_style)
 	const className = generateCN("sui-search__options", {}, suiInlineClassname)

@@ -191,6 +191,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			if (item && item.id) updateItem(item)
 		}
 		setItems(updatedItems)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [filteredItems])
 
 	const { suiInlineClassname } = useStyles(_style, className)

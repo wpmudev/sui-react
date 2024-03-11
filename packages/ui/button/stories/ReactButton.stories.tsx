@@ -129,6 +129,7 @@ Button.argTypes = {
 			},
 		},
 	},
+
 	href: {
 		name: "Link",
 		control: {
@@ -139,6 +140,7 @@ Button.argTypes = {
 			eq: "link",
 		},
 	},
+
 	target: {
 		name: "Target",
 		options: ["_self", "_blank"],
@@ -150,6 +152,7 @@ Button.argTypes = {
 			eq: "link",
 		},
 	},
+
 	htmlFor: {
 		name: "For (input ID)",
 		control: {
@@ -160,6 +163,7 @@ Button.argTypes = {
 			eq: "button-toggle",
 		},
 	},
+
 	type: {
 		name: "Type",
 		options: ["", "primary", "secondary", "tertiary"],
@@ -173,6 +177,7 @@ Button.argTypes = {
 			},
 		},
 	},
+
 	icon: {
 		name: "Icon",
 		options: IconsName,
@@ -184,15 +189,17 @@ Button.argTypes = {
 			eq: "icon",
 		},
 	},
+
 	iconSize: {
 		name: "Icon Size",
-		options: ["sm", "md", "lg"],
+		options: ["sm", "md", "lg", "xl"],
 		control: {
 			type: "select",
 			labels: {
 				sm: "Small",
 				md: "Medium",
 				lg: "Large",
+				xl: "Extra Large",
 			},
 		},
 		if: {
@@ -200,6 +207,7 @@ Button.argTypes = {
 			eq: "icon",
 		},
 	},
+
 	colorScheme: {
 		name: "Color Scheme",
 		options: ["", "blue", "black", "red", "navy", "white"],
@@ -215,18 +223,21 @@ Button.argTypes = {
 			},
 		},
 	},
+
 	isSmall: {
 		name: "Small",
 		control: {
 			type: "boolean",
 		},
 	},
+
 	isFullWidth: {
 		name: "Full Width",
 		control: {
 			type: "boolean",
 		},
 	},
+
 	isLoading: {
 		name: "Loading",
 		control: {
@@ -237,12 +248,14 @@ Button.argTypes = {
 			eq: "button-load",
 		},
 	},
+
 	isDisabled: {
 		name: "Disabled",
 		control: {
 			type: "boolean",
 		},
 	},
+
 	isResponsive: {
 		name: "Hide label (Mobile)",
 		control: {
@@ -253,6 +266,7 @@ Button.argTypes = {
 			eq: "label-icon",
 		},
 	},
+
 	_htmlProps: { table: { disable: true } },
 	isUnwrapped: { table: { disable: true } },
 	startIcon: { table: { disable: true } },
