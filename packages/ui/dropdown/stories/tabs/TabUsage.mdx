@@ -1,86 +1,122 @@
-import { Section, Row, Col } from "@wpmudev/sui-docs"
+import { Section, Row, Col, List, Code, Image } from "@wpmudev/sui-docs"
 
 import Anatomy from "../images/anatomy.svg"
-import SelectLarge from "../images/select-large.svg"
-import SelectSmall from "../images/select-small.svg"
-import IconMenuDefault from "../images/icon-menu-default.svg"
-import IconMenuWithIcons from "../images/icon-menu-with-icons.svg"
-import MenuPlugin from "../images/menu-plugin.svg"
-import MenuTemplate from "../images/menu-template.svg"
-import MobileMenuPlugin from "../images/mobile-menu-plugin.svg"
-import MobileMenuTemplate from "../images/mobile-menu-template.svg"
+import DropDownTypes from "../images/drop-down-types.svg"
+import ItemStateSelect from "../images/item-state-select.svg"
+import ItemStateDropdown from "../images/item-state-dropdown.svg"
+import UnlockPro from "../images/unlock-pro.svg"
+import IconSupport from "../images/icon-support.svg"
+import MaxHeight from "../images/max-height.svg"
+import Loading from "../images/loading.svg"
+import GroupedOption from "../images/grouped-option.svg"
+import MoreExamples from "../images/more-examples.svg"
+import ProVariationsDefault from "../images/pro-variations-default.svg"
+import ProVariationsHover from "../images/pro-variations-hover.svg"
 
-<Section contained={true} title="Anatomy">
-	<img src={Anatomy} alt="Dropdown Anatomy" />
-	<p style={{ paddingTop: "20px" }}>
-		The dropdown should be activated by a trigger. It'll most likely be used to
-		choose alternatives in a form select type. It will, however, be utilized in
-		buttons to show as a menu list or choose alternatives.
-	</p>
+<Section title="Anatomy">
+	<Row>
+    	<Col>
+			<h3>1. Dropdown wrapper</h3>
+			<p>
+				A wrapper where dropdown options are displayed.
+			</p>
+
+			<h3>2. Dropdown option</h3>
+			<p>
+				Dropdown options that are available for selections, actions or navigations.
+			</p>
+		</Col>
+		<Col>
+			<img src={Anatomy} alt="Dropdown Anatomy" />
+		</Col>
+	</Row>
 </Section>
 
-<Section contained={true} title="Variation">
-	<h3>1. Select Dropdown</h3>
+<Section title="Dropdown Types">
+	<img src={DropDownTypes} alt="Dropdown Types" />
+</Section>
+
+<Section title="Dropdown Item States">
+	<img src={ItemStateSelect} alt="Dropdown Item State Select" />
+	<img src={ItemStateDropdown} alt="Dropdown Item State Dropdown" style={ { marginTop: 20 } } />
+</Section>
+
+<Section title="Unlock Pro Dropdown item">
 	<p>
-		A dropdown is used most commonly for select type in a form. Since the Select
-		type has large and small variations, the dropdown has the same size
-		variations for design consistency.
+		The Unlock Pro dropdown item was designed for subtle upsells for free users. 
+		It appears in the navigation's dropdown menu only. Based on the brand's primary or secondary colour, each dropdown menu comes with the unique color style.
+		Check out all the plugin drop down design examples in <a href="#unlock-pro-variations" target="_blank">this section.</a>
 	</p>
-	<figure style={{ margin: 0 }}>
-		<img src={SelectLarge} alt="Dropdown Select Large" />
-		<figcaption>Dropdown Size - Large</figcaption>
-	</figure>
-
-    <figure style={{ margin: 0, paddingTop: "30px" }}>
-    	<img src={SelectSmall} alt="Dropdown Select Small" />
-    	<figcaption>Dropdown Size - Small</figcaption>
-    </figure>
-
-    <h3 style={{paddingTop: "20px"}}>2. Icon Menu Drop Down</h3>
-    <Row>
-    	<Col>
-    		 <figure style={{ margin: 0 }}>
-    			<img src={IconMenuDefault} alt="Dropdown Icon Menu Default" />
-    			<figcaption>Icon menu dropdown - default</figcaption>
-    		</figure>
-    	</Col>
-    	<Col>
-    		<figure style={{ margin: 0 }}>
-    			<img src={IconMenuWithIcons} alt="Dropdown Icon Menu With Icons" />
-    			<figcaption>Icon menu dropdown - with icons</figcaption>
-    		</figure>
-    	</Col>
-    </Row>
-
-    <h3 style={{paddingTop: "20px"}}>3. Menu Dropdown</h3>
-    <Row>
-    	<Col>
-    		 <figure style={{ margin: 0 }}>
-    			<img src={MenuPlugin} alt="Dropdown Menu Plugin" />
-    			<figcaption>Menu dropdown - Plugin</figcaption>
-    		</figure>
-    	</Col>
-    	<Col>
-    		<figure style={{ margin: 0 }}>
-    			<img src={MenuTemplate} alt="Dropdown Menu Template" />
-    			<figcaption>Menu dropdown - Template</figcaption>
-    		</figure>
-    	</Col>
-    </Row>
-
-    <Row style={{paddingTop: "20px"}}>
-    	<Col>
-    		 <figure style={{ margin: 0 }}>
-    			<img src={MobileMenuPlugin} alt="Mobile Dropdown Menu Plugin" />
-    			<figcaption>Mobile Menu dropdown - Plugin</figcaption>
-    		</figure>
-    	</Col>
-    	<Col>
-    		<figure style={{ margin: 0 }}>
-    			<img src={MobileMenuTemplate} alt="Mobile Dropdown Menu Template" />
-    			<figcaption>Mobile Menu dropdown - Template</figcaption>
-    		</figure>
-    	</Col>
-    </Row>
-
+	<img src={UnlockPro} alt="Dropdown Unlock Pro" />
 </Section>
+
+<Section title="Icon Support">
+	<img src={IconSupport} alt="Dropdown Icon Support" />
+</Section>
+
+<Section title="Dropdown max-height">
+	<img src={MaxHeight} alt="Dropdown Max Height" />
+</Section>
+
+<Section title="Loading">
+	<img src={Loading} alt="Dropdown Loading" />
+</Section>
+
+<Section title="Grouped option">
+	<img src={GroupedOption} alt="Dropdown Grouped option" />
+</Section>
+
+<Section title="More examples">
+	<p>
+		Dropdown items are highly customizable to accommodate a variety of content types and user interactions. You can easily modify dropdown items to include:
+	</p>
+
+	<List>
+		<span 
+			label={
+				<>
+					<Code small={true}>Input Selects</Code>:
+					Allow users to input or select options directly within the dropdown menu.
+				</>
+			}>
+		</span>
+
+		<span 
+			label={
+				<>
+					<Code small={true}>Dropdown Menus</Code>:
+					Incorporate nested menus or sub-menus to organize and present hierarchical content.
+				</>
+			}>
+		</span>
+
+		<span 
+			label={
+				<>
+					<Code small={true}>Avatars</Code>:
+					Display user avatars or profile pictures alongside item labels for personalized interactions.
+				</>
+			}>
+		</span>
+
+		<span 
+			label={
+				<>
+					<Code small={true}>Other Select Options</Code>:
+					Integrate any other selectable elements or custom components tailored to your specific application needs.
+				</>
+			}>
+		</span>
+	</List> 
+	<img src={MoreExamples} alt="Dropdown Grouped option" />
+	
+</Section>
+
+<Section title="Unlock Pro Variations" id="unlock-pro-variations">
+	<h3>Free account / Default</h3>
+	<Image src={ProVariationsDefault} alt="Dropdown Unlock Pro Variations Default" xScrollable={true} />
+	
+	<h3>Free account / Hover</h3>
+	<Image src={ProVariationsHover} alt="Dropdown Unlock Pro Variations Hover" xScrollable={true}/>
+</Section>
+
