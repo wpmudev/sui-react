@@ -14,7 +14,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
 
 	const classNames = generateCN("sui-dropdown__menu", {}, suiInlineClassname)
 	// Render the Menu component with the provided children
-	return <ul className={classNames}>{children}</ul>
+	return <div className={classNames}>{children}</div>
 }
 
 export { DropdownMenu }

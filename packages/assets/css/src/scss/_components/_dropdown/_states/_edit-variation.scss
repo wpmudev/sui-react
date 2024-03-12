@@ -141,6 +141,20 @@
 						background: $color-secondary-beehive-general-70;
 					}
 				}
+
+				@include modifier(danger) {
+					&:not(.sui-#{$block}__menu-item--disabled) {
+						color: #f45c59;
+
+						.sui-#{$block}__menu-item-icon {
+							color: #f45c59;
+						}
+
+						&.sui-#{$block}__menu-item--hover {
+							background: #feefee;
+						}
+					}
+				}
 			}
 		}
 	}

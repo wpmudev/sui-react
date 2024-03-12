@@ -9,6 +9,7 @@ import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import Icons from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 import { DropdownMenuItemProps } from "./dropdown.types"
+import { Checkbox } from "@wpmudev/sui-checkbox"
 
 // import { MenuItemProps } from "./menu.types"
 
@@ -21,6 +22,8 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	isDisabled,
 	onClick,
 	variation = "",
+	isChecked = false,
+	_type = "",
 	_htmlProps = {},
 	_style = {},
 }) => {
@@ -59,19 +62,43 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 		IconTag = Icons[icon]
 	}
 
+	const getContent = () => {
+		let content = <span id={menuTitleId}>{children}</span>
+
+		switch (_type) {
+			case "select":
+				break
+			case "select-checkbox":
+				content = (
+					<Checkbox
+						label={content}
+						isSmall={true}
+						isChecked={isChecked}
+						isDisabled={isDisabled}
+					/>
+				)
+				break
+			case "select-variable":
+		}
+
+		if ("select-variable" !== _type && !!IconTag) {
+			content = (
+				<>
+					<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
+					{content}
+				</>
+			)
+		}
+
+		return content
+	}
+
 	// Prepare attributes for the menu item element
 	const attrs = {
 		className: classNames,
 		href: !!href ? href : undefined,
 		tabIndex: isDisabled ? -1 : 0,
-		children: (
-			<>
-				{!!IconTag && (
-					<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
-				)}
-				<span id={menuTitleId}>{children}</span>
-			</>
-		),
+		children: getContent(),
 		..._renderHTMLPropsSafely(_htmlProps),
 	}
 

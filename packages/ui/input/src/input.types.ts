@@ -100,7 +100,7 @@ interface InputProps
 	 * The callback function for handling input changes.
 	 */
 	onChange?: (
-		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string,
+		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => void
 	/**
 	 * When key up in input field

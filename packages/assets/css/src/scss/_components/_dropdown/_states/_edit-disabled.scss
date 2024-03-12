@@ -13,6 +13,7 @@
 		@include block($block) {
 			@include element(menu-item) {
 				@include modifier(disabled) {
+					color: $color-extended-neutral-10;
 					opacity: 0.5;
 					pointer-events: none;
 					user-select: none;

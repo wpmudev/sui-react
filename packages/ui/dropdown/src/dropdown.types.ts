@@ -1,4 +1,4 @@
-import React, { HTMLProps, KeyboardEvent } from "react"
+import React, { CSSProperties, HTMLProps, KeyboardEvent } from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { ButtonProps } from "@wpmudev/sui-button"
 import {
@@ -21,6 +21,7 @@ interface DropdownMenuProps extends SuiStyleType {
  * Props for MenuItem component.
  */
 interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
+	_type?: DropdownProps["type"]
 	/**
 	 * URL to navigate to when the item is clicked (if the item is an anchor).
 	 */
@@ -52,6 +53,7 @@ interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
 		| "defender"
 		| "branda"
 		| "beehive"
+		| "danger"
 	/**
 	 * Function to be called when the MenuItem is clicked.
 	 *
@@ -66,6 +68,10 @@ interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
 	 * Specifies where the linked document should be opened when the user clicks on the hyperlink.
 	 */
 	target?: "_blank" | "_self" | "_parent" | "_top" | string
+	/**
+	 * Used in "select-checkbox" mode
+	 */
+	isChecked?: boolean
 }
 
 /**
@@ -96,7 +102,7 @@ interface DropdownMenuBaseProps extends SuiStyleType {
 
 // Props for an individual item within the dropdown menu.
 interface MenuItemProps extends DropdownMenuBaseProps {
-	props: Omit<DropdownMenuItemProps, "children"> // Additional props for the underlying MenuItem component.
+	props?: Omit<DropdownMenuItemProps, "children"> // Additional props for the underlying MenuItem component.
 }
 
 // Props for a group of dropdown menu items.
@@ -114,6 +120,7 @@ interface DropdownProps
 			"className"
 		>,
 		SuiStyleType {
+	type?: "" | "default" | "select" | "select-checkbox" | "select-variable"
 	/**
 	 * The label for the dropdown.
 	 */
@@ -188,6 +195,35 @@ interface DropdownProps
 	 * Close dropdown on outer click
 	 */
 	closeOnOuterClick?: boolean
+	/**
+	 * Allow search
+	 */
+	allowSearch?: boolean
+	/**
+	 * Callback function for search
+	 *
+	 * @param {string} query
+	 */
+	onSearch?: (query: string) => void
+	/**
+	 * When options are going to be loaded from API, pass true
+	 */
+	isAsync?: boolean
+	/**
+	 * Useful when isAsync option is enabled
+	 */
+	asyncOptions?: {
+		perPage: number
+		totalItems?: number
+	}
+	/**
+	 * Callback for loading options from API
+	 */
+	getOptions?: (
+		page: number,
+		perPage: number,
+		query: string,
+	) => Promise<never[]>
 }
 
 // Type definition for the modal handling functions

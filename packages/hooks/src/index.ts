@@ -26,5 +26,11 @@ export { useDefaultChildren } from "./use-default-children"
 // detect browser
 export { useDetectBrowser } from "./use-detect-browser"
 
+// detect scroll bottom
+export { useBottomEnd } from "./use-bottom-end"
+
+// useDebounce
+export { useDebounce } from "./use-debounce"
+
 // useStyles
 export * from "./use-styles"

@@ -9,9 +9,18 @@
 @mixin build-menu($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
+			@include element(menu-container) {
+				max-height: $dropdown-size-height-md;
+				overflow-y: auto;
+			}
+
 			@include element(menu) {
 				margin: 0;
 				padding: 0;
+			}
+
+			@include element(menu-nav-search) {
+				padding: 0px 12px 8px 12px;
 			}
 		}
 	}

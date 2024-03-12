@@ -18,12 +18,25 @@
 				align-items: center;
 				cursor: pointer;
 				display: flex;
-				font-weight: $font-weight-md;
+				font: $font-weight-default 13px/20px $font-family-default;
+				//font-weight: $font-weight-md;
 				gap: $spacing-md;
 				list-style: none;
 				margin: 0;
-				padding: $spacing-md $menu-spacing-horizontal;
+				padding: 6px $spacing-default;
 				text-decoration: none;
+
+				@include modifier(loading) {
+					align-items: center;
+					align-self: stretch;
+					background: #f8f8f8;
+					border-radius: 4px;
+					display: flex;
+					font: $font-weight-default 13px/20px $font-family-default;
+					gap: 8px;
+					padding: 12px;
+					margin: 0 8px 8px;
+				}
 			}
 
 			@include element(menu) {
