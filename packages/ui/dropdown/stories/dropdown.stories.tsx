@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 // Import required component(s)
 import { Dropdown as SuiDropdown } from "../src"
@@ -33,13 +33,73 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 		background: "white" === color ? "#333" : "#fff",
 	}
 
+	const [checkedItems, setCheckedItems] = useState<Array<string | number>>([])
+	const [optionsAPILimit, setOptionsAPILimit] = useState(0)
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyle}>
 					<SuiDropdown
 						{...props}
+						onMenuClick={(menuId, e) => {
+							const checkedList = [...checkedItems]
+
+							if (checkedList.indexOf(menuId) > -1) {
+								checkedList.splice(checkedItems.indexOf(menuId), 1)
+							} else {
+								checkedList.push(menuId)
+							}
+
+							setCheckedItems(checkedList as [])
+						}}
+						label="Select + Checkbox"
+						type="select-checkbox"
 						menu={[
+							{
+								id: "view-form",
+								label: "View form",
+								props: {
+									isChecked: checkedItems.indexOf("view-form") > -1,
+								},
+							},
+							{
+								id: "edit-form",
+								label: "Edit form",
+								props: {
+									isChecked: checkedItems.indexOf("edit-form") > -1,
+								},
+							},
+							{
+								id: "duplicate-form",
+								label: "Duplicate form",
+								props: {
+									isChecked: checkedItems.indexOf("duplicate-form") > -1,
+								},
+							},
+							{
+								id: "delete-form",
+								label: "Delete form",
+								props: {
+									variation: "danger",
+									icon: "Trash",
+									isDisabled: true,
+								},
+							},
+						]}
+						onSearch={(string) => {
+							console.log("search", string)
+						}}
+						/*menu={[
+							{
+								id: "menu-beehive",
+								label: "Beehive",
+								props: {
+									href: "#",
+									icon: "PluginBeehive",
+									variation: "beehive",
+								},
+							},
 							{
 								id: "plugin-variants",
 								label: "Plugin Variations",
@@ -158,9 +218,9 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 									},
 								],
 							},
-						]}
-					>
-						<div
+						]}*/
+					/>
+					{/*<div
 							style={{
 								display: "flex",
 								justifyContent: "center",
@@ -177,8 +237,47 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 								Unlock bonus features
 							</Button>
 						</div>
-					</SuiDropdown>
-					<br />
+					</SuiDropdown>*/}
+					<SuiDropdown
+						{...props}
+						type="select"
+						isAsync={true}
+						allowSearch={true}
+						label="Select + API + Search"
+						asyncOptions={{
+							perPage: 10,
+							totalItems: optionsAPILimit,
+						}}
+						getOptions={async (page, perPage, search) => {
+							// calculate how many items to skip
+							const skip = 1 === page ? 0 : page * perPage
+							// store all menu items here
+							const options: any = []
+
+							const baseAPI = `https://dummyjson.com/products/search`
+
+							// fetch data from API
+							await fetch(
+								`${baseAPI}?limit=${perPage}&skip=${skip}&q=${search}`,
+							)
+								.then((res) => res.json())
+								.then((result) => {
+									// set total numbers of options
+									if (optionsAPILimit === 0) {
+										setOptionsAPILimit(result?.total)
+									}
+
+									result.products.forEach((item: any) => {
+										options.push({ id: item?.id, label: item?.title })
+									})
+								})
+
+							return options
+						}}
+						_style={{
+							width: "250px",
+						}}
+					/>
 					<SuiDropdown {...props}>
 						<div
 							style={{
