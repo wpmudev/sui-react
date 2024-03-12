@@ -245,7 +245,7 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 						allowSearch={true}
 						label="Select + API + Search"
 						asyncOptions={{
-							perPage: 10,
+							perPage: 20,
 							totalItems: optionsAPILimit,
 						}}
 						getOptions={async (page, perPage, search) => {
@@ -325,7 +325,7 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 							width: "250px",
 						}}
 					/>
-					<SuiDropdown {...props}>
+					<SuiDropdown menuCustomWidth={200} {...props}>
 						<div
 							style={{
 								display: "flex",
@@ -333,7 +333,7 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 								padding: "8px 24px",
 							}}
 						>
-							CUSTOM CONTENT ONLY
+							CUSTOM CONTENT
 						</div>
 					</SuiDropdown>
 				</div>

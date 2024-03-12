@@ -103,6 +103,7 @@ export const Navigation = (props: {
 							buttonIcon="Bell"
 							label="Connect features"
 							placement="left"
+							menuCustomWidth={280}
 							menu={[
 								{
 									id: "group-1",
@@ -144,7 +145,7 @@ export const Navigation = (props: {
 								style={{
 									display: "flex",
 									justifyContent: "center",
-									padding: "8px 24px",
+									padding: "8px 16px",
 								}}
 							>
 								<Button

@@ -15,20 +15,22 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(menu-item) {
-				align-items: flex-start;
+				align-items: center;
 				cursor: pointer;
 				display: flex;
 				font: $font-weight-default 13px/20px $font-family-default;
 				gap: $spacing-md;
 				list-style: none;
+				line-height: $font-height-sm;
 				margin: 0;
-				padding: 6px $spacing-default;
+				padding: $spacing-sm $spacing-lg;
 				text-decoration: none;
 
 				@include modifier(wrapper) {
 					display: flex;
 					gap: $spacing-sm;
 					flex: 1;
+					align-items: flex-start;
 
 					.sui-#{$block}__menu-item-icon {
 						margin-top: $spacing-xs;

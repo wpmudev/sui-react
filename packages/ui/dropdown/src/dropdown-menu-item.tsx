@@ -85,7 +85,9 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 				content = (
 					<>
 						<div id={menuTitleId} className="sui-dropdown__menu-item--wrapper">
-							<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
+							<div>
+								<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
+							</div>
 							<div>
 								<span className="sui-dropdown__menu-item--title">
 									{children}
