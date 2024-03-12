@@ -6,7 +6,7 @@ import {
 	_renderHTMLPropsSafely,
 } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
-import Icons from "@wpmudev/sui-icons"
+import Icons, { Add } from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 import { DropdownMenuItemProps } from "./dropdown.types"
 import { Checkbox } from "@wpmudev/sui-checkbox"
@@ -23,6 +23,8 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	onClick,
 	variation = "",
 	isChecked = false,
+	variable = "",
+	description = "",
 	_type = "",
 	_htmlProps = {},
 	_style = {},
@@ -79,6 +81,24 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 				)
 				break
 			case "select-variable":
+				IconTag = IconTag ? IconTag : Icons.Add
+				content = (
+					<>
+						<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
+						<div id={menuTitleId}>
+							<span className="sui-dropdown__menu-item--title">{children}</span>
+							{variable && (
+								<span className="sui-dropdown__menu-item--var">{` {${variable}}`}</span>
+							)}
+							{description && (
+								<div className="sui-dropdown__menu-item--desc">
+									{description}
+								</div>
+							)}
+						</div>
+					</>
+				)
+				break
 		}
 
 		if ("select-variable" !== _type && !!IconTag) {

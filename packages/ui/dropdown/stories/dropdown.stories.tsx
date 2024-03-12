@@ -42,48 +42,129 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 				<div style={boxStyle}>
 					<SuiDropdown
 						{...props}
-						onMenuClick={(menuId, e) => {
-							const checkedList = [...checkedItems]
+						// onMenuClick={(menuId, e) => {
+						// 	const checkedList = [...checkedItems]
 
-							if (checkedList.indexOf(menuId) > -1) {
-								checkedList.splice(checkedItems.indexOf(menuId), 1)
-							} else {
-								checkedList.push(menuId)
-							}
+						// 	if (checkedList.indexOf(menuId) > -1) {
+						// 		checkedList.splice(checkedItems.indexOf(menuId), 1)
+						// 	} else {
+						// 		checkedList.push(menuId)
+						// 	}
 
-							setCheckedItems(checkedList as [])
-						}}
+						// 	setCheckedItems(checkedList as [])
+						// }}
 						label="Select + Checkbox"
-						type="select-checkbox"
+						type="select"
 						menu={[
+							// {
+							// 	id: "view-form",
+							// 	label: "View form",
+							// 	props: {
+							// 		isChecked: checkedItems.indexOf("view-form") > -1,
+							// 	},
+							// },
+							// {
+							// 	id: "edit-form",
+							// 	label: "Edit form",
+							// 	props: {
+							// 		isChecked: checkedItems.indexOf("edit-form") > -1,
+							// 	},
+							// },
+							// {
+							// 	id: "duplicate-form",
+							// 	label: "Duplicate form",
+							// 	props: {
+							// 		isChecked: checkedItems.indexOf("duplicate-form") > -1,
+							// 	},
+							// },
+							// {
+							// 	id: "delete-form",
+							// 	label: "Delete form",
+							// 	props: {
+							// 		variation: "danger",
+							// 		icon: "Trash",
+							// 		isDisabled: true,
+							// 	},
+							// },
 							{
-								id: "view-form",
-								label: "View form",
+								id: "menu-beehive",
+								label: "Beehive",
 								props: {
-									isChecked: checkedItems.indexOf("view-form") > -1,
+									href: "#",
+									icon: "PluginBeehive",
+									variation: "beehive",
 								},
 							},
 							{
-								id: "edit-form",
-								label: "Edit form",
+								id: "menu-branda",
+								label: "Branda",
 								props: {
-									isChecked: checkedItems.indexOf("edit-form") > -1,
+									icon: "PluginBranda",
+									variation: "branda",
 								},
 							},
 							{
-								id: "duplicate-form",
-								label: "Duplicate form",
+								id: "menu-defender",
+								label: "Defender",
 								props: {
-									isChecked: checkedItems.indexOf("duplicate-form") > -1,
+									icon: "PluginDefender",
+									variation: "defender",
 								},
 							},
 							{
-								id: "delete-form",
-								label: "Delete form",
+								id: "menu-forminator",
+								label: "Forminator",
 								props: {
-									variation: "danger",
-									icon: "Trash",
-									isDisabled: true,
+									icon: "PluginForminator",
+									variation: "forminator",
+								},
+							},
+							{
+								id: "menu-hummingbird",
+								label: "Hummingbird",
+								props: {
+									icon: "PluginHummingbird",
+									variation: "hummingbird",
+								},
+							},
+							{
+								id: "menu-hustle",
+								label: "Hustle",
+								props: {
+									icon: "PluginHustle",
+									variation: "hustle",
+								},
+							},
+							{
+								id: "menu-shipper",
+								label: "Shipper",
+								props: {
+									icon: "PluginShipper",
+									variation: "shipper",
+								},
+							},
+							{
+								id: "menu-smush",
+								label: "Smush",
+								props: {
+									icon: "PluginSmush",
+									variation: "smush",
+								},
+							},
+							{
+								id: "menu-smartcrawl",
+								label: "SmartCrawl",
+								props: {
+									icon: "PluginSmartcrawl",
+									variation: "smartcrawl",
+								},
+							},
+							{
+								id: "menu-ivt",
+								label: "IVT",
+								props: {
+									icon: "PluginIvt",
+									variation: "ivt",
 								},
 							},
 						]}
@@ -273,6 +354,52 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 								})
 
 							return options
+						}}
+						_style={{
+							width: "250px",
+						}}
+					/>
+					<SuiDropdown
+						{...props}
+						type="select-variable"
+						allowSearch={true}
+						label="Select + Variable"
+						menu={[
+							{
+								id: "view-form",
+								label: "View form",
+								props: {
+									variable: "tag",
+									description: "Short description",
+								},
+							},
+							{
+								id: "edit-form",
+								label: "Edit form",
+								props: {
+									variable: "tag",
+									description: "Short description",
+								},
+							},
+							{
+								id: "duplicate-form",
+								label: "Duplicate form",
+								props: {
+									variable: "tag",
+									description: "Short description",
+								},
+							},
+							{
+								id: "delete-form",
+								label: "Delete form",
+								props: {
+									variable: "tag",
+									description: "Short description",
+								},
+							},
+						]}
+						onSearch={(string) => {
+							console.log("search", string)
 						}}
 						_style={{
 							width: "250px",

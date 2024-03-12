@@ -291,23 +291,19 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 									/>
 								</div>
 							)}
-							<div
-								className="sui-dropdown__menu-container"
-								onScroll={handleScroll}
-							>
-								<ul className="sui-dropdown__menu-items">
-									{renderMenus(options)}
-									{isLoading && (
-										<li
-											className="sui-dropdown__menu-item--loading"
-											tabIndex={-1}
-										>
-											<Spinner loaderSize="sm" />
-											<span>Loading</span>
-										</li>
-									)}
-								</ul>
-							</div>
+
+							<ul className="sui-dropdown__menu-items" onScroll={handleScroll}>
+								{renderMenus(options)}
+								{isLoading && (
+									<li
+										className="sui-dropdown__menu-item--loading"
+										tabIndex={-1}
+									>
+										<Spinner loaderSize="sm" />
+										<span>Loading</span>
+									</li>
+								)}
+							</ul>
 						</DropdownMenu>
 					)}
 					{/* Render additional children passed to the Dropdown component */}

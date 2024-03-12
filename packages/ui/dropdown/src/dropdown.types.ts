@@ -72,6 +72,9 @@ interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
 	 * Used in "select-checkbox" mode
 	 */
 	isChecked?: boolean
+
+	variable?: string // Content to display as the variable for the dropdown menu item.
+	description?: string // Content to display as the description for the dropdown menu item.
 }
 
 /**
@@ -98,6 +101,8 @@ interface DropdownMenuGroupProps
 interface DropdownMenuBaseProps extends SuiStyleType {
 	id: string | number // Unique identifier for the dropdown menu item.
 	label: React.ReactNode | string // Content to display as the label for the dropdown menu item.
+	variable?: string // Content to display as the variable for the dropdown menu item.
+	description?: string // Content to display as the description for the dropdown menu item.
 }
 
 // Props for an individual item within the dropdown menu.
