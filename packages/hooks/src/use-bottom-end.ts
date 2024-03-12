@@ -6,7 +6,9 @@ import React, { useCallback, useEffect, RefObject, Ref } from "react"
  * @param {Function} onBottomReach actions to be executed when scroll hit bottom
  */
 const useBottomEnd = (onBottomReach = () => {}) => {
-	const handleScroll: React.UIEventHandler<HTMLDivElement> = (e) => {
+	const handleScroll: React.UIEventHandler<
+		HTMLDivElement | HTMLUListElement
+	> = (e) => {
 		// @ts-ignore
 		const { scrollHeight, scrollTop, clientHeight } = e?.target ?? {}
 
