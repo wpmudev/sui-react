@@ -42,129 +42,48 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 				<div style={boxStyle}>
 					<SuiDropdown
 						{...props}
-						// onMenuClick={(menuId, e) => {
-						// 	const checkedList = [...checkedItems]
+						onMenuClick={(menuId, e) => {
+							const checkedList = [...checkedItems]
 
-						// 	if (checkedList.indexOf(menuId) > -1) {
-						// 		checkedList.splice(checkedItems.indexOf(menuId), 1)
-						// 	} else {
-						// 		checkedList.push(menuId)
-						// 	}
+							if (checkedList.indexOf(menuId) > -1) {
+								checkedList.splice(checkedItems.indexOf(menuId), 1)
+							} else {
+								checkedList.push(menuId)
+							}
 
-						// 	setCheckedItems(checkedList as [])
-						// }}
+							setCheckedItems(checkedList as [])
+						}}
 						label="Select + Checkbox"
-						type="select"
+						type="select-checkbox"
 						menu={[
-							// {
-							// 	id: "view-form",
-							// 	label: "View form",
-							// 	props: {
-							// 		isChecked: checkedItems.indexOf("view-form") > -1,
-							// 	},
-							// },
-							// {
-							// 	id: "edit-form",
-							// 	label: "Edit form",
-							// 	props: {
-							// 		isChecked: checkedItems.indexOf("edit-form") > -1,
-							// 	},
-							// },
-							// {
-							// 	id: "duplicate-form",
-							// 	label: "Duplicate form",
-							// 	props: {
-							// 		isChecked: checkedItems.indexOf("duplicate-form") > -1,
-							// 	},
-							// },
-							// {
-							// 	id: "delete-form",
-							// 	label: "Delete form",
-							// 	props: {
-							// 		variation: "danger",
-							// 		icon: "Trash",
-							// 		isDisabled: true,
-							// 	},
-							// },
 							{
-								id: "menu-beehive",
-								label: "Beehive",
+								id: "view-form",
+								label: "View form",
 								props: {
-									href: "#",
-									icon: "PluginBeehive",
-									variation: "beehive",
+									isChecked: checkedItems.indexOf("view-form") > -1,
 								},
 							},
 							{
-								id: "menu-branda",
-								label: "Branda",
+								id: "edit-form",
+								label: "Edit form",
 								props: {
-									icon: "PluginBranda",
-									variation: "branda",
+									isChecked: checkedItems.indexOf("edit-form") > -1,
 								},
 							},
 							{
-								id: "menu-defender",
-								label: "Defender",
+								id: "duplicate-form",
+								label: "Duplicate form",
 								props: {
-									icon: "PluginDefender",
-									variation: "defender",
+									isChecked: checkedItems.indexOf("duplicate-form") > -1,
 								},
 							},
 							{
-								id: "menu-forminator",
-								label: "Forminator",
+								id: "delete-form",
+								label: "Delete form",
 								props: {
-									icon: "PluginForminator",
-									variation: "forminator",
-								},
-							},
-							{
-								id: "menu-hummingbird",
-								label: "Hummingbird",
-								props: {
-									icon: "PluginHummingbird",
-									variation: "hummingbird",
-								},
-							},
-							{
-								id: "menu-hustle",
-								label: "Hustle",
-								props: {
-									icon: "PluginHustle",
-									variation: "hustle",
-								},
-							},
-							{
-								id: "menu-shipper",
-								label: "Shipper",
-								props: {
-									icon: "PluginShipper",
-									variation: "shipper",
-								},
-							},
-							{
-								id: "menu-smush",
-								label: "Smush",
-								props: {
-									icon: "PluginSmush",
-									variation: "smush",
-								},
-							},
-							{
-								id: "menu-smartcrawl",
-								label: "SmartCrawl",
-								props: {
-									icon: "PluginSmartcrawl",
-									variation: "smartcrawl",
-								},
-							},
-							{
-								id: "menu-ivt",
-								label: "IVT",
-								props: {
-									icon: "PluginIvt",
-									variation: "ivt",
+									variation: "danger",
+									icon: "Trash",
+									isDisabled: true,
 								},
 							},
 						]}
@@ -401,6 +320,7 @@ export const Dropdown = ({ color, ...props }: { color: string }) => {
 						onSearch={(string) => {
 							console.log("search", string)
 						}}
+						menuCustomWidth={250}
 						_style={{
 							width: "250px",
 						}}

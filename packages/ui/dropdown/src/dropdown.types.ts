@@ -229,6 +229,10 @@ interface DropdownProps
 		perPage: number,
 		query: string,
 	) => Promise<never[]>
+	/**
+	 * Menu custom width
+	 */
+	menuCustomWidth?: number
 }
 
 // Type definition for the modal handling functions

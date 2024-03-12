@@ -84,17 +84,21 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 				IconTag = IconTag ? IconTag : Icons.Add
 				content = (
 					<>
-						<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
-						<div id={menuTitleId}>
-							<span className="sui-dropdown__menu-item--title">{children}</span>
-							{variable && (
-								<span className="sui-dropdown__menu-item--var">{` {${variable}}`}</span>
-							)}
-							{description && (
-								<div className="sui-dropdown__menu-item--desc">
-									{description}
-								</div>
-							)}
+						<div id={menuTitleId} className="sui-dropdown__menu-item--wrapper">
+							<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
+							<div>
+								<span className="sui-dropdown__menu-item--title">
+									{children}
+								</span>
+								{variable && (
+									<span className="sui-dropdown__menu-item--var">{` {${variable}}`}</span>
+								)}
+								{description && (
+									<div className="sui-dropdown__menu-item--desc">
+										{description}
+									</div>
+								)}
+							</div>
 						</div>
 					</>
 				)

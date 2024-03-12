@@ -64,6 +64,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			isAsync = false,
 			asyncOptions = {},
 			getOptions,
+			menuCustomWidth,
 			_htmlProps = {},
 			_style = {},
 		},
@@ -272,6 +273,9 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						"aria-labelledby": `${id}__label`,
 						"aria-label": `${id}__label`,
 					})}
+					style={{
+						width: `${menuCustomWidth}px`,
+					}}
 				>
 					{renderContentOnTop && !!children && (
 						<div className="sui-dropdown__menu-content">{children}</div>

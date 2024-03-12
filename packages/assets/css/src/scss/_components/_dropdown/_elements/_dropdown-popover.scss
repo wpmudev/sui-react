@@ -12,7 +12,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			@include element(popover) {
-				width: 160px;
+				min-width: 120px;
 				z-index: 100;
 				position: absolute;
 				top: 100%;
@@ -31,6 +31,16 @@
 				//@include modifier(fixed-height) {
 				//	max-height: $dropdown-size-height-md;
 				//}
+
+				@include modifier(select-variable) {
+					.sui-#{$block-name}__menu-item {
+						border-bottom: $border-width-sm solid $color-extended-neutral-80;
+
+						&:last-child {
+							border-bottom: 0;
+						}
+					}
+				}
 			}
 		}
 	}
