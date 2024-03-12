@@ -110,10 +110,7 @@ export const buildStyleSheet = (
 		if (null === size) {
 			return {
 				...acc,
-				[parentSelector.replace("body ", "")]: {
-					...acc[parentSelector as string],
-					...styleVal,
-				},
+				...styleVal,
 			}
 		}
 
