@@ -9,42 +9,34 @@ import docs from "./ReactSelect.mdx"
 
 const options = [
 	{
-		icon: "Settings",
 		id: "option-1",
 		label: "Option 1",
 	},
 	{
-		icon: "Settings",
 		id: "option-2",
 		label: "Option 2",
 	},
 	{
-		icon: "Settings",
 		id: "option-3",
 		label: "Option 3",
 	},
 	{
-		icon: "Settings",
 		id: "option-4",
 		label: "Option 4",
 	},
 	{
-		icon: "Settings",
 		id: "option-5",
 		label: "Option 5",
 	},
 	{
-		icon: "Settings",
 		id: "option-6",
 		label: "Option 6",
 	},
 	{
-		icon: "Settings",
 		id: "option-7",
 		label: "Option 7",
 	},
 	{
-		icon: "Settings",
 		id: "option-8",
 		label: "India",
 	},
@@ -91,6 +83,10 @@ const Select = ({
 									isSearchable,
 									label: "Search...",
 								})}
+								options={options.map((option) => ({
+									...option,
+									props: { icon: "Settings" },
+								}))}
 							/>
 						</FormField>
 					)}
@@ -105,21 +101,13 @@ const Select = ({
 						>
 							<MultiSelect
 								{...props}
-								// optionAppreance={(option, rawOption) => {
-								// 	return (
-								// 		<div
-								// 			style={{
-								// 				alignItems: "center",
-								// 				display: "flex",
-								// 				width: "100%",
-								// 				backgroundColor: rawOption?.isHovered ? "red" : "white",
-								// 			}}
-								// 		>
-								// 			{option}
-								// 			<span>Hellow</span>
-								// 		</div>
-								// 	)
-								// }}
+								options={options.map((option) => ({
+									...option,
+									props: {
+										_checkboxProps: { isSmall: false },
+										isSelected: false,
+									},
+								}))}
 							/>
 						</FormField>
 					)}

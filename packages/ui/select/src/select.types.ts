@@ -3,6 +3,10 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { DropdownRefProps } from "@wpmudev/sui-dropdown"
+import {
+	MenuItemProps,
+	MenuGroupProps,
+} from "@wpmudev/sui-dropdown/src/dropdown.types"
 
 type SelectOptionType = {
 	id: string
@@ -130,7 +134,7 @@ interface SelectSearchInputProps
 }
 
 interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
-	options: SelectBaseProps["options"]
+	options: Array<MenuItemProps | MenuGroupProps>
 	onEvent?: (id: string | number) => void
 	selectAll?: () => void
 	onToggle: (isOpen: boolean) => void

@@ -28,6 +28,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	_type = "",
 	_htmlProps = {},
 	_style = {},
+	_checkboxProps = {},
 }) => {
 	// Use the useInteraction hook to manage hover and focus states
 	const [isHovered, isFocused, methods] = useInteraction({})
@@ -77,6 +78,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 						isSmall={true}
 						isChecked={isChecked}
 						isDisabled={isDisabled}
+						{..._renderHTMLPropsSafely(_checkboxProps)}
 					/>
 				)
 				break

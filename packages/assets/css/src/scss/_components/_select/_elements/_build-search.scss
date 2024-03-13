@@ -36,12 +36,6 @@
 						0 $spacing-2xs $spacing-lg 0 $color-shadow-light,
 						0 #{$spacing-sm + 2px} $spacing-default 0 $color-shadow-default;
 				}
-
-				@include modifies-element(dropdown) {
-					margin-top: $select-dropdown-margin-md;
-					border-top-left-radius: 0;
-					border-top-right-radius: 0;
-				}
 			}
 		}
 	}

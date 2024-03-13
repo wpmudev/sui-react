@@ -324,7 +324,7 @@ Dropdown.args = {
 
 Dropdown.argTypes = {
 	example: {
-		name: "Example",
+		name: "Type",
 		options: ["select-checkbox", "select", "select-variable", "pro", "custom"],
 		control: {
 			type: "select",

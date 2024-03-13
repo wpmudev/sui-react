@@ -116,7 +116,9 @@ const Select: React.FC<SelectBaseProps> = ({
 			return filterItem ? { ...filterItem } : option
 		})
 
-		const filteredItemList = updatedItems.filter((option) => option?.isSelected)
+		const filteredItemList = updatedItems.filter(
+			(option) => option?.props.isSelected,
+		)
 
 		const currentItems = filteredItemList.length > 0 ? filteredItemList : label
 
@@ -188,14 +190,14 @@ const Select: React.FC<SelectBaseProps> = ({
 			(option) => option.id === optionId,
 		)
 		const updatedItems = [...filteredItems]
-		const isSelected = updatedItems[optionIndex].isSelected
+		const isSelected = updatedItems[optionIndex].props.isSelected
 		if (!isMultiSelect) {
-			updatedItems.forEach((option) => (option.isSelected = false))
-			updatedItems[optionIndex].isSelected = true
+			updatedItems.forEach((option) => (option.props.isSelected = false))
+			updatedItems[optionIndex].props.isSelected = true
 			setFilteredItems(updatedItems)
 			dropdownRef.current?.close()
 		} else {
-			updatedItems[optionIndex].isSelected = !isSelected
+			updatedItems[optionIndex].props.isSelected = !isSelected
 			setFilteredItems(updatedItems)
 		}
 	}
@@ -246,7 +248,13 @@ const Select: React.FC<SelectBaseProps> = ({
 		options: filteredItems,
 		selected: selectedItem,
 		isSmall,
-		isSearchable,
+		...(isSearchable && {
+			isSearchable,
+			options: filteredItems.map((option) => ({
+				...option,
+				defaultLabel: option.label,
+			})),
+		}),
 		...(isMultiSelect && {
 			isMultiSelect,
 			selectAll: () => {

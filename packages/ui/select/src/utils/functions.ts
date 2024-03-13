@@ -61,7 +61,10 @@ const RemoveAll = (
 ) => {
 	const updatedOptions = options.map((option) => ({
 		...option,
-		isSelected: false,
+		props: {
+			...option.props,
+			isSelected: false,
+		},
 	}))
 	setSelectedItem([])
 	setFilterItems(updatedOptions)
@@ -77,7 +80,10 @@ const RemoveSelection = (
 		if (option.id === id) {
 			return {
 				...option,
-				isSelected: false,
+				props: {
+					...option.props,
+					isSelected: false,
+				},
 			}
 		}
 		return option
@@ -90,10 +96,15 @@ const SelectAll = (
 	options: SelectOptionType[],
 	setFilterItems: (options: SelectOptionType[]) => void,
 ) => {
-	const allSelected = options.every((option) => option.isSelected === true)
+	const allSelected = options.every(
+		(option) => option.props.isSelected === true,
+	)
 	const updatedOptions = options.map((option) => ({
 		...option,
-		isSelected: !allSelected,
+		props: {
+			...option.props,
+			isSelected: !allSelected,
+		},
 	}))
 	setFilterItems(updatedOptions)
 }
