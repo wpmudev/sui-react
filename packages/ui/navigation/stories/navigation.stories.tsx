@@ -145,7 +145,7 @@ export const Navigation = (props: {
 								style={{
 									display: "flex",
 									justifyContent: "center",
-									padding: "8px 16px",
+									padding: "8px 24px",
 								}}
 							>
 								<Button

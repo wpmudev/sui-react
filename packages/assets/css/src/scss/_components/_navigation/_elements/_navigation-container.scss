@@ -8,32 +8,49 @@
 ///
 /// @param {String} $block - Main block name
 @mixin build-container($block) {
-    // DIR: Left to right.
-    // THEME: None.
-    @include sui-class($rtl: false, $theme: null) {
-        @include block($block) {
-            align-items: center;
-            background-color: $color-extended-neutral-100;
-            display: flex;
-            gap: $spacing-lg;
-            justify-content: space-between;
-            padding: $spacing-lg $spacing-xxl;
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			align-items: center;
+			background-color: $color-extended-neutral-100;
+			display: flex;
+			gap: $spacing-lg;
+			justify-content: space-between;
+			padding: $spacing-lg $spacing-xxl;
 
-            @include media(max-width, md) {
-                padding: $spacing-xl;
-            }
-            
-            @include media(max-width, sm) {
-                padding: $spacing-lg;
-            }
-        }
-    }
+			.sui-dropdown__popover {
+				.sui-dropdown__menu-group-title {
+					padding: $spacing-md $spacing-xl;
+				}
 
-    // DIR: Left to right.
-    // THEME: Dark.
-    @include sui-class($rtl: false, $theme: dark) {
-        @include block($block) {
-            border: $border-width-sm solid $color-extended-neutral-0;
-        }
-    }
+				.sui-dropdown__menu-item {
+					padding: $spacing-md $spacing-xl;
+					font: $font-weight-md #{$font-size-default}/#{$font-height-sm}
+						$font-family-default;
+					color: $color-extended-neutral-50;
+
+					&.sui-dropdown__menu-item--hover {
+						color: $color-extended-neutral-0;
+					}
+				}
+			}
+
+			@include media(max-width, md) {
+				padding: $spacing-xl;
+			}
+
+			@include media(max-width, sm) {
+				padding: $spacing-lg;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			border: $border-width-sm solid $color-extended-neutral-0;
+		}
+	}
 }
