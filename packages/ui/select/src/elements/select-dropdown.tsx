@@ -5,6 +5,7 @@ import React, {
 	MouseEvent,
 	useId,
 	HTMLProps,
+	ChangeEvent,
 } from "react"
 
 import { Checkbox } from "@wpmudev/sui-checkbox"
@@ -64,6 +65,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	optionAppreance,
 	dropdownRef = null,
 	onToggle = (isOpen: boolean) => {},
+	onChange = (value: string) => {},
 	_htmlProps,
 	...props
 }) => {
@@ -99,9 +101,12 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 				"aria-label": "dropdown-options",
 			}}
 			menu={content}
-			onMenuClick={() => onSelect}
+			onMenuClick={(id: SelectOptionType["id"], e: MouseEvent<HTMLElement>) =>
+				onSelect(e, id)
+			}
 			{...(isMultiSelect && {
 				type: "select-checkbox",
+				onSearch: onChange,
 				allowSearch: true,
 			})}
 		></SuiDropdown>
@@ -203,8 +208,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 
 	// Render options for the multiselect dropdown
 	const renderMultiselectOptions = () => {
-		const allSelected = options?.every((option) => option?.props.isSelected)
-		const isIndeterminate = options?.find((option) => option?.props.isSelected)
+		const allSelected = options?.every((option) => option?.props?.isSelected)
+		const isIndeterminate = options?.find((option) => option?.props?.isSelected)
 		const newOptions = [
 			{
 				id: "select-all",
@@ -226,8 +231,6 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						isChecked: option?.props.isSelected,
 						_checkboxProps: {
 							...option.props._checkboxProps,
-							onChange: (e) => onSelect(e, option?.id),
-							onKeyDown: (e) => onSelect(e, option?.id),
 						},
 					},
 				}

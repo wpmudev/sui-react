@@ -11,34 +11,58 @@ const options = [
 	{
 		id: "option-1",
 		label: "Option 1",
+		props: {
+			isSelected: false,
+		},
 	},
 	{
 		id: "option-2",
 		label: "Option 2",
+		props: {
+			isSelected: false,
+		},
 	},
 	{
 		id: "option-3",
 		label: "Option 3",
+		props: {
+			isSelected: false,
+		},
 	},
 	{
 		id: "option-4",
 		label: "Option 4",
+		props: {
+			isSelected: false,
+		},
 	},
 	{
 		id: "option-5",
 		label: "Option 5",
+		props: {
+			isSelected: false,
+		},
 	},
 	{
 		id: "option-6",
 		label: "Option 6",
+		props: {
+			isSelected: false,
+		},
 	},
 	{
 		id: "option-7",
 		label: "Option 7",
+		props: {
+			isSelected: false,
+		},
 	},
 	{
 		id: "option-8",
 		label: "India",
+		props: {
+			isSelected: false,
+		},
 	},
 ]
 
@@ -85,7 +109,7 @@ const Select = ({
 								})}
 								options={options.map((option) => ({
 									...option,
-									props: { icon: "Settings" },
+									props: { ...option.props, icon: "Settings" },
 								}))}
 							/>
 						</FormField>
@@ -104,8 +128,8 @@ const Select = ({
 								options={options.map((option) => ({
 									...option,
 									props: {
+										...option.props,
 										_checkboxProps: { isSmall: false },
-										isSelected: false,
 									},
 								}))}
 							/>

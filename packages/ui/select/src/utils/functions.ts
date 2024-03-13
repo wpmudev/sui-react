@@ -47,7 +47,7 @@ const MultiSelectSearch = (
 	}
 
 	const filteredItems = options.filter((option) =>
-		option.label.toLowerCase().startsWith(searchValue),
+		option.label.toLowerCase().startsWith(searchValue.toLowerCase()),
 	)
 
 	setFilterItems(filteredItems)
@@ -97,7 +97,7 @@ const SelectAll = (
 	setFilterItems: (options: SelectOptionType[]) => void,
 ) => {
 	const allSelected = options.every(
-		(option) => option.props.isSelected === true,
+		(option) => option?.props?.isSelected === true,
 	)
 	const updatedOptions = options.map((option) => ({
 		...option,

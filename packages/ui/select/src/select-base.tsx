@@ -159,8 +159,8 @@ const Select: React.FC<SelectBaseProps> = ({
 	}
 
 	// Multiselect search function.
-	const handleMultiSelectSearch = (event: ChangeEvent<HTMLInputElement>) => {
-		const searchValue = event.target.value.toLowerCase()
+	const handleMultiSelectSearch = (value: string) => {
+		const searchValue = value
 		dropdownRef.current?.open()
 		MultiSelectSearch(searchValue, items, setFilteredItems)
 	}
