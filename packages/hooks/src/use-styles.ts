@@ -134,8 +134,8 @@ export const buildStyleSheet = (
 
 		const styleVal = buildSingleValue(val)
 
-		// last breakpoint value is for default value
-		if (null === size) {
+		// Default value
+		if (pos === "default") {
 			return {
 				...acc,
 				...styleVal,
@@ -146,7 +146,7 @@ export const buildStyleSheet = (
 		const prevSize = getPreviousBrpSize(pos)
 
 		const query =
-			pos !== "default"
+			pos !== "sm"
 				? `@media(min-width:${(prevSize ?? 0) + 1}px) and (max-width:${size}px)`
 				: `@media(max-width:${size}px)`
 
@@ -168,7 +168,7 @@ export const buildStyleSheet = (
 				// Ex. value = { default: "purple", sm: "red", md: "green", lg: "yellow", xl: "orange" }
 				(acc, pos: string) => ({
 					...acc,
-					...buildMediaQueries(value[pos], pos as positionType, acc), // TODO: Create a type for it.
+					...buildMediaQueries(value[pos], pos as positionType, acc),
 				}),
 				{},
 			)
