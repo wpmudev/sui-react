@@ -9,7 +9,13 @@ export const StyleCode = dedent`
 	<Box 
     _style={
         {
-            backgroundColor: ["red", "blue", "green", "yellow", "purple"]
+            backgroundColor: { 
+                default: "purple",
+                sm: "red",
+                md: "blue",
+                lg: "green",
+                xl: "yellow"
+            }
             mt: "10px";
         }
     }>
@@ -19,12 +25,13 @@ export const StyleCode = dedent`
     /* 
     - Sets margin top to 10px for all screens
 
-    - Sets a different background color for each screen as follows: 
+    - Sets a different background color for each screen as follows:
+        “purple”: to the default selector
         “red”: max-width: 600px
         “blue”: min-width: 601px and max-width: 1024px
         “green”: min-width: 1025px and max-width: 1200px
         “yellow”: min-width: 1201px and max-width: 1600px
-        “purple”: to the default selector
+        
     */
 `
 
@@ -88,7 +95,7 @@ ml: "marginLeft",
                     with three key  differences: 
                     
                     1. It doesn't append style attribute to the DOM, instead, it automatically generates a unique className for the styles. 
-                    2. The possibility of adding values for diffrent breakpints by using an array for the CSS property.
+                    2. The possibility of adding values for different breakpoints.
                     3. It provides shorthands for margin and padding properties for easier use.   
                 </p>
                 
