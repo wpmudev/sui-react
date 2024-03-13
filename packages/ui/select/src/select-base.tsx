@@ -32,9 +32,31 @@ import {
 	MultiSelectSearch,
 } from "./utils/functions"
 
+const initOptions = (
+	options: SelectOptionType[] | undefined,
+	isSearchable: boolean,
+): SelectOptionType[] => {
+	if (!options) {
+		options = [
+			{ id: "option-1", label: "Option 1" },
+			{ id: "option-2", label: "Option 2" },
+			{ id: "option-3", label: "Option 3" },
+		]
+	}
+
+	if (isSearchable) {
+		options = options.map((option) => ({
+			...option,
+			defaultLabel: option.label,
+		}))
+	}
+
+	return options
+}
+
 const Select: React.FC<SelectBaseProps> = ({
 	id,
-	options,
+	options: propOptions,
 	className,
 	selected,
 	label = "select",
@@ -52,17 +74,10 @@ const Select: React.FC<SelectBaseProps> = ({
 	_htmlProps = {},
 }) => {
 	const uniqueId = useId()
+	const options = initOptions(propOptions, isSearchable)
 
 	if (!id) {
 		id = `select-${uniqueId}`
-	}
-
-	if (!options) {
-		options = [
-			{ id: "option-1", label: "Option 1" },
-			{ id: "option-2", label: "Option 2" },
-			{ id: "option-3", label: "Option 3" },
-		]
 	}
 
 	// set ref to dropdown.
@@ -82,11 +97,6 @@ const Select: React.FC<SelectBaseProps> = ({
 	useOuterClick(ref, () => {
 		dropdownRef.current?.close()
 	})
-
-	// update options
-	useEffect(() => {
-		setItems(options ?? [])
-	}, [options])
 
 	// hold isDropdownOpen's previous val
 	const prevIsDropdownOpen = usePrevious(isDropdownOpen)

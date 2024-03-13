@@ -47,6 +47,10 @@
 				@include modifies-element(control) {
 					padding: $select-control-searchable-padding;
 				}
+
+				.sui-select__dropdown--content {
+					display: block;
+				}
 			}
 
 			@include modifier(multiselect) {

@@ -13,11 +13,11 @@ const SearchDropdown = (
 	}
 
 	const filteredItems = options?.filter((option) =>
-		option.label.toLowerCase().startsWith(searchValue),
+		option.defaultLabel.toLowerCase().startsWith(searchValue),
 	)
 
 	const formattedItems = filteredItems?.map((option) => {
-		const index = option.label.toLowerCase().indexOf(searchValue)
+		const index = option.defaultLabel.toLowerCase().indexOf(searchValue)
 		if (index === -1) {
 			return { ...option, isSelected: false }
 		}
@@ -26,9 +26,9 @@ const SearchDropdown = (
 			...option,
 			isSelected: false,
 			newLabel:
-				option.label.substring(0, index) +
-				option.label.substring(index + searchValue.length),
-			boldLabel: option.label.substring(0, searchValue.length),
+				option.defaultLabel.substring(0, index) +
+				option.defaultLabel.substring(index + searchValue.length),
+			boldLabel: option.defaultLabel.substring(0, searchValue.length),
 		}
 	})
 

@@ -189,14 +189,10 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 				if (isSearchable) {
 					option.label = (
 						<span className="sui-select__dropdown--content">
-							{option?.props?.boldLabel && (
-								<strong>{option?.props?.boldLabel}</strong>
-							)}
+							{option?.boldLabel && <strong>{option?.boldLabel}</strong>}
 							{
 								option?.[
-									isSearchable && !!option?.props?.boldLabel
-										? "newLabel"
-										: "label"
+									isSearchable && !!option?.boldLabel ? "newLabel" : "label"
 								]
 							}
 						</span>
@@ -242,22 +238,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	// Render the appropriate dropdown options based on isMultiSelect
 	return (
 		<Fragment>
-			{isMultiSelect ? (
-				<Fragment>
-					{/* <div className="sui-select__search">
-						<Icon name="Search" size="sm" />
-						<Search
-							_htmlProps={{
-								placeholder: "Search",
-								..._renderHTMLPropsSafely(_htmlProps),
-							}}
-						/>
-					</div> */}
-					{renderMultiselectOptions()}
-				</Fragment>
-			) : (
-				renderOptions()
-			)}
+			{isMultiSelect ? renderMultiselectOptions() : renderOptions()}
 		</Fragment>
 	)
 }
