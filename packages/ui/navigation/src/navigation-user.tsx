@@ -63,6 +63,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 				trigger={userAvatarBtn}
 				renderContentOnTop={true}
 				menu={menu ?? []}
+				menuCustomWidth={240}
 			>
 				{getUserBlock()}
 			</Dropdown>
