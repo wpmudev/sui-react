@@ -18,7 +18,8 @@
 				align-items: center;
 				cursor: pointer;
 				display: flex;
-				font: $font-weight-default 13px/20px $font-family-default;
+				font: $font-weight-default #{$font-size-xs}/#{$font-height-xs}
+					$font-family-default;
 				gap: $spacing-md;
 				list-style: none;
 				line-height: $font-height-sm;
@@ -44,13 +45,20 @@
 				@include modifier(loading) {
 					align-items: center;
 					align-self: stretch;
-					background: #f8f8f8;
+					background: $color-extended-neutral-95;
 					border-radius: $border-radius-md;
 					display: flex;
-					font: $font-weight-default 13px/20px $font-family-default;
-					gap: 8px;
-					padding: 12px;
-					margin: 0 8px 8px;
+					font: $font-weight-default #{$font-size-xs}/#{$font-height-xs}
+						$font-family-default;
+					gap: $spacing-md;
+					padding: $spacing-default;
+					margin: 0 $spacing-md $spacing-md;
+				}
+
+				@include modifier(loading-alt) {
+					background: transparent;
+					padding: $spacing-md $spacing-lg;
+					margin: 0;
 				}
 			}
 

@@ -77,6 +77,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		const debounceSearchQuery = useDebounce(query, 500)
 		// Set loader when loading options from API
 		const [isLoading, setIsLoading] = useState(false)
+		// set alternate loading style
+		const [altLoader, setAltLoader] = useState(false)
 		// Dropdown options list
 		const [options, setOptions] = useState<DropdownProps["menu"]>(menu)
 		// Holds current page number (when loading options from API)
@@ -98,6 +100,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			if (!isLoading) {
 				loadFromAPI()
 			}
+			setAltLoader(true)
 		})
 
 		useImperativeHandle(ref, () => ({
@@ -300,11 +303,17 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 								{renderMenus(options)}
 								{isLoading && (
 									<li
-										className="sui-dropdown__menu-item--loading"
+										className={generateCN("", {
+											"sui-dropdown__menu-item--loading": true,
+											"sui-dropdown__menu-item--loading-alt": altLoader,
+										})}
 										tabIndex={-1}
 									>
-										<Spinner loaderSize="sm" />
-										<span>Loading</span>
+										<Spinner
+											colorScheme={altLoader ? "dark" : "primary"}
+											loaderSize="sm"
+										/>
+										<span>{altLoader ? "Loading..." : "Loading"}</span>
 									</li>
 								)}
 							</ul>

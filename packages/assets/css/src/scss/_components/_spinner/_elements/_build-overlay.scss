@@ -28,6 +28,10 @@
 
 				@include modifier(dark) {
 					background-color: $color-alpha-grey-70;
+
+					+ .sui-#{$block} .sui-#{$block}__icon--stroke {
+						stroke: $color-extended-neutral-100;
+					}
 				}
 			}
 		}
