@@ -112,17 +112,27 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	const renderOptions = () =>
 		wrapper(
 			options?.map((option) => {
-				if (isSearchable) {
-					option.label = (
-						<span className="sui-select__dropdown--content">
-							{option?.boldLabel && <strong>{option?.boldLabel}</strong>}
-							{
-								option?.[
-									isSearchable && !!option?.boldLabel ? "newLabel" : "label"
-								]
-							}
-						</span>
-					)
+				option = {
+					...option,
+					...(isSearchable && {
+						label: (
+							<span className="sui-select__dropdown--content">
+								{option?.boldLabel && <strong>{option?.boldLabel}</strong>}
+								{
+									option?.[
+										isSearchable && !!option?.boldLabel ? "newLabel" : "label"
+									]
+								}
+							</span>
+						),
+					}),
+					props: {
+						...option.props,
+						className: generateCN("", {
+							"sui-select__dropdown--option": true,
+							"sui-select__dropdown--selected": option?.props?.isSelected,
+						}),
+					},
 				}
 				return option
 			}) || [],
