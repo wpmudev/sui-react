@@ -17,18 +17,26 @@ const SearchDropdown = (
 	)
 
 	const formattedItems = filteredItems?.map((option) => {
-		const index = option?.searchLabel?.toLowerCase().indexOf(searchValue)
+		const searchLabel = option?.searchLabel
+		if (!searchLabel) {
+			return { ...option, isSelected: false }
+		}
+
+		const index = searchLabel.toLowerCase().indexOf(searchValue)
 		if (index === -1) {
 			return { ...option, isSelected: false }
 		}
 
+		const newLabel =
+			searchLabel.substring(0, index) +
+			searchLabel.substring(index + searchValue.length)
+		const boldLabel = searchLabel.substring(0, searchValue.length)
+
 		return {
 			...option,
 			isSelected: false,
-			newLabel:
-				option?.searchLabel?.substring(0, index) +
-				option?.searchLabel?.substring(index + searchValue.length),
-			boldLabel: option?.searchLabel?.substring(0, searchValue.length),
+			newLabel,
+			boldLabel,
 		}
 	})
 
@@ -46,8 +54,10 @@ const MultiSelectSearch = (
 		return
 	}
 
-	const filteredItems = options.filter((option) =>
-		option?.label?.toLowerCase().startsWith(searchValue.toLowerCase()),
+	const filteredItems = options.filter(
+		(option) =>
+			"string" === typeof option?.label &&
+			option?.label?.toLowerCase().startsWith(searchValue.toLowerCase()),
 	)
 
 	setFilterItems(filteredItems)
