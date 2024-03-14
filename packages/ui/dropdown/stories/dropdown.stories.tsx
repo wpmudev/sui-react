@@ -135,6 +135,18 @@ export const Dropdown = ({
 					{"select-checkbox" === example && (
 						<SuiDropdown
 							{...props}
+							isAsync={false}
+							onMenuClick={(menuId, e) => {
+								const checkedList = [...checkedItems]
+
+								if (checkedList.indexOf(menuId) > -1) {
+									checkedList.splice(checkedItems.indexOf(menuId), 1)
+								} else {
+									checkedList.push(menuId)
+								}
+
+								setCheckedItems(checkedList as [])
+							}}
 							type="select-checkbox"
 							menu={[
 								{
@@ -142,7 +154,7 @@ export const Dropdown = ({
 									label: "View form",
 									props: {
 										_checkboxProps: {
-											isChecked: checkedItems.includes("view-form"),
+											isChecked: checkedItems.indexOf("view-form") > -1,
 										},
 									},
 								},
@@ -151,7 +163,7 @@ export const Dropdown = ({
 									label: "Edit form",
 									props: {
 										_checkboxProps: {
-											isChecked: checkedItems.includes("edit-form"),
+											isChecked: checkedItems.indexOf("edit-form") > -1,
 										},
 									},
 								},
@@ -160,7 +172,7 @@ export const Dropdown = ({
 									label: "Duplicate form",
 									props: {
 										_checkboxProps: {
-											isChecked: checkedItems.includes("duplicate-form"),
+											isChecked: checkedItems.indexOf("duplicate-form") > -1,
 										},
 									},
 								},
@@ -174,16 +186,6 @@ export const Dropdown = ({
 									},
 								},
 							]}
-							onMenuClick={(menuId, e) => {
-								const checkedList = [...checkedItems]
-
-								if (checkedList.indexOf(menuId) > -1) {
-									checkedList.splice(checkedItems.indexOf(menuId), 1)
-								} else {
-									checkedList.push(menuId)
-								}
-								setCheckedItems(checkedList as [])
-							}}
 							onSearch={(string) => {
 								console.log("search", string)
 							}}
@@ -313,7 +315,7 @@ export const Dropdown = ({
 }
 
 Dropdown.args = {
-	example: "select-checkbox",
+	example: "pro",
 	label: "Menu Button",
 	isSmall: false,
 	isFixedHeight: true,
