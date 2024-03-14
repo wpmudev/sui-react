@@ -135,38 +135,33 @@ export const Dropdown = ({
 					{"select-checkbox" === example && (
 						<SuiDropdown
 							{...props}
-							onMenuClick={(menuId, e) => {
-								const checkedList = [...checkedItems]
-
-								if (checkedList.indexOf(menuId) > -1) {
-									checkedList.splice(checkedItems.indexOf(menuId), 1)
-								} else {
-									checkedList.push(menuId)
-								}
-
-								setCheckedItems(checkedList as [])
-							}}
 							type="select-checkbox"
 							menu={[
 								{
 									id: "view-form",
 									label: "View form",
 									props: {
-										isChecked: checkedItems.indexOf("view-form") > -1,
+										_checkboxProps: {
+											isChecked: checkedItems.includes("view-form"),
+										},
 									},
 								},
 								{
 									id: "edit-form",
 									label: "Edit form",
 									props: {
-										isChecked: checkedItems.indexOf("edit-form") > -1,
+										_checkboxProps: {
+											isChecked: checkedItems.includes("edit-form"),
+										},
 									},
 								},
 								{
 									id: "duplicate-form",
 									label: "Duplicate form",
 									props: {
-										isChecked: checkedItems.indexOf("duplicate-form") > -1,
+										_checkboxProps: {
+											isChecked: checkedItems.includes("duplicate-form"),
+										},
 									},
 								},
 								{
@@ -179,6 +174,16 @@ export const Dropdown = ({
 									},
 								},
 							]}
+							onMenuClick={(menuId, e) => {
+								const checkedList = [...checkedItems]
+
+								if (checkedList.indexOf(menuId) > -1) {
+									checkedList.splice(checkedItems.indexOf(menuId), 1)
+								} else {
+									checkedList.push(menuId)
+								}
+								setCheckedItems(checkedList as [])
+							}}
 							onSearch={(string) => {
 								console.log("search", string)
 							}}
@@ -325,13 +330,19 @@ Dropdown.args = {
 Dropdown.argTypes = {
 	example: {
 		name: "Type",
-		options: ["select-checkbox", "select", "select-variable", "pro", "custom"],
+		options: [
+			// "select-checkbox",
+			// "select",
+			// "select-variable",
+			"pro",
+			"custom",
+		],
 		control: {
 			type: "select",
 			labels: {
-				"select-checkbox": "Example: Select + Checkbox",
-				select: "Example: Dropdown",
-				"select-variable": "Example: Select + Variable",
+				// "select-checkbox": "Example: Select + Checkbox",
+				// select: "Example: Dropdown",
+				// "select-variable": "Example: Select + Variable",
 				pro: "Example: Pro Menu",
 				icon: "Example: Icon Only",
 				custom: "Example: Custom Content",
