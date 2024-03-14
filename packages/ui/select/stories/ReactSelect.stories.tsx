@@ -107,8 +107,11 @@ const Select = ({
 									isSearchable,
 									label: "Search...",
 								})}
-								options={options.map((option) => ({
+								options={options?.map((option) => ({
 									...option,
+									...(isSearchable && {
+										searchLabel: option.label,
+									}),
 									props: { ...option.props, icon: "Settings" },
 								}))}
 							/>

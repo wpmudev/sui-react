@@ -13,11 +13,11 @@ const SearchDropdown = (
 	}
 
 	const filteredItems = options?.filter((option) =>
-		option.defaultLabel.toLowerCase().startsWith(searchValue),
+		option?.searchLabel?.toLowerCase().startsWith(searchValue),
 	)
 
 	const formattedItems = filteredItems?.map((option) => {
-		const index = option.defaultLabel.toLowerCase().indexOf(searchValue)
+		const index = option?.searchLabel?.toLowerCase().indexOf(searchValue)
 		if (index === -1) {
 			return { ...option, isSelected: false }
 		}
@@ -26,9 +26,9 @@ const SearchDropdown = (
 			...option,
 			isSelected: false,
 			newLabel:
-				option.defaultLabel.substring(0, index) +
-				option.defaultLabel.substring(index + searchValue.length),
-			boldLabel: option.defaultLabel.substring(0, searchValue.length),
+				option?.searchLabel?.substring(0, index) +
+				option?.searchLabel?.substring(index + searchValue.length),
+			boldLabel: option?.searchLabel?.substring(0, searchValue.length),
 		}
 	})
 
@@ -47,7 +47,7 @@ const MultiSelectSearch = (
 	}
 
 	const filteredItems = options.filter((option) =>
-		option.label.toLowerCase().startsWith(searchValue.toLowerCase()),
+		option?.label?.toLowerCase().startsWith(searchValue.toLowerCase()),
 	)
 
 	setFilterItems(filteredItems)
@@ -101,6 +101,7 @@ const SelectAll = (
 	)
 	const updatedOptions = options.map((option) => ({
 		...option,
+		isSelected: !allSelected,
 		props: {
 			...option.props,
 			isSelected: !allSelected,

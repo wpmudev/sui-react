@@ -76,6 +76,8 @@ interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
 
 	variable?: string // Content to display as the variable for the dropdown menu item.
 	description?: string // Content to display as the description for the dropdown menu item.
+
+	_checkboxProps?: CheckboxProps
 }
 
 /**

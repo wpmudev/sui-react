@@ -3,11 +3,7 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { DropdownRefProps } from "@wpmudev/sui-dropdown"
-import {
-	DropdownMenuItemProps,
-	MenuGroupProps,
-	MenuItemProps,
-} from "@wpmudev/sui-dropdown/src/dropdown.types"
+import { MenuItemProps } from "@wpmudev/sui-dropdown/src/dropdown.types"
 import { CheckboxProps } from "@wpmudev/sui-checkbox"
 
 type SelectOptionType = {
@@ -16,7 +12,7 @@ type SelectOptionType = {
 	icon?: IconsNamesType
 	isSelected?: boolean
 	// dynamic internal props
-	defaultLabel?: string
+	searchLabel?: string
 	boldLabel?: string
 	newLabel?: string
 	isHovered?: boolean

@@ -50,8 +50,8 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	// Filter options list based on the searched value
 	const filteredOptions = React.useMemo(() => {
 		return isFiltered
-			? dropdownItems?.filter(({ defaultLabel }) =>
-					defaultLabel.startsWith(value),
+			? dropdownItems?.filter(({ searchLabel }) =>
+					searchLabel.startsWith(value),
 			  )
 			: dropdownItems
 	}, [dropdownItems, isFiltered, value])

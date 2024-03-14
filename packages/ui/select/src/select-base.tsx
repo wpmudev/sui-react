@@ -34,7 +34,6 @@ import {
 
 const initOptions = (
 	options: SelectOptionType[] | undefined,
-	isSearchable: boolean,
 ): SelectOptionType[] => {
 	if (!options) {
 		options = [
@@ -42,13 +41,6 @@ const initOptions = (
 			{ id: "option-2", label: "Option 2" },
 			{ id: "option-3", label: "Option 3" },
 		]
-	}
-
-	if (isSearchable) {
-		options = options.map((option) => ({
-			...option,
-			defaultLabel: option.label,
-		}))
 	}
 
 	return options
@@ -74,7 +66,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	_htmlProps = {},
 }) => {
 	const uniqueId = useId()
-	const options = initOptions(propOptions, isSearchable)
+	const options = initOptions(propOptions)
 
 	if (!id) {
 		id = `select-${uniqueId}`
@@ -127,7 +119,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		})
 
 		const filteredItemList = updatedItems.filter(
-			(option) => option?.props.isSelected,
+			(option) => option?.props?.isSelected,
 		)
 
 		const currentItems = filteredItemList.length > 0 ? filteredItemList : label
@@ -200,7 +192,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			(option) => option.id === optionId,
 		)
 		const updatedItems = [...filteredItems]
-		const isSelected = updatedItems[optionIndex].props.isSelected
+		const isSelected = updatedItems[optionIndex].props?.isSelected
 		if (!isMultiSelect) {
 			updatedItems.forEach((option) => (option.props.isSelected = false))
 			updatedItems[optionIndex].props.isSelected = true
@@ -262,7 +254,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			isSearchable,
 			options: filteredItems.map((option) => ({
 				...option,
-				defaultLabel: option.label,
+				searchLabel: option.label,
 			})),
 		}),
 		...(isMultiSelect && {
