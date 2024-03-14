@@ -4,9 +4,8 @@ import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { DropdownRefProps } from "@wpmudev/sui-dropdown"
 import { MenuItemProps } from "@wpmudev/sui-dropdown/src/dropdown.types"
-import { CheckboxProps } from "@wpmudev/sui-checkbox"
 
-type SelectOptionType = {
+interface SelectOptionType extends MenuItemProps {
 	id: string
 	label: ReactNode | string
 	icon?: IconsNamesType
@@ -17,10 +16,6 @@ type SelectOptionType = {
 	newLabel?: string
 	isHovered?: boolean
 	isFocused?: boolean
-	props?: MenuItemProps & {
-		isSelected?: boolean
-		_checkboxProps?: CheckboxProps
-	}
 }
 
 /**

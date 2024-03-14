@@ -118,9 +118,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			return filterItem ? { ...filterItem } : option
 		})
 
-		const filteredItemList = updatedItems.filter(
-			(option) => option?.props?.isSelected,
-		)
+		const filteredItemList = updatedItems.filter((option) => option?.isSelected)
 
 		const currentItems = filteredItemList.length > 0 ? filteredItemList : label
 
@@ -192,14 +190,20 @@ const Select: React.FC<SelectBaseProps> = ({
 			(option) => option.id === optionId,
 		)
 		const updatedItems = [...filteredItems]
-		const isSelected = updatedItems[optionIndex].props?.isSelected
+		const isSelected = updatedItems[optionIndex]?.isSelected
 		if (!isMultiSelect) {
-			updatedItems.forEach((option) => (option.props.isSelected = false))
-			updatedItems[optionIndex].props.isSelected = true
+			updatedItems.forEach((option) => (option.isSelected = false))
+			updatedItems[optionIndex] = {
+				...updatedItems[optionIndex],
+				isSelected: true,
+			}
 			setFilteredItems(updatedItems)
 			dropdownRef.current?.close()
 		} else {
-			updatedItems[optionIndex].props.isSelected = !isSelected
+			updatedItems[optionIndex] = {
+				...updatedItems[optionIndex],
+				isSelected: !isSelected,
+			}
 			setFilteredItems(updatedItems)
 		}
 	}

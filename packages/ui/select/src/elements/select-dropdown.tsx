@@ -22,34 +22,6 @@ import {
 	MenuGroupProps,
 } from "@wpmudev/sui-dropdown/src/dropdown.types"
 
-const DropdownOption = ({
-	children,
-	option,
-	optionAppreance,
-	...props
-}: SelectDropdownOptionProps) => {
-	// Define states.
-	const [isHovered, isFocused, methods] = useInteraction({} as InteractionTypes)
-
-	const renderDropdownOption = (
-		optionJSX: JSX.Element,
-		rawOption: SelectOptionType,
-	) => (!!optionAppreance ? optionAppreance(optionJSX, rawOption) : optionJSX)
-
-	return (
-		<li
-			className={generateCN("", {
-				"sui-select__dropdown--option": true,
-				"sui-select__dropdown--selected": option?.props?.isSelected,
-			})}
-			{...props}
-			{...methods}
-		>
-			{renderDropdownOption(children, { ...option, isHovered, isFocused })}
-		</li>
-	)
-}
-
 const Dropdown: React.FC<SelectDropdownProps> = ({
 	options,
 	onEvent = () => {},
@@ -130,7 +102,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						...option.props,
 						className: generateCN("", {
 							"sui-select__dropdown--option": true,
-							"sui-select__dropdown--selected": option?.props?.isSelected,
+							"sui-select__dropdown--selected": option?.isSelected,
 						}),
 					},
 				}
@@ -140,8 +112,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 
 	// Render options for the multiselect dropdown
 	const renderMultiselectOptions = () => {
-		const allSelected = options?.every((option) => option?.props?.isSelected)
-		const isIndeterminate = options?.find((option) => option?.props?.isSelected)
+		const allSelected = options?.every((option) => option?.isSelected)
+		const isIndeterminate = options?.find((option) => option?.isSelected)
 		const newOptions = options
 			? [
 					{
@@ -161,9 +133,9 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 							...option,
 							props: {
 								...option.props,
-								isChecked: option?.props?.isSelected,
 								_checkboxProps: {
 									...option?.props?._checkboxProps,
+									isChecked: option?.isSelected,
 								},
 							},
 						}
