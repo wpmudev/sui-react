@@ -6,6 +6,7 @@ import {
 	SuiHTMLAttributes,
 	SuiStyleType,
 } from "@wpmudev/sui-utils"
+import { CheckboxProps } from "@wpmudev/sui-checkbox"
 
 /**
  * Props for Menu component.
@@ -107,7 +108,9 @@ interface DropdownMenuBaseProps extends SuiStyleType {
 
 // Props for an individual item within the dropdown menu.
 interface MenuItemProps extends DropdownMenuBaseProps {
-	props?: Omit<DropdownMenuItemProps, "children"> // Additional props for the underlying MenuItem component.
+	props?: Omit<DropdownMenuItemProps, "children"> & {
+		_checkboxProps?: CheckboxProps // Extend _checkboxProps here
+	} // Additional props for the underlying MenuItem component.
 }
 
 // Props for a group of dropdown menu items.

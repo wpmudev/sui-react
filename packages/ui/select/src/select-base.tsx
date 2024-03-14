@@ -270,8 +270,8 @@ const Select: React.FC<SelectBaseProps> = ({
 			selectAll: () => {
 				SelectAll(filteredItems, setFilteredItems)
 			},
-			onChange: (e: ChangeEvent<HTMLInputElement>) => {
-				handleMultiSelectSearch(e)
+			onChange: (value: string) => {
+				handleMultiSelectSearch(value)
 			},
 		}),
 	}

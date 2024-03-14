@@ -4,20 +4,27 @@ import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { DropdownRefProps } from "@wpmudev/sui-dropdown"
 import {
-	MenuItemProps,
+	DropdownMenuItemProps,
 	MenuGroupProps,
+	MenuItemProps,
 } from "@wpmudev/sui-dropdown/src/dropdown.types"
+import { CheckboxProps } from "@wpmudev/sui-checkbox"
 
 type SelectOptionType = {
 	id: string
-	label: string
+	label: ReactNode | string
 	icon?: IconsNamesType
 	isSelected?: boolean
 	// dynamic internal props
+	defaultLabel?: string
 	boldLabel?: string
 	newLabel?: string
 	isHovered?: boolean
 	isFocused?: boolean
+	props?: MenuItemProps & {
+		isSelected?: boolean
+		_checkboxProps?: CheckboxProps
+	}
 }
 
 /**
@@ -134,7 +141,7 @@ interface SelectSearchInputProps
 }
 
 interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
-	options: Array<MenuItemProps | MenuGroupProps>
+	options: SelectBaseProps["options"]
 	onEvent?: (id: string | number) => void
 	selectAll?: () => void
 	onToggle: (isOpen: boolean) => void
@@ -144,6 +151,7 @@ interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 	selected?: Record<string, any> | string
 	ref?: RefObject<HTMLInputElement>
 	onKeyDown?(e?: any): void
+	onChange?: (value: string) => void
 	optionAppreance: SelectBaseProps["optionAppreance"]
 	dropdownRef?: Ref<DropdownRefProps | null>
 }
