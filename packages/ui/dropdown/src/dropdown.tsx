@@ -216,6 +216,9 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					menuItem.props = menuItem.props ?? {}
 					menuItem.props.onClick = (e: ChangeEvent<unknown>) => {
 						onMenuClick(menuItem.id, e)
+						if ("select-checkbox" !== type) {
+							setIsOpen(false)
+						}
 					}
 				}
 

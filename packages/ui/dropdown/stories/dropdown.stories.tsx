@@ -235,7 +235,7 @@ export const Dropdown = ({
 									id: "view-form",
 									label: "View form",
 									props: {
-										variable: "tag",
+										variable: "{tag}",
 										description: "Short description",
 									},
 								},
@@ -243,7 +243,7 @@ export const Dropdown = ({
 									id: "edit-form",
 									label: "Edit form",
 									props: {
-										variable: "tag",
+										variable: "{tag}",
 										description: "Short description",
 									},
 								},
@@ -251,7 +251,7 @@ export const Dropdown = ({
 									id: "duplicate-form",
 									label: "Duplicate form",
 									props: {
-										variable: "tag",
+										variable: "{tag}",
 										description: "Short description",
 									},
 								},
@@ -259,7 +259,7 @@ export const Dropdown = ({
 									id: "delete-form",
 									label: "Delete form",
 									props: {
-										variable: "tag",
+										variable: "{tag}",
 										description: "Short description",
 									},
 								},

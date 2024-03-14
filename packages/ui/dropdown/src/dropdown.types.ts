@@ -1,4 +1,9 @@
-import React, { CSSProperties, HTMLProps, KeyboardEvent } from "react"
+import React, {
+	CSSProperties,
+	HTMLProps,
+	KeyboardEvent,
+	ReactNode,
+} from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { ButtonProps } from "@wpmudev/sui-button"
 import {
@@ -74,7 +79,7 @@ interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
 	 */
 	isChecked?: boolean
 
-	variable?: string // Content to display as the variable for the dropdown menu item.
+	variable?: ReactNode | string // Content to display as the variable for the dropdown menu item.
 	description?: string // Content to display as the description for the dropdown menu item.
 
 	_checkboxProps?: CheckboxProps
