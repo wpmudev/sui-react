@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 /**
  * Types
@@ -29,7 +29,7 @@ export interface validationPropsType {
 const useValidation = (
 	rules: RulesType,
 	settings: SettingsType = { validateOnMount: false },
-) => {
+): [StatusType, validationPropsType] => {
 	const [status, setStatus] = useState<StatusType>({})
 
 	const validate = (value: unknown) => {
