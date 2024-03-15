@@ -29,6 +29,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	// Define password visibility
 	const [hasValue, setHasValue] = useState(false)
 	const [isVisible, setVisible] = useState(false)
+
 	// Input settings
 	const inputAttrs = {
 		id,
