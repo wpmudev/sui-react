@@ -85,6 +85,8 @@ interface SelectBaseProps
 	 * @param {SelectOptionType} option
 	 */
 	optionAppreance?(jsx: JSX.Element, option: SelectOptionType): JSX.Element
+
+	_dropdownProps?: object
 }
 
 interface SelectSelectedProps
@@ -145,6 +147,7 @@ interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 	onChange?: (value: string) => void
 	optionAppreance: SelectBaseProps["optionAppreance"]
 	dropdownRef?: Ref<DropdownRefProps | null>
+	_dropdownProps?: object
 }
 
 interface SelectDropdownOptionProps {

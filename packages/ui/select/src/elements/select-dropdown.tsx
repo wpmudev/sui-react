@@ -35,6 +35,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	onToggle = (isOpen: boolean) => {},
 	onChange = (value: string) => {},
 	_htmlProps,
+	_dropdownProps,
 	...props
 }) => {
 	// generate unique name for checkbox
@@ -64,10 +65,6 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			isFluid={true}
 			isFixedHeight={true}
 			className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
-			_htmlProps={{
-				"aria-label": "dropdown-options",
-				...getOptProps,
-			}}
 			menu={content}
 			onMenuClick={(id: SelectOptionType["id"], e: MouseEvent<HTMLElement>) =>
 				onSelect(e, id)
@@ -77,6 +74,11 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 				onSearch: onChange,
 				allowSearch: true,
 			})}
+			_htmlProps={{
+				"aria-label": "dropdown-options",
+				...getOptProps,
+			}}
+			{..._dropdownProps}
 		></SuiDropdown>
 	)
 

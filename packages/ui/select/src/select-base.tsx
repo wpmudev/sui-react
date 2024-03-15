@@ -64,6 +64,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	optionAppreance,
 	_style = {},
 	_htmlProps = {},
+	_dropdownProps = {},
 }) => {
 	const uniqueId = useId()
 	const options = initOptions(propOptions)
@@ -270,6 +271,7 @@ const Select: React.FC<SelectBaseProps> = ({
 				handleMultiSelectSearch(value)
 			},
 		}),
+		_dropdownProps,
 	}
 
 	// Render component
