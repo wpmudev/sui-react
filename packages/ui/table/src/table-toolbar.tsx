@@ -114,6 +114,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 									colorScheme="black"
 									isSmall={true}
 									isFixedHeight={false}
+									menuCustomWidth={300}
 								>
 									{content}
 								</Dropdown>
