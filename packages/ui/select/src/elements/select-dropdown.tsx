@@ -66,9 +66,9 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			isFixedHeight={true}
 			className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
 			menu={content}
-			onMenuClick={(id: SelectOptionType["id"], e: MouseEvent<HTMLElement>) =>
+			onMenuClick={(id: SelectOptionType["id"], e: MouseEvent<HTMLElement>) => {
 				onSelect(e, id)
-			}
+			}}
 			{...(isMultiSelect && {
 				type: "select-checkbox",
 				onSearch: onChange,

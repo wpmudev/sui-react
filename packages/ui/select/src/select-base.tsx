@@ -32,23 +32,9 @@ import {
 	MultiSelectSearch,
 } from "./utils/functions"
 
-const initOptions = (
-	options: SelectOptionType[] | undefined,
-): SelectOptionType[] => {
-	if (!options) {
-		options = [
-			{ id: "option-1", label: "Option 1" },
-			{ id: "option-2", label: "Option 2" },
-			{ id: "option-3", label: "Option 3" },
-		]
-	}
-
-	return options
-}
-
 const Select: React.FC<SelectBaseProps> = ({
 	id,
-	options: propOptions,
+	options,
 	className,
 	selected,
 	label = "select",
@@ -67,7 +53,6 @@ const Select: React.FC<SelectBaseProps> = ({
 	_dropdownProps = {},
 }) => {
 	const uniqueId = useId()
-	const options = initOptions(propOptions)
 
 	if (!id) {
 		id = `select-${uniqueId}`
@@ -79,12 +64,18 @@ const Select: React.FC<SelectBaseProps> = ({
 	const dropdownRef = useRef<DropdownRefProps | null>(null)
 
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
-	const [items, setItems] = useState<SelectOptionType[]>(options)
-	const [filteredItems, setFilteredItems] =
-		useState<SelectOptionType[]>(options)
+	const [items, setItems] = useState<SelectOptionType[]>(options ?? [])
+	const [filteredItems, setFilteredItems] = useState<SelectOptionType[]>(
+		options ?? [],
+	)
 	const [selectedItem, setSelectedItems] = useState<
 		Record<string, any> | string | undefined
 	>(selected)
+
+	useEffect(() => {
+		setItems(options ?? [])
+		setFilteredItems(options ?? [])
+	}, [options])
 
 	// Hide dropdown when click outside of it
 	useOuterClick(ref, () => {
