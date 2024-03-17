@@ -59,7 +59,7 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 						// @ts-ignore
 						<Select
 							onChange={(optionID: string) =>
-								ctx?.setFilter(filter?.id ?? "", optionID as string)
+								ctx?.setFilter(filter?.id ?? "", optionID)
 							}
 							id={filter?.id}
 							{...filter?.props}
