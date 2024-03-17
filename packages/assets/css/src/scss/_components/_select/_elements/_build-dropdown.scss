@@ -51,6 +51,7 @@
 				}
 
 				.sui-dropdown__menu {
+					.sui-dropdown__menu-item--selected,
 					.sui-select__dropdown--selected {
 						color: $color-primary-50;
 					}
@@ -76,7 +77,8 @@
 		@include block($block) {
 			@include element(dropdown) {
 				.sui-dropdown__menu {
-					.sui-select__dropdown--selected {
+					.sui-select__dropdown--selected,
+					.sui-dropdown__menu-item--selected {
 						color: $color-extended-neutral-0;
 					}
 				}

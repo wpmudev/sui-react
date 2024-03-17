@@ -29,6 +29,7 @@ import {
 } from "./dropdown.types"
 import { Input } from "@wpmudev/sui-input"
 import { Spinner } from "@wpmudev/sui-spinner"
+import { isSameDay } from "date-fns"
 
 /**
  * Dropdown Component - A reusable dropdown UI component.
@@ -216,6 +217,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					menuItem.props = menuItem.props ?? {}
 					menuItem.props.onClick = (e: ChangeEvent<unknown>) => {
 						onMenuClick(menuItem.id, e)
+						menuItem.isSelected = true
 						if ("select-checkbox" !== type) {
 							setIsOpen(false)
 						}
@@ -224,7 +226,12 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 				// Otherwise, render the MenuItem component.
 				return (
-					<DropdownMenuItem key={index} {...menuItem.props} _type={type}>
+					<DropdownMenuItem
+						key={index}
+						isSelected={menuItem.isSelected}
+						{...menuItem.props}
+						_type={type}
+					>
 						{menuItem.label}
 					</DropdownMenuItem>
 				)

@@ -121,7 +121,6 @@ const Select = ({
 							<StandardSelect
 								{...props}
 								options={asyncOptions}
-								isMultiSelect={false}
 								_dropdownProps={{
 									type: "select",
 									isAsync: true,
