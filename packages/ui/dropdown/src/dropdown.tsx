@@ -217,6 +217,13 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					menuItem.props = menuItem.props ?? {}
 					menuItem.props.onClick = (e: ChangeEvent<unknown>) => {
 						onMenuClick(menuItem.id, e)
+						// Update isSelected property of all menu items
+						const updatedOptions = options?.map((item) => ({
+							...item,
+							isSelected: item.id === menuItem.id, // Set the clicked item's isSelected to true, and others to false
+						}))
+						setOptions(updatedOptions)
+
 						menuItem.isSelected = true
 						if ("select-checkbox" !== type) {
 							setIsOpen(false)
