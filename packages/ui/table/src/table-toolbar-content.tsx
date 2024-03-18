@@ -58,9 +58,9 @@ const TableToolbarContent: React.FC<TableToolbarContentProps> = ({
 					select: (
 						// @ts-ignore
 						<Select
-							onChange={(optionID: string) =>
-								ctx?.setFilter(filter?.id ?? "", optionID)
-							}
+							// onChange={(optionID: string) =>
+							// 	ctx?.setFilter(filter?.id ?? "", optionID)
+							// }
 							id={filter?.id}
 							{...filter?.props}
 							// @ts-ignore
