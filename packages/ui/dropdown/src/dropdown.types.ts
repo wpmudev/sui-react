@@ -45,6 +45,10 @@ interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
 	 */
 	isDisabled?: boolean
 	/**
+	 * Makes dropdown disabled
+	 */
+	isSelected?: boolean
+	/**
 	 * Dropdown menu item variation
 	 */
 	variation?:
