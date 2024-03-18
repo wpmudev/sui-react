@@ -177,15 +177,7 @@ const Select = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
-							<MultiSelect
-								{...props}
-								options={options.map((option) => ({
-									...option,
-									props: {
-										_checkboxProps: { isSmall: false },
-									},
-								}))}
-							/>
+							<MultiSelect {...props} />
 						</FormField>
 					)}
 				</div>

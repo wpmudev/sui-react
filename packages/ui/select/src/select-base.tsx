@@ -255,6 +255,12 @@ const Select: React.FC<SelectBaseProps> = ({
 		}),
 		...(isMultiSelect && {
 			isMultiSelect,
+			options: filteredItems.map((option) => ({
+				...option,
+				props: {
+					_checkboxProps: { isSmall },
+				},
+			})),
 			selectAll: () => {
 				SelectAll(filteredItems, setFilteredItems)
 			},
