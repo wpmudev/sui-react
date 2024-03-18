@@ -78,7 +78,7 @@ describe("@wpmudev/sui-select", () => {
 		fireEvent.click(selectHeader as Element)
 
 		// Get options elements
-		const options = select.querySelectorAll(".sui-select__dropdown--option")
+		const options = select.querySelectorAll(".sui-dropdown__menu-item")
 		const selectAll = options[0]
 		const firstOption = options[1]
 		const secondOption = options[2]
