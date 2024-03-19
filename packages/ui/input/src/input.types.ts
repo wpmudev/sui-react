@@ -1,5 +1,5 @@
 import React, { HTMLProps } from "react"
-import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
+import { InteractionTypes, validationPropsType } from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
@@ -39,7 +39,8 @@ type InputType =
 interface InputProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
 		InteractionTypes,
-		SuiStyleType {
+		SuiStyleType,
+		validationPropsType {
 	/**
 	 * Input field default value
 	 */
