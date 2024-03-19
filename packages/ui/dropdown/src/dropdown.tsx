@@ -75,7 +75,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		const [isOpen, setIsOpen] = useState<boolean>(false)
 		// Set search query
 		const [query, setQuery] = useState("")
-		const debounceSearchQuery = useDebounce(query, 500)
+		const [isFetchedAll, setIsFetchedAll] = useState(false)
 		// Set loader when loading options from API
 		const [isLoading, setIsLoading] = useState(false)
 		// set alternate loading style
@@ -98,10 +98,10 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		})
 
 		const { handleScroll } = useBottomEnd(() => {
-			if (!isLoading) {
+			if (!isLoading && !isFetchedAll) {
 				loadFromAPI()
+				setAltLoader(true)
 			}
-			setAltLoader(true)
 		})
 
 		useImperativeHandle(ref, () => ({
@@ -111,6 +111,14 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		}))
 
 		const { suiInlineClassname } = useStyles(_style, className)
+
+		const searchQuery = useDebounce(query, 500, () => {
+			// Reset fetched all flag and page to 1
+			if (isAsync) {
+				setPage(1)
+				setIsFetchedAll(false)
+			}
+		})
 
 		// Generate classes for the dropdown's wrapper based on the component's props.
 		const wrapperClasses = generateCN(
@@ -132,49 +140,60 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		/**
 		 * Load options from next page
 		 */
-		const loadFromAPI = useCallback(
-			async (pageNum: number = page) => {
-				const { perPage = 5, totalItems } = asyncOptions ?? {}
-				const totalFetched = perPage * pageNum
-				const nextPage = pageNum + 1
+		const loadFromAPI = useCallback(async () => {
+			// Do not continue
+			if (!isAsync || isFetchedAll || isLoading) {
+				return
+			}
 
-				// return if getOptions prop is missing or fetched all items
-				if (!getOptions || (!!totalItems && totalFetched >= totalItems)) {
-					return
-				}
+			// return if getOptions prop is missing
+			if (!getOptions) {
+				throw new Error("'getOptions' method is missing")
+				return
+			}
 
-				// Enable loader
-				setIsLoading(true)
-				// Get options from API (to be hanlded in parent component)
-				const items = await getOptions(pageNum, perPage, debounceSearchQuery)
+			const { perPage = 5 } = asyncOptions ?? {}
 
-				// Update options list
-				setOptions(1 === pageNum ? items : [...(options ?? []), ...items])
-				setIsLoading(false)
-				setPage(nextPage)
-			},
-			[asyncOptions, debounceSearchQuery, getOptions, options, page],
-		)
+			// Enable loader
+			setIsLoading(true)
+
+			const opt = { page }
+
+			// Get options from API (to be hanlded in parent component)
+			const data = await getOptions(searchQuery, opt, options)
+			const { items, hasMore, additional } = data
+
+			// Update options list
+			setOptions(1 === page ? items : [...(options ?? []), ...items])
+			setIsLoading(false)
+			setAltLoader(false)
+
+			// Increase page
+			if (hasMore) {
+				setPage(page + 1)
+			} else {
+				setIsFetchedAll(true)
+			}
+		}, [getOptions, isFetchedAll, asyncOptions, page, searchQuery, options])
 
 		// prev search query
-		const prevQuery = usePrevious(debounceSearchQuery)
+		const prevQuery = usePrevious(searchQuery)
 
 		useEffect(() => {
 			// Do nothing if same query detected
-			if ((prevQuery ?? "") !== debounceSearchQuery) {
+			if ((prevQuery ?? "") !== searchQuery) {
 				// when isAsync is enabled then load from API
 				if (isAsync && !isLoading) {
 					setOptions([])
-					setPage(1)
-					loadFromAPI(1)
+					loadFromAPI()
 				}
 
 				if (!!onSearch) {
-					onSearch(debounceSearchQuery)
+					onSearch(searchQuery)
 				}
 			}
 			// eslint-disable-next-line react-hooks/exhaustive-deps
-		}, [debounceSearchQuery, onSearch])
+		}, [searchQuery, onSearch])
 
 		/**
 		 * Handle open and close actions

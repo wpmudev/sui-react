@@ -129,6 +129,10 @@ interface MenuGroupProps extends DropdownMenuBaseProps {
 	menus: Array<MenuItemProps> // An array of MenuItemProps representing the items in the group.
 }
 
+type getOptionOptTypes = {
+	page?: number
+}
+
 /**
  * Represents the properties for a dropdown component.
  */
@@ -239,10 +243,10 @@ interface DropdownProps
 	 * Callback for loading options from API
 	 */
 	getOptions?: (
-		page: number,
-		perPage: number,
 		query: string,
-	) => Promise<never[]>
+		opt: getOptionOptTypes,
+		options?: DropdownProps["menu"],
+	) => Promise<any>
 	/**
 	 * Menu custom width
 	 */
