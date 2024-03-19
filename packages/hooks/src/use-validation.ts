@@ -44,6 +44,7 @@ export type ValidatorArgsType = (
 	fieldValue: fieldValueType,
 	typeValue: unknown,
 	message?: string,
+	next?: () => void,
 ) => string | void
 
 // All possible values for rules' types.
@@ -97,42 +98,59 @@ const useValidation = (
 	}
 
 	// The "required" validator
-	const required: ValidatorArgsType = (fieldValue, _typeValue, message) => {
+	const required: ValidatorArgsType = (
+		fieldValue,
+		_typeValue,
+		message,
+		next,
+	) => {
 		if (typeof fieldValue === "string" && isEmpty(fieldValue)) {
 			updateStatus(message)
+		} else if (next) {
+			next()
 		} else {
 			resetValidation()
 		}
 	}
 
 	// The "pattern" validator
-	const pattern: ValidatorArgsType = (fieldValue, typeValue, message) => {
-		if (typeof typeValue !== "string" || isEmpty(fieldValue as string)) {
+	const pattern: ValidatorArgsType = (fieldValue, typeValue, message, next) => {
+		if (typeof typeValue !== "string" || isEmpty(typeValue as string)) {
 			throw new Error(
 				`SUI 3: "useValidation" hook, pattern rule value should be a string and not empty.`,
 			)
 		}
-		if (
-			!new RegExp("^(?:^(?:(?!<[^>]*>).)*$)$", "gm").test(fieldValue as string)
-		) {
+		if (!new RegExp(typeValue, "gm").test(fieldValue as string)) {
 			updateStatus(message)
+		} else if (next) {
+			next()
 		} else {
 			resetValidation()
 		}
 	}
 
 	// The custom validator
-	const validator: ValidatorArgsType = (fieldValue, customValidator) => {
+	const validator: ValidatorArgsType = (
+		fieldValue,
+		customValidator,
+		_message,
+		next,
+	) => {
 		if (typeof customValidator !== "function") {
 			throw new Error(
 				`SUI 3: "useValidation" hook, "validator" rule value should be a function.`,
 			)
 		}
 
-		setStatus({
-			error: customValidator(fieldValue),
-			isError: !!customValidator(fieldValue),
-		})
+		const validationResult = customValidator(fieldValue)
+
+		if (validationResult) {
+			updateStatus(validationResult)
+		} else if (next) {
+			next()
+		} else {
+			resetValidation()
+		}
 	}
 
 	/*
@@ -149,12 +167,14 @@ const useValidation = (
 	 *
 	 * @param fieldValue form element value to be validated
 	 * @param ruleObject single rule object
+	 * @param nextRule   next rule function
 	 */
 	const applySingleRule = (
 		fieldValue: fieldValueType,
 		ruleObject: RulesObjectType,
+		nextRule?: RulesObjectType,
 	) => {
-		// Through an error if the rule object is not an object
+		// Through an error if the rule is not an object
 		if (typeof ruleObject !== "object") {
 			throw new Error(
 				`SUI 3: "useValidation" hook, the rule should be of type object.`,
@@ -176,7 +196,13 @@ const useValidation = (
 		const matchedValidator = validators[type as ruleType]
 
 		// Invoke the corresponding validator
-		matchedValidator(fieldValue, typeValue, message)
+		if (nextRule) {
+			matchedValidator(fieldValue, typeValue, message, () =>
+				applySingleRule(fieldValue, nextRule),
+			)
+		} else {
+			matchedValidator(fieldValue, typeValue, message)
+		}
 	}
 
 	// The main validate function
@@ -193,9 +219,10 @@ const useValidation = (
 
 		// Check if we have an array of rules
 		if (Array.isArray(rules)) {
-			return rules.forEach((rule) => {
-				applySingleRule(fieldValue, rule)
-			})
+			const index = 0 // index of the rule in the array
+			const nextRule = rules[index + 1] // next rule in the array
+
+			applySingleRule(fieldValue, rules[0], nextRule)
 		}
 	}
 

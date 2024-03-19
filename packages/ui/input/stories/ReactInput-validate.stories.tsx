@@ -42,9 +42,9 @@ const Input = (args: InputProps) => {
 		const val = value?.toString()?.trim() ?? ""
 
 		// Required Rule
-		if (isEmpty(val)) {
-			return "This field is required"
-		}
+		// if (isEmpty(val)) {
+		// 	return "This field is required"
+		// }
 
 		// Pattern rule
 		if (typeof value === "string" && "" !== val) {
@@ -54,11 +54,21 @@ const Input = (args: InputProps) => {
 		}
 	}
 
-	const [status, validationProps] = useValidation(validation, {
-		validateOnMount: false,
-	})
-
-	console.log("status", status)
+	const [status, validationProps] = useValidation(
+		[
+			{
+				pattern: "^(?:^(?:(?!<[^>]*>).)*$)$",
+				message: "Please enter a valid brand name.",
+			},
+			{
+				required: true,
+				message: "This field is required",
+			},
+		],
+		{
+			validateOnMount: true,
+		},
+	)
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
