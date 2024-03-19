@@ -28,6 +28,11 @@
 					}
 				}
 
+				.sui-dropdown__menu-item {
+					font-size: $select-input-default-font-size-sm;
+					line-height: $select-input-default-font-height-sm;
+				}
+
 				&.sui-#{$block}--multiselect {
 					.sui-#{$block}__control {
 						padding-right: $select-control-multiselect-padding-sm-horizontal;
@@ -74,6 +79,7 @@
 
 				.sui-checkbox {
 					font-size: $select-checkbox-font-size-sm;
+					line-height: $select-input-default-font-height-sm;
 					.sui-checkbox__box {
 						width: $select-checkbox-size-sm;
 						height: $select-checkbox-size-sm;

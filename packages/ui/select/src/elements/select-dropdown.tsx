@@ -126,7 +126,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 								isChecked: allSelected,
 								isIndeterminate: !allSelected && !!isIndeterminate,
 								onChange: selectAll,
-								isSmall: false,
+								isSmall,
 							},
 						},
 					},
@@ -138,6 +138,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 								_checkboxProps: {
 									...option?.props?._checkboxProps,
 									isChecked: option?.isSelected,
+									isSmall,
 								},
 							},
 						}
