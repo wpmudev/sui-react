@@ -34,18 +34,18 @@ export interface StatusType {
 
 // Hook return type
 export interface validationPropsType {
-	validate?: (value: fieldValueType) => string | void
+	validate?: (value: fieldValueType) => string | null | void
 	validateOnMount?: boolean
 	resetValidation?: () => void
 }
 
 // Rule function type
-export type ValidatorArgsType = (
+export type ValidatorFunctionType = (
 	fieldValue: fieldValueType,
 	typeValue: unknown,
 	message?: string,
 	next?: () => void,
-) => string | void
+) => string | null | undefined | void
 
 // All possible values for rules' types.
 export const definedRules = ["required", "pattern", "validator"]
@@ -97,66 +97,60 @@ const useValidation = (
 		return definedRules.find((rule) => rulesObjKeys.has(rule))
 	}
 
-	// The "required" validator
-	const required: ValidatorArgsType = (
-		fieldValue,
-		_typeValue,
-		message,
-		next,
-	) => {
-		if (typeof fieldValue === "string" && isEmpty(fieldValue)) {
-			updateStatus(message)
-		} else if (next) {
-			next()
-		} else {
-			resetValidation()
+	/**
+	 *  HOF for creating validators
+	 *
+	 * @param  validatorFunc
+	 * @return {Function} validator function
+	 */
+	function createValidator(
+		validatorFunc: ValidatorFunctionType,
+	): ValidatorFunctionType {
+		return (fieldValue, typeValue, message, next) => {
+			const validationResult = validatorFunc(fieldValue, typeValue, message)
+			if (validationResult) {
+				updateStatus(validationResult)
+			} else if (next) {
+				next()
+			} else {
+				resetValidation()
+			}
 		}
 	}
 
-	// The "pattern" validator
-	const pattern: ValidatorArgsType = (fieldValue, typeValue, message, next) => {
+	// Required rule
+	const required = createValidator((fieldValue, _typeValue, message) => {
+		if (typeof fieldValue === "string" && isEmpty(fieldValue)) {
+			return message
+		}
+	})
+
+	// Pattern rule
+	const pattern = createValidator((fieldValue, typeValue, message) => {
 		if (typeof typeValue !== "string" || isEmpty(typeValue as string)) {
 			throw new Error(
 				`SUI 3: "useValidation" hook, pattern rule value should be a string and not empty.`,
 			)
 		}
 		if (!new RegExp(typeValue, "gm").test(fieldValue as string)) {
-			updateStatus(message)
-		} else if (next) {
-			next()
-		} else {
-			resetValidation()
+			return message
 		}
-	}
+	})
 
-	// The custom validator
-	const validator: ValidatorArgsType = (
-		fieldValue,
-		customValidator,
-		_message,
-		next,
-	) => {
+	// Custom validator rule
+	const validator = createValidator((fieldValue, customValidator, _message) => {
 		if (typeof customValidator !== "function") {
 			throw new Error(
 				`SUI 3: "useValidation" hook, "validator" rule value should be a function.`,
 			)
 		}
-
-		const validationResult = customValidator(fieldValue)
-
-		if (validationResult) {
-			updateStatus(validationResult)
-		} else if (next) {
-			next()
-		} else {
-			resetValidation()
-		}
-	}
+		return customValidator(fieldValue)
+	})
 
 	/*
 	 * Validators Mapping
 	 */
-	const validators: Record<string, ValidatorArgsType> = {
+	const validators: Record<string, ValidatorFunctionType> = {
 		required,
 		pattern,
 		validator,
@@ -206,7 +200,7 @@ const useValidation = (
 	}
 
 	// The main validate function
-	const validate = (fieldValue: any) => {
+	const validate = (fieldValue: unknown) => {
 		// Check if rules is a function
 		if (typeof rules === "function") {
 			return validator(fieldValue, rules)
