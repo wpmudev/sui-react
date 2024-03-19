@@ -37,7 +37,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	options,
 	className,
 	selected,
-	label = "select",
+	label = "Select option",
 	isDisabled = false,
 	isSmall = false,
 	isError = false,

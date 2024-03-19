@@ -79,6 +79,8 @@ const Select = ({
 	const [asyncOptions, setAsyncOptions] = useState<SelectOptionType[]>([])
 	const [optionsAPILimit, setOptionsAPILimit] = useState(0)
 
+	const perPage = 10
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
@@ -119,38 +121,32 @@ const Select = ({
 							isDisabled={isDisabled}
 						>
 							<StandardSelect
-								{...props}
-								options={asyncOptions}
 								_dropdownProps={{
 									type: "select",
 									isAsync: true,
 									allowSearch: true,
 									asyncOptions: {
-										perPage: 20,
-										totalItems: optionsAPILimit,
+										perPage,
 									},
 									getOptions: async (
-										page: number,
-										perPage: number,
 										search: string,
+										{ page }: any,
+										prevLoadedItems = [],
 									) => {
 										// calculate how many items to skip
-										const skip = 1 === page ? 0 : page * perPage
+										const skip = page * perPage - 10
 										// store all menu items here
 										const items: SelectBaseProps["options"] = []
-
 										const baseAPI = `https://dummyjson.com/products/search`
+										let total = 0
 
 										// fetch data from API
 										await fetch(
-											`${baseAPI}?limit=${perPage}&skip=${skip}&q=${search}`,
+											`${baseAPI}?limit=${perPage}&skip=${skip}&total=50&q=${search}`,
 										)
 											.then((res) => res.json())
 											.then((result) => {
-												// set total numbers of options
-												if (optionsAPILimit === 0) {
-													setOptionsAPILimit(result?.total)
-												}
+												total = result.total
 
 												result.products.forEach((item: any) => {
 													items.push({
@@ -160,9 +156,11 @@ const Select = ({
 													})
 												})
 											})
-										setAsyncOptions([...asyncOptions, ...items])
 
-										return items
+										return {
+											items,
+											hasMore: [...items, ...prevLoadedItems].length < 100,
+										}
 									},
 								}}
 							/>
