@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useId } from "react"
+import React, { useCallback, useState, useId, useEffect } from "react"
 import {
 	isFunction,
 	generateCN,
@@ -22,6 +22,9 @@ const Textarea: React.FC<TextareaProps> = ({
 	customWidth,
 	placeholder = "",
 	rows,
+	validate,
+	validateOnMount,
+	resetValidation,
 	_htmlProps = {},
 	_style = {},
 }) => {
@@ -56,9 +59,20 @@ const Textarea: React.FC<TextareaProps> = ({
 			if (isFunction(onChange) && !!onChange) {
 				onChange(e)
 			}
+			if (validate && isFunction(validate)) {
+				validate(e.target.value)
+			}
 		},
-		[onChange],
+		[onChange, validate],
 	)
+
+	// validate on mount if applicable
+	useEffect(() => {
+		if (validateOnMount && validate && isFunction(validate)) {
+			validate(value)
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	return (
 		<div
