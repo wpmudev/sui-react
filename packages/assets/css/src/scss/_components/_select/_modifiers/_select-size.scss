@@ -85,6 +85,12 @@
 						height: $select-checkbox-size-sm;
 					}
 				}
+
+				.sui-dropdown__popover--#{$block}-checkbox {
+					.sui-dropdown__menu-item {
+						padding: $spacing-sm $spacing-lg;
+					}
+				}
 			}
 		}
 	}
