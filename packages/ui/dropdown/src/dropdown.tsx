@@ -147,7 +147,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			// Get the height of the popover
 			const popoverHeight = popoverElement.offsetHeight
 
-			// Determine if there's more space below than above and if the popover height fits in the space below
+			// Determine if the popover height fits in the space below
 			const showBelow = spaceBelow > popoverHeight
 
 			// Set the appropriate CSS class for placement
