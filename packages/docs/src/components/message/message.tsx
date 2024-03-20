@@ -34,7 +34,7 @@ const Message: React.FunctionComponent<
 	const messageClasses = classnames({
 		"csb-message": true,
 		[`csb-message--${color}`]: !isEmpty(color),
-		[className ?? ""]: !!className,
+		[(className ?? '') as string]: !!className,
 	})
 
 	const cta = Object.assign(

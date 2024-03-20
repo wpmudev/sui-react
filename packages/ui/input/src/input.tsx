@@ -15,6 +15,7 @@ import {
 	generateCN,
 	condContent,
 	handleOnKeyDown,
+	isFunction,
 	_renderHTMLPropsSafely,
 } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
@@ -29,7 +30,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 	(
 		{
 			type = "text",
-			defaultValue,
+			defaultValue= "",
 			placeholder,
 			hint,
 			id,
@@ -63,9 +64,10 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			isRequired = false, //
 			pattern,
 			onKeyUp,
-			validateOnMount = false,
 			customWidth,
-			onValidate,
+				validate,
+				validateOnMount,
+			resetValidation,
 			_htmlProps = {},
 			_style = {},
 		},
@@ -181,49 +183,43 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 
 		const hasHintText = !isEmpty(hint ?? "")
 
-		// Call onValidate when hasError changes
-		useEffect(() => {
-			if (onValidate) onValidate(id, hasError)
-			// eslint-disable-next-line react-hooks/exhaustive-deps
-		}, [hasError])
+
 
 		/**
-		 * Validate value passed on input field
-		 */
-		const validation = () => {
-			let tempHasError = false
-
-			// Remove blank spaces
-			const val = value?.toString()?.trim() ?? ""
-
-			// Define error
-			if (typeof value === "string" && "" !== val && pattern) {
-				tempHasError = !new RegExp("^(?:" + pattern + ")$", "gm").test(val)
-			} else if (isRequired && isEmpty(val)) {
-				// field is required
-				tempHasError = true
-			}
-
-			setHasError(tempHasError)
-		}
-
-		/**
-		 * Reset validation when key up
+		 * validate when key up
 		 *
 		 * @param {any} e
 		 */
 		const onInputKeyUp = (e: any) => {
-			// Validate the input
-			validation()
+			if (validate && isFunction(validate)) {
+				// Validate the input
+				validate(value)
+			}
+
 			// Pass data to prop method
 			if (onKeyUp) {
 				onKeyUp(e)
 			}
 		}
 
-		useEffect(() => {
-			if (validateOnMount) {
-				validation()
+		/**
+				* validate when key up
+		 *
+		 * @param {any} e
+		 */
+		const onInputKeyUp = (e: any) => {if (validate && isFunction(validate)) {
+			// Validate the input
+			validate(value)
+				}
+			// Pass data to prop method
+			if (onKeyUp) {
+				onKeyUp(e)
+			}
+		}
+
+		// validate on mount if applicableuseEffect(() => {
+			if (validateOnMount&& validate && isFunction(validate)) {
+				validate(value)
 			}
 			// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, [])
