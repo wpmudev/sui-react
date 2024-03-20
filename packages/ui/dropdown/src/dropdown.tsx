@@ -205,7 +205,16 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			} else {
 				setIsFetchedAll(true)
 			}
-		}, [getOptions, isFetchedAll, asyncOptions, page, searchQuery, options])
+		}, [
+			isAsync,
+			isFetchedAll,
+			isLoading,
+			getOptions,
+			asyncOptions,
+			page,
+			searchQuery,
+			options,
+		])
 
 		// prev search query
 		const prevQuery = usePrevious(searchQuery)

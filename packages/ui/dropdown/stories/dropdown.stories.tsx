@@ -132,7 +132,7 @@ export const Dropdown = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyle}>
-					{"select-checkbox" === example && (
+					{/*{"select-checkbox" === example && (
 						<SuiDropdown
 							{...props}
 							isAsync={false}
@@ -187,7 +187,7 @@ export const Dropdown = ({
 								},
 							]}
 							onSearch={(string) => {
-								console.log("search", string)
+								// console.log("search", string)
 							}}
 						/>
 					)}
@@ -272,14 +272,14 @@ export const Dropdown = ({
 								},
 							]}
 							onSearch={(string) => {
-								console.log("search", string)
+								// console.log("search", string)
 							}}
 							menuCustomWidth={250}
 							_style={{
 								width: "250px",
 							}}
 						/>
-					)}
+					)}*/}
 					{"custom" === example && (
 						<SuiDropdown menuCustomWidth={280} menu={menuOptions} {...props}>
 							<div
@@ -302,11 +302,7 @@ export const Dropdown = ({
 						</SuiDropdown>
 					)}
 					{"pro" === example && (
-						<SuiDropdown
-							menuCustomWidth={280}
-							menu={menuOptions}
-							{...props}
-						></SuiDropdown>
+						<SuiDropdown menuCustomWidth={280} menu={menuOptions} {...props} />
 					)}
 				</div>
 			</div>
