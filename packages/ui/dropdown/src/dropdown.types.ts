@@ -183,7 +183,10 @@ interface DropdownProps
 	/**
 	 * On click on Menu Item
 	 */
-	onMenuClick?(id: string | number, e?: React.ChangeEvent<unknown>): void
+	onMenuClick?(
+		option: Record<string, any>,
+		e?: React.ChangeEvent<unknown>,
+	): void
 	/**
 	 * Detect dropdown state (open or closed)
 	 *

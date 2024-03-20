@@ -43,17 +43,17 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	const { suiInlineClassname } = useStyles(props)
 
 	const onSelect = useCallback(
-		(e: any, id: SelectOptionType["id"]) => {
+		(e: any, option: SelectOptionType) => {
 			if ((!e.key || (!!e.key && e.key === "Enter")) && onEvent) {
-				onEvent(id)
+				onEvent(option)
 			}
 		},
 		[onEvent],
 	)
 
-	const getOptProps = (id: SelectOptionType["id"]) => ({
+	const getOptProps = (option: SelectOptionType) => ({
 		ref: undefined,
-		onKeyDown: (e?: KeyboardEvent<HTMLElement>) => onSelect(e, id),
+		onKeyDown: (e?: KeyboardEvent<HTMLElement>) => onSelect(e, option),
 	})
 
 	const wrapper = (content: Array<MenuItemProps | MenuGroupProps>) => (
@@ -66,8 +66,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			isFixedHeight={true}
 			className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
 			menu={content}
-			onMenuClick={(id: SelectOptionType["id"], e: MouseEvent<HTMLElement>) => {
-				onSelect(e, id)
+			onMenuClick={(option: SelectOptionType, e: MouseEvent<HTMLElement>) => {
+				onSelect(e, option)
 			}}
 			{...(isMultiSelect && {
 				type: "select-checkbox",

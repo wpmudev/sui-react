@@ -69,7 +69,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		options ?? [],
 	)
 	const [selectedItem, setSelectedItems] = useState<
-		Record<string, any> | string | undefined
+		Record<string, any> | string | undefined | SelectOptionType
 	>(selected)
 
 	useEffect(() => {
@@ -177,12 +177,19 @@ const Select: React.FC<SelectBaseProps> = ({
 		}
 	}
 
-	const updateSelected = (optionId: number | string) => {
+	const updateSelected = (optionObj: SelectOptionType) => {
+		if (!options) {
+			setSelectedItems(optionObj)
+			dropdownRef.current?.close()
+			return
+		}
+
 		const optionIndex = filteredItems.findIndex(
-			(option) => option.id === optionId,
+			(option) => option.id === optionObj.id,
 		)
 		const updatedItems = [...filteredItems]
 		const isSelected = updatedItems[optionIndex]?.isSelected
+
 		if (!isMultiSelect) {
 			updatedItems.forEach((option) => (option.isSelected = false))
 			updatedItems[optionIndex] = {
@@ -227,7 +234,7 @@ const Select: React.FC<SelectBaseProps> = ({
 					label: e.target.value,
 				})
 			},
-			onEvent: (optionId: number | string) => updateSelected(optionId),
+			onEvent: (optionId: SelectOptionType) => updateSelected(optionId),
 			onClick: () => {
 				dropdownRef.current?.toggle()
 			},
@@ -297,7 +304,7 @@ const Select: React.FC<SelectBaseProps> = ({
 				onToggle={(isOpen) => {
 					setIsDropdownOpen(isOpen)
 				}}
-				onEvent={(optionId: number | string) => {
+				onEvent={(optionId: SelectOptionType) => {
 					updateSelected(optionId)
 				}}
 			/>
