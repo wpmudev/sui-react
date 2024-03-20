@@ -179,6 +179,60 @@ const Select = ({
 							<MultiSelect {...props} />
 						</FormField>
 					)}
+					{"select-variable" === example && (
+						<FormField
+							id="select"
+							label="Label"
+							helper="Description"
+							error={errorMessage}
+							isSmall={isSmall}
+							isDisabled={isDisabled}
+						>
+							<StandardSelect
+								options={[
+									{
+										id: "view-form",
+										label: "View form",
+										props: {
+											variable: "{tag}",
+											description: "Short description",
+										},
+									},
+									{
+										id: "edit-form",
+										label: "Edit form",
+										props: {
+											variable: "{tag}",
+											description: "Short description",
+										},
+									},
+									{
+										id: "duplicate-form",
+										label: "Duplicate form",
+										props: {
+											variable: "{tag}",
+											description: "Short description",
+										},
+									},
+									{
+										id: "delete-form",
+										label: "Delete form",
+										props: {
+											variable: "{tag}",
+											description: "Short description",
+										},
+									},
+								]}
+								_dropdownProps={{
+									type: "select-variable",
+									allowSearch: true,
+									onSearch: (search: string) => {
+										console.log("search", search)
+									},
+								}}
+							/>
+						</FormField>
+					)}
 				</div>
 			</div>
 		</div>
@@ -200,12 +254,13 @@ Select.args = {
 Select.argTypes = {
 	example: {
 		name: "Example",
-		options: ["select", "select-async", "multi-select"],
+		options: ["select", "select-async", "select-variable", "multi-select"],
 		control: {
 			type: "select",
 			labels: {
 				select: "Example: Select",
-				"select-async": "Select Async",
+				"select-async": "Example: Select Async",
+				"select-variable": "Example: Select Variable",
 				"multi-select": "Example: Multiselect",
 			},
 		},

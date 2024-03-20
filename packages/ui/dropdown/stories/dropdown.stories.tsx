@@ -325,7 +325,7 @@ Dropdown.args = {
 	buttonIcon: "Menu",
 	allowSearch: true,
 	closeOnOuterClick: true,
-	isAsync: true,
+	isAsync: false,
 	onMenuClick: () => {},
 }
 
