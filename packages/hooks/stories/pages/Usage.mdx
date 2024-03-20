@@ -180,15 +180,60 @@ import { Section, Code, Snippet } from '@wpmudev/sui-docs';
 	</p>
 </Section>
 
-<Section contained={true} border={true} title="6. useValidation" >
+<Section contained={true} border={true} title="6. useStyles" >
+	<p>
+		The `useStyle` hook can be used to add inline style support for custom components. 
+	</p>
+
+	<p>
+		The `useStyles` hook accepts two parameters
+		<ol>
+			<li><strong>styles*</strong>: An object containing the styles to be applied to the component.</li>
+			<li><strong>className</strong>: optional className to be combined with the returned className</li>
+		</ol>
+	</p>
+
+	The hook returns an object with a single property `suiInlineClassname` which can be used to apply the styles to the component.
+
+	<p>
+		<h4>Example</h4>
+		```javascript
+		import React from 'react';
+		import { useStyles } from '@wpmudev/sui-hooks';
+
+		const YourCustomComponent = ( { _style, className = "" } ) => {
+		
+			const { suiInlineClassname } = useStyles(_style, className);
+
+			return (
+				<div className={suiInlineClassname}>
+					{/* Your component content */}
+				</div>
+			);
+		};
+
+		export default YourComponent;
+		```
+	</p>
+	
+	and then your component can be used as follow:
+
+	```javascript	
+	<YourCustomComponent _style={{ color: 'red', fontSize: '20px' }} />
+	```
+
+	All the ways on how to use the `_style` prop can be found <a href="/?path=/docs/sui-common-props--docs" target="_blank">here</a>
+</Section>
+
+<Section contained={true} border={true} title="7. useValidation" >
 	<p>
 		The `useValidation` hook is designed to validate SUI form fields and manage thier validation state. It provides a set of methods that works specifically with SUI form fields. 
 	</p>
 	<p>
 		It accepts <strong>2 parameters</strong> as an object:
 		<ol>
-			<li><strong>validationRules</strong>: validation rules for the form field</li>	
-			<li><strong>settings</strong>: settings for validation </li>
+			<li><strong>validationRules*</strong>: validation rules for the form field</li>	
+			<li><strong>settings</strong>: optional settings for validation </li>
 		</ol>
 	</p>
 	<h3> validationRules </h3>
