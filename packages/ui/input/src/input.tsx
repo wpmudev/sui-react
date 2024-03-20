@@ -30,7 +30,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 	(
 		{
 			type = "text",
-			defaultValue= "",
+			defaultValue = "",
 			placeholder,
 			hint,
 			id,
@@ -65,8 +65,8 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			pattern,
 			onKeyUp,
 			customWidth,
-				validate,
-				validateOnMount,
+			validate,
+			validateOnMount,
 			resetValidation,
 			_htmlProps = {},
 			_style = {},
@@ -183,8 +183,6 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 
 		const hasHintText = !isEmpty(hint ?? "")
 
-
-
 		/**
 		 * validate when key up
 		 *
@@ -195,30 +193,16 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 				// Validate the input
 				validate(value)
 			}
-
 			// Pass data to prop method
 			if (onKeyUp) {
 				onKeyUp(e)
 			}
 		}
 
-		/**
-				* validate when key up
-		 *
-		 * @param {any} e
-		 */
-		const onInputKeyUp = (e: any) => {if (validate && isFunction(validate)) {
-			// Validate the input
-			validate(value)
-				}
-			// Pass data to prop method
-			if (onKeyUp) {
-				onKeyUp(e)
-			}
-		}
-
-		// validate on mount if applicableuseEffect(() => {
-			if (validateOnMount&& validate && isFunction(validate)) {
+		// validate on mount if applicable
+		useEffect(() => {
+			// validate on mount if applicableuseEffect(() => {
+			if (validateOnMount && validate && isFunction(validate)) {
 				validate(value)
 			}
 			// eslint-disable-next-line react-hooks/exhaustive-deps
