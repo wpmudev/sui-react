@@ -66,6 +66,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			asyncOptions = {},
 			getOptions,
 			menuCustomWidth,
+			searchPlaceholder,
 			_htmlProps = {},
 			_style = {},
 		},
@@ -329,7 +330,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 										icon="Search"
 										iconPosition="start"
 										isSmall={true}
-										placeholder="Search"
+										placeholder={searchPlaceholder ?? "Search"}
 										onChange={onSearchCallback}
 									/>
 								</div>

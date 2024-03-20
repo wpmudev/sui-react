@@ -254,6 +254,10 @@ interface DropdownProps
 	 * Menu custom width
 	 */
 	menuCustomWidth?: number
+	/**
+	 * Custom search placeholder
+	 */
+	searchPlaceholder?: string
 }
 
 // Type definition for the modal handling functions

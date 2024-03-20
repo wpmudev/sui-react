@@ -125,6 +125,7 @@ const Select = ({
 									type: "select",
 									isAsync: true,
 									allowSearch: true,
+									searchPlaceholder: "Search...",
 									asyncOptions: {
 										perPage,
 									},
