@@ -142,7 +142,6 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			const triggerRect = triggerElement.getBoundingClientRect()
 
 			// Calculate the space available above and below the trigger button
-			const spaceAbove = triggerRect.top
 			const spaceBelow = window.innerHeight - triggerRect.bottom
 
 			// Get the height of the popover
@@ -151,13 +150,10 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			// Determine if the popover height fits in the space below
 			const showBelow = spaceBelow > popoverHeight
 
-			// Determine if the space above is limited
-			const spaceAboveLimited = spaceAbove < popoverHeight
-
 			// Set the appropriate CSS class for placement
 			popoverElement.classList.toggle(
 				"sui-dropdown__popover--placement-top",
-				!showBelow && !spaceAboveLimited,
+				!showBelow,
 			)
 		}, [isOpen])
 
