@@ -5,6 +5,7 @@ import { FormField } from "@wpmudev/sui-form-field"
 import {
 	Select as StandardSelect,
 	MultiSelect,
+	SelectVariable,
 	SelectBaseProps,
 	SelectOptionType,
 } from "../src"
@@ -188,7 +189,8 @@ const Select = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
-							<StandardSelect
+							<SelectVariable
+								label="Select variable"
 								options={[
 									{
 										id: "view-form",
@@ -223,13 +225,6 @@ const Select = ({
 										},
 									},
 								]}
-								_dropdownProps={{
-									type: "select-variable",
-									allowSearch: true,
-									onSearch: (search: string) => {
-										console.log("search", search)
-									},
-								}}
 							/>
 						</FormField>
 					)}
