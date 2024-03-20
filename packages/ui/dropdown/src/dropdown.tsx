@@ -87,6 +87,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		const [page, setPage] = useState(1)
 		// Create a ref to access the dropdown's outer container element.
 		const dropdownRef = useRef<HTMLDivElement | null>(null)
+		const popoverRef = useRef<HTMLDivElement | null>(null)
 		const searchInputRef = useRef<HTMLInputElement | null>(null)
 		// Generate a unique identifier for the dropdown component.
 		const id = `sui-dropdown-${useId()}`
@@ -130,6 +131,30 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			},
 			suiInlineClassname,
 		)
+
+		// show dropdown on top/bottom based on the space available
+		useEffect(() => {
+			if (!isOpen || !popoverRef.current) return
+
+			const popoverElement = popoverRef.current
+			const triggerElement = dropdownRef.current
+			if (!triggerElement) return
+
+			const triggerRect = triggerElement.getBoundingClientRect()
+
+			// Calculate the space available above and below the trigger button
+			const spaceAbove = triggerRect.top
+			const spaceBelow = window.innerHeight - triggerRect.bottom
+
+			// Determine if there's more space below than above
+			const showBelow = spaceBelow > spaceAbove
+
+			// Set the appropriate CSS class for placement
+			popoverElement.classList.toggle(
+				"sui-dropdown__popover--placement-top",
+				!showBelow,
+			)
+		}, [isOpen])
 
 		// Update internal options state when menu prop changes
 		useEffect(() => {
@@ -303,6 +328,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 				<div
 					id={id}
 					tabIndex={-1}
+					ref={popoverRef}
 					className={generateCN("sui-dropdown__popover", {
 						[`placement-${placement}`]: !isEmpty(placement ?? ""),
 						"fixed-height": isFixedHeight,
