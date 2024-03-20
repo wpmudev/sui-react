@@ -253,6 +253,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		options: filteredItems,
 		selected: selectedItem,
 		isSmall,
+		onChange,
 		...(isSearchable && {
 			isSearchable,
 			options: filteredItems.map((option) => ({
@@ -271,7 +272,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			selectAll: () => {
 				SelectAll(filteredItems, setFilteredItems)
 			},
-			onChange: (value: string) => {
+			onSearch: (value: string) => {
 				handleMultiSelectSearch(value)
 			},
 		}),

@@ -144,7 +144,8 @@ interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 	selected?: Record<string, any> | string
 	ref?: RefObject<HTMLInputElement>
 	onKeyDown?(e?: any): void
-	onChange?: (value: string) => void
+	onChange?: (option: SelectOptionType) => void
+	onSearch?: (value: string) => void
 	optionAppreance: SelectBaseProps["optionAppreance"]
 	dropdownRef?: Ref<DropdownRefProps | null>
 	_dropdownProps?: object

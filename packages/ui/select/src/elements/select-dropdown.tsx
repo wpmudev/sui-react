@@ -33,7 +33,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	optionAppreance,
 	dropdownRef = null,
 	onToggle = (isOpen: boolean) => {},
-	onChange = (value: string) => {},
+	onSearch = (value: string) => {},
+	onChange,
 	_htmlProps,
 	_dropdownProps,
 	...props
@@ -46,9 +47,12 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		(e: any, option: SelectOptionType) => {
 			if ((!e.key || (!!e.key && e.key === "Enter")) && onEvent) {
 				onEvent(option)
+				if (onChange) {
+					onChange(option)
+				}
 			}
 		},
-		[onEvent],
+		[onChange, onEvent],
 	)
 
 	const getOptProps = (option: SelectOptionType) => ({
@@ -71,7 +75,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			}}
 			{...(isMultiSelect && {
 				type: "select-checkbox",
-				onSearch: onChange,
+				onSearch,
 				allowSearch: true,
 			})}
 			_htmlProps={{
