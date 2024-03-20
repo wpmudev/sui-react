@@ -14,18 +14,25 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(dropdown) {
-				position: absolute;
-				left: 0;
-				right: 0;
-				overflow-y: auto;
-				background: $color-extended-neutral-100;
-				padding: $select-dropdown-container-padding-vertical
-					$select-dropdown-container-padding-horizontal;
-				margin: $select-dropdown-container-margin;
-				border-style: $select-dropdown-container-border-style;
-				border-bottom-left-radius: $select-dropdown-container-border-radius;
-				border-bottom-right-radius: $select-dropdown-container-border-radius;
-				max-height: $select-dropdown-container-size-height;
+				border-radius: $border-radius-md;
+				width: 100%;
+
+				&.sui-dropdown {
+					position: absolute;
+					height: 100%;
+					top: 0;
+					z-index: -1;
+				}
+
+				.sui-dropdown__popover {
+					margin: 0;
+					width: 100%;
+					z-index: 1;
+
+					ul {
+						margin: 0;
+					}
+				}
 
 				@include modifier(option) {
 					display: flex;
@@ -38,8 +45,19 @@
 					margin: $select-dropdown-option-margin;
 				}
 
-				@include modifier(selected) {
-					color: $color-primary-50;
+				@include modifier(content) {
+					display: flex;
+
+					.sui-checkbox {
+						width: auto !important;
+					}
+				}
+
+				.sui-dropdown__menu {
+					.sui-dropdown__menu-item--selected,
+					.sui-select__dropdown--selected {
+						color: $color-primary-50;
+					}
 				}
 
 				@include modifier(empty) {
@@ -53,14 +71,6 @@
 					border-radius: $select-dropdown-empty-border-radius;
 				}
 			}
-
-			@include modifier(open) {
-				@include modifies-element(dropdown) {
-					border-top: 0;
-					border-width: $select-dropdown-open-border-width;
-					border-color: $select-dropdown-open-border-color;
-				}
-			}
 		}
 	}
 
@@ -69,8 +79,11 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(dropdown) {
-				@include modifier(selected) {
-					color: $color-extended-neutral-0;
+				.sui-dropdown__menu {
+					.sui-select__dropdown--selected,
+					.sui-dropdown__menu-item--selected {
+						color: $color-extended-neutral-0;
+					}
 				}
 
 				@include modifier(empty) {

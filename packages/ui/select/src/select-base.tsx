@@ -19,90 +19,25 @@ import {
 	usePrevious,
 	useStyles,
 } from "@wpmudev/sui-hooks"
+import { DropdownRefProps } from "@wpmudev/sui-dropdown"
 
-import { Dropdown } from "../elements/select-dropdown"
-import { Selected, SelectedSearch } from "../elements/select-selected"
+import { SelectBaseProps, SelectOptionType } from "./select.types"
+import { Dropdown } from "./elements/select-dropdown"
+import { Selected, SelectedSearch } from "./elements/select-selected"
 import {
 	SearchDropdown,
 	RemoveAll,
 	SelectAll,
 	RemoveSelection,
 	MultiSelectSearch,
-} from "../utils/functions"
-
-export type SelectOptionType =
-	| Record<string, any>
-	| Record<string, any>[]
-	| string
-	| undefined
-
-/**
- * This interface defines the props for the SelectBase component.
- * It extends the Omit utility to remove 'onMouseLeave' and 'onMouseEnter' properties
- * from the HTMLProps<HTMLDivElement> type.
- */
-interface SelectBaseProps
-	extends Omit<
-			HTMLProps<HTMLDivElement>,
-			| "onMouseLeave"
-			| "onMouseEnter"
-			| "selected"
-			| "height"
-			| "content"
-			| "translate"
-			| "width"
-			| "color"
-		>,
-		SuiStyleType,
-		SuiHTMLAttributes {
-	/** Unique ID */
-	id?: string
-	/** An array of options for the select */
-	options?: Record<string, any>[]
-	/** Additional CSS class name for styling */
-	className?: string
-	/** Current selected option */
-	selected?: Record<string, any> | string
-	/** Label for the select component */
-	label?: string
-	/** Whether the select is disabled or not */
-	isDisabled?: boolean
-	/** Whether the select is displayed in a small size */
-	isSmall?: boolean
-	/** Whether the select has an error state */
-	isError?: boolean
-	/** Whether the select allows multiple selections */
-	isMultiSelect?: boolean
-	/** Whether the select has a search functionality */
-	isSearchable?: boolean
-	/** Add a custom width in pixels  */
-	customWidth?: number
-	/**
-	 * Event handler for mouse enter event.
-	 * It is of type Pick<InteractionTypes, "onMouseEnter">, which means it selects
-	 * the "onMouseEnter" property from the "InteractionTypes" type.
-	 */
-	onMouseEnter?: Pick<InteractionTypes, "onMouseEnter">
-	/**
-	 * Event handler for mouse leave event.
-	 * It is of type Pick<InteractionTypes, "onMouseLeave">, which means it selects
-	 * the "onMouseLeave" property from the "InteractionTypes" type.
-	 */
-	onMouseLeave?: Pick<InteractionTypes, "onMouseLeave">
-	/**
-	 * Pass selected item to parent component
-	 *
-	 * @param {Record<string, any> | Record<string, any>[]} option option or options list
-	 */
-	onChange?(option: SelectOptionType): void
-}
+} from "./utils/functions"
 
 const Select: React.FC<SelectBaseProps> = ({
 	id,
 	options,
 	className,
 	selected,
-	label = "select",
+	label = "Select option",
 	isDisabled = false,
 	isSmall = false,
 	isError = false,
@@ -112,8 +47,10 @@ const Select: React.FC<SelectBaseProps> = ({
 	onMouseLeave = () => null,
 	customWidth,
 	onChange,
+	optionAppreance,
 	_style = {},
 	_htmlProps = {},
+	_dropdownProps = {},
 }) => {
 	const uniqueId = useId()
 
@@ -121,34 +58,29 @@ const Select: React.FC<SelectBaseProps> = ({
 		id = `select-${uniqueId}`
 	}
 
-	if (!options) {
-		options = [
-			{ id: "option-1", label: "Option 1" },
-			{ id: "option-2", label: "Option 2" },
-			{ id: "option-3", label: "Option 3" },
-		]
-	}
-
 	// set ref to dropdown.
 	const ref = useRef<HTMLDivElement | null>(null)
 	const controlRef = useRef<HTMLDivElement | HTMLInputElement | null>(null)
+	const dropdownRef = useRef<DropdownRefProps | null>(null)
 
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
-	const [items, setItems] = useState<Record<string, any>[]>(options)
-	const [filteredItems, setFilteredItems] = useState(options)
+	const [items, setItems] = useState<SelectOptionType[]>(options ?? [])
+	const [filteredItems, setFilteredItems] = useState<SelectOptionType[]>(
+		options ?? [],
+	)
 	const [selectedItem, setSelectedItems] = useState<
-		Record<string, any> | string | undefined
+		Record<string, any> | string | undefined | SelectOptionType
 	>(selected)
+
+	useEffect(() => {
+		setItems(options ?? [])
+		setFilteredItems(options ?? [])
+	}, [options])
 
 	// Hide dropdown when click outside of it
 	useOuterClick(ref, () => {
-		setIsDropdownOpen(false)
+		dropdownRef.current?.close()
 	})
-
-	// update options
-	useEffect(() => {
-		setItems(options ?? [])
-	}, [options])
 
 	// hold isDropdownOpen's previous val
 	const prevIsDropdownOpen = usePrevious(isDropdownOpen)
@@ -214,14 +146,14 @@ const Select: React.FC<SelectBaseProps> = ({
 	// Select search function.
 	const handleSearchDropdown = (event: ChangeEvent<HTMLInputElement>) => {
 		const searchValue = event.target.value.toLowerCase()
-		setIsDropdownOpen(true)
+		dropdownRef.current?.open()
 		SearchDropdown(searchValue, items, setFilteredItems)
 	}
 
 	// Multiselect search function.
-	const handleMultiSelectSearch = (event: ChangeEvent<HTMLInputElement>) => {
-		const searchValue = event.target.value.toLowerCase()
-		setIsDropdownOpen(true)
+	const handleMultiSelectSearch = (value: string) => {
+		const searchValue = value
+		dropdownRef.current?.open()
 		MultiSelectSearch(searchValue, items, setFilteredItems)
 	}
 
@@ -238,26 +170,39 @@ const Select: React.FC<SelectBaseProps> = ({
 	 *
 	 * @param {string|number|Object} option Option ID or object
 	 */
-	const updateItem = (option: Record<string, any> | string | undefined) => {
+	const updateItem = (option: SelectOptionType | SelectOptionType[]) => {
 		setSelectedItems(option)
 		if (onChange) {
 			onChange(option)
 		}
 	}
 
-	const updateSelected = (optionId: number | string) => {
+	const updateSelected = (optionObj: SelectOptionType) => {
+		if (!options) {
+			setSelectedItems(optionObj)
+			dropdownRef.current?.close()
+			return
+		}
+
 		const optionIndex = filteredItems.findIndex(
-			(option) => option.id === optionId,
+			(option) => option.id === optionObj.id,
 		)
 		const updatedItems = [...filteredItems]
-		const isSelected = updatedItems[optionIndex].isSelected
+		const isSelected = updatedItems[optionIndex]?.isSelected
+
 		if (!isMultiSelect) {
 			updatedItems.forEach((option) => (option.isSelected = false))
-			updatedItems[optionIndex].isSelected = true
+			updatedItems[optionIndex] = {
+				...updatedItems[optionIndex],
+				isSelected: true,
+			}
 			setFilteredItems(updatedItems)
-			setIsDropdownOpen(false)
+			dropdownRef.current?.close()
 		} else {
-			updatedItems[optionIndex].isSelected = !isSelected
+			updatedItems[optionIndex] = {
+				...updatedItems[optionIndex],
+				isSelected: !isSelected,
+			}
 			setFilteredItems(updatedItems)
 		}
 	}
@@ -270,11 +215,13 @@ const Select: React.FC<SelectBaseProps> = ({
 		selected: selectedItem,
 		selectLabel: label,
 		isSmall,
-		dropdownToggle: () => setIsDropdownOpen(!isDropdownOpen),
 		clearSelection: () => {
 			RemoveAll(updateItem, items, setFilteredItems)
 		},
 		...(!isSearchable && {
+			dropdownToggle: () => {
+				dropdownRef.current?.toggle()
+			},
 			arrow: isDropdownOpen ? "ChevronUp" : "ChevronDown",
 		}),
 		...(isSearchable && {
@@ -283,11 +230,14 @@ const Select: React.FC<SelectBaseProps> = ({
 			onChange: (e: ChangeEvent<HTMLInputElement>) => {
 				handleSearchDropdown(e)
 				updateItem({
-					...(selectedItem as Record<string, any>),
+					...(selectedItem as SelectOptionType),
 					label: e.target.value,
 				})
 			},
-			onEvent: (optionId: number | string) => updateSelected(optionId),
+			onEvent: (optionId: SelectOptionType) => updateSelected(optionId),
+			onClick: () => {
+				dropdownRef.current?.toggle()
+			},
 		}),
 		...(isMultiSelect && {
 			isMultiSelect,
@@ -299,18 +249,34 @@ const Select: React.FC<SelectBaseProps> = ({
 
 	// Dropdown props
 	const dropdownProps = {
+		optionAppreance,
 		options: filteredItems,
 		selected: selectedItem,
 		isSmall,
+		onChange,
+		...(isSearchable && {
+			isSearchable,
+			options: filteredItems.map((option) => ({
+				...option,
+				searchLabel: option.label,
+			})),
+		}),
 		...(isMultiSelect && {
 			isMultiSelect,
+			options: filteredItems.map((option) => ({
+				...option,
+				props: {
+					_checkboxProps: { isSmall },
+				},
+			})),
 			selectAll: () => {
 				SelectAll(filteredItems, setFilteredItems)
 			},
-			onChange: (e: ChangeEvent<HTMLInputElement>) => {
-				handleMultiSelectSearch(e)
+			onSearch: (value: string) => {
+				handleMultiSelectSearch(value)
 			},
 		}),
+		_dropdownProps,
 	}
 
 	// Render component
@@ -332,15 +298,17 @@ const Select: React.FC<SelectBaseProps> = ({
 					interactionMethods={interactionMethods}
 				/>
 			)}
-			{isDropdownOpen && (
-				// @ts-ignore
-				<Dropdown
-					{...dropdownProps}
-					onEvent={(optionId: number | string) => {
-						updateSelected(optionId)
-					}}
-				/>
-			)}
+			{/*// @ts-ignore*/}
+			<Dropdown
+				{...dropdownProps}
+				dropdownRef={dropdownRef}
+				onToggle={(isOpen) => {
+					setIsDropdownOpen(isOpen)
+				}}
+				onEvent={(optionId: SelectOptionType) => {
+					updateSelected(optionId)
+				}}
+			/>
 		</div>
 	)
 }

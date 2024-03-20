@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect, useId, LegacyRef } from "react"
+import React, { useState, useEffect, useId, LegacyRef } from "react"
+
 import { Input } from "@wpmudev/sui-input"
-import { useStyles, useStylesTypes } from "@wpmudev/sui-hooks"
-import { generateCN } from "@wpmudev/sui-utils"
+import { useStylesTypes } from "@wpmudev/sui-hooks"
 
 interface InputWithAutoCompleteProps extends useStylesTypes {
 	id?: string
@@ -16,6 +16,7 @@ interface InputWithAutoCompleteProps extends useStylesTypes {
 	onChange?: (
 		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => void
+	onClick?: () => void
 	onValueChange: (val: string) => void
 	onEvent?: (event: React.ChangeEvent<HTMLInputElement>) => void
 	ref?: LegacyRef<HTMLInputElement>
@@ -30,10 +31,10 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	selected = { label: "" },
 	placeholder,
 	dropdownItems = [],
-	dropdownToggle,
 	onValueChange = () => {},
 	onChange = () => {},
 	onEvent = () => {},
+	onClick = () => {},
 	interactionMethods,
 }) => {
 	const generatedId = useId()
@@ -49,7 +50,9 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 	// Filter options list based on the searched value
 	const filteredOptions = React.useMemo(() => {
 		return isFiltered
-			? dropdownItems?.filter(({ label }) => label.startsWith(value))
+			? dropdownItems?.filter(({ searchLabel }) =>
+					searchLabel.startsWith(value),
+			  )
 			: dropdownItems
 	}, [dropdownItems, isFiltered, value])
 
@@ -86,21 +89,24 @@ const InputWithAutoComplete: React.FC<InputWithAutoCompleteProps> = ({
 
 	return (
 		<Input
-			//@ts-ignore
-			ref={controlRef}
 			className="sui-select__input"
 			id={inputId}
-			icon="Search"
-			iconPosition="start"
-			onClick={dropdownToggle}
+			icon={expanded ? "ChevronUp" : "ChevronDown"}
+			iconPosition="end"
+			iconSize="sm"
 			onChange={onInputChange}
 			defaultValue={value}
 			allowClear={false}
 			hint={(isFiltered && filteredOptions[0]?.label) || ""}
 			disableInteractions={true}
 			placeholder={placeholder}
-			onKeyDown={onInputKeyDown}
-			{...interactionMethods}
+			_htmlProps={{
+				autoComplete: "off",
+				ref: controlRef as LegacyRef<HTMLInputElement> | undefined,
+				onKeyDown: onInputKeyDown,
+				onClick,
+				...interactionMethods,
+			}}
 		/>
 	)
 }

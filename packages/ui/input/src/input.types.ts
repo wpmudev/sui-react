@@ -101,7 +101,7 @@ interface InputProps
 	 * The callback function for handling input changes.
 	 */
 	onChange?: (
-		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string,
+		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => void
 	/**
 	 * When key up in input field
@@ -135,6 +135,10 @@ interface InputProps
 	 * Optional icon position to be displayed before or after text.
 	 */
 	iconPosition?: "start" | "end"
+	/**
+	 * Optional icon position to be displayed before or after text.
+	 */
+	iconSize?: "sm" | "md"
 	/*
 	 * Icon hint
 	 */

@@ -12,12 +12,21 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			@include element(hint-wrapper) {
+				padding: $spacing-md;
+			}
+
 			@include element(hint) {
+				display: flex;
+				align-items: center;
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
+				gap: $spacing-md;
 				border-radius: $border-radius-sm;
-				background: $color-primary-90;
+				background: $color-extended-neutral-95;
 				color: $color-extended-neutral-50;
-				margin: $spacing-md;
 				padding: $spacing-lg;
+				border-radius: $border-radius-sm;
 			}
 		}
 	}

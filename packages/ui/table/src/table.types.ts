@@ -1,9 +1,8 @@
 import React, { CSSProperties, HTMLProps, Ref, RefObject } from "react"
 
 import { InputProps } from "@wpmudev/sui-input"
-import { SelectBaseProps } from "@wpmudev/sui-select"
+import { SelectBaseProps, SelectOptionType } from "@wpmudev/sui-select"
 import { TableColumnType, TableSortBy } from "./table-context"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
 import {
 	OmitNestedKey,
 	SuiHTMLAttributes,
@@ -107,7 +106,7 @@ interface TableProps extends SuiHTMLAttributes, SuiStyleType {
 	/**
 	 * An array of bulk actions available in the table toolbar.
 	 */
-	bulkActions?: Record<string, any>[]
+	bulkActions?: SelectOptionType[]
 
 	/**
 	 * Display table row in stripped design
@@ -282,7 +281,7 @@ interface TableContextProps {
 	/**
 	 * Array of bulk actions available in the table toolbar.
 	 */
-	bulkActions?: Record<string, any>[]
+	bulkActions?: SelectOptionType[]
 
 	/**
 	 * Array of table rows with additional data.

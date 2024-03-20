@@ -55,7 +55,7 @@
 				}
 
 				@include modifies-element(icon--stroke) {
-					stroke: $color-extended-neutral-100;
+					stroke: $color-extended-neutral-0;
 				}
 			}
 		}
@@ -75,7 +75,6 @@
 			@include modifier(dark) {
 				@include modifies-element(icon--stroke) {
 					stroke-width: $spinner-stroke-width-md;
-					stroke: $color-extended-neutral-0;
 				}
 			}
 		}

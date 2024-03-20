@@ -6,18 +6,18 @@ import { a11yTest } from "@wpmudev/sui-utils"
 import { Select, SelectBaseProps } from "../src"
 
 describe("@wpmudev/sui-select", () => {
-	const props = {
+	const props: SelectBaseProps = {
 		id: "standard-select",
 		label: "Select",
 		options: [
 			{
-				icon: "settings",
+				icon: "Settings",
 				id: "option-1",
 				label: "Option 1 is the option.",
 				isSelected: false,
 			},
 			{
-				icon: "settings",
+				icon: "Settings",
 				id: "option-2",
 				label: "Option 2",
 				isSelected: false,
@@ -78,7 +78,7 @@ describe("@wpmudev/sui-select", () => {
 		fireEvent.click(selectHeader as Element)
 
 		// Get options elements
-		const options = select.querySelectorAll(".sui-select__dropdown--option")
+		const options = select.querySelectorAll(".sui-dropdown__menu-item")
 		const selectAll = options[0]
 		const firstOption = options[1]
 		const secondOption = options[2]

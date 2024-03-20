@@ -8,6 +8,7 @@ import { useInteraction, useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 
 import { SearchProps } from "./search.types"
 import { SearchOptions } from "./search-options"
+import { Info } from "@wpmudev/sui-icons"
 
 // Build "search" component
 const Search: React.FC<SearchProps> = ({
@@ -131,13 +132,19 @@ const Search: React.FC<SearchProps> = ({
 				disableInteractions={true}
 				isDisabled={isDisabled ?? false}
 				placeholder={placeholder ?? ""}
-				{...inputProps}
+				_htmlProps={{
+					autoComplete: "off",
+					..._renderHTMLPropsSafely(inputProps),
+				}}
 			/>
 			{isPopoverVisible && "smart" === variation && (
 				<div className="sui-search__popover">
 					{!isFiltered ? (
-						<div className="sui-search__hint">
-							<span>{searchHint.replace("#number#", searchMinChars)}</span>
+						<div className="sui-search__hint-wrapper">
+							<div className="sui-search__hint">
+								<Info size="sm" />
+								<span>{searchHint.replace("#number#", searchMinChars)}</span>
+							</div>
 						</div>
 					) : (
 						<SearchOptions

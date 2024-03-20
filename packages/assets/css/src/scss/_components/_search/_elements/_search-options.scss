@@ -12,8 +12,14 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			@include element(popover) {
+				border-radius: $border-radius-md;
+				box-shadow: 0 $spacing-xs $spacing-sm 0 $color-shadow-dark,
+					0 $spacing-2xs $spacing-lg 0 $color-shadow-light,
+					0 #{$spacing-sm + 2px} $spacing-default 0 $color-shadow-default;
+			}
+
 			@include element(options) {
-				border-top: solid $border-width-sm $color-primary-80;
 				margin: 0 -#{$border-width-sm} -#{$border-width-sm};
 				max-height: $search-size-height-md;
 				overflow-y: auto;
@@ -60,10 +66,6 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			@include element(options) {
-				border-color: $color-extended-neutral-0;
-			}
-
 			@include element(options-item) {
 				@include modifier(hover, focus) {
 					background: $color-extended-neutral-0;

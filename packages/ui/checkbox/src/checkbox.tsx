@@ -100,8 +100,8 @@ const Checkbox = ({
 		>
 			{/* Checkbox input */}
 			<input
+				aria-label={(typeof label === "string" && label) || "checkbox"}
 				{..._renderHTMLPropsSafely(inputProps)}
-				aria-label={label || "checkbox"}
 				data-testid="checkbox-input"
 			/>
 			{/* Render Indeterminate or Tick component based on isIndeterminate */}

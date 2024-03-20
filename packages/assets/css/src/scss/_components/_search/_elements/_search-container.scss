@@ -13,27 +13,17 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			position: relative;
-			border: $border-width-sm solid $color-extended-neutral-70;
-			border-radius: $border-radius-sm;
 			background: $color-extended-neutral-100;
 
-			&:after {
-				content: "";
-				position: absolute;
-				inset: -#{$border-width-md};
-				pointer-events: none;
-			}
+			.sui-#{$block}__input-field {
+				border: $border-width-sm solid $color-extended-neutral-70;
+				border-radius: $border-radius-sm;
 
-			@include modifier(hover) {
-				border: $border-width-sm solid $color-primary-50;
-			}
-
-			@include modifier(focus) {
 				&:after {
-					border-width: $border-width-md;
-					border-style: solid;
-					border-color: $color-primary-50;
-					border-radius: inherit;
+					content: "";
+					position: absolute;
+					inset: -#{$border-width-md};
+					pointer-events: none;
 				}
 			}
 		}
@@ -43,12 +33,8 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			border-color: $color-extended-neutral-0;
-
-			@include modifier(hover, focus) {
-				&:after {
-					border-color: inherit;
-				}
+			.sui-#{$block}__input-field {
+				border-color: $color-extended-neutral-0;
 			}
 		}
 	}
