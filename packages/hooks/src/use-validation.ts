@@ -98,7 +98,7 @@ const useValidation = (
 	}
 
 	/**
-	 *  HOF for creating validators
+	 * HOF for creating validators
 	 *
 	 * @param  validatorFunc
 	 * @return {Function} validator function
@@ -119,7 +119,13 @@ const useValidation = (
 	}
 
 	// Required rule
-	const required = createValidator((fieldValue, _typeValue, message) => {
+	const required = createValidator((fieldValue, typeValue, message) => {
+		if (typeof typeValue !== "boolean") {
+			throw new Error(
+				`SUI 3: "useValidation" hook, required rule value should be a boolean.`,
+			)
+		}
+
 		if (typeof fieldValue === "string" && isEmpty(fieldValue)) {
 			return message
 		}
@@ -161,7 +167,7 @@ const useValidation = (
 	 *
 	 * @param fieldValue form element value to be validated
 	 * @param ruleObject single rule object
-	 * @param nextRule   next rule function
+	 * @param nextRule   next rule object
 	 */
 	const applySingleRule = (
 		fieldValue: fieldValueType,
