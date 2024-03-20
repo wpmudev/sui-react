@@ -14,17 +14,20 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(dropdown) {
-				background: $color-extended-neutral-100;
 				border-radius: $border-radius-md;
 				width: 100%;
 
 				&.sui-dropdown {
 					position: absolute;
+					height: 100%;
+					top: 0;
+					z-index: -1;
 				}
 
 				.sui-dropdown__popover {
 					margin: 0;
 					width: 100%;
+					z-index: 1;
 
 					ul {
 						margin: 0;

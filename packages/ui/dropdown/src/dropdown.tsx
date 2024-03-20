@@ -134,20 +134,21 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 		// show dropdown on top/bottom based on the space available
 		useEffect(() => {
-			if (!isOpen || !popoverRef.current) return
+			if (!isOpen || !popoverRef.current || !dropdownRef.current) return
 
 			const popoverElement = popoverRef.current
 			const triggerElement = dropdownRef.current
-			if (!triggerElement) return
 
 			const triggerRect = triggerElement.getBoundingClientRect()
 
 			// Calculate the space available above and below the trigger button
-			const spaceAbove = triggerRect.top
 			const spaceBelow = window.innerHeight - triggerRect.bottom
 
-			// Determine if there's more space below than above
-			const showBelow = spaceBelow > spaceAbove
+			// Get the height of the popover
+			const popoverHeight = popoverElement.offsetHeight
+
+			// Determine if there's more space below than above and if the popover height fits in the space below
+			const showBelow = spaceBelow > popoverHeight
 
 			// Set the appropriate CSS class for placement
 			popoverElement.classList.toggle(

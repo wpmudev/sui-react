@@ -71,7 +71,7 @@ const Select = ({
 } & SelectBaseProps) => {
 	const boxStyle = {
 		margin: 0,
-		padding: "30px",
+		padding: "800px 30px",
 		border: "white" === props.color ? "1px solid #E6E6E6" : 0,
 		borderRadius: "4px",
 		background: "white" === props.color ? "#333" : "#fff",
