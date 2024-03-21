@@ -1,6 +1,7 @@
 import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 import { options } from "../TabExamples.mdx"
 import { Select } from "../../../src"
+import { AsyncSelect, AsyncSelectCode } from "./AsyncSelect"
 import dedent from "dedent"
 
 export const searchOptions = [
@@ -111,5 +112,20 @@ export const Example = () => {
     	<Select isMultiSelect={true} id="multiselect" options={options}/>
     </div>
     <Snippet language="js">{multiSelectCode}</Snippet>
+
+</Section>
+
+
+<Section
+    title="Async options"
+    contained={true}
+    border={true}
+    style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+    <p>Using <Code isSmall={small}>_dropdownProps</Code> we can make asynchronous options list as follow:</p>
+    <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    	 <AsyncSelect />
+    </div>
+    <Snippet language="js">{AsyncSelectCode}</Snippet>
 
 </Section>

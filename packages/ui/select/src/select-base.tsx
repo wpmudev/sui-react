@@ -155,7 +155,6 @@ const Select: React.FC<SelectBaseProps> = ({
 	const selectProps = {
 		className: classNames,
 		ref,
-		"data-ttttt": "ttttt",
 		...(customWidth && { style: { maxWidth: `${customWidth}px` } }),
 		// onBlurCapture: () => set.focus(false),
 	}
