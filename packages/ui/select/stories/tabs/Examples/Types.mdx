@@ -3,27 +3,54 @@ import { options } from "../TabExamples.mdx"
 import { Select } from "../../../src"
 import dedent from "dedent"
 
+export const searchOptions = [
+	{
+		icon: "settings",
+		id: "option-1",
+		label: "Option 1 is the option.",
+		isSelected: false,
+    searchLabel: "Option 1",
+	},
+	{
+		icon: "settings",
+		id: "option-2",
+		label: "Option 2",
+		isSelected: false,
+    searchLabel: "Option 1",
+	},
+	{
+		icon: "settings",
+		id: "option-3",
+		label: "Option 3",
+		isSelected: false,
+    searchLabel: "Option 1",
+	},
+]
+
 export const smartSearchCode = dedent`
   import { Select } from "@wpmudev/sui-select";
 
-  export const options = [
+  export const searchOptions = [
     {
       icon: "settings",
       id: "option-1",
       label: "Option 1 is the option.",
       isSelected: false,
-	  },
+      searchLabel: "Option 1 is the option.",
+    },
     {
       icon: "settings",
       id: "option-2",
       label: "Option 2",
       isSelected: false,
+      searchLabel: "Option 2",
     },
     {
       icon: "settings",
       id: "option-3",
       label: "Option 3",
       isSelected: false,
+      searchLabel: "Option 2",
     },
   ]
 
@@ -56,7 +83,7 @@ export const multiSelectCode = dedent`
   ]
 
 export const Example = () => {
-    return <Select isMultiSelect={true} id="multiselect" options={options} />
+    return <Select isMultiSelect={true} id="multiselect" options={options} label="Search..." />
 }`
 
 <Section
@@ -67,10 +94,10 @@ export const Example = () => {
 >
     <p>Set the prop <Code small={true}>isSearchable=\{true\}</Code> to change the select to the samrt search variation</p>
     <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
-    	<Select isSearchable={true} id="smart-search" options={options}/>
+    	<Select isSearchable={true} id="smart-search" options={searchOptions} label="Search..." />
     </div>
     <Snippet language="js">{smartSearchCode}</Snippet>
-
+     <p>Note that you need to add <Code isSmall={true}>searchLabel</Code> to each option, this is the value that will be looked for</p>
 </Section>
 
 <Section
