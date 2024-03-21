@@ -18,12 +18,48 @@
 				align-items: center;
 				cursor: pointer;
 				display: flex;
-				font-weight: $font-weight-md;
+				font: $font-weight-default #{$font-size-xs}/#{$font-height-xs}
+					$font-family-default;
 				gap: $spacing-md;
 				list-style: none;
+				line-height: $font-height-sm;
 				margin: 0;
-				padding: $spacing-md $menu-spacing-horizontal;
+				padding: $spacing-sm $spacing-lg;
 				text-decoration: none;
+
+				@include modifier(wrapper) {
+					display: flex;
+					gap: $spacing-sm;
+					flex: 1;
+					align-items: flex-start;
+
+					.sui-#{$block}__menu-item-icon {
+						margin-top: $spacing-xs;
+					}
+				}
+
+				@include modifier(title) {
+					font-weight: $font-weight-md;
+				}
+
+				@include modifier(loading) {
+					align-items: center;
+					align-self: stretch;
+					background: $color-extended-neutral-95;
+					border-radius: $border-radius-md;
+					display: flex;
+					font: $font-weight-default #{$font-size-xs}/#{$font-height-xs}
+						$font-family-default;
+					gap: $spacing-md;
+					padding: $spacing-default;
+					margin: 0 $spacing-md $spacing-md;
+				}
+
+				@include modifier(loading-alt) {
+					background: transparent;
+					padding: $spacing-md $spacing-lg;
+					margin: 0;
+				}
 			}
 
 			@include element(menu) {

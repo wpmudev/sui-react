@@ -34,11 +34,9 @@ const Tooltip: React.FC<TooltipProps> = ({
 	customMobileWidth,
 	children,
 	onClick,
-	onMouseEnter = () => {},
 	onMouseLeave = () => {},
 	onFocus = () => {},
 	onBlur = () => {},
-	href,
 	icon,
 	iconSize = "sm",
 	buttonProps,
@@ -196,8 +194,12 @@ const Tooltip: React.FC<TooltipProps> = ({
 		setIsVisible(true)
 	}
 
-	const onMouseLeaveCallback = () => {
+	const onMouseLeaveCallback = (
+		e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>,
+	) => {
 		setIsVisible(false)
+		// Invoke the callback
+		onMouseLeave(e)
 	}
 
 	// use interaction
@@ -267,8 +269,8 @@ const Tooltip: React.FC<TooltipProps> = ({
 				return (
 					<Button
 						{...(buttonProps as ButtonProps)}
-						{...(icon && { icon: icon as ButtonProps["icon"] })}
-						href={href}
+						{...(icon && { icon })}
+						{...(iconSize && { iconSize })}
 						onClick={onClickCallback}
 					>
 						{label}

@@ -6,4 +6,6 @@
 @include sui-search--element.build-options(search);
 @include sui-search--element.build-input-field(search);
 
+@include sui-search--state.state-hover(search);
+@include sui-search--state.state-focus(search);
 @include sui-search--state.state-disabled(search);

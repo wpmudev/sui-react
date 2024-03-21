@@ -15,6 +15,9 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	isDisabled = false,
 	placeholder,
 	customWidth,
+	validate,
+	validateOnMount,
+	resetValidation,
 	_htmlProps,
 	_style = {},
 }) => {
@@ -29,6 +32,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	// Define password visibility
 	const [hasValue, setHasValue] = useState(false)
 	const [isVisible, setVisible] = useState(false)
+
 	// Input settings
 	const inputAttrs = {
 		id,
@@ -38,6 +42,9 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 		isDisabled,
 		iconPosition: "end",
 		placeholder,
+		validate,
+		validateOnMount,
+		resetValidation,
 		onKeyUp: () => {
 			const inputElement = document.getElementById(
 				id as string,

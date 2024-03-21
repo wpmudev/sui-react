@@ -1,15 +1,12 @@
 import React, { HTMLProps, RefObject, useCallback } from "react"
 import { _renderHTMLPropsSafely, SuiHTMLAttributes } from "@wpmudev/sui-utils"
+import { SelectSearchInputProps } from "../select.types"
 
-interface SelectSearchInputProps
-	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>> {
-	id?: string
-	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-	ref?: RefObject<HTMLInputElement>
-	placeholder?: string
-}
-
-const Search: React.FC<SelectSearchInputProps> = ({ id, onChange }) => {
+const Search: React.FC<SelectSearchInputProps> = ({
+	id,
+	onChange,
+	_htmlProps,
+}) => {
 	// handle on change input
 	const handleInputChange = useCallback(
 		(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +24,7 @@ const Search: React.FC<SelectSearchInputProps> = ({ id, onChange }) => {
 			className="sui-select__search--input"
 			onChange={handleInputChange}
 			autoComplete="off"
+			{..._renderHTMLPropsSafely(_htmlProps)}
 		/>
 	)
 }

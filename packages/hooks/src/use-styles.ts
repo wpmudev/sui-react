@@ -9,44 +9,72 @@ import {
 	isObjectEmpty,
 } from "@wpmudev/sui-utils"
 
-export type StringPropertyType = string | Array<string>
+export type positionType = "default" | "sm" | "md" | "lg" | "xl"
+
+export type objectValueType = Record<string, string>
+
+export type PropertyValueType = string | objectValueType
 
 // mapped type using the helper type
 export type CSSPropertiesTypes = {
 	[K in keyof CSSProperties]?:
 		| CSSProperties[K]
 		| ReadonlyArray<Extract<CSSProperties[K], string>>
+		| objectValueType
 }
 
 export interface useStylesTypes extends CSSPropertiesTypes {
 	// padding shorthands
-	p?: StringPropertyType
-	px?: StringPropertyType
-	py?: StringPropertyType
-	pt?: StringPropertyType
-	pr?: StringPropertyType
-	pb?: StringPropertyType
-	pl?: StringPropertyType
+	p?: PropertyValueType
+	px?: PropertyValueType
+	py?: PropertyValueType
+	pt?: PropertyValueType
+	pr?: PropertyValueType
+	pb?: PropertyValueType
+	pl?: PropertyValueType
 	// margins
-	m?: StringPropertyType
-	mx?: StringPropertyType
-	my?: StringPropertyType
-	mt?: StringPropertyType
-	mr?: StringPropertyType
-	mb?: StringPropertyType
-	ml?: StringPropertyType
+	m?: PropertyValueType
+	mx?: PropertyValueType
+	my?: PropertyValueType
+	mt?: PropertyValueType
+	mr?: PropertyValueType
+	mb?: PropertyValueType
+	ml?: PropertyValueType
 }
 
 /**
  * These are supported breakpoints (check _breakpoints.scss)
  *
+ *  default: it applies value outside of @media
  * 	sm: 600
  * 	md: 1024
  * 	lg: 1200
  * 	xl: 1600
- * 	null: it applied value outside of @media
+ *
  */
-export const breakpoints = [600, 1024, 1200, 1600, null]
+export const breakpointsMap = {
+	default: null,
+	sm: 600,
+	md: 1024,
+	lg: 1200,
+	xl: 1600,
+}
+
+const getPreviousBrpSize = (pos: positionType) => {
+	switch (pos) {
+		case "xl":
+			return breakpointsMap.lg
+
+		case "lg":
+			return breakpointsMap.md
+
+		case "md":
+			return breakpointsMap.sm
+
+		default:
+			return undefined
+	}
+}
 
 // Shorthands for spacing params
 export const CSS_SHORTHAND_MAPS: Record<string, string> = {
@@ -74,51 +102,51 @@ const parentSelector: string = "body .sui-wrap &"
 /**
  * Build style object based on prop name and value
  *
- * @param {string}             propName       CSS property name
- * @param {StringPropertyType} value          CSS property value
- * @param {Object}             existingStyles existing CSS
+ * @param {string}            propName       CSS property name
+ * @param {PropertyValueType} value          CSS property value
+ * @param {Object}            existingStyles existing CSS
  */
 export const buildStyleSheet = (
 	propName: string,
-	value: StringPropertyType,
+	value: PropertyValueType,
 	existingStyles: Record<string, any>,
 ) => {
 	const shorthandPropName = CSS_SHORTHAND_MAPS[propName] ?? propName
 
-	// build single value
+	// Build single value
 	const buildSingleValue = (val: string) => ({
 		[shorthandPropName]: val,
 	})
 
-	// build media queries
+	// Build media queries
 	const buildMediaQueries = (
 		val: string,
-		pos: number,
+		pos: positionType,
 		acc: Record<string, any>,
 	) => {
-		const prevSize = breakpoints[pos - 1]
-		const size = breakpoints[pos]
+		// Current breakpoint size
+		const size = breakpointsMap[pos]
 
-		// skip if value is null
+		// Skip if value is null
 		if (null === val) {
 			return acc
 		}
 
 		const styleVal = buildSingleValue(val)
 
-		// last breakpoint value is for default value
-		if (null === size) {
+		// Default value
+		if (pos === "default") {
 			return {
 				...acc,
-				[parentSelector.replace("body ", "")]: {
-					...acc[parentSelector as string],
-					...styleVal,
-				},
+				...styleVal,
 			}
 		}
 
+		// Get previous breakpoint size
+		const prevSize = getPreviousBrpSize(pos)
+
 		const query =
-			pos > 0
+			pos !== "sm"
 				? `@media(min-width:${(prevSize ?? 0) + 1}px) and (max-width:${size}px)`
 				: `@media(max-width:${size}px)`
 
@@ -136,10 +164,11 @@ export const buildStyleSheet = (
 		case "string":
 			return buildSingleValue(value)
 		case "object":
-			return value.reduce(
-				(acc, val, index) => ({
+			return Object.keys(value).reduce(
+				// Ex. value = { default: "purple", sm: "red", md: "green", lg: "yellow", xl: "orange" }
+				(acc, pos: string) => ({
 					...acc,
-					...buildMediaQueries(val, index, acc),
+					...buildMediaQueries(value[pos], pos as positionType, acc),
 				}),
 				{},
 			)

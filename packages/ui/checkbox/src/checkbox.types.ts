@@ -101,7 +101,7 @@ interface CheckboxProps
 	/**
 	 * The label for the checkbox.
 	 */
-	label?: string
+	label?: ReactNode
 
 	/**
 	 * Represents the value of the checkbox

@@ -21,10 +21,21 @@
 			}
 
 			@include element(dropdown) {
-				@include modifier(option) {
-					&:hover {
+				.sui-dropdown__menu {
+					.sui-dropdown__menu-item--hover {
 						background: $color-primary-50;
 						color: $color-extended-neutral-100;
+					}
+				}
+			}
+
+			@include modifier(multiselect) {
+				@include modifies-element(dropdown) {
+					.sui-dropdown__menu {
+						.sui-dropdown__menu-item--hover {
+							background: none;
+							color: unset;
+						}
 					}
 				}
 			}
@@ -42,16 +53,27 @@
 			}
 
 			@include element(dropdown) {
-				@include modifier(option) {
-					&:hover {
+				.sui-dropdown__menu {
+					.sui-dropdown__menu-item--hover {
 						background: $color-extended-neutral-0;
 						color: $color-extended-neutral-100;
 					}
-				}
 
-				@include modifier(selected) {
-					&:hover {
-						color: $color-extended-neutral-100;
+					.sui-select__dropdown--selected {
+						&.sui-dropdown__menu-item--hover {
+							color: $color-extended-neutral-100;
+						}
+					}
+				}
+			}
+
+			@include modifier(multiselect) {
+				@include modifies-element(dropdown) {
+					.sui-dropdown__menu {
+						.sui-dropdown__menu-item--hover {
+							background: none;
+							color: unset;
+						}
 					}
 				}
 			}

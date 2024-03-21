@@ -3,7 +3,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-tag" />
 
 <Section title="Props" border={true}>
-	<PropSection title="color" type="string">
+	<PropSection title="colorScheme" type="string">
 		<p>The color of the tag</p>
 		<p>Allowed options:</p>
 		<List>
@@ -15,6 +15,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			<span label={<Code small={true}>black</Code>} />
 		</List>
 	</PropSection>
+
 	<PropSection title="design" type="string">
 		<p>The design of the tag</p>
 		<p>Allowed options:</p>
@@ -23,25 +24,32 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			<span label={<><Code small={true}>outlined</Code> The tag will have a transparent background</>} />
 		</List>
 	</PropSection>
+
 	<PropSection title="isSmall" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}> true </Code> the tag will have a smaller size</p>
 	</PropSection>
+
 	<PropSection title="isUppercase" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}> true </Code>, the tag text will be in uppercase</p>
 	</PropSection>
+
 	<PropSection title="isDisabled" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}> true </Code>, the tag  will be disabled and it will have a diffrent style</p>
 	</PropSection>
+
 	<PropSection title="isDismissable" type="boolean" defaultValue="false">
 		<p>When set to <Code small={true}> true </Code>, the tag will have a dismiss button</p>
 	</PropSection>
+
 	<PropSection title="onDismiss" type="function">
 		<p>A callback function to be invoked on the click of dismiss button</p>
 	</PropSection>
+
 	<PropSection title="className" type="string">
 		<p>A custom className </p>
 	</PropSection>
-	<PropSection title="style" type="string" defaultValue="default">
+
+	<PropSection title="contentWrap" type="string" defaultValue="default">
 		<p>When the available space is unsufficient, the tag could have one of three styles: </p>
 		<List>
 		<span label={<><Code small={true}>default</Code> for single line text. </>} />
@@ -49,9 +57,11 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			<span label={<><Code small={true}>truncated</Code> for a truncated text. </>} />
 		</List>
 	</PropSection>
+
 	<PropSection title="children" type="React Node">
 		<p>The content of the tag</p>
 	</PropSection>
+
 </Section>
 
 <CommonPropsNotice />

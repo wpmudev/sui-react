@@ -1,4 +1,9 @@
-import React, { HTMLProps, KeyboardEvent } from "react"
+import React, {
+	CSSProperties,
+	HTMLProps,
+	KeyboardEvent,
+	ReactNode,
+} from "react"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { ButtonProps } from "@wpmudev/sui-button"
 import {
@@ -6,6 +11,7 @@ import {
 	SuiHTMLAttributes,
 	SuiStyleType,
 } from "@wpmudev/sui-utils"
+import { CheckboxProps } from "@wpmudev/sui-checkbox"
 
 /**
  * Props for Menu component.
@@ -21,6 +27,7 @@ interface DropdownMenuProps extends SuiStyleType {
  * Props for MenuItem component.
  */
 interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
+	_type?: DropdownProps["type"]
 	/**
 	 * URL to navigate to when the item is clicked (if the item is an anchor).
 	 */
@@ -38,6 +45,10 @@ interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
 	 */
 	isDisabled?: boolean
 	/**
+	 * Makes dropdown disabled
+	 */
+	isSelected?: boolean
+	/**
 	 * Dropdown menu item variation
 	 */
 	variation?:
@@ -52,6 +63,7 @@ interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
 		| "defender"
 		| "branda"
 		| "beehive"
+		| "danger"
 	/**
 	 * Function to be called when the MenuItem is clicked.
 	 *
@@ -66,6 +78,15 @@ interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
 	 * Specifies where the linked document should be opened when the user clicks on the hyperlink.
 	 */
 	target?: "_blank" | "_self" | "_parent" | "_top" | string
+	/**
+	 * Used in "select-checkbox" mode
+	 */
+	isChecked?: boolean
+
+	variable?: ReactNode | string // Content to display as the variable for the dropdown menu item.
+	description?: string // Content to display as the description for the dropdown menu item.
+
+	_checkboxProps?: CheckboxProps
 }
 
 /**
@@ -92,16 +113,24 @@ interface DropdownMenuGroupProps
 interface DropdownMenuBaseProps extends SuiStyleType {
 	id: string | number // Unique identifier for the dropdown menu item.
 	label: React.ReactNode | string // Content to display as the label for the dropdown menu item.
+	variable?: string // Content to display as the variable for the dropdown menu item.
+	description?: string // Content to display as the description for the dropdown menu item.
 }
 
 // Props for an individual item within the dropdown menu.
 interface MenuItemProps extends DropdownMenuBaseProps {
-	props: Omit<DropdownMenuItemProps, "children"> // Additional props for the underlying MenuItem component.
+	props?: Omit<DropdownMenuItemProps, "children"> & {
+		_checkboxProps?: CheckboxProps // Extend _checkboxProps here
+	} // Additional props for the underlying MenuItem component.
 }
 
 // Props for a group of dropdown menu items.
 interface MenuGroupProps extends DropdownMenuBaseProps {
 	menus: Array<MenuItemProps> // An array of MenuItemProps representing the items in the group.
+}
+
+type getOptionOptTypes = {
+	page?: number
 }
 
 /**
@@ -114,6 +143,7 @@ interface DropdownProps
 			"className"
 		>,
 		SuiStyleType {
+	type?: "" | "default" | "select" | "select-checkbox" | "select-variable"
 	/**
 	 * The label for the dropdown.
 	 */
@@ -153,7 +183,16 @@ interface DropdownProps
 	/**
 	 * On click on Menu Item
 	 */
-	onMenuClick?(id: string | number, e?: React.ChangeEvent<unknown>): void
+	onMenuClick?(
+		option: Record<string, any>,
+		e?: React.ChangeEvent<unknown>,
+	): void
+	/**
+	 * Detect dropdown state (open or closed)
+	 *
+	 * @param isOpen
+	 */
+	onToggle?(isOpen: boolean): void
 	/**
 	 * Dropdown popover direction
 	 */
@@ -174,6 +213,51 @@ interface DropdownProps
 	 * whther to hide the label of the button or not
 	 */
 	isResponsive?: boolean
+	/**
+	 * Display in full width
+	 */
+	isFluid?: boolean
+	/**
+	 * Close dropdown on outer click
+	 */
+	closeOnOuterClick?: boolean
+	/**
+	 * Allow search
+	 */
+	allowSearch?: boolean
+	/**
+	 * Callback function for search
+	 *
+	 * @param {string} query
+	 */
+	onSearch?: (query: string) => void
+	/**
+	 * When options are going to be loaded from API, pass true
+	 */
+	isAsync?: boolean
+	/**
+	 * Useful when isAsync option is enabled
+	 */
+	asyncOptions?: {
+		perPage: number
+		totalItems?: number
+	}
+	/**
+	 * Callback for loading options from API
+	 */
+	getOptions?: (
+		query: string,
+		opt: getOptionOptTypes,
+		options?: DropdownProps["menu"],
+	) => Promise<any>
+	/**
+	 * Menu custom width
+	 */
+	menuCustomWidth?: number
+	/**
+	 * Custom search placeholder
+	 */
+	searchPlaceholder?: string
 }
 
 // Type definition for the modal handling functions

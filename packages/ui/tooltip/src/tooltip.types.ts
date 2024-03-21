@@ -1,8 +1,9 @@
 import React, { HTMLProps } from "react"
 
 import { ButtonProps } from "@wpmudev/sui-button"
-import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
+import { InteractionTypes } from "@wpmudev/sui-hooks"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 /**
  * Props for the Tooltip component.
@@ -28,7 +29,7 @@ interface TooltipBaseProps
 	/**
 	 * Optional to define icon name of the tooltip.
 	 */
-	icon?: string
+	icon?: IconsNamesType
 	/**
 	 * Optional to define icon size
 	 */

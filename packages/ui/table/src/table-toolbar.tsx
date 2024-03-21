@@ -28,8 +28,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 const TableToolbar: React.FC<TableSectionProps> = ({
 	_htmlProps,
 	_style = {},
-	...props
-}) => {
+}: TableSectionProps): JSX.Element => {
 	// State for expansion of the toolbar content
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
 	const [bulkAction, setBulkAction] = useState<string>("")
@@ -79,7 +78,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 								className="sui-table__toolbar-actions"
 								isSmall={true}
 								options={ctx?.bulkActions}
-								onChange={setBulkAction}
+								onChange={() => setBulkAction}
 							/>
 							<Button
 								type="primary"
@@ -115,6 +114,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 									colorScheme="black"
 									isSmall={true}
 									isFixedHeight={false}
+									menuCustomWidth={300}
 								>
 									{content}
 								</Dropdown>

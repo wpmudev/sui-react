@@ -44,11 +44,19 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 
 		// Function to open the modal
 		const openModal = useCallback(() => {
+			// Add lock class to body on open
+			document.body.classList.add("sui-locked")
+
+			// Update open state
 			setIsOpen(true)
 		}, [])
 
 		// Function to close the modal
 		const closeModal = useCallback(() => {
+			// Remove lock class from body on close
+			document.body.classList.remove("sui-locked")
+
+			// Update open state
 			setIsOpen(false)
 		}, [])
 
@@ -62,11 +70,8 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 		const [render] = usePortal()
 		const { suiInlineClassname } = useStyles(_style, "sui-wp-overlay")
 
-		document.body.classList.add("sui-locked")
-
 		// Return nothing if the modal is not open
 		if (!isOpen) {
-			document.body.classList.remove("sui-locked")
 			return null
 		}
 

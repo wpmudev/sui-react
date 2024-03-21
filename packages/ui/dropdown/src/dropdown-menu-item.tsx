@@ -6,9 +6,10 @@ import {
 	_renderHTMLPropsSafely,
 } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
-import Icons from "@wpmudev/sui-icons"
+import Icons, { Add } from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 import { DropdownMenuItemProps } from "./dropdown.types"
+import { Checkbox } from "@wpmudev/sui-checkbox"
 
 // import { MenuItemProps } from "./menu.types"
 
@@ -19,10 +20,15 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	className = "",
 	children,
 	isDisabled,
+	isSelected = false,
 	onClick,
 	variation = "",
+	variable,
+	description = "",
+	_type = "",
 	_htmlProps = {},
 	_style = {},
+	_checkboxProps = {},
 }) => {
 	// Use the useInteraction hook to manage hover and focus states
 	const [isHovered, isFocused, methods] = useInteraction({})
@@ -47,6 +53,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 			hover: isHovered,
 			focus: isFocused,
 			disabled: isDisabled,
+			selected: isSelected,
 			[variation]: !isEmpty(variation),
 		},
 		suiInlineClassname,
@@ -59,19 +66,66 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 		IconTag = Icons[icon]
 	}
 
+	const getContent = () => {
+		let content = <span id={menuTitleId}>{children}</span>
+
+		switch (_type) {
+			case "select":
+				break
+			case "select-checkbox":
+				content = (
+					<Checkbox
+						label={content}
+						isSmall={true}
+						isDisabled={isDisabled}
+						{..._checkboxProps}
+					/>
+				)
+				break
+			case "select-variable":
+				IconTag = IconTag ? IconTag : Icons.Add
+				content = (
+					<div id={menuTitleId} className="sui-dropdown__menu-item--wrapper">
+						<div>
+							<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
+						</div>
+						<div>
+							<span className="sui-dropdown__menu-item--title">{children}</span>
+							{variable && (
+								<span className="sui-dropdown__menu-item--var">
+									{` `}
+									{variable}
+								</span>
+							)}
+							{description && (
+								<div className="sui-dropdown__menu-item--desc">
+									{description}
+								</div>
+							)}
+						</div>
+					</div>
+				)
+				break
+		}
+
+		if ("select-variable" !== _type && !!IconTag) {
+			content = (
+				<>
+					<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
+					{content}
+				</>
+			)
+		}
+
+		return content
+	}
+
 	// Prepare attributes for the menu item element
 	const attrs = {
 		className: classNames,
 		href: !!href ? href : undefined,
 		tabIndex: isDisabled ? -1 : 0,
-		children: (
-			<>
-				{!!IconTag && (
-					<IconTag size="sm" className="sui-dropdown__menu-item-icon" />
-				)}
-				<span id={menuTitleId}>{children}</span>
-			</>
-		),
+		children: getContent(),
 		..._renderHTMLPropsSafely(_htmlProps),
 	}
 

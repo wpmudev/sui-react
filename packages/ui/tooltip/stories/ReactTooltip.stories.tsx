@@ -2,6 +2,7 @@ import React from "react"
 
 // Import required component.
 import { Tooltip as SuiTooltip, TooltipBaseProps } from "../src"
+import { IconsName } from "@wpmudev/sui-icons"
 
 // Import documentation main page.
 import docs from "./ReactTooltip.mdx"
@@ -27,6 +28,8 @@ const Tooltip = ({
 	customWidth,
 	customMobileWidth,
 	color,
+	iconSize,
+	icon,
 }: { tootlipText: string; color?: string } & TooltipBaseProps) => {
 	const boxStyles = {
 		padding: 20,
@@ -39,6 +42,8 @@ const Tooltip = ({
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<SuiTooltip
+						icon={icon}
+						iconSize={iconSize}
 						type={type}
 						label={label}
 						placement={placement}
@@ -64,6 +69,8 @@ Tooltip.args = {
 	placement: "top",
 	customWidth: "",
 	customMobileWidth: "",
+	icon: "Info",
+	iconSize: "sm",
 }
 
 // Set controls for story arguments.
@@ -79,6 +86,34 @@ Tooltip.argTypes = {
 				text: "Example: Text",
 				icon: "Example: Icon",
 			},
+		},
+	},
+	icon: {
+		name: "Icon",
+		options: IconsName,
+		control: {
+			type: "select",
+		},
+		if: {
+			arg: "type",
+			eq: "icon",
+		},
+	},
+	iconSize: {
+		name: "Icon Size",
+		options: ["sm", "md", "lg", "xl"],
+		control: {
+			type: "select",
+			labels: {
+				sm: "Small",
+				md: "Medium",
+				lg: "Large",
+				xl: "Extra Large",
+			},
+		},
+		if: {
+			arg: "type",
+			eq: "icon",
 		},
 	},
 	tootlipText: {

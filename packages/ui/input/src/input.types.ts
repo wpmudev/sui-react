@@ -1,5 +1,5 @@
 import React, { HTMLProps } from "react"
-import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
+import { InteractionTypes, validationPropsType } from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
@@ -39,7 +39,8 @@ type InputType =
 interface InputProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
 		InteractionTypes,
-		SuiStyleType {
+		SuiStyleType,
+		validationPropsType {
 	/**
 	 * Input field default value
 	 */
@@ -100,7 +101,7 @@ interface InputProps
 	 * The callback function for handling input changes.
 	 */
 	onChange?: (
-		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | string,
+		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => void
 	/**
 	 * When key up in input field
@@ -134,6 +135,10 @@ interface InputProps
 	 * Optional icon position to be displayed before or after text.
 	 */
 	iconPosition?: "start" | "end"
+	/**
+	 * Optional icon position to be displayed before or after text.
+	 */
+	iconSize?: "sm" | "md"
 	/*
 	 * Icon hint
 	 */
@@ -162,6 +167,7 @@ interface InputProps
 	 * Custom Width in pixels
 	 */
 	customWidth?: number
+
 	/**
 	 * On validation callback
 	 */

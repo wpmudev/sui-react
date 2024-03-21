@@ -178,6 +178,7 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 			<div>
 				<div className="sui-color-picker__saturation">
 					<Saturation
+						//@ts-ignore
 						hsl={selectedColor.hsl}
 						//@ts-ignore
 						hsv={selectedColor.hsv}
@@ -188,6 +189,7 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 				</div>
 				<div className="sui-color-picker__hue">
 					<Hue
+						//@ts-ignore
 						hsl={selectedColor.hsl}
 						//@ts-ignore
 						pointer={customPointer}
@@ -196,6 +198,7 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 				</div>
 				<div className="sui-color-picker__alpha">
 					<Alpha
+						//@ts-ignore
 						rgb={selectedColor.rgb}
 						hsl={selectedColor.hsl}
 						//@ts-ignore

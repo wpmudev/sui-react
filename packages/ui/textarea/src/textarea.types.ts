@@ -1,5 +1,5 @@
 import React, { HTMLProps } from "react"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { validationPropsType } from "@wpmudev/sui-hooks"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
@@ -8,7 +8,8 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
  */
 interface TextareaProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLTextAreaElement>>,
-		SuiStyleType {
+		SuiStyleType,
+		validationPropsType {
 	/** ID for the textarea element. */
 	id?: string
 

@@ -62,7 +62,7 @@
 			@include element(toolbar-filter) {
 				margin: 0;
 
-				.sui-dropdown__menu {
+				> .sui-dropdown__menu {
 					width: $table-width-md;
 				}
 

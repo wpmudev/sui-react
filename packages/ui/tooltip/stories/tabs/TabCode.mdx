@@ -20,8 +20,85 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 				<span label="icon" />
 			</List>
 		</PropSection>
+
+		<PropSection title="label" type="string">
+			<p>The text for the trigger</p>
+		</PropSection>
+
+		<PropSection title="buttonProps" type="object">
+			<p>
+				If you choose the type `button` for the trigger you can use any of <a href="/?path=/docs/sui-components-core-button--docs" target="_blank"> the Button component props </a>
+				to customize it.
+			</p>
+		</PropSection>
 		
-		<PropSection title="position" type="string" defaultValue="top">
+		<PropSection title="customWidth" type="number">
+			<p>
+				Add a fixed width to the tooltip
+			</p>
+		</PropSection>
+		
+		<PropSection title="customMobileWidth" type="number">
+			<p>
+				Add a fixed width for the tooltip in the mobile
+			</p>
+		</PropSection>
+
+		<PropSection title="onClick" type="function">
+			<p>
+				A callback function to be invoked upon clicking the trigger
+			</p>
+		</PropSection>
+
+		<PropSection title="onFocus" type="function">
+			<p>
+				A callback function to be invoked when the tooltip container gets focused
+			</p>
+		</PropSection>
+
+		<PropSection title="onBlur" type="function">
+			<p>
+				A callback function to be invoked when the tooltip container looses focus
+			</p>
+		</PropSection>
+		
+		<PropSection title="children" type="React Node">
+			<p>
+				The content of the tooltip
+			</p>
+		</PropSection>
+
+		<PropSection title="icon" type="string">
+			<p>
+				Icon name for the trigger
+			</p>
+		</PropSection>
+
+		<PropSection title="iconSize" type="string" defaultValue="sm">
+			<p>
+				The size of the trigger icon
+			</p>
+
+			<p>Allowed options</p>
+			<List>
+				<span label="sm" />
+				<span label="md" />
+				<span label="lg" />
+				<span label="xl" />
+			</List>
+		</PropSection>
+
+		<PropSection title="className" type="string">
+			<p>A custom css <Code isSmall={true}>className</Code> for further styling</p>
+		</PropSection>
+
+		<PropSection title="onMouseLeave" type="function">
+			<p>
+				A callback function to be invoked when the mouse leaves the trigger, the first parameter represents the event object
+			</p>
+		</PropSection>
+
+		<PropSection title="placement" type="string" defaultValue="top">
 			<p>
 				A tooltip can be placed at the top, bottom, left, or right of the
 				button.
@@ -126,87 +203,6 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 				/>
 			</List>
 		</PropSection>
-		
-		<PropSection title="className" type="string">
-			<p>Custom css classNames(s) to be added to the tooltip</p>
-		</PropSection>
-		
-		<PropSection title="customWidth" type="number">
-			<p>
-				Add a fixed width to the tooltip
-			</p>
-		</PropSection>
-		
-		<PropSection title="customMobileWidth" type="number">
-			<p>
-				Add a fixed width for the tooltip in the mobile
-			</p>
-		</PropSection>
-		
-		<PropSection title="children" type="React Node">
-			<p>
-				The content of the tooltip
-			</p>
-		</PropSection>
-		
-	<Section title="Trigger element props" style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-		
-		<PropSection title="icon" type="React Node">
-			<p>
-				Icon name for the trigger
-			</p>
-		</PropSection>
-
-		<PropSection title="iconSize" type="string">
-			<p>
-				This function is called when the button loses keyboard focus. ( only applicable for the icon type )
-			</p>
-		</PropSection>
-
-		<PropSection title="href" type="React Node">
-			<p>
-				The link that the trigger points to ( only applicable for the button type)
-			</p>
-		</PropSection>
-
-		<PropSection title="label" type="string">
-			<p>The text for the element to be hovered on to display the tooltip ( not applicable for the icon type )</p>
-		</PropSection>
-
-		<PropSection title="onClick" type="function">
-			<p>
-				A callback function to be invoked upon clicking on the trigger element
-			</p>
-		</PropSection>
-		
-		<PropSection title="onMouseEnter" type="function">
-			<p>
-				A callback function to be triggered when the mouse pointer moves over the button
-			</p>
-		</PropSection>
-		
-		<PropSection title="onMouseLeave" type="function">
-			<p>
-				A callback function to be triggered when the mouse pointer exits the button
-			</p>
-		</PropSection>
-		
-		<PropSection title="onFocus" type="function">
-			<p>
-				This function is called when the button receives keyboard focus, typically used to enhance accessibility.
-			</p>
-		</PropSection>
-		
-		<PropSection title="onBlur" type="function">
-			<p>
-				This function is called when the button loses keyboard focus.
-			</p>
-		</PropSection>
-
-		<p>In addition to these props, and when you use the type <Code isSmall={true}>button</Code>, you can customize the button further by using any prop that the <a href="/?path=/docs/sui-components-core-button--docs" target="_blank">Button Component</a> accepts.</p>
-
-	</Section>
-
 </Section>
 
 <CommonPropsNotice />

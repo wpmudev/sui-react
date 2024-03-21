@@ -14,23 +14,7 @@ import {
 } from "@wpmudev/sui-utils"
 import { Icon } from "./select-icon"
 import { InputWithAutoComplete } from "./select-input"
-import { IconsNamesType } from "@wpmudev/sui-icons"
-
-interface SelectSelectedProps
-	extends Omit<HTMLProps<HTMLDivElement>, "selected"> {
-	id: string
-	controlRef: HTMLDivElement | HTMLInputElement | null
-	expanded?: boolean
-	arrow?: IconsNamesType
-	selected?: Record<string, any> | string
-	selectLabel?: string
-	isSmall?: boolean
-	isMultiSelect?: boolean
-	removeSelection?: (optionId: number | string) => void
-	dropdownToggle: () => void
-	clearSelection: () => void
-	interactionMethods: object
-}
+import { SelectSelectedProps } from "../select.types"
 
 // Build "Select Selected" component.
 const Selected: React.FC<SelectSelectedProps> = ({
@@ -118,7 +102,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 					aria-label={selectLabel}
 					aria-haspopup="listbox"
 					aria-expanded={expanded}
-				></div>
+				/>
 				{selectedContent}
 				{isMultiSelect &&
 					!isUndefined(selected) &&
@@ -141,7 +125,10 @@ const Selected: React.FC<SelectSelectedProps> = ({
 }
 
 interface SelectSelectedSearchProps
-	extends Omit<HTMLProps<HTMLInputElement>, "selected" | "ref" | "onChange"> {
+	extends Omit<
+		HTMLProps<HTMLInputElement>,
+		"selected" | "ref" | "onChange" | "onClick"
+	> {
 	arrow?: string
 	isSmall?: boolean
 	controlRef: HTMLDivElement | HTMLInputElement | null
@@ -188,13 +175,6 @@ const SelectedSearch: React.FC<SelectSelectedSearchProps> = ({
 				interactionMethods={interactionMethods}
 				{...props}
 			/>
-			{(close || selected?.label) && (
-				<Icon
-					name="CloseAlt"
-					size={isSmall ? "sm" : "md"}
-					onClick={onClearSelection}
-				/>
-			)}
 		</div>
 	)
 }

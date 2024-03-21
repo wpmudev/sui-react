@@ -13,6 +13,10 @@
 				margin: 0;
 				padding: 0;
 			}
+
+			@include element(menu-nav-search) {
+				padding: 0px 12px 8px 12px;
+			}
 		}
 	}
 }
