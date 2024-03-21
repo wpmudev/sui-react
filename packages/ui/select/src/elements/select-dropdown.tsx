@@ -12,11 +12,7 @@ import { InteractionTypes, useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { Dropdown as SuiDropdown } from "@wpmudev/sui-dropdown"
 
-import {
-	SelectDropdownOptionProps,
-	SelectDropdownProps,
-	SelectOptionType,
-} from "../select.types"
+import { SelectDropdownProps, SelectOptionType } from "../select.types"
 import {
 	MenuItemProps,
 	MenuGroupProps,
@@ -30,7 +26,6 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	isMultiSelect = false,
 	selected = "",
 	isSearchable = false,
-	optionAppreance,
 	dropdownRef = null,
 	onToggle = (isOpen: boolean) => {},
 	onSearch = (value: string) => {},
@@ -83,7 +78,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 				...getOptProps,
 			}}
 			{..._dropdownProps}
-		></SuiDropdown>
+		/>
 	)
 
 	// Render options for the dropdown
