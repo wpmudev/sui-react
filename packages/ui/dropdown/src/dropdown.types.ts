@@ -143,6 +143,9 @@ interface DropdownProps
 			"className"
 		>,
 		SuiStyleType {
+	/**
+	 * The type of dropdown.
+	 */
 	type?: "" | "default" | "select" | "select-checkbox" | "select-variable"
 	/**
 	 * The label for the dropdown.
