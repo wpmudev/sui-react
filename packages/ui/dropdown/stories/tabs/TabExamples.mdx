@@ -220,6 +220,46 @@ export const smallCode = dedent`
         </Dropdown>
 `
 
+export const selectVariablesCode = dedent`
+       <Dropdown
+            type="select-variable"
+			menu={[
+                {
+                    id: "view-form",
+                    label: "View form",
+                    props: {
+                        variable: "{tag}",
+                        description: "Short description",
+                    },
+                },
+                {
+                    id: "edit-form",
+                    label: "Edit form",
+                    props: {
+                        variable: "{tag}",
+                        description: "Short description",
+                    },
+                },
+                {
+                    id: "duplicate-form",
+                    label: "Duplicate form",
+                    props: {
+                        variable: "{tag}",
+                        description: "Short description",
+                    },
+                },
+                {
+                    id: "delete-form",
+                    label: "Delete form",
+                    props: {
+                        variable: "{tag}",
+                        description: "Short description",
+                    },
+                },
+            ]}
+        />
+`
+
 <Section contained={true} style={{ paddingTop: 30 }}>
 	<p>A basic example of Dropdown with a menu</p>
 	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
@@ -395,6 +435,49 @@ export const smallCode = dedent`
     	/>
     </div>
     <Snippet language="js">{groupedCode}</Snippet>
+</Section>
+
+<Section title="Select Variables" contained={true} style={{ paddingTop: 30 }}>
+	<div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<Dropdown
+			type="select-variable"
+			menu={[
+				{
+					id: "view-form",
+					label: "View form",
+					props: {
+						variable: "{tag}",
+						description: "Short description",
+					},
+				},
+				{
+					id: "edit-form",
+					label: "Edit form",
+					props: {
+						variable: "{tag}",
+						description: "Short description",
+					},
+				},
+				{
+					id: "duplicate-form",
+					label: "Duplicate form",
+					props: {
+						variable: "{tag}",
+						description: "Short description",
+					},
+				},
+				{
+					id: "delete-form",
+					label: "Delete form",
+					props: {
+						variable: "{tag}",
+						description: "Short description",
+					},
+				},
+			]}
+		/>
+    </div>
+    <Snippet language="js">{AsyncDropdownCode}</Snippet>
 </Section>
 
 <Section title="Async Options" contained={true} style={{ paddingTop: 30 }}>
