@@ -128,21 +128,23 @@ export const Dropdown = ({
 	const [checkedItems, setCheckedItems] = useState<Array<string | number>>([])
 	const [optionsAPILimit, setOptionsAPILimit] = useState(0)
 
+	const perPage = 20
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyle}>
-					{/*{"select-checkbox" === example && (
+					{"select-checkbox" === example && (
 						<SuiDropdown
 							{...props}
 							isAsync={false}
 							onMenuClick={(menuId, e) => {
 								const checkedList = [...checkedItems]
 
-								if (checkedList.indexOf(menuId) > -1) {
-									checkedList.splice(checkedItems.indexOf(menuId), 1)
+								if (checkedList.indexOf(menuId as string) > -1) {
+									checkedList.splice(checkedItems.indexOf(menuId as string), 1)
 								} else {
-									checkedList.push(menuId)
+									checkedList.push(menuId as string)
 								}
 
 								setCheckedItems(checkedList as [])
@@ -186,49 +188,50 @@ export const Dropdown = ({
 									},
 								},
 							]}
-							onSearch={(string) => {
-								// console.log("search", string)
-							}}
 						/>
 					)}
-					{"select" === example && (
+					{"async" === example && (
 						<SuiDropdown
 							{...props}
 							type="select"
 							isAsync={true}
-							allowSearch={true}
 							asyncOptions={{
-								perPage: 20,
+								perPage,
 								totalItems: optionsAPILimit,
 							}}
-							getOptions={async (page, perPage, search) => {
+							getOptions={async (
+								search: string,
+								{ page }: any,
+								prevLoadedItems = [],
+							) => {
 								// calculate how many items to skip
-								const skip = 1 === page ? 0 : page * perPage
+								const skip = page * perPage - 10
 								// store all menu items here
-								const options: any = []
-
+								const items: any = []
 								const baseAPI = `https://dummyjson.com/products/search`
+								let total = 0
 
 								// fetch data from API
 								await fetch(
-									`${baseAPI}?limit=${perPage}&skip=${skip}&q=${search}`,
+									`${baseAPI}?limit=${perPage}&skip=${skip}&total=50&q=${search}`,
 								)
 									.then((res) => res.json())
 									.then((result) => {
-										// set total numbers of options
-										if (optionsAPILimit === 0) {
-											setOptionsAPILimit(result?.total)
-										}
+										total = result.total
 
 										result.products.forEach((item: any) => {
-											options.push({ id: item?.id, label: item?.title })
+											items.push({
+												id: item?.id,
+												label: item?.title,
+												isSelected: false,
+											})
 										})
 									})
 
-								return options
-							}}
-							_style={{
-								width: "250px",
+								return {
+									items,
+									hasMore: [...items, ...prevLoadedItems].length < 100,
+								}
 							}}
 						/>
 					)}
@@ -236,7 +239,6 @@ export const Dropdown = ({
 						<SuiDropdown
 							{...props}
 							type="select-variable"
-							allowSearch={true}
 							menu={[
 								{
 									id: "view-form",
@@ -274,36 +276,29 @@ export const Dropdown = ({
 							onSearch={(string) => {
 								// console.log("search", string)
 							}}
-							menuCustomWidth={250}
-							_style={{
-								width: "250px",
-							}}
 						/>
-					)}*/}
+					)}
 					{"custom" === example && (
-						<SuiDropdown menuCustomWidth={280} menu={menuOptions} {...props}>
+						<SuiDropdown menuCustomWidth={280} {...props}>
 							<div
 								style={{
 									display: "flex",
 									justifyContent: "center",
+									flexDirection: "column",
 									padding: "8px 16px",
 								}}
 							>
-								<Button
-									type="primary"
-									icon="Package"
-									colorScheme="blue"
-									isSmall={true}
-									isFullWidth={true}
-								>
-									Unlock bonus features
-								</Button>
+								<h3>CUSTOM CONTENT</h3>
+								<p>
+									Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa
+									aliquid beatae atque veritatis itaque placeat illum nemo eaque
+									explicabo obcaecati qui, voluptas, possimus unde, quis magni
+									quaerat? Unde, facilis voluptatem!
+								</p>
 							</div>
 						</SuiDropdown>
 					)}
-					{"pro" === example && (
-						<SuiDropdown menuCustomWidth={280} menu={menuOptions} {...props} />
-					)}
+					{"pro" === example && <SuiDropdown menu={menuOptions} {...props} />}
 				</div>
 			</div>
 		</div>
@@ -328,13 +323,7 @@ Dropdown.args = {
 Dropdown.argTypes = {
 	example: {
 		name: "Type",
-		options: [
-			// "select-checkbox",
-			// "select",
-			// "select-variable",
-			"pro",
-			"custom",
-		],
+		options: ["select-checkbox", "async", "select-variable", "pro", "custom"],
 		control: {
 			type: "select",
 			labels: {

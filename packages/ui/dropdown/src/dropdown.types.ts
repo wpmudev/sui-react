@@ -184,7 +184,7 @@ interface DropdownProps
 	 * On click on Menu Item
 	 */
 	onMenuClick?(
-		option: Record<string, any>,
+		option: Record<string, any> | string,
 		e?: React.ChangeEvent<unknown>,
 	): void
 	/**
