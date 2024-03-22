@@ -1,6 +1,7 @@
 import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 import dedent from "dedent"
 import { Dropdown } from "../../src"
+import { AsyncDropdown, AsyncDropdownCode } from "./code/AsyncDropdown"
 import { Button } from "@wpmudev/sui-button"
 
 export const sampleCode = dedent`
@@ -170,6 +171,7 @@ export const iconOnlyCode = dedent`
         <Dropdown
             label="Menu Button"
             isLabelHidden={true}
+            iconOnly={true}
             menu={[
                 {
                     id: "menu-0",
@@ -257,7 +259,7 @@ export const smallCode = dedent`
 
 <Section contained={true} style={{ paddingTop: 30 }}>
 	<p>Menu items with plugin variations</p>
-	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+	<div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
 		<Dropdown
 			label="Menu Button"
 			menu={[
@@ -349,7 +351,7 @@ export const smallCode = dedent`
 </Section>
 
 <Section title="Grouped menu items" contained={true} style={{ paddingTop: 30 }}>
-	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+	<div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
 		<Dropdown
 			label="Menu Button"
 			menu={
@@ -393,13 +395,20 @@ export const smallCode = dedent`
     	/>
     </div>
     <Snippet language="js">{groupedCode}</Snippet>
+</Section>
 
+<Section title="Async Options" contained={true} style={{ paddingTop: 30 }}>
+	<div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<AsyncDropdown />
+    </div>
+    <Snippet language="js">{AsyncDropdownCode}</Snippet>
 </Section>
 
 <Section title="Icon Button" contained={true} style={{ paddingTop: 30 }}>
-	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+	<div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
 		<Dropdown
 			label="Menu Button"
+            iconOnly={true}
 			isLabelHidden={true}
 			menu={[
 				{
@@ -418,11 +427,10 @@ export const smallCode = dedent`
     	/>
     </div>
     <Snippet language="js">{iconOnlyCode}</Snippet>
-
 </Section>
 
 <Section title="Custom Content" contained={true} style={{ paddingTop: 30 }}>
-	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+	<div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
 		<Dropdown
 			label="Open"
     	>
@@ -432,7 +440,7 @@ export const smallCode = dedent`
 				}}
 			>
 				<h3>CUSTOM CONTENT</h3>
-				<p>Epsom, a charming town nestled in the picturesque countryside, is renowned for its historic architecture, serene landscapes, and therapeutic mineral springs.</p>
+				<p>Epsom, a charming town nestled in the picturesque countryside</p>
     		</div>
     	</Dropdown>
     </div>
@@ -440,8 +448,8 @@ export const smallCode = dedent`
 
 </Section>
 
-<Section title="Smaller Width" contained={true} style={{ paddingTop: 30 }}>
-	<div class="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+<Section title="Smaller Size" contained={true} style={{ paddingTop: 30 }}>
+	<div className="sui-wrap sui-theme--light" style={ { marginBottom: "30px" } }>
 		<Dropdown
 			label="Open"
 			isSmall={true}
@@ -453,10 +461,9 @@ export const smallCode = dedent`
     			}}
     		>
     			<h3>CUSTOM CONTENT</h3>
-    			<p>Epsom, a charming town nestled in the picturesque countryside, is renowned for its historic architecture, serene landscapes, and therapeutic mineral springs.</p>
+    			<p>Epsom, a charming town nestled in the picturesque countryside</p>
     		</div>
     	</Dropdown>
     </div>
     <Snippet language="js">{smallCode}</Snippet>
-
 </Section>
