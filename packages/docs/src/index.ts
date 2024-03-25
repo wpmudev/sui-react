@@ -21,6 +21,7 @@ import Table from "./components/table/table"
 import Tabs from "./components/tabs/tabs"
 import Tag from "./components/tag/tag"
 import Tooltip from "./components/tooltip/tooltip"
+import Image from "./components/image/image"
 
 // shared
 import { CommonPropsNotice } from "./shared/CommonPropsNotice"
@@ -51,6 +52,7 @@ export {
 	Tabs,
 	Tag,
 	Tooltip,
+	Image,
 	// shared
 	PackageInstallGuide,
 	PropSection,

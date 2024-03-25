@@ -143,6 +143,9 @@ interface DropdownProps
 			"className"
 		>,
 		SuiStyleType {
+	/**
+	 * The type of dropdown.
+	 */
 	type?: "" | "default" | "select" | "select-checkbox" | "select-variable"
 	/**
 	 * The label for the dropdown.
@@ -184,7 +187,7 @@ interface DropdownProps
 	 * On click on Menu Item
 	 */
 	onMenuClick?(
-		option: Record<string, any>,
+		option: Record<string, any> | string,
 		e?: React.ChangeEvent<unknown>,
 	): void
 	/**
