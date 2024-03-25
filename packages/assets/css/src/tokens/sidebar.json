@@ -1,0 +1,18 @@
+{
+	"sidebar": {
+		"spacing": {
+			"md": {
+				"value": "12px",
+				"type": "spacing"
+			}
+		},
+		"size": {
+			"width": {
+				"md": {
+					"value": "260px",
+					"type": "sizing"
+				}
+			}
+		}
+	}
+}

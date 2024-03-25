@@ -1,0 +1,25 @@
+import { Source } from "@storybook/addon-docs"
+import { Page } from "@wpmudev/sui-docs"
+import { Unstyled } from "@storybook/blocks"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+
+<Unstyled>
+	<Page.Tabs
+		title="Popover"
+		subtitle="Popover is a overlay displayed over a content to to provide additional information, options, or actions related to a specific user interaction triggered by hover, click, or focus on the interactive element."
+		status="ready"
+	>
+		<div id="usage" label="Usage">
+			<TabUsage />
+		</div>
+		<div id="code" label="Code">
+			<TabCode />
+		</div>
+		<div id="examples" label="Examples">
+			<TabExamples />
+		</div>
+	</Page.Tabs>
+</Unstyled>

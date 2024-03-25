@@ -1,0 +1,146 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-summary-box" />
+
+<Section title="Props" border={true}>
+	<PropSection title="title" type="string" defaultValue="title">
+		<p>The title of the summary box</p>
+	</PropSection>
+
+    <PropSection title="icon" type="string">
+    	<p>The icon of the Summary Box</p>
+    </PropSection>
+
+    <PropSection title="hideMobileIcon" type="boolean" defaultValue="true">
+    	<p>When set to <Code small={true}>true</Code> the icon will be hidden on mobile</p>
+    </PropSection>
+
+    <PropSection title="primaryActions" type="React Node">
+    	<p>Primary actions to be displayed in the header left, it can be either a string or an array of React elements</p>
+    </PropSection>
+
+    <PropSection title="secondaryActions" type="React Node">
+    	<p>Secondary actions to be displayed in the header right, it can be either a string or an array of React elements</p>
+    </PropSection>
+
+    <PropSection title="children" type="React Node">
+    	<p>The content of the Summary Box</p>
+    </PropSection>
+
+</Section>
+
+<Section
+	title="Sub Components"
+	contained={true}
+	style={{ paddingTop: 30, paddingBottom: 0 }}
+>
+		<p>The Summary Box component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+
+    <Section title="SummaryBoxBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the body of the Summary Box, it's composed of two columns and it has the following props:
+    	</p>
+
+    	<PropSection title="summaryItems" type="Array">
+    		<p>
+    			A list of summary items. it accepts an array of React Nodes, Usually instances of <Code small={true}> SummaryBoxItem </Code> component
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="reverseBlocks" type="boolean" defaultValue="false">
+    		<p>
+    			If set to <Code small={true}>true</Code>, The columns of the body will be reversed placing the items first
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="children" type="React Node">
+    		<p>
+    			The content of the right column
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="className" type="React Node">
+    		<p>
+    			Custom css className(s)
+    		</p>
+    	</PropSection>
+
+    </Section>
+
+     <Section title="SummaryFooterBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the footer of the Summary Box.
+    	</p>
+
+    	<PropSection title="children" type="React Node">
+    		<p>
+    			Content of the footer
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="className" type="string">
+    		<p>
+    			Custom className(s) for the footer element
+    		</p>
+    	</PropSection>
+
+    </Section>
+
+    <Section title="SummaryBoxItem" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents an item in the list of summary items, it has the following props:
+    	</p>
+
+    	<PropSection title="title" type="React Node">
+    		<p>
+    			The title of the summary item
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="titleUrl" type="string">
+    		<p>
+    			The link url of the item
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="description" type="string">
+    		<p>
+    			The description of the Summary item
+    		</p>
+    	</PropSection>
+
+		<PropSection title="tagTitle" type="string">
+    		<p>
+    			The tag text
+    		</p>
+    	</PropSection>
+
+		<PropSection title="tagColor" type="string" defaultValue="default">
+    		<p>
+    			The color of the tag, check the Tag component documentation for accepted values
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="actionIcon" type="string">
+    		<p>
+    			The item action icon
+    		</p>
+    	</PropSection>
+
+		<PropSection title="actionIconColor" type="string">
+    		<p>
+    			The color for the icon, check the Icon component docs for allowed values
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="className" type="string">
+    		<p>
+    			Custom css className(s)
+    		</p>
+    	</PropSection>
+
+    </Section>
+
+</Section>
+
+<CommonPropsNotice />

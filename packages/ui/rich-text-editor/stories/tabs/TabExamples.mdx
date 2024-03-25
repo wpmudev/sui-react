@@ -1,0 +1,32 @@
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import dedent from "dedent"
+import { RichTextEditor } from "../RichTextEditor.stories"
+import { Button } from "@wpmudev/sui-button"
+
+export const sampleCode = dedent`
+<RichTextEditor />
+`
+
+export const actionButtonCode = dedent`
+    <RichTextEditor
+        actions={
+            <Button type="secondary" icon="Add" colorScheme="black">Add Field</Button>
+        }
+    />
+`
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>The RichText Editor has one variation which is the following</p>
+	<Preview contained={true} wrapper={true}>
+		<RichTextEditor />
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+<Section title="With an Action Button" contained={true} style={{ paddingTop: 0 }}>
+	<p>You can optionally add custom action button(s) using the <Code isSmall={true}>actions</Code> prop</p>
+	<Preview contained={true} wrapper={true}>
+		<RichTextEditor actions={<Button type="secondary" icon="Add" colorScheme="black">Add Field</Button>} />
+	</Preview>
+	<Snippet language="js">{actionButtonCode}</Snippet>
+</Section>

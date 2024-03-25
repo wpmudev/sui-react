@@ -1,0 +1,44 @@
+@use "sass:map";
+
+@use "../tokens" as *;
+@use "./breakpoints" as *;
+@use "./wrappers" as *;
+
+/// Animations.
+/// Defines the animations required for specific actions.
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes indeterminate-progress-bar {
+	from {
+		left: -50%;
+	}
+	to {
+		left: 100%;
+	}
+}
+
+@mixin animation($name, $duration: null) {
+	@if $name == spin {
+		animation-name: spin;
+		@if $duration == null {
+			animation-duration: 1500ms;
+		} @else {
+			animation-duration: $duration;
+		}
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+
+	@if ( $name == indeterminate-progress-bar ) {
+		animation-duration: 3s;
+		animation-iteration-count: infinite;
+		animation-name: indeterminate-progress-bar;
+	}
+}

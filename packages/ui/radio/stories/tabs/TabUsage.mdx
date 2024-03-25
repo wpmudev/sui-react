@@ -1,0 +1,132 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import RadioGroup from "../images/radio-group.svg"
+import State from "../images/state.svg"
+import InteractiveState from "../images/interactive-state.svg"
+import ErrorState from "../images/error-state.svg"
+import Size from "../images/size.svg"
+import Alignment from "../images/alignment.svg"
+import Compound from "../images/compound.svg"
+import CompoundStates from "../images/compound-states.svg"
+import WrapBehavior from "../images/wrap-behavior.svg"
+
+<Section title="Anatomy">
+	<Row>
+		<Col>
+    		<h3 style={{marginTop: 0}}>1. Radio input</h3>
+    		<p>The radio button input is the actual interactive element that users can click or tap to select an option. It is typically represented as a small circular button.</p>
+
+    		<h3>2. Radio label</h3>
+    		<p>The label is a text or description associated with the radio button. It provides context to the user about the option they are selecting. Labels should be clear, concise, and easy to understand.</p>
+
+    	</Col>
+    	<Col size="3">
+    		<img src={Anatomy} alt="Radio Anatomy" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Radio Group">
+	<Row>
+		<Col>
+			<p>Radio buttons are always used in groups where only one option can be selected, and each option has its own radio button input.</p>
+
+			<h3 style={{marginTop: 0}}>1. Group Label</h3>
+    		<p>The field label act as the group label in the radio group. It explains what options are available to select.</p>
+
+    		<h3>2. Group List</h3>
+    		<p>The radio option list is a group of multiple options where only one option can be selected.</p>
+    	</Col>
+    	<Col size="3">
+    		<img src={RadioGroup} alt="Radio Group" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="State">
+	<Row>
+		<Col>
+			<p>Radio button has only two states.</p>
+			<h3 style={{marginTop: 0}}>1. Unselected</h3>
+    		<p>When a radio button is not selected, it is typically empty or displays an empty circle. The unselected state is represented by an unfilled or uncolored radio button.</p>
+
+    		<h3>2. Selected</h3>
+    		<p>When a radio button is selected, it typically displays a filled, indicating the chosen option. The selected state is represented by a filled or colored radio button.</p>
+    	</Col>
+    	<Col size="3">
+    		<img src={State} alt="Radio State" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Interactive state">
+	<img src={InteractiveState} alt="Radio Interactive State" />
+</Section>
+
+<Section title="Error state">
+	<p>Error can be shown in two ways for radio button.</p>
+
+	<h3>1. Forms or form fields</h3>
+	<p>If the radio buttons are used within the forms or inside the group of form fields, the error should be similar to the input field.</p>
+
+    <h3>2. Setting blocks</h3>
+    <p>
+    	If the radio buttons are used in separate setting block or it require user’s
+    	attention, error can be shown with <a href="/?path=/docs/sui-components-advanced-notification--docs" target="_blank">the Alert Notification.</a>
+    </p>
+
+    <img src={ErrorState} alt="Radio Error State" />
+
+</Section>
+
+<Section title="Size">
+	<Row>
+		<Col>
+			<p>Radio button is available with two sizes in SUI 3.</p>
+    	</Col>
+    	<Col size="3">
+    		<img src={Size} alt="Radio Size" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Alignment">
+	<img src={Alignment} alt="Radio Size" />
+</Section>
+
+<Section title="Compound radio button">
+	<Row>
+		<Col>
+			<p>
+				Compound radio buttons are used to give more context for users. It is
+				wrapped inside a container for the flexible selection.
+			</p>
+		</Col>
+		<Col>
+			<img src={Compound} alt="Radio Compound" />
+		</Col>
+	</Row>
+</Section>
+
+<Section title="Compound radio states">
+	<img src={CompoundStates} alt="Radio Compound States" />
+</Section>
+
+<Section title="Wrap behaviour">
+	<Row>
+		<Col>
+			<p>
+				The compound radio container height should be similar with the one which
+				has the highest container height in the option row.
+			</p>
+		</Col>
+		<Col size="3">
+			<img src={WrapBehavior} alt="Radio Wrap Behavior" />
+		</Col>
+	</Row>
+</Section>

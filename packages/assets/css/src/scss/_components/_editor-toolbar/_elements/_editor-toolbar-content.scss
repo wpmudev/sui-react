@@ -1,0 +1,73 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Content
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-content($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(content) {
+				display: flex;
+				gap: $spacing-md;
+				width: 100%;
+				flex: 1;
+
+				.sui-#{$block}__body {
+					@include media(max-width, md) {
+						width: 100%;
+					}
+				}
+
+				@include modifier(left) {
+					@include media(max-width, sm) {
+						flex-basis: unset;
+						width: 100%;
+					}
+				}
+
+				@include modifier(right) {
+					@include media(max-width, sm) {
+						flex-wrap: wrap;
+						gap: $spacing-lg;
+					}
+				}
+			}
+
+			@include element(field) {
+				display: flex;
+				gap: $spacing-lg;
+				flex: 1;
+
+				.sui-input {
+					min-width: 200px;
+					@include media(min-width, lg) {
+						min-width: 240px;
+					}
+				}
+
+				@include modifier(status) {
+					display: flex;
+					align-items: center;
+					gap: $spacing-md;
+					width: 100%;
+					color: $color-extended-neutral-50;
+					@include media(max-width, md) {
+						width: auto;
+					}
+				}
+
+				@include modifier(status-text) {
+					@include media(max-width, lg) {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

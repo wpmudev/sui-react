@@ -1,0 +1,35 @@
+import { Section, Switcher, Preview, Snippet } from '@wpmudev/sui-docs';
+import { Avatar } from '../../src';
+import dedent from 'dedent';
+
+import Status from './Examples/Status.mdx';
+import Size from './Examples/Size.mdx';
+import Types from './Examples/Types.mdx';
+
+export const sampleCode = dedent`
+<Avatar />
+`;
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>Below is the default form of an Avatar.</p>
+	<Preview wrapper={true}>
+		<Avatar />
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+<Section style={{ paddingTop: 0 }}>
+
+<Switcher>
+	<div label="Types" value="types">
+		<Types />
+	</div>
+	<div label="Status" value="status">
+		<Status />
+	</div>
+	<div label="Size" value="size">
+		<Size />
+	</div>
+</Switcher>
+
+</Section>

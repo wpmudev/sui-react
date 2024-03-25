@@ -1,0 +1,48 @@
+{
+    "table": {
+        "width": {
+            "xs": {
+                "value": "100px",
+                "type": "sizing"
+            },
+            "sm": {
+                "value": "185px",
+                "type": "sizing"
+            },
+            "md": {
+                "value": "320px",
+                "type": "sizing"
+            },
+            "lg": {
+                "value": "380px",
+                "type": "sizing"
+            }
+        },
+        "height": {
+            "sm": {
+                "value": "60px",
+                "type": "sizing"
+            }
+        },
+        "spacing": {
+            "sm": {
+                "value": "6px",
+                "type": "spacing"
+            }
+        },
+        "font": {
+            "size": {
+                "md": {
+                    "value": "18px",
+                    "type": "fontSizes"
+                }
+            },
+            "height": {
+                "md": {
+                    "value": "28px",
+                    "type": "lineHeight"
+                }
+            }
+        }
+    }
+}

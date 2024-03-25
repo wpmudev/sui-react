@@ -1,0 +1,126 @@
+@use "sass:map";
+@use "sass:math";
+
+// Set the base spacing.
+$base-gutter: 40px;
+
+// Predefined spacing list.
+$gutter: (
+        sm: math.div($base-gutter, 2),
+        md: 40px,
+        lg: $base-gutter * 2,
+        xl: $base-gutter * 3,
+);
+
+// Predefined screen sizes.
+$breakpoints: (
+        sm: 601px,
+        md: 893px,
+        lg: 1081px,
+);
+
+// Create breakpoints mixin.
+@mixin media($type, $size) {
+  @if $type == min-width {
+    $width: #{map.get($breakpoints, $size)};
+
+    @media (min-width: $width) {
+      @content;
+    }
+  } @else if $type == max-width {
+    $width: #{map.get($breakpoints, $size) - 1};
+
+    @media (max-width: $width) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+.csb-banner {
+  background: #1F2852;
+  background-image: url("../../../assets/images/mask.svg");
+  background-position: 0;
+  background-size: cover;
+  padding: map.get($gutter, lg) map.get($gutter, sm);
+
+  @include media(min-width, sm) {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: map.get($gutter, xl) map.get($gutter, lg);
+  }
+
+  .csb-banner {
+
+    &__content {
+
+      @include media(min-width, sm) {
+        min-width: 1px;
+        flex: 1;
+      }
+
+      @include media(min-width, lg) {
+        max-width: 500px;
+      }
+    }
+
+    &__image {
+      min-width: 1px;
+      flex: 1;
+      padding: 0 map.get($gutter, md);
+
+      @include media(max-width, md) {
+        display: none;
+      }
+
+      @include media(min-width, lg) {
+        margin-left: map.get($gutter, lg);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    &__title,
+    &__subtitle {
+      margin: 0;
+      color: #fff;
+      letter-spacing: -0.25px;
+    }
+
+    &__title {
+      font-size: 38px;
+      font-weight: bold;
+      line-height: 40px;
+
+      @include media(min-width, sm) {
+        font-size: 46px;
+        line-height: 52px;
+      }
+
+      + .csb-banner__subtitle {
+        margin-top: map.get($gutter, md);
+      }
+    }
+
+    &__subtitle {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 36px;
+
+      @include media(min-width, sm) {
+        font-size: 32px;
+        line-height: 44px;
+      }
+
+      + .csb-banner__cta {
+        margin-top: map.get($gutter, md);
+      }
+    }
+  }
+}

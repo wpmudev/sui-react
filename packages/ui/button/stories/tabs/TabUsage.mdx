@@ -1,0 +1,125 @@
+import { Section, Row, Col, Code } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import Types from "../images/types.svg"
+import Primary from "../images/primary.svg"
+import Secondary from "../images/secondary.svg"
+import Teritiary from "../images/teritiary.svg"
+import Sizes from "../images/sizes.svg"
+import Icon from "../images/icon.svg"
+import IconOnly from "../images/icon-only.svg"
+import MenuButton from "../images/menu-button.svg"
+import Emphasis from "../images/emphasis.svg"
+import CorrectIcon from "../images/correct-icon.svg"
+import WrongIcon from "../images/wrong-icon.svg"
+import CorrectEmphasis from "../images/correct-emphasis.svg"
+import WrongEmphasis from "../images/wrong-emphasis.svg"
+import LoadingCorrect from "../images/correct-loading.svg"
+import LoadingWrong from "../images/wrong-loading.svg"
+
+<Section style={{ paddingTop: 20 }}>
+	<img src={Anatomy} alt="Buttons" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="Basic Variations" style={{ paddingTop: 20 }}>
+
+	<p>SUI buttons comes with different variations. They can be used with the design needs for the better user experience.</p>
+
+	<Section title="Button Types">
+		<p>Different button types to use with the priority of the action.</p>
+		<img src={Types} alt="Button Types" style={{ marginBottom: 20 }} />
+	</Section>
+
+	<Section title="Button States">
+		<p>Different button states add value to the design and improve the end-user experience.</p>
+		<img src={Primary} alt="Button Primary" style={{ marginBottom: 20 }} />
+		<img src={Secondary} alt="Button Secondary" style={{ marginBottom: 20 }} />
+		<img src={Teritiary} alt="Button Teritiary" style={{ marginBottom: 20 }} />
+	</Section>
+
+	<Section title="Button Size" >
+		<p>The Button has two size variations, <Code small={true}> large </Code> and <Code small={true}>small</Code> </p>
+		<img src={Sizes} alt="Button Sizes" style={{ marginBottom: 20 }} />
+	</Section>
+
+	<Section title="Button + Icon" >
+		<p>Adding an icon to the button provides a visual indication for its functionality.</p>
+		<img src={Icon} alt="Button with an Icon" style={{ marginBottom: 20 }} />
+
+		<Section title="Usage" contained={true}>
+			<Row>
+				<Col>
+					<img src={CorrectIcon} alt="Button Icon - Correct Use"/>
+					<p>Use single icon inside a button.</p>
+				</Col>
+				<Col>
+					<img src={WrongIcon} alt="Button Icon - Wrong Use"/>
+					<p>Don’t use two icons in the same button.</p>
+				</Col>
+			</Row>
+		</Section>
+	</Section>
+
+	<Section title="Icon Button" >
+		<p>The Icon Button should come with a tooltip to be displayed on hover</p>
+		<img src={IconOnly} alt="Icon Button" style={{ marginBottom: 20 }} />
+	</Section>
+
+	<Section title="Menu Button">
+		<p>The menu button is the only type of button in which two icons are used into a single button.</p>
+		<img src={MenuButton} alt="Menu Button" />
+	</Section>
+
+</Section>
+
+<Section title="Emphasis" style={{ paddingTop: 20 }}>
+	<p>A button’s level of emphasis helps determine its appearance, typography, and placement.</p>
+	<img src={Emphasis} alt="Button Emphasis" style={{ paddingBottom: 20 }}/>
+
+	<Section title="Multiple Buttons Usage" contained={true}>
+		<Row>
+			<Col>
+				<img src={CorrectEmphasis} alt="Button Emphasis - Correct Use"/>
+				<p>Use different emphasis button while using multiple buttons.</p>
+			</Col>
+			<Col>
+				<img src={WrongEmphasis} alt="Button Emphasis - Wrong Use"/>
+				<p>Do not use two high-emphasis buttons while using multiple buttons.</p>
+			</Col>
+		</Row>
+	</Section>
+
+	<Section title="Loading Button Usage" contained={true}>
+		<Row>
+			<Col>
+				<img src={LoadingCorrect} alt="Loading Button - Correct Use"/>
+				<p>When transitioning from the default button to the loading state, the button's width should remain consistent with its width in the default state.</p>
+			</Col>
+			<Col>
+				<img src={LoadingWrong} alt="Loading Button - Wrong Use"/>
+				<p>Don't change the loading button's width when transitioning from the default state to the loading state.</p>
+			</Col>
+		</Row>
+	</Section>
+
+</Section>
+
+
+
+{/*
+<Section title="{{Section with columns and border}}" border={true}>
+	<Row>
+		<Col>
+
+    		<h3 style={{marginTop: 0}}>1. Accordion header</h3>
+    		<p>Accordion header contains the section title and chevron icon that expands and collapses accordion content.</p>
+
+    		<h3>2. Expanded content</h3>
+    		<p>Accordion content that is revealed or concealed when the corresponding accordion header is interacted with. It may also contain the footer where generally includes action buttons if necessary.</p>
+
+    	</Col>
+    	<Col size="3">
+
+    	</Col>
+    </Row>
+</Section> */}

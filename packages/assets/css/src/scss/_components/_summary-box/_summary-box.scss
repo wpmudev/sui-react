@@ -1,0 +1,7 @@
+@use "./_elements/elements" as sui-summary-box--element;
+
+@include sui-summary-box--element.build-container(summary-box);
+@include sui-summary-box--element.build-header(summary-box);
+@include sui-summary-box--element.build-body(summary-box);
+@include sui-summary-box--element.build-list(summary-box);
+@include sui-summary-box--element.build-footer(summary-box);

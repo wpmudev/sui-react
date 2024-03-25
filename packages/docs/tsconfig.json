@@ -1,0 +1,4 @@
+{
+	// We extend it from here!
+	"extends": "../../tsconfig.json",
+}

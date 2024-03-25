@@ -1,0 +1,36 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build info
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-info($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(info) {
+				align-items: center;
+				display: flex;
+				gap: $spacing-lg;
+
+				h2 {
+					color: $color-extended-neutral-100;
+					font-weight: $font-weight-lg;
+					font-size: $banner-font-size-lg;
+					line-height: $banner-font-height-lg;
+					margin: 0;
+				}
+			}
+
+			@include element(info-logo) {
+				border-radius: $banner-border-radius;
+				display: inline-flex;
+				padding: $banner-spacing-xs;
+			}
+		}
+	}
+}

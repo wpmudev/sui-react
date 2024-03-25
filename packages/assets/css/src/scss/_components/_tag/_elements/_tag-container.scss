@@ -1,0 +1,58 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Tag Container
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-container($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			display: inline-block;
+			margin: $tag-margin-vertical $tag-margin-horizontal;
+			border-width: $tag-border-width;
+			border-style: $tag-border-style;
+			border-radius: $tag-border-radius;
+			padding: $tag-padding-vertical-md $tag-padding-horizontal-md;
+			font-weight: $tag-font-weight-md;
+			font-size: $font-size-xs;
+			line-height: $tag-font-height-md;
+			text-align: center;
+			text-decoration: none;
+
+			@include element(wrapper) {
+				display: flex;
+				align-items: center;
+			}
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			&:first-child {
+				margin-left: $tag-margin-horizontal;
+				margin-right: 0;
+			}
+
+			&:last-child {
+				margin-right: $tag-margin-horizontal;
+				margin-left: 0;
+			}
+		}
+	}
+}

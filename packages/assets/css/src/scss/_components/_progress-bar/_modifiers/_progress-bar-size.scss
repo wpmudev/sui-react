@@ -1,0 +1,34 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Size
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-size($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(sm) {
+				@include modifies-element(indicator) {
+					height: $progress-size-height-xs;
+				}
+			}
+
+			@include modifier(md) {
+				@include modifies-element(indicator) {
+					height: $progress-size-height-sm;
+				}
+			}
+
+			@include modifier(lg) {
+				@include modifies-element(indicator) {
+					height: $progress-size-height-md;
+				}
+			}
+		}
+	}
+}

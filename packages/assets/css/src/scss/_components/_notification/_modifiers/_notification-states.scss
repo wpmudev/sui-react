@@ -1,0 +1,53 @@
+@use "../../../_utils/utils" as *;
+
+/// States
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-states($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include modifier(info) {
+				border-color: $color-primary-50;
+
+				@include modifies-element(icon) {
+					color: $color-primary-50;
+				}
+			}
+
+			@include modifier(success) {
+				border-color: $color-extended-success-50;
+
+				@include modifies-element(icon) {
+					color: $color-extended-success-50;
+				}
+			}
+
+			@include modifier(warning) {
+				border-color: $color-extended-warning-50;
+
+				@include modifies-element(icon) {
+					color: $color-extended-warning-50;
+				}
+			}
+
+			@include modifier(error) {
+				border-color: $color-extended-error-50;
+
+				@include modifies-element(icon) {
+					color: $color-extended-error-50;
+				}
+			}
+		}
+	}
+
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block-name) {
+			@include element(icon) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

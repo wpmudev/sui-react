@@ -1,0 +1,36 @@
+@use "../../../_utils/utils" as *;
+
+/// Edit Type
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-type($block) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(popover) {
+				@include modifier(select) {
+					width: 100%;
+				}
+
+				@include modifier(select-checkbox) {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(menu-item) {
+				.sui-#{$block}__menu-item-icon {
+					color: inherit;
+				}
+				@include modifier(hover) {
+					background: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+}

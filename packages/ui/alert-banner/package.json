@@ -1,0 +1,57 @@
+{
+  "name": "@wpmudev/sui-alert-banner",
+  "version": "0.0.1",
+  "description": "Alert banners are used to display critical notifications such as system alarms. They should be noticeable and encourage users to act.",
+  "keywords": [],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org"
+    },
+    {
+      "name": "Abderrahman DOUARA",
+      "email": "aer17013@gmail.com",
+      "url": "https://douara.me"
+    }
+  ],
+  "license": "GPL-2.0",
+  "main": "src/index.ts",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-react.git",
+    "directory": "packages/react-notification"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:dev": "npx tsup --watch",
+    "build:fast": "tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "build:readme": "readme generate --input ../../../blueprint.md"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/sui-react/issues"
+  },
+  "homepage": "https://github.com/wpmudev/sui-react#readme",
+  "clean-package": "../../../postpack.config.json",
+  "dependencies": {
+    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1",
+    "@wpmudev/sui-icons": "^0.0.1",
+    "react": "^18.2.0"
+  }
+}

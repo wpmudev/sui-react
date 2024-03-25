@@ -1,0 +1,24 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Edit Focus
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-focus($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(focus) {
+				&:before {
+					border-width: 2px;
+					border-color: $input-border-color-active;
+				}
+			}
+		}
+	}
+}

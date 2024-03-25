@@ -1,0 +1,66 @@
+
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { BasicCheckbox } from "./components/BasicCheckbox"
+import { CheckboxGroup } from "../../../src"
+import dedent from "dedent"
+
+export const verticalCode = dedent`
+   <CheckboxGroup 
+        onChange={(items) => console.log(items)} 
+        commonCheckboxProps={{
+            // it will be passed to all checkbox items
+            name: "groups-checkbox"						
+        }}>
+        <Checkbox label="Child in a Group" />
+        <Checkbox label="Child in a Group" />
+   </CheckboxGroup>
+`
+
+export const horizontalCode = dedent`
+    <CheckboxGroup 
+        isInline={true} 
+        onChange={(items) => console.log(items)}
+        commonCheckboxProps={{
+            // it will be passed to all checkbox items
+            name: "groups-checkbox"						
+        }}>
+    >
+        <BasicCheckbox label="Child in a Group"/>
+        <BasicCheckbox label="Child in a Group"/>
+    </CheckboxGroup>
+`
+
+<Section title="Vertical" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p>
+		Verical is the default view for the group, you can track the changes for all checkboxes in the group using <Code isSmall={true}>onChange</Code> prop
+	</p>
+	<Preview wrapper={true}>
+		<CheckboxGroup onChange={(items) => console.log(items)} 
+			commonCheckboxProps={{
+				// it will be passed to all checkbox items
+				name: "groups-checkbox"						
+			}}>
+			<BasicCheckbox label="Child in a Group" />
+			<BasicCheckbox label="Child in a Group" />
+		</CheckboxGroup>
+	</Preview>
+	<Snippet language="js">{verticalCode}</Snippet>
+</Section>
+
+<Section title="Horizontal" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p> To dispaly the checkboxes horizontally use the prop <Code isSmall={true}>isInline=\{true\}</Code> </p>
+	<Preview wrapper={true}>
+		<CheckboxGroup 
+			isInline={true} 
+			onChange={(items) => console.log(items)}
+			commonCheckboxProps={{
+				// it will be passed to all checkbox items
+				name: "groups-checkbox"						
+			}}
+		>
+			<BasicCheckbox label="Child in a Group"/>
+			<BasicCheckbox label="Child in a Group"/>
+		</CheckboxGroup>
+	</Preview>
+	<Snippet language="js">{horizontalCode}</Snippet>
+</Section>

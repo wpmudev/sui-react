@@ -1,0 +1,23 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Tag Size
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-size($block) {
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			// Size: Small
+			@include modifier(sm) {
+				padding: $tag-padding-vertical-sm $tag-padding-horizontal-sm;
+				font-weight: $tag-font-weight-sm;
+				font-size: $tag-font-size-sm;
+				line-height: $tag-font-height-sm;
+			}
+		}
+	}
+}

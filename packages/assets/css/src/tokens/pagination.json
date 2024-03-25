@@ -1,0 +1,18 @@
+{
+	"pagination": {
+		"size": {
+			"width": {
+				"md": {
+					"value": "32px",
+					"type": "sizing"
+				}
+			},
+			"height": {
+				"md": {
+					"value": "32px",
+					"type": "sizing"
+				}
+			}
+		}
+	}
+}

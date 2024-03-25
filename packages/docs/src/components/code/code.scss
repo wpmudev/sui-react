@@ -1,0 +1,44 @@
+// Block.
+.sbdocs .csb-code {
+  display: inline-block;
+  padding: 4px 6px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  font-family: ui-monospace, Menlo, Monaco, "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Droid Sans Mono", "Courier New", monospace !important;
+
+  // Modifier(s).
+  &.csb-code {
+
+    // THEME: Light (Default).
+    &--theme-light {
+      background: #E9EAEE;
+      color: #1F2852;
+    }
+
+    // THEME: Dark.
+    &--theme-dark {
+      background: #1F2852;
+      color: #FFFFFF;
+    }
+
+    // THEME: Ghost.
+    &--theme-ghost {
+      padding: 0;
+      background: transparent;
+      color: #1F2852;
+      line-height: 24px;
+    }
+
+    // SIZE: Small.
+    &--sm {
+      padding: 0 5px;
+      line-height: 20px;
+    }
+  }
+
+  &--block {
+    display: block;
+    word-break: break-all;
+  }
+}

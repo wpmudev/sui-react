@@ -3,6 +3,13 @@ node_modules
 .npmrc
 .changelog
 .dccache
+dist
+lib
+.idea
+storybook-static
+coverage
+verdaccio
+.vscode
 
 # Ignore all error logs.
 *.log

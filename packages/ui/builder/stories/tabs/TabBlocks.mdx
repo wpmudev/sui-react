@@ -1,0 +1,112 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/block/anatomy.svg"
+import States from "../images/block/states.svg"
+import Variations from "../images/block/variations.svg"
+import Accordion from "../images/block/accordion.svg"
+import Type from "../images/block/type.svg"
+import Spacings from "../images/block/spacings.svg"
+
+<Section contained={true} title="Overview" style={{ paddingTop: 20 }}>
+	<p>
+		Builder blocks are a collection of pre-designed components or elements
+		available to add to the canvas. These components could include text, images,
+		buttons, dividers, and more.
+	</p>
+</Section>
+
+<Section title="Anatomy" style={{ paddingTop: 20 }}>
+    <Row>
+        <Col>
+            <h3 style={{marginTop: 0}}>1. Drag icon</h3>
+            <p>The drag icon on the builder block assist the users in dragging and dropping the block.</p>
+
+            <h3>2. Block title</h3>
+            <p>Block title can also have an assistive icon.</p>
+
+            <h3>3. Block description</h3>
+            <p>Simple description of a block.</p>
+
+            <h3>4. Action button</h3>
+            <p>An action button allows users to configure the block settings.</p>
+        </Col>
+        <Col>
+        <img src={Anatomy} alt="Builder Block Anatomy"/>
+        </Col>
+    </Row>
+
+</Section>
+
+<Section title="States" style={{ paddingTop: 20 }}>
+
+    <Row>
+        <Col>
+            <p>The interactive states for the builder block can have default, hover and error states.</p>
+            <h3 style={{marginBottom: 30}}>1. Default</h3>
+
+            <h3>2. Hover/Focus</h3>
+            <p>Hover and focus state for the builder block shares the same styles.</p>
+
+            <h3>3. Block description</h3>
+            <p>Simple description of a block.</p>
+
+            <h3>3. Error</h3>
+            <p>The error states generally used in the block that includes form elements. However, if there needs to show the error states for builder block, there will be used red inner box-shadow at the bottom.</p>
+        </Col>
+        <Col>
+        <img src={States} alt="Builder Block States"/>
+        </Col>
+    </Row>
+
+</Section>
+
+<Section title="Variations" style={{ paddingTop: 20 }}>
+
+    <Row>
+        <Col>
+            <h3>1. Default</h3>
+            <h3>2. Image</h3>
+            <h3>3. Input</h3>
+            <h3>3. Accordion</h3>
+        </Col>
+        <Col>
+        <img src={Variations} alt="Builder Block Variations"/>
+        </Col>
+    </Row>
+
+</Section>
+
+<Section title="Accordion Block" style={{ paddingTop: 20 }}>
+	<Row>
+		<Col>
+			The accordion builder body properties are similar with{" "}
+			<a
+				href="/?path=/docs/sui-components-advanced-accordion--docs"
+				target="_blank"
+			>
+				the default accordion body.
+			</a>
+		</Col>
+		<Col>
+			<img src={Accordion} alt="Builder Block Accordion" />
+		</Col>
+	</Row>
+</Section>
+
+<Section title="Type" style={{ paddingTop: 20 }}>
+	<Row>
+		<Col>
+			<h3>1. Default</h3>
+			<p>By default, all builder blocks are draggable.</p>
+			<h3>2. Static</h3>
+			<p>Static blocks can’t be dragged.</p>
+		</Col>
+		<Col>
+			<img src={Type} alt="Builder Block Type" />
+		</Col>
+	</Row>
+</Section>
+
+<Section title="Spacings" style={{ paddingTop: 20 }}>
+	<img src={Spacings} alt="Builder Block Spacings" />
+</Section>

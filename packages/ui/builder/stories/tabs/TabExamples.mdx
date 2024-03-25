@@ -1,0 +1,83 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { Builder, BuilderField, BuilderWrapper } from "../../src"
+import dedent from "dedent"
+
+{/* Import Variations */}
+
+import BuilderStates from "./Examples/BuilderStates.mdx"
+import FieldsStates from "./Examples/FieldsStates.mdx"
+
+export const sampleCode = dedent`
+    <Builder>
+      <BuilderWrapper>
+        <BuilderField
+          columnSize={6}
+          action="Action"
+          title="Block 1"
+          subTitle="Field text"
+          icon="Desktop"
+        />
+        <BuilderField
+          columnSize={6}
+          action="Action"
+          allowDrag={false}
+          title="No Drag"
+          icon="Desktop"
+        />
+      </BuilderWrapper>
+      <BuilderWrapper>
+        <BuilderField
+          columnSize={12}
+          action="Action"
+          title="Image"
+          imgUrl="https://placehold.co/40x40/EEE/31343C"
+          icon="Desktop"
+        />
+      </BuilderWrapper>
+    </Builder>
+`
+
+<Section contained={false} style={{ paddingTop: 30 }}>
+	<p>The example below shows a general usecase of the builder component</p>
+	<Preview wrapper={true}>
+		<Builder>
+			<BuilderWrapper>
+				<BuilderField
+					columnSize={6}
+					action="Action"
+					title="Block 1"
+					subTitle="Field text"
+					icon="Desktop"
+				/>
+				<BuilderField
+					columnSize={6}
+					action="Action"
+					allowDrag={false}
+					title="No Drag"
+					icon="Desktop"
+				/>
+			</BuilderWrapper>
+			<BuilderWrapper>
+				<BuilderField
+					columnSize={12}
+					action="Action"
+					title="Image"
+					imgUrl="https://placehold.co/40x40/EEE/31343C"
+					icon="Desktop"
+				/>
+			</BuilderWrapper>
+		</Builder>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+<Section title="States" style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="Builder States" value="builder-states">
+			<BuilderStates />
+		</div>
+		<div label="Fields States" value="fields-states">
+			<FieldsStates />
+		</div>
+	</Switcher>
+</Section>

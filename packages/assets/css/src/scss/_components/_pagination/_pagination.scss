@@ -1,0 +1,9 @@
+@use "./_elements/elements" as sui-pagination--element;
+@use "./_states/states" as sui-pagination--state;
+
+@include sui-pagination--element.build-container(pagination);
+@include sui-pagination--element.build-nav(pagination);
+@include sui-pagination--element.build-item(pagination);
+@include sui-pagination--element.build-button(pagination);
+
+@include sui-pagination--state.edit-active(pagination);

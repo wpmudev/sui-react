@@ -1,0 +1,48 @@
+import { Section, Preview, Snippet } from "@wpmudev/sui-docs"
+import { Popover } from "../../src"
+import dedent from "dedent"
+
+export const defaultPopover = dedent`
+    <Popover header="Popover title" footer="Footer content" trigger="Click on me!">Popover Body</Popover>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>The default form of the tooltip component</p>
+	<Preview wrapper={true}>
+		<div style={ {  paddingBottom: 100 } }>
+			<Popover header="Popover title" footer="Footer content" trigger="Click on me!" placement="right-bottom">Popover Body</Popover>
+		</div>
+	</Preview>
+	<Snippet language="js">{defaultPopover}</Snippet>
+</Section>
+
+export const displayOnHover = dedent`
+    <Popover header="Popover title" footer="Footer content" trigger="Hover on me!" displayOnHover={true} placement="right-bottom">Popover Body</Popover>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<h3>displayOnHover: true</h3>
+	<p>Display popup on hover</p>
+	<Preview wrapper={true}>
+		<div style={ { paddingBottom: 100 } }>
+			<Popover header="Popover title" footer="Footer content" trigger="Hover on me!" displayOnHover={true} placement="right-bottom">Popover Body</Popover>
+		</div>
+	</Preview>
+	<Snippet language="js">{displayOnHover}</Snippet>
+</Section>
+
+export const image = dedent`
+    <Popover header="Popover title" footer="Footer content" trigger="Hover on me!" displayOnHover={true} placement="right-bottom" image="https://placehold.co/600x400">Popover Body</Popover>
+`
+
+<Section contained={true} style={{ paddingTop: 30, height: '300px' }}>
+	<h3>Popover with image</h3>
+	<p>Display thumbnail in popup</p>
+	<Preview wrapper={true}>
+		<div >
+			<Popover header="Popover title" footer="Footer content" trigger="Hover on me!" displayOnHover={true} placement="right-bottom" image="https://placehold.co/600x400">Popover Body</Popover>
+		</div>
+	</Preview>
+	<Snippet language="js">{image}</Snippet>
+</Section>
+

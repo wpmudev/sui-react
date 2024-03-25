@@ -1,0 +1,32 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// inline
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-inline($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(inline) {
+				@include modifies-element(text) {
+					order: 0;
+				}
+
+				@include modifies-element(indicator) {
+					flex: 1;
+					order: 1;
+					margin: 0 $spacing-md;
+				}
+
+				@include modifies-element(value) {
+					order: 2;
+				}
+			}
+		}
+	}
+}

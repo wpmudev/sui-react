@@ -1,0 +1,45 @@
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+
+import { Accordion, AccordionItem, AccordionItemBody } from "../../../../src"
+
+import { InfoAlt } from "@wpmudev/sui-icons"
+
+import dedent from "dedent"
+
+export const IconCode = dedent`
+<Accordion>
+        <AccordionItem
+            icon={<InfoAlt />}
+            title="Accordion title"
+        >
+            <AccordionItemBody>
+                <p>
+                Hi, I am accordion content body. you can swap me with your local
+                component.
+                </p>
+            </AccordionItemBody>
+        </AccordionItem>
+</Accordion>
+`
+
+<Section style={{ paddingTop: 0 }}>
+	<Section title="Icon" style={{ paddingTop: 0, paddingLeft: 0 }}>
+		<p>
+			Use the <Code small={true}>icon</Code> prop to add an icon to the{" "}
+			<Code small={true}>AccordionItem</Code>
+		</p>
+		<Preview>
+			<Accordion>
+				<AccordionItem icon={<InfoAlt />} title="Accordion title">
+					<AccordionItemBody>
+						<p>
+							Hi, I am accordion content body. you can swap me with your local
+							component.
+						</p>
+					</AccordionItemBody>
+				</AccordionItem>
+			</Accordion>
+		</Preview>
+		<Snippet language="js">{IconCode}</Snippet>
+	</Section>
+</Section>

@@ -1,0 +1,47 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import Spacing from "../images/spacing.svg"
+import Variations from "../images/variations.svg"
+import States from "../images/states.svg"
+
+<Section title="Anatomy">
+	<Row>
+		<Col>
+    		<h3 style={{marginTop: 0}}>1. Previous page</h3>
+    		<p>Navigate to the previous page.</p>
+
+    		<h3>2. Next page</h3>
+    		<p>Navigate to the next page.</p>
+
+    		<h3>3. Active page</h3>
+    		<p>Currently active page.</p>
+
+    		<h3>4. Page navigations</h3>
+    		<p>Navigate to the specific page by selecting the page number.</p>
+
+    		<h3>5. Truncations</h3>
+    		<p>When a threshold of pages is reached, the list is truncated using an ellipsis.</p>
+    	</Col>
+    	<Col size="3">
+    		<img src={Anatomy} alt="Pagination Anatomy" style={{ marginBottom: 20 }} />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Spacing">
+	<img src={Spacing} alt="Spacing Anatomy" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="Pagination variations">
+	<img
+		src={Variations}
+		alt="Pagination Variations"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+
+<Section title="States">
+	<img src={States} alt="Pagination States" style={{ marginBottom: 20 }} />
+</Section>

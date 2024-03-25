@@ -1,0 +1,37 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Icon Size
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-size($block) {
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(xs) {
+				height: $icon-size-xs;
+				width: $icon-size-xs;
+			}
+			@include modifier(sm) {
+				height: $icon-size-sm;
+				width: $icon-size-sm;
+			}
+			@include modifier(md) {
+				height: $icon-size-md;
+				width: $icon-size-md;
+			}
+			@include modifier(lg) {
+				height: $icon-size-lg;
+				width: $icon-size-lg;
+			}
+			@include modifier(xl) {
+				height: $icon-size-xl;
+				width: $icon-size-xl;
+			}
+			// @todo: add others variations
+		}
+	}
+}

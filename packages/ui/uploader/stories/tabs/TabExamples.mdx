@@ -1,0 +1,138 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { FormField } from "@wpmudev/sui-form-field"
+import { Uploader } from "../../src"
+import dedent from "dedent"
+
+export const basicCode = dedent`
+<FormField
+	id="uploader"
+	label="Upload a file"
+	helper="Upload files"
+	isSmall={true}
+>
+	<Uploader />
+</FormField>
+`
+
+export const multipleCode = dedent`
+<FormField
+	id="uploader"
+	label="Upload a file"
+	helper="Upload files"
+	isSmall={true}
+>
+	<Uploader multiple={true} />
+</FormField>
+`
+
+export const dragDropCode = dedent`
+<FormField
+	id="uploader"
+	label="Upload a file"
+	helper="Upload files"
+	isSmall={true}
+>
+	<Uploader allowDragAndDrop={false} />
+</FormField>
+`
+
+export const onlyImagesCode = dedent`
+<FormField
+	id="uploader"
+	label="Upload a file"
+	helper="Upload files"
+	isSmall={true}
+>
+	<Uploader accept="image/*" />
+</FormField>
+`
+
+export const onlyPdfCode = dedent`
+<FormField
+	id="uploader"
+	label="Upload a file"
+	helper="Upload files"
+	isSmall={true}
+>
+	<Uploader accept="application/pdf" />
+</FormField>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Basic File Uploader component used for most cases: </p>
+	<Preview wrapper={true}>
+		<FormField
+			id="uploader"
+			label="Upload a file"
+			helper="Upload files"
+			isSmall={true}
+		>
+			<Uploader />
+		</FormField>
+	</Preview>
+	<Snippet language="js">{basicCode}</Snippet>
+</Section>
+
+<Section title="Multiple files" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<FormField
+			id="uploader"
+			label="Upload a file"
+			helper="Upload files"
+			isSmall={true}
+		>
+			<Uploader multiple={true} />
+		</FormField>
+	</Preview>
+	<Snippet language="js">{multipleCode}</Snippet>
+</Section>
+
+<Section
+	title="Disabled drag and drop"
+	contained={true}
+	style={{ paddingTop: 30 }}
+>
+	<Preview wrapper={true}>
+		<FormField
+			id="uploader"
+			label="Upload a file"
+			helper="Upload files"
+			isSmall={true}
+		>
+			<Uploader allowDragAndDrop={false} />
+		</FormField>
+	</Preview>
+	<Snippet language="js">{dragDropCode}</Snippet>
+</Section>
+
+<Section title="Accept only images" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<FormField
+			id="uploader"
+			label="Upload a file"
+			helper="Upload files"
+			isSmall={true}
+		>
+			<Uploader accept="image/*" />
+		</FormField>
+	</Preview>
+	<Snippet language="js">{onlyImagesCode}</Snippet>
+</Section>
+
+<Section
+	title="Accept only a specific file extension"
+	contained={true}
+	style={{ paddingTop: 30 }}
+>
+	<Preview wrapper={true}>
+		<FormField
+			id="uploader"
+			label="Upload a file"
+			helper="Upload files"
+			isSmall={true}
+		>
+			<Uploader accept="application/pdf" />
+		</FormField>
+	</Preview>
+	<Snippet language="js">{onlyPdfCode}</Snippet>
+</Section>

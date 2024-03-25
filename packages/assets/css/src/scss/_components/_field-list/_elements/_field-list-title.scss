@@ -1,0 +1,25 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Title
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-title($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(title) {
+				margin: 0;
+				margin-bottom: $spacing-md;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+}

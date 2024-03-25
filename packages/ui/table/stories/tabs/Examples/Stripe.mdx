@@ -1,0 +1,16 @@
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { TableExample } from "./Example"
+import { generalCode } from "../TabExamples.mdx"
+import dedent from "dedent"
+
+<Section
+    border={true}
+    style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+    <p>Set the prop <Code small={true}>isStripped=\{true\}</Code> to display the table in stripe style </p>
+    <Preview wrapper={true}>
+    	<TableExample hasToolbar={false} isStripped={true}/>
+    </Preview>
+    <Snippet language="js">{generalCode("isStripped={true}")}</Snippet>
+
+</Section>

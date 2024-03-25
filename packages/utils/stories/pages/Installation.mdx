@@ -1,0 +1,56 @@
+import { Section, Code, Snippet, NodeJSWarning } from "@wpmudev/sui-docs"
+
+
+<style>{`
+.csb-browsers-list {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+.csb-browsers-list img {
+	margin: 0;
+	margin-right: 20px;
+}
+.csb-browsers-list img:last-child {
+	margin-right: 0;
+}
+`}</style>
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>
+		This is a utility package offering a collection of methods and functions designed to assist in development tasks. These utilities are tailored to simplify and streamline common development operations in various scenarios.
+	</p>
+	<NodeJSWarning/>
+</Section>
+<Section
+	title={{
+		content: 'Install using NPM',
+		small: true,
+	}}
+	contained={true}
+	style={{ paddingTop: 0 }}
+>
+	<p>
+		In your project root directory (where the <Code> package.json </Code> file
+		lives), run the following command:
+	</p>
+	```js
+	npm install --save @wpmudev/sui-utils
+	```
+</Section>
+<Section
+	title={{
+		content: 'Install using Yarn',
+		small: true,
+	}}
+	contained={true}
+	style={{ paddingTop: 0 }}
+>
+	<p>
+		In your project root directory (where the <Code> package.json </Code> file
+		lives), run the following command:
+	</p>
+	```js
+	yarn add @wpmudev/sui-utils
+	```
+</Section>

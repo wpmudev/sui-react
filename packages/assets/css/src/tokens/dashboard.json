@@ -1,0 +1,12 @@
+{
+    "dashboard": {
+        "size": {
+            "width": {
+                "lg": {
+                    "value": "440px",
+                    "type": "sizing"
+                }
+            }
+        }
+    }
+}

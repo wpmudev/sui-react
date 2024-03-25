@@ -1,0 +1,58 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Variations from "../images/variations.svg"
+import BannerDisplay from "../images/banner-display.svg"
+import AnnouncementDisplay from "../images/anouncement-display.svg"
+import Anouncement from "../images/anouncement.svg"
+
+import MobileRed from "../images/mobile-variations/red.svg"
+import MobileYellow from "../images/mobile-variations/yellow.svg"
+import MobileBlue from "../images/mobile-variations/blue.svg"
+import MobileSkyBlue from "../images/mobile-variations/sky-blue.svg"
+import MobileGreen from "../images/mobile-variations/green.svg"
+import MobileLightBlue from "../images/mobile-variations/light-blue.svg"
+
+
+<Section style={{ paddingTop: 20 }}>
+	<img src={Variations} alt="Alert Banner Variations"  />
+</Section>
+
+<Section title="Where to display?" border={true}>
+	<p>Alert banners will be shown right below the header.</p>
+	<img src={BannerDisplay} alt="Alert Banner Placement" />
+</Section>
+
+<Section title="Announcement Banner" >
+	<p>Announcement banners are used to make a general announcement about the product. These banners are center-aligned and do not contain an icon. It can be utilized to upsell the product as well.</p>
+	<img src={Anouncement} alt="Anouncement Banner" />
+</Section>
+
+<Section title="Where to display?" >
+	<p>Announcement banners will be shown on the top of the header.</p>
+	<img src={AnnouncementDisplay} alt="Anouncement Banner Placement" />
+</Section>
+
+<Section title="Variations in Mobile" border={true}>
+	<Row>
+		<Col>
+			<img src={MobileRed} alt="Mobile Variation - Red" />
+    	</Col>
+		<Col>
+			<img src={MobileYellow} alt="Mobile Variation - Yellow" />
+    	</Col>
+		<Col>
+			<img src={MobileBlue} alt="Mobile Variation - Blue" />
+    	</Col>
+    </Row>
+	<Row>
+		<Col>
+			<img src={MobileSkyBlue} alt="Mobile Variation - Sky Blue" />
+    	</Col>
+		<Col>
+			<img src={MobileGreen} alt="Mobile Variation - Green" />
+    	</Col>
+		<Col>
+			<img src={MobileLightBlue} alt="Mobile Variation - Light Blue" />
+    	</Col>
+    </Row>
+</Section>

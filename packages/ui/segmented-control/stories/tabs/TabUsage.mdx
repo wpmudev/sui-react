@@ -1,0 +1,48 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import States from "../images/states.svg"
+import IconUsage from "../images/icon-usage.svg"
+import Width from "../images/width.svg"
+import BackgroundColor from "../images/background-color.svg"
+
+<Section contained={true} style={{ paddingTop: 20 }}>
+	<img src={Anatomy} alt="Anatomy" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="States" contained={true} style={{ paddingTop: 20 }}>
+	<p>
+		The Segmented Control has the same states as other components, including
+		default, hover, focus, active, and disabled.
+	</p>
+	<img src={States} alt="States" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="Icon usage" contained={true} style={{ paddingTop: 20 }}>
+	<p>
+		Segmented Controls can have icons added to them as needed, and only icons
+		can be displayed for responsive purposes.
+	</p>
+	<img src={IconUsage} alt="Icon usage" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="Width" contained={true} style={{ paddingTop: 20 }}>
+	<p>
+		In general, segmented control cover the width of the content. However, it
+		can be expanded to cover the whole wrapper to make the UI clean and
+		intuitive.
+	</p>
+	<img src={Width} alt="Width" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section
+	title="Background Colour - Tutorial"
+	contained={true}
+	style={{ paddingTop: 20 }}
+>
+	<img
+		src={BackgroundColor}
+		alt="Background Colour - Tutorial"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>

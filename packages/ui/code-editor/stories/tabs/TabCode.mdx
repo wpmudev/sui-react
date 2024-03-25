@@ -1,0 +1,44 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-code-editor" />
+
+<Section title="Props" border={true}>
+    <PropSection title="filename" type="string" defaultValue="App.js">
+    	<p>The file name that appears on top of the editor</p>
+    </PropSection>
+
+    <PropSection title="language" type="string" defaultValue="javascript">
+    	<p>The programming language of the code snippet</p>
+    	<p>Allowed Options:</p>
+    	<List>
+    		<span label={<Code small={true}>javascript</Code>} />
+    		<span label={<Code small={true}>php</Code>} />
+    		<span label={<Code small={true}>markup</Code>} />
+    		<span label={<Code small={true}>css</Code>} />
+    		<span label={<Code small={true}>javascript</Code>} />
+    	</List>
+    </PropSection>
+
+    <PropSection title="allowCopy" type="boolean" defaultValue="true">
+    	<p>When set to <Code small={true}>true</Code>, the code editor will feature a button in the upper-right corner, enabling the copying of code snippet.</p>
+    </PropSection>
+
+    <PropSection title="displayLineNumbers" type="boolean" defaultValue="true">
+    	<p>If set to <Code small={true}>true</Code>, the line numbers will appear</p>
+    </PropSection>
+
+    <PropSection title="readOnly" type="boolean" defaultValue="false">
+    	<p>When set to <Code small={true}>true</Code>, the code snippet won't be editable</p>
+    </PropSection>
+
+    <PropSection title="className" type="string">
+    	<p>Custom css className(s)</p>
+    </PropSection>
+
+    <PropSection title="children" type="React Node">
+    	<p>Content of the code editor, this is the code snippet itself</p>
+    </PropSection>
+
+</Section>
+
+<CommonPropsNotice />

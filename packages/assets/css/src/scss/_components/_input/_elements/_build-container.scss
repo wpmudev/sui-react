@@ -1,0 +1,50 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Container
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-container($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			position: relative;
+			width: 100%;
+
+			&:before {
+				content: " ";
+				pointer-events: none;
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				bottom: 0;
+				border-width: $input-border-width-sm;
+				border-style: $input-border-style;
+				border-color: $input-border-color-default;
+				border-radius: $input-border-radius;
+				transition: 0.1s ease;
+			}
+
+			@include modifier(readonly) {
+				background: $color-extended-neutral-95;
+				border-radius: $input-border-radius;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: "dark") {
+		@include block($block) {
+			&:before {
+				border-color: $color-extended-neutral-0;
+			}
+		}
+	}
+}
