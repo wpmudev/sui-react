@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useValidation } from "@wpmudev/sui-hooks"
 
 // Import required modules
 import { CheckboxGroup, Checkbox as SuiCheckbox, CheckBoxGroups } from "../src"
@@ -35,8 +36,15 @@ export const Checkbox = ({
 		background: "#fff",
 	}
 
-	// for single checkbox (outside of CheckboxWrapper)
+	// For a single checkbox (outside of CheckboxWrapper)
 	const [isChecked, setIsChecked] = useState(false)
+
+	// TO DO TOMORROW: validation for group and groups only custom
+	const [status, validationProps] = useValidation((value) => {
+		if (!value) {
+			return "This field is required!"
+		}
+	})
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
@@ -45,27 +53,32 @@ export const Checkbox = ({
 					{
 						{
 							single: (
-								<SuiCheckbox
-									name="single-checkbox"
-									id="single-checkbox"
-									label="Single Checkbox"
-									isChecked={isChecked}
-									onChange={(e) => {
-										setIsChecked(e.target.checked)
-									}}
-								/>
+								<>
+									<SuiCheckbox
+										name="single-checkbox"
+										id="single-checkbox"
+										label="Single Checkbox"
+										isChecked={isChecked}
+										onChange={(e) => {
+											setIsChecked(e.target.checked)
+										}}
+										{...validationProps}
+									/>
+									{status.isError && <p>{status.error}</p>}
+								</>
 							),
 							group: (
 								<CheckboxGroup
 									title="Group 1 Label"
+									id="group-1"
 									commonCheckboxProps={{
 										// It will be passed to all checkbox items
 										name: "group-checkbox",
 										...args,
 									}}
 								>
-									<SuiCheckbox label="Checkbox Group Item 1" />
-									<SuiCheckbox label="Checkbox Group Item 2" />
+									<SuiCheckbox id="checkbox-1" label="Checkbox Group Item 1" />
+									<SuiCheckbox id="checkbox-2" label="Checkbox Group Item 2" />
 								</CheckboxGroup>
 							),
 							nested: (

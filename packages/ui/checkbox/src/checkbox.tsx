@@ -20,6 +20,9 @@ const Checkbox = ({
 	isSmall = false,
 	isIndeterminate = false,
 	onChange: propOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {},
+	validate,
+	validateOnMount,
+	resetValidation,
 	_htmlProps = {},
 	_style,
 }: CheckboxProps) => {
@@ -55,6 +58,9 @@ const Checkbox = ({
 			// Invoke context onChange method if available
 			if (!!ctx?.onChange) {
 				ctx.onChange(uuid, e.target.checked, groupId)
+
+				// validation for a single checkbox
+				validate?.(e.target.checked)
 			}
 
 			// Invoke prop onChange method
@@ -65,6 +71,12 @@ const Checkbox = ({
 		"aria-labelledby": `${uuid}-label`,
 		..._htmlProps,
 	}
+
+	useEffect(() => {
+		if (validateOnMount) {
+			validate?.(isChecked)
+		}
+	}, [])
 
 	// Define container props
 	const containerProps = {
