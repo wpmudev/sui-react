@@ -42,6 +42,9 @@ const Select: React.FC<SelectBaseProps> = ({
 	onMouseLeave = () => null,
 	customWidth,
 	onChange,
+	resetValidation,
+	validateOnMount,
+	validate,
 	_style = {},
 	_htmlProps = {},
 	_dropdownProps = {},
@@ -166,10 +169,25 @@ const Select: React.FC<SelectBaseProps> = ({
 	 */
 	const updateItem = (option: SelectOptionType | SelectOptionType[]) => {
 		setSelectedItems(option)
+
+		// validate the option
+		if (validate) {
+			validate(option)
+		}
+
+		// onChange callback
 		if (onChange) {
 			onChange(option)
 		}
 	}
+
+	// validation on mount
+	useEffect(() => {
+		if (validate && validateOnMount) {
+			validate(selectedItem)
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	const updateSelected = (optionObj: SelectOptionType) => {
 		if (!options) {

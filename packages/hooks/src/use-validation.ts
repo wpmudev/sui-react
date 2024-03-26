@@ -127,9 +127,13 @@ const useValidation = (
 		}
 
 		// Remove trailing white spaces
-		const val = fieldValue?.toString()?.trim() ?? ""
+		const val = fieldValue?.toString()?.trim()
 
-		if (typeof val === "string" && isEmpty(val)) {
+		if (
+			(typeof val === "string" && isEmpty(val)) ||
+			val === null ||
+			val === undefined
+		) {
 			return message
 		}
 	})

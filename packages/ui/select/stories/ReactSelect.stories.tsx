@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { FormField } from "@wpmudev/sui-form-field"
+import { useValidation } from "@wpmudev/sui-hooks"
 
 // Import required component(s).
 import {
@@ -80,6 +81,27 @@ const Select = ({
 	const [asyncOptions, setAsyncOptions] = useState<SelectOptionType[]>([])
 	const [optionsAPILimit, setOptionsAPILimit] = useState(0)
 
+	const validation = (value) => {
+		if (value.id === "option-2") {
+			return "You should not choose option 2"
+		}
+	}
+
+	const [status, validationProps] = useValidation(
+		[
+			{
+				required: true,
+				message: "This field is required",
+			},
+			{
+				validator: validation,
+			},
+		],
+		{
+			validateOnMount: true,
+		},
+	)
+
 	const perPage = 10
 
 	return (
@@ -91,9 +113,10 @@ const Select = ({
 							id="select"
 							label="Label"
 							helper="Description"
-							error={errorMessage}
+							//error={errorMessage}
 							isSmall={isSmall}
 							isDisabled={isDisabled}
+							error={status.error}
 						>
 							<StandardSelect
 								{...props}
@@ -108,6 +131,8 @@ const Select = ({
 									}),
 									props: { icon: "Settings" },
 								}))}
+								isError={status.isError}
+								{...validationProps}
 							/>
 						</FormField>
 					)}
