@@ -1,6 +1,10 @@
 import React, { HTMLProps, LegacyRef, ReactNode, Ref, RefObject } from "react"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
-import { InteractionTypes, useStylesTypes } from "@wpmudev/sui-hooks"
+import {
+	InteractionTypes,
+	useStylesTypes,
+	validationPropsType,
+} from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
 import { DropdownRefProps } from "@wpmudev/sui-dropdown"
 import { MenuItemProps } from "@wpmudev/sui-dropdown/src/dropdown.types"
@@ -37,7 +41,8 @@ interface SelectBaseProps
 			| "onChange"
 		>,
 		SuiStyleType,
-		SuiHTMLAttributes {
+		SuiHTMLAttributes,
+		validationPropsType {
 	/** Unique ID */
 	id?: string
 	/** An array of options for the select */

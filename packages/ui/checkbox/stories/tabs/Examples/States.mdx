@@ -1,6 +1,7 @@
 
 import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 import { BasicCheckbox } from "./components/BasicCheckbox"
+import { FormField } from "@wpmudev/sui-form-field"
 import dedent from "dedent"
 
 export const disabledCode = dedent`
@@ -36,6 +37,15 @@ export const indeterminateCode = dedent`
 	<p> Use the prop <Code small={true}> isIndeterminate=\{true\} </Code> to mark the checkbox as indeterminate </p>
 	<Preview wrapper={true}>
 		<BasicCheckbox isIndeterminate={true} label="Indeterminate Checkbox" onChange={(e)=> setChecked(e.target.checked)}/>
+	</Preview>
+	<Snippet language="js">{indeterminateCode}</Snippet>
+</Section>
+
+<Section title="Error" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p> This represents the error state for the checkbox. </p>
+	<p> Use the prop <Code small={true}> isError=\{true\} </Code> if you want to display the checkbox in error state </p>
+	<Preview wrapper={true}>
+		<BasicCheckbox isError={true} label="Terms & conditions" onChange={(e)=> setChecked(e.target.checked)} />
 	</Preview>
 	<Snippet language="js">{indeterminateCode}</Snippet>
 </Section>

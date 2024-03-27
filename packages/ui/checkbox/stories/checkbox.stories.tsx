@@ -35,7 +35,7 @@ export const Checkbox = ({
 		background: "#fff",
 	}
 
-	// for single checkbox (outside of CheckboxWrapper)
+	// For a single checkbox (outside of CheckboxWrapper)
 	const [isChecked, setIsChecked] = useState(false)
 
 	return (
@@ -53,19 +53,21 @@ export const Checkbox = ({
 									onChange={(e) => {
 										setIsChecked(e.target.checked)
 									}}
+									{...args}
 								/>
 							),
 							group: (
 								<CheckboxGroup
 									title="Group 1 Label"
+									id="group-1"
 									commonCheckboxProps={{
 										// It will be passed to all checkbox items
 										name: "group-checkbox",
 										...args,
 									}}
 								>
-									<SuiCheckbox label="Checkbox Group Item 1" />
-									<SuiCheckbox label="Checkbox Group Item 2" />
+									<SuiCheckbox id="checkbox-1" label="Checkbox Group Item 1" />
+									<SuiCheckbox id="checkbox-2" label="Checkbox Group Item 2" />
 								</CheckboxGroup>
 							),
 							nested: (
@@ -127,6 +129,7 @@ Checkbox.args = {
 	isLabelHidden: false,
 	isSmall: false,
 	isDisabled: false,
+	isError: false,
 }
 
 // Story props settings
@@ -167,6 +170,12 @@ Checkbox.argTypes = {
 	},
 	isDisabled: {
 		name: "Disabled",
+		control: {
+			type: "boolean",
+		},
+	},
+	isError: {
+		name: "error",
 		control: {
 			type: "boolean",
 		},

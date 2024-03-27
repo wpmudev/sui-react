@@ -42,6 +42,9 @@ const Select: React.FC<SelectBaseProps> = ({
 	onMouseLeave = () => null,
 	customWidth,
 	onChange,
+	resetValidation,
+	validateOnMount,
+	validate,
 	_style = {},
 	_htmlProps = {},
 	_dropdownProps = {},
@@ -166,10 +169,26 @@ const Select: React.FC<SelectBaseProps> = ({
 	 */
 	const updateItem = (option: SelectOptionType | SelectOptionType[]) => {
 		setSelectedItems(option)
+
+		// validate the option: Multiselect is having a bug with validation
+		if (validate && !isMultiSelect) {
+			validate(option)
+		}
+
+		// onChange callback
 		if (onChange) {
 			onChange(option)
 		}
 	}
+
+	// validation on mount
+	useEffect(() => {
+		// Validate on mount: Multiselect is having a bug with validation
+		if (validate && validateOnMount && !isMultiSelect) {
+			validate(selectedItem)
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	const updateSelected = (optionObj: SelectOptionType) => {
 		if (!options) {

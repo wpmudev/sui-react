@@ -1,4 +1,4 @@
-import { Section, Code, Snippet } from '@wpmudev/sui-docs';
+import { Section, Code, Snippet, List } from '@wpmudev/sui-docs';
 
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>
@@ -281,7 +281,19 @@ import { Section, Code, Snippet } from '@wpmudev/sui-docs';
             }
         }
 	```
+	<p>
+		<strong>Note that predefined rules can only be used with the following components:</strong>
+	</p>
+	
+	<p>
+		<List>
+			<span label="Input" />
+			<span label="Password Field" />
+			<span label="Textarea" />
+		</List>
+	</p>
 
+	For other components, you should use the custom validator function.
 
 	<h3>Example</h3>
 	
