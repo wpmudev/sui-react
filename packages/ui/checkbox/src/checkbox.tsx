@@ -18,6 +18,7 @@ const Checkbox = ({
 	isChecked = false,
 	isDisabled = false,
 	isSmall = false,
+	isError = false,
 	isIndeterminate = false,
 	onChange: propOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {},
 	validate,
@@ -76,6 +77,7 @@ const Checkbox = ({
 		if (validateOnMount) {
 			validate?.(isChecked)
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	// Define container props
@@ -90,6 +92,7 @@ const Checkbox = ({
 				disabled: isDisabled,
 				checked: isChecked,
 				sm: isSmall,
+				error: isError,
 			},
 			suiInlineClassname,
 		),

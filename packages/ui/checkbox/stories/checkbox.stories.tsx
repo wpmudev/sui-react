@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { useValidation } from "@wpmudev/sui-hooks"
 
 // Import required modules
 import { CheckboxGroup, Checkbox as SuiCheckbox, CheckBoxGroups } from "../src"
@@ -39,13 +38,6 @@ export const Checkbox = ({
 	// For a single checkbox (outside of CheckboxWrapper)
 	const [isChecked, setIsChecked] = useState(false)
 
-	// TO DO TOMORROW: validation for group and groups only custom
-	const [status, validationProps] = useValidation((value) => {
-		if (!value) {
-			return "This field is required!"
-		}
-	})
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
@@ -53,19 +45,16 @@ export const Checkbox = ({
 					{
 						{
 							single: (
-								<>
-									<SuiCheckbox
-										name="single-checkbox"
-										id="single-checkbox"
-										label="Single Checkbox"
-										isChecked={isChecked}
-										onChange={(e) => {
-											setIsChecked(e.target.checked)
-										}}
-										{...validationProps}
-									/>
-									{status.isError && <p>{status.error}</p>}
-								</>
+								<SuiCheckbox
+									name="single-checkbox"
+									id="single-checkbox"
+									label="Single Checkbox"
+									isChecked={isChecked}
+									onChange={(e) => {
+										setIsChecked(e.target.checked)
+									}}
+									{...args}
+								/>
 							),
 							group: (
 								<CheckboxGroup
@@ -140,6 +129,7 @@ Checkbox.args = {
 	isLabelHidden: false,
 	isSmall: false,
 	isDisabled: false,
+	isError: false,
 }
 
 // Story props settings
@@ -180,6 +170,12 @@ Checkbox.argTypes = {
 	},
 	isDisabled: {
 		name: "Disabled",
+		control: {
+			type: "boolean",
+		},
+	},
+	isError: {
+		name: "error",
 		control: {
 			type: "boolean",
 		},

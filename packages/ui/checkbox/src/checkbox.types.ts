@@ -125,6 +125,11 @@ interface CheckboxProps
 	isDisabled?: boolean
 
 	/**
+	 * Error variation for the checkbox
+	 */
+	isError?: boolean
+
+	/**
 	 * Indicates whether checkbox is checked or not
 	 */
 	isChecked?: boolean
