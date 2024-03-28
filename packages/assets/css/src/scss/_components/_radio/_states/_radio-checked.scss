@@ -52,6 +52,13 @@
 					&:after {
 						border-color: $color-extended-neutral-0;
 					}
+
+					&:hover {
+						.sui-#{$block}__box {
+							background: $color-extended-neutral-0;
+							border-color: $color-extended-neutral-0;
+						}
+					}
 				}
 			}
 		}
