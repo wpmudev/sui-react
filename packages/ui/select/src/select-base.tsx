@@ -6,12 +6,7 @@ import React, {
 	ChangeEvent,
 	useId,
 } from "react"
-import {
-	SuiStyleType,
-	generateCN,
-	_renderHTMLPropsSafely,
-	SuiHTMLAttributes,
-} from "@wpmudev/sui-utils"
+import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
 	useInteraction,
@@ -47,7 +42,6 @@ const Select: React.FC<SelectBaseProps> = ({
 	onMouseLeave = () => null,
 	customWidth,
 	onChange,
-	optionAppreance,
 	_style = {},
 	_htmlProps = {},
 	_dropdownProps = {},
@@ -249,7 +243,6 @@ const Select: React.FC<SelectBaseProps> = ({
 
 	// Dropdown props
 	const dropdownProps = {
-		optionAppreance,
 		options: filteredItems,
 		selected: selectedItem,
 		isSmall,

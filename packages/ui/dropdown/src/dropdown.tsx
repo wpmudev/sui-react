@@ -21,15 +21,9 @@ import {
 import { DropdownMenu } from "./dropdown-menu"
 import { DropdownMenuItem } from "./dropdown-menu-item"
 import { DropdownMenuGroup } from "./dropdown-menu-group"
-import {
-	DropdownProps,
-	DropdownRefProps,
-	MenuGroupProps,
-	MenuItemProps,
-} from "./dropdown.types"
+import { DropdownProps, DropdownRefProps } from "./dropdown.types"
 import { Input } from "@wpmudev/sui-input"
 import { Spinner } from "@wpmudev/sui-spinner"
-import { isSameDay } from "date-fns"
 
 /**
  * Dropdown Component - A reusable dropdown UI component.

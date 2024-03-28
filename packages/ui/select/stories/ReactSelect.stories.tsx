@@ -97,7 +97,6 @@ const Select = ({
 						>
 							<StandardSelect
 								{...props}
-								_htmlProps={{ "data-testtttt": "20" }}
 								{...(isSearchable && {
 									isSearchable,
 									label: "Search...",
@@ -122,6 +121,8 @@ const Select = ({
 							isDisabled={isDisabled}
 						>
 							<StandardSelect
+								customWidth={props.customWidth}
+								isError={props.isError}
 								_dropdownProps={{
 									type: "select",
 									isAsync: true,
@@ -190,6 +191,7 @@ const Select = ({
 							isDisabled={isDisabled}
 						>
 							<SelectVariable
+								{...props}
 								label="Select variable"
 								options={[
 									{

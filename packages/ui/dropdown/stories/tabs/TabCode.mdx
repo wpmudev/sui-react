@@ -4,10 +4,8 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
 <PackageInstallGuide packageName="@wpmudev/sui-dropdown" />
 
 <Section title="Props" border={true}>
-
     	<PropSection title="label" type="string">
     		<p>The dropdown label</p>
-
     	</PropSection>
 
     	<PropSection title="isSmall" type="boolean" defaultValue={false}>
@@ -47,8 +45,7 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
     		<p>Indicates the color of the button, check <Code isSmall={true}>Button</Code> component for allowed values </p>
     	</PropSection>
 
-
-		<PropSection title="className" type="boolean">
+		<PropSection title="className" type="string">
     		<p>Custom classNames(s) for further styling</p>
     	</PropSection>
 
@@ -68,6 +65,63 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
     				</>
     				} />
     		</List>
+    	</PropSection>
+
+		<PropSection title="type" type="string">
+    		<p>Represents the type of the Dropdown</p>
+			<p>
+				Allowed values
+				<List>
+					<span label="default" />
+					<span label="select" />
+					<span label="select-checkbox" />
+					<span label="select-variable" />
+				</List>
+			</p>
+    	</PropSection>
+
+		<PropSection title="isResponsive" type="boolean" defaultValue="false">
+    		<p>whther to hide the label of the button or not</p>
+    	</PropSection>
+
+		<PropSection title="isFluid" type="boolean" defaultValue="false">
+    		<p>When set to <Code isSmall={true}>true</Code> the Dropdown will have a full width</p>
+    	</PropSection>
+
+		<PropSection title="closeOnOuterClick" type="boolean" defaultValue="true">
+    		<p>Set this to <Code isSmall={true}>true</Code> if you want the Dropdown to be closed onClick</p>
+    	</PropSection>
+
+		<PropSection title="onToggle" type="function">
+    		<p> Detects when the Dropdown is toggled, the first parameter represents the state </p>
+    	</PropSection>
+
+		<PropSection title="allowSearch" type="boolean" defaultValue="false">
+    		<p> Whether to dsiplay the search field or not </p>
+    	</PropSection>
+
+		<PropSection title="isAsync" type="boolean" defaultValue="true">
+    		<p> Whether to dsiplay the search field or not </p>
+    	</PropSection>
+
+		<PropSection title="isAsync" type="boolean" defaultValue="false">
+    		<p> Whether the options are asynchronous or not </p>
+    	</PropSection>
+
+		<PropSection title="asyncOptions" type="object" defaultValue="{}">
+    		<p> This prop represnt the settings of the async Dropdown, it has two properties: <Code isSmall={true}>perPage</Code>, and <Code isSmall={true}>totlaItems</Code>, both are numbers </p>
+    	</PropSection>
+
+		<PropSection title="getOptions" type="function">
+    		<p> The function used to fetch the options </p>
+    	</PropSection>
+
+		<PropSection title="menuCustomWidth" type="number">
+    		<p> Width for the menu in pixels </p>
+    	</PropSection>
+
+		<PropSection title="searchPlaceholder" type="string">
+    		<p> Placeholder text for the search field </p>
     	</PropSection>
 
     	<PropSection title="menu" type="array">
@@ -180,9 +234,7 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
     				} />
     			</List>
     		</Section>
-
     	</PropSection>
-
 </Section>
 
 <CommonPropsNotice />

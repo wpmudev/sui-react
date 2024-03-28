@@ -79,13 +79,8 @@ interface SelectBaseProps
 	 */
 	onChange?(option: SelectOptionType | SelectOptionType[] | string): void
 	/**
-	 * Use this method to adjust option item
-	 *
-	 * @param { JSX.Element}     jsx
-	 * @param {SelectOptionType} option
+	 * Props passed down to Dropdown component
 	 */
-	optionAppreance?(jsx: JSX.Element, option: SelectOptionType): JSX.Element
-
 	_dropdownProps?: object
 }
 
@@ -146,7 +141,6 @@ interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 	onKeyDown?(e?: any): void
 	onChange?: (option: SelectOptionType) => void
 	onSearch?: (value: string) => void
-	optionAppreance: SelectBaseProps["optionAppreance"]
 	dropdownRef?: Ref<DropdownRefProps | null>
 	_dropdownProps?: object
 }
@@ -154,7 +148,6 @@ interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 interface SelectDropdownOptionProps {
 	option: SelectOptionType
 	children: JSX.Element
-	optionAppreance: SelectBaseProps["optionAppreance"]
 	[props: string]: any
 }
 
