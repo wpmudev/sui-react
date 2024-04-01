@@ -56,20 +56,19 @@ const Textarea: React.FC<TextareaProps> = ({
 	const handleOnChange = useCallback(
 		(e: React.ChangeEvent<HTMLTextAreaElement>) => {
 			setCurrentValue(e.target.value)
-			if (isFunction(onChange) && !!onChange) {
-				onChange(e)
-			}
-			if (validate && isFunction(validate)) {
-				validate(e.target.value)
-			}
+			// call the onChange prop
+			onChange?.(e)
+
+			// Validate the value
+			validate?.(e.target.value)
 		},
 		[onChange, validate],
 	)
 
 	// validate on mount if applicable
 	useEffect(() => {
-		if (validateOnMount && validate && isFunction(validate)) {
-			validate(value)
+		if (validateOnMount) {
+			validate?.(value)
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])

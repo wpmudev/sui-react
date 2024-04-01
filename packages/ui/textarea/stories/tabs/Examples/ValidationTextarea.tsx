@@ -4,46 +4,46 @@ import { useValidation } from "@wpmudev/sui-hooks"
 import dedent from "dedent"
 
 // Import required component.
-import { Input } from "../../../src"
+import { Textarea } from "../../../src"
 
-export const ValidationInputCode = dedent`
+export const ValidationTextareaCode = dedent`
 import { FormField } from "@wpmudev/sui-form-field"
 import { useValidation } from "@wpmudev/sui-hooks"
-import { Input } from "@wpmudev/sui-input"
+import { Teaxtarea } from "@wpmudev/sui-text-area"
 
-const ValidationInput = () => {
+const ValidationTextarea = () => {
 	const [status, validationError] = useValidation({
 		required: true,
-		message: "This input is required",
+		message: "You must enter a value",
 	})
 
 	return (
 		<FormField
-			id="input-1"
-			label="Required Input"
+			id="textarea-1"
+			label="Text Field"
 			helper="Helper Text"
 			error={status.error}
 		>
-			<Input isError={status.isError} {...validationError} />
+			<Textarea isError={status.isError} {...validationError} />
 		</FormField>
 	)
 }
 `
 
-export const ValidationInput = () => {
+export const ValidationTextarea = () => {
 	const [status, validationError] = useValidation({
 		required: true,
-		message: "This input is required",
+		message: "You must enter a value",
 	})
 
 	return (
 		<FormField
-			id="input-1"
-			label="Required Input"
+			id="textarea-1"
+			label="Text Field"
 			helper="Helper Text"
 			error={status.error}
 		>
-			<Input isError={status.isError} {...validationError} />
+			<Textarea isError={status.isError} {...validationError} />
 		</FormField>
 	)
 }
