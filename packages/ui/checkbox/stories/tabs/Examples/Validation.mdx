@@ -1,0 +1,15 @@
+
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { BasicCheckbox } from "./components/BasicCheckbox"
+import { FormField } from "@wpmudev/sui-form-field"
+import { ValidationCheckbox, ValidationCheckboxCode } from "./components/ValidationCheckbox"
+import dedent from "dedent"
+
+
+<Section title="Validation" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p> In the example below, we use the hook <a href="/?path=/docs/sui-npm-packages-hooks--docs" target="blank">useValidation</a> to validate the value with a custom validator</p>
+	<Preview wrapper={true}>
+		<ValidationCheckbox label="Required Checkbox" onChange={(e)=> setChecked(e.target.checked)} />
+	</Preview>
+	<Snippet language="js">{ValidationCheckboxCode}</Snippet>
+</Section>
