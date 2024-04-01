@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { Code, Message, Section, Snippet } from "../index"
+import React from "react"
+import { Code, Section } from "../index"
 
 const FormValidationProps = () => {
 	return (

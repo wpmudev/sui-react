@@ -9,7 +9,7 @@ import { Input } from "../../../src"
 export const ValidationInputCode = dedent`
 import { FormField } from "@wpmudev/sui-form-field"
 import { useValidation } from "@wpmudev/sui-hooks"
-import dedent from "dedent"
+import { Input } from "@wpmudev/sui-password-field"
 
 const ValidationInput = () => {
 	const [status, validationError] = useValidation({
@@ -30,7 +30,6 @@ const ValidationInput = () => {
 }
 `
 
-// Build "Input" story.
 export const ValidationInput = () => {
 	const [status, validationError] = useValidation({
 		required: true,
