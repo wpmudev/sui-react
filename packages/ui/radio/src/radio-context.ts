@@ -19,7 +19,11 @@ const useRadio = () => {
 			ctx.setCurrent(value)
 
 			if (ctx.onChange) {
+				// Call the callback function
 				ctx.onChange(value)
+
+				// Validate the value
+				ctx.validate?.(value)
 			}
 		},
 		[ctx],
