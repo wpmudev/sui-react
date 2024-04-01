@@ -24,6 +24,7 @@ import Tooltip from "./components/tooltip/tooltip"
 import Image from "./components/image/image"
 
 // shared
+import { FormValidationProps } from "./shared/FormValidationProps"
 import { CommonPropsNotice } from "./shared/CommonPropsNotice"
 import { NodeJSWarning } from "./shared/NodeJSWarning"
 import { PackageInstallGuide } from "./shared/PackageInstallGuide"
@@ -58,4 +59,5 @@ export {
 	PropSection,
 	NodeJSWarning,
 	CommonPropsNotice,
+	FormValidationProps,
 }
