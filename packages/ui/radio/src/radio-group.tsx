@@ -16,9 +16,11 @@ const RadioGroup = ({
 	isDisabled = false,
 	onChange = () => {},
 	className = "",
+	validate,
+	validateOnMount,
+	resetValidation,
 	_htmlProps = {},
 	_style,
-	...props
 }: RadioGroupProps) => {
 	const [current, setCurrent] = useState<RadioValueType>(defaultValue)
 
@@ -52,6 +54,9 @@ const RadioGroup = ({
 				asBlock,
 				isDisabled,
 				onChange,
+				validate,
+				validateOnMount,
+				resetValidation,
 				isSmall,
 			}}
 		>

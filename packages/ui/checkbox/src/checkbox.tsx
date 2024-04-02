@@ -18,8 +18,12 @@ const Checkbox = ({
 	isChecked = false,
 	isDisabled = false,
 	isSmall = false,
+	isError = false,
 	isIndeterminate = false,
 	onChange: propOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {},
+	validate,
+	validateOnMount,
+	resetValidation,
 	_htmlProps = {},
 	_style,
 }: CheckboxProps) => {
@@ -55,6 +59,9 @@ const Checkbox = ({
 			// Invoke context onChange method if available
 			if (!!ctx?.onChange) {
 				ctx.onChange(uuid, e.target.checked, groupId)
+
+				// validation for a single checkbox
+				validate?.(e.target.checked)
 			}
 
 			// Invoke prop onChange method
@@ -65,6 +72,13 @@ const Checkbox = ({
 		"aria-labelledby": `${uuid}-label`,
 		..._htmlProps,
 	}
+
+	useEffect(() => {
+		if (validateOnMount) {
+			validate?.(isChecked)
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	// Define container props
 	const containerProps = {
@@ -78,6 +92,7 @@ const Checkbox = ({
 				disabled: isDisabled,
 				checked: isChecked,
 				sm: isSmall,
+				error: isError,
 			},
 			suiInlineClassname,
 		),

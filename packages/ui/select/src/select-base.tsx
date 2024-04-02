@@ -170,8 +170,8 @@ const Select: React.FC<SelectBaseProps> = ({
 	const updateItem = (option: SelectOptionType | SelectOptionType[]) => {
 		setSelectedItems(option)
 
-		// validate the option
-		if (validate) {
+		// validate the option: Multiselect is having a bug with validation
+		if (validate && !isMultiSelect) {
 			validate(option)
 		}
 
@@ -183,7 +183,8 @@ const Select: React.FC<SelectBaseProps> = ({
 
 	// validation on mount
 	useEffect(() => {
-		if (validate && validateOnMount) {
+		// Validate on mount: Multiselect is having a bug with validation
+		if (validate && validateOnMount && !isMultiSelect) {
 			validate(selectedItem)
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps

@@ -118,7 +118,7 @@ const useValidation = (
 		}
 	}
 
-	// Required rule
+	// required rule
 	const required = createValidator((fieldValue, typeValue, message) => {
 		if (typeof typeValue !== "boolean") {
 			throw new Error(
@@ -127,13 +127,9 @@ const useValidation = (
 		}
 
 		// Remove trailing white spaces
-		const val = fieldValue?.toString()?.trim()
+		const val = fieldValue?.toString()?.trim() || ""
 
-		if (
-			(typeof val === "string" && isEmpty(val)) ||
-			val === null ||
-			val === undefined
-		) {
+		if (typeof val === "string" && isEmpty(val)) {
 			return message
 		}
 	})

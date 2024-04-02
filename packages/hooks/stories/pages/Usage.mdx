@@ -1,4 +1,4 @@
-import { Section, Code, Snippet } from '@wpmudev/sui-docs';
+import { Section, Code, Snippet, List } from '@wpmudev/sui-docs';
 
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>
@@ -225,7 +225,7 @@ import { Section, Code, Snippet } from '@wpmudev/sui-docs';
 	All the ways on how to use the `_style` prop can be found <a href="/?path=/docs/sui-common-props--docs" target="_blank">here</a>
 </Section>
 
-<Section contained={true} border={true} title="7. useValidation" >
+<Section contained={true} border={true} title="7. useValidation" id="use-validation">
 	<p>
 		The `useValidation` hook is designed to validate SUI form fields and manage thier validation state. It provides a set of methods that works specifically with SUI form fields. 
 	</p>
@@ -281,7 +281,19 @@ import { Section, Code, Snippet } from '@wpmudev/sui-docs';
             }
         }
 	```
+	<p>
+		<strong>Note that predefined rules can only be used with the following components:</strong>
+	</p>
+	
+	<p>
+		<List>
+			<span label="Input" />
+			<span label="Password Field" />
+			<span label="Textarea" />
+		</List>
+	</p>
 
+	For other components, you should use the custom validator function.
 
 	<h3>Example</h3>
 	

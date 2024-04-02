@@ -1,5 +1,5 @@
 import React, { ReactNode, HTMLAttributes } from "react"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { validationPropsType } from "@wpmudev/sui-hooks"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 interface _CheckboxGroupInnerProps
@@ -82,7 +82,8 @@ interface CheckboxGroupProps {
  */
 interface CheckboxProps
 	extends SuiHTMLAttributes<HTMLAttributes<HTMLInputElement>>,
-		SuiStyleType {
+		SuiStyleType,
+		validationPropsType {
 	/**
 	 * The unique identifier for the checkbox button (optional).
 	 */
@@ -122,6 +123,11 @@ interface CheckboxProps
 	 * Indicates whether the checkbox is disabled or not.
 	 */
 	isDisabled?: boolean
+
+	/**
+	 * Error variation for the checkbox
+	 */
+	isError?: boolean
 
 	/**
 	 * Indicates whether checkbox is checked or not

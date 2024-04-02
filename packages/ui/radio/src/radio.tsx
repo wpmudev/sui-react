@@ -47,7 +47,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			uuid = id
 		}
 
-		// handle on change
+		// Handle on change
 		const handleOnChange = useCallback(() => {
 			onChange(value)
 		}, [onChange, value])

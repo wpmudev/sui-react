@@ -1,4 +1,16 @@
-import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from '@wpmudev/sui-docs';
+import { 
+	Section, 
+	Row, 
+	Col, 
+	Table, 
+	List, 
+	Code, 
+	Tag, 
+	PackageInstallGuide, 
+	PropSection, 
+	CommonPropsNotice,
+	FormValidationProps 
+} from '@wpmudev/sui-docs';
 
 <PackageInstallGuide packageName="@wpmudev/sui-textarea" />
 
@@ -40,6 +52,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 	<PropSection title="onChange" type="boolean" defaultValue="false">
 		<p>A callback function to be invoked when the textarea value changes, the first parameter represents the change event object</p>
 	</PropSection>
+	<FormValidationProps />
 </Section>
 
 <CommonPropsNotice />
