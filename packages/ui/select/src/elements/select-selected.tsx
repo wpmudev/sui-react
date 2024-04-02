@@ -26,6 +26,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	selectLabel = "",
 	isMultiSelect = false,
 	isSmall = false,
+	isCustomVar = false,
 	interactionMethods,
 	removeSelection = () => {},
 	dropdownToggle = () => {},
@@ -33,40 +34,59 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	...props
 }) => {
 	// Prepare the selected content
-	const selectedContent =
-		isArray(selected) && (selected ?? [])?.length > 0 ? (
-			(selected as Record<string, any>[]).map(
-				(selectedItem: Record<string, any>) => (
-					<span className="sui-select__selected-options" key={selectedItem?.id}>
-						<span
-							tabIndex={0}
-							role="button"
-							onClick={(event) => event.stopPropagation()}
-							onKeyDown={(event) => event.stopPropagation()}
-						>
-							{selectedItem?.label as ReactNode}
-						</span>
-						<Icon
-							name="Close"
-							size="xs"
-							{...(!!removeSelection && {
-								onClick: (event) => {
-									event.stopPropagation()
-									removeSelection(selectedItem?.id)
-								},
-							})}
-						/>
-					</span>
-				),
-			)
-		) : (
+	let selectedContent
+
+	if (isArray(selected) || isCustomVar) {
+		selectedContent = (
+			<ul className="sui-select__selected-wrapper">
+				{(selected ?? [])?.length > 0 &&
+					(selected as Record<string, any>[]).map(
+						(selectedItem: Record<string, any>, index) => (
+							<li
+								className="sui-select__selected-options"
+								key={isCustomVar ? index : selectedItem?.id}
+							>
+								<span
+									tabIndex={0}
+									role="button"
+									onClick={(event) => event.stopPropagation()}
+									onKeyDown={(event) => event.stopPropagation()}
+								>
+									{isCustomVar &&
+										selectedItem?.props?.variable.replace(/[{}]/g, "")}
+									{!isCustomVar && (selectedItem?.label as ReactNode)}
+								</span>
+								{!isCustomVar && (
+									<Icon
+										name="Close"
+										size="xs"
+										{...(!!removeSelection && {
+											onClick: (event) => {
+												event.stopPropagation()
+												removeSelection(selectedItem?.id)
+											},
+										})}
+									/>
+								)}
+							</li>
+						),
+					)}
+				{isCustomVar && (
+					<li className="sui-select__custom-var-input">
+						<input type="text" placeholder={selectLabel} />
+					</li>
+				)}
+			</ul>
+		)
+	} else {
+		selectedContent = (
 			<span className="sui-select__selected">
 				{selected && typeof selected === "object" && "label" in selected
 					? selected.label
 					: selectLabel}
 			</span>
 		)
-
+	}
 	const onClearSelection = useCallback(
 		(event: MouseEvent<HTMLSpanElement>) => {
 			clearSelection()
@@ -76,13 +96,15 @@ const Selected: React.FC<SelectSelectedProps> = ({
 
 	return (
 		<>
-			<input
-				id={id}
-				aria-label="select-input-field"
-				className="sui-select__hidden-input"
-				tabIndex={-1}
-				{...interactionMethods}
-			/>
+			{!isCustomVar && (
+				<input
+					id={id}
+					aria-label="select-input-field"
+					className="sui-select__hidden-input"
+					tabIndex={-1}
+					{...interactionMethods}
+				/>
+			)}
 			<div
 				id={`${id}-control`}
 				className="sui-select__control"
@@ -92,29 +114,33 @@ const Selected: React.FC<SelectSelectedProps> = ({
 					className="sui-accessible-cta"
 					ref={controlRef as LegacyRef<HTMLDivElement>}
 					role="button"
-					onClick={dropdownToggle}
-					onKeyDown={(e) => {
-						if (e.key === "Enter") {
-							dropdownToggle()
-						}
-					}}
-					tabIndex={0}
-					aria-label={selectLabel}
-					aria-haspopup="listbox"
-					aria-expanded={expanded}
+					{...(!isCustomVar && {
+						role: "button",
+						onClick: dropdownToggle,
+						onKeyDown: (e) => {
+							if (e.key === "Enter") {
+								dropdownToggle()
+							}
+						},
+						tabIndex: 0,
+						"aria-label": selectLabel,
+						"aria-haspopup": "listbox",
+						"aria-expanded": expanded,
+					})}
 				/>
 				{selectedContent}
 				{isMultiSelect &&
 					!isUndefined(selected) &&
 					selectLabel !== selected &&
-					(selected ?? []).length > 0 && (
+					(selected ?? []).length > 0 &&
+					!isCustomVar && (
 						<Icon
 							name="CloseAlt"
 							size={isSmall ? "sm" : "md"}
 							onClick={onClearSelection}
 						/>
 					)}
-				{arrow && (
+				{arrow && !isCustomVar && (
 					<span className="sui-select__arrow">
 						<Icon name={arrow} size="sm" />
 					</span>

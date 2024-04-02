@@ -198,7 +198,7 @@ const Select = ({
 										id: "view-form",
 										label: "View form",
 										props: {
-											variable: "{tag}",
+											variable: "{view_form}",
 											description: "Short description",
 										},
 									},
@@ -206,7 +206,7 @@ const Select = ({
 										id: "edit-form",
 										label: "Edit form",
 										props: {
-											variable: "{tag}",
+											variable: "{edit_form}",
 											description: "Short description",
 										},
 									},
@@ -214,7 +214,7 @@ const Select = ({
 										id: "duplicate-form",
 										label: "Duplicate form",
 										props: {
-											variable: "{tag}",
+											variable: "{duplicate_form}",
 											description: "Short description",
 										},
 									},
@@ -222,7 +222,7 @@ const Select = ({
 										id: "delete-form",
 										label: "Delete form",
 										props: {
-											variable: "{tag}",
+											variable: "{delete_form}",
 											description: "Short description",
 										},
 									},

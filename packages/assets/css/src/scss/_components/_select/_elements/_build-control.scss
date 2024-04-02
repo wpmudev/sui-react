@@ -52,11 +52,26 @@
 					display: block;
 				}
 			}
-
 			@include modifier(multiselect) {
+				@include modifies-element(selected-options) {
+					padding-right: $select-control-options-padding-horizontal-right;
+				}
+			}
+
+			@include modifier(multiselect, custom-var) {
 				.sui-dropdown__popover {
 					border-top-left-radius: 0;
 					border-top-right-radius: 0;
+				}
+
+				@include modifies-element(selected-wrapper) {
+					display: flex;
+					flex-wrap: wrap;
+					align-items: flex-start;
+				}
+
+				@include modifies-element(selected-wrapper, custom-var-input) {
+					margin: 0;
 				}
 
 				@include modifies-element(selected-options) {
@@ -71,7 +86,6 @@
 					padding-top: $select-control-options-padding-vertical;
 					padding-bottom: $select-control-options-padding-vertical;
 					padding-left: $select-control-options-padding-horizontal-left;
-					padding-right: $select-control-options-padding-horizontal-right;
 					white-space: nowrap;
 					margin: 1px 0;
 					margin-right: $select-control-options-margin-horizontal-right;
@@ -96,7 +110,7 @@
 	// THEME: None.
 	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
-			@include modifier(multiselect) {
+			@include modifier(multiselect, custom-var) {
 				@include modifies-element(selected-options) {
 					padding-left: $select-control-options-padding-horizontal-right;
 					padding-right: $select-control-options-padding-horizontal-left;
@@ -121,7 +135,7 @@
 				color: $color-extended-neutral-0;
 			}
 
-			@include modifier(multiselect) {
+			@include modifier(multiselec, custom-var) {
 				.sui-dropdown__popover {
 					border-top: 0;
 				}

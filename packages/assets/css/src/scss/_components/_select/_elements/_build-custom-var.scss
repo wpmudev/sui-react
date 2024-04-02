@@ -1,0 +1,69 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Dropdown
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-custom-var($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(custom-var) {
+				@include modifies-element(dropdown) {
+					&.sui-dropdown {
+						z-index: 0;
+						width: 40px;
+						right: 0;
+
+						.sui-dropdown__popover {
+							width: 280px;
+						}
+					}
+				}
+
+				@include modifies-element(custom-var-input) {
+					flex: 1;
+					min-width: 20%;
+					align-self: stretch;
+
+					input {
+						width: 100%;
+					}
+				}
+
+				@include modifies-element(selected-options) {
+					padding-right: $spacing-md;
+				}
+
+				.sui-accessible-cta {
+					pointer-events: none;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include modifier(custom-var) {
+				@include modifies-element(dropdown) {
+					&.sui-dropdown {
+						right: unset;
+						left: 0;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+	}
+}
