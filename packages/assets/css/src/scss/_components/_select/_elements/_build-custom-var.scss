@@ -32,7 +32,7 @@
 
 				@include modifies-element(custom-var-input) {
 					flex: 1;
-					min-width: 20%;
+					min-width: 100px;
 					align-self: stretch;
 					margin: 0;
 

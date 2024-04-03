@@ -56,6 +56,14 @@
 				@include modifies-element(selected-options) {
 					padding-right: $select-control-options-padding-horizontal-right;
 				}
+
+				@include modifies-element(dropdown) {
+					.sui-#{$block}__dropdown--option {
+						&:hover {
+							background: none;
+						}
+					}
+				}
 			}
 
 			@include modifier(multiselect, custom-var) {
@@ -90,14 +98,6 @@
 
 				@include modifies-element(control) {
 					padding-right: $select-control-multiselect-padding-md-horizontal;
-				}
-
-				@include modifies-element(dropdown) {
-					.sui-#{$block}__dropdown--option {
-						&:hover {
-							background: none;
-						}
-					}
 				}
 			}
 		}
