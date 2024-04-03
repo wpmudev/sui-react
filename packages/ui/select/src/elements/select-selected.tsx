@@ -90,8 +90,10 @@ const Selected: React.FC<SelectSelectedProps> = ({
 					<li className="sui-select__custom-var-input">
 						<input
 							type="text"
+							aria-label="select-input-field"
 							placeholder={selectLabel}
 							onKeyDown={onCustomVarChange}
+							{...interactionMethods}
 						/>
 					</li>
 				)}

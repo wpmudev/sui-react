@@ -951,6 +951,10 @@
 			}
 		},
 		"radius": {
+			"xs": {
+				"value": "3px",
+				"type": "borderRadius"
+			},
 			"sm": {
 				"value": "4px",
 				"type": "borderRadius"

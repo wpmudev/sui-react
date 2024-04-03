@@ -17,8 +17,7 @@
 				position: relative;
 				border-bottom: 0;
 				border-top: 0;
-				padding: $select-search-padding-horizontal
-					$select-search-padding-vertical 0;
+				padding: $spacing-md $spacing-md 0;
 			}
 
 			@include modifier(multiselect) {

@@ -27,22 +27,22 @@
 
 			@include element(search) {
 				@include modifier(input) {
-					font-size: $select-input-search-font-size-md;
-					line-height: $select-input-search-font-height-md;
-					width: $select-input-default-size-width;
-					border-radius: $select-input-search-border-radius;
-					padding-top: $select-input-search-padding-vertical;
-					padding-right: $select-input-search-padding-horizontal-right;
-					padding-bottom: $select-input-search-padding-vertical;
-					padding-left: $select-input-search-padding-horizontal-left;
+					font-size: $font-size-xxs;
+					line-height: $font-height-xxs;
+					width: 100%;
+					border-radius: $border-radius-xs;
+					padding-top: $spacing-md;
+					padding-right: $spacing-default;
+					padding-bottom: $spacing-md;
+					padding-left: $spacing-xxl;
 					cursor: text;
 					outline: none;
 				}
 
 				input[type="text"] {
-					border-width: $select-input-search-border-width;
-					border-style: $select-input-search-border-style;
-					border-color: $select-input-search-border-color;
+					border-width: $border-width-sm;
+					border-style: solid;
+					border-color: $color-extended-neutral-80;
 				}
 			}
 
@@ -65,8 +65,8 @@
 		@include block($block) {
 			@include element(search) {
 				@include modifier(input) {
-					padding-right: $select-input-search-padding-horizontal-left;
-					padding-left: $select-input-search-padding-horizontal-right;
+					padding-right: $spacing-xxl;
+					padding-left: $spacing-default;
 				}
 			}
 		}
