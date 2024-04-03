@@ -21,7 +21,7 @@
 						right: 0;
 
 						.sui-dropdown__popover {
-							width: 280px;
+							width: $dropdown-size-width-sm;
 						}
 					}
 				}
@@ -37,7 +37,8 @@
 					margin: 0;
 
 					input {
-						font: 15px/22px $font-family-default;
+						font: $font-weight-default #{$font-size-default}/#{$font-height-default}
+							$font-family-default;
 						width: 100%;
 					}
 				}
@@ -54,7 +55,7 @@
 
 					@include modifies-element(custom-var-input) {
 						input {
-							font-size: 12px;
+							font-size: $font-size-xxs;
 						}
 					}
 				}
@@ -79,10 +80,5 @@
 				}
 			}
 		}
-	}
-
-	// DIR: Left to right.
-	// THEME: Dark.
-	@include sui-class($rtl: false, $theme: dark) {
 	}
 }
