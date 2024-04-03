@@ -78,29 +78,8 @@ const Select = ({
 		background: "white" === props.color ? "#333" : "#fff",
 	}
 
-	const [asyncOptions, setAsyncOptions] = useState<SelectOptionType[]>([])
-	const [optionsAPILimit, setOptionsAPILimit] = useState(0)
-
-	const validation = (value) => {
-		if (value.id === "option-2") {
-			return "You should not choose option 2"
-		}
-	}
-
-	const [status, validationProps] = useValidation(
-		[
-			{
-				required: true,
-				message: "This field is required",
-			},
-			{
-				validator: validation,
-			},
-		],
-		{
-			validateOnMount: true,
-		},
-	)
+	// const [asyncOptions, setAsyncOptions] = useState<SelectOptionType[]>([])
+	// const [optionsAPILimit, setOptionsAPILimit] = useState(0)
 
 	const perPage = 10
 
@@ -116,7 +95,6 @@ const Select = ({
 							//error={errorMessage}
 							isSmall={isSmall}
 							isDisabled={isDisabled}
-							error={status.error}
 						>
 							<StandardSelect
 								{...props}
@@ -131,8 +109,6 @@ const Select = ({
 									}),
 									props: { icon: "Settings" },
 								}))}
-								isError={status.isError}
-								{...validationProps}
 							/>
 						</FormField>
 					)}
