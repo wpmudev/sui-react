@@ -46,6 +46,10 @@
 			"md": {
 				"value": "32px",
 				"type": "sizing"
+			},
+			"xl": {
+				"value": "280px",
+				"type": "sizing"
 			}
 		},
 		"font": {
