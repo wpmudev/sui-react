@@ -11,26 +11,26 @@
 		@include block($block) {
 			@include modifier(sm) {
 				@include modifies-element(control) {
-					font-size: $font-size-xxs;
-					line-height: $font-height-xxs;
+					font-size: $font-size-2xs;
+					line-height: $font-height-2xs;
 					padding-top: $spacing-md;
 					padding-bottom: $spacing-md;
 					padding-left: $spacing-default;
-					padding-right: $spacing-xxl;
+					padding-right: $spacing-2xl;
 					min-height: $select-size-md;
 				}
 
 				@include modifies-element(input) {
 					input {
-						font-size: $font-size-xxs;
-						line-height: $font-height-xxs;
+						font-size: $font-size-2xs;
+						line-height: $font-height-2xs;
 						min-height: $select-size-md;
 					}
 				}
 
 				.sui-dropdown__menu-item {
-					font-size: $font-size-xxs;
-					line-height: $font-height-xxs;
+					font-size: $font-size-2xs;
+					line-height: $font-height-2xs;
 				}
 
 				&.sui-#{$block}--multiselect {
@@ -78,7 +78,7 @@
 
 				.sui-checkbox {
 					font-size: $select-font-size-sm;
-					line-height: $font-height-xxs;
+					line-height: $font-height-2xs;
 					.sui-checkbox__box {
 						width: $select-size-sm;
 						height: $select-size-sm;
@@ -99,7 +99,7 @@
 			@include modifier(sm) {
 				@include modifies-element(control) {
 					padding-right: $spacing-default;
-					padding-left: $spacing-xxl;
+					padding-left: $spacing-2xl;
 				}
 
 				&.sui-#{$block}--multiselect {

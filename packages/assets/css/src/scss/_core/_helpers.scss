@@ -39,7 +39,7 @@
 	// .sui-wp-overlay is to show modal or component over the wordpress content
 	@include block(wp-overlay) {
 		position: fixed;
-		top: $spacing-xxl !important;
+		top: $spacing-2xl !important;
 		left: 160px !important;
 		bottom: 0;
 		right: 0;

@@ -21,12 +21,12 @@
 
 				@include modifies-element(header) {
 					border-bottom: $border-width-sm solid $color-extended-neutral-80;
-					padding: $spacing-xl $spacing-xxl;
+					padding: $spacing-xl $spacing-2xl;
 				}
 
 				@include modifies-element(footer) {
 					border-top: $border-width-sm solid $color-extended-neutral-80;
-					padding: $spacing-xl $spacing-xxl;
+					padding: $spacing-xl $spacing-2xl;
 				}
 			}
 
@@ -49,7 +49,7 @@
 			@include modifier(simple, app-connect) {
 				@include modifies-element(body) {
 					margin: $spacing-xl 0;
-					padding: 0 $spacing-xxl;
+					padding: 0 $spacing-2xl;
 
 					@include media(max-width, sm) {
 						margin: $spacing-lg 0;

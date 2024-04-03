@@ -19,7 +19,7 @@
 			padding: $spacing-lg;
 
 			@include media(min-width, sm) {
-				padding: $spacing-md $spacing-xxl;
+				padding: $spacing-md $spacing-2xl;
 			}
 		}
 	}

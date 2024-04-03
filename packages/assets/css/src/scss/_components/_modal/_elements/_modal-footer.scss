@@ -15,7 +15,7 @@
 			@include element(footer) {
 				align-items: center;
 				display: flex;
-				padding: 0 $spacing-xxl;
+				padding: 0 $spacing-2xl;
 				justify-content: flex-end;
 
 				@include media(max-width, sm) {

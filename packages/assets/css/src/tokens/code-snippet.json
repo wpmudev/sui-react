@@ -7,11 +7,11 @@
 			},
 			"size": {
 				"xs": {
-					"value": "{font.size.xxs}",
+					"value": "{font.size.2xs}",
 					"type": "fontSizes"
 				},
 				"sm": {
-					"value": "{font.size.xxs}+1px",
+					"value": "{font.size.2xs}+1px",
 					"type": "fontSizes"
 				}
 			},
@@ -21,7 +21,7 @@
 			},
 			"height": {
 				"xs": {
-					"value": "{font.height.xxs}",
+					"value": "{font.height.2xs}",
 					"type": "lineHeights"
 				},
 				"sm": {

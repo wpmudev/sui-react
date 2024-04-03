@@ -59,7 +59,7 @@
 				}
 
 				&:first-child {
-					padding-left: $spacing-xxl;
+					padding-left: $spacing-2xl;
 					padding-right: $spacing-md;
 					position: relative;
 
@@ -69,7 +69,7 @@
 				}
 
 				&:last-child {
-					padding-right: $spacing-xxl;
+					padding-right: $spacing-2xl;
 
 					@include media(max-width, sm) {
 						padding-right: $spacing-lg;
@@ -140,7 +140,7 @@
 				@include modifies-element(cell) {
 					&:first-child {
 						@include media(max-width, sm) {
-							padding-left: $spacing-xxl;
+							padding-left: $spacing-2xl;
 						}
 					}
 				}
@@ -202,7 +202,7 @@
 				}
 
 				&:first-child {
-					padding-right: $spacing-xxl;
+					padding-right: $spacing-2xl;
 					padding-left: $spacing-md;
 
 					@include media(max-width, sm) {
@@ -213,7 +213,7 @@
 
 				&:last-child {
 					padding-right: $spacing-lg;
-					padding-left: $spacing-xxl;
+					padding-left: $spacing-2xl;
 
 					@include media(max-width, sm) {
 						padding-right: $spacing-lg;
@@ -260,7 +260,7 @@
 				@include modifies-element(cell) {
 					&:first-child {
 						@include media(max-width, sm) {
-							padding-right: $spacing-xxl;
+							padding-right: $spacing-2xl;
 						}
 					}
 				}

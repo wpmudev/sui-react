@@ -17,8 +17,8 @@
 			border: $border-width-sm solid $color-extended-neutral-80;
 			border-radius: $border-radius-md;
 			display: flex;
-			gap: $spacing-xxl;
-			padding: $spacing-xxl;
+			gap: $spacing-2xl;
+			padding: $spacing-2xl;
 
 			@include media(max-width, sm) {
 				flex-direction: column;

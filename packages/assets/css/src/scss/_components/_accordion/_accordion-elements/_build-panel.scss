@@ -19,7 +19,7 @@
 				padding: 0 $spacing-lg $spacing-lg $spacing-lg;
 
 				@include media(min-width, sm) {
-					padding: 0 $spacing-xxl $spacing-xxl $spacing-xxl;
+					padding: 0 $spacing-2xl $spacing-2xl $spacing-2xl;
 				}
 
 				@include modifier(content) {

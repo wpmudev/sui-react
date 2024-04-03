@@ -2,7 +2,7 @@
 	"heading": {
 		"one": {
 			"font-size": {
-				"value": "{font.size.xxl}",
+				"value": "{font.size.2xl}",
 				"type": "fontSizes"
 			},
 			"font-height": {
@@ -155,7 +155,7 @@
 			"type": "letterSpacing"
 		},
 		"font-height": {
-			"value": "{font.height.xxs} + 4px",
+			"value": "{font.height.2xs} + 4px",
 			"type": "lineHeights"
 		},
 		"font-weight": {
@@ -165,7 +165,7 @@
 	},
 	"tag": {
 		"font-size": {
-			"value": "{font.size.xxs} - 2px",
+			"value": "{font.size.2xs} - 2px",
 			"type": "fontSizes"
 		},
 		"font-spacing": {
@@ -173,7 +173,7 @@
 			"type": "letterSpacing"
 		},
 		"font-height": {
-			"value": "{font.height.xxs} - 4px",
+			"value": "{font.height.2xs} - 4px",
 			"type": "lineHeights"
 		},
 		"font-weight": {
