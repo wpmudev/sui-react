@@ -68,10 +68,8 @@
 					display: flex;
 					flex-wrap: wrap;
 					align-items: flex-start;
-				}
-
-				@include modifies-element(selected-wrapper, custom-var-input) {
 					margin: 0;
+					gap: $spacing-xs $spacing-sm;
 				}
 
 				@include modifies-element(selected-options) {
@@ -87,8 +85,7 @@
 					padding-bottom: $select-control-options-padding-vertical;
 					padding-left: $select-control-options-padding-horizontal-left;
 					white-space: nowrap;
-					margin: 1px 0;
-					margin-right: $select-control-options-margin-horizontal-right;
+					margin: 0;
 				}
 
 				@include modifies-element(control) {

@@ -100,6 +100,7 @@ interface SelectSelectedProps
 	removeSelection?: (optionId: number | string) => void
 	dropdownToggle: () => void
 	clearSelection: () => void
+	onCustomVarChange: () => void
 	interactionMethods: object
 }
 

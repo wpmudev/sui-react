@@ -1,4 +1,5 @@
 import React, {
+	KeyboardEvent,
 	useState,
 	useEffect,
 	useRef,
@@ -6,7 +7,7 @@ import React, {
 	ChangeEvent,
 	useId,
 } from "react"
-import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
+import { generateCN, _renderHTMLPropsSafely, isEmpty } from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
 	useInteraction,
@@ -67,7 +68,9 @@ const Select: React.FC<SelectBaseProps> = ({
 		Record<string, any> | string | undefined | SelectOptionType
 	>(selected)
 
-	const [customVar, setCustomVar] = useState<SelectOptionType[]>([])
+	const [customVar, setCustomVar] = useState<Array<string | SelectOptionType>>(
+		[],
+	)
 
 	useEffect(() => {
 		setItems(options ?? [])
@@ -214,6 +217,19 @@ const Select: React.FC<SelectBaseProps> = ({
 		}
 	}
 
+	// handle custom var input field actions
+	const onCustomVarChange = (event: KeyboardEvent<HTMLInputElement>) => {
+		const target = event.target as HTMLInputElement
+		const value = target.value
+
+		if ("Enter" === event.key && !isEmpty(value)) {
+			setCustomVar([...customVar, value])
+			target.value = ""
+		} else if ("Backspace" === event.key && isEmpty(value)) {
+			setCustomVar((prevState) => prevState.slice(0, -1))
+		}
+	}
+
 	// Header props
 	const headerProps = {
 		id,
@@ -252,7 +268,10 @@ const Select: React.FC<SelectBaseProps> = ({
 				RemoveSelection(optionId, filteredItems, setFilteredItems)
 			},
 		}),
-		isCustomVar,
+		...(isCustomVar && {
+			isCustomVar,
+			onCustomVarChange,
+		}),
 	}
 
 	// Dropdown props

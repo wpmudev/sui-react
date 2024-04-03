@@ -17,7 +17,7 @@
 				@include modifies-element(dropdown) {
 					&.sui-dropdown {
 						z-index: 0;
-						width: 40px;
+						width: unset;
 						right: 0;
 
 						.sui-dropdown__popover {
@@ -26,18 +26,37 @@
 					}
 				}
 
+				@include modifies-element(control) {
+					cursor: unset;
+				}
+
 				@include modifies-element(custom-var-input) {
 					flex: 1;
 					min-width: 20%;
 					align-self: stretch;
+					margin: 0;
 
 					input {
+						font: 15px/22px $font-family-default;
 						width: 100%;
 					}
 				}
 
 				@include modifies-element(selected-options) {
 					padding-right: $spacing-md;
+				}
+
+				&.sui-#{$block}--sm {
+					@include modifies-element(control) {
+						padding-top: $spacing-sm;
+						padding-bottom: $spacing-sm;
+					}
+
+					@include modifies-element(custom-var-input) {
+						input {
+							font-size: 12px;
+						}
+					}
 				}
 
 				.sui-accessible-cta {

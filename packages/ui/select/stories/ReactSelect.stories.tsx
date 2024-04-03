@@ -192,7 +192,6 @@ const Select = ({
 						>
 							<SelectVariable
 								{...props}
-								label="Select variable"
 								options={[
 									{
 										id: "view-form",
