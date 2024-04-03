@@ -11,6 +11,7 @@
 @include sui-checkbox--modifier.edit-aria(checkbox);
 @include sui-checkbox--modifier.edit-nested(checkbox);
 @include sui-checkbox--modifier.edit-inline(checkbox);
+@include sui-checkbox--modifier.edit-error(checkbox);
 
 @include sui-checkbox--state.edit-checked(checkbox);
 @include sui-checkbox--state.edit-indeterminate(checkbox);

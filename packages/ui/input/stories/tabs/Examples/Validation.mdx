@@ -1,0 +1,17 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/sui-docs';
+import { Input } from '../../../src';
+import { ValidationInput, ValidationInputCode } from './ValidationInput';
+import dedent from 'dedent';
+
+<Section
+	title="Required Input"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>This is an example of using <a href="">useValidation</a> hook to validate the input using the required rule, try to type something then delete it to see the error message</p>
+	<Preview wrapper={true}>
+		<ValidationInput />
+	</Preview>
+	<Snippet language="js">{ValidationInputCode}</Snippet>
+</Section>

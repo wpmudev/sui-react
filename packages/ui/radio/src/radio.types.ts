@@ -1,5 +1,5 @@
 import { HTMLProps, ReactNode } from "react"
-import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { validationPropsType } from "@wpmudev/sui-hooks"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 // Define a type that represents the possible values for a radio button.
@@ -10,7 +10,8 @@ type RadioValueType = string | number | undefined
  */
 interface RadioGroupProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
-		SuiStyleType {
+		SuiStyleType,
+		validationPropsType {
 	/**
 	 * The name of the radio group.
 	 */
@@ -98,7 +99,8 @@ interface RadioProps
  * Define the props for the context of a Radio component, which includes properties inherited from RadioGroupProps.
  */
 interface RadioContextProps
-	extends Omit<RadioGroupProps, "isInline" | "children"> {
+	extends Omit<RadioGroupProps, "isInline" | "children">,
+		validationPropsType {
 	/**
 	 * The currently selected value within the radio group (optional).
 	 */

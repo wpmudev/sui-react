@@ -1,0 +1,19 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/sui-docs';
+import { Textarea } from '../../../src';
+import { ValidationTextarea, ValidationTextareaCode } from './ValidationTextarea';
+import dedent from 'dedent';
+
+<Section
+	title="Small"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		In the example below we use <a href="/?path=/docs/sui-npm-packages-hooks--docs">useValidation</a> hook to make the textarea required.
+		try to type something in the textarea and then remove it to see the validation message.
+	</p>
+	<Preview wrapper={true}>
+		<ValidationTextarea />
+	</Preview>
+	<Snippet language="js">{ValidationTextareaCode}</Snippet>
+</Section>

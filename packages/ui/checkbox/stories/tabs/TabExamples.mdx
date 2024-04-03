@@ -5,6 +5,7 @@ import dedent from "dedent"
 import States from "./Examples/States.mdx"
 import Group from "./Examples/Group.mdx"
 import Nested from "./Examples/Nested.mdx"
+import Validation from "./Examples/Validation.mdx"
 
 export const sampleCode = dedent`
     <Checkbox label="Checkbox label" onChange={(e)=> setChecked(e.target.checked)}/>
@@ -28,6 +29,9 @@ export const sampleCode = dedent`
 		</div>
 		<div label="Nested" value="nested">
 			<Nested />
+		</div>
+		<div label="Validation" value="validation">
+			<Validation />
 		</div>
 	</Switcher>
 </Section>

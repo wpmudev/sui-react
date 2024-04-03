@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { FormField } from "@wpmudev/sui-form-field"
-import { useValidation } from "@wpmudev/sui-hooks"
 
 // Import required component(s).
 import {
@@ -92,7 +91,7 @@ const Select = ({
 							id="select"
 							label="Label"
 							helper="Description"
-							//error={errorMessage}
+							error={errorMessage}
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
