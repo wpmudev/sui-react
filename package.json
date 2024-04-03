@@ -77,7 +77,8 @@
   "dependencies": {
     "@emotion/hash": "^0.9.1",
     "@types/dedent": "^0.7.0",
-    "classnames": "^2.3.2"
+    "classnames": "^2.3.2",
+    "msw": "^1.3.3"
   },
   "devDependencies": {
     "@appnest/readme": "^1.2.7",
@@ -153,6 +154,7 @@
     "jest-transform-stub": "^2.0.0",
     "lerna": "^4.0.0",
     "lerna-changelog": "^2.2.0",
+    "node-fetch-commonjs": "^3.3.2",
     "path": "^0.12.7",
     "postcss-bem-linter": "^3.3.0",
     "prettier": "^2.8.8",
