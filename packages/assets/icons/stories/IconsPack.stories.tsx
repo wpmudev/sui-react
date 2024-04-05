@@ -4,7 +4,7 @@ import React, { Fragment, Children } from "react"
 import dedent from "dedent"
 import { Tag, Code } from "@wpmudev/sui-docs"
 import docs from "./IconsPack.mdx"
-import Icons from "@wpmudev/sui-icons"
+import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 
 // Import required styles.
 import "../dist/css/sui-icons.css"
@@ -25,12 +25,31 @@ export default {
 	},
 }
 
-const Page = ({ category, search }) => {
+interface Icon {
+	name: string
+	alt?: boolean
+	checked?: boolean
+}
+
+interface IconGroup {
+	name: string
+	icons: Record<string, Icon>
+}
+
+interface IconsCardProps {
+	category: string
+	name: string
+	alt?: boolean
+	checked?: boolean
+	id: string
+}
+
+const Page = ({ category, search }: { category: string; search: string }) => {
 	const groups = Object.keys(ListIcons).map((group, groupIndex) => {
 		const catName = ListIcons[group].name
 		const objIcons = ListIcons[group].icons
 
-		const filteredobjIcons =
+		const filteredobjIcons: Record<string, Icon> =
 			0 !== search.trim().length
 				? Object.entries(objIcons).reduce((newObj, [key, val]) => {
 						const name = val.name.toLowerCase()
@@ -38,7 +57,7 @@ const Page = ({ category, search }) => {
 							newObj[key] = val
 						}
 						return newObj
-				  }, {})
+				  }, {} as Record<string, Icon>)
 				: objIcons
 
 		const icons = Children.map(
@@ -76,7 +95,7 @@ const Page = ({ category, search }) => {
 	)
 }
 
-const IconsCard = ({ category, name, alt, checked, id }) => {
+const IconsCard = ({ category, name, alt, checked, id }: IconsCardProps) => {
 	const hasTagAlternative = "boolean" === typeof alt
 	const hasTagChecked = "boolean" === typeof checked
 
@@ -88,7 +107,7 @@ const IconsCard = ({ category, name, alt, checked, id }) => {
 
 	const compSample = dedent`<${capitalizeText(camelCased)}/>`
 
-	const iconName = capitalizeText(camelCased)
+	const iconName: IconsNamesType = capitalizeText(camelCased) as IconsNamesType
 
 	return (
 		<div className="csb-icon">
@@ -139,7 +158,7 @@ const IconsCard = ({ category, name, alt, checked, id }) => {
 	)
 }
 
-const ListIcons = {
+const ListIcons: Record<string, IconGroup> = {
 	products: {
 		name: "Products",
 		icons: {
