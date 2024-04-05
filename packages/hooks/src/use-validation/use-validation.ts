@@ -50,25 +50,11 @@ const useValidation = (
 		setStatus({})
 	}
 
-	const { validatorsMap } = useValidators({
+	const { getRuleType, validatorsMap } = useValidators({
 		updateStatus,
 		resetValidation,
 		validators,
 	})
-
-	/**
-	 * Get type of a single rule
-	 *
-	 * @param  ruleObject a single rule object
-	 * @return {string | void} type of the rule
-	 */
-	const getRuleType = (ruleObject: RulesObjectType) => {
-		const rulesObjKeys = new Set(Object.keys(ruleObject))
-
-		return Object.keys(validatorsMap).find((namespace) =>
-			rulesObjKeys.has(namespace),
-		)
-	}
 
 	/**
 	 * Apply a single rule

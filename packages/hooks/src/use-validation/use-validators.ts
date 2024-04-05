@@ -3,6 +3,7 @@ import {
 	UpdateStatusType,
 	ResetValidationType,
 	ValidatorFunctionType,
+	RulesObjectType,
 } from "./use-validation.types"
 
 export const useValidators = ({
@@ -60,7 +61,21 @@ export const useValidators = ({
 		registerValidator(validatorType, validatorFunction)
 	})
 
-	return { validatorsMap }
+	/**
+	 * Get type of a single rule
+	 *
+	 * @param  ruleObject a single rule object
+	 * @return {string | void} type of the rule
+	 */
+	const getRuleType = (ruleObject: RulesObjectType) => {
+		const rulesObjKeys = new Set(Object.keys(ruleObject))
+
+		return Object.keys(validatorsMap).find((namespace) =>
+			rulesObjKeys.has(namespace),
+		)
+	}
+
+	return { validatorsMap, getRuleType }
 }
 
 export default useValidators
