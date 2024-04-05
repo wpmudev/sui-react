@@ -10,6 +10,11 @@ export const validators: Record<string, ValidatorFunctionType> = {
 			)
 		}
 
+		// No validation if typeValue is false
+		if (!typeValue) {
+			return
+		}
+
 		// Remove trailing white spaces
 		const val = fieldValue?.toString()?.trim() || ""
 
@@ -38,5 +43,27 @@ export const validators: Record<string, ValidatorFunctionType> = {
 			)
 		}
 		return customValidator(fieldValue)
+	},
+
+	// URL rule
+	url: (fieldValue, typeValue, message) => {
+		if (typeof typeValue !== "boolean") {
+			throw new Error(
+				`SUI 3: "useValidation" hook, url rule value should be a boolean.`,
+			)
+		}
+
+		// No validation if typeValue is false
+		if (!typeValue) {
+			return
+		}
+
+		// URL regex
+		const urlRegex =
+			"[(http(s)?):\\/\\/(www\\.)?a-zA-Z0-9-@:%._\\+~#=]{2,256}\\.[a-z]{2,20}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
+
+		if (!new RegExp(urlRegex, "gm").test(fieldValue as string)) {
+			return message
+		}
 	},
 }
