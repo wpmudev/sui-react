@@ -28,6 +28,84 @@ export const searchOptions = [
 	},
 ]
 
+export const variableOptions = [
+  {
+    id: "view-form",
+    label: "View form",
+    props: {
+      variable: "{view_form}",
+      description: "Short description",
+    },
+  },
+  {
+    id: "edit-form",
+    label: "Edit form",
+    props: {
+      variable: "{edit_form}",
+      description: "Short description",
+    },
+  },
+  {
+    id: "duplicate-form",
+    label: "Duplicate form",
+    props: {
+      variable: "{duplicate_form}",
+      description: "Short description",
+    },
+  },
+  {
+    id: "delete-form",
+    label: "Delete form",
+    props: {
+      variable: "{delete_form}",
+      description: "Short description",
+    },
+  },
+]
+
+export const variableCode = dedent`
+  import { Select } from "@wpmudev/sui-select";
+
+  export const variableOptions = [
+    {
+      id: "view-form",
+      label: "View form",
+      props: {
+        variable: "{view_form}",
+        description: "Short description",
+      },
+    },
+    {
+      id: "edit-form",
+      label: "Edit form",
+      props: {
+        variable: "{edit_form}",
+        description: "Short description",
+      },
+    },
+    {
+      id: "duplicate-form",
+      label: "Duplicate form",
+      props: {
+        variable: "{duplicate_form}",
+        description: "Short description",
+      },
+    },
+    {
+      id: "delete-form",
+      label: "Delete form",
+      props: {
+        variable: "{delete_form}",
+        description: "Short description",
+      },
+    },
+  ]
+
+  export const Example = () => {
+    return <Select isCustomVar={true} options={variableOptions} />
+  }
+`
+
 export const smartSearchCode = dedent`
   import { Select } from "@wpmudev/sui-select";
 
@@ -115,6 +193,21 @@ export const Example = () => {
 
 </Section>
 
+<Section
+    title="Variable"
+    contained={true}
+    border={true}
+    style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+    <p>Set the prop <Code small={true}>isCustomVar=\{true\}</Code> to display a button icon on the right side to open the dropdown</p>
+    <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    	<Select 
+          isCustomVar={true} 
+          id="variable" 
+          options={variableOptions} />
+    </div>
+    <Snippet language="js">{variableCode}</Snippet>
+</Section>
 
 <Section
     title="Async options"
