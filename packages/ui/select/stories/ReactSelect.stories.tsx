@@ -178,7 +178,7 @@ const Select = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
-							<MultiSelect {...props} />
+							<StandardSelect {...props} isMultiSelect={true} />
 						</FormField>
 					)}
 					{"select-variable" === example && (
@@ -190,8 +190,9 @@ const Select = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
-							<SelectVariable
+							<StandardSelect
 								{...props}
+								isCustomVar={true}
 								options={[
 									{
 										id: "view-form",

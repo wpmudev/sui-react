@@ -88,6 +88,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 				"aria-label": "dropdown-options",
 				...getOptProps,
 			}}
+			{...(isCustomVar && { type: "select-variable" })}
 			{..._dropdownProps}
 		/>
 	)
