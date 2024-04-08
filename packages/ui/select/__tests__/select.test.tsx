@@ -88,6 +88,42 @@ beforeAll(() => server.listen())
 afterAll(() => server.close())
 beforeEach(() => server.resetHandlers())
 
+// Variable variation options
+const variableOptions = [
+	{
+		id: "view-form",
+		label: "View form",
+		props: {
+			variable: "{view_form}",
+			description: "Short description",
+		},
+	},
+	{
+		id: "edit-form",
+		label: "Edit form",
+		props: {
+			variable: "{edit_form}",
+			description: "Short description",
+		},
+	},
+	{
+		id: "duplicate-form",
+		label: "Duplicate form",
+		props: {
+			variable: "{duplicate_form}",
+			description: "Short description",
+		},
+	},
+	{
+		id: "delete-form",
+		label: "Delete form",
+		props: {
+			variable: "{delete_form}",
+			description: "Short description",
+		},
+	},
+]
+
 describe("@wpmudev/sui-select", () => {
 	const props: SelectBaseProps = {
 		id: "standard-select",
@@ -230,6 +266,40 @@ describe("@wpmudev/sui-select", () => {
 
 		// Expect only one option to be found
 		expect(container.querySelectorAll(".sui-select__dropdown")).toHaveLength(1)
+	})
+
+	// variable variation test
+	it("variable variation works as expected", () => {
+		// Render the component
+		const { container } = render(
+			<Component {...props} isCustomVar={true} options={variableOptions} />,
+		)
+
+		// Get the "select" element
+		const select = screen.getByTestId("select")
+
+		// Check if the className is added
+		expect(select).toHaveClass("sui-select--custom-var")
+
+		// Check if the dropdown button works
+		const button = select.querySelector(".sui-button")
+
+		// Click on the button
+		fireEvent.click(button as Element)
+
+		// Check if the dropdown is opened
+		expect(select).toHaveClass("sui-select--open")
+
+		// Select the first option
+		const firstOption = container.querySelector(".sui-dropdown__menu-item")
+		fireEvent.click(firstOption as Element)
+
+		// Check if the option has been successfully selected
+		const selectedOptions = container.querySelector(
+			".sui-select__selected-options",
+		)
+		expect(selectedOptions).toBeInTheDocument()
+		expect(selectedOptions).toHaveTextContent("view_form")
 	})
 
 	// eslint-disable-next-line jest/expect-expect
