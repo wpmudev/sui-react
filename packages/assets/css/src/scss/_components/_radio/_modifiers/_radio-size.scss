@@ -14,7 +14,7 @@
 			@include modifier(sm) {
 				.sui-radio {
 					font-size: $font-size-xs;
-					line-height: $font-height-xxs;
+					line-height: $font-height-2xs;
 
 					@include modifies-element(box) {
 						width: $radio-size-md;
@@ -32,7 +32,7 @@
 
 					.sui-radio__description {
 						font-size: $font-size-xs;
-						line-height: $font-height-xxs;
+						line-height: $font-height-2xs;
 						margin-left: $radio-spacing-sm;
 					}
 				}

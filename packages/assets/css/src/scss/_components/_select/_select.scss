@@ -4,6 +4,7 @@
 
 @include sui-select--element.build-container(select);
 @include sui-select--element.build-dropdown(select);
+@include sui-select--element.build-custom-var(select);
 @include sui-select--element.build-control(select);
 @include sui-select--element.build-input(select);
 @include sui-select--element.build-icon(select);

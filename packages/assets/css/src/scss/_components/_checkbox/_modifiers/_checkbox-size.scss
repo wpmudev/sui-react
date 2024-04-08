@@ -13,7 +13,7 @@
 		@include block($block) {
 			@include modifier(sm) {
 				font-size: $font-size-xs;
-				line-height: $font-size-xxs;
+				line-height: $font-size-2xs;
 
 				@include modifies-element(box) {
 					width: $spacing-lg;

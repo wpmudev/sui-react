@@ -40,8 +40,8 @@
 
 				.tox-tbtn {
 					cursor: pointer;
-					width: $spacing-xxl !important;
-					height: $spacing-xxl;
+					width: $spacing-2xl !important;
+					height: $spacing-2xl;
 					margin: $spacing-sm;
 
 					@include media(max-width, sm) {

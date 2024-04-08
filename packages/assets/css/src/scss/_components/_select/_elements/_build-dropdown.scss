@@ -20,7 +20,7 @@
 				&.sui-dropdown {
 					position: absolute;
 					height: 100%;
-					top: 0;
+					top: 1px;
 					z-index: -1;
 				}
 
@@ -39,10 +39,9 @@
 					align-items: center;
 					cursor: pointer;
 					font-size: $font-size-xs;
-					line-height: $select-dropdown-option-font-height-md;
-					padding: $select-dropdown-option-padding-vertical
-						$select-dropdown-option-padding-horizontal-md;
-					margin: $select-dropdown-option-margin;
+					line-height: $font-height-sm;
+					padding: $spacing-sm $spacing-lg;
+					margin: 0;
 				}
 
 				@include modifier(content) {
@@ -61,14 +60,13 @@
 				}
 
 				@include modifier(empty) {
-					padding: $select-dropdown-empty-padding;
-					margin: $select-dropdown-empty-margin-horizontal
-						$select-dropdown-empty-margin-vertical;
+					padding: $spacing-lg;
+					margin: 0 $spacing-md;
 					font-size: $font-size-xs;
-					line-height: $select-dropdown-empty-font-height-md;
-					letter-spacing: $select-dropdown-empty-font-spacing-md;
+					line-height: $font-height-2xs;
+					letter-spacing: -#{$font-spacing-md};
 					background: $color-primary-90;
-					border-radius: $select-dropdown-empty-border-radius;
+					border-radius: $border-radius-sm;
 				}
 			}
 		}

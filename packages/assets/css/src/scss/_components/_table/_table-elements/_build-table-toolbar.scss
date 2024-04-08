@@ -22,7 +22,7 @@
 				align-items: center;
 				display: flex;
 				justify-content: space-between;
-				padding: $spacing-lg $spacing-xxl;
+				padding: $spacing-lg $spacing-2xl;
 
 				@include media(max-width, sm) {
 					flex-direction: column;
@@ -43,7 +43,7 @@
 
 			@include element(toolbar-body) {
 				display: none;
-				padding: $spacing-xxl;
+				padding: $spacing-2xl;
 
 				@include modifier(inline) {
 					background: $color-extended-neutral-95;

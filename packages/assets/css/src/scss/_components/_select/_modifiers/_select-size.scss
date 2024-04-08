@@ -11,45 +11,44 @@
 		@include block($block) {
 			@include modifier(sm) {
 				@include modifies-element(control) {
-					font-size: $select-control-options-font-size-md;
-					line-height: $select-control-options-font-height-md;
-					padding-top: $select-control-padding-sm-vertical;
-					padding-bottom: $select-control-padding-sm-vertical;
-					padding-left: $select-control-padding-sm-horizontal-left;
-					padding-right: $select-control-padding-sm-horizontal-right;
-					min-height: $select-control-size-sm;
+					font-size: $font-size-2xs;
+					line-height: $font-height-2xs;
+					padding-top: $spacing-md;
+					padding-bottom: $spacing-md;
+					padding-left: $spacing-default;
+					padding-right: $spacing-2xl;
+					min-height: $select-size-md;
 				}
 
 				@include modifies-element(input) {
 					input {
-						font-size: $select-input-default-font-size-sm;
-						line-height: $select-input-default-font-height-sm;
-						min-height: $select-control-size-sm;
+						font-size: $font-size-2xs;
+						line-height: $font-height-2xs;
+						min-height: $select-size-md;
 					}
 				}
 
 				.sui-dropdown__menu-item {
-					font-size: $select-input-default-font-size-sm;
-					line-height: $select-input-default-font-height-sm;
+					font-size: $font-size-2xs;
+					line-height: $font-height-2xs;
 				}
 
 				&.sui-#{$block}--multiselect {
 					.sui-#{$block}__control {
-						padding-right: $select-control-multiselect-padding-sm-horizontal;
-						line-height: $select-input-default-font-height-md;
+						padding-right: $select-spacing-3xl;
+						line-height: $font-height-sm;
 					}
 				}
 
 				.sui-#{$block}--multiselect {
 					.sui-#{$block}__icon--close-alt {
-						right: $select-icon-close-position-right-md;
+						right: $select-spacing-xl;
 					}
 				}
 
 				.sui-#{$block}__dropdown--option {
-					font-size: $select-dropdown-option-font-size-sm;
-					padding: $select-dropdown-option-padding-vertical
-						$select-dropdown-option-padding-horizontal-sm;
+					font-size: $select-font-size-sm;
+					padding: $spacing-sm $spacing-default;
 				}
 
 				&.sui-#{$block}--searchable {
@@ -60,29 +59,29 @@
 
 				.sui-#{$block}__dropdown--option {
 					.sui-#{$block}__icon {
-						padding-right: $select-dropdown-option-padding-horizontal-xs;
+						padding-right: $select-spacing-2xs;
 					}
 				}
 
 				.sui-#{$block}__icon--search {
-					font-size: $select-icon-font-size-md;
-					left: $select-icon-search-position-left-sm;
+					font-size: $font-size-md;
+					left: $select-spacing-md;
 				}
 
 				@include modifies-element(search) {
 					.sui-#{$block}__icon {
 						font-size: $font-size-xs;
-						left: $select-icon-search-position-left-md;
-						bottom: $select-icon-search-position-bottom;
+						left: $select-spacing-lg;
+						bottom: $select-spacing-sm;
 					}
 				}
 
 				.sui-checkbox {
-					font-size: $select-checkbox-font-size-sm;
-					line-height: $select-input-default-font-height-sm;
+					font-size: $select-font-size-sm;
+					line-height: $font-height-2xs;
 					.sui-checkbox__box {
-						width: $select-checkbox-size-sm;
-						height: $select-checkbox-size-sm;
+						width: $select-size-sm;
+						height: $select-size-sm;
 					}
 				}
 
@@ -99,13 +98,13 @@
 		@include block($block) {
 			@include modifier(sm) {
 				@include modifies-element(control) {
-					padding-right: $select-control-padding-sm-horizontal-left;
-					padding-left: $select-control-padding-sm-horizontal-right;
+					padding-right: $spacing-default;
+					padding-left: $spacing-2xl;
 				}
 
 				&.sui-#{$block}--multiselect {
 					.sui-#{$block}__control {
-						padding-left: $select-control-multiselect-padding-sm-horizontal;
+						padding-left: $select-spacing-3xl;
 					}
 				}
 
@@ -118,25 +117,25 @@
 				.sui-#{$block}--multiselect {
 					.sui-#{$block}__icon--close-alt {
 						right: unset;
-						left: $select-icon-close-position-right-md;
+						left: $select-spacing-xl;
 					}
 				}
 
 				.sui-#{$block}__dropdown--option {
 					.sui-#{$block}__icon {
-						padding-left: $select-dropdown-option-padding-horizontal-xs;
+						padding-left: $select-spacing-2xs;
 					}
 				}
 
 				.sui-#{$block}__icon--search {
 					left: unset;
-					right: $select-icon-search-position-left-sm;
+					right: $select-spacing-md;
 				}
 
 				@include modifies-element(search) {
 					.sui-#{$block}__icon {
 						left: unset;
-						right: $select-icon-search-position-left-md;
+						right: $select-spacing-lg;
 					}
 				}
 			}

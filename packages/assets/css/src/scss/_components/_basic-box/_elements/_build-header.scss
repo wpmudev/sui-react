@@ -15,7 +15,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(header) {
-				padding: $spacing-xxl;
+				padding: $spacing-2xl;
 				border-bottom: $border-width-sm solid $color-extended-neutral-80;
 
 				@include media(max-width, md) {

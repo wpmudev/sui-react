@@ -1,4 +1,5 @@
 import React, {
+	KeyboardEvent,
 	useState,
 	useEffect,
 	useRef,
@@ -6,7 +7,7 @@ import React, {
 	ChangeEvent,
 	useId,
 } from "react"
-import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
+import { generateCN, _renderHTMLPropsSafely, isEmpty } from "@wpmudev/sui-utils"
 import {
 	InteractionTypes,
 	useInteraction,
@@ -33,6 +34,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	className,
 	selected,
 	label = "Select option",
+	isCustomVar = false,
 	isDisabled = false,
 	isSmall = false,
 	isError = false,
@@ -68,6 +70,10 @@ const Select: React.FC<SelectBaseProps> = ({
 	const [selectedItem, setSelectedItems] = useState<
 		Record<string, any> | string | undefined | SelectOptionType
 	>(selected)
+
+	const [customVar, setCustomVar] = useState<Array<string | SelectOptionType>>(
+		[],
+	)
 
 	useEffect(() => {
 		setItems(options ?? [])
@@ -123,6 +129,11 @@ const Select: React.FC<SelectBaseProps> = ({
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [filteredItems])
 
+	// UseEffect function to handle changes in selected custom variables
+	useEffect(() => {
+		setSelectedItems(customVar)
+	}, [customVar])
+
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
@@ -136,6 +147,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			error: isError,
 			multiselect: isMultiSelect,
 			searchable: isSearchable,
+			"custom-var": isCustomVar,
 		},
 		suiInlineClassname,
 	)
@@ -191,6 +203,10 @@ const Select: React.FC<SelectBaseProps> = ({
 	}, [])
 
 	const updateSelected = (optionObj: SelectOptionType) => {
+		if (isCustomVar) {
+			setCustomVar([...customVar, optionObj])
+			return
+		}
 		if (!options) {
 			setSelectedItems(optionObj)
 			dropdownRef.current?.close()
@@ -203,7 +219,13 @@ const Select: React.FC<SelectBaseProps> = ({
 		const updatedItems = [...filteredItems]
 		const isSelected = updatedItems[optionIndex]?.isSelected
 
-		if (!isMultiSelect) {
+		if (isMultiSelect || isCustomVar) {
+			updatedItems[optionIndex] = {
+				...updatedItems[optionIndex],
+				isSelected: !isSelected,
+			}
+			setFilteredItems(updatedItems)
+		} else {
 			updatedItems.forEach((option) => (option.isSelected = false))
 			updatedItems[optionIndex] = {
 				...updatedItems[optionIndex],
@@ -211,12 +233,19 @@ const Select: React.FC<SelectBaseProps> = ({
 			}
 			setFilteredItems(updatedItems)
 			dropdownRef.current?.close()
-		} else {
-			updatedItems[optionIndex] = {
-				...updatedItems[optionIndex],
-				isSelected: !isSelected,
-			}
-			setFilteredItems(updatedItems)
+		}
+	}
+
+	// handle custom var input field actions
+	const onCustomVarChange = (event: KeyboardEvent<HTMLInputElement>) => {
+		const target = event.target as HTMLInputElement
+		const value = target.value
+
+		if ("Enter" === event.key && !isEmpty(value)) {
+			setCustomVar([...customVar, value])
+			target.value = ""
+		} else if ("Backspace" === event.key && isEmpty(value)) {
+			setCustomVar((prevState) => prevState.slice(0, -1))
 		}
 	}
 
@@ -258,6 +287,10 @@ const Select: React.FC<SelectBaseProps> = ({
 				RemoveSelection(optionId, filteredItems, setFilteredItems)
 			},
 		}),
+		...(isCustomVar && {
+			isCustomVar,
+			onCustomVarChange,
+		}),
 	}
 
 	// Dropdown props
@@ -284,10 +317,20 @@ const Select: React.FC<SelectBaseProps> = ({
 			selectAll: () => {
 				SelectAll(filteredItems, setFilteredItems)
 			},
+		}),
+		...((isMultiSelect || isCustomVar) && {
 			onSearch: (value: string) => {
 				handleMultiSelectSearch(value)
 			},
 		}),
+		dropdownRef,
+		onToggle: (isOpen: boolean) => {
+			setIsDropdownOpen(isOpen)
+		},
+		onEvent: (optionId: SelectOptionType) => {
+			updateSelected(optionId)
+		},
+		isCustomVar,
 		_dropdownProps,
 	}
 
@@ -311,16 +354,7 @@ const Select: React.FC<SelectBaseProps> = ({
 				/>
 			)}
 			{/*// @ts-ignore*/}
-			<Dropdown
-				{...dropdownProps}
-				dropdownRef={dropdownRef}
-				onToggle={(isOpen) => {
-					setIsDropdownOpen(isOpen)
-				}}
-				onEvent={(optionId: SelectOptionType) => {
-					updateSelected(optionId)
-				}}
-			/>
+			<Dropdown {...dropdownProps} />
 		</div>
 	)
 }

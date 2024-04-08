@@ -15,8 +15,8 @@
 		// Block wrapper.
 		@include block($block) {
 			display: flex;
-			gap: $spacing-xxl;
-			padding: $spacing-xxl;
+			gap: $spacing-2xl;
+			padding: $spacing-2xl;
 
 			& + .sui-#{$block} {
 				border-top: $border-width-sm solid $color-extended-neutral-80;

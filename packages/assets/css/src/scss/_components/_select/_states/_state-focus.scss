@@ -19,7 +19,7 @@
 					position: relative;
 					&::after {
 						border: $border-width-md solid $color-primary-50;
-						border-radius: $select-control-border-radius;
+						border-radius: $border-radius-sm;
 					}
 				}
 			}

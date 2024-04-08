@@ -15,8 +15,8 @@
 		@include block($block) {
 			.sui-checkbox {
 				font-size: $font-size-xs;
-				line-height: $select-checkbox-font-height-md;
-				width: $select-checkbox-container-size;
+				line-height: $font-height-sm;
+				width: 100%;
 			}
 		}
 	}

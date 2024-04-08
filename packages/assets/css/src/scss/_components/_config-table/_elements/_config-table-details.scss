@@ -13,7 +13,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(details-header) {
-				margin-bottom: $spacing-xxl;
+				margin-bottom: $spacing-2xl;
 
 				@include media(max-width, sm) {
 					margin-bottom: $spacing-lg;

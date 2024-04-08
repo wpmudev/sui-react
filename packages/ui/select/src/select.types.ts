@@ -50,7 +50,7 @@ interface SelectBaseProps
 	/** Additional CSS class name for styling */
 	className?: string
 	/** Current selected option */
-	selected?: Record<string, any> | string
+	selected?: Record<string, any> | string | SelectOptionType[]
 	/** Label for the select component */
 	label?: string
 	/** Whether the select is disabled or not */
@@ -63,6 +63,8 @@ interface SelectBaseProps
 	isMultiSelect?: boolean
 	/** Whether the select has a search functionality */
 	isSearchable?: boolean
+	/** Whether the select has icon as button */
+	isCustomVar?: boolean
 	/** Add a custom width in pixels  */
 	customWidth?: number
 	/**
@@ -99,9 +101,11 @@ interface SelectSelectedProps
 	selectLabel?: string
 	isSmall?: boolean
 	isMultiSelect?: boolean
+	isCustomVar?: boolean
 	removeSelection?: (optionId: number | string) => void
 	dropdownToggle: () => void
 	clearSelection: () => void
+	onCustomVarChange: () => void
 	interactionMethods: object
 }
 
@@ -141,6 +145,7 @@ interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 	isSmall?: boolean
 	isMultiSelect?: boolean
 	isSearchable?: boolean
+	isCustomVar?: boolean
 	selected?: Record<string, any> | string
 	ref?: RefObject<HTMLInputElement>
 	onKeyDown?(e?: any): void

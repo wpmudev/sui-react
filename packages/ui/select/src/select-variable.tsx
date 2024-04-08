@@ -11,6 +11,7 @@ const SelectVariable: React.FC<SelectBaseProps> = ({
 	return (
 		<Base
 			{...props}
+			isCustomVar={true}
 			_dropdownProps={{
 				type: "select-variable",
 				..._dropdownProps,

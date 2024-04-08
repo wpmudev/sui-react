@@ -60,7 +60,7 @@
 				@include modifier(pages) {
 					@include media(max-width, sm) {
 						order: -1;
-						margin-bottom: $spacing-xxl;
+						margin-bottom: $spacing-2xl;
 					}
 
 					.sui-#{$block}__links {
