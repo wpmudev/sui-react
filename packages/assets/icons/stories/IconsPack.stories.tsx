@@ -162,44 +162,50 @@ const ListIcons: Record<string, IconGroup> = {
 	products: {
 		name: "Products",
 		icons: {
-			"plugin-beehive": {
+			beehive: {
 				name: "Beehive",
 			},
-			"plugin-blc": {
+			blc: {
 				name: "BLC",
 			},
-			"plugin-branda": {
+			branda: {
 				name: "Branda",
 			},
-			"plugin-dashboard": {
+			dashboard: {
 				name: "Dashboard",
 			},
-			"plugin-defender": {
+			defender: {
 				name: "Defender",
 			},
-			"plugin-forminator": {
+			forminator: {
 				name: "Forminator",
 			},
-			"plugin-hummingbird": {
+			hummingbird: {
 				name: "Hummingbird",
 			},
-			"plugin-hustle": {
+			hustle: {
 				name: "Hustle",
 			},
-			"plugin-ivt": {
+			hub: {
+				name: "The Hub",
+			},
+			ivt: {
 				name: "IVT",
 			},
-			"plugin-shipper": {
+			shipper: {
 				name: "Shipper",
 			},
-			"plugin-smartcrawl": {
+			smartcrawl: {
 				name: "SmartCrawl",
 			},
-			"plugin-smush": {
+			smush: {
 				name: "Smush",
 			},
-			"plugin-snapshot": {
+			snapshot: {
 				name: "Snapshot",
+			},
+			wpmudev: {
+				name: "WPMU DEV",
 			},
 			automate: {
 				name: "Automate",
@@ -207,15 +213,9 @@ const ListIcons: Record<string, IconGroup> = {
 			uptime: {
 				name: "Uptime",
 			},
-			hub: {
-				name: "The Hub",
-			},
-			logo: {
-				name: "WPMU DEV",
-			},
 		},
 	},
-	"summary-box": {
+	general: {
 		name: "Summary Box",
 		icons: {
 			chart: {
@@ -752,7 +752,7 @@ Page.argTypes = {
 		options: [
 			"all",
 			"products",
-			"summary-box",
+			"general",
 			"status",
 			"action",
 			"state",
@@ -766,14 +766,14 @@ Page.argTypes = {
 			labels: {
 				all: "All Categories",
 				products: "Products",
-				"summary-box": "Summary Box",
-				status: "Status",
-				action: "Action",
-				state: "State",
-				navigation: "Navigation",
-				social: "Social Media",
+				general: "General Icons",
+				status: "Edit and toolbar",
+				action: "Files/folders",
+				state: "Arrow & directions",
+				navigation: "Layouts",
 				forms: "Forms",
-				global: "Global",
+				social: "Brands",
+				global: "Charts",
 			},
 		},
 	},
