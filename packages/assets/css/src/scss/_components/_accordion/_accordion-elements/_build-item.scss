@@ -37,8 +37,8 @@
 				@include modifier(body) {
 					> .sui-box {
 						.sui-box-group {
-							padding-top: $spacing-xxl;
-							padding-bottom: $spacing-xxl;
+							padding-top: $spacing-2xl;
+							padding-bottom: $spacing-2xl;
 						}
 					}
 				}

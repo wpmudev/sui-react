@@ -1,0 +1,84 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Dropdown
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-custom-var($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(custom-var) {
+				@include modifies-element(dropdown) {
+					&.sui-dropdown {
+						z-index: 0;
+						width: unset;
+						right: 0;
+
+						.sui-dropdown__popover {
+							width: $select-size-xl;
+						}
+					}
+				}
+
+				@include modifies-element(control) {
+					cursor: unset;
+				}
+
+				@include modifies-element(custom-var-input) {
+					flex: 1;
+					min-width: 100px;
+					align-self: stretch;
+					margin: 0;
+
+					input {
+						font: $font-weight-default #{$font-size-default}/#{$font-height-default}
+							$font-family-default;
+						width: 100%;
+					}
+				}
+
+				@include modifies-element(selected-options) {
+					padding-right: $spacing-md;
+				}
+
+				&.sui-#{$block}--sm {
+					@include modifies-element(control) {
+						padding-top: $spacing-sm;
+						padding-bottom: $spacing-sm;
+					}
+
+					@include modifies-element(custom-var-input) {
+						input {
+							font-size: $font-size-2xs;
+						}
+					}
+				}
+
+				.sui-accessible-cta {
+					pointer-events: none;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include modifier(custom-var) {
+				@include modifies-element(dropdown) {
+					&.sui-dropdown {
+						right: unset;
+						left: 0;
+					}
+				}
+			}
+		}
+	}
+}

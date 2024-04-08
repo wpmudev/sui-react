@@ -13,7 +13,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(body) {
-				padding: $spacing-xxl;
+				padding: $spacing-2xl;
 				flex: 1;
 
 				@include media(max-width, sm) {

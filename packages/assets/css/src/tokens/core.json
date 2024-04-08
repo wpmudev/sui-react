@@ -888,7 +888,7 @@
 			"type": "spacing",
 			"description": "24 points grid system."
 		},
-		"xxl": {
+		"2xl": {
 			"value": "32px",
 			"type": "spacing",
 			"description": "32 points grid system."
@@ -951,6 +951,10 @@
 			}
 		},
 		"radius": {
+			"xs": {
+				"value": "3px",
+				"type": "borderRadius"
+			},
 			"sm": {
 				"value": "4px",
 				"type": "borderRadius"
@@ -967,7 +971,7 @@
 				"value": "{border.radius.sm}*4",
 				"type": "borderRadius"
 			},
-			"xxl": {
+			"2xl": {
 				"value": "{border.radius.sm}*5",
 				"type": "borderRadius"
 			},
@@ -997,7 +1001,7 @@
 			}
 		},
 		"size": {
-			"xxs": {
+			"2xs": {
 				"value": "12px",
 				"type": "fontSizes"
 			},
@@ -1021,7 +1025,7 @@
 				"value": "32px",
 				"type": "fontSizes"
 			},
-			"xxl": {
+			"2xl": {
 				"value": "40px",
 				"type": "fontSizes"
 			},
@@ -1031,7 +1035,7 @@
 			}
 		},
 		"height": {
-			"xxs": {
+			"2xs": {
 				"value": "16px",
 				"type": "lineHeights"
 			},
@@ -1054,6 +1058,10 @@
 			"xl": {
 				"value": "48px",
 				"type": "lineHeights"
+			},
+			"default": {
+				"value": "{font.height.sm}-2px",
+				"type": "fontSizes"
 			}
 		},
 		"spacing": {
@@ -1069,7 +1077,7 @@
 				"value": "0.5px",
 				"type": "letterSpacing"
 			},
-			"xxl": {
+			"2xl": {
 				"value": "1px",
 				"type": "letterSpacing"
 			},

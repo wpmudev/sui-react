@@ -7,7 +7,7 @@
 					"type": "fontSizes"
 				},
 				"md": {
-					"value": "{font.size.xxs}",
+					"value": "{font.size.2xs}",
 					"type": "fontSizes"
 				}
 			},
@@ -27,7 +27,7 @@
 					"type": "lineHeights"
 				},
 				"md": {
-					"value": "{font.height.xxs}",
+					"value": "{font.height.2xs}",
 					"type": "lineHeights"
 				}
 			},

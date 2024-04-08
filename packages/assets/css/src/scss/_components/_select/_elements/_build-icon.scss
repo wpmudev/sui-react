@@ -17,24 +17,24 @@
 				.sui-#{$block}__icon {
 					position: absolute;
 					line-height: normal;
-					top: $select-icon-container-position-vertical;
-					transform: translateY(-$select-icon-container-position-vertical);
+					top: 50%;
+					transform: translateY(-50%);
 				}
 			}
 
 			@include element(icon) {
 				@include modifier(chevron-down, chevron-up, close-alt) {
-					right: $select-icon-container-position-horizontal;
+					right: $spacing-default;
 				}
 
 				@include modifier(search) {
-					left: $select-icon-container-position-horizontal;
-					font-size: $select-icon-font-size-lg;
+					left: $spacing-default;
+					font-size: $select-font-size-lg;
 					color: $color-extended-neutral-60;
 				}
 
 				@include modifier(close-alt) {
-					font-size: $select-icon-font-size-lg;
+					font-size: $select-font-size-lg;
 					color: $color-extended-neutral-70;
 					pointer-events: all;
 
@@ -49,15 +49,15 @@
 					font-size: $font-size-xs;
 					line-height: 1;
 					position: absolute;
-					bottom: $select-icon-search-position-bottom;
-					left: $select-icon-search-position-left-md;
+					bottom: $select-spacing-sm;
+					left: $select-spacing-lg;
 				}
 			}
 
 			@include element(dropdown) {
 				@include modifier(option) {
 					.sui-#{$block}__icon {
-						padding-right: $select-icon-padding-horizontal;
+						padding-right: $spacing-md;
 						line-height: 1;
 					}
 				}
@@ -65,12 +65,12 @@
 
 			@include modifier(multiselect) {
 				.sui-#{$block}__icon--close {
-					right: $select-icon-close-position-right-xs;
-					font-size: $select-icon-font-size-xs;
+					right: $select-spacing-xs;
+					font-size: $select-font-size-xs;
 				}
 
 				.sui-#{$block}__icon--close-alt {
-					right: $select-icon-close-position-right-lg;
+					right: $select-spacing-2xl;
 				}
 			}
 		}
@@ -82,19 +82,19 @@
 		@include block($block) {
 			@include element(icon) {
 				@include modifier(chevron-down, chevron-up, close-alt) {
-					left: $select-icon-container-position-horizontal;
+					left: $spacing-default;
 					right: unset;
 				}
 
 				@include modifier(search) {
 					left: unset;
-					right: $select-icon-container-position-horizontal;
+					right: $spacing-default;
 				}
 			}
 
 			@include element(search) {
 				.sui-#{$block}__icon {
-					right: $select-icon-search-position-left-md;
+					right: $select-spacing-lg;
 					left: unset;
 				}
 			}
@@ -102,7 +102,7 @@
 			@include element(dropdown) {
 				@include modifier(option) {
 					.sui-#{$block}__icon {
-						padding-left: $select-icon-padding-horizontal;
+						padding-left: $spacing-md;
 						padding-right: 0;
 					}
 				}
@@ -110,12 +110,12 @@
 
 			@include modifier(multiselect) {
 				.sui-#{$block}__icon--close {
-					left: $select-icon-close-position-right-xs;
+					left: $select-spacing-xs;
 					right: unset;
 				}
 
 				.sui-#{$block}__icon--close-alt {
-					left: $select-icon-close-position-right-lg;
+					left: $select-spacing-2xl;
 					right: unset;
 				}
 			}

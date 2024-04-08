@@ -26,6 +26,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	isMultiSelect = false,
 	selected = "",
 	isSearchable = false,
+	isCustomVar = false,
 	dropdownRef = null,
 	onToggle = (isOpen: boolean) => {},
 	onSearch = (value: string) => {},
@@ -59,7 +60,6 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 		<SuiDropdown
 			ref={dropdownRef}
 			closeOnOuterClick={false}
-			trigger={<Fragment />}
 			onToggle={onToggle}
 			isFluid={true}
 			isFixedHeight={true}
@@ -68,10 +68,21 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			onMenuClick={(option: SelectOptionType, e: MouseEvent<HTMLElement>) => {
 				onSelect(e, option)
 			}}
+			isSmall={isSmall}
 			{...(isMultiSelect && {
 				type: "select-checkbox",
+			})}
+			{...((isMultiSelect || isCustomVar) && {
 				onSearch,
 				allowSearch: true,
+			})}
+			{...(!isCustomVar && {
+				trigger: <Fragment />,
+			})}
+			{...(isCustomVar && {
+				iconOnly: true,
+				buttonIcon: "Add",
+				placement: "left",
 			})}
 			_htmlProps={{
 				"aria-label": "dropdown-options",
@@ -103,7 +114,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						...option.props,
 						className: generateCN("", {
 							"sui-select__dropdown--option": true,
-							"sui-select__dropdown--selected": option?.isSelected,
+							"sui-select__dropdown--selected":
+								option?.isSelected && !isCustomVar,
 						}),
 					},
 				}

@@ -16,7 +16,7 @@
 			align-items: center;
 			background-color: $color-extended-neutral-100;
 			gap: $spacing-lg;
-			padding: $spacing-lg $spacing-xxl;
+			padding: $spacing-lg $spacing-2xl;
 
 			@include modifier(center) {
 				@include modifies-element(content, content--left, actions) {

@@ -18,7 +18,7 @@
 				border-radius: $spacing-lg $spacing-lg 0 0;
 				gap: $spacing-lg;
 				justify-content: space-between;
-				padding: 0 $spacing-xxl;
+				padding: 0 $spacing-2xl;
 
 				@include media(max-width, sm) {
 					padding: 0 $spacing-lg;
@@ -68,7 +68,7 @@
 				z-index: 99;
 
 				img {
-					border-radius: $border-radius-xxl;
+					border-radius: $border-radius-2xl;
 				}
 			}
 		}
