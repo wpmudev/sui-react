@@ -54,7 +54,7 @@ export const Box = ({ ...props }: BoxGroupProps) => {
 
 Box.args = {
 	title: "Box Label",
-	icon: "Hub",
+	icon: "PluginThc",
 	headerLeft: [
 		<span
 			key="1"
