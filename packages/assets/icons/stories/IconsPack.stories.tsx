@@ -29,7 +29,7 @@ interface Icon {
 	name: string
 	alt?: boolean
 	checked?: boolean
-	deprecated?: boolean
+	depreciated?: boolean
 }
 
 interface IconGroup {
@@ -41,7 +41,7 @@ interface IconsCardProps {
 	category: string
 	name: string
 	alt?: boolean
-	deprecated?: boolean
+	depreciated?: boolean
 	checked?: boolean
 	id: string
 }
@@ -76,7 +76,7 @@ const Page = ({ category, search }: { category: string; search: string }) => {
 										alt={objIcons[icon].alt}
 										checked={objIcons[icon].checked}
 										id={icon}
-										deprecated={objIcons[icon].deprecated}
+										depreciated={objIcons[icon].depreciated}
 									/>
 								</div>
 							</li>
@@ -104,11 +104,11 @@ const IconsCard = ({
 	alt,
 	checked,
 	id,
-	deprecated,
+	depreciated,
 }: IconsCardProps) => {
 	const hasTagAlternative = alt
 	const hasTagChecked = checked
-	const hasDeprecated = deprecated
+	const hasDepreciated = depreciated
 
 	const camelCased = (id ?? "").replace(/-([a-z])/g, function (g) {
 		return g[1].toUpperCase()
@@ -123,11 +123,11 @@ const IconsCard = ({
 	return (
 		<div className="csb-icon">
 			<div className="csb-icon__preview">
-				{(hasTagAlternative || hasTagChecked) && (
+				{(hasTagAlternative || hasTagChecked || hasDepreciated) && (
 					<div className="csb-icon__preview-mode">
-						{hasDeprecated && (
+						{hasDepreciated && (
 							<Tag color="grey" light={true}>
-								Deprecated
+								Depreciated
 							</Tag>
 						)}
 						{hasTagAlternative && alt && <Tag color="yellow">Alternative</Tag>}
@@ -232,7 +232,7 @@ const ListIcons: Record<string, IconGroup> = {
 		},
 	},
 	general: {
-		name: "General Icons",
+		name: "General",
 		icons: {
 			info: {
 				name: "Info",
@@ -262,11 +262,6 @@ const ListIcons: Record<string, IconGroup> = {
 			},
 			lock: {
 				name: "Lock",
-			},
-			"lock-alt": {
-				name: "Lock",
-				alt: true,
-				deprecated: true,
 			},
 			key: {
 				name: "Key",
@@ -356,54 +351,83 @@ const ListIcons: Record<string, IconGroup> = {
 			clock: {
 				name: "Clock (Time)",
 			},
-			"clock-alt": {
-				name: "Clock (Time)",
-				alt: true,
-				deprecated: true,
-			},
 			graduation: {
 				name: "Graduation Cap",
 			},
 			spinner: {
 				name: "Spinner",
 			},
-			"spinner-alt": {
-				name: "Spinner",
-				alt: true,
-				deprecated: true,
-			},
 			submit: {
 				name: "Submit",
 			},
 			optimization: {
-				name: "Optimization",
-			},
-
-			chart: {
-				name: "Chart",
-			},
-			"chart-alt": {
-				name: "Chart",
-				alt: true,
-			},
-			link: {
-				name: "Link",
-			},
-			form: {
-				name: "Form",
+				name: "Bolt",
 			},
 			cloud: {
 				name: "Cloud",
 			},
-			"cloud-alt": {
-				name: "Cloud",
-				alt: true,
+			"cloud-add": {
+				name: "Cloud (Add)",
+			},
+			code: {
+				name: "Code",
+			},
+			"square-code": {
+				name: "Square Code",
+			},
+			merge: {
+				name: "Merge",
+			},
+			like: {
+				name: "Like",
+			},
+			dislike: {
+				name: "Dislike",
+			},
+			lifesaver: {
+				name: "Lifesaver (Life Ring)",
+			},
+			server: {
+				name: "Server",
+			},
+			cart: {
+				name: "Cart",
+			},
+			tag: {
+				name: "Label Tag",
+			},
+			emoji: {
+				name: "Emoji",
+			},
+			currency: {
+				name: "Currency (Dollar)",
+			},
+			broom: {
+				name: "Broom",
+			},
+			newspaper: {
+				name: "Newspaper",
+			},
+			captcha: {
+				name: "Captcha",
+			},
+			sitemap: {
+				name: "Sitemap",
+			},
+			poll: {
+				name: "Square Poll",
+			},
+			group: {
+				name: "Group",
 			},
 		},
 	},
-	action: {
-		name: "Action",
+	"edit-toolbar": {
+		name: "Edit and toolbar",
 		icons: {
+			add: {
+				name: "Plus",
+			},
 			close: {
 				name: "Close",
 			},
@@ -411,76 +435,106 @@ const ListIcons: Record<string, IconGroup> = {
 				name: "Close",
 				alt: true,
 			},
-			add: {
-				name: "Add",
-			},
-			upload: {
-				name: "Upload",
-			},
-			compress: {
-				name: "Compress",
-			},
 			settings: {
 				name: "Settings",
 			},
-			refresh: {
-				name: "Refresh",
+			tools: {
+				name: "Tools",
 			},
-			trash: {
-				name: "Trash",
+			brush: {
+				name: "Brush",
 			},
-			"trash-alt": {
-				name: "Trash",
-				alt: true,
+			palette: {
+				name: "Palette",
 			},
-			fullscreen: {
-				name: "Fullscreen",
-			},
-
-			save: {
-				name: "Save",
-			},
-			"cloud-add": {
-				name: "Cloud (Add)",
+			grip: {
+				name: "Grip Dots",
 			},
 			more: {
 				name: "More",
 			},
-			download: {
-				name: "Download",
+			hamburger: {
+				name: "Hamburger",
 			},
 			filter: {
 				name: "Filter",
 			},
-
+			save: {
+				name: "Save",
+			},
+			link: {
+				name: "Link",
+			},
+			copy: {
+				name: "Copy",
+			},
+			edit: {
+				name: "Edit (Pen Line)",
+			},
+			config: {
+				name: "Config (Square sliders)",
+			},
+			trash: {
+				name: "Trash",
+			},
+			compress: {
+				name: "Compress",
+			},
+			expand: {
+				name: "Expand",
+			},
+		},
+	},
+	"files-folders": {
+		name: "Files/Folders",
+		icons: {
+			"folder-close": {
+				name: "Folder (Close)",
+			},
+			"folder-open": {
+				name: "Folder (Open)",
+			},
+			file: {
+				name: "File",
+				checked: false,
+			},
+			"file-check": {
+				name: "File",
+				checked: true,
+			},
+			"file-code": {
+				name: "File Code",
+			},
+			"file-zip": {
+				name: "File Zip",
+			},
+			form: {
+				name: "Form (File)",
+			},
+			invoice: {
+				name: "Invoice",
+			},
+			"page-break": {
+				name: "Page Break",
+			},
 			export: {
 				name: "Export",
 			},
-		},
-	},
-	state: {
-		name: "State",
-		icons: {
-			grip: {
-				name: "Grip",
+			"signature-alt": {
+				name: "Signature",
+				alt: true,
+			},
+			image: {
+				name: "Image",
+			},
+			images: {
+				name: "Images",
 			},
 		},
 	},
-	navigation: {
-		name: "Navigation",
+	"arrows-directions": {
+		name: "Arrows & directions",
 		icons: {
-			"arrow-up": {
-				name: "Arrow Up",
-			},
-			"arrow-down": {
-				name: "Arrow Down",
-			},
-			"arrow-left": {
-				name: "Arrow Left",
-			},
-			"arrow-right": {
-				name: "Arrow Right",
-			},
 			"chevron-up": {
 				name: "Chevron Up",
 			},
@@ -493,36 +547,44 @@ const ListIcons: Record<string, IconGroup> = {
 			"chevron-right": {
 				name: "Chevron Right",
 			},
-			"caret-up": {
-				name: "Caret Up",
+			"arrow-right": {
+				name: "Arrow Right",
 			},
-			"caret-up-alt": {
-				name: "Caret Up",
-				alt: true,
+			"arrow-left": {
+				name: "Arrow Left",
 			},
-			"caret-down": {
-				name: "Caret Down",
+			"arrow-up": {
+				name: "Arrow Up",
 			},
-			"caret-down-alt": {
-				name: "Caret Down",
-				alt: true,
+			"arrow-down": {
+				name: "Arrow Down",
 			},
-			"caret-left": {
-				name: "Caret Left",
+			async: {
+				name: "Async",
 			},
-			"caret-left-alt": {
-				name: "Caret Left",
-				alt: true,
+			"external-link": {
+				name: "External Link",
 			},
 			"caret-right": {
 				name: "Caret Right",
 			},
-			"caret-right-alt": {
-				name: "Caret Right",
-				alt: true,
+			"caret-left": {
+				name: "Caret Left",
 			},
-			exit: {
-				name: "Exit",
+			"caret-up": {
+				name: "Caret Up",
+			},
+			"caret-down": {
+				name: "Caret Down",
+			},
+			"caret-up-down": {
+				name: "Sort",
+			},
+			upload: {
+				name: "Upload",
+			},
+			download: {
+				name: "Download",
 			},
 			"rotate-left": {
 				name: "Rotate Left",
@@ -530,179 +592,68 @@ const ListIcons: Record<string, IconGroup> = {
 			"rotate-right": {
 				name: "Rotate Right",
 			},
-			hamburger: {
-				name: "Hamburger",
+			refresh: {
+				name: "Refresh",
 			},
-		},
-	},
-	global: {
-		name: "Global",
-		icons: {
-			image: {
-				name: "Image",
+			exit: {
+				name: "Exit",
 			},
-
-			docs: {
-				name: "Documentation",
-			},
-
-			tutorials: {
-				name: "Tutorials",
-			},
-			menu: {
-				name: "Menu",
-			},
-
-			"folder-open": {
-				name: "Folder (Open)",
-			},
-			"folder-close": {
-				name: "Folder (Close)",
-			},
-			file: {
-				name: "File",
-				checked: false,
-			},
-			"file-check": {
-				name: "File",
-				checked: true,
-			},
-			config: {
-				name: "Config",
-			},
-			images: {
-				name: "Images",
-			},
-
-			edit: {
-				name: "Edit (Pen Line)",
-			},
-			like: {
-				name: "Like",
-			},
-			"like-alt": {
-				name: "Like",
-				alt: true,
-			},
-			dislike: {
-				name: "Dislike",
-			},
-			"dislike-alt": {
-				name: "Dislike",
-				alt: true,
-			},
-			lifesaver: {
-				name: "Lifesaver (Life Ring)",
-			},
-
 			"compress-alt": {
 				name: "Compress",
 				alt: true,
 			},
-			"file-code": {
-				name: "File Code",
-			},
-			server: {
-				name: "Server",
-			},
-			code: {
-				name: "Code",
-			},
-			cart: {
-				name: "Cart",
-			},
-			emoji: {
-				name: "Emoji",
-			},
-			tools: {
-				name: "Tools (Settings Wrench)",
-			},
-
-			rss: {
-				name: "RSS (Feed)",
-			},
-			"external-link": {
-				name: "External Link",
-			},
-
-			currency: {
-				name: "Currency (Dollar)",
-			},
-			copy: {
-				name: "Copy",
-			},
-			tag: {
-				name: "Label Tag",
-			},
-
-			wordpress: {
-				name: "WordPress",
-			},
-			merge: {
-				name: "Merge",
-			},
-			footer: {
-				name: "Footer",
-			},
-			inline: {
-				name: "Inline",
-			},
-			async: {
-				name: "Async",
-			},
-
-			reports: {
-				name: "Reports",
-			},
-			brush: {
-				name: "Brush",
-			},
-			palette: {
-				name: "Palette",
-			},
-			"file-zip": {
-				name: "File Zip",
-			},
-			newspaper: {
-				name: "Newspaper",
-			},
-			captcha: {
-				name: "Captcha",
-			},
-			"page-break": {
-				name: "Page Break",
-			},
-			signature: {
-				name: "Signature",
-			},
-			"signature-alt": {
-				name: "Signature",
-				alt: true,
-			},
-			"group-field": {
-				name: "Group Field",
-			},
-
-			"caret-up-down": {
-				name: "Caret Up Down",
-			},
+		},
+	},
+	"spacings-alignments-layouts": {
+		name: "Layouts",
+		icons: {
 			"align-left": {
 				name: "Align Left",
 			},
 			"align-right": {
 				name: "Align Right",
 			},
+			"align-bottom": {
+				name: "Align Bottom",
+			},
+			"align-top": {
+				name: "Align Top",
+			},
 			"align-center": {
 				name: "Align Center",
 			},
-			broom: {
-				name: "Broom",
+			"align-horizontal": {
+				name: "Align Center Horizontal",
 			},
-			js: {
-				name: "JS",
+			"spacing-vertical": {
+				name: "Spacing Vertical",
 			},
-			css: {
-				name: "CSS",
+			"spacing-horizontal": {
+				name: "Spacing Horizontal",
+			},
+			"align-justify": {
+				name: "Align Justify",
+			},
+			"align-left-alt": {
+				name: "Align Left",
+				alt: true,
+			},
+			"align-center-alt": {
+				name: "Align Center",
+				alt: true,
+			},
+			"align-right-alt": {
+				name: "Align Right",
+				alt: true,
+			},
+			header: {
+				name: "Header (Flex top)",
+			},
+			inline: {
+				name: "Inline (Flex center)",
+			},
+			footer: {
+				name: "Footer (Flex bottom)",
 			},
 		},
 	},
@@ -711,6 +662,9 @@ const ListIcons: Record<string, IconGroup> = {
 		icons: {
 			"radio-selected": {
 				name: "Radio Selected",
+			},
+			"checkbox-checked": {
+				name: "Checkbox Checked",
 			},
 			calculator: {
 				name: "Calculator",
@@ -725,30 +679,6 @@ const ListIcons: Record<string, IconGroup> = {
 			"input-number": {
 				name: "Input Number",
 			},
-			"checkbox-checked": {
-				name: "Checkbox Checked",
-			},
-			"checkbox-checked-alt": {
-				name: "Checkbox Checked",
-				alt: true,
-			},
-			"checkbox-indeterminate": {
-				name: "Checkbox Indeterminate",
-			},
-		},
-	},
-	payments: {
-		name: "Payments",
-		icons: {
-			invoice: {
-				name: "Invoice",
-			},
-			stripe: {
-				name: "Stripe",
-			},
-			paypal: {
-				name: "Paypal",
-			},
 		},
 	},
 	social: {
@@ -762,6 +692,137 @@ const ListIcons: Record<string, IconGroup> = {
 			},
 			twitter: {
 				name: "Twitter",
+			},
+			js: {
+				name: "JS",
+			},
+			css: {
+				name: "CSS",
+			},
+			rss: {
+				name: "RSS (Feed)",
+			},
+			stripe: {
+				name: "Stripe",
+			},
+			paypal: {
+				name: "Paypal",
+			},
+			wordpress: {
+				name: "WordPress",
+			},
+			woocommerce: {
+				name: "Woocommerce",
+			},
+			linkedin: {
+				name: "Linkedin",
+			},
+			google: {
+				name: "Google",
+			},
+			"google-tag-manager": {
+				name: "Google Tag Manager",
+			},
+			pinterest: {
+				name: "Pinterest",
+			},
+			html: {
+				name: "HTML",
+			},
+			tiktok: {
+				name: "Tiktok",
+			},
+		},
+	},
+	charts: {
+		name: "Charts",
+		icons: {
+			chart: {
+				name: "Chart",
+			},
+			reports: {
+				name: "Reports",
+			},
+		},
+	},
+	depreciated: {
+		name: "Depreciated",
+		icons: {
+			"lock-alt": {
+				name: "Lock",
+				alt: true,
+				depreciated: true,
+			},
+			"clock-alt": {
+				name: "Clock (Time)",
+				alt: true,
+				depreciated: true,
+			},
+			"spinner-alt": {
+				name: "Spinner",
+				alt: true,
+				depreciated: true,
+			},
+			"cloud-alt": {
+				name: "Cloud",
+				alt: true,
+				depreciated: true,
+			},
+			"like-alt": {
+				name: "Like",
+				alt: true,
+				depreciated: true,
+			},
+			"dislike-alt": {
+				name: "Dislike",
+				alt: true,
+				depreciated: true,
+			},
+			signature: {
+				name: "Signature",
+				depreciated: true,
+			},
+			"caret-right-alt": {
+				name: "Caret Right",
+				alt: true,
+				depreciated: true,
+			},
+			"caret-left-alt": {
+				name: "Caret Left",
+				alt: true,
+				depreciated: true,
+			},
+			"caret-up-alt": {
+				name: "Caret Up",
+				alt: true,
+				depreciated: true,
+			},
+			"caret-down-alt": {
+				name: "Caret Down",
+				alt: true,
+				depreciated: true,
+			},
+			"checkbox-checked-alt": {
+				name: "Checkbox Checked",
+				alt: true,
+				depreciated: true,
+			},
+			"checkbox-indeterminate": {
+				name: "Checkbox Indeterminate",
+				depreciated: true,
+			},
+			"chart-alt": {
+				name: "Chart",
+				alt: true,
+				depreciated: true,
+			},
+			tutorials: {
+				name: "Tutorials",
+				depreciated: true,
+			},
+			menu: {
+				name: "Menu",
+				depreciated: true,
 			},
 		},
 	},
@@ -779,27 +840,29 @@ Page.argTypes = {
 			"all",
 			"products",
 			"general",
-			"status",
-			"action",
-			"state",
-			"navigation",
-			"social",
+			"edit-toolbar",
+			"files-folders",
+			"arrows-directions",
+			"spacings-alignments-layouts",
 			"forms",
-			"global",
+			"social",
+			"charts",
+			"depreciated",
 		],
 		control: {
 			type: "select",
 			labels: {
 				all: "All Categories",
 				products: "Products",
-				general: "General Icons",
-				status: "Edit and toolbar",
-				action: "Files/folders",
-				state: "Arrow & directions",
-				navigation: "Layouts",
+				general: "General",
+				"edit-toolbar": "Edit & toolbar",
+				"files-folders": "Files/Folders",
+				"arrows-directions": "Arrows & directions",
+				"spacings-alignments-layouts": "Spacings, alignments & layouts",
 				forms: "Forms",
-				social: "Brands",
-				global: "Charts",
+				social: "Social",
+				charts: "Charts",
+				depreciated: "Depreciated",
 			},
 		},
 	},
