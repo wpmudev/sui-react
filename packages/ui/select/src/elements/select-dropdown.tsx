@@ -83,12 +83,12 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 				iconOnly: true,
 				buttonIcon: "Add",
 				placement: "left",
+				type: "select-variable",
 			})}
 			_htmlProps={{
 				"aria-label": "dropdown-options",
 				...getOptProps,
 			}}
-			{...(isCustomVar && { type: "select-variable" })}
 			{..._dropdownProps}
 		/>
 	)
