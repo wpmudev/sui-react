@@ -202,7 +202,7 @@ const ListIcons: Record<string, IconGroup> = {
 			"plugin-hustle": {
 				name: "Hustle",
 			},
-			"plugin-hub": {
+			"plugin-thc": {
 				name: "The Hub",
 			},
 			"plugin-ivt": {

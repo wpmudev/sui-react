@@ -1,5 +1,5 @@
 // Products Icons
-export { PluginHub } from "./icons/PluginHub"
+export { PluginThc } from "./icons/PluginThc"
 export { Logo } from "./icons/Logo"
 export { PluginAutomate } from "./icons/PluginAutomate"
 export { PluginUptime } from "./icons/PluginUptime"
