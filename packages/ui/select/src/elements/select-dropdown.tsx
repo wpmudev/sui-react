@@ -24,6 +24,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	selectAll = () => {},
 	isSmall = false,
 	isMultiSelect = false,
+	isDisabled = false,
 	selected = "",
 	isSearchable = false,
 	isCustomVar = false,
@@ -89,6 +90,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 				"aria-label": "dropdown-options",
 				...getOptProps,
 			}}
+			isDisabled={isDisabled}
 			{..._dropdownProps}
 		/>
 	)

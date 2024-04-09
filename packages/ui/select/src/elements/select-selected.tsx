@@ -28,6 +28,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	isSmall = false,
 	isCustomVar = false,
 	interactionMethods,
+	disabled = false,
 	removeSelection = () => {},
 	dropdownToggle = () => {},
 	clearSelection = () => {},
@@ -93,6 +94,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 							aria-label="select-input-field"
 							placeholder={selectLabel}
 							onKeyDown={onCustomVarChange}
+							disabled={disabled}
 							{...interactionMethods}
 						/>
 					</li>

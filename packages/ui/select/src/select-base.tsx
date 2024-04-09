@@ -257,6 +257,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		selected: selectedItem,
 		selectLabel: label,
 		isSmall,
+		disabled: isDisabled,
 		clearSelection: () => {
 			RemoveAll(updateItem, items, setFilteredItems)
 		},
@@ -267,7 +268,6 @@ const Select: React.FC<SelectBaseProps> = ({
 			arrow: isDropdownOpen ? "ChevronUp" : "ChevronDown",
 		}),
 		...(isSearchable && {
-			disabled: isDisabled,
 			dropdownItems: filteredItems,
 			onChange: (e: ChangeEvent<HTMLInputElement>) => {
 				handleSearchDropdown(e)
@@ -299,6 +299,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		selected: selectedItem,
 		isSmall,
 		onChange,
+		isDisabled,
 		...(isSearchable && {
 			isSearchable,
 			options: filteredItems.map((option) => ({
