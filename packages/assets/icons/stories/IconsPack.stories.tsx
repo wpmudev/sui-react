@@ -29,6 +29,7 @@ interface Icon {
 	name: string
 	alt?: boolean
 	checked?: boolean
+	deprecated?: boolean
 }
 
 interface IconGroup {
@@ -40,6 +41,7 @@ interface IconsCardProps {
 	category: string
 	name: string
 	alt?: boolean
+	deprecated?: boolean
 	checked?: boolean
 	id: string
 }
@@ -74,6 +76,7 @@ const Page = ({ category, search }: { category: string; search: string }) => {
 										alt={objIcons[icon].alt}
 										checked={objIcons[icon].checked}
 										id={icon}
+										deprecated={objIcons[icon].deprecated}
 									/>
 								</div>
 							</li>
@@ -95,9 +98,17 @@ const Page = ({ category, search }: { category: string; search: string }) => {
 	)
 }
 
-const IconsCard = ({ category, name, alt, checked, id }: IconsCardProps) => {
-	const hasTagAlternative = "boolean" === typeof alt
-	const hasTagChecked = "boolean" === typeof checked
+const IconsCard = ({
+	category,
+	name,
+	alt,
+	checked,
+	id,
+	deprecated,
+}: IconsCardProps) => {
+	const hasTagAlternative = alt
+	const hasTagChecked = checked
+	const hasDeprecated = deprecated
 
 	const camelCased = (id ?? "").replace(/-([a-z])/g, function (g) {
 		return g[1].toUpperCase()
@@ -114,6 +125,11 @@ const IconsCard = ({ category, name, alt, checked, id }: IconsCardProps) => {
 			<div className="csb-icon__preview">
 				{(hasTagAlternative || hasTagChecked) && (
 					<div className="csb-icon__preview-mode">
+						{hasDeprecated && (
+							<Tag color="grey" light={true}>
+								Deprecated
+							</Tag>
+						)}
 						{hasTagAlternative && alt && <Tag color="yellow">Alternative</Tag>}
 						{hasTagChecked && (
 							<Fragment>
@@ -216,65 +232,8 @@ const ListIcons: Record<string, IconGroup> = {
 		},
 	},
 	general: {
-		name: "Summary Box",
+		name: "General Icons",
 		icons: {
-			chart: {
-				name: "Chart",
-			},
-			"chart-alt": {
-				name: "Chart",
-				alt: true,
-			},
-			video: {
-				name: "Video",
-			},
-			link: {
-				name: "Link",
-			},
-			shield: {
-				name: "Shield",
-				checked: false,
-			},
-			"shield-check": {
-				name: "Shield",
-				checked: true,
-			},
-			form: {
-				name: "Form",
-			},
-			performance: {
-				name: "Performance",
-			},
-			email: {
-				name: "Email",
-			},
-			package: {
-				name: "Package",
-				checked: false,
-			},
-			"package-check": {
-				name: "Package",
-				checked: true,
-			},
-			cloud: {
-				name: "Cloud",
-			},
-			"cloud-alt": {
-				name: "Cloud",
-				alt: true,
-			},
-		},
-	},
-	status: {
-		name: "Status",
-		icons: {
-			check: {
-				name: "Check",
-			},
-			"check-alt": {
-				name: "Check",
-				alt: true,
-			},
 			info: {
 				name: "Info",
 			},
@@ -288,8 +247,157 @@ const ListIcons: Record<string, IconGroup> = {
 			warning: {
 				name: "Warning",
 			},
+			"check-alt": {
+				name: "Check",
+				alt: true,
+			},
+			check: {
+				name: "Check",
+			},
 			ban: {
 				name: "Ban",
+			},
+			"power-off": {
+				name: "Power Off",
+			},
+			lock: {
+				name: "Lock",
+			},
+			"lock-alt": {
+				name: "Lock",
+				alt: true,
+				deprecated: true,
+			},
+			key: {
+				name: "Key",
+			},
+			plugin: {
+				name: "Plug",
+			},
+			"plugin-disconnected": {
+				name: "Plug Error",
+			},
+			bug: {
+				name: "Bug",
+			},
+			gift: {
+				name: "Gift",
+			},
+			shield: {
+				name: "Shield",
+				checked: false,
+			},
+			"shield-check": {
+				name: "Shield",
+				checked: true,
+			},
+			performance: {
+				name: "Gauge",
+			},
+			search: {
+				name: "Search",
+			},
+			email: {
+				name: "Envelope",
+			},
+			phone: {
+				name: "Phone",
+			},
+			roadmap: {
+				name: "Map Marker",
+			},
+			bell: {
+				name: "Bell (Notification)",
+			},
+			calendar: {
+				name: "Calendar",
+			},
+			"user-alt": {
+				name: "User",
+				alt: true,
+			},
+			user: {
+				name: "User",
+			},
+			"user-add": {
+				name: "User Add",
+			},
+			package: {
+				name: "Box",
+			},
+			"package-check": {
+				name: "Box Check",
+				checked: true,
+			},
+			show: {
+				name: "Eye Open",
+			},
+			hide: {
+				name: "Eye Close",
+			},
+			globe: {
+				name: "Globe",
+			},
+			video: {
+				name: "Video Plus",
+			},
+			play: {
+				name: "Play",
+			},
+			stop: {
+				name: "Stop",
+			},
+			desktop: {
+				name: "Desktop",
+			},
+			mobile: {
+				name: "Mobile",
+			},
+			clock: {
+				name: "Clock (Time)",
+			},
+			"clock-alt": {
+				name: "Clock (Time)",
+				alt: true,
+				deprecated: true,
+			},
+			graduation: {
+				name: "Graduation Cap",
+			},
+			spinner: {
+				name: "Spinner",
+			},
+			"spinner-alt": {
+				name: "Spinner",
+				alt: true,
+				deprecated: true,
+			},
+			submit: {
+				name: "Submit",
+			},
+			optimization: {
+				name: "Optimization",
+			},
+
+			chart: {
+				name: "Chart",
+			},
+			"chart-alt": {
+				name: "Chart",
+				alt: true,
+			},
+			link: {
+				name: "Link",
+			},
+			form: {
+				name: "Form",
+			},
+			cloud: {
+				name: "Cloud",
+			},
+			"cloud-alt": {
+				name: "Cloud",
+				alt: true,
 			},
 		},
 	},
@@ -328,12 +436,7 @@ const ListIcons: Record<string, IconGroup> = {
 			fullscreen: {
 				name: "Fullscreen",
 			},
-			stop: {
-				name: "Stop",
-			},
-			play: {
-				name: "Play",
-			},
+
 			save: {
 				name: "Save",
 			},
@@ -349,25 +452,7 @@ const ListIcons: Record<string, IconGroup> = {
 			filter: {
 				name: "Filter",
 			},
-			"power-off": {
-				name: "Power Off",
-			},
-			show: {
-				name: "Show",
-			},
-			hide: {
-				name: "Hide",
-			},
-			lock: {
-				name: "Lock",
-			},
-			"lock-alt": {
-				name: "Lock",
-				alt: true,
-			},
-			submit: {
-				name: "Submit",
-			},
+
 			export: {
 				name: "Export",
 			},
@@ -376,10 +461,6 @@ const ListIcons: Record<string, IconGroup> = {
 	state: {
 		name: "State",
 		icons: {
-			"spinner-alt": {
-				name: "Spinner",
-				alt: true,
-			},
 			grip: {
 				name: "Grip",
 			},
@@ -460,40 +541,18 @@ const ListIcons: Record<string, IconGroup> = {
 			image: {
 				name: "Image",
 			},
-			globe: {
-				name: "Globe",
-			},
+
 			docs: {
 				name: "Documentation",
 			},
-			plugin: {
-				name: "Plugin",
-			},
-			"plugin-disconnected": {
-				name: "Plugin Disconnected",
-			},
+
 			tutorials: {
 				name: "Tutorials",
 			},
 			menu: {
 				name: "Menu",
 			},
-			user: {
-				name: "User",
-			},
-			"user-alt": {
-				name: "User",
-				alt: true,
-			},
-			"user-add": {
-				name: "User Add",
-			},
-			search: {
-				name: "Search",
-			},
-			calendar: {
-				name: "Calendar",
-			},
+
 			"folder-open": {
 				name: "Folder (Open)",
 			},
@@ -514,12 +573,7 @@ const ListIcons: Record<string, IconGroup> = {
 			images: {
 				name: "Images",
 			},
-			desktop: {
-				name: "Desktop",
-			},
-			mobile: {
-				name: "Mobile",
-			},
+
 			edit: {
 				name: "Edit (Pen Line)",
 			},
@@ -540,9 +594,7 @@ const ListIcons: Record<string, IconGroup> = {
 			lifesaver: {
 				name: "Lifesaver (Life Ring)",
 			},
-			spinner: {
-				name: "Spinner",
-			},
+
 			"compress-alt": {
 				name: "Compress",
 				alt: true,
@@ -565,21 +617,14 @@ const ListIcons: Record<string, IconGroup> = {
 			tools: {
 				name: "Tools (Settings Wrench)",
 			},
-			bell: {
-				name: "Bell (Notification)",
-			},
+
 			rss: {
 				name: "RSS (Feed)",
 			},
 			"external-link": {
 				name: "External Link",
 			},
-			key: {
-				name: "Key",
-			},
-			phone: {
-				name: "Phone",
-			},
+
 			currency: {
 				name: "Currency (Dollar)",
 			},
@@ -589,13 +634,7 @@ const ListIcons: Record<string, IconGroup> = {
 			tag: {
 				name: "Label Tag",
 			},
-			clock: {
-				name: "Clock (Time)",
-			},
-			"clock-alt": {
-				name: "Clock (Time)",
-				alt: true,
-			},
+
 			wordpress: {
 				name: "WordPress",
 			},
@@ -611,20 +650,9 @@ const ListIcons: Record<string, IconGroup> = {
 			async: {
 				name: "Async",
 			},
-			roadmap: {
-				name: "Roadmap",
-			},
-			gift: {
-				name: "Gift",
-			},
-			optimization: {
-				name: "Optimization",
-			},
+
 			reports: {
 				name: "Reports",
-			},
-			graduation: {
-				name: "Graduation Cap",
 			},
 			brush: {
 				name: "Brush",
@@ -654,9 +682,7 @@ const ListIcons: Record<string, IconGroup> = {
 			"group-field": {
 				name: "Group Field",
 			},
-			bug: {
-				name: "Bug",
-			},
+
 			"caret-up-down": {
 				name: "Caret Up Down",
 			},
