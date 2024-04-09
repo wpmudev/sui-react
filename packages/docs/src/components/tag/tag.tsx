@@ -17,7 +17,7 @@ import "./tag.scss"
 
 interface TagProps {
 	id?: string
-	colo?: "" | "yellow" | "blue" | "red" | "green"
+	color?: "" | "yellow" | "blue" | "red" | "green"
 	light?: boolean
 	uppercase?: boolean
 	tooltip?: string
