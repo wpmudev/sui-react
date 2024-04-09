@@ -1,6 +1,6 @@
 import { iconBuild } from "@wpmudev/sui-icon"
 
-const Hummingbird = iconBuild(
+const PluginHummingbird = iconBuild(
 	[
 		"M14.875 5.2l1.192 0.85-0.675 6.18-2.45 3.332-0.075 0.383-0.433 2.193-1.933-0.85 2.233-2.847 0.075-0.434 1.467-8.806h0.6zM12.892 3.5l-1.667 10.2-3.333 4.25 5.833 2.55 0.833-4.25 2.5-3.4 0.833-7.65-2.442-1.7h-2.558z",
 		"M8.275 8.83l3.721 0.285 0.275-1.688-9.88-0.756 8.931 6.436 0.306-1.867-3.353-2.41z",
@@ -13,8 +13,8 @@ const Hummingbird = iconBuild(
 		"M6.167 15.4h-0.833v0.85h0.833v-0.85z",
 	],
 	{
-		title: "Hummingbird",
+		title: "PluginHummingbird",
 	},
 )
 
-export { Hummingbird }
+export { PluginHummingbird }

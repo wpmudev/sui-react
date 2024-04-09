@@ -178,55 +178,55 @@ const ListIcons: Record<string, IconGroup> = {
 	products: {
 		name: "Products",
 		icons: {
-			beehive: {
+			"plugin-beehive": {
 				name: "Beehive",
 			},
-			blc: {
+			"plugin-blc": {
 				name: "BLC",
 			},
-			branda: {
+			"plugin-branda": {
 				name: "Branda",
 			},
-			dashboard: {
+			"plugin-dashboard": {
 				name: "Dashboard",
 			},
-			defender: {
+			"plugin-defender": {
 				name: "Defender",
 			},
-			forminator: {
+			"plugin-forminator": {
 				name: "Forminator",
 			},
-			hummingbird: {
+			"plugin-hummingbird": {
 				name: "Hummingbird",
 			},
-			hustle: {
+			"plugin-hustle": {
 				name: "Hustle",
 			},
-			hub: {
+			"plugin-hub": {
 				name: "The Hub",
 			},
-			ivt: {
+			"plugin-ivt": {
 				name: "IVT",
 			},
-			shipper: {
+			"plugin-shipper": {
 				name: "Shipper",
 			},
-			smartcrawl: {
+			"plugin-smartcrawl": {
 				name: "SmartCrawl",
 			},
-			smush: {
+			"plugin-smush": {
 				name: "Smush",
 			},
-			snapshot: {
+			"plugin-snapshot": {
 				name: "Snapshot",
 			},
-			wpmudev: {
+			logo: {
 				name: "WPMU DEV",
 			},
-			automate: {
+			"plugin-automate": {
 				name: "Automate",
 			},
-			uptime: {
+			"plugin-uptime": {
 				name: "Uptime",
 			},
 		},
