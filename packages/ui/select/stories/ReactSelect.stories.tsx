@@ -77,8 +77,8 @@ const Select = ({
 		background: "white" === props.color ? "#333" : "#fff",
 	}
 
-	const [asyncOptions, setAsyncOptions] = useState<SelectOptionType[]>([])
-	const [optionsAPILimit, setOptionsAPILimit] = useState(0)
+	// const [asyncOptions, setAsyncOptions] = useState<SelectOptionType[]>([])
+	// const [optionsAPILimit, setOptionsAPILimit] = useState(0)
 
 	const perPage = 10
 
@@ -178,7 +178,7 @@ const Select = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
-							<MultiSelect {...props} />
+							<StandardSelect {...props} isMultiSelect={true} />
 						</FormField>
 					)}
 					{"select-variable" === example && (
@@ -190,8 +190,9 @@ const Select = ({
 							isSmall={isSmall}
 							isDisabled={isDisabled}
 						>
-							<SelectVariable
+							<StandardSelect
 								{...props}
+								isCustomVar={true}
 								options={[
 									{
 										id: "view-form",

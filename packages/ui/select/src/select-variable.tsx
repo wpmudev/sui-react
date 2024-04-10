@@ -4,20 +4,8 @@ import React from "react"
 import { Select as Base, SelectBaseProps } from "./select-base"
 
 // Build "Multi Select" component.
-const SelectVariable: React.FC<SelectBaseProps> = ({
-	_dropdownProps,
-	...props
-}) => {
-	return (
-		<Base
-			{...props}
-			isCustomVar={true}
-			_dropdownProps={{
-				type: "select-variable",
-				..._dropdownProps,
-			}}
-		/>
-	)
+const SelectVariable: React.FC<SelectBaseProps> = ({ ...props }) => {
+	return <Base {...props} isCustomVar={true} />
 }
 
 // Publish required component(s).

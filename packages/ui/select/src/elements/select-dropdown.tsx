@@ -24,6 +24,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	selectAll = () => {},
 	isSmall = false,
 	isMultiSelect = false,
+	isDisabled = false,
 	selected = "",
 	isSearchable = false,
 	isCustomVar = false,
@@ -83,11 +84,13 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 				iconOnly: true,
 				buttonIcon: "Add",
 				placement: "left",
+				type: "select-variable",
 			})}
 			_htmlProps={{
 				"aria-label": "dropdown-options",
 				...getOptProps,
 			}}
+			isDisabled={isDisabled}
 			{..._dropdownProps}
 		/>
 	)

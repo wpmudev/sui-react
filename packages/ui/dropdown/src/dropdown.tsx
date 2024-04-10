@@ -49,6 +49,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			renderContentOnTop = false,
 			isResponsive = false,
 			isFluid = false,
+			isDisabled = false,
 			closeOnOuterClick = true,
 			colorScheme = "black",
 			onToggle = () => {},
@@ -326,6 +327,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							isSmall={isSmall ?? false}
 							onClick={() => handleOnOpen(!isOpen)}
 							isResponsive={isResponsive}
+							isDisabled={isDisabled}
 							{...(!iconOnly && { endIcon: "ChevronDown" })}
 							colorScheme={colorScheme as ButtonProps["colorScheme"]}
 						>

@@ -221,6 +221,10 @@ interface DropdownProps
 	 */
 	isFluid?: boolean
 	/**
+	 * Whether dropdown is disabled.
+	 */
+	isDisabled?: boolean
+	/**
 	 * Close dropdown on outer click
 	 */
 	closeOnOuterClick?: boolean

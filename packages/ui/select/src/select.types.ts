@@ -143,6 +143,7 @@ interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 	selectAll?: () => void
 	onToggle: (isOpen: boolean) => void
 	isSmall?: boolean
+	isDisabled?: boolean
 	isMultiSelect?: boolean
 	isSearchable?: boolean
 	isCustomVar?: boolean

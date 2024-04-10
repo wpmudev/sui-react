@@ -1,9 +1,128 @@
 import React from "react"
 
 import "@testing-library/jest-dom"
-import { screen, render, fireEvent, prettyDOM } from "@testing-library/react"
+import { screen, render, fireEvent, waitFor } from "@testing-library/react"
 import { a11yTest } from "@wpmudev/sui-utils"
 import { Select, SelectBaseProps } from "../src"
+import { setupServer } from "msw/node"
+import { rest } from "msw"
+
+const AsyncSelect = () => {
+	const perPage = 10
+
+	return (
+		<Select
+			_dropdownProps={{
+				type: "select",
+				isAsync: true,
+				allowSearch: true,
+				searchPlaceholder: "Search...",
+				asyncOptions: {
+					perPage,
+				},
+				getOptions: async (
+					search: string,
+					{ page }: any,
+					prevLoadedItems = [],
+				) => {
+					// calculate how many items to skip
+					const skip = page * perPage - 10
+					// store all menu items here
+					const items: SelectBaseProps["options"] = []
+					const baseAPI = `https://dummyjson.com/products/search`
+					let total = 0
+
+					// fetch data from API
+					await fetch(
+						`${baseAPI}?limit=${perPage}&skip=${skip}&total=50&q=${search}`,
+					)
+						.then((res) => res.json())
+						.then((result) => {
+							total = result.total
+
+							result.products.forEach((item: any) => {
+								items.push({
+									id: item?.id,
+									label: item?.title,
+									isSelected: false,
+								})
+							})
+						})
+
+					return {
+						items,
+						hasMore: [...items, ...prevLoadedItems].length < 100,
+					}
+				},
+			}}
+		/>
+	)
+}
+
+// Mocking the server response
+const server = setupServer(
+	rest.get("https://dummyjson.com/products/search", (req, res, ctx) => {
+		const search = req.url.searchParams.get("q")
+		const products = [
+			{ id: 1, title: "iPhone 13 Pro Max" },
+			{ id: 2, title: "Galaxy S21 Ultra" },
+			{ id: 3, title: "Pixel 6 Pro" },
+		]
+
+		const filteredProducts = products.filter((product) =>
+			search
+				? product.title.toLowerCase().includes(search.toLowerCase())
+				: true,
+		)
+
+		return res(
+			ctx.json({
+				total: filteredProducts.length,
+				products: filteredProducts,
+			}),
+		)
+	}),
+)
+
+beforeAll(() => server.listen())
+afterAll(() => server.close())
+beforeEach(() => server.resetHandlers())
+
+// Variable variation options
+const variableOptions = [
+	{
+		id: "view-form",
+		label: "View form",
+		props: {
+			variable: "{view_form}",
+			description: "Short description",
+		},
+	},
+	{
+		id: "edit-form",
+		label: "Edit form",
+		props: {
+			variable: "{edit_form}",
+			description: "Short description",
+		},
+	},
+	{
+		id: "duplicate-form",
+		label: "Duplicate form",
+		props: {
+			variable: "{duplicate_form}",
+			description: "Short description",
+		},
+	},
+	{
+		id: "delete-form",
+		label: "Delete form",
+		props: {
+			variable: "{delete_form}",
+			description: "Short description",
+		},
+	},
+]
 
 describe("@wpmudev/sui-select", () => {
 	const props: SelectBaseProps = {
@@ -149,8 +268,88 @@ describe("@wpmudev/sui-select", () => {
 		expect(container.querySelectorAll(".sui-select__dropdown")).toHaveLength(1)
 	})
 
+	// variable variation test
+	it("variable variation works as expected", () => {
+		// Render the component
+		const { container } = render(
+			<Component {...props} isCustomVar={true} options={variableOptions} />,
+		)
+
+		// Get the "select" element
+		const select = screen.getByTestId("select")
+
+		// Check if the className is added
+		expect(select).toHaveClass("sui-select--custom-var")
+
+		// Check if the dropdown button works
+		const button = select.querySelector(".sui-button")
+
+		// Click on the button
+		fireEvent.click(button as Element)
+
+		// Check if the dropdown is opened
+		expect(select).toHaveClass("sui-select--open")
+
+		// Select the first option
+		const firstOption = container.querySelector(".sui-dropdown__menu-item")
+		fireEvent.click(firstOption as Element)
+
+		// Check if the option has been successfully selected
+		const selectedOptions = container.querySelector(
+			".sui-select__selected-options",
+		)
+		expect(selectedOptions).toBeInTheDocument()
+		expect(selectedOptions).toHaveTextContent("view_form")
+	})
+
 	// eslint-disable-next-line jest/expect-expect
 	it("passes a11y test", async () => {
 		await a11yTest(<Component {...props} />)
+	})
+
+	// Async features works correctly
+	describe("Async features works correctly", () => {
+		// Renders correctly
+		it("Async variation renders correctly", () => {
+			render(<AsyncSelect />)
+
+			// Verify that the Dropdown component is in the document
+			expect(screen.getByTestId("select")).toBeInTheDocument()
+		})
+
+		// Displays asynchronous options
+		it("Should display asynchronous options", async () => {
+			const { container } = render(<AsyncSelect />)
+
+			// Click to open the select
+			const select = container.querySelector(".sui-accessible-cta")
+			fireEvent.click(select as Element)
+
+			await waitFor(() => {
+				expect(screen.getByText("iPhone 13 Pro Max")).toBeInTheDocument()
+				expect(screen.getByText("Galaxy S21 Ultra")).toBeInTheDocument()
+				expect(screen.getByText("Pixel 6 Pro")).toBeInTheDocument()
+			})
+		})
+
+		// Search works correctly
+		it("Search feature works correctly", async () => {
+			const { container } = render(<AsyncSelect />)
+
+			// Click to open the select
+			const select = container.querySelector(".sui-accessible-cta")
+			fireEvent.click(select as Element)
+
+			// Type in search input
+			const searchInput = screen.getByPlaceholderText("Search...")
+			fireEvent.change(searchInput, { target: { value: "Galaxy" } })
+
+			await waitFor(() => {
+				// Only "Galaxy S21 Ultra" should be displayed
+				expect(screen.queryByText("iPhone 13 Pro Max")).not.toBeInTheDocument()
+				expect(screen.getByText("Galaxy S21 Ultra")).toBeInTheDocument()
+				expect(screen.queryByText("Pixel 6 Pro")).not.toBeInTheDocument()
+			})
+		})
 	})
 })
