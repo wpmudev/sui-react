@@ -7,7 +7,6 @@ import docs from "./IconsPack.mdx"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 
 // Import required styles.
-import "../dist/css/sui-icons.css"
 import "./styles/icons-pack.scss"
 
 import { capitalizeText } from "@wpmudev/sui-utils"

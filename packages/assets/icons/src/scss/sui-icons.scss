@@ -1,19 +1,19 @@
-@use './variables' as *;
+@use "./variables" as *;
 
-@font-face {
-	font-family: '#{$font-family}';
-	src:
-		url('#{$font-path}/#{$font-family}.ttf?#{$font-code}') format('truetype'),
-		url('#{$font-path}/#{$font-family}.woff?#{$font-code}') format('woff'),
-		url('#{$font-path}/#{$font-family}.svg?#{$font-code}##{$font-family}') format('svg');
-	font-weight: normal;
-	font-style: normal;
-	font-display: block;
-}
+// @font-face {
+// 	font-family: '#{$font-family}';
+// 	src:
+// 		url('#{$font-path}/#{$font-family}.ttf?#{$font-code}') format('truetype'),
+// 		url('#{$font-path}/#{$font-family}.woff?#{$font-code}') format('woff'),
+// 		url('#{$font-path}/#{$font-family}.svg?#{$font-code}##{$font-family}') format('svg');
+// 	font-weight: normal;
+// 	font-style: normal;
+// 	font-display: block;
+// }
 
 .suicons {
 	/* use !important to prevent issues with browser extensions that change fonts */
-	font-family: '#{$font-family}' !important;
+	// font-family: "#{$font-family}" !important;
 	speak: never;
 	font-style: normal;
 	font-weight: normal;
