@@ -57,11 +57,11 @@ export const Selector = ({
 						{options.map((option, index) => (
 							<Col key={index} size={25}>
 								<SuiSelector
+									{...args}
 									onChange={onChange}
 									isChecked={val === option.value}
 									variation={variation}
 									value={option.value}
-									{...args}
 								/>
 							</Col>
 						))}
@@ -188,7 +188,7 @@ Selector.argTypes = {
 		control: {
 			type: "select",
 			labels: {
-				"": "Default",
+				default: "Default",
 				blue: "Blue (Information)",
 				navy: "Navy Blue",
 				yellow: "Yellow (Warning)",
@@ -204,4 +204,6 @@ Selector.argTypes = {
 	value: { table: { disable: true } },
 	isChecked: { table: { disable: true } },
 	defaultValue: { table: { disable: true } },
+	_style: { table: { disable: true } },
+	_htmlProps: { table: { disable: true } },
 }

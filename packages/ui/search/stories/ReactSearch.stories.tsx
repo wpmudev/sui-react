@@ -5,7 +5,7 @@ import { Search as SuiSearch } from "../src"
 import { options } from "./options"
 
 // Import documentation main page
-import docs from "./search.mdx"
+import docs from "./ReactSearch.mdx"
 
 // Configure default options.
 export default {
@@ -59,6 +59,10 @@ Search.argTypes = {
 	},
 	options: {
 		name: "Options",
+		if: {
+			arg: "variation",
+			eq: "smart",
+		},
 	},
 	placeholder: {
 		name: "Placeholder",
@@ -82,6 +86,10 @@ Search.argTypes = {
 		name: "Minimum characters",
 		control: {
 			type: "number",
+		},
+		if: {
+			arg: "variation",
+			eq: "smart",
 		},
 	},
 	searchHint: {

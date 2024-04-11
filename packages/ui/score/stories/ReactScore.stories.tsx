@@ -44,7 +44,7 @@ const Score = ({
 Score.args = {
 	bar: 15,
 	value: 15,
-	content: "",
+	description: "",
 	isPercentage: false,
 	state: "warning",
 	isSmall: true,

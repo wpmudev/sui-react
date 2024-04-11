@@ -106,7 +106,6 @@ Button.args = {
 	type: "primary",
 	colorScheme: "blue",
 	isSmall: false,
-	isLoading: true,
 	isDisabled: false,
 	isResponsive: false,
 	isFullWidth: false,
@@ -238,17 +237,6 @@ Button.argTypes = {
 		},
 	},
 
-	isLoading: {
-		name: "Loading",
-		control: {
-			type: "boolean",
-		},
-		if: {
-			arg: "example",
-			eq: "button-load",
-		},
-	},
-
 	isDisabled: {
 		name: "Disabled",
 		control: {
@@ -270,6 +258,7 @@ Button.argTypes = {
 	_htmlProps: { table: { disable: true } },
 	isUnwrapped: { table: { disable: true } },
 	startIcon: { table: { disable: true } },
+	isLoading: { table: { disable: true } },
 }
 
 // Publish required stories.
