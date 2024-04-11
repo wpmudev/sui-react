@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 // Import required component.
 import { Tag as SuiTag, TagProps } from "../src"
@@ -20,6 +20,8 @@ export default {
 
 // Build "Tag" story.
 const Tag = ({ children, ...props }: TagProps & { color?: string }) => {
+	const [isVisisble, setIsVisible] = useState(true)
+
 	const boxStyle = {
 		margin: 0,
 		padding: "30px",
@@ -32,7 +34,16 @@ const Tag = ({ children, ...props }: TagProps & { color?: string }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyle}>
-					<SuiTag {...props}>{children}</SuiTag>
+					{isVisisble && (
+						<SuiTag
+							{...props}
+							onDismiss={() => {
+								setIsVisible(!isVisisble)
+							}}
+						>
+							{children}
+						</SuiTag>
+					)}
 				</div>
 			</div>
 		</div>
