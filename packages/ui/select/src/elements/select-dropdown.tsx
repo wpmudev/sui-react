@@ -87,7 +87,6 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 				type: "select-variable",
 			})}
 			_htmlProps={{
-				"aria-label": "dropdown-options",
 				...getOptProps,
 			}}
 			isDisabled={isDisabled}
