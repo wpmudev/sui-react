@@ -129,7 +129,7 @@ const Accordion = ({
 							description="Supportive description for the accordion item"
 							hasCheckbox={true}
 							icon={<InfoAlt />}
-							// isDisabled={true}
+							isDisabled={true}
 						>
 							<AccordionItemBody>
 								<p>
