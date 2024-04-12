@@ -155,6 +155,10 @@ const Accordion = ({
 
 Accordion.args = {
 	state: "default",
+	allowMultipleExpand: false,
+	noBorderRadius: false,
+	noSideBorders: false,
+	isFlushed: false,
 }
 
 // Set controls for story arguments.
