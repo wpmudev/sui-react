@@ -9,7 +9,6 @@ import { IconsName } from "@wpmudev/sui-icons"
 // Import documentation main page
 import docs from "./ReactDropdown.mdx"
 import { MenuItemProps, MenuGroupProps } from "../src/dropdown.types"
-import { isDisabled } from "@testing-library/user-event/dist/types/utils"
 
 // Configure default options
 export default {
