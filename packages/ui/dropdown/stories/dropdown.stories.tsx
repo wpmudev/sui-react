@@ -341,7 +341,7 @@ Dropdown.argTypes = {
 				// select: "Example: Dropdown",
 				// "select-variable": "Example: Select + Variable",
 				pro: "Example: Pro Menu",
-				icon: "Example: Icon Only",
+				// icon: "Example: Icon Only",
 				custom: "Example: Custom Content",
 			},
 		},
