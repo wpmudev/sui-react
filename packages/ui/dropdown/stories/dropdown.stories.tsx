@@ -9,6 +9,7 @@ import { IconsName } from "@wpmudev/sui-icons"
 // Import documentation main page
 import docs from "./ReactDropdown.mdx"
 import { MenuItemProps, MenuGroupProps } from "../src/dropdown.types"
+import { isDisabled } from "@testing-library/user-event/dist/types/utils"
 
 // Configure default options
 export default {
@@ -316,14 +317,23 @@ Dropdown.args = {
 	buttonIcon: "Menu",
 	allowSearch: true,
 	closeOnOuterClick: true,
+	isFluid: false,
+	size: "md",
 	isAsync: false,
+	isDisabled: false,
 	onMenuClick: () => {},
 }
 
 Dropdown.argTypes = {
 	example: {
 		name: "Type",
-		options: ["select-checkbox", "async", "select-variable", "pro", "custom"],
+		options: [
+			// "select-checkbox",
+			//  "async",
+			//  "select-variable",
+			"pro",
+			"custom",
+		],
 		control: {
 			type: "select",
 			labels: {
@@ -374,6 +384,26 @@ Dropdown.argTypes = {
 	},
 	isFluid: {
 		name: "Full width",
+		control: "boolean",
+	},
+	size: {
+		name: "Size",
+		options: ["sm", "md", "lg"],
+		control: {
+			type: "select",
+			labels: {
+				sm: "Small",
+				md: "Medium",
+				lg: "Large",
+			},
+		},
+		if: {
+			arg: "isFluid",
+			eq: false,
+		},
+	},
+	isDisabled: {
+		name: "Disabled",
 		control: "boolean",
 	},
 	allowSearch: {

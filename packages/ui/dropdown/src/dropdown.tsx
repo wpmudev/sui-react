@@ -49,6 +49,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			renderContentOnTop = false,
 			isResponsive = false,
 			isFluid = false,
+			size = "md",
 			isDisabled = false,
 			closeOnOuterClick = true,
 			colorScheme = "black",
@@ -343,6 +344,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						[`placement-${placement}`]: !isEmpty(placement ?? ""),
 						"fixed-height": isFixedHeight,
 						fluid: isFluid,
+						[size]: !isFluid,
 						[type]: !isEmpty(type ?? ""),
 					})}
 					{...(label && {

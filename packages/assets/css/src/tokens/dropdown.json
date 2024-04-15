@@ -3,11 +3,15 @@
 		"size": {
 			"width": {
 				"sm": {
-					"value": "280px",
+					"value": "160px",
 					"type": "sizing"
 				},
 				"md": {
-					"value": "300px",
+					"value": "240px",
+					"type": "sizing"
+				},
+				"lg": {
+					"value": "280px",
 					"type": "sizing"
 				}
 			},

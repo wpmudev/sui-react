@@ -12,7 +12,6 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			@include element(popover) {
-				min-width: 120px;
 				z-index: 100;
 				position: absolute;
 				top: 100%;
@@ -42,6 +41,18 @@
 					.sui-#{$block-name}__menu-item {
 						padding: $spacing-md $spacing-lg;
 					}
+				}
+
+				@include modifier(sm) {
+					min-width: $dropdown-size-width-sm;
+				}
+
+				@include modifier(md) {
+					min-width: $dropdown-size-width-md;
+				}
+
+				@include modifier(lg) {
+					min-width: $dropdown-size-width-lg;
 				}
 			}
 		}

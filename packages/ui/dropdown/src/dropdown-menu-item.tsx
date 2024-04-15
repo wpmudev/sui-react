@@ -139,7 +139,16 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 		) => handleOnKeyDown(e, onClick)
 	}
 
-	return (
+	return "a" === TagName ? (
+		<li>
+			<TagName
+				{...attrs}
+				{...methods}
+				aria-labelledby={menuTitleId}
+				{...btnAttr}
+			/>
+		</li>
+	) : (
 		<TagName
 			{...attrs}
 			{...methods}
