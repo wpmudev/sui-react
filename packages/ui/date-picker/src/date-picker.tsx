@@ -26,6 +26,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	minDate,
 	maxDate,
 	isDisabled = false,
+	isError = false,
 	onChange = () => null,
 	_htmlProps,
 	_style,
@@ -62,7 +63,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 				data-testid="date-picker"
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
-				<DatePickerInput isDisabled={isDisabled} />
+				<DatePickerInput isDisabled={isDisabled} isError={isError} />
 				<DatePickerPopover />
 			</div>
 		</DatePickerProvider>

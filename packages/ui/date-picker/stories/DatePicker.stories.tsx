@@ -47,7 +47,11 @@ const DatePicker = ({
 						error={error}
 						isDisabled={isDisabled}
 					>
-						<SuiDatePicker isDisabled={isDisabled} {...props} />
+						<SuiDatePicker
+							isDisabled={isDisabled}
+							isError={error ? true : false}
+							{...props}
+						/>
 					</FormField>
 				</div>
 			</div>

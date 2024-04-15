@@ -40,6 +40,10 @@ interface DatePickerProps
 	 */
 	isDisabled?: boolean
 	/**
+	 * Make DatePicker disabled
+	 */
+	isError?: boolean
+	/**
 	 * Start date
 	 */
 	startDate?: string
