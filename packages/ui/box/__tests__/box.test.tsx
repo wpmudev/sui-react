@@ -14,7 +14,7 @@ describe("@wpmudev/box", () => {
 		headerRight: string
 	} = {
 		title: "__BOX_LABEL__", // Set the title
-		icon: "Hub", // Set the icon
+		icon: "PluginThc", // Set the icon
 		headerLeft: "__HEADER_LEFT__", // Set the headerLeft content
 		headerRight: "__HEADER_RIGHT__", // Set the headerRight content
 	}

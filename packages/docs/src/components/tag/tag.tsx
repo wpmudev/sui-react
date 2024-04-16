@@ -17,7 +17,7 @@ import "./tag.scss"
 
 interface TagProps {
 	id?: string
-	color: "" | "yellow" | "blue" | "red" | "green"
+	color?: "" | "yellow" | "blue" | "red" | "green"
 	light?: boolean
 	uppercase?: boolean
 	tooltip?: string
@@ -32,7 +32,7 @@ const Tag: React.FunctionComponent<
 		>
 > = ({
 	id = "",
-	color,
+	color = "",
 	light = false,
 	uppercase = false,
 	tooltip,
