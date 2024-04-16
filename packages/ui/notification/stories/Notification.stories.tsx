@@ -190,7 +190,7 @@ export const Notification = ({
 				<div style={box}>
 					{!isInline ? (
 						<Fragment>
-							<h2 style={{ marginTop: 0 }}>Toast Notifications</h2>
+							<h2 style={{ margin: "0 0 10px" }}>Toast Notifications</h2>
 							<div>
 								<Button
 									type="secondary"
@@ -206,7 +206,7 @@ export const Notification = ({
 						</Fragment>
 					) : (
 						<Fragment>
-							<h2 style={{ marginTop: 0 }}>Inline Notifications</h2>
+							<h2 style={{ margin: "0 0 10px" }}>Inline Notifications</h2>
 							<div>
 								<SuiNotification {...options} id="notification-1" />
 							</div>

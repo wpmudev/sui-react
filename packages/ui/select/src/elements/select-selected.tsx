@@ -136,7 +136,6 @@ const Selected: React.FC<SelectSelectedProps> = ({
 				<div
 					className="sui-accessible-cta"
 					ref={controlRef as LegacyRef<HTMLDivElement>}
-					role="button"
 					{...(!isCustomVar && {
 						role: "button",
 						onClick: dropdownToggle,

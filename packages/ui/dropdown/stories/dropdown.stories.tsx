@@ -316,14 +316,23 @@ Dropdown.args = {
 	buttonIcon: "Menu",
 	allowSearch: true,
 	closeOnOuterClick: true,
+	isFluid: false,
+	size: "md",
 	isAsync: false,
+	isDisabled: false,
 	onMenuClick: () => {},
 }
 
 Dropdown.argTypes = {
 	example: {
 		name: "Type",
-		options: ["select-checkbox", "async", "select-variable", "pro", "custom"],
+		options: [
+			// "select-checkbox",
+			//  "async",
+			//  "select-variable",
+			"pro",
+			"custom",
+		],
 		control: {
 			type: "select",
 			labels: {
@@ -331,7 +340,7 @@ Dropdown.argTypes = {
 				// select: "Example: Dropdown",
 				// "select-variable": "Example: Select + Variable",
 				pro: "Example: Pro Menu",
-				icon: "Example: Icon Only",
+				// icon: "Example: Icon Only",
 				custom: "Example: Custom Content",
 			},
 		},
@@ -374,6 +383,26 @@ Dropdown.argTypes = {
 	},
 	isFluid: {
 		name: "Full width",
+		control: "boolean",
+	},
+	size: {
+		name: "Size",
+		options: ["sm", "md", "lg"],
+		control: {
+			type: "select",
+			labels: {
+				sm: "Small",
+				md: "Medium",
+				lg: "Large",
+			},
+		},
+		if: {
+			arg: "isFluid",
+			eq: false,
+		},
+	},
+	isDisabled: {
+		name: "Disabled",
 		control: "boolean",
 	},
 	allowSearch: {

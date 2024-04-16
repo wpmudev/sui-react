@@ -175,7 +175,7 @@ Checkbox.argTypes = {
 		},
 	},
 	isError: {
-		name: "error",
+		name: "Error",
 		control: {
 			type: "boolean",
 		},

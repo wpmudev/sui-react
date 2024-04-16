@@ -114,8 +114,6 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 		>
 			<div
 				id={accordionId}
-				aria-expanded={isCurrentlyExpanded}
-				aria-controls={accordionPanelId}
 				className={generateCN("sui-accordion__header", {
 					focus: isFocused || isPressed,
 				})}

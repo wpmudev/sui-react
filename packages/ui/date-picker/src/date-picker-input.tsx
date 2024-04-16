@@ -5,8 +5,9 @@ import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { Input } from "@wpmudev/sui-input"
 
 import { DatePickerContext } from "./date-picker-context"
+import { isEmpty } from "../../../docs/src/utils/index"
 
-const DatePickerInput: React.FC<any> = ({ ...props }) => {
+const DatePickerInput: React.FC<any> = ({ isError, disabled }) => {
 	// DatePickerContext to handle the date picker state
 	const ctx = useContext(DatePickerContext)!
 
@@ -58,13 +59,15 @@ const DatePickerInput: React.FC<any> = ({ ...props }) => {
 				id={id}
 				icon="Calendar"
 				iconPosition="start"
-				isReadOnly={true}
 				defaultValue={value ?? ""}
 				onClick={onInputClick}
+				className="sui-datepicker__input--element"
+				isError={isError}
 				_htmlProps={{
 					onKeyDown: (e: any) => handleOnKeyDown(e, onInputClick),
 					"data-testid": "date-picker-input-container-cta",
-					tabIndex: props.disabled ? -1 : 0,
+					tabIndex: disabled ? -1 : 0,
+					readOnly: true,
 				}}
 			/>
 		</div>

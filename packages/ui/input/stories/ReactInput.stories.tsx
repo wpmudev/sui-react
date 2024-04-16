@@ -99,6 +99,10 @@ Input.argTypes = {
 		options: ["start", "end"],
 		control: {
 			type: "select",
+			labels: {
+				start: "Start",
+				end: "End",
+			},
 		},
 		if: {
 			arg: "icon",
@@ -137,6 +141,12 @@ Input.argTypes = {
 		name: "Allow Clear",
 		control: "boolean",
 	},
+	isError: { table: { disable: true } },
+	isRequired: { table: { disable: true } },
+	isMultiLine: { table: { disable: true } },
+	disableInteractions: { table: { disable: true } },
+	_style: { table: { disable: true } },
+	_htmlProps: { table: { disable: true } },
 }
 
 // Publish required stories.

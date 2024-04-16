@@ -221,6 +221,10 @@ interface DropdownProps
 	 */
 	isFluid?: boolean
 	/**
+	 * Dropdown popover direction
+	 */
+	size?: "sm" | "md" | "lg"
+	/**
 	 * Whether dropdown is disabled.
 	 */
 	isDisabled?: boolean

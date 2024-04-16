@@ -129,7 +129,7 @@ const Accordion = ({
 							description="Supportive description for the accordion item"
 							hasCheckbox={true}
 							icon={<InfoAlt />}
-							// isDisabled={true}
+							isDisabled={true}
 						>
 							<AccordionItemBody>
 								<p>
@@ -155,6 +155,10 @@ const Accordion = ({
 
 Accordion.args = {
 	state: "default",
+	allowMultipleExpand: false,
+	noBorderRadius: false,
+	noSideBorders: false,
+	isFlushed: false,
 }
 
 // Set controls for story arguments.

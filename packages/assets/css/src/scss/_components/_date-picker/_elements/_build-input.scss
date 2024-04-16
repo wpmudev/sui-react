@@ -15,7 +15,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(input) {
-				input {
+				@include modifier(element) {
 					color: $color-extended-neutral-10;
 				}
 

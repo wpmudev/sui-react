@@ -121,5 +121,6 @@ Radio.argTypes = {
 		type: "boolean",
 	},
 	value: { table: { disable: true } },
+	_style: { table: { disable: true } },
 	_htmlProps: { table: { disable: true } },
 }

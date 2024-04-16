@@ -60,10 +60,10 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 				ref={userBtnRef}
 				label="Menu Button"
 				placement="left"
+				size="md"
 				trigger={userAvatarBtn}
 				renderContentOnTop={true}
 				menu={menu ?? []}
-				menuCustomWidth={240}
 			>
 				{getUserBlock()}
 			</Dropdown>

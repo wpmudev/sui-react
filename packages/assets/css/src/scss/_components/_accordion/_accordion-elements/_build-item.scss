@@ -16,7 +16,6 @@
 		@include block($block) {
 			@include element(item) {
 				border-top: $border-width-sm solid $color-extended-neutral-80;
-				// overflow: hidden;
 				position: relative;
 				transition: 0.3s all ease;
 

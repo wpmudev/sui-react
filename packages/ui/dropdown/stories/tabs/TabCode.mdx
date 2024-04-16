@@ -72,10 +72,8 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
 			<p>
 				Allowed values
 				<List>
-					<span label="default" />
-					<span label="select" />
-					<span label="select-checkbox" />
-					<span label="select-variable" />
+					<span label="pro" />
+					<span label="custom" />
 				</List>
 			</p>
     	</PropSection>
@@ -86,6 +84,18 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
 
 		<PropSection title="isFluid" type="boolean" defaultValue="false">
     		<p>When set to <Code isSmall={true}>true</Code> the Dropdown will have a full width</p>
+    	</PropSection>
+
+		<PropSection title="size" type="string">
+    		<p>Represents the size of the Dropdown</p>
+			<p>
+				Allowed values
+				<List>
+					<span label="sm" />
+					<span label="md" />
+					<span label="lg" />
+				</List>
+			</p>
     	</PropSection>
 
 		<PropSection title="closeOnOuterClick" type="boolean" defaultValue="true">
