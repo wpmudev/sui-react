@@ -60,6 +60,7 @@ const options = [
 const Select = ({
 	example,
 	errorMessage,
+	id,
 	isSmall,
 	isDisabled,
 	isSearchable,
@@ -88,7 +89,7 @@ const Select = ({
 				<div style={boxStyle}>
 					{"select" === example && (
 						<FormField
-							id="select"
+							id={id}
 							label="Label"
 							helper="Description"
 							error={errorMessage}
@@ -113,7 +114,7 @@ const Select = ({
 					)}
 					{"select-async" === example && (
 						<FormField
-							id="select"
+							id={id}
 							label="Label"
 							helper="Description"
 							error={errorMessage}
@@ -171,7 +172,7 @@ const Select = ({
 					)}
 					{"multi-select" === example && (
 						<FormField
-							id="select"
+							id={id}
 							label="Label"
 							helper="Description"
 							error={errorMessage}
@@ -183,7 +184,7 @@ const Select = ({
 					)}
 					{"select-variable" === example && (
 						<FormField
-							id="select"
+							id={id}
 							label="Label"
 							helper="Description"
 							error={errorMessage}
@@ -238,7 +239,7 @@ const Select = ({
 
 Select.args = {
 	example: "select",
-	id: "id-1",
+	id: "custom-id",
 	label: "Select",
 	isError: false,
 	errorMessage: "Error message",

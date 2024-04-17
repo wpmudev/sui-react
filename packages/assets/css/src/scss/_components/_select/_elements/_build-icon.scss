@@ -16,7 +16,7 @@
 			@include element(control) {
 				.sui-#{$block}__icon {
 					position: absolute;
-					line-height: normal;
+					line-height: 0;
 					top: 50%;
 					transform: translateY(-50%);
 				}

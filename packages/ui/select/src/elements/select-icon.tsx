@@ -1,20 +1,19 @@
-import React, { MouseEventHandler } from "react"
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import React from "react"
+import { SuiHTMLAttributes, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 import { useStyles, useStylesTypes } from "@wpmudev/sui-hooks"
 
-interface SelectIconProps extends useStylesTypes {
+interface SelectIconProps extends SuiHTMLAttributes, useStylesTypes {
 	name: IconsNamesType
 	size: "xs" | "sm" | "md"
-	onClick?: MouseEventHandler<HTMLSpanElement>
 }
 
 // Build "Icon" component.
 const Icon: React.FC<SelectIconProps> = ({
 	name,
 	size = "md",
-	onClick = () => {},
+	_htmlProps = {},
 	...props
 }) => {
 	const { suiInlineClassname } = useStyles(props)
@@ -41,10 +40,9 @@ const Icon: React.FC<SelectIconProps> = ({
 				{},
 				suiInlineClassname,
 			)}
-			onClick={onClick}
-			aria-hidden="true"
+			{..._htmlProps}
 		>
-			{IconName && <IconName size={size} />}
+			<span aria-hidden="true">{IconName && <IconName size={size} />}</span>
 		</span>
 	)
 }
