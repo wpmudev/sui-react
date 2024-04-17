@@ -220,8 +220,6 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			value: value ?? "",
 			className: inputClassNames,
 			onChange: handleChange,
-			// Interaction methods
-			...(!!disableInteractions ? {} : interactionMethods),
 			// Any additional props
 			required: isRequired,
 			pattern,
@@ -230,6 +228,8 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			onFocus,
 			onKeyDown,
 			...ariaAttrs,
+			// Interaction methods
+			...(!!disableInteractions ? {} : interactionMethods),
 		}
 
 		/**

@@ -47,7 +47,6 @@ const Input = ({
 						helper="Helper Text"
 						isSmall={isSmall}
 						isDisabled={isDisabled}
-						error="There is an errror"
 					>
 						<SuiInput {...args} />
 					</FormField>
