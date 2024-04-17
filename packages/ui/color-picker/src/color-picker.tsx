@@ -32,6 +32,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	isFluid = false,
 	onReset = () => null,
 	onColorChange = () => null,
+	ariaAttrs = {},
 	_htmlProps,
 	_style = {},
 }: ColorPickerProps): JSX.Element => {
@@ -147,6 +148,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					isDisabled={isDisabled ?? false}
 					id={id}
 					{...(isSmall && { isSmall })}
+					{...(ariaAttrs && { ariaAttrs })}
 				/>
 
 				<div

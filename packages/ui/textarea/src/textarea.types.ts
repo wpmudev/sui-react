@@ -42,6 +42,11 @@ interface TextareaProps
 
 	// Textarea number
 	rows?: number
+
+	/**
+	 * aria attributes of field
+	 */
+	ariaAttrs?: object
 }
 
 export type { TextareaProps }

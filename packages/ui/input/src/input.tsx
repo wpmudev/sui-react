@@ -68,6 +68,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			validate,
 			validateOnMount,
 			resetValidation,
+			ariaAttrs = {},
 			_htmlProps = {},
 			_style = {},
 		},
@@ -214,7 +215,6 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			ref,
 			type: condContent(!isMultiLine, inputType),
 			placeholder: condContent(hasPlaceholder, placeholder),
-			"aria-label": placeholder || "input",
 			readOnly: condContent(isReadOnly, true),
 			disabled: condContent(isDisabled, true),
 			value: value ?? "",
@@ -229,6 +229,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			onClick,
 			onFocus,
 			onKeyDown,
+			...ariaAttrs,
 		}
 
 		/**

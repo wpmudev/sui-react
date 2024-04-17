@@ -169,6 +169,11 @@ interface InputProps
 	customWidth?: number
 
 	/**
+	 * aria attributes of field
+	 */
+	ariaAttrs?: object
+
+	/**
 	 * On validation callback
 	 */
 	onValidate?: (id?: string, value?: string | number | boolean) => void

@@ -33,6 +33,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	dropdownToggle = () => {},
 	clearSelection = () => {},
 	onCustomVarChange = () => {},
+	ariaAttrs = {},
 	...props
 }) => {
 	// Prepare the selected content
@@ -151,9 +152,9 @@ const Selected: React.FC<SelectSelectedProps> = ({
 							}
 						},
 						tabIndex: 0,
-						"aria-label": selectLabel,
 						"aria-haspopup": "listbox",
 						"aria-expanded": expanded,
+						...ariaAttrs,
 						...interactionMethods,
 					})}
 				/>

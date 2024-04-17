@@ -58,13 +58,19 @@ const FormField: React.FC<FormFieldProps> = ({
 
 	// Define aria attributes.
 	const ariaAttrs = {
-		id: fieldId,
-		...(isSmall && { isSmall }),
-		...(isDisabled && { isDisabled }),
 		...(!isEmpty(label ?? "") && { "aria-labelledby": `${fieldId}-label` }),
 		...(!!helper && { "aria-describedby": `${fieldId}-helper` }),
 		...(isErrored && {
 			"aria-errormessage": `${fieldId}-error-message`,
+		}),
+	}
+
+	// define field attributes
+	const fieldAttrs = {
+		id: fieldId,
+		...(isSmall && { isSmall }),
+		...(isDisabled && { isDisabled }),
+		...(isErrored && {
 			isError: true,
 		}),
 	}
@@ -85,7 +91,11 @@ const FormField: React.FC<FormFieldProps> = ({
 			{Object.keys(ariaAttrs).length > 0
 				? Children.map(children, (child: ReactNode) => {
 						return isValidElement(child)
-							? cloneElement(child, { ...ariaAttrs, ...child.props })
+							? cloneElement(child, {
+									...fieldAttrs,
+									ariaAttrs,
+									...child.props,
+							  })
 							: child
 				  })
 				: children}

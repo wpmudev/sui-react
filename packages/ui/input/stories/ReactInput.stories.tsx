@@ -21,8 +21,16 @@ export default {
 }
 
 // Build "Input" story.
-const Input = (args: InputProps) => {
-	const { isSmall, isDisabled } = args
+const Input = ({
+	id,
+	isSmall,
+	isDisabled,
+	...args
+}: {
+	id: string
+	isSmall: boolean
+	isDisabled: boolean
+}) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -34,11 +42,12 @@ const Input = (args: InputProps) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<FormField
-						id="input-1"
+						id={id}
 						label="Label"
 						helper="Helper Text"
 						isSmall={isSmall}
 						isDisabled={isDisabled}
+						error="There is an errror"
 					>
 						<SuiInput {...args} />
 					</FormField>

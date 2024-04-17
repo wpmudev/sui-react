@@ -25,6 +25,7 @@ const Textarea: React.FC<TextareaProps> = ({
 	validate,
 	validateOnMount,
 	resetValidation,
+	ariaAttrs = {},
 	_htmlProps = {},
 	_style = {},
 }) => {
@@ -89,6 +90,7 @@ const Textarea: React.FC<TextareaProps> = ({
 				data-testid="textarea-input"
 				placeholder={placeholder}
 				rows={rows}
+				{...ariaAttrs}
 				{..._renderHTMLPropsSafely(_htmlProps)}
 				{...methods}
 			/>

@@ -47,6 +47,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	resetValidation,
 	validateOnMount,
 	validate,
+	ariaAttrs = {},
 	_style = {},
 	_htmlProps = {},
 	_dropdownProps = {},
@@ -261,6 +262,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		clearSelection: () => {
 			RemoveAll(updateItem, items, setFilteredItems)
 		},
+		ariaAttrs,
 		...(!isSearchable && {
 			dropdownToggle: () => {
 				dropdownRef.current?.toggle()
