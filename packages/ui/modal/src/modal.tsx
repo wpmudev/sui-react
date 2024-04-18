@@ -23,7 +23,15 @@ export const ModalContext = createContext<ModalContextProps | null>(null)
 // Build modal
 const Modal = forwardRef<ModalActionsProps, ModalProps>(
 	(
-		{ id, size = "sm", _style, children, variant = "simple", _htmlProps },
+		{
+			id,
+			size = "sm",
+			_style,
+			children,
+			variant = "simple",
+			_htmlProps,
+			onCloseModal,
+		},
 		ref,
 	) => {
 		// generate id if not provided
@@ -55,6 +63,9 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 		const closeModal = useCallback(() => {
 			// Remove lock class from body on close
 			document.body.classList.remove("sui-locked")
+
+			// onClose callback
+			if (onCloseModal) onCloseModal()
 
 			// Update open state
 			setIsOpen(false)

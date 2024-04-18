@@ -79,6 +79,9 @@ const Select: React.FC<SelectBaseProps> = ({
 	useEffect(() => {
 		setItems(options ?? [])
 		setFilteredItems(options ?? [])
+
+		// update selected item
+		//setSelectedItems(options?.filter((option) => option.isSelected === true))
 	}, [options])
 
 	// Hide dropdown when click outside of it
@@ -132,8 +135,10 @@ const Select: React.FC<SelectBaseProps> = ({
 
 	// UseEffect function to handle changes in selected custom variables
 	useEffect(() => {
-		setSelectedItems(customVar)
-	}, [customVar])
+		if (isCustomVar) {
+			setSelectedItems(customVar)
+		}
+	}, [customVar, isCustomVar])
 
 	const { suiInlineClassname } = useStyles(_style, className)
 
