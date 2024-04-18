@@ -13,6 +13,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	onChange = () => {},
 	children,
 	isFullWidth = false,
+	ariaAttrs = {},
 	_htmlProps,
 	_style = {},
 }) => {
@@ -69,8 +70,10 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 		>
 			{/* Render the segmented control with the provided children inside a div with appropriate class names. */}
 			<div
+				role="radiogroup"
 				className={classNames}
 				data-testid="segmented-control"
+				{...ariaAttrs}
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
 				{children}
