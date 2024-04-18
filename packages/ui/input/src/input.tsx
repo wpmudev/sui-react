@@ -215,6 +215,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			ref,
 			type: condContent(!isMultiLine, inputType),
 			placeholder: condContent(hasPlaceholder, placeholder),
+			"aria-label": placeholder || "input",
 			readOnly: condContent(isReadOnly, true),
 			disabled: condContent(isDisabled, true),
 			value: value ?? "",
