@@ -103,6 +103,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 						<input
 							id={id}
 							type="text"
+							aria-label="Select"
 							placeholder={selectLabel}
 							onKeyDown={onCustomVarChange}
 							disabled={disabled}
@@ -130,6 +131,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 			{!isCustomVar && (
 				<input
 					id={id}
+					aria-label="Select"
 					className="sui-select__hidden-input"
 					tabIndex={-1}
 					{...interactionMethods}
@@ -152,6 +154,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 							}
 						},
 						tabIndex: 0,
+						"aria-label": selectLabel,
 						"aria-haspopup": "listbox",
 						"aria-expanded": expanded,
 						...ariaAttrs,
