@@ -8,6 +8,7 @@ type ModalProps = {
 	variant?: "simple" | "advanced" | "app-connect" // Variant type of the modal
 	size?: "sm" | "md" | "lg" | "xl" // Size of the modal (small, medium, large, extra-large)
 	children?: React.ReactNode // Content of the modal (React children)
+	onCloseModal?: () => void // callback function to be called upon closing the modal
 	ref: object // Used to access the open and close modals of the modal
 } & SuiStyleType &
 	SuiHTMLAttributes
