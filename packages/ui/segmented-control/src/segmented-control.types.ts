@@ -18,6 +18,10 @@ interface SegmentedControlProps
 	onChange?(value: string | number): void
 	// Default selected value
 	defaultValue?: string | number
+	/**
+	 * aria attributes of field
+	 */
+	ariaAttrs?: object
 }
 
 /**
