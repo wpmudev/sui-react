@@ -57,7 +57,6 @@ const ColorPicker = ({
 						error={error}
 					>
 						<SuiColorPicker
-							id={id}
 							color={currentColor}
 							onApply={setSavedColor}
 							onColorChange={setCurrentColor}
