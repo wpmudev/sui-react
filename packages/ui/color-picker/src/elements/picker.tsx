@@ -41,14 +41,7 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 }) => {
 	// selected color value
 	const [selectedColor, setSelectedColor] = useState<ColorResult>(
-		color
-			? colorToColorObject(color)
-			: ({
-					hex: "",
-					rgb: { r: 0, g: 0, b: 0, a: 1 },
-					hsl: { h: 0, s: 0, l: 0 },
-					hsv: { h: 0, s: 0, v: 0 },
-			  } as ColorResult),
+		colorToColorObject(color),
 	)
 
 	// default input color values

@@ -39,6 +39,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
 	const [tempColor, setTempColor] = useState("")
+	const [showResetBtn, setShowResetBtn] = useState(false)
 
 	const uniqueId = useId()
 
@@ -47,15 +48,16 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	// Update tempColor when color prop value changes
 	useEffect(() => {
 		setTempColor(color)
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+	}, [color])
 
 	// Handle reset
 	const handleReset = useCallback(
 		(e) => {
 			e.stopPropagation()
+			setShowResetBtn(false)
 			setShowPicker(false)
-			setTempColor("")
 			onReset()
 		},
 		[onReset],
@@ -67,6 +69,8 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 			if (colorCode === tempColor) {
 				return
 			}
+
+			setShowResetBtn(true)
 
 			setTempColor(colorCode)
 
@@ -84,6 +88,8 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 			if (onApply) {
 				onApply(tempColor)
 			}
+
+			setShowResetBtn(true)
 			setShowPicker(false)
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -108,7 +114,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 
 	// Render Button Text According to current state
 	const renderBtnText = () => {
-		if (tempColor) {
+		if (showResetBtn) {
 			return "Reset"
 		}
 		return "Select"
@@ -163,14 +169,14 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					/>
 				</div>
 				<Button
-					className={`sui-color-picker__${tempColor ? "icon" : "button"}`}
-					{...(tempColor && {
+					className={`sui-color-picker__${showResetBtn ? "icon" : "button"}`}
+					{...(showResetBtn && {
 						icon: "CloseAlt",
 						iconOnly: true,
 						iconSize: "md",
 						onClick: handleReset,
 					})}
-					{...(!tempColor && {
+					{...(!showResetBtn && {
 						colorScheme: "blue",
 						type: "tertiary",
 						onClick: () => setShowPicker(!showPicker),
