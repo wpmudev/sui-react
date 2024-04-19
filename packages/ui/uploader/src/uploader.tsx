@@ -85,14 +85,6 @@ const Uploader: React.FC<UploaderProps> = ({
 		return false
 	}
 
-	// Send files to parent component
-	useEffect(() => {
-		if (onChange) {
-			onChange(files)
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [files])
-
 	// Callback to handle file selection
 	const onSelectFile = useCallback(
 		(filesOrEvent: unknown | Record<string, any>[]) => {
@@ -137,8 +129,14 @@ const Uploader: React.FC<UploaderProps> = ({
 				return file
 			})
 
+			// New files list
+			const _files = [...files, ...tempSelectedFiles]
+
 			// Append new files to the existing files array
-			setFiles([...files, ...tempSelectedFiles])
+			setFiles(_files)
+
+			// Call onChange function
+			onChange(_files)
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[files],
@@ -152,10 +150,21 @@ const Uploader: React.FC<UploaderProps> = ({
 	// Callback to remove a file from the selected files
 	const onRemoveFile = useCallback(
 		(fileIndex: number) => {
-			setFiles(files.filter((file: File, index: number) => index !== fileIndex))
+			// New files list
+			const _files = files.filter(
+				(file: File, index: number) => index !== fileIndex,
+			)
 
+			// Update Files state
+			setFiles(_files)
+
+			// Call onChange callback
+			onChange(_files)
+
+			// Empty the file input value
 			emptyFileInput()
 		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[files],
 	)
 
