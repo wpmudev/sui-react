@@ -1,6 +1,5 @@
 import React, { useState, useId, useCallback, useEffect } from "react"
 
-import { FormField } from "@wpmudev/sui-form-field"
 import {
 	SegmentedControl,
 	SegmentedControlButton,
@@ -19,7 +18,7 @@ declare const tinymce: Record<string, any>
  * A code editor component that allows displaying and editing code.
  *
  * @param  root0
- * @param  root0.textareaId
+ * @param  root0.id
  * @param  root0.actions
  * @param  root0.tinyMCEOptions
  * @param  root0.className
@@ -28,16 +27,18 @@ declare const tinymce: Record<string, any>
  * @param  root0.onChange
  * @param  root0._style
  * @param  root0._htmlProps
+ * @param  root0.ariaAttrs
  * @return {JSX.Element} - JSX Element representing the RichTextEditor component
  */
 const RichTextEditor: React.FC<RichTextEditorProps> = ({
-	textareaId = "",
+	id = "",
 	actions = null,
 	tinyMCEOptions,
 	className = "",
 	isDisabled = false,
 	defaultValue = "",
 	onChange = () => null,
+	ariaAttrs = {},
 	_htmlProps,
 	_style = {},
 }: RichTextEditorProps): JSX.Element => {
@@ -46,13 +47,13 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 	const [editor, setEditor] = useState<Record<string, any> | null>(null)
 	const [ref, setRef] = useState<HTMLElement>()
 
-	const id = useId()
+	const attrs = {
+		id,
+		...ariaAttrs,
+	}
 
 	// detect RTL
 	const isRTL = useDetectRTL()
-
-	// textarea ID
-	textareaId = isEmpty(textareaId) ? "sui-rich-text-editor-input" : textareaId
 
 	// load tinyMCE
 	const loadTinyMCE = useCallback(
@@ -160,62 +161,57 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 	)
 
 	return (
-		<FormField id={id} label="Label" helper="Helper text for rich text editor.">
-			<div
-				className={classNames}
-				data-testid="rich-text-editor"
-				{..._renderHTMLPropsSafely(_htmlProps)}
-			>
-				<div className="sui-rich-text-editor__header">
-					<SegmentedControl
-						name="type"
-						defaultValue={editorType as string}
-						onChange={(type) => setEditorType(type as typeof editorType)}
+		<div
+			className={classNames}
+			data-testid="rich-text-editor"
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
+			<div className="sui-rich-text-editor__header">
+				<SegmentedControl
+					name="type"
+					defaultValue={editorType as string}
+					onChange={(type) => setEditorType(type as typeof editorType)}
+				>
+					<SegmentedControlButton
+						value="visual"
+						isDisabled={isDisabled ?? false}
 					>
-						<SegmentedControlButton
-							value="visual"
-							isDisabled={isDisabled ?? false}
-						>
-							Visual
-						</SegmentedControlButton>
-						<SegmentedControlButton
-							value="code"
-							isDisabled={isDisabled ?? false}
-						>
-							Code
-						</SegmentedControlButton>
-					</SegmentedControl>
-					{!!actions && actions}
-				</div>
-				<div className="sui-rich-text-editor__content">
-					<div
-						className={generateCN("sui-rich-text-editor__textarea", {
-							hidden: "visual" !== editorType,
-							disabled: isDisabled,
-						})}
-					>
-						<textarea
-							ref={textareaRef as React.LegacyRef<HTMLTextAreaElement>}
-							{...textareaProps}
-							value={content}
-							onChange={() => null}
-							id={textareaId}
-							aria-label="visual editor"
-						/>
-					</div>
-					{"code" === editorType && (
-						<Textarea
-							{...textareaProps}
-							rows={8}
-							id={`${textareaId}-code`}
-							value={content}
-							onChange={onTextareaChange}
-							aria-label="code editor"
-						/>
-					)}
-				</div>
+						Visual
+					</SegmentedControlButton>
+					<SegmentedControlButton value="code" isDisabled={isDisabled ?? false}>
+						Code
+					</SegmentedControlButton>
+				</SegmentedControl>
+				{!!actions && actions}
 			</div>
-		</FormField>
+			<div className="sui-rich-text-editor__content">
+				<div
+					className={generateCN("sui-rich-text-editor__textarea", {
+						hidden: "visual" !== editorType,
+						disabled: isDisabled,
+					})}
+				>
+					<textarea
+						ref={textareaRef as React.LegacyRef<HTMLTextAreaElement>}
+						{...textareaProps}
+						value={content}
+						onChange={() => null}
+						aria-label="visual editor"
+						{...attrs}
+					/>
+				</div>
+				{"code" === editorType && (
+					<Textarea
+						{...textareaProps}
+						rows={8}
+						value={content}
+						onChange={onTextareaChange}
+						aria-label="code editor"
+						ariaAttrs={attrs}
+					/>
+				)}
+			</div>
+		</div>
 	)
 }
 

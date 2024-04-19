@@ -10,7 +10,7 @@ interface RichTextEditorProps
 	/**
 	 * Id for the textarea that contains the editor
 	 */
-	textareaId?: string
+	id?: string
 
 	/**
 	 * Add toolbar actions beside header
@@ -43,6 +43,11 @@ interface RichTextEditorProps
 	 * Default textarea value
 	 */
 	defaultValue?: string
+
+	/**
+	 * aria attributes of field
+	 */
+	ariaAttrs?: object
 }
 
 export type { RichTextEditorProps }

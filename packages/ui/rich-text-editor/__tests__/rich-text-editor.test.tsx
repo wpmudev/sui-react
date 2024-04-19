@@ -31,7 +31,9 @@ describe("@wpmudev/sui-rich-text-editor", () => {
 
 	// Switching Code Types
 	it("Switch Editor Type Works Fine", () => {
-		const { container } = render(<RichTextEditor />)
+		const { container } = render(
+			<RichTextEditor id="sui-rich-text-editor-input" />,
+		)
 
 		const codeButton = container.querySelectorAll(
 			".sui-segmented-control__label",
@@ -45,7 +47,7 @@ describe("@wpmudev/sui-rich-text-editor", () => {
 
 		// Expect the code editor to be in the page
 		expect(
-			container.querySelector("#sui-rich-text-editor-input-code"),
+			container.querySelector("#sui-rich-text-editor-input"),
 		).toBeInTheDocument()
 
 		// Switching back to visual editor

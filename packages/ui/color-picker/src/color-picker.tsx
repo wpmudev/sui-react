@@ -39,7 +39,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
 	const [tempColor, setTempColor] = useState("")
-	const [showResetBtn, setShowResetBtn] = useState(false)
+	const [showResetBtn, setShowResetBtn] = useState(color ? true : false)
 
 	const uniqueId = useId()
 
@@ -149,6 +149,9 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					id={id}
 					{...(isSmall && { isSmall })}
 					{...(ariaAttrs && { ariaAttrs })}
+					_htmlProps={{
+						"data-testid": "colorpicker-input",
+					}}
 				/>
 
 				<div
@@ -183,6 +186,9 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					})}
 					isSmall={true}
 					isDisabled={isDisabled}
+					_htmlProps={{
+						"data-testid": showResetBtn ? "reset-button" : "select-button",
+					}}
 				>
 					{renderBtnText()}
 				</Button>
