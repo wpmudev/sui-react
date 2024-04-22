@@ -16,10 +16,16 @@
 		@include block($block) {
 			border: $border-width-sm solid $color-extended-neutral-80;
 			border-radius: $accordion-border-radius-sm;
-			overflow: hidden;
 
 			@include modifier(no-border-radius) {
 				border-radius: 0;
+
+				@include modifies-element(item) {
+					&:first-child,
+					&:last-child {
+						border-radius: 0;
+					}
+				}
 			}
 
 			@include modifier(no-side-borders) {
