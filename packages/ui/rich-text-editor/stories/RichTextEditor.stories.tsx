@@ -5,6 +5,7 @@ import { RichTextEditor as SuiRichTextEditor } from "../src"
 
 // Import documentation main page.
 import docs from "./RichTextEditor.mdx"
+import { FormField } from "@wpmudev/sui-form-field"
 
 // Configure default options.
 export default {
@@ -25,7 +26,14 @@ export default {
 const TINY_MCE_API_KEY = "16svjtls827i92z95atzbvrutvut1n85ckqxu4k9sslf5b7d"
 
 // Build "Tag" story.
-const RichTextEditor = ({ color, ...props }: { color: string }) => {
+const RichTextEditor = ({
+	color,
+	textareaId,
+	...props
+}: {
+	color: string
+	textareaId: string
+}) => {
 	const [isScriptLoaded, setIsScriptLoaded] = useState<boolean>(false)
 
 	const boxStyles = {
@@ -59,7 +67,17 @@ const RichTextEditor = ({ color, ...props }: { color: string }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					{isScriptLoaded ? <SuiRichTextEditor {...props} /> : "Loading..."}
+					{isScriptLoaded ? (
+						<FormField
+							id={textareaId}
+							label="Label"
+							helper="Helper text for rich text editor."
+						>
+							<SuiRichTextEditor {...props} />
+						</FormField>
+					) : (
+						"Loading..."
+					)}
 				</div>
 			</div>
 		</div>
@@ -68,7 +86,7 @@ const RichTextEditor = ({ color, ...props }: { color: string }) => {
 
 // Set story arguments.
 RichTextEditor.args = {
-	textareaId: "",
+	textareaId: "text-editor",
 	isDisabled: false,
 }
 

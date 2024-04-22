@@ -24,6 +24,7 @@ const Search: React.FC<SearchProps> = ({
 	searchHint = "Please enter #number# or more characters",
 	isDisabled = false,
 	customWidth,
+	ariaAttrs = {},
 	_htmlProps,
 	_style = {},
 }) => {
@@ -132,6 +133,7 @@ const Search: React.FC<SearchProps> = ({
 				disableInteractions={true}
 				isDisabled={isDisabled ?? false}
 				placeholder={placeholder ?? ""}
+				ariaAttrs={ariaAttrs}
 				_htmlProps={{
 					autoComplete: "off",
 					..._renderHTMLPropsSafely(inputProps),

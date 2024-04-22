@@ -89,6 +89,11 @@ interface SelectBaseProps
 	 * Props passed down to Dropdown component
 	 */
 	_dropdownProps?: object
+
+	/**
+	 * aria attributes of field
+	 */
+	ariaAttrs?: object
 }
 
 interface SelectSelectedProps
@@ -107,6 +112,7 @@ interface SelectSelectedProps
 	clearSelection: () => void
 	onCustomVarChange: () => void
 	interactionMethods: object
+	ariaAttrs?: object
 }
 
 interface SearchInputWithAutoCompleteProps extends useStylesTypes {

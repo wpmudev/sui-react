@@ -7,7 +7,12 @@ import { Input } from "@wpmudev/sui-input"
 import { DatePickerContext } from "./date-picker-context"
 import { isEmpty } from "../../../docs/src/utils/index"
 
-const DatePickerInput: React.FC<any> = ({ isError, disabled }) => {
+const DatePickerInput: React.FC<any> = ({
+	id,
+	isError,
+	disabled,
+	ariaAttrs = {},
+}) => {
 	// DatePickerContext to handle the date picker state
 	const ctx = useContext(DatePickerContext)!
 
@@ -35,9 +40,6 @@ const DatePickerInput: React.FC<any> = ({ isError, disabled }) => {
 		[ctx],
 	)
 
-	// Generate a unique id for the input field using the useId hook
-	const id = useId()
-
 	// Extract the date range from the DatePickerContext, defaulting to an empty object
 	const { startDate, endDate } = ctx?.dateRange ?? {}
 
@@ -63,6 +65,7 @@ const DatePickerInput: React.FC<any> = ({ isError, disabled }) => {
 				onClick={onInputClick}
 				className="sui-datepicker__input--element"
 				isError={isError}
+				ariaAttrs={ariaAttrs}
 				_htmlProps={{
 					onKeyDown: (e: any) => handleOnKeyDown(e, onInputClick),
 					"data-testid": "date-picker-input-container-cta",

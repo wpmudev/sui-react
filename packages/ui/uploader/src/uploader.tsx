@@ -35,6 +35,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	onChange = () => {},
 	maxSize,
 	maxSizeText = "Message to appear when file size exeeds the max given",
+	ariaAttrs = {},
 	_htmlProps = {},
 	_style = {},
 	...props
@@ -187,6 +188,7 @@ const Uploader: React.FC<UploaderProps> = ({
 					multiple={multiple}
 					accept={accept}
 					hidden={true}
+					{...ariaAttrs}
 					{..._renderHTMLPropsSafely(props)}
 				/>
 

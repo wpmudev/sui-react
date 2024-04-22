@@ -288,6 +288,9 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 						isSmall={true}
 						isFullWidth={true}
 						onClick={onApplyButton}
+						_htmlProps={{
+							"data-testid": "apply-button",
+						}}
 					>
 						Apply
 					</Button>

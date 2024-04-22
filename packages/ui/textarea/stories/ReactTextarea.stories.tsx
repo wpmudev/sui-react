@@ -8,7 +8,18 @@ import docs from "./ReactTextarea.mdx"
 import { FormField } from "@wpmudev/sui-form-field"
 
 // Build "Textarea" story.
-const Textarea = ({ ...args }) => {
+const Textarea = ({
+	id,
+	isSmall,
+	isDisabled,
+	error,
+	...args
+}: {
+	id: string
+	isSmall: boolean
+	isDisabled: boolean
+	error: string
+}) => {
 	const boxStyles = {
 		padding: 20,
 		borderRadius: 4,
@@ -19,11 +30,12 @@ const Textarea = ({ ...args }) => {
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<FormField
-						id="input-1"
+						id={id}
 						label="Label"
 						helper="Helper Text"
-						isSmall={args.isSmall}
-						isDisabled={args.isDisabled}
+						isSmall={isSmall}
+						isDisabled={isDisabled}
+						error={error}
 					>
 						<SuiTextarea rows={4} {...args} />
 					</FormField>
@@ -37,7 +49,7 @@ const Textarea = ({ ...args }) => {
 Textarea.args = {
 	id: "textarea",
 	placeholder: "Placeholder",
-	isError: false,
+	error: "",
 	isSmall: false,
 	isDisabled: false,
 }
@@ -56,9 +68,9 @@ Textarea.argTypes = {
 		name: "Custom Width",
 		type: "number",
 	},
-	isError: {
+	error: {
 		name: "Error",
-		type: "boolean",
+		type: "string",
 	},
 	isSmall: {
 		name: "Small",

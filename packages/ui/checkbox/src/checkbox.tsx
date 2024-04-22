@@ -109,6 +109,7 @@ const Checkbox = ({
 		// Checkbox label container
 		<label
 			{...containerProps}
+			id={`${uuid}-label`}
 			htmlFor={uuid}
 			tabIndex={-1}
 			data-testid="checkbox"

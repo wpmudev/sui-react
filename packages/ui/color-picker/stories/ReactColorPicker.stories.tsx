@@ -24,15 +24,13 @@ const ColorPicker = ({
 	color,
 	id,
 	isDisabled,
-	isError,
-	errorMessage,
+	error,
 	...props
 }: {
 	color: string
 	id: string
 	isDisabled: boolean
-	isError: boolean
-	errorMessage: string
+	error: string
 }) => {
 	const [currentColor, setCurrentColor] = useState<string>(color)
 	const [savedColor, setSavedColor] = useState("#ffffff")
@@ -56,16 +54,13 @@ const ColorPicker = ({
 						label="Select colour"
 						isSmall={false}
 						isDisabled={isDisabled}
-						error={errorMessage}
+						error={error}
 					>
 						<SuiColorPicker
-							id={id}
 							color={currentColor}
 							onApply={setSavedColor}
 							onColorChange={setCurrentColor}
 							onReset={() => setCurrentColor("#ffffff")}
-							isDisabled={isDisabled}
-							isError={isError}
 							{...props}
 						/>
 					</FormField>
@@ -80,10 +75,9 @@ ColorPicker.args = {
 	id: "color-picker",
 	color: "#ffffff",
 	type: "hex",
-	isError: false,
 	isDisabled: false,
 	isFluid: false,
-	errorMessage: "",
+	error: "",
 	placeholder: "Select color",
 }
 
@@ -107,16 +101,12 @@ ColorPicker.argTypes = {
 			type: "text",
 		},
 	},
-	isError: {
-		name: "Error",
-		control: "boolean",
-	},
 	isFluid: {
 		name: "Full width",
 		control: "boolean",
 	},
-	errorMessage: {
-		name: "Error Message",
+	error: {
+		name: "Error",
 		control: "text",
 	},
 	isDisabled: {

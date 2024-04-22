@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
@@ -19,6 +19,7 @@ export const CALENDARS: { [key: string]: symbol } = {
 // Define the DatePicker component as a functional component (React.FC)
 // It accepts a set of props as input, including a className and other possible props.
 const DatePicker: React.FC<DatePickerProps> = ({
+	id = "",
 	className,
 	type = "single",
 	startDate,
@@ -28,9 +29,13 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	isDisabled = false,
 	isError = false,
 	onChange = () => null,
+	ariaAttrs = {},
 	_htmlProps,
 	_style,
 }) => {
+	// Generate a unique id for the input field using the useId hook
+	let uid = useId()
+
 	const pickType: string = type ?? "single"
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
@@ -43,6 +48,10 @@ const DatePicker: React.FC<DatePickerProps> = ({
 		// Append any custom className provided by the parent component
 		suiInlineClassname,
 	)
+
+	if (!isEmpty(id)) {
+		uid = id
+	}
 
 	// Define aria attributes.
 	const datepickerProps = {
@@ -63,7 +72,12 @@ const DatePicker: React.FC<DatePickerProps> = ({
 				data-testid="date-picker"
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
-				<DatePickerInput isDisabled={isDisabled} isError={isError} />
+				<DatePickerInput
+					id={uid}
+					isDisabled={isDisabled}
+					isError={isError}
+					ariaAttrs={ariaAttrs}
+				/>
 				<DatePickerPopover />
 			</div>
 		</DatePickerProvider>

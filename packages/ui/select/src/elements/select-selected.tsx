@@ -33,6 +33,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 	dropdownToggle = () => {},
 	clearSelection = () => {},
 	onCustomVarChange = () => {},
+	ariaAttrs = {},
 	...props
 }) => {
 	// Prepare the selected content
@@ -63,7 +64,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 									key={isCustomVar ? index : selectedItem?.id}
 								>
 									<span
-										tabIndex={0}
+										tabIndex={-1}
 										role="button"
 										onClick={(event) => event.stopPropagation()}
 										onKeyDown={(event) => event.stopPropagation()}
@@ -76,9 +77,19 @@ const Selected: React.FC<SelectSelectedProps> = ({
 											name="Close"
 											size="xs"
 											{...(!!removeSelection && {
-												onClick: (event) => {
-													event.stopPropagation()
-													removeSelection(selectedItem?.id)
+												_htmlProps: {
+													role: "button",
+													tabIndex: 0,
+													"aria-label": "Remove Item",
+													onClick: (event: MouseEvent) => {
+														event.stopPropagation()
+														removeSelection(selectedItem?.id)
+													},
+													onKeyDown: (event: KeyboardEvent) => {
+														if (event.key === "Enter" || event.key === " ") {
+															removeSelection(selectedItem?.id)
+														}
+													},
 												},
 											})}
 										/>
@@ -90,8 +101,9 @@ const Selected: React.FC<SelectSelectedProps> = ({
 				{isCustomVar && (
 					<li className="sui-select__custom-var-input">
 						<input
+							id={id}
 							type="text"
-							aria-label="select-input-field"
+							aria-label="Select"
 							placeholder={selectLabel}
 							onKeyDown={onCustomVarChange}
 							disabled={disabled}
@@ -110,19 +122,16 @@ const Selected: React.FC<SelectSelectedProps> = ({
 			</span>
 		)
 	}
-	const onClearSelection = useCallback(
-		(event: MouseEvent<HTMLSpanElement>) => {
-			clearSelection()
-		},
-		[clearSelection],
-	)
+	const onClearSelection = useCallback(() => {
+		clearSelection()
+	}, [clearSelection])
 
 	return (
 		<>
 			{!isCustomVar && (
 				<input
 					id={id}
-					aria-label="select-input-field"
+					aria-label="Select"
 					className="sui-select__hidden-input"
 					tabIndex={-1}
 					{...interactionMethods}
@@ -140,7 +149,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 						role: "button",
 						onClick: dropdownToggle,
 						onKeyDown: (e) => {
-							if (e.key === "Enter") {
+							if (e.key === "Enter" || e.key === "Space") {
 								dropdownToggle()
 							}
 						},
@@ -148,6 +157,8 @@ const Selected: React.FC<SelectSelectedProps> = ({
 						"aria-label": selectLabel,
 						"aria-haspopup": "listbox",
 						"aria-expanded": expanded,
+						...ariaAttrs,
+						...interactionMethods,
 					})}
 				/>
 				{selectedContent}
@@ -159,7 +170,17 @@ const Selected: React.FC<SelectSelectedProps> = ({
 						<Icon
 							name="CloseAlt"
 							size={isSmall ? "sm" : "md"}
-							onClick={onClearSelection}
+							_htmlProps={{
+								role: "button",
+								tabIndex: 0,
+								"aria-label": "Remove All",
+								onClick: onClearSelection,
+								onKeyDown: (event: KeyboardEvent) => {
+									if (event.key === "Enter" || event.key === " ") {
+										onClearSelection()
+									}
+								},
+							}}
 						/>
 					)}
 				{arrow && !isCustomVar && (

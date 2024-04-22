@@ -20,6 +20,11 @@ interface DatePickerProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * CSS class for styling the component
+	 */
+	id?: string
+
+	/**
 	 * Specifies the type of DatePicker (e.g., single date, date range)
 	 */
 	type?: DatePickerTypes
@@ -59,6 +64,10 @@ interface DatePickerProps
 	 * children element of a datepicker
 	 */
 	children?: React.ReactNode
+	/**
+	 * aria attributes of field
+	 */
+	ariaAttrs?: object
 	/**
 	 * Callback function called when the selected date(s) change
 	 *
