@@ -21,6 +21,13 @@
 
 				&:first-child {
 					border: none;
+					border-radius: $accordion-border-radius-sm $accordion-border-radius-sm
+						0 0;
+				}
+
+				&:last-child {
+					border-radius: 0 0 $accordion-border-radius-sm
+						$accordion-border-radius-sm;
 				}
 
 				p {
