@@ -43,83 +43,50 @@ export const customTagCode = dedent`
   />
 `
 
-<Section
-	title="Disabled"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<Selector
-			isDisabled={true}
-			variation="compound"
-			title="Option 1"
-			description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-			iconOrBrandUrl="Bell"
-		/>
-	</Preview>
-	<Snippet language="js">{disabledCode}</Snippet>
+<Section title="Disabled" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <Selector isDisabled={true} variation="compound" title="Option 1" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit." iconOrBrandUrl="Bell" />
+  </Preview>
+
+  <Snippet language="js">
+    {disabledCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Allow Remove"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>
-		When <Code small={true}>allowRemove</Code> is set to{" "}
-		<Code small={true}>true</Code>, a button for deletion will appear on hover
-	</p>
-	<Preview wrapper={true}>
-		<Selector
-			allowRemove={true}
-			variation="compound"
-			title="Option 1"
-			description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-			iconOrBrandUrl="Bell"
-		/>
-	</Preview>
-	<Snippet language="js">{allowRemoveCode}</Snippet>
+<Section title="Allow Remove" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>
+    When <Code small={true}>allowRemove</Code> is set to{" "}
+    <Code small={true}>true</Code>, a button for deletion will appear on hover
+  </p>
+
+  <Preview wrapper={true}>
+    <Selector allowRemove={true} variation="compound" title="Option 1" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit." iconOrBrandUrl="Bell" />
+  </Preview>
+
+  <Snippet language="js">
+    {allowRemoveCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Pro Version"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<Selector
-			isPro={true}
-			variation="compound"
-			title="Option 1"
-			description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-			iconOrBrandUrl="Bell"
-		/>
-	</Preview>
-	<Snippet language="js">{proVersion}</Snippet>
+<Section title="Pro Version" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <Selector isPro={true} variation="compound" title="Option 1" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit." iconOrBrandUrl="Bell" />
+  </Preview>
+
+  <Snippet language="js">
+    {proVersion}
+  </Snippet>
 </Section>
 
-<Section
-	title="Custom Tag"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>Use the prop <Code small={true}>tag</Code> to add a custom text displayed in a tag</p>
-    <p>You can also use the prop <Code small={true}>tagColor</Code> to customize its color</p>
+<Section title="Custom Tag" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Use the prop <Code small={true}>tag</Code> to add a custom text displayed in a tag</p>
+  <p>You can also use the prop <Code small={true}>tagColor</Code> to customize its color</p>
 
-    <Preview wrapper={true}>
-    	<Selector
-            tag="New"
-    		tagColor="green"
-    		variation="compound"
-    		title="Option 1"
-    		description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-    		iconOrBrandUrl="Bell"
-    	/>
-    </Preview>
-    <Snippet language="js">{customTagCode}</Snippet>
+  <Preview wrapper={true}>
+    <Selector tag="New" tagColor="green" variation="compound" title="Option 1" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit." iconOrBrandUrl="Bell" />
+  </Preview>
 
+  <Snippet language="js">
+    {customTagCode}
+  </Snippet>
 </Section>

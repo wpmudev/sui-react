@@ -80,17 +80,18 @@ const configs = [
 }`
 
 <Section style={{ paddingTop: 30 }}>
-	<p>
-		Below is a general example of the config table which you can tweak to fit
-		your needs
-	</p>
-	<Preview wrapper={true}>
-		<div style={{ padding: 50 }}>
-			<ConfigTable
-				configs={configs}
-				onActionClick={(id, type) => console.log(id, type)}
-			/>
-		</div>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>
+    Below is a general example of the config table which you can tweak to fit
+    your needs
+  </p>
+
+  <Preview wrapper={true}>
+    <div style={{ padding: 50 }}>
+      <ConfigTable configs={configs} onActionClick={(id, type) => console.log(id, type)} />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>

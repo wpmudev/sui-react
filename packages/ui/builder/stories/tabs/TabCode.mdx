@@ -3,113 +3,103 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-builder" />
 
 <Section title="Props" border={true}>
+  <PropSection title="allowAddFields" type="boolean" defaultValue="true">
+    <p>Whether the Builder allows for adding new fields or not, when set to <Code small={true}>true</Code> the Builder will have a button to insert new fields</p>
+  </PropSection>
 
-    <PropSection title="allowAddFields" type="boolean" defaultValue="true">
-    	<p>Whether the Builder allows for adding new fields or not, when set to <Code small={true}>true</Code> the Builder will have a button to insert new fields</p>
-    </PropSection>
+  <PropSection title="hasNoFields" type="boolean" defaultValue="false">
+    <p>Set this to <Code small={true}>true</Code> to mark the Builder as empty</p>
+  </PropSection>
 
-    <PropSection title="hasNoFields" type="boolean" defaultValue="false">
-    	<p>Set this to <Code small={true}>true</Code> to mark the Builder as empty</p>
-    </PropSection>
+  <PropSection title="isScrollable" type="boolean" defaultValue="false">
+    <p>Determines whether the Builder can be scrolled or not.</p>
+  </PropSection>
 
-    <PropSection title="isScrollable" type="boolean" defaultValue="false">
-    	<p>Determines whether the Builder can be scrolled or not.</p>
-    </PropSection>
+  <PropSection title="children" type="React Node">
+    <p>The content of the Builder, Usually a combination of the sub components below  </p>
+  </PropSection>
 
-    <PropSection title="children" type="React Node">
-    	<p>The content of the Builder, Usually a combination of the sub components below  </p>
-    </PropSection>
-
-     <PropSection title="className" type="string">
-    	<p>Custom css className(s) for further style customization</p>
-    </PropSection>
-
+  <PropSection title="className" type="string">
+    <p>Custom css className(s) for further style customization</p>
+  </PropSection>
 </Section>
 
 {/* * Use this for sub components */}
 
-<Section
-	title="Sub Components"
-	contained={true}
-	style={{ paddingTop: 30, paddingBottom: 0 }}
->
-		<p>The Builder component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+<Section title="Sub Components" contained={true} style={{ paddingTop: 30, paddingBottom: 0 }}>
+  <p>The Builder component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
 
-    <Section title="BuilderWrapper" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component represents a single row in the builder canvas
-    	</p>
+  <Section title="BuilderWrapper" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <p>
+      This component represents a single row in the builder canvas
+    </p>
 
-    	 <PropSection title="children" type="React Node">
-    		<p>The content of the BuilderWrapper, Usually an instance or multiple instances of the BuilderField component </p>
-    	</PropSection>
+    <PropSection title="children" type="React Node">
+      <p>The content of the BuilderWrapper, Usually an instance or multiple instances of the BuilderField component </p>
+    </PropSection>
 
-     	<PropSection title="className" type="string">
-    		<p>Custom css className(s) for further style customization</p>
-    	</PropSection>
+    <PropSection title="className" type="string">
+      <p>Custom css className(s) for further style customization</p>
+    </PropSection>
+  </Section>
 
-    </Section>
+  <Section title="BuilderField" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <p>
+      This component represents a single block in the Builder
+    </p>
 
+    <PropSection title="title" type="strng" defaultValue="Field Title">
+      <p>Represents the main heading text in the Filed</p>
+    </PropSection>
 
-    <Section title="BuilderField" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component represents a single block in the Builder
-    	</p>
+    <PropSection title="subTitle" type="string">
+      <p>Provides a secondary piece of text or description that accompanies the title</p>
+    </PropSection>
 
-    	<PropSection title="title" type="strng" defaultValue="Field Title">
-    		<p>Represents the main heading text in the Filed</p>
-    	</PropSection>
+    <PropSection title="icon" type="string">
+      <p>A string for specifying an icon</p>
+    </PropSection>
 
-    	<PropSection title="subTitle" type="string" >
-    		<p>Provides a secondary piece of text or description that accompanies the title</p>
-    	</PropSection>
+    <PropSection title="onClick" type="function">
+      <p>A callback function to be invoked upon the click of the field</p>
+    </PropSection>
 
-    	<PropSection title="icon" type="string">
-    		<p>A string for specifying an icon</p>
-    	</PropSection>
+    <PropSection title="children" type="React Node">
+      <p>When setting content for the field, the field will turn into an accordion, and the children elements will appear in the accordion panel</p>
+    </PropSection>
 
-    	<PropSection title="onClick" type="function">
-    		<p>A callback function to be invoked upon the click of the field</p>
-    	</PropSection>
+    <PropSection title="hasError" type="boolean" defaultValue="false">
+      <p>When set to <Code small={true}>true</Code>, The field will be in an error state having a red border</p>
+    </PropSection>
 
-    	<PropSection title="children" type="React Node">
-    		<p>When setting content for the field, the field will turn into an accordion, and the children elements will appear in the accordion panel</p>
-    	</PropSection>
+    <PropSection title="isDragging" type="boolean" defaultValue="false">
+      <p>Whether the element is currently being dragged or not</p>
+    </PropSection>
 
-    	<PropSection title="hasError" type="boolean" defaultValue="false">
-    		<p>When set to <Code small={true}>true</Code>, The field will be in an error state having a red border</p>
-    	</PropSection>
+    <PropSection title="allowDrag" type="boolean" defaultValue="true">
+      <p>Whether to allow dragging the field or not</p>
+    </PropSection>
 
-    	<PropSection title="isDragging" type="boolean" defaultValue="false">
-    		<p>Whether the element is currently being dragged or not</p>
-    	</PropSection>
+    <PropSection title="customContent" type="React Node">
+      <p>A custom content to replace the title, subtitle, and the icon</p>
+    </PropSection>
 
-    	<PropSection title="allowDrag" type="boolean" defaultValue="true">
-    		<p>Whether to allow dragging the field or not</p>
-    	</PropSection>
+    <PropSection title="imageUrl" type="string">
+      <p>Optional URL for an image associated with the field.</p>
+    </PropSection>
 
-    	<PropSection title="customContent" type="React Node">
-    		<p>A custom content to replace the title, subtitle, and the icon</p>
-    	</PropSection>
+    <PropSection title="action" type="React Node">
+      <p>A custom action for the field, this will appear on the right side of the component</p>
+    </PropSection>
 
-    	<PropSection title="imageUrl" type="string">
-    		<p>Optional URL for an image associated with the field.</p>
-    	</PropSection>
+    <PropSection title="columnSize" type="number" defaultValue="12">
+      <p>Specifies the width or size of the field, the value range from `1` to `12`, with `12` being the full width size</p>
+    </PropSection>
 
-    	<PropSection title="action" type="React Node">
-    		<p>A custom action for the field, this will appear on the right side of the component</p>
-    	</PropSection>
-
-    	<PropSection title="columnSize" type="number" defaultValue="12">
-    		<p>Specifies the width or size of the field, the value range from `1` to `12`, with `12` being the full width size</p>
-    	</PropSection>
-
-     	<PropSection title="className" type="string">
-    		<p>Custom css className(s) for further style customization</p>
-    	</PropSection>
-
-    </Section>
-
+    <PropSection title="className" type="string">
+      <p>Custom css className(s) for further style customization</p>
+    </PropSection>
+  </Section>
 </Section>
 
 <CommonPropsNotice />

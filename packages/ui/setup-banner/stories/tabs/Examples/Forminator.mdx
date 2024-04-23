@@ -12,18 +12,12 @@ export const ForminatorCode = dedent`
         />
 `
 
-<Section
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-    	 <SetupBanner
-		    type="forminator"
-            title="Forminator"
-            description="The most flexible form builder for WordPress. With Forminator Pro you can create forms (+ polls and quizzes) for every site and situation."
-         />
-    </Preview>
-    <Snippet language="js">{ForminatorCode}</Snippet>
+<Section contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <SetupBanner type="forminator" title="Forminator" description="The most flexible form builder for WordPress. With Forminator Pro you can create forms (+ polls and quizzes) for every site and situation." />
+  </Preview>
 
+  <Snippet language="js">
+    {ForminatorCode}
+  </Snippet>
 </Section>

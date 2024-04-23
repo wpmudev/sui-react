@@ -258,20 +258,28 @@ export const AdvancedModal = () => {
 }
 
 <Section title="Simple Dialog" contained={true} style={{ paddingTop: 30 }}>
-	<p>Simple dialogs are commonly used to display confirmation messages.</p>
-	<div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
-		<SimpleModal />
-	</div>
-	<Snippet language="js">{simpleCode}</Snippet>
+  <p>Simple dialogs are commonly used to display confirmation messages.</p>
+
+  <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    <SimpleModal />
+  </div>
+
+  <Snippet language="js">
+    {simpleCode}
+  </Snippet>
 </Section>
 
 <Section title="Advanced Dialog" contained={true} style={{ paddingTop: 30 }}>
-	<p>
-		Advanced dialogs are utilised when the body contains extensive content such
-		as forms and other lengthy information.
-	</p>
-	<div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
-		<AdvancedModal />
-	</div>
-	<Snippet language="js">{advancedCode}</Snippet>
+  <p>
+    Advanced dialogs are utilised when the body contains extensive content such
+    as forms and other lengthy information.
+  </p>
+
+  <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    <AdvancedModal />
+  </div>
+
+  <Snippet language="js">
+    {advancedCode}
+  </Snippet>
 </Section>

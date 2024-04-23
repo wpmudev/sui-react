@@ -9,44 +9,49 @@ export const sampleCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		This is a basic example of the drawer without a container
-	</p>
-	<div className="sui-wrap sui-theme--light" style={{marginBottom: "20px"}}>
-    	<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
-		 <BasicExample btnText="Body Drawer" />
-		</div>
-	</div>
-	
-	<Snippet language="js">{basicCode}</Snippet>
-</Section>
+  <p>
+    This is a basic example of the drawer without a container
+  </p>
 
+  <div className="sui-wrap sui-theme--light" style={{marginBottom: "20px"}}>
+    <div className="sui-layout sui-layout--horizontal sui-layout--vertical">
+      <BasicExample btnText="Body Drawer" />
+    </div>
+  </div>
+
+  <Snippet language="js">
+    {basicCode}
+  </Snippet>
+</Section>
 
 <Section title="With container" contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		Set <Code small={true}>hasContainer</Code> to <Code small={true}>true</Code> to display the drawer wrapped in a container
-	</p>
-	<div className="sui-wrap sui-theme--light" style={{marginBottom: "20px"}}>
-    	<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
-		 <BasicExample hasContainer={true} btnText="Drawer with Container" />
-		</div>
-	</div>
-	
-	<Snippet language="js">{withContainer}</Snippet>
+  <p>
+    Set <Code small={true}>hasContainer</Code> to <Code small={true}>true</Code> to display the drawer wrapped in a container
+  </p>
+
+  <div className="sui-wrap sui-theme--light" style={{marginBottom: "20px"}}>
+    <div className="sui-layout sui-layout--horizontal sui-layout--vertical">
+      <BasicExample hasContainer={true} btnText="Drawer with Container" />
+    </div>
+  </div>
+
+  <Snippet language="js">
+    {withContainer}
+  </Snippet>
 </Section>
-
-
 
 <Section title="Placement" contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		By default the Drawer is placed on the right, you can change it to the left by setting <Code small={true}>placement="left"</Code>
-	</p>
-	<div className="sui-wrap sui-theme--light" style={{marginBottom: "20px"}}>
-    	<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
-		 <BasicExample hasContainer={true} btnText="left position" placement="left"/>
-		</div>
-	</div>
-	
-	<Snippet language="js">{positionLeft}</Snippet>
-</Section>
+  <p>
+    By default the Drawer is placed on the right, you can change it to the left by setting <Code small={true}>placement="left"</Code>
+  </p>
 
+  <div className="sui-wrap sui-theme--light" style={{marginBottom: "20px"}}>
+    <div className="sui-layout sui-layout--horizontal sui-layout--vertical">
+      <BasicExample hasContainer={true} btnText="left position" placement="left" />
+    </div>
+  </div>
+
+  <Snippet language="js">
+    {positionLeft}
+  </Snippet>
+</Section>

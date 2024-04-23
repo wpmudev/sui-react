@@ -14,15 +14,14 @@ export const SmallPasswordFieldCode = dedent`
 </FormField>
 `
 
-<Section
-	title="Small"
-	contained={true}
-	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<FormField id="passwordId" label="Label" helper="Help text" isSmall={true}>
-			<PasswordField placeholder="Enter your password" />
-		</FormField>
-	</Preview>
-	<Snippet language="js">{SmallPasswordFieldCode}</Snippet>
+<Section title="Small" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <FormField id="passwordId" label="Label" helper="Help text" isSmall={true}>
+      <PasswordField placeholder="Enter your password" />
+    </FormField>
+  </Preview>
+
+  <Snippet language="js">
+    {SmallPasswordFieldCode}
+  </Snippet>
 </Section>

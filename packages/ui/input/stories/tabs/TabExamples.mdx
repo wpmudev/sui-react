@@ -17,26 +17,33 @@ export default Example;
 `;
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>Below is the default form of a field, used for most cases.</p>
-	<Preview wrapper={true}>
-		<Input id="input-id-1" label="Label" placeholder="Placeholder" />
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>Below is the default form of a field, used for most cases.</p>
+
+  <Preview wrapper={true}>
+    <Input id="input-id-1" label="Label" placeholder="Placeholder" />
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section style={{ paddingTop: 0 }}>
-	<Switcher>
-		<div label="States" value="states">
-			<States />
-		</div>
-		<div label="Size" value="size">
-			<Size />
-		</div>
-		<div label="Input with Icon" value="icon">
-			<Icon />
-		</div>
-		<div label="Validation" value="validation">
-			<Validation />
-		</div>
-	</Switcher>
+  <Switcher>
+    <div label="States" value="states">
+      <States />
+    </div>
+
+    <div label="Size" value="size">
+      <Size />
+    </div>
+
+    <div label="Input with Icon" value="icon">
+      <Icon />
+    </div>
+
+    <div label="Validation" value="validation">
+      <Validation />
+    </div>
+  </Switcher>
 </Section>

@@ -12,18 +12,12 @@ export const CriticalCode = dedent`
         />
 `
 
-<Section
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-    	 <SetupBanner
-		    type="smush"
-            title="Smush"
-            description="Welcome to Smush. The only tool you need to optimize your images. Before getting to it, let’s start with simple plugin setup. The recommended settings are pre-enabled by default, but you can adjust it after the setup."
-         />
-    </Preview>
-    <Snippet language="js">{CriticalCode}</Snippet>
+<Section contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <SetupBanner type="smush" title="Smush" description="Welcome to Smush. The only tool you need to optimize your images. Before getting to it, let’s start with simple plugin setup. The recommended settings are pre-enabled by default, but you can adjust it after the setup." />
+  </Preview>
 
+  <Snippet language="js">
+    {CriticalCode}
+  </Snippet>
 </Section>

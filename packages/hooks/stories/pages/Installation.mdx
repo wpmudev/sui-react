@@ -1,56 +1,62 @@
 import { Section, Code, Snippet, Message, NodeJSWarning } from "@wpmudev/sui-docs"
 
-
-<style>{`
-.csb-browsers-list {
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
-}
-.csb-browsers-list img {
-	margin: 0;
-	margin-right: 20px;
-}
-.csb-browsers-list img:last-child {
-	margin-right: 0;
-}
-`}</style>
+<style>
+  {`
+  .csb-browsers-list {
+  	display: flex;
+  	flex-flow: row wrap;
+  	align-items: center;
+  }
+  .csb-browsers-list img {
+  	margin: 0;
+  	margin-right: 20px;
+  }
+  .csb-browsers-list img:last-child {
+  	margin-right: 0;
+  }
+  `}
+</style>
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		This package within our library, offers React custom hooks for using in your plugin.
-	</p>
-	<NodeJSWarning/>
+  <p>
+    This package within our library, offers React custom hooks for using in your plugin.
+  </p>
+
+  <NodeJSWarning />
 </Section>
+
 <Section
-	title={{
+  title={{
 		content: 'Install using NPM',
 		small: true,
 	}}
-	contained={true}
-	style={{ paddingTop: 0 }}
+  contained={true}
+  style={{ paddingTop: 0 }}
 >
-	<p>
-		In your project root directory (where the <Code> package.json </Code> file
-		lives), run the following command:
-	</p>
-	```js
-	npm install --save @wpmudev/sui-hooks
-	```
+  <p>
+    In your project root directory (where the <Code> package.json </Code> file
+    lives), run the following command:
+  </p>
+
+  ```js
+  npm install --save @wpmudev/sui-hooks
+  ```
 </Section>
+
 <Section
-	title={{
+  title={{
 		content: 'Install using Yarn',
 		small: true,
 	}}
-	contained={true}
-	style={{ paddingTop: 0 }}
+  contained={true}
+  style={{ paddingTop: 0 }}
 >
-	<p>
-		In your project root directory (where the <Code> package.json </Code> file
-		lives), run the following command:
-	</p>
-	```js
-	yarn add @wpmudev/sui-hooks
-	```
+  <p>
+    In your project root directory (where the <Code> package.json </Code> file
+    lives), run the following command:
+  </p>
+
+  ```js
+  yarn add @wpmudev/sui-hooks
+  ```
 </Section>

@@ -28,56 +28,55 @@ export const inlineCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-	<p>A Basic Progress Bar Example</p>
-	<Preview wrapper={true}>
-		<ProgressBar label="Loading Data..." value="50" allowCancel={true} />
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>A Basic Progress Bar Example</p>
+
+  <Preview wrapper={true}>
+    <ProgressBar label="Loading Data..." value="50" allowCancel={true} />
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section title="Large Bar" contained={true} style={{ paddingTop: 30 }}>
-	<Preview wrapper={true}>
-		<ProgressBar
-			label="Loading Data..."
-			size="lg"
-			value="25"
-			allowCancel={true}
-		/>
-	</Preview>
-	<Snippet language="js">{largeBarCode}</Snippet>
+  <Preview wrapper={true}>
+    <ProgressBar label="Loading Data..." size="lg" value="25" allowCancel={true} />
+  </Preview>
+
+  <Snippet language="js">
+    {largeBarCode}
+  </Snippet>
 </Section>
 
 <Section title="Indeterminate" contained={true} style={{ paddingTop: 30 }}>
-	<p> We use this variation when the process can't be calculated </p>
-	<Preview wrapper={true}>
-		<ProgressBar
-			label="Loading Data..."
-			isIndeterminate={true}
-			allowCancel={true}
-		/>
-	</Preview>
-	<Snippet language="js">{indeterminateCode}</Snippet>
+  <p> We use this variation when the process can't be calculated </p>
+
+  <Preview wrapper={true}>
+    <ProgressBar label="Loading Data..." isIndeterminate={true} allowCancel={true} />
+  </Preview>
+
+  <Snippet language="js">
+    {indeterminateCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Without the cancel button"
-	contained={true}
-	style={{ paddingTop: 30 }}
->
-	<Preview wrapper={true}>
-		<ProgressBar label="Loading Data..." value="67" allowCancel={false} />
-	</Preview>
-	<Snippet language="js">{CancelButtonCode}</Snippet>
+<Section title="Without the cancel button" contained={true} style={{ paddingTop: 30 }}>
+  <Preview wrapper={true}>
+    <ProgressBar label="Loading Data..." value="67" allowCancel={false} />
+  </Preview>
+
+  <Snippet language="js">
+    {CancelButtonCode}
+  </Snippet>
 </Section>
 
 <Section title="Inline" contained={true} style={{ paddingTop: 30 }}>
-	<Preview wrapper={true}>
-		<ProgressBar
-			label="Loading Data..."
-			isInline={true}
-			value="23"
-			allowCancel={false}
-		/>
-	</Preview>
-	<Snippet language="js">{inlineCode}</Snippet>
+  <Preview wrapper={true}>
+    <ProgressBar label="Loading Data..." isInline={true} value="23" allowCancel={false} />
+  </Preview>
+
+  <Snippet language="js">
+    {inlineCode}
+  </Snippet>
 </Section>

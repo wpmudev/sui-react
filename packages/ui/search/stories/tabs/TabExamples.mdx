@@ -28,58 +28,60 @@ export const disabledCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Below is a basic search example on its default form</p>
-	<Preview wrapper={true}>
-		<Search defaultValue="Search Text" />
-	</Preview>
-	<Snippet language="js">{basciCode}</Snippet>
+  <p>Below is a basic search example on its default form</p>
+
+  <Preview wrapper={true}>
+    <Search defaultValue="Search Text" />
+  </Preview>
+
+  <Snippet language="js">
+    {basciCode}
+  </Snippet>
 </Section>
 
 <Section title="Smart Search" contained={true} style={{ paddingTop: 30 }}>
-	<p>Smart Search displays search options while the user is typing</p>
-	<List>
-		<span label={`Use the prop "options" to specify the options for search`} />
-		<span
-			label={`Use the prop "searchMinChars" to set the minimum
+  <p>Smart Search displays search options while the user is typing</p>
+
+  <List>
+    <span label={`Use the prop "options" to specify the options for search`} />
+
+    <span
+      label={`Use the prop "searchMinChars" to set the minimum
 		  number of charcters needed to implement searching`}
-		/>
-		<span
-			label={`Use the prop "searchHint" to provide a description text for the user`}
-		/>
-	</List>
-	<Preview wrapper={true}>
-		<Search
-			options={options}
-			variation="smart"
-			searchHint="Please enter 2 or more characters"
-			defaultValue="Un"
-		/>
-	</Preview>
-	<Snippet language="js">{smartSearchCode}</Snippet>
+    />
+
+    <span label={`Use the prop "searchHint" to provide a description text for the user`} />
+  </List>
+
+  <Preview wrapper={true}>
+    <Search options={options} variation="smart" searchHint="Please enter 2 or more characters" defaultValue="Un" />
+  </Preview>
+
+  <Snippet language="js">
+    {smartSearchCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Disabled"
-	contained={true}
-	ontained={true}
-	style={{ paddingTop: 30 }}
->
-	<p>Use the prop <Code small={true}>isDisabled=\{true\}</Code> to disable the input</p>
-	<Preview wrapper={true}>
-		<Search isDisabled={true} />
-	</Preview>
-	<Snippet language="js">{disabledCode}</Snippet>
+<Section title="Disabled" contained={true} ontained={true} style={{ paddingTop: 30 }}>
+  <p>Use the prop <Code small={true}>isDisabled=\{true}</Code> to disable the input</p>
+
+  <Preview wrapper={true}>
+    <Search isDisabled={true} />
+  </Preview>
+
+  <Snippet language="js">
+    {disabledCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Hide Clear"
-	contained={true}
-	ontained={true}
-	style={{ paddingTop: 30 }}
->
-	<p>Use the prop <Code small={true}>allowClear=\{false\}</Code> to hide the clear button</p>
-	<Preview wrapper={true}>
-		<Search allowClear={false} defaultValue="Clear Not Allowed"/>
-	</Preview>
-	<Snippet language="js">{disabledCode}</Snippet>
+<Section title="Hide Clear" contained={true} ontained={true} style={{ paddingTop: 30 }}>
+  <p>Use the prop <Code small={true}>allowClear=\{false}</Code> to hide the clear button</p>
+
+  <Preview wrapper={true}>
+    <Search allowClear={false} defaultValue="Clear Not Allowed" />
+  </Preview>
+
+  <Snippet language="js">
+    {disabledCode}
+  </Snippet>
 </Section>

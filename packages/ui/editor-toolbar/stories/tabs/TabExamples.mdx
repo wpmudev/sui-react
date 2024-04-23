@@ -119,64 +119,67 @@ export const actions = (settingBtn) => {
 }
 
 <Section contained={false} style={{ paddingTop: 30 }}>
-	<p>Below is a general example of the Editor Toolbar</p>
-	<Preview wrapper={true}>
-		<EditorToolbar title="Toolbar Title" actions={actions}>
-			<SegmentedControl name="type">
-				<SegmentedControlButton
-					icon="Desktop"
-					isResponsive={true}
-					value="visual"
-				>
-					Visual
-				</SegmentedControlButton>
-				<SegmentedControlButton icon="Desktop" isResponsive={true} value="code">
-					Code
-				</SegmentedControlButton>
-			</SegmentedControl>
-		</EditorToolbar>
-	</Preview>
-	<Snippet language="js">{generalCode}</Snippet>
+  <p>Below is a general example of the Editor Toolbar</p>
+
+  <Preview wrapper={true}>
+    <EditorToolbar title="Toolbar Title" actions={actions}>
+      <SegmentedControl name="type">
+        <SegmentedControlButton icon="Desktop" isResponsive={true} value="visual">
+          Visual
+        </SegmentedControlButton>
+
+        <SegmentedControlButton icon="Desktop" isResponsive={true} value="code">
+          Code
+        </SegmentedControlButton>
+      </SegmentedControl>
+    </EditorToolbar>
+  </Preview>
+
+  <Snippet language="js">
+    {generalCode}
+  </Snippet>
 </Section>
 
 <Section title="Centered Content" contained={false} style={{ paddingTop: 30 }}>
-	<p>Use the prop <Code small={true}>alignCenter=\{true\}</Code> to center the content</p>
-	<Preview wrapper={true}>
-		<EditorToolbar alignCenter={true} title="Toolbar Title" actions={actions}>
-			<SegmentedControl name="type">
-				<SegmentedControlButton
-					icon="Desktop"
-					isResponsive={true}
-					value="visual"
-				>
-					Visual
-				</SegmentedControlButton>
-				<SegmentedControlButton icon="Desktop" isResponsive={true} value="code">
-					Code
-				</SegmentedControlButton>
-			</SegmentedControl>
-		</EditorToolbar>
-	</Preview>
-	<Snippet language="js">{centeredContentCode}</Snippet>
+  <p>Use the prop <Code small={true}>alignCenter=\{true}</Code> to center the content</p>
+
+  <Preview wrapper={true}>
+    <EditorToolbar alignCenter={true} title="Toolbar Title" actions={actions}>
+      <SegmentedControl name="type">
+        <SegmentedControlButton icon="Desktop" isResponsive={true} value="visual">
+          Visual
+        </SegmentedControlButton>
+
+        <SegmentedControlButton icon="Desktop" isResponsive={true} value="code">
+          Code
+        </SegmentedControlButton>
+      </SegmentedControl>
+    </EditorToolbar>
+  </Preview>
+
+  <Snippet language="js">
+    {centeredContentCode}
+  </Snippet>
 </Section>
 
 <Section title="Centered Content" contained={false} style={{ paddingTop: 30 }}>
-	<p>Use the prop <Code small={true}>allowBack=\{false\}</Code> to remove the back button</p>
-	<Preview wrapper={true}>
-		<EditorToolbar allowBack={false} title="Toolbar Title" actions={actions}>
-			<SegmentedControl name="type">
-				<SegmentedControlButton
-					icon="Desktop"
-					isResponsive={true}
-					value="visual"
-				>
-					Visual
-				</SegmentedControlButton>
-				<SegmentedControlButton icon="Desktop" isResponsive={true} value="code">
-					Code
-				</SegmentedControlButton>
-			</SegmentedControl>
-		</EditorToolbar>
-	</Preview>
-	<Snippet language="js">{disallowBackCode}</Snippet>
+  <p>Use the prop <Code small={true}>allowBack=\{false}</Code> to remove the back button</p>
+
+  <Preview wrapper={true}>
+    <EditorToolbar allowBack={false} title="Toolbar Title" actions={actions}>
+      <SegmentedControl name="type">
+        <SegmentedControlButton icon="Desktop" isResponsive={true} value="visual">
+          Visual
+        </SegmentedControlButton>
+
+        <SegmentedControlButton icon="Desktop" isResponsive={true} value="code">
+          Code
+        </SegmentedControlButton>
+      </SegmentedControl>
+    </EditorToolbar>
+  </Preview>
+
+  <Snippet language="js">
+    {disallowBackCode}
+  </Snippet>
 </Section>

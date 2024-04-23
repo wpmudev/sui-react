@@ -1,11 +1,10 @@
 import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
-import { Input } from "../../src"
+import { Input } from "@wpmudev/sui-input"
 import dedent from "dedent"
 import { FormField } from "@wpmudev/sui-form-field"
 
-import States from "./Examples/States.mdx"
-import Size from "./Examples/Size.mdx"
-import Icon from "./Examples/Icon.mdx"
+import States from "./tabs/Examples/States.mdx"
+import Size from "./tabs/Examples/Size.mdx"
 
 export const sampleCode = dedent`
     <FormField label="Label" helper="Help text">
@@ -14,29 +13,33 @@ export const sampleCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>Below is the default form of an input, used for most cases.</p>
-	<p>
-		We wrap the input component in the <Code small={true}>FormField</Code>{" "}
-		component to add the the label, helper text and error messoge.
-	</p>
-	<Preview wrapper={true}>
-		<FormField label="Label" helper="Help text">
-			<Input id="input-id-1" label="Label" placeholder="Placeholder" />
-		</FormField>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>Below is the default form of an input, used for most cases.</p>
+
+  <p>
+    We wrap the input component in the <Code small={true}>FormField</Code>{" "}
+    component to add the the label, helper text and error messoge.
+  </p>
+
+  <Preview wrapper={true}>
+    <FormField label="Label" helper="Help text">
+      <Input id="input-id-1" label="Label" placeholder="Placeholder" />
+    </FormField>
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section style={{ paddingTop: 0 }}>
-	<Switcher>
-		<div label="States" value="states">
-			<States />
-		</div>
-		<div label="Size" value="size">
-			<Size />
-		</div>
-		<div label="Input with Icon" value="icon">
-			<Icon />
-		</div>
-	</Switcher>
+  <Switcher>
+    <div label="States" value="states">
+      <States />
+    </div>
+
+    <div label="Size" value="size">
+      <Size />
+    </div>
+	
+  </Switcher>
 </Section>

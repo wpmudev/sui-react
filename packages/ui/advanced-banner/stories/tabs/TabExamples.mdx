@@ -12,20 +12,25 @@ export const defaultCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Below is the default form of the Advanced Banner</p>
-	<Preview wrapper={true}>
-		<AdvancedBanner helper="Helper Text Goes Here" />
-	</Preview>
-	<Snippet language="js">{defaultCode}</Snippet>
+  <p>Below is the default form of the Advanced Banner</p>
+
+  <Preview wrapper={true}>
+    <AdvancedBanner helper="Helper Text Goes Here" />
+  </Preview>
+
+  <Snippet language="js">
+    {defaultCode}
+  </Snippet>
 </Section>
 
 <Section title="Variations & States" style={{ paddingTop: 0 }}>
-	<Switcher>
-		<div label="Variations" value="variations">
-			<Variations />
-		</div>
-		<div label="States" value="States">
-			<States />
-		</div>
-	</Switcher>
+  <Switcher>
+    <div label="Variations" value="variations">
+      <Variations />
+    </div>
+
+    <div label="States" value="States">
+      <States />
+    </div>
+  </Switcher>
 </Section>

@@ -3,15 +3,14 @@ import { TableExample } from "./Example"
 import { generalCode } from "../TabExamples.mdx"
 import dedent from "dedent"
 
-<Section
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <p>Set the prop <Code small={true}>hasToolbar=\{true\}</Code> to display the toolbar </p>
-    <p>You can use the prop <Code small={true}>bulkActions</Code> to display actions that will be applied to all selected rows </p>
-    <p>Also, you can set <Code small={true}>filtersPopover=\{true\}</Code> to show the filters in a Popover instead of an expanded area</p>
-    <Preview wrapper={true}>
-    	<TableExample bulkActions={[
+<Section border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Set the prop <Code small={true}>hasToolbar=\{true}</Code> to display the toolbar </p>
+  <p>You can use the prop <Code small={true}>bulkActions</Code> to display actions that will be applied to all selected rows </p>
+  <p>Also, you can set <Code small={true}>filtersPopover=\{true}</Code> to show the filters in a Popover instead of an expanded area</p>
+
+  <Preview wrapper={true}>
+    <TableExample
+      bulkActions={[
 		{
 			id: "delete",
 			label: "Delete",
@@ -20,17 +19,21 @@ import dedent from "dedent"
 			id: "publish",
 			label: "Publish",
 		},
-	]} hasToolbar={true}/>
-    </Preview>
-    <Snippet language="js">{generalCode(`hasToolbar={true} bulkActions=\{[
-        \{
-            id: "delete",
-            label: "Delete",
-        \},
-        \{
-            id: "publish",
-            label: "Publish",
-        \},
-    ]\}`)}</Snippet>
+	]}
+      hasToolbar={true}
+    />
+  </Preview>
 
+  <Snippet language="js">
+    {generalCode(`hasToolbar={true} bulkActions=\{[
+            \{
+                id: "delete",
+                label: "Delete",
+            \},
+            \{
+                id: "publish",
+                label: "Publish",
+            \},
+        ]\}`)}
+  </Snippet>
 </Section>

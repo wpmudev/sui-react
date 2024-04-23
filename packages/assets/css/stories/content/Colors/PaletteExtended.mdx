@@ -2,19 +2,20 @@ import { Section, Switcher, Code } from '@wpmudev/sui-docs';
 import { Palettes } from './PaletteComponent.js';
 
 <Section style={{ paddingTop: 0 }}>
-	<div className="csb-section__contained" style={{ marginBottom: 40 }}>
-		<p>
-			The extended palettes consist of all the useable hues and shades for
-			global actions like warning alerts or accent colors. The usage of
-			these colors alters depending on the type of communication. Still,
-			they come in handy for global text, backgrounds, and other global
-			elements.
-		</p>
-	</div>
-	<Switcher>
-		<div label="Neutrals" value="neutrals">
-			<Palettes
-				arrays={[
+  <div className="csb-section__contained" style={{ marginBottom: 40 }}>
+    <p>
+      The extended palettes consist of all the useable hues and shades for
+      global actions like warning alerts or accent colors. The usage of
+      these colors alters depending on the type of communication. Still,
+      they come in handy for global text, backgrounds, and other global
+      elements.
+    </p>
+  </div>
+
+  <Switcher>
+    <div label="Neutrals" value="neutrals">
+      <Palettes
+        arrays={[
 					{
 						intro: (
 							<>
@@ -97,11 +98,12 @@ import { Palettes } from './PaletteComponent.js';
 						},
 					},
 				]}
-			/>
-		</div>
-		<div label="Success" value="green">
-			<Palettes
-				arrays={[
+      />
+    </div>
+
+    <div label="Success" value="green">
+      <Palettes
+        arrays={[
 					{
 						intro: (
 							<p>
@@ -120,11 +122,12 @@ import { Palettes } from './PaletteComponent.js';
 						},
 					},
 				]}
-			/>
-		</div>
-		<div label="Warning" value="yellow">
-			<Palettes
-				arrays={[
+      />
+    </div>
+
+    <div label="Warning" value="yellow">
+      <Palettes
+        arrays={[
 					{
 						intro: (
 							<p>
@@ -143,11 +146,12 @@ import { Palettes } from './PaletteComponent.js';
 						},
 					},
 				]}
-			/>
-		</div>
-		<div label="Error" value="red">
-			<Palettes
-				arrays={[
+      />
+    </div>
+
+    <div label="Error" value="red">
+      <Palettes
+        arrays={[
 					{
 						intro: (
 							<p>
@@ -169,7 +173,7 @@ import { Palettes } from './PaletteComponent.js';
 						},
 					},
 				]}
-			/>
-		</div>
-	</Switcher>
+      />
+    </div>
+  </Switcher>
 </Section>

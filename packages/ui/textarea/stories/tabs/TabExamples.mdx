@@ -16,23 +16,29 @@ export default Example;
 `;
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>Below is the default form of a field, used for most cases.</p>
-	<Preview wrapper={true}>
-		<Textarea id="input-id-1" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" />
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>Below is the default form of a field, used for most cases.</p>
+
+  <Preview wrapper={true}>
+    <Textarea id="input-id-1" description="This is a description." descriptionId="desc-id" placeholder="Placeholder" />
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section style={{ paddingTop: 0 }}>
-	<Switcher>
-		<div label="States" value="states">
-			<States />
-		</div>
-		<div label="Size" value="size">
-			<Size />
-		</div>
-		<div label="Validation" value="validation">
-			<Validation />
-		</div>
-	</Switcher>
+  <Switcher>
+    <div label="States" value="states">
+      <States />
+    </div>
+
+    <div label="Size" value="size">
+      <Size />
+    </div>
+
+    <div label="Validation" value="validation">
+      <Validation />
+    </div>
+  </Switcher>
 </Section>

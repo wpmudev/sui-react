@@ -3,14 +3,14 @@ import { RadioGroup, Radio } from "../../../src"
 import { ValidationRadio, ValidationRadioCode } from "./ValidationRadio"
 import dedent from "dedent"
 
-<Section
-	title="Validation"
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-   	<p> In the example below, we use the hook <a href="/?path=/docs/sui-npm-packages-hooks--docs" target="blank">useValidation</a> to validate the value with a custom validator</p>
-    <Preview wrapper={true}>
-    	<ValidationRadio />
-    </Preview>
-    <Snippet language="js">{ValidationRadioCode}</Snippet>
+<Section title="Validation" border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p> In the example below, we use the hook <a href="/?path=/docs/sui-npm-packages-hooks--docs" target="blank">useValidation</a> to validate the value with a custom validator</p>
+
+  <Preview wrapper={true}>
+    <ValidationRadio />
+  </Preview>
+
+  <Snippet language="js">
+    {ValidationRadioCode}
+  </Snippet>
 </Section>

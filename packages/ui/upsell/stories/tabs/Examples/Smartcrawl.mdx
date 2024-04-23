@@ -33,21 +33,17 @@ export const Code = dedent`
     />
 `
 
-<Section
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<Upsell
-			variation="smartcrawl"
-			features={[
+<Section contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <Upsell
+      variation="smartcrawl"
+      features={[
 				"Performance Test Reporting",
 				"Uptime monitoring",
 				"Enhanced file minification with CDN",
 				"Database Cleanup notifications",
 			]}
-			actions={[
+      actions={[
 				<div key={0}>
 					<Button type="primary" colorScheme="black" isSmall={true}>
 						Upgrade now
@@ -65,7 +61,10 @@ export const Code = dedent`
 					</Button>
 				</div>,
 			]}
-		/>
-	</Preview>
-	<Snippet language="js">{Code}</Snippet>
+    />
+  </Preview>
+
+  <Snippet language="js">
+    {Code}
+  </Snippet>
 </Section>

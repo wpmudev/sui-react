@@ -47,37 +47,36 @@ export const selectCode = dedent`
     </FormField>
 `
 
-<Section
-	title="A Form Field with a basic Input"
-	contained={true}
-	style={{ paddingTop: 30 }}
->
-	<Preview wrapper={true}>
-		<FormField label="Name" helper="Your full name">
-			<Input id="input-example" placeholder="Placeholder" />
-		</FormField>
-	</Preview>
-	<Snippet language="js">{basicCode}</Snippet>
+<Section title="A Form Field with a basic Input" contained={true} style={{ paddingTop: 30 }}>
+  <Preview wrapper={true}>
+    <FormField label="Name" helper="Your full name">
+      <Input id="input-example" placeholder="Placeholder" />
+    </FormField>
+  </Preview>
+
+  <Snippet language="js">
+    {basicCode}
+  </Snippet>
 </Section>
 
 <Section title="Error message" contained={true} style={{ paddingTop: 30 }}>
-	<Preview wrapper={true}>
-		<FormField
-			error="Name must have at least 3 characters"
-			label="Name"
-		>
-			<Input value="ab" id="input-example" placeholder="Placeholder" />
-		</FormField>
-	</Preview>
-	<Snippet language="js">{errorCode}</Snippet>
+  <Preview wrapper={true}>
+    <FormField error="Name must have at least 3 characters" label="Name">
+      <Input value="ab" id="input-example" placeholder="Placeholder" />
+    </FormField>
+  </Preview>
+
+  <Snippet language="js">
+    {errorCode}
+  </Snippet>
 </Section>
 
 <Section title="Select Element" contained={true} style={{ paddingTop: 30 }}>
-	<div className="sui-wrap sui-theme--light" style={{ marginBottom: "20px" }}>
-		<FormField label="Settings" helper="Please Select one option">
-			<Select
-				id="select-example"
-				options={[
+  <div className="sui-wrap sui-theme--light" style={{ marginBottom: "20px" }}>
+    <FormField label="Settings" helper="Please Select one option">
+      <Select
+        id="select-example"
+        options={[
 					{
 						icon: "settings",
 						id: "option-1",
@@ -97,8 +96,11 @@ export const selectCode = dedent`
 						isSelected: false,
 					},
 				]}
-			/>
-		</FormField>
-	</div>
-	<Snippet language="js">{selectCode}</Snippet>
+      />
+    </FormField>
+  </div>
+
+  <Snippet language="js">
+    {selectCode}
+  </Snippet>
 </Section>

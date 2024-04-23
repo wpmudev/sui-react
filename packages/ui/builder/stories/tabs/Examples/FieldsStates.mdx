@@ -41,118 +41,101 @@ export const customContentCode = dedent`
     />
 `
 
-<Section
-    title="Basic"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-      <div style={{backgroundColor: "#F8F8F8", padding: 20}}>
-    	  <BuilderField title="Block 1" subTitle="Block Subtitle" icon="Desktop" action="Action"/>
-      </div>
-    </Preview>
-    <Snippet language="js">{BasicCode}</Snippet>
+<Section title="Basic" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <div style={{backgroundColor: "#F8F8F8", padding: 20}}>
+      <BuilderField title="Block 1" subTitle="Block Subtitle" icon="Desktop" action="Action" />
+    </div>
+  </Preview>
 
+  <Snippet language="js">
+    {BasicCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Custom Content"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-      <div style={{backgroundColor: "#F8F8F8", padding: 20}}>
-    	  <BuilderField customContent={<Input id="input-1" placeholder="Placeholder"/>} icon="Desktop" action="Action"/>
-      </div>
-    </Preview>
-    <Snippet language="js">{customContentCode}</Snippet>
+<Section title="Custom Content" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <div style={{backgroundColor: "#F8F8F8", padding: 20}}>
+      <BuilderField customContent={<Input id="input-1" placeholder="Placeholder"/>} icon="Desktop" action="Action" />
+    </div>
+  </Preview>
 
+  <Snippet language="js">
+    {customContentCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Error"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <p>Use the prop <Code small={true}>hasError=\{true\}</Code> to display the field in error state</p>
-    <Preview wrapper={true}>
-      <div style={{backgroundColor: "#F8F8F8", padding: 20}}>
-    	  <BuilderField hasError={true} title="Error" icon="Desktop" action="Action"/>
-      </div>
-    </Preview>
-    <Snippet language="js">{ErrorCode}</Snippet>
+<Section title="Error" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Use the prop <Code small={true}>hasError=\{true}</Code> to display the field in error state</p>
 
+  <Preview wrapper={true}>
+    <div style={{backgroundColor: "#F8F8F8", padding: 20}}>
+      <BuilderField hasError={true} title="Error" icon="Desktop" action="Action" />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {ErrorCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Being Dragged"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <p>Use the prop <Code small={true}>isDragging=\{true\}</Code> to display the field in a dragging state</p>
-    <Preview wrapper={true}>
-      <div style={{backgroundColor: "#F8F8F8", padding: 20}}>
-    	  <BuilderField isDragging={true} title="Is Dragging" icon="Desktop" action="Action"/>
-      </div>
-    </Preview>
-    <Snippet language="js">{isDraggingCode}</Snippet>
+<Section title="Being Dragged" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Use the prop <Code small={true}>isDragging=\{true}</Code> to display the field in a dragging state</p>
 
+  <Preview wrapper={true}>
+    <div style={{backgroundColor: "#F8F8F8", padding: 20}}>
+      <BuilderField isDragging={true} title="Is Dragging" icon="Desktop" action="Action" />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {isDraggingCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Non-draggable"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <p>Use the prop <Code small={true}>allowDrag=\{false\}</Code> to make the field non-draggable</p>
-    <Preview wrapper={true}>
-      <div style={{backgroundColor: "#F8F8F8", padding: 20}}>
-    	  <BuilderField allowDrag={false} title="Non Draggable" icon="Desktop" action="Action"/>
-      </div>
-    </Preview>
-    <Snippet language="js">{NonDraggableCode}</Snippet>
+<Section title="Non-draggable" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Use the prop <Code small={true}>allowDrag=\{false}</Code> to make the field non-draggable</p>
+
+  <Preview wrapper={true}>
+    <div style={{backgroundColor: "#F8F8F8", padding: 20}}>
+      <BuilderField allowDrag={false} title="Non Draggable" icon="Desktop" action="Action" />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {NonDraggableCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Image"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>
-		Use the prop <Code small={true}>imageUrl</Code> to display a custom image
-		instead of the icon
-	</p>
-	<Preview wrapper={true}>
-		<div style={{ backgroundColor: "#F8F8F8", padding: 20 }}>
-			<BuilderField
-				title="Image"
-				action="Action"
-				imgUrl="https://placehold.co/40x40/EEE/31343C"
-			/>
-		</div>
-	</Preview>
-	<Snippet language="js">{imageCode}</Snippet>
+<Section title="Image" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>
+    Use the prop <Code small={true}>imageUrl</Code> to display a custom image
+    instead of the icon
+  </p>
+
+  <Preview wrapper={true}>
+    <div style={{ backgroundColor: "#F8F8F8", padding: 20 }}>
+      <BuilderField title="Image" action="Action" imgUrl="https://placehold.co/40x40/EEE/31343C" />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {imageCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Accordion"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>Add child elements to display the field as an accordion</p>
-	<Preview wrapper={true}>
-		<div style={{ backgroundColor: "#F8F8F8", padding: 20 }}>
-			<BuilderField title="Accordion" action="Action">
-				Field body, it can contains any types of element
-			</BuilderField>
-		</div>
-	</Preview>
-	<Snippet language="js">{accordionCode}</Snippet>
+<Section title="Accordion" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Add child elements to display the field as an accordion</p>
+
+  <Preview wrapper={true}>
+    <div style={{ backgroundColor: "#F8F8F8", padding: 20 }}>
+      <BuilderField title="Accordion" action="Action">
+        Field body, it can contains any types of element
+      </BuilderField>
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {accordionCode}
+  </Snippet>
 </Section>

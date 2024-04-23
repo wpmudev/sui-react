@@ -6,17 +6,17 @@ export const SmallAvatarCode = dedent`
 <Avatar isSmall={true} status="confirmed" />
 `;
 
-<Section
-	title="Small"
-	contained={true}
-	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
->
-	<p>
-		Set the <Code small={true}>isSmall</Code> prop to reduce the avatar
-		width and height.
-	</p>
-	<Preview wrapper={true}>
-		<Avatar isSmall={true} status="confirmed" />
-	</Preview>
-	<Snippet language="js">{SmallAvatarCode}</Snippet>
+<Section title="Small" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
+  <p>
+    Set the <Code small={true}>isSmall</Code> prop to reduce the avatar
+    width and height.
+  </p>
+
+  <Preview wrapper={true}>
+    <Avatar isSmall={true} status="confirmed" />
+  </Preview>
+
+  <Snippet language="js">
+    {SmallAvatarCode}
+  </Snippet>
 </Section>

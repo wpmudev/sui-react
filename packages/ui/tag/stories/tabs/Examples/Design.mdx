@@ -10,26 +10,22 @@ export const OutlinedTagCode = dedent`
 <Tag design="outlined">Outlined tag</Tag>
 `;
 
+<Section title="Uppercase" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <Tag isUppercase={true}>Uppercase tag</Tag>
+  </Preview>
 
-<Section
-	title="Uppercase"
-	contained={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<Tag isUppercase={true}>Uppercase tag</Tag>
-	</Preview>
-	<Snippet language="js">{UppercaseTagCode}</Snippet>
+  <Snippet language="js">
+    {UppercaseTagCode}
+  </Snippet>
 </Section>
 
+<Section title="Outlined" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <Tag design="outlined">Outlined tag</Tag>
+  </Preview>
 
-<Section
-	title="Outlined"
-	contained={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<Tag design="outlined">Outlined tag</Tag>
-	</Preview>
-	<Snippet language="js">{OutlinedTagCode}</Snippet>
+  <Snippet language="js">
+    {OutlinedTagCode}
+  </Snippet>
 </Section>

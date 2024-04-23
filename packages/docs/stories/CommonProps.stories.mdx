@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from '@storybook/blocks';
 import { Page, Section, PropSection, List, Code, Snippet, Message } from "@wpmudev/sui-docs";
 import { Unstyled } from '@storybook/blocks';
 import dedent from "dedent"
@@ -69,57 +69,50 @@ ml: "marginLeft",
 `
 
 <Unstyled>
-	<Page.Simple
-		title="Common Props"
-		subtitle="The subsequent document outlines the shared common properties across all components within SUI library."
-	>
+  <Page.Simple title="Common Props" subtitle="The subsequent document outlines the shared common properties across all components within SUI library.">
+    <Section contained={true} style={{ paddingTop: 0, paddingBottom: 30 }}>
+      <Message color="yellow">
+        Consider using these props only when it's necessary,
+        always prioritize using the component's own props for customization unless they don't offer what you need.
+      </Message>
+    </Section>
 
-        <Section
-			contained={true}
-			style={{ paddingTop: 0, paddingBottom: 30 }}
-		>
-			<Message color="yellow">
-				Consider using these props only when it's necessary, 
-                always prioritize using the component's own props for customization unless they don't offer what you need.  
-			</Message>
-		</Section>
-		<Section
-			contained={ true }
-			border={ true }
-			style={{ paddingTop: 0 }}
-        >
-            <PropSection title="_style" type="object">
-                <p>
-                    The <Code isSmall={true}>_style</Code> prop enables inline styling for the component, 
-                    it accepts an object form similar to standard <a href="https://legacy.reactjs.org/docs/dom-elements.html#style" target="_blank">React inline styles</a>,
-                    with three key  differences: 
-                    
-                    1. It doesn't append style attribute to the DOM, instead, it automatically generates a unique className for the styles. 
-                    2. The possibility of adding values for different breakpoints.
-                    3. It provides shorthands for margin and padding properties for easier use.   
-                </p>
-                
-                <Snippet hideToggle={true}>{StyleCode}</Snippet>
-                
-                <h4>Shorthands</h4>
-                <Snippet hideToggle={true}>{shorthands}</Snippet>
-            </PropSection>
+    <Section contained={ true } border={ true } style={{ paddingTop: 0 }}>
+      <PropSection title="_style" type="object">
+        <p>
+          The <Code isSmall={true}>\_style</Code> prop enables inline styling for the component,
+          it accepts an object form similar to standard <a href="https://legacy.reactjs.org/docs/dom-elements.html#style" target="_blank">React inline styles</a>,
+          with three key  differences:
 
-            
-        </Section>
-		<Section
-			contained={ true }
-			border={ true }
-			style={{ paddingTop: 30 }}
-        >
-            <PropSection title="_htmlProps" type="object">
-                <p>
-                    Use <Code isSmall={true}>_htmlProps</Code> to pass any valid HTML attributes to the component, 
-                    structured as an object, Note that attributes should retain their original casing, unlike the camelcased 
-                    convention used in the <Code isSmall={true}>_style</Code> prop.
-                </p>
-                <Snippet hideToggle={true}>{htmlCode}</Snippet>
-            </PropSection>
-        </Section>
-	</Page.Simple>
+          1. It doesn't append style attribute to the DOM, instead, it automatically generates a unique className for the styles.
+          2. The possibility of adding values for different breakpoints.
+          3. It provides shorthands for margin and padding properties for easier use.
+        </p>
+
+        <Snippet hideToggle={true}>
+          {StyleCode}
+        </Snippet>
+
+        <h4>Shorthands</h4>
+
+        <Snippet hideToggle={true}>
+          {shorthands}
+        </Snippet>
+      </PropSection>
+    </Section>
+
+    <Section contained={ true } border={ true } style={{ paddingTop: 30 }}>
+      <PropSection title="_htmlProps" type="object">
+        <p>
+          Use <Code isSmall={true}>\_htmlProps</Code> to pass any valid HTML attributes to the component,
+          structured as an object, Note that attributes should retain their original casing, unlike the camelcased
+          convention used in the <Code isSmall={true}>\_style</Code> prop.
+        </p>
+
+        <Snippet hideToggle={true}>
+          {htmlCode}
+        </Snippet>
+      </PropSection>
+    </Section>
+  </Page.Simple>
 </Unstyled>

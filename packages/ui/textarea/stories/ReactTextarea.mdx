@@ -1,4 +1,4 @@
-import { Source } from "@storybook/addon-docs"
+import { Source } from "@storybook/blocks"
 import { Page } from "@wpmudev/sui-docs"
 import { Unstyled } from "@storybook/blocks"
 
@@ -7,19 +7,17 @@ import TabCode from "./tabs/TabCode.mdx"
 import TabExamples from "./tabs/TabExamples.mdx"
 
 <Unstyled>
-	<Page.Tabs
-		title="Textarea"
-		subtitle="A textarea element is used to create a multi-line text input field on a web page."
-		status="ready"
-	>
-		<div id="usage" label="Usage">
-			<TabUsage />
-		</div>
-		<div id="code" label="Code">
-			<TabCode />
-		</div>
-		<div id="examples" label="Examples">
-			<TabExamples />
-		</div>
-	</Page.Tabs>
+  <Page.Tabs title="Textarea" subtitle="A textarea element is used to create a multi-line text input field on a web page." status="ready">
+    <div id="usage" label="Usage">
+      <TabUsage />
+    </div>
+
+    <div id="code" label="Code">
+      <TabCode />
+    </div>
+
+    <div id="examples" label="Examples">
+      <TabExamples />
+    </div>
+  </Page.Tabs>
 </Unstyled>

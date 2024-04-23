@@ -19,16 +19,12 @@ export const SmartcrawelCode = dedent`
         />
 `
 
-<Section
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<SetupBanner
-			type="smartcrawl"
-			title="smartcrawl"
-			description={
+<Section contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <SetupBanner
+      type="smartcrawl"
+      title="smartcrawl"
+      description={
 				<p>
 					No more SEO guesswork and wasted effort that doesn’t bring the desired
 					results. With SmartCrawl’s automated SEO scanning, detailed
@@ -36,7 +32,10 @@ export const SmartcrawelCode = dedent`
 					fast-track to optimizing your sites for search and ranking higher.
 				</p>
 			}
-		/>
-	</Preview>
-	<Snippet language="js">{SmartcrawelCode}</Snippet>
+    />
+  </Preview>
+
+  <Snippet language="js">
+    {SmartcrawelCode}
+  </Snippet>
 </Section>

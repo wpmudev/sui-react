@@ -12,18 +12,12 @@ export const HustleCode = dedent`
         />
 `
 
-<Section
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-    	 <SetupBanner
-		    type="hustle"
-            title="Hustle"
-            description="Hustle Pro is the ultimate marketing plugin for building an email list and converting site traffic."
-         />
-    </Preview>
-    <Snippet language="js">{HustleCode}</Snippet>
+<Section contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <SetupBanner type="hustle" title="Hustle" description="Hustle Pro is the ultimate marketing plugin for building an email list and converting site traffic." />
+  </Preview>
 
+  <Snippet language="js">
+    {HustleCode}
+  </Snippet>
 </Section>

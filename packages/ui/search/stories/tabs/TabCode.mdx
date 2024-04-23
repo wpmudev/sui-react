@@ -3,59 +3,60 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-search" />
 
 <Section title="Props" border={true}>
-	<PropSection title="id" type="string">
-		<p>Sets the search input id attribute</p>
-	</PropSection>
+  <PropSection title="id" type="string">
+    <p>Sets the search input id attribute</p>
+  </PropSection>
 
-    <PropSection title="options" type="array">
-    	<p>The available options for search in the smart variation</p>
-    </PropSection>
+  <PropSection title="options" type="array">
+    <p>The available options for search in the smart variation</p>
+  </PropSection>
 
-    <PropSection title="placeholder" type="string" >
-    	<p>placeholder text for the search input</p>
-    </PropSection>
+  <PropSection title="placeholder" type="string">
+    <p>placeholder text for the search input</p>
+  </PropSection>
 
-    <PropSection title="customWidth" type="number" >
-    	<p>Custom width in <Code isSmall={true}>pixels</Code></p>
-    </PropSection>
+  <PropSection title="customWidth" type="number">
+    <p>Custom width in <Code isSmall={true}>pixels</Code></p>
+  </PropSection>
 
-    <PropSection title="defaultValue" type="string">
-    	<p>Adds a custom default value to the search input</p>
-    </PropSection>
+  <PropSection title="defaultValue" type="string">
+    <p>Adds a custom default value to the search input</p>
+  </PropSection>
 
-    <PropSection title="onChange" type="function">
-    	<p>Callback function to be invoked upon text change</p>
-    </PropSection>
+  <PropSection title="onChange" type="function">
+    <p>Callback function to be invoked upon text change</p>
+  </PropSection>
 
-    <PropSection title="allowClear" type="boolean" defaultValue="true">
-    	<p>Whether to display clear button or not</p>
-    </PropSection>
+  <PropSection title="allowClear" type="boolean" defaultValue="true">
+    <p>Whether to display clear button or not</p>
+  </PropSection>
 
-    <PropSection title="isDisabled" type="boolean" defaultValue="false">
-    	<p>When set to <Code small={true}>true</Code> the search input will be disable</p>
-    </PropSection>
+  <PropSection title="isDisabled" type="boolean" defaultValue="false">
+    <p>When set to <Code small={true}>true</Code> the search input will be disable</p>
+  </PropSection>
 
-    <PropSection title="variation" type="string" defaultValue="basic">
-    	<p>Sets the variation of the search input</p>
-    	<p>Allowed options</p>
-    	<List>
-    		<span label="basic" />
-    		<span label="smart" />
-    	</List>
-    </PropSection>
+  <PropSection title="variation" type="string" defaultValue="basic">
+    <p>Sets the variation of the search input</p>
+    <p>Allowed options</p>
 
-    <PropSection title="searchMinChars" type="number" defaultValue="2">
-    	<p>The mimimum number of characters required to run the search (only applicable for smart variation)</p>
-    </PropSection>
+    <List>
+      <span label="basic" />
 
-    <PropSection title="searchHint" type="string" defaultValue="Please enter {searchMinChars} or more characters">
-    	<p>Provides a descriptive hint for search. (only applicable for smart variation) </p>
-    </PropSection>
+      <span label="smart" />
+    </List>
+  </PropSection>
 
-    <PropSection title="className" type="string">
-    	<p>Adds a custom css className(s) for further customization</p>
-    </PropSection>
+  <PropSection title="searchMinChars" type="number" defaultValue="2">
+    <p>The mimimum number of characters required to run the search (only applicable for smart variation)</p>
+  </PropSection>
 
+  <PropSection title="searchHint" type="string" defaultValue="Please enter {searchMinChars} or more characters">
+    <p>Provides a descriptive hint for search. (only applicable for smart variation) </p>
+  </PropSection>
+
+  <PropSection title="className" type="string">
+    <p>Adds a custom css className(s) for further customization</p>
+  </PropSection>
 </Section>
 
 <CommonPropsNotice />

@@ -14,49 +14,47 @@ export const TertiaryButtonCode = dedent`
 <Button type="tertiary" colorScheme="blue">Tertiary button</Button>
 `;
 
-<Section
-	title="Primary"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>
-		Use <Code small={true}>primary</Code> button to call attention to
-		action. Combined with <Code small={true}>blue</Code> colorScheme prop
-		highlights the strongest call to action on a page.
-	</p>
-	<Preview wrapper={true}>
-		<Button type="primary" colorScheme="blue">Primary button</Button>
-	</Preview>
-	<Snippet language="js">{PrimaryButtonCode}</Snippet>
+<Section title="Primary" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>
+    Use <Code small={true}>primary</Code> button to call attention to
+    action. Combined with <Code small={true}>blue</Code> colorScheme prop
+    highlights the strongest call to action on a page.
+  </p>
+
+  <Preview wrapper={true}>
+    <Button type="primary" colorScheme="blue">Primary button</Button>
+  </Preview>
+
+  <Snippet language="js">
+    {PrimaryButtonCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Secondary"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>
-		A subtle outlined button that handles secondary actions, such as
-		"Cancel."
-	</p>
-	<Preview wrapper={true}>
-		<Button type="secondary" colorScheme="blue">Secondary button</Button>
-	</Preview>
-	<Snippet language="js">{SecondaryButtonCode}</Snippet>
+<Section title="Secondary" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>
+    A subtle outlined button that handles secondary actions, such as
+    "Cancel."
+  </p>
+
+  <Preview wrapper={true}>
+    <Button type="secondary" colorScheme="blue">Secondary button</Button>
+  </Preview>
+
+  <Snippet language="js">
+    {SecondaryButtonCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Tertiary"
-	contained={true}
-	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
->
-	<p>
-		Link style button commonly used as navigation menu or in special cases.
-	</p>
-	<Preview wrapper={true}>
-		<Button type="tertiary" colorScheme="blue">Tertiary button</Button>
-	</Preview>
-	<Snippet language="js">{TertiaryButtonCode}</Snippet>
+<Section title="Tertiary" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
+  <p>
+    Link style button commonly used as navigation menu or in special cases.
+  </p>
+
+  <Preview wrapper={true}>
+    <Button type="tertiary" colorScheme="blue">Tertiary button</Button>
+  </Preview>
+
+  <Snippet language="js">
+    {TertiaryButtonCode}
+  </Snippet>
 </Section>

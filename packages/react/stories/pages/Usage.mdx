@@ -3,98 +3,111 @@ import dedent from 'ts-dedent';
 import { Section, Code, Snippet } from '@wpmudev/sui-docs';
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		Once you've installed the React Package package into your plugin, you
-		can import any SUI 3 React components.
-	</p>
-	<p>
-		For an example, if you want to import Button component in your plugin/app, you can import as follow:
-		```js
-		import { Button } from "@wpmudev/sui-react"
-		```
-	</p>
-<p>
-	<h4>Here is a list of component packages, it contains:</h4>
-	<ul>
-		<li>Core components:</li>
-		<ol>
-			<li>`@wpmudev/sui-avatar`</li>
-			<li>`@wpmudev/sui-box`</li>
-			<li>`@wpmudev/sui-grid`</li>
-			<li>`@wpmudev/sui-link`</li>
-			<li>`@wpmudev/sui-icon`</li>
-			<li>`@wpmudev/sui-score`</li>
-			<li>`@wpmudev/sui-segmented-control`</li>
-			<li>`@wpmudev/sui-selector`</li>
-			<li>`@wpmudev/sui-spinner`</li>
-			<li>`@wpmudev/sui-tag`</li>
-			<li>`@wpmudev/sui-tooltip`</li>
-		</ol>
-	</ul>
-	<ul>
-		<li>Form components:</li>
-		<ol>
-			<li>`@wpmudev/sui-checkbox`</li>
-			<li>`@wpmudev/sui-radio`</li>
-			<li>`@wpmudev/sui-button`</li>
-			<li>`@wpmudev/sui-form-field`</li>
-			<li>`@wpmudev/sui-input`</li>
-			<li>`@wpmudev/sui-textarea`</li>
-			<li>`@wpmudev/sui-toggle`</li>
-		</ol>
-	</ul>
-	<ul>
-		<li>Advanced components</li>
-		<ol>
-			<li>`@wpmudev/sui-accordion`</li>
-			<li>`@wpmudev/sui-alert-banner`</li>
-			<li>`@wpmudev/sui-code-editor`</li>
-			<li>`@wpmudev/sui-code-snippet`</li>
-			<li>`@wpmudev/sui-color-picker`</li>
-			<li>`@wpmudev/sui-date-picker`</li>
-			<li>`@wpmudev/sui-dropdown`</li>
-			<li>`@wpmudev/sui-empty-state`</li>
-			<li>`@wpmudev/sui-password-field`</li>
-			<li>`@wpmudev/sui-modal`</li>
-			<li>`@wpmudev/sui-notification`</li>
-			<li>`@wpmudev/sui-progress-bar`</li>
-			<li>`@wpmudev/sui-select`</li>
-			<li>`@wpmudev/sui-sidebar`</li>
-			<li>`@wpmudev/sui-summary-box`</li>
-			<li>`@wpmudev/sui-tabs`</li>
-			<li>`@wpmudev/sui-tree-view`</li>
-			<li>`@wpmudev/sui-uploader`</li>
-			<li>`@wpmudev/sui-field-list`</li>
-			<li>`@wpmudev/sui-recipient`</li>
-			<li>`@wpmudev/sui-rich-text-editor`</li>
-			<li>`@wpmudev/sui-advanced-banner`</li>
-			<li>`@wpmudev/sui-builder`</li>
-			<li>`@wpmudev/sui-editor-toolbar`</li>
-			<li>`@wpmudev/sui-pagination`</li>
-			<li>`@wpmudev/sui-search`</li>
-			<li>`@wpmudev/sui-basic-box`</li>
-			<li>`@wpmudev/sui-setting-block`</li>
-			<li>`@wpmudev/sui-popover`</li>
-		</ol>
-	</ul>
-	<ul>
-		<li>Module Components:</li>
-		<ol>
-			<li>`@wpmudev/sui-table`</li>
-			<li>`@wpmudev/sui-dashboard-widget`</li>
-			<li>`@wpmudev/sui-navigation`</li>
-			<li>`@wpmudev/sui-integration`</li>
-		</ol>
-	</ul>
-	<ul>
-		<li>Collection Components:</li>
-		<ol>
-			<li>`@wpmudev/sui-footer`</li>
-			<li>`@wpmudev/sui-config-table`</li>
-			<li>`@wpmudev/sui-setup-banner`</li>
-			<li>`@wpmudev/sui-upsell`</li>
-			<li>`@wpmudev/sui-upsell-notice`</li>
-		</ol>
-	</ul>
-</p>
+  <p>
+    Once you've installed the React Package package into your plugin, you
+    can import any SUI 3 React components.
+  </p>
+
+  <p>
+    For an example, if you want to import Button component in your plugin/app, you can import as follow:
+
+    ```js
+    import { Button } from "@wpmudev/sui-react"
+    ```
+  </p>
+
+  <p>
+    <h4>Here is a list of component packages, it contains:</h4>
+
+    <ul>
+      <li>Core components:</li>
+
+      <ol>
+        <li>`@wpmudev/sui-avatar`</li>
+        <li>`@wpmudev/sui-box`</li>
+        <li>`@wpmudev/sui-grid`</li>
+        <li>`@wpmudev/sui-link`</li>
+        <li>`@wpmudev/sui-icon`</li>
+        <li>`@wpmudev/sui-score`</li>
+        <li>`@wpmudev/sui-segmented-control`</li>
+        <li>`@wpmudev/sui-selector`</li>
+        <li>`@wpmudev/sui-spinner`</li>
+        <li>`@wpmudev/sui-tag`</li>
+        <li>`@wpmudev/sui-tooltip`</li>
+      </ol>
+    </ul>
+
+    <ul>
+      <li>Form components:</li>
+
+      <ol>
+        <li>`@wpmudev/sui-checkbox`</li>
+        <li>`@wpmudev/sui-radio`</li>
+        <li>`@wpmudev/sui-button`</li>
+        <li>`@wpmudev/sui-form-field`</li>
+        <li>`@wpmudev/sui-input`</li>
+        <li>`@wpmudev/sui-textarea`</li>
+        <li>`@wpmudev/sui-toggle`</li>
+      </ol>
+    </ul>
+
+    <ul>
+      <li>Advanced components</li>
+
+      <ol>
+        <li>`@wpmudev/sui-accordion`</li>
+        <li>`@wpmudev/sui-alert-banner`</li>
+        <li>`@wpmudev/sui-code-editor`</li>
+        <li>`@wpmudev/sui-code-snippet`</li>
+        <li>`@wpmudev/sui-color-picker`</li>
+        <li>`@wpmudev/sui-date-picker`</li>
+        <li>`@wpmudev/sui-dropdown`</li>
+        <li>`@wpmudev/sui-empty-state`</li>
+        <li>`@wpmudev/sui-password-field`</li>
+        <li>`@wpmudev/sui-modal`</li>
+        <li>`@wpmudev/sui-notification`</li>
+        <li>`@wpmudev/sui-progress-bar`</li>
+        <li>`@wpmudev/sui-select`</li>
+        <li>`@wpmudev/sui-sidebar`</li>
+        <li>`@wpmudev/sui-summary-box`</li>
+        <li>`@wpmudev/sui-tabs`</li>
+        <li>`@wpmudev/sui-tree-view`</li>
+        <li>`@wpmudev/sui-uploader`</li>
+        <li>`@wpmudev/sui-field-list`</li>
+        <li>`@wpmudev/sui-recipient`</li>
+        <li>`@wpmudev/sui-rich-text-editor`</li>
+        <li>`@wpmudev/sui-advanced-banner`</li>
+        <li>`@wpmudev/sui-builder`</li>
+        <li>`@wpmudev/sui-editor-toolbar`</li>
+        <li>`@wpmudev/sui-pagination`</li>
+        <li>`@wpmudev/sui-search`</li>
+        <li>`@wpmudev/sui-basic-box`</li>
+        <li>`@wpmudev/sui-setting-block`</li>
+        <li>`@wpmudev/sui-popover`</li>
+      </ol>
+    </ul>
+
+    <ul>
+      <li>Module Components:</li>
+
+      <ol>
+        <li>`@wpmudev/sui-table`</li>
+        <li>`@wpmudev/sui-dashboard-widget`</li>
+        <li>`@wpmudev/sui-navigation`</li>
+        <li>`@wpmudev/sui-integration`</li>
+      </ol>
+    </ul>
+
+    <ul>
+      <li>Collection Components:</li>
+
+      <ol>
+        <li>`@wpmudev/sui-footer`</li>
+        <li>`@wpmudev/sui-config-table`</li>
+        <li>`@wpmudev/sui-setup-banner`</li>
+        <li>`@wpmudev/sui-upsell`</li>
+        <li>`@wpmudev/sui-upsell-notice`</li>
+      </ol>
+    </ul>
+  </p>
 </Section>

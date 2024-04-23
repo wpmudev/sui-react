@@ -3,70 +3,69 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-select" />
 
 <Section title="Props" border={true}>
-	<PropSection title="id" type="string">
-		<p>A unique identifier for the select</p>
-	</PropSection>
+  <PropSection title="id" type="string">
+    <p>A unique identifier for the select</p>
+  </PropSection>
 
-    <PropSection title="options" type="Array">
-    	<p>An array of options to be included in the select, each element is an object with a key as a string and value of any type </p>
-    </PropSection>
+  <PropSection title="options" type="Array">
+    <p>An array of options to be included in the select, each element is an object with a key as a string and value of any type </p>
+  </PropSection>
 
-    <PropSection title="selected" type="Array | string">
-    	<p>Currently selected option</p>
-    </PropSection>
+  <PropSection title="selected" type="Array | string">
+    <p>Currently selected option</p>
+  </PropSection>
 
-    <PropSection title="customWidth" type="number">
-    	<p>Specifies a custom width for the select element in <Code isSmall={true}>pixels</Code></p>
-    </PropSection>
+  <PropSection title="customWidth" type="number">
+    <p>Specifies a custom width for the select element in <Code isSmall={true}>pixels</Code></p>
+  </PropSection>
 
-    <PropSection title="className" type="string">
-    	<p>Additional css className(s) for further customization</p>
-    </PropSection>
+  <PropSection title="className" type="string">
+    <p>Additional css className(s) for further customization</p>
+  </PropSection>
 
-    <PropSection title="label" type="string" defaultValue="select">
-    	<p>The label represents the placeholder for the select element</p>
-    </PropSection>
+  <PropSection title="label" type="string" defaultValue="select">
+    <p>The label represents the placeholder for the select element</p>
+  </PropSection>
 
-    <PropSection title="isDisabled" type="boolean" defaultValue="false">
-    	<p>When set to <Code small={true}>true</Code> the select will be non-interactive</p>
-    </PropSection>
+  <PropSection title="isDisabled" type="boolean" defaultValue="false">
+    <p>When set to <Code small={true}>true</Code> the select will be non-interactive</p>
+  </PropSection>
 
-    <PropSection title="isSmall" type="boolean" defaultValue="false">
-    	<p>When set to <Code small={true}>true</Code> the select will have a smaller size</p>
-    </PropSection>
+  <PropSection title="isSmall" type="boolean" defaultValue="false">
+    <p>When set to <Code small={true}>true</Code> the select will have a smaller size</p>
+  </PropSection>
 
-    <PropSection title="isError" type="boolean" defaultValue="false">
-    	<p>Whether the select is an error state or not, when the select is in an error state it will have a red border</p>
-    </PropSection>
+  <PropSection title="isError" type="boolean" defaultValue="false">
+    <p>Whether the select is an error state or not, when the select is in an error state it will have a red border</p>
+  </PropSection>
 
-    <PropSection title="isMultiselect" type="boolean" defaultValue="false">
-    	<p>Set this to <Code small={true}>true</Code> if you want to use the multiselect variation</p>
-    </PropSection>
+  <PropSection title="isMultiselect" type="boolean" defaultValue="false">
+    <p>Set this to <Code small={true}>true</Code> if you want to use the multiselect variation</p>
+  </PropSection>
 
-    <PropSection title="isSearchable" type="boolean" defaultValue="false">
-    	<p>Set this to <Code small={true}>true</Code> if you want to use the smart search variation variation</p>
-    </PropSection>
+  <PropSection title="isSearchable" type="boolean" defaultValue="false">
+    <p>Set this to <Code small={true}>true</Code> if you want to use the smart search variation variation</p>
+  </PropSection>
 
-    <PropSection title="isCustomVar" type="boolean" defaultValue="false">
-    	<p>When this is set to <Code small={true}>true</Code>, the select will have a button on the right side to open the dropdown</p>
-    </PropSection>
+  <PropSection title="isCustomVar" type="boolean" defaultValue="false">
+    <p>When this is set to <Code small={true}>true</Code>, the select will have a button on the right side to open the dropdown</p>
+  </PropSection>
 
-    <PropSection title="onChange" type="function">
-    	<p>A callback function to be invoked upon the change of the option, the first parameter would be the new selected item(s)</p>
-    </PropSection>
+  <PropSection title="onChange" type="function">
+    <p>A callback function to be invoked upon the change of the option, the first parameter would be the new selected item(s)</p>
+  </PropSection>
 
-    <PropSection title="onMouseEnter" type="function">
-    	<p>A callback function to be invoked when the the mouse enters the select element</p>
-    </PropSection>
+  <PropSection title="onMouseEnter" type="function">
+    <p>A callback function to be invoked when the the mouse enters the select element</p>
+  </PropSection>
 
-    <PropSection title="onMouseLeave" type="function">
-    	<p>A callback function to be invoked when the the mouse leaves the select element</p>
-    </PropSection>
+  <PropSection title="onMouseLeave" type="function">
+    <p>A callback function to be invoked when the the mouse leaves the select element</p>
+  </PropSection>
 
-    <PropSection title="_dropdownProps" type="object">
-    	<p>Specifies the props passed to <a href="/?path=/story/sui-components-advanced-dropdown--dropdown">the Dropdown component</a> which is used internally with Select component</p>
-    </PropSection>
-
+  <PropSection title="_dropdownProps" type="object">
+    <p>Specifies the props passed to <a href="/?path=/story/sui-components-advanced-dropdown--dropdown">the Dropdown component</a> which is used internally with Select component</p>
+  </PropSection>
 </Section>
 
 <CommonPropsNotice />

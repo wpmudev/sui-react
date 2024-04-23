@@ -4,16 +4,21 @@ import { BasicSidebar, GeneralSidebarCode } from "./Examples/GeneralSidebar.tsx"
 import dedent from "dedent"
 
 <Section style={{ paddingTop: 30 }}>
-	<p>
-		This is a general Sidebar component with all possible variations for the
-		items, you can customize the items to fit your needs.
-	</p>
-	<p>
-		The Sidebar also displays a dropdown on mobile, it has the same menu items
-		that are displayed in desktop.
-	</p>
-	<Preview wrapper={true}>
-		<BasicSidebar />
-	</Preview>
-	<Snippet language="js">{GeneralSidebarCode}</Snippet>
+  <p>
+    This is a general Sidebar component with all possible variations for the
+    items, you can customize the items to fit your needs.
+  </p>
+
+  <p>
+    The Sidebar also displays a dropdown on mobile, it has the same menu items
+    that are displayed in desktop.
+  </p>
+
+  <Preview wrapper={true}>
+    <BasicSidebar />
+  </Preview>
+
+  <Snippet language="js">
+    {GeneralSidebarCode}
+  </Snippet>
 </Section>

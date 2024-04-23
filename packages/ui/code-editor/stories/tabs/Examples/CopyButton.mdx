@@ -21,10 +21,13 @@ export const hideCopyCode = dedent`
 `
 
 <Section title="Hiding the Copy Button" contained={true} style={{ paddingTop: 30, paddingLeft: 0 }} border={true}>
-	<Preview wrapper={true}>
-		<CodeEditor allowCopy={false} language="javascript" >
-            {reactSampleCode}
-		</CodeEditor>
-	</Preview>
-	<Snippet language="js">{hideCopyCode}</Snippet>
+  <Preview wrapper={true}>
+    <CodeEditor allowCopy={false} language="javascript">
+      {reactSampleCode}
+    </CodeEditor>
+  </Preview>
+
+  <Snippet language="js">
+    {hideCopyCode}
+  </Snippet>
 </Section>

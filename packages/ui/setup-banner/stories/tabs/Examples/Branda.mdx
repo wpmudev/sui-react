@@ -12,18 +12,12 @@ export const BrandaCode = dedent`
         />
 `
 
-<Section
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-    	 <SetupBanner
-		    type="branda"
-            title="Branda"
-            description="Simplify the white labeling process and completely rebrand your sites - all without needing a drop of code."
-         />
-    </Preview>
-    <Snippet language="js">{BrandaCode}</Snippet>
+<Section contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <SetupBanner type="branda" title="Branda" description="Simplify the white labeling process and completely rebrand your sites - all without needing a drop of code." />
+  </Preview>
 
+  <Snippet language="js">
+    {BrandaCode}
+  </Snippet>
 </Section>

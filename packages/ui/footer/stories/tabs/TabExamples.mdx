@@ -138,11 +138,12 @@ export const proVariationCode = dedent`
 `
 
 <Section style={{ paddingTop: 30 }}>
-	<p>Below is the free variation of the footer component</p>
-	<Preview wrapper={true}>
-		<Footer
-			renderBlocks={(content) => [content]}
-			socialLinks={[
+  <p>Below is the free variation of the footer component</p>
+
+  <Preview wrapper={true}>
+    <Footer
+      renderBlocks={(content) => [content]}
+      socialLinks={[
 				{
 					url: "#",
 					type: "facebook",
@@ -156,7 +157,7 @@ export const proVariationCode = dedent`
 					type: "twitter",
 				},
 			]}
-			links={[
+      links={[
 				{
 					url: "#",
 					title: "Free Plugins",
@@ -190,16 +191,19 @@ export const proVariationCode = dedent`
 					title: "Privacy Policy",
 				},
 			]}
-		/>
-	</Preview>
-	<Snippet language="js">{freeVariationCode}</Snippet>
+    />
+  </Preview>
+
+  <Snippet language="js">
+    {freeVariationCode}
+  </Snippet>
 </Section>
 
 <Section title="The Pro Variation" style={{ paddingTop: 30 }}>
-	<Preview wrapper={true}>
-		<Footer
-			renderBlocks={(content) => [content]}
-			socialLinks={[
+  <Preview wrapper={true}>
+    <Footer
+      renderBlocks={(content) => [content]}
+      socialLinks={[
 				{
 					url: "#",
 					type: "facebook",
@@ -213,7 +217,7 @@ export const proVariationCode = dedent`
 					type: "twitter",
 				},
 			]}
-			links={[
+      links={[
 				{
 					url: "#",
 					title: "Free Plugins",
@@ -247,7 +251,10 @@ export const proVariationCode = dedent`
 					title: "Privacy Policy",
 				},
 			]}
-		/>
-	</Preview>
-	<Snippet language="js">{proVariationCode}</Snippet>
+    />
+  </Preview>
+
+  <Snippet language="js">
+    {proVariationCode}
+  </Snippet>
 </Section>

@@ -12,119 +12,125 @@ import Forminator from "../images/forminator.svg"
 import OnSettings from "../images/on-settings.svg"
 
 <Section title="Anatomy">
-	<Row>
-		<Col>
-    		<h3 style={{marginTop: 0}}>1. Header</h3>
-    		<p>The header includes title along with supportive icon and tag which are optional.</p>
+  <Row>
+    <Col>
+      <h3 style={{marginTop: 0}}>1. Header</h3>
+      <p>The header includes title along with supportive icon and tag which are optional.</p>
 
-    		<h3>2. Body</h3>
-    		<p>A short description of the selector.</p>
-    	</Col>
+      <h3>2. Body</h3>
+      <p>A short description of the selector.</p>
+    </Col>
 
-    	<Col size="3">
-    		<img src={Anatomy} alt="Selector Anatomy" />
-    	</Col>
-    </Row>
-
+    <Col size="3">
+      <img src={Anatomy} alt="Selector Anatomy" />
+    </Col>
+  </Row>
 </Section>
 
 <Section title="Variations">
-	<p>Selector component has 4 different variation.</p>
-	<img src={Variations} alt="Selector Variations" style={ { paddingBottom: 30 } } />
+  <p>Selector component has 4 different variation.</p>
 
-    <h3 style={{marginTop: 0}}>1. Default</h3>
-    <p>Default selector includes an icon, and a label with supportive tag.</p>
+  <img src={Variations} alt="Selector Variations" style={ { paddingBottom: 30 } } />
 
-    <h3>2. Compound Selector</h3>
-    <p>Compound selector includes a header and body.</p>
+  <h3 style={{marginTop: 0}}>1. Default</h3>
+  <p>Default selector includes an icon, and a label with supportive tag.</p>
 
-    <List>
-    	<span label={
+  <h3>2. Compound Selector</h3>
+  <p>Compound selector includes a header and body.</p>
+
+  <List>
+    <span
+      label={
     		<>
     			<Code small={true}>Header</Code> The compound selector header includes an icon, label and supportive
     			tag. Depending on the design requirement, the icon can replaced with the product
     			icon.
     		</>
     		}
-    	/>
+    />
 
-    	<span label={
+    <span
+      label={
     		<>
     		   <Code small={true}>Body</Code> Compound selector body comes with the general description.
     		</>
     		}
-    	/>
-    </List>
+    />
+  </List>
 
-    <h3>3. Image Selector</h3>
-    <p>Similar like compound selector, Image selector also has header and body.</p>
+  <h3>3. Image Selector</h3>
+  <p>Similar like compound selector, Image selector also has header and body.</p>
 
-    <List>
-    	<span label={
+  <List>
+    <span
+      label={
     		<>
     			<Code small={true}>Header</Code> Similar to Compound Selector. (Icon won’t be replaced with product icon.)
     		</>
     		}
-    	/>
+    />
 
-    	<span label={
+    <span
+      label={
     		<>
     		   <Code small={true}>Body</Code> Image selector includes an image and description. Recommended image ration is 2:1.
     		</>
     		}
-    	/>
-    </List>
+    />
+  </List>
 
-    <p>NOTE: Tags and descriptions are optional elements in the Selector component. however, it can be customised if necessary.</p>
+  <p>NOTE: Tags and descriptions are optional elements in the Selector component. however, it can be customised if necessary.</p>
 
-    <h3>4. Icon only</h3>
-    <p>Icon can be replaced with desired icon.</p>
-
+  <h3>4. Icon only</h3>
+  <p>Icon can be replaced with desired icon.</p>
 </Section>
 
 <Section title="States">
-	<img src={States} alt="Selector States" />
+  <img src={States} alt="Selector States" />
 </Section>
 
 <Section title="Alignment">
-	<p>Selector type Default and Compound have center-aligned variation.</p>
-	<img src={Alignment} alt="Selector Alignment" />
+  <p>Selector type Default and Compound have center-aligned variation.</p>
+
+  <img src={Alignment} alt="Selector Alignment" />
 </Section>
 
 <Section title="Remove Process for Selector">
-	<p>
-		Icon and Image selector allow users to use custom icon and image. These two
-		variation has delete action to remove the uploaded items.
-	</p>
-	<img src={RemoveProcess} alt="Selector Remove Process" />
+  <p>
+    Icon and Image selector allow users to use custom icon and image. These two
+    variation has delete action to remove the uploaded items.
+  </p>
+
+  <img src={RemoveProcess} alt="Selector Remove Process" />
 </Section>
 
 <Section title="Pro Selector">
-	<Row>
-		<Col>
-			<p>
-				Pro selectors are used for those selector which are available in premium
-				plan.
-			</p>
-		</Col>
-		<Col>
-			<img src={ProSelector} alt="Pro Selector" />
-		</Col>
-	</Row>
+  <Row>
+    <Col>
+      <p>
+        Pro selectors are used for those selector which are available in premium
+        plan.
+      </p>
+    </Col>
+
+    <Col>
+      <img src={ProSelector} alt="Pro Selector" />
+    </Col>
+  </Row>
 </Section>
 
 <Section title="Spacing">
-	<img src={Spacing} alt="Selector Spacing" />
+  <img src={Spacing} alt="Selector Spacing" />
 </Section>
 
 <Section title="On Modal">
-	<img src={OnModal} alt="OnModal" />
+  <img src={OnModal} alt="OnModal" />
 </Section>
 
 <Section title="Forminator - Insert fields">
-	<img src={Forminator} alt="Selector Forminator" />
+  <img src={Forminator} alt="Selector Forminator" />
 </Section>
 
 <Section title="On Setting blocks">
-	<img src={OnSettings} alt="Selector Forminator" />
+  <img src={OnSettings} alt="Selector Forminator" />
 </Section>

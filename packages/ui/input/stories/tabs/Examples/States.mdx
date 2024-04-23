@@ -38,84 +38,59 @@ const Example() => {
 export default Example;
 `;
 
-<Section
-	title="Disabled"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>
-		Set the <Code small={true}>isDisabled</Code> prop to disable a input
-		that is not usable.
-	</p>
-	<Preview wrapper={true}>
-		<Input
-			id="input-id-1"
-			label="Label"
-			placeholder="Placeholder"
-			isDisabled={true}
-		/>
-	</Preview>
-	<Snippet language="js">{DisabledInputCode}</Snippet>
+<Section title="Disabled" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>
+    Set the <Code small={true}>isDisabled</Code> prop to disable a input
+    that is not usable.
+  </p>
+
+  <Preview wrapper={true}>
+    <Input id="input-id-1" label="Label" placeholder="Placeholder" isDisabled={true} />
+  </Preview>
+
+  <Snippet language="js">
+    {DisabledInputCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Value Entered"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>
-		Set the <Code small={true}>value</Code> prop to input to set it's value.
-	</p>
-	<Preview wrapper={true}>
-		<Input
-			id="input-id-2"
-			value="Default"
-			label="Label"
-			placeholder="Placeholder"
-			icon="close"
-		/>
-	</Preview>
-	<Snippet language="js">{ValueEnteredInputCode}</Snippet>
+<Section title="Value Entered" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>
+    Set the <Code small={true}>value</Code> prop to input to set it's value.
+  </p>
+
+  <Preview wrapper={true}>
+    <Input id="input-id-2" value="Default" label="Label" placeholder="Placeholder" icon="close" />
+  </Preview>
+
+  <Snippet language="js">
+    {ValueEnteredInputCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Read Only"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>
-		Add the <Code small={true}>readOnly</Code> prop to set input readonly.
-	</p>
-	<Preview wrapper={true}>
-		<Input
-			id="input-id-3"
-			label="Label"
-			placeholder="Placeholder"
-			isReadOnly={true}
-		/>
-	</Preview>
-	<Snippet language="js">{ReadOnlyInputCode}</Snippet>
+<Section title="Read Only" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>
+    Add the <Code small={true}>readOnly</Code> prop to set input readonly.
+  </p>
+
+  <Preview wrapper={true}>
+    <Input id="input-id-3" label="Label" placeholder="Placeholder" isReadOnly={true} />
+  </Preview>
+
+  <Snippet language="js">
+    {ReadOnlyInputCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Error"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>
-		Set the <Code small={true}>isError</Code> prop.
-	</p>
-	<Preview wrapper={true}>
-		<Input
-			id="input-id-4"
-			label="Label"
-			isError={true}
-			placeholder="Placeholder"
-		/>
-	</Preview>
-	<Snippet language="js">{ErrorInputCode}</Snippet>
+<Section title="Error" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>
+    Set the <Code small={true}>isError</Code> prop.
+  </p>
+
+  <Preview wrapper={true}>
+    <Input id="input-id-4" label="Label" isError={true} placeholder="Placeholder" />
+  </Preview>
+
+  <Snippet language="js">
+    {ErrorInputCode}
+  </Snippet>
 </Section>

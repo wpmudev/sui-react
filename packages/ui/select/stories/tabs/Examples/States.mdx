@@ -87,48 +87,44 @@ export const Example = () => {
     return <Select isError={true} id="error" options={options} />
 }`
 
-<Section
-    title="Disabled"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <p>Set the prop <Code small={true}>isDisabled=\{true\}</Code> to make the select non-interactive</p>
-    <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
-    	<Select isDisabled={true} id="disabled" options={options}/>
-    </div>
-    <Snippet language="js">{disabledCode}</Snippet>
+<Section title="Disabled" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Set the prop <Code small={true}>isDisabled=\{true}</Code> to make the select non-interactive</p>
 
+  <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    <Select isDisabled={true} id="disabled" options={options} />
+  </div>
+
+  <Snippet language="js">
+    {disabledCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Small"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>
-		Set the prop <Code small={true}>isSmall=\{true\}</Code> for smaller version of
-		the select
-	</p>
-	<div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
-		<Select isSmall={true} id="small" options={options} />
-	</div>
-	<Snippet language="js">{smallCode}</Snippet>
+<Section title="Small" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>
+    Set the prop <Code small={true}>isSmall=\{true}</Code> for smaller version of
+    the select
+  </p>
+
+  <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    <Select isSmall={true} id="small" options={options} />
+  </div>
+
+  <Snippet language="js">
+    {smallCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Error"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>
-		Set the prop <Code small={true}>isError=\{true\}</Code> to display the select
-		in error state
-	</p>
-	<div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
-		<Select isError={true} id="error" options={options} />
-	</div>
-	<Snippet language="js">{errorCode}</Snippet>
+<Section title="Error" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>
+    Set the prop <Code small={true}>isError=\{true}</Code> to display the select
+    in error state
+  </p>
+
+  <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    <Select isError={true} id="error" options={options} />
+  </div>
+
+  <Snippet language="js">
+    {errorCode}
+  </Snippet>
 </Section>

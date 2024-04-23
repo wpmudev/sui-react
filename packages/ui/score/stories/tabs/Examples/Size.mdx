@@ -6,17 +6,17 @@ export const SmallScoreCode = dedent`
 <Score isSmall={true} bar={95} value={95} />
 `;
 
-<Section
-	title="Small"
-	contained={true}
-	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
->
-	<p>
-		Set the <Code small={true}>isSmall</Code> prop to <Code small={true}> true </Code> to reduce the score width
-		and height
-	</p>
-	<Preview wrapper={true}>
-		<Score isSmall={true} bar={95} value={95} />
-	</Preview>
-	<Snippet language="js">{SmallScoreCode}</Snippet>
+<Section title="Small" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
+  <p>
+    Set the <Code small={true}>isSmall</Code> prop to <Code small={true}> true </Code> to reduce the score width
+    and height
+  </p>
+
+  <Preview wrapper={true}>
+    <Score isSmall={true} bar={95} value={95} />
+  </Preview>
+
+  <Snippet language="js">
+    {SmallScoreCode}
+  </Snippet>
 </Section>

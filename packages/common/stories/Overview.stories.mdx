@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from '@storybook/blocks';
 import { Page } from '@wpmudev/sui-docs';
 import { Unstyled } from '@storybook/blocks';
 
@@ -8,19 +8,20 @@ import Usage from './pages/Usage.mdx';
 <Meta title="SUI/NPM Packages/Common" />
 
 <Unstyled>
-	<Page.Tabs
-		title="Common Packages"
-		subtitle={
+  <Page.Tabs
+    title="Common Packages"
+    subtitle={
 			<>
 				These are groups packages which contains packages of common categories
 			</>
 		}
-	>
-		<div id="installation" label="Installation">
-			<Installation />
-		</div>
-		<div id="usage" label="Usage">
-			<Usage />
-		</div>
-	</Page.Tabs>
+  >
+    <div id="installation" label="Installation">
+      <Installation />
+    </div>
+
+    <div id="usage" label="Usage">
+      <Usage />
+    </div>
+  </Page.Tabs>
 </Unstyled>

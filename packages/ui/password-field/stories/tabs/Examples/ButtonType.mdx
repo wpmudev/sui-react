@@ -23,35 +23,26 @@ export const IconButtonCode = dedent`
 </FormField>
 `
 
-<Section
-	title="Standard Button ( default ) "
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<FormField id="passwordId" label="Label" helper="Help text">
-			<PasswordField
-				placeholder="Enter your password"
-				button={{ type: "standard" }}
-			/>
-		</FormField>
-	</Preview>
-	<Snippet language="js">{StandardButtonCode}</Snippet>
+<Section title="Standard Button ( default ) " contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <FormField id="passwordId" label="Label" helper="Help text">
+      <PasswordField placeholder="Enter your password" button={{ type: "standard" }} />
+    </FormField>
+  </Preview>
+
+  <Snippet language="js">
+    {StandardButtonCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Icon Button"
-	contained={true}
-	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<FormField id="passwordId" label="Label" helper="Help text">
-			<PasswordField
-				placeholder="Enter your password"
-				button={{ type: "icon-button" }}
-			/>
-		</FormField>
-	</Preview>
-	<Snippet language="js">{IconButtonCode}</Snippet>
+<Section title="Icon Button" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <FormField id="passwordId" label="Label" helper="Help text">
+      <PasswordField placeholder="Enter your password" button={{ type: "icon-button" }} />
+    </FormField>
+  </Preview>
+
+  <Snippet language="js">
+    {IconButtonCode}
+  </Snippet>
 </Section>

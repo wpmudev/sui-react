@@ -22,29 +22,28 @@ export const CheckboxCode = dedent`
 `
 
 <Section style={{ paddingTop: 0 }}>
-	<Section title="Checkbox" style={{ paddingTop: 0, paddingLeft: 0 }}>
-		<p>
-			When <Code small={true}>checkbox</Code> prop is set to{" "}
-			<Code small={true}>true</Code> the <Code small={true}>AccordionItem</Code>{" "}
-			will have a checkbox
-		</p>
-		<Preview>
-			<Accordion>
-				<AccordionItem
-					onCheck={(checked) => console.log(checked)}
-					hasCheckbox={true}
-					isExpanded={true}
-					title="Accordion title"
-				>
-					<AccordionItemBody>
-						<p>
-							Hi, I am accordion content body. you can swap me with your local
-							component.
-						</p>
-					</AccordionItemBody>
-				</AccordionItem>
-			</Accordion>
-		</Preview>
-		<Snippet language="js">{CheckboxCode}</Snippet>
-	</Section>
+  <Section title="Checkbox" style={{ paddingTop: 0, paddingLeft: 0 }}>
+    <p>
+      When <Code small={true}>checkbox</Code> prop is set to{" "}
+      <Code small={true}>true</Code> the <Code small={true}>AccordionItem</Code>{" "}
+      will have a checkbox
+    </p>
+
+    <Preview>
+      <Accordion>
+        <AccordionItem onCheck={(checked) => console.log(checked)} hasCheckbox={true} isExpanded={true} title="Accordion title">
+          <AccordionItemBody>
+            <p>
+              Hi, I am accordion content body. you can swap me with your local
+              component.
+            </p>
+          </AccordionItemBody>
+        </AccordionItem>
+      </Accordion>
+    </Preview>
+
+    <Snippet language="js">
+      {CheckboxCode}
+    </Snippet>
+  </Section>
 </Section>

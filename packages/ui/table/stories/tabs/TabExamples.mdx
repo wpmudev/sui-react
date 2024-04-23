@@ -621,26 +621,33 @@ export const TableExample = ({ ...props }) => {
 `
 
 <Section style={{ paddingTop: 30 }}>
-	<p>A basic table example with actions</p>
-	<Preview wrapper={true}>
-		<TableExample hasToolbar={false}/>
-    </Preview>
-    <Snippet language="js">{generalCode()}</Snippet>
+  <p>A basic table example with actions</p>
+
+  <Preview wrapper={true}>
+    <TableExample hasToolbar={false} />
+  </Preview>
+
+  <Snippet language="js">
+    {generalCode()}
+  </Snippet>
 </Section>
 
 <Section title="State" style={{ paddingTop: 0 }}>
-	<Switcher>
-		<div label="Stripe" value="stripe">
-			<Stripe />
-		</div>
-		<div label="Selection" value="selection">
-			<Selection />
-		</div>
-		<div label="Drag" value="drag">
-			<Drag />
-		</div>
-		<div label="Toolbar" value="toolbar">
-			<Toolbar />
-		</div>
-	</Switcher>
+  <Switcher>
+    <div label="Stripe" value="stripe">
+      <Stripe />
+    </div>
+
+    <div label="Selection" value="selection">
+      <Selection />
+    </div>
+
+    <div label="Drag" value="drag">
+      <Drag />
+    </div>
+
+    <div label="Toolbar" value="toolbar">
+      <Toolbar />
+    </div>
+  </Switcher>
 </Section>

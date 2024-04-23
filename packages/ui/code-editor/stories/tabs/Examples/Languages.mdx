@@ -56,24 +56,26 @@ export const languageCode = dedent`
 
 `
 
-<Section
-	title="Different languages"
-	contained={true}
-	style={{ paddingTop: 30, paddingLeft: 0 }}
-	border={true}
->
-	<p>
-		To specify the programming language, use the{" "}
-		<Code small={true}>language</Code> prop{" "}
-	</p>
-	<p>
-		You can choose between the following options:
-		<Code small={true}>markup</Code>
-		<Code small={true}>css</Code>
-		<Code small={true}>javascript</Code> or <Code small={true}>php</Code>
-	</p>
-	<Preview wrapper={true}>
-		<CodeEditor language="php">{phpSampleCode}</CodeEditor>
-	</Preview>
-	<Snippet language="js">{languageCode}</Snippet>
+<Section title="Different languages" contained={true} style={{ paddingTop: 30, paddingLeft: 0 }} border={true}>
+  <p>
+    To specify the programming language, use the{" "}
+    <Code small={true}>language</Code> prop{" "}
+  </p>
+
+  <p>
+    You can choose between the following options:
+    <Code small={true}>markup</Code>
+    <Code small={true}>css</Code>
+    <Code small={true}>javascript</Code> or <Code small={true}>php</Code>
+  </p>
+
+  <Preview wrapper={true}>
+    <CodeEditor language="php">
+      {phpSampleCode}
+    </CodeEditor>
+  </Preview>
+
+  <Snippet language="js">
+    {languageCode}
+  </Snippet>
 </Section>

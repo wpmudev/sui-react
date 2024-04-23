@@ -6,16 +6,16 @@ export const SmallButtonCode = dedent`
  <Button isSmall={true}>Button</Button>
 `;
 
-<Section
-	title="Small"
-	contained={true}
-	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
->
-	<p>
-		use the <Code small={true}>isSmall</Code> prop, to make the button smaller.
-	</p>
-	<Preview wrapper={true}>
-		<Button isSmall="sm">Small Button</Button>
-	</Preview>
-	<Snippet language="js">{SmallButtonCode}</Snippet>
+<Section title="Small" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
+  <p>
+    use the <Code small={true}>isSmall</Code> prop, to make the button smaller.
+  </p>
+
+  <Preview wrapper={true}>
+    <Button isSmall="sm">Small Button</Button>
+  </Preview>
+
+  <Snippet language="js">
+    {SmallButtonCode}
+  </Snippet>
 </Section>

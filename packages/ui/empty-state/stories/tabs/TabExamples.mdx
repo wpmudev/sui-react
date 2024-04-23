@@ -36,38 +36,47 @@ export const differentContentCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-	<p>The default form of the EmptyState component</p>
-	<Preview wrapper={true}>
-		<EmptyState logo={SvgImage}>
-            <Row>
-				<h3 className="sui-heading--h3">This site has not yet been scanned.</h3>
-				<p>	Defender watches and protects your login area for attackers trying to randomly guess login details for your site and locks them out after a set number of failed attempts.	</p>
-			</Row>
+  <p>The default form of the EmptyState component</p>
 
-    		<Row align={{ md: "center" }}>
-    			<Button type="secondary" color="blue" isSmall={true}>
-    				<>Primary</>
-    			</Button>
-    			<Button type="primary" color="blue" isSmall={true}>
-    				<>Secondary</>
-    			</Button>
-    		</Row>
-        </EmptyState>
-    </Preview>
-    <Snippet language="js">{sampleCode}</Snippet>
+  <Preview wrapper={true}>
+    <EmptyState logo={SvgImage}>
+      <Row>
+        <h3 className="sui-heading--h3">This site has not yet been scanned.</h3>
+        <p>	Defender watches and protects your login area for attackers trying to randomly guess login details for your site and locks them out after a set number of failed attempts.	</p>
+      </Row>
 
+      <Row align={{ md: "center" }}>
+        <Button type="secondary" color="blue" isSmall={true}>
+          <>Primary</>
+        </Button>
+
+        <Button type="primary" color="blue" isSmall={true}>
+          <>Secondary</>
+        </Button>
+      </Row>
+    </EmptyState>
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section contained={true} title="Different content">
-	<p>
-		Use the <Code small={true}>children</Code> prop to change the content to fit
-		your needs.
-	</p>
-	<p>In this exmpale the EmptyState only has a title</p>
-	<Preview wrapper={true}>
-		<EmptyState logo={SvgImage}>
-			<h3 className="sui-heading--h3">This page is not available yet</h3>
-		</EmptyState>
-	</Preview>
-	<Snippet language="js">{differentContentCode}</Snippet>
+  <p>
+    Use the <Code small={true}>children</Code> prop to change the content to fit
+    your needs.
+  </p>
+
+  <p>In this exmpale the EmptyState only has a title</p>
+
+  <Preview wrapper={true}>
+    <EmptyState logo={SvgImage}>
+      <h3 className="sui-heading--h3">This page is not available yet</h3>
+    </EmptyState>
+  </Preview>
+
+  <Snippet language="js">
+    {differentContentCode}
+  </Snippet>
 </Section>

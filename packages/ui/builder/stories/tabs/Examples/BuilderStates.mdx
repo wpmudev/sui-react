@@ -19,39 +19,30 @@ export const disAllowNewFieldsCode = dedent`
     </Builder>
 `
 
-<Section
-    title="Empty Builder"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    Use the prop <Code small={true}>hasNoFields=\{true\}</Code> to show an empty Builder
-    <Preview wrapper={true}>
-    	<Builder hasNoFields={true}/>
-    </Preview>
-    <Snippet language="js">{emptyCode}</Snippet>
+<Section title="Empty Builder" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  Use the prop <Code small={true}>hasNoFields=\{true}</Code> to show an empty Builder
 
+  <Preview wrapper={true}>
+    <Builder hasNoFields={true} />
+  </Preview>
+
+  <Snippet language="js">
+    {emptyCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Hide the Insert Button"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    Use the prop <Code small={true}>allowAddFields=\{false\}</Code> to disallow new fields insertion
-    <Preview wrapper={true}>
-    	<Builder allowAddFields={false}>
-            <BuilderWrapper>
-                <BuilderField
-                  columnSize={12}
-                  action="Action"
-                  title="Image"
-                  icon="Desktop"
-                />
-        </BuilderWrapper>
-        </Builder>
-    </Preview>
-    <Snippet language="js">{disAllowNewFieldsCode}</Snippet>
+<Section title="Hide the Insert Button" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  Use the prop <Code small={true}>allowAddFields=\{false}</Code> to disallow new fields insertion
 
+  <Preview wrapper={true}>
+    <Builder allowAddFields={false}>
+      <BuilderWrapper>
+        <BuilderField columnSize={12} action="Action" title="Image" icon="Desktop" />
+      </BuilderWrapper>
+    </Builder>
+  </Preview>
+
+  <Snippet language="js">
+    {disAllowNewFieldsCode}
+  </Snippet>
 </Section>

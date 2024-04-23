@@ -21,11 +21,15 @@ export const hideLinesCode = dedent`
 `;
 
 <Section title="Hiding the Line Numbers" contained={true} style={{ paddingTop: 30, paddingLeft: 0 }} border={true}>
-	<p> To hide the lines' numbers use the prop <Code small={true}>displayLineNumbers=\{false\}</Code>  </p>
-	<Preview wrapper={true}>
-		<CodeEditor displayLineNumbers={false} language="javascript" >
-            {reactSampleCode}
-		</CodeEditor>
-	</Preview>
-	<Snippet language="js">{hideLinesCode}</Snippet>
+  <p> To hide the lines' numbers use the prop <Code small={true}>displayLineNumbers=\{false}</Code>  </p>
+
+  <Preview wrapper={true}>
+    <CodeEditor displayLineNumbers={false} language="javascript">
+      {reactSampleCode}
+    </CodeEditor>
+  </Preview>
+
+  <Snippet language="js">
+    {hideLinesCode}
+  </Snippet>
 </Section>
