@@ -10,7 +10,6 @@ module.exports = {
 		getAbsolutePath("@storybook/addon-links"),
 		getAbsolutePath("@storybook/addon-essentials"),
 		getAbsolutePath("@storybook/addon-a11y"),
-		getAbsolutePath("@storybook/addon-mdx-gfm"),
 		"@storybook/addon-webpack5-compiler-swc",
 		"@chromatic-com/storybook",
 	],

@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { Selector as SuiSelector, SelectorProps } from "../src"
 
 // Import documentation
-import docs from "./selector.mdx"
+import docs from "./Selector.mdx"
 import { Row, Col } from "@wpmudev/sui-grid"
 
 // Default settings

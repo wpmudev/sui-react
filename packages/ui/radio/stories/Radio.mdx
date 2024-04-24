@@ -1,0 +1,25 @@
+import { Page } from "@wpmudev/sui-docs"
+import { Meta, Unstyled } from "@storybook/blocks"
+import * as RadioStories from "./Radio.stories"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+
+<Meta title="SUI/Components/Forms/Radio" of={RadioStories} />
+
+<Unstyled>
+  <Page.Tabs title="Radio" subtitle="Radio buttons allow users to make a single selection from a set of mutually exclusive options." status="ready">
+    <div id="usage" label="Usage">
+      <TabUsage />
+    </div>
+
+    <div id="code" label="Code">
+      <TabCode />
+    </div>
+
+    <div id="examples" label="Examples">
+      <TabExamples />
+    </div>
+  </Page.Tabs>
+</Unstyled>

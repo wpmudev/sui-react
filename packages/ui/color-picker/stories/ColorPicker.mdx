@@ -1,0 +1,26 @@
+import { Source } from "@storybook/blocks"
+import { Page } from "@wpmudev/sui-docs"
+import { Meta, Unstyled } from "@storybook/blocks"
+import * as ColorPickerStories from "./ColorPicker.stories"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+
+<Meta title="SUI/Components/Advanced/Color Picker" of={ColorPickerStories} />
+
+<Unstyled>
+  <Page.Tabs title="Color Picker" subtitle="The Color Picker Component enables users to select and apply colors in a consistent and efficient manner." status="ready">
+    <div id="usage" label="Usage">
+      <TabUsage />
+    </div>
+
+    <div id="code" label="Code">
+      <TabCode />
+    </div>
+
+    <div id="examples" label="Examples">
+      <TabExamples />
+    </div>
+  </Page.Tabs>
+</Unstyled>

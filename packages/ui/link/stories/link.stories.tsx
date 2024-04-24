@@ -4,7 +4,7 @@ import React from "react"
 import { Link as SuiLink, LinkProps } from "../src"
 
 // Import documentation main page
-import docs from "./link.mdx"
+import docs from "./Link.mdx"
 
 export default {
 	title: "SUI/Components/Core/Link",

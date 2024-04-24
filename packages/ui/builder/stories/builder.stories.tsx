@@ -7,7 +7,7 @@ import { Dropdown } from "@wpmudev/sui-dropdown"
 import { Input } from "@wpmudev/sui-input"
 
 // Import documentation main page.
-import docs from "./builder.mdx"
+import docs from "./Builder.mdx"
 
 // Configure default options
 export default {

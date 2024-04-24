@@ -1,11 +1,12 @@
 import { Page } from "@wpmudev/sui-docs"
 import { Meta, Unstyled } from "@storybook/blocks"
+import * as RichTextEditorStories from "./RichTextEditor.stories"
 
 import TabUsage from "./tabs/TabUsage.mdx"
 import TabCode from "./tabs/TabCode.mdx"
 import TabExamples from "./tabs/TabExamples.mdx"
 
-<Meta title="SUI/Components/Advanced/Rich Text Editor" />
+<Meta title="SUI/Components/Advanced/Rich Text Editor" of={RichTextEditorStories} />
 
 <Unstyled>
   <Page.Tabs title="Rich Text Editor" subtitle="Rich Text Editor enable users to format and style text within an application or website." status="ready">

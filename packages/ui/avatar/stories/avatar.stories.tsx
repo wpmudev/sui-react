@@ -4,7 +4,7 @@ import React from "react"
 import { Avatar as SuiAvatar } from "../src"
 
 // Import documentation main page
-import docs from "./avatar.mdx"
+import docs from "./Avatar.mdx"
 
 // Import required assets
 import image from "./images/unreal-person.jpg"

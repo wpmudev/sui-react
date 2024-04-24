@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import { CheckboxGroup, Checkbox as SuiCheckbox, CheckBoxGroups } from "../src"
 
 // Import documentation
-import docs from "./checkbox.mdx"
+import docs from "./Checkbox.mdx"
 
 // Default settings
 export default {

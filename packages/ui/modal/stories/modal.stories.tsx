@@ -11,7 +11,7 @@ import {
 import { Button } from "@wpmudev/sui-button"
 
 // Import documentation main page
-import docs from "./modal.mdx"
+import docs from "./Modal.mdx"
 
 // Configure default options
 export default {

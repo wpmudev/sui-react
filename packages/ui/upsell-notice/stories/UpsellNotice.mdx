@@ -1,0 +1,25 @@
+import { Page } from "@wpmudev/sui-docs"
+import { Meta, Unstyled } from "@storybook/blocks"
+import * as UpsellNoticeStories from "./UpsellNotice.stories"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+
+<Meta title="SUI/Components/Collections/Upsell Notice" of={UpsellNoticeStories} />
+
+<Unstyled>
+  <Page.Tabs title="Upsell Notice" subtitle="The upsell notice is used to upsell any features in the plugins." status="ready">
+    <div id="usage" label="Usage">
+      <TabUsage />
+    </div>
+
+    <div id="code" label="Code">
+      <TabCode />
+    </div>
+
+    <div id="examples" label="Examples">
+      <TabExamples />
+    </div>
+  </Page.Tabs>
+</Unstyled>

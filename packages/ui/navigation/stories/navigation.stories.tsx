@@ -7,7 +7,7 @@ import { Button } from "@wpmudev/sui-button"
 import { Dropdown } from "@wpmudev/sui-dropdown"
 
 // Import documentation main page
-import docs from "./navigation.mdx"
+import docs from "./Navigation.mdx"
 
 // Configure default options
 export default {

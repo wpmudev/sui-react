@@ -1,11 +1,12 @@
 import { Page } from "@wpmudev/sui-docs"
 import { Meta, Unstyled } from "@storybook/blocks"
+import * as UploaderStories from "./Uploader.stories"
 
 import TabCode from "./tabs/TabCode.mdx"
 import TabExamples from "./tabs/TabExamples.mdx"
 import TabUsage from "./tabs/TabUsage.mdx"
 
-<Meta title="SUI/Components/Advanced/Uploader" />
+<Meta title="SUI/Components/Advanced/Uploader" of={UploaderStories} />
 
 <Unstyled>
   <Page.Tabs title="Uploader" subtitle="The File uploader allows users to select one or more files to upload." status="ready">

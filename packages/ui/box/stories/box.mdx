@@ -1,10 +1,11 @@
 import { Page, Section } from '@wpmudev/sui-docs';
 import { Meta, Unstyled } from "@storybook/blocks"
+import * as BoxStories from "./Box.stories"
 
 import TabExamples from "./tabs/TabExamples.mdx"
 import TabCode from "./tabs/TabCode.mdx"
 
-<Meta title="SUI/Components/Core/Box" />
+<Meta title="SUI/Components/Core/Box" of={BoxStories} />
 
 <Unstyled>
   <Page.Tabs title="Box" subtitle="" status="ready">

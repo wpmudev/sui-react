@@ -1,11 +1,12 @@
 import { Page } from "@wpmudev/sui-docs"
 import { Meta, Unstyled } from "@storybook/blocks"
+import * as SelectorStories from "./Selector.stories"
 
 import TabUsage from "./tabs/TabUsage.mdx"
 import TabCode from "./tabs/TabCode.mdx"
 import TabExamples from "./tabs/TabExamples.mdx"
 
-<Meta title="SUI/Components/Core/Selector" />
+<Meta title="SUI/Components/Core/Selector" of={SelectorStories} />
 
 <Unstyled>
   <Page.Tabs title="Selector" subtitle="The selector is a block that provides organised options to users." status="ready">

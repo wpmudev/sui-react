@@ -1,11 +1,12 @@
 import { Page } from "@wpmudev/sui-docs"
 import { Meta, Unstyled } from "@storybook/blocks"
+import * as SidebarStories from "./Sidebar.stories"
 
 import TabUsage from "./tabs/TabUsage.mdx"
 import TabCode from "./tabs/TabCode.mdx"
 import TabExamples from "./tabs/TabExamples.mdx"
 
-<Meta title="SUI/Components/Advanced/Sidebar" />
+<Meta title="SUI/Components/Advanced/Sidebar" of={SidebarStories} />
 
 <Unstyled>
   <Page.Tabs title="Sidebar" subtitle="A sidebar is a group of navigation, typically a vertical column positioned on one side of the main content area." status="ready">

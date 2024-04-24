@@ -7,7 +7,7 @@ import { Button } from "@wpmudev/sui-button"
 import { IconsName } from "@wpmudev/sui-icons"
 
 // Import documentation main page
-import docs from "./ReactDropdown.mdx"
+import docs from "./Dropdown.mdx"
 import { MenuItemProps, MenuGroupProps } from "../src/dropdown.types"
 
 // Configure default options

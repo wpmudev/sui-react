@@ -1,11 +1,12 @@
 import { Page } from "@wpmudev/sui-docs"
 import { Meta, Unstyled } from "@storybook/blocks"
+import * as GridStories from "./Grid.stories"
 
 import TabUsage from "./tabs/TabUsage.mdx"
 import TabCode from "./tabs/TabCode.mdx"
 import TabExamples from "./tabs/TabExamples.mdx"
 
-<Meta title="SUI/Components/Core/Grid" />
+<Meta title="SUI/Components/Core/Grid" of={GridStories} />
 
 <Unstyled>
   <Page.Tabs title="Grid" subtitle="The Grid is composed of two fundamental components: Row and Column. It empowers you to create layouts and align content with precision on your web page" status="ready">

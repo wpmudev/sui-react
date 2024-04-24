@@ -8,7 +8,7 @@ import { Button } from "@wpmudev/sui-button"
 import { IconsName } from "@wpmudev/sui-icons"
 
 // Import documentation main page
-import docs from "./box.mdx"
+import docs from "./Box.mdx"
 
 // Configure default options
 export default {

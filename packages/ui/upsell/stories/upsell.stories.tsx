@@ -6,7 +6,7 @@ import { Button } from "@wpmudev/sui-button"
 import { Row, Col } from "@wpmudev/sui-grid"
 
 // Import documentation main page
-import docs from "./upsell.mdx"
+import docs from "./Upsell.mdx"
 
 // Configure default options
 export default {

@@ -1,0 +1,25 @@
+import { Page } from "@wpmudev/sui-docs"
+import { Meta, Unstyled } from "@storybook/blocks"
+import * as TableStories from "./Table.stories"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+
+<Meta title="SUI/Components/Modules/Table" of={TableStories} />
+
+<Unstyled>
+  <Page.Tabs title="Table" subtitle="Tables are used to present structured data in a tabular format." status="ready">
+    <div id="usage" label="Usage">
+      <TabUsage />
+    </div>
+
+    <div id="code" label="Code">
+      <TabCode />
+    </div>
+
+    <div id="examples" label="Examples">
+      <TabExamples />
+    </div>
+  </Page.Tabs>
+</Unstyled>

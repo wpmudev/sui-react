@@ -1,11 +1,12 @@
 import { Page } from "@wpmudev/sui-docs"
 import { Meta, Unstyled } from "@storybook/blocks"
+import * as NavigationStories from "./Navigation.stories"
 
 import TabUsage from "./tabs/TabUsage.mdx"
 import TabCode from "./tabs/TabCode.mdx"
 import TabExamples from "./tabs/TabExamples.mdx"
 
-<Meta title="SUI/Components/Modules/Navigation" />
+<Meta title="SUI/Components/Modules/Navigation" of={NavigationStories} />
 
 <Unstyled>
   <Page.Tabs title="Navigation" subtitle="The Navigation component provides a user-friendly and intuitive way to navigate through different sections" status="ready">
