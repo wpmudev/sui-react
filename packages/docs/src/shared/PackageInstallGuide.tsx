@@ -48,9 +48,7 @@ const PackageInstallGuide: React.FunctionComponent<
 			</p>
 
 			<p>
-				<Snippet language="console" hideToggle={true}>
-					{installCommand}
-				</Snippet>
+				<Snippet hideToggle={true}>{installCommand}</Snippet>
 				{docs.map((link, index) => (
 					<div
 						key={index}

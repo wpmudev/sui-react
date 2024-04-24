@@ -5,7 +5,7 @@
  */
 import React, { useState } from "react"
 import classnames from "classnames"
-import { Source } from "@storybook/addon-docs"
+import { Source } from "@storybook/blocks"
 import Button from "../button/button"
 
 /**
@@ -16,7 +16,20 @@ import Button from "../button/button"
 import "./snippet.scss"
 
 interface SnippetProps {
-	language: string
+	language?:
+		| "jsextra"
+		| "jsx"
+		| "json"
+		| "yml"
+		| "md"
+		| "bash"
+		| "css"
+		| "html"
+		| "tsx"
+		| "typescript"
+		| "graphql"
+		| undefined
+
 	dark?: boolean
 	children: string
 	isOpen?: boolean
@@ -24,7 +37,7 @@ interface SnippetProps {
 }
 
 const Snippet: React.FunctionComponent<SnippetProps> = ({
-	language = "js",
+	language = "jsextra",
 	dark = false,
 	children,
 	isOpen = false,
