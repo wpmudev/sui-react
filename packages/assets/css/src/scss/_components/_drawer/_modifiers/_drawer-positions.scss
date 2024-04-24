@@ -21,6 +21,8 @@
 			}
 
 			@include modifier(right) {
+				right: 0;
+				left: auto;
 				@include modifies-element(inner) {
 					right: 0;
 					left: auto;
@@ -38,11 +40,11 @@
 			}
 
 			@include modifier(left) {
+				right: 0;
+				left: auto;
 				@include modifies-element(inner) {
 					border-right: 0;
 					border-left: $border-width-sm solid $color-extended-neutral-80;
-					right: 0;
-					left: auto;
 					transform: translateX(100%);
 				}
 			}
