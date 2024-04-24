@@ -39,7 +39,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	// State to manage the visibility of the color picker
 	const [showPicker, setShowPicker] = useState(false)
 	const [tempColor, setTempColor] = useState("")
-	const [showResetBtn, setShowResetBtn] = useState(color ? true : false)
+	const [showResetBtn, setShowResetBtn] = useState(false)
 
 	const uniqueId = useId()
 
