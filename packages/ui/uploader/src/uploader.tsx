@@ -139,7 +139,7 @@ const Uploader: React.FC<UploaderProps> = ({
 			onChange(_files)
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[files],
+		[files, onChange],
 	)
 
 	// Callback to open the file selector dialog
