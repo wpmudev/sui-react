@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "@testing-library/jest-dom"
-import { screen, render, fireEvent } from "@testing-library/react"
+import { screen, render, fireEvent, waitFor } from "@testing-library/react"
 import { a11yTest } from "@wpmudev/sui-utils"
 import { ColorPicker, ColorPickerProps } from "../src"
 
@@ -22,11 +22,26 @@ describe("@wpmudev/sui-color-picker", () => {
 		// Render the component
 		render(<Component id="color-picker-2" color="#ffffff" />)
 
-		// Click the reset button
-		fireEvent.click(screen.getByTestId("reset-button"))
+		const colorPickerInput = screen.getByTestId("colorpicker-input")
 
-		// Assert that the date picker element is in the document
-		expect(screen.getByTestId("colorpicker-input")).toHaveValue("#ffffff")
+		fireEvent.click(colorPickerInput)
+
+		const colorDropDownInput = document.getElementsByClassName(
+			"sui-color-picker__fields--hex",
+		)
+
+		// Change the color value
+		expect(colorDropDownInput[0]).toBeInTheDocument()
+		fireEvent.change(colorDropDownInput[0], { target: { value: "#000000" } })
+
+		// Reset the color
+		const resetButton = screen.getByTestId("reset-button")
+		expect(resetButton).toBeInTheDocument()
+		fireEvent.click(resetButton)
+
+		waitFor(() => {
+			expect(colorPickerInput).toHaveValue("#ffffff")
+		})
 	})
 
 	// eslint-disable-next-line jest/expect-expect
