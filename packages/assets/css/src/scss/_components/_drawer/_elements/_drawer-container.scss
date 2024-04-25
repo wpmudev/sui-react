@@ -27,4 +27,12 @@
 			}
 		}
 	}
+
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include modifier(has-container) {
+				width: 100%;
+			}
+		}
+	}
 }
