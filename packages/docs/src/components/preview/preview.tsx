@@ -4,8 +4,6 @@
  *
  */
 import React, { useEffect } from "react"
-import { Canvas } from "@storybook/blocks"
-
 /**
  *
  * Internal Dependencies
@@ -60,7 +58,7 @@ const Preview: React.FunctionComponent<PreviewProps> = ({
 	}, [])
 
 	return (
-		<div className="csb-preview">
+		<div className="csb-preview sbdocs sbdocs-preview sb-unstyled">
 			<div className="sui-wrap sui-theme--light">
 				{true === wrapper && (
 					<div className="sui-layout sui-layout--horizontal">{children}</div>

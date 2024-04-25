@@ -39,7 +39,10 @@ const Tooltip: React.FC<TooltipProps> = ({
 	onBlur = () => {},
 	icon,
 	iconSize = "sm",
-	buttonProps,
+	buttonProps = {
+		type: "primary",
+		colorScheme: "black",
+	},
 	_htmlProps = {},
 	_style = {},
 }) => {
