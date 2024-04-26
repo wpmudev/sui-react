@@ -43,10 +43,10 @@
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/sui-dashboard-widget": "^0.0.1",
-    "@wpmudev/sui-integration": "^0.0.1",
-    "@wpmudev/sui-navigation": "^0.0.1",
-    "@wpmudev/sui-table": "^0.0.1"
+    "@wpmudev/sui-dashboard-widget": "^0.0.1-alpha",
+    "@wpmudev/sui-integration": "^0.0.1-alpha",
+    "@wpmudev/sui-navigation": "^0.0.1-alpha",
+    "@wpmudev/sui-table": "^0.0.1-alpha"
   },
   "clean-package": "../../../postpack.config.json"
 }

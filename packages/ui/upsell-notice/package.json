@@ -58,7 +58,7 @@
   },
   "dependencies": {
     "@wpmudev/sui-icons": "*",
-    "@wpmudev/sui-tag": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1"
+    "@wpmudev/sui-tag": "^0.0.1-alpha",
+    "@wpmudev/sui-utils": "^0.0.1-alpha"
   }
 }

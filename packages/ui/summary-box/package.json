@@ -53,14 +53,14 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "devDependencies": {
-    "@wpmudev/sui-box": "^0.0.1",
-    "@wpmudev/sui-grid": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1",
-    "@wpmudev/sui-hooks": "^0.0.1",
-    "@wpmudev/sui-tooltip": "^0.0.1",
-    "@wpmudev/sui-tag": "^0.0.1",
-    "@wpmudev/sui-icons": "^0.0.1",
-    "@wpmudev/sui-icon": "^0.0.1",
+    "@wpmudev/sui-box": "^0.0.1-alpha",
+    "@wpmudev/sui-grid": "^0.0.1-alpha",
+    "@wpmudev/sui-utils": "^0.0.1-alpha",
+    "@wpmudev/sui-hooks": "^0.0.1-alpha",
+    "@wpmudev/sui-tooltip": "^0.0.1-alpha",
+    "@wpmudev/sui-tag": "^0.0.1-alpha",
+    "@wpmudev/sui-icons": "^0.0.1-alpha",
+    "@wpmudev/sui-icon": "^0.0.1-alpha",
     "react": "^18.2.0"
   }
 }
