@@ -171,6 +171,8 @@ Tooltip.argTypes = {
 			type: "number",
 		},
 	},
+	href: { table: { disable: true } },
+	buttonProps: { table: { disable: true } },
 }
 
 // Publish required stories.
