@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-search",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "Search is an input field that allow users to find and access content or information within the plugin.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

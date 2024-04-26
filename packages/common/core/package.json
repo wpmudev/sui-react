@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-core",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "WPMU DEV Shared UI React sub-package for core elements",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

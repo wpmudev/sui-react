@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-rich-text-editor",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "Rich Text Editor enable users to format and style text within an application or website.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

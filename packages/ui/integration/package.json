@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-integration",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "An Integration is a module that is designed to seamlessly integrate with third party apps or services within WPMU DEV plugins.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

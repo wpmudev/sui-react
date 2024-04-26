@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-select",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "The Select element is used for a drop-down options. This element is most often used in a form, to collect user input. Select inputs let users select a predefined value from a list of options",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

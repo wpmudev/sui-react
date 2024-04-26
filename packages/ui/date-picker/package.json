@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-date-picker",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "The Date Picker component enable users to select a specific date or a range of dates.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-sidebar",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "A Sidebar is a group of navigation, typically a vertical column positioned on one side of the main content area.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

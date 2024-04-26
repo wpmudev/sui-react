@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-avatar",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "An avatar is a thumbnail that represents a user or organization on the SUI platform.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

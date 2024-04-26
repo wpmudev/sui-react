@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-code-editor",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "Code editors are used to write and edit code.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

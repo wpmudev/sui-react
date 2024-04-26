@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-editor-toolbar",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "Editor Toolbar is used at the top of the editing page replacing the main navigation.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

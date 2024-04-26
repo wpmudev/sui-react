@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-field-list",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "This component is to display the list of features to enable or disable.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-table",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "Tables are used to present structured data in a tabular format.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

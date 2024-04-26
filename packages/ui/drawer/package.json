@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-drawer",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "Drawer is used to display additional content or navigation options without taking up the entire screen.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

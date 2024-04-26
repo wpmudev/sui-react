@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-setting-block",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "Setting block is used to display the plugin settings.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

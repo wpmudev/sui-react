@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-icons",
   "description": "SUI Icons Pack, the WPMU DEV Products icons font.",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "license": "GPL-2.0",
   "keywords": [
     "wpmudev",

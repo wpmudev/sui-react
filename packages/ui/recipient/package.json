@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-recipient",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "The 'Recipient' Component simplifies user onboarding by providing a user-friendly interface for inviting users",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

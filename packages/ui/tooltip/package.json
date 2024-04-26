@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-tooltip",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "A tooltip is displayed to provide additional information about specific element when the user hovers or focuses on them.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

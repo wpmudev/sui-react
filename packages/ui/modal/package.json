@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-modal",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "The modal dialog purpose is to notify and inform users or ask them certain question about their preferences",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

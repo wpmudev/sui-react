@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-uploader",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "The File uploader allows users to select one or more files to upload.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

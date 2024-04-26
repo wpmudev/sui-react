@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-pagination",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "Pagination helps users navigate through pages or content separated by pages.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

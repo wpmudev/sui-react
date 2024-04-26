@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-form-field",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha",
   "description": "WPMU DEV Shared UI React Form Field Component",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
