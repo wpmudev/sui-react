@@ -102,6 +102,7 @@ const SummaryBox = ({ ...props }) => {
 								icon="InfoAlt"
 								size="fluid"
 								variation="info"
+								isFluid={true}
 								message={
 									<Fragment>
 										Your site performs better than 90 % sites out there. To
