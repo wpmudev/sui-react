@@ -44,6 +44,12 @@
 		@include block($block) {
 			@include element(overlay) {
 				background-color: $color-extended-neutral-10;
+
+				@include modifier(dark) {
+					+ .sui-#{$block} .sui-#{$block}__icon--stroke {
+						stroke: $color-extended-neutral-0;
+					}
+				}
 			}
 		}
 	}
