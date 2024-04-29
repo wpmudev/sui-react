@@ -16,6 +16,10 @@
 				padding: 0 $spacing-2xl;
 				margin-bottom: $spacing-2xl;
 
+				@include media(max-width, md) {
+					padding: 0 $spacing-xl;
+				}
+
 				@include media(max-width, sm) {
 					padding: 0 $spacing-lg;
 					margin-bottom: $spacing-lg;
