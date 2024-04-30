@@ -51,7 +51,6 @@ const TableCell: React.FC<TableCellProps> = ({
 	isSticky = false,
 	isTrim = false,
 	isPrimary = false,
-	style = {},
 	colSpan,
 	_htmlProps = {},
 	_style = {},
@@ -129,7 +128,6 @@ const TableCell: React.FC<TableCellProps> = ({
 			)}
 			{...(isHeading && { scope: "col" })}
 			role={isHeading ? "rowheader" : "cell"}
-			style={style}
 			colSpan={colSpan}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
