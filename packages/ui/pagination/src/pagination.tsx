@@ -6,13 +6,13 @@ import { PaginationNav } from "./pagination-nav"
 
 const Pagination: React.FC<PaginationProps> = ({
 	limit = 5,
-	skip,
+	skip = false,
 	previousLabel = "Previous label",
 	nextLabel = "Next label",
 	numberOfItems = 20,
 	onChange,
 	hideOnSinglePage = false,
-	selectedPage = 1,
+	page = 1,
 	_style,
 	_htmlProps,
 }) => {
@@ -39,19 +39,19 @@ const Pagination: React.FC<PaginationProps> = ({
 
 	// Decrement startIndex and endIndex upon page change
 	const decrementIndexes = useCallback(() => {
-		if (selectedPage - 1 <= startIndex + 1 && startIndex !== 0) {
+		if (page - 1 <= startIndex + 1 && startIndex !== 0) {
 			setStartIndex(startIndex - 1)
 			setEndIndex(endIndex - 1)
 		}
-	}, [selectedPage, startIndex, endIndex])
+	}, [page, startIndex, endIndex])
 
 	// Increment startIndex and endIndex upon page change
 	const incrementIndexes = useCallback(() => {
-		if (selectedPage + 1 >= endIndex && endIndex !== pages) {
+		if (page + 1 >= endIndex && endIndex !== pages) {
 			setStartIndex(startIndex + 1)
 			setEndIndex(endIndex + 1)
 		}
-	}, [selectedPage, startIndex, endIndex, pages])
+	}, [page, startIndex, endIndex, pages])
 
 	// Update the list of page numbers based on available pages
 	useEffect(() => {
@@ -62,30 +62,30 @@ const Pagination: React.FC<PaginationProps> = ({
 
 	useEffect(() => {
 		if (onChange) {
-			onChange(selectedPage)
+			onChange(page)
 		}
-	}, [onChange, selectedPage])
+	}, [onChange, page])
 
 	// Change indexes when page changes
 	useEffect(() => {
-		if (selectedPage >= endIndex) incrementIndexes()
-		if (selectedPage <= startIndex + 1) decrementIndexes()
+		if (page >= endIndex) incrementIndexes()
+		if (page <= startIndex + 1) decrementIndexes()
 	}, [
 		pageClickCounter,
 		incrementIndexes,
 		decrementIndexes,
 		endIndex,
 		startIndex,
-		selectedPage,
+		page,
 	])
 
 	// Change elements start and end index upon page or limit change
 	useEffect(() => {
-		if (selectedPage !== 1) {
-			setElementsStartIndex(selectedPage * limit - limit)
-			setElementsEndIndex(selectedPage * limit)
+		if (page !== 1) {
+			setElementsStartIndex(page * limit - limit)
+			setElementsEndIndex(page * limit)
 		}
-	}, [selectedPage, limit])
+	}, [page, limit])
 
 	// Go to the first page
 	const handleSkipToFirstPage = () => {
@@ -103,16 +103,16 @@ const Pagination: React.FC<PaginationProps> = ({
 
 	// Go to the previous page
 	const handlePreviousPage = () => {
-		if (selectedPage > 1) {
-			onChange?.(selectedPage - 1)
+		if (page > 1) {
+			onChange?.(page - 1)
 		}
 		decrementIndexes()
 	}
 
 	// Go to the next page
 	const handleNextPage = () => {
-		if (selectedPage < pages) {
-			onChange?.(selectedPage + 1)
+		if (page < pages) {
+			onChange?.(page + 1)
 		}
 		incrementIndexes()
 	}
@@ -149,8 +149,8 @@ const Pagination: React.FC<PaginationProps> = ({
 	}
 
 	// Handle clicking on a page number
-	const handlePageClick = (page?: number) => {
-		onChange?.(page ?? 1)
+	const handlePageClick = (clickedPage?: number) => {
+		onChange?.(clickedPage ?? 1)
 		setPageClickCounter(pageClickCounter + 1)
 	}
 
@@ -166,7 +166,7 @@ const Pagination: React.FC<PaginationProps> = ({
 		handleSkipToLastPage,
 		handleSkipToFirstPage,
 		pagesArray,
-		selectedPage,
+		selectedPage: page,
 		startIndex,
 		endIndex,
 		pages,
