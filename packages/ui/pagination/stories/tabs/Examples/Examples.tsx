@@ -44,7 +44,7 @@ export const BasicPagination = ({ skip = false }: PaginationProps) => {
 					))}
 				</ul>
 				<Pagination
-					selectedPage={page}
+					page={page}
 					skip={skip}
 					limit={limit}
 					numberOfItems={records.length}

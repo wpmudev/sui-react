@@ -50,7 +50,7 @@ interface PaginationProps extends PaginationCommonProps {
 	/**
 	 * The currently Selected Page
 	 */
-	selectedPage?: number
+	page?: number
 	/**
 	 * number of items in a page.
 	 */
