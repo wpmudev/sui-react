@@ -12,6 +12,7 @@ const Pagination: React.FC<PaginationProps> = ({
 	numberOfItems = 20,
 	onChange,
 	hideOnSinglePage = false,
+	selectedPage = 1,
 	_style,
 	_htmlProps,
 }) => {
@@ -30,7 +31,6 @@ const Pagination: React.FC<PaginationProps> = ({
 
 	// State variables
 	const [pagesArray, setPagesArray] = useState<number[]>([])
-	const [selectedPage, setSelectedPage] = useState(1)
 	const [startIndex, setStartIndex] = useState(0)
 	const [endIndex, setEndIndex] = useState(Math.min(newEndIndex, pages))
 	const [pageClickCounter, setPageClickCounter] = useState(0)
@@ -89,14 +89,14 @@ const Pagination: React.FC<PaginationProps> = ({
 
 	// Go to the first page
 	const handleSkipToFirstPage = () => {
-		setSelectedPage(1)
+		onChange?.(1)
 		setStartIndex(0)
 		setEndIndex(Math.min(newEndIndex, pages))
 	}
 
 	// Go to the last page
 	const handleSkipToLastPage = () => {
-		setSelectedPage(pages)
+		onChange?.(pages)
 		setStartIndex(Math.max(0, pages - newEndIndex))
 		setEndIndex(pages)
 	}
@@ -104,7 +104,7 @@ const Pagination: React.FC<PaginationProps> = ({
 	// Go to the previous page
 	const handlePreviousPage = () => {
 		if (selectedPage > 1) {
-			setSelectedPage(selectedPage - 1)
+			onChange?.(selectedPage - 1)
 		}
 		decrementIndexes()
 	}
@@ -112,7 +112,7 @@ const Pagination: React.FC<PaginationProps> = ({
 	// Go to the next page
 	const handleNextPage = () => {
 		if (selectedPage < pages) {
-			setSelectedPage(selectedPage + 1)
+			onChange?.(selectedPage + 1)
 		}
 		incrementIndexes()
 	}
@@ -126,9 +126,7 @@ const Pagination: React.FC<PaginationProps> = ({
 				? endIndex - newEndIndex
 				: endIndex - startIndex,
 		)
-		setSelectedPage(
-			startIndex >= newEndIndex ? startIndex - (newEndIndex - 1) : 1,
-		)
+		onChange?.(startIndex >= newEndIndex ? startIndex - (newEndIndex - 1) : 1)
 	}
 
 	// Go to the page after the ellipsis
@@ -143,7 +141,7 @@ const Pagination: React.FC<PaginationProps> = ({
 				? endIndex + newEndIndex
 				: endIndex + (newStartIndex - startIndex),
 		)
-		setSelectedPage(
+		onChange?.(
 			startIndex >= newEndIndex
 				? startIndex + (newEndIndex + 1)
 				: newStartIndex + 1,
@@ -152,7 +150,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
 	// Handle clicking on a page number
 	const handlePageClick = (page?: number) => {
-		setSelectedPage(page ?? 1)
+		onChange?.(page ?? 1)
 		setPageClickCounter(pageClickCounter + 1)
 	}
 
