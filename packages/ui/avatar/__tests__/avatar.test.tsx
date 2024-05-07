@@ -34,6 +34,15 @@ describe("@wpmudev/sui-avatar", () => {
 		expect(altTextElement.textContent).toEqual(altText)
 	})
 
+	// Test if the avatar small renders correctly
+	test("Renders small avatar", () => {
+		render(<Avatar isSmall={true} />)
+		const avatarElement = screen.getByTestId("avatar")
+
+		// Avatar size.
+		expect(avatarElement).toHaveClass("sui-avatar--sm")
+	})
+
 	// eslint-disable-next-line jest/expect-expect
 	it("passes a11y test", async () => {
 		await a11yTest(<Avatar />)
