@@ -10,8 +10,8 @@ module.exports = {
 		getAbsolutePath("@storybook/addon-links"),
 		getAbsolutePath("@storybook/addon-essentials"),
 		getAbsolutePath("@storybook/addon-a11y"),
-		"@storybook/addon-webpack5-compiler-swc",
-		"@chromatic-com/storybook",
+		getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
+		getAbsolutePath("@chromatic-com/storybook"),
 	],
 	// @ts-ignore
 	webpackFinal: async (config) => {
