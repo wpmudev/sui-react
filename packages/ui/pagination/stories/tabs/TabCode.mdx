@@ -19,8 +19,12 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     	<p>The screen reader text for the next button</p>
     </PropSection>
 
-    <PropSection title="skip" type="boolean" defaultValue={false}>
+    <PropSection title="skip" type="boolean" defaultValue="false">
     	<p>Whether to allow for skip navigation or not</p>
+    </PropSection>
+
+    <PropSection title="page" type="number" defaultValue="1">
+    	<p>Currently selected page</p>
     </PropSection>
 
     <PropSection title="onChange" type="function">

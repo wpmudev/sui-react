@@ -64,6 +64,7 @@ export const Pagination = (args: PaginationProps): React.ReactNode => {
 						</ul>
 						<SuiPagination
 							{...args}
+							page={page}
 							numberOfItems={records.length}
 							onChange={setPage}
 						/>
