@@ -165,60 +165,52 @@ export const Example = () => {
     return <Select isMultiSelect={true} id="multiselect" options={options} label="Search..." />
 }`
 
-<Section
-    title="Smart Search"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <p>Set the prop <Code small={true}>isSearchable=\{true\}</Code> to change the select to the samrt search variation</p>
-    <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
-    	<Select isSearchable={true} id="smart-search" options={searchOptions} label="Search..." />
-    </div>
-    <Snippet language="js">{smartSearchCode}</Snippet>
-     <p>Note that you need to add <Code isSmall={true}>searchLabel</Code> to each option, this is the value that will be looked for</p>
+<Section title="Smart Search" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Set the prop <Code small={true}>isSearchable=\{true}</Code> to change the select to the samrt search variation</p>
+
+  <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    <Select isSearchable={true} id="smart-search" options={searchOptions} label="Search..." />
+  </div>
+
+  <Snippet language="js">
+    {smartSearchCode}
+  </Snippet>
+
+  <p>Note that you need to add <Code isSmall={true}>searchLabel</Code> to each option, this is the value that will be looked for</p>
 </Section>
 
-<Section
-    title="Multiselect"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <p>Set the prop <Code small={true}>isMultiSelect=\{true\}</Code> to allow for multiselection of the options</p>
-    <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
-    	<Select isMultiSelect={true} id="multiselect" options={options}/>
-    </div>
-    <Snippet language="js">{multiSelectCode}</Snippet>
+<Section title="Multiselect" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Set the prop <Code small={true}>isMultiSelect=\{true}</Code> to allow for multiselection of the options</p>
 
+  <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    <Select isMultiSelect={true} id="multiselect" options={options} />
+  </div>
+
+  <Snippet language="js">
+    {multiSelectCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Variable"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <p>Set the prop <Code small={true}>isCustomVar=\{true\}</Code> to display a button icon on the right side to open the dropdown</p>
-    <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
-    	<Select 
-          isCustomVar={true} 
-          id="variable" 
-          options={variableOptions} />
-    </div>
-    <Snippet language="js">{variableCode}</Snippet>
+<Section title="Variable" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Set the prop <Code small={true}>isCustomVar=\{true}</Code> to display a button icon on the right side to open the dropdown</p>
+
+  <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    <Select isCustomVar={true} id="variable" options={variableOptions} />
+  </div>
+
+  <Snippet language="js">
+    {variableCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Async options"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <p>Using <Code isSmall={small}>_dropdownProps</Code> we can make asynchronous options list as follow:</p>
-    <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
-    	 <AsyncSelect />
-    </div>
-    <Snippet language="js">{AsyncSelectCode}</Snippet>
+<Section title="Async options" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Using <Code isSmall={small}>\_dropdownProps</Code> we can make asynchronous options list as follow:</p>
 
+  <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    <AsyncSelect />
+  </div>
+
+  <Snippet language="js">
+    {AsyncSelectCode}
+  </Snippet>
 </Section>

@@ -15,26 +15,27 @@ export const sampleCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 30 }} border={true}>
-	<p> The default form of the Alert Banner component </p>
-	<Preview wrapper={true}>
-	<div style={ { padding: 20 } }>
-		<AlertBanner>Hello! This is example content. <a href="https://wpmudev.com"> Add link </a> if necessary.</AlertBanner>
-	</div>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p> The default form of the Alert Banner component </p>
+
+  <Preview wrapper={true}>
+    <div style={ { padding: 20 } }>
+      <AlertBanner>Hello! This is example content. <a href="https://wpmudev.com"> Add link </a> if necessary.</AlertBanner>
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Variations & Style"
-	contained={true}
-	style={{ paddingTop: 30 }}
->
-	<Switcher>
-		<div label="Variations" value="variations">
-			<Variations />
-		</div>
-		<div label="Style" value="style">
-			<Style />
-		</div>
-	</Switcher>
+<Section title="Variations & Style" contained={true} style={{ paddingTop: 30 }}>
+  <Switcher>
+    <div label="Variations" value="variations">
+      <Variations />
+    </div>
+
+    <div label="Style" value="style">
+      <Style />
+    </div>
+  </Switcher>
 </Section>

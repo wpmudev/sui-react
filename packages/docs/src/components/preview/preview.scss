@@ -1,9 +1,11 @@
 .sbdocs-preview {
 	&.csb-preview {
 		background: #f0f0f1;
-		border-color: #bcbfcb;
 		box-shadow: none;
 		margin: 0 0 20px;
+		padding: 30px 20px;
+		border: 1px solid #bcbfcb;
+		border-radius: 4px;
 
 		&:last-child {
 			margin-bottom: 0;

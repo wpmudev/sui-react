@@ -10,32 +10,26 @@ export const centerCode = dedent`
    <Selector alignment="center" title="Option 1" iconOrBrandUrl="Bell" />
 `
 
-<Section
-    title="Left"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-    	<div style={{ padding: 50 }}>
-			<Selector alignment="left" title="Option 1" iconOrBrandUrl="Bell" />
-		</div>
-    </Preview>
-    <Snippet language="js">{leftCode}</Snippet>
+<Section title="Left" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <div style={{ padding: 50 }}>
+      <Selector alignment="left" title="Option 1" iconOrBrandUrl="Bell" />
+    </div>
+  </Preview>
 
+  <Snippet language="js">
+    {leftCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Center"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-    	<div style={{ padding: 50 }}>
-			<Selector alignment="center" title="Option 1" iconOrBrandUrl="Bell" />
-		</div>
-    </Preview>
-    <Snippet language="js">{centerCode}</Snippet>
+<Section title="Center" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <div style={{ padding: 50 }}>
+      <Selector alignment="center" title="Option 1" iconOrBrandUrl="Bell" />
+    </div>
+  </Preview>
 
+  <Snippet language="js">
+    {centerCode}
+  </Snippet>
 </Section>

@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/blocks';
+import { Page } from '@wpmudev/sui-docs';
+import { Unstyled } from '@storybook/blocks';
+
+import Installation from './pages/Installation.mdx';
+import Usage from './pages/Usage.mdx';
+
+<Meta title="SUI/NPM Packages/Components" />
+
+<Unstyled>
+  <Page.Tabs
+    title="@wpmudev/sui-react"
+    subtitle={
+			<>
+				This package provides a set of components, allowing you to enhance your plugin's functionality effortlessly
+			</>
+		}
+  >
+    <div id="installation" label="Installation">
+      <Installation />
+    </div>
+
+    <div id="usage" label="Usage">
+      <Usage />
+    </div>
+  </Page.Tabs>
+</Unstyled>

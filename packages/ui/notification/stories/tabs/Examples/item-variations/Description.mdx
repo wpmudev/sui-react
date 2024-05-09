@@ -1,6 +1,6 @@
 import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 
-import { Accordion, AccordionItem, AccordionItemBody } from "../../../../src"
+import { Accordion, AccordionItem, AccordionItemBody } from "@wpmudev/sui-accordion"
 
 import dedent from "dedent"
 
@@ -21,26 +21,27 @@ export const DescriptionCode = dedent`
 `
 
 <Section style={{ paddingTop: 0 }}>
-	<Section title="Description" style={{ paddingTop: 0, paddingLeft: 0 }}>
-		<p>
-			Use the <Code small={true}>description</Code> prop to add a description to
-			the <Code small={true}>AccordionItem</Code>
-		</p>
-		<Preview>
-			<Accordion>
-				<AccordionItem
-					title="Accordion title"
-					description="Accordion Item Description"
-				>
-					<AccordionItemBody>
-						<p>
-							Hi, I am accordion content body. you can swap me with your local
-							component.
-						</p>
-					</AccordionItemBody>
-				</AccordionItem>
-			</Accordion>
-		</Preview>
-		<Snippet language="js">{DescriptionCode}</Snippet>
-	</Section>
+  <Section title="Description" style={{ paddingTop: 0, paddingLeft: 0 }}>
+    <p>
+      Use the <Code small={true}>description</Code> prop to add a description to
+      the <Code small={true}>AccordionItem</Code>
+    </p>
+
+    <Preview>
+      <Accordion>
+        <AccordionItem title="Accordion title" description="Accordion Item Description">
+          <AccordionItemBody>
+            <p>
+              Hi, I am accordion content body. you can swap me with your local
+              component.
+            </p>
+          </AccordionItemBody>
+        </AccordionItem>
+      </Accordion>
+    </Preview>
+
+    <Snippet language="js">
+      {DescriptionCode}
+    </Snippet>
+  </Section>
 </Section>

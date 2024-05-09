@@ -16,38 +16,51 @@ export const smallCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-	<p>This is the default form of a spinner used in most cases</p>
-	<Preview wrapper={true}>
-		<Spinner />
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>This is the default form of a spinner used in most cases</p>
+
+  <Preview wrapper={true}>
+    <Spinner />
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section title="Dark Spinner" contained={true} style={{ paddingTop: 30 }}>
-	<p>Use `color="dark"` for dark variation on dark backgrounds</p>
-	<Preview wrapper={true}>
-		<div style={ { background: "rgba(0, 0, 0, 0.7)", padding: 20 } }>
-			<Spinner colorScheme="dark"/>
-		</div>
-	</Preview>
-	<Snippet language="js">{darkCode}</Snippet>
+  <p>Use `color="dark"` for dark variation on dark backgrounds</p>
+
+  <Preview wrapper={true}>
+    <div style={ { background: "rgba(0, 0, 0, 0.7)", padding: 20 } }>
+      <Spinner colorScheme="dark" />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {darkCode}
+  </Snippet>
 </Section>
 
 <Section title="Small Spinner" contained={true} style={{ paddingTop: 30 }} border={true}>
-	<p>Use `size="small"` for a smaller spinner</p>
-	<Preview wrapper={true}>
-		<Spinner loaderSize="sm"/>
-	</Preview>
-	<Snippet language="js">{smallCode}</Snippet>
+  <p>Use `size="small"` for a smaller spinner</p>
+
+  <Preview wrapper={true}>
+    <Spinner loaderSize="sm" />
+  </Preview>
+
+  <Snippet language="js">
+    {smallCode}
+  </Snippet>
 </Section>
 
 <Section title="useSpinner Hook" contained={true} style={{ paddingTop: 30 }} border={true}>
-	<p>Here's an example on how to use the <Code small={true}> useSpinner </Code> hook </p>
-	<Preview wrapper={true}>
-		<SpinnerHookExample />
-	</Preview>
-	<Snippet language="js">{SpinnerHookCode}</Snippet>
+  <p>Here's an example on how to use the <Code small={true}> useSpinner </Code> hook </p>
+
+  <Preview wrapper={true}>
+    <SpinnerHookExample />
+  </Preview>
+
+  <Snippet language="js">
+    {SpinnerHookCode}
+  </Snippet>
 </Section>
-
-
-

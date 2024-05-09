@@ -1,0 +1,27 @@
+import { Meta } from '@storybook/blocks';
+import { Page } from '@wpmudev/sui-docs';
+import { Unstyled } from '@storybook/blocks';
+
+import Installation from './pages/Installation.mdx';
+import Usage from './pages/Usage.mdx';
+
+<Meta title="SUI/NPM Packages/Common" />
+
+<Unstyled>
+  <Page.Tabs
+    title="Common Packages"
+    subtitle={
+			<>
+				These are groups packages which contains packages of common categories
+			</>
+		}
+  >
+    <div id="installation" label="Installation">
+      <Installation />
+    </div>
+
+    <div id="usage" label="Usage">
+      <Usage />
+    </div>
+  </Page.Tabs>
+</Unstyled>

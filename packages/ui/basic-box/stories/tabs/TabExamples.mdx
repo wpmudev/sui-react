@@ -195,17 +195,25 @@ export const SuiBasicBox = ({ isPro = false }) => {
 }
 
 <Section style={{ paddingTop: 30 }}>
-	<p>Below is a general example of the Basic Box component</p>
-	<Preview wrapper={true}>
-		<SuiBasicBox />
-	</Preview>
-	<Snippet language="js">{generalExampleCode}</Snippet>
+  <p>Below is a general example of the Basic Box component</p>
+
+  <Preview wrapper={true}>
+    <SuiBasicBox />
+  </Preview>
+
+  <Snippet language="js">
+    {generalExampleCode}
+  </Snippet>
 </Section>
 
 <Section title="Pro variation">
-  <p>Set the prop <Code small={true}>isPro=\{true\}</Code> to change the variation</p>
+  <p>Set the prop <Code small={true}>isPro=\{true}</Code> to change the variation</p>
+
   <Preview wrapper={true}>
-      <SuiBasicBox isPro={true} />
+    <SuiBasicBox isPro={true} />
   </Preview>
-  <Snippet language="js">{proExampleCode}</Snippet>
+
+  <Snippet language="js">
+    {proExampleCode}
+  </Snippet>
 </Section>

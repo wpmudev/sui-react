@@ -11,23 +11,17 @@ const Example() => {
 export default Example;
 `;
 
-<Section
-	title="Small"
-	contained={true}
-	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
->
-	<p>
-		Set the <Code small={true}>isSmall</Code> prop to reduce the textarea
-		height, fitting with the design context.
-	</p>
-	<Preview wrapper={true}>
-		<Textarea
-			id="textarea-id-4"
-			placeholder="Placeholder"
-			description="This is a description."
-			descriptionId="desc-id"
-			isSmall={true}
-		/>
-	</Preview>
-	<Snippet language="js">{SmallTextareaCode}</Snippet>
+<Section title="Small" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
+  <p>
+    Set the <Code small={true}>isSmall</Code> prop to reduce the textarea
+    height, fitting with the design context.
+  </p>
+
+  <Preview wrapper={true}>
+    <Textarea id="textarea-id-4" placeholder="Placeholder" description="This is a description." descriptionId="desc-id" isSmall={true} />
+  </Preview>
+
+  <Snippet language="js">
+    {SmallTextareaCode}
+  </Snippet>
 </Section>

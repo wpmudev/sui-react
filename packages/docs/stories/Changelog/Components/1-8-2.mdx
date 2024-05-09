@@ -1,32 +1,39 @@
 import { Section, List, Code } from '@wpmudev/sui-docs';
 
 <Section
-	title={{
+  title={{
 		content: '1.8.2',
 		date: '2022-05-30',
 		tag: 'New'
 	}}
-	border={ true }
-	style={{ paddingTop: 0 }}>
-	<List title="Improvements" id="components-improvements--1-8-2">
-		<div label={<Code small={true}>react-progress-bar</Code>}>
-			<div label="Comparing a string and a number with strict operator is pointless." />
-			<div label="Using isNaN may lead to unexpected results." />
-		</div>
-		<div label={<Code small={true}>react-modal</Code>}>
-			<div label="Missing cleanup of timer in componentDidMount." />
-		</div>
-		<div label={<Code small={true}>react-dropdown</Code>}>
-			<div label="Using component state to compute could lead to undesired behavior." />
-			<div label="Case clause is duplicated." />
-		</div>
-	</List>
-	<List title="Bug Fixes" id="components-bugs--1-8-2">
-		<div label={<Code small={true}>react-pagination</Code>}>
-			<div label="Repeated property." />
-		</div>
-		<div label={<Code small={true}>react-input</Code>}>
-			<div label="Class identifier is wrong." />
-		</div>
-	</List>
+  border={ true }
+  style={{ paddingTop: 0 }}
+>
+  <List title="Improvements" id="components-improvements--1-8-2">
+    <div label={<Code small={true}>react-progress-bar</Code>}>
+      <div label="Comparing a string and a number with strict operator is pointless." />
+
+      <div label="Using isNaN may lead to unexpected results." />
+    </div>
+
+    <div label={<Code small={true}>react-modal</Code>}>
+      <div label="Missing cleanup of timer in componentDidMount." />
+    </div>
+
+    <div label={<Code small={true}>react-dropdown</Code>}>
+      <div label="Using component state to compute could lead to undesired behavior." />
+
+      <div label="Case clause is duplicated." />
+    </div>
+  </List>
+
+  <List title="Bug Fixes" id="components-bugs--1-8-2">
+    <div label={<Code small={true}>react-pagination</Code>}>
+      <div label="Repeated property." />
+    </div>
+
+    <div label={<Code small={true}>react-input</Code>}>
+      <div label="Class identifier is wrong." />
+    </div>
+  </List>
 </Section>

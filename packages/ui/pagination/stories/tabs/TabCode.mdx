@@ -3,21 +3,21 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-pagination" />
 
 <Section title="Props" border={true}>
-	<PropSection title="limit" type="number" defaultValue="5">
-		<p>Number of items per page</p>
-	</PropSection>
+  <PropSection title="limit" type="number" defaultValue="5">
+    <p>Number of items per page</p>
+  </PropSection>
 
-    <PropSection title="numberOfItems" type="number" defaultValue="20">
-    	<p>Number of total items</p>
-    </PropSection>
+  <PropSection title="numberOfItems" type="number" defaultValue="20">
+    <p>Number of total items</p>
+  </PropSection>
 
-    <PropSection title="previousLabel" type="string" defaultValue="Previous label">
-    	<p>The screen reader text for the previous button</p>
-    </PropSection>
+  <PropSection title="previousLabel" type="string" defaultValue="Previous label">
+    <p>The screen reader text for the previous button</p>
+  </PropSection>
 
-     <PropSection title="nextLabel" type="string" defaultValue="Next label">
-    	<p>The screen reader text for the next button</p>
-    </PropSection>
+  <PropSection title="nextLabel" type="string" defaultValue="Next label">
+    <p>The screen reader text for the next button</p>
+  </PropSection>
 
     <PropSection title="skip" type="boolean" defaultValue="false">
     	<p>Whether to allow for skip navigation or not</p>
@@ -35,6 +35,9 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     	<p>Set this to <Code isSmall={true}>true</Code> if you want to hide the pagination when it has one page only</p>
     </PropSection>
 
+  <PropSection title="hideOnSinglePage" type="boolean" defaultValue="false">
+    <p>Set this to <Code isSmall={true}>true</Code> if you want to hide the pagination when it has one page only</p>
+  </PropSection>
 </Section>
 
 <CommonPropsNotice />

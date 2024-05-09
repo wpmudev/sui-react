@@ -2,50 +2,56 @@ import { Section, Code, Snippet, Preview, Table } from '@wpmudev/sui-docs';
 import dedent from 'dedent';
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		Instead of applying heading styles directly to the tag name, we do it
-		through class names. This method is the safest when styling the content
-		correctly without jeopardizing the hierarchy and improving the
-		navigation experience of our screen reader users.
-	</p>
-	<p>
-		In other words, a Heading 4 tag can use, without a problem, the Heading
-		2 styles if necessary to maintain the content hierarchy and
-		simultaneously respect the design.
-	</p>
+  <p>
+    Instead of applying heading styles directly to the tag name, we do it
+    through class names. This method is the safest when styling the content
+    correctly without jeopardizing the hierarchy and improving the
+    navigation experience of our screen reader users.
+  </p>
+
+  <p>
+    In other words, a Heading 4 tag can use, without a problem, the Heading
+    2 styles if necessary to maintain the content hierarchy and
+    simultaneously respect the design.
+  </p>
 </Section>
 
 <Section title="Usage" contained={true} border={true} style={{ paddingTop: 0 }}>
-	<p>
-		Add the <Code> sui-heading </Code> block name to your text to give text
-		basic heading styles, such as padding, letter spacing, and more. In
-		addition, use a modifier class such as <Code> sui-heading--* </Code>,
-		being the asterisk (*), any variable from <Code> h1 </Code> to{' '}
-		<Code> h5 </Code>, to give your element a more specific decoration, like
-		font size, line height, and weight.
-	</p>
-	<Preview wrapper={true}>
-		<h1 className="sui-heading sui-heading--h1" style={{ margin: 0 }}>
-			The Quick Brown Fox
-		</h1>
-	</Preview>
-	<Snippet language="html">{dedent`
-		<h1 class="sui-heading sui-heading--h1">The Quick Brown Fox</h1>
-	`}</Snippet>
+  <p>
+    Add the <Code> sui-heading </Code> block name to your text to give text
+    basic heading styles, such as padding, letter spacing, and more. In
+    addition, use a modifier class such as <Code> sui-heading--\* </Code>,
+    being the asterisk (\*), any variable from <Code> h1 </Code> to{' '}
+    <Code> h5 </Code>, to give your element a more specific decoration, like
+    font size, line height, and weight.
+  </p>
+
+  <Preview wrapper={true}>
+    <h1 className="sui-heading sui-heading--h1" style={{ margin: 0 }}>
+      The Quick Brown Fox
+    </h1>
+  </Preview>
+
+  <Snippet language="html">
+    {dedent`
+    		<h1 class="sui-heading sui-heading--h1">The Quick Brown Fox</h1>
+    	`}
+  </Snippet>
 </Section>
 
 <Section title="Comparison Table">
-	<div className="csb-section__contained" style={{ marginBottom: 20 }}>
-		<p>
-			In this section, you can find the list of all headings available
-			with a quick preview, their class names, and essential information
-			such as font size and weight.
-		</p>
-	</div>
-	<Preview>
-		<Table
-			headers={['Preview', 'Class Name', 'Font Size', 'Line Height']}
-			content={[
+  <div className="csb-section__contained" style={{ marginBottom: 20 }}>
+    <p>
+      In this section, you can find the list of all headings available
+      with a quick preview, their class names, and essential information
+      such as font size and weight.
+    </p>
+  </div>
+
+  <Preview>
+    <Table
+      headers={['Preview', 'Class Name', 'Font Size', 'Line Height']}
+      content={[
 				{
 					columns: {
 						1: (
@@ -132,6 +138,6 @@ import dedent from 'dedent';
 					},
 				},
 			]}
-		/>
-	</Preview>
+    />
+  </Preview>
 </Section>

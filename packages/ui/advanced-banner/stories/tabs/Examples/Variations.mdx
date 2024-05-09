@@ -36,57 +36,52 @@ export const blackFridayCode = dedent`
     <AdvancedBanner ctaTitle="Buy Now!" discountPercentage={20} variation="black-friday" />
 `
 
-<Section
-    title="General Plugins"
-    contained={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-    	<AdvancedBanner variation="plugin" />
-    </Preview>
-    <Snippet language="js">{pluginCode}</Snippet>
+<Section title="General Plugins" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <AdvancedBanner variation="plugin" />
+  </Preview>
 
+  <Snippet language="js">
+    {pluginCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Hub"
-    contained={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-    	<AdvancedBanner variation="hub" />
-    </Preview>
-    <Snippet language="js">{hubCode}</Snippet>
+<Section title="Hub" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <AdvancedBanner variation="hub" />
+  </Preview>
+
+  <Snippet language="js">
+    {hubCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Newsletter"
-	contained={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<AdvancedBanner variation="newsletter">
-			<div id="newsletter" style={{ display: "flex", gap: "5px" }}>
-                <div id="newsletter-input" style={ { maxWidth: "190px" } }>
-				   <Input name="input" id="name" placeholder="Enter your email" />
-                </div>
-				<Button type="primary" colorScheme="blue">
-					<>Subscribe Now</>
-				</Button>
-			</div>
-		</AdvancedBanner>
-	</Preview>
-	<Snippet language="js">{newsletterCode}</Snippet>
+<Section title="Newsletter" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <AdvancedBanner variation="newsletter">
+      <div id="newsletter" style={{ display: "flex", gap: "5px" }}>
+        <div id="newsletter-input" style={ { maxWidth: "190px" } }>
+          <Input name="input" id="name" placeholder="Enter your email" />
+        </div>
+
+        <Button type="primary" colorScheme="blue">
+          <>Subscribe Now</>
+        </Button>
+      </div>
+    </AdvancedBanner>
+  </Preview>
+
+  <Snippet language="js">
+    {newsletterCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Black Friday"
-    contained={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-    	<AdvancedBanner ctaTitle="Buy Now!" discountPercentage={20} variation="black-friday" />
-    </Preview>
-    <Snippet language="js">{blackFridayCode}</Snippet>
+<Section title="Black Friday" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <AdvancedBanner ctaTitle="Buy Now!" discountPercentage={20} variation="black-friday" />
+  </Preview>
 
+  <Snippet language="js">
+    {blackFridayCode}
+  </Snippet>
 </Section>

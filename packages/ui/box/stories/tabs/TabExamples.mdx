@@ -68,42 +68,46 @@ export const selectCode = dedent`
     </FormField>
 `
 
-<Section
-	title="A Form Field with a basic Input"
-	contained={true}
-	style={{ paddingTop: 30 }}
->
-	<Preview wrapper={true}>
-		<Box title="Box label" icon="hub" headerLeft={[
+<Section title="A Form Field with a basic Input" contained={true} style={{ paddingTop: 30 }}>
+  <Preview wrapper={true}>
+    <Box
+      title="Box label"
+      icon="hub"
+      headerLeft={[
 			<span
 				key="1"
 				className="sui-tag sui-tag--outlined-navy sui-tag--sm sui-tag--uppercase"
 			>
 			<span className="sui-tag__label">Pro</span>
 		</span>
-		]} headerRight={[<Button key="1" type="primary" colorScheme="blue" isSmall={true}>
+		]}
+      headerRight={[<Button key="1" type="primary" colorScheme="blue" isSmall={true}>
 			Run Action
-		</Button>]}>
-			<BoxGroup>
-				<Row align={{ md: "inline" }}>
-					<Col size="6">
-						<div style={{
-							padding: 20,
-							borderRadius: 4,
-							background: "#F8F8F8",
-						}}>Left block</div>
-					</Col>
-					<Col size="6">
-						<div style={{
-							padding: 20,
-							borderRadius: 4,
-							background: "#F8F8F8",
-						}}>Right block</div>
-					</Col>
-				</Row>
-			</BoxGroup>
-		</Box>
-	</Preview>
-	<Snippet language="js">{basicCode}</Snippet>
-</Section>
+		</Button>]}
+    >
+      <BoxGroup>
+        <Row align={{ md: "inline" }}>
+          <Col size="6">
+            <div style={{
+            							padding: 20,
+            							borderRadius: 4,
+            							background: "#F8F8F8",
+            						}}>Left block</div>
+          </Col>
 
+          <Col size="6">
+            <div style={{
+            							padding: 20,
+            							borderRadius: 4,
+            							background: "#F8F8F8",
+            						}}>Right block</div>
+          </Col>
+        </Row>
+      </BoxGroup>
+    </Box>
+  </Preview>
+
+  <Snippet language="js">
+    {basicCode}
+  </Snippet>
+</Section>

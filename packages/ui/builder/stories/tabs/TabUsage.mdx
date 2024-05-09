@@ -10,96 +10,84 @@ import ButtonStates from "../images/builder/button-states.svg"
 import Mobile from "../images/builder/mobile.svg"
 
 <Section title="Anatomy" style={{ paddingTop: 20 }}>
-	<img
-		src={Anatomy}
-		alt="Builder Anatomy"
-		style={{ marginBottom: 20 }}
-	/>
-	<h3 style={{marginTop: 0}}>1 Builder Canvas</h3>
-    <p>The main working area where the builder blocks can visually assemble and arrange components. The canvas provides a visual representation of the layout, and the builder blocks can drag and drop elements onto it.</p>
+  <img src={Anatomy} alt="Builder Anatomy" style={{ marginBottom: 20 }} />
 
-    <h3>2. Builder Block</h3>
-    <p>A collection of pre-designed components or elements available to add to the canvas. These components could include text, images, buttons, dividers, and more. Check Blocks Tab for more information</p>
+  <h3 style={{marginTop: 0}}>1 Builder Canvas</h3>
+  <p>The main working area where the builder blocks can visually assemble and arrange components. The canvas provides a visual representation of the layout, and the builder blocks can drag and drop elements onto it.</p>
 
-    <h3>3. Drop zone</h3>
-    <p>Designated area on the canvas where users can drop the dragged components. Drop zone should provide clear visual indicators to show where a component can be placed. SUI builder provides the freedom to drag the block anywhere in the canvas and shows the drop zone near the dragging block.</p>
+  <h3>2. Builder Block</h3>
+  <p>A collection of pre-designed components or elements available to add to the canvas. These components could include text, images, buttons, dividers, and more. Check Blocks Tab for more information</p>
 
-    <h3>4. Dragging Block</h3>
-    <p>Dragging block is a builder block variation that is minimised to the icon and title to provide more flexibility and a better user experience while dragging the block.</p>
+  <h3>3. Drop zone</h3>
+  <p>Designated area on the canvas where users can drop the dragged components. Drop zone should provide clear visual indicators to show where a component can be placed. SUI builder provides the freedom to drag the block anywhere in the canvas and shows the drop zone near the dragging block.</p>
 
-    <h3>5. Placeholder</h3>
-    <p>
-    	This shows the builder block as ‘still there’ which can be reassuring to the
-    	user that the item is not truly displaced. This is more useful when you are
-    	moving something of significance, where the stakes are higher in the operation
-    	or the context of where the list item ‘started’ is important.
-    </p>
+  <h3>4. Dragging Block</h3>
+  <p>Dragging block is a builder block variation that is minimised to the icon and title to provide more flexibility and a better user experience while dragging the block.</p>
 
-    <h3>6. Insert Button</h3>
-    <p>
-    	Insert button allows to add new builder block into the canvas.
-    </p>
+  <h3>5. Placeholder</h3>
 
+  <p>
+    This shows the builder block as ‘still there’ which can be reassuring to the
+    user that the item is not truly displaced. This is more useful when you are
+    moving something of significance, where the stakes are higher in the operation
+    or the context of where the list item ‘started’ is important.
+  </p>
+
+  <h3>6. Insert Button</h3>
+
+  <p>
+    Insert button allows to add new builder block into the canvas.
+  </p>
 </Section>
 
 <Section title="Spacing" style={{ paddingTop: 20 }}>
-	<img src={Spacing} alt="Builder Spacing" style={{ marginBottom: 20 }} />
+  <img src={Spacing} alt="Builder Spacing" style={{ marginBottom: 20 }} />
 </Section>
 
 <Section title="Empty Builder" style={{ paddingTop: 20 }}>
-	<img
-		src={EmptyState}
-		alt="Builder Empty State"
-		style={{ marginBottom: 20 }}
-	/>
+  <img src={EmptyState} alt="Builder Empty State" style={{ marginBottom: 20 }} />
 </Section>
 
 <Section title="Columns" style={{ paddingTop: 20 }}>
-	<p>Builder canvas is flexible for the column layout.</p>
-	<img src={Columns} alt="Builder Columns" style={{ marginBottom: 20 }} />
+  <p>Builder canvas is flexible for the column layout.</p>
+
+  <img src={Columns} alt="Builder Columns" style={{ marginBottom: 20 }} />
 </Section>
 
 <Section title="Drop zone position" style={{ paddingTop: 20 }}>
-	<p>
-		Drop zone can be displayed at the top, left, right, and bottom of the block.
-		However, only one placeholder will be displayed near the Dragging block.
-	</p>
-	<img
-		src={DropZonePosition}
-		alt="Builder Drop Zone Position"
-		style={{ marginBottom: 20 }}
-	/>
+  <p>
+    Drop zone can be displayed at the top, left, right, and bottom of the block.
+    However, only one placeholder will be displayed near the Dragging block.
+  </p>
+
+  <img src={DropZonePosition} alt="Builder Drop Zone Position" style={{ marginBottom: 20 }} />
 </Section>
 
 <Section title="Dragging Block" style={{ paddingTop: 20 }}>
-	<Row>
-		<Col>
-			<p>
-				To provide the better experience of dragging on the builder, dragging
-				block is 5° leaned.
-			</p>
-		</Col>
-		<Col>
-			<img
-				src={DraggingBlock}
-				alt="Builder Dragging Block"
-				style={{ marginBottom: 20 }}
-			/>
-		</Col>
-	</Row>
+  <Row>
+    <Col>
+      <p>
+        To provide the better experience of dragging on the builder, dragging
+        block is 5° leaned.
+      </p>
+    </Col>
+
+    <Col>
+      <img src={DraggingBlock} alt="Builder Dragging Block" style={{ marginBottom: 20 }} />
+    </Col>
+  </Row>
 </Section>
 
 <Section title="Insert button states" style={{ paddingTop: 20 }}>
-	<img src={ButtonStates} alt="Builder Insert Button States" />
+  <img src={ButtonStates} alt="Builder Insert Button States" />
 </Section>
 
 <Section title="In Mobile" style={{ paddingTop: 20 }}>
-	<h3 style={{marginTop: 0}}>1 Single column</h3>
-    <p>It is not necessary to make the block area scrollable if there are not multiple columns in the builder. The blocks take full width and align below one after another.</p>
+  <h3 style={{marginTop: 0}}>1 Single column</h3>
+  <p>It is not necessary to make the block area scrollable if there are not multiple columns in the builder. The blocks take full width and align below one after another.</p>
 
-    <h3>2. Builder Block</h3>
-    <p>To create a better builder experience in mobile device, builder blocks area should be scrollable when there is multiple column. The blocks will take 240px fixed width each inside the row and the block area will correspond with the blocks that is added inside the row. It is necessary to make fixed width for the blocks in multiple columns in order to fix the designs issues keeping visible in the builder.</p>
+  <h3>2. Builder Block</h3>
+  <p>To create a better builder experience in mobile device, builder blocks area should be scrollable when there is multiple column. The blocks will take 240px fixed width each inside the row and the block area will correspond with the blocks that is added inside the row. It is necessary to make fixed width for the blocks in multiple columns in order to fix the designs issues keeping visible in the builder.</p>
 
-    <img src={Mobile} alt="Builder Mobile Versions" style={{ marginBottom: 20 }} />
-
+  <img src={Mobile} alt="Builder Mobile Versions" style={{ marginBottom: 20 }} />
 </Section>

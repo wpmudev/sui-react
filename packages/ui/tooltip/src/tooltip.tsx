@@ -39,7 +39,10 @@ const Tooltip: React.FC<TooltipProps> = ({
 	onBlur = () => {},
 	icon,
 	iconSize = "sm",
-	buttonProps,
+	buttonProps = {
+		type: "primary",
+		colorScheme: "black",
+	},
 	_htmlProps = {},
 	_style = {},
 }) => {
@@ -122,8 +125,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 					} else if (placement === "bottom") {
 						attrs = {
 							...attrs,
-							left:
-								parentRect.left + (trigger?.width ?? 0) / 2 + window.scrollY,
+							left: parentRect.left + (trigger?.width ?? 0) / 2,
 						}
 					} else if (placement === "bottom-left") {
 						attrs = {
@@ -157,7 +159,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 					} else {
 						attrs = {
 							...attrs,
-							top: parentRect.top + (trigger?.height ?? 0) / 2,
+							top: parentRect.top + (trigger?.height ?? 0) / 2 + window.scrollY,
 						}
 					}
 					break
@@ -172,17 +174,21 @@ const Tooltip: React.FC<TooltipProps> = ({
 					if (placement === "left-top") {
 						attrs = {
 							...attrs,
-							top: parentRect.top,
+							top: parentRect.top + window.scrollY,
 						}
 					} else if (placement === "left-bottom") {
 						attrs = {
 							...attrs,
-							top: parentRect.top + (trigger?.height ?? 0) - tooltipHeight,
+							top:
+								parentRect.top +
+								(trigger?.height ?? 0) -
+								tooltipHeight +
+								window.scrollY,
 						}
 					} else {
 						attrs = {
 							...attrs,
-							top: parentRect.top + (trigger?.height ?? 0) / 2,
+							top: parentRect.top + (trigger?.height ?? 0) / 2 + window.scrollY,
 						}
 					}
 					break

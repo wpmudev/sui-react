@@ -5,103 +5,100 @@ import dedent from "dedent";
 
 export const topCode = dedent`
   // Top Left
-  <Tooltip label="Top Left" position="top-left">Tooltip Text</Tooltip>
+  <Tooltip label="Top Left" placement="top-left">Tooltip Text</Tooltip>
 
   // Top Center
-  <Tooltip label="Top Center" position="top">Tooltip Text</Tooltip>
+  <Tooltip label="Top Center" placement="top">Tooltip Text</Tooltip>
 
   // Top Right
-  <Tooltip label="Top Right" position="top-right">Tooltip Text</Tooltip>
+  <Tooltip label="Top Right" placement="top-right">Tooltip Text</Tooltip>
 `
 
 export const bottomCode = dedent`
   // Bottom Left
-  <Tooltip label="Bottom Left" position="bottom-left">Tooltip Text</Tooltip>
+  <Tooltip label="Bottom Left" placement="bottom-left">Tooltip Text</Tooltip>
 
   // Bottom Center
-  <Tooltip label="Bottom Center" position="bottom">Tooltip Text</Tooltip>
+  <Tooltip label="Bottom Center" placement="bottom">Tooltip Text</Tooltip>
 
   // Bottom Right
-  <Tooltip label="Bottom Right" position="bottom-right">Tooltip Text</Tooltip>
+  <Tooltip label="Bottom Right" placement="bottom-right">Tooltip Text</Tooltip>
 `
 
 export const rightCode = dedent`
   // Right Top
-  <Tooltip label="Right top" position="right-top">Tooltip Text</Tooltip>
+  <Tooltip label="Right top" placement="right-top">Tooltip Text</Tooltip>
 
   // Right Center
-  <Tooltip label="Right Center" position="right">Tooltip Text</Tooltip>
+  <Tooltip label="Right Center" placement="right">Tooltip Text</Tooltip>
 
   // Right Bottom
-  <Tooltip label="Right Bottom" position="right-bottom">Tooltip Text</Tooltip>
+  <Tooltip label="Right Bottom" placement="right-bottom">Tooltip Text</Tooltip>
 `
 
 export const leftCode = dedent`
   // Left Top
-  <Tooltip label="Left top" position="left-top">Tooltip Text</Tooltip>
+  <Tooltip label="Left top" placement="left-top">Tooltip Text</Tooltip>
 
   // Left Center
-  <Tooltip label="Left Center" position="left">Tooltip Text</Tooltip>
+  <Tooltip label="Left Center" placement="left">Tooltip Text</Tooltip>
 
   // Left Bottom
-  <Tooltip label="Left Bottom" position="left-bottom">Tooltip Text</Tooltip>
+  <Tooltip label="Left Bottom" placement="left-bottom">Tooltip Text</Tooltip>
 `
 
-<Section
-    title="Top"
-    contained={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-        <div style={ { padding: 40, display: "flex", justifyContent: "space-around" } }>
-    	    <Tooltip label="Top Left" position="top-left">Tooltip Text</Tooltip>
-            <Tooltip label="Top Center" position="top">Tooltip Text</Tooltip>
-            <Tooltip label="Top Right" position="top-right">Tooltip Text</Tooltip>
-         </div>
-    </Preview>
-    <Snippet language="js">{topCode}</Snippet>
+<Section title="Top" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <div style={ { padding: 40, display: "flex", justifyContent: "space-around" } }>
+      <Tooltip label="Top Left" placement="top-left">Tooltip Text</Tooltip>
+      <Tooltip label="Top Center" placement="top">Tooltip Text</Tooltip>
+      <Tooltip label="Top Right" placement="top-right">Tooltip Text</Tooltip>
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {topCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Bottom"
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-        <div style={ { padding: 40, display: "flex", justifyContent: "space-around" } }>
-    	    <Tooltip label="Bottom Left" position="bottom-left">Tooltip Text</Tooltip>
-            <Tooltip label="Bottom Center" position="bottom">Tooltip Text</Tooltip>
-            <Tooltip label="Bottom Right" position="bottom-right">Tooltip Text</Tooltip>
-         </div>
-    </Preview>
-    <Snippet language="js">{bottomCode}</Snippet>
+<Section title="Bottom" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <div style={ { padding: 40, display: "flex", justifyContent: "space-around" } }>
+      <Tooltip label="Bottom Left" placement="bottom-left">Tooltip Text</Tooltip>
+      <Tooltip label="Bottom Center" placement="bottom">Tooltip Text</Tooltip>
+      <Tooltip label="Bottom Right" placement="bottom-right">Tooltip Text</Tooltip>
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {bottomCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Left"
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-        <div style={ { display: "flex", justifyContent: "space-around" } }>
-    	    <Tooltip label="Left Top" position="left-top">Tooltip Text</Tooltip>
-            <Tooltip label="Left Center" position="left">Tooltip Text</Tooltip>
-            <Tooltip label="Left Bottom" position="left-bottom">Tooltip Text</Tooltip>
-        </div>
-    </Preview>
-    <Snippet language="js">{leftCode}</Snippet>
+<Section title="Left" style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <div style={ { display: "flex", justifyContent: "space-around" } }>
+      <Tooltip label="Left Top" placement="left-top">Tooltip Text</Tooltip>
+      <Tooltip label="Left Center" placement="left">Tooltip Text</Tooltip>
+      <Tooltip label="Left Bottom" placement="left-bottom">Tooltip Text</Tooltip>
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {leftCode}
+  </Snippet>
 </Section>
 
-<Section
-    title="Right"
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-        <div style={ { display: "flex", justifyContent: "space-around" } }>
-    	    <Tooltip label="Right Top" position="right-top">Tooltip Text</Tooltip>
-            <Tooltip label="Right Center" position="right">Tooltip Text</Tooltip>
-            <Tooltip label="Right Bottom" position="right-bottom">Tooltip Text</Tooltip>
-         </div>
-    </Preview>
-    <Snippet language="js">{rightCode}</Snippet>
+<Section title="Right" style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <div style={ { display: "flex", justifyContent: "space-around" } }>
+      <Tooltip label="Right Top" placement="right-top">Tooltip Text</Tooltip>
+      <Tooltip label="Right Center" placement="right">Tooltip Text</Tooltip>
+      <Tooltip label="Right Bottom" placement="right-bottom">Tooltip Text</Tooltip>
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {rightCode}
+  </Snippet>
 </Section>

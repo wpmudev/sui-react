@@ -3,179 +3,180 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-input" />
 
 <Section title="Props">
-	<p>Input component have the following props.</p>
+  <p>Input component have the following props.</p>
 
-	<PropSection title="id" type="string">
-		<p>Add a unique id to the input.</p>
-	</PropSection>
+  <PropSection title="id" type="string">
+    <p>Add a unique id to the input.</p>
+  </PropSection>
 
-	<PropSection title="placeholder" type="string">
-		<p>
-			The input placeholder text
-		</p>
-	</PropSection>
+  <PropSection title="placeholder" type="string">
+    <p>
+      The input placeholder text
+    </p>
+  </PropSection>
 
-	<PropSection title="customWidth" type="number">
-		<p>
-			Custom width for the input in <Code isSmall={true}>pixels</Code>
-		</p>
-	</PropSection>
+  <PropSection title="customWidth" type="number">
+    <p>
+      Custom width for the input in <Code isSmall={true}>pixels</Code>
+    </p>
+  </PropSection>
 
-	<PropSection title="type" type="string" defaultValue="text">
-		<p>
-			Reflects the type of the input field whether it's text, number etc. it accepts [any valid html type](https://www.w3schools.com/html/html_form_input_types.asp).
-		</p>
-	</PropSection>
+  <PropSection title="type" type="string" defaultValue="text">
+    <p>
+      Reflects the type of the input field whether it's text, number etc. it accepts [any valid html type](https://www.w3schools.com/html/html_form_input_types.asp).
+    </p>
+  </PropSection>
 
-	<PropSection title="defaultValue" type="string">
-		<p>
-			The initial value of the input.
-		</p>
-	</PropSection>
+  <PropSection title="defaultValue" type="string">
+    <p>
+      The initial value of the input.
+    </p>
+  </PropSection>
 
-	<PropSection title="hint" type="string">
-		<p>
-			A text to appear initially in the input to give the user a hint ( a part of the text that he should type )
-		</p>
-	</PropSection>
+  <PropSection title="hint" type="string">
+    <p>
+      A text to appear initially in the input to give the user a hint ( a part of the text that he should type )
+    </p>
+  </PropSection>
 
-	<PropSection title="iconHint" type="string">
-		<p>
-			A hint that specifies the icon purpose, it appears in a tooltip
-		</p>
-	</PropSection>
+  <PropSection title="iconHint" type="string">
+    <p>
+      A hint that specifies the icon purpose, it appears in a tooltip
+    </p>
+  </PropSection>
 
-	<PropSection title="iconTooltipWidth" type="number">
-		<p>
-			A custom width for the icon Tooltip hint
-		</p>
-	</PropSection>
+  <PropSection title="iconTooltipWidth" type="number">
+    <p>
+      A custom width for the icon Tooltip hint
+    </p>
+  </PropSection>
 
-	<PropSection title="isMultiline" type="boolean" defaultValue="false">
-		<p>
-			If set to <Code isSmall={true}>true</Code>, it will use <Code isSmall={true}>textarea</Code> tag instead of the <Code isSmall={true}>input</Code>
-		</p>
-	</PropSection>
-	
-	<PropSection title="isReadOnly" type="boolean" defaultValue="false">
-		<p>
-			If set to <Code isSmall={true}>true</Code> the input text won't be editable
-		</p>
-	</PropSection>
+  <PropSection title="isMultiline" type="boolean" defaultValue="false">
+    <p>
+      If set to <Code isSmall={true}>true</Code>, it will use <Code isSmall={true}>textarea</Code> tag instead of the <Code isSmall={true}>input</Code>
+    </p>
+  </PropSection>
 
-	<PropSection title="isRequired" type="boolean" defaultValue="false">
-		<p>
-			Whether the input is required or not
-		</p>
-	</PropSection>
+  <PropSection title="isReadOnly" type="boolean" defaultValue="false">
+    <p>
+      If set to <Code isSmall={true}>true</Code> the input text won't be editable
+    </p>
+  </PropSection>
 
-	<PropSection title="onChange" type="function">
-		<p>A callback function to be invoked when the input text changes, the first parameter is the change event object</p>
-	</PropSection>
+  <PropSection title="isRequired" type="boolean" defaultValue="false">
+    <p>
+      Whether the input is required or not
+    </p>
+  </PropSection>
 
-	<PropSection title="onClick" type="function">
-		<p>
-			A callback function to be invoked when the input is clicked
-		</p>
-	</PropSection>
+  <PropSection title="onChange" type="function">
+    <p>A callback function to be invoked when the input text changes, the first parameter is the change event object</p>
+  </PropSection>
 
-	<PropSection title="onClickIcon" type="function">
-		<p>
-			A callback function to be invoked when the input icon is clicked
-		</p>
-	</PropSection>
+  <PropSection title="onClick" type="function">
+    <p>
+      A callback function to be invoked when the input is clicked
+    </p>
+  </PropSection>
 
-	<PropSection title="allowClear" type="boolean" defaultValue="false">
-		<p>Whether to display the clear button or not</p>
-	</PropSection>
+  <PropSection title="onClickIcon" type="function">
+    <p>
+      A callback function to be invoked when the input icon is clicked
+    </p>
+  </PropSection>
 
-	<PropSection title="onClear" type="function">
-		<p>A callback function to be invoked when the clear button is clicked</p>
-	</PropSection>
-	
-	<PropSection title="icon" type="string">
-		<p>An icon to be displayed in the input</p>
-	</PropSection>
+  <PropSection title="allowClear" type="boolean" defaultValue="false">
+    <p>Whether to display the clear button or not</p>
+  </PropSection>
 
-	<PropSection title="iconPosition" type="string" defaultValue="start">
-		<p>The position where to display the icon</p>
-		<p>Allowed options</p>
-		<List>
-			<span label="start"/>
-			<span label="end"/>
-		</List>
-	</PropSection>
-	
-	<PropSection title="isError" type="boolean" defaultValue="false">
-		<p>Reflects the error status in the field.</p>
-	</PropSection>
-	
-	<PropSection title="isSmall" type="boolean" defaultValue="false">
-		<p>Set if the input is small.</p>
-	</PropSection>
-	
-	<PropSection title="isDisabled" type="boolean" defaultValue="false">
-		<p>Set if the input is disabled.</p>
-	</PropSection>
+  <PropSection title="onClear" type="function">
+    <p>A callback function to be invoked when the clear button is clicked</p>
+  </PropSection>
 
-	<PropSection title="disableInteractions" type="boolean" defaultValue="false">
-		<p>Disable default interaction methods which are used to track focus and hover states</p>
-	</PropSection>
+  <PropSection title="icon" type="string">
+    <p>An icon to be displayed in the input</p>
+  </PropSection>
 
-	<PropSection title="className" type="string">
-		<p>Add a class name to the input.</p>
-	</PropSection>
+  <PropSection title="iconPosition" type="string" defaultValue="start">
+    <p>The position where to display the icon</p>
+    <p>Allowed options</p>
 
-	<PropSection title="inputClass" type="string">
-		<p>
-			Additional CSS classNames(s) for the actual input element 
-		</p>
-	</PropSection>
+    <List>
+      <span label="start" />
 
-    <PropSection title="onMouseEnter" type="function">
-		<p>A callback function to be invoked when the mouse enters the input</p>
-	</PropSection>
+      <span label="end" />
+    </List>
+  </PropSection>
 
-	<PropSection title="onMouseLeave" type="function">
-		<p>A callback function to be invoked when the mouse leaves the input</p>
-	</PropSection>
+  <PropSection title="isError" type="boolean" defaultValue="false">
+    <p>Reflects the error status in the field.</p>
+  </PropSection>
 
-	<PropSection title="onFocus" type="function">
-		<p>A callback to be invoked when the input is focused</p>
-	</PropSection>
+  <PropSection title="isSmall" type="boolean" defaultValue="false">
+    <p>Set if the input is small.</p>
+  </PropSection>
 
-	<PropSection title="onKeyDown" type="function">
-		<p>A callback to be invoked when the keydown event on the input gets triggered</p>
-	</PropSection>
+  <PropSection title="isDisabled" type="boolean" defaultValue="false">
+    <p>Set if the input is disabled.</p>
+  </PropSection>
 
-	<PropSection title="onKeyUp" type="function">
-		<p>
-			A callback function to be invoked when the keyboard key is released
-		</p>
-	</PropSection>
+  <PropSection title="disableInteractions" type="boolean" defaultValue="false">
+    <p>Disable default interaction methods which are used to track focus and hover states</p>
+  </PropSection>
 
-	<PropSection title="onMouseDownCapture" type="function">
-		<p>A callback function to be invoked when the mouse button is pressed down</p>
-	</PropSection>
+  <PropSection title="className" type="string">
+    <p>Add a class name to the input.</p>
+  </PropSection>
 
-	<PropSection title="onMouseUp" type="function">
-		<p>A callback function to be invoked when the mouse leaves the input</p>
-	</PropSection>
+  <PropSection title="inputClass" type="string">
+    <p>
+      Additional CSS classNames(s) for the actual input element
+    </p>
+  </PropSection>
 
-	<PropSection title="onMouseUpCapture" type="function">
-		<p>A callback function to be invoked when the mouse button is released</p>
-	</PropSection>
+  <PropSection title="onMouseEnter" type="function">
+    <p>A callback function to be invoked when the mouse enters the input</p>
+  </PropSection>
 
-	<PropSection title="onBlur" type="function">
-		<p>A callback function to be invoked when the input looses focus</p>
-	</PropSection>
+  <PropSection title="onMouseLeave" type="function">
+    <p>A callback function to be invoked when the mouse leaves the input</p>
+  </PropSection>
 
-	<PropSection title="onBlurCapture" type="function">
-		<p>A callback function to be invoked at an early stage of the blur event</p>
-	</PropSection>
+  <PropSection title="onFocus" type="function">
+    <p>A callback to be invoked when the input is focused</p>
+  </PropSection>
 
-	<FormValidationProps />
+  <PropSection title="onKeyDown" type="function">
+    <p>A callback to be invoked when the keydown event on the input gets triggered</p>
+  </PropSection>
 
+  <PropSection title="onKeyUp" type="function">
+    <p>
+      A callback function to be invoked when the keyboard key is released
+    </p>
+  </PropSection>
+
+  <PropSection title="onMouseDownCapture" type="function">
+    <p>A callback function to be invoked when the mouse button is pressed down</p>
+  </PropSection>
+
+  <PropSection title="onMouseUp" type="function">
+    <p>A callback function to be invoked when the mouse leaves the input</p>
+  </PropSection>
+
+  <PropSection title="onMouseUpCapture" type="function">
+    <p>A callback function to be invoked when the mouse button is released</p>
+  </PropSection>
+
+  <PropSection title="onBlur" type="function">
+    <p>A callback function to be invoked when the input looses focus</p>
+  </PropSection>
+
+  <PropSection title="onBlurCapture" type="function">
+    <p>A callback function to be invoked at an early stage of the blur event</p>
+  </PropSection>
+
+  <FormValidationProps />
 </Section>
 
 <CommonPropsNotice />

@@ -143,14 +143,15 @@ export const generalCode = dedent`
 `
 
 <Section style={{ paddingTop: 30 }}>
-	<p>Below is a general example of the Navigation component</p>
-	<div className="sui-wrap sui-theme--light" style={{ margin: "50px 0" }}>
-		<Navigation
-			brand={{
+  <p>Below is a general example of the Navigation component</p>
+
+  <div className="sui-wrap sui-theme--light" style={{ margin: "50px 0" }}>
+    <Navigation
+      brand={{
 				title: "Smush Pro",
 				description: "Description",
 			}}
-			user={{
+      user={{
 				user: {
 					image: "https://avatars.githubusercontent.com/u/14994452?v=4",
 					name: "John doe",
@@ -183,44 +184,29 @@ export const generalCode = dedent`
 					},
 				],
 			}}
-		>
-			<Button
-				type="tertiary"
-				icon="Bell"
-				colorScheme="black"
-				isSmall={true}
-				isResponsive={true}
-			>
-				Help
-			</Button>
-			<Button
-				icon="Bell"
-				type="tertiary"
-				colorScheme="black"
-				isSmall={true}
-				isResponsive={true}
-			>
-				Documentation
-			</Button>
-			<Button
-				icon="PluginSmush"
-				type="tertiary"
-				colorScheme="black"
-				isSmall={true}
-				isResponsive={true}
-			>
-				Support Smush
-			</Button>
-			<Dropdown
-				buttonIcon="Bell"
-				label="Connect features"
-				placement="left"
-				isSmall={true}
-				isResponsive={true}
-				onMenuClick={(id, e) => {
+    >
+      <Button type="tertiary" icon="Bell" colorScheme="black" isSmall={true} isResponsive={true}>
+        Help
+      </Button>
+
+      <Button icon="Bell" type="tertiary" colorScheme="black" isSmall={true} isResponsive={true}>
+        Documentation
+      </Button>
+
+      <Button icon="PluginSmush" type="tertiary" colorScheme="black" isSmall={true} isResponsive={true}>
+        Support Smush
+      </Button>
+
+      <Dropdown
+        buttonIcon="Bell"
+        label="Connect features"
+        placement="left"
+        isSmall={true}
+        isResponsive={true}
+        onMenuClick={(id, e) => {
 					console.log("DEBUG: Menu Item Clicked", id, e)
 				}}
-				menu={[
+        menu={[
 					{
 						id: "group-1",
 						label: "Extra Optimization",
@@ -256,26 +242,23 @@ export const generalCode = dedent`
 						],
 					},
 				]}
-			>
-				<div
-					style={{
+      >
+        <div
+          style={{
 						display: "flex",
 						justifyContent: "center",
 						padding: "8px 24px",
 					}}
-				>
-					<Button
-						type="primary"
-						icon="Package"
-						colorScheme="blue"
-						isSmall={true}
-						isFullWidth={true}
-					>
-						Unlock bonus features
-					</Button>
-				</div>
-			</Dropdown>
-		</Navigation>
-	</div>
-	<Snippet language="js">{generalCode}</Snippet>
+        >
+          <Button type="primary" icon="Package" colorScheme="blue" isSmall={true} isFullWidth={true}>
+            Unlock bonus features
+          </Button>
+        </div>
+      </Dropdown>
+    </Navigation>
+  </div>
+
+  <Snippet language="js">
+    {generalCode}
+  </Snippet>
 </Section>

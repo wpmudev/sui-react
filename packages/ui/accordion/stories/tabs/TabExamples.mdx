@@ -49,58 +49,69 @@ export const sampleCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Basic Accordion Example</p>
-	<Preview wrapper={true}>
-		<Accordion>
-			<AccordionItem title="Accordion title">
-				<AccordionItemBody>
-					<p>
-						Hi, I am accordion content body. you can swap me with your local
-						component.
-					</p>
-				</AccordionItemBody>
-			</AccordionItem>
-			<AccordionItem title="Accordion title">
-				<AccordionItemBody>
-					<p>
-						Hi, I am accordion content body. you can swap me with your local
-						component.
-					</p>
-				</AccordionItemBody>
-			</AccordionItem>
-			<AccordionItem title="Accordion title">
-				<AccordionItemBody>
-					<p>
-						Hi, I am accordion content body. you can swap me with your local
-						component.
-					</p>
-				</AccordionItemBody>
-			</AccordionItem>
-		</Accordion>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>Basic Accordion Example</p>
+
+  <Preview wrapper={true}>
+    <Accordion>
+      <AccordionItem title="Accordion title">
+        <AccordionItemBody>
+          <p>
+            Hi, I am accordion content body. you can swap me with your local
+            component.
+          </p>
+        </AccordionItemBody>
+      </AccordionItem>
+
+      <AccordionItem title="Accordion title">
+        <AccordionItemBody>
+          <p>
+            Hi, I am accordion content body. you can swap me with your local
+            component.
+          </p>
+        </AccordionItemBody>
+      </AccordionItem>
+
+      <AccordionItem title="Accordion title">
+        <AccordionItemBody>
+          <p>
+            Hi, I am accordion content body. you can swap me with your local
+            component.
+          </p>
+        </AccordionItemBody>
+      </AccordionItem>
+    </Accordion>
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section title="State" style={{ paddingTop: 0 }}>
-	You can change the symentic type of the accordion by changing the{" "}
-	<Code small={true}>state</Code> prop
-	<Switcher>
-		<div label="neutral" value="neutral">
-			<Neutral />
-		</div>
-		<div label="informative" value="informative">
-			<Informative />
-		</div>
-		<div label="success" value="success">
-			<Success />
-		</div>
-		<div label="warning" value="warning">
-			<Warning />
-		</div>
-		<div label="critical" value="critical">
-			<Critical />
-		</div>
-	</Switcher>
+  You can change the symentic type of the accordion by changing the{" "}
+  <Code small={true}>state</Code> prop
+
+  <Switcher>
+    <div label="neutral" value="neutral">
+      <Neutral />
+    </div>
+
+    <div label="informative" value="informative">
+      <Informative />
+    </div>
+
+    <div label="success" value="success">
+      <Success />
+    </div>
+
+    <div label="warning" value="warning">
+      <Warning />
+    </div>
+
+    <div label="critical" value="critical">
+      <Critical />
+    </div>
+  </Switcher>
 </Section>
 
 <Disabled />
@@ -111,4 +122,4 @@ export const sampleCode = dedent`
 
 <Checkbox />
 
-[//]: # (<Footer />)
+[//]: # "<Footer />"

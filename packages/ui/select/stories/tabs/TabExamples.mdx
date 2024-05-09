@@ -57,20 +57,25 @@ export const options = [
 ]
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Below is the default form of the select component</p>
-	<div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
-		<Select id="select-id" options={options} />
-	</div>
-	<Snippet language="js">{defaultCode}</Snippet>
+  <p>Below is the default form of the select component</p>
+
+  <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
+    <Select id="select-id" options={options} />
+  </div>
+
+  <Snippet language="js">
+    {defaultCode}
+  </Snippet>
 </Section>
 
 <Section title="States & Types" style={{ paddingTop: 0 }}>
-	<Switcher>
-		<div label="States" value="states">
-			<States />
-		</div>
-		<div label="Types" value="types">
-			<Types />
-		</div>
-	</Switcher>
+  <Switcher>
+    <div label="States" value="states">
+      <States />
+    </div>
+
+    <div label="Types" value="types">
+      <Types />
+    </div>
+  </Switcher>
 </Section>

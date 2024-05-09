@@ -2,16 +2,16 @@ import { dirname, join } from "path"
 const path = require("path")
 module.exports = {
 	stories: [
-		"../packages/**/stories/*.stories.mdx",
 		"../packages/**/stories/*.stories.@(js|jsx|ts|tsx)",
-		"../packages/**/*.stories.mdx",
 		"../packages/**/*.stories.@(js|jsx|ts|tsx)",
+		"../packages/**/stories/*.mdx",
 	],
 	addons: [
 		getAbsolutePath("@storybook/addon-links"),
 		getAbsolutePath("@storybook/addon-essentials"),
 		getAbsolutePath("@storybook/addon-a11y"),
-		getAbsolutePath("@storybook/addon-storyshots"),
+		getAbsolutePath("@storybook/addon-webpack5-compiler-swc"),
+		getAbsolutePath("@chromatic-com/storybook"),
 	],
 	// @ts-ignore
 	webpackFinal: async (config) => {

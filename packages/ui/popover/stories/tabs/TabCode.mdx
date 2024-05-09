@@ -3,157 +3,170 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-popover" />
 
 <Section title="Props" border={true}>
-	<PropSection title="placement" type="string" defaultValue="top">
-			<p>
-				A tooltip can be placed at the top, bottom, left, or right of the
-				button.
-			</p>
-			<p>Allowed options:</p>
-			<List>
-				<span
-					label={
+  <PropSection title="placement" type="string" defaultValue="top">
+    <p>
+      A tooltip can be placed at the top, bottom, left, or right of the
+      button.
+    </p>
+
+    <p>Allowed options:</p>
+
+    <List>
+      <span
+        label={
 						<>
 							<Code small={true}>top</Code>: Popover will be aligned
 							to the top center of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>top-left</Code>: Popover will be
 							aligned to the top left of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>top-right</Code>: Popover will be
 							aligned to the top right of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>bottom</Code>: Popover will be
 							aligned to the bottom center of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>bottom-left</Code>: Popover will be
 							aligned to the bottom left of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>bottom-right</Code>: Popover will be
 							aligned to the bottom right of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>left</Code>: Popover will be aligned
 							to the left center of the buttom.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>left-top</Code>: Popover will be
 							aligned to the left top of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>left-bottom</Code>: Popover will be
 							aligned to the left bottom of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>right</Code>: Popover will be aligned
 							to the right center of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>right-top</Code>: Popover will be
 							aligned to the right top of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>right-bottom</Code>: Popover will be
 							aligned to the right bottom of the button.
 						</>
 					}
-				/>
-			</List>
-	</PropSection>
+      />
+    </List>
+  </PropSection>
 
-	<PropSection title="className" type="string">
-		<p>Custom css classNames(s) to be added to the tooltip</p>
-	</PropSection>
+  <PropSection title="className" type="string">
+    <p>Custom css classNames(s) to be added to the tooltip</p>
+  </PropSection>
 
-	<PropSection title="isOpen" type="boolean" defaultValue="false">
-		<p>
-			It will make popup visible on initial load.
-		</p>
-	</PropSection>
+  <PropSection title="isOpen" type="boolean" defaultValue="false">
+    <p>
+      It will make popup visible on initial load.
+    </p>
+  </PropSection>
 
-	<PropSection title="image" type="string" >
-		<p>
-			Thumbnail URL to be displayed inside the popup.
-		</p>
-	</PropSection>
+  <PropSection title="image" type="string">
+    <p>
+      Thumbnail URL to be displayed inside the popup.
+    </p>
+  </PropSection>
 
-	<PropSection title="trigger" type="React Node" defaultValue="Open Popup">
-		<p>
-			Trigger element, it can be button, icon, text, anything.
-		</p>
-	</PropSection>
+  <PropSection title="trigger" type="React Node" defaultValue="Open Popup">
+    <p>
+      Trigger element, it can be button, icon, text, anything.
+    </p>
+  </PropSection>
 
-	<PropSection title="header" type="React Node">
-		<p>
-			Popup header, contents to be displayed in the top of the popup.
-		</p>
-	</PropSection>
+  <PropSection title="header" type="React Node">
+    <p>
+      Popup header, contents to be displayed in the top of the popup.
+    </p>
+  </PropSection>
 
-	<PropSection title="footer" type="React Node">
-		<p>
-			Popup footer, contents to be displayed in the bottom of the popup.
-		</p>
-	</PropSection>
+  <PropSection title="footer" type="React Node">
+    <p>
+      Popup footer, contents to be displayed in the bottom of the popup.
+    </p>
+  </PropSection>
 
-	<PropSection title="children" type="React Node">
-		<p>
-			The content to be displayed in the popup
-		</p>
-	</PropSection>
+  <PropSection title="children" type="React Node">
+    <p>
+      The content to be displayed in the popup
+    </p>
+  </PropSection>
 
-	<PropSection title="displayOnHover" type="React Node" defaultValue="false">
-		<p>
-			Whether to display the popover on hover or not
-		</p>
-	</PropSection>
+  <PropSection title="displayOnHover" type="React Node" defaultValue="false">
+    <p>
+      Whether to display the popover on hover or not
+    </p>
+  </PropSection>
 </Section>
 
 <CommonPropsNotice />

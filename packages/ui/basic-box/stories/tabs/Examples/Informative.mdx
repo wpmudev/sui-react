@@ -6,14 +6,12 @@ export const InformativeCode = dedent`
     Informative Example Code
 `
 
-<Section
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-    	Your component with the example informative goes here
-    </Preview>
-    <Snippet language="js">{InformativeCode}</Snippet>
+<Section contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    Your component with the example informative goes here
+  </Preview>
 
+  <Snippet language="js">
+    {InformativeCode}
+  </Snippet>
 </Section>

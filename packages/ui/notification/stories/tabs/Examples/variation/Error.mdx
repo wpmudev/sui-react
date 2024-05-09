@@ -13,18 +13,12 @@ export const ErrorCode = dedent`
    />
 `
 
-<Section
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<Notification
-			variation="error"
-			title="Notification Title"
-			message="This is notification message."
-			icon="CheckAlt"
-		/>
-	</Preview>
-	<Snippet language="js">{ErrorCode}</Snippet>
+<Section contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <Notification variation="error" title="Notification Title" message="This is notification message." icon="CheckAlt" />
+  </Preview>
+
+  <Snippet language="js">
+    {ErrorCode}
+  </Snippet>
 </Section>

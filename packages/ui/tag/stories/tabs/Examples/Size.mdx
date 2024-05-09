@@ -6,13 +6,12 @@ export const SmallTagCode = dedent`
 <Tag isSmall={true}>Tag</Tag>
 `;
 
-<Section
-	title="Small"
-	contained={true}
-	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<Tag isSmall={true}>Default tag</Tag>
-	</Preview>
-	<Snippet language="js">{SmallTagCode}</Snippet>
+<Section title="Small" contained={true} style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <Tag isSmall={true}>Default tag</Tag>
+  </Preview>
+
+  <Snippet language="js">
+    {SmallTagCode}
+  </Snippet>
 </Section>

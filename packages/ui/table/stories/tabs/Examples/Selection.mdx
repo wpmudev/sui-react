@@ -3,14 +3,14 @@ import { TableExample } from "./Example"
 import { generalCode } from "../TabExamples.mdx"
 import dedent from "dedent"
 
-<Section
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <p>Set the prop <Code small={true}>allowCheck=\{true\}</Code> to allow rows selection </p>
-    <Preview wrapper={true}>
-    	<TableExample hasToolbar={false} allowCheck={true}/>
-    </Preview>
-    <Snippet language="js">{generalCode("allowCheck={true}")}</Snippet>
+<Section border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Set the prop <Code small={true}>allowCheck=\{true}</Code> to allow rows selection </p>
 
+  <Preview wrapper={true}>
+    <TableExample hasToolbar={false} allowCheck={true} />
+  </Preview>
+
+  <Snippet language="js">
+    {generalCode("allowCheck={true}")}
+  </Snippet>
 </Section>

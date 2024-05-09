@@ -1,64 +1,71 @@
 import { Section, Code, Snippet, Message, NodeJSWarning } from "@wpmudev/sui-docs"
 
-
-<style>{`
-.csb-browsers-list {
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
-}
-.csb-browsers-list img {
-	margin: 0;
-	margin-right: 20px;
-}
-.csb-browsers-list img:last-child {
-	margin-right: 0;
-}
-`}</style>
+<style>
+  {`
+  .csb-browsers-list {
+  	display: flex;
+  	flex-flow: row wrap;
+  	align-items: center;
+  }
+  .csb-browsers-list img {
+  	margin: 0;
+  	margin-right: 20px;
+  }
+  .csb-browsers-list img:last-child {
+  	margin-right: 0;
+  }
+  `}
+</style>
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		These packages consist of grouped component packages that fall within the same category.<br/>
-		Below is a list of these packages:
-		<ol>
-			<li>`@wpmudev/sui-core`</li>
-			<li>`@wpmudev/sui-forms`</li>
-			<li>`@wpmudev/sui-advanced`</li>
-			<li>`@wpmudev/sui-modules`</li>
-			<li>`@wpmudev/sui-collections`</li>
-		</ol>
-	</p>
-	<NodeJSWarning/>
+  <p>
+    These packages consist of grouped component packages that fall within the same category.<br />
+    Below is a list of these packages:
+
+    <ol>
+      <li>`@wpmudev/sui-core`</li>
+      <li>`@wpmudev/sui-forms`</li>
+      <li>`@wpmudev/sui-advanced`</li>
+      <li>`@wpmudev/sui-modules`</li>
+      <li>`@wpmudev/sui-collections`</li>
+    </ol>
+  </p>
+
+  <NodeJSWarning />
 </Section>
+
 <Section
-	title={{
+  title={{
 		content: 'Install using NPM',
 		small: true,
 	}}
-	contained={true}
-	style={{ paddingTop: 0 }}
+  contained={true}
+  style={{ paddingTop: 0 }}
 >
-	<p>
-		In your project root directory (where the <Code> package.json </Code> file
-		lives), run the following command:
-	</p>
-	```js
-	npm install --save @wpmudev/sui-core @wpmudev/sui-forms @wpmudev/sui-advanced @wpmudev/sui-modules @wpmudev/sui-collections
-	```
+  <p>
+    In your project root directory (where the <Code> package.json </Code> file
+    lives), run the following command:
+  </p>
+
+  ```js
+  npm install --save @wpmudev/sui-core @wpmudev/sui-forms @wpmudev/sui-advanced @wpmudev/sui-modules @wpmudev/sui-collections
+  ```
 </Section>
+
 <Section
-	title={{
+  title={{
 		content: 'Install using Yarn',
 		small: true,
 	}}
-	contained={true}
-	style={{ paddingTop: 0 }}
+  contained={true}
+  style={{ paddingTop: 0 }}
 >
-	<p>
-		In your project root directory (where the <Code> package.json </Code> file
-		lives), run the following command:
-	</p>
-	```js
-	yarn add @wpmudev/sui-core @wpmudev/sui-forms @wpmudev/sui-advanced @wpmudev/sui-modules @wpmudev/sui-collections
-	```
+  <p>
+    In your project root directory (where the <Code> package.json </Code> file
+    lives), run the following command:
+  </p>
+
+  ```js
+  yarn add @wpmudev/sui-core @wpmudev/sui-forms @wpmudev/sui-advanced @wpmudev/sui-modules @wpmudev/sui-collections
+  ```
 </Section>

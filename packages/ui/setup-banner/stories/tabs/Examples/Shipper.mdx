@@ -12,18 +12,12 @@ export const ShipperCode = dedent`
         />
 `
 
-<Section
-    contained={true}
-    border={true}
-    style={{ paddingRight: 0, paddingLeft: 0 }}
->
-    <Preview wrapper={true}>
-    	 <SetupBanner
-		    type="shipper"
-            title="Shipper"
-            description="Choose the quickest and easiest migration based on your situation. Whether it’s our mega-secure API method or a super-swift package migration, Shipper has you covered."
-         />
-    </Preview>
-    <Snippet language="js">{ShipperCode}</Snippet>
+<Section contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <SetupBanner type="shipper" title="Shipper" description="Choose the quickest and easiest migration based on your situation. Whether it’s our mega-secure API method or a super-swift package migration, Shipper has you covered." />
+  </Preview>
 
+  <Snippet language="js">
+    {ShipperCode}
+  </Snippet>
 </Section>

@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from '@storybook/blocks';
 import { Page } from '@wpmudev/sui-docs';
 import { Unstyled } from '@storybook/blocks';
 
@@ -9,19 +9,22 @@ import License from './content/License.mdx';
 <Meta title="SUI/Icons Pack" />
 
 <Unstyled>
-	<Page.Tabs
-		title="Icons Pack"
-		subtitle={
+  <Page.Tabs
+    title="Icons Pack"
+    subtitle={
 			<>SUI Icons Pack provides additional meaning in places where the text label doesn't fit. These icons communicate messages at a glimpse and lure awareness to vital information.</>
-		}>
-		<div id="installation" label="Installation">
-			<Installation />
-		</div>
-		<div id="usage" label="Usage">
-			<Usage />
-		</div>
-		<div id="license" label="License">
-			<License />
-		</div>
-	</Page.Tabs>
+		}
+  >
+    <div id="installation" label="Installation">
+      <Installation />
+    </div>
+
+    <div id="usage" label="Usage">
+      <Usage />
+    </div>
+
+    <div id="license" label="License">
+      <License />
+    </div>
+  </Page.Tabs>
 </Unstyled>

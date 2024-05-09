@@ -3,206 +3,226 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-tooltip" />
 
 <Section>
-	<p>
-		The tooltip component is composed of the trigger element and the tooltip itselft, when the trigger element is hovered the tooltip will appear.
-	</p>
-	<p> the trigger element type is determined using the type prop, the default is <Code isSmall={true}>button</Code></p>
+  <p>
+    The tooltip component is composed of the trigger element and the tooltip itselft, when the trigger element is hovered the tooltip will appear.
+  </p>
+
+  <p> the trigger element type is determined using the type prop, the default is <Code isSmall={true}>button</Code></p>
 </Section>
 
 <Section title="Props" border={true}>
-	
-		<PropSection title="type" type="string" defaultValue="button">
-			<p>The type for the trigger element</p>
-			<p>Allowed options</p>
-			<List>
-				<span label="button" />
-				<span label="text" />
-				<span label="icon" />
-			</List>
-		</PropSection>
+  <PropSection title="type" type="string" defaultValue="button">
+    <p>The type for the trigger element</p>
+    <p>Allowed options</p>
 
-		<PropSection title="label" type="string">
-			<p>The text for the trigger</p>
-		</PropSection>
+    <List>
+      <span label="button" />
 
-		<PropSection title="buttonProps" type="object">
-			<p>
-				If you choose the type `button` for the trigger you can use any of <a href="/?path=/docs/sui-components-core-button--docs" target="_blank"> the Button component props </a>
-				to customize it.
-			</p>
-		</PropSection>
-		
-		<PropSection title="customWidth" type="number">
-			<p>
-				Add a fixed width to the tooltip
-			</p>
-		</PropSection>
-		
-		<PropSection title="customMobileWidth" type="number">
-			<p>
-				Add a fixed width for the tooltip in the mobile
-			</p>
-		</PropSection>
+      <span label="text" />
 
-		<PropSection title="onClick" type="function">
-			<p>
-				A callback function to be invoked upon clicking the trigger
-			</p>
-		</PropSection>
+      <span label="icon" />
+    </List>
+  </PropSection>
 
-		<PropSection title="onFocus" type="function">
-			<p>
-				A callback function to be invoked when the tooltip container gets focused
-			</p>
-		</PropSection>
+  <PropSection title="label" type="string">
+    <p>The text for the trigger</p>
+  </PropSection>
 
-		<PropSection title="onBlur" type="function">
-			<p>
-				A callback function to be invoked when the tooltip container looses focus
-			</p>
-		</PropSection>
-		
-		<PropSection title="children" type="React Node">
-			<p>
-				The content of the tooltip
-			</p>
-		</PropSection>
+  <PropSection title="buttonProps" type="object">
+    <p>
+      If you choose the type `button` for the trigger you can use any of <a href="/?path=/docs/sui-components-core-button--docs" target="_blank"> the Button component props </a>
+      to customize it.
+    </p>
+  </PropSection>
 
-		<PropSection title="icon" type="string">
-			<p>
-				Icon name for the trigger
-			</p>
-		</PropSection>
+  <PropSection title="customWidth" type="number">
+    <p>
+      Add a fixed width to the tooltip
+    </p>
+  </PropSection>
 
-		<PropSection title="iconSize" type="string" defaultValue="sm">
-			<p>
-				The size of the trigger icon
-			</p>
+  <PropSection title="customMobileWidth" type="number">
+    <p>
+      Add a fixed width for the tooltip in the mobile
+    </p>
+  </PropSection>
 
-			<p>Allowed options</p>
-			<List>
-				<span label="sm" />
-				<span label="md" />
-				<span label="lg" />
-				<span label="xl" />
-			</List>
-		</PropSection>
+  <PropSection title="onClick" type="function">
+    <p>
+      A callback function to be invoked upon clicking the trigger
+    </p>
+  </PropSection>
 
-		<PropSection title="className" type="string">
-			<p>A custom css <Code isSmall={true}>className</Code> for further styling</p>
-		</PropSection>
+  <PropSection title="onFocus" type="function">
+    <p>
+      A callback function to be invoked when the tooltip container gets focused
+    </p>
+  </PropSection>
 
-		<PropSection title="onMouseLeave" type="function">
-			<p>
-				A callback function to be invoked when the mouse leaves the trigger, the first parameter represents the event object
-			</p>
-		</PropSection>
+  <PropSection title="onBlur" type="function">
+    <p>
+      A callback function to be invoked when the tooltip container looses focus
+    </p>
+  </PropSection>
 
-		<PropSection title="placement" type="string" defaultValue="top">
-			<p>
-				A tooltip can be placed at the top, bottom, left, or right of the
-				button.
-			</p>
-			<p>Allowed options:</p>
-			<List>
-				<span
-					label={
+  <PropSection title="children" type="React Node">
+    <p>
+      The content of the tooltip
+    </p>
+  </PropSection>
+
+  <PropSection title="icon" type="string">
+    <p>
+      Icon name for the trigger
+    </p>
+  </PropSection>
+
+  <PropSection title="iconSize" type="string" defaultValue="sm">
+    <p>
+      The size of the trigger icon
+    </p>
+
+    <p>Allowed options</p>
+
+    <List>
+      <span label="sm" />
+
+      <span label="md" />
+
+      <span label="lg" />
+
+      <span label="xl" />
+    </List>
+  </PropSection>
+
+  <PropSection title="className" type="string">
+    <p>A custom css <Code isSmall={true}>className</Code> for further styling</p>
+  </PropSection>
+
+  <PropSection title="onMouseLeave" type="function">
+    <p>
+      A callback function to be invoked when the mouse leaves the trigger, the first parameter represents the event object
+    </p>
+  </PropSection>
+
+  <PropSection title="placement" type="string" defaultValue="top">
+    <p>
+      A tooltip can be placed at the top, bottom, left, or right of the
+      button.
+    </p>
+
+    <p>Allowed options:</p>
+
+    <List>
+      <span
+        label={
 						<>
 							<Code small={true}>top</Code>: Tooltip will be aligned
 							to the top center of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>top-left</Code>: Tooltip will be
 							aligned to the top left of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>top-right</Code>: Tooltip will be
 							aligned to the top right of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>bottom</Code>: Tooltip will be
 							aligned to the bottom center of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>bottom-left</Code>: Tooltip will be
 							aligned to the bottom left of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>bottom-right</Code>: Tooltip will be
 							aligned to the bottom right of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>left</Code>: Tooltip will be aligned
 							to the left center of the buttom.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>left-top</Code>: Tooltip will be
 							aligned to the left top of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>left-bottom</Code>: Tooltip will be
 							aligned to the left bottom of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>right</Code>: Tooltip will be aligned
 							to the right center of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>right-top</Code>: Tooltip will be
 							aligned to the right top of the button.
 						</>
 					}
-				/>
-				<span
-					label={
+      />
+
+      <span
+        label={
 						<>
 							<Code small={true}>right-bottom</Code>: Tooltip will be
 							aligned to the right bottom of the button.
 						</>
 					}
-				/>
-			</List>
-		</PropSection>
+      />
+    </List>
+  </PropSection>
 </Section>
 
 <CommonPropsNotice />

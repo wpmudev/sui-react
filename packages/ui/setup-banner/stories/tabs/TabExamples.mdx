@@ -22,55 +22,61 @@ export const basicExampleCode = dedent`
         />
 `
 
-<Section
-	title="Basic Setup Banner Example"
-	contained={true}
-	style={{ paddingTop: 30 }}
->
-	<Preview wrapper={true}>
-		<SetupBanner
-			title="Smush"
-			description="Welcome to Smush. The only tool you need to optimize your images. Before getting to it, let’s start with simple plugin setup. The recommended settings are pre-enabled by default, but you can adjust it after the setup."
-		/>
-	</Preview>
-	<Snippet language="js">{basicExampleCode}</Snippet>
+<Section title="Basic Setup Banner Example" contained={true} style={{ paddingTop: 30 }}>
+  <Preview wrapper={true}>
+    <SetupBanner title="Smush" description="Welcome to Smush. The only tool you need to optimize your images. Before getting to it, let’s start with simple plugin setup. The recommended settings are pre-enabled by default, but you can adjust it after the setup." />
+  </Preview>
+
+  <Snippet language="js">
+    {basicExampleCode}
+  </Snippet>
 </Section>
 
 <Section title="Plugin Variations" contained={true} style={{ paddingTop: 30 }}>
-	<p>
-		Use the <Code small={true}> type </Code> to specify the plugin variation you
-		need
-	</p>
-	<Switcher>
-		<div label="smush" value="smush">
-			<Smush />
-		</div>
-		<div label="defender" value="defender">
-			<Defender />
-		</div>
-		<div label="snapshot" value="snapshot">
-			<Snapshot />
-		</div>
-		<div label="hummingbird" value="hummingbird">
-			<Hummingbird />
-		</div>
-		<div label="forminator" value="forminator">
-			<Forminator />
-		</div>
-		<div label="beehive" value="beehive">
-			<Beehive />
-		</div>
-		<div label="hustle" value="hustle">
-			<Hustle />
-		</div>
-		<div label="smartcrawl" value="smartcrawl">
-			<SmartCrawl />
-		</div>
-		<div label="shipper" value="shipper">
-			<Shipper />
-		</div>
-		<div label="branda" value="branda">
-			<Branda />
-		</div>
-	</Switcher>
+  <p>
+    Use the <Code small={true}> type </Code> to specify the plugin variation you
+    need
+  </p>
+
+  <Switcher>
+    <div label="smush" value="smush">
+      <Smush />
+    </div>
+
+    <div label="defender" value="defender">
+      <Defender />
+    </div>
+
+    <div label="snapshot" value="snapshot">
+      <Snapshot />
+    </div>
+
+    <div label="hummingbird" value="hummingbird">
+      <Hummingbird />
+    </div>
+
+    <div label="forminator" value="forminator">
+      <Forminator />
+    </div>
+
+    <div label="beehive" value="beehive">
+      <Beehive />
+    </div>
+
+    <div label="hustle" value="hustle">
+      <Hustle />
+    </div>
+
+    <div label="smartcrawl" value="smartcrawl">
+      <SmartCrawl />
+    </div>
+
+    <div label="shipper" value="shipper">
+      <Shipper />
+    </div>
+
+    <div label="branda" value="branda">
+      <Branda />
+    </div>
+  </Switcher>
 </Section>

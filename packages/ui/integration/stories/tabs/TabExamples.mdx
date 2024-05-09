@@ -35,66 +35,65 @@ export const settingsCode = dedent`
 `
 
 <Section style={{ paddingTop: 30 }}>
-	<p>Below is the general form of the Integration component</p>
-	<Preview wrapper={true}>
-		<div style={{ background: "rgb(248, 248, 248)", padding: 25 }}>
-			<Integration
-				image={{ alt: "amazon", src: image }}
-				title="Amazon S3"
-				description="Compress offloaded images including when you're removing files from your host server."
-			/>
-		</div>
-	</Preview>
-	<Snippet language="js">{generalCode}</Snippet>
+  <p>Below is the general form of the Integration component</p>
+
+  <Preview wrapper={true}>
+    <div style={{ background: "rgb(248, 248, 248)", padding: 25 }}>
+      <Integration image={{ alt: "amazon", src: image }} title="Amazon S3" description="Compress offloaded images including when you're removing files from your host server." />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {generalCode}
+  </Snippet>
 </Section>
 
 <Section title="Additional Info" style={{ paddingTop: 30 }}>
-	<p>
-		To display addition info in a tooltip, use the prop
-		<Code small={true}>additionalInfo</Code>
-	</p>
-	<Preview wrapper={true}>
-		<div style={{ background: "rgb(248, 248, 248)", padding: 25 }}>
-			<Integration
-				additionalInfo="Additional Info Goes Here"
-				image={{ alt: "amazon", src: image }}
-				title="Amazon S3"
-				description="Compress offloaded images including when you're removing files from your host server."
-			/>
-		</div>
-	</Preview>
-	<Snippet language="js">{infoCode}</Snippet>
+  <p>
+    To display addition info in a tooltip, use the prop
+    <Code small={true}>additionalInfo</Code>
+  </p>
+
+  <Preview wrapper={true}>
+    <div style={{ background: "rgb(248, 248, 248)", padding: 25 }}>
+      <Integration additionalInfo="Additional Info Goes Here" image={{ alt: "amazon", src: image }} title="Amazon S3" description="Compress offloaded images including when you're removing files from your host server." />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {infoCode}
+  </Snippet>
 </Section>
 
 <Section title="Settings Button" style={{ paddingTop: 30 }}>
-	<p>
-		To display the settings button when the integration is active, set the prop
-		<Code small={true}>isSettings=\{true\}</Code>
-	</p>
-	<Preview wrapper={true}>
-		<div style={{ background: "rgb(248, 248, 248)", padding: 25 }}>
-			<Integration
-				isSettings={true}
-				active={true}
-				image={{ alt: "amazon", src: image }}
-				title="Amazon S3"
-				description="Compress offloaded images including when you're removing files from your host server."
-			/>
-		</div>
-	</Preview>
-	<Snippet language="js">{settingsCode}</Snippet>
+  <p>
+    To display the settings button when the integration is active, set the prop
+    <Code small={true}>isSettings=\{true}</Code>
+  </p>
+
+  <Preview wrapper={true}>
+    <div style={{ background: "rgb(248, 248, 248)", padding: 25 }}>
+      <Integration isSettings={true} active={true} image={{ alt: "amazon", src: image }} title="Amazon S3" description="Compress offloaded images including when you're removing files from your host server." />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {settingsCode}
+  </Snippet>
 </Section>
 
 <Section title="States" style={{ paddingTop: 0 }}>
-	<Switcher>
-		<div label="Active" value="active">
-			<Active />
-		</div>
-		<div label="Disabled" value="disabled">
-			<Disabled />
-		</div>
-		<div label="Pro" value="pro">
-			<Pro />
-		</div>
-	</Switcher>
+  <Switcher>
+    <div label="Active" value="active">
+      <Active />
+    </div>
+
+    <div label="Disabled" value="disabled">
+      <Disabled />
+    </div>
+
+    <div label="Pro" value="pro">
+      <Pro />
+    </div>
+  </Switcher>
 </Section>

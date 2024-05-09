@@ -10,28 +10,28 @@ export const PercentageScoreCode = dedent`
 <Score bar={95} value={95} />
 `;
 
-<Section
-	title="Number"
-	contained={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>Number score is used to show the value of the task.</p>
-	<Preview wrapper={true}>
-		<Score isPercentage={false} bar={50} value="295" />
-	</Preview>
-	<Snippet language="js">{NumberScoreCode}</Snippet>
+<Section title="Number" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Number score is used to show the value of the task.</p>
+
+  <Preview wrapper={true}>
+    <Score isPercentage={false} bar={50} value="295" />
+  </Preview>
+
+  <Snippet language="js">
+    {NumberScoreCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Percentage (default)"
-	contained={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>
-		Percentage score is used to measure the progress of the particular task.
-	</p>
-	<Preview wrapper={true}>
-		<Score bar={95} value={95} />
-	</Preview>
-	<Snippet language="js">{PercentageScoreCode}</Snippet>
+<Section title="Percentage (default)" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>
+    Percentage score is used to measure the progress of the particular task.
+  </p>
+
+  <Preview wrapper={true}>
+    <Score bar={95} value={95} />
+  </Preview>
+
+  <Snippet language="js">
+    {PercentageScoreCode}
+  </Snippet>
 </Section>

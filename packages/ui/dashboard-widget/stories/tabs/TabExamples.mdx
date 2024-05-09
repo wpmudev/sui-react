@@ -67,26 +67,38 @@ export const DashboardWidgetExample = () => {
 `
 
 <Section style={{ paddingTop: 30 }}>
-	<p>Below is an example of Dashboard Widget with actions</p>
-	<Preview wrapper={true}>
-		<DashboardWidgetExample />
-	</Preview>
-	<Snippet language="js">{generalCode()}</Snippet>
+  <p>Below is an example of Dashboard Widget with actions</p>
+
+  <Preview wrapper={true}>
+    <DashboardWidgetExample />
+  </Preview>
+
+  <Snippet language="js">
+    {generalCode()}
+  </Snippet>
 </Section>
 
 <Section title="Disabled" style={{ paddingTop: 30 }}>
-	<p>Set the prop <Code small={true}>isDisabled=\{true\}</Code> to disable the widget</p>
-	<Preview wrapper={true}>
-		<DashboardWidgetExample isDisabled={true}/>
-	</Preview>
-	<Snippet language="js">{generalCode("isDisable={true}")}</Snippet>
+  <p>Set the prop <Code small={true}>isDisabled=\{true}</Code> to disable the widget</p>
+
+  <Preview wrapper={true}>
+    <DashboardWidgetExample isDisabled={true} />
+  </Preview>
+
+  <Snippet language="js">
+    {generalCode("isDisable={true}")}
+  </Snippet>
 </Section>
 
 <Section title="Collapse" style={{ paddingTop: 30 }}>
-	<p>Set the prop <Code small={true}>canCollapse=\{true\}</Code> to make the widget collapsable with a toggle button</p>
-	<p> Use the props  <Code small={true}>isExpanded</Code> and <Code small={true}>onToggle</Code> to set and modify the collapsing state</p>
-	<Preview wrapper={true}>
-		<DashboardWidgetExample canCollapse={true}/>
-	</Preview>
-	<Snippet language="js">{generalCode("canCollapse={true}")}</Snippet>
+  <p>Set the prop <Code small={true}>canCollapse=\{true}</Code> to make the widget collapsable with a toggle button</p>
+  <p> Use the props  <Code small={true}>isExpanded</Code> and <Code small={true}>onToggle</Code> to set and modify the collapsing state</p>
+
+  <Preview wrapper={true}>
+    <DashboardWidgetExample canCollapse={true} />
+  </Preview>
+
+  <Snippet language="js">
+    {generalCode("canCollapse={true}")}
+  </Snippet>
 </Section>

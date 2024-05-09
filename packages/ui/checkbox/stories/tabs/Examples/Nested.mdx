@@ -1,4 +1,3 @@
-
 import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 import { BasicCheckbox } from "./components/BasicCheckbox"
 import { Checkbox, CheckboxGroup, CheckBoxGroups} from "../../../src"
@@ -34,37 +33,39 @@ export const checkboxGroups = dedent`
 `
 
 <Section contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-	<p>
-		With <Code isSmall={true}>CheckBoxGroups</Code>, you can establish a single-level hierarchy where parent and child states are interconnected, you can track changes on all nested checkboxes using the <Code isSmall={true}>onChange</Code> prop  
-	</p>
-	<Preview wrapper={true}>
-		<CheckBoxGroups 
-			onChange={(items) => {
+  <p>
+    With <Code isSmall={true}>CheckBoxGroups</Code>, you can establish a single-level hierarchy where parent and child states are interconnected, you can track changes on all nested checkboxes using the <Code isSmall={true}>onChange</Code> prop
+  </p>
+
+  <Preview wrapper={true}>
+    <CheckBoxGroups
+      onChange={(items) => {
 				console.log("nested debug", items)
 			}}
-			commonCheckboxProps={{
+      commonCheckboxProps={{
 				// it will be passed to all checkbox items
 				name: "groups-checkbox"						
         	}}
-		>
-			<CheckboxGroup 
-				title="Parent" 
-				hasSubItems={true} 
-			>
-				<Checkbox label="Child" />
-				<Checkbox label="Child" />
-			</CheckboxGroup>
-			<CheckboxGroup 
-				title="Parent" 
-				hasSubItems={true} 
-			>
-				<Checkbox label="Child" />
-				<Checkbox label="Child" />
-				<Checkbox label="Child" />
-				<Checkbox label="Child" />
-			</CheckboxGroup>
-		</CheckBoxGroups>
-	</Preview>
-	<Snippet language="js">{checkboxGroups}</Snippet>
-</Section>
+    >
+      <CheckboxGroup title="Parent" hasSubItems={true}>
+        <Checkbox label="Child" />
 
+        <Checkbox label="Child" />
+      </CheckboxGroup>
+
+      <CheckboxGroup title="Parent" hasSubItems={true}>
+        <Checkbox label="Child" />
+
+        <Checkbox label="Child" />
+
+        <Checkbox label="Child" />
+
+        <Checkbox label="Child" />
+      </CheckboxGroup>
+    </CheckBoxGroups>
+  </Preview>
+
+  <Snippet language="js">
+    {checkboxGroups}
+  </Snippet>
+</Section>

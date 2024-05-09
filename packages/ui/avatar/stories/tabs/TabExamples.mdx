@@ -11,25 +11,29 @@ export const sampleCode = dedent`
 `;
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>Below is the default form of an Avatar.</p>
-	<Preview wrapper={true}>
-		<Avatar />
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>Below is the default form of an Avatar.</p>
+
+  <Preview wrapper={true}>
+    <Avatar />
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section style={{ paddingTop: 0 }}>
+  <Switcher>
+    <div label="Types" value="types">
+      <Types />
+    </div>
 
-<Switcher>
-	<div label="Types" value="types">
-		<Types />
-	</div>
-	<div label="Status" value="status">
-		<Status />
-	</div>
-	<div label="Size" value="size">
-		<Size />
-	</div>
-</Switcher>
+    <div label="Status" value="status">
+      <Status />
+    </div>
 
+    <div label="Size" value="size">
+      <Size />
+    </div>
+  </Switcher>
 </Section>

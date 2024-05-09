@@ -25,55 +25,38 @@ export const compoundCode = dedent`
   />
 `
 
-<Section
-	title="Icon Only"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<div style={{ padding: 50 }}>
-			<Selector variation="icon-only" iconOrBrandUrl="Bell" />
-		</div>
-	</Preview>
-	<Snippet language="js">{iconOnlyCode}</Snippet>
+<Section title="Icon Only" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <div style={{ padding: 50 }}>
+      <Selector variation="icon-only" iconOrBrandUrl="Bell" />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {iconOnlyCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Image"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<div style={{ padding: 50 }}>
-			<Selector
-				variation="image"
-				title="Option 1"
-				description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-				iconOrBrandUrl="Bell"
-				imageUrl="https://placehold.co/200x100.png"
-			/>
-		</div>
-	</Preview>
-	<Snippet language="js">{imageCode}</Snippet>
+<Section title="Image" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <div style={{ padding: 50 }}>
+      <Selector variation="image" title="Option 1" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit." iconOrBrandUrl="Bell" imageUrl="https://placehold.co/200x100.png" />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {imageCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Compound"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<Preview wrapper={true}>
-		<div style={{ padding: 50 }}>
-			<Selector
-				variation="compound"
-				title="Option 1"
-				description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-				iconOrBrandUrl="Bell"
-			/>
-		</div>
-	</Preview>
-	<Snippet language="js">{compoundCode}</Snippet>
+<Section title="Compound" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <Preview wrapper={true}>
+    <div style={{ padding: 50 }}>
+      <Selector variation="compound" title="Option 1" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit." iconOrBrandUrl="Bell" />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {compoundCode}
+  </Snippet>
 </Section>

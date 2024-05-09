@@ -16,27 +16,29 @@ export const sampleCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>Below is the default form of a recipient, used for most cases.</p>
-	<Preview wrapper={true}>
-		<Recipient
-			userImage={{ src: image, alt: "User Image" }}
-			userName="Recipient name"
-			userEmail="email@example.com"
-		/>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>Below is the default form of a recipient, used for most cases.</p>
+
+  <Preview wrapper={true}>
+    <Recipient userImage={{ src: image, alt: "User Image" }} userName="Recipient name" userEmail="email@example.com" />
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section style={{ paddingTop: 0 }}>
-	<Switcher>
-		<div label="Appearance" value="appearance">
-			<Appearance />
-		</div>
-		<div label="Types" value="types">
-			<Types />
-		</div>
-		<div label="Status" value="status">
-			<Status />
-		</div>
-	</Switcher>
+  <Switcher>
+    <div label="Appearance" value="appearance">
+      <Appearance />
+    </div>
+
+    <div label="Types" value="types">
+      <Types />
+    </div>
+
+    <div label="Status" value="status">
+      <Status />
+    </div>
+  </Switcher>
 </Section>

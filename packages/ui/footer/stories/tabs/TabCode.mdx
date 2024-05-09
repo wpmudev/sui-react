@@ -3,49 +3,45 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-footer" />
 
 <Section title="Props" border={true}>
+  <PropSection title="links" type="array">
+    <p>Links to be displayed in the footer, each item in the array is an object with the following keys</p>
 
-    	<PropSection title="links" type="array">
-    		<p>Links to be displayed in the footer, each item in the array is an object with the following keys</p>
-    		<List>
-    			<span label={<><Code small={true}>url</Code> The url of of the link</>} />
-    			<span label={<><Code small={true}>title</Code> The link text</>} />
-    		</List>
-    	</PropSection>
+    <List>
+      <span label={<><Code small={true}>url</Code> The url of of the link</>} />
 
-    	<PropSection title="socialLinks" type="array">
-    		<p>The social links to be displayed in the footer, each item in the array is an object with the following keys:</p>
-    		<List>
-    			<span label={<><Code small={true}>url</Code> The url to the social account or page</>} />
-    			<span label={<><Code small={true}>type</Code> could be one of three values: facebook, twitter, instagram</>} />
-    		</List>
-    	</PropSection>
+      <span label={<><Code small={true}>title</Code> The link text</>} />
+    </List>
+  </PropSection>
 
-    	<PropSection title="renderBlocks" type="function">
-    		<p>A function to render additional content for the footer</p>
-    	</PropSection>
+  <PropSection title="socialLinks" type="array">
+    <p>The social links to be displayed in the footer, each item in the array is an object with the following keys:</p>
 
-		<PropSection title="removeBGColor" type="boolean" defaultValue="false">
-    		<p>When set to <Code isSmall={true}>true</Code>, the footer will have a transparent background</p>
-    	</PropSection>
+    <List>
+      <span label={<><Code small={true}>url</Code> The url to the social account or page</>} />
 
-		<PropSection title="className" type="string">
-    		<p>Custom css className(s) for further styling</p>
-    	</PropSection>
+      <span label={<><Code small={true}>type</Code> could be one of three values: facebook, twitter, instagram</>} />
+    </List>
+  </PropSection>
 
-		<Section
-    		title={{ content: "logoImageLink*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p>The link to the logo image</p>
-    	</Section>
+  <PropSection title="renderBlocks" type="function">
+    <p>A function to render additional content for the footer</p>
+  </PropSection>
 
-		<Section
-    		title={{ content: "logoHref*", tag: 'string', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p>The url the logo image points to</p>
-    	</Section>
+  <PropSection title="removeBGColor" type="boolean" defaultValue="false">
+    <p>When set to <Code isSmall={true}>true</Code>, the footer will have a transparent background</p>
+  </PropSection>
 
+  <PropSection title="className" type="string">
+    <p>Custom css className(s) for further styling</p>
+  </PropSection>
+
+  <Section title={{ content: "logoImageLink*", tag: 'string', small: true }} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <p>The link to the logo image</p>
+  </Section>
+
+  <Section title={{ content: "logoHref*", tag: 'string', small: true }} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <p>The url the logo image points to</p>
+  </Section>
 </Section>
 
 <CommonPropsNotice />

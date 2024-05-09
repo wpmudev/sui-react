@@ -59,80 +59,63 @@ export const onlyPdfCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Basic File Uploader component used for most cases: </p>
-	<Preview wrapper={true}>
-		<FormField
-			id="uploader"
-			label="Upload a file"
-			helper="Upload files"
-			isSmall={true}
-		>
-			<Uploader />
-		</FormField>
-	</Preview>
-	<Snippet language="js">{basicCode}</Snippet>
+  <p>Basic File Uploader component used for most cases: </p>
+
+  <Preview wrapper={true}>
+    <FormField id="uploader" label="Upload a file" helper="Upload files" isSmall={true}>
+      <Uploader />
+    </FormField>
+  </Preview>
+
+  <Snippet language="js">
+    {basicCode}
+  </Snippet>
 </Section>
 
 <Section title="Multiple files" contained={true} style={{ paddingTop: 30 }}>
-	<Preview wrapper={true}>
-		<FormField
-			id="uploader"
-			label="Upload a file"
-			helper="Upload files"
-			isSmall={true}
-		>
-			<Uploader multiple={true} />
-		</FormField>
-	</Preview>
-	<Snippet language="js">{multipleCode}</Snippet>
+  <Preview wrapper={true}>
+    <FormField id="uploader" label="Upload a file" helper="Upload files" isSmall={true}>
+      <Uploader multiple={true} />
+    </FormField>
+  </Preview>
+
+  <Snippet language="js">
+    {multipleCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Disabled drag and drop"
-	contained={true}
-	style={{ paddingTop: 30 }}
->
-	<Preview wrapper={true}>
-		<FormField
-			id="uploader"
-			label="Upload a file"
-			helper="Upload files"
-			isSmall={true}
-		>
-			<Uploader allowDragAndDrop={false} />
-		</FormField>
-	</Preview>
-	<Snippet language="js">{dragDropCode}</Snippet>
+<Section title="Disabled drag and drop" contained={true} style={{ paddingTop: 30 }}>
+  <Preview wrapper={true}>
+    <FormField id="uploader" label="Upload a file" helper="Upload files" isSmall={true}>
+      <Uploader allowDragAndDrop={false} />
+    </FormField>
+  </Preview>
+
+  <Snippet language="js">
+    {dragDropCode}
+  </Snippet>
 </Section>
 
 <Section title="Accept only images" contained={true} style={{ paddingTop: 30 }}>
-	<Preview wrapper={true}>
-		<FormField
-			id="uploader"
-			label="Upload a file"
-			helper="Upload files"
-			isSmall={true}
-		>
-			<Uploader accept="image/*" />
-		</FormField>
-	</Preview>
-	<Snippet language="js">{onlyImagesCode}</Snippet>
+  <Preview wrapper={true}>
+    <FormField id="uploader" label="Upload a file" helper="Upload files" isSmall={true}>
+      <Uploader accept="image/*" />
+    </FormField>
+  </Preview>
+
+  <Snippet language="js">
+    {onlyImagesCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Accept only a specific file extension"
-	contained={true}
-	style={{ paddingTop: 30 }}
->
-	<Preview wrapper={true}>
-		<FormField
-			id="uploader"
-			label="Upload a file"
-			helper="Upload files"
-			isSmall={true}
-		>
-			<Uploader accept="application/pdf" />
-		</FormField>
-	</Preview>
-	<Snippet language="js">{onlyPdfCode}</Snippet>
+<Section title="Accept only a specific file extension" contained={true} style={{ paddingTop: 30 }}>
+  <Preview wrapper={true}>
+    <FormField id="uploader" label="Upload a file" helper="Upload files" isSmall={true}>
+      <Uploader accept="application/pdf" />
+    </FormField>
+  </Preview>
+
+  <Snippet language="js">
+    {onlyPdfCode}
+  </Snippet>
 </Section>

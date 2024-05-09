@@ -1,0 +1,26 @@
+import { Source } from "@storybook/blocks"
+import { Page } from "@wpmudev/sui-docs"
+import { Meta, Unstyled } from "@storybook/blocks"
+import * as TextareaStories from "./Textarea.stories"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+
+<Meta title="SUI/Components/Forms/Textarea" of={TextareaStories} />
+
+<Unstyled>
+  <Page.Tabs title="Textarea" subtitle="A textarea element is used to create a multi-line text input field on a web page." status="ready">
+    <div id="usage" label="Usage">
+      <TabUsage />
+    </div>
+
+    <div id="code" label="Code">
+      <TabCode />
+    </div>
+
+    <div id="examples" label="Examples">
+      <TabExamples />
+    </div>
+  </Page.Tabs>
+</Unstyled>

@@ -8,15 +8,19 @@ export const sampleCode = dedent`
 `;
 
 <Section title="Usage" style={{ paddingRight: 0, paddingLeft: 0 }}>
-	<p>
-		Tags are used to highlight specific bits of information and warnings.
-		To get that, add <Code>sui-tag</Code> class name as shown in the
-		example below.
-	</p>
-	<Preview wrapper={true}>
-		<span className="sui-tag" style={{ margin: 0 }}>
-			The quick brown fox jumps over the lazy dog.
-		</span>
-	</Preview>
-	<Snippet language="html">{sampleCode}</Snippet>
+  <p>
+    Tags are used to highlight specific bits of information and warnings.
+    To get that, add <Code>sui-tag</Code> class name as shown in the
+    example below.
+  </p>
+
+  <Preview wrapper={true}>
+    <span className="sui-tag" style={{ margin: 0 }}>
+      The quick brown fox jumps over the lazy dog.
+    </span>
+  </Preview>
+
+  <Snippet language="html">
+    {sampleCode}
+  </Snippet>
 </Section>

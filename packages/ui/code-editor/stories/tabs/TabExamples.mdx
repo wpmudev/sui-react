@@ -22,7 +22,6 @@ const MyComponent = ({ name }) => {
 export default MyComponent;
 `
 
-
 export const sampleCode = dedent`
     <CodeEditor language="javascript">
         import React from 'react';
@@ -41,32 +40,40 @@ export const sampleCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 30 }} border={true}>
-	<p>The default form of the CodeEditor component.</p>
-	<p>Please make sure to indicate the "language" property with the appropriate code language to enable accurate syntax highlighting.</p>
-	<Preview wrapper={true}>
-		<CodeEditor language="javascript">
-            {reactSampleCode}
-		</CodeEditor>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>The default form of the CodeEditor component.</p>
+  <p>Please make sure to indicate the "language" property with the appropriate code language to enable accurate syntax highlighting.</p>
+
+  <Preview wrapper={true}>
+    <CodeEditor language="javascript">
+      {reactSampleCode}
+    </CodeEditor>
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section title="More Examples" style={{ paddingTop: 30 }}>
-	<Switcher>
-		<div label="Languages" value="languages">
-			<Languages />
-		</div>
-		<div label="File Name" value="filename">
-			<FileName />
-		</div>
-		<div label="Lines Number" value="lines-number">
-			<LinesNumbers />
-		</div>
-		<div label="Read Only" value="read-only">
-			<ReadOnly />
-		</div>
-		<div label="Copy Button" value="copy-button">
-			<CopyButton />
-		</div>
-	</Switcher>
+  <Switcher>
+    <div label="Languages" value="languages">
+      <Languages />
+    </div>
+
+    <div label="File Name" value="filename">
+      <FileName />
+    </div>
+
+    <div label="Lines Number" value="lines-number">
+      <LinesNumbers />
+    </div>
+
+    <div label="Read Only" value="read-only">
+      <ReadOnly />
+    </div>
+
+    <div label="Copy Button" value="copy-button">
+      <CopyButton />
+    </div>
+  </Switcher>
 </Section>

@@ -16,17 +16,25 @@ export const actionButtonCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>The RichText Editor has one variation which is the following</p>
-	<Preview contained={true} wrapper={true}>
-		<RichTextEditor />
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>The RichText Editor has one variation which is the following</p>
+
+  <Preview contained={true} wrapper={true}>
+    <RichTextEditor />
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section title="With an Action Button" contained={true} style={{ paddingTop: 0 }}>
-	<p>You can optionally add custom action button(s) using the <Code isSmall={true}>actions</Code> prop</p>
-	<Preview contained={true} wrapper={true}>
-		<RichTextEditor actions={<Button type="secondary" icon="Add" colorScheme="black">Add Field</Button>} />
-	</Preview>
-	<Snippet language="js">{actionButtonCode}</Snippet>
+  <p>You can optionally add custom action button(s) using the <Code isSmall={true}>actions</Code> prop</p>
+
+  <Preview contained={true} wrapper={true}>
+    <RichTextEditor actions={<Button type="secondary" icon="Add" colorScheme="black">Add Field</Button>} />
+  </Preview>
+
+  <Snippet language="js">
+    {actionButtonCode}
+  </Snippet>
 </Section>

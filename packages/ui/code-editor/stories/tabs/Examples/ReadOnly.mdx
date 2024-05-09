@@ -21,10 +21,13 @@ export const readOnlyCode = dedent`
 `;
 
 <Section title="Read Only" contained={true} style={{ paddingTop: 30, paddingLeft: 0 }} border={true}>
-	<Preview wrapper={true}>
-		<CodeEditor readOnly={true} language="javascript" >
-            {reactSampleCode}
-		</CodeEditor>
-	</Preview>
-	<Snippet language="js">{readOnlyCode}</Snippet>
+  <Preview wrapper={true}>
+    <CodeEditor readOnly={true} language="javascript">
+      {reactSampleCode}
+    </CodeEditor>
+  </Preview>
+
+  <Snippet language="js">
+    {readOnlyCode}
+  </Snippet>
 </Section>

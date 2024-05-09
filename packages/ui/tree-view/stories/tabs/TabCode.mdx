@@ -3,143 +3,138 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-tree-view" />
 
 <Section title="Props" border={true}>
+  <PropSection title="children" type="string">
+    <p>
+      Content of the Tree View
+    </p>
+  </PropSection>
 
-    <PropSection title="children" type="string">
-    	<p>
-    		Content of the Tree View
-    	</p>
+  <PropSection title="allowCheck" type="boolean" defaultValue="false">
+    <p>
+      If set to <Code small={true}>true</Code> both elements & groups will display a checkbox
+    </p>
+  </PropSection>
+
+  <PropSection title="showIcons" type="boolean" defaultValue="false">
+    <p>
+      When the value is <Code small={true}>true</Code>, both elements and groups will display inline icons.
+    </p>
+  </PropSection>
+
+  <PropSection title="className" type="string">
+    <p>
+      Additional css class name for the Tree View
+    </p>
+  </PropSection>
+
+  <PropSection title="onChange" type="function">
+    <p>
+      A callback function to be executed upon change of the state of any item's checkbox, the first parameter is an array of objects where each object represents an element in the tree, it has the following parameters:
+
+      <List>
+        <span label={<><Code isSmall={true}>id </Code> represents the id of the item</>} />
+
+        <span label={<><Code isSmall={true}>isChecked</Code> represent the item check state</>} />
+
+        <span label={<><Code isSmall={true}>group</Code> represent the group id that the item belongs to</>} />
+      </List>
+    </p>
+  </PropSection>
+</Section>
+
+<Section title="Sub Components" contained={true} style={{ paddingTop: 30, paddingBottom: 0 }}>
+  <p>The Tree View component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+
+  <Section title="TreeViewGroup" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <p>
+      This component represents a group in the tree view.
+    </p>
+
+    <PropSection title="id" type="string">
+      <p>
+        The group unique id
+      </p>
     </PropSection>
-    <PropSection title="allowCheck" type="boolean" defaultValue="false">
-    	<p>
-    		If set to <Code small={true}>true</Code> both elements & groups will display a checkbox
-    	</p>
+
+    <PropSection title="title" type="string" defaultValue="group title">
+      <p>
+        Title for the group
+      </p>
     </PropSection>
-    <PropSection title="showIcons" type="boolean" defaultValue="false">
-    	<p>
-    		When the value is <Code small={true}>true</Code>, both elements and groups will display inline icons.
-    	</p>
+
+    <PropSection title="icon" type="string">
+      <p>
+        Custom Icon to display inline with the title, you can check available icons on [sui-icons](https://github.com/wpmudev/sui-icons) package. note that <Code isSmall={true}>showIcons</Code> need to be set to <Code isSmall={true}> true </Code> in the parent <Code isSmall={true}> TreeView </Code> component in order for the icon to be displayed
+      </p>
+    </PropSection>
+
+    <PropSection title="isDisabled" type="boolean" defaultValue="false">
+      <p>
+        Enables deactivation of the group, when set to true, the group won't open upon clicking
+      </p>
+    </PropSection>
+
+    <PropSection title="children" type="React Node">
+      <p>
+        The content of the group item
+      </p>
     </PropSection>
 
     <PropSection title="className" type="string">
-    	<p>
-    		Additional css class name for the Tree View
-    	</p>
+      <p>
+        Additional css class name for the component
+      </p>
+    </PropSection>
+  </Section>
+
+  <Section title="TreeViewItem" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    <p>
+      This component represents a group in the tree view.
+    </p>
+
+    <PropSection title="id" type="string">
+      <p>
+        Unique ID for the tree view item
+      </p>
     </PropSection>
 
-	 <PropSection title="onChange" type="function">
-    	<p>
-    		A callback function to be executed upon change of the state of any item's checkbox, the first parameter is an array of objects where each object represents an element in the tree, it has the following parameters:  
-			<List>
-				<span label={<><Code isSmall={true}>id </Code> represents the id of the item</>} />
-				<span label={<><Code isSmall={true}>isChecked</Code> represent the item check state</>} />
-				<span label={<><Code isSmall={true}>group</Code> represent the group id that the item belongs to</>} />
-			</List>
-		</p>
+    <PropSection title="icon" type="string">
+      <p>
+        Custom Icon to display inline with the content, you can check available icons on [sui-icons](https://github.com/wpmudev/sui-icons) package.
+        note that <Code isSmall={true}>showIcons</Code> need to be set to <Code isSmall={true}> true </Code> in the parent <Code isSmall={true}> TreeView </Code> component in order for the icon to be displayed
+      </p>
     </PropSection>
 
-</Section>
+    <PropSection title="isDisabled" type="boolean" defaultValue={false}>
+      <p>
+        Enables deactivation of the group, when set to true, the group won't open upon clicking
+      </p>
+    </PropSection>
 
-<Section
-	title="Sub Components"
-	contained={true}
-	style={{ paddingTop: 30, paddingBottom: 0 }}
->
-		<p>The Tree View component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+    <PropSection title="children" type="React Node">
+      <p>
+        The content of the TreeView item
+      </p>
+    </PropSection>
 
-    <Section title="TreeViewGroup" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component represents a group in the tree view.
-    	</p>
+    <PropSection title="className" type="string">
+      <p>
+        Additional css class name for the item
+      </p>
+    </PropSection>
 
-		<PropSection title="id" type="string">
-    		<p>
-    			The group unique id
-    		</p>
-    	</PropSection>
+    <PropSection title="isChecked" type="boolean" defaultValue="false">
+      <p>
+        Whether the checkbox is checked or not, it only has effect when TreeView <Code isSmall={true}>allowCheck</Code> prop set to <Code isSmall={true}>true</Code>.
+      </p>
+    </PropSection>
 
-    	<PropSection title="title" type="string" defaultValue="group title">
-    		<p>
-    			Title for the group
-    		</p>
-    	</PropSection>
-
-    	<PropSection title="icon" type="string">
-    		<p>
-    			Custom Icon to display inline with the title, you can check available icons on [sui-icons](https://github.com/wpmudev/sui-icons) package. note that <Code isSmall={true}>showIcons</Code> need to be set to <Code isSmall={true}> true </Code> in the parent <Code isSmall={true}> TreeView </Code> component in order for the icon to be displayed
-    		</p>
-    	</PropSection>
-
-    	<PropSection title="isDisabled" type="boolean" defaultValue="false">
-    		<p>
-    			Enables deactivation of the group, when set to true, the group won't open upon clicking
-    		</p>
-    	</PropSection>
-
-    	<PropSection title="children" type="React Node">
-    		<p>
-    			The content of the group item
-    		</p>
-    	</PropSection>
-
-    	 <PropSection title="className" type="string">
-    		<p>
-    			Additional css class name for the component
-    		</p>
-    	</PropSection>
-
-    </Section>
-
-
-    <Section title="TreeViewItem" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
-    	<p>
-    		This component represents a group in the tree view.
-    	</p>
-
-    	<PropSection title="id" type="string">
-    		<p>
-    			Unique ID for the tree view item
-    		</p>
-    	</PropSection>
-
-    	<PropSection title="icon" type="string">
-    		<p>
-    			Custom Icon to display inline with the content, you can check available icons on [sui-icons](https://github.com/wpmudev/sui-icons) package.
-    			note that <Code isSmall={true}>showIcons</Code> need to be set to <Code isSmall={true}> true </Code> in the parent <Code isSmall={true}> TreeView </Code> component in order for the icon to be displayed
-    		</p>
-    	</PropSection>
-
-    	<PropSection title="isDisabled" type="boolean" defaultValue={false}>
-    		<p>
-    			Enables deactivation of the group, when set to true, the group won't open upon clicking
-    		</p>
-    	</PropSection>
-
-    	<PropSection title="children" type="React Node">
-    		<p>
-    			The content of the TreeView item
-    		</p>
-    	</PropSection>
-
-    	 <PropSection title="className" type="string">
-    		<p>
-    			Additional css class name for the item
-    		</p>
-    	</PropSection>
-
-		<PropSection title="isChecked" type="boolean" defaultValue="false">
-    		<p>
-    			Whether the checkbox is checked or not, it only has effect when TreeView <Code isSmall={true}>allowCheck</Code> prop set to <Code isSmall={true}>true</Code>. 
-    		</p>
-    	</PropSection>
-
-		<PropSection title="isExpanded" type="boolean" defaultValue="false">
-    		<p>
-    			Indicates whether the item is expanded or not
-    		</p>
-    	</PropSection>
-
-    </Section>
-
+    <PropSection title="isExpanded" type="boolean" defaultValue="false">
+      <p>
+        Indicates whether the item is expanded or not
+      </p>
+    </PropSection>
+  </Section>
 </Section>
 
 <CommonPropsNotice />

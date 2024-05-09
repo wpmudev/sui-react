@@ -34,36 +34,26 @@ export const InvitedRecipientCode = dedent`
     />
 `
 
-<Section
-	title="Primary"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>Primary is the default of the recipient</p>
-	<Preview wrapper={true}>
-		<Recipient
-			appearance="primary"
-			userName="Recipient name"
-			userEmail="email@example.com"
-		/>
-	</Preview>
-	<Snippet language="js">{ConfirmedRecipientCode}</Snippet>
+<Section title="Primary" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>Primary is the default of the recipient</p>
+
+  <Preview wrapper={true}>
+    <Recipient appearance="primary" userName="Recipient name" userEmail="email@example.com" />
+  </Preview>
+
+  <Snippet language="js">
+    {ConfirmedRecipientCode}
+  </Snippet>
 </Section>
 
-<Section
-	title="Secondary"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>There's also a secondary theme</p>
-	<Preview wrapper={true}>
-		<Recipient
-			appearance="secondary"
-			userName="Recipient name"
-			userEmail="email@example.com"
-		/>
-	</Preview>
-	<Snippet language="js">{ConfirmedRecipientCode}</Snippet>
+<Section title="Secondary" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>There's also a secondary theme</p>
+
+  <Preview wrapper={true}>
+    <Recipient appearance="secondary" userName="Recipient name" userEmail="email@example.com" />
+  </Preview>
+
+  <Snippet language="js">
+    {ConfirmedRecipientCode}
+  </Snippet>
 </Section>

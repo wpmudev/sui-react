@@ -3,15 +3,14 @@ import { Input } from '../../../src';
 import { ValidationPassword, ValidationPasswordCode } from './ValidationPassword';
 import dedent from 'dedent';
 
-<Section
-	title="Password"
-	contained={true}
-	border={true}
-	style={{ paddingRight: 0, paddingLeft: 0 }}
->
-	<p>This is an example of using <a href="/?path=/docs/sui-npm-packages-hooks--docs" target="_blank">useValidation</a> hook to validate the password field using a custom validator, try to type something to see the error message</p>
-	<Preview wrapper={true}>
-		<ValidationPassword />
-	</Preview>
-	<Snippet language="js">{ValidationPasswordCode}</Snippet>
+<Section title="Password" contained={true} border={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+  <p>This is an example of using <a href="/?path=/docs/sui-npm-packages-hooks--docs" target="_blank">useValidation</a> hook to validate the password field using a custom validator, try to type something to see the error message</p>
+
+  <Preview wrapper={true}>
+    <ValidationPassword />
+  </Preview>
+
+  <Snippet language="js">
+    {ValidationPasswordCode}
+  </Snippet>
 </Section>

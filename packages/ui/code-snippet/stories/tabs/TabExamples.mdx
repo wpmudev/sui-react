@@ -32,34 +32,53 @@ export const cssCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>The default form of the code snippet.</p>
-	<Preview wrapper={true}>
-		<CodeSnippet>{htmlSnippet}</CodeSnippet>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>The default form of the code snippet.</p>
+
+  <Preview wrapper={true}>
+    <CodeSnippet>
+      {htmlSnippet}
+    </CodeSnippet>
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section title="Languages" contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		Use the language prop to change the programming language for a correct
-		highlighting
-	</p>
-	<p>
-		You can choose between <Code small={true}>markup</Code>,{" "}
-		<Code small={true}>javascript</Code> and <Code small={true}>css</Code>
-	</p>
-	<Preview wrapper={true}>
-		<CodeSnippet language="css">{cssSnippet}</CodeSnippet>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>
+    Use the language prop to change the programming language for a correct
+    highlighting
+  </p>
+
+  <p>
+    You can choose between <Code small={true}>markup</Code>,{" "}
+    <Code small={true}>javascript</Code> and <Code small={true}>css</Code>
+  </p>
+
+  <Preview wrapper={true}>
+    <CodeSnippet language="css">
+      {cssSnippet}
+    </CodeSnippet>
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section title="Hide Copy" contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		Use the prop <Code small={true}>copy=\{false\}</Code> to remove the copy button
-	</p>
-	<Preview wrapper={true}>
-		<CodeSnippet copy={false}>{htmlSnippet}</CodeSnippet>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>
+    Use the prop <Code small={true}>copy=\{false}</Code> to remove the copy button
+  </p>
+
+  <Preview wrapper={true}>
+    <CodeSnippet copy={false}>
+      {htmlSnippet}
+    </CodeSnippet>
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>

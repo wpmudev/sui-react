@@ -12,28 +12,35 @@ export const sampleCode = dedent`
 `;
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		Below is the default form of a tag:
-	</p>
-	<Preview wrapper={true}>
-		<Tag>Default tag</Tag>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>
+    Below is the default form of a tag:
+  </p>
+
+  <Preview wrapper={true}>
+    <Tag>Default tag</Tag>
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section style={{ paddingTop: 0 }}>
-	<Switcher>
-		<div label="Colors" value="colors">
-			<Colors />
-		</div>
-		<div label="Size" value="size">
-			<Size />
-		</div>
-		<div label="Design" value="design">
-			<Design />
-		</div>
-		<div label="Style" value="style">
-			<Style />
-		</div>
-	</Switcher>
+  <Switcher>
+    <div label="Colors" value="colors">
+      <Colors />
+    </div>
+
+    <div label="Size" value="size">
+      <Size />
+    </div>
+
+    <div label="Design" value="design">
+      <Design />
+    </div>
+
+    <div label="Style" value="style">
+      <Style />
+    </div>
+  </Switcher>
 </Section>

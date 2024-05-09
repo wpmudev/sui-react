@@ -3,51 +3,53 @@ import { Section, List, Code, PackageInstallGuide, PropSection, CommonPropsNotic
 <PackageInstallGuide packageName="@wpmudev/sui-progress-bar" />
 
 <Section title="Props" border={true}>
+  <PropSection title="label" type="string">
+    <p>Label for the progress bar</p>
+  </PropSection>
 
-    	<PropSection title="label" type="string">
-    		<p>Label for the progress bar</p>
-    	</PropSection>
+  <PropSection title="value" type="string | number">
+    <p>Value of the progress bar from 0 to 100</p>
+  </PropSection>
 
-    	<PropSection title="value" type="string | number">
-    		<p>Value of the progress bar from 0 to 100</p>
-    	</PropSection>
+  <PropSection title="showValue" type="boolean" defaultValue="true">
+    <p>Whether to display or hide the value</p>
+  </PropSection>
 
-		<PropSection title="showValue" type="boolean" defaultValue="true">
-    		<p>Whether to display or hide the value</p>
-    	</PropSection>
+  <PropSection title="size" type="string" defaultValue="md">
+    <p>Size of the progress bar </p>
 
-    	<PropSection title="size" type="string" defaultValue="md">
-    		<p>Size of the progress bar </p>
-    		<p>
-    			Allowed options
-    				<List>
-    					<span label="sm" />
-						<span label="md" />
-    					<span label="lg" />
-    				</List>
-    			</p>
-    	</PropSection>
+    <p>
+      Allowed options
 
-    	<PropSection title="isInline" type="boolean" defaultValue="false">
-    		<p>When set to <Code small={true}> true </Code> the progress bar will be displayed inline with the label. </p>
-    	</PropSection>
+      <List>
+        <span label="sm" />
 
-    	<PropSection title="allowCancel" type="boolean" defaultValue="false">
-    		<p>When set to <Code small={true}> true </Code> the progress bar will have a cancel button </p>
-    	</PropSection>
+        <span label="md" />
 
-    	<PropSection title="isIndeterminate" type="boolean" defaultValue="false">
-    		<p>Set this to <Code small={true}> true </Code> if the process can’t be determined or calculated </p>
-    	</PropSection>
+        <span label="lg" />
+      </List>
+    </p>
+  </PropSection>
 
-    	<PropSection title="onClick" type="function">
-    		<p>A callback function to be invoked when the cancel button is clicked</p>
-    	</PropSection>
+  <PropSection title="isInline" type="boolean" defaultValue="false">
+    <p>When set to <Code small={true}> true </Code> the progress bar will be displayed inline with the label. </p>
+  </PropSection>
 
-    	<PropSection title="className" type="string">
-    		<p>Custom css class for the component</p>
-    	</PropSection>
+  <PropSection title="allowCancel" type="boolean" defaultValue="false">
+    <p>When set to <Code small={true}> true </Code> the progress bar will have a cancel button </p>
+  </PropSection>
 
+  <PropSection title="isIndeterminate" type="boolean" defaultValue="false">
+    <p>Set this to <Code small={true}> true </Code> if the process can’t be determined or calculated </p>
+  </PropSection>
+
+  <PropSection title="onClick" type="function">
+    <p>A callback function to be invoked when the cancel button is clicked</p>
+  </PropSection>
+
+  <PropSection title="className" type="string">
+    <p>Custom css class for the component</p>
+  </PropSection>
 </Section>
 
 <CommonPropsNotice />

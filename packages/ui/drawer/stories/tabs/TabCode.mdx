@@ -3,50 +3,51 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 <PackageInstallGuide packageName="@wpmudev/sui-drawer" />
 
 <Section title="Props" border={true}>
+  <PropSection title="isOpen" type="boolean" defaultValue={false}>
+    <p>Indicates whether the Drawer is open or not</p>
+  </PropSection>
 
-	<PropSection title="isOpen" type="boolean" defaultValue={false}>
-		<p>Indicates whether the Drawer is open or not</p>
-	</PropSection>
+  <PropSection title="size" type="string" defaultValue="default">
+    <p>Size of the Drawer</p>
+    <p>Allowed values:</p>
 
-	<PropSection title="size" type="string" defaultValue="default">
-		<p>Size of the Drawer</p>
-		<p>Allowed values:</p>
-		<List>
-			<span label="default" />
-			<span label="sm" />
-		</List>
-	</PropSection>
+    <List>
+      <span label="default" />
 
-	<PropSection title="placement" type="string" defaultValue="right">
-		<p>Indicates the position where the drawer will appear</p>
-		<p>Allowed values:</p>
-		<List>
-			<span label="right" />
-			<span label="left" />
-		</List>
-	</PropSection>
+      <span label="sm" />
+    </List>
+  </PropSection>
 
-	<PropSection title="hasContainer" type="boolean" defaultValue="false">
-		<p>Indicates whether the drawer has a container or not</p>
-	</PropSection>
+  <PropSection title="placement" type="string" defaultValue="right">
+    <p>Indicates the position where the drawer will appear</p>
+    <p>Allowed values:</p>
 
-	<PropSection title="disableShadow" type="boolean" defaultValue="false">
-		<p>Indicates whether the shadow should be disabled or not</p>
-	</PropSection>
+    <List>
+      <span label="right" />
 
-	<PropSection title="outerClickClose" type="boolean" defaultValue="true">
-		<p>Indicates whether the Drawer should close when clicking outside or not</p>
-	</PropSection>
+      <span label="left" />
+    </List>
+  </PropSection>
 
-	<PropSection title="children" type="string">
-		<p>The nested content inside the Drawer</p>
-	</PropSection>
+  <PropSection title="hasContainer" type="boolean" defaultValue="false">
+    <p>Indicates whether the drawer has a container or not</p>
+  </PropSection>
 
-	<PropSection title="className" type="string">
-		<p>Additional CSS className(s) for further styling</p>
-	</PropSection>
+  <PropSection title="disableShadow" type="boolean" defaultValue="false">
+    <p>Indicates whether the shadow should be disabled or not</p>
+  </PropSection>
 
+  <PropSection title="outerClickClose" type="boolean" defaultValue="true">
+    <p>Indicates whether the Drawer should close when clicking outside or not</p>
+  </PropSection>
+
+  <PropSection title="children" type="string">
+    <p>The nested content inside the Drawer</p>
+  </PropSection>
+
+  <PropSection title="className" type="string">
+    <p>Additional CSS className(s) for further styling</p>
+  </PropSection>
 </Section>
-
 
 <CommonPropsNotice />

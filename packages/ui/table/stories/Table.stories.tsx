@@ -16,7 +16,7 @@ import { Pagination } from "@wpmudev/sui-pagination"
 import { chunkArray } from "@wpmudev/sui-utils"
 
 // Import documentation main page
-import docs from "./ReactTable.mdx"
+import docs from "./Table.mdx"
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 
 // Configure default options

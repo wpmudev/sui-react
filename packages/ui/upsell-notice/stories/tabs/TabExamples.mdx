@@ -77,17 +77,18 @@ export const tagCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-	<p>Below is the general form of the Upsell Notice component</p>
-	<Preview wrapper={true}>
-		<UpsellNotice
-			title="Upgrade to Smush pro"
-			features={[
+  <p>Below is the general form of the Upsell Notice component</p>
+
+  <Preview wrapper={true}>
+    <UpsellNotice
+      title="Upgrade to Smush pro"
+      features={[
 				"Performance Test Reporting",
 				"Uptime monitoring",
 				"Enhanced file minification with CDN",
 				"Database Cleanup notifications",
 			]}
-			actions={[
+      actions={[
 				<div key={0}>
 					<Button type="primary" colorScheme="black" isSmall={true}>
 						Upgrade now
@@ -105,26 +106,30 @@ export const tagCode = dedent`
 					</Button>
 				</div>,
 			]}
-		/>
-	</Preview>
-	<Snippet language="js">{generalCode}</Snippet>
+    />
+  </Preview>
+
+  <Snippet language="js">
+    {generalCode}
+  </Snippet>
 </Section>
 
 <Section title="With a Tag" contained={true} style={{ paddingTop: 30 }}>
-	<p>
-		Use the prop <Code small={true}>tagTitle</Code> to display a tag beside the
-		title
-	</p>
-	<Preview wrapper={true}>
-		<UpsellNotice
-			tagTitle="Pro"
-			features={[
+  <p>
+    Use the prop <Code small={true}>tagTitle</Code> to display a tag beside the
+    title
+  </p>
+
+  <Preview wrapper={true}>
+    <UpsellNotice
+      tagTitle="Pro"
+      features={[
 				"Performance Test Reporting",
 				"Uptime monitoring",
 				"Enhanced file minification with CDN",
 				"Database Cleanup notifications",
 			]}
-			actions={[
+      actions={[
 				<div key={0}>
 					<Button type="primary" colorScheme="black" isSmall={true}>
 						Upgrade now
@@ -142,50 +147,65 @@ export const tagCode = dedent`
 					</Button>
 				</div>,
 			]}
-		/>
-	</Preview>
-	<Snippet language="js">{tagCode}</Snippet>
+    />
+  </Preview>
+
+  <Snippet language="js">
+    {tagCode}
+  </Snippet>
 </Section>
 
 <Section title="Variations" style={{ paddingTop: 0 }}>
-	Use the <Code small={true}>variation</Code> prop to change the Upsell Notice
-	plugin variation.
-	<Switcher>
-		<div label="hummingbird" value="hummingbird">
-			<Hummingbird />
-		</div>
-		<div label="smush" value="smush">
-			<Smush />
-		</div>
-		<div label="snapshot" value="snapshot">
-			<Snapshot />
-		</div>
-		<div label="smartcrawl" value="smartcrawl">
-			<Smartcrawl />
-		</div>
-		<div label="shipper" value="shipper">
-			<Shipper />
-		</div>
-		<div label="shipper" value="shipper">
-			<Shipper />
-		</div>
-		<div label="ivt" value="ivt">
-			<Ivt />
-		</div>
-		<div label="hustle" value="hustle">
-			<Hustle />
-		</div>
-		<div label="forminator" value="forminator">
-			<Forminator />
-		</div>
-		<div label="defender" value="defender">
-			<Defender />
-		</div>
-		<div label="branda" value="branda">
-			<Branda />
-		</div>
-		<div label="beehive" value="beehive">
-			<Beehive />
-		</div>
-	</Switcher>
+  Use the <Code small={true}>variation</Code> prop to change the Upsell Notice
+  plugin variation.
+
+  <Switcher>
+    <div label="hummingbird" value="hummingbird">
+      <Hummingbird />
+    </div>
+
+    <div label="smush" value="smush">
+      <Smush />
+    </div>
+
+    <div label="snapshot" value="snapshot">
+      <Snapshot />
+    </div>
+
+    <div label="smartcrawl" value="smartcrawl">
+      <Smartcrawl />
+    </div>
+
+    <div label="shipper" value="shipper">
+      <Shipper />
+    </div>
+
+    <div label="shipper" value="shipper">
+      <Shipper />
+    </div>
+
+    <div label="ivt" value="ivt">
+      <Ivt />
+    </div>
+
+    <div label="hustle" value="hustle">
+      <Hustle />
+    </div>
+
+    <div label="forminator" value="forminator">
+      <Forminator />
+    </div>
+
+    <div label="defender" value="defender">
+      <Defender />
+    </div>
+
+    <div label="branda" value="branda">
+      <Branda />
+    </div>
+
+    <div label="beehive" value="beehive">
+      <Beehive />
+    </div>
+  </Switcher>
 </Section>

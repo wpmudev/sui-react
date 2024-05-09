@@ -15,42 +15,42 @@ import {
 <PackageInstallGuide packageName="@wpmudev/sui-password-field" />
 
 <Section title="Props" border={true}>
+  <PropSection title="id" type="string">
+    <p>A unique identifier for the password field</p>
+  </PropSection>
 
-    <PropSection title="id" type="string">
-    	<p>A unique identifier for the password field</p>
-    </PropSection>
+  <PropSection title="placholder" type="string">
+    <p>A placholder for the password field</p>
+  </PropSection>
 
-    <PropSection title="placholder" type="string">
-    	<p>A placholder for the password field</p>
-    </PropSection>
+  <PropSection title="buttonType" type="string" defaultValue="text">
+    <p> Specifies the button type for showing and hiding the password. </p>
+    <p> Allowed values: </p>
 
-    <PropSection title="buttonType" type="string" defaultValue="text">
-    	<p> Specifies the button type for showing and hiding the password. </p>
-    	<p> Allowed values: </p>
-    	<List>
-    		<span label={<><Code small={true}>icon</Code> displays an icon button </>} />
-    		<span label={<><Code small={true}>standard</Code> displays a text button instead ( show & hide ) </>} />
-    	</List>
-    </PropSection>
+    <List>
+      <span label={<><Code small={true}>icon</Code> displays an icon button </>} />
 
-	<PropSection title="customWidth" type="number" >
-    	<p>Custom width in <Code isSmall={true}>pixels</Code></p>
-    </PropSection>
+      <span label={<><Code small={true}>standard</Code> displays a text button instead ( show & hide ) </>} />
+    </List>
+  </PropSection>
 
-    <PropSection title="isSmall" type="boolean" defaultValue="false">
-    	<p> When set to <Code small={true}> true </Code> the field will be smaller </p>
-    </PropSection>
+  <PropSection title="customWidth" type="number">
+    <p>Custom width in <Code isSmall={true}>pixels</Code></p>
+  </PropSection>
 
-	<PropSection title="isError" type="boolean" defaultValue="false">
-    	<p>When set to <Code isSmall={true}>true</Code>, the input will have a red border </p>
-    </PropSection>
+  <PropSection title="isSmall" type="boolean" defaultValue="false">
+    <p> When set to <Code small={true}> true </Code> the field will be smaller </p>
+  </PropSection>
 
-    <PropSection title="isDisabled" type="boolean" defaultValue="false">
-    	<p> Indicates whether the field is disabled or not </p>
-    </PropSection>
+  <PropSection title="isError" type="boolean" defaultValue="false">
+    <p>When set to <Code isSmall={true}>true</Code>, the input will have a red border </p>
+  </PropSection>
 
-	<FormValidationProps />
+  <PropSection title="isDisabled" type="boolean" defaultValue="false">
+    <p> Indicates whether the field is disabled or not </p>
+  </PropSection>
 
+  <FormValidationProps />
 </Section>
 
 <CommonPropsNotice />

@@ -15,35 +15,43 @@ export const sampleCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 0 }}>
-	<p>
-		This is the most basic form of the Button component
-	</p>
-	<Preview wrapper={true}>
-		<Button>Default button</Button>
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>
+    This is the most basic form of the Button component
+  </p>
+
+  <Preview wrapper={true}>
+    <Button>Default button</Button>
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section style={{ paddingTop: 0 }}>
-	<Switcher>
-		<div label="Type" value="type">
-			<Types />
-		</div>
-		<div label="Colors" value="colorSchemes">
-			<Colors />
-		</div>
-		<div label="Variants" value="variants">
-			<Variants />
-		</div>
-		<div label="States" value="states">
-			<States />
-		</div>
-		<div label="Size" value="size">
-			<Size />
-		</div>
-		<div label="Button with Icon" value="icon">
-			<Icon />
-		</div>
+  <Switcher>
+    <div label="Type" value="type">
+      <Types />
+    </div>
 
-	</Switcher>
+    <div label="Colors" value="colorSchemes">
+      <Colors />
+    </div>
+
+    <div label="Variants" value="variants">
+      <Variants />
+    </div>
+
+    <div label="States" value="states">
+      <States />
+    </div>
+
+    <div label="Size" value="size">
+      <Size />
+    </div>
+
+    <div label="Button with Icon" value="icon">
+      <Icon />
+    </div>
+  </Switcher>
 </Section>

@@ -2,8 +2,6 @@ import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
 import { Toggle } from "../../src"
 import dedent from "dedent"
 
-
-
 export const sampleCode = dedent`
     <Toggle label="Toggle Label" />
 `
@@ -33,36 +31,53 @@ export const disabledCode = dedent`
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
-	<p>A basic Toggle example that's used for most cases</p>
-	<Preview wrapper={true}>
-		<Toggle label="Toggle Label" />
-	</Preview>
-	<Snippet language="js">{sampleCode}</Snippet>
+  <p>A basic Toggle example that's used for most cases</p>
+
+  <Preview wrapper={true}>
+    <Toggle label="Toggle Label" />
+  </Preview>
+
+  <Snippet language="js">
+    {sampleCode}
+  </Snippet>
 </Section>
 
 <Section title="Description" contained={true} style={{ paddingTop: 30 }}>
-	<p>Use the <Code small={true}> description </Code> prop to add a description below the label </p>
-	<Preview wrapper={true}>
-		<Toggle label="Toggle Label" description="Toggle description goes here. Lorem Ipsum is simply dummy text of the printing and typesetting industry it has been the industry's Standard."/>
-	</Preview>
-	<Snippet language="js">{descriptionCode}</Snippet>
+  <p>Use the <Code small={true}> description </Code> prop to add a description below the label </p>
+
+  <Preview wrapper={true}>
+    <Toggle label="Toggle Label" description="Toggle description goes here. Lorem Ipsum is simply dummy text of the printing and typesetting industry it has been the industry's Standard." />
+  </Preview>
+
+  <Snippet language="js">
+    {descriptionCode}
+  </Snippet>
 </Section>
 
 <Section title="Without a label" contained={true} style={{ paddingTop: 30 }}>
-	<p>You can also use the <Code small={true}> Toggle </Code> without a label </p>
-	<Preview wrapper={true}>
-		<div style={ { display: "flex", justifyContent: "space-between" } }>
-			<span>Pluign Settings</span>
-			<Toggle isLabelHidden={true} />
-		</div>
-	</Preview>
-	<Snippet language="js">{noLabelCode}</Snippet>
+  <p>You can also use the <Code small={true}> Toggle </Code> without a label </p>
+
+  <Preview wrapper={true}>
+    <div style={ { display: "flex", justifyContent: "space-between" } }>
+      <span>Pluign Settings</span>
+
+      <Toggle isLabelHidden={true} />
+    </div>
+  </Preview>
+
+  <Snippet language="js">
+    {noLabelCode}
+  </Snippet>
 </Section>
 
 <Section title="Disabled" contained={true} style={{ paddingTop: 30 }}>
-	<p>To disable the toggle, use the prop <Code isSmall={true}> isDisabled=\{true\} </Code>  </p>
-	<Preview wrapper={true}>
-		<Toggle isDisabled={true} label="Label"/>
-	</Preview>
-	<Snippet language="js">{disabledCode}</Snippet>
+  <p>To disable the toggle, use the prop <Code isSmall={true}> isDisabled=\{true} </Code>  </p>
+
+  <Preview wrapper={true}>
+    <Toggle isDisabled={true} label="Label" />
+  </Preview>
+
+  <Snippet language="js">
+    {disabledCode}
+  </Snippet>
 </Section>

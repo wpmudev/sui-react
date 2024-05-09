@@ -4,9 +4,6 @@
  *
  */
 import React, { useEffect } from "react"
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Canvas } from "@storybook/addon-docs"
-
 /**
  *
  * Internal Dependencies
@@ -61,14 +58,14 @@ const Preview: React.FunctionComponent<PreviewProps> = ({
 	}, [])
 
 	return (
-		<Canvas className="csb-preview">
+		<div className="csb-preview sbdocs sbdocs-preview sb-unstyled">
 			<div className="sui-wrap sui-theme--light">
 				{true === wrapper && (
 					<div className="sui-layout sui-layout--horizontal">{children}</div>
 				)}
 				{false === wrapper && children}
 			</div>
-		</Canvas>
+		</div>
 	)
 }
 
