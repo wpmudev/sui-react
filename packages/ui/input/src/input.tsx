@@ -81,11 +81,6 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			id = uniqueId
 		}
 
-		// if we have icon but iconPosition prop is missing then set icon position to start
-		if (icon && !iconPosition) {
-			iconPosition = "start"
-		}
-
 		// Define states
 		const [value, setValue] = useState<InputProps["defaultValue"]>(defaultValue)
 		const [isHovered, isFocused, interactionMethods] = useInteraction({

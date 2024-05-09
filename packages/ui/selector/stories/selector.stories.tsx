@@ -206,5 +206,4 @@ Selector.argTypes = {
 	defaultValue: { table: { disable: true } },
 	_style: { table: { disable: true } },
 	_htmlProps: { table: { disable: true } },
-	label: { table: { disable: true } },
 }

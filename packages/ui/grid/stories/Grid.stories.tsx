@@ -20,11 +20,11 @@ export default {
 }
 
 // Build story
-export const Grid = ({ align }: { align: string }) => {
+export const Grid = ({ inline }: { inline: boolean }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<Row align={{ md: align }}>
+				<Row align={{ md: inline ? "inline" : "stacked" }}>
 					<Col size="4">
 						<Box>
 							<BoxGroup>
@@ -54,17 +54,12 @@ export const Grid = ({ align }: { align: string }) => {
 
 // Set story arguments
 Grid.args = {
-	align: "inline",
+	inline: true,
 }
 
 // Set controls for story arguments
 Grid.argTypes = {
-	align: {
-		name: "Align",
-		options: ["inline", "stacked"],
-		control: {
-			type: "select",
-			labels: { inline: "Inline", stacked: "Stacked" },
-		},
+	inline: {
+		name: "Inline",
 	},
 }

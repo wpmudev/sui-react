@@ -97,5 +97,4 @@ Box.argTypes = {
 		name: "Spacing",
 		control: "boolean",
 	},
-	isSmall: { table: { disable: true } },
 }
