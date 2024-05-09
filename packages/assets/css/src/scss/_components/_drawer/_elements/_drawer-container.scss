@@ -23,6 +23,11 @@
 
 			@include modifier(has-container) {
 				z-index: 1;
+				width: $drawer-size-lg;
+
+				@include media(max-width, sm) {
+					width: 100%;
+				}
 			}
 		}
 	}

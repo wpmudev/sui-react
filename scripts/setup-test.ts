@@ -1,3 +1,4 @@
+import "jest-canvas-mock"
 import { TextEncoder, TextDecoder } from "util"
 import "@testing-library/jest-dom"
 const { toHaveNoViolations } = require("jest-axe")

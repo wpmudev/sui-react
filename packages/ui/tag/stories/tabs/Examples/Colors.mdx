@@ -3,87 +3,93 @@ import { Tag } from '../../../src';
 import dedent from 'dedent';
 
 export const BlueTagCode = dedent`
-<Tag color="blue">Blue tag</Tag>
+<Tag colorScheme="blue">Blue tag</Tag>
 `;
 
 export const YellowTagCode = dedent`
-<Tag color="yellow">Yellow tag</Tag>
+<Tag colorScheme="yellow">Yellow tag</Tag>
 `;
 
 export const RedTagCode = dedent`
-<Tag color="red">Red tag</Tag>
+<Tag colorScheme="red">Red tag</Tag>
 `;
 
 export const GreenTagCode = dedent`
-<Tag color="green">Green tag</Tag>
+<Tag colorScheme="green">Green tag</Tag>
 `;
 
 export const BlackTagCode = dedent`
-<Tag color="black">Black tag</Tag>
+<Tag colorScheme="black">Black tag</Tag>
 `;
 
 export const WhiteTagCode = dedent`
-<Tag color="white">White tag</Tag>
+<Tag colorScheme="white">White tag</Tag>
 `;
 
-<Section title="Blue" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-  <Preview wrapper={true}>
-    <Tag color="blue">Blue tag</Tag>
-  </Preview>
-
-  <Snippet language="js">
-    {BlueTagCode}
-  </Snippet>
+<Section
+	title="Blue"
+	contained={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Tag colorScheme="blue">Blue tag</Tag>
+	</Preview>
+	<Snippet language="js">{BlueTagCode}</Snippet>
 </Section>
 
-<Section title="Yellow" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-  <Preview wrapper={true}>
-    <Tag color="yellow">Yellow tag</Tag>
-  </Preview>
-
-  <Snippet language="js">
-    {YellowTagCode}
-  </Snippet>
+<Section
+	title="Yellow"
+	contained={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Tag colorScheme="yellow">Yellow tag</Tag>
+	</Preview>
+	<Snippet language="js">{YellowTagCode}</Snippet>
 </Section>
 
-<Section title="Red" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-  <Preview wrapper={true}>
-    <Tag color="red">Red tag</Tag>
-  </Preview>
-
-  <Snippet language="js">
-    {RedTagCode}
-  </Snippet>
+<Section
+	title="Red"
+	contained={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Tag colorScheme="red">Red tag</Tag>
+	</Preview>
+	<Snippet language="js">{RedTagCode}</Snippet>
 </Section>
 
-<Section title="Green" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-  <Preview wrapper={true}>
-    <Tag color="green">Green tag</Tag>
-  </Preview>
-
-  <Snippet language="js">
-    {GreenTagCode}
-  </Snippet>
+<Section
+	title="Green"
+	contained={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Tag colorScheme="green">Green tag</Tag>
+	</Preview>
+	<Snippet language="js">{GreenTagCode}</Snippet>
 </Section>
 
-<Section title="Black" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-  <Preview wrapper={true}>
-    <Tag color="black">Black tag</Tag>
-  </Preview>
-
-  <Snippet language="js">
-    {BlackTagCode}
-  </Snippet>
+<Section
+	title="Black"
+	contained={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<Tag colorScheme="black">Black tag</Tag>
+	</Preview>
+	<Snippet language="js">{BlackTagCode}</Snippet>
 </Section>
 
-<Section title="White" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
-  <Preview wrapper={true}>
-    <div style={ { background: "#000", padding: 20 } }>
-      <Tag color="white">White tag</Tag>
-    </div>
-  </Preview>
-
-  <Snippet language="js">
-    {WhiteTagCode}
-  </Snippet>
+<Section
+	title="White"
+	contained={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<div style={ { background: "#000", padding: 20 } }>
+			<Tag colorScheme="white">White tag</Tag>
+		</div>
+	</Preview>
+	<Snippet language="js">{WhiteTagCode}</Snippet>
 </Section>

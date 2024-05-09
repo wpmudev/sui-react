@@ -17,6 +17,10 @@
 					width: $drawer-size-sm;
 				}
 
+				&.sui-#{$block}--container {
+					width: $drawer-size-sm;
+				}
+
 				&.sui-#{$block}--overlay {
 					@include modifies-element(inner) {
 						@include media(max-width, sm) {

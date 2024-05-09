@@ -43,6 +43,10 @@
 				@include media(max-width, lg) {
 					padding: $modal-spacing-lg 0;
 				}
+
+				@include media(max-width, sm) {
+					padding: $modal-spacing-lg $spacing-lg;
+				}
 			}
 
 			// variant: app-connect

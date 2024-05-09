@@ -25,6 +25,10 @@
 
 			@include modifier(fluid) {
 				width: 100%;
+
+				&.sui-#{$block-name}--inline {
+					max-width: 100%;
+				}
 			}
 
 			@include modifier(inline) {

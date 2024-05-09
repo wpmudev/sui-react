@@ -18,7 +18,10 @@
 				background: $color-extended-neutral-100;
 				box-shadow: 0 12px 16px 0 $color-shadow-default,
 					0 8px 40px 0 $color-shadow-dark, 0 24px 36px 0 $color-shadow-default;
-				border-left: $border-width-sm solid $color-extended-neutral-80;
+				border-width: 0;
+				border-left-width: $border-width-sm;
+				border-color: $color-extended-neutral-80;
+				border-style: solid;
 				position: absolute;
 				inset: 0;
 				transform: translateX(100%);
@@ -34,6 +37,16 @@
 						width: calc(100% - 32px);
 					}
 				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(inner) {
+				border-color: $color-extended-neutral-0;
 			}
 		}
 	}

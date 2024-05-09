@@ -33,7 +33,6 @@ import { TableContext, TableSortBy } from "./table-context"
  * @param  root0.isSticky
  * @param  root0.isTrim
  * @param  root0.isPrimary
- * @param  root0.style
  * @param  root0.colSpan
  * @param  root0._htmlProps
  * @param  root0._style
@@ -51,7 +50,6 @@ const TableCell: React.FC<TableCellProps> = ({
 	isSticky = false,
 	isTrim = false,
 	isPrimary = false,
-	style = {},
 	colSpan,
 	_htmlProps = {},
 	_style = {},
@@ -129,7 +127,6 @@ const TableCell: React.FC<TableCellProps> = ({
 			)}
 			{...(isHeading && { scope: "col" })}
 			role={isHeading ? "rowheader" : "cell"}
-			style={style}
 			colSpan={colSpan}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>

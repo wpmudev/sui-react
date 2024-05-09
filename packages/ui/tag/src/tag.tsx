@@ -35,7 +35,7 @@ const Tag: React.FC<TagProps> = ({
 		"sui-tag",
 		{
 			[`${design}-${colorScheme}`]: hasDesign && hasColor,
-			[design as string]: hasDesign && !hasColor,
+			[design as string]: hasDesign,
 			[colorScheme as string]: !hasDesign && hasColor,
 			[contentWrap as string]: hasStyle,
 			sm: isSmall,

@@ -48,6 +48,10 @@ interface PaginationProps extends PaginationCommonProps {
 	 */
 	limit?: number
 	/**
+	 * The currently Selected Page
+	 */
+	page?: number
+	/**
 	 * number of items in a page.
 	 */
 	numberOfItems?: number
