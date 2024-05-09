@@ -830,6 +830,7 @@ const Table = ({ ...args }) => {
 								<Pagination
 									limit={itemsPerPage}
 									numberOfItems={records.length}
+									page={page}
 									onChange={setPage}
 								/>
 							</TableCell>
