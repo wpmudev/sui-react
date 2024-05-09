@@ -131,7 +131,7 @@
 				color: $color-extended-neutral-0;
 			}
 
-			@include modifier(multiselec, custom-var) {
+			@include modifier(multiselect, custom-var) {
 				.sui-dropdown__popover {
 					border-top: 0;
 				}
@@ -139,6 +139,10 @@
 				@include modifies-element(selected-options) {
 					color: $color-extended-neutral-100;
 					background: $color-extended-neutral-0;
+
+					.sui-icon {
+						color: $color-extended-neutral-100;
+					}
 				}
 			}
 		}

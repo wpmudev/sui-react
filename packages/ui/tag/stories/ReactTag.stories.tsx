@@ -52,7 +52,7 @@ const Tag = ({ children, ...props }: TagProps & { color?: string }) => {
 
 // Set story arguments.
 Tag.args = {
-	children: "Hello, I am a tag",
+	children: "Hello, I am a tag.",
 	design: "",
 	colorScheme: "",
 	contentWrap: "default",
