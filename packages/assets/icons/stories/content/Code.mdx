@@ -1,14 +1,11 @@
-import { Section, Code, Snippet, NodeJSWarning } from "@wpmudev/sui-docs"
+import { Section, Code, Snippet, NodeJSWarning, List } from "@wpmudev/sui-docs"
 import { PropSection } from "@wpmudev/sui-docs"
 
 <Section contained={ true } style={{ paddingTop: 0 }}>
 	<NodeJSWarning/>
 </Section>
 
-
-
-
-<Section title="Installation" style={{ paddingTop: 0 }}>
+<Section title="Installation" style={{ paddingTop: 0, paddingBottom: 0 }}>
 	<Section
 		title={{
 			content: "Install using NPM",
@@ -36,12 +33,45 @@ import { PropSection } from "@wpmudev/sui-docs"
 	</Section>
 </Section>
 
-<Section title="Props" border={true}>
-	<p>When using icons with SVG component, you can have multiple props to customize it </p>
-
-	<PropSection title="id" type="string">
+<Section title="Props" border={true} style={{ paddingTop: 0 }}>
+	<p>When utilizing the icon in the form of an SVG component, there are several properties available for customization.</p>
+	
+	<PropSection title="title" type="string">
 		<p>
-			Unique identifier for the color picker
+		    Sets the display name for the generated icon component
+		</p>
+    </PropSection>
+
+	<PropSection title="colorScheme" type="string">
+		<p>
+		    The color scheme to apply to the icon, it accepts one of the following values:
+			<List>
+				<span label="neutral" />
+				<span label="informative" />
+				<span label="success" />
+				<span label="warning" />
+				<span label="critical" />
+			</List>
+		</p>
+    </PropSection>
+
+	<PropSection title="size" type="string">
+		<p>
+		    The size of the icon, it accepts one of the following values:
+			<List>
+				<span label="xs" />
+				<span label="sm" />
+				<span label="md" />
+				<span label="lg" />
+				<span label="xl" />
+			</List>
+		</p>
+    </PropSection>
+
+
+	<PropSection title="viewBox" type="string">
+		<p>
+			Specify the aspect ratio and coordinate system of the SVG. <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox" target="_blank">learn more</a>
 		</p>
     </PropSection>
 </Section>
