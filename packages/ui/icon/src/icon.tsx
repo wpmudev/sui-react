@@ -33,7 +33,6 @@ const params = {
 const Icon = forwardRef<"svg", IconProps>(
 	(
 		{
-			as,
 			children,
 			className,
 			title, // use fallback values

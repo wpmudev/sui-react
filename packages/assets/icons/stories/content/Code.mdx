@@ -1,0 +1,47 @@
+import { Section, Code, Snippet, NodeJSWarning } from "@wpmudev/sui-docs"
+import { PropSection } from "@wpmudev/sui-docs"
+
+<Section contained={ true } style={{ paddingTop: 0 }}>
+	<NodeJSWarning/>
+</Section>
+
+
+
+
+<Section title="Installation" style={{ paddingTop: 0 }}>
+	<Section
+		title={{
+			content: "Install using NPM",
+			small: true,
+		}}
+		contained={ true }
+		style={{ paddingTop: 0, paddingLeft: 0, paddingRight: 0 }}>
+		<p>In your project root directory (where the <Code>package.json</Code> file lives), run the following command:</p>
+		```js
+		npm i @wpmudev/sui-icons --save-dev
+		```
+	</Section>
+
+	<Section
+		title={{
+			content: "Install using Yarn",
+			small: true,
+		}}
+		contained={ true }
+		style={{ paddingTop: 0, paddingLeft: 0, paddingRight: 0 }}>
+		<p>In your project root directory (where the <Code>package.json</Code> file lives), run the following command:</p>
+		```js
+		yarn add @wpmudev/sui-icons --dev
+		```
+	</Section>
+</Section>
+
+<Section title="Props" border={true}>
+	<p>When using icons with SVG component, you can have multiple props to customize it </p>
+
+	<PropSection title="id" type="string">
+		<p>
+			Unique identifier for the color picker
+		</p>
+    </PropSection>
+</Section>
