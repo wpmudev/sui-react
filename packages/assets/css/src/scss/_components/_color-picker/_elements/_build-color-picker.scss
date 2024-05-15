@@ -55,6 +55,11 @@
 					font-size: $font-size-xs;
 					line-height: $font-height-2xs;
 					outline-color: $color-primary-50;
+					-webkit-appearance: auto;
+					background: none;
+					min-height: unset;
+					max-width: unset;
+					margin: 0;
 				}
 
 				@include modifier(hex) {
@@ -75,17 +80,17 @@
 						color: $color-extended-neutral-10;
 						padding: $colorpicker-spacing-sm $spacing-md;
 						border: $border-width-sm solid $color-extended-neutral-80;
+						border-radius: 0;
 						width: 100%;
 						outline: none;
+						margin: 0;
 
 						&:first-child {
-							border-top-left-radius: $border-radius-md;
-							border-bottom-left-radius: $border-radius-md;
+							border-radius: $border-radius-md 0 0 $border-radius-md;
 						}
 
 						&:last-child {
-							border-top-right-radius: $border-radius-md;
-							border-bottom-right-radius: $border-radius-md;
+							border-radius: 0 $border-radius-md $border-radius-md 0;
 						}
 
 						/* Chrome, Safari, Edge, Opera */
