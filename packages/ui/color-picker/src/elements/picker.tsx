@@ -200,18 +200,20 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 						onChange={handleColorChange}
 					/>
 				</div>
-				<div className="sui-color-picker__alpha">
-					<Alpha
-						//@ts-ignore
-						rgb={selectedColor.rgb}
-						hsl={selectedColor.hsl}
-						//@ts-ignore
-						hsv={selectedColor.hsv}
-						//@ts-ignore
-						pointer={customPointer}
-						onChange={handleColorChange}
-					/>
-				</div>
+				{!disableAlpha && (
+					<div className="sui-color-picker__alpha">
+						<Alpha
+							//@ts-ignore
+							rgb={selectedColor.rgb}
+							hsl={selectedColor.hsl}
+							//@ts-ignore
+							hsv={selectedColor.hsv}
+							//@ts-ignore
+							pointer={customPointer}
+							onChange={handleColorChange}
+						/>
+					</div>
+				)}
 				<div className="sui-color-picker__fields">
 					<div>
 						<select
