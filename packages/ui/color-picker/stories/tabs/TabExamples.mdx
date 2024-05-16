@@ -15,6 +15,12 @@ export const RgbTypeCode = dedent`
     </FormField>
 `
 
+export const enabledAlphaCode = dedent`
+    <FormField id="color-picker" label="Select colour">
+       <ColorPicker type="rgb" color="rgba(128, 38, 38, 1)" disableAlpha={false} />
+    </FormField>
+`
+
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>Below is the default form of a Color Picker with <Code isSmall={true}> hex</Code> Type:</p>
 	<div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>

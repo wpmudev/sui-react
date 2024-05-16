@@ -15,6 +15,7 @@ import {
 } from "react-color/lib/components/common/index.js"
 import tinycolor from "tinycolor2"
 import { Button } from "@wpmudev/sui-button"
+import { generateCN } from "@wpmudev/sui-utils"
 
 // convert color format to supported object.
 const colorToColorObject = (
@@ -231,7 +232,10 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 						{selectedFormat === "hex" && (
 							<input
 								type="text"
-								className="sui-color-picker__fields--hex"
+								className={generateCN("sui-color-picker__fields", {
+									hex: true,
+									"has-alpha": !disableAlpha,
+								})}
 								aria-label="Hex code"
 								value={hex}
 								onChange={handleHexInputChange}
