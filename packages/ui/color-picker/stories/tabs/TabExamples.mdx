@@ -35,3 +35,13 @@ export const RgbTypeCode = dedent`
     <Snippet language="js">{RgbTypeCode}</Snippet>
 
 </Section>
+
+<Section title="Enabled Alpha" contained={true} style={{ paddingTop: 0 }}>
+    <div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<FormField id="color-picker" label="Select colour">
+    		<ColorPicker type="rgb" color="rgba(128, 38, 38, 1)" disableAlpha={false} />
+		</FormField>
+    </div>
+    <Snippet language="js">{RgbTypeCode}</Snippet>
+</Section>
+

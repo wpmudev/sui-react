@@ -51,6 +51,10 @@ interface ColorPickerProps
 	 * callback when the color changes but not applied yet
 	 */
 	onColorChange?: (color: string) => void
+	/**
+	 * Whether the color picker should allow for transperncy selection
+	 */
+	disableAlpha?: boolean
 }
 
 interface ColorPickerColorProps {
@@ -60,6 +64,7 @@ interface ColorPickerColorProps {
 interface ColorPickerPickerProps {
 	color: ColorPickerProps["color"]
 	type: ColorPickerProps["type"]
+	disableAlpha: ColorPickerProps["disableAlpha"]
 	onColorChange: ColorPickerProps["onColorChange"]
 	onApplyButton: () => void
 }

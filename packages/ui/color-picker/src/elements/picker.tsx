@@ -38,6 +38,7 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 	type = "hex",
 	onColorChange = () => null,
 	onApplyButton,
+	disableAlpha,
 }) => {
 	// selected color value
 	const [selectedColor, setSelectedColor] = useState<ColorResult>(
@@ -66,11 +67,11 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 		setBlue(selectedColor?.rgb?.b)
 		setAlpha(selectedColor?.rgb?.a)
 		const colorCode =
-			"hex" === selectedFormat
+			"hex" === selectedFormat || disableAlpha
 				? selectedColor.hex
-				: `rgba(${selectedColor.rgb.r}, ${selectedColor.rgb.g}, ${selectedColor.rgb.b}, ${selectedColor.rgb.a})`
+				: `rgba(${selectedColor.rgb.r}, ${selectedColor.rgb.g}, ${selectedColor.rgb.b} , ${selectedColor.rgb.a})`
 		onColorChange(colorCode)
-	}, [onColorChange, selectedColor, selectedFormat])
+	}, [onColorChange, selectedColor, selectedFormat, disableAlpha])
 
 	// useCallback to memoize the event handlers
 	const handleColorChange = useCallback((newColor: ColorResult) => {
@@ -105,12 +106,14 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 			} else if (inputVal > 255) {
 				inputVal = 255
 			}
+			const rgb = { ...selectedColor.rgb, [name]: inputVal }
 			setSelectedColor((prevColor: ColorResult) => ({
 				...prevColor,
-				rgb: { ...prevColor.rgb, [name]: inputVal },
+				rgb,
+				hex: tinycolor(rgb).toHexString(),
 			}))
 		},
-		[],
+		[selectedColor],
 	)
 
 	const handleAlphaChange = useCallback(
@@ -265,20 +268,22 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 								/>
 							</React.Fragment>
 						)}
-						<input
-							ref={inputRef}
-							type="text"
-							min="1"
-							step="1"
-							max="100"
-							aria-label="Color opacity"
-							pattern="[0-9]+"
-							value={`${Math.round(
-								(alpha !== undefined ? alpha : 100) * 100,
-							)}%`}
-							onChange={handleAlphaChange}
-							onKeyDown={handleInputKeyDown}
-						/>
+						{!disableAlpha && (
+							<input
+								ref={inputRef}
+								type="text"
+								min="1"
+								step="1"
+								max="100"
+								aria-label="Color opacity"
+								pattern="[0-9]+"
+								value={`${Math.round(
+									(alpha !== undefined ? alpha : 100) * 100,
+								)}%`}
+								onChange={handleAlphaChange}
+								onKeyDown={handleInputKeyDown}
+							/>
+						)}
 					</div>
 				</div>
 				<div>

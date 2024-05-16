@@ -33,6 +33,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	onReset = () => null,
 	onColorChange = () => null,
 	ariaAttrs = {},
+	disableAlpha = true,
 	_htmlProps,
 	_style = {},
 }: ColorPickerProps): JSX.Element => {
@@ -198,6 +199,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					color={tempColor}
 					onColorChange={handleColorChange}
 					onApplyButton={handleColorApply}
+					disableAlpha={disableAlpha}
 					type={type}
 				/>
 			)}
