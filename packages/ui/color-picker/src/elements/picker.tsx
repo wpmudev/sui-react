@@ -87,6 +87,20 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 		[],
 	)
 
+	const handleHueChange = (_color: Record<string, any>) => {
+		// Fix for the hue slider not updating the color when color is #ffffff or #000000
+		if (
+			(_color.s === 0 && _color.l === 1) ||
+			(_color.s === 0 && _color.l === 0)
+		) {
+			_color.s = 0.99
+			_color.l = 0.99
+		}
+
+		// @ts-ignore
+		handleColorChange(_color)
+	}
+
 	const handleHexInputChange = useCallback(
 		(event: React.ChangeEvent<HTMLInputElement>) => {
 			const { value } = event.target
@@ -197,7 +211,7 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 						hsl={selectedColor.hsl}
 						//@ts-ignore
 						pointer={customPointer}
-						onChange={handleColorChange}
+						onChange={handleHueChange}
 					/>
 				</div>
 				{!disableAlpha && (
