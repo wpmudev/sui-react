@@ -15,6 +15,7 @@ import {
 } from "react-color/lib/components/common/index.js"
 import tinycolor from "tinycolor2"
 import { Button } from "@wpmudev/sui-button"
+import { generateCN } from "@wpmudev/sui-utils"
 
 // convert color format to supported object.
 const colorToColorObject = (
@@ -38,6 +39,7 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 	type = "hex",
 	onColorChange = () => null,
 	onApplyButton,
+	disableAlpha,
 }) => {
 	// selected color value
 	const [selectedColor, setSelectedColor] = useState<ColorResult>(
@@ -66,11 +68,11 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 		setBlue(selectedColor?.rgb?.b)
 		setAlpha(selectedColor?.rgb?.a)
 		const colorCode =
-			"hex" === selectedFormat
+			"hex" === selectedFormat || disableAlpha
 				? selectedColor.hex
-				: `rgba(${selectedColor.rgb.r}, ${selectedColor.rgb.g}, ${selectedColor.rgb.b}, ${selectedColor.rgb.a})`
+				: `rgba(${selectedColor.rgb.r}, ${selectedColor.rgb.g}, ${selectedColor.rgb.b} , ${selectedColor.rgb.a})`
 		onColorChange(colorCode)
-	}, [onColorChange, selectedColor, selectedFormat])
+	}, [onColorChange, selectedColor, selectedFormat, disableAlpha])
 
 	// useCallback to memoize the event handlers
 	const handleColorChange = useCallback((newColor: ColorResult) => {
@@ -84,6 +86,20 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 		},
 		[],
 	)
+
+	const handleHueChange = (_color: Record<string, any>) => {
+		// Fix for the hue slider not updating the color when color is #ffffff or #000000
+		if (
+			(_color.s === 0 && _color.l === 1) ||
+			(_color.s === 0 && _color.l === 0)
+		) {
+			_color.s = 0.99
+			_color.l = 0.99
+		}
+
+		// @ts-ignore
+		handleColorChange(_color)
+	}
 
 	const handleHexInputChange = useCallback(
 		(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -105,12 +121,14 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 			} else if (inputVal > 255) {
 				inputVal = 255
 			}
+			const rgb = { ...selectedColor.rgb, [name]: inputVal }
 			setSelectedColor((prevColor: ColorResult) => ({
 				...prevColor,
-				rgb: { ...prevColor.rgb, [name]: inputVal },
+				rgb,
+				hex: tinycolor(rgb).toHexString(),
 			}))
 		},
-		[],
+		[selectedColor],
 	)
 
 	const handleAlphaChange = useCallback(
@@ -193,21 +211,23 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 						hsl={selectedColor.hsl}
 						//@ts-ignore
 						pointer={customPointer}
-						onChange={handleColorChange}
+						onChange={handleHueChange}
 					/>
 				</div>
-				<div className="sui-color-picker__alpha">
-					<Alpha
-						//@ts-ignore
-						rgb={selectedColor.rgb}
-						hsl={selectedColor.hsl}
-						//@ts-ignore
-						hsv={selectedColor.hsv}
-						//@ts-ignore
-						pointer={customPointer}
-						onChange={handleColorChange}
-					/>
-				</div>
+				{!disableAlpha && (
+					<div className="sui-color-picker__alpha">
+						<Alpha
+							//@ts-ignore
+							rgb={selectedColor.rgb}
+							hsl={selectedColor.hsl}
+							//@ts-ignore
+							hsv={selectedColor.hsv}
+							//@ts-ignore
+							pointer={customPointer}
+							onChange={handleColorChange}
+						/>
+					</div>
+				)}
 				<div className="sui-color-picker__fields">
 					<div>
 						<select
@@ -228,7 +248,10 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 						{selectedFormat === "hex" && (
 							<input
 								type="text"
-								className="sui-color-picker__fields--hex"
+								className={generateCN("sui-color-picker__fields", {
+									hex: true,
+									"has-alpha": !disableAlpha,
+								})}
 								aria-label="Hex code"
 								value={hex}
 								onChange={handleHexInputChange}
@@ -265,20 +288,22 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 								/>
 							</React.Fragment>
 						)}
-						<input
-							ref={inputRef}
-							type="text"
-							min="1"
-							step="1"
-							max="100"
-							aria-label="Color opacity"
-							pattern="[0-9]+"
-							value={`${Math.round(
-								(alpha !== undefined ? alpha : 100) * 100,
-							)}%`}
-							onChange={handleAlphaChange}
-							onKeyDown={handleInputKeyDown}
-						/>
+						{!disableAlpha && (
+							<input
+								ref={inputRef}
+								type="text"
+								min="1"
+								step="1"
+								max="100"
+								aria-label="Color opacity"
+								pattern="[0-9]+"
+								value={`${Math.round(
+									(alpha !== undefined ? alpha : 100) * 100,
+								)}%`}
+								onChange={handleAlphaChange}
+								onKeyDown={handleInputKeyDown}
+							/>
+						)}
 					</div>
 				</div>
 				<div>

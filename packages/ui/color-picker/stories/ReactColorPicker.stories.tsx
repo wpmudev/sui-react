@@ -33,7 +33,6 @@ const ColorPicker = ({
 	error: string
 }) => {
 	const [currentColor, setCurrentColor] = useState<string>(color)
-	const [savedColor, setSavedColor] = useState("#ffffff")
 
 	useEffect(() => {
 		setCurrentColor(color)
@@ -58,7 +57,6 @@ const ColorPicker = ({
 					>
 						<SuiColorPicker
 							color={currentColor}
-							onApply={setSavedColor}
 							onColorChange={setCurrentColor}
 							onReset={() => setCurrentColor("#ffffff")}
 							{...props}
@@ -79,6 +77,7 @@ ColorPicker.args = {
 	isFluid: false,
 	error: "",
 	placeholder: "Select color",
+	disableAlpha: true,
 }
 
 // Set controls for story arguments.
