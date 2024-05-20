@@ -88,8 +88,6 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 	)
 
 	const handleHueChange = (_color: Record<string, any>) => {
-		console.log("handleHueChange", _color)
-
 		// Fix for the hue slider not updating the color when color is #ffffff or #000000
 		if (
 			(_color.s === 0 && _color.l === 1) ||
