@@ -97,6 +97,11 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 			_color.l = 0.99
 		}
 
+		// Fix the hue slider not updating the color when _color.s === 0
+		if (_color.s === 0) {
+			_color.s = 0.01
+		}
+
 		// @ts-ignore
 		handleColorChange(_color)
 	}
