@@ -22,7 +22,7 @@
 			@include element(navitems) {
 				display: flex;
 				align-items: center;
-				overflow: scroll;
+				overflow: hidden;
 				scroll-behavior: smooth;
 
 				&::-webkit-scrollbar {
