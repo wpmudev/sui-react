@@ -1,4 +1,4 @@
-import { Section, Code, Snippet, NodeJSWarning, List } from "@wpmudev/sui-docs"
+import { Section, Code, Snippet, NodeJSWarning, List, CommonPropsNotice } from "@wpmudev/sui-docs"
 import { PropSection } from "@wpmudev/sui-docs"
 
 <Section contained={ true } style={{ paddingTop: 0 }}>
@@ -35,7 +35,7 @@ import { PropSection } from "@wpmudev/sui-docs"
 
 <Section title="Props" border={true} style={{ paddingTop: 0 }}>
 	<p>When utilizing the icon in the form of an SVG component, there are several properties available for customization.</p>
-	
+
 	<PropSection title="title" type="string">
 		<p>
 		    Sets the display name for the generated icon component
@@ -55,6 +55,12 @@ import { PropSection } from "@wpmudev/sui-docs"
 		</p>
     </PropSection>
 
+	<PropSection title="fill" type="string">
+		<p>
+			Custom color for the icon
+		</p>
+    </PropSection>
+
 	<PropSection title="size" type="string">
 		<p>
 		    The size of the icon, it accepts one of the following values:
@@ -68,10 +74,35 @@ import { PropSection } from "@wpmudev/sui-docs"
 		</p>
     </PropSection>
 
-
 	<PropSection title="viewBox" type="string">
 		<p>
 			Specify the aspect ratio and coordinate system of the SVG. <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox" target="_blank">learn more</a>
 		</p>
     </PropSection>
+
+	<PropSection title="iconHeight" type="number">
+		<p>
+			Specifies the height of the icon in pixels 
+		</p>
+    </PropSection>
+
+	<PropSection title="iconWidth" type="number">
+		<p>
+			Specifies the width of the icon in pixels
+		</p>
+    </PropSection>
+
+	<PropSection title="onClick" type="function">
+		<p>
+			A callback function to be executed when the icon is clicked
+		</p>
+    </PropSection>
+
+	<PropSection title="className" type="string">
+		<p>
+			Additional custom className for further styling
+		</p>
+    </PropSection>
 </Section>
+
+<CommonPropsNotice />
