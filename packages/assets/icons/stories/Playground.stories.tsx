@@ -60,7 +60,7 @@ Playground.args = {
 	viewBox: "0 0 24 24",
 	colorScheme: "",
 	size: "",
-	fill: "",
+	fill: undefined,
 	iconHeight: 24,
 	iconWidth: 24,
 }
@@ -76,7 +76,9 @@ Playground.argTypes = {
 	},
 	fill: {
 		name: "Fill",
-		control: "color",
+		control: {
+			type: "color",
+		},
 	},
 	colorScheme: {
 		name: "Color Scheme",
