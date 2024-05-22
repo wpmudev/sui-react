@@ -15,11 +15,12 @@
   ],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
-        {
+    {
       "name": "Govind Kumar",
       "email": "gkprmr@gmail.com",
       "url": "https://govind.js.org/"
-    },{
+    },
+    {
       "name": "Leighton Sapir",
       "email": "2328848+iamleigh@users.noreply.github.com",
       "url": "https://iamleigh.com"
