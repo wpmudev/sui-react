@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-code-snippet",
   "version": "0.0.1",
-  "description": "Code Snippet is a block that allows for the display of codes.",
+  "description": "Code Snippet is a dedicated block designed to showcase code segments in a clear, formatted manner.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [

@@ -1,11 +1,3 @@
 # `@wpmudev/sui-docs`
 
-> TODO: description
-
-## Usage
-
-```
-const storybook = require('@wpmudev/sui-docs');
-
-// TODO: DEMONSTRATE API
-```
+This package outlines the documentation for all the packages available in SUI library through storybook 
