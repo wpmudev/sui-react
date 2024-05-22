@@ -1,0 +1,49 @@
+import { Section, Switcher, Preview, Snippet } from '@wpmudev/sui-docs';
+import { ClockAlt, ArrowRight, Bell, PluginShipper } from '../../src/components';
+import dedent from 'dedent';
+
+import Sizes from './Examples/Sizes.mdx';
+import Colors from './Examples/Colors.mdx';
+
+export const sampleCode = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => {
+    return ( 
+        <div>
+            <ArrowUp/>
+            <ClockAlt />
+            <ArrowRight />
+            <Bell />
+            <PluginShipper />
+        </div>
+    );
+}
+`;
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>
+		This is a basic example of random SVG Icons
+	</p>
+	<Preview wrapper={true}>
+		<div style={{display: "flex", gap: "20px"}}>
+			<ClockAlt />
+			<ArrowRight />
+			<Bell />
+			<PluginShipper />
+		</div>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+
+<Section style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="Color" value="colors">
+			<Colors />
+		</div>
+		<div label="Sizes" value="sizes">
+			<Sizes />
+		</div>
+	</Switcher>
+</Section>
