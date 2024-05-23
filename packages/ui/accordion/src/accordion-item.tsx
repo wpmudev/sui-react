@@ -95,7 +95,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	// Panel content className
 	const panelContentClassName = contentShadow
 		? "sui-accordion__panel--content"
-		: "sui-accordion__panel--content-no-shadow"
+		: "sui-accordion__panel--content sui-accordion__panel--content-no-shadow"
 
 	// Render the AccordionItem component with proper accessibility attributes.
 	return (

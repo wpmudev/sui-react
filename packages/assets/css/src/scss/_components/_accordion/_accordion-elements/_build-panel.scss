@@ -46,6 +46,14 @@
 					border: $border-width-sm solid $color-extended-neutral-0;
 				}
 			}
+
+			@include modifier(flushed) {
+				@include modifies-element(panel) {
+					.sui-#{$block}__panel--content {
+						border: none;
+					}
+				}
+			}
 		}
 	}
 }
