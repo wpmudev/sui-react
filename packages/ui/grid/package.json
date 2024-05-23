@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-grid",
   "version": "0.0.1",
-  "description": "WPMU DEV Shared UI React Grid Elements",
+  "description": "The Grid is composed of two fundamental components: Row and Column. It empowers you to create layouts and align content with precision on your web page",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [

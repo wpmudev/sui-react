@@ -65,18 +65,14 @@ There are many ways/formats to use the Shared UI Icons Package. The fastest and 
 <span class="suicons suicons--plugin-smartcrawl"></span>
 ```
 
-## Bugs, Ideas, Pull Requests
+## Bugs, Ideas, Pull Requests, New Icons Request 
 
-If you have any ideas or found bugs, please send me Pull Requests or let me know with [GitHub Issues](https://github.com/wpmudev/sui-icons/issues).
+If you have any ideas, found bugs, or need a new icon, please send me Pull Requests or let me know with [GitHub Issues](https://github.com/wpmudev/sui-react/issues).
+
+We can usually add an icon and release a new version on the same day if there is a hurry. However, remember that if there's a similar icon already available, we suggest you use it instead unless you request a design update.
 
 ## License
 
 ### Can I use the SUI Icons Pack in my projects?
 
 We created the **WPMU DEV Design System** to build plugins and products for [WPMU DEV](https://wpmudev.com/), not on products outside the company. Please visit the terms of use for full license details.
-
-### Need a new icon?
-
-New icons need to be added to **SUI Icons Pack** first. Please, visit the [Support](https://wpmudev.github.io/sui-docs/?path=/story/sui-support--page) page for more information on how to request it.
-
-We can usually add an icon and release a new version on the same day if there is a hurry. However, remember that if there's a similar icon already available, we suggest you use it instead unless you request a design update.
