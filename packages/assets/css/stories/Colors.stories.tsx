@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react"
 
 // Import documentation main page.
-import docs from './content/Colors/Main.mdx';
+import docs from "./content/Colors/Main.mdx"
 
 // Import required depdendencies.
-import { Palettes } from './content/Colors/Map';
-import { Section, Row, Col, Card, Message } from '@wpmudev/sui-docs';
+import { Palettes } from "./content/Colors/Map"
+import { Section, Row, Col, Card, Message } from "@wpmudev/sui-docs"
 
 // Configure default options.
 export default {
-	title: 'SUI/CSS Framework/Colors',
+	title: "SUI/CSS Framework/Colors",
 	parameters: {
-		layout: 'fullscreen',
+		layout: "fullscreen",
 		docs: {
 			page: docs,
 		},
 	},
-};
+}
 
 // Build "Colors" story.
 const Colors = ({ palette, secondary, extended, shade, type }) => {
@@ -25,74 +25,74 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 	 * Get the list of colors available from the "Palettes" map.
 	 */
 	const mapColors =
-		palette === 'primary'
+		palette === "primary"
 			? Palettes[palette]
-			: palette === 'secondary'
+			: palette === "secondary"
 			? Palettes[secondary][type]
-			: Palettes[extended];
+			: Palettes[extended]
 
 	/**
 	 * Colors by class name
 	 * Get the required palette name for the color class.
 	 */
 	const setPalette =
-		palette === 'primary'
+		palette === "primary"
 			? palette
-			: palette === 'secondary'
+			: palette === "secondary"
 			? secondary
-			: extended;
+			: extended
 	const codeStyles = {
-		display: 'block',
+		display: "block",
 		padding: 18,
 		borderRadius: 4,
-		backgroundColor: 'transparent',
+		backgroundColor: "transparent",
 		fontWeight: 400,
-		fontSize: '13px',
-		lineHeight: '24px',
-		fontFamily: 'monospace',
-	};
+		fontSize: "13px",
+		lineHeight: "24px",
+		fontFamily: "monospace",
+	}
 
 	/**
 	 * Colors information
 	 * Get the required properties for the color card.
 	 */
-	const setTheme = shade > 60 ? 'light' : 'dark';
-	const setPrefix = shade === 50 ? 'Base' : shade > 50 ? 'Light' : 'Dark';
-	const setColor = mapColors[shade];
-	const setClass = palette === 'secondary' ? false : true;
-	const setVars = true;
+	const setTheme = shade > 60 ? "light" : "dark"
+	const setPrefix = shade === 50 ? "Base" : shade > 50 ? "Light" : "Dark"
+	const setColor = mapColors[shade]
+	const setClass = palette === "secondary" ? false : true
+	const setVars = true
 	const setVarName =
-		'primary' === setPalette
+		"primary" === setPalette
 			? setPalette
-			: 'secondary' === palette
+			: "secondary" === palette
 			? `${palette}-${setPalette}-${type}`
-			: `${palette}-${setPalette}`;
+			: `${palette}-${setPalette}`
 
 	/**
 	 * Statements
 	 * Check if the selected shade exists.
 	 */
 	const doesShadeExists =
-		palette === 'primary'
+		palette === "primary"
 			? shade in Palettes[palette]
-			: palette === 'secondary'
+			: palette === "secondary"
 			? shade in Palettes[secondary][type]
-			: shade in Palettes[extended];
+			: shade in Palettes[extended]
 
 	if (!doesShadeExists) {
 		return (
 			<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
-				<Message color="yellow" style={{ background: '#FFF' }}>
+				<Message color="yellow" style={{ background: "#FFF" }}>
 					<p>
-						The selected shade doesn't exists on the{' '}
-						<strong style={{ textTransform: 'capitalize' }}>
+						The selected shade doesn&apos;t exists on the{" "}
+						<strong style={{ textTransform: "capitalize" }}>
 							{setPalette}
-						</strong>{' '}
+						</strong>{" "}
 						colors list.
 					</p>
 				</Message>
 			</div>
-		);
+		)
 	}
 
 	return (
@@ -107,9 +107,9 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 			>
 				<div
 					style={{
-						display: 'flex',
-						flexFlow: 'row wrap',
-						margin: '-5px',
+						display: "flex",
+						flexFlow: "row wrap",
+						margin: "-5px",
 					}}
 				>
 					{Object.keys(mapColors).map((key, index) => {
@@ -119,8 +119,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 									style={{
 										padding: 10,
 										borderRadius: 4,
-										background:
-											key > 60 ? '#141934' : '#FFF',
+										background: key > 60 ? "#141934" : "#FFF",
 									}}
 								>
 									<span
@@ -128,7 +127,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 										style={{
 											width: 40,
 											height: 40,
-											display: 'block',
+											display: "block",
 											borderRadius: 40,
 											backgroundColor: mapColors[key],
 										}}
@@ -137,16 +136,13 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 
 									<span
 										style={{
-											display: 'block',
+											display: "block",
 											marginTop: 5,
-											color:
-												key > 60
-													? '#E9EAEE'
-													: '#1A1A1A',
-											fontSize: '12px',
-											lineHeight: '24px',
-											fontFamily: 'monospace',
-											textAlign: 'center',
+											color: key > 60 ? "#E9EAEE" : "#1A1A1A",
+											fontSize: "12px",
+											lineHeight: "24px",
+											fontFamily: "monospace",
+											textAlign: "center",
 										}}
 										aria-hidden="true"
 									>
@@ -154,7 +150,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 									</span>
 								</div>
 							</div>
-						);
+						)
 					})}
 				</div>
 			</Section>
@@ -169,19 +165,15 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 				>
 					<Row>
 						<Col size="2">
-							<p
-								className="sui-overline"
-								style={{ color: '#000' }}
-							>
+							<p className="sui-overline" style={{ color: "#000" }}>
 								Background color
 							</p>
 							<code
 								style={{
 									...codeStyles,
 									backgroundColor: setColor,
-									color:
-										'light' === setTheme ? '#000' : '#FFF',
-									textAlign: 'center',
+									color: "light" === setTheme ? "#000" : "#FFF",
+									textAlign: "center",
 								}}
 							>
 								.sui-bg-{setPalette}--{shade}
@@ -191,10 +183,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 
 					<Row>
 						<Col size="2">
-							<p
-								className="sui-overline"
-								style={{ color: '#000' }}
-							>
+							<p className="sui-overline" style={{ color: "#000" }}>
 								Text color
 							</p>
 							<code
@@ -211,19 +200,16 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 
 					<Row>
 						<Col size="2">
-							<p
-								className="sui-overline"
-								style={{ color: '#000' }}
-							>
+							<p className="sui-overline" style={{ color: "#000" }}>
 								Border color
 							</p>
 							<code
 								style={{
 									...codeStyles,
-									borderWidth: '3px',
-									borderStyle: 'solid',
+									borderWidth: "3px",
+									borderStyle: "solid",
 									borderColor: setColor,
-									textAlign: 'center',
+									textAlign: "center",
 								}}
 							>
 								.sui-border-{setPalette}--{shade}
@@ -247,7 +233,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 							theme={setTheme}
 							content={{
 								palette: setVarName,
-								shade: shade,
+								shade,
 								prefix: setPrefix,
 								hex: setColor,
 								variables: setVars,
@@ -257,93 +243,112 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 				</Row>
 			</Section>
 		</div>
-	);
-};
+	)
+}
 Colors.args = {
-	palette: 'primary',
-	secondary: 'smush',
-	extended: 'neutral',
-	type: 'general',
+	palette: "primary",
+	secondary: "smush",
+	extended: "neutral",
+	type: "general",
 	shade: 50,
-};
+}
 Colors.argTypes = {
 	palette: {
-		name: 'Palette',
+		name: "Palette",
+		options: ["primary", "secondary", "extended"],
 		control: {
-			type: 'select',
-			options: {
-				Primary: 'primary',
-				Secondary: 'secondary',
-				Extended: 'extended',
+			type: "select",
+			labels: {
+				primary: "Primary",
+				secondary: "Secondary",
+				extended: "Extended",
 			},
 		},
 	},
 	secondary: {
-		name: 'Sub Palette',
+		name: "Sub Palette",
+		options: [
+			"smush",
+			"hummingbird",
+			"smartcrawl",
+			"defender",
+			"forminator",
+			"hustle",
+			"beehive",
+			"branda",
+			"snapshot",
+			"dashboard",
+			"shipper",
+			"ivt",
+			"blc",
+			"hub",
+		],
 		control: {
-			type: 'select',
+			type: "select",
 			options: {
-				Smush: 'smush',
-				Hummingbird: 'hummingbird',
-				SmartCrawl: 'smartcrawl',
-				Defender: 'defender',
-				Forminator: 'forminator',
-				Hustle: 'hustle',
-				Beehive: 'beehive',
-				Branda: 'branda',
-				Snapshot: 'snapshot',
-				'WPMU DEV Dashboard': 'dashboard',
-				Shipper: 'shipper',
-				IVT: 'ivt',
-				'Broken Link Checker': 'blc',
-				Hub: 'hub',
+				smush: "Smush",
+				hummingbird: "Hummingbird",
+				smartCrawl: "Smartcrawl",
+				defender: "Defender",
+				forminator: "Forminator",
+				hustle: "Hustle",
+				beehive: "Beehive",
+				branda: "Branda",
+				snapshot: "Snapshot",
+				dashboard: "WPMU DEV Dashboard",
+				shipper: "Shipper",
+				ivt: "IVT",
+				blc: "Broken Link Checker",
+				hub: "Hub",
 			},
 		},
 		if: {
-			arg: 'palette',
-			eq: 'secondary',
+			arg: "palette",
+			eq: "secondary",
 		},
 	},
 	extended: {
-		name: 'Sub Palette',
+		name: "Sub Palette",
+		options: ["neutral", "success", "warning", "error"],
 		control: {
-			type: 'select',
-			options: {
-				Neutral: 'neutral',
-				Success: 'success',
-				Warning: 'warning',
-				Error: 'error',
+			type: "select",
+			labels: {
+				neutral: "Neutral",
+				success: "Success",
+				warning: "Warning",
+				error: "Error",
 			},
 		},
 		if: {
-			arg: 'palette',
-			eq: 'extended',
+			arg: "palette",
+			eq: "extended",
 		},
 	},
 	type: {
-		name: 'Type',
+		name: "Type",
+		options: ["general", "variant"],
 		control: {
-			type: 'inline-radio',
-			options: {
-				General: 'general',
-				Variant: 'variant',
+			type: "inline-radio",
+			labels: {
+				general: "General",
+				variant: "Variant",
 			},
 		},
 		if: {
-			arg: 'palette',
-			eq: 'secondary',
+			arg: "palette",
+			eq: "secondary",
 		},
 	},
 	shade: {
-		name: 'Shade',
+		name: "Shade",
 		control: {
-			type: 'range',
+			type: "range",
 			min: 10,
 			max: 100,
 			step: 5,
 		},
 	},
-};
+}
 
 // Publish required stories.
-export { Colors };
+export { Colors }
