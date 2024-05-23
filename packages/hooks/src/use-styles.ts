@@ -1,6 +1,5 @@
-import { createUseStyles, DefaultTheme } from "react-jss"
 import { CSSProperties, useEffect, useState } from "react"
-import hash from "@emotion/hash"
+import createEmotion from "@emotion/css/create-instance"
 
 import {
 	_isTestingMode,
@@ -178,29 +177,18 @@ export const buildStyleSheet = (
 	}
 }
 
+// Create a new instance of emotion with sui key
+const { css } = createEmotion({
+	key: "sui-inline",
+})
+
 /**
  * Generate the class name internally based on the provided styles.
+ *
+ * @param {Record<string, any>} styleObject The style object.
  */
-const _createUseStyles = createUseStyles(
-	{
-		"*": (props) => {
-			const cssProperties: Record<string, any> = {}
-			let styles = (props as any)?.[parentSelector] ?? {}
-			//
-			if (Object.keys(props).length > 0) {
-				styles = props
-			}
-
-			// Go through each of the CSS property
-			Object.entries(styles).forEach(([prop, value]) => {
-				cssProperties[prop] = value
-			})
-
-			return cssProperties
-		},
-	},
-	{ generateId: (rule) => `sui-inline-${hash(rule.key)}` },
-)
+const createStyles = (styleObject: Record<string, any>) =>
+	!isObjectEmpty(styleObject) ? css(styleObject) : ""
 
 /**
  * Check if an object has valid CSSProperty
@@ -223,9 +211,8 @@ export const useStyles = (
 	const [calculatedStyles, setCalculatedStyles] = useState({})
 
 	// generated classnames
-	const classNames = _createUseStyles(
-		calculatedStyles as { theme: DefaultTheme },
-	)
+	const classNames = createStyles(calculatedStyles)
+
 	// use blank object in test mode as it causes unnecessary bugs
 	const stringifiedStyles = JSON?.stringify(_isTestingMode() ? {} : styleProps)
 
@@ -251,10 +238,6 @@ export const useStyles = (
 	}, [stringifiedStyles])
 
 	return {
-		suiInlineClassname: generateCN(
-			attachWith,
-			{},
-			Object.keys(calculatedStyles).length > 0 ? classNames[`*`] : "",
-		),
+		suiInlineClassname: generateCN(attachWith, {}, classNames ?? ""),
 	}
 }
