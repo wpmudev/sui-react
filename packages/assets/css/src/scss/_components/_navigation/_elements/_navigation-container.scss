@@ -51,6 +51,16 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			border: $border-width-sm solid $color-extended-neutral-0;
+
+			.sui-dropdown__popover {
+				.sui-dropdown__menu-item {
+					color: $color-extended-neutral-0;
+
+					&.sui-dropdown__menu-item--hover {
+						color: $color-extended-neutral-100;
+					}
+				}
+			}
 		}
 	}
 }
