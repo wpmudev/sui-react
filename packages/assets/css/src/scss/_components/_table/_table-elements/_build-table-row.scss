@@ -62,6 +62,12 @@
 				}
 			}
 
+			@include element(table) {
+				@include modifier(footer) {
+					border-top: $border-width-sm solid $color-extended-neutral-80;
+				}
+			}
+
 			@include modifier(sticky) {
 				@include modifies-element(body) {
 					td {
@@ -116,15 +122,26 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(row) {
-				box-shadow: 0 -#{$shadow-offset-2xs} 0 0 $color-extended-neutral-0,
-					0 -#{$shadow-offset-2xs} 0 0 $color-extended-neutral-0;
+				border-color: $color-extended-neutral-0;
 
 				@include modifier(expanded, content) {
 					background: $color-extended-neutral-100;
 				}
 
+				@include modifier(expanded) {
+					.sui-#{$block}__cell--sticky {
+						background: $color-extended-neutral-100;
+					}
+				}
+
 				@include modifier(content) {
 					box-shadow: unset;
+				}
+			}
+
+			@include element(table) {
+				@include modifier(footer) {
+					border-color: $color-extended-neutral-0;
 				}
 			}
 		}
