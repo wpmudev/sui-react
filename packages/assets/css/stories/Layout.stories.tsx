@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react"
 
 // Import documentation main page.
-import docs from './content/Layout/Main.mdx';
+import docs from "./content/Layout/Main.mdx"
 
 // Configure default options.
 export default {
-	title: 'SUI/CSS Framework/Layout',
+	title: "SUI/CSS Framework/Layout",
 	parameters: {
-		layout: 'fullscreen',
+		layout: "fullscreen",
 		docs: {
 			page: docs,
 		},
@@ -15,7 +15,7 @@ export default {
 			disabled: true,
 		},
 	},
-};
+}
 
 // Build "Layout" story.
 const Layout = ({ fullwidth, vertical, horizontal }) => {
@@ -23,81 +23,81 @@ const Layout = ({ fullwidth, vertical, horizontal }) => {
 		fullwidth: fullwidth,
 		vertical: vertical,
 		horizontal: horizontal,
-	};
+	}
 
-	return <TopBar settings={barSettings} />;
-};
+	return <TopBar settings={barSettings} />
+}
 Layout.args = {
 	fullwidth: false,
 	vertical: false,
 	horizontal: false,
-};
+}
 Layout.argTypes = {
 	fullwidth: {
-		name: 'Full Width',
+		name: "Full Width",
 		control: {
-			type: 'boolean',
+			type: "boolean",
 		},
 	},
 	vertical: {
-		name: 'Vertical Spacing',
+		name: "Vertical Spacing",
 		control: {
-			type: 'boolean',
+			type: "boolean",
 		},
 	},
 	horizontal: {
-		name: 'Horizontal Spacing',
+		name: "Horizontal Spacing",
 		control: {
-			type: 'boolean',
+			type: "boolean",
 		},
 	},
-};
+}
 
 // Build "Box" component.
 const Box = ({ top, children }) => {
 	const boxStyles = {
-		background: '#FFF',
-	};
-
-	if (top) {
-		boxStyles.padding = '16px 0';
-	} else {
-		boxStyles.padding = 30;
-		boxStyles.borderRadius = 4;
+		background: "#FFF",
 	}
 
-	return <div style={boxStyles}>{children}</div>;
-};
+	if (top) {
+		boxStyles.padding = "16px 0"
+	} else {
+		boxStyles.padding = 30
+		boxStyles.borderRadius = 4
+	}
+
+	return <div style={boxStyles}>{children}</div>
+}
 
 // Build "Box Wrapper" component.
 const BoxWrapper = ({ children }) => {
 	const boxStyles = {
-		padding: '0 32px',
-	};
+		padding: "0 32px",
+	}
 
-	return <div style={boxStyles}>{children}</div>;
-};
+	return <div style={boxStyles}>{children}</div>
+}
 
 // Build "Logo" component.
 const Logo = () => {
 	const logoStyles = {
 		width: 48,
 		height: 48,
-		display: 'flex',
-		flexFlow: 'row wrap',
-		alignItems: 'center',
-		justifyContent: 'center',
+		display: "flex",
+		flexFlow: "row wrap",
+		alignItems: "center",
+		justifyContent: "center",
 		borderRadius: 16,
-		background: '#2DC4E0',
-		color: '#FFF',
+		background: "#2DC4E0",
+		color: "#FFF",
 		fontSize: 22,
 		lineHeight: 1,
 		fontWeight: 700,
-		textAlign: 'center',
-	};
+		textAlign: "center",
+	}
 
-	return <div style={logoStyles}>L</div>;
-};
+	return <div style={logoStyles}>L</div>
+}
 
 // Build "Top Bar" component.
 const TopBar = ({ settings }) => {
@@ -107,11 +107,11 @@ const TopBar = ({ settings }) => {
 			vertical: false,
 			horizontal: false,
 		},
-		settings
-	);
+		settings,
+	)
 
-	const vSpacing = barSettings.vertical ? ' sui-layout--vertical' : '';
-	const hSpacing = barSettings.horizontal ? ' sui-layout--horizontal' : '';
+	const vSpacing = barSettings.vertical ? " sui-layout--vertical" : ""
+	const hSpacing = barSettings.horizontal ? " sui-layout--horizontal" : ""
 
 	return (
 		<div className={`sui-layout${vSpacing}${hSpacing}`}>
@@ -131,8 +131,8 @@ const TopBar = ({ settings }) => {
 				</Box>
 			)}
 		</div>
-	);
-};
+	)
+}
 
 // Publish required stories.
-export { Layout };
+export { Layout }
