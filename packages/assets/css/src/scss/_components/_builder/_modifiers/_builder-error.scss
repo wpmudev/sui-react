@@ -14,7 +14,7 @@
 			@include element(field) {
 				@include modifier(error) {
 					box-shadow: 0 $shadow-offset-xs $shadow-offset-sm 0
-							$color-alpha-grey-05,
+							$color-extended-alpha-grey-05,
 						0 -#{$shadow-offset-xs} 0 0 $color-extended-error-50 inset;
 				}
 			}
@@ -28,7 +28,7 @@
 			@include element(field) {
 				@include modifier(error) {
 					box-shadow: 0 $shadow-offset-xs $shadow-offset-sm 0
-							$color-alpha-grey-05,
+							$color-extended-alpha-grey-05,
 						0 -#{$shadow-offset-xs} 0 0 $color-extended-neutral-0 inset;
 				}
 			}

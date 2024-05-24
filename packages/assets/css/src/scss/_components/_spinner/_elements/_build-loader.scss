@@ -20,7 +20,7 @@
 			}
 
 			@include element(icon) {
-				fill: $color-alpha-black-0;
+				fill: $color-extended-alpha-black-0;
 				stroke: $color-primary-50;
 
 				@include modifier(background, stroke) {
@@ -51,7 +51,7 @@
 
 			@include modifier(dark) {
 				@include modifies-element(icon--background) {
-					stroke: $color-alpha-white-30;
+					stroke: $color-extended-alpha-white-30;
 				}
 
 				@include modifies-element(icon--stroke) {

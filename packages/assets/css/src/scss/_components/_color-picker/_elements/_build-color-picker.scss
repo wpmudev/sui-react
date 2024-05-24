@@ -17,7 +17,7 @@
 			display: inline-block;
 			@include element(saturation, hue, alpha) {
 				border-radius: $border-radius-md;
-				background: $color-alpha-black-10;
+				background: $color-extended-alpha-black-10;
 				overflow: hidden;
 			}
 
@@ -40,7 +40,9 @@
 				height: $colorpicker-size-height-sm;
 				border-radius: 100%;
 				margin-top: $colorpicker-spacing-2xs;
-				filter: drop-shadow(0px 0px $shadow-offset-2xs $color-alpha-grey-20);
+				filter: drop-shadow(
+					0px 0px $shadow-offset-2xs $color-extended-alpha-grey-20
+				);
 			}
 
 			@include element(fields) {

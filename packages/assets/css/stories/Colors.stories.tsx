@@ -7,6 +7,28 @@ import docs from "./content/Colors/Main.mdx"
 import { Palettes } from "./content/Colors/Map"
 import { Section, Row, Col, Card, Message } from "@wpmudev/sui-docs"
 
+interface ColorProps {
+	palette?: "primary" | "secondary" | "extended"
+	secondary?:
+		| "smush"
+		| "hummingbird"
+		| "smartcrawl"
+		| "defender"
+		| "forminator"
+		| "hustle"
+		| "beehive"
+		| "branda"
+		| "snapshot"
+		| "dashboard"
+		| "shipper"
+		| "ivt"
+		| "blc"
+		| "hub"
+	extended?: "neutral" | "success" | "warning" | "error"
+	shade: number
+	type?: "general" | "variant"
+}
+
 // Configure default options.
 export default {
 	title: "SUI/CSS Framework/Colors",
@@ -19,28 +41,33 @@ export default {
 }
 
 // Build "Colors" story.
-const Colors = ({ palette, secondary, extended, shade, type }) => {
+const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 	/**
 	 * Semantic colors
 	 * Get the list of colors available from the "Palettes" map.
 	 */
-	const mapColors =
-		palette === "primary"
-			? Palettes[palette]
-			: palette === "secondary"
-			? Palettes[secondary][type]
-			: Palettes[extended]
+	let mapColors
+	if (palette === "primary") {
+		mapColors = Palettes[palette]
+	} else if (palette === "secondary") {
+		mapColors = Palettes[secondary][type]
+	} else {
+		mapColors = Palettes[extended]
+	}
 
 	/**
 	 * Colors by class name
 	 * Get the required palette name for the color class.
 	 */
-	const setPalette =
-		palette === "primary"
-			? palette
-			: palette === "secondary"
-			? secondary
-			: extended
+	let setPalette
+	if (palette === "primary") {
+		setPalette = palette
+	} else if (palette === "secondary") {
+		setPalette = secondary
+	} else {
+		setPalette = extended
+	}
+
 	const codeStyles = {
 		display: "block",
 		padding: 18,
@@ -57,27 +84,38 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 	 * Get the required properties for the color card.
 	 */
 	const setTheme = shade > 60 ? "light" : "dark"
-	const setPrefix = shade === 50 ? "Base" : shade > 50 ? "Light" : "Dark"
-	const setColor = mapColors[shade]
+	let setPrefix
+	if (shade === 50) {
+		setPrefix = "Base"
+	} else if (shade > 50) {
+		setPrefix = "Light"
+	} else {
+		setPrefix = "Dark"
+	}
+	const setColor: string = mapColors[shade]
 	const setClass = palette === "secondary" ? false : true
 	const setVars = true
-	const setVarName =
-		"primary" === setPalette
-			? setPalette
-			: "secondary" === palette
-			? `${palette}-${setPalette}-${type}`
-			: `${palette}-${setPalette}`
+	let setVarName
+	if (palette === "primary") {
+		setVarName = setPalette
+	} else if (palette === "secondary") {
+		setVarName = `${palette}-${setPalette}-${type}`
+	} else {
+		setVarName = `${palette}-${setPalette}`
+	}
 
 	/**
 	 * Statements
 	 * Check if the selected shade exists.
 	 */
-	const doesShadeExists =
-		palette === "primary"
-			? shade in Palettes[palette]
-			: palette === "secondary"
-			? shade in Palettes[secondary][type]
-			: shade in Palettes[extended]
+	let doesShadeExists
+	if (palette === "primary") {
+		doesShadeExists = shade in Palettes[palette]
+	} else if (palette === "secondary") {
+		doesShadeExists = shade in Palettes[secondary][type]
+	} else {
+		doesShadeExists = shade in Palettes[extended]
+	}
 
 	if (!doesShadeExists) {
 		return (
@@ -119,7 +157,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 									style={{
 										padding: 10,
 										borderRadius: 4,
-										background: key > 60 ? "#141934" : "#FFF",
+										background: Number(key) > 60 ? "#141934" : "#FFF",
 									}}
 								>
 									<span
@@ -138,7 +176,7 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 										style={{
 											display: "block",
 											marginTop: 5,
-											color: key > 60 ? "#E9EAEE" : "#1A1A1A",
+											color: Number(key) > 60 ? "#E9EAEE" : "#1A1A1A",
 											fontSize: "12px",
 											lineHeight: "24px",
 											fontFamily: "monospace",
@@ -231,13 +269,15 @@ const Colors = ({ palette, secondary, extended, shade, type }) => {
 					<Col size="2">
 						<Card.Color
 							theme={setTheme}
-							content={{
-								palette: setVarName,
-								shade,
-								prefix: setPrefix,
-								hex: setColor,
-								variables: setVars,
-							}}
+							content={
+								{
+									palette: setVarName,
+									shade,
+									prefix: setPrefix,
+									hex: setColor,
+									variables: setVars,
+								} as any
+							}
 						/>
 					</Col>
 				</Row>
@@ -285,7 +325,7 @@ Colors.argTypes = {
 		],
 		control: {
 			type: "select",
-			options: {
+			labels: {
 				smush: "Smush",
 				hummingbird: "Hummingbird",
 				smartCrawl: "Smartcrawl",
@@ -343,7 +383,7 @@ Colors.argTypes = {
 		name: "Shade",
 		control: {
 			type: "range",
-			min: 10,
+			min: 0,
 			max: 100,
 			step: 5,
 		},
