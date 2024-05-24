@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { CSSProperties, StyleHTMLAttributes } from "react"
 
 // Import documentation main page.
@@ -50,7 +49,11 @@ const Typography = ({
 			break
 
 		case "label":
-			content = <label className={`sui-${style}`}>{children}</label>
+			content = (
+				<label htmlFor="labelId" className={`sui-${style}`}>
+					{children}
+				</label>
+			)
 			break
 
 		case "tag":
