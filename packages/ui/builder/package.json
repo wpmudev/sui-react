@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-builder",
   "version": "0.0.1",
-  "description": "SUI builder is a drag and drop interface that allows to create or customize content layouts and arrangements by dragging and dropping various components into a canvas.",
+  "description": "Builder is a drag and drop interface that allows to create or customize content layouts and arrangements by dragging and dropping various components into a canvas.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [
