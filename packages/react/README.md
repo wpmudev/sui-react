@@ -1,7 +1,7 @@
 <!-- ⚠️ This README has been generated from the file(s) "../../blueprint.md" ⚠️--><h1 align="center">@wpmudev/sui-react</h1>
 
 <div style="text-align: center;">
-<img src="https://img.shields.io/badge/Version-0.0.1-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/License-GPL-orange.svg" alt="License">
+<img src="https://img.shields.io/badge/Version-0.0.10-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/License-GPL-orange.svg" alt="License">
 </div>
 <h2> Description </h2> It provides all the ui components for available for sui react
 

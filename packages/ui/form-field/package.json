@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-form-field",
   "version": "0.0.1",
-  "description": "WPMU DEV Shared UI React Form Field Component",
+  "description": "Form field is a set of elements that is use to collect data from users.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
   "contributors": [

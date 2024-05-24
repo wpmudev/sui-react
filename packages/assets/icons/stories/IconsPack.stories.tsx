@@ -45,7 +45,7 @@ interface IconsCardProps {
 	id: string
 }
 
-const Page = ({ category, search }: { category: string; search: string }) => {
+const List = ({ category, search }: { category: string; search: string }) => {
 	const groups = Object.keys(ListIcons).map((group, groupIndex) => {
 		const catName = ListIcons[group].name
 		const objIcons = ListIcons[group].icons
@@ -113,7 +113,7 @@ const IconsCard = ({
 		return g[1].toUpperCase()
 	})
 
-	const sample = dedent`<span class="suicons suicons--${id}" aria-hidden="true"></span>`
+	//const sample = dedent`<span class="suicons suicons--${id}" aria-hidden="true"></span>`
 
 	const compSample = dedent`<${capitalizeText(camelCased)}/>`
 
@@ -124,11 +124,7 @@ const IconsCard = ({
 			<div className="csb-icon__preview">
 				{(hasTagAlternative || hasTagChecked || hasDepreciated) && (
 					<div className="csb-icon__preview-mode">
-						{hasDepreciated && (
-							<Tag color="grey" light={true}>
-								Depreciated
-							</Tag>
-						)}
+						{hasDepreciated && <Tag light={true}>Depreciated</Tag>}
 						{hasTagAlternative && alt && <Tag color="yellow">Alternative</Tag>}
 						{hasTagChecked && (
 							<Fragment>
@@ -827,12 +823,12 @@ const ListIcons: Record<string, IconGroup> = {
 	},
 }
 
-Page.storyName = "Icons Pack"
-Page.args = {
+List.storyName = "Icons Pack"
+List.args = {
 	category: "all",
 	search: "",
 }
-Page.argTypes = {
+List.argTypes = {
 	category: {
 		name: "Category",
 		options: [
@@ -873,4 +869,4 @@ Page.argTypes = {
 	},
 }
 
-export { Page }
+export { List }
