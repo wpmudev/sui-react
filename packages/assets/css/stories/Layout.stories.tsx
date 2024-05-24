@@ -3,6 +3,12 @@ import React from "react"
 // Import documentation main page.
 import docs from "./content/Layout/Main.mdx"
 
+interface LayoutProps {
+	fullwidth: boolean
+	vertical: boolean
+	horizontal: boolean
+}
+
 // Configure default options.
 export default {
 	title: "SUI/CSS Framework/Layout",
@@ -18,11 +24,11 @@ export default {
 }
 
 // Build "Layout" story.
-const Layout = ({ fullwidth, vertical, horizontal }) => {
+const Layout = ({ fullwidth, vertical, horizontal }: LayoutProps) => {
 	const barSettings = {
-		fullwidth: fullwidth,
-		vertical: vertical,
-		horizontal: horizontal,
+		fullwidth,
+		vertical,
+		horizontal,
 	}
 
 	return <TopBar settings={barSettings} />
@@ -54,8 +60,13 @@ Layout.argTypes = {
 }
 
 // Build "Box" component.
-const Box = ({ top, children }) => {
-	const boxStyles = {
+interface BoxProps {
+	top: boolean
+	children: React.ReactElement
+}
+
+const Box: React.FC<BoxProps> = ({ top, children }) => {
+	const boxStyles: React.CSSProperties = {
 		background: "#FFF",
 	}
 
@@ -70,8 +81,8 @@ const Box = ({ top, children }) => {
 }
 
 // Build "Box Wrapper" component.
-const BoxWrapper = ({ children }) => {
-	const boxStyles = {
+const BoxWrapper = ({ children }: { children: React.ReactElement }) => {
+	const boxStyles: React.CSSProperties = {
 		padding: "0 32px",
 	}
 
@@ -79,8 +90,8 @@ const BoxWrapper = ({ children }) => {
 }
 
 // Build "Logo" component.
-const Logo = () => {
-	const logoStyles = {
+const Logo: React.FC = () => {
+	const logoStyles: React.CSSProperties = {
 		width: 48,
 		height: 48,
 		display: "flex",
@@ -100,7 +111,15 @@ const Logo = () => {
 }
 
 // Build "Top Bar" component.
-const TopBar = ({ settings }) => {
+interface TopBarProps {
+	settings: {
+		fullwidth: boolean
+		vertical: boolean
+		horizontal: boolean
+	}
+}
+
+const TopBar: React.FC<TopBarProps> = ({ settings }) => {
 	const barSettings = Object.assign(
 		{
 			fullwidth: false,
