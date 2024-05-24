@@ -6,6 +6,7 @@ import {
 	generateCN,
 	isValidCSSProperty,
 	isObjectEmpty,
+	isNestedStyleProperty,
 } from "@wpmudev/sui-utils"
 
 export type positionType = "default" | "sm" | "md" | "lg" | "xl"
@@ -22,7 +23,12 @@ export type CSSPropertiesTypes = {
 		| objectValueType
 }
 
-export interface useStylesTypes extends CSSPropertiesTypes {
+// The type for nested styles properties
+export type NestedStylesType = {
+	[key: `&${string}` | `@media ${string}`]: objectValueType
+}
+
+export interface useStylesTypes extends CSSPropertiesTypes, NestedStylesType {
 	// padding shorthands
 	p?: PropertyValueType
 	px?: PropertyValueType
@@ -113,7 +119,7 @@ export const buildStyleSheet = (
 	const shorthandPropName = CSS_SHORTHAND_MAPS[propName] ?? propName
 
 	// Build single value
-	const buildSingleValue = (val: string) => ({
+	const buildSingleValue = (val: string | Record<string, any>) => ({
 		[shorthandPropName]: val,
 	})
 
@@ -163,6 +169,7 @@ export const buildStyleSheet = (
 		case "string":
 			return buildSingleValue(value)
 		case "object":
+			if (isNestedStyleProperty(propName)) return buildSingleValue(value)
 			return Object.keys(value).reduce(
 				// Ex. value = { default: "purple", sm: "red", md: "green", lg: "yellow", xl: "orange" }
 				(acc, pos: string) => ({
