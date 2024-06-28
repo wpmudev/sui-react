@@ -259,7 +259,7 @@ import { Section, Code, Snippet, List } from '@wpmudev/sui-docs';
 
 
 	```javascript
-          {
+         {
             required: true, // boolean 
             message: "This field is required" 
         }
@@ -267,6 +267,13 @@ import { Section, Code, Snippet, List } from '@wpmudev/sui-docs';
 
 	```javascript
          {
+            url: true, // boolean
+            message: "Please enter a valid url"
+        }
+	```
+
+	```javascript
+        {
             pattern: "^[a-zA-Z0-9]+$", // pattern in string format 
             message: "Only letters and numbers are allowed"
         }
