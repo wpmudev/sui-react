@@ -8,8 +8,9 @@ export const Palettes = {
 	},
 	// Extended Palette.
 	neutral: {
+		0: "#000000",
 		10: "#1A1A1A",
-		30: "#333333",
+		20: "#333333",
 		50: "#505050",
 		60: "#737373",
 		70: "#AAAAAA",

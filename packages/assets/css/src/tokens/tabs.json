@@ -16,7 +16,7 @@
 		},
 		"shadow": {
 			"dark": {
-				"value": "{color.shadow.light}",
+				"value": "{color.extended.shadow.light}",
 				"type": "color"
 			},
 			"medium": {

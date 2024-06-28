@@ -1,15 +1,14 @@
-import React, { Fragment } from 'react';
-import { Section, Row, Col, Card } from '@wpmudev/sui-docs';
+import React, { Fragment } from "react"
+import { Section, Row, Col, Card } from "@wpmudev/sui-docs"
 
 // Build "palettes" component.
 const Palettes = ({ arrays = [], colors, name, wrapper }) => {
 	const printArrays = arrays.map((arr, index) => {
-		const hasIntro = !isUndefined(arr.intro) ? true : false;
-		const hasTitle = !isUndefined(arr.title) ? true : false;
-		const hasDescription = !isUndefined(arr.description) ? true : false;
-		const hasWrapper =
-			hasIntro || hasTitle || hasDescription ? true : false;
-		const hasPalette = !isUndefined(arr.palette) ? true : false;
+		const hasIntro = !isUndefined(arr.intro) ? true : false
+		const hasTitle = !isUndefined(arr.title) ? true : false
+		const hasDescription = !isUndefined(arr.description) ? true : false
+		const hasWrapper = hasIntro || hasTitle || hasDescription ? true : false
+		const hasPalette = !isUndefined(arr.palette) ? true : false
 
 		return (
 			<BuildSections
@@ -21,10 +20,10 @@ const Palettes = ({ arrays = [], colors, name, wrapper }) => {
 				{...(hasPalette && { palette: arr.palette })}
 				data={arr.colors}
 			/>
-		);
-	});
+		)
+	})
 
-	const objColors = Object.assign({}, colors);
+	const objColors = Object.assign({}, colors)
 
 	return (
 		<Fragment>
@@ -40,8 +39,8 @@ const Palettes = ({ arrays = [], colors, name, wrapper }) => {
 				/>
 			)}
 		</Fragment>
-	);
-};
+	)
+}
 
 // Build "sections" component.
 const BuildSections = ({
@@ -57,20 +56,15 @@ const BuildSections = ({
 			data={data}
 			{...(!isUndefined(palette) && { palette: palette })}
 		/>
-	);
+	)
 
 	if (true === wrapper) {
 		return (
-			<Section
-				style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
-			>
+			<Section style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}>
 				{(!isUndefined(intro) ||
 					!isUndefined(title) ||
 					!isUndefined(description)) && (
-					<div
-						className="csb-section__contained"
-						style={{ marginBottom: 20 }}
-					>
+					<div className="csb-section__contained" style={{ marginBottom: 20 }}>
 						{!isUndefined(intro) && intro}
 
 						{!isUndefined(title) && (
@@ -83,20 +77,20 @@ const BuildSections = ({
 
 				{rows}
 			</Section>
-		);
+		)
 	}
 
-	return rows;
-};
+	return rows
+}
 
 // Build "rows builder" component.
 const BuildRows = ({ data, palette }) => {
-	const colsLimit = 3;
+	const colsLimit = 3
 
 	const contents = Object.keys(data)
 		.map((key, index) => {
-			const setTheme = key > 60 ? 'light' : 'dark';
-			const setPrefix = key === 50 ? 'Base' : key > 60 ? 'Light' : 'Dark';
+			const setTheme = key > 60 ? "light" : "dark"
+			const setPrefix = key === 50 ? "Base" : key > 60 ? "Light" : "Dark"
 
 			return (
 				<Col key={index} size="2">
@@ -111,38 +105,38 @@ const BuildRows = ({ data, palette }) => {
 						overWhite={true}
 					/>
 				</Col>
-			);
+			)
 		})
 		.reduce((row, column, index) => {
-			index % colsLimit === 0 && row.push([]);
-			row[row.length - 1].push(column);
+			index % colsLimit === 0 && row.push([])
+			row[row.length - 1].push(column)
 
-			return row;
+			return row
 		}, [])
 		.map((rowContent, index) => {
-			return <Row key={`row-${index}`}>{rowContent}</Row>;
-		});
+			return <Row key={`row-${index}`}>{rowContent}</Row>
+		})
 
-	return contents;
-};
+	return contents
+}
 
 // Check if element is undefined.
 const isUndefined = (element, isNumber = false) => {
-	const isValid = 'undefined' !== typeof element;
-	const isNotEmpty = '' !== element;
+	const isValid = "undefined" !== typeof element
+	const isNotEmpty = "" !== element
 
 	if (element && isValid && isNotEmpty) {
 		if (isNumber) {
 			if (Number.isNaN(element)) {
-				return false;
+				return false
 			}
 		} else {
-			return false;
+			return false
 		}
 	}
 
-	return true;
-};
+	return true
+}
 
 // Publish required component(s).
-export { Palettes };
+export { Palettes }

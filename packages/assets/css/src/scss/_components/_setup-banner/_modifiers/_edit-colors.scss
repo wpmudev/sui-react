@@ -119,7 +119,7 @@
 			}
 
 			@include element(bg) {
-				color: $color-alpha-white-10;
+				color: $color-extended-alpha-white-10;
 			}
 		}
 	}
@@ -131,7 +131,7 @@
 			background: $color-extended-neutral-0;
 
 			@include element(bg) {
-				color: $color-alpha-white-30;
+				color: $color-extended-alpha-white-30;
 			}
 		}
 	}

@@ -7,6 +7,7 @@ import { Input as SuiInput, InputProps } from "../src"
 // Import documentation main page.
 import docs from "./ReactInput.mdx"
 import { IconsName } from "@wpmudev/sui-icons"
+import { background } from "@storybook/theming"
 
 // Configure default options.
 export default {
@@ -48,7 +49,7 @@ const Input = ({
 						isSmall={isSmall}
 						isDisabled={isDisabled}
 					>
-						<SuiInput {...args} />
+						<SuiInput {...args} _style={{ background: "#000" }} />
 					</FormField>
 				</div>
 			</div>

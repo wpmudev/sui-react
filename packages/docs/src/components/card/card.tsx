@@ -106,7 +106,7 @@ interface ColorProps {
 	overWhite?: boolean
 	content?: {
 		palette?: string
-		shade?: string
+		shade?: number
 		prefix?: string
 		hex?: string
 		variables?: boolean

@@ -18,7 +18,7 @@
 			z-index: 999999;
 
 			@include modifier(overlay) {
-				background: $color-alpha-grey-90;
+				background: $color-extended-alpha-grey-90;
 			}
 
 			@include modifier(has-container) {
