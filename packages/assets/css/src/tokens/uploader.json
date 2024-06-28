@@ -1,64 +1,58 @@
 {
 	"uploader": {
-        "font": {
-            "color": {
-                "value": "{color.extended.neutral.60}",
-                "type": "fontColor"
-            }
-        },
-        "size": {
-            "width": {
-                "value": "240px",
-                "type": "sizing"
-            }
-        },
-        "border": {
-            "width": {
-                "value": "{border.width.sm}",
-                "type": "borderWidth"
-            },
-            "color": {
-                "value": "{color.extended.neutral.80}",
-                "type": "borderColor"
-            },
-            "radius": {
-                "value": "{border.radius.sm}",
-                "type": "borderRadius"
-            }
-        },
-        "spacing": {
-            "horizontal": {
-                "value": "{spacing.lg}-4px",
-                "type": "spacing"
-            },
-            "vertical": {
-                "value": "{spacing.md}",
-                "type": "spacing"
-            }
-        },
-        "icon": {
-            "spacing": {
-                "horizontal": {
-                    "value": "{spacing.sm}",
-                    "type": "spacing"
-                }
-            },
-            "margin": {
-                "horizontal": {
-                    "value": "10px",
-                    "type": "spacing"
-                }
-            }
-        },
-        "preview": {
-            "size": {
-                "value": "37px",
-                "type": "sizing"
-            },
-            "spacing": {
-                "value": "2px",
-                "type": "spacing"
-            }
-        }
+		"size": {
+			"width": {
+				"value": "240px",
+				"type": "sizing"
+			}
+		},
+		"border": {
+			"width": {
+				"value": "{border.width.sm}",
+				"type": "borderWidth"
+			},
+			"color": {
+				"value": "{color.extended.neutral.80}",
+				"type": "borderColor"
+			},
+			"radius": {
+				"value": "{border.radius.sm}",
+				"type": "borderRadius"
+			}
+		},
+		"spacing": {
+			"horizontal": {
+				"value": "{spacing.lg}-4px",
+				"type": "spacing"
+			},
+			"vertical": {
+				"value": "{spacing.md}",
+				"type": "spacing"
+			}
+		},
+		"icon": {
+			"spacing": {
+				"horizontal": {
+					"value": "{spacing.sm}",
+					"type": "spacing"
+				}
+			},
+			"margin": {
+				"horizontal": {
+					"value": "10px",
+					"type": "spacing"
+				}
+			}
+		},
+		"preview": {
+			"size": {
+				"value": "37px",
+				"type": "sizing"
+			},
+			"spacing": {
+				"value": "2px",
+				"type": "spacing"
+			}
+		}
 	}
 }

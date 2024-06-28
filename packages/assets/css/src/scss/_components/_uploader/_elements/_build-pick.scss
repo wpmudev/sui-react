@@ -23,7 +23,7 @@
 				border-radius: $uploader-border-radius;
 				gap: $uploader-spacing-vertical;
 				padding: $uploader-spacing-vertical $uploader-spacing-horizontal;
-				color: $uploader-font-color;
+				color: $color-extended-neutral-50;
 
 				@include modifier(label) {
 					font-weight: $font-weight-md;
