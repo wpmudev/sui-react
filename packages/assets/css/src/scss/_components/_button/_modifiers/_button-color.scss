@@ -153,11 +153,14 @@ $colors-high-contrast: (
 							}
 
 							&.sui-#{$block-name}--focus {
-								border-color: $value;
 								background: transparent;
 								color: inherit;
 								@if $name == white {
 									color: $value;
+								}
+
+								&:after {
+									border-color: $value;
 								}
 							}
 						} @else if $theme == secondary {

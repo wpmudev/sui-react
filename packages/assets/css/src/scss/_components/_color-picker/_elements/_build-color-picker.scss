@@ -132,6 +132,7 @@
 
 				@include modifier(select) {
 					outline-color: $color-extended-neutral-0;
+					color: $color-extended-neutral-0;
 				}
 			}
 		}
