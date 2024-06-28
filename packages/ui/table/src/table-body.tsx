@@ -57,12 +57,12 @@ const TableBody: React.FC<TableSectionProps> = (
 	}, [children])
 
 	// Effect to update the TableContext's rows when the rows array changes
-	// useEffect(() => {
-	// 	ctx?.setRows(
-	// 		Children.toArray(children).map((row) => (row as ReactElement)?.props?.id),
-	// 	)
-	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	// }, [children, rows])
+	useEffect(() => {
+		ctx?.setRows(
+			Children.toArray(children).map((row) => (row as ReactElement)?.props?.id),
+		)
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [children, rows])
 
 	// Update order know the new and old indexes
 	function updateOrder(array: any[], oldIndex: number, newIndex: number) {

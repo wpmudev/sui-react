@@ -26,6 +26,16 @@ type OmitNestedKey<T, K extends keyof T, NK extends keyof NonNullable<T[K]>> = {
 }
 
 /**
+ * Check if a key is a nested style property
+ *
+ * @param  name prop key
+ * @return {boolean} Returns true if key is a nested style property
+ */
+export const isNestedStyleProperty = (name: string) => {
+	return name.startsWith("&") || name.startsWith("@media ")
+}
+
+/**
  * Check if a key is valid CSS property
  *
  * @param {string}  name             prop key
@@ -39,7 +49,7 @@ const isValidCSSProperty = (name: string, includeShorthand: boolean = true) => {
 		cssProps = [...cssProps, ...Object.keys(CSS_SHORTHAND_MAPS)]
 	}
 
-	return cssProps?.indexOf(name) > -1
+	return cssProps?.indexOf(name) > -1 || isNestedStyleProperty(name)
 }
 
 /**

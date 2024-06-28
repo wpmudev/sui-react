@@ -29,7 +29,7 @@
 					border-radius: $border-radius-md;
 				}
 
-				@include modifier(no-shadow-content) {
+				@include modifier(content-no-shadow) {
 					border-radius: $border-radius-md;
 				}
 			}
@@ -42,8 +42,16 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(panel) {
-				@include modifier(content) {
+				@include modifier(content, content-no-shadow) {
 					border: $border-width-sm solid $color-extended-neutral-0;
+				}
+			}
+
+			@include modifier(flushed) {
+				@include modifies-element(panel) {
+					.sui-#{$block}__panel--content {
+						border: none;
+					}
 				}
 			}
 		}
