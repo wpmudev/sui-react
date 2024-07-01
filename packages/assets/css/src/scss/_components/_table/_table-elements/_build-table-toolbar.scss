@@ -15,7 +15,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(toolbar) {
-				border-bottom: $border-width-sm solid $color-extended-neutral-80;
+				border-bottom: $border-width-sm solid $color-grey-10;
 			}
 
 			@include element(toolbar-header) {
@@ -46,8 +46,8 @@
 				padding: $spacing-2xl;
 
 				@include modifier(inline) {
-					background: $color-extended-neutral-95;
-					border-top: $border-width-sm solid $color-extended-neutral-80;
+					background: $color-grey-02;
+					border-top: $border-width-sm solid $color-grey-10;
 				}
 
 				@include modifier(expanded) {
@@ -75,7 +75,7 @@
 				}
 
 				.sui-#{$block}__toolbar-cta {
-					border-top: $border-width-sm solid $color-extended-neutral-80;
+					border-top: $border-width-sm solid $color-grey-10;
 					padding: $spacing-lg $spacing-xl 0;
 					margin: $spacing-xl #{-$spacing-xl} 0;
 				}
@@ -108,19 +108,19 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(toolbar) {
-				border-color: $color-extended-neutral-0;
+				border-color: $color-base-black;
 			}
 
 			@include element(toolbar-body) {
 				@include modifier(inline) {
-					background: $color-extended-neutral-100;
-					border-top-color: $color-extended-neutral-0;
+					background: $color-base-white;
+					border-top-color: $color-base-black;
 				}
 			}
 
 			@include element(toolbar-filter) {
 				.sui-#{$block}__toolbar-cta {
-					border-top-color: $color-extended-neutral-0;
+					border-top-color: $color-base-black;
 				}
 			}
 		}

@@ -15,7 +15,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(popover) {
-				background: $color-extended-neutral-100;
+				background: $color-base-white;
 				box-shadow: 0 $shadow-offset-xs $shadow-offset-sm 0
 						$color-extended-shadow-dark,
 					0 $shadow-offset-2xs $shadow-offset-xl 0 $color-extended-shadow-light,
@@ -39,13 +39,13 @@
 			}
 
 			@include element(footer) {
-				border-top: $border-width-sm solid $color-extended-neutral-80;
+				border-top: $border-width-sm solid $color-grey-10;
 				gap: $spacing-md;
 				justify-content: end;
 			}
 
 			@include element(header) {
-				border-bottom: $border-width-sm solid $color-extended-neutral-80;
+				border-bottom: $border-width-sm solid $color-grey-10;
 				align-items: center;
 				justify-content: center;
 
@@ -65,15 +65,15 @@
 		@include block($block) {
 			@include element(popover) {
 				box-shadow: none;
-				border: $border-width-sm solid $color-extended-neutral-0;
+				border: $border-width-sm solid $color-base-black;
 			}
 
 			@include element(footer) {
-				border-top: $border-width-sm solid $color-extended-neutral-0;
+				border-top: $border-width-sm solid $color-base-black;
 			}
 
 			@include element(header) {
-				border-bottom: $border-width-sm solid $color-extended-neutral-0;
+				border-bottom: $border-width-sm solid $color-base-black;
 			}
 		}
 	}

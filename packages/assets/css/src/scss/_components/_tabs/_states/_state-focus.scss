@@ -32,12 +32,12 @@
 		@include block($block) {
 			@include element(nav-item) {
 				@include modifier(focus) {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 
 				&:focus-visible {
 					&:after {
-						border-color: $color-extended-neutral-0;
+						border-color: $color-base-black;
 					}
 					border-bottom-color: transparent;
 				}

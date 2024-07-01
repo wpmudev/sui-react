@@ -28,9 +28,9 @@
 		@include block($block) {
 			@include modifier(checked) {
 				@include modifies-element(switch) {
-					background: $color-extended-neutral-0;
+					background: $color-base-black;
 					&:before {
-						background: $color-extended-neutral-100;
+						background: $color-base-white;
 					}
 				}
 			}

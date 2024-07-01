@@ -24,7 +24,7 @@
 				.sui-dropdown__menu {
 					.sui-dropdown__menu-item--hover {
 						background: $color-primary-50;
-						color: $color-extended-neutral-100;
+						color: $color-base-white;
 					}
 				}
 			}
@@ -48,20 +48,20 @@
 		@include block($block) {
 			@include modifier(hover) {
 				@include modifies-element(control) {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 			}
 
 			@include element(dropdown) {
 				.sui-dropdown__menu {
 					.sui-dropdown__menu-item--hover {
-						background: $color-extended-neutral-0;
-						color: $color-extended-neutral-100;
+						background: $color-base-black;
+						color: $color-base-white;
 					}
 
 					.sui-select__dropdown--selected {
 						&.sui-dropdown__menu-item--hover {
-							color: $color-extended-neutral-100;
+							color: $color-base-white;
 						}
 					}
 				}

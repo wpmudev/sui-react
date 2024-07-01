@@ -28,7 +28,7 @@
 					right: 0;
 					border-top: 0;
 					border-bottom: 0;
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 					border-top-left-radius: $border-radius-md;
 					border-top-right-radius: $border-radius-md;
 					box-shadow: 0 $spacing-xs $spacing-sm 0 $color-extended-shadow-dark,
@@ -44,7 +44,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(search) {
-				border-color: $color-extended-neutral-0;
+				border-color: $color-base-black;
 				border-top: $border-width-sm;
 				border-left: $border-width-sm;
 				border-right: $border-width-sm;

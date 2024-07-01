@@ -48,15 +48,15 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(arrow) {
-				background: $color-extended-neutral-100;
-				color: $color-extended-neutral-0;
+				background: $color-base-white;
+				color: $color-base-black;
 
 				&:hover {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 
 				&:focus {
-					border: $tabs-border-width solid $color-extended-neutral-0;
+					border: $tabs-border-width solid $color-base-black;
 				}
 			}
 		}

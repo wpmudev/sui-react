@@ -1,4 +1,3 @@
-
 @use "sass:math";
 @use "../../../_utils/utils" as *;
 
@@ -14,7 +13,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(block) {
-				color: $color-extended-neutral-50;
+				color: $color-grey-50;
 			}
 		}
 	}
@@ -24,7 +23,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(block) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}

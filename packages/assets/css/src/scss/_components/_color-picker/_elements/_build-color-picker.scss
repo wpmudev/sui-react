@@ -34,7 +34,7 @@
 			}
 
 			@include element(pointer) {
-				border: $border-width-md solid $color-extended-neutral-100;
+				border: $border-width-md solid $color-base-white;
 				cursor: pointer;
 				width: $colorpicker-size-width-xs;
 				height: $colorpicker-size-height-sm;
@@ -80,9 +80,9 @@
 					input {
 						font-size: $font-size-xs;
 						line-height: $font-height-2xs;
-						color: $color-extended-neutral-10;
+						color: $color-grey-90;
 						padding: $colorpicker-spacing-sm $spacing-md;
-						border: $border-width-sm solid $color-extended-neutral-80;
+						border: $border-width-sm solid $color-grey-10;
 						border-radius: 0;
 						width: 100%;
 						outline: none;
@@ -121,18 +121,18 @@
 			@include element(fields) {
 				@include modifier(input) {
 					&:focus-within {
-						box-shadow: 0px 0px 0px $shadow-offset-xs $color-extended-neutral-0;
+						box-shadow: 0px 0px 0px $shadow-offset-xs $color-base-black;
 					}
 
 					input {
-						color: $color-extended-neutral-0;
-						border-color: $color-extended-neutral-0;
+						color: $color-base-black;
+						border-color: $color-base-black;
 					}
 				}
 
 				@include modifier(select) {
-					outline-color: $color-extended-neutral-0;
-					color: $color-extended-neutral-0;
+					outline-color: $color-base-black;
+					color: $color-base-black;
 				}
 			}
 		}

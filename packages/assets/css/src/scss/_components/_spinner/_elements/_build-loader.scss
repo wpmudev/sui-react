@@ -30,7 +30,7 @@
 				}
 
 				@include modifier(background) {
-					stroke: $color-extended-neutral-80;
+					stroke: $color-grey-10;
 				}
 
 				@include modifier(stroke) {
@@ -55,7 +55,7 @@
 				}
 
 				@include modifies-element(icon--stroke) {
-					stroke: $color-extended-neutral-0;
+					stroke: $color-base-black;
 				}
 			}
 		}
@@ -68,7 +68,7 @@
 		@include block($block) {
 			@include element(icon) {
 				@include modifier(background) {
-					stroke: $color-extended-neutral-100;
+					stroke: $color-base-white;
 				}
 			}
 

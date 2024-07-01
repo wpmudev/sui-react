@@ -17,7 +17,7 @@
 			@include element(popover) {
 				position: absolute;
 				z-index: 2;
-				background-color: $color-extended-neutral-100;
+				background-color: $color-base-white;
 				border-radius: $border-radius-md;
 				box-shadow: 0 $shadow-offset-sm $shadow-offset-md 0
 						$color-extended-shadow-light,
@@ -37,7 +37,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(popover) {
-				border: $border-width-sm solid $color-extended-neutral-0;
+				border: $border-width-sm solid $color-base-black;
 			}
 		}
 	}

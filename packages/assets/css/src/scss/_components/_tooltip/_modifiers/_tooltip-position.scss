@@ -41,11 +41,7 @@
 
 				@include modifier(top, top-left, top-right) {
 					&:after {
-						@include equilateral-triangle(
-							down,
-							6px,
-							$color-extended-neutral-20
-						);
+						@include equilateral-triangle(down, 6px, $color-grey-80);
 						bottom: -6px;
 					}
 				}
@@ -73,7 +69,7 @@
 
 				@include modifier(bottom, bottom-left, bottom-right) {
 					&:after {
-						@include equilateral-triangle(up, 6px, $color-extended-neutral-20);
+						@include equilateral-triangle(up, 6px, $color-grey-80);
 						top: -6px;
 					}
 				}
@@ -101,11 +97,7 @@
 				@include modifier(left, left-top, left-bottom) {
 					&:after {
 						right: -6px;
-						@include equilateral-triangle(
-							right,
-							6px,
-							$color-extended-neutral-20
-						);
+						@include equilateral-triangle(right, 6px, $color-grey-80);
 					}
 				}
 
@@ -132,11 +124,7 @@
 				@include modifier(right, right-top, right-bottom) {
 					&:after {
 						left: -6px;
-						@include equilateral-triangle(
-							left,
-							6px,
-							$color-extended-neutral-20
-						);
+						@include equilateral-triangle(left, 6px, $color-grey-80);
 					}
 				}
 
@@ -225,11 +213,7 @@
 					&:after {
 						left: -6px;
 						right: unset;
-						@include equilateral-triangle(
-							left,
-							6px,
-							$color-extended-neutral-20
-						);
+						@include equilateral-triangle(left, 6px, $color-grey-80);
 					}
 				}
 
@@ -237,11 +221,7 @@
 					&:after {
 						right: -6px;
 						left: unset;
-						@include equilateral-triangle(
-							right,
-							6px,
-							$color-extended-neutral-20
-						);
+						@include equilateral-triangle(right, 6px, $color-grey-80);
 					}
 				}
 			}

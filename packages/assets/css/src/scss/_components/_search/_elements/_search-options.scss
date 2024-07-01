@@ -42,7 +42,7 @@
 
 				@include modifier(hover, focus) {
 					background: $color-primary-50;
-					color: $color-extended-neutral-100;
+					color: $color-base-white;
 				}
 
 				span {
@@ -68,8 +68,8 @@
 		@include block($block) {
 			@include element(options-item) {
 				@include modifier(hover, focus) {
-					background: $color-extended-neutral-0;
-					color: $color-extended-neutral-100;
+					background: $color-base-black;
+					color: $color-base-white;
 				}
 			}
 		}

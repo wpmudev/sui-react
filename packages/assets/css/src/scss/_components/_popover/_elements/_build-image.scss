@@ -37,7 +37,7 @@
 			}
 
 			@include element(popup-image) {
-				background-color: $color-extended-neutral-80;
+				background-color: $color-grey-10;
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: 50%;
@@ -55,8 +55,8 @@
 			@include modifier(image) {
 				@include modifies-element(popup-close) {
 					.sui-button {
-						border-color: $color-extended-neutral-0;
-						background: $color-extended-neutral-100;
+						border-color: $color-base-black;
+						background: $color-base-white;
 					}
 				}
 

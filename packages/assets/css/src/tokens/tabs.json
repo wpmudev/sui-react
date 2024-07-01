@@ -6,7 +6,7 @@
 				"type": "borderWidth"
 			},
 			"color": {
-				"value": "{color.extended.neutral.80}",
+				"value": "{color.grey.10}",
 				"type": "borderColor"
 			},
 			"radius": {
@@ -57,7 +57,7 @@
 					"type": "fontWeight"
 				},
 				"color": {
-					"value": "{color.extended.neutral.50}",
+					"value": "{color.grey.50}",
 					"type": "color"
 				}
 			},
@@ -105,16 +105,16 @@
 					}
 				},
 				"color": {
-					"value": "{color.extended.neutral.10}",
+					"value": "{color.grey.90}",
 					"type": "color"
 				},
 				"background": {
-					"value": "{color.primary.80}",
+					"value": "{color.primary.10}",
 					"type": "color"
 				}
 			},
 			"disabled": {
-				"value": "{color.extended.neutral.70}",
+				"value": "{color.grey.30}",
 				"type": "color"
 			}
 		},
@@ -130,16 +130,16 @@
 				}
 			},
 			"color": {
-				"value": "{color.extended.neutral.70}",
+				"value": "{color.grey.30}",
 				"type": "color"
 			},
 			"hover": {
 				"color": {
-					"value": "{color.extended.neutral.10}",
+					"value": "{color.grey.90}",
 					"type": "color"
 				},
 				"background": {
-					"value": "{color.extended.neutral.100}",
+					"value": "{color.base.white}",
 					"type": "color"
 				}
 			},

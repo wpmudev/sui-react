@@ -15,18 +15,18 @@
 		@include block($block) {
 			@include element(input) {
 				&:active + .sui-segmented-control__label {
-					outline: $border-width-md solid $color-extended-neutral-50;
+					outline: $border-width-md solid $color-grey-50;
 					outline-offset: -#{$border-width-md};
-					color: $color-extended-neutral-50;
+					color: $color-grey-50;
 					position: relative;
 				}
 			}
 
 			@include element(label) {
 				&:focus-visible {
-					outline: $border-width-md solid $color-extended-neutral-50;
+					outline: $border-width-md solid $color-grey-50;
 					outline-offset: -#{$border-width-md};
-					color: $color-extended-neutral-50;
+					color: $color-grey-50;
 					position: relative;
 				}
 			}
@@ -39,26 +39,26 @@
 		@include block($block) {
 			@include element(input) {
 				&:active + .sui-segmented-control__label {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 
 				&,
 				&:active {
 					& + .sui-segmented-control__label--active {
-						color: $color-extended-neutral-100;
+						color: $color-base-white;
 					}
 				}
 			}
 
 			@include element(label) {
 				&:focus-visible {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 
 				@include modifier(active) {
 					&,
 					&:focus-visible {
-						color: $color-extended-neutral-100;
+						color: $color-base-white;
 					}
 				}
 			}

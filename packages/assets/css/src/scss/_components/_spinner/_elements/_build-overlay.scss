@@ -30,7 +30,7 @@
 					background-color: $color-extended-alpha-grey-70;
 
 					+ .sui-#{$block} .sui-#{$block}__icon--stroke {
-						stroke: $color-extended-neutral-100;
+						stroke: $color-base-white;
 					}
 				}
 			}
@@ -43,11 +43,11 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(overlay) {
-				background-color: $color-extended-neutral-10;
+				background-color: $color-grey-90;
 
 				@include modifier(dark) {
 					+ .sui-#{$block} .sui-#{$block}__icon--stroke {
-						stroke: $color-extended-neutral-0;
+						stroke: $color-base-black;
 					}
 				}
 			}

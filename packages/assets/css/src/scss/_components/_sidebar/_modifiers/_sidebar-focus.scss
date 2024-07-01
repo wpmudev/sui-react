@@ -15,7 +15,7 @@
 			@include element(item) {
 				@include modifier(focus) {
 					&:after {
-						border: $border-width-md solid $color-extended-neutral-50;
+						border: $border-width-md solid $color-grey-50;
 					}
 				}
 			}

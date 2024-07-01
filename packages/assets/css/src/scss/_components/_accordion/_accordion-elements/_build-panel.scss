@@ -44,7 +44,7 @@
 		@include block($block) {
 			@include element(panel) {
 				@include modifier(content, content-no-shadow) {
-					border: $border-width-sm solid $color-extended-neutral-0;
+					border: $border-width-sm solid $color-base-black;
 				}
 			}
 

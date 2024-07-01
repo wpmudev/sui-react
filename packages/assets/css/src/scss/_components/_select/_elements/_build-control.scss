@@ -16,7 +16,7 @@
 			@include element(control) {
 				position: relative;
 				border-width: $border-width-sm;
-				border-color: $color-extended-neutral-70;
+				border-color: $color-grey-30;
 				border-style: solid;
 				border-radius: $border-radius-sm;
 				padding: $spacing-md $spacing-lg;
@@ -86,7 +86,7 @@
 					line-height: $font-height-2xs;
 					font-weight: $font-weight-md;
 					color: $color-primary-50;
-					background: $color-primary-90;
+					background: $color-primary-05;
 					border-radius: $border-radius-sm;
 					padding-top: $spacing-sm;
 					padding-bottom: $spacing-sm;
@@ -127,8 +127,8 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(control) {
-				border-color: $color-extended-neutral-0;
-				color: $color-extended-neutral-0;
+				border-color: $color-base-black;
+				color: $color-base-black;
 			}
 
 			@include modifier(multiselect, custom-var) {
@@ -137,11 +137,11 @@
 				}
 
 				@include modifies-element(selected-options) {
-					color: $color-extended-neutral-100;
-					background: $color-extended-neutral-0;
+					color: $color-base-white;
+					background: $color-base-black;
 
 					.sui-icon {
-						color: $color-extended-neutral-100;
+						color: $color-base-white;
 					}
 				}
 			}

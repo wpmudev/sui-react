@@ -119,8 +119,8 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			background: $color-extended-neutral-100;
-			border-color: $color-extended-neutral-0;
+			background: $color-base-white;
+			border-color: $color-base-black;
 		}
 	}
 }

@@ -14,7 +14,7 @@
 		@include block($block) {
 			@include element(header) {
 				align-items: center;
-				background: $color-extended-neutral-100;
+				background: $color-base-white;
 				border-radius: $spacing-lg $spacing-lg 0 0;
 				gap: $spacing-lg;
 				justify-content: space-between;
@@ -51,7 +51,7 @@
 			}
 
 			@include element(header-logo) {
-				background: $color-extended-neutral-100;
+				background: $color-base-white;
 				border-radius: $modal-border-radius;
 				box-shadow: 0 $shadow-offset-sm $shadow-offset-md 0
 						$color-extended-shadow-light,
@@ -81,12 +81,12 @@
 		@include block($block) {
 			// header info content
 			@include element(header-info-content) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 
 			@include element(header-logo) {
 				box-shadow: none;
-				border: $border-width-sm solid $color-extended-neutral-0;
+				border: $border-width-sm solid $color-base-black;
 			}
 		}
 	}

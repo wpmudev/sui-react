@@ -15,7 +15,7 @@
 				@include modifier(error) {
 					box-shadow: 0 $shadow-offset-xs $shadow-offset-sm 0
 							$color-extended-alpha-grey-05,
-						0 -#{$shadow-offset-xs} 0 0 $color-extended-error-50 inset;
+						0 -#{$shadow-offset-xs} 0 0 $color-red-50 inset;
 				}
 			}
 		}
@@ -29,7 +29,7 @@
 				@include modifier(error) {
 					box-shadow: 0 $shadow-offset-xs $shadow-offset-sm 0
 							$color-extended-alpha-grey-05,
-						0 -#{$shadow-offset-xs} 0 0 $color-extended-neutral-0 inset;
+						0 -#{$shadow-offset-xs} 0 0 $color-base-black inset;
 				}
 			}
 		}

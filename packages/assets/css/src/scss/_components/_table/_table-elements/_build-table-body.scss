@@ -39,15 +39,15 @@
 				}
 
 				td {
-					color: $color-extended-neutral-50;
+					color: $color-grey-50;
 
 					.suicons {
-						color: $color-extended-neutral-50;
+						color: $color-grey-50;
 					}
 
 					strong {
 						font-weight: $font-weight-md;
-						color: $color-extended-neutral-10;
+						color: $color-grey-90;
 					}
 				}
 			}
@@ -55,10 +55,10 @@
 			@include modifier(stripe) {
 				@include modifies-element(body) {
 					.sui-#{$block}__row:nth-child(odd) {
-						background: $color-extended-neutral-95;
+						background: $color-grey-02;
 
 						.sui-#{$block}__cell--sticky {
-							background: $color-extended-neutral-95;
+							background: $color-grey-02;
 						}
 					}
 				}
@@ -73,14 +73,14 @@
 		@include block($block) {
 			@include element(body) {
 				td {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 
 					.suicons {
-						color: $color-extended-neutral-0;
+						color: $color-base-black;
 					}
 
 					strong {
-						color: $color-extended-neutral-0;
+						color: $color-base-black;
 					}
 				}
 			}
@@ -88,10 +88,10 @@
 			@include modifier(stripe) {
 				@include modifies-element(body) {
 					.sui-#{$block}__row:nth-child(odd) {
-						background: $color-extended-neutral-100;
+						background: $color-base-white;
 
 						.sui-#{$block}__cell--sticky {
-							background: $color-extended-neutral-100;
+							background: $color-base-white;
 						}
 					}
 				}

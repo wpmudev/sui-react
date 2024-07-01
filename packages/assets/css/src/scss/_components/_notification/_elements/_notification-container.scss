@@ -10,8 +10,8 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			align-items: flex-start;
-			background: $color-extended-neutral-100;
-			box-shadow: 0 0 0 $shadow-offset-2xs $color-extended-neutral-80;
+			background: $color-base-white;
+			box-shadow: 0 0 0 $shadow-offset-2xs $color-grey-10;
 			border-width: 0;
 			border-left-width: $border-width-xl;
 			border-style: solid;
@@ -46,8 +46,8 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block-name) {
 			box-shadow: none;
-			color: $color-extended-neutral-0;
-			border-color: $color-extended-neutral-0;
+			color: $color-base-black;
+			border-color: $color-base-black;
 			border-width: $border-width-sm;
 			border-left-width: $border-width-xl;
 		}

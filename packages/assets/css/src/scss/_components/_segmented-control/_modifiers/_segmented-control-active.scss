@@ -15,8 +15,8 @@
 		@include block($block) {
 			@include element(label) {
 				@include modifier(active) {
-					border-color: $color-primary-80;
-					background-color: $color-primary-90;
+					border-color: $color-primary-10;
+					background-color: $color-primary-05;
 					color: $color-primary-50;
 				}
 			}
@@ -29,11 +29,11 @@
 		@include block($block) {
 			@include element(label) {
 				@include modifier(active) {
-					background-color: $color-extended-neutral-0;
-					color: $color-extended-neutral-100;
+					background-color: $color-base-black;
+					color: $color-base-white;
 
 					.sui-icon {
-						color: $color-extended-neutral-100;
+						color: $color-base-white;
 					}
 				}
 			}
