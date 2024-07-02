@@ -18,10 +18,9 @@
 
 			@include element(popup-wrapper) {
 				border: $border-width-sm solid $color-grey-10;
-				box-shadow: 0 $spacing-xs $spacing-sm 0 $color-extended-shadow-dark,
-					0 $spacing-2xs $spacing-lg 0 $color-extended-shadow-light,
-					0 $popover-spacing-md $spacing-default 0
-						$color-extended-shadow-default;
+				box-shadow: 0 $spacing-xs $spacing-sm 0 $color-shadow-dark,
+					0 $spacing-2xs $spacing-lg 0 $color-shadow-light,
+					0 $popover-spacing-md $spacing-default 0 $color-shadow-default;
 				background: $color-base-white;
 				border-radius: $border-radius-md;
 				overflow: hidden;

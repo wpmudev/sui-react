@@ -1020,20 +1020,18 @@
 				}
 			}
 		},
-		"extended": {
-			"shadow": {
-				"light": {
-					"value": "rgba(115, 115, 115, 0.05)",
-					"type": "color"
-				},
-				"default": {
-					"value": "rgba(115, 115, 115, 0.08)",
-					"type": "color"
-				},
-				"dark": {
-					"value": "rgba(115, 115, 115, 0.1)",
-					"type": "color"
-				}
+		"shadow": {
+			"light": {
+				"value": "rgba(115, 115, 115, 0.05)",
+				"type": "color"
+			},
+			"default": {
+				"value": "rgba(115, 115, 115, 0.08)",
+				"type": "color"
+			},
+			"dark": {
+				"value": "rgba(115, 115, 115, 0.1)",
+				"type": "color"
 			}
 		}
 	},
