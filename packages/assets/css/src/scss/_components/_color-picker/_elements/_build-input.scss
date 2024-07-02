@@ -51,7 +51,7 @@
 				width: $colorpicker-size-width-sm;
 				background-position: center;
 				background-size: $colorpicker-size-width-xs;
-				border: $border-width-sm solid $color-extended-alpha-grey-10;
+				border: $border-width-sm solid $color-grey-a10;
 			}
 
 			@include element(input-preview-code) {

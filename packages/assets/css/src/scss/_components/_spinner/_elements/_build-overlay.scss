@@ -19,7 +19,7 @@
 			}
 
 			@include element(overlay) {
-				background-color: $color-extended-alpha-white-90;
+				background-color: $color-white-a90;
 				position: absolute;
 				top: 0;
 				bottom: 0;
@@ -27,7 +27,7 @@
 				right: 0;
 
 				@include modifier(dark) {
-					background-color: $color-extended-alpha-grey-70;
+					background-color: $color-grey-a70;
 
 					+ .sui-#{$block} .sui-#{$block}__icon--stroke {
 						stroke: $color-base-white;

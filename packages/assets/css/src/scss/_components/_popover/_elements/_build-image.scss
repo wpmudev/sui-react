@@ -17,16 +17,16 @@
 			@include modifier(image) {
 				@include modifies-element(popup-close) {
 					.sui-button {
-						border: $border-width-sm solid $color-extended-alpha-grey-10;
-						background: $color-extended-alpha-white-50;
+						border: $border-width-sm solid $color-grey-a10;
+						background: $color-white-a50;
 
 						&.sui-button--hover {
-							border-color: $color-extended-alpha-grey-30;
-							background: $color-extended-alpha-white-30;
+							border-color: $color-grey-a30;
+							background: $color-white-a30;
 						}
 
 						&.sui-button--focus {
-							background: $color-extended-alpha-white-90;
+							background: $color-white-a90;
 						}
 					}
 				}

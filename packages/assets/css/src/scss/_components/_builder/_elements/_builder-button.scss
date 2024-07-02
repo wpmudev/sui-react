@@ -24,11 +24,11 @@
 				@include modifier(hover) {
 					border-color: $color-grey-60;
 					color: $color-grey-90;
-					background: $color-extended-alpha-grey-01;
+					background: $color-grey-a01;
 				}
 
 				&:active {
-					background: $color-extended-alpha-grey-10;
+					background: $color-grey-a10;
 				}
 			}
 		}
