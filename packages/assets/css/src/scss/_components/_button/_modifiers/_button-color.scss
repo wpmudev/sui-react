@@ -5,7 +5,8 @@ $themes: primary, secondary, tertiary;
 $colors: (
 	blue: $color-primary-50,
 	black: $color-extended-neutral-10,
-	red: $color-extended-error-50,
+	// Remove this and change it with new colors.
+	red: #e52400,
 	navy: $color-primary-40,
 	white: $color-extended-neutral-100,
 );
