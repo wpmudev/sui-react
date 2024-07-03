@@ -49,7 +49,7 @@
     "@wpmudev/sui-builder": "^0.0.1",
     "@wpmudev/sui-code-editor": "^0.0.1",
     "@wpmudev/sui-code-snippet": "^0.0.1",
-    "@wpmudev/sui-color-picker": "^0.0.2",
+    "@wpmudev/sui-color-picker": "^0.0.1",
     "@wpmudev/sui-date-picker": "^0.0.1",
     "@wpmudev/sui-dropdown": "^0.0.1",
     "@wpmudev/sui-editor-toolbar": "^0.0.1",
