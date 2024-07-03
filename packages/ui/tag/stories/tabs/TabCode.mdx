@@ -64,4 +64,78 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 
 </Section>
 
+<Section title="Function to add tags in plugin menu." border={true}>
+  <p>
+    Use this function to use tags in plugin menu.
+  </p>
+  <List>
+    <span label={"Replace plugin_id with the unique id of the plugin in the body tag."} />
+    <span label={<><Code small={true}>li:nth-child(3)</Code> the number should be the item number in the list which to target. </>} />
+  </List>
+  <Code>
+    {`<?php
+    public function print_menu_styles() {
+      ?>
+      <style>
+      #adminmenu #plugin_id li span.menu-tag {
+        background-color: #737373;
+        border-radius: 12px;
+        color: #ffffff;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 700;
+        height: 16px;
+        letter-spacing: -0.1px;
+        line-height: 12px;
+        padding: 2px 8px;
+        text-align: center;
+        width: 38px;
+      }
+
+      #adminmenu #plugin_id li span.menu-tag.menu-tag--green {
+        background-color: #138639;
+      }
+
+      #adminmenu #plugin_id li span.menu-tag.menu-tag--blue {
+        background-color: #0059ff;
+      }
+
+      #adminmenu #plugin_id li span.menu-tag.menu-tag--navy {
+        background-color: #0045c4;
+      }
+
+      #adminmenu #plugin_id li span.menu-tag.menu-tag--yellow {
+        background-color: #ffcc20;
+        color: #1a1a1a;
+      }
+
+      #adminmenu #plugin_id li span.menu-tag.menu-tag--red {
+        background-color: #f45c59;
+      }
+
+      #adminmenu #plugin_id li span.menu-tag.menu-tag--black {
+        background-color: #1a1a1a;
+      }
+
+      #adminmenu #plugin_id li span.menu-tag.menu-tag--white {
+        background-color: #ffffff;
+        color: #1a1a1a;
+      }
+
+      #adminmenu #plugin_id ul.wp-submenu li:nth-child(3) a {
+        color: #138639;
+      }
+      </style>
+      <?php
+    }
+    ?>
+    `}
+  </Code>
+  <Code>
+    {`public static function get_menu_title() {
+    return esc_html__( 'Reseller', 'thc' ) . '&nbsp;<span class="menu-tag menu-tag--green">' . esc_html__( 'NEW', 'plugin-name' ) . '</span>';
+  }`}
+  </Code>
+</Section>
+
 <CommonPropsNotice />
