@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs';
-import { Page, Section, List } from "@wpmudev/sui-docs";
+import { Page, Section, List, Snippet } from "@wpmudev/sui-docs";
 import { Unstyled } from '@storybook/blocks';
 
 <Meta title="SUI/Getting Started" />
@@ -25,6 +25,26 @@ import { Unstyled } from '@storybook/blocks';
 			<p>
 				You can contact the team by heading to the <a href="https://wpmudev.com/contact/" target="_blank" rel="nofollow">WPMU DEV contact page</a>.
 			</p>
+		</Section>
+		<Section
+			contained={ true }
+			border= { true }
+			title="Installing Shared UI"
+		>
+			<p>
+				To get the complete Shared UI packages, run the following command:
+				```
+					npm install @wpmudev/sui-react
+				```
+				When you install this package, all component packages will be included, making them available in your project. Furthermore, additional packages will also be installed.
+				<List>
+					<span label="@wpmudev/sui-css" />
+					<span label="@wpmudev/sui-hooks" />
+					<span label="@wpmudev/sui-utils" />
+					<span label="@wpmudev/sui-icons" />
+				</List>
+			</p>
+			
 		</Section>
 		<Section title="How we work" contained={ true }>
 			<p>
