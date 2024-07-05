@@ -197,7 +197,7 @@ Navigation.argTypes = {
 		},
 	},
 	plugin: {
-		name: "User Status",
+		name: "Plugin",
 		options: [
 			"smush",
 			"defender",
