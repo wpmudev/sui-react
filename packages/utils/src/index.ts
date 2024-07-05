@@ -325,7 +325,7 @@ const PluginsIcons: Record<PluginsSlug, PluginIconTypes> = {
 	dashboard: {
 		bg: "#1C4DA9",
 		color: "#FFF",
-		icon: "PluginThc",
+		icon: "PluginDashboard",
 	},
 }
 
