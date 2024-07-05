@@ -211,6 +211,7 @@ Navigation.argTypes = {
 			"branda",
 			"blc",
 			"thc",
+			"dashboard",
 		],
 		control: {
 			type: "select",
