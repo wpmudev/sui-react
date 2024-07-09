@@ -3,7 +3,7 @@
 <div style="text-align: center;">
 <img src="https://img.shields.io/badge/Version-0.0.10-blue.svg" alt="Version"> <img src="https://img.shields.io/badge/License-GPL-orange.svg" alt="License">
 </div>
-<h2> Description </h2> It provides all the ui components for available for sui react
+<h2> Description </h2> It provides all the ui components available in sui react & all the necessary dependencies
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#license)
