@@ -253,6 +253,7 @@ export type PluginsSlug =
 	| "branda"
 	| "blc"
 	| "thc"
+	| "dashboard"
 
 export type PluginIconTypes = {
 	bg?: string
@@ -320,6 +321,11 @@ const PluginsIcons: Record<PluginsSlug, PluginIconTypes> = {
 		bg: "#F36056",
 		color: "#FFF",
 		icon: "PluginThc",
+	},
+	dashboard: {
+		bg: "#1C4DA9",
+		color: "#FFF",
+		icon: "PluginDashboard",
 	},
 }
 
