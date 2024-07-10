@@ -83,14 +83,14 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 	 * Colors information
 	 * Get the required properties for the color card.
 	 */
-	const setTheme = shade > 60 ? "light" : "dark"
+	const setTheme = shade > 60 ? "dark" : "light"
 	let setPrefix
 	if (shade === 50) {
 		setPrefix = "Base"
 	} else if (shade > 50) {
-		setPrefix = "Light"
-	} else {
 		setPrefix = "Dark"
+	} else {
+		setPrefix = "Light"
 	}
 	const setColor: string = mapColors[shade]
 	const setClass = palette === "secondary" ? false : true
@@ -157,7 +157,7 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 									style={{
 										padding: 10,
 										borderRadius: 4,
-										background: Number(key) > 60 ? "#141934" : "#FFF",
+										background: Number(key) < 30 ? "#141934" : "#FFF",
 									}}
 								>
 									<span
@@ -176,7 +176,7 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 										style={{
 											display: "block",
 											marginTop: 5,
-											color: Number(key) > 60 ? "#E9EAEE" : "#1A1A1A",
+											color: Number(key) < 30 ? "#E9EAEE" : "#1A1A1A",
 											fontSize: "12px",
 											lineHeight: "24px",
 											fontFamily: "monospace",

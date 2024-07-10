@@ -23,8 +23,8 @@ export const Palettes = {
 	},
 	// Grey Palette.
 	grey: {
-		"02": "#f8f8f8",
-		"05": "#f2f2f2",
+		2: "#f8f8f8",
+		5: "#f2f2f2",
 		10: "#e6e6e6",
 		20: "#cccccc",
 		30: "#b3b3b3",
@@ -44,7 +44,7 @@ export const Palettes = {
 	},
 	// Blue Palette.
 	blue: {
-		"05": "#e6eeff",
+		5: "#e6eeff",
 		10: "#b3cdff",
 		20: "#99bdff",
 		30: "#669bff",
@@ -57,7 +57,7 @@ export const Palettes = {
 	},
 	// Green Palette.
 	green: {
-		"05": "#e8f6ed",
+		5: "#e8f6ed",
 		10: "#d1eeda",
 		20: "#a3dcb5",
 		30: "#74cb91",
@@ -70,7 +70,7 @@ export const Palettes = {
 	},
 	// Yellow Palette.
 	yellow: {
-		"05": "#fffae9",
+		5: "#fffae9",
 		10: "#fff5d2",
 		20: "#ffeba6",
 		30: "#ffe079",
@@ -83,7 +83,7 @@ export const Palettes = {
 	},
 	// Red Palette.
 	red: {
-		"05": "#fce9e6",
+		5: "#fce9e6",
 		10: "#fad3cc",
 		20: "#f5a799",
 		30: "#ef7c66",
@@ -101,44 +101,28 @@ export const Palettes = {
 	},
 	// Primary Palette.
 	primary: {
-		40: "#0045C4",
-		50: "#0059FF",
-		80: "#B0CCFF",
-		90: "#EBF2FF",
+		5: "#e6eeff",
+		10: "#b3cdff",
+		20: "#99bdff",
+		30: "#669BFF",
+		40: "#337aff",
+		50: "#0059ff",
+		60: "#0047cc",
+		70: "#003599",
 	},
 	// Extended Palette.
 	neutral: {
-		0: "#000000",
-		10: "#1A1A1A",
-		20: "#333333",
-		50: "#505050",
-		60: "#737373",
-		70: "#AAAAAA",
-		80: "#E6E6E6",
-		90: "#F2F2F2",
-		95: "#F8F8F8",
-		100: "#FFFFFF",
-	},
-	success: {
-		10: "#05250F",
-		30: "#0C5E26",
-		50: "#18BB4B",
-		70: "#BAEBC9",
-		90: "#E8F8ED",
-	},
-	warning: {
-		10: "#191609",
-		30: "#5B502B",
-		50: "#FFCC20",
-		70: "#FFF4CE",
-		90: "#FFFBEF",
-	},
-	error: {
-		10: "#180909",
-		30: "#AB403E",
-		50: "#F45C59",
-		70: "#FCCECD",
-		90: "#FEEFEE",
+		2: "#f8f8f8",
+		5: "#f2f2f2",
+		10: "#e6e6e6",
+		20: "#cccccc",
+		30: "#b3b3b3",
+		40: "#999999",
+		50: "#7f7f7f",
+		60: "#666666",
+		70: "#4c4c4c",
+		80: "#333333",
+		90: "#1a1a1a",
 	},
 	// Secondary Palette.
 	smush: {
