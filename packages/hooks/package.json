@@ -37,7 +37,7 @@
   "clean-package": "../../postpack.config.json",
   "dependencies": {
     "@wpmudev/sui-utils": "^0.0.1",
-    "react-jss": "^10.10.0"
+    "@emotion/css": "^11.11.2"
   },
   "devDependencies": {
     "@emotion/hash": "^0.9.1"
