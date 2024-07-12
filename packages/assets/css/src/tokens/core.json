@@ -296,23 +296,23 @@
 				"type": "color"
 			},
 			"a10": {
-				"value": "rgba(0, 119, 255, 0.1)",
+				"value": "rgba(229, 36, 0, 0.1)",
 				"type": "color"
 			},
 			"a30": {
-				"value": "rgba(0, 119, 255, 0.3)",
+				"value": "rgba(229, 36, 0, 0.3)",
 				"type": "color"
 			},
 			"a50": {
-				"value": "rgba(0, 119, 255, 0.5)",
+				"value": "rgba(229, 36, 0, 0.5)",
 				"type": "color"
 			},
 			"a70": {
-				"value": "rgba(0, 119, 255, 0.7)",
+				"value": "rgba(229, 36, 0, 0.7)",
 				"type": "color"
 			},
 			"a90": {
-				"value": "rgba(0, 119, 255, 0.9)",
+				"value": "rgba(229, 36, 0, 0.9)",
 				"type": "color"
 			}
 		},

@@ -9,6 +9,7 @@ const Palettes = ({ arrays = [], colors, name, wrapper }) => {
 		const hasDescription = !isUndefined(arr.description) ? true : false
 		const hasWrapper = hasIntro || hasTitle || hasDescription ? true : false
 		const hasPalette = !isUndefined(arr.palette) ? true : false
+		const hasType = !isUndefined(arr.type) ? true : false
 
 		return (
 			<BuildSections
@@ -18,6 +19,7 @@ const Palettes = ({ arrays = [], colors, name, wrapper }) => {
 				{...(hasTitle && { title: arr.title })}
 				{...(hasDescription && { description: arr.description })}
 				{...(hasPalette && { palette: arr.palette })}
+				{...(hasType && { type: arr.type })}
 				data={arr.colors}
 			/>
 		)
@@ -35,7 +37,7 @@ const Palettes = ({ arrays = [], colors, name, wrapper }) => {
 				<BuildSections
 					data={objColors}
 					{...(!isUndefined(name) && { palette: name })}
-					{...(!isUndefined(wrapper) && { wrapper: wrapper })}
+					{...(!isUndefined(wrapper) && { wrapper })}
 				/>
 			)}
 		</Fragment>
@@ -50,11 +52,13 @@ const BuildSections = ({
 	description,
 	data,
 	palette,
+	type,
 }) => {
 	const rows = (
 		<BuildRows
 			data={data}
-			{...(!isUndefined(palette) && { palette: palette })}
+			{...(!isUndefined(palette) && { palette })}
+			{...(!isUndefined(type) && { type })}
 		/>
 	)
 
@@ -84,21 +88,34 @@ const BuildSections = ({
 }
 
 // Build "rows builder" component.
-const BuildRows = ({ data, palette }) => {
+const BuildRows = ({ data, palette, type = "none" }) => {
 	const colsLimit = 3
-
 	const contents = Object.keys(data)
 		.map((key, index) => {
-			const setTheme = key > 60 ? "light" : "dark"
-			const setPrefix = key === 50 ? "Base" : key > 60 ? "Light" : "Dark"
+			let setTheme = key < 40 ? "light" : "dark"
+			let setPrefix = key === 50 ? "Base" : key < 40 ? "Light" : "Dark"
+
+			switch (key) {
+				case "white":
+				case "transparent": {
+					setTheme = "light"
+					setPrefix = ""
+					break
+				}
+				case "black": {
+					setTheme = "dark"
+					setPrefix = ""
+					break
+				}
+			}
 
 			return (
 				<Col key={index} size="2">
 					<Card.Color
 						theme={setTheme}
 						content={{
-							palette: palette,
-							shade: key,
+							palette,
+							shade: "alpha" === type ? `a${key}` : key,
 							prefix: setPrefix,
 							hex: data[key],
 						}}

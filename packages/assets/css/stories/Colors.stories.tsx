@@ -8,7 +8,7 @@ import { Palettes } from "./content/Colors/Map"
 import { Section, Row, Col, Card, Message } from "@wpmudev/sui-docs"
 
 interface ColorProps {
-	palette?: "primary" | "secondary" | "extended"
+	palette?: "primary" | "secondary" | "extended" | "base"
 	secondary?:
 		| "smush"
 		| "hummingbird"
@@ -49,6 +49,8 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 	let mapColors
 	if (palette === "primary") {
 		mapColors = Palettes[palette]
+	} else if (palette === "base") {
+		mapColors = Palettes.base
 	} else if (palette === "secondary") {
 		mapColors = Palettes[secondary][type]
 	} else {
@@ -290,18 +292,35 @@ Colors.args = {
 	secondary: "smush",
 	extended: "neutral",
 	type: "general",
+	alpha: "black",
 	shade: 50,
 }
 Colors.argTypes = {
 	palette: {
 		name: "Palette",
-		options: ["primary", "secondary", "extended"],
+		options: [
+			"base",
+			"primary",
+			"grey",
+			"blue",
+			"green",
+			"yellow",
+			"red",
+			"alpha",
+			"secondary",
+		],
 		control: {
 			type: "select",
 			labels: {
+				base: "Base",
 				primary: "Primary",
+				grey: "Grey",
+				blue: "Blue",
+				green: "Green",
+				yellow: "Yellow",
+				red: "Red",
+				alpha: "Alpha",
 				secondary: "Secondary",
-				extended: "Extended",
 			},
 		},
 	},
@@ -347,6 +366,23 @@ Colors.argTypes = {
 			eq: "secondary",
 		},
 	},
+	alpha: {
+		name: "Alpha",
+		options: ["black", "white", "grey", "red"],
+		control: {
+			type: "select",
+			labels: {
+				black: "Black",
+				white: "White",
+				grey: "Grey",
+				red: "Red",
+			},
+		},
+		if: {
+			arg: "palette",
+			eq: "alpha",
+		},
+	},
 	extended: {
 		name: "Sub Palette",
 		options: ["neutral", "success", "warning", "error"],
@@ -386,6 +422,10 @@ Colors.argTypes = {
 			min: 0,
 			max: 100,
 			step: 5,
+		},
+		if: {
+			arg: "palette",
+			neq: "base",
 		},
 	},
 }

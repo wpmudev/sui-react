@@ -5,26 +5,10 @@ export const Palettes = {
 		black: "#000000",
 		transparent: "rgba(0, 0, 0, 0)",
 	},
-	// White Palette.
-	white: {
-		a10: "rgba(255, 255, 255, 0.1)",
-		a30: "rgba(255, 255, 255, 0.3)",
-		a50: "rgba(255, 255, 255, 0.5)",
-		a70: "rgba(255, 255, 255, 0.7)",
-		a90: "rgba(255, 255, 255, 0.9)",
-	},
-	// Black Palette.
-	black: {
-		a10: "rgba(0, 0, 0, 0.1)",
-		a30: "rgba(0, 0, 0, 0.3)",
-		a50: "rgba(0, 0, 0, 0.5)",
-		a70: "rgba(0, 0, 0, 0.7)",
-		a90: "rgba(0, 0, 0, 0.9)",
-	},
 	// Grey Palette.
 	grey: {
-		2: "#f8f8f8",
-		5: "#f2f2f2",
+		"02": "#f8f8f8",
+		"05": "#f2f2f2",
 		10: "#e6e6e6",
 		20: "#cccccc",
 		30: "#b3b3b3",
@@ -34,17 +18,10 @@ export const Palettes = {
 		70: "#4c4c4c",
 		80: "#333333",
 		90: "#1a1a1a",
-		a01: "rgba(26, 26, 26, 0.01)",
-		a05: "rgba(26, 26, 26, 0.05)",
-		a10: "rgba(26, 26, 26, 0.1)",
-		a20: "rgba(26, 26, 26, 0.2)",
-		a30: "rgba(26, 26, 26, 0.3)",
-		a70: "rgba(26, 26, 26, 0.7)",
-		a90: "rgba(26, 26, 26, 0.9)",
 	},
 	// Blue Palette.
 	blue: {
-		5: "#e6eeff",
+		"05": "#e6eeff",
 		10: "#b3cdff",
 		20: "#99bdff",
 		30: "#669bff",
@@ -57,7 +34,7 @@ export const Palettes = {
 	},
 	// Green Palette.
 	green: {
-		5: "#e8f6ed",
+		"05": "#e8f6ed",
 		10: "#d1eeda",
 		20: "#a3dcb5",
 		30: "#74cb91",
@@ -70,7 +47,7 @@ export const Palettes = {
 	},
 	// Yellow Palette.
 	yellow: {
-		5: "#fffae9",
+		"05": "#fffae9",
 		10: "#fff5d2",
 		20: "#ffeba6",
 		30: "#ffe079",
@@ -83,7 +60,7 @@ export const Palettes = {
 	},
 	// Red Palette.
 	red: {
-		5: "#fce9e6",
+		"05": "#fce9e6",
 		10: "#fad3cc",
 		20: "#f5a799",
 		30: "#ef7c66",
@@ -93,15 +70,10 @@ export const Palettes = {
 		70: "#891600",
 		80: "#5c0e00",
 		90: "#2e0700",
-		a10: "rgba(0, 119, 255, 0.1)",
-		a30: "rgba(0, 119, 255, 0.3)",
-		a50: "rgba(0, 119, 255, 0.5)",
-		a70: "rgba(0, 119, 255, 0.7)",
-		a90: "rgba(0, 119, 255, 0.9)",
 	},
 	// Primary Palette.
 	primary: {
-		5: "#e6eeff",
+		"05": "#e6eeff",
 		10: "#b3cdff",
 		20: "#99bdff",
 		30: "#669BFF",
@@ -111,18 +83,38 @@ export const Palettes = {
 		70: "#003599",
 	},
 	// Extended Palette.
-	neutral: {
-		2: "#f8f8f8",
-		5: "#f2f2f2",
-		10: "#e6e6e6",
-		20: "#cccccc",
-		30: "#b3b3b3",
-		40: "#999999",
-		50: "#7f7f7f",
-		60: "#666666",
-		70: "#4c4c4c",
-		80: "#333333",
-		90: "#1a1a1a",
+	// Alpha Palette.
+	alpha: {
+		black: {
+			a10: "rgba(0, 0, 0, 0.1)",
+			a30: "rgba(0, 0, 0, 0.3)",
+			a50: "rgba(0, 0, 0, 0.5)",
+			a70: "rgba(0, 0, 0, 0.7)",
+			a90: "rgba(0, 0, 0, 0.9)",
+		},
+		white: {
+			a10: "rgba(255, 255, 255, 0.1)",
+			a30: "rgba(255, 255, 255, 0.3)",
+			a50: "rgba(255, 255, 255, 0.5)",
+			a70: "rgba(255, 255, 255, 0.7)",
+			a90: "rgba(255, 255, 255, 0.9)",
+		},
+		grey: {
+			a01: "rgba(26, 26, 26, 0.01)",
+			a05: "rgba(26, 26, 26, 0.05)",
+			a10: "rgba(26, 26, 26, 0.1)",
+			a20: "rgba(26, 26, 26, 0.2)",
+			a30: "rgba(26, 26, 26, 0.3)",
+			a70: "rgba(26, 26, 26, 0.7)",
+			a90: "rgba(26, 26, 26, 0.9)",
+		},
+		red: {
+			a10: "rgba(229, 36, 0, 0.1)",
+			a30: "rgba(229, 36, 0, 0.3)",
+			a50: "rgba(229, 36, 0, 0.5)",
+			a70: "rgba(229, 36, 0, 0.7)",
+			a90: "rgba(229, 36, 0, 0.9)",
+		},
 	},
 	// Secondary Palette.
 	smush: {
