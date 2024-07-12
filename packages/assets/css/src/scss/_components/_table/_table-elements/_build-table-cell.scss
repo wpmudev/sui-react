@@ -127,7 +127,7 @@
 				@include modifier(trim) {
 					text-overflow: ellipsis;
 					overflow: hidden;
-					div {
+					& > div {
 						max-width: $table-width-lg;
 						white-space: nowrap;
 						overflow: hidden;
