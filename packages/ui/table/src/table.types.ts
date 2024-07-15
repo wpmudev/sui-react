@@ -163,6 +163,10 @@ type TableCellBaseProps = {
 	 */
 	isPrimary?: boolean
 	/**
+	 * Whether the cell is a group cell ( passed from row parent)
+	 */
+	_isGroup?: boolean
+	/**
 	 * Style
 	 */
 	style?: CSSProperties
@@ -246,6 +250,11 @@ interface TableRowProps
 	 * Specifies if the row is under the table footer
 	 */
 	actions?(options: Record<string, any>): React.ReactNode
+
+	/**
+	 * Specifies if the row is a group row
+	 */
+	isGroup?: boolean
 }
 
 /**

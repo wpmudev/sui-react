@@ -36,6 +36,7 @@ import { TableContext, TableSortBy } from "./table-context"
  * @param  root0.colSpan
  * @param  root0._htmlProps
  * @param  root0._style
+ * @param  root0._isGroup
  *
  * @return {JSX.Element} The JSX representation of the TableCell component.
  */
@@ -51,6 +52,7 @@ const TableCell: React.FC<TableCellProps> = ({
 	isTrim = false,
 	isPrimary = false,
 	colSpan,
+	_isGroup = false,
 	_htmlProps = {},
 	_style = {},
 }): JSX.Element => {
@@ -111,6 +113,8 @@ const TableCell: React.FC<TableCellProps> = ({
 		sortBtnProps = { ...sortBtnProps, ...methods }
 	}
 
+	const colSpanValue = _isGroup ? 100 : colSpan
+
 	return (
 		<TagName
 			ref={ref}
@@ -122,26 +126,27 @@ const TableCell: React.FC<TableCellProps> = ({
 					trim: isTrim,
 					primary: isPrimary,
 					"is-sticky-active": hasStickyCols && isSticky,
+					"is-group": _isGroup,
 				},
 				suiInlineClassname,
 			)}
 			{...(isHeading && { scope: "col" })}
 			role={isHeading ? "rowheader" : "cell"}
-			colSpan={colSpan}
+			{...(colSpanValue && { colSpan: colSpanValue })}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			{hasDragIcon && (
+			{hasDragIcon && !_isGroup && (
 				<Icons.Grip className="sui-table__cell--drag" size="sm" />
 			)}
 			{!isAction ? (
 				<div {...sortBtnProps}>
 					<span>{children}</span>
-					{isSortable && <SortIcon size="xs" />}
+					{isSortable && !_isGroup && <SortIcon size="xs" />}
 				</div>
 			) : (
 				<Fragment>
 					{children}
-					{isSortable && <SortIcon size="xs" />}
+					{isSortable && !_isGroup && <SortIcon size="xs" />}
 				</Fragment>
 			)}
 		</TagName>

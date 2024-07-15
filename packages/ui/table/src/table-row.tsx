@@ -48,6 +48,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	expandableContent = null,
 	status,
 	isUnderFooter = false,
+	isGroup = false,
 	_htmlProps = {},
 	_style = {},
 	...props
@@ -103,6 +104,7 @@ const TableRow: React.FC<TableRowProps> = ({
 			hover: !isUnderFooter && !isUnderHeader && isHovered,
 			expandable: isExpandable,
 			expanded: isExpanded,
+			"is-group": isGroup,
 			[status as string]: !isEmpty(status ?? ""),
 		},
 		suiInlineClassname,
@@ -176,6 +178,8 @@ const TableRow: React.FC<TableRowProps> = ({
 			p.isPrimary = true
 		}
 
+		p._isGroup = isGroup
+
 		return (
 			<Fragment key={index}>{cloneElement(child as ReactElement, p)}</Fragment>
 		)
@@ -228,7 +232,7 @@ const TableRow: React.FC<TableRowProps> = ({
 				{..._renderHTMLPropsSafely(_htmlProps)}
 				{...a11yProps}
 			>
-				{ctx?.allowCheck && !isUnderFooter && (
+				{ctx?.allowCheck && !isUnderFooter && !isGroup && (
 					<TableCell
 						className="sui-table__cell--selection"
 						isSticky={!!ctx?.stickyCols}
@@ -244,7 +248,7 @@ const TableRow: React.FC<TableRowProps> = ({
 					</TableCell>
 				)}
 				{children}
-				{(!!actions || toggleBtn) && !isUnderFooter && (
+				{(!!actions || toggleBtn) && !isUnderFooter && !isGroup && (
 					<TableCell
 						className="sui-table__cell--actions"
 						isSticky={!!ctx?.stickyCols}
@@ -256,7 +260,7 @@ const TableRow: React.FC<TableRowProps> = ({
 					</TableCell>
 				)}
 			</tr>
-			{isExpandable && !!expandableContent && isExpanded && (
+			{isExpandable && !!expandableContent && isExpanded && !isGroup && (
 				<tr
 					role="row"
 					className={generateCN("sui-table__row", {

@@ -180,6 +180,12 @@ import { doesNotMatch, notDeepEqual } from "assert"
     		</p>
     	</PropSection>
 
+		<PropSection title="isGroup" type="boolean" defaultValue="false">
+    		<p>
+    			Use this prop to display the row as a group, useful when displaying rows into multiple categories, notice that it should have a single cell with a label as children, the logic for showing the records into groups should be done by the host application
+    		</p>
+    	</PropSection>
+
     </Section>
 
      <Section title="TableCell" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>

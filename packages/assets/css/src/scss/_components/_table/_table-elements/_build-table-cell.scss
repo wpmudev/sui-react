@@ -134,6 +134,12 @@
 						text-overflow: ellipsis;
 					}
 				}
+
+				@include modifier(is-group) {
+					left: 0;
+					background: $color-extended-neutral-95;
+					color: $color-extended-neutral-50;
+				}
 			}
 
 			@include modifier(draggable) {
