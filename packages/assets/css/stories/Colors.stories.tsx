@@ -8,7 +8,7 @@ import { Palettes } from "./content/Colors/Map"
 import { Section, Row, Col, Card, Message } from "@wpmudev/sui-docs"
 
 interface ColorProps {
-	palette?: "primary" | "secondary" | "extended" | "base"
+	palette?: "primary" | "secondary" | "extended" | "base" | "alpha"
 	secondary?:
 		| "smush"
 		| "hummingbird"
@@ -27,6 +27,7 @@ interface ColorProps {
 	extended?: "neutral" | "success" | "warning" | "error"
 	shade: number
 	type?: "general" | "variant"
+	alpha?: "black" | "white" | "grey" | "red"
 }
 
 // Configure default options.
@@ -41,7 +42,14 @@ export default {
 }
 
 // Build "Colors" story.
-const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
+const Colors = ({
+	palette,
+	secondary,
+	extended,
+	shade,
+	type,
+	alpha,
+}: ColorProps) => {
 	/**
 	 * Semantic colors
 	 * Get the list of colors available from the "Palettes" map.
@@ -49,10 +57,10 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 	let mapColors
 	if (palette === "primary") {
 		mapColors = Palettes[palette]
-	} else if (palette === "base") {
-		mapColors = Palettes.base
 	} else if (palette === "secondary") {
 		mapColors = Palettes[secondary][type]
+	} else if (palette === "alpha") {
+		mapColors = Palettes[palette][alpha]
 	} else {
 		mapColors = Palettes[extended]
 	}
@@ -66,9 +74,14 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 		setPalette = palette
 	} else if (palette === "secondary") {
 		setPalette = secondary
+	} else if (palette === "alpha") {
+		setPalette = alpha
 	} else {
 		setPalette = extended
 	}
+
+	// Color shade
+	const colorShade = "alpha" === palette ? `a${shade}` : shade
 
 	const codeStyles = {
 		display: "block",
@@ -85,17 +98,23 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 	 * Colors information
 	 * Get the required properties for the color card.
 	 */
-	const setTheme = shade > 60 ? "dark" : "light"
+	let setTheme = shade > 40 ? "dark" : "light"
 	let setPrefix
 	if (shade === 50) {
 		setPrefix = "Base"
-	} else if (shade > 50) {
+	} else if (shade > 40) {
 		setPrefix = "Dark"
 	} else {
 		setPrefix = "Light"
 	}
+
+	if ("alpha" === palette) {
+		setPrefix = "Alpha"
+		setTheme = "light"
+	}
+
 	const setColor: string = mapColors[shade]
-	const setClass = palette === "secondary" ? false : true
+	const setClass = palette === "secondary" || "alpha" === palette ? false : true
 	const setVars = true
 	let setVarName
 	if (palette === "primary") {
@@ -115,6 +134,8 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 		doesShadeExists = shade in Palettes[palette]
 	} else if (palette === "secondary") {
 		doesShadeExists = shade in Palettes[secondary][type]
+	} else if (palette === "alpha") {
+		doesShadeExists = shade in Palettes[palette][alpha]
 	} else {
 		doesShadeExists = shade in Palettes[extended]
 	}
@@ -153,13 +174,22 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 					}}
 				>
 					{Object.keys(mapColors).map((key, index) => {
+						const bgColor =
+							(Number(key) < 30 && "alpha" !== palette) || "white" === alpha
+								? "#141934"
+								: "#FFF"
+						const textColor =
+							(Number(key) < 30 && "alpha" !== palette) || "white" === alpha
+								? "#E9EAEE"
+								: "#1A1A1A"
+
 						return (
 							<div key={index} style={{ padding: 5 }}>
 								<div
 									style={{
 										padding: 10,
 										borderRadius: 4,
-										background: Number(key) < 30 ? "#141934" : "#FFF",
+										background: bgColor,
 									}}
 								>
 									<span
@@ -171,14 +201,14 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 											borderRadius: 40,
 											backgroundColor: mapColors[key],
 										}}
-										aria-label={`${setPalette} palette, shade ${shade}`}
+										aria-label={`${setPalette} palette, shade ${colorShade}`}
 									/>
 
 									<span
 										style={{
 											display: "block",
 											marginTop: 5,
-											color: Number(key) < 30 ? "#E9EAEE" : "#1A1A1A",
+											color: textColor,
 											fontSize: "12px",
 											lineHeight: "24px",
 											fontFamily: "monospace",
@@ -216,7 +246,7 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 									textAlign: "center",
 								}}
 							>
-								.sui-bg-{setPalette}--{shade}
+								.sui-bg-{setPalette}--{colorShade}
 							</code>
 						</Col>
 					</Row>
@@ -233,7 +263,7 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 									color: setColor,
 								}}
 							>
-								.sui-color-{setPalette}--{shade}
+								.sui-color-{setPalette}--{colorShade}
 							</code>
 						</Col>
 					</Row>
@@ -252,7 +282,7 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 									textAlign: "center",
 								}}
 							>
-								.sui-border-{setPalette}--{shade}
+								.sui-border-{setPalette}--{colorShade}
 							</code>
 						</Col>
 					</Row>
@@ -290,7 +320,7 @@ const Colors = ({ palette, secondary, extended, shade, type }: ColorProps) => {
 Colors.args = {
 	palette: "primary",
 	secondary: "smush",
-	extended: "neutral",
+	extended: "grey",
 	type: "general",
 	alpha: "black",
 	shade: 50,
@@ -298,29 +328,15 @@ Colors.args = {
 Colors.argTypes = {
 	palette: {
 		name: "Palette",
-		options: [
-			"base",
-			"primary",
-			"grey",
-			"blue",
-			"green",
-			"yellow",
-			"red",
-			"alpha",
-			"secondary",
-		],
+		options: ["primary", "secondary", "extended", "alpha"],
 		control: {
 			type: "select",
 			labels: {
 				base: "Base",
 				primary: "Primary",
-				grey: "Grey",
-				blue: "Blue",
-				green: "Green",
-				yellow: "Yellow",
-				red: "Red",
-				alpha: "Alpha",
 				secondary: "Secondary",
+				extended: "Extended",
+				alpha: "Alpha",
 			},
 		},
 	},
@@ -367,7 +383,7 @@ Colors.argTypes = {
 		},
 	},
 	alpha: {
-		name: "Alpha",
+		name: "Color (Alpha)",
 		options: ["black", "white", "grey", "red"],
 		control: {
 			type: "select",
@@ -385,14 +401,14 @@ Colors.argTypes = {
 	},
 	extended: {
 		name: "Sub Palette",
-		options: ["neutral", "success", "warning", "error"],
+		options: ["grey", "green", "yellow", "red"],
 		control: {
 			type: "select",
 			labels: {
-				neutral: "Neutral",
-				success: "Success",
-				warning: "Warning",
-				error: "Error",
+				grey: "Neutral",
+				green: "Success",
+				yellow: "Warning",
+				red: "Error",
 			},
 		},
 		if: {
@@ -421,11 +437,7 @@ Colors.argTypes = {
 			type: "range",
 			min: 0,
 			max: 100,
-			step: 5,
-		},
-		if: {
-			arg: "palette",
-			neq: "base",
+			step: 1,
 		},
 	},
 }
