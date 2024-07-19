@@ -78,7 +78,7 @@
 
 				@include modifier(sticky) {
 					background-color: $color-extended-neutral-100;
-					left: calc(62px - $border-width-md);
+					//left: calc(62px - $border-width-md);
 					position: sticky;
 					width: $table-width-xs;
 
