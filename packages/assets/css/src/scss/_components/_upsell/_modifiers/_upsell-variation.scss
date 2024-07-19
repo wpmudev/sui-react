@@ -112,6 +112,15 @@
 					background-color: $color-secondary-beehive-general-50;
 				}
 			}
+
+			@include modifier(dashboard) {
+				background: $color-extended-neutral-95;
+				border-color: $color-extended-neutral-80;
+
+				@include modifies-element(icon) {
+					background-color: $color-primary-50;
+				}
+			}
 		}
 	}
 
