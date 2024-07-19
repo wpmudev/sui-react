@@ -10,6 +10,8 @@ import Stripe from "./Examples/Stripe.mdx"
 import Selection from "./Examples/Selection.mdx"
 import Drag from "./Examples/Drag.mdx"
 import Toolbar from "./Examples/Toolbar.mdx"
+import Grouped from "./Examples/Grouped.mdx"
+
 
 export const generalCode = (props = "") => dedent`
   import React, { useEffect, useState } from "react"
@@ -641,6 +643,9 @@ export const TableExample = ({ ...props }) => {
 		</div>
 		<div label="Toolbar" value="toolbar">
 			<Toolbar />
+		</div>
+        <div label="Grouped" value="grouped">
+			<Grouped />
 		</div>
 	</Switcher>
 </Section>

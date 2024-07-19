@@ -1,6 +1,113 @@
 import React from "react"
 import { Box, BoxGroup } from "@wpmudev/sui-box"
 
+export const groupedRecords = [
+	{
+		id: 2,
+		title: "Contact Us Form",
+		tag: "Draft",
+		submission: "April 21, 2022 10:30 am",
+		group: "report",
+		status: "info",
+	},
+	{
+		id: 6,
+		title: "Order Form",
+		tag: "Published",
+		submission: "April 25, 2022 2:00 pm",
+		status: "success",
+		group: "report",
+		props: {
+			isExpandable: true,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
+		},
+	},
+	{
+		id: 7,
+		title: "Support Request",
+		tag: "Draft",
+		submission: "April 26, 2022 4:45 pm",
+		status: "info",
+		group: "report",
+		props: {
+			isExpandable: true,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
+		},
+	},
+	{
+		id: 8,
+		title: "Contact Information",
+		tag: "Draft",
+		submission: "April 27, 2022 11:30 am",
+		status: "info",
+		group: "notification",
+	},
+	{
+		id: 9,
+		title: "Event Registration",
+		tag: "Published",
+		submission: "April 28, 2022 5:10 pm",
+		status: "success",
+		group: "report",
+		props: {
+			isExpandable: true,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
+		},
+	},
+	{
+		id: 10,
+		title: "Survey Form",
+		tag: "Draft",
+		submission: "April 29, 2022 9:50 am",
+		status: "info",
+		group: "notification",
+	},
+	{
+		id: 11,
+		title: "Product Feedback",
+		tag: "Published",
+		submission: "April 30, 2022 3:30 pm",
+		status: "success",
+		group: "notification",
+		props: {
+			isExpandable: true,
+			expandableContent: (
+				<Box>
+					<BoxGroup isInline={false}>
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry standard dummy text ever
+						since the 1500s
+					</BoxGroup>
+				</Box>
+			),
+		},
+	},
+]
+
 export const records = [
 	{
 		id: 1,
