@@ -26,6 +26,34 @@ import { Unstyled } from '@storybook/blocks';
 				You can contact the team by heading to the <a href="https://wpmudev.com/contact/" target="_blank" rel="nofollow">WPMU DEV contact page</a>.
 			</p>
 		</Section>
+		<Section
+			contained={ true }
+			border= { true }
+			title="Installing Shared UI"
+		>
+			<p>
+				To get all the components packages, run the following command:
+				```
+					npm install @wpmudev/sui-react
+				```
+				When you install this package, additional packages will also be installed.
+				<List>
+					<span label="@wpmudev/sui-hooks" />
+					<span label="@wpmudev/sui-utils" />
+				</List>
+				
+				You will also need to install `sui-css` and `sui-icons` packages: 
+				```
+                    npm install @wpmudev/sui-css @wpmudev/sui-icons
+				``` 
+
+				Finally, make sure to import the styles in your app, you can add this line to your top-most component in your application: 
+				```
+					import '@wpmudev/sui-css/dist/css/sui-css.min.css'
+				```
+			</p>
+			
+		</Section>
 		<Section title="How we work" contained={ true }>
 			<p>
 				The following set of essential rules allows us to get to the highest level of productivity while benefiting the company and our team members.

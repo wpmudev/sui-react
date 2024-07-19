@@ -43,8 +43,11 @@ const PackageInstallGuide: React.FunctionComponent<
 		>
 			<p>
 				Install the package <Code small={true}>{packageName}</Code> as an
-				individual component or follow the Overview page instructions to get the
-				complete SUI Components package.
+				individual component or follow the{" "}
+				<a href="/?path=/docs/sui-getting-started--docs" target="_blank">
+					overview page
+				</a>{" "}
+				instructions to get the complete SUI Components package.
 			</p>
 
 			<p>
