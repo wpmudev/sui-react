@@ -139,6 +139,11 @@
 					left: 0;
 					background: $color-extended-neutral-95;
 					color: $color-extended-neutral-50;
+					> div {
+						display: flex;
+						align-items: center;
+						gap: $spacing-md;
+					}
 				}
 			}
 

@@ -3,6 +3,7 @@ import React, { CSSProperties, HTMLProps, Ref, RefObject } from "react"
 import { InputProps } from "@wpmudev/sui-input"
 import { SelectBaseProps, SelectOptionType } from "@wpmudev/sui-select"
 import { TableColumnType, TableSortBy } from "./table-context"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 import {
 	OmitNestedKey,
 	SuiHTMLAttributes,
@@ -174,6 +175,10 @@ type TableCellBaseProps = {
 	 * If table cell is under action cell column
 	 */
 	isAction?: boolean
+	/**
+	 * Adds icon to the cell
+	 */
+	icon?: IconsNamesType
 	/**
 	 * Display drag icon when true
 	 */

@@ -15,6 +15,7 @@ import { Button } from "@wpmudev/sui-button"
 import { Pagination } from "@wpmudev/sui-pagination"
 import { chunkArray } from "@wpmudev/sui-utils"
 import { records, groupedRecords } from "../../records"
+import { Email } from "@wpmudev/sui-icons"
 
 const itemsPerPage = 5
 
@@ -88,13 +89,20 @@ export const TableExample = ({ ...props }: Record<string, any>) => {
 		)
 	}
 
+	const groupsIconsMapping: Record<string, any> = {
+		report: "Reports",
+		notification: "Email",
+	}
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<Table
 					stickyCols={true}
 					onAction={(actionType, data) => {
-						let dRows: Record<string, any>[] = [...rows]
+						let dRows: Record<string, any>[] = [
+							...(rows as Record<string, any>[]),
+						]
 
 						switch (actionType) {
 							case "bulk-action":
@@ -153,7 +161,7 @@ export const TableExample = ({ ...props }: Record<string, any>) => {
 					</TableHead>
 					<TableBody>
 						{!isGrouped &&
-							rows?.map((record, index) => (
+							rows?.map((record: Record<string, any>, index: number) => (
 								<TableRow
 									key={index}
 									id={record.id}
@@ -185,7 +193,7 @@ export const TableExample = ({ ...props }: Record<string, any>) => {
 							Object.entries(rows).map(([group, items]) => (
 								<Fragment key="group">
 									<TableRow isGroup={true}>
-										<TableCell>
+										<TableCell icon={groupsIconsMapping[group]}>
 											<strong>{group}</strong>
 										</TableCell>
 									</TableRow>

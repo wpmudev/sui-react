@@ -37,6 +37,7 @@ import { TableContext, TableSortBy } from "./table-context"
  * @param  root0._htmlProps
  * @param  root0._style
  * @param  root0._isGroup
+ * @param  root0.icon
  *
  * @return {JSX.Element} The JSX representation of the TableCell component.
  */
@@ -52,6 +53,7 @@ const TableCell: React.FC<TableCellProps> = ({
 	isTrim = false,
 	isPrimary = false,
 	colSpan,
+	icon,
 	_isGroup = false,
 	_htmlProps = {},
 	_style = {},
@@ -93,6 +95,13 @@ const TableCell: React.FC<TableCellProps> = ({
 
 	// Default sort icon
 	let SortIcon = Icons.CaretUpDown
+
+	let PreIcon = null
+
+	// Cell pre icon
+	if (icon) {
+		PreIcon = Icons[icon]
+	}
 
 	// Icon based on the sorting
 	if (!isEmpty(order) && sortBy?.column === id) {
@@ -140,11 +149,13 @@ const TableCell: React.FC<TableCellProps> = ({
 			)}
 			{!isAction ? (
 				<div {...sortBtnProps}>
+					{PreIcon && <PreIcon size="sm" />}
 					<span>{children}</span>
 					{isSortable && !_isGroup && <SortIcon size="xs" />}
 				</div>
 			) : (
 				<Fragment>
+					{PreIcon && <PreIcon size="xs" />}
 					{children}
 					{isSortable && !_isGroup && <SortIcon size="xs" />}
 				</Fragment>
