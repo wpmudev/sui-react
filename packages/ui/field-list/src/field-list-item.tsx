@@ -47,6 +47,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 				"sui-field-list__item",
 				{
 					disabled: props?.isDisabled,
+					"no-toggle": !hasToggle,
 				},
 				suiInlineClassname,
 			)}
