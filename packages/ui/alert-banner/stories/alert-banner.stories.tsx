@@ -58,11 +58,8 @@ export const AlertBanner = ({ variation, ...props }: AlertBannerProps) => {
 				<div style={box}>
 					<SuiAlertBanner {...props} variation={variation} actions={actions}>
 						<div>
-							Lorem ipsum dolor{" "}
-							<a href="https://google.com" target="_blank" rel="noreferrer">
-								Link
-							</a>{" "}
-							sit amet, consectetur adipiscing elit. Proin volutpat.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+							volutpat.
 						</div>
 					</SuiAlertBanner>
 				</div>
