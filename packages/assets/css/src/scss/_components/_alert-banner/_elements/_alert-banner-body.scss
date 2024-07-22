@@ -31,6 +31,10 @@
 				align-items: flex-start;
 				gap: $banner-spacing-xxs;
 				color: $color-grey-90;
+
+				a {
+					text-decoration: none;
+				}
 			}
 
 			@include element(body-actions) {
