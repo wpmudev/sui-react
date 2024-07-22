@@ -236,7 +236,7 @@ const SuiWrapper = ({ children, context }) => {
 
 	return (
 		<WordPress>
-			<div id="suiwrap" className={`sui-wrap sui-theme--${suitheme}`}>
+			<div id="sui-wrap" className={`sui-wrap sui-theme--${suitheme}`}>
 				{children}
 			</div>
 		</WordPress>

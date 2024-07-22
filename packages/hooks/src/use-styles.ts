@@ -102,7 +102,7 @@ export const CSS_SHORTHAND_MAPS: Record<string, string> = {
 }
 
 // We need this to wrap inline styles to prioritize
-const parentSelector: string = "body #suiwrap &"
+const parentSelector: string = "body #sui-wrap &"
 
 /**
  * Build style object based on prop name and value
