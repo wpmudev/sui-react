@@ -57,8 +57,13 @@ export const AlertBanner = ({ variation, ...props }: AlertBannerProps) => {
 			<div className="sui-layout__content">
 				<div style={box}>
 					<SuiAlertBanner {...props} variation={variation} actions={actions}>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-						volutpat.
+						<div>
+							Lorem ipsum dolor{" "}
+							<a href="https://google.com" target="_blank" rel="noreferrer">
+								Link
+							</a>{" "}
+							sit amet, consectetur adipiscing elit. Proin volutpat.
+						</div>
 					</SuiAlertBanner>
 				</div>
 			</div>
