@@ -3,11 +3,72 @@
 $themes: primary, secondary, tertiary;
 
 $colors: (
-	blue: $color-primary-50,
-	black: $color-grey-90,
-	red: $color-red-50,
-	navy: $color-primary-60,
-	white: $color-base-white,
+	primary: (
+		blue: (
+			default: $color-primary-50,
+			hover: $color-primary-60,
+		),
+		black: (
+			default: $color-grey-90,
+			hover: $color-grey-70,
+		),
+		red: (
+			default: $color-red-50,
+			hover: $color-red-60,
+		),
+		navy: (
+			default: $color-primary-60,
+			hover: $color-primary-60,
+		),
+		white: (
+			default: $color-base-white,
+			hover: $color-white-a90,
+		),
+	),
+	secondary: (
+		blue: (
+			default: $color-primary-50,
+			hover: $color-primary-a10,
+		),
+		black: (
+			default: $color-grey-90,
+			hover: $color-black-a10,
+		),
+		red: (
+			default: $color-red-50,
+			hover: $color-red-a10,
+		),
+		navy: (
+			default: $color-primary-60,
+			hover: $color-primary-a10,
+		),
+		white: (
+			default: $color-base-white,
+			hover: $color-base-white,
+		),
+	),
+	tertiary: (
+		blue: (
+			default: $color-primary-50,
+			hover: $color-primary-a10,
+		),
+		black: (
+			default: $color-grey-90,
+			hover: $color-black-a10,
+		),
+		red: (
+			default: $color-red-50,
+			hover: $color-red-a10,
+		),
+		navy: (
+			default: $color-primary-60,
+			hover: $color-primary-a10,
+		),
+		white: (
+			default: $color-base-white,
+			hover: $color-base-white,
+		),
+	),
 );
 
 $colors-high-contrast: (
@@ -28,45 +89,46 @@ $colors-high-contrast: (
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			@each $theme in $themes {
-				@each $name, $value in $colors {
+				@each $name, $values in map-get($colors, $theme) {
+					$default: map-get($values, default);
+					$hover: map-get($values, hover);
 					$modifier-name: #{$theme + "-" + $name};
 
 					@include modifier($modifier-name) {
 						@if $theme == tertiary {
 							border-color: transparent;
 							background: transparent;
-							color: $value;
+							color: $default;
 
 							&.sui-#{$block-name}--hover {
-								border-color: if($name == white, $value, tint($value, 90%));
-								background: if($name == white, $value, tint($value, 90%));
-								color: if($name == white, $color-grey-90, $value);
+								background: $hover;
+								color: if($name == white, $color-grey-90, $default);
 							}
 
 							&.sui-#{$block-name}--focus {
 								background: if($name == white, transparent, $color-base-white);
-								color: $value;
+								color: $default;
 
 								&:after {
 									border-width: $border-width-md;
 									inset: -#{$border-width-md};
 									border-radius: $border-radius-default;
-									border-color: $value;
+									border-color: $default;
 								}
 							}
 						} @else if $theme == secondary {
-							border-color: $value;
+							border-color: $default;
 							background: transparent;
-							color: $value;
+							color: $default;
 
 							&.sui-#{$block-name}--hover {
-								background: if($name == white, $value, tint($value, 90%));
-								color: if($name == white, $color-grey-90, $value);
+								background: $hover;
+								color: if($name == white, $color-grey-90, $default);
 							}
 
 							&.sui-#{$block-name}--focus {
-								background: if($name == white, $value, tint($value, 90%));
-								color: if($name == white, $color-grey-90, $value);
+								background: $hover;
+								color: if($name == white, $color-grey-90, $default);
 
 								&:after {
 									border-width: $border-width-md;
@@ -79,27 +141,19 @@ $colors-high-contrast: (
 								}
 							}
 						} @else {
-							border-color: $value;
-							background: $value;
+							border-color: $default;
+							background: $default;
 							color: if($name == white, $color-grey-90, $color-base-white);
 
 							&.sui-#{$block-name}--hover {
-								border-color: if(
-									$name == white,
-									shade($value, 5%),
-									shade($value, 40%)
-								);
-								background: if(
-									$name == white,
-									shade($value, 5%),
-									shade($value, 40%)
-								);
+								border-color: $hover;
+								background: $hover;
 								color: if($name == white, $color-grey-90, $color-base-white);
 							}
 
 							&.sui-#{$block-name}--focus {
-								border-color: $value;
-								background: $value;
+								border-color: $default;
+								background: $default;
 								color: if($name == white, $color-grey-90, $color-base-white);
 
 								&:after {
