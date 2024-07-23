@@ -57,7 +57,7 @@
 
 			@include element(calendar-weekdays) {
 				align-items: center;
-				color: $color-grey-60;
+				color: $color-grey-40;
 				background: $color-grey-02;
 				display: flex;
 			}
@@ -71,7 +71,7 @@
 			@include element(calendar-days) {
 				background: $color-base-white;
 				align-items: center;
-				color: $color-grey-50;
+				color: $color-grey-90;
 				display: flex;
 				flex-wrap: wrap;
 			}
