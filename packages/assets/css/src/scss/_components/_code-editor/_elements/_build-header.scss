@@ -16,7 +16,7 @@
 		@include block($block) {
 			@include element(header) {
 				align-items: center;
-				background: $color-grey-05;
+				background: $color-grey-02;
 				border: $border-width-sm solid $color-grey-10;
 				border-bottom: 0;
 				display: flex;

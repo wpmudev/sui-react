@@ -24,6 +24,7 @@
 					&-item {
 						border-radius: $datepicker-border-radius-lg;
 						display: inline-flex;
+						font-weight: $font-weight-md;
 
 						&--active {
 							background: $color-primary-50;
