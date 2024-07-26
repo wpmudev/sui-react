@@ -34,6 +34,13 @@
 				@include modifies-element(box) {
 					border-color: $color-base-black;
 				}
+
+				&.sui-#{$block}--indeterminate,
+				&.sui-#{$block}--checked {
+					@include modifies-element(box) {
+						background: $color-base-black;
+					}
+				}
 			}
 		}
 	}

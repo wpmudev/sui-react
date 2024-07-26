@@ -38,7 +38,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			inputClass,
 			isMultiLine = false,
 			isSmall,
-			isReadOnly = false,
+			isReadOnly = true,
 			isError = false,
 			isDisabled = false,
 			onClickIcon,
