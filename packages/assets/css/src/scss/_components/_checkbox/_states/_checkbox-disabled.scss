@@ -13,11 +13,11 @@
 		@include block($block) {
 			@include modifier(disabled) {
 				pointer-events: none;
-				color: $color-grey-30;
+				color: $color-grey-50;
 
 				@include modifies-element(box) {
 					border-color: $color-grey-10;
-					background: $color-grey-10;
+					background: $color-grey-05;
 				}
 
 				@include modifies-element(icon) {
