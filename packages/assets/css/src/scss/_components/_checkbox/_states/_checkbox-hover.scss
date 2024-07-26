@@ -15,6 +15,13 @@
 				@include modifies-element(box) {
 					border-color: $color-primary-50;
 				}
+
+				&.sui-#{$block}--indeterminate,
+				&.sui-#{$block}--checked {
+					@include modifies-element(box) {
+						background: $color-primary-60;
+					}
+				}
 			}
 		}
 	}
