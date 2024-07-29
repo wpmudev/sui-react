@@ -5,7 +5,7 @@ import { ColorPickerProps } from "./color-picker.types"
 import { Button } from "@wpmudev/sui-button"
 import { Input } from "@wpmudev/sui-input"
 
-import PreviewImage from "./static/opaque.png"
+const PreviewImage = require("./static/opaque.png")
 
 import Picker from "./elements/picker"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
