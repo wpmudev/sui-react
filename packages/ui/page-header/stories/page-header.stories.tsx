@@ -8,7 +8,7 @@ import { Button } from "@wpmudev/sui-button"
 import docs from "./page-header.mdx"
 
 export default {
-	title: "SUI/Components/Core/Page Header",
+	title: "SUI/Components/Modules/Page Header",
 	component: SuiPageHeader,
 	parameters: {
 		layout: "fullscreen",
