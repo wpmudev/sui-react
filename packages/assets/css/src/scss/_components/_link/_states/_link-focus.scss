@@ -18,6 +18,8 @@
 			@include modifier(focus) {
 				&.sui-#{$block} {
 					color: $color-primary-50;
+					outline: solid;
+					outline-width: thin;
 				}
 
 				&.sui-#{$block}--secondary {
