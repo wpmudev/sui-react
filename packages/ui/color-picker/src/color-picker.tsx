@@ -5,8 +5,6 @@ import { ColorPickerProps } from "./color-picker.types"
 import { Button } from "@wpmudev/sui-button"
 import { Input } from "@wpmudev/sui-input"
 
-const PreviewImage = require("./static/opaque.png")
-
 import Picker from "./elements/picker"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
@@ -168,7 +166,9 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 						style={
 							tempColor
 								? { backgroundColor: tempColor }
-								: { backgroundImage: `url(${PreviewImage})` }
+								: {
+										backgroundImage: `url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAAK0lEQVQ4y2P8//8/A25w7949PLJMDBSAUc0jQzML/jSkpKQ0GmCjminRDADJNQjBr5nbigAAAABJRU5ErkJggg==')`,
+								  }
 						}
 					/>
 				</div>
