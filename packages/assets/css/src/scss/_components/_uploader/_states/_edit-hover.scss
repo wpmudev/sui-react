@@ -1,21 +1,22 @@
-@use "sass:map";
-
 @use "../../../_utils/utils" as *;
 
-/// Build uploader
+/// Edit Hover
 ///
-/// @type block
+/// @type state
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-uploader($block) {
+@mixin edit-hover($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
-		// Block wrapper.
 		@include block($block) {
-			position: relative;
-			max-width: $uploader-size-width;
+			@include modifier(hover) {
+				@include modifies-element(pick) {
+					background: $color-grey-05;
+					color: $color-grey-90;
+				}
+			}
 		}
 	}
 }
