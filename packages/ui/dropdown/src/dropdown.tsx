@@ -44,6 +44,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			menu,
 			placement = "right",
 			buttonIcon,
+			buttonProps,
 			onMenuClick,
 			trigger,
 			renderContentOnTop = false,
@@ -332,6 +333,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							isDisabled={isDisabled}
 							{...(!iconOnly && { endIcon: "ChevronDown" })}
 							colorScheme={colorScheme as ButtonProps["colorScheme"]}
+							{...buttonProps}
 						>
 							{label}
 						</Button>

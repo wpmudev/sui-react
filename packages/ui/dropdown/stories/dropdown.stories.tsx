@@ -297,6 +297,9 @@ Dropdown.args = {
 	renderContentOnTop: false,
 	placement: "right",
 	buttonIcon: "Menu",
+	buttonProps: {
+		type: "tertiary",
+	},
 	allowSearch: true,
 	closeOnOuterClick: true,
 	closeOnMenuItemClick: true,
@@ -353,6 +356,10 @@ Dropdown.argTypes = {
 		name: "Icon",
 		options: IconsName,
 		control: "select",
+	},
+	buttonProps: {
+		name: "Button Props",
+		control: "object",
 	},
 	placement: {
 		name: "Placement",

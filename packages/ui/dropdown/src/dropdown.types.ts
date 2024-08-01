@@ -182,6 +182,10 @@ interface DropdownProps
 	/**
 	 * Filter button icon
 	 */
+	buttonProps?: ButtonProps
+	/**
+	 * Filter button icon
+	 */
 	colorScheme?: ButtonProps["colorScheme"]
 	/**
 	 * On click on Menu Item
