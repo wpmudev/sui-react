@@ -233,6 +233,10 @@ interface DropdownProps
 	 */
 	closeOnOuterClick?: boolean
 	/**
+	 * Close dropdown on menu item click
+	 */
+	closeOnMenuItemClick?: boolean
+	/**
 	 * Allow search
 	 */
 	allowSearch?: boolean

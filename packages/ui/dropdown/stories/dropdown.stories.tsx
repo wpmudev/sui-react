@@ -299,6 +299,7 @@ Dropdown.args = {
 	buttonIcon: "Menu",
 	allowSearch: true,
 	closeOnOuterClick: true,
+	closeOnMenuItemClick: true,
 	isFluid: false,
 	size: "md",
 	isAsync: false,
@@ -398,6 +399,10 @@ Dropdown.argTypes = {
 	},
 	closeOnOuterClick: {
 		name: "Close (Outer click)",
+		control: "boolean",
+	},
+	closeOnMenuItemClick: {
+		name: "Close (Menu Item click)",
 		control: "boolean",
 	},
 	isAsync: { table: { disable: true } },

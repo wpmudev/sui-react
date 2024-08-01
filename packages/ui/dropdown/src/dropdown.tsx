@@ -52,6 +52,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			size = "md",
 			isDisabled = false,
 			closeOnOuterClick = true,
+			closeOnMenuItemClick = true,
 			colorScheme = "black",
 			onToggle = () => {},
 			// search
@@ -280,7 +281,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						setOptions(updatedOptions)
 
 						menuItem.isSelected = true
-						if ("select-checkbox" !== type) {
+						if (closeOnMenuItemClick) {
 							setIsOpen(false)
 						}
 					}
