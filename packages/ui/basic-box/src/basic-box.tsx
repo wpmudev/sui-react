@@ -49,12 +49,12 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 			<div className="sui-basic-box__header">
 				<div className="sui-basic-box__header-info">
 					{!!title && (
-						<h3
-							className="sui-basic-box__header-title sui-heading--h3"
+						<h4
+							className="sui-basic-box__header-title sui-heading--h4"
 							data-testid="basic-box-title"
 						>
 							{title}
-						</h3>
+						</h4>
 					)}
 					<div className="sui-basic-box__actions">
 						{headerActions && headerActions}

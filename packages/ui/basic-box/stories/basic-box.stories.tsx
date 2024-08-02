@@ -26,7 +26,7 @@ const BasicBox = ({ ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={{ backgroundColor: "white", borderRadius: "4px" }}>
+				<div>
 					<SuiBasicBlock {...props}>
 						<SettingBlock
 							title="Import"
