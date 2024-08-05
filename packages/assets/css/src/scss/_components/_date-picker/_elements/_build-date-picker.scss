@@ -24,6 +24,7 @@
 					&-item {
 						border-radius: $datepicker-border-radius-lg;
 						display: inline-flex;
+						font-weight: $font-weight-md;
 
 						&--active {
 							background: $color-primary-50;
@@ -34,7 +35,7 @@
 						}
 
 						&:hover {
-							background: $color-primary-10;
+							background: $color-primary-05;
 						}
 
 						&--disabled {

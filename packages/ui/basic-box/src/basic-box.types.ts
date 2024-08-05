@@ -39,6 +39,11 @@ interface BasicBoxProps
 	isPro?: boolean
 
 	/**
+	 * Whether box has background or not.
+	 */
+	hasBg?: boolean
+
+	/**
 	 * An optional CSS class name to apply custom styling to the BasicBox.
 	 * Should be a string.
 	 */

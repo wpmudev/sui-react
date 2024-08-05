@@ -17,6 +17,10 @@
 				cursor: default;
 				pointer-events: none;
 
+				@include modifies-element(label, description) {
+					color: $color-grey-50;
+				}
+
 				@include modifies-element(switch) {
 					background: $color-grey-10;
 

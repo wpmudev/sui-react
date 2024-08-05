@@ -14,10 +14,11 @@
 		@include block($block) {
 			@include element(text) {
 				font-weight: $font-weight-md;
+				color: $color-grey-90;
 			}
 
-			@include element(text, value) {
-				color: $color-grey-50;
+			@include element(value) {
+				color: $color-grey-70;
 			}
 		}
 	}

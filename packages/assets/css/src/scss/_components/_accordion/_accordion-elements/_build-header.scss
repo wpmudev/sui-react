@@ -23,11 +23,21 @@
 				position: relative;
 
 				svg {
-					color: $color-grey-60;
+					color: $color-grey-50;
 				}
 
 				@include media(min-width, sm) {
 					padding: $spacing-lg $spacing-2xl;
+				}
+			}
+
+			@include element(item) {
+				@include modifier(expanded) {
+					.sui-#{$block}__header {
+						svg {
+							color: $color-grey-90;
+						}
+					}
 				}
 			}
 

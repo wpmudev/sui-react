@@ -57,7 +57,7 @@
 					"type": "fontWeight"
 				},
 				"color": {
-					"value": "{color.grey.50}",
+					"value": "{color.grey.70}",
 					"type": "color"
 				}
 			},
@@ -114,7 +114,7 @@
 				}
 			},
 			"disabled": {
-				"value": "{color.grey.30}",
+				"value": "{color.grey.50}",
 				"type": "color"
 			}
 		},
@@ -130,7 +130,7 @@
 				}
 			},
 			"color": {
-				"value": "{color.grey.30}",
+				"value": "{color.grey.70}",
 				"type": "color"
 			},
 			"hover": {

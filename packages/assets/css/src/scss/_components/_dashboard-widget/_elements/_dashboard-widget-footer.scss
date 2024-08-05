@@ -14,7 +14,7 @@
 		@include block($block) {
 			@include element(footer) {
 				font-size: $font-size-xs;
-				color: $color-grey-50;
+				color: $color-grey-70;
 				align-items: center;
 				display: flex;
 				gap: $spacing-md;

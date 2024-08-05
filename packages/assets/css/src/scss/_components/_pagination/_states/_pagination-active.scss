@@ -14,11 +14,12 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(button) {
+				color: $color-grey-70;
 				@include modifier(active) {
 					cursor: default;
 					pointer-events: none;
 					background: $color-grey-05;
-					color: $color-grey-90;
+					color: $color-grey-70;
 				}
 			}
 		}

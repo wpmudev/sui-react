@@ -18,7 +18,11 @@
 					user-select: none;
 
 					.sui-#{$block}__item-info {
-						color: $color-grey-30;
+						color: $color-grey-50;
+
+						.sui-icon {
+							color: $color-grey-50;
+						}
 					}
 				}
 			}

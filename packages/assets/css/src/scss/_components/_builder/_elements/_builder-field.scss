@@ -100,7 +100,7 @@
 			}
 
 			@include element(field-info-name) {
-				color: $color-grey-90;
+				color: $color-grey-70;
 				font-weight: $font-weight-md;
 				text-wrap: nowrap;
 				text-overflow: ellipsis;
@@ -108,7 +108,7 @@
 			}
 
 			@include element(field-code) {
-				color: $color-grey-60;
+				color: $color-grey-70;
 				font-size: $font-size-xs;
 				flex: 1;
 				text-wrap: nowrap;

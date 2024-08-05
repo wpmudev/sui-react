@@ -26,7 +26,7 @@
 			.token.prolog,
 			.token.doctype,
 			.token.cdata {
-				color: $color-grey-30;
+				color: $color-grey-50;
 			}
 
 			.token.punctuation,
@@ -58,13 +58,13 @@
 			.token.regex,
 			.token.important,
 			.token.variable {
-				color: $color-red-50;
+				color: $color-red-60;
 			}
 
 			.token.atrule,
 			.token.attr-value,
 			.token.keyword {
-				color: $color-primary-50;
+				color: $color-primary-60;
 			}
 
 			.token.entity {

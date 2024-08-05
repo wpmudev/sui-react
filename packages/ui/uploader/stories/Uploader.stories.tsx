@@ -25,7 +25,6 @@ export const Uploader = ({ ...props }) => {
 	const fieldAttrs = {
 		label: "Upload file",
 		helper: "Upload files",
-		isSmall: true,
 	}
 
 	return (

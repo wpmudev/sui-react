@@ -29,7 +29,6 @@
 					inset: -#{$border-width-md};
 					border-radius: inherit;
 					pointer-events: none;
-					z-index: -1;
 				}
 
 				&:last-child {
@@ -44,6 +43,14 @@
 				gap: $spacing-md;
 				color: $color-grey-90;
 				transition: 0.3s all ease;
+
+				.sui-icon {
+					color: $color-grey-70;
+				}
+			}
+
+			@include element(item-action) {
+				line-height: 1;
 			}
 		}
 	}

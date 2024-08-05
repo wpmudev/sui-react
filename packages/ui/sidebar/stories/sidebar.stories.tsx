@@ -23,12 +23,6 @@ export default {
 	},
 }
 
-const tag = (
-	<Tag colorScheme="black" design="outlined" isSmall={true}>
-		PRO
-	</Tag>
-)
-
 const items = [
 	{ title: "General", url: "#", icon: "Settings", hasAction: false },
 	{ title: "Integrations", url: "#", icon: "Link", hasAction: true },
@@ -50,6 +44,12 @@ const Sidebar = ({}) => {
 		setCurrentTab(option)
 	}
 
+	const boxStyle = {
+		margin: 0,
+		padding: "30px 0",
+		background: "#f8f8f8",
+	}
+
 	const renderSidebarItem = (
 		title: string,
 		url: string,
@@ -63,7 +63,18 @@ const Sidebar = ({}) => {
 			isActive={currentTab === title}
 			onClick={handleSidebarItemClick(title)}
 			icon={icon}
-			action={hasAction ? tag : null}
+			action={
+				hasAction ? (
+					<Tag
+						colorScheme="black"
+						design="outlined"
+						isDisabled={isDisabled}
+						isSmall={true}
+					>
+						PRO
+					</Tag>
+				) : null
+			}
 			isDisabled={isDisabled}
 		/>
 	)
@@ -71,40 +82,42 @@ const Sidebar = ({}) => {
 	return (
 		<div className="sui-layout">
 			<div className="sui-layout__content">
-				<BoxGroup>
-					<Row align={{ md: "inline" }}>
-						<Col size="3">
-							<SuiSidebar>
-								{items.map(({ title, url, icon, isDisabled, hasAction }) =>
-									renderSidebarItem(
-										title,
-										url,
-										icon as IconsNamesType,
-										hasAction,
-										isDisabled,
-									),
-								)}
-							</SuiSidebar>
-							<SidebarDropdown selectedItemName={currentTab}>
-								{items.map(({ title, url, isDisabled }) =>
-									renderSidebarItem(title, url, undefined, false, isDisabled),
-								)}
-							</SidebarDropdown>
-						</Col>
-						<Col size="9">
-							<div
-								style={{
-									background: "white",
-									height: "100%",
-									minHeight: "200px",
-									padding: "25px",
-								}}
-							>
-								<div className="main">{currentTab}</div>
-							</div>
-						</Col>
-					</Row>
-				</BoxGroup>
+				<div style={boxStyle}>
+					<BoxGroup>
+						<Row align={{ md: "inline" }}>
+							<Col size="3">
+								<SuiSidebar>
+									{items.map(({ title, url, icon, isDisabled, hasAction }) =>
+										renderSidebarItem(
+											title,
+											url,
+											icon as IconsNamesType,
+											hasAction,
+											isDisabled,
+										),
+									)}
+								</SuiSidebar>
+								<SidebarDropdown selectedItemName={currentTab}>
+									{items.map(({ title, url, isDisabled }) =>
+										renderSidebarItem(title, url, undefined, false, isDisabled),
+									)}
+								</SidebarDropdown>
+							</Col>
+							<Col size="9">
+								<div
+									style={{
+										background: "white",
+										height: "100%",
+										minHeight: "200px",
+										padding: "25px",
+									}}
+								>
+									<div className="main">{currentTab}</div>
+								</div>
+							</Col>
+						</Row>
+					</BoxGroup>
+				</div>
 			</div>
 		</div>
 	)

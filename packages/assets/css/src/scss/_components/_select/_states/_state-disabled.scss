@@ -16,22 +16,22 @@
 		@include block($block) {
 			@include modifier(disabled) {
 				pointer-events: none;
-				color: $color-grey-30;
+				color: $color-grey-50;
 
 				@include modifies-element(control) {
-					border: none;
+					border-color: $color-grey-10;
 					background: $color-grey-05;
 				}
 
 				@include modifies-element(selection) {
 					background: $color-grey-05;
-					color: $color-grey-30;
+					color: $color-grey-50;
 					pointer-events: none;
-					border: none;
+					border-color: $color-grey-10;
 				}
 
 				@include modifies-element(input) {
-					color: $color-grey-30;
+					color: $color-grey-50;
 				}
 
 				@include modifies-element(selected-options) {
@@ -44,7 +44,7 @@
 				}
 
 				@include modifies-element(icon) {
-					color: $color-grey-30;
+					color: $color-grey-50;
 					pointer-events: none;
 				}
 			}

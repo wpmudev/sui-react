@@ -14,6 +14,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
+			position: relative;
 			max-width: $uploader-size-width;
 		}
 	}

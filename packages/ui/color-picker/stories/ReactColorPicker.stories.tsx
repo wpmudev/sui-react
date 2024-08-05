@@ -91,7 +91,7 @@ ColorPicker.argTypes = {
 	color: {
 		name: "Color",
 		control: {
-			type: "text",
+			type: "color",
 		},
 	},
 	placeholder: {
