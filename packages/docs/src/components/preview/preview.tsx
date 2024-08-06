@@ -62,7 +62,7 @@ const Preview: React.FunctionComponent<PreviewProps> = ({
 
 	return (
 		<Canvas className="csb-preview">
-			<div id="sui-wrap" className="sui-wrap sui-theme--light">
+			<div className="sui-wrap sui-theme--light">
 				{true === wrapper && (
 					<div className="sui-layout sui-layout--horizontal">{children}</div>
 				)}
