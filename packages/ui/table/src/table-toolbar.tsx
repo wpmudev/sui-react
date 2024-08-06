@@ -53,6 +53,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 	)
 
 	const onApplyBulkAction = useCallback(() => {
+		console.log("bulk-action", bulkAction)
 		ctx?.triggerAction("bulk-action", bulkAction)
 	}, [bulkAction, ctx])
 
@@ -78,7 +79,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 								className="sui-table__toolbar-actions"
 								isSmall={true}
 								options={ctx?.bulkActions}
-								onChange={() => setBulkAction}
+								onChange={(action) => setBulkAction(action as string)}
 							/>
 							<Button
 								type="primary"
