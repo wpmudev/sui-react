@@ -44,7 +44,7 @@ const TableBody: React.FC<TableSectionProps> = (
 
 	const getUpdatedRows = () => {
 		const childrenArray = Children.toArray(children)
-		const combinedRows: any = []
+		const combinedRows: React.ReactElement[] = []
 
 		childrenArray.forEach((row) => {
 			// Handling the case of grouping, When there're groups the rows are wrapped in Fragment
@@ -88,7 +88,11 @@ const TableBody: React.FC<TableSectionProps> = (
 	}, [children, rows])
 
 	// Update order know the new and old indexes
-	function updateOrder(array: any[], oldIndex: number, newIndex: number) {
+	function updateOrder(
+		array: Record<string, any>[],
+		oldIndex: number,
+		newIndex: number,
+	) {
 		// Make a copy of the array to avoid mutating the original array
 		const newArray = [...array]
 
