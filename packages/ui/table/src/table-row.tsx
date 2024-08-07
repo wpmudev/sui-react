@@ -2,7 +2,6 @@ import React, {
 	ChangeEvent,
 	Children,
 	cloneElement,
-	CSSProperties,
 	Fragment,
 	ReactElement,
 	useCallback,

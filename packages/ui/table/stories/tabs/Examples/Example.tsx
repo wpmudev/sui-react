@@ -136,6 +136,7 @@ export const TableExample = ({ ...props }: Record<string, any>) => {
 						// set state
 						setRows([...dRows])
 					}}
+					allowCheck={true}
 					{...props}
 				>
 					<TableHead>
@@ -191,7 +192,7 @@ export const TableExample = ({ ...props }: Record<string, any>) => {
 
 						{isGrouped &&
 							Object.entries(rows).map(([group, items]) => (
-								<Fragment key="group">
+								<Fragment key={group}>
 									<TableRow isGroup={true}>
 										<TableCell icon={groupsIconsMapping[group]}>
 											<strong>{group}</strong>
