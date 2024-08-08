@@ -30,12 +30,13 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		<p>Whether the spinner should be absolutely positioned</p>
     	</PropSection>
 
-			<Section
-    		title={{ content: "isContained*", tag: 'boolean', small: true }}
-    		style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}
-    	>
-    		<p>When set to true the spinner will be wrapped in a container with 500px height and be centered </p>
-    	</Section>
+		<PropSection title="isContained" type="boolean" defaultValue="false">
+    		<p>When set to true the spinner will be wrapped in a container with 500px height and be centered</p>
+    	</PropSection>
+
+		<PropSection title="isSpinning" type="boolean" defaultValue="true">
+    		<p>Whether it's spinning or not</p>
+    	</PropSection>
 
 </Section>
 

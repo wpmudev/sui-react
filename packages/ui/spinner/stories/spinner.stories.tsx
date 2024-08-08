@@ -116,6 +116,10 @@ Spinner.argTypes = {
 		name: "Contained",
 		type: "boolean",
 	},
+	isSpinning: {
+		name: "Is Spinning",
+		type: "boolean",
+	},
 }
 
 // Publish required stories.
