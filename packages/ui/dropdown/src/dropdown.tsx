@@ -302,8 +302,10 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 				setQuery(event?.target?.value)
 				// Reset fetched all flag and page to 1
 				if (isAsync) {
-					setPage(1)
-					setIsFetchedAll(false)
+					setTimeout(() => {
+						setPage(1)
+						setIsFetchedAll(false)
+					}, 100)
 				}
 			},
 			[isAsync],
