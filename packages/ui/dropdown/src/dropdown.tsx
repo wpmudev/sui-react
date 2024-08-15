@@ -243,8 +243,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					setTimeout(() => searchInputRef.current?.focus(), 100)
 				}
 
-				// load options
-				if (!!isAsync && isDropdownOpen) {
+				// load options if not loaded before
+				if (!!isAsync && isDropdownOpen && (options ?? [])?.length <= 0) {
 					loadFromAPI()
 				}
 
