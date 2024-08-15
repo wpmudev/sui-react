@@ -24,6 +24,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	id,
 	type = "hex",
 	color = "",
+	defaultColor,
 	onApply,
 	placeholder = "Select color",
 	isError = false,
@@ -49,9 +50,15 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	// Update tempColor when color prop value changes
 	useEffect(() => {
 		setTempColor(color)
-
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [color])
+
+	useEffect(() => {
+		// Hide reset button if default and current color matched
+		if (defaultColor && color === defaultColor) {
+			setShowResetBtn(false)
+		}
+	}, [defaultColor, color])
 
 	// Handle reset
 	const handleReset = useCallback(
