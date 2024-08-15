@@ -301,8 +301,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 				setQuery(event?.target?.value)
 				// Reset fetched all flag and page to 1
-				setPage(1)
 				if (isAsync) {
+					setPage(1)
 					setIsFetchedAll(false)
 				}
 			},
