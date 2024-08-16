@@ -5,7 +5,8 @@ import { ColorPickerProps } from "./color-picker.types"
 import { Button } from "@wpmudev/sui-button"
 import { Input } from "@wpmudev/sui-input"
 
-const PreviewImage = require("./static/opaque.png")
+// @todo: Getting 404 error when using this library externally
+// const PreviewImage = require("./static/opaque.png")
 
 import Picker from "./elements/picker"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
@@ -172,11 +173,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					<span
 						className="sui-color-picker__input-preview-icon"
 						aria-hidden={true}
-						style={
-							tempColor
-								? { backgroundColor: tempColor }
-								: { backgroundImage: `url(${PreviewImage})` }
-						}
+						style={{ backgroundColor: tempColor }}
 					/>
 				</div>
 				<Button
