@@ -34,6 +34,9 @@ const customPointer = (): ReactNode | undefined => {
 	return <div className="sui-color-picker__pointer"></div>
 }
 
+const COLOR_HASH_REGEX =
+	/^#[0-9A-Fa-f]{3}([0-9A-Fa-f]{3}){0,1}([0-9a-fA-F]{2})?$/i
+
 const Picker: React.FC<ColorPickerPickerProps> = ({
 	color = "",
 	type = "hex",
@@ -109,10 +112,14 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 	const handleHexInputChange = useCallback(
 		(event: React.ChangeEvent<HTMLInputElement>) => {
 			const { value } = event.target
-			setSelectedColor((prevColor: ColorResult) => ({
-				...prevColor,
-				hex: value,
-			}))
+
+			// Update hex value only when valid
+			if (COLOR_HASH_REGEX.test(value)) {
+				setSelectedColor((prevColor: ColorResult) => ({
+					...prevColor,
+					hex: value,
+				}))
+			}
 		},
 		[],
 	)
@@ -258,7 +265,7 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 									"has-alpha": !disableAlpha,
 								})}
 								aria-label="Hex code"
-								value={hex}
+								defaultValue={hex}
 								onChange={handleHexInputChange}
 							/>
 						)}
