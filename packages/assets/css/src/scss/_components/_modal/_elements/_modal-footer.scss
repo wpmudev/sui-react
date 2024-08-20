@@ -18,6 +18,10 @@
 				padding: 0 $spacing-2xl;
 				justify-content: flex-end;
 
+				@include modifier(spaced) {
+					justify-content: space-between;
+				}
+
 				@include media(max-width, sm) {
 					padding: 0 $spacing-lg;
 				}
