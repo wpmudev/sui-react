@@ -138,10 +138,13 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 				inputVal = 255
 			}
 			const rgb = { ...selectedColor.rgb, [name]: inputVal }
+			const hexVal = tinycolor(rgb).toHexString()
+
 			setSelectedColor((prevColor: ColorResult) => ({
 				...prevColor,
+				...colorToColorObject(hexVal ?? ""),
 				rgb,
-				hex: tinycolor(rgb).toHexString(),
+				hex: hexVal,
 			}))
 		},
 		[selectedColor],
