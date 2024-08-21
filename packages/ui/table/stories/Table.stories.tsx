@@ -216,6 +216,11 @@ Table.args = {
 		},
 	],
 	showFiltersBtn: true,
+	showToggleBtn: false,
+	toggleBtnProps: {
+		label: "Show updates only",
+		onClick: () => {},
+	},
 	filters: [
 		{
 			id: "sort-by",
@@ -312,6 +317,26 @@ Table.argTypes = {
 		},
 		if: {
 			arg: "hasToolbar",
+			eq: true,
+		},
+	},
+	showToggleBtn: {
+		name: "Show Toggle Button",
+		control: {
+			type: "boolean",
+		},
+		if: {
+			arg: "showFiltersBtn",
+			eq: false,
+		},
+	},
+	toggleBtnProps: {
+		name: "Toggle Button Props",
+		control: {
+			type: "object",
+		},
+		if: {
+			arg: "showToggleBtn",
 			eq: true,
 		},
 	},
