@@ -39,6 +39,11 @@ interface BasicBoxProps
 	isPro?: boolean
 
 	/**
+	 * When set to "true", the block will have "100%" width.
+	 */
+	isFluid?: boolean
+
+	/**
 	 * An optional CSS class name to apply custom styling to the BasicBox.
 	 * Should be a string.
 	 */
