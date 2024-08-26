@@ -9,6 +9,7 @@ import {
 	SuiHTMLAttributes,
 	SuiStyleType,
 } from "@wpmudev/sui-utils"
+import { ToggleProps } from "@wpmudev/sui-toggle"
 
 /**
  * Interface representing the properties of a table section.
@@ -128,6 +129,16 @@ interface TableProps extends SuiHTMLAttributes, SuiStyleType {
 	 * Whether to show filters or not
 	 */
 	showFiltersBtn?: boolean
+
+	/**
+	 * Whether to show filters or not
+	 */
+	showToggleBtn?: boolean
+
+	/**
+	 * Whether to show filters or not
+	 */
+	toggleBtnProps?: ToggleProps
 }
 
 /**
@@ -403,6 +414,16 @@ interface TableContextProps {
 	 * Whether to show filters or not
 	 */
 	showFiltersBtn?: boolean
+
+	/**
+	 * Whether to show filters or not
+	 */
+	showToggleBtn?: boolean
+
+	/**
+	 * Whether to show filters or not
+	 */
+	toggleBtnProps?: ToggleProps
 }
 
 /**
@@ -430,6 +451,8 @@ interface TableContextProviderProps {
 		| "bulkActions"
 		| "stickyCols"
 		| "showFiltersBtn"
+		| "showToggleBtn"
+		| "toggleBtnProps"
 	>
 }
 
