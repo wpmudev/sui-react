@@ -10,7 +10,7 @@ interface SpinnerProps
 	/**
 	 * Size of the spinner
 	 */
-	loaderSize?: "sm" | "lg"
+	loaderSize?: "xs" | "sm" | "lg"
 	/**
 	 * Color of the spinner
 	 */

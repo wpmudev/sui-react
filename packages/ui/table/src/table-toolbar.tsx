@@ -17,6 +17,7 @@ import { TableToolbarContent } from "./table-toolbar-content"
 import { TableContext } from "./table-context"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useStyles } from "@wpmudev/sui-hooks"
+import { Toggle } from "@wpmudev/sui-toggle"
 
 /**
  * TableToolbar component represents the toolbar section of a table.
@@ -99,6 +100,11 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 				</div>
 
 				<div className="sui-table__toolbar-header-actions">
+					{ctx?.showToggleBtn && (
+						<div className="sui-table__toolbar-toggle">
+							<Toggle {...ctx.toggleBtnProps} />
+						</div>
+					)}
 					<Input
 						id="input-id-4"
 						className="sui-table__toolbar-search"
