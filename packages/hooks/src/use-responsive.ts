@@ -27,24 +27,26 @@ const getDevice = (devices: ConfigType): string => {
 }
 
 const useResponsive = (config: ConfigType = {}) => {
-	const defaultDevices = useMemo(() => {
+	const defaultBreakpoints = useMemo(() => {
 		return {
-			desktop: 1024,
-			tablet: 768,
-			mobile: [0, 768],
+			desktop: 1200,
+			tablet: 1024,
+			mobile: 600,
 			...config,
 		}
 	}, [config])
 
-	const [device, setDevice] = useState<string>(() => getDevice(defaultDevices))
+	const [device, setDevice] = useState<string>(() =>
+		getDevice(defaultBreakpoints),
+	)
 
 	useEffect(() => {
 		const handleResize = () => {
-			setDevice(getDevice(defaultDevices))
+			setDevice(getDevice(defaultBreakpoints))
 		}
 
 		// Initialize matchMedia for each device
-		const mediaQueries = Object.values(defaultDevices).map((value) => {
+		const mediaQueries = Object.values(defaultBreakpoints).map((value) => {
 			const mediaQuery = getMediaQuery(value)
 			const mediaList = window.matchMedia(mediaQuery)
 			mediaList.addEventListener("change", handleResize)
@@ -57,7 +59,7 @@ const useResponsive = (config: ConfigType = {}) => {
 				mediaList.removeEventListener("change", handleResize)
 			})
 		}
-	}, [defaultDevices])
+	}, [defaultBreakpoints])
 
 	return device
 }
