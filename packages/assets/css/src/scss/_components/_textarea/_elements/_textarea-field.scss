@@ -1,0 +1,46 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build field
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-field($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			position: relative;
+
+			@include element(field) {
+				font-size: $font-size-default;
+				padding: $spacing-md $spacing-lg;
+				width: 100%;
+				border: none;
+				outline: none;
+			}
+
+			&:after {
+				content: "";
+				position: absolute;
+				border: $border-width-sm solid $color-extended-neutral-70;
+				border-radius: $border-radius-sm;
+				inset: -#{$border-width-sm};
+				pointer-events: none;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			&:after {
+				border-color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

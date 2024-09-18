@@ -1,0 +1,59 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Box
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-box($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(box) {
+				position: relative;
+				width: $radio-size-lg;
+				height: $radio-size-lg;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: $spacing-xs 0;
+				margin-right: $spacing-md;
+				border: $border-width-sm solid $color-extended-neutral-70;
+				border-radius: 100%;
+				background: $color-extended-neutral-100;
+
+				&:after {
+					content: "";
+					position: absolute;
+					inset: -5px;
+					border-radius: inherit;
+					pointer-events: none;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(box) {
+				margin-left: $spacing-md;
+				margin-right: 0;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(box) {
+				border: $border-width-sm solid $color-extended-neutral-0;
+			}
+		}
+	}
+}

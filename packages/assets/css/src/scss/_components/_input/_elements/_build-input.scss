@@ -1,0 +1,114 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Input
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-input($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			position: relative;
+			@include element(input) {
+				max-width: 100%;
+				display: block;
+				margin: 0;
+				padding: $input-spacing-padding-vertical-md
+					$input-spacing-padding-horizontal-md;
+				border: 0;
+				border-radius: $input-border-radius;
+				outline: none;
+				background: $input-bg-default;
+				color: $input-font-color-default;
+				font-size: $input-font-size-md;
+				line-height: $input-font-height-md;
+				letter-spacing: 0;
+				transition: 0.1s ease;
+				width: 100%;
+
+				// To override potential defaults
+				&:focus {
+					box-shadow: none;
+					outline: 0;
+				}
+			}
+
+			@include element(input-clear) {
+				position: absolute;
+				right: 0;
+				top: 0;
+				color: $color-extended-neutral-70;
+
+				&.sui-button {
+					background: transparent;
+					border: none;
+					outline: none;
+					padding: $spacing-md;
+				}
+			}
+
+			@include element(icon) {
+				color: $color-extended-neutral-60;
+			}
+
+			@include modifier(icon-end) {
+				@include modifies-element(input) {
+					padding-left: $spacing-lg;
+					padding-right: $input-spacing-lg;
+				}
+			}
+
+			@include modifier(icon-start) {
+				@include modifies-element(input) {
+					padding-left: $input-spacing-lg;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include modifier(icon-end) {
+				@include modifies-element(input) {
+					padding-left: $input-spacing-lg;
+					padding-right: $input-spacing-padding-horizontal-md;
+				}
+			}
+
+			@include modifier(icon-start) {
+				@include modifies-element(input) {
+					padding-right: $input-spacing-lg;
+					padding-left: $input-spacing-padding-horizontal-md;
+				}
+			}
+
+			@include element(input-clear) {
+				right: unset;
+				left: 0;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(input, input-clear) {
+				color: $color-extended-neutral-0;
+			}
+
+			@include element(input-clear) {
+				&.sui-button {
+					outline: none;
+				}
+			}
+		}
+	}
+}

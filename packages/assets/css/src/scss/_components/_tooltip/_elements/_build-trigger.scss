@@ -1,0 +1,24 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Tooltip Trigger
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-trigger($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(trigger) {
+				@include modifier(icon) {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

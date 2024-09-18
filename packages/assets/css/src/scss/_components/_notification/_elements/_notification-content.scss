@@ -1,0 +1,22 @@
+@use "../../../_utils/utils" as *;
+
+/// Content
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-content($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include element(content) {
+				flex: 1;
+				margin: 0 $spacing-sm;
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}

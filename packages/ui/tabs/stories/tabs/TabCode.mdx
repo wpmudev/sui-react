@@ -1,0 +1,127 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-tabs" />
+
+<Section title="Props" border={true}>
+	<PropSection title="children" type="React Node">
+    	<p>The component children elements that includes the tabs individual items</p>
+    </PropSection>
+
+    <PropSection title="className" type="string">
+    	<p>Custom css class name(s) </p>
+    </PropSection>
+</Section>
+
+<Section
+	title="Sub Components"
+	contained={true}
+	style={{ paddingTop: 30, paddingBottom: 0 }}
+>
+		<p>The Tabs component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+
+    <Section title="TabNav" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the container for tab navigation
+    	</p>
+
+    	<PropSection title="children" type="React Node">
+    		<p>
+    			Content of the tab navigation
+    		</p>
+    	</PropSection>
+
+    </Section>
+
+    	<Section title="TabNavItem" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		Represents a single tab item in a tabbed interface
+    	</p>
+
+    		<PropSection title="id" type="string">
+    			<p>
+    				Unique id for the tab item
+    			</p>
+    		</PropSection>
+
+    		<PropSection title="icon" type="React Node">
+    			<p>
+    				Icon to display with the tab item
+    			</p>
+    		</PropSection>
+
+    		<PropSection title="stateIcon" type="string">
+    			<p>
+    				An icon representing the state of the item, it accepts one of the following values:
+    				<List>
+    					<span label="InfoAlt" />
+    					<span label="CheckAlt" />
+    				</List>
+    			</p>
+    		</PropSection>
+
+    		<PropSection title="stateIconColor" type="string">
+    			<p>
+    				The color of the <Code small={true}>stateIcon</Code>, it accepts one of the following values:
+    				<List>
+    					<span label="neutral" />
+    					<span label="informative" />
+    					<span label="success" />
+    					<span label="warning" />
+    					<span label="critical" />
+    				</List>
+    			</p>
+    		</PropSection>
+
+    		<PropSection title="isDisabled" type="boolean" defaultValue="false">
+    			<p>
+    				The color of the <Code small={true}>stateIcon</Code>, it accepts one of the following values:
+    				<List>
+    					<span label="neutral" />
+    					<span label="informative" />
+    					<span label="success" />
+    					<span label="warning" />
+    					<span label="critical" />
+    				</List>
+    			</p>
+    		</PropSection>
+
+    		<PropSection title="children" type="React Node">
+    			<p>
+    				Content of tab item
+    			</p>
+    		</PropSection>
+    	</Section>
+
+    	<Section title="TabPanel" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the container for tab panels
+    	</p>
+
+    		<PropSection title="children" type="React Node">
+    			<p>
+    				Content of the compoennt
+    			</p>
+    		</PropSection>
+    	</Section>
+
+    	<Section title="TabPanelItem" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		Represents a single tab panel in a tabbed interface
+    	</p>
+
+    		<PropSection title="id" type="string">
+    			<p>
+    				Unique id for the tab panel
+    			</p>
+    		</PropSection>
+
+    		<PropSection title="children" type="React Node">
+    			<p>
+    				Content of the tab panel
+    			</p>
+    		</PropSection>
+    	</Section>
+
+</Section>
+
+<CommonPropsNotice />

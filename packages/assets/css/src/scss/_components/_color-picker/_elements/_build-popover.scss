@@ -1,0 +1,44 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Popover
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-popover($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popover) {
+				position: absolute;
+				z-index: 2;
+				background-color: $color-extended-neutral-100;
+				border-radius: $border-radius-md;
+				box-shadow: 0 $shadow-offset-sm $shadow-offset-md 0
+						$color-extended-shadow-light,
+					0 $shadow-offset-sm $shadow-offset-2xl 0
+						$color-extended-shadow-default,
+					0 $shadow-offset-lg $shadow-offset-xl 0 $color-extended-shadow-dark;
+				padding: $spacing-default;
+				margin-top: $colorpicker-spacing-xs;
+				width: $colorpicker-size-width-xl;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popover) {
+				border: $border-width-sm solid $color-extended-neutral-0;
+			}
+		}
+	}
+}

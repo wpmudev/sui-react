@@ -1,0 +1,60 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Accordion panel
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-panel($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(panel) {
+				display: none;
+				padding: 0 $spacing-lg $spacing-lg $spacing-lg;
+
+				@include media(min-width, sm) {
+					padding: 0 $spacing-2xl $spacing-2xl $spacing-2xl;
+				}
+
+				@include modifier(content) {
+					box-shadow: 0px $shadow-offset-xs $shadow-offset-2xs 0px
+							$color-extended-shadow-light,
+						0px $shadow-offset-2xs $shadow-offset-xs 0px
+							$color-extended-shadow-light;
+					border-radius: $border-radius-md;
+				}
+
+				@include modifier(content-no-shadow) {
+					border-radius: $border-radius-md;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(panel) {
+				@include modifier(content, content-no-shadow) {
+					border: $border-width-sm solid $color-extended-neutral-0;
+				}
+			}
+
+			@include modifier(flushed) {
+				@include modifies-element(panel) {
+					.sui-#{$block}__panel--content {
+						border: none;
+					}
+				}
+			}
+		}
+	}
+}

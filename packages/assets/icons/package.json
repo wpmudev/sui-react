@@ -1,0 +1,77 @@
+{
+  "name": "@wpmudev/sui-icons",
+  "description": "SUI Icons Pack, the WPMU DEV Products icons package.",
+  "version": "0.0.1",
+  "license": "GPL-2.0",
+  "keywords": [
+    "wpmudev",
+    "shared-ui",
+    "icons-font",
+    "sui-icons",
+    "sui-icon",
+    "sui-icons",
+    "icons",
+    "icon"
+  ],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
+    },
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    }
+  ],
+  "main": "src/components/index.ts",
+  "style": "dist/css/sui-icons.css",
+  "input": "./src",
+  "output": "./dist",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-icons.git",
+    "directory": "packages/sui-icons"
+  },
+  "scripts": {
+    "build": "gulp",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "publish:test": "npm run prepare && npm version prerelease --git-tag-version=false && npm pack",
+    "publish:patch": "npm run prepare && npm version patch -m \"🚀 Publish Icons Pack %s\" && npm publish",
+    "publish:minor": "npm run prepare && npm version minor -m \"🚀 Publish Icons Pack %s\" && npm publish",
+    "publish:major": "npm run prepare && npm version major -m \"🚀 Publish Icons Pack %s\" && npm publish"
+  },
+  "bugs": {
+    "url": "https://incsub.atlassian.net/browse/SUI"
+  },
+  "homepage": "https://github.com/wpmudev/sui-icons#readme",
+  "devDependencies": {
+    "@wpmudev/sui-docs": "^0.0.0",
+    "dedent": "^0.7.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-header": "^2.0.9",
+    "gulp-prettier": "^4.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "ts-dedent": "^2.2.0"
+  },
+  "dependencies": {
+    "@wpmudev/sui-icon": "^0.0.1"
+  },
+  "clean-package": "./postpack.config.json"
+}

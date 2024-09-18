@@ -1,0 +1,31 @@
+@use "../../../_utils/utils" as *;
+
+/// Edit Size
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-size($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			margin: $layout-spacing-content-sm 0;
+
+			@include modifier(sm) {
+				@include modifies-element(label) {
+					font-size: $font-size-xs;
+					line-height: $font-height-xs;
+					letter-spacing: $font-spacing-md;
+				}
+
+				@include modifies-element(helper) {
+					font-size: $font-size-xs;
+					line-height: $font-height-2xs;
+					letter-spacing: $font-spacing-default;
+				}
+			}
+		}
+	}
+}

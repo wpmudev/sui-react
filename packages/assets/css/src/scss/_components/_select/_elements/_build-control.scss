@@ -1,0 +1,150 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Select Control
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-control($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(control) {
+				position: relative;
+				border-width: $border-width-sm;
+				border-color: $color-extended-neutral-70;
+				border-style: solid;
+				border-radius: $border-radius-sm;
+				padding: $spacing-md $spacing-lg;
+				cursor: pointer;
+
+				&::after {
+					content: "";
+					position: absolute;
+					top: -1px;
+					left: -1px;
+					right: -1px;
+					bottom: -1px;
+					border-radius: $border-radius-sm;
+					pointer-events: none;
+				}
+			}
+
+			@include element(arrow) {
+				pointer-events: none;
+			}
+
+			@include element(selected) {
+				user-select: none;
+			}
+
+			@include modifier(searchable) {
+				@include modifies-element(control) {
+					padding: 0;
+				}
+
+				.sui-select__dropdown--content {
+					display: block;
+				}
+			}
+			@include modifier(multiselect) {
+				@include modifies-element(selected-options) {
+					padding-right: $spacing-xl;
+				}
+
+				@include modifies-element(dropdown) {
+					.sui-#{$block}__dropdown--option {
+						&:hover {
+							background: none;
+						}
+					}
+				}
+			}
+
+			@include modifier(multiselect, custom-var) {
+				.sui-dropdown__popover {
+					border-top-left-radius: 0;
+					border-top-right-radius: 0;
+				}
+
+				@include modifies-element(selected-wrapper) {
+					display: flex;
+					flex-wrap: wrap;
+					align-items: flex-start;
+					margin: 0;
+					gap: $spacing-xs $spacing-sm;
+				}
+
+				@include modifies-element(selected-options) {
+					position: relative;
+					display: inline-block;
+					font-size: $font-size-2xs;
+					line-height: $font-height-2xs;
+					font-weight: $font-weight-md;
+					color: $color-primary-50;
+					background: $color-primary-90;
+					border-radius: $border-radius-sm;
+					padding-top: $spacing-sm;
+					padding-bottom: $spacing-sm;
+					padding-left: $spacing-md;
+					white-space: nowrap;
+					margin: 0;
+				}
+
+				@include modifies-element(control) {
+					padding-right: $select-spacing-4xl;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include modifier(multiselect, custom-var) {
+				@include modifies-element(selected-options) {
+					padding-left: $spacing-xl;
+					padding-right: $spacing-md;
+					margin-left: $spacing-sm;
+					margin-right: 0;
+				}
+
+				@include modifies-element(control) {
+					padding-left: $select-spacing-4xl;
+					padding-right: $spacing-lg;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(control) {
+				border-color: $color-extended-neutral-0;
+				color: $color-extended-neutral-0;
+			}
+
+			@include modifier(multiselect, custom-var) {
+				.sui-dropdown__popover {
+					border-top: 0;
+				}
+
+				@include modifies-element(selected-options) {
+					color: $color-extended-neutral-100;
+					background: $color-extended-neutral-0;
+
+					.sui-icon {
+						color: $color-extended-neutral-100;
+					}
+				}
+			}
+		}
+	}
+}

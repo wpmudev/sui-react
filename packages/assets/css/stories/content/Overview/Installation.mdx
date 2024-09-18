@@ -1,0 +1,86 @@
+import { Section, Code, Snippet, NodeJSWarning } from "@wpmudev/sui-docs"
+
+import BrowserChrome from '../../images/browser-chrome.png';
+import BrowserSafari from '../../images/browser-safari.png';
+import BrowserEdge from '../../images/browser-edge.png';
+import BrowserFirefox from '../../images/browser-firefox.png';
+
+<style>{`
+.csb-browsers-list {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+}
+.csb-browsers-list img {
+	margin: 0;
+	margin-right: 20px;
+}
+.csb-browsers-list img:last-child {
+	margin-right: 0;
+}
+`}</style>
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>
+		This framework's primary purpose is to provide a method of styling
+		elements with as little conflict as possible. Our framework allows us to
+		use our Design Tokens through memorable CSS-based utility classes. You
+		can use this framework alone or with another CSS framework, as our CSS
+		selectors are prefixed with <Code> .sui- </Code> to prevent collisions.
+	</p>
+	<NodeJSWarning/>
+</Section>
+<Section
+	title={{
+		content: 'Install using NPM',
+		small: true,
+	}}
+	contained={true}
+	style={{ paddingTop: 0 }}
+>
+	<p>
+		In your project root directory (where the <Code> package.json </Code> file
+		lives), run the following command:
+	</p>
+	```js
+	npm install --save @wpmudev/sui-css
+	```
+</Section>
+<Section
+	title={{
+		content: 'Install using Yarn',
+		small: true,
+	}}
+	contained={true}
+	style={{ paddingTop: 0 }}
+>
+	<p>
+		In your project root directory (where the <Code> package.json </Code> file
+		lives), run the following command:
+	</p>
+	```js
+	yarn add @wpmudev/sui-css
+	```
+</Section>
+<Section
+	title={{
+		content: 'Browsers support',
+		small: true,
+	}}
+	contained={true}
+	style={{ paddingTop: 0 }}
+>
+	<p>
+		We tested the Shared UI's CSS Framework in the latest two versions of
+		the following browsers. Our team addresses critical <a href="https://incsub.atlassian.net/browse/SUI" target="_blank">
+			bug fixes
+		</a> in earlier versions based on their severity and impact. If you need to
+		support IE or pre-Chromium Edge, this library isn't for you.
+	</p>
+	<div className="csb-browsers-list">
+		<img src={BrowserChrome} width="64" height="64" alt="Chrome" />
+		<img src={BrowserSafari} width="64" height="64" alt="Safari" />
+		<img src={BrowserEdge} width="64" height="64" alt="Edge" />
+		<img src={BrowserFirefox} width="64" height="64" alt="Firefox" />
+	</div>
+</Section>

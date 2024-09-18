@@ -1,0 +1,156 @@
+@use "sass:map";
+@use "sass:math";
+
+// Predefined screen sizes.
+$breakpoints: (
+	sm: 601px,
+	md: 893px,
+	lg: 1081px,
+	xl: 1600px,
+);
+
+// Create breakpoints mixin.
+@mixin media($type, $size) {
+	@if $type == min-width {
+		$width: #{map.get($breakpoints, $size)};
+
+		@media (min-width: $width) {
+			@content;
+		}
+	} @else if $type == max-width {
+		$width: #{map.get($breakpoints, $size) - 1};
+
+		@media (max-width: $width) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+$grid: 12;
+$col-size--sm: 6;
+$col-size--lg: 4;
+$col-size--xl: 3;
+
+.csb-icon {
+	overflow: hidden;
+	border-radius: 4px;
+	background: #fff;
+
+	&__preview {
+		position: relative;
+		background: #184291;
+	}
+
+	&__preview-mode {
+		display: flex;
+		gap: 4px;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+
+		.csb-tag {
+			display: block;
+			font-size: 10px;
+			letter-spacing: 1px;
+		}
+	}
+
+	&__preview-icon {
+		display: block;
+		padding: 40px 20px;
+		color: #ffffff;
+		text-align: center;
+	}
+
+	&__data {
+		padding: 20px;
+
+		.csb-icon__category {
+			margin: 0 0 20px;
+			padding: 0;
+			border: 0;
+			color: #bcbfcb;
+			font: 700 12px/20px "Nunito";
+			text-transform: uppercase;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			.csb-icon__name {
+				color: #1a1a1a;
+			}
+		}
+	}
+
+	.csb-icon__data-block {
+		margin: 0 0 20px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.csb-icon__data-title {
+		margin: 0 0 5px;
+		padding: 0;
+		border: 0;
+		font: bold 12px/20px "Nunito";
+		letter-spacing: 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.csb-icon__code {
+		display: inline-block;
+		padding: 12px 20px;
+		border-radius: 4px;
+		font-size: 12px;
+		line-height: 20px;
+	}
+}
+
+.csb-icons {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	@include media(min-width, sm) {
+		display: flex;
+		flex-flow: row wrap;
+	}
+
+	li {
+		margin: 0 0 20px;
+		padding: 0;
+		list-style: none;
+
+		@include media(min-width, sm) {
+			width: #{math.div(($col-size--sm * 100), $grid) + "%"};
+			flex: 0 0 auto;
+			margin: 0;
+		}
+
+		@include media(min-width, lg) {
+			width: #{math.div(($col-size--lg * 100), $grid) + "%"};
+		}
+
+		@include media(min-width, xl) {
+			width: #{math.div(($col-size--xl * 100), $grid) + "%"};
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__content {
+		@include media(min-width, sm) {
+			padding: 10px;
+		}
+	}
+}

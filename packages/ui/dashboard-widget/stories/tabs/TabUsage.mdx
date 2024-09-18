@@ -1,0 +1,99 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import Spacing from "../images/spacing.svg"
+import Header from "../images/header.svg"
+import HeaderExamples from "../images/header-examples.svg"
+import BodyExamples from "../images/body-examples.svg"
+import Clickable from "../images/clickable.svg"
+import FooterExamples from "../images/footer-examples.svg"
+import Status from "../images/status.svg"
+import Pro from "../images/pro.svg"
+
+<Section title="Anatomy" style={{ paddingTop: 20 }}>
+	<img src={Anatomy} alt="Dashboard Widget Anatomy" style={{ marginBottom: 20 }} />
+	<h3>1. Widget Header</h3>
+    <p>
+		A dashboard widget header is a prominent element at the top of a dashboard
+		card that typically contains important information and controls related to the
+		content presented within the card. It often includes elements such as titles,
+		icons, description, and other relevant metadata.
+	</p>
+
+    <h3>2. Widget Body</h3>
+    <p>
+    	The dashboard widget is the space within the widget where the primary
+    	information, data, and visuals are presented to users.
+    </p>
+
+    <h3>3. Widget Footer</h3>
+    <p>
+    	A dashboard widget footer is a design component located at the bottom of the widget, which typically contains supplementary information, actions, or navigation options related to the content presented within the widget.
+    </p>
+
+</Section>
+
+<Section title="Spacing" style={{ paddingTop: 20 }}>
+	<img
+		src={Spacing}
+		alt="Dashboard Widget Spacing"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+
+<Section title="1. Header" style={{ paddingTop: 20 }}>
+	<Row>
+		<Col>
+			<h3>1. Title</h3>
+			<p>
+				A widget title have a supportive icon along with optional trailing icon or tag.
+			</p>
+
+    		<h3>2. Toggle</h3>
+    		<p>
+    			A toggle in a dashboard widget is an optional component which will appear when any widgets are in disabled mode.
+    		</p>
+
+    		<h3>3. Description</h3>
+    		<p>
+    			All dashboard contains small description that summarise the widget purpose.
+    		</p>
+    	</Col>
+    	<Col>
+    		<img
+    			src={Header}
+    			alt="Dashboard Widget Header"
+    			style={{ marginBottom: 20 }}
+    		/>
+    	</Col>
+    </Row>
+
+    	<h3>Header Examples</h3>
+    	<img src={HeaderExamples} alt="Dashboard Widget Header Examples"/>
+
+</Section>
+
+<Section title="2. Body" style={{ paddingTop: 20 }}>
+	<p>
+		The dashboard widget is the space within the widget where the primary information, data, and visuals are presented to users.NOTE: Dashboard widget body can include various contents which makes it flexible to manage design properties like layout, spacings, etc.
+	</p>
+
+    <h3>Examples</h3>
+    <img src={BodyExamples} alt="Dashboard Widget Body Examples" />
+
+    <h3>Clickable list/table status</h3>
+    <img src={Clickable} alt="Dashboard Widget Clickable Status" />
+
+</Section>
+
+<Section title="3. Footer" style={{ paddingTop: 20 }}>
+	<h3>Examples:</h3>
+	<img src={FooterExamples} alt="Dashboard Widget Footer" />
+
+    <h3 style={{ paddingTop: 20 }}>Dashboard Widget Status</h3>
+    <img src={Status} alt="Dashboard Widget Status" />
+
+    <h3 style={{ paddingTop: 20 }}>Pro list / table item</h3>
+    <img src={Pro} alt="Dashboard Widget Pro / Table Item" />
+
+</Section>

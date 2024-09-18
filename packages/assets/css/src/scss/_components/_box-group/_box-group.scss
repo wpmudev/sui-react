@@ -1,0 +1,10 @@
+@use "./_elements/elements" as sui-box-group--element;
+@use "./_modifiers/modifiers" as sui-box-group--modifier;
+
+@include sui-box-group--element.build-container(box-group);
+@include sui-box-group--element.build-slot(box-group);
+@include sui-box-group--element.build-left-slot(box-group);
+@include sui-box-group--element.build-right-slot(box-group);
+@include sui-box-group--element.build-item(box-group);
+
+@include sui-box-group--modifier.edit-alignment(box-group);

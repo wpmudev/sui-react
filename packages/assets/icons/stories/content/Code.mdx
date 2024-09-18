@@ -1,0 +1,108 @@
+import { Section, Code, Snippet, NodeJSWarning, List, CommonPropsNotice } from "@wpmudev/sui-docs"
+import { PropSection } from "@wpmudev/sui-docs"
+
+<Section contained={ true } style={{ paddingTop: 0 }}>
+	<NodeJSWarning/>
+</Section>
+
+<Section title="Installation" style={{ paddingTop: 0, paddingBottom: 0 }}>
+	<Section
+		title={{
+			content: "Install using NPM",
+			small: true,
+		}}
+		contained={ true }
+		style={{ paddingTop: 0, paddingLeft: 0, paddingRight: 0 }}>
+		<p>In your project root directory (where the <Code>package.json</Code> file lives), run the following command:</p>
+		```js
+		npm i @wpmudev/sui-icons --save-dev
+		```
+	</Section>
+
+	<Section
+		title={{
+			content: "Install using Yarn",
+			small: true,
+		}}
+		contained={ true }
+		style={{ paddingTop: 0, paddingLeft: 0, paddingRight: 0 }}>
+		<p>In your project root directory (where the <Code>package.json</Code> file lives), run the following command:</p>
+		```js
+		yarn add @wpmudev/sui-icons --dev
+		```
+	</Section>
+</Section>
+
+<Section title="Props" border={true} style={{ paddingTop: 0 }}>
+	<p>When utilizing the icon in the form of an SVG component, there are several properties available for customization.</p>
+
+	<PropSection title="title" type="string">
+		<p>
+		    Sets the display name for the generated icon component
+		</p>
+    </PropSection>
+
+	<PropSection title="colorScheme" type="string">
+		<p>
+		    The color scheme to apply to the icon, it accepts one of the following values:
+			<List>
+				<span label="neutral" />
+				<span label="informative" />
+				<span label="success" />
+				<span label="warning" />
+				<span label="critical" />
+			</List>
+		</p>
+    </PropSection>
+
+	<PropSection title="fill" type="string">
+		<p>
+			Custom color for the icon
+		</p>
+    </PropSection>
+
+	<PropSection title="size" type="string">
+		<p>
+		    The size of the icon, it accepts one of the following values:
+			<List>
+				<span label="xs" />
+				<span label="sm" />
+				<span label="md" />
+				<span label="lg" />
+				<span label="xl" />
+			</List>
+		</p>
+    </PropSection>
+
+	<PropSection title="viewBox" type="string" defaultValue="0 0 24 24">
+		<p>
+			Specify the aspect ratio and coordinate system of the SVG. <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox" target="_blank">learn more</a>
+		</p>
+    </PropSection>
+
+	<PropSection title="iconHeight" type="number" defaultValue="24">
+		<p>
+			Specifies the height of the icon in pixels 
+		</p>
+    </PropSection>
+
+	<PropSection title="iconWidth" type="number" defaultValue="24">
+		<p>
+			Specifies the width of the icon in pixels
+		</p>
+    </PropSection>
+
+	<PropSection title="onClick" type="function">
+		<p>
+			A callback function to be executed when the icon is clicked
+		</p>
+    </PropSection>
+
+	<PropSection title="className" type="string">
+		<p>
+			Additional custom className for further styling
+		</p>
+    </PropSection>
+</Section>
+
+<CommonPropsNotice />

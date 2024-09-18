@@ -1,0 +1,52 @@
+{
+  "name": "@wpmudev/sui-collections",
+  "version": "0.0.1",
+  "description": "WPMU DEV Shared UI React sub-package for collections components",
+  "keywords": [],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
+    }
+  ],
+  "license": "GPL-2.0",
+  "main": "src/index.ts",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-react.git",
+    "directory": "packages/simple-elements"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:dev": "npx tsup --watch",
+    "build:fast": "tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "build:readme": "readme generate --input ../../../blueprint.md"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/sui-react/issues"
+  },
+  "homepage": "https://github.com/wpmudev/sui-react#readme",
+  "dependencies": {
+    "@wpmudev/sui-config-table": "^0.0.1",
+    "@wpmudev/sui-footer": "^0.0.1",
+    "@wpmudev/sui-setup-banner": "^0.0.1",
+    "@wpmudev/sui-upsell": "^0.0.1",
+    "@wpmudev/sui-upsell-notice": "^0.0.1"
+  }
+}

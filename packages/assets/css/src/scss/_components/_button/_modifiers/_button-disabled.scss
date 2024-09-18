@@ -1,0 +1,21 @@
+@use "../../../_utils/utils" as *;
+
+/// Disabled
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin modify-disabled($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include modifier(disabled) {
+				cursor: default;
+				pointer-events: none;
+				border-color: $color-extended-neutral-80;
+				background: $color-extended-neutral-80;
+				color: $color-extended-neutral-70;
+			}
+		}
+	}
+}

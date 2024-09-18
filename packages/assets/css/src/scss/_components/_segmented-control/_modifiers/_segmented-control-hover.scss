@@ -1,0 +1,23 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build hover
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block-name - Main block name
+@mixin build-segmented-control-hover($block) {
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(label) {
+				@include modifier(hover) {
+					background: $color-extended-neutral-90;
+				}
+			}
+		}
+	}
+}

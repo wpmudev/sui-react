@@ -1,0 +1,48 @@
+@use "../../../_utils/tokens" as *;
+
+/// Main Colors.
+/// @author WPMU DEV
+///
+/// @since 1.0.0
+$sui-palette: (
+	primary: (
+		10: $color-primary-10,
+		40: $color-primary-40,
+		50: $color-primary-50,
+		80: $color-primary-80,
+		90: $color-primary-90,
+	),
+	neutral: (
+		0: $color-extended-neutral-0,
+		10: $color-extended-neutral-10,
+		20: $color-extended-neutral-20,
+		50: $color-extended-neutral-50,
+		60: $color-extended-neutral-60,
+		70: $color-extended-neutral-70,
+		80: $color-extended-neutral-80,
+		90: $color-extended-neutral-90,
+		95: $color-extended-neutral-95,
+		100: $color-extended-neutral-100,
+	),
+	success: (
+		10: $color-extended-success-10,
+		30: $color-extended-success-30,
+		50: $color-extended-success-50,
+		70: $color-extended-success-70,
+		90: $color-extended-success-90,
+	),
+	warning: (
+		10: $color-extended-warning-10,
+		30: $color-extended-warning-30,
+		50: $color-extended-warning-50,
+		70: $color-extended-warning-70,
+		90: $color-extended-warning-90,
+	),
+	error: (
+		10: $color-extended-error-10,
+		30: $color-extended-error-30,
+		50: $color-extended-error-50,
+		70: $color-extended-error-70,
+		90: $color-extended-error-90,
+	),
+);

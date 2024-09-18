@@ -1,0 +1,27 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/sui-docs';
+import { Score } from '../../../src';
+import dedent from 'dedent';
+
+export const SmallScoreCode = dedent`
+import React from 'react';\n
+import { Score } from '@wpmudev/sui-react';\n
+const Example() => {
+	return <Score bar={95} isSmall={true} />;
+}\n
+export default Example;
+`;
+
+<Section
+	title="Small"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set the <Code small={true}>isSmall</Code> prop to reduce the score width
+		and height, fitting with the design context.
+	</p>
+	<Preview wrapper={true}>
+		<Score bar={95} isSmall={true} />
+	</Preview>
+	<Snippet language="js">{SmallScoreCode}</Snippet>
+</Section>

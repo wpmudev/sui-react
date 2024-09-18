@@ -1,0 +1,29 @@
+import { Section, Preview, Snippet } from "@wpmudev/sui-docs"
+
+import { SetupBanner } from "../../../src"
+
+import dedent from "dedent"
+
+export const BeehiveCode = dedent`
+        <SetupBanner
+            type="beehive"
+            title="Beehive"
+            description="Monitor your Google Analytics overview, stats, data, and graphs right from your WordPress dashboard. Save time and get a better picture of the most important content on your sites."
+        />
+`
+
+<Section
+    contained={true}
+    border={true}
+    style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+    <Preview wrapper={true}>
+    	 <SetupBanner
+		    type="beehive"
+            title="Beehive"
+            description="Monitor your Google Analytics overview, stats, data, and graphs right from your WordPress dashboard. Save time and get a better picture of the most important content on your sites."
+         />
+    </Preview>
+    <Snippet language="js">{BeehiveCode}</Snippet>
+
+</Section>

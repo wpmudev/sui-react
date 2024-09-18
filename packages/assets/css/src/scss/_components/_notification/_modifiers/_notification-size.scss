@@ -1,0 +1,42 @@
+@use "../../../_utils/utils" as *;
+
+/// Size
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-size($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			width: $notification-size-width-md;
+
+			@include modifier(lg) {
+				width: $notification-size-width-lg;
+
+				@include media(max-width, sm) {
+					width: $notification-size-width-md;
+				}
+			}
+
+			@include media(max-width, sm) {
+				width: 100%;
+			}
+
+			@include modifier(fluid) {
+				width: 100%;
+
+				&.sui-#{$block-name}--inline {
+					max-width: 100%;
+				}
+			}
+
+			@include modifier(inline) {
+				@include media(max-width, sm) {
+					max-width: $notification-size-width-md;
+					width: 100%;
+				}
+			}
+		}
+	}
+}

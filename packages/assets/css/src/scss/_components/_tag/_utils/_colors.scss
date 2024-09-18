@@ -1,0 +1,23 @@
+@use "../../../_utils/utils" as *;
+
+$colors: (
+	default: $color-extended-neutral-60,
+	blue: $color-primary-50,
+	yellow: $color-extended-warning-50,
+	red: $color-extended-error-50,
+	green: $color-extended-success-50,
+	white: $color-extended-neutral-100,
+	black: $color-extended-neutral-10,
+	navy: $color-primary-40,
+);
+
+$colors-high-contrast: (
+	default: $color-extended-neutral-0,
+	blue: $color-extended-neutral-0,
+	yellow: $color-extended-neutral-0,
+	red: $color-extended-neutral-0,
+	green: $color-extended-neutral-0,
+	black: $color-extended-neutral-0,
+	navy: $color-extended-neutral-0,
+	white: $color-extended-neutral-100,
+);

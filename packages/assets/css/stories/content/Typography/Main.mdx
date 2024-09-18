@@ -1,0 +1,26 @@
+import { Page } from '@wpmudev/sui-docs';
+import { Unstyled } from '@storybook/blocks';
+
+import Headings from './TabHeadings.mdx';
+import Basics from './TabBasics.mdx';
+
+<Unstyled>
+	<Page.Tabs
+		title="Typography"
+		subtitle={
+			<>
+				We use Roboto as the primary font for our brand – from marketing to
+				plugins. It is simple but incredibly versatile, with three main
+				weight ranges: regular, medium, and bold.
+			</>
+		}
+		status="ready"
+	>
+		<div id="headings" label="Headings">
+			<Headings />
+		</div>
+		<div id="basics" label="Basics">
+			<Basics />
+		</div>
+	</Page.Tabs>
+</Unstyled>

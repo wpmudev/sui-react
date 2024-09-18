@@ -1,0 +1,21 @@
+@use "../../../_utils/utils" as *;
+
+/// Title
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-title($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include element(title) {
+				display: block;
+				margin: $spacing-sm 0;
+				font-weight: $font-weight-lg;
+				font-size: $font-size-md;
+				color: $color-extended-neutral-10;
+			}
+		}
+	}
+}

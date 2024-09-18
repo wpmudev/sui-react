@@ -1,0 +1,36 @@
+import { Section, Preview, Snippet, Code } from '@wpmudev/sui-docs';
+import { Button } from '../../../src';
+import dedent from 'dedent';
+
+export const LeadButtonCode = dedent`
+<Button startIcon="Logo">Icon before</Button>
+`;
+
+export const TrailButtonCode = dedent`
+<Button endIcon="Logo">Icon before</Button>
+`;
+
+<Section
+	title="Leading"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>Display an icon before the text.</p>
+	<Preview wrapper={true}>
+		<Button icon="Logo">Icon before</Button>
+	</Preview>
+	<Snippet language="js">{LeadButtonCode}</Snippet>
+</Section>
+
+<Section
+	title="Trailing"
+	contained={true}
+	style={{ paddingRight: 0, paddingBottom: 0, paddingLeft: 0 }}
+>
+	<p>Display an icon after the text.</p>
+	<Preview wrapper={true}>
+		<Button endIcon="Logo">Icon after</Button>
+	</Preview>
+	<Snippet language="js">{TrailButtonCode}</Snippet>
+</Section>

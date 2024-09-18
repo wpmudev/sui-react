@@ -1,0 +1,158 @@
+@use "sass:map";
+@use "sass:math";
+
+// Set the base spacing.
+$base-gutter: 40px;
+
+// Predefined spacing list.
+$gutter: (
+        sm: math.div($base-gutter, 2),
+        md: 40px,
+        lg: $base-gutter * 2,
+        xl: $base-gutter * 3,
+);
+
+// Predefined screen sizes.
+$breakpoints: (
+        sm: 601px,
+        md: 893px,
+        lg: 1081px,
+);
+
+// Create breakpoints mixin.
+@mixin media($type, $size) {
+  @if $type == min-width {
+    $width: #{map.get($breakpoints, $size)};
+
+    @media (min-width: $width) {
+      @content;
+    }
+  } @else if $type == max-width {
+    $width: #{map.get($breakpoints, $size) - 1};
+
+    @media (max-width: $width) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+.csb-card {
+  padding: map.get($gutter, md);
+  border-radius: 4px;
+  background: #FFF;
+
+  .csb-col & {
+
+    @include media(min-width, md) {
+      height: 100%;
+    }
+  }
+
+  &__info {
+
+    &:not(:only-child) {
+      margin-top: map.get($gutter, sm);
+    }
+  }
+
+  &__image {
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 40px;
+
+    &:not(:last-child) {
+      margin-bottom: map.get($gutter, sm);
+    }
+  }
+
+  &__description {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 25px;
+
+    &:not(:last-child) {
+      margin-bottom: map.get($gutter, sm);
+    }
+  }
+
+  // THEME: Light.
+  // Prepares font color for a light color background.
+  &--light {
+    color: #1A1A1A;
+
+    h3, p {
+      color: #1A1A1A;
+    }
+  }
+
+  // THEME: Dark.
+  // Prepares font color for a dark color background.
+  &--dark {
+    color: #FFF;
+
+    h3, p {
+      color: #FFF;
+    }
+  }
+
+  // ALIGNMENT: Center.
+  // Sets all content vertical aligned to the center of the container.
+  &--center {
+    text-align: center;
+  }
+
+  // VARIATION: Color Card.
+  &--color {
+    overflow: hidden;
+    padding: 0;
+    border-radius: 4px;
+    color: #1A1A1A;
+
+    .csb-card__preview {
+      padding: map.get($gutter, sm);
+      padding-top: #{map.get($gutter, sm) + 56px};
+
+      h3 {
+        margin: 0;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 20px;
+        text-transform: uppercase;
+      }
+    }
+
+    .csb-card__info {
+      margin: 0;
+      padding: map.get($gutter, sm);
+
+      h4, p {
+        color: #1A1A1A;
+      }
+
+      h4 {
+        margin: 0 0 5px;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 20px;
+        text-transform: uppercase;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Popever
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-popover($block-name) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include element(popover) {
+				z-index: 100;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				display: none;
+				margin: $spacing-md 0 0;
+				padding: $spacing-md 0;
+				border-radius: $border-radius-md;
+				background: $color-extended-neutral-100;
+				box-shadow: 0 $shadow-offset-default $shadow-offset-lg
+						$color-extended-shadow-default,
+					0 $shadow-offset-2xs $shadow-offset-xl $color-extended-shadow-light,
+					0 $shadow-offset-xs $shadow-offset-sm $color-extended-shadow-dark;
+
+				@include modifier(select-variable) {
+					.sui-#{$block-name}__menu-item {
+						line-height: $font-height-xs;
+						border-bottom: $border-width-sm solid $color-extended-neutral-80;
+
+						&:last-child {
+							border-bottom: 0;
+						}
+					}
+				}
+
+				@include modifier(select-checkbox, select-variable) {
+					.sui-#{$block-name}__menu-item {
+						padding: $spacing-md $spacing-lg;
+					}
+				}
+
+				@include modifier(sm) {
+					min-width: $dropdown-size-width-sm;
+				}
+
+				@include modifier(md) {
+					min-width: $dropdown-size-width-md;
+				}
+
+				@include modifier(lg) {
+					min-width: $dropdown-size-width-lg;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block-name) {
+			@include element(popover) {
+				right: 0;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block-name) {
+			@include element(popover) {
+				box-shadow: none;
+				border: $border-width-sm solid $color-extended-neutral-0;
+			}
+		}
+	}
+}

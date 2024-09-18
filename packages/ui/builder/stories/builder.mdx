@@ -1,0 +1,28 @@
+import { Page } from "@wpmudev/sui-docs"
+import { Unstyled } from "@storybook/blocks"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabBlocks from "./tabs/TabBlocks.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+
+<Unstyled>
+	<Page.Tabs
+		title="Builder"
+		subtitle="SUI builder is a drag and drop interface that allows to create or customize content layouts and arrangements by dragging and dropping various components into a canvas."
+		status="ready"
+	>
+		<div id="Usage" label="Usage">
+			<TabUsage />
+		</div>
+		<div id="Blocks" label="Blocks">
+			<TabBlocks />
+		</div>
+		<div id="code" label="Code">
+			<TabCode />
+		</div>
+		<div id="examples" label="Examples">
+			<TabExamples />
+		</div>
+	</Page.Tabs>
+</Unstyled>

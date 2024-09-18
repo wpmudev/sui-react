@@ -1,0 +1,112 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import PopoverFilter from "../images/popover-filter.svg"
+import InlineFilter from "../images/inline-filter.svg"
+import ButtonFilter from "../images/button-filter.svg"
+import SortColumn from "../images/sort-column.svg"
+import StateDefault from "../images/state-default.svg"
+import StateHover from "../images/state-hover.svg"
+import StateExpanded from "../images/state-expanded.svg"
+import Status from "../images/status.svg"
+import TypeDefault from "../images/type-default.svg"
+import TypeStripe from "../images/type-stripe.svg"
+import Draggable from "../images/draggable.svg"
+import LargeNumberColumns from "../images/large-number-columns.svg"
+import Responsive from "../images/responsive.svg"
+import SpacingRow from "../images/spacing-row.svg"
+import SpacingCell from "../images/spacing-cell.svg"
+import SpacingFooter from "../images/spacing-footer.svg"
+
+<Section title="Anatomy" style={{ paddingTop: 20 }}>
+	<img src={Anatomy} alt="Table Anatomy" style={{ marginBottom: 20 }} />
+	<h3>1. Toolbar</h3>
+	<p>
+		Table toolbar is a collection of controls and options that allow users to
+		interact with and manipulate data within a table.
+	</p>
+
+    <h3>2. Table head</h3>
+    <p>
+    	Table head provide clear and consistent way to identify the content of each column.
+    </p>
+
+    <h3>3. Table body</h3>
+    <p>
+    	Table body contains the actual data rows. It is where the main content of the table resides.
+    </p>
+
+    <h3>4. Table footer</h3>
+    <p>
+    	The table footer is an optional component that appears at the bottom of the table. It can be used to display summary information, totals for columns in the table or pagenations.
+    </p>
+
+</Section>
+
+<Section title="Table Filter" style={{ paddingTop: 20 }}>
+	<p>
+		Depending upon the requirement, filter can be shown inline or on a popover.
+	</p>
+	<h3>Inline filter</h3>
+	<img src={InlineFilter} alt="Table Inline Filter" />
+
+    <h3>Filter shown in popover</h3>
+    <img src={PopoverFilter} alt="Table Popover Filter" />
+
+    <h3>Filter button</h3>
+    <img src={ButtonFilter} alt="Table Button Filter" />
+
+</Section>
+
+<Section title="Sort Column" style={{ paddingTop: 20 }}>
+	<img src={SortColumn} alt="Table Sort Column" />
+</Section>
+
+<Section title="Table State" style={{ paddingTop: 20 }}>
+	<img src={StateDefault} alt="Table State Default" />
+	<img src={StateHover} alt="Table State Hover" style={{ paddingTop: 20 }} />
+	<img
+		src={StateExpanded}
+		alt="Table State Expanded"
+		style={{ paddingTop: 20 }}
+	/>
+</Section>
+
+<Section title="Table Status" style={{ paddingTop: 20 }}>
+	<img src={Status} alt="Table Status" />
+</Section>
+
+<Section title="Table Types" style={{ paddingTop: 20 }}>
+	<img src={TypeDefault} alt="Table Type Default" />
+	<img src={TypeStripe} alt="Table Type Stripe" style={{ paddingTop: 20 }} />
+</Section>
+
+<Section title="Draggable Table" style={{ paddingTop: 20 }}>
+	<img src={Draggable} alt="Draggable Table" />
+</Section>
+
+<Section title="Managing the large numbers of columns">
+	<p>
+		When a table needs to display data in multiple columns that cannot be
+		covered by the screen, freeze the first few crucial columns so that the
+		table can be scrolled to show the remaining data. The same approach can be
+		followed for the responsive purpose too.
+	</p>
+	<img src={LargeNumberColumns} alt="Table Large Number of Columns" />
+</Section>
+
+<Section title="Responsive">
+	<img src={Responsive} alt="Table Responsive" />
+</Section>
+
+<Section title="Spacings">
+	<h3>Table Row</h3>
+	<img src={SpacingRow} alt="Spacing Row" />
+
+    <h3>Table Cell</h3>
+    <img src={SpacingCell} alt="Spacing Cell" />
+
+     <h3>Table Footer</h3>
+    <img src={SpacingFooter} alt="Spacing Footer" />
+
+</Section>

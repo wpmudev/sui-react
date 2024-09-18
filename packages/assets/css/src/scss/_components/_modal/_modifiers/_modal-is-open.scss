@@ -1,0 +1,20 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Open State
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-is-open($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(is-open) {
+				visibility: visible;
+			}
+		}
+	}
+}

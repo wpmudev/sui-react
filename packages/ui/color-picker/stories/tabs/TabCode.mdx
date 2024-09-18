@@ -1,0 +1,76 @@
+import { color } from "@storybook/theming"
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx"
+
+<PackageInstallGuide packageName="@wpmudev/sui-color-picker" />
+
+<Section title="Props" border={true}>
+	<p>Color Picker Have the following components:</p>
+
+	<PropSection title="id" type="string">
+		<p>
+			Unique identifier for the color picker
+		</p>
+    </PropSection>
+
+	<PropSection title="defaultColor" type="string">
+		<p>
+			The initial color value
+		</p>
+	</PropSection>
+
+	<PropSection title="color" type="string">
+		<p>
+			Current color value
+		</p>
+    </PropSection>
+
+	<PropSection title="onColorChange" type="function">
+		<p>
+			A callback function to be invoked upon the change of color, the first parameter represents the new selected color.
+		</p>
+    </PropSection>
+
+    <PropSection title="onApply" type="function">
+    	<p>
+    		A callback function that will be invoked when the color is changed and applied, The first parameter <Code isSmall={true}> color </Code> represnts the new color string
+    	</p>
+    </PropSection>
+
+	<PropSection title="onReset" type="function">
+    	<p>
+    		A callback function to be invoked upon clicking the reset button
+    	</p>
+    </PropSection>
+
+    <PropSection title="type" type="string" defaultValue="hex">
+    	<p>The type of the Color Picker, It accepts one of the following options:</p>
+    	<List>
+    		<span label={<Code small={true}>hex</Code>} />
+    		<span label={<Code small={true}>rgb</Code>} />
+    	</List>
+    </PropSection>
+
+	<PropSection title="placeholder" type="string" defaultValue="Select Color">
+    	<p>The descriptive label in the input</p>
+    </PropSection>
+
+	<PropSection title="isFluid" type="boolean" defaultValue="false">
+    	<p>Specifies if the color picker is full width</p>
+    </PropSection>
+
+	<PropSection title="isError" type="boolean" defaultValue="false">
+    	<p>Sets the error state</p>
+    </PropSection>
+
+	<PropSection title="isDisabled" type="boolean" defaultValue="false">
+    	<p>Whether the ColorPicker is disabled or not</p>
+    </PropSection>
+
+	<PropSection title="disableAlpha" type="boolean" defaultValue="true">
+    	<p>Whether to allow transparency or not</p>
+    </PropSection>
+
+</Section>
+
+<CommonPropsNotice />

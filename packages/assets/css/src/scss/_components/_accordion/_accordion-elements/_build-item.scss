@@ -1,0 +1,104 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Accordion item
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-item($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(item) {
+				border-top: $border-width-sm solid $color-extended-neutral-80;
+				position: relative;
+				transition: 0.3s all ease;
+
+				&:first-child {
+					border: none;
+					border-radius: $accordion-border-radius-sm $accordion-border-radius-sm
+						0 0;
+				}
+
+				&:last-child {
+					border-radius: 0 0 $accordion-border-radius-sm
+						$accordion-border-radius-sm;
+				}
+
+				p {
+					&:first-child {
+						margin-top: 0;
+					}
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+
+				@include modifier(body) {
+					> .sui-box {
+						.sui-box-group {
+							padding-top: $spacing-2xl;
+							padding-bottom: $spacing-2xl;
+						}
+					}
+				}
+
+				@include modifier(no-padding) {
+					> .sui-box {
+						.sui-box-group {
+							padding: 0;
+						}
+					}
+				}
+
+				@include modifier(footer) {
+					> .sui-box {
+						.sui-box-group {
+							padding-top: $spacing-xl;
+							padding-bottom: $spacing-xl;
+						}
+					}
+				}
+
+				@include modifier(body, footer) {
+					> .sui-box {
+						border: none;
+						border-radius: $border-radius-md;
+						.sui-box-group {
+							margin: 0;
+
+							@include media(max-width, sm) {
+								padding: $spacing-lg;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(item) {
+				border-color: $color-extended-neutral-0;
+
+				@include modifier(footer) {
+					> .sui-box {
+						.sui-box-group {
+							border-color: $color-extended-neutral-0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

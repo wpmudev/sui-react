@@ -1,0 +1,38 @@
+import { Section, Switcher, Preview, Snippet } from "@wpmudev/sui-docs"
+import { BasicCheckbox } from "./Examples/components/BasicCheckbox"
+import dedent from "dedent"
+
+import States from "./Examples/States.mdx"
+import Group from "./Examples/Group.mdx"
+import Nested from "./Examples/Nested.mdx"
+import Validation from "./Examples/Validation.mdx"
+
+export const sampleCode = dedent`
+    <Checkbox label="Checkbox label" onChange={(e)=> setChecked(e.target.checked)}/>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>A basic Checkbox example used for most cases:</p>
+	<Preview wrapper={true}>
+		<BasicCheckbox label="Checkbox label" onChange={(e)=> setChecked(e.target.checked)}/>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+<Section title="States & Groups" style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="States" value="states">
+			<States />
+		</div>
+		<div label="Group" value="group">
+			<Group />
+		</div>
+		<div label="Nested" value="nested">
+			<Nested />
+		</div>
+		<div label="Validation" value="validation">
+			<Validation />
+		</div>
+	</Switcher>
+</Section>
+

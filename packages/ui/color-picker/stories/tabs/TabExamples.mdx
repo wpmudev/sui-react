@@ -1,0 +1,52 @@
+import { Section, Snippet, Code } from "@wpmudev/sui-docs"
+import dedent from "dedent"
+import { ColorPicker } from "../../src"
+import { FormField } from "@wpmudev/sui-form-field"
+
+export const sampleCode = dedent`
+    <FormField id="color-picker" label="Select colour">
+       <ColorPicker color="#d73d3d"/>
+    </FormField>
+`
+
+export const RgbTypeCode = dedent`
+    <FormField id="color-picker" label="Select colour">
+       <ColorPicker type="rgb" color="rgba(128, 38, 38, 1)"/>
+    </FormField>
+`
+
+export const enabledAlphaCode = dedent`
+    <FormField id="color-picker" label="Select colour">
+       <ColorPicker type="rgb" color="rgba(128, 38, 38, 1)" disableAlpha={false} />
+    </FormField>
+`
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>Below is the default form of a Color Picker with <Code isSmall={true}> hex</Code> Type:</p>
+	<div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<FormField id="color-picker" label="Select colour">
+    		<ColorPicker color="#d73d3d"/>
+		</FormField>
+	</div>
+    <Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+<Section title="RGB Type" contained={true} style={{ paddingTop: 0 }}>
+    <div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<FormField id="color-picker" label="Select colour">
+    		<ColorPicker type="rgb" color="rgba(128, 38, 38, 1)" />
+		</FormField>
+    </div>
+    <Snippet language="js">{RgbTypeCode}</Snippet>
+
+</Section>
+
+<Section title="Enabled Alpha" contained={true} style={{ paddingTop: 0 }}>
+    <div className="sui-wrap sui-theme--light" style={{marginBottom: "30px"}}>
+		<FormField id="color-picker" label="Select colour">
+    		<ColorPicker type="rgb" color="rgba(128, 38, 38, 1)" disableAlpha={false} />
+		</FormField>
+    </div>
+    <Snippet language="js">{enabledAlphaCode}</Snippet>
+</Section>
+

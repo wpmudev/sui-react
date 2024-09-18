@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs';
+import { Page } from '@wpmudev/sui-docs';
+import { Unstyled } from '@storybook/blocks';
+
+import Code from './content/Code.mdx';
+import Usage from './content/Usage.mdx';
+import License from './content/License.mdx';
+import Examples from './content/Examples.mdx';
+
+
+<Meta title="SUI/Icons Pack" />
+
+<Unstyled>
+	<Page.Tabs
+		title="Icons Pack"
+		subtitle={
+			<>SUI Icons Pack provides additional meaning in places where the text label doesn't fit. These icons communicate messages at a glimpse and lure awareness to vital information.</>
+		}>
+		<div id="usage" label="Usage">
+			<Usage />
+		</div>
+		<div id="code" label="Code">
+			<Code />
+		</div>
+		<div id="examples" label="Examples">
+			<Examples />
+		</div>
+		<div id="license" label="License">
+			<License />
+		</div>
+	</Page.Tabs>
+</Unstyled>

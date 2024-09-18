@@ -1,0 +1,40 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { AlertBanner } from "../../src"
+import { Button } from "@wpmudev/sui-button"
+import dedent from "dedent"
+
+import Style from "./Examples/Style.mdx"
+import Variations from "./Examples/Variations.mdx"
+
+export const sampleCode = dedent`
+    <AlertBanner>
+        Hello! This is an example content.
+        <a href="https://wpmudev.com"> Add link </a>
+        if necessary.
+    </AlertBanner>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }} border={true}>
+	<p> The default form of the Alert Banner component </p>
+	<Preview wrapper={true}>
+	<div style={ { padding: 20 } }>
+		<AlertBanner>Hello! This is example content. <a href="https://wpmudev.com"> Add link </a> if necessary.</AlertBanner>
+	</div>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+<Section
+	title="Variations & Style"
+	contained={true}
+	style={{ paddingTop: 30 }}
+>
+	<Switcher>
+		<div label="Variations" value="variations">
+			<Variations />
+		</div>
+		<div label="Style" value="style">
+			<Style />
+		</div>
+	</Switcher>
+</Section>

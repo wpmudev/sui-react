@@ -1,0 +1,71 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build header
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-header($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(header) {
+				padding: $spacing-2xl;
+				border-bottom: $border-width-sm solid $color-extended-neutral-80;
+
+				@include media(max-width, md) {
+					padding: $spacing-xl;
+				}
+
+				@include media(max-width, sm) {
+					padding: $spacing-xl $spacing-lg;
+				}
+			}
+
+			@include element(header-info) {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-wrap: wrap;
+			}
+
+			@include element(header-title) {
+				margin: 0;
+				flex: 1;
+			}
+
+			@include element(header-desc) {
+				margin-top: $spacing-md;
+				color: $color-extended-neutral-50;
+				flex-basis: 100%;
+			}
+
+			@include element(actions) {
+				@include media(max-width, sm) {
+					order: 3;
+					margin-top: $spacing-md;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(header) {
+				border-color: $color-extended-neutral-0;
+			}
+
+			@include element(header-desc) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

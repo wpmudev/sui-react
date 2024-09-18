@@ -1,0 +1,20 @@
+@use "./_elements/elements" as sui-checkbox--element;
+@use "./_modifiers/modifiers" as sui-checkbox--modifier;
+@use "./_states/states" as sui-checkbox--state;
+
+@include sui-checkbox--element.build-container(checkbox);
+@include sui-checkbox--element.build-checkbox-group(checkbox-wrapper);
+@include sui-checkbox--element.build-box(checkbox);
+@include sui-checkbox--element.build-icon(checkbox);
+
+@include sui-checkbox--modifier.edit-size(checkbox);
+@include sui-checkbox--modifier.edit-aria(checkbox);
+@include sui-checkbox--modifier.edit-nested(checkbox);
+@include sui-checkbox--modifier.edit-inline(checkbox);
+@include sui-checkbox--modifier.edit-error(checkbox);
+
+@include sui-checkbox--state.edit-checked(checkbox);
+@include sui-checkbox--state.edit-indeterminate(checkbox);
+@include sui-checkbox--state.edit-hover(checkbox);
+@include sui-checkbox--state.edit-focus(checkbox);
+@include sui-checkbox--state.edit-disabled(checkbox);

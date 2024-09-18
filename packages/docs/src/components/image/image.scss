@@ -1,0 +1,56 @@
+// Image.scss
+
+.csb-image {
+	width: 100%;
+	margin: 20px 0;
+	position: relative;
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	&--x-scrollable {
+		overflow-x: auto;
+
+		/* Hide scrollbar by default */
+		&::-webkit-scrollbar {
+			width: 0;
+			height: 8px;
+		}
+
+		&:hover {
+			/* Show scrollbar on hover */
+			&::-webkit-scrollbar {
+				width: 8px;
+				height: 8px;
+			}
+
+			&::-webkit-scrollbar-thumb {
+				border-radius: 8px;
+				background-color: rgba(
+					0,
+					0,
+					0,
+					0.3
+				); /* Lighter color of the scrollbar thumb */
+			}
+
+			&::-webkit-scrollbar-thumb:hover {
+				background-color: rgba(
+					0,
+					0,
+					0,
+					0.5
+				); /* Slightly darker color on hover */
+			}
+		}
+
+		img {
+			width: auto;
+			height: auto;
+			max-width: none;
+		}
+	}
+}

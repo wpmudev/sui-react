@@ -1,0 +1,38 @@
+@use "../../../_utils/utils" as *;
+
+/// Edit Nested
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-nested($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(group) {
+				@include modifier(nested) {
+					.sui-checkbox__group-body {
+						margin-left: $checkbox-spacing-lg;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Right o left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(group) {
+				@include modifier(nested) {
+					.sui-checkbox__group-body {
+						margin-right: $checkbox-spacing-lg;
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+}

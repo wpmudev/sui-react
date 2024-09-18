@@ -1,0 +1,87 @@
+@use "sass:map";
+@use "sass:math";
+
+// Set the base spacing.
+$base-gutter: 40px;
+
+// Predefined spacing list.
+$gutter: (
+        sm: math.div($base-gutter, 2),
+        md: 40px,
+        lg: $base-gutter * 2,
+        xl: $base-gutter * 3,
+);
+
+// Predefined screen sizes.
+$breakpoints: (
+        sm: 601px,
+        md: 893px,
+        lg: 1081px,
+);
+
+// Create breakpoints mixin.
+@mixin media($type, $size) {
+  @if $type == min-width {
+    $width: #{map.get($breakpoints, $size)};
+
+    @media (min-width: $width) {
+      @content;
+    }
+  } @else if $type == max-width {
+    $width: #{map.get($breakpoints, $size) - 1};
+
+    @media (max-width: $width) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+.csb-header {
+  padding: map.get($gutter, sm) map.get($gutter, sm) math.div(map.get($gutter, sm), 2);
+
+  @include media(min-width, md) {
+    padding: map.get($gutter, md) map.get($gutter, lg) map.get($gutter, sm);
+  }
+
+  // Elements
+  .csb-header {
+
+    &__title {
+      margin: 0;
+      color: #1A1A1A;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 44px;
+      letter-spacing: -0.25px;
+    }
+  }
+
+  // Modifiers
+  &.csb-header {
+
+    &--border {
+      padding-bottom: map.get($gutter, sm);
+      border-bottom: 1px solid #E6E6E6;
+
+      @include media(min-width, md) {
+        padding-bottom: map.get($gutter, md);
+      }
+    }
+
+    &--status {
+
+      .csb-header__title {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+
+        > .csb-tooltip,
+        > .csb-tag {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

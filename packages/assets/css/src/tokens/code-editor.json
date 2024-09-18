@@ -1,0 +1,22 @@
+{
+    "code-editor": {
+        "size": {
+            "width": {
+                "value": "40px",
+                "type": "sizing"
+            }
+        },
+        "position": {
+            "left": {
+                "value": "-40px",
+                "type": "other"
+            }
+        },
+        "spacing": {
+            "lg": {
+                "value": "40px",
+                "type": "spacing"
+            }
+        }
+    }
+}

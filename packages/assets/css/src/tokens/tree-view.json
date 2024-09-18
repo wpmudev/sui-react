@@ -1,0 +1,10 @@
+{
+	"treeview": {
+		"size": {
+			"md": {
+				"value": "20px",
+				"type": "width"
+			}
+		}
+	}
+}

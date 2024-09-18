@@ -1,0 +1,23 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Icon Container
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-container($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(hide-sm) {
+				@include media(max-width, sm) {
+					display: none;
+				}
+			}
+		}
+	}
+}

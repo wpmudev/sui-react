@@ -1,0 +1,34 @@
+import { Section, Switcher, Preview, Snippet } from '@wpmudev/sui-docs';
+import { Score } from '../../src';
+import dedent from 'dedent';
+import Types from './Examples/Types.mdx';
+import States from './Examples/States.mdx';
+import Size from './Examples/Size.mdx';
+
+export const sampleCode = dedent`
+<Score state="default" value={55} bar={55} />
+`;
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>
+		Below is the default form of Score component
+	</p>
+	<Preview wrapper={true}>
+		<Score state="default" value={55} bar={55} />
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+<Section style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="States" value="states">
+			<States />
+		</div>
+		<div label="Types" value="types">
+			<Types />
+		</div>
+		<div label="Size" value="size">
+			<Size />
+		</div>
+	</Switcher>
+</Section>

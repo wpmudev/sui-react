@@ -1,0 +1,84 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Variants
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-variant($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// by default variant is "simple"
+		@include block($block) {
+			// variant: advanced
+			@include modifier(advanced) {
+				@include modifies-element(container) {
+					padding: 0;
+				}
+
+				@include modifies-element(header) {
+					border-bottom: $border-width-sm solid $color-extended-neutral-80;
+					padding: $spacing-xl $spacing-2xl;
+				}
+
+				@include modifies-element(footer) {
+					border-top: $border-width-sm solid $color-extended-neutral-80;
+					padding: $spacing-xl $spacing-2xl;
+				}
+			}
+
+			// variant: app-connect
+			@include modifier(app-connect) {
+				@include modifies-element(header) {
+					align-items: baseline;
+
+					@include modifies-element(header-info) {
+						text-align: center;
+					}
+				}
+
+				@include media(max-width, lg) {
+					padding: $modal-spacing-lg 0;
+				}
+
+				@include media(max-width, sm) {
+					padding: $modal-spacing-lg $spacing-lg;
+				}
+			}
+
+			// variant: app-connect
+			@include modifier(simple, app-connect) {
+				@include modifies-element(body) {
+					margin: $spacing-xl 0;
+					padding: 0 $spacing-2xl;
+
+					@include media(max-width, sm) {
+						margin: $spacing-lg 0;
+						padding: 0 $spacing-lg;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// by default variant is "simple"
+		@include block($block) {
+			// variant: advanced
+			@include modifier(advanced) {
+				@include modifies-element(header) {
+					border-color: $color-extended-neutral-0;
+				}
+
+				@include modifies-element(footer) {
+					border-color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+}

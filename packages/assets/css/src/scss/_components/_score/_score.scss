@@ -1,0 +1,9 @@
+@use "./_score-elements/elements" as sui-score--element;
+@use "./_score-modifiers/modifiers" as sui-score--modifier;
+@use "./_score-states/states" as sui-score--state;
+
+@include sui-score--element.build-container(score);
+@include sui-score--element.build-svg(score);
+@include sui-score--element.build-content(score);
+@include sui-score--modifier.build-size(score);
+@include sui-score--state.state-loaded(score);

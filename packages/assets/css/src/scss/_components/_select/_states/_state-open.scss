@@ -1,0 +1,59 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Select Open
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin select-open($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(open) {
+				z-index: 1;
+				@include modifies-element(control) {
+					&::after {
+						border: $border-width-md solid $color-primary-50;
+					}
+				}
+
+				@include modifies-element(input) {
+					border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
+					border-bottom-color: transparent;
+					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px $color-primary-80;
+				}
+
+				@include modifies-element(search) {
+					display: block;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(open) {
+				@include modifies-element(control) {
+					border-bottom-color: transparent;
+					&::after {
+						border-color: $color-extended-neutral-0;
+					}
+					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px
+						$color-extended-neutral-0;
+				}
+
+				@include modifies-element(input) {
+					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px
+						$color-extended-neutral-0;
+				}
+			}
+		}
+	}
+}

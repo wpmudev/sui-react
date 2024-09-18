@@ -1,0 +1,105 @@
+@use "../_utils/tokens" as *;
+@use "../_utils/bem" as *;
+@use "../_utils/mixins" as *;
+
+@include sui-class($rtl: false, $theme: null) {
+	// .sui-screen-reader-only
+	@include block(screen-reader-only) {
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(1px, 1px, 1px, 1px);
+		clip-path: inset(50%);
+		position: absolute !important;
+		margin: -1px;
+		padding: 0;
+		border: 0;
+		word-wrap: normal !important;
+	}
+
+	@include block(accessible-cta) {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	// .sui-hidden
+	@include block(hidden) {
+		opacity: 0;
+	}
+
+	// .sui-mobile-hide
+	@include block(md-hide) {
+		@include media(max-width, md) {
+			display: none;
+		}
+	}
+
+	// .sui-wp-overlay is to show modal or component over the wordpress content
+	@include block(wp-overlay) {
+		position: fixed;
+		top: $spacing-2xl !important;
+		left: 160px !important;
+		bottom: 0;
+		right: 0;
+
+		/* only for wordpress */
+		@media (max-width: 960px) {
+			left: 36px !important;
+		}
+
+		@media (max-width: 782px) {
+			left: 0 !important;
+			top: 46px !important;
+		}
+		/* only for wordpress */
+	}
+}
+
+// Body root class
+// DIR: Left to right.
+// THEME: None.
+@include body-class($rtl: false) {
+	.folded {
+		@include block(wp-overlay) {
+			left: 36px !important;
+		}
+	}
+
+	// stop body from scrolling
+	@include block(locked) {
+		overflow-y: hidden;
+	}
+}
+
+// DIR: Right to left.
+// THEME: None.
+@include sui-class($rtl: true, $theme: null) {
+	@include block(wp-overlay) {
+		right: 160px !important;
+		left: 0 !important;
+
+		// only for wordpress
+		@media (max-width: 960px) {
+			right: 36px !important;
+		}
+
+		@media (max-width: 782px) {
+			right: 0 !important;
+		}
+	}
+}
+
+// Body root class
+// DIR: Left to right.
+// THEME: None.
+@include body-class($rtl: true) {
+	.folded {
+		.sui-wrap {
+			@include block(wp-overlay) {
+				right: 36px !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build absolute
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-absolute($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(absolute) {
+				display: inline-block;
+
+				@include modifies-element(loader) {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+}

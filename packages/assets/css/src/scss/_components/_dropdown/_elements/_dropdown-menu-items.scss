@@ -1,0 +1,35 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build menu items
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-menu-items($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(menu-items) {
+				max-height: $dropdown-size-height-md;
+				overflow-y: auto;
+				margin: 0;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(menu-items) {
+				background: $color-extended-neutral-100;
+			}
+		}
+	}
+}

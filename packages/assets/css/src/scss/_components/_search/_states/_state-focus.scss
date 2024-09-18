@@ -1,0 +1,42 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Select Focus
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin state-focus($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(focus) {
+				.sui-#{$block}__input-field {
+					&:after {
+						border-width: $border-width-md;
+						border-style: solid;
+						border-color: $color-primary-50;
+						border-radius: inherit;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(focus) {
+				.sui-#{$block}__input-field {
+					&:after {
+						border-color: inherit;
+					}
+				}
+			}
+		}
+	}
+}

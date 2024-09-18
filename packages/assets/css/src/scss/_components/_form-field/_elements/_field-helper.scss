@@ -1,0 +1,33 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Helper
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-helper($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(helper) {
+				display: block;
+				margin: $spacing-sm 0 0;
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
+				letter-spacing: $font-spacing-sm;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: "dark") {
+		@include block($block) {
+			@include element(helper) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

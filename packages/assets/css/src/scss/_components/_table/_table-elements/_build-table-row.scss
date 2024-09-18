@@ -1,0 +1,149 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build table row
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-table-row($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(row) {
+				border-top: $border-width-sm solid $color-extended-neutral-80;
+				position: relative;
+				background: $color-extended-neutral-100;
+
+				.sui-#{$block}__footer & {
+					border-top: none;
+				}
+
+				@include modifier(expanded) {
+					.sui-#{$block}__cell--sticky {
+						background: $color-extended-neutral-95;
+					}
+				}
+
+				@include modifier(expanded, content) {
+					background: $color-extended-neutral-95;
+				}
+
+				@include modifier(content) {
+					border: none;
+					display: none;
+					position: relative;
+
+					> td {
+						padding: 0 $spacing-2xl $spacing-2xl $spacing-2xl;
+						position: sticky;
+						left: 0;
+						column-span: 4;
+
+						@include media(max-width, sm) {
+							padding: 0 $spacing-lg $spacing-lg $spacing-lg;
+						}
+					}
+
+					.sui-#{$block}__cell {
+						@include media(max-width, sm) {
+							display: table-cell;
+							white-space: unset;
+						}
+					}
+				}
+
+				@include modifier(content-expanded) {
+					display: table-row;
+				}
+			}
+
+			@include element(table) {
+				@include modifier(footer) {
+					border-top: $border-width-sm solid $color-extended-neutral-80;
+				}
+			}
+
+			@include modifier(sticky) {
+				@include modifies-element(body) {
+					td {
+						&:first-child {
+							&:after {
+								content: "";
+								position: absolute;
+								top: 0;
+								bottom: 0;
+								left: 0;
+								width: $border-width-xl;
+								background: transparent;
+								pointer-events: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(row) {
+				&:after {
+					right: 0;
+					left: unset;
+				}
+			}
+
+			@include modifier(sticky) {
+				@include modifies-element(body) {
+					td {
+						&:first-child {
+							&:after {
+								left: unset;
+								right: 0;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(row) {
+				border-color: $color-extended-neutral-0;
+
+				@include modifier(expanded, content) {
+					background: $color-extended-neutral-100;
+				}
+
+				@include modifier(expanded) {
+					.sui-#{$block}__cell--sticky {
+						background: $color-extended-neutral-100;
+					}
+				}
+
+				@include modifier(content) {
+					box-shadow: unset;
+				}
+			}
+
+			@include element(table) {
+				@include modifier(footer) {
+					border-color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+}

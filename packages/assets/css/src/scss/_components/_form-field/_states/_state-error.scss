@@ -1,0 +1,21 @@
+@use "../../../_utils/utils" as *;
+
+/// Error state
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-error($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(error) {
+				@include modifies-element(helper) {
+					// color: $form-field-helper-font-error;
+				}
+			}
+		}
+	}
+}

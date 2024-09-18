@@ -1,0 +1,88 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice} from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-advanced-banner" />
+
+<Section title="Props">
+	
+	<PropSection 
+		title="variation"
+		type="string" 
+		defaultValue="plugin"
+	>
+		<p>Customizes the display style of the Advanced Banner.</p>
+		<p>
+			Allowed options:
+			<List>
+				<span label={<Code small={true}>plugin</Code>} />
+				<span label={<Code small={true}>hub</Code>} />
+				<span label={<Code small={true}>newsletter</Code>} />
+				<span label={<Code small={true}>black-friday</Code>} />
+			</List>
+		</p>
+	</PropSection>	
+	
+	<PropSection 
+		title="imageUrl" 
+		type="string" 
+		defaultValue="https://placehold.co/100"
+	>
+		Specifies the image to be displayed within the Advanced Banner.
+	</PropSection>
+
+	<PropSection 
+		title="title" 
+		type="string" 
+		defaultValue="Banner Title"
+	>
+		Sets the headline or main text content of the Advanced Banner.
+	</PropSection>
+
+	<PropSection title="description" type="string" defaultValue="Banner Description">
+		<p>
+			Enables you to include a detailed explanatory text or caption for the
+			content within the Advanced Banner."
+		</p>
+	</PropSection>
+
+	<PropSection title="children" type="React Node">
+		<p>Represents the content of the Advanced Banner</p>
+	</PropSection>
+
+	<PropSection title="helper" type="string">
+		<p>Provides contextual text to enhance user understanding</p>
+	</PropSection>
+
+	<PropSection title="allowClose" type="boolean" defaultValue="true">
+		<p>Grants control over whether users can close or dismiss the component.</p>
+		<p>When set to <Code small={true}>true</Code>, a close button appears on the top right of the component</p>
+	</PropSection>
+
+    <PropSection title="onClose" type="function">
+    	<p>A callback function to be invoked when the component is closed</p>
+    </PropSection>
+
+    <PropSection title="className" type="function">
+    	<p>Additional css className(s)</p>
+    </PropSection>
+
+</Section>
+
+<Section title="Black Fiday Variation">
+	The following props are only relevant for the variation
+	<Code small={true}>black-friday</Code>
+
+    <PropSection title="discountPercentage" type="number" defaultValue="50">
+    	<p>Represents the percentage value of a the discount applied</p>
+    </PropSection>
+
+    <PropSection title="ctaTitle" type="string" defaultValue="cta title">
+    	<p>Represent the text of the action button</p>
+    </PropSection>
+
+    <PropSection title="onCTAClick" type="function">
+    	<p>A Callback function to be invoked when the action button is clicked</p>
+    </PropSection>
+
+</Section>
+
+<CommonPropsNotice />

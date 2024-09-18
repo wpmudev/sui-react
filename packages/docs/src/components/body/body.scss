@@ -1,0 +1,47 @@
+@use "sass:map";
+@use "sass:math";
+
+// Set the base spacing.
+$base-gutter: 40px;
+
+// Predefined spacing list.
+$gutter: (
+        sm: math.div($base-gutter, 2),
+        md: 40px,
+        lg: $base-gutter * 2,
+        xl: $base-gutter * 3,
+);
+
+// Predefined screen sizes.
+$breakpoints: (
+        sm: 601px,
+        md: 893px,
+        lg: 1081px,
+);
+
+// Create breakpoints mixin.
+@mixin media($type, $size) {
+  @if $type == min-width {
+    $width: #{map.get($breakpoints, $size)};
+
+    @media (min-width: $width) {
+      @content;
+    }
+  } @else if $type == max-width {
+    $width: #{map.get($breakpoints, $size) - 1};
+
+    @media (max-width: $width) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+.csb-body {
+
+  @include media(min-width, md) {
+    height: 100%;
+    flex: 1;
+  }
+}

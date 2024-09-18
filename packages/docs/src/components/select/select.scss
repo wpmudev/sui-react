@@ -1,0 +1,33 @@
+.csb-select {
+	min-width: 200px;
+	cursor: pointer;
+	appearance: none;
+	padding: 10px;
+	padding-right: 36px;
+	border: 1px solid #1a1a1a;
+	border-radius: 4px;
+	background-color: #ffffff;
+	background-image: url("../../../assets/images/arrow-close.png");
+	background-size: 16px 16px;
+	background-repeat: no-repeat;
+	background-position: right 20px center;
+	color: #1a1a1a;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 28px;
+	transition: 0.2s ease;
+
+	&:hover {
+		border-color: #0059ff;
+	}
+
+	&:focus {
+		border-color: #0059ff;
+		background-image: url("../../../assets/images/arrow-open.png");
+		color: #0059ff;
+	}
+
+	&--sm {
+		line-height: 20px;
+	}
+}

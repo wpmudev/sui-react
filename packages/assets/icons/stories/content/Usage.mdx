@@ -1,0 +1,102 @@
+import { Section, Code, Snippet, List, Message } from '@wpmudev/sui-docs';
+import dedent from 'ts-dedent';
+
+<Section contained={ true } style={{ paddingTop: 0 }}>
+	<p>There are many ways/formats to use the Shared UI Icons Package. The fastest and recommended way is via SVG directly. Or use the Webfont version if you want to include all icons at once:</p>
+</Section>
+
+<Section
+	title={{
+		content: "SVG Icons - For a few icons in your project",
+		small: true,
+	}}
+	contained={ true }
+	border={ true }
+	style={{ paddingTop: 0 }}>
+	<List>
+		<div label='Suppose you want to use just a few icons. Find the icons you need in the "icons" folder. Then use them as regular images:' />
+	</List>
+	<Snippet>
+	{ dedent`
+<img
+  width="32"
+  height="32"
+  src="@wpmudev/sui-icons/dist/svg/plugin-smartcrawl.svg"
+  alt="SmartCrawl Plugin" />
+	`}
+	</Snippet>
+	<List>
+		<div label={
+			<>Its possible to serve the icons from a CDN such as <a href="https://unpkg.com/" target="_blank" rel="nofollow">Unpkg</a>. Use the <Code small={ true }> @wpmudev/sui-icons </Code> npm package in the URL like the following:</>
+		 } />
+	</List>
+	<Snippet>
+	{ dedent`
+<img
+  width="32"
+  height="32"
+  src="https://unpkg.com/@wpmudev/sui-icons/dist/svg/plugin-smartcrawl.svg"
+  alt="SmartCrawl Plugin" />
+	`}
+	</Snippet>
+</Section>
+
+<Section
+	title={{
+		content: "SVG Component",
+		small: true,
+	}}
+	border={ true }
+	contained={ true }>
+	<List>
+		<div label={
+			<>Install the <Code small={ true }> @wpmudev/sui-icons </Code> and @wpmudev/react-icon packages then import the icon in component you want in your component, as follow:</>
+		} />
+	</List>
+	<Snippet>
+		{ dedent`
+import { ArrowUp } from @wpmudev/sui-icons;
+
+const TestComponent = () => <ArrowUp/>;
+	`}
+	</Snippet>
+</Section>
+
+<Section
+	title={{
+		content: "Icons Font - Ideal when you want to include all icons at once",
+		small: true,
+	}}
+	contained={ true }>
+	<List>
+		<div label={
+			<>Install the <Code small={ true }> @wpmudev/sui-icons </Code> and in the <Code small={ true }> &lt;head&gt; </Code> of your HTML file, reference the location to your <Code small={ true }> sui-icons.css </Code> stylesheet.</>
+		 } />
+	</List>
+	<Snippet>
+	{ dedent`
+<head>
+  ...
+  <link rel="stylesheet" href="@wpmudev/sui-icons/dist/css/sui-icons.css" />
+  ...
+</head>
+	`}
+	</Snippet>
+	<List>
+		<div label={
+			<>Use <a href="https://unpkg.com/" target="_blank" rel="nofollow">unpkg.com</a> to load the <a href="https://www.npmjs.com/package/@wpmudev/shared-ui" target="_blank" rel="nofollow">Shared UI Icons Pack</a> directly without installing anything:</>
+		 } />
+	</List>
+	<Snippet>
+	{ dedent`
+<head>
+  ...
+  <link rel="stylesheet" href="https://unpkg.com/@wpmudev/sui-icons/dist/css/sui-icons.css" />
+  ...
+</head>
+	`}
+	</Snippet>
+	<Message color="blue">
+		<p>Place the <Code theme="dark">suicons</Code> class with <Code theme="dark">&lt;span&gt;</Code> tag in your HTML file, like this. Then, use the <strong>icon name</strong> along with the <Code theme="dark">suicons--</Code> class prefix.</p>
+	</Message>
+</Section>

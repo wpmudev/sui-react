@@ -1,0 +1,9 @@
+@use "./_elements/elements" as sui-dashboard-widget--element;
+@use "./_states/states" as sui-dashboard-widget--state;
+
+@include sui-dashboard-widget--element.build-container(dashboard-widget);
+@include sui-dashboard-widget--element.build-header(dashboard-widget);
+@include sui-dashboard-widget--element.build-body(dashboard-widget);
+@include sui-dashboard-widget--element.build-footer(dashboard-widget);
+
+@include sui-dashboard-widget--state.edit-disabled(dashboard-widget);

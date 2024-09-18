@@ -1,0 +1,21 @@
+/**
+ * Version: 6.0
+ * Source: wp-includes/css/
+ */
+@import url(./wordpress/dashicons.css);
+@import url(./wordpress/admin-bar.css);
+
+/**
+ * Version: 6.0
+ * Source: wp-admin/css/
+ */
+@import url(./wordpress/common.css);
+@import url(./wordpress/admin-menu.css);
+@import url(./wordpress/nav-menus.css);
+@import url(./wordpress/l10n.css);
+
+/**
+ * Showcase
+ *
+ * Add some custom styles for showcase admin bar.
+ */

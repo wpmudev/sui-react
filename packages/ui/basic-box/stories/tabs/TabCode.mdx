@@ -1,0 +1,36 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-basic-box" />
+
+<Section title="Props" border={true}>
+	<PropSection title="title" type="React Node" defaultValue="Box Title">
+		<p>Represents the heading text of the Box</p>
+	</PropSection>
+
+    <PropSection title="description" type="React Node">
+    	<p>Additional explanation text that accompanies the title</p>
+    </PropSection>
+
+    <PropSection title="headerActions" type="React Node">
+    	<p>Optional header actions to be displayed in the Header of the Box</p>
+    </PropSection>
+
+    <PropSection title="footerActions" type="React Node">
+    	<p>Optional footer actions to be displayed in the footer</p>
+    </PropSection>
+
+    <PropSection title="isPro" type="boolean" defaultValue="false">
+    	<p>Sets the type of the Box, the pro version have a disabled box</p>
+    </PropSection>
+
+    <PropSection title="children" type="React Node">
+    	<p>Represents the body content of the Box</p>
+    </PropSection>
+
+    <PropSection title="className" type="string">
+    	<p>Custom css className(s) for further customization</p>
+    </PropSection>
+
+</Section>
+
+<CommonPropsNotice />

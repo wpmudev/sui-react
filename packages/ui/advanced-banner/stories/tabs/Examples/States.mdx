@@ -1,0 +1,22 @@
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { AdvancedBanner } from "../../../src"
+import dedent from "dedent"
+
+export const persistantCode = dedent`
+    <AdvancedBanner allowClose={false} />
+`
+
+<Section
+	title="Persistant"
+	contained={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Use the prop <Code small={true}>allowClose=\{false\}</Code> to hide the close
+		button
+	</p>
+	<Preview wrapper={true}>
+		<AdvancedBanner allowClose={false} />
+	</Preview>
+	<Snippet language="js">{persistantCode}</Snippet>
+</Section>

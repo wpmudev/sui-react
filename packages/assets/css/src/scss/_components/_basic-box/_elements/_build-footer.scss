@@ -1,0 +1,48 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build footer
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-footer($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(footer) {
+				align-items: center;
+				display: flex;
+				justify-content: space-between;
+				padding: $spacing-2xl;
+				border-top: $border-width-sm solid $color-extended-neutral-80;
+
+				@include media(max-width, md) {
+					padding: $spacing-xl;
+				}
+
+				@include media(max-width, sm) {
+					flex-wrap: wrap;
+					gap: $spacing-md;
+					padding: $spacing-xl $spacing-lg;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(footer) {
+				border-color: $color-extended-neutral-0;
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

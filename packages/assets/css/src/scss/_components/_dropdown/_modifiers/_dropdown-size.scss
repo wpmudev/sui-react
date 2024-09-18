@@ -1,0 +1,19 @@
+@use "../../../_utils/utils" as *;
+
+/// Size Styles
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin modify-size($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include modifier(sm) {
+				@include modifies-element(option) {
+					font-size: $font-size-2xs;
+				}
+			}
+		}
+	}
+}

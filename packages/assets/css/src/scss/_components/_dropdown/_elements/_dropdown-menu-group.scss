@@ -1,0 +1,49 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build menu group
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-menu-group($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(menu-group) {
+				list-style: none;
+				margin: 0;
+			}
+
+			@include element(menu-group-title) {
+				color: $color-extended-neutral-60;
+				display: block;
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
+				font-weight: $font-weight-md;
+				letter-spacing: $font-spacing-2xl;
+				padding: $spacing-md $spacing-lg;
+				text-transform: uppercase;
+			}
+
+			@include element(menu-group-items) {
+				margin: 0;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(menu-group-title) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

@@ -1,0 +1,174 @@
+@use "../../../_utils/utils" as *;
+
+/// Edit Variation
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-variation($block) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(menu-item) {
+				@include modifier(hummingbird) {
+					background: $color-secondary-hummingbird-variant-90;
+
+					.sui-#{$block}__menu-item-icon {
+						color: $color-secondary-forminator-general-50;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background: $color-secondary-hummingbird-variant-70;
+					}
+				}
+
+				@include modifier(smush) {
+					background: $color-secondary-smush-general-90;
+
+					.sui-#{$block}__menu-item-icon {
+						color: $color-secondary-smush-general-50;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background: $color-secondary-smush-general-70;
+					}
+				}
+
+				@include modifier(snapshot) {
+					background: $color-secondary-snapshot-general-90;
+
+					.sui-#{$block}__menu-item-icon {
+						color: $color-secondary-forminator-general-50;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background: $color-secondary-snapshot-general-70;
+					}
+				}
+
+				@include modifier(smartcrawl) {
+					background: $color-secondary-smartcrawl-variant-90;
+
+					.sui-#{$block}__menu-item-icon {
+						color: $color-secondary-smartcrawl-general-50;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background: $color-secondary-smartcrawl-variant-70;
+					}
+				}
+
+				@include modifier(shipper) {
+					background: $color-secondary-shipper-variant-90;
+
+					.sui-#{$block}__menu-item-icon {
+						color: $color-secondary-shipper-general-50;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background: $color-secondary-shipper-variant-70;
+					}
+				}
+
+				@include modifier(ivt) {
+					background: $color-secondary-ivt-variant-90;
+
+					.sui-#{$block}__menu-item-icon {
+						color: $color-secondary-ivt-general-30;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background: $color-secondary-ivt-variant-70;
+					}
+				}
+
+				@include modifier(hustle) {
+					background: $color-secondary-hustle-variant-90;
+
+					.sui-#{$block}__menu-item-icon {
+						color: $color-secondary-forminator-general-50;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background: $color-secondary-hustle-variant-70;
+					}
+				}
+
+				@include modifier(forminator) {
+					background: $color-secondary-forminator-variant-90;
+
+					.sui-#{$block}__menu-item-icon {
+						color: $color-secondary-forminator-general-50;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background: $color-secondary-forminator-variant-70;
+					}
+				}
+
+				@include modifier(defender) {
+					background: $color-secondary-defender-variant-90;
+
+					.sui-#{$block}__menu-item-icon {
+						color: $color-secondary-forminator-general-50;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background: $color-secondary-defender-variant-70;
+					}
+				}
+
+				@include modifier(branda) {
+					background: $color-secondary-branda-general-90;
+
+					.sui-#{$block}__menu-item-icon {
+						color: $color-secondary-branda-general-50;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background: $color-secondary-branda-general-70;
+					}
+				}
+
+				@include modifier(beehive) {
+					background: $color-secondary-beehive-general-90;
+
+					.sui-#{$block}__menu-item-icon {
+						color: $color-secondary-forminator-general-50;
+					}
+
+					&.sui-#{$block}__menu-item--hover {
+						background: $color-secondary-beehive-general-70;
+					}
+				}
+
+				@include modifier(danger) {
+					&:not(.sui-#{$block}__menu-item--disabled) {
+						color: #f45c59;
+
+						.sui-#{$block}__menu-item-icon {
+							color: #f45c59;
+						}
+
+						&.sui-#{$block}__menu-item--hover {
+							background: #feefee;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(menu-item) {
+				.sui-#{$block}__menu-item-icon {
+					color: inherit;
+				}
+				@include modifier(hover) {
+					background: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+}

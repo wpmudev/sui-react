@@ -1,0 +1,19 @@
+{
+  "replace": {
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "style": "./dist/css/sui-icons.min.css",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js",
+        "./fonts": "./dist/fonts",
+        "./svg": "./dist/svg",
+        "./css": "./dist/css"
+      },
+      "./package.json": "./package.json"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import States from "../images/states.svg"
+import Size from "../images/size.svg"
+
+<Section title="Anatomy">
+	<Row>
+		<Col>
+
+			<h2>1. Progress track</h2>
+			<p>The track is a fixed length of the progress bar where the progress indicator runs.</p>
+
+			<h2>2. Progress indicator</h2>
+			<p>The progress indicator indicates how much the process has been made.</p>
+
+			<h2>3. Progress value</h2>
+			<p>The value of a progress bar provides information about the Score. It can be a general number or in percentage.</p>
+    	</Col>
+    	<Col style={ { display: "flex", alignItems: "center" } }>
+    		<img src={Anatomy} alt="Score Anatomy" />
+    	</Col>
+    </Row>
+</Section>
+
+<Section title="States">
+	<p>Depending upon the message that Score deliver to users, the Score can be displayed in different states.</p>
+	<Row>
+		<Col>
+			<h2>1. Default</h2>
+			<p>To display general progress on the score.</p>
+
+			<h2>2. Success</h2>
+			<p>Generally display the low risk or safe state as progress. Score value is set from 61 - 100.</p>
+
+			<h2>3. Warning</h2>
+			<p>Display a state or risk on progress with this state. Score value is set from 35 - 60.</p>
+
+			<h2>4. Error</h2>
+			<p>Error state is to display the high risk and critical situation. Score value is set from 0 - 34. </p>
+    	</Col>
+    	<Col style={ { display: "flex", alignItems: "center" } }>
+    		<img src={States} alt="Score States" />
+    	</Col>
+    </Row>
+</Section>
+
+
+<Section title="Size">
+	<p>Depending upon the design requirement, particular task conditions can change the Score type. It can be an error or warning depending upon the task.</p>
+	<Row>
+		<Col>
+			<h2>1. Large</h2>
+			<p>The large size of the score is generally used to display for a summary of data. In SUI 3, it is used mostly on Summary box.
+Ex : Showing the Progress of Particular Task/ Audit Widget Box.</p>
+
+			<h2>2. Small</h2>
+			<p>Small size of the Score is used to show the score inside the small components like lists, tables etc.
+Ex : Showing Progress of Particular Label/Audits (Similar to Hummingbird Performance Test)</p>
+
+    	</Col>
+    	<Col style={ { display: "flex", alignItems: "center" } }>
+    		<img src={Size} alt="Score Size" />
+    	</Col>
+    </Row>
+</Section>
