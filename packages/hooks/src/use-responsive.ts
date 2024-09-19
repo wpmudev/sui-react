@@ -73,9 +73,9 @@ const getDevice = (devices: ConfigType): string => {
 const useResponsive = (config: ConfigType = {}) => {
 	const defaultBreakpoints = useMemo(() => {
 		return {
-			desktop: 1200,
-			tablet: 1024,
-			mobile: 600,
+			desktop: 1024,
+			tablet: [1024, 600],
+			mobile: [600, 0],
 			...config,
 		}
 	}, [config])
