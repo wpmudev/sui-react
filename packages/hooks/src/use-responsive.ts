@@ -10,32 +10,19 @@ interface ConfigType {
 // Sort the config object.
 const sort = (devices: ConfigType) => {
 	return Object.entries(devices).sort((a, b) => {
-		const aIsRange = Array.isArray(a[1])
-		const bIsRange = Array.isArray(b[1])
+		const [aValue, bValue] = [a[1], b[1]]
+		const [aIsRange, bIsRange] = [Array.isArray(aValue), Array.isArray(bValue)]
 
 		if (aIsRange && bIsRange) {
-			// If both are ranges, compare their min-width first, then max-width if necessary
-			const [aMin, aMax] = a[1] as [number, number]
-			const [bMin, bMax] = b[1] as [number, number]
-			if (bMin !== aMin) {
-				return bMin - aMin // Sort descending by min-width
-			}
-			return bMax - aMax // If min-widths are equal, sort descending by max-width
+			// compare min-width, then max-width if necessary
+			const [aMin, aMax] = aValue as [number, number]
+			const [bMin, bMax] = bValue as [number, number]
+			return bMin !== aMin ? bMin - aMin : bMax - aMax
 		}
 
-		if (aIsRange && !bIsRange) {
-			return -1
-		}
-
-		if (!aIsRange && bIsRange) {
-			return 1
-		}
-
-		// If both are single min-widths, sort descending by their values
-		const aValue = a[1] as number
-		const bValue = b[1] as number
-
-		return bValue - aValue
+		// prioritize ranges over single values
+		if (aIsRange !== bIsRange) return aIsRange ? -1 : 1
+		return (bValue as number) - (aValue as number)
 	})
 }
 
@@ -43,65 +30,52 @@ const sort = (devices: ConfigType) => {
 const getMediaQuery = (value: ValueType): string => {
 	if (typeof value === "number") {
 		return `(min-width: ${value}px)`
-	} else if (Array.isArray(value)) {
-		let [min, max] = value,
-			swap
-		if (min > max) {
-			swap = min
-			min = max
-			max = swap
-		}
-		return `(min-width: ${min}px) and (max-width: ${max - 1}px)` // Subtract 1 to make it inclusive
 	}
+
+	if (Array.isArray(value)) {
+		let [min, max] = value
+		// swap values if min is greater than max
+		if (min > max) [min, max] = [max, min]
+
+		return `(min-width: ${min}px) and (max-width: ${max - 1}px)` // Subtract 1 for inclusivity
+	}
+
 	return ""
 }
 
 // Get the deivce key.
 const getDevice = (devices: ConfigType): string => {
-	const sortedDevices = sort(devices)
-
-	for (const [deviceKey, value] of sortedDevices) {
-		const mediaQuery = getMediaQuery(value)
-		if (window.matchMedia(mediaQuery).matches) {
+	for (const [deviceKey, value] of sort(devices)) {
+		if (window.matchMedia(getMediaQuery(value)).matches) {
 			return deviceKey
 		}
 	}
-
-	return "unknown"
+	return "OutOfScope"
 }
 
 const useResponsive = (config: ConfigType = {}) => {
-	const defaultBreakpoints = useMemo(() => {
-		return {
-			desktop: 1024,
-			tablet: 600,
-			mobile: [600, 0],
-			...config,
-		}
-	}, [config])
-
-	const [device, setDevice] = useState<string>(() =>
-		getDevice(defaultBreakpoints),
+	const defaultBreakpoints = useMemo(
+		() => ({ desktop: 1024, tablet: 600, mobile: [600, 0],...config }),
+		[config],
 	)
 
-	useEffect(() => {
-		const handleResize = () => {
-			setDevice(getDevice(defaultBreakpoints))
-		}
+	const [device, setDevice] = useState(() => getDevice(defaultBreakpoints))
 
-		// Initialize matchMedia for each device
+	useEffect(() => {
+		const handleResize = () => setDevice(getDevice(defaultBreakpoints))
+
+		// initialize matchMedia for each device and listen for changes
 		const mediaQueries = Object.values(defaultBreakpoints).map((value) => {
-			const mediaQuery = getMediaQuery(value)
-			const mediaList = window.matchMedia(mediaQuery)
+			const mediaList = window.matchMedia(getMediaQuery(value))
 			mediaList.addEventListener("change", handleResize)
 			return mediaList
 		})
 
-		// Cleanup
+		// cleanup event listeners on unmount
 		return () => {
-			mediaQueries.forEach((mediaList) => {
-				mediaList.removeEventListener("change", handleResize)
-			})
+			mediaQueries.forEach((mediaList) =>
+				mediaList.removeEventListener("change", handleResize),
+			)
 		}
 	}, [defaultBreakpoints])
 
