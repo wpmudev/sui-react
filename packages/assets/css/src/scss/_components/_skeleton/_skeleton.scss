@@ -1,0 +1,3 @@
+@use "./_elements/elements" as sui-skeleton--element;
+
+@include sui-skeleton--element.build-container(skeleton);
