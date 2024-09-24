@@ -36,7 +36,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	maxSize,
 	maxSizeText = "Message to appear when file size exeeds the max given",
 	ariaAttrs = {},
-	onClick = () => null,
+	onClick,
 	_htmlProps = {},
 	_style = {},
 	...props
@@ -70,7 +70,9 @@ const Uploader: React.FC<UploaderProps> = ({
 
 	// Empty the file input
 	const emptyFileInput = () => {
-		ref.current.value = ""
+		if (ref?.current) {
+			ref.current.value = ""
+		}
 	}
 
 	/**
