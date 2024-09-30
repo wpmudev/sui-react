@@ -1,3 +1,9 @@
 @use "./_elements/elements" as sui-skeleton--element;
+@use "./_modifiers/modifiers" as sui-skeleton--modifier;
 
 @include sui-skeleton--element.build-container(skeleton);
+@include sui-skeleton--element.build-circle(skeleton);
+@include sui-skeleton--element.build-text(skeleton);
+
+@include sui-skeleton--modifier.edit-grayscale(skeleton);
+@include sui-skeleton--modifier.edit-inline(skeleton);

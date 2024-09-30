@@ -1,6 +1,10 @@
 import React from "react"
 import { useStyles } from "@wpmudev/sui-hooks"
-import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
+import {
+	generateCN,
+	_renderHTMLPropsSafely,
+	isObjectEmpty,
+} from "@wpmudev/sui-utils"
 
 import type { SkeletonBaseProps } from "./skeleton.types"
 const Skeleton: React.FC<SkeletonBaseProps> = ({
@@ -9,13 +13,27 @@ const Skeleton: React.FC<SkeletonBaseProps> = ({
 	children,
 	isLoaded = false,
 	isInline = false,
-	isFluid = true,
-	isGrayScale = true,
+	isGrayScale = false,
+	size = {
+		width: "",
+		height: "",
+	},
 	_style = {},
 	_htmlProps = {},
 }) => {
 	const classes = `sui-skeleton__${type} ${className}`
-	const { suiInlineClassname } = useStyles(_style, classes)
+	const { width, height } = size
+	const _calculateStyles = {
+		...(width && {
+			width: `${width}`,
+		}),
+		...(height && {
+			height: `${height}`,
+		}),
+		..._style,
+	}
+
+	const { suiInlineClassname } = useStyles(_calculateStyles, classes)
 
 	// Early escape if it's loaded.
 	if (isLoaded) {
@@ -26,7 +44,6 @@ const Skeleton: React.FC<SkeletonBaseProps> = ({
 		"sui-skeleton",
 		{
 			inline: isInline,
-			fluid: isFluid,
 			grayscale: isGrayScale,
 		},
 		suiInlineClassname,

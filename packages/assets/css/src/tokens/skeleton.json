@@ -1,3 +1,16 @@
 {
-	"skeleton": {}
+	"skeleton": {
+		"background": {
+			"value": "linear-gradient(93.77deg, $color-extended-neutral-80 -10.31%, #f5f5f5 -4.92%)",
+			"type": "color"
+		},
+		"height": {
+			"value": "18px",
+			"type": "sizing"
+		},
+		"animation": {
+			"value": "skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+			"tyype": "animation"
+		}
+	}
 }

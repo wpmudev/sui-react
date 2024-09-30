@@ -1,5 +1,5 @@
 import React from "react"
-import { SkeletonText as SuiSkeleton } from "../src/index"
+import { SkeletonCircle as SuiSkeleton } from "../src/index"
 // Import documentation main page
 // import docs from "./skeleton.mdx"
 

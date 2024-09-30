@@ -1,32 +1,33 @@
 import React from "react"
 import { Skeleton } from "./skeleton-base"
+import { SkeletonCircleProps } from "./skeleton.types"
+import { useStyles } from "@wpmudev/sui-hooks"
 
-const SkeletonCircle = ({
-	lines = 3,
-	gap = "20",
+const SkeletonCircle: React.FC<SkeletonCircleProps> = ({
+	size = {
+		width: "50px",
+		height: "50px",
+	},
+	className = "",
 	isLoaded = false,
 	children,
+	_style = {},
 	_htmlProps = {},
 }) => {
-	// Render children when content is loaded
-	if (isLoaded) {
-		return children
-	}
-
-	const fakeRows = Array.from({ length: lines })
-
-	// Generate text rows
-	const rows = fakeRows.map((_, index) => <Skeleton key={index} type="text" />)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	return (
-		<div
-			style={{
-				display: "flex",
-				gap: `${gap}px`,
-			}}
+		<Skeleton
+			type="circle"
+			isLoaded={isLoaded}
+			className={suiInlineClassname}
+			{...(size && {
+				size,
+			})}
+			{..._htmlProps}
 		>
-			{rows}
-		</div>
+			{children}
+		</Skeleton>
 	)
 }
 
