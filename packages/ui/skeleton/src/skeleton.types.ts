@@ -23,7 +23,7 @@ interface SkeletonTextProps extends SkeletonProps {
 	lines?: number
 	gap?: number
 	endLineWidth?: string
-	_skeletonHtmlProps?: SkeletonBaseProps
+	_skeletonProps?: SkeletonBaseProps
 }
 
 // Skeleton circle props.

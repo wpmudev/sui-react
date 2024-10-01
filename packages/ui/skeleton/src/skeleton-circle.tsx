@@ -24,7 +24,7 @@ const SkeletonCircle: React.FC<SkeletonCircleProps> = ({
 			{...(size && {
 				size,
 			})}
-			{..._htmlProps}
+			_htmlProps={_htmlProps}
 		>
 			{children}
 		</Skeleton>

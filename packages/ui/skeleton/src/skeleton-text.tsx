@@ -11,7 +11,7 @@ const SkeletonText: React.FC<SkeletonTextProps> = ({
 	endLineWidth = "100%",
 	className = "",
 	children,
-	_skeletonHtmlProps = {},
+	_skeletonProps = {},
 	_style = {},
 	_htmlProps = {},
 }) => {
@@ -37,7 +37,7 @@ const SkeletonText: React.FC<SkeletonTextProps> = ({
 					width: endLineWidth,
 				},
 			})}
-			{..._skeletonHtmlProps}
+			{..._skeletonProps}
 			type="text"
 		/>
 	))
