@@ -1,10 +1,6 @@
 import React from "react"
 import { useStyles } from "@wpmudev/sui-hooks"
-import {
-	generateCN,
-	_renderHTMLPropsSafely,
-	isObjectEmpty,
-} from "@wpmudev/sui-utils"
+import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 
 import type { SkeletonBaseProps } from "./skeleton.types"
 const Skeleton: React.FC<SkeletonBaseProps> = ({

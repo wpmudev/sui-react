@@ -8,6 +8,7 @@ const SkeletonText: React.FC<SkeletonTextProps> = ({
 	lines = 1,
 	gap = 8,
 	isLoaded = false,
+	endLineWidth = "100%",
 	className = "",
 	children,
 	_skeletonHtmlProps = {},
@@ -29,7 +30,16 @@ const SkeletonText: React.FC<SkeletonTextProps> = ({
 
 	// Generate text rows
 	const rows = fakeRows.map((_, index) => (
-		<Skeleton key={index} {..._skeletonHtmlProps} type="text" />
+		<Skeleton
+			key={index}
+			{...(index === lines - 1 && {
+				size: {
+					width: endLineWidth,
+				},
+			})}
+			{..._skeletonHtmlProps}
+			type="text"
+		/>
 	))
 
 	const classNames = generateCN(

@@ -17,6 +17,7 @@
 				@include modifier(text) {
 					display: flex;
 					flex-direction: column;
+					width: 100%;
 				}
 			}
 		}

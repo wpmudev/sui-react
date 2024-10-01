@@ -5,15 +5,15 @@ interface SkeletonProps extends SuiStyleType, SuiHTMLAttributes {
 	children?: JSX.Element
 	isLoaded?: boolean
 	size?: {
-		width: string
-		height: string
+		width?: string
+		height?: string
 	}
 }
 
 // Skeleton base props.
 interface SkeletonBaseProps extends SkeletonProps {
 	key?: number
-	type: string
+	type?: string
 	isInline?: boolean
 	isGrayScale?: boolean
 }
@@ -22,6 +22,7 @@ interface SkeletonBaseProps extends SkeletonProps {
 interface SkeletonTextProps extends SkeletonProps {
 	lines?: number
 	gap?: number
+	endLineWidth?: string
 	_skeletonHtmlProps?: SkeletonBaseProps
 }
 
