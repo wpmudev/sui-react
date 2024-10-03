@@ -74,12 +74,76 @@ export const Navigation = (props: {
 								},
 							],
 						}}
+						actions={[
+							<Dropdown
+								key="dropdown-1"
+								buttonIcon="Bell"
+								label="Connect features"
+								placement="left"
+								isResponsive={true}
+								size="lg"
+								menu={[
+									{
+										id: "group-1",
+										label: "Extra Optimization",
+										menus: [
+											{
+												id: "menu-2",
+												label: "Uptime Monitoring",
+												props: {
+													icon: "CheckAlt",
+												},
+											},
+											{
+												id: "menu-2",
+												label: "Site management tools",
+												props: {},
+											},
+										],
+									},
+									{
+										id: "group-2",
+										label: "Performance",
+										menus: [
+											{
+												id: "menu-2",
+												label: "Uptime Monitoring",
+												props: {},
+											},
+											{
+												id: "menu-2",
+												label: "Site management tools",
+												props: {},
+											},
+										],
+									},
+								]}
+							>
+								<div
+									style={{
+										display: "flex",
+										justifyContent: "center",
+										padding: "8px 24px",
+									}}
+								>
+									<Button
+										type="primary"
+										icon="Package"
+										colorScheme="blue"
+										isSmall={true}
+										isFullWidth={true}
+									>
+										Unlock bonus features
+									</Button>
+								</div>
+							</Dropdown>,
+						]}
 					>
 						<Button
 							type="tertiary"
-							icon="Bell"
+							icon="Question"
+							iconOnly={true}
 							colorScheme="black"
-							isResponsive={true}
 						>
 							Help
 						</Button>
@@ -87,7 +151,7 @@ export const Navigation = (props: {
 							icon="Bell"
 							type="tertiary"
 							colorScheme="black"
-							isResponsive={true}
+							iconOnly={true}
 						>
 							Documentation
 						</Button>
@@ -95,71 +159,10 @@ export const Navigation = (props: {
 							icon="PluginSmush"
 							type="tertiary"
 							colorScheme="black"
-							isResponsive={true}
+							iconOnly={true}
 						>
 							Support Smush
 						</Button>
-						<Dropdown
-							buttonIcon="Bell"
-							label="Connect features"
-							placement="left"
-							isResponsive={true}
-							size="lg"
-							menu={[
-								{
-									id: "group-1",
-									label: "Extra Optimization",
-									menus: [
-										{
-											id: "menu-2",
-											label: "Uptime Monitoring",
-											props: {
-												icon: "CheckAlt",
-											},
-										},
-										{
-											id: "menu-2",
-											label: "Site management tools",
-											props: {},
-										},
-									],
-								},
-								{
-									id: "group-2",
-									label: "Performance",
-									menus: [
-										{
-											id: "menu-2",
-											label: "Uptime Monitoring",
-											props: {},
-										},
-										{
-											id: "menu-2",
-											label: "Site management tools",
-											props: {},
-										},
-									],
-								},
-							]}
-						>
-							<div
-								style={{
-									display: "flex",
-									justifyContent: "center",
-									padding: "8px 24px",
-								}}
-							>
-								<Button
-									type="primary"
-									icon="Package"
-									colorScheme="blue"
-									isSmall={true}
-									isFullWidth={true}
-								>
-									Unlock bonus features
-								</Button>
-							</div>
-						</Dropdown>
 					</SuiNavigation>
 				</div>
 			</div>

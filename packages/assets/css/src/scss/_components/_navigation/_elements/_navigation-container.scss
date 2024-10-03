@@ -17,7 +17,7 @@
 			display: flex;
 			gap: $spacing-lg;
 			justify-content: space-between;
-			padding: $spacing-lg $spacing-2xl;
+			padding: $spacing-default $spacing-2xl;
 
 			.sui-dropdown__popover {
 				.sui-dropdown__menu-group-title {
@@ -33,6 +33,18 @@
 					&.sui-dropdown__menu-item--hover {
 						color: $color-extended-neutral-0;
 					}
+				}
+			}
+
+			@include element(actions) {
+				display: flex;
+				align-items: center;
+				gap: $spacing-lg;
+				padding-left: $spacing-lg;
+				border-left: $border-width-sm solid $color-extended-neutral-80;
+
+				.sui-dropdown {
+					display: flex;
 				}
 			}
 
