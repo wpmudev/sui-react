@@ -49,6 +49,7 @@ export const Navigation = (props: {
 							},
 							status,
 							isMenuDisabled,
+							splitLastItem: true,
 							menu: [
 								{
 									id: "the-hub",
@@ -70,6 +71,13 @@ export const Navigation = (props: {
 									props: {
 										icon: "PluginSmush",
 										variation: "smush",
+									},
+								},
+								{
+									id: "logout",
+									label: "Logout",
+									props: {
+										icon: "Exit",
 									},
 								},
 							],

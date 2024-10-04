@@ -9,6 +9,7 @@ import { isEmpty } from "@wpmudev/sui-utils"
 const NavigationUser: React.FC<NavigationUserProps> = ({
 	user,
 	menu,
+	splitLastItem = false,
 	isMenuDisabled = false,
 	status,
 }) => {
@@ -64,6 +65,9 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 				trigger={userAvatarBtn}
 				renderContentOnTop={true}
 				menu={menu ?? []}
+				{...(splitLastItem && {
+					className: "sui-navigation__dropdown--split",
+				})}
 			>
 				{getUserBlock()}
 			</Dropdown>

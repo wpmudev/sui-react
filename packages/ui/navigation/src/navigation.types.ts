@@ -89,6 +89,10 @@ interface NavigationUserProps {
 	 * The user status
 	 */
 	status?: AvatarProps["status"]
+	/*
+	 * Seperate last item from menu.
+	 */
+	splitLastItem?: boolean
 }
 
 // interface definition for the Navigation
