@@ -10,6 +10,7 @@ export * from "@wpmudev/sui-selector"
 export * from "@wpmudev/sui-spinner"
 export * from "@wpmudev/sui-tag"
 export * from "@wpmudev/sui-tooltip"
+export * from "@wpmudev/sui-skeleton"
 
 // Forms
 export * from "@wpmudev/sui-checkbox"
