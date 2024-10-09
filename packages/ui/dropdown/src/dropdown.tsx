@@ -43,6 +43,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			children,
 			menu,
 			placement = "right",
+			arrow = false,
 			buttonIcon,
 			onMenuClick,
 			trigger,
@@ -356,6 +357,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						width: `${menuCustomWidth}px`,
 					}}
 				>
+					{arrow && <div className="sui-dropdown__popover--arrow"></div>}
 					{renderContentOnTop && !!children && (
 						<div className="sui-dropdown__menu-content">{children}</div>
 					)}

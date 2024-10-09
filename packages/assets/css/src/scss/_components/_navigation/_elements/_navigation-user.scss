@@ -28,6 +28,9 @@
 			}
 
 			@include element(dropdown) {
+				.sui-dropdown__popover {
+					border: $border-width-sm solid $color-extended-neutral-80;
+				}
 				@include modifier(split) {
 					.sui-dropdown__menu-items {
 						.sui-dropdown__menu-item {

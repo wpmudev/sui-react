@@ -269,6 +269,10 @@ interface DropdownProps
 	 * Custom search placeholder
 	 */
 	searchPlaceholder?: string
+	/**
+	 * arrow in dropdown
+	 */
+	arrow?: boolean
 }
 
 // Type definition for the modal handling functions

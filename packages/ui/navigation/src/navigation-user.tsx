@@ -4,7 +4,7 @@ import { Dropdown, DropdownRefProps } from "@wpmudev/sui-dropdown"
 import { Avatar } from "@wpmudev/sui-avatar"
 
 import { NavigationUserProps } from "./navigation.types"
-import { isEmpty } from "@wpmudev/sui-utils"
+import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 const NavigationUser: React.FC<NavigationUserProps> = ({
 	user,
@@ -61,12 +61,13 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 				ref={userBtnRef}
 				label="Menu Button"
 				placement="left"
-				size="md"
+				size="lg"
 				trigger={userAvatarBtn}
 				renderContentOnTop={true}
 				menu={menu ?? []}
-				{...(splitLastItem && {
-					className: "sui-navigation__dropdown--split",
+				arrow={true}
+				className={generateCN("sui-navigation__dropdown", {
+					split: splitLastItem,
 				})}
 			>
 				{getUserBlock()}
