@@ -270,9 +270,17 @@ interface DropdownProps
 	 */
 	searchPlaceholder?: string
 	/**
-	 * arrow in dropdown
+	 * Arrow in dropdown button
 	 */
 	arrow?: boolean
+	/**
+	 * Dropdown arrow in dropdown
+	 */
+	dropdownArrow?: boolean
+	/**
+	 * Button props
+	 */
+	_buttonProps?: ButtonProps
 }
 
 // Type definition for the modal handling functions

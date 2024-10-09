@@ -85,8 +85,9 @@ export const Navigation = (props: {
 						actions={[
 							<Dropdown
 								key="dropdown-1"
-								buttonIcon="Bell"
-								label="Connect features"
+								arrow={false}
+								buttonIcon="Logo"
+								label="More from WPMU DEV"
 								placement="left"
 								isResponsive={true}
 								size="lg"

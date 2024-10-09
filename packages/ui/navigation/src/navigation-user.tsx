@@ -65,7 +65,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 				trigger={userAvatarBtn}
 				renderContentOnTop={true}
 				menu={menu ?? []}
-				arrow={true}
+				dropdownArrow={true}
 				className={generateCN("sui-navigation__dropdown", {
 					split: splitLastItem,
 				})}
