@@ -112,13 +112,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 		const { suiInlineClassname } = useStyles(_style, className)
 
-		const searchQuery = useDebounce(query, 500, () => {
-			// Reset fetched all flag and page to 1
-			if (isAsync) {
-				setPage(1)
-				setIsFetchedAll(false)
-			}
-		})
+		const searchQuery = useDebounce(query, 500)
 
 		// Generate classes for the dropdown's wrapper based on the component's props.
 		const wrapperClasses = generateCN(
@@ -245,8 +239,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					setTimeout(() => searchInputRef.current?.focus(), 100)
 				}
 
-				// load options
-				if (!!isAsync && isDropdownOpen) {
+				// load options if not loaded before
+				if (!!isAsync && isDropdownOpen && (options ?? [])?.length <= 0) {
 					loadFromAPI()
 				}
 
@@ -308,8 +302,15 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		const onSearchCallback = useCallback(
 			(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 				setQuery(event?.target?.value)
+				// Reset fetched all flag and page to 1
+				if (isAsync) {
+					setTimeout(() => {
+						setPage(1)
+						setIsFetchedAll(false)
+					}, 100)
+				}
 			},
-			[],
+			[isAsync],
 		)
 
 		return (

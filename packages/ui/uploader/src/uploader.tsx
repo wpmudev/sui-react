@@ -172,7 +172,7 @@ const Uploader: React.FC<UploaderProps> = ({
 			emptyFileInput()
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[files],
+		[files, onChange],
 	)
 
 	const { suiInlineClassname } = useStyles(_style)
