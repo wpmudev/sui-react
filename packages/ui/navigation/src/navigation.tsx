@@ -41,7 +41,7 @@ const Navigation: React.FC<NavigationProps> = ({
 				{/* Show actions  */}
 				{actions.length > 0 && actions.map((action, index) => action)}
 				{/* Render the navigation user component */}
-				<NavigationUser {...user} />
+				{user && <NavigationUser {...user} />}
 			</div>
 		</nav>
 	)

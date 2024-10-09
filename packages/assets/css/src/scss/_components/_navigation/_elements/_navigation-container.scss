@@ -46,6 +46,10 @@
 				.sui-dropdown {
 					display: flex;
 				}
+
+				.sui-button {
+					margin: 0;
+				}
 			}
 
 			@include media(max-width, md) {

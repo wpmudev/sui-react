@@ -23,13 +23,16 @@ export default {
 
 // Build story
 export const Navigation = (props: {
+	isPro: boolean
+	action: boolean
 	status: NavigationUserProps["status"]
 	isMenuDisabled: NavigationUserProps["isMenuDisabled"]
 	plugin: PluginsSlug
 	title: string
 	description: string
 }) => {
-	const { status, isMenuDisabled, plugin, title, description } = props
+	const { action, isPro, status, isMenuDisabled, plugin, title, description } =
+		props
 
 	return (
 		<div className="sui-layout">
@@ -41,112 +44,188 @@ export const Navigation = (props: {
 							title,
 							description,
 						}}
-						user={{
+						{...(isPro && {
 							user: {
-								image: "https://avatars.githubusercontent.com/u/14994452?v=4",
-								name: "John doe",
-								email: "john.doe@incsub.com",
+								user: {
+									image: "https://avatars.githubusercontent.com/u/14994452?v=4",
+									name: "John doe",
+									email: "john.doe@incsub.com",
+								},
+								status,
+								isMenuDisabled,
+								splitLastItem: true,
+								menu: [
+									{
+										id: "the-hub",
+										label: "The Hub",
+										props: {
+											icon: "PluginDefender",
+										},
+									},
+									{
+										id: "product-roadmap",
+										label: "Product Roadmap",
+										props: {
+											icon: "PluginSmush",
+										},
+									},
+									{
+										id: "product-roadmap",
+										label: "Unlock Pro features",
+										props: {
+											icon: "PluginSmush",
+											variation: "smush",
+										},
+									},
+									{
+										id: "logout",
+										label: "Logout",
+										props: {
+											icon: "Exit",
+										},
+									},
+								],
 							},
-							status,
-							isMenuDisabled,
-							splitLastItem: true,
-							menu: [
-								{
-									id: "the-hub",
-									label: "The Hub",
-									props: {
-										icon: "PluginDefender",
-									},
-								},
-								{
-									id: "product-roadmap",
-									label: "Product Roadmap",
-									props: {
-										icon: "PluginSmush",
-									},
-								},
-								{
-									id: "product-roadmap",
-									label: "Unlock Pro features",
-									props: {
-										icon: "PluginSmush",
-										variation: "smush",
-									},
-								},
-								{
-									id: "logout",
-									label: "Logout",
-									props: {
-										icon: "Exit",
-									},
-								},
-							],
-						}}
-						actions={[
-							<Dropdown
-								key="dropdown-1"
-								arrow={false}
-								buttonIcon="Logo"
-								label="More from WPMU DEV"
-								placement="left"
-								isResponsive={true}
-								size="lg"
-								menu={[
-									{
-										id: "group-1",
-										label: "Extra Optimization",
-										menus: [
+						})}
+						{...(action &&
+							isPro && {
+								actions: [
+									<Dropdown
+										key="dropdown-1"
+										arrow={false}
+										buttonIcon="Logo"
+										label="More from WPMU DEV"
+										placement="left"
+										isResponsive={true}
+										size="lg"
+										menu={[
 											{
-												id: "menu-2",
-												label: "Uptime Monitoring",
-												props: {
-													icon: "CheckAlt",
-												},
+												id: "group-1",
+												label: "Extra Optimization",
+												menus: [
+													{
+														id: "menu-2",
+														label: "Uptime Monitoring",
+														props: {
+															icon: "CheckAlt",
+														},
+													},
+													{
+														id: "menu-2",
+														label: "Site management tools",
+														props: {},
+													},
+												],
 											},
 											{
-												id: "menu-2",
-												label: "Site management tools",
-												props: {},
+												id: "group-2",
+												label: "Performance",
+												menus: [
+													{
+														id: "menu-2",
+														label: "Uptime Monitoring",
+														props: {},
+													},
+													{
+														id: "menu-2",
+														label: "Site management tools",
+														props: {},
+													},
+												],
 											},
-										],
-									},
-									{
-										id: "group-2",
-										label: "Performance",
-										menus: [
-											{
-												id: "menu-2",
-												label: "Uptime Monitoring",
-												props: {},
-											},
-											{
-												id: "menu-2",
-												label: "Site management tools",
-												props: {},
-											},
-										],
-									},
-								]}
-							>
-								<div
-									style={{
-										display: "flex",
-										justifyContent: "center",
-										padding: "8px 24px",
-									}}
-								>
-									<Button
-										type="primary"
-										icon="Package"
-										colorScheme="blue"
-										isSmall={true}
-										isFullWidth={true}
+										]}
 									>
-										Unlock bonus features
-									</Button>
-								</div>
-							</Dropdown>,
-						]}
+										<div
+											style={{
+												display: "flex",
+												justifyContent: "center",
+												padding: "8px 24px",
+											}}
+										>
+											<Button
+												type="primary"
+												icon="Package"
+												colorScheme="blue"
+												isSmall={true}
+												isFullWidth={true}
+											>
+												Unlock bonus features
+											</Button>
+										</div>
+									</Dropdown>,
+								],
+							})}
+						{...(action &&
+							!isPro && {
+								actions: [
+									<Dropdown
+										key="dropdown-1"
+										arrow={false}
+										buttonIcon="Logo"
+										label="More from WPMU DEV"
+										placement="left"
+										isResponsive={true}
+										size="lg"
+										menu={[
+											{
+												id: "group-1",
+												label: "Extra Optimization",
+												menus: [
+													{
+														id: "menu-2",
+														label: "Uptime Monitoring",
+														props: {
+															icon: "CheckAlt",
+														},
+													},
+													{
+														id: "menu-2",
+														label: "Site management tools",
+														props: {},
+													},
+												],
+											},
+											{
+												id: "group-2",
+												label: "Performance",
+												menus: [
+													{
+														id: "menu-2",
+														label: "Uptime Monitoring",
+														props: {},
+													},
+													{
+														id: "menu-2",
+														label: "Site management tools",
+														props: {},
+													},
+												],
+											},
+										]}
+									>
+										<div
+											style={{
+												display: "flex",
+												justifyContent: "center",
+												padding: "8px 24px",
+											}}
+										>
+											<Button
+												type="primary"
+												icon="Package"
+												colorScheme="blue"
+												isSmall={true}
+												isFullWidth={true}
+											>
+												Unlock bonus features
+											</Button>
+										</div>
+									</Dropdown>,
+									<Button key="upgrade" type="primary" colorScheme="black">
+										Upgrade to pro
+									</Button>,
+								],
+							})}
 					>
 						<Button
 							type="tertiary"
@@ -164,14 +243,6 @@ export const Navigation = (props: {
 						>
 							Documentation
 						</Button>
-						<Button
-							icon="PluginSmush"
-							type="tertiary"
-							colorScheme="black"
-							iconOnly={true}
-						>
-							Support Smush
-						</Button>
 					</SuiNavigation>
 				</div>
 			</div>
@@ -180,6 +251,8 @@ export const Navigation = (props: {
 }
 
 Navigation.args = {
+	isPro: false,
+	action: false,
 	isMenuDisabled: false,
 	status: "confirmed",
 	plugin: "smush",
@@ -188,6 +261,18 @@ Navigation.args = {
 }
 
 Navigation.argTypes = {
+	isPro: {
+		name: "Pro",
+		control: {
+			type: "boolean",
+		},
+	},
+	action: {
+		name: "Action buttons",
+		control: {
+			type: "boolean",
+		},
+	},
 	isMenuDisabled: {
 		name: "Menu Disabled",
 		control: {
