@@ -98,6 +98,7 @@ BasicBox.args = {
 			Deactivate
 		</Button>,
 	],
+	centerFooterActions: false,
 }
 
 // Set controls for story arguments.

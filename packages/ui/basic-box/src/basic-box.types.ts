@@ -48,6 +48,11 @@ interface BasicBoxProps
 	 * Should be a string.
 	 */
 	className?: string
+
+	/**
+	 * When set to "true" footer actions will be centered
+	 */
+	centerFooterActions?: boolean
 }
 
 export type { BasicBoxProps }

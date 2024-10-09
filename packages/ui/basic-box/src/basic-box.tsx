@@ -15,6 +15,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	description,
 	headerActions,
 	footerActions,
+	centerFooterActions,
 	className,
 	isPro = false,
 	isFluid = false,
@@ -37,6 +38,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 			hover: isHovered && !isFocused,
 			pro: isPro,
 			"is-fluid": isFluid,
+			"center-footer-actions": centerFooterActions,
 		},
 		suiInlineClassname,
 	)
