@@ -62,6 +62,39 @@ const _internalDrawer = ({
 	)
 }
 
+const _internalDrawerLogo = ({
+	toggleRef,
+	title = "Drawer header",
+	desc = "",
+	...props
+}: {
+	toggleRef: RefObject<DrawerActions | null>
+	title: string
+	desc: string
+	[key: string]: any
+}) => {
+	return (
+		<Drawer ref={toggleRef} {...props}>
+			<DrawerBody>
+				<div style={{ padding: "16px" }}>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+					rutrum sem eros, sed tempor sapien porta ac. Nullam purus metus.
+				</div>
+			</DrawerBody>
+			<DrawerFooter>
+				<div>
+					<Button type="secondary" colorScheme="blue" isSmall={true}>
+						Secondary
+					</Button>
+					<Button type="primary" colorScheme="blue" isSmall={true}>
+						Primary
+					</Button>
+				</div>
+			</DrawerFooter>
+		</Drawer>
+	)
+}
+
 // Build story
 export const Navigation = (props: {
 	isPro: boolean
@@ -81,323 +114,324 @@ export const Navigation = (props: {
 	return (
 		<div className="sui-layout">
 			<div className="sui-layout__content">
-				<div>
-					<_internalDrawer
-						toggleRef={ref}
-						{...props}
-						placement="left"
-						title="Drawer title"
-						desc="Drawer for body container, it is fixed positioned"
-						hasContainer={true}
-						disableShadow={true}
-					/>
-					<SuiNavigation
-						brand={{
-							plugin,
-							title,
-							description,
-						}}
-						{...(isPro && {
+				<_internalDrawer
+					toggleRef={ref}
+					{...props}
+					placement="left"
+					title="Drawer title"
+					desc="Drawer for body container, it is fixed positioned"
+					hasContainer={true}
+					disableShadow={true}
+				/>
+				<SuiNavigation
+					brand={{
+						plugin,
+						title,
+						description,
+					}}
+					{...(isPro && {
+						user: {
 							user: {
-								user: {
-									image: "https://avatars.githubusercontent.com/u/14994452?v=4",
-									name: "John doe",
-									email: "john.doe@incsub.com",
-								},
-								status,
-								isMenuDisabled,
-								splitLastItem: true,
-								menu: [
-									{
-										id: "the-hub",
-										label: "The Hub",
-										props: {
-											icon: "PluginDefender",
-										},
-									},
-									{
-										id: "product-roadmap",
-										label: "Product Roadmap",
-										props: {
-											icon: "PluginSmush",
-										},
-									},
-									{
-										id: "product-roadmap",
-										label: "Unlock Pro features",
-										props: {
-											icon: "PluginSmush",
-											variation: "smush",
-										},
-									},
-									{
-										id: "logout",
-										label: "Logout",
-										props: {
-											icon: "Exit",
-										},
-									},
-								],
+								image: "https://avatars.githubusercontent.com/u/14994452?v=4",
+								name: "John doe",
+								email: "john.doe@incsub.com",
 							},
+							status,
+							isMenuDisabled,
+							splitLastItem: true,
+							menu: [
+								{
+									id: "the-hub",
+									label: "The Hub",
+									props: {
+										icon: "PluginDefender",
+									},
+								},
+								{
+									id: "product-roadmap",
+									label: "Product Roadmap",
+									props: {
+										icon: "PluginSmush",
+									},
+								},
+								{
+									id: "product-roadmap",
+									label: "Unlock Pro features",
+									props: {
+										icon: "PluginSmush",
+										variation: "smush",
+									},
+								},
+								{
+									id: "logout",
+									label: "Logout",
+									props: {
+										icon: "Exit",
+									},
+								},
+							],
+						},
+					})}
+					{...(action &&
+						isPro && {
+							actions: [
+								<Dropdown
+									key="dropdown-1"
+									arrow={false}
+									buttonIcon="Logo"
+									label="More from WPMU DEV"
+									placement="left"
+									isResponsive={true}
+									size="lg"
+									menu={[
+										{
+											id: "group-1",
+											label: "Extra Optimization",
+											menus: [
+												{
+													id: "menu-2",
+													label: "Uptime Monitoring",
+													props: {
+														icon: "CheckAlt",
+													},
+												},
+												{
+													id: "menu-2",
+													label: "Site management tools",
+													props: {},
+												},
+											],
+										},
+										{
+											id: "group-2",
+											label: "Performance",
+											menus: [
+												{
+													id: "menu-2",
+													label: "Uptime Monitoring",
+													props: {},
+												},
+												{
+													id: "menu-2",
+													label: "Site management tools",
+													props: {},
+												},
+											],
+										},
+									]}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											padding: "8px 24px",
+										}}
+									>
+										<Button
+											type="primary"
+											icon="Package"
+											colorScheme="blue"
+											isSmall={true}
+											isFullWidth={true}
+										>
+											Unlock bonus features
+										</Button>
+									</div>
+								</Dropdown>,
+							],
+							mobileActions: [
+								<Button
+									key="logo"
+									type="secondary"
+									iconOnly={true}
+									icon="Logo"
+									colorScheme="black"
+									onClick={() => {
+										refLogoDrawer?.current?.toggle()
+									}}
+								>
+									WPMUDEV Logo
+								</Button>,
+								<Button
+									key="hamburger"
+									type="tertiary"
+									iconOnly={true}
+									icon="Hamburger"
+									colorScheme="black"
+									onClick={() => {
+										ref?.current?.toggle()
+									}}
+								>
+									Hamburger
+								</Button>,
+							],
 						})}
-						{...(action &&
-							isPro && {
-								actions: [
-									<Dropdown
-										key="dropdown-1"
-										arrow={false}
-										buttonIcon="Logo"
-										label="More from WPMU DEV"
-										placement="left"
-										isResponsive={true}
-										size="lg"
-										menu={[
-											{
-												id: "group-1",
-												label: "Extra Optimization",
-												menus: [
-													{
-														id: "menu-2",
-														label: "Uptime Monitoring",
-														props: {
-															icon: "CheckAlt",
-														},
+					{...(action &&
+						!isPro && {
+							actions: [
+								<Dropdown
+									key="dropdown-1"
+									arrow={false}
+									buttonIcon="Logo"
+									label="More from WPMU DEV"
+									placement="left"
+									isResponsive={true}
+									size="lg"
+									menu={[
+										{
+											id: "group-1",
+											label: "Extra Optimization",
+											menus: [
+												{
+													id: "menu-2",
+													label: "Uptime Monitoring",
+													props: {
+														icon: "CheckAlt",
 													},
-													{
-														id: "menu-2",
-														label: "Site management tools",
-														props: {},
-													},
-												],
-											},
-											{
-												id: "group-2",
-												label: "Performance",
-												menus: [
-													{
-														id: "menu-2",
-														label: "Uptime Monitoring",
-														props: {},
-													},
-													{
-														id: "menu-2",
-														label: "Site management tools",
-														props: {},
-													},
-												],
-											},
-										]}
-									>
-										<div
-											style={{
-												display: "flex",
-												justifyContent: "center",
-												padding: "8px 24px",
-											}}
-										>
-											<Button
-												type="primary"
-												icon="Package"
-												colorScheme="blue"
-												isSmall={true}
-												isFullWidth={true}
-											>
-												Unlock bonus features
-											</Button>
-										</div>
-									</Dropdown>,
-								],
-								mobileActions: [
-									<Button
-										key="logo"
-										type="secondary"
-										iconOnly={true}
-										icon="Logo"
-										colorScheme="black"
-										onClick={() => {
-											refLogoDrawer?.current?.toggle()
+												},
+												{
+													id: "menu-2",
+													label: "Site management tools",
+													props: {},
+												},
+											],
+										},
+										{
+											id: "group-2",
+											label: "Performance",
+											menus: [
+												{
+													id: "menu-2",
+													label: "Uptime Monitoring",
+													props: {},
+												},
+												{
+													id: "menu-2",
+													label: "Site management tools",
+													props: {},
+												},
+											],
+										},
+									]}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											padding: "8px 24px",
 										}}
 									>
-										WPMUDEV Logo
-									</Button>,
-									<Button
-										key="hamburger"
-										type="tertiary"
-										iconOnly={true}
-										icon="Hamburger"
-										colorScheme="black"
-										onClick={() => {
-											ref?.current?.toggle()
+										<Button
+											type="primary"
+											icon="Package"
+											colorScheme="blue"
+											isSmall={true}
+											isFullWidth={true}
+										>
+											Unlock bonus features
+										</Button>
+									</div>
+								</Dropdown>,
+								<Button key="upgrade" type="primary" colorScheme="black">
+									Upgrade to pro
+								</Button>,
+							],
+							mobileActions: [
+								<Dropdown
+									key="dropdown-1"
+									arrow={false}
+									buttonIcon="Logo"
+									label="More from WPMU DEV"
+									placement="left"
+									isResponsive={true}
+									size="lg"
+									menu={[
+										{
+											id: "group-1",
+											label: "Extra Optimization",
+											menus: [
+												{
+													id: "menu-2",
+													label: "Uptime Monitoring",
+													props: {
+														icon: "CheckAlt",
+													},
+												},
+												{
+													id: "menu-2",
+													label: "Site management tools",
+													props: {},
+												},
+											],
+										},
+										{
+											id: "group-2",
+											label: "Performance",
+											menus: [
+												{
+													id: "menu-2",
+													label: "Uptime Monitoring",
+													props: {},
+												},
+												{
+													id: "menu-2",
+													label: "Site management tools",
+													props: {},
+												},
+											],
+										},
+									]}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											padding: "8px 24px",
 										}}
 									>
-										Hamburger
-									</Button>,
-								],
-							})}
-						{...(action &&
-							!isPro && {
-								actions: [
-									<Dropdown
-										key="dropdown-1"
-										arrow={false}
-										buttonIcon="Logo"
-										label="More from WPMU DEV"
-										placement="left"
-										isResponsive={true}
-										size="lg"
-										menu={[
-											{
-												id: "group-1",
-												label: "Extra Optimization",
-												menus: [
-													{
-														id: "menu-2",
-														label: "Uptime Monitoring",
-														props: {
-															icon: "CheckAlt",
-														},
-													},
-													{
-														id: "menu-2",
-														label: "Site management tools",
-														props: {},
-													},
-												],
-											},
-											{
-												id: "group-2",
-												label: "Performance",
-												menus: [
-													{
-														id: "menu-2",
-														label: "Uptime Monitoring",
-														props: {},
-													},
-													{
-														id: "menu-2",
-														label: "Site management tools",
-														props: {},
-													},
-												],
-											},
-										]}
-									>
-										<div
-											style={{
-												display: "flex",
-												justifyContent: "center",
-												padding: "8px 24px",
-											}}
+										<Button
+											type="primary"
+											icon="Package"
+											colorScheme="blue"
+											isSmall={true}
+											isFullWidth={true}
 										>
-											<Button
-												type="primary"
-												icon="Package"
-												colorScheme="blue"
-												isSmall={true}
-												isFullWidth={true}
-											>
-												Unlock bonus features
-											</Button>
-										</div>
-									</Dropdown>,
-									<Button key="upgrade" type="primary" colorScheme="black">
-										Upgrade to pro
-									</Button>,
-								],
-								mobileActions: [
-									<Dropdown
-										key="dropdown-1"
-										arrow={false}
-										buttonIcon="Logo"
-										label="More from WPMU DEV"
-										placement="left"
-										isResponsive={true}
-										size="lg"
-										menu={[
-											{
-												id: "group-1",
-												label: "Extra Optimization",
-												menus: [
-													{
-														id: "menu-2",
-														label: "Uptime Monitoring",
-														props: {
-															icon: "CheckAlt",
-														},
-													},
-													{
-														id: "menu-2",
-														label: "Site management tools",
-														props: {},
-													},
-												],
-											},
-											{
-												id: "group-2",
-												label: "Performance",
-												menus: [
-													{
-														id: "menu-2",
-														label: "Uptime Monitoring",
-														props: {},
-													},
-													{
-														id: "menu-2",
-														label: "Site management tools",
-														props: {},
-													},
-												],
-											},
-										]}
-									>
-										<div
-											style={{
-												display: "flex",
-												justifyContent: "center",
-												padding: "8px 24px",
-											}}
-										>
-											<Button
-												type="primary"
-												icon="Package"
-												colorScheme="blue"
-												isSmall={true}
-												isFullWidth={true}
-											>
-												Unlock bonus features
-											</Button>
-										</div>
-									</Dropdown>,
-								],
-							})}
+											Unlock bonus features
+										</Button>
+									</div>
+								</Dropdown>,
+							],
+						})}
+					mobileDrawer={[
+						<_internalDrawerLogo
+							key="logo-drawer"
+							toggleRef={refLogoDrawer}
+							{...props}
+							placement="left"
+							title="Drawer title"
+							desc="Drawer for body container, it is fixed positioned"
+							hasContainer={true}
+							disableShadow={true}
+						/>,
+					]}
+				>
+					<Button
+						type="tertiary"
+						icon="Question"
+						iconOnly={true}
+						colorScheme="black"
 					>
-						<Button
-							type="tertiary"
-							icon="Question"
-							iconOnly={true}
-							colorScheme="black"
-						>
-							Help
-						</Button>
-						<Button
-							icon="Bell"
-							type="tertiary"
-							colorScheme="black"
-							iconOnly={true}
-						>
-							Documentation
-						</Button>
-					</SuiNavigation>
-					<_internalDrawer
-						toggleRef={refLogoDrawer}
-						{...props}
-						placement="left"
-						title="Drawer title"
-						desc="Drawer for body container, it is fixed positioned"
-						hasContainer={true}
-						disableShadow={true}
-					/>
-				</div>
+						Help
+					</Button>
+					<Button
+						icon="Bell"
+						type="tertiary"
+						colorScheme="black"
+						iconOnly={true}
+					>
+						Documentation
+					</Button>
+				</SuiNavigation>
 			</div>
 		</div>
 	)

@@ -36,6 +36,13 @@
 				}
 			}
 
+			@include element(drawer) {
+				.sui-drawer {
+					top: 118px;
+					border-top: $border-width-sm solid $color-extended-neutral-80;
+				}
+			}
+
 			@include element(actions) {
 				display: flex;
 				align-items: center;

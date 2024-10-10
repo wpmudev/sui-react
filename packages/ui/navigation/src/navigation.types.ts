@@ -120,6 +120,10 @@ interface NavigationProps
 	 * Navigation actions list
 	 */
 	mobileActions?: ReactNode[]
+	/**
+	 * Navigation actions list
+	 */
+	mobileDrawer?: ReactNode[]
 }
 
 export type { NavigationProps, NavigationBrandProps, NavigationUserProps }
