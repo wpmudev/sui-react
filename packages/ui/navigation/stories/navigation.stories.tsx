@@ -402,18 +402,6 @@ export const Navigation = (props: {
 								</Dropdown>,
 							],
 						})}
-					mobileDrawer={[
-						<_internalDrawerLogo
-							key="logo-drawer"
-							toggleRef={refLogoDrawer}
-							{...props}
-							placement="left"
-							title="Drawer title"
-							desc="Drawer for body container, it is fixed positioned"
-							hasContainer={true}
-							disableShadow={true}
-						/>,
-					]}
 				>
 					<Button
 						type="tertiary"
@@ -432,6 +420,19 @@ export const Navigation = (props: {
 						Documentation
 					</Button>
 				</SuiNavigation>
+				<_internalDrawerLogo
+					key="logo-drawer"
+					toggleRef={refLogoDrawer}
+					{...props}
+					placement="left"
+					title="Drawer title"
+					desc="Drawer for body container, it is fixed positioned"
+					hasContainer={true}
+					disableShadow={true}
+					_style={{
+						top: "118px",
+					}}
+				/>
 			</div>
 		</div>
 	)
