@@ -116,6 +116,10 @@ interface NavigationProps
 	 * Navigation actions list
 	 */
 	actions?: ReactNode[]
+	/**
+	 * Navigation actions list
+	 */
+	mobileActions?: ReactNode[]
 }
 
 export type { NavigationProps, NavigationBrandProps, NavigationUserProps }

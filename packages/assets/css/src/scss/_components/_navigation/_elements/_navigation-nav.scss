@@ -19,8 +19,8 @@
 				gap: $spacing-md;
 				margin: 0;
 
-				@include media(max-width, md) {
-					gap: $spacing-lg;
+				@include media(max-width, sm) {
+					display: none;
 				}
 			}
 

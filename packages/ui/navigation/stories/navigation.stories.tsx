@@ -154,6 +154,71 @@ export const Navigation = (props: {
 										</div>
 									</Dropdown>,
 								],
+								mobileActions: [
+									<Dropdown
+										key="dropdown-1"
+										arrow={false}
+										buttonIcon="Logo"
+										label="More from WPMU DEV"
+										placement="left"
+										isResponsive={true}
+										size="lg"
+										menu={[
+											{
+												id: "group-1",
+												label: "Extra Optimization",
+												menus: [
+													{
+														id: "menu-2",
+														label: "Uptime Monitoring",
+														props: {
+															icon: "CheckAlt",
+														},
+													},
+													{
+														id: "menu-2",
+														label: "Site management tools",
+														props: {},
+													},
+												],
+											},
+											{
+												id: "group-2",
+												label: "Performance",
+												menus: [
+													{
+														id: "menu-2",
+														label: "Uptime Monitoring",
+														props: {},
+													},
+													{
+														id: "menu-2",
+														label: "Site management tools",
+														props: {},
+													},
+												],
+											},
+										]}
+									>
+										<div
+											style={{
+												display: "flex",
+												justifyContent: "center",
+												padding: "8px 24px",
+											}}
+										>
+											<Button
+												type="primary"
+												icon="Package"
+												colorScheme="blue"
+												isSmall={true}
+												isFullWidth={true}
+											>
+												Unlock bonus features
+											</Button>
+										</div>
+									</Dropdown>,
+								],
 							})}
 						{...(action &&
 							!isPro && {
@@ -225,6 +290,71 @@ export const Navigation = (props: {
 										Upgrade to pro
 									</Button>,
 								],
+								mobileActions: [
+									<Dropdown
+										key="dropdown-1"
+										arrow={false}
+										buttonIcon="Logo"
+										label="More from WPMU DEV"
+										placement="left"
+										isResponsive={true}
+										size="lg"
+										menu={[
+											{
+												id: "group-1",
+												label: "Extra Optimization",
+												menus: [
+													{
+														id: "menu-2",
+														label: "Uptime Monitoring",
+														props: {
+															icon: "CheckAlt",
+														},
+													},
+													{
+														id: "menu-2",
+														label: "Site management tools",
+														props: {},
+													},
+												],
+											},
+											{
+												id: "group-2",
+												label: "Performance",
+												menus: [
+													{
+														id: "menu-2",
+														label: "Uptime Monitoring",
+														props: {},
+													},
+													{
+														id: "menu-2",
+														label: "Site management tools",
+														props: {},
+													},
+												],
+											},
+										]}
+									>
+										<div
+											style={{
+												display: "flex",
+												justifyContent: "center",
+												padding: "8px 24px",
+											}}
+										>
+											<Button
+												type="primary"
+												icon="Package"
+												colorScheme="blue"
+												isSmall={true}
+												isFullWidth={true}
+											>
+												Unlock bonus features
+											</Button>
+										</div>
+									</Dropdown>,
+								],
 							})}
 					>
 						<Button
@@ -251,8 +381,8 @@ export const Navigation = (props: {
 }
 
 Navigation.args = {
-	isPro: false,
-	action: false,
+	isPro: true,
+	action: true,
 	isMenuDisabled: false,
 	status: "confirmed",
 	plugin: "smush",

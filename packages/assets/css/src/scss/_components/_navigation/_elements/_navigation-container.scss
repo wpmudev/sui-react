@@ -50,6 +50,19 @@
 				.sui-button {
 					margin: 0;
 				}
+
+				@include media(max-width, sm) {
+					display: none;
+				}
+
+				@include modifier(mobile) {
+					display: none;
+					@include media(max-width, sm) {
+						display: block;
+						border-left: 0;
+						padding-left: 0;
+					}
+				}
 			}
 
 			@include media(max-width, md) {

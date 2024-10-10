@@ -13,6 +13,7 @@ const Navigation: React.FC<NavigationProps> = ({
 	brand = { title: "title", description: "" },
 	user,
 	actions = [],
+	mobileActions = [],
 	_htmlProps,
 	_style,
 }) => {
@@ -42,6 +43,11 @@ const Navigation: React.FC<NavigationProps> = ({
 				{actions.length > 0 && actions.map((action, index) => action)}
 				{/* Render the navigation user component */}
 				{user && <NavigationUser {...user} />}
+			</div>
+			<div className="sui-navigation__actions sui-navigation__actions--mobile">
+				{/* Show actions  */}
+				{mobileActions.length > 0 &&
+					mobileActions.map((action, index) => action)}
 			</div>
 		</nav>
 	)
