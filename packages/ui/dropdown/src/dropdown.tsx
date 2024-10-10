@@ -48,6 +48,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			trigger,
 			renderContentOnTop = false,
 			isResponsive = false,
+			isMultiSelect = false,
 			isFluid = false,
 			size = "md",
 			isDisabled = false,
@@ -60,6 +61,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			// async
 			isAsync = false,
 			asyncOptions = {},
+			updateAsyncOptions = () => {},
 			getOptions,
 			menuCustomWidth,
 			searchPlaceholder,
@@ -186,6 +188,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 			// Update options list
 			setOptions(1 === page ? items : [...(options ?? []), ...items])
+			updateAsyncOptions(1 === page ? items : [...(options ?? []), ...items])
 			setIsLoading(false)
 			setAltLoader(false)
 
@@ -204,6 +207,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			page,
 			searchQuery,
 			options,
+			updateAsyncOptions,
 		])
 
 		// prev search query
@@ -267,16 +271,32 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					menuItem.props.onClick = (e: ChangeEvent<unknown>) => {
 						onMenuClick(menuItem, e)
 						// Update isSelected property of all menu items
-						const updatedOptions = options?.map((item) => ({
-							...item,
-							isSelected: item.id === menuItem.id, // Set the clicked item's isSelected to true, and others to false
-						}))
-						setOptions(updatedOptions)
+						if (!isMultiSelect) {
+							const updatedOptions = options?.map((item) => ({
+								...item,
+								isSelected: item.id === menuItem.id, // Set the clicked item's isSelected to true, and others to false
+							}))
+							setOptions(updatedOptions)
 
-						menuItem.isSelected = true
+							menuItem.isSelected = true
+						} else {
+							menuItem.isSelected = !menuItem.isSelected
+						}
+						console.log(menuItem)
 						if ("select-checkbox" !== type) {
 							setIsOpen(false)
 						}
+					}
+				}
+
+				if (isMultiSelect) {
+					menuItem.props = {
+						...menuItem.props,
+						_checkboxProps: {
+							...menuItem?.props?._checkboxProps,
+							isChecked: menuItem.isSelected,
+							isSmall,
+						},
 					}
 				}
 
