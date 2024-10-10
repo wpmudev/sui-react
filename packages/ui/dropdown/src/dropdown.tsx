@@ -21,7 +21,12 @@ import {
 import { DropdownMenu } from "./dropdown-menu"
 import { DropdownMenuItem } from "./dropdown-menu-item"
 import { DropdownMenuGroup } from "./dropdown-menu-group"
-import { DropdownProps, DropdownRefProps } from "./dropdown.types"
+import {
+	DropdownProps,
+	DropdownRefProps,
+	MenuGroupProps,
+	MenuItemProps,
+} from "./dropdown.types"
 import { Input } from "@wpmudev/sui-input"
 import { Spinner } from "@wpmudev/sui-spinner"
 
@@ -61,7 +66,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			// async
 			isAsync = false,
 			asyncOptions = {},
-			updateAsyncOptions = () => {},
+			updateOptions = () => {},
 			getOptions,
 			menuCustomWidth,
 			searchPlaceholder,
@@ -80,7 +85,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		// set alternate loading style
 		const [altLoader, setAltLoader] = useState(false)
 		// Dropdown options list
-		const [options, setOptions] = useState<DropdownProps["menu"]>(menu)
+		const [options, setOptions] = useState<DropdownProps["menu"]>(menu ?? [])
 		// Holds current page number (when loading options from API)
 		const [page, setPage] = useState(1)
 		// Create a ref to access the dropdown's outer container element.
@@ -155,10 +160,11 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 		// Update internal options state when menu prop changes
 		useEffect(() => {
-			if (!isAsync) {
-				setOptions(menu)
+			if (isAsync && !isMultiSelect) {
+				return
 			}
-		}, [isAsync, menu])
+			setOptions(menu)
+		}, [isAsync, isMultiSelect, menu])
 
 		/**
 		 * Load options from next page
@@ -188,7 +194,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 			// Update options list
 			setOptions(1 === page ? items : [...(options ?? []), ...items])
-			updateAsyncOptions(1 === page ? items : [...(options ?? []), ...items])
+			updateOptions(1 === page ? items : [...(options ?? []), ...items])
 			setIsLoading(false)
 			setAltLoader(false)
 
@@ -207,7 +213,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			page,
 			searchQuery,
 			options,
-			updateAsyncOptions,
+			updateOptions,
 		])
 
 		// prev search query
@@ -253,65 +259,98 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			[isAsync, onToggle],
 		)
 
+		const selectAllItem = () => {
+			const allSelected = options?.every((option) => option?.isSelected)
+			const isIndeterminate = options?.find((option) => option?.isSelected)
+			const handleSelectAll = () => {
+				const updatedOptions = options?.map((option) => ({
+					...option,
+					isSelected: !allSelected,
+				}))
+				setOptions(updatedOptions)
+				updateOptions(updatedOptions ?? [])
+			}
+
+			return (
+				<DropdownMenuItem
+					key="select-all"
+					isSelected={allSelected}
+					onClick={handleSelectAll}
+					_type={type}
+					_checkboxProps={{
+						isChecked: allSelected,
+						isIndeterminate: !allSelected && !!isIndeterminate,
+						isSmall,
+					}}
+				>
+					Select All
+				</DropdownMenuItem>
+			)
+		}
+
 		// Function to recursively render menu items and groups.
 		const renderMenus = (menus: DropdownProps["menu"]) => {
-			return (menus || [])?.map((menuItem: Record<string, any>, index) => {
-				// If it's a group item, render the MenuGroup component.
-				if (!!menuItem?.menus) {
-					return (
-						<DropdownMenuGroup key={index} title={menuItem.label}>
-							{renderMenus(menuItem?.menus)}
-						</DropdownMenuGroup>
-					)
-				}
-
-				// Bind onClick with onMenuClick prop
-				if (onMenuClick) {
-					menuItem.props = menuItem.props ?? {}
-					menuItem.props.onClick = (e: ChangeEvent<unknown>) => {
-						onMenuClick(menuItem, e)
-						// Update isSelected property of all menu items
-						if (!isMultiSelect) {
-							const updatedOptions = options?.map((item) => ({
-								...item,
-								isSelected: item.id === menuItem.id, // Set the clicked item's isSelected to true, and others to false
-							}))
-							setOptions(updatedOptions)
-
-							menuItem.isSelected = true
-						} else {
-							menuItem.isSelected = !menuItem.isSelected
+			return (
+				<>
+					{isMultiSelect && (options ?? []).length > 0 && selectAllItem()}
+					{(menus || [])?.map((menuItem: Record<string, any>, index) => {
+						// If it's a group item, render the MenuGroup component.
+						if (!!menuItem?.menus) {
+							return (
+								<DropdownMenuGroup key={index} title={menuItem.label}>
+									{renderMenus(menuItem?.menus)}
+								</DropdownMenuGroup>
+							)
 						}
-						console.log(menuItem)
-						if ("select-checkbox" !== type) {
-							setIsOpen(false)
+
+						// Bind onClick with onMenuClick prop
+						if (onMenuClick) {
+							menuItem.props = menuItem.props ?? {}
+							menuItem.props.onClick = (e: ChangeEvent<unknown>) => {
+								onMenuClick(menuItem, e)
+								// Update isSelected property of all menu items
+								if (!isMultiSelect) {
+									const updatedOptions = options?.map((item) => ({
+										...item,
+										isSelected: item.id === menuItem.id, // Set the clicked item's isSelected to true, and others to false
+									}))
+									setOptions(updatedOptions)
+
+									menuItem.isSelected = true
+								} else {
+									menuItem.isSelected = !menuItem.isSelected
+								}
+								if ("select-checkbox" !== type) {
+									setIsOpen(false)
+								}
+							}
 						}
-					}
-				}
 
-				if (isMultiSelect) {
-					menuItem.props = {
-						...menuItem.props,
-						_checkboxProps: {
-							...menuItem?.props?._checkboxProps,
-							isChecked: menuItem.isSelected,
-							isSmall,
-						},
-					}
-				}
+						if (isMultiSelect) {
+							menuItem.props = {
+								...menuItem.props,
+								_checkboxProps: {
+									...menuItem?.props?._checkboxProps,
+									isChecked: menuItem.isSelected,
+									isSmall,
+								},
+							}
+						}
 
-				// Otherwise, render the MenuItem component.
-				return (
-					<DropdownMenuItem
-						key={index}
-						isSelected={menuItem.isSelected}
-						{...menuItem.props}
-						_type={type}
-					>
-						{menuItem.label}
-					</DropdownMenuItem>
-				)
-			})
+						// Otherwise, render the MenuItem component.
+						return (
+							<DropdownMenuItem
+								key={index}
+								isSelected={menuItem.isSelected}
+								{...menuItem.props}
+								_type={type}
+							>
+								{menuItem.label}
+							</DropdownMenuItem>
+						)
+					})}
+				</>
+			)
 		}
 
 		/**

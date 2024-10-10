@@ -77,13 +77,11 @@ const Select: React.FC<SelectBaseProps> = ({
 		[],
 	)
 
-	const updateAsyncOptions = (itemsOpt) => {
-		console.log(itemsOpt)
+	const updateOptions = (itemsOpt: SelectOptionType[]) => {
 		setOptions(itemsOpt)
 	}
 
 	useEffect(() => {
-		console.log(options)
 		setItems(options ?? [])
 		setFilteredItems(options ?? [])
 
@@ -310,7 +308,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	// Dropdown props
 	const dropdownProps = {
 		options: filteredItems,
-		updateAsyncOptions,
+		updateOptions,
 		selected: selectedItem,
 		isSmall,
 		onChange,
