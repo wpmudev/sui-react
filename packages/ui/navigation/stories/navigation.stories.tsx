@@ -1,10 +1,17 @@
-import React from "react"
+import React, { createRef, RefObject } from "react"
 
 // Import required component(s)
 import { Navigation as SuiNavigation, NavigationUserProps } from "../src"
 import { PluginsSlug } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 import { Dropdown } from "@wpmudev/sui-dropdown"
+import {
+	Drawer,
+	DrawerActions,
+	DrawerBody,
+	DrawerFooter,
+	DrawerHeader,
+} from "@wpmudev/sui-drawer"
 
 // Import documentation main page
 import docs from "./navigation.mdx"
@@ -21,6 +28,40 @@ export default {
 	},
 }
 
+const _internalDrawer = ({
+	toggleRef,
+	title = "Drawer header",
+	desc = "",
+	...props
+}: {
+	toggleRef: RefObject<DrawerActions | null>
+	title: string
+	desc: string
+	[key: string]: any
+}) => {
+	return (
+		<Drawer ref={toggleRef} {...props}>
+			<DrawerHeader title={title} />
+			<DrawerBody>
+				<div style={{ padding: "16px" }}>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+					rutrum sem eros, sed tempor sapien porta ac. Nullam purus metus.
+				</div>
+			</DrawerBody>
+			<DrawerFooter>
+				<div>
+					<Button type="secondary" colorScheme="blue" isSmall={true}>
+						Secondary
+					</Button>
+					<Button type="primary" colorScheme="blue" isSmall={true}>
+						Primary
+					</Button>
+				</div>
+			</DrawerFooter>
+		</Drawer>
+	)
+}
+
 // Build story
 export const Navigation = (props: {
 	isPro: boolean
@@ -31,6 +72,9 @@ export const Navigation = (props: {
 	title: string
 	description: string
 }) => {
+	const ref = createRef<DrawerActions | null>()
+	const refLogoDrawer = createRef<DrawerActions | null>()
+
 	const { action, isPro, status, isMenuDisabled, plugin, title, description } =
 		props
 
@@ -38,6 +82,15 @@ export const Navigation = (props: {
 		<div className="sui-layout">
 			<div className="sui-layout__content">
 				<div>
+					<_internalDrawer
+						toggleRef={ref}
+						{...props}
+						placement="left"
+						title="Drawer title"
+						desc="Drawer for body container, it is fixed positioned"
+						hasContainer={true}
+						disableShadow={true}
+					/>
 					<SuiNavigation
 						brand={{
 							plugin,
@@ -155,69 +208,30 @@ export const Navigation = (props: {
 									</Dropdown>,
 								],
 								mobileActions: [
-									<Dropdown
-										key="dropdown-1"
-										arrow={false}
-										buttonIcon="Logo"
-										label="More from WPMU DEV"
-										placement="left"
-										isResponsive={true}
-										size="lg"
-										menu={[
-											{
-												id: "group-1",
-												label: "Extra Optimization",
-												menus: [
-													{
-														id: "menu-2",
-														label: "Uptime Monitoring",
-														props: {
-															icon: "CheckAlt",
-														},
-													},
-													{
-														id: "menu-2",
-														label: "Site management tools",
-														props: {},
-													},
-												],
-											},
-											{
-												id: "group-2",
-												label: "Performance",
-												menus: [
-													{
-														id: "menu-2",
-														label: "Uptime Monitoring",
-														props: {},
-													},
-													{
-														id: "menu-2",
-														label: "Site management tools",
-														props: {},
-													},
-												],
-											},
-										]}
+									<Button
+										key="logo"
+										type="secondary"
+										iconOnly={true}
+										icon="Logo"
+										colorScheme="black"
+										onClick={() => {
+											refLogoDrawer?.current?.toggle()
+										}}
 									>
-										<div
-											style={{
-												display: "flex",
-												justifyContent: "center",
-												padding: "8px 24px",
-											}}
-										>
-											<Button
-												type="primary"
-												icon="Package"
-												colorScheme="blue"
-												isSmall={true}
-												isFullWidth={true}
-											>
-												Unlock bonus features
-											</Button>
-										</div>
-									</Dropdown>,
+										WPMUDEV Logo
+									</Button>,
+									<Button
+										key="hamburger"
+										type="tertiary"
+										iconOnly={true}
+										icon="Hamburger"
+										colorScheme="black"
+										onClick={() => {
+											ref?.current?.toggle()
+										}}
+									>
+										Hamburger
+									</Button>,
 								],
 							})}
 						{...(action &&
@@ -374,6 +388,15 @@ export const Navigation = (props: {
 							Documentation
 						</Button>
 					</SuiNavigation>
+					<_internalDrawer
+						toggleRef={refLogoDrawer}
+						{...props}
+						placement="left"
+						title="Drawer title"
+						desc="Drawer for body container, it is fixed positioned"
+						hasContainer={true}
+						disableShadow={true}
+					/>
 				</div>
 			</div>
 		</div>
