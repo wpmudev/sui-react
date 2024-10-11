@@ -277,7 +277,7 @@ interface DropdownProps
 	/**
 	 * Update options in parent.
 	 */
-	updateOptions?: (options: Array<MenuItemProps | MenuGroupProps>) => {}
+	updateOptions?: (options: { [key: string]: any }[]) => void
 }
 
 // Type definition for the modal handling functions
