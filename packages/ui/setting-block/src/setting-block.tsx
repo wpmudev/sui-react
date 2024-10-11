@@ -16,6 +16,7 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 	isFluid = false,
 	children,
 	actions,
+	overflowHidden = false,
 	_htmlProps,
 	_style = {},
 }) => {
@@ -33,6 +34,7 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 			pro: isPro,
 			fluid: isFluid,
 			"no-info": !title && !description,
+			hidden: overflowHidden,
 		},
 		suiInlineClassname,
 	)

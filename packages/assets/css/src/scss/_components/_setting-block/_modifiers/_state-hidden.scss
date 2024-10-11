@@ -2,24 +2,20 @@
 
 @use "../../../_utils/utils" as *;
 
-/// Build body content
+/// State fluid
 ///
-/// @type block
+/// @type modifier
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-content($block) {
+@mixin state-hidden($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
-		// Block wrapper.
 		@include block($block) {
-			@include element(body) {
-				flex: 1;
-				p {
-					&:first-child {
-						margin-top: 0;
-					}
+			@include modifier(hidden) {
+				.sui-#{$block}__body {
+					overflow: hidden;
 				}
 			}
 		}
