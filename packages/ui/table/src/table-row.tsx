@@ -88,7 +88,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	let isChecked = (ctx?.selected ?? [])?.indexOf(parseInt(`${id}`)) > -1
 	let isIndeterminate = false
 
-	// if its select all checkbox
+	// if it's select all checkbox
 	if (isUnderHeader) {
 		const isAllSelected = ctx?.rows?.length === ctx?.selected.length
 		isIndeterminate = (ctx?.selected ?? [])?.length > 0 && !isAllSelected
@@ -169,7 +169,9 @@ const TableRow: React.FC<TableRowProps> = ({
 		if (isUnderFooter) {
 			p.isSticky = false
 			p.hasDragIcon = false
-			p.colSpan = "100%"
+			if (!p.colSpan) {
+				p.colSpan = "100%"
+			}
 		}
 
 		// Mark as primary column
