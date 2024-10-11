@@ -30,7 +30,7 @@ import {
 
 const Select: React.FC<SelectBaseProps> = ({
 	id,
-	options,
+	options: newOpt,
 	className,
 	selected,
 	label = "Select option",
@@ -63,6 +63,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	const controlRef = useRef<HTMLDivElement | HTMLInputElement | null>(null)
 	const dropdownRef = useRef<DropdownRefProps | null>(null)
 
+	const [options, setOptions] = useState(newOpt)
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
 	const [items, setItems] = useState<SelectOptionType[]>(options ?? [])
 	const [filteredItems, setFilteredItems] = useState<SelectOptionType[]>(
@@ -76,12 +77,16 @@ const Select: React.FC<SelectBaseProps> = ({
 		[],
 	)
 
+	const updateOptions = (itemsOpt: SelectOptionType[]) => {
+		setOptions(itemsOpt)
+	}
+
 	useEffect(() => {
 		setItems(options ?? [])
 		setFilteredItems(options ?? [])
 
 		// update selected item
-		//setSelectedItems(options?.filter((option) => option.isSelected === true))
+		setSelectedItems(options?.filter((option) => option.isSelected === true))
 	}, [options])
 
 	// Hide dropdown when click outside of it
@@ -303,6 +308,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	// Dropdown props
 	const dropdownProps = {
 		options: filteredItems,
+		updateOptions,
 		selected: selectedItem,
 		isSmall,
 		onChange,
