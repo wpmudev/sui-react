@@ -126,7 +126,7 @@ const Select: React.FC<SelectBaseProps> = ({
 
 		const currentItems = filteredItemList.length > 0 ? filteredItemList : label
 
-		if (isMultiSelect) {
+		if (isMultiSelect && items.length) {
 			updateItem(filteredItemList)
 		} else if (currentItems?.length) {
 			// Select the first item
