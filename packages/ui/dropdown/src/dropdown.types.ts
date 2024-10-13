@@ -157,13 +157,24 @@ interface DropdownProps
 	 */
 	className?: string
 	/**
-	 * Indicates whether the dropdown has a call-to-action button.
-	 */
-	hasCta?: boolean
-	/**
 	 * Indicates whether the dropdown should be displayed as small or not.
 	 */
 	isSmall?: boolean
+	/**
+	 * Indicates whether the dropdown should be displayed as small or not.
+	 */
+	selected?: string | Array<MenuItemProps | MenuGroupProps>
+	/**
+	 * Indicates whether the dropdown should be displayed as small or not.
+	 */
+	selectAll?: (
+		options: Array<MenuItemProps | MenuGroupProps>,
+		selected: boolean,
+	) => void
+	/**
+	 * Indicates whether the dropdown has a call-to-action button.
+	 */
+	hasCta?: boolean
 	/**
 	 * Indicates whether the dropdown should have multiselect option.
 	 */
