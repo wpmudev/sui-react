@@ -204,8 +204,6 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 				return { ...item, isSelected }
 			})
 
-			console.log(selectedArray)
-
 			// Update options list
 			setOptions(
 				1 === page ? updatedItems : [...(options ?? []), ...updatedItems],
