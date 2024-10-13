@@ -10,6 +10,7 @@ const DrawerHeader = ({
 	className = "",
 	title = "",
 	hintText = "",
+	hasBack = false,
 	tooltipOptions = {},
 	_style,
 }: DrawerHeaderTypes) => {
@@ -26,6 +27,19 @@ const DrawerHeader = ({
 	return (
 		<div className={classNames}>
 			<div className="sui-drawer__header-title">
+				{hasBack && (
+					<Button
+						icon="ChevronLeft"
+						type="tertiary"
+						colorScheme="black"
+						isSmall={true}
+						iconOnly={true}
+						onClick={onClose}
+						_htmlProps={{
+							"aria-label": "close",
+						}}
+					/>
+				)}
 				<span className="sui-heading--h4">{title}</span>
 				{!isEmpty(hintText) && (
 					<Tooltip

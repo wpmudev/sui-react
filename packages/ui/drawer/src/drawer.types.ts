@@ -68,6 +68,11 @@ export interface DrawerHeaderTypes extends SuiStyleType {
 	className?: string
 
 	/**
+	 * Has back button.
+	 */
+	hasBack?: boolean
+
+	/**
 	 * Optional hint text to be displayed
 	 */
 	hintText?: string

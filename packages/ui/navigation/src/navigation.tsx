@@ -1,7 +1,6 @@
 import React, { Children } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
-
 import { NavigationProps } from "./navigation.types"
 import { NavigationBrand } from "./navigation-brand"
 import { NavigationUser } from "./navigation-user"

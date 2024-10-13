@@ -1,0 +1,84 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Container
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-container($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			.sui-dropdown__popover {
+				padding: $spacing-xl;
+				margin-top: 2px;
+			}
+
+			@include element(title) {
+				padding-bottom: $spacing-xl;
+			}
+
+			@include element(list) {
+				display: grid;
+				grid-template-columns: auto auto;
+				gap: $spacing-lg;
+				margin: $spacing-xl 0 $spacing-lg;
+			}
+
+			@include element(list-item) {
+				display: flex;
+				gap: $spacing-default;
+				padding: $spacing-lg;
+				border-radius: $border-radius-xl;
+				background: $color-extended-neutral-95;
+				text-decoration: none;
+
+				&:hover {
+					background: $color-extended-neutral-80;
+				}
+			}
+
+			@include element(list-icon) {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				background-color: $color-extended-neutral-80;
+				border-radius: $border-radius-xl;
+				height: $navigation-size-height-lg;
+				width: $navigation-size-width-lg;
+			}
+
+			@include element(list-desc, upsell-desc) {
+				margin: 0;
+			}
+
+			@include element(upsell) {
+				display: flex;
+				text-decoration: none;
+				gap: $spacing-lg;
+				padding: $spacing-lg;
+				background: $color-primary-90;
+				border-radius: $border-radius-md;
+
+				&:hover {
+					background: $color-primary-80;
+				}
+			}
+
+			@include element(upsell-title) {
+				display: flex;
+				align-items: center;
+				gap: $spacing-sm;
+			}
+
+			@include element(upsell-content) {
+				display: flex;
+				flex-direction: column;
+				gap: $spacing-sm;
+			}
+		}
+	}
+}
