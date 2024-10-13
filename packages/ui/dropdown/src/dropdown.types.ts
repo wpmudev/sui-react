@@ -163,7 +163,10 @@ interface DropdownProps
 	/**
 	 * Indicates whether the dropdown should be displayed as small or not.
 	 */
-	selected?: string | Array<MenuItemProps | MenuGroupProps>
+	selected?:
+		| string
+		| Array<MenuItemProps | MenuGroupProps>
+		| Record<string, any>
 	/**
 	 * Indicates whether the dropdown should be displayed as small or not.
 	 */
