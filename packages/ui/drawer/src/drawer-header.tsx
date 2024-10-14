@@ -11,6 +11,7 @@ const DrawerHeader = ({
 	title = "",
 	hintText = "",
 	hasBack = false,
+	onBack = () => {},
 	tooltipOptions = {},
 	_style,
 }: DrawerHeaderTypes) => {
@@ -34,7 +35,10 @@ const DrawerHeader = ({
 						colorScheme="black"
 						isSmall={true}
 						iconOnly={true}
-						onClick={onClose}
+						onClick={() => {
+							onClose()
+							onBack()
+						}}
 						_htmlProps={{
 							"aria-label": "close",
 						}}

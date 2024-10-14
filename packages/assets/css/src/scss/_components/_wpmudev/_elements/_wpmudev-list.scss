@@ -13,8 +13,11 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			.sui-dropdown__popover {
-				padding: $spacing-xl;
 				margin-top: 2px;
+			}
+
+			@include element(title, dropdown-content) {
+				padding: $spacing-xl;
 			}
 
 			@include element(title) {
@@ -23,9 +26,12 @@
 
 			@include element(list) {
 				display: grid;
-				grid-template-columns: auto auto;
 				gap: $spacing-lg;
-				margin: $spacing-xl 0 $spacing-lg;
+				margin: 0 0 $spacing-lg;
+
+				@include media(min-width, sm) {
+					grid-template-columns: auto auto;
+				}
 			}
 
 			@include element(list-item) {
@@ -78,6 +84,21 @@
 				display: flex;
 				flex-direction: column;
 				gap: $spacing-sm;
+			}
+
+			@include element(drawer) {
+				@include media(min-width, md) {
+					display: none;
+				}
+			}
+
+			@include element(dropdown) {
+				&.sui-dropdown {
+					display: none;
+					@include media(min-width, md) {
+						display: block;
+					}
+				}
 			}
 		}
 	}

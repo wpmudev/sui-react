@@ -15,7 +15,6 @@ import {
 	Drawer,
 	DrawerActions,
 	DrawerBody,
-	DrawerFooter,
 	DrawerHeader,
 } from "@wpmudev/sui-drawer"
 
@@ -102,14 +101,18 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVProps> = ({
 }) => {
 	const drawerRef = createRef<DrawerActions | null>()
 
-	const classNames = generateCN("sui-wpmudev", {}, className)
+	const classNames = generateCN(
+		"sui-wpmudev",
+		{},
+		`sui-wpmudev__dropdown ${className}`,
+	)
 
 	const filteredPlugins = plugins.filter(
 		(pluginItem) => !filter.includes(pluginItem.plugin),
 	)
 
 	const dropdownContent = (
-		<>
+		<div className="sui-wpmudev__dropdown-content">
 			{filteredPlugins && (
 				<ul className="sui-wpmudev__list">
 					{filteredPlugins.map((pluginItem) => {
@@ -170,7 +173,7 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVProps> = ({
 					</div>
 				</a>
 			)}
-		</>
+		</div>
 	)
 
 	const mobileDrawer = (
@@ -178,7 +181,9 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVProps> = ({
 			ref={drawerRef}
 			placement="left"
 			hasContainer={false}
+			hasOverlay={false}
 			disableShadow={true}
+			isFullWidth={true}
 		>
 			<DrawerHeader title={label} hasBack={true} />
 			<DrawerBody>{dropdownContent}</DrawerBody>
@@ -191,7 +196,6 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVProps> = ({
 				label={label}
 				placement="left"
 				buttonIcon="Logo"
-				isResponsive={true}
 				arrow={false}
 				menuCustomWidth={584}
 				className={classNames}
@@ -205,19 +209,22 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVProps> = ({
 				)}
 				{dropdownContent}
 			</Dropdown>
-			<Button
-				key="logo"
-				type="secondary"
-				iconOnly={true}
-				icon="Logo"
-				colorScheme="black"
-				onClick={() => {
-					drawerRef?.current?.toggle()
-				}}
-			>
-				{label}
-			</Button>
-			{mobileDrawer}
+			<div className="sui-wpmudev__drawer">
+				<Button
+					key="logo"
+					type="secondary"
+					iconOnly={false}
+					isResponsive={true}
+					icon="Logo"
+					colorScheme="black"
+					onClick={() => {
+						drawerRef?.current?.toggle()
+					}}
+				>
+					{label}
+				</Button>
+				{mobileDrawer}
+			</div>
 		</>
 	)
 }

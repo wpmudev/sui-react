@@ -58,18 +58,18 @@
 					margin: 0;
 				}
 
-				@include media(max-width, sm) {
-					display: none;
-				}
+				// @include media(max-width, sm) {
+				// 	display: none;
+				// }
 
-				@include modifier(mobile) {
-					display: none;
-					@include media(max-width, sm) {
-						display: flex;
-						border-left: 0;
-						padding-left: 0;
-					}
-				}
+				// @include modifier(mobile) {
+				// 	display: none;
+				// 	@include media(max-width, sm) {
+				// 		display: flex;
+				// 		border-left: 0;
+				// 		padding-left: 0;
+				// 	}
+				// }
 			}
 
 			@include media(max-width, md) {
