@@ -3,7 +3,6 @@ import React, {
 	useState,
 	useEffect,
 	useRef,
-	HTMLProps,
 	ChangeEvent,
 	useId,
 } from "react"
@@ -23,7 +22,6 @@ import { Selected, SelectedSearch } from "./elements/select-selected"
 import {
 	SearchDropdown,
 	RemoveAll,
-	SelectAll,
 	RemoveSelection,
 	MultiSelectSearch,
 } from "./utils/functions"
@@ -86,7 +84,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		setFilteredItems(options ?? [])
 
 		// update selected item
-		setSelectedItems(options?.filter((option) => option.isSelected === true))
+		//setSelectedItems(options?.filter((option) => option.isSelected === true))
 	}, [options])
 
 	// Hide dropdown when click outside of it
