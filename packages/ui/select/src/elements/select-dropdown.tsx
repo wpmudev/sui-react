@@ -75,6 +75,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 				isMultiSelect,
 				updateOptions,
 				type: "select-checkbox",
+				selected,
+				selectAll,
 			})}
 			{...((isMultiSelect || isCustomVar) && {
 				onSearch,
