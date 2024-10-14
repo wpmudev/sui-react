@@ -228,7 +228,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		const updatedItems = [...filteredItems]
 		const isSelected = updatedItems[optionIndex]?.isSelected
 
-		if (isMultiSelect || isCustomVar) {
+		if (isMultiSelect) {
 			updatedItems[optionIndex] = {
 				...updatedItems[optionIndex],
 				isSelected: !isSelected,
