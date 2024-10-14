@@ -325,6 +325,10 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							menuItem.props = menuItem.props ?? {}
 							menuItem.props.onClick = (e: ChangeEvent<unknown>) => {
 								onMenuClick(menuItem, e)
+
+								if ("select-variable" === type) {
+									return
+								}
 								// Update isSelected property of all menu items
 								if (!isMultiSelect) {
 									const updatedOptions = options?.map((item) => ({

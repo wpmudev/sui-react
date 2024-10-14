@@ -48,7 +48,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 				if (onChange) {
 					let values: SelectOptionType | SelectOptionType[] = option
 					// If multi-select or custom variable mode is active
-					if (isMultiSelect || isCustomVar) {
+					if (isMultiSelect) {
 						const newSelected: SelectOptionType[] = Array.isArray(selected)
 							? [...selected]
 							: []
@@ -61,6 +61,16 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 						} else {
 							newSelected.push(option)
 						}
+
+						values = newSelected
+
+						onChange(option, values)
+					} else if (isCustomVar) {
+						const newSelected: SelectOptionType[] = Array.isArray(selected)
+							? [...selected]
+							: []
+
+						newSelected.push(option)
 
 						values = newSelected
 
