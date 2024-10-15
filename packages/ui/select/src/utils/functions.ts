@@ -88,6 +88,7 @@ const RemoveSelection = (
 	setSelectedItems: (
 		items: (prevItems: SelectOptionType[]) => SelectOptionType[],
 	) => void,
+	callback?: (...args: any[]) => any,
 ) => {
 	// Set the updated selected items
 	const updatedOptions = options.map((option) => {
@@ -103,9 +104,12 @@ const RemoveSelection = (
 		return option
 	})
 	setFilterItems(updatedOptions)
-	setSelectedItems((prevSelected: SelectOptionType[]) =>
-		prevSelected.filter((option) => option.id !== id),
-	)
+	setSelectedItems((prevSelected: SelectOptionType[]) => {
+		const _selected = prevSelected.filter((option) => option.id !== id)
+		const removedOption = prevSelected.filter((option) => option.id === id)?.[0]
+		callback?.(removedOption, _selected)
+		return _selected
+	})
 }
 
 // Select all options in dropdown.
