@@ -46,11 +46,42 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			if ((!e.key || (!!e.key && e.key === "Enter")) && onEvent) {
 				onEvent(option)
 				if (onChange) {
-					onChange(option)
+					let values: SelectOptionType | SelectOptionType[] = option
+					// If multi-select or custom variable mode is active
+					if (isMultiSelect) {
+						const newSelected: SelectOptionType[] = Array.isArray(selected)
+							? [...selected]
+							: []
+						const optionIndex = newSelected.findIndex(
+							(selOption: SelectOptionType) => selOption.id === option.id,
+						)
+
+						if (optionIndex !== -1) {
+							newSelected.splice(optionIndex, 1)
+						} else {
+							newSelected.push(option)
+						}
+
+						values = newSelected
+
+						onChange(option, values)
+					} else if (isCustomVar) {
+						const newSelected: SelectOptionType[] = Array.isArray(selected)
+							? [...selected]
+							: []
+
+						newSelected.push(option)
+
+						values = newSelected
+
+						onChange(option, values)
+					} else {
+						onChange(option)
+					}
 				}
 			}
 		},
-		[onChange, onEvent],
+		[isCustomVar, isMultiSelect, onChange, onEvent, selected],
 	)
 
 	const getOptProps = (option: SelectOptionType) => ({
