@@ -182,6 +182,20 @@ const Select = ({
 							<MultiSelect
 								customWidth={props.customWidth}
 								isError={props.isError}
+								selected={[
+									{
+										id: 1,
+										label: "Essence Mascara Lash Princess",
+									},
+									{
+										id: 2,
+										label: "Eyeshadow Palette with Mirror",
+									},
+									{
+										id: 16,
+										label: "Apple",
+									},
+								]}
 								_dropdownProps={{
 									isAsync: true,
 									allowSearch: true,

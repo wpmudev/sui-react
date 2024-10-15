@@ -46,6 +46,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			iconOnly,
 			isFixedHeight = true,
 			children,
+			selected = "",
+			selectAll = () => {},
 			menu,
 			placement = "right",
 			buttonIcon,
@@ -180,7 +182,6 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			// return if getOptions prop is missing
 			if (!getOptions) {
 				throw new Error("'getOptions' method is missing")
-				return
 			}
 
 			const { perPage = 5 } = asyncOptions ?? {}
@@ -194,9 +195,24 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			const data = await getOptions(searchQuery, opt, options)
 			const { items, hasMore, additional } = data
 
+			// If selected is an array of objects, map through it to match with options
+			const selectedArray = Array.isArray(selected) ? selected : []
+
+			const updatedItems = items.map((item: Record<string, any>) => {
+				// Check if this item is in the selected array
+				const isSelected = selectedArray.some(
+					(selectedItem) => selectedItem.id === item.id,
+				)
+				return { ...item, isSelected }
+			})
+
 			// Update options list
-			setOptions(1 === page ? items : [...(options ?? []), ...items])
-			updateOptions(1 === page ? items : [...(options ?? []), ...items])
+			setOptions(
+				1 === page ? updatedItems : [...(options ?? []), ...updatedItems],
+			)
+			updateOptions(
+				1 === page ? updatedItems : [...(options ?? []), ...updatedItems],
+			)
 			setIsLoading(false)
 			setAltLoader(false)
 
@@ -215,6 +231,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			page,
 			searchQuery,
 			options,
+			selected,
 			updateOptions,
 		])
 
@@ -270,7 +287,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					isSelected: !allSelected,
 				}))
 				setOptions(updatedOptions)
-				updateOptions(updatedOptions ?? [])
+				selectAll(updatedOptions ?? [], !allSelected)
 			}
 
 			return (
@@ -310,6 +327,10 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							menuItem.props = menuItem.props ?? {}
 							menuItem.props.onClick = (e: ChangeEvent<unknown>) => {
 								onMenuClick(menuItem, e)
+
+								if ("select-variable" === type) {
+									return
+								}
 								// Update isSelected property of all menu items
 								if (!isMultiSelect) {
 									const updatedOptions = options?.map((item) => ({
