@@ -20,10 +20,16 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	showValue = true,
 	onClick,
 	className = "",
+	speed = 0,
 	_htmlProps,
 	_style = {},
 }) => {
 	const { suiInlineClassname } = useStyles(_style, className)
+
+	// animation speed
+	const { suiInlineClassname: suiAnimateClassname } = useStyles({
+		animationDuration: `${speed}ms`,
+	})
 
 	// generate classnames
 	const classNames = generateCN(
@@ -67,9 +73,13 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 					})}
 				>
 					<span
-						className={generateCN("sui-progress-bar__indicator-bar", {
-							indeterminate: isIndeterminate,
-						})}
+						className={generateCN(
+							"sui-progress-bar__indicator-bar",
+							{
+								indeterminate: isIndeterminate,
+							},
+							speed ? suiAnimateClassname : "",
+						)}
 						{...attrs}
 					/>
 				</div>
