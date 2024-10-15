@@ -31,6 +31,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 		{
 			type = "text",
 			defaultValue = "",
+			name,
 			placeholder,
 			hint,
 			id,
@@ -228,6 +229,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			onClick,
 			onFocus,
 			onKeyDown,
+			name,
 			...ariaAttrs,
 			// Interaction methods
 			...(!!disableInteractions ? {} : interactionMethods),

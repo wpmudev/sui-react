@@ -147,6 +147,7 @@ interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 	options: SelectBaseProps["options"]
 	onEvent?: (option: SelectOptionType) => void
 	selectAll?: () => void
+	updateOptions?: (options: { [key: string]: any }[]) => void
 	onToggle: (isOpen: boolean) => void
 	isSmall?: boolean
 	isDisabled?: boolean

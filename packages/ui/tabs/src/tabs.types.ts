@@ -74,6 +74,7 @@ interface TabNavItemProps
 	stateIcon?: "InfoAlt" | "CheckAlt" | "" | never
 	stateIconColor?: IconProps["colorScheme"] | never
 	isDisabled?: Boolean
+	onClick?: () => any
 }
 
 // Interface definition for the TabProviderProps

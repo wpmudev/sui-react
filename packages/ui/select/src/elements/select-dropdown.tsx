@@ -30,6 +30,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	isCustomVar = false,
 	dropdownRef = null,
 	onToggle = (isOpen: boolean) => {},
+	updateOptions,
 	onSearch = (value: string) => {},
 	onChange,
 	_htmlProps,
@@ -71,6 +72,8 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			}}
 			isSmall={isSmall}
 			{...(isMultiSelect && {
+				isMultiSelect,
+				updateOptions,
 				type: "select-checkbox",
 			})}
 			{...((isMultiSelect || isCustomVar) && {
@@ -127,38 +130,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 
 	// Render options for the multiselect dropdown
 	const renderMultiselectOptions = () => {
-		const allSelected = options?.every((option) => option?.isSelected)
-		const isIndeterminate = options?.find((option) => option?.isSelected)
-		const newOptions = options
-			? [
-					{
-						id: "select-all",
-						label: "Select all",
-						props: {
-							_checkboxProps: {
-								isChecked: allSelected,
-								isIndeterminate: !allSelected && !!isIndeterminate,
-								onChange: selectAll,
-								isSmall,
-							},
-						},
-					},
-					...options.map((option) => {
-						return {
-							...option,
-							props: {
-								...option.props,
-								_checkboxProps: {
-									...option?.props?._checkboxProps,
-									isChecked: option?.isSelected,
-									isSmall,
-								},
-							},
-						}
-					}),
-			  ]
-			: []
-		return wrapper(newOptions)
+		return wrapper(options ?? [])
 	}
 
 	// Render the appropriate dropdown options based on isMultiSelect

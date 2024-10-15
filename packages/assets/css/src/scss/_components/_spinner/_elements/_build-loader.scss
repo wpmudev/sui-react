@@ -15,6 +15,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(loader) {
+				display: flex;
 				width: $spinner-size-width-md;
 				height: $spinner-size-height-md;
 			}
