@@ -90,6 +90,7 @@ interface SelectBaseProps
 			| SelectOptionType[]
 			| string
 			| Record<string, any>,
+		items?: SelectOptionType[],
 	): void
 	/**
 	 * Props passed down to Dropdown component
