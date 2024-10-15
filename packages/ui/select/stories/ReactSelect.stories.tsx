@@ -195,10 +195,6 @@ const Select = ({
 										id: 16,
 										label: "Apple",
 									},
-									{
-										id: 17,
-										label: "Apple",
-									},
 								]}
 								_dropdownProps={{
 									isAsync: true,

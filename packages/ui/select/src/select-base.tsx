@@ -317,6 +317,7 @@ const Select: React.FC<SelectBaseProps> = ({
 					filteredItems,
 					setFilteredItems,
 					setSelectedItems,
+					onChange,
 				)
 			},
 		}),
