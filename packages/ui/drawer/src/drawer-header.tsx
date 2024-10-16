@@ -42,7 +42,7 @@ const DrawerHeader = ({
 							isSmall={true}
 							iconOnly={true}
 							onClick={() => {
-								// onClose()
+								onClose()
 								action()
 							}}
 							_htmlProps={{

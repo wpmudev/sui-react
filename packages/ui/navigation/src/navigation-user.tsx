@@ -4,7 +4,8 @@ import { Dropdown, DropdownRefProps } from "@wpmudev/sui-dropdown"
 import { Avatar } from "@wpmudev/sui-avatar"
 
 import { NavigationUserProps } from "./navigation.types"
-import { generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
+import { useStyles } from "@wpmudev/sui-hooks"
 
 const NavigationUser: React.FC<NavigationUserProps> = ({
 	user,
@@ -12,9 +13,22 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 	splitLastItem = false,
 	isMenuDisabled = false,
 	status,
+	children,
+	className = "",
+	dropdownProps = {},
+	_style = {},
+	_htmlProps = {},
 }) => {
 	// Create a ref for the user dropdown button
 	const userBtnRef = useRef<DropdownRefProps | null>(null)
+
+	const { suiInlineClassname } = useStyles(_style, className)
+
+	const classNames = generateCN(
+		"sui-navigation__avatar",
+		{},
+		suiInlineClassname,
+	)
 
 	// Define the user's avatar button component
 	const userAvatarBtn = (
@@ -24,6 +38,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 				src: user?.image ?? "",
 				alt: "User Avatar",
 			}}
+			icon={user?.icon}
 			{...(!isMenuDisabled && {
 				onClick: () => {
 					// Toggle the user dropdown when the avatar is clicked
@@ -56,7 +71,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 	}
 
 	return (
-		<div className="sui-navigation__avatar">
+		<div className={classNames} {..._renderHTMLPropsSafely(_htmlProps)}>
 			<Dropdown
 				ref={userBtnRef}
 				label="Menu Button"
@@ -69,8 +84,10 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 				className={generateCN("sui-navigation__dropdown", {
 					split: splitLastItem,
 				})}
+				{...dropdownProps}
 			>
 				{getUserBlock()}
+				{children}
 			</Dropdown>
 		</div>
 	)

@@ -111,6 +111,12 @@
 					font-weight: $font-weight-md;
 					align-items: center;
 				}
+
+				.sui-drawer__inner {
+					@include media(max-width, md) {
+						width: 100%;
+					}
+				}
 			}
 
 			@include element(help-title) {
@@ -313,6 +319,39 @@
 							color: $color-extended-neutral-10;
 						}
 					}
+				}
+			}
+
+			// User
+			@include element(user) {
+				display: flex;
+				gap: $spacing-lg;
+				flex-direction: column;
+				width: 100%;
+
+				@include modifier(details) {
+					display: flex;
+					gap: $spacing-lg;
+
+					p {
+						margin: 0;
+					}
+				}
+
+				@include modifier(content) {
+					flex: 1;
+				}
+			}
+
+			@include element(navigation-user) {
+				.sui-dropdown__popover {
+					padding: $spacing-lg;
+				}
+			}
+
+			@include element(drawer) {
+				.sui-drawer__footer {
+					justify-content: flex-start;
 				}
 			}
 		}

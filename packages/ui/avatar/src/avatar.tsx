@@ -20,6 +20,7 @@ const Avatar: React.FC<AvatarProps> = ({
 	status = "none",
 	isSmall = false,
 	className,
+	icon = "UserAlt",
 	_htmlProps = {},
 	_style = {},
 	onClick,
@@ -59,7 +60,7 @@ const Avatar: React.FC<AvatarProps> = ({
 	return (
 		<span {...attributes}>
 			{hasImage && <Image source={imageObj.src} text={imageObj.alt} />}
-			{!hasImage && <Icon />}
+			{!hasImage && <Icon iconName={icon} />}
 			{hasStatus && status !== "none" && <Status status={status} />}
 		</span>
 	)

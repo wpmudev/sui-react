@@ -1,10 +1,13 @@
 import React, { Fragment } from "react"
-import { User, UserAlt } from "@wpmudev/sui-icons"
+import Icons, { IconsNamesType, User, UserAlt } from "@wpmudev/sui-icons"
 // Build "icon avatar" element
-const Icon = () => (
-	<span className="sui-avatar__icon" aria-hidden="true">
-		<UserAlt data-testid="avatar-icon" />
-	</span>
-)
+const Icon = ({ iconName }: { iconName: IconsNamesType }) => {
+	const IconTag = Icons?.[iconName as IconsNamesType]
+	return (
+		<span className="sui-avatar__icon" aria-hidden="true">
+			<IconTag data-testid="avatar-icon" />
+		</span>
+	)
+}
 
 export { Icon }

@@ -1,22 +1,14 @@
 import React, { createRef, useRef } from "react"
 import { Dropdown, DropdownRefProps } from "@wpmudev/sui-dropdown"
-import { Button } from "@wpmudev/sui-button"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { WPMUDEVNotificationProps } from "../navigation-wpmudev.types"
-import {
-	Drawer,
-	DrawerActions,
-	DrawerBody,
-	DrawerFooter,
-	DrawerHeader,
-} from "@wpmudev/sui-drawer"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { Link } from "@wpmudev/sui-link"
 
 const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
 	label = "What’s new on Smush?",
 	title = "What's new",
-	notifications,
+	notifications = [],
 	footerActions = [
 		<Link key="read" href="#">
 			Mark all as read
@@ -81,7 +73,7 @@ const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
 }
 
 const NotificationWPMUDEVContent: React.FC<WPMUDEVNotificationProps> = ({
-	notifications,
+	notifications = [],
 	className = "",
 	_htmlProps = {},
 	_style = {},

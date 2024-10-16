@@ -12,7 +12,6 @@ import {
 	DrawerFooter,
 	DrawerHeader,
 } from "@wpmudev/sui-drawer"
-import { MoreFromWPMUDEV } from "@wpmudev/sui-modules"
 
 // Import documentation main page
 import docs from "./navigation.mdx"
@@ -27,73 +26,6 @@ export default {
 			page: docs,
 		},
 	},
-}
-
-const _internalDrawer = ({
-	toggleRef,
-	title = "Drawer header",
-	desc = "",
-	...props
-}: {
-	toggleRef: RefObject<DrawerActions | null>
-	title: string
-	desc: string
-	[key: string]: any
-}) => {
-	return (
-		<Drawer ref={toggleRef} {...props}>
-			<DrawerHeader title={title} />
-			<DrawerBody>
-				<div style={{ padding: "16px" }}>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-					rutrum sem eros, sed tempor sapien porta ac. Nullam purus metus.
-				</div>
-			</DrawerBody>
-			<DrawerFooter>
-				<div>
-					<Button type="secondary" colorScheme="blue" isSmall={true}>
-						Secondary
-					</Button>
-					<Button type="primary" colorScheme="blue" isSmall={true}>
-						Primary
-					</Button>
-				</div>
-			</DrawerFooter>
-		</Drawer>
-	)
-}
-
-const _internalDrawerLogo = ({
-	toggleRef,
-	title = "Drawer header",
-	desc = "",
-	...props
-}: {
-	toggleRef: RefObject<DrawerActions | null>
-	title: string
-	desc: string
-	[key: string]: any
-}) => {
-	return (
-		<Drawer ref={toggleRef} {...props}>
-			<DrawerBody>
-				<div style={{ padding: "16px" }}>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-					rutrum sem eros, sed tempor sapien porta ac. Nullam purus metus.
-				</div>
-			</DrawerBody>
-			<DrawerFooter>
-				<div>
-					<Button type="secondary" colorScheme="blue" isSmall={true}>
-						Secondary
-					</Button>
-					<Button type="primary" colorScheme="blue" isSmall={true}>
-						Primary
-					</Button>
-				</div>
-			</DrawerFooter>
-		</Drawer>
-	)
 }
 
 // Build story
@@ -115,15 +47,6 @@ export const Navigation = (props: {
 	return (
 		<div className="sui-layout">
 			<div className="sui-layout__content">
-				<_internalDrawer
-					toggleRef={ref}
-					{...props}
-					placement="left"
-					title="Drawer title"
-					desc="Drawer for body container, it is fixed positioned"
-					hasContainer={true}
-					disableShadow={true}
-				/>
 				<SuiNavigation
 					brand={{
 						plugin,
@@ -175,9 +98,7 @@ export const Navigation = (props: {
 					})}
 					{...(action &&
 						isPro && {
-							actions: [
-								<MoreFromWPMUDEV key="More from WPMUDEV" filter={[plugin]} />,
-							],
+							actions: [],
 							mobileActions: [
 								<Button
 									key="logo"
@@ -208,7 +129,6 @@ export const Navigation = (props: {
 					{...(action &&
 						!isPro && {
 							actions: [
-								<MoreFromWPMUDEV key="More from WPMUDEV" filter={[plugin]} />,
 								<Button key="upgrade" type="primary" colorScheme="black">
 									Upgrade to pro
 								</Button>,
@@ -297,19 +217,6 @@ export const Navigation = (props: {
 						Documentation
 					</Button>
 				</SuiNavigation>
-				<_internalDrawerLogo
-					key="logo-drawer"
-					toggleRef={refLogoDrawer}
-					{...props}
-					placement="left"
-					title="Drawer title"
-					desc="Drawer for body container, it is fixed positioned"
-					hasContainer={true}
-					disableShadow={true}
-					_style={{
-						top: "118px",
-					}}
-				/>
 			</div>
 		</div>
 	)

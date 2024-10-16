@@ -5,12 +5,14 @@ import {
 	PluginIconTypes,
 } from "@wpmudev/sui-utils"
 import { DropdownProps } from "@wpmudev/sui-dropdown"
-import { ReactNode, RefObject } from "react"
+import { ButtonHTMLAttributes, ReactNode, RefObject } from "react"
 import {
 	DrawerActions,
 	DrawerHeaderTypes,
 	DrawerTypes,
 } from "@wpmudev/sui-drawer"
+import { AvatarProps } from "@wpmudev/sui-avatar"
+import { ButtonProps } from "@wpmudev/sui-button"
 
 /**
  * Represents a plugin's details.
@@ -94,9 +96,24 @@ interface WPMUDEVDrawerProps extends DrawerTypes, SuiStyleType {
 	back?: DrawerHeaderTypes["back"]
 }
 
+/**
+ * Represents the properties for a WPMUDEV user.
+ */
+interface WPMUDEVUserProps extends SuiStyleType {
+	title: string
+	description?: string
+	avatarProps?: AvatarProps
+	action?: ReactNode
+	logout?: {
+		show: boolean
+		props: ButtonProps
+	}
+}
+
 export type {
 	WPMUDEVButtonProps,
 	WPMUDEVHelpProps,
 	WPMUDEVNotificationProps,
 	WPMUDEVDrawerProps,
+	WPMUDEVUserProps,
 }
