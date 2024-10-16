@@ -6,6 +6,8 @@ import { IconsName } from "@wpmudev/sui-icons"
 
 // Import documentation main page.
 import docs from "./ReactTooltip.mdx"
+import { informative } from "@wpmudev/sui-icons/stories/content/Examples/Colors.mdx"
+import { success } from "@wpmudev/sui-icons/stories/content/Examples/Colors.mdx"
 
 // Configure default options.
 export default {
@@ -30,6 +32,7 @@ const Tooltip = ({
 	color,
 	iconSize,
 	icon,
+	iconColor,
 }: { tootlipText: string; color?: string } & TooltipBaseProps) => {
 	const boxStyles = {
 		padding: 20,
@@ -44,6 +47,7 @@ const Tooltip = ({
 					<SuiTooltip
 						icon={icon}
 						iconSize={iconSize}
+						iconColor={iconColor}
 						type={type}
 						label={label}
 						placement={placement}
@@ -71,6 +75,7 @@ Tooltip.args = {
 	customMobileWidth: "",
 	icon: "Info",
 	iconSize: "sm",
+	iconColor: "",
 }
 
 // Set controls for story arguments.
@@ -109,6 +114,25 @@ Tooltip.argTypes = {
 				md: "Medium",
 				lg: "Large",
 				xl: "Extra Large",
+			},
+		},
+		if: {
+			arg: "type",
+			eq: "icon",
+		},
+	},
+	iconColor: {
+		name: "Color Scheme",
+		options: ["", "neutral", "informative", "success", "warning", "critical"],
+		control: {
+			type: "select",
+			labels: {
+				"": "-",
+				neutral: "Neutral",
+				informative: "Informative",
+				success: "Success",
+				warning: "Warning",
+				critical: "Critical",
 			},
 		},
 		if: {

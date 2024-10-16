@@ -369,3 +369,125 @@ import { Section, Code, Snippet, List } from '@wpmudev/sui-docs';
 	
 
 </Section>
+
+<Section contained={true} border={true} title="8. useResponsive" id="use-responsive">
+	<p>
+		The <code>useResponsive</code> hook is designed to detect and manage the current device type 
+		(e.g., mobile, tablet, desktop) based on window width. It provides a dynamic way to handle 
+		responsive behavior in React applications.
+	</p>
+	<p>
+		It accepts <strong>1 parameter</strong>:
+		<ol>
+			<li><strong>config</strong>: optional configuration for custom device breakpoints</li>
+		</ol>
+	</p>
+
+	<h3>config</h3>
+	<p>
+		The <code>config</code> object defines custom breakpoints for different devices. Each key in the object 
+		corresponds to a device type (e.g., mobile, tablet, desktop), and the value defines its screen size.
+	</p>
+
+	<p>There are two types of values you can use for each device key:</p>
+
+	<ol>
+		<li>
+			<strong>number</strong>: a minimum width for the device. This will match when the window width is 
+			greater than or equal to this number.
+		</li>
+		<li>
+			<strong>array</strong>: a range of widths for the device in the form <code>[min, max]</code>. The 
+			device will be active when the window width is within this range.
+		</li>
+	</ol>
+
+	<p>If no <code>config</code> is provided, the hook will use the following default breakpoints:</p>
+
+	```javascript
+	{
+		desktop: 1024,  // (min-width: 1024px)
+		tablet: 600,    // (min-width: 600px)
+		mobile: [600, 0] // (min-width: 0px) and (max-width: 599px)
+	}
+	```
+
+	<h4>Example config</h4>
+
+	```javascript
+	{
+		largeDesktop: 1440,
+		tablet: [768, 1024],
+		smallMobile: [0, 480]
+	}
+	```
+
+	<h3>How it works</h3>
+	<p>
+		Internally, the hook sorts the devices based on their widths and ranges. It listens to the 
+		<code>resize</code> event and uses <code>window.matchMedia()</code> to detect the current width of the 
+		browser window. When the window size changes, the hook updates the active device type accordingly.
+	</p>
+
+	<h3>Return value</h3>
+	<p>
+		The <code>useResponsive</code> hook returns a single value:
+		<ul>
+			<li>
+				<strong>device</strong>: a string representing the active device based on the current window width 
+				(e.g., 'mobile', 'tablet', 'desktop'). If no match is found, it returns 'unknown'.
+			</li>
+		</ul>
+	</p>
+
+	<h3>Example</h3>
+
+	```javascript
+	import React from 'react';
+	import { useResponsive } from './hooks/useResponsive';
+
+	const MyComponent = () => {
+		const device = useResponsive({
+			desktop: 1200,
+			tablet: [600, 1200],
+			mobile: [0, 600],
+		});
+
+		return (
+			<div>
+				{device === 'mobile' && <p>You are on a mobile device!</p>}
+				{device === 'tablet' && <p>You are on a tablet!</p>}
+				{device === 'desktop' && <p>You are on a desktop!</p>}
+				{device === 'unknown' && <p>Device type is unknown.</p>}
+			</div>
+		);
+	};
+	```
+
+	<h3>Dynamic behavior</h3>
+	<p>
+		The <code>useResponsive</code> hook listens for changes to the window width and updates the 
+		<code>device</code> value dynamically. This makes it ideal for implementing responsive components 
+		that need to adapt based on screen size.
+	</p>
+
+	<h4>Responsive in action</h4>
+
+	```javascript
+	import React from 'react';
+	import { useResponsive } from './hooks/useResponsive';
+
+	const ResponsiveLayout = () => {
+		const device = useResponsive();
+
+		return (
+			<div>
+				{device === 'mobile' && <MobileLayout />}
+				{device === 'tablet' && <TabletLayout />}
+				{device === 'desktop' && <DesktopLayout />}
+			</div>
+		);
+	};
+	```
+
+</Section>

@@ -10,6 +10,7 @@ export * from "@wpmudev/sui-selector"
 export * from "@wpmudev/sui-spinner"
 export * from "@wpmudev/sui-tag"
 export * from "@wpmudev/sui-tooltip"
+export * from "@wpmudev/sui-skeleton"
 
 // Forms
 export * from "@wpmudev/sui-checkbox"
@@ -56,6 +57,7 @@ export * from "@wpmudev/sui-table"
 export * from "@wpmudev/sui-dashboard-widget"
 export * from "@wpmudev/sui-navigation"
 export * from "@wpmudev/sui-integration"
+export * from "@wpmudev/sui-page-header"
 
 // Collections
 export * from "@wpmudev/sui-footer"

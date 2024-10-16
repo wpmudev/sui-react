@@ -134,7 +134,7 @@ export const Dropdown = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyle}>
-					{"select-checkbox" === example && (
+					{"menu" === example && (
 						<SuiDropdown
 							{...props}
 							isAsync={false}
@@ -149,34 +149,18 @@ export const Dropdown = ({
 
 								setCheckedItems(checkedList as [])
 							}}
-							type="select-checkbox"
 							menu={[
 								{
 									id: "view-form",
 									label: "View form",
-									props: {
-										_checkboxProps: {
-											isChecked: checkedItems.indexOf("view-form") > -1,
-										},
-									},
 								},
 								{
 									id: "edit-form",
 									label: "Edit form",
-									props: {
-										_checkboxProps: {
-											isChecked: checkedItems.indexOf("edit-form") > -1,
-										},
-									},
 								},
 								{
 									id: "duplicate-form",
 									label: "Duplicate form",
-									props: {
-										_checkboxProps: {
-											isChecked: checkedItems.indexOf("duplicate-form") > -1,
-										},
-									},
 								},
 								{
 									id: "delete-form",
@@ -184,7 +168,6 @@ export const Dropdown = ({
 									props: {
 										variation: "danger",
 										icon: "Trash",
-										isDisabled: true,
 									},
 								},
 							]}
@@ -306,7 +289,7 @@ export const Dropdown = ({
 }
 
 Dropdown.args = {
-	example: "pro",
+	example: "menu",
 	label: "Menu Button",
 	isSmall: false,
 	isFixedHeight: true,
@@ -314,8 +297,12 @@ Dropdown.args = {
 	renderContentOnTop: false,
 	placement: "right",
 	buttonIcon: "Menu",
+	buttonProps: {
+		type: "tertiary",
+	},
 	allowSearch: true,
 	closeOnOuterClick: true,
+	closeOnMenuItemClick: true,
 	isFluid: false,
 	size: "md",
 	isAsync: false,
@@ -327,7 +314,7 @@ Dropdown.argTypes = {
 	example: {
 		name: "Type",
 		options: [
-			// "select-checkbox",
+			"menu",
 			//  "async",
 			//  "select-variable",
 			"pro",
@@ -336,7 +323,7 @@ Dropdown.argTypes = {
 		control: {
 			type: "select",
 			labels: {
-				// "select-checkbox": "Example: Select + Checkbox",
+				menu: "Example: Menu",
 				// select: "Example: Dropdown",
 				// "select-variable": "Example: Select + Variable",
 				pro: "Example: Pro Menu",
@@ -369,6 +356,10 @@ Dropdown.argTypes = {
 		name: "Icon",
 		options: IconsName,
 		control: "select",
+	},
+	buttonProps: {
+		name: "Button Props",
+		control: "object",
 	},
 	placement: {
 		name: "Placement",
@@ -415,6 +406,10 @@ Dropdown.argTypes = {
 	},
 	closeOnOuterClick: {
 		name: "Close (Outer click)",
+		control: "boolean",
+	},
+	closeOnMenuItemClick: {
+		name: "Close (Menu Item click)",
 		control: "boolean",
 	},
 	isAsync: { table: { disable: true } },

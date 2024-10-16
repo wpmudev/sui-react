@@ -99,6 +99,9 @@
     "@wpmudev/sui-upsell-notice": "^0.0.1",
     "@wpmudev/sui-upsell": "^0.0.1",
     "@wpmudev/sui-hooks": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1"
+    "@wpmudev/sui-utils": "^0.0.1",
+    "@wpmudev/sui-popover": "^0.0.1",
+    "@wpmudev/sui-page-header": "^0.0.1",
+    "@wpmudev/sui-skeleton": "^0.0.1"
   }
 }

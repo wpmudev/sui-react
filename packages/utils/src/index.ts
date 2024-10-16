@@ -254,6 +254,9 @@ export type PluginsSlug =
 	| "blc"
 	| "thc"
 	| "dashboard"
+	| "ivt"
+	| "uptime"
+	| "hosting"
 
 export type PluginIconTypes = {
 	bg?: string
@@ -326,6 +329,21 @@ const PluginsIcons: Record<PluginsSlug, PluginIconTypes> = {
 		bg: "#1C4DA9",
 		color: "#FFF",
 		icon: "PluginDashboard",
+	},
+	ivt: {
+		bg: "#65DE63",
+		color: "#FFF",
+		icon: "PluginIvt",
+	},
+	uptime: {
+		bg: "#05AE7B",
+		color: "#FFF",
+		icon: "PluginUptime",
+	},
+	hosting: {
+		bg: "#9F62CE",
+		color: "#FFF",
+		icon: "Cloud",
 	},
 }
 

@@ -30,7 +30,7 @@ import {
 
 const Select: React.FC<SelectBaseProps> = ({
 	id,
-	options,
+	options: newOpt,
 	className,
 	selected,
 	label = "Select option",
@@ -63,6 +63,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	const controlRef = useRef<HTMLDivElement | HTMLInputElement | null>(null)
 	const dropdownRef = useRef<DropdownRefProps | null>(null)
 
+	const [options, setOptions] = useState(newOpt)
 	const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false)
 	const [items, setItems] = useState<SelectOptionType[]>(options ?? [])
 	const [filteredItems, setFilteredItems] = useState<SelectOptionType[]>(
@@ -76,12 +77,16 @@ const Select: React.FC<SelectBaseProps> = ({
 		[],
 	)
 
+	const updateOptions = (itemsOpt: SelectOptionType[]) => {
+		setOptions(itemsOpt)
+	}
+
 	useEffect(() => {
 		setItems(options ?? [])
 		setFilteredItems(options ?? [])
 
 		// update selected item
-		//setSelectedItems(options?.filter((option) => option.isSelected === true))
+		setSelectedItems(options?.filter((option) => option.isSelected === true))
 	}, [options])
 
 	// Hide dropdown when click outside of it
@@ -121,9 +126,7 @@ const Select: React.FC<SelectBaseProps> = ({
 
 		const currentItems = filteredItemList.length > 0 ? filteredItemList : label
 
-		if (isMultiSelect) {
-			updateItem(filteredItemList)
-		} else if (currentItems?.length) {
+		if (!isMultiSelect) {
 			// Select the first item
 			const item = currentItems?.[0]
 			// @ts-ignore: improve
@@ -225,12 +228,30 @@ const Select: React.FC<SelectBaseProps> = ({
 		const updatedItems = [...filteredItems]
 		const isSelected = updatedItems[optionIndex]?.isSelected
 
-		if (isMultiSelect || isCustomVar) {
+		if (isMultiSelect) {
 			updatedItems[optionIndex] = {
 				...updatedItems[optionIndex],
 				isSelected: !isSelected,
 			}
 			setFilteredItems(updatedItems)
+			setSelectedItems((prev: SelectOptionType[]) => {
+				if (prev) {
+					// Check if the item is already selected
+					const alreadySelected = prev.some(
+						(item: { id: string }) => item.id === optionObj.id,
+					)
+
+					if (alreadySelected) {
+						// Remove the item if it is already selected
+						return prev.filter(
+							(item: { id: string }) => item.id !== optionObj.id,
+						)
+					}
+					// Add the item if it is not already selected
+					return [...prev, updatedItems[optionIndex]]
+				}
+				return [optionObj]
+			})
 		} else {
 			updatedItems.forEach((option) => (option.isSelected = false))
 			updatedItems[optionIndex] = {
@@ -291,7 +312,13 @@ const Select: React.FC<SelectBaseProps> = ({
 		...(isMultiSelect && {
 			isMultiSelect,
 			removeSelection: (optionId: number | string) => {
-				RemoveSelection(optionId, filteredItems, setFilteredItems)
+				RemoveSelection(
+					optionId,
+					filteredItems,
+					setFilteredItems,
+					setSelectedItems,
+					onChange,
+				)
 			},
 		}),
 		...(isCustomVar && {
@@ -303,6 +330,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	// Dropdown props
 	const dropdownProps = {
 		options: filteredItems,
+		updateOptions,
 		selected: selectedItem,
 		isSmall,
 		onChange,
@@ -322,8 +350,33 @@ const Select: React.FC<SelectBaseProps> = ({
 					_checkboxProps: { isSmall },
 				},
 			})),
-			selectAll: () => {
-				SelectAll(filteredItems, setFilteredItems)
+			selectAll: (updatedOptions: SelectOptionType[], allSelected: boolean) => {
+				setOptions(updatedOptions)
+				setSelectedItems((prev: SelectOptionType[]) => {
+					if (!prev) {
+						return updatedOptions
+					}
+
+					if (allSelected) {
+						// Add updatedOptions to selectedItems if their ids are not already present
+						const mergedItems = [...prev, ...updatedOptions]
+
+						const uniqueItems = mergedItems.filter(
+							(item, index, self) =>
+								index === self.findIndex((i) => i.id === item.id),
+						)
+
+						return uniqueItems
+					}
+					// Remove updatedOptions from selectedItems if their ids are found in prev
+
+					return prev.filter(
+						(prevItem: { id: string }) =>
+							!updatedOptions.some(
+								(updatedItem) => updatedItem.id === prevItem.id,
+							),
+					)
+				})
 			},
 		}),
 		...((isMultiSelect || isCustomVar) && {
