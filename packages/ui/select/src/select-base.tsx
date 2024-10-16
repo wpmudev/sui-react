@@ -69,11 +69,16 @@ const Select: React.FC<SelectBaseProps> = ({
 	)
 	const [selectedItem, setSelectedItems] = useState<
 		Record<string, any> | string | undefined | SelectOptionType
-	>(selected)
+	>([])
 
 	const [customVar, setCustomVar] = useState<Array<string | SelectOptionType>>(
 		[],
 	)
+
+	// Update the selected items when the props change
+	useEffect(() => {
+		setSelectedItems(selected)
+	}, [selected])
 
 	const updateOptions = (itemsOpt: SelectOptionType[]) => {
 		setOptions(itemsOpt)
