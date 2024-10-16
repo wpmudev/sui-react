@@ -14,7 +14,6 @@ import {
 import { DrawerActions } from "@wpmudev/sui-drawer"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { Link } from "@wpmudev/sui-link"
-import { type } from "../src/navigation-wpmudev.types"
 
 // Configure default options
 export default {

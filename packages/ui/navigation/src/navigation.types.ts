@@ -101,9 +101,9 @@ interface NavigationUserProps extends SuiHTMLAttributes, SuiStyleType {
 	 */
 	splitLastItem?: boolean
 
-	children: ReactNode
+	children?: ReactNode
 
-	className: string
+	className?: string
 
 	dropdownProps?: DropdownProps
 }
