@@ -115,9 +115,7 @@ export const NavigationStory: React.FC<NavigationProps> = ({
 									logout={{
 										show: true,
 										props: {
-											onClick: () => {
-												console.log("logout")
-											},
+											onClick: () => {},
 										},
 									}}
 									action={
