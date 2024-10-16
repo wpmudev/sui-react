@@ -9,8 +9,8 @@ import {
 } from "@wpmudev/sui-utils"
 import { IconProps } from "@wpmudev/sui-icon"
 import Icons, { IconsNamesType, ExternalLink } from "@wpmudev/sui-icons"
-import { WPMUDEVProps } from "./types"
-import { UpsellIcon } from "./upsell-icon"
+import { WPMUDEVButtonProps } from "../navigation-wpmudev.types"
+import { UpsellIcon } from "../icons/upsell-icon"
 import {
 	Drawer,
 	DrawerActions,
@@ -18,7 +18,7 @@ import {
 	DrawerHeader,
 } from "@wpmudev/sui-drawer"
 
-const MoreFromWPMUDEV: React.FC<WPMUDEVProps> = ({
+const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 	label = "More from WPMU DEV",
 	title = "More free plugins from WPMU DEV",
 	className = "",
@@ -104,7 +104,7 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVProps> = ({
 	const classNames = generateCN(
 		"sui-wpmudev",
 		{},
-		`sui-wpmudev__dropdown ${className}`,
+		`sui-wpmudev__dropdown sui-wpmudev__navigation--hide-mobile ${className}`,
 	)
 
 	const filteredPlugins = plugins.filter(
@@ -185,31 +185,32 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVProps> = ({
 			disableShadow={true}
 			isFullWidth={true}
 		>
-			<DrawerHeader title={label} hasBack={true} />
+			<DrawerHeader title={label} back={{ show: true }} />
 			<DrawerBody>{dropdownContent}</DrawerBody>
 		</Drawer>
 	)
 
 	return (
 		<>
-			<Dropdown
-				label={label}
-				placement="left"
-				buttonIcon="Logo"
-				arrow={false}
-				menuCustomWidth={584}
-				className={classNames}
-				{..._renderHTMLPropsSafely(_htmlProps)}
-				{...props}
-			>
-				{title && (
-					<div className="sui-wpmudev__title">
-						<h4 className="sui-heading--h4">{title}</h4>
-					</div>
-				)}
-				{dropdownContent}
-			</Dropdown>
-			<div className="sui-wpmudev__drawer">
+			<div className={classNames}>
+				<Dropdown
+					label={label}
+					placement="left"
+					buttonIcon="Logo"
+					arrow={false}
+					menuCustomWidth={584}
+					{..._renderHTMLPropsSafely(_htmlProps)}
+					{...props}
+				>
+					{title && (
+						<div className="sui-wpmudev__title">
+							<h4 className="sui-heading--h4">{title}</h4>
+						</div>
+					)}
+					{dropdownContent}
+				</Dropdown>
+			</div>
+			<div className="sui-wpmudev__drawer sui-wpmudev__navigation--hide-desktop">
 				<Button
 					key="logo"
 					type="secondary"

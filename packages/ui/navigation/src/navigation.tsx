@@ -37,12 +37,14 @@ const Navigation: React.FC<NavigationProps> = ({
 					</li>
 				))}
 			</ul>
-			<div className="sui-navigation__actions">
-				{/* Show actions  */}
-				{actions.length > 0 && actions.map((action, index) => action)}
-				{/* Render the navigation user component */}
-				{user && <NavigationUser {...user} />}
-			</div>
+			{(actions.length > 0 || user) && (
+				<div className="sui-navigation__actions">
+					{/* Show actions  */}
+					{actions.length > 0 && actions.map((action, index) => action)}
+					{/* Render the navigation user component */}
+					{user && <NavigationUser {...user} />}
+				</div>
+			)}
 		</nav>
 	)
 }

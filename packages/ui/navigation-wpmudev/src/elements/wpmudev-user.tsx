@@ -9,8 +9,8 @@ import {
 } from "@wpmudev/sui-utils"
 import { IconProps } from "@wpmudev/sui-icon"
 import Icons, { IconsNamesType, ExternalLink } from "@wpmudev/sui-icons"
-import { WPMUDEVProps } from "./types"
-import { UpsellIcon } from "./upsell-icon"
+import { WPMUDEVProps } from "./icons/types"
+import { UpsellIcon } from "../icons/upsell-icon"
 import {
 	Drawer,
 	DrawerActions,
@@ -185,7 +185,7 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVProps> = ({
 			disableShadow={true}
 			isFullWidth={true}
 		>
-			<DrawerHeader title={label} hasBack={true} />
+			<DrawerHeader title={label} back={{ show: true }} />
 			<DrawerBody>{dropdownContent}</DrawerBody>
 		</Drawer>
 	)

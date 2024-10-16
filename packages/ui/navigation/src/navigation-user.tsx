@@ -56,7 +56,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 	}
 
 	return (
-		<div>
+		<div className="sui-navigation__avatar">
 			<Dropdown
 				ref={userBtnRef}
 				label="Menu Button"

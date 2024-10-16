@@ -3,7 +3,7 @@ import React, { useRef } from "react"
 import { Dropdown, DropdownRefProps } from "@wpmudev/sui-dropdown"
 import { Avatar } from "@wpmudev/sui-avatar"
 
-import { NavigationUserProps } from "./navigation.types"
+import { NavigationUserProps } from "./navigation-wpmudev.types"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 
 const NavigationUser: React.FC<NavigationUserProps> = ({

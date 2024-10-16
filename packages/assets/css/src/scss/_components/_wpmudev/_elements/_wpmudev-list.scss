@@ -41,9 +41,16 @@
 				border-radius: $border-radius-xl;
 				background: $color-extended-neutral-95;
 				text-decoration: none;
+				border: $border-width-md solid transparent;
 
 				&:hover {
 					background: $color-extended-neutral-80;
+				}
+
+				&:focus,
+				&:active {
+					border-color: $color-primary-50;
+					background: $color-extended-neutral-90;
 				}
 			}
 
@@ -68,9 +75,15 @@
 				padding: $spacing-lg;
 				background: $color-primary-90;
 				border-radius: $border-radius-md;
+				border: $border-width-md solid transparent;
 
 				&:hover {
 					background: $color-primary-80;
+				}
+
+				&:focus,
+				&:active {
+					border-color: $color-primary-50;
 				}
 			}
 
@@ -86,17 +99,219 @@
 				gap: $spacing-sm;
 			}
 
-			@include element(drawer) {
-				@include media(min-width, md) {
-					display: none;
+			// Help Section
+			@include element(help) {
+				.sui-#{$block}__list-icon {
+					border-radius: $border-radius-md;
+				}
+
+				.sui-#{$block}__list-title {
+					display: flex;
+					gap: $spacing-md;
+					font-weight: $font-weight-md;
+					align-items: center;
 				}
 			}
 
-			@include element(dropdown) {
-				&.sui-dropdown {
+			@include element(help-title) {
+				font-size: $font-size-xs;
+				letter-spacing: $font-spacing-2xl;
+				color: $color-extended-neutral-50;
+				text-transform: uppercase;
+			}
+
+			@include element(help-content) {
+				display: flex;
+				flex-direction: column;
+				padding: $spacing-xl;
+			}
+
+			@include element(help-link) {
+				padding: $spacing-lg 0;
+				border-bottom: $border-width-sm solid $color-extended-neutral-80;
+				font-weight: $font-weight-md;
+			}
+
+			@include element(help-readings) {
+				display: flex;
+				flex-direction: column;
+				margin-bottom: $spacing-lg;
+			}
+
+			@include element(help-list) {
+				display: flex;
+				flex-direction: column;
+				gap: $spacing-lg;
+				margin-top: $spacing-lg;
+
+				@include modifier(item) {
+					display: flex;
+					gap: $spacing-lg;
+					text-decoration: none;
+				}
+			}
+
+			@include element(support) {
+				padding: $spacing-lg;
+				background: $color-extended-success-90;
+				border-radius: $border-radius-md;
+			}
+
+			@include element(list-text-small) {
+				margin: 0;
+			}
+
+			@include element(list-actions) {
+				padding-top: $spacing-lg;
+			}
+
+			// Notifications
+			@include element(notifications) {
+				.sui-dropdown__popover {
+					padding: 0;
+				}
+
+				@include modifier(header, footer) {
+					padding: $spacing-xl;
+				}
+
+				@include modifier(header, item) {
+					border-bottom: $border-width-sm solid $color-extended-neutral-80;
+				}
+
+				@include modifier(footer) {
+					border-top: $border-width-sm solid $color-extended-neutral-80;
+				}
+
+				.sui-wpmudev__notifications--list {
+					max-height: 444px;
+					overflow-y: scroll;
+				}
+
+				@include modifier(item) {
+					display: flex;
+					flex-direction: column;
+					gap: $spacing-md;
+					padding: $spacing-lg $spacing-xl;
+
+					&:first-child {
+						.sui-wpmudev__notifications--item-action {
+							flex: 1;
+							.sui-button {
+								width: 100%;
+							}
+						}
+					}
+
+					&:last-child {
+						border-bottom: none;
+					}
+
+					&:hover {
+						background: $color-primary-90;
+					}
+				}
+
+				@include modifier(item-actions) {
+					display: flex;
+					gap: $spacing-lg;
+				}
+
+				@include modifier(item-meta) {
+					display: flex;
+					gap: $spacing-lg;
+					font-size: $font-size-xs;
+					line-height: $font-height-xs;
+					color: $color-extended-neutral-10;
+				}
+
+				@include modifier(item-title) {
+					font-weight: $font-weight-md;
+					color: $color-extended-neutral-10;
+					margin: 0;
+				}
+
+				@include modifier(version) {
+					font-weight: $font-weight-md;
+				}
+
+				@include modifier(time) {
+					position: relative;
+					color: $color-extended-neutral-50;
+
+					&:after {
+						content: "";
+						position: absolute;
+						border-radius: 100%;
+						background: $color-extended-neutral-50;
+						width: 5px;
+						height: 5px;
+						top: 50%;
+						transform: translateY(-50%);
+						left: -#{$spacing-md + 3px};
+					}
+				}
+			}
+
+			@include element(notifications-drawer) {
+				.sui-drawer__footer {
+					justify-content: flex-start;
+				}
+			}
+
+			@include element(navigation) {
+				.sui-navigation__actions {
+					@include media(max-width, md) {
+						border: none;
+					}
+				}
+
+				.sui-navigation__avatar {
+					@include media(max-width, md) {
+						display: none;
+					}
+				}
+
+				@include modifier(actions) {
+					display: flex;
+					gap: $spacing-md;
+				}
+
+				@include modifier(hide-mobile) {
 					display: none;
 					@include media(min-width, md) {
-						display: block;
+						display: flex;
+					}
+				}
+
+				@include modifier(hide-desktop) {
+					@include media(min-width, md) {
+						display: none;
+					}
+				}
+			}
+
+			// hamburger
+			@include element(hamburger-menu) {
+				display: flex;
+				gap: $spacing-sm;
+				flex-direction: column;
+				margin: $spacing-sm 0;
+
+				li {
+					margin: 0;
+
+					.sui-button {
+						border: none;
+						background: transparent;
+						border-radius: 0;
+						justify-content: flex-start;
+						color: $color-extended-neutral-50;
+
+						&:hover {
+							background: $color-extended-neutral-90;
+							color: $color-extended-neutral-10;
+						}
 					}
 				}
 			}

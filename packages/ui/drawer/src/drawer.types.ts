@@ -80,7 +80,16 @@ export interface DrawerHeaderTypes extends SuiStyleType {
 	/**
 	 * Has back button.
 	 */
-	hasBack?: boolean
+	back?: {
+		show: boolean
+
+		mobileOnly?: boolean
+
+		/**
+		 * Has back button.
+		 */
+		action?: () => void
+	}
 
 	/**
 	 * Has back button.
