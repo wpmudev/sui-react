@@ -177,6 +177,11 @@ interface InputProps
 	 * On validation callback
 	 */
 	onValidate?: (id?: string, value?: string | number | boolean) => void
+
+	/**
+	 * Name of the input
+	 */
+	name?: string
 }
 
 export type { InputProps }

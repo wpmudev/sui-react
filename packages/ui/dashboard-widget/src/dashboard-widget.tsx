@@ -24,6 +24,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	statusProps,
 	isExpanded = true,
 	isDisabled = false,
+	isFullWidth = false,
 	canCollapse = false,
 	onToggle = () => {},
 	children,
@@ -39,6 +40,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 		{
 			expanded: isExpanded,
 			disabled: isDisabled,
+			full: isFullWidth,
 		},
 		suiInlineClassname,
 	)

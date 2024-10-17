@@ -15,6 +15,10 @@
 			border: $border-width-sm solid $color-extended-neutral-80;
 			border-radius: $border-radius-md;
 			background: $color-extended-neutral-100;
+
+			@include modifier(no-border-radius) {
+				border-radius: 0;
+			}
 		}
 	}
 

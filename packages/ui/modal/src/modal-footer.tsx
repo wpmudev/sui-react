@@ -5,6 +5,7 @@ import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 const ModalFooter: React.FC<ModalFooterProps> = ({
 	children,
+	isSpaced = false,
 	_style,
 	_htmlProps,
 }) => {
@@ -15,7 +16,13 @@ const ModalFooter: React.FC<ModalFooterProps> = ({
 
 	return (
 		<footer
-			className={generateCN("sui-modal__footer", {}, suiInlineClassname)}
+			className={generateCN(
+				"sui-modal__footer",
+				{
+					spaced: isSpaced,
+				},
+				suiInlineClassname,
+			)}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{children}

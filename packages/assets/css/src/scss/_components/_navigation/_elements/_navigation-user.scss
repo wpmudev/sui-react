@@ -26,6 +26,31 @@
 					color: $color-extended-neutral-60;
 				}
 			}
+
+			@include element(dropdown) {
+				.sui-dropdown__popover {
+					border: $border-width-sm solid $color-extended-neutral-80;
+				}
+				@include modifier(split) {
+					.sui-dropdown__menu-items {
+						.sui-dropdown__menu-item {
+							&:last-child {
+								position: relative;
+								margin-top: $spacing-lg;
+
+								&:after {
+									content: "";
+									position: absolute;
+									top: -#{$spacing-md};
+									left: 0;
+									right: 0;
+									border-top: $border-width-sm solid $color-extended-neutral-80;
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 

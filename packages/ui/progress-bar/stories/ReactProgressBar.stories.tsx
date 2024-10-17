@@ -43,6 +43,7 @@ ProgressBar.args = {
 	isIndeterminate: true,
 	showValue: true,
 	isInline: false,
+	speed: 3000,
 }
 
 // Set controls for story arguments
@@ -92,6 +93,16 @@ ProgressBar.argTypes = {
 		name: "Inline",
 		control: {
 			type: "boolean",
+		},
+	},
+	speed: {
+		name: "Speed (ms)",
+		control: {
+			type: "number",
+		},
+		if: {
+			arg: "isIndeterminate",
+			eq: true,
 		},
 	},
 }

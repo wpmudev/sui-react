@@ -33,6 +33,7 @@ interface UpsellProps
 		| "defender"
 		| "branda"
 		| "beehive"
+		| "dashboard"
 }
 
 export type { UpsellProps }

@@ -31,6 +31,13 @@
 
 				@include modifier(expanded, content) {
 					background: $color-extended-neutral-95;
+					td {
+						background: $color-extended-neutral-95;
+					}
+				}
+
+				@include modifier(is-group) {
+					background: $color-extended-neutral-95;
 				}
 
 				@include modifier(content) {

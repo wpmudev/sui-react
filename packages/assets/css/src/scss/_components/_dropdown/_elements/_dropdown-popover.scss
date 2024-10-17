@@ -17,7 +17,7 @@
 				top: 100%;
 				left: 0;
 				display: none;
-				margin: $spacing-md 0 0;
+				margin: $spacing-lg 0 0;
 				padding: $spacing-md 0;
 				border-radius: $border-radius-md;
 				background: $color-extended-neutral-100;
@@ -41,6 +41,19 @@
 					.sui-#{$block-name}__menu-item {
 						padding: $spacing-md $spacing-lg;
 					}
+				}
+
+				@include modifier(arrow) {
+					position: absolute;
+					top: -#{$dropdown-position-xs};
+					left: $dropdown-position-md;
+					box-shadow: $border-width-sm $border-width-sm 0px $border-width-xs
+						$color-extended-neutral-80 inset;
+					height: $dropdown-size-height-3xs;
+					width: $dropdown-size-width-2xs;
+					height: $dropdown-size-height-2xs;
+					background: $color-extended-neutral-100;
+					transform: rotate(45deg);
 				}
 
 				@include modifier(sm) {

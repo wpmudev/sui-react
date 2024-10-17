@@ -6,18 +6,18 @@ import Types from "./Examples/Types.mdx"
 import Position from "./Examples/Position.mdx"
 
 export const sampleCode = dedent`
-    <Tooltip label="Button Label">Tooltip Text</Tooltip>
+    <Tooltip label="Button Label" buttonProps={{ type: "primary", colorScheme: "black" }}>Tooltip Text</Tooltip>
 `
 
 export const customWidth = dedent`
-    <Tooltip customWidth={50} label="Button Text">Custom Width</Tooltip>
+    <Tooltip customWidth={50} label="Button Text" buttonProps={{ type: "primary", colorScheme: "black" }}>Custom Width</Tooltip>
 `
 
 <Section contained={true} style={{ paddingTop: 30 }}>
 	<p>The default form of the tooltip component</p>
 	<Preview wrapper={true}>
 		<div style={ { padding: 40 } }>
-			<Tooltip label="Button Text">Tooltip Text</Tooltip>
+			<Tooltip label="Button Text" buttonProps={{ type: "primary", colorScheme: "black" }}>Tooltip Text</Tooltip>
 		</div>
 	</Preview>
 	<Snippet language="js">{sampleCode}</Snippet>
@@ -27,7 +27,7 @@ export const customWidth = dedent`
 	<p>Use <Code small={true}> customWidth </Code> prop to set a custom width for the tooltip</p>
 	<Preview wrapper={true}>
 		<div style={ { padding: 60 } }>
-			<Tooltip customWidth={50} label="Button Text">Custom Width</Tooltip>
+			<Tooltip customWidth={50} label="Button Text" buttonProps={{ type: "primary", colorScheme: "black" }}>Custom Width</Tooltip>
 		</div>
 	</Preview>
 	<Snippet language="js">{customWidth}</Snippet>

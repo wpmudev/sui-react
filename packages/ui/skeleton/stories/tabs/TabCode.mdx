@@ -1,0 +1,85 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-skeleton" />
+
+{/* Skeleton Props */}
+<Section title="Skeleton Props" border={true}>
+	<PropSection title="className" type="string">
+		<p>Custom CSS class names for additional styling.</p>
+	</PropSection>
+
+	<PropSection title="children" type="React Node">
+		<p>The content to be rendered inside the skeleton when loaded.</p>
+	</PropSection>
+
+	<PropSection title="isLoaded" type="boolean" defaultValue="false">
+		<p>Controls whether the skeleton is replaced with the actual content.</p>
+	</PropSection>
+
+	<PropSection title="size" type="{ width?: string; height?: string; }">
+		<p>Defines the width and height of the skeleton.</p>
+	</PropSection>
+
+	 <PropSection title="isInline" type="boolean" defaultValue="false">
+        <p>Sets whether the skeleton should be displayed as an inline element or a block element. When `true`, the skeleton will be inline.</p>
+    </PropSection>
+
+    <PropSection title="isGrayScale" type="boolean" defaultValue="false">
+        <p>Applies a grayscale effect to the skeleton, giving it a faded look. Useful for differentiating loading content.</p>
+    </PropSection>
+
+	<PropSection title="type" type="string" defaultValue="block">
+        <p>
+            Defines the type of the skeleton. Available options are:
+            <ul>
+                <li><strong>block</strong>: A rectangular block skeleton (default).</li>
+                <li><strong>text</strong>: A text-like skeleton, usually displayed as lines to mimic text loading.</li>
+                <li><strong>circle</strong>: A circular skeleton, commonly used for avatar placeholders.</li>
+            </ul>
+        </p>
+    </PropSection>
+</Section>
+
+{/* Skeleton Text Props */}
+<Section title="Skeleton Text Props" border={true}>
+	<PropSection title="lines" type="number" defaultValue="1">
+		<p>The number of lines to render.</p>
+	</PropSection>
+
+	<PropSection title="gap" type="number" defaultValue="8">
+		<p>Gap between the skeleton text lines in pixels.</p>
+	</PropSection>
+
+	<PropSection title="isLoaded" type="boolean" defaultValue="false">
+		<p>Controls whether the skeleton text is replaced with the actual content.</p>
+	</PropSection>
+
+	<PropSection title="endLineWidth" type="string" defaultValue="100%">
+		<p>The width of the last line in the skeleton text. It can be a percentage or pixel value.</p>
+	</PropSection>
+
+	<PropSection title="_skeletonProps" type="Skeleton Props">
+		<p>You can pass all Skeleton Props for each skeleton line.</p>
+	</PropSection>
+</Section>
+
+{/* Skeleton Circle Props */}
+<Section title="Skeleton Circle Props" border={true}>
+	<PropSection title="className" type="string">
+		<p>Custom CSS class names for additional styling.</p>
+	</PropSection>
+
+	<PropSection title="children" type="React Node">
+		<p>The content to be rendered inside the skeleton circle when loaded.</p>
+	</PropSection>
+
+	<PropSection title="isLoaded" type="boolean" defaultValue="false">
+		<p>Controls whether the skeleton circle is replaced with the actual content.</p>
+	</PropSection>
+
+	<PropSection title="size" type="{ width?: string; height?: string; }">
+		<p>Defines the width and height of the skeleton circle.</p>
+	</PropSection>
+</Section>
+
+<CommonPropsNotice />

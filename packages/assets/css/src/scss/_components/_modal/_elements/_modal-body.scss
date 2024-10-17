@@ -23,7 +23,7 @@
 
 			@include modifier(advanced) {
 				@include modifies-element(body) {
-					overflow-y: scroll;
+					overflow-y: auto;
 				}
 			}
 		}

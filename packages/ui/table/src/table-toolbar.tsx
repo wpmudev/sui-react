@@ -17,6 +17,7 @@ import { TableToolbarContent } from "./table-toolbar-content"
 import { TableContext } from "./table-context"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useStyles } from "@wpmudev/sui-hooks"
+import { Toggle } from "@wpmudev/sui-toggle"
 
 /**
  * TableToolbar component represents the toolbar section of a table.
@@ -31,7 +32,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 }: TableSectionProps): JSX.Element => {
 	// State for expansion of the toolbar content
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
-	const [bulkAction, setBulkAction] = useState<string>("")
+	const [bulkAction, setBulkAction] = useState<Record<string, any> | null>(null)
 
 	// Generate unique IDs for accessibility
 	const uniqueId = useId()
@@ -53,7 +54,10 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 	)
 
 	const onApplyBulkAction = useCallback(() => {
-		ctx?.triggerAction("bulk-action", bulkAction)
+		ctx?.triggerAction("bulk-action", {
+			...bulkAction,
+			selectedRows: ctx?.selected,
+		})
 	}, [bulkAction, ctx])
 
 	const content = (
@@ -78,13 +82,15 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 								className="sui-table__toolbar-actions"
 								isSmall={true}
 								options={ctx?.bulkActions}
-								onChange={() => setBulkAction}
+								onChange={(action) =>
+									setBulkAction(action as Record<string, any>)
+								}
 							/>
 							<Button
 								type="primary"
 								colorScheme="black"
 								isSmall={true}
-								isDisabled={isEmpty(bulkAction ?? "")}
+								isDisabled={!bulkAction}
 								onClick={onApplyBulkAction}
 							>
 								Apply
@@ -94,6 +100,11 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 				</div>
 
 				<div className="sui-table__toolbar-header-actions">
+					{ctx?.showToggleBtn && (
+						<div className="sui-table__toolbar-toggle">
+							<Toggle {...ctx.toggleBtnProps} />
+						</div>
+					)}
 					<Input
 						id="input-id-4"
 						className="sui-table__toolbar-search"

@@ -88,6 +88,7 @@ DashboardWidget.args = {
 	tagProps: { isSmall: "sm" },
 	canCollapse: false,
 	isDisabled: false,
+	isFullWidth: false,
 	icon: "CheckAlt",
 	statusIcon: "InfoAlt",
 	statusProps: {
@@ -145,6 +146,12 @@ DashboardWidget.argTypes = {
 	},
 	isDisabled: {
 		name: "Disabled",
+		control: {
+			type: "boolean",
+		},
+	},
+	isFullWidth: {
+		name: "Full Width",
 		control: {
 			type: "boolean",
 		},
