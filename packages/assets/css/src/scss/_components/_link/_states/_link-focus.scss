@@ -21,12 +21,12 @@
 				}
 
 				&.sui-#{$block}--secondary {
-					color: $color-extended-neutral-100;
+					color: $color-base-white;
 				}
 			}
 
 			@include modifier(secondary) {
-				outline-color: $color-extended-neutral-100;
+				outline-color: $color-base-white;
 			}
 		}
 	}
@@ -35,12 +35,12 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			outline-color: $color-extended-neutral-0;
-			color: $color-extended-neutral-0;
+			outline-color: $color-base-black;
+			color: $color-base-black;
 
 			@include modifier(secondary) {
-				color: $color-extended-neutral-100;
-				outline-color: $color-extended-neutral-100;
+				color: $color-base-white;
+				outline-color: $color-base-white;
 			}
 		}
 	}

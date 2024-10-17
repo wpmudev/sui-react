@@ -16,7 +16,7 @@
 		@include block($block) {
 			@include element(header) {
 				padding: $spacing-2xl;
-				border-bottom: $border-width-sm solid $color-extended-neutral-80;
+				border-bottom: $border-width-sm solid $color-grey-10;
 
 				@include media(max-width, md) {
 					padding: $spacing-xl;
@@ -41,7 +41,7 @@
 
 			@include element(header-desc) {
 				margin-top: $spacing-md;
-				color: $color-extended-neutral-50;
+				color: $color-grey-50;
 				flex-basis: 100%;
 			}
 
@@ -60,11 +60,11 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(header) {
-				border-color: $color-extended-neutral-0;
+				border-color: $color-base-black;
 			}
 
 			@include element(header-desc) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}

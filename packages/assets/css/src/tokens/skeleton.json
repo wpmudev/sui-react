@@ -1,7 +1,7 @@
 {
 	"skeleton": {
 		"background": {
-			"value": "linear-gradient(93.77deg, $color-extended-neutral-80 -10.31%, #f5f5f5 -4.92%)",
+			"value": "linear-gradient(93.77deg, $color-grey-10 -10.31%, #f5f5f5 -4.92%)",
 			"type": "color"
 		},
 		"height": {

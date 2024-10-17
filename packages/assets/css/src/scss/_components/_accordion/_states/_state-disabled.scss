@@ -14,14 +14,14 @@
 			@include element(item) {
 				@include modifier(disabled) {
 					box-shadow: none;
-					color: $color-extended-neutral-70;
+					color: $color-grey-30;
 					pointer-events: none;
 					user-select: none;
 
 					h2,
 					svg,
 					p {
-						color: $color-extended-neutral-70;
+						color: $color-grey-30;
 					}
 				}
 			}
@@ -34,11 +34,11 @@
 		@include block($block) {
 			@include element(item) {
 				@include modifier(disabled) {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 
 					h2,
 					svg {
-						color: $color-extended-neutral-0;
+						color: $color-base-black;
 					}
 				}
 			}

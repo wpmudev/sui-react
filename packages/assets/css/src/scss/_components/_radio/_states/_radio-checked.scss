@@ -18,18 +18,18 @@
 				}
 
 				&.sui-#{$block}--block {
-					background: $color-primary-90;
+					background: $color-primary-05;
 
 					&:after {
-						border-color: $color-primary-80;
+						border-color: $color-primary-10;
 					}
 
 					&:hover {
 						background: unset;
 
 						.sui-#{$block}__box {
-							background: $color-primary-40;
-							border-color: $color-primary-40;
+							background: $color-primary-60;
+							border-color: $color-primary-60;
 						}
 					}
 				}
@@ -43,20 +43,20 @@
 		@include block($block) {
 			@include modifier(checked) {
 				@include modifies-element(box) {
-					background: $color-extended-neutral-0;
-					border-color: $color-extended-neutral-0;
+					background: $color-base-black;
+					border-color: $color-base-black;
 				}
 
 				&.sui-#{$block}--block {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 					&:after {
-						border-color: $color-extended-neutral-0;
+						border-color: $color-base-black;
 					}
 
 					&:hover {
 						.sui-#{$block}__box {
-							background: $color-extended-neutral-0;
-							border-color: $color-extended-neutral-0;
+							background: $color-base-black;
+							border-color: $color-base-black;
 						}
 					}
 				}

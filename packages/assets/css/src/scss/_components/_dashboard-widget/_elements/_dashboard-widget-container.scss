@@ -13,7 +13,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			align-items: flex-start;
-			background-color: $color-extended-neutral-100;
+			background-color: $color-base-white;
 			border-radius: $border-radius-lg;
 			max-width: $dashboard-size-width-lg;
 			padding: $spacing-xl;
@@ -28,8 +28,8 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			color: $color-extended-neutral-0;
-			border: $border-width-sm solid $color-extended-neutral-0;
+			color: $color-base-black;
+			border: $border-width-sm solid $color-base-black;
 		}
 	}
 }
