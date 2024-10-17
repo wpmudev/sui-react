@@ -34,6 +34,8 @@ const customPointer = (): ReactNode | undefined => {
 	return <div className="sui-color-picker__pointer"></div>
 }
 
+const COLOR_HASH_REGEX = /^#[0-9a-fA-F]{6}[0-9a-fA-F]{0,2}$/i
+
 const Picker: React.FC<ColorPickerPickerProps> = ({
 	color = "",
 	type = "hex",
@@ -45,6 +47,7 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 	const [selectedColor, setSelectedColor] = useState<ColorResult>(
 		colorToColorObject(color),
 	)
+	const [inputHexVal, setInputHexVal] = useState<string | null>(null)
 
 	// default input color values
 	const [hex, setHex] = useState<string>(selectedColor?.hex)
@@ -61,6 +64,7 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 
 	// when selected color updates update all corresponding values
 	useEffect(() => {
+		setInputHexVal(null)
 		// update input values
 		setHex(selectedColor?.hex)
 		setRed(selectedColor?.rgb?.r)
@@ -106,13 +110,20 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 		handleColorChange(_color)
 	}
 
+	useEffect(() => {
+		// Update hex value only when valid
+		if (!!inputHexVal && COLOR_HASH_REGEX.test(inputHexVal ?? "")) {
+			setSelectedColor((prevColor: ColorResult) => ({
+				...prevColor,
+				...colorToColorObject(inputHexVal ?? ""),
+			}))
+		}
+	}, [inputHexVal])
+
 	const handleHexInputChange = useCallback(
 		(event: React.ChangeEvent<HTMLInputElement>) => {
 			const { value } = event.target
-			setSelectedColor((prevColor: ColorResult) => ({
-				...prevColor,
-				hex: value,
-			}))
+			setInputHexVal(value)
 		},
 		[],
 	)
@@ -127,10 +138,13 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 				inputVal = 255
 			}
 			const rgb = { ...selectedColor.rgb, [name]: inputVal }
+			const hexVal = tinycolor(rgb).toHexString()
+
 			setSelectedColor((prevColor: ColorResult) => ({
 				...prevColor,
+				...colorToColorObject(hexVal ?? ""),
 				rgb,
-				hex: tinycolor(rgb).toHexString(),
+				hex: hexVal,
 			}))
 		},
 		[selectedColor],
@@ -258,7 +272,7 @@ const Picker: React.FC<ColorPickerPickerProps> = ({
 									"has-alpha": !disableAlpha,
 								})}
 								aria-label="Hex code"
-								value={hex}
+								value={inputHexVal ?? hex}
 								onChange={handleHexInputChange}
 							/>
 						)}
