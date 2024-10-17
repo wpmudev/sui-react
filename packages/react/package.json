@@ -102,6 +102,7 @@
     "@wpmudev/sui-utils": "^0.0.1",
     "@wpmudev/sui-popover": "^0.0.1",
     "@wpmudev/sui-page-header": "^0.0.1",
-    "@wpmudev/sui-skeleton": "^0.0.1"
+    "@wpmudev/sui-skeleton": "^0.0.1",
+    "@wpmudev/sui-navigation-wpmudev": "^0.0.1"
   }
 }

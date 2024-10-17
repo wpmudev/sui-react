@@ -1,9 +1,10 @@
 import React from "react"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { useStyles } from "@wpmudev/sui-hooks"
+import { NavigationWrapperProps } from "./navigation-wpmudev.types"
 
 // Navigation component
-const NavigationWrapper: React.FC<NavigationProps> = ({
+const NavigationWrapper: React.FC<NavigationWrapperProps> = ({
 	children,
 	_htmlProps,
 	_style,

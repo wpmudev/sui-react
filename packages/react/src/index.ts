@@ -56,6 +56,7 @@ export * from "@wpmudev/sui-popover"
 export * from "@wpmudev/sui-table"
 export * from "@wpmudev/sui-dashboard-widget"
 export * from "@wpmudev/sui-navigation"
+export * from "@wpmudev/sui-navigation-wpmudev"
 export * from "@wpmudev/sui-integration"
 export * from "@wpmudev/sui-page-header"
 

@@ -110,10 +110,18 @@ interface WPMUDEVUserProps extends SuiStyleType {
 	}
 }
 
+/**
+ * Represents the properties for a Navigation Wrapper.
+ */
+interface NavigationWrapperProps extends SuiHTMLAttributes, SuiStyleType {
+	children: ReactNode
+}
+
 export type {
 	WPMUDEVButtonProps,
 	WPMUDEVHelpProps,
 	WPMUDEVNotificationProps,
 	WPMUDEVDrawerProps,
 	WPMUDEVUserProps,
+	NavigationWrapperProps,
 }

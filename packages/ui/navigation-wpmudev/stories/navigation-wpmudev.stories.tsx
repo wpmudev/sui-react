@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { createRef } from "react"
 import { Navigation, NavigationUser } from "@wpmudev/sui-navigation"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
@@ -26,7 +27,7 @@ export default {
 		},
 	},
 }
-export const NavigationStory: React.FC<NavigationProps> = ({
+export const NavigationStory = ({
 	isPro = false,
 	brand = [],
 	user = [],
