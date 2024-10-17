@@ -42,6 +42,8 @@ const Toggle: React.FC<ToggleProps> = ({
 	useEffect(() => {
 		if (!isBoolean(defaultValue)) {
 			setState(defaultValue ?? false)
+		} else {
+			setState(defaultValue)
 		}
 	}, [defaultValue])
 

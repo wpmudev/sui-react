@@ -97,6 +97,7 @@ Upsell.argTypes = {
 			"defender",
 			"branda",
 			"beehive",
+			"dashboard",
 		],
 		control: {
 			type: "select",

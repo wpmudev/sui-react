@@ -41,7 +41,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     			</List>
     	</PropSection>
 
-		<PropSection title="ref" type="object" isRequired={true}>
+		<PropSection title="onCloseModal" type="object" isRequired={true}>
     		<p>A callback function to be invoked upon closing the modal, it could be used to reset the modal data for proExample=""</p>
     	</PropSection>
 
@@ -129,6 +129,12 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     	<p>
     		This component represents the modal footer
     	</p>
+
+		<PropSection title="isSpaced" type="boolean">
+    		<p>
+    			If set to true the content will have spaced between.
+    		</p>
+    	</PropSection>
 
     	<PropSection title="children" type="React Node">
     		<p>

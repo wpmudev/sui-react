@@ -32,6 +32,9 @@ export { useBottomEnd } from "./use-bottom-end"
 // useDebounce
 export { useDebounce } from "./use-debounce"
 
+// useResponsive
+export { useResponsive } from "./use-responsive"
+
 // useStyles
 export * from "./use-styles"
 

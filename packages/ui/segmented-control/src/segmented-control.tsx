@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react"
+import React, { useEffect, useState } from "react"
 
 // Import required component(s)
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
@@ -20,12 +20,17 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	/**
 	 * State to track the current selected value of the segmented control.
 	 */
-	const [value, setValue] = useState<string | number>(defaultValue)
+	const [value, setValue] = useState<string | number>("")
 
 	// default children content
 	children = useDefaultChildren(children)
 
 	const { suiInlineClassname } = useStyles(_style)
+
+	// update default value when it changes
+	useEffect(() => {
+		setValue(defaultValue)
+	}, [defaultValue])
 
 	/**
 	 * Generate class names for the segmented control based on the isFullWidth prop.

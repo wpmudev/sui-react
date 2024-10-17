@@ -15,6 +15,7 @@
 			border: $border-width-sm solid $color-grey-10;
 			background: $color-base-white;
 			border-radius: $border-radius-md;
+			height: 100%;
 
 			@include element(quick-actions) {
 				display: flex;

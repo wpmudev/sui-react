@@ -51,6 +51,20 @@ import { Unstyled } from '@storybook/blocks';
 				```
 					import '@wpmudev/sui-css/dist/css/sui-css.min.css'
 				```
+
+				#### Important Note
+				After installing the package, you might be tempted to import the components directly from the `sui-react` package. for example you might do something like:
+				```
+					import { Button, BasicBox } from '@wpmudev/sui-react'
+				```
+				
+				 However, we recommend importing the components from their packages instead. This way, it can be easier to update the components packages individually whenever new versions are needed. 
+				 the correct way to import the components would be:
+
+				 ```
+				 	import { Button } from '@wpmudev/sui-button'
+				import { BasicBox } from '@wpmudev/sui-basic-box'
+				 ```
 			</p>
 			
 		</Section>
