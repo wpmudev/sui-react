@@ -3,7 +3,6 @@ import React, {
 	useState,
 	useEffect,
 	useRef,
-	HTMLProps,
 	ChangeEvent,
 	useId,
 } from "react"
@@ -23,7 +22,6 @@ import { Selected, SelectedSearch } from "./elements/select-selected"
 import {
 	SearchDropdown,
 	RemoveAll,
-	SelectAll,
 	RemoveSelection,
 	MultiSelectSearch,
 } from "./utils/functions"
@@ -71,11 +69,16 @@ const Select: React.FC<SelectBaseProps> = ({
 	)
 	const [selectedItem, setSelectedItems] = useState<
 		Record<string, any> | string | undefined | SelectOptionType
-	>(selected)
+	>([])
 
 	const [customVar, setCustomVar] = useState<Array<string | SelectOptionType>>(
 		[],
 	)
+
+	// Update the selected items when the props change
+	useEffect(() => {
+		setSelectedItems(selected)
+	}, [selected])
 
 	const updateOptions = (itemsOpt: SelectOptionType[]) => {
 		setOptions(itemsOpt)
@@ -86,7 +89,7 @@ const Select: React.FC<SelectBaseProps> = ({
 		setFilteredItems(options ?? [])
 
 		// update selected item
-		setSelectedItems(options?.filter((option) => option.isSelected === true))
+		//setSelectedItems(options?.filter((option) => option.isSelected === true))
 	}, [options])
 
 	// Hide dropdown when click outside of it

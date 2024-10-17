@@ -16,6 +16,7 @@
 			@include modifier(hidden) {
 				.sui-#{$block}__body {
 					overflow: hidden;
+					padding: 1px; // To avoid children to appear cut
 				}
 			}
 		}

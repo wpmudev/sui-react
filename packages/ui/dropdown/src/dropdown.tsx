@@ -53,7 +53,6 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			arrow = true,
 			dropdownArrow = false,
 			buttonIcon,
-			buttonProps,
 			onMenuClick,
 			trigger,
 			renderContentOnTop = false,
@@ -63,7 +62,6 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			size = "md",
 			isDisabled = false,
 			closeOnOuterClick = true,
-			closeOnMenuItemClick = true,
 			colorScheme = "black",
 			onToggle = () => {},
 			// search
@@ -347,10 +345,6 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 									menuItem.isSelected = !menuItem.isSelected
 								}
 								if ("select-checkbox" !== type) {
-									setIsOpen(false)
-								}
-
-								if (closeOnMenuItemClick) {
 									setIsOpen(false)
 								}
 							}
