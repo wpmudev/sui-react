@@ -13,17 +13,42 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(user) {
-				border-bottom: $border-width-sm solid $color-extended-neutral-80;
+				border-bottom: $border-width-sm solid $color-grey-10;
 				margin-bottom: $navigation-spacing-sm;
 				padding: $spacing-md $spacing-lg $navigation-spacing-md $spacing-xl;
 
 				@include modifier(name) {
-					color: $color-extended-neutral-10;
+					color: $color-grey-90;
 					font-weight: $font-weight-md;
 				}
 
 				@include modifier(email) {
-					color: $color-extended-neutral-60;
+					color: $color-grey-60;
+				}
+			}
+
+			@include element(dropdown) {
+				.sui-dropdown__popover {
+					border: $border-width-sm solid $color-grey-10;
+				}
+				@include modifier(split) {
+					.sui-dropdown__menu-items {
+						.sui-dropdown__menu-item {
+							&:last-child {
+								position: relative;
+								margin-top: $spacing-lg;
+
+								&:after {
+									content: "";
+									position: absolute;
+									top: -#{$spacing-md};
+									left: 0;
+									right: 0;
+									border-top: $border-width-sm solid $color-grey-10;
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -34,10 +59,10 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(user) {
-				border-color: $color-extended-neutral-0;
+				border-color: $color-base-black;
 
 				@include modifier(name, email) {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 			}
 		}

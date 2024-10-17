@@ -15,7 +15,7 @@
 		@include block($block) {
 			@include element(name) {
 				font-weight: $font-weight-md;
-				color: $color-extended-neutral-10;
+				color: $color-grey-90;
 				flex: 1;
 			}
 		}
@@ -26,7 +26,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(name) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}

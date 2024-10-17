@@ -23,14 +23,14 @@
 			}
 
 			@include element(input-field-hint) {
-				color: $color-extended-neutral-70;
+				color: $color-grey-30;
 				left: $spacing-lg;
 				position: absolute;
 				top: $spacing-md;
 			}
 
 			@include element(input-field-text) {
-				color: $color-extended-neutral-10;
+				color: $color-grey-90;
 				left: $spacing-lg;
 				position: absolute;
 				top: $spacing-md;

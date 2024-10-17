@@ -30,8 +30,8 @@
 		@include block($block) {
 			@include modifier(indeterminate) {
 				@include modifies-element(box) {
-					border-color: $color-extended-neutral-0;
-					background: $color-extended-neutral-0;
+					border-color: $color-base-black;
+					background: $color-base-black;
 				}
 			}
 		}

@@ -88,6 +88,26 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 			</List>
 		</PropSection>
 
+		<PropSection title="iconColor" type="string" defaultValue="">
+			<p>
+				The color of the trigger icon.
+			</p>
+
+			<p>Allowed options</p>
+			<List>
+				<span label="" />
+				<span label="neutral" />
+				<span label="informative" />
+				<span label="success" />
+				<span label="warning" />
+				<span label="critical" />
+			</List>
+
+			<p>
+				NOTE: To customize the color of the trigger icon, target its CSS class <Code isSmall={true}>.sui-tooltip__icon .sui-icon</Code> and apply your desired color.
+			</p>
+		</PropSection>
+
 		<PropSection title="className" type="string">
 			<p>A custom css <Code isSmall={true}>className</Code> for further styling</p>
 		</PropSection>

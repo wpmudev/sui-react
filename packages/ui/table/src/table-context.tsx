@@ -89,6 +89,8 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 					break
 			}
 
+			console.log("tempSelected", tempSelected)
+
 			setSelected(tempSelected)
 		},
 		[rows, selected],

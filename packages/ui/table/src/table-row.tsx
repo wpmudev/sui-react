@@ -2,7 +2,6 @@ import React, {
 	ChangeEvent,
 	Children,
 	cloneElement,
-	CSSProperties,
 	Fragment,
 	ReactElement,
 	useCallback,
@@ -48,6 +47,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	expandableContent = null,
 	status,
 	isUnderFooter = false,
+	isGroup = false,
 	_htmlProps = {},
 	_style = {},
 	...props
@@ -88,7 +88,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	let isChecked = (ctx?.selected ?? [])?.indexOf(parseInt(`${id}`)) > -1
 	let isIndeterminate = false
 
-	// if its select all checkbox
+	// if it's select all checkbox
 	if (isUnderHeader) {
 		const isAllSelected = ctx?.rows?.length === ctx?.selected.length
 		isIndeterminate = (ctx?.selected ?? [])?.length > 0 && !isAllSelected
@@ -103,6 +103,7 @@ const TableRow: React.FC<TableRowProps> = ({
 			hover: !isUnderFooter && !isUnderHeader && isHovered,
 			expandable: isExpandable,
 			expanded: isExpanded,
+			"is-group": isGroup,
 			[status as string]: !isEmpty(status ?? ""),
 		},
 		suiInlineClassname,
@@ -168,13 +169,17 @@ const TableRow: React.FC<TableRowProps> = ({
 		if (isUnderFooter) {
 			p.isSticky = false
 			p.hasDragIcon = false
-			p.colSpan = "100%"
+			if (!p.colSpan) {
+				p.colSpan = "100%"
+			}
 		}
 
 		// Mark as primary column
 		if (primaryColIndex === index) {
 			p.isPrimary = true
 		}
+
+		p._isGroup = isGroup
 
 		return (
 			<Fragment key={index}>{cloneElement(child as ReactElement, p)}</Fragment>
@@ -228,7 +233,7 @@ const TableRow: React.FC<TableRowProps> = ({
 				{..._renderHTMLPropsSafely(_htmlProps)}
 				{...a11yProps}
 			>
-				{ctx?.allowCheck && !isUnderFooter && (
+				{ctx?.allowCheck && !isUnderFooter && !isGroup && (
 					<TableCell
 						className="sui-table__cell--selection"
 						isSticky={!!ctx?.stickyCols}
@@ -244,7 +249,7 @@ const TableRow: React.FC<TableRowProps> = ({
 					</TableCell>
 				)}
 				{children}
-				{(!!actions || toggleBtn) && !isUnderFooter && (
+				{(!!actions || toggleBtn) && !isUnderFooter && !isGroup && (
 					<TableCell
 						className="sui-table__cell--actions"
 						isSticky={!!ctx?.stickyCols}
@@ -256,7 +261,7 @@ const TableRow: React.FC<TableRowProps> = ({
 					</TableCell>
 				)}
 			</tr>
-			{isExpandable && !!expandableContent && isExpanded && (
+			{isExpandable && !!expandableContent && isExpanded && !isGroup && (
 				<tr
 					role="row"
 					className={generateCN("sui-table__row", {

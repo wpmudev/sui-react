@@ -32,7 +32,7 @@
 					position: relative;
 					font-size: $font-size-xs;
 					letter-spacing: $font-spacing-lg;
-					background: $color-extended-warning-50;
+					background: $color-yellow-50;
 
 					&:after {
 						content: "";
@@ -44,7 +44,7 @@
 
 					&.sui-button--focus {
 						&:after {
-							border: $border-width-md solid $color-extended-warning-50;
+							border: $border-width-md solid $color-yellow-50;
 						}
 					}
 				}
@@ -58,10 +58,10 @@
 		@include block($block) {
 			@include element(cta-btn) {
 				@include modifier(bf) {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 
 					&.sui-button--focus {
-						outline-color: $color-extended-neutral-100;
+						outline-color: $color-base-white;
 					}
 				}
 			}

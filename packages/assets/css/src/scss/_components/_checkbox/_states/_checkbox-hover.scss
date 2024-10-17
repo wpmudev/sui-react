@@ -25,7 +25,7 @@
 		@include block($block) {
 			@include modifier(hover) {
 				@include modifies-element(box) {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 			}
 		}

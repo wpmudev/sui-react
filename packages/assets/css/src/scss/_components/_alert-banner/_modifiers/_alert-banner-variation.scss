@@ -13,19 +13,19 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(success) {
-				background-color: $color-extended-success-70;
+				background-color: $color-green-10;
 			}
 			@include modifier(informative) {
-				background-color: $color-primary-80;
+				background-color: $color-primary-10;
 			}
 			@include modifier(warning) {
-				background-color: $color-extended-warning-70;
+				background-color: $color-yellow-10;
 			}
 			@include modifier(critical) {
-				background-color: $color-extended-error-70;
+				background-color: $color-red-10;
 			}
 			@include modifier(plugin-upsell) {
-				background-color: $color-primary-40;
+				background-color: $color-primary-60;
 			}
 			@include modifier(hub-upsell) {
 				background-color: $color-primary-50;
@@ -37,10 +37,10 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			background-color: $color-extended-neutral-100;
+			background-color: $color-base-white;
 
 			@include modifier(plugin-upsell, hub-upsell) {
-				background-color: $color-extended-neutral-0;
+				background-color: $color-base-black;
 			}
 		}
 	}

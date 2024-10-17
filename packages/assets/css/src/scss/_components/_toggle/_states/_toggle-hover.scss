@@ -15,13 +15,13 @@
 		@include block($block) {
 			@include modifier(hover) {
 				@include modifies-element(switch) {
-					background: $color-extended-neutral-70;
+					background: $color-grey-30;
 				}
 			}
 
 			@include modifier(checked-hover) {
 				@include modifies-element(switch) {
-					background: $color-primary-40;
+					background: $color-primary-60;
 				}
 			}
 		}
@@ -33,13 +33,13 @@
 		@include block($block) {
 			@include modifier(hover) {
 				@include modifies-element(switch) {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 				}
 			}
 
 			@include modifier(checked-hover) {
 				@include modifies-element(switch) {
-					background: $color-extended-neutral-0;
+					background: $color-base-black;
 				}
 			}
 		}

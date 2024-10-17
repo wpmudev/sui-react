@@ -28,7 +28,7 @@
 		@include block($block-name) {
 			@include modifier(hover) {
 				&:after {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 			}
 		}

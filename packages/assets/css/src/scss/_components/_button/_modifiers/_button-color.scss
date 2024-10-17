@@ -4,18 +4,18 @@ $themes: primary, secondary, tertiary;
 
 $colors: (
 	blue: $color-primary-50,
-	black: $color-extended-neutral-10,
-	red: $color-extended-error-50,
-	navy: $color-primary-40,
-	white: $color-extended-neutral-100,
+	black: $color-grey-90,
+	red: $color-red-50,
+	navy: $color-primary-60,
+	white: $color-base-white,
 );
 
 $colors-high-contrast: (
-	blue: $color-extended-neutral-0,
-	black: $color-extended-neutral-0,
-	red: $color-extended-neutral-0,
-	navy: $color-extended-neutral-0,
-	white: $color-extended-neutral-100,
+	blue: $color-base-black,
+	black: $color-base-black,
+	red: $color-base-black,
+	navy: $color-base-black,
+	white: $color-base-white,
 );
 
 /// Color
@@ -40,15 +40,11 @@ $colors-high-contrast: (
 							&.sui-#{$block-name}--hover {
 								border-color: if($name == white, $value, tint($value, 90%));
 								background: if($name == white, $value, tint($value, 90%));
-								color: if($name == white, $color-extended-neutral-10, $value);
+								color: if($name == white, $color-grey-90, $value);
 							}
 
 							&.sui-#{$block-name}--focus {
-								background: if(
-									$name == white,
-									transparent,
-									$color-extended-neutral-100
-								);
+								background: if($name == white, transparent, $color-base-white);
 								color: $value;
 
 								&:after {
@@ -65,12 +61,12 @@ $colors-high-contrast: (
 
 							&.sui-#{$block-name}--hover {
 								background: if($name == white, $value, tint($value, 90%));
-								color: if($name == white, $color-extended-neutral-10, $value);
+								color: if($name == white, $color-grey-90, $value);
 							}
 
 							&.sui-#{$block-name}--focus {
 								background: if($name == white, $value, tint($value, 90%));
-								color: if($name == white, $color-extended-neutral-10, $value);
+								color: if($name == white, $color-grey-90, $value);
 
 								&:after {
 									border-width: $border-width-md;
@@ -85,11 +81,7 @@ $colors-high-contrast: (
 						} @else {
 							border-color: $value;
 							background: $value;
-							color: if(
-								$name == white,
-								$color-extended-neutral-10,
-								$color-extended-neutral-100
-							);
+							color: if($name == white, $color-grey-90, $color-base-white);
 
 							&.sui-#{$block-name}--hover {
 								border-color: if(
@@ -102,21 +94,13 @@ $colors-high-contrast: (
 									shade($value, 5%),
 									shade($value, 40%)
 								);
-								color: if(
-									$name == white,
-									$color-extended-neutral-10,
-									$color-extended-neutral-100
-								);
+								color: if($name == white, $color-grey-90, $color-base-white);
 							}
 
 							&.sui-#{$block-name}--focus {
 								border-color: $value;
 								background: $value;
-								color: if(
-									$name == white,
-									$color-extended-neutral-10,
-									$color-extended-neutral-100
-								);
+								color: if($name == white, $color-grey-90, $color-base-white);
 
 								&:after {
 									border-width: $border-width-md;
@@ -144,11 +128,11 @@ $colors-high-contrast: (
 							&.sui-#{$block-name}--hover {
 								@if $name == white {
 									background: tint($value, 90%);
-									color: $color-extended-neutral-10;
+									color: $color-grey-90;
 								}
 								@if $name != white {
 									background: none;
-									border-color: $color-extended-neutral-0;
+									border-color: $color-base-black;
 								}
 							}
 
@@ -172,7 +156,7 @@ $colors-high-contrast: (
 									background: tint($value, 90%);
 								}
 								@if $name == white {
-									color: $color-extended-neutral-10;
+									color: $color-grey-90;
 									background: $value;
 								}
 							}
@@ -183,13 +167,13 @@ $colors-high-contrast: (
 									background: tint($value, 90%);
 								}
 								@if $name == white {
-									color: $color-extended-neutral-10;
+									color: $color-grey-90;
 								}
 							}
 						} @else {
 							border-color: $value;
 							background: $value;
-							color: $color-extended-neutral-100;
+							color: $color-base-white;
 
 							&.sui-#{$block-name}--focus {
 								background: $value;

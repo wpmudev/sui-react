@@ -17,7 +17,7 @@
 			display: inline-flex;
 			flex-wrap: wrap;
 			align-items: flex-start;
-			color: $color-extended-neutral-50;
+			color: $color-grey-50;
 			font-weight: $font-weight-default;
 			font-size: $font-size-default;
 			line-height: $font-height-sm;
@@ -39,7 +39,7 @@
 					position: absolute;
 					inset: -1px;
 					border-radius: $radio-border-radius-sm;
-					border: $border-width-sm solid $color-extended-neutral-80;
+					border: $border-width-sm solid $color-grey-10;
 					pointer-events: none;
 				}
 			}
@@ -50,11 +50,11 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			color: $color-extended-neutral-0;
+			color: $color-base-black;
 
 			@include modifier(block) {
 				&:after {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 			}
 		}

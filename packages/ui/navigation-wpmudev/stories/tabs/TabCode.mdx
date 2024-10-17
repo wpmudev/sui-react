@@ -1,0 +1,87 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-navigation" />
+
+<Section title="Props" border={true}>
+	<PropSection title="brand" type="object" defaultValue='{ title: "title", description: "" }'>
+		<p>
+			Brand information, this represents one of our plugins, the object accepts
+			the following keys
+		</p>
+		<p>
+			<List>
+				<span
+					label={
+						<>
+							<Code small={true}>title*</Code> The plugin title
+						</>
+					}
+				/>
+				<span
+					label={
+						<>
+							<Code small={true}>description</Code> A subheading that
+							accompagnes the plugin title{" "}
+						</>
+					}
+				/>
+			</List>
+		</p>
+	</PropSection>
+
+    <PropSection title="user" type="object">
+    	<p>
+    		The user information, it accepts two keys
+    	</p>
+    	<p>
+    		<List>
+    			<span
+    				label={
+    					<>
+    						<Code small={true}>user*</Code>: An object with an image, name and email
+    					</>
+    				}
+    			/>
+				<span
+    				label={
+    					<>
+    						<Code small={true}>status*</Code>
+							Indicates the user status and dispalys an icon for it, could be one of these values:   
+							<strong> none </strong>
+							<strong> confirmed </strong> 
+							<strong> awaiting </strong>
+							<strong> not-accepted </strong>
+							<strong> not-connected </strong>
+						</>
+    				}
+    			/>
+    			<span
+    				label={
+    					<>
+    						<Code small={true}>menu*</Code> An array of menu items
+    					</>
+    				}
+    			/>
+				<span
+    				label={
+    					<>
+    						<Code small={true}>isMenuDisabled*</Code> A boolean to indicate the state of the menu
+    					</>
+    				}
+    			/>
+    		</List>
+    	</p>
+		<p>
+		  Check the examples tab for more details
+		</p>
+    </PropSection>
+		
+    <PropSection title="children" type="React Node">
+    	<p>
+    		The content of the navigation, usually menu items and buttons
+    	</p>
+    </PropSection>
+
+</Section>
+
+<CommonPropsNotice />

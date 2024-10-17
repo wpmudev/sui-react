@@ -87,7 +87,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(info) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}

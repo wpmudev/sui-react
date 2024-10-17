@@ -14,10 +14,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-			background: $color-extended-neutral-100;
+			background: $color-base-white;
 			border: $tabs-border-width solid $tabs-border-color;
 			border-radius: $tabs-border-radius;
-			box-shadow: $tabs-shadow-offset-sm $color-extended-shadow-light,
+			box-shadow: $tabs-shadow-offset-sm $color-shadow-light,
 				$tabs-shadow-offset-md $tabs-shadow-medium,
 				$tabs-shadow-offset-lg $tabs-shadow-dark;
 			overflow: hidden;
@@ -29,7 +29,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		// Block wrapper.
 		@include block($block) {
-			border-color: $color-extended-neutral-0;
+			border-color: $color-base-black;
 		}
 	}
 }
