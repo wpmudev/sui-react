@@ -50,6 +50,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			selectAll = () => {},
 			menu,
 			placement = "right",
+			arrow = true,
+			dropdownArrow = false,
 			buttonIcon,
 			onMenuClick,
 			trigger,
@@ -72,6 +74,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			getOptions,
 			menuCustomWidth,
 			searchPlaceholder,
+			_buttonProps = {},
 			_htmlProps = {},
 			_style = {},
 		},
@@ -410,8 +413,9 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							onClick={() => handleOnOpen(!isOpen)}
 							isResponsive={isResponsive}
 							isDisabled={isDisabled}
-							{...(!iconOnly && { endIcon: "ChevronDown" })}
+							{...(!iconOnly && arrow && { endIcon: "ChevronDown" })}
 							colorScheme={colorScheme as ButtonProps["colorScheme"]}
+							{..._buttonProps}
 						>
 							{label}
 						</Button>
@@ -436,6 +440,9 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						width: `${menuCustomWidth}px`,
 					}}
 				>
+					{dropdownArrow && (
+						<div className="sui-dropdown__popover--arrow"></div>
+					)}
 					{renderContentOnTop && !!children && (
 						<div className="sui-dropdown__menu-content">{children}</div>
 					)}

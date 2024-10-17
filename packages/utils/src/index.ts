@@ -347,6 +347,26 @@ const PluginsIcons: Record<PluginsSlug, PluginIconTypes> = {
 	},
 }
 
+export type CustomIconsSlug = "documentation" | "feedback" | "contact"
+
+const CustomIcons: Record<CustomIconsSlug, PluginIconTypes> = {
+	documentation: {
+		bg: "#E6EEFF",
+		color: "#1A1A1A",
+		icon: "Poll",
+	},
+	feedback: {
+		bg: "#D3BEF2",
+		color: "#1A1A1A",
+		icon: "Tutorials",
+	},
+	contact: {
+		bg: "#A3DCB5",
+		color: "#1A1A1A",
+		icon: "Submit",
+	},
+}
+
 /**
  * Break an array into chunks of a specified size
  *
@@ -428,6 +448,7 @@ export {
 	handleOnKeyDown,
 	handleEventDefault,
 	PluginsIcons,
+	CustomIcons,
 	chunkArray,
 	isValidCSSProperty,
 	_renderHTMLPropsSafely,

@@ -1,10 +1,17 @@
-import React from "react"
+import React, { createRef, RefObject } from "react"
 
 // Import required component(s)
 import { Navigation as SuiNavigation, NavigationUserProps } from "../src"
 import { PluginsSlug } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 import { Dropdown } from "@wpmudev/sui-dropdown"
+import {
+	Drawer,
+	DrawerActions,
+	DrawerBody,
+	DrawerFooter,
+	DrawerHeader,
+} from "@wpmudev/sui-drawer"
 
 // Import documentation main page
 import docs from "./navigation.mdx"
@@ -23,25 +30,31 @@ export default {
 
 // Build story
 export const Navigation = (props: {
+	isPro: boolean
+	action: boolean
 	status: NavigationUserProps["status"]
 	isMenuDisabled: NavigationUserProps["isMenuDisabled"]
 	plugin: PluginsSlug
 	title: string
 	description: string
 }) => {
-	const { status, isMenuDisabled, plugin, title, description } = props
+	const ref = createRef<DrawerActions | null>()
+	const refLogoDrawer = createRef<DrawerActions | null>()
+
+	const { action, isPro, status, isMenuDisabled, plugin, title, description } =
+		props
 
 	return (
 		<div className="sui-layout">
 			<div className="sui-layout__content">
-				<div>
-					<SuiNavigation
-						brand={{
-							plugin,
-							title,
-							description,
-						}}
-						user={{
+				<SuiNavigation
+					brand={{
+						plugin,
+						title,
+						description,
+					}}
+					{...(isPro && {
+						user: {
 							user: {
 								image: "https://avatars.githubusercontent.com/u/14994452?v=4",
 								name: "John doe",
@@ -49,6 +62,7 @@ export const Navigation = (props: {
 							},
 							status,
 							isMenuDisabled,
+							splitLastItem: true,
 							menu: [
 								{
 									id: "the-hub",
@@ -72,102 +86,145 @@ export const Navigation = (props: {
 										variation: "smush",
 									},
 								},
+								{
+									id: "logout",
+									label: "Logout",
+									props: {
+										icon: "Exit",
+									},
+								},
 							],
-						}}
-					>
-						<Button
-							type="tertiary"
-							icon="Bell"
-							colorScheme="black"
-							isResponsive={true}
-						>
-							Help
-						</Button>
-						<Button
-							icon="Bell"
-							type="tertiary"
-							colorScheme="black"
-							isResponsive={true}
-						>
-							Documentation
-						</Button>
-						<Button
-							icon="PluginSmush"
-							type="tertiary"
-							colorScheme="black"
-							isResponsive={true}
-						>
-							Support Smush
-						</Button>
-						<Dropdown
-							buttonIcon="Bell"
-							label="Connect features"
-							placement="left"
-							isResponsive={true}
-							size="lg"
-							menu={[
-								{
-									id: "group-1",
-									label: "Extra Optimization",
-									menus: [
-										{
-											id: "menu-2",
-											label: "Uptime Monitoring",
-											props: {
-												icon: "CheckAlt",
-											},
-										},
-										{
-											id: "menu-2",
-											label: "Site management tools",
-											props: {},
-										},
-									],
-								},
-								{
-									id: "group-2",
-									label: "Performance",
-									menus: [
-										{
-											id: "menu-2",
-											label: "Uptime Monitoring",
-											props: {},
-										},
-										{
-											id: "menu-2",
-											label: "Site management tools",
-											props: {},
-										},
-									],
-								},
-							]}
-						>
-							<div
-								style={{
-									display: "flex",
-									justifyContent: "center",
-									padding: "8px 24px",
-								}}
-							>
+						},
+					})}
+					{...(action &&
+						isPro && {
+							actions: [],
+							mobileActions: [
 								<Button
-									type="primary"
-									icon="Package"
-									colorScheme="blue"
-									isSmall={true}
-									isFullWidth={true}
+									key="logo"
+									type="secondary"
+									iconOnly={true}
+									icon="Logo"
+									colorScheme="black"
+									onClick={() => {
+										refLogoDrawer?.current?.toggle()
+									}}
 								>
-									Unlock bonus features
-								</Button>
-							</div>
-						</Dropdown>
-					</SuiNavigation>
-				</div>
+									WPMUDEV Logo
+								</Button>,
+								<Button
+									key="hamburger"
+									type="tertiary"
+									iconOnly={true}
+									icon="Hamburger"
+									colorScheme="black"
+									onClick={() => {
+										ref?.current?.toggle()
+									}}
+								>
+									Hamburger
+								</Button>,
+							],
+						})}
+					{...(action &&
+						!isPro && {
+							actions: [
+								<Button key="upgrade" type="primary" colorScheme="black">
+									Upgrade to pro
+								</Button>,
+							],
+							mobileActions: [
+								<Dropdown
+									key="dropdown-1"
+									arrow={false}
+									buttonIcon="Logo"
+									label="More from WPMU DEV"
+									placement="left"
+									isResponsive={true}
+									size="lg"
+									menu={[
+										{
+											id: "group-1",
+											label: "Extra Optimization",
+											menus: [
+												{
+													id: "menu-2",
+													label: "Uptime Monitoring",
+													props: {
+														icon: "CheckAlt",
+													},
+												},
+												{
+													id: "menu-2",
+													label: "Site management tools",
+													props: {},
+												},
+											],
+										},
+										{
+											id: "group-2",
+											label: "Performance",
+											menus: [
+												{
+													id: "menu-2",
+													label: "Uptime Monitoring",
+													props: {},
+												},
+												{
+													id: "menu-2",
+													label: "Site management tools",
+													props: {},
+												},
+											],
+										},
+									]}
+								>
+									<div
+										style={{
+											display: "flex",
+											justifyContent: "center",
+											padding: "8px 24px",
+										}}
+									>
+										<Button
+											type="primary"
+											icon="Package"
+											colorScheme="blue"
+											isSmall={true}
+											isFullWidth={true}
+										>
+											Unlock bonus features
+										</Button>
+									</div>
+								</Dropdown>,
+							],
+						})}
+				>
+					<Button
+						type="tertiary"
+						icon="Question"
+						iconOnly={true}
+						colorScheme="black"
+					>
+						Help
+					</Button>
+					<Button
+						icon="Bell"
+						type="tertiary"
+						colorScheme="black"
+						iconOnly={true}
+					>
+						Documentation
+					</Button>
+				</SuiNavigation>
 			</div>
 		</div>
 	)
 }
 
 Navigation.args = {
+	isPro: true,
+	action: true,
 	isMenuDisabled: false,
 	status: "confirmed",
 	plugin: "smush",
@@ -176,6 +233,18 @@ Navigation.args = {
 }
 
 Navigation.argTypes = {
+	isPro: {
+		name: "Pro",
+		control: {
+			type: "boolean",
+		},
+	},
+	action: {
+		name: "Action buttons",
+		control: {
+			type: "boolean",
+		},
+	},
 	isMenuDisabled: {
 		name: "Menu Disabled",
 		control: {

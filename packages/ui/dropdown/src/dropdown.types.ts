@@ -289,6 +289,18 @@ interface DropdownProps
 	 */
 	searchPlaceholder?: string
 	/**
+	 * Arrow in dropdown button
+	 */
+	arrow?: boolean
+	/**
+	 * Dropdown arrow in dropdown
+	 */
+	dropdownArrow?: boolean
+	/**
+	 * Button props
+	 */
+	_buttonProps?: ButtonProps
+	/**
 	 * Update options in parent.
 	 */
 	updateOptions?: (options: { [key: string]: any }[]) => void

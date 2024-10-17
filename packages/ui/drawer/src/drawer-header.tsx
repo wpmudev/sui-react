@@ -10,6 +10,11 @@ const DrawerHeader = ({
 	className = "",
 	title = "",
 	hintText = "",
+	back = {
+		show: false,
+		mobileOnly: false,
+		action: () => {},
+	},
 	tooltipOptions = {},
 	_style,
 }: DrawerHeaderTypes) => {
@@ -23,9 +28,29 @@ const DrawerHeader = ({
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ctx.isOpen])
 
+	const { show, mobileOnly = false, action = () => {} } = back
+
 	return (
 		<div className={classNames}>
 			<div className="sui-drawer__header-title">
+				{show && (
+					<div className={generateCN("sui-drawer__back", { md: mobileOnly })}>
+						<Button
+							icon="ChevronLeft"
+							type="tertiary"
+							colorScheme="black"
+							isSmall={true}
+							iconOnly={true}
+							onClick={() => {
+								onClose()
+								action()
+							}}
+							_htmlProps={{
+								"aria-label": "close",
+							}}
+						/>
+					</div>
+				)}
 				<span className="sui-heading--h4">{title}</span>
 				{!isEmpty(hintText) && (
 					<Tooltip

@@ -12,7 +12,12 @@
 			@include element(popover) {
 				@include modifier(placement-left) {
 					left: auto;
-					right: 0;
+					right: -#{$dropdown-position-sm};
+
+					.sui-#{$block}__popover--arrow {
+						right: $dropdown-position-md;
+						left: auto;
+					}
 				}
 
 				@include modifier(placement-top) {
