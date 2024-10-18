@@ -15,6 +15,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 // Create box component
 const Box: React.FC<BoxProps> = ({
 	title,
+	description,
 	icon,
 	hideMobileIcon = false,
 	headerLeft,
@@ -29,8 +30,9 @@ const Box: React.FC<BoxProps> = ({
 	// Prop(s) validation
 	const hasTitle = !isUndefined(title) && !isEmpty(title)
 	const hasIcon = !isUndefined(icon) && !isEmpty(icon)
-	const hasLeft = !isUndefined(headerRight) && !!headerLeft
+	const hasLeft = !isUndefined(headerLeft) && !!headerLeft
 	const hasRight = !isUndefined(headerRight) && !!headerRight
+	const hasDesc = !isUndefined(description) && !!description
 
 	// Determine the IconTag based on the provided icon value
 	const IconTag: React.ComponentType<IconProps> = Icons[icon as IconsNamesType]
@@ -72,6 +74,7 @@ const Box: React.FC<BoxProps> = ({
 								{title}
 							</h2>
 						)}
+						{description && <p>{description}</p>}
 						{hasLeft && headerLeft}
 					</div>
 					<div {...(hasRight && { slot: "right" })}>
