@@ -17,10 +17,11 @@
 				}
 
 				&:focus-visible {
+					border-bottom-color: transparent;
+
 					&:after {
 						border: $border-width-md solid $tabs-color-focus-border-color;
 					}
-					border-bottom-color: transparent;
 				}
 			}
 		}
@@ -32,14 +33,15 @@
 		@include block($block) {
 			@include element(nav-item) {
 				@include modifier(focus) {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 
 				&:focus-visible {
-					&:after {
-						border-color: $color-extended-neutral-0;
-					}
 					border-bottom-color: transparent;
+
+					&:after {
+						border-color: $color-base-black;
+					}
 				}
 			}
 		}

@@ -49,7 +49,7 @@ const Input = ({
 						isSmall={isSmall}
 						isDisabled={isDisabled}
 					>
-						<SuiInput {...args} _style={{ background: "#000" }} />
+						<SuiInput {...args} />
 					</FormField>
 				</div>
 			</div>

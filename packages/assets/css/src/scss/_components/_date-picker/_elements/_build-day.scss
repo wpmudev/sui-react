@@ -27,19 +27,19 @@
 
 				@include modifier(hover) {
 					span {
-						background: $color-primary-80;
+						background: $color-primary-10;
 					}
 				}
 
 				@include modifier(disabled) {
-					background-color: $color-extended-neutral-100;
-					color: $color-extended-neutral-70;
+					background-color: $color-base-white;
+					color: $color-grey-30;
 					cursor: default;
 				}
 
 				@include modifier(filled) {
 					span {
-						color: $color-extended-neutral-100;
+						color: $color-base-white;
 						background: $color-primary-50;
 					}
 				}
@@ -59,7 +59,7 @@
 						width: 100%;
 						height: 100%;
 						left: 0;
-						background: $color-primary-80;
+						background: $color-primary-10;
 					}
 				}
 
@@ -133,30 +133,30 @@
 			@include element(day) {
 				@include modifier(hover) {
 					span {
-						background: $color-extended-neutral-0;
-						color: $color-extended-neutral-100;
+						background: $color-base-black;
+						color: $color-base-white;
 					}
 				}
 
 				@include modifier(filled) {
 					span {
-						color: $color-extended-neutral-100;
-						background: $color-extended-neutral-0;
+						color: $color-base-white;
+						background: $color-base-black;
 					}
 				}
 
 				@include modifier(outlined) {
 					span {
-						border: $border-width-sm solid $color-extended-neutral-0;
-						color: $color-extended-neutral-0;
+						border: $border-width-sm solid $color-base-black;
+						color: $color-base-black;
 					}
 				}
 
 				@include modifier(highlighted) {
 					&:after {
 						background: transparent;
-						border-top: $border-width-sm solid $color-extended-neutral-0;
-						border-bottom: $border-width-sm solid $color-extended-neutral-0;
+						border-top: $border-width-sm solid $color-base-black;
+						border-bottom: $border-width-sm solid $color-base-black;
 						top: -$border-width-sm;
 					}
 				}

@@ -30,7 +30,7 @@
 				display: flex;
 				align-items: flex-start;
 				gap: $banner-spacing-xxs;
-				color: $color-extended-neutral-10;
+				color: $color-grey-90;
 			}
 
 			@include element(body-actions) {
@@ -49,10 +49,10 @@
 			}
 
 			@include modifier(plugin-upsell, hub-upsell) {
-				color: $color-extended-neutral-100;
+				color: $color-base-white;
 
 				@include modifies-element(body-content) {
-					color: $color-extended-neutral-100;
+					color: $color-base-white;
 				}
 			}
 		}
@@ -62,11 +62,11 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			color: $color-extended-neutral-0;
-			border: $border-width-sm solid $color-extended-neutral-0;
+			color: $color-base-black;
+			border: $border-width-sm solid $color-base-black;
 
 			@include modifier(plugin-upsell, hub-upsell) {
-				color: $color-extended-neutral-100;
+				color: $color-base-white;
 			}
 		}
 	}

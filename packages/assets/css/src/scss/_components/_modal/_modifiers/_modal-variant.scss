@@ -20,12 +20,12 @@
 				}
 
 				@include modifies-element(header) {
-					border-bottom: $border-width-sm solid $color-extended-neutral-80;
+					border-bottom: $border-width-sm solid $color-grey-10;
 					padding: $spacing-xl $spacing-2xl;
 				}
 
 				@include modifies-element(footer) {
-					border-top: $border-width-sm solid $color-extended-neutral-80;
+					border-top: $border-width-sm solid $color-grey-10;
 					padding: $spacing-xl $spacing-2xl;
 				}
 			}
@@ -72,11 +72,11 @@
 			// variant: advanced
 			@include modifier(advanced) {
 				@include modifies-element(header) {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 
 				@include modifies-element(footer) {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 			}
 		}

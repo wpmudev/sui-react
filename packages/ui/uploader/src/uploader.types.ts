@@ -49,6 +49,10 @@ interface UploaderProps
 	 * Text to appear in the alert when file size is larger than the max
 	 */
 	maxSizeText?: string
+	/**
+	 * Custom click handler
+	 */
+	onClick?: (...args: any[]) => any
 }
 
 /**

@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react"
 import {
-	InteractionTypes,
 	useDefaultChildren,
 	useInteraction,
 	useStyles,

@@ -38,6 +38,7 @@ SettingBlock.args = {
 		"Block IP addresses that send POST requests with empty Referer and User-Agent headers.",
 	isPro: false,
 	isFluid: false,
+	overflowHidden: false,
 }
 
 // Set controls for story arguments.
@@ -67,6 +68,12 @@ SettingBlock.argTypes = {
 		},
 	},
 	actions: { table: { disable: true } },
+	overflowHidden: {
+		name: "hidden overflow",
+		control: {
+			type: "boolean",
+		},
+	},
 }
 
 // Publish required stories.

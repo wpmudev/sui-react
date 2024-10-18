@@ -29,6 +29,11 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
     		<p> You can check available icons on <a href="https://github.com/wpmudev/sui-icons" target="_blank"> sui-icon</a> package</p>
     	</PropSection>
 
+		<PropSection title="buttonProps" type="object">
+    		<p> The Drop down button customization. </p>
+    		<p> You can check available customization on <a href="https://wpmudev.github.io/sui-react/?path=/docs/sui-components-core-button--docs" target="_blank"> sui-button</a> package</p>
+    	</PropSection>
+
 		<PropSection title="trigger" type="React Node">
     		<p>Custom trigger for the Dropdown</p>
     	</PropSection>
@@ -115,7 +120,7 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
     	</PropSection>
 
 		<PropSection title="isAsync" type="boolean" defaultValue="true">
-    		<p> Whether to display the search field or not </p>
+    		<p>Whether the dropdown should operate asynchronously, such as loading data on the fly</p>
     	</PropSection>
 
 		<PropSection title="asyncOptions" type="object" defaultValue="{}">
@@ -201,7 +206,22 @@ import { buttonCode } from "@wpmudev/sui-tooltip/stories/tabs/Examples/Types.mdx
 							<span label={
 								<>
 									<Code small={true}>variation</Code> represents the variation based on the plugin name, 
-									the values accepted are similar to <Code small={true}>type</Code> prop in the [Setup Banner](https://wpmudev.github.io/sui-react/?path=/docs/sui-components-collections-setup-banner--docs) component
+									the values accepted are similar to <Code small={true}>type</Code> prop in the [Setup Banner](https://wpmudev.github.io/sui-react/?path=/docs/sui-components-collections-setup-banner--docs) component. <br />
+									Available options: <br />
+									<Code small={true}>
+										hummingbird,
+										smush,
+										snapshot,
+										smartcrawl,
+										shipper,
+										ivt,
+										hustle,
+										forminator,
+										defender,
+										branda,
+										beehive,
+										danger
+									</Code>
 								</>
 							} />
 							<span label={

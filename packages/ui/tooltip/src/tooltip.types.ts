@@ -4,6 +4,7 @@ import { ButtonProps } from "@wpmudev/sui-button"
 import { InteractionTypes } from "@wpmudev/sui-hooks"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 import { IconsNamesType } from "@wpmudev/sui-icons"
+import { IconProps } from "@wpmudev/sui-icon"
 
 /**
  * Props for the Tooltip component.
@@ -34,6 +35,10 @@ interface TooltipBaseProps
 	 * Optional to define icon size
 	 */
 	iconSize?: ButtonProps["iconSize"]
+	/**
+	 * Icon color.
+	 */
+	iconColor?: IconProps["colorScheme"]
 	/**
 	 * Optional additional CSS classes for the tooltip.
 	 */

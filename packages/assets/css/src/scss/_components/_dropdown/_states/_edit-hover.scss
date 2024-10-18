@@ -13,8 +13,8 @@
 		@include block($block) {
 			@include element(menu) {
 				.sui-#{$block}__menu-item--hover {
-					background-color: $color-extended-neutral-90;
-					color: $color-extended-neutral-10;
+					background-color: $color-grey-05;
+					color: $color-grey-90;
 				}
 			}
 		}
@@ -26,11 +26,11 @@
 		@include block($block) {
 			@include element(menu) {
 				.sui-#{$block}__menu-item--hover {
-					background-color: $color-extended-neutral-0;
-					color: $color-extended-neutral-100;
+					background-color: $color-base-black;
+					color: $color-base-white;
 
 					.sui-icon {
-						color: $color-extended-neutral-100;
+						color: $color-base-white;
 					}
 				}
 			}

@@ -36,6 +36,8 @@ import { TableContext, TableSortBy } from "./table-context"
  * @param  root0.colSpan
  * @param  root0._htmlProps
  * @param  root0._style
+ * @param  root0._isGroup
+ * @param  root0.icon
  *
  * @return {JSX.Element} The JSX representation of the TableCell component.
  */
@@ -51,6 +53,8 @@ const TableCell: React.FC<TableCellProps> = ({
 	isTrim = false,
 	isPrimary = false,
 	colSpan,
+	icon,
+	_isGroup = false,
 	_htmlProps = {},
 	_style = {},
 }): JSX.Element => {
@@ -92,6 +96,13 @@ const TableCell: React.FC<TableCellProps> = ({
 	// Default sort icon
 	let SortIcon = Icons.CaretUpDown
 
+	let PreIcon = null
+
+	// Cell pre icon
+	if (icon) {
+		PreIcon = Icons[icon]
+	}
+
 	// Icon based on the sorting
 	if (!isEmpty(order) && sortBy?.column === id) {
 		SortIcon = order === "desc" ? Icons.CaretDown : Icons.CaretUp
@@ -111,6 +122,8 @@ const TableCell: React.FC<TableCellProps> = ({
 		sortBtnProps = { ...sortBtnProps, ...methods }
 	}
 
+	const colSpanValue = _isGroup ? 100 : colSpan
+
 	return (
 		<TagName
 			ref={ref}
@@ -122,26 +135,29 @@ const TableCell: React.FC<TableCellProps> = ({
 					trim: isTrim,
 					primary: isPrimary,
 					"is-sticky-active": hasStickyCols && isSticky,
+					"is-group": _isGroup,
 				},
 				suiInlineClassname,
 			)}
 			{...(isHeading && { scope: "col" })}
 			role={isHeading ? "rowheader" : "cell"}
-			colSpan={colSpan}
+			{...(colSpanValue && { colSpan: colSpanValue })}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			{hasDragIcon && (
+			{hasDragIcon && !_isGroup && (
 				<Icons.Grip className="sui-table__cell--drag" size="sm" />
 			)}
 			{!isAction ? (
 				<div {...sortBtnProps}>
+					{PreIcon && <PreIcon size="sm" />}
 					<span>{children}</span>
-					{isSortable && <SortIcon size="xs" />}
+					{isSortable && !_isGroup && <SortIcon size="xs" />}
 				</div>
 			) : (
 				<Fragment>
+					{PreIcon && <PreIcon size="xs" />}
 					{children}
-					{isSortable && <SortIcon size="xs" />}
+					{isSortable && !_isGroup && <SortIcon size="xs" />}
 				</Fragment>
 			)}
 		</TagName>

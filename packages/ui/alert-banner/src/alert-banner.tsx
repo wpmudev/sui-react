@@ -100,7 +100,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 							<Icon colorScheme={iconColor} />
 						</div>
 					)}
-					{children}
+					<div className="sui-alert-banner__content">{children}</div>
 				</div>
 				{/* Render actions if provided */}
 				{actions && (

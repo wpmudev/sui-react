@@ -51,6 +51,11 @@ interface ProgressBarProps
 	 * Callback function when the progress bar is clicked.
 	 */
 	onClick?: MouseEventHandler
+
+	/**
+	 * Animation speed in (ms).
+	 */
+	speed?: number
 }
 
 export type { ProgressBarProps }

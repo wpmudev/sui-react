@@ -30,6 +30,9 @@ interface DashboardWidgetProps
 	/** Whether the widget is disabled */
 	isDisabled?: boolean
 
+	/** Whether the widget is full width */
+	isFullWidth?: boolean
+
 	/**
 	 * Callback function that is called when the widget's expand/collapse state is toggled.
 	 *

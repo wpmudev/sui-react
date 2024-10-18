@@ -66,6 +66,12 @@ const variationsList = {
 		description:
 			"Get Beehive Pro and get all the tools you need for analytic insights.",
 	},
+	dashboard: {
+		icon: "PluginDashboard",
+		title: "WPMU DEV Membership",
+		description:
+			"Get the full performance optimization suite and additional benefits of WPMU DEV membership",
+	},
 }
 
 export { variationsList }
