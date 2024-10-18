@@ -12,10 +12,18 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			display: flex;
+			flex-direction: column;
 			border: $border-width-sm solid $color-grey-10;
 			background: $color-base-white;
 			border-radius: $border-radius-md;
 			height: 100%;
+
+			.sui-box-group {
+				&:first-child {
+					margin-bottom: 0;
+				}
+			}
 
 			@include element(quick-actions) {
 				display: flex;
