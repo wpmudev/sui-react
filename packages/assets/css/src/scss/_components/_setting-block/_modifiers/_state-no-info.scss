@@ -14,7 +14,9 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(no-info) {
-				padding-left: 0;
+				@include media(min-width, md) {
+					padding-left: 0;
+				}
 			}
 		}
 	}

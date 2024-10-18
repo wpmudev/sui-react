@@ -46,26 +46,32 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 			data-testid="setting-block"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<div className="sui-setting-block__header">
-				{(!!title || !!description) && (
-					<div className="sui-setting-block__info">
-						{!!title && (
-							<div className="sui-setting-block__info-title sui-heading--h5">
-								{title}
-								{isPro && (
-									<Tag design="outlined" colorScheme="black" isSmall={true}>
-										Pro
-									</Tag>
-								)}
-							</div>
-						)}
-						{!!description && (
-							<div className="sui-setting-block__info-desc">{description}</div>
-						)}
-					</div>
-				)}
-				{actions && <div className="sui-setting-block__actions">{actions}</div>}
-			</div>
+			{!title && !description && !actions && (
+				<div className="sui-setting-block__header">
+					{!title && !description && (
+						<div className="sui-setting-block__info">
+							{!!title && (
+								<div className="sui-setting-block__info-title sui-heading--h5">
+									{title}
+									{isPro && (
+										<Tag design="outlined" colorScheme="black" isSmall={true}>
+											Pro
+										</Tag>
+									)}
+								</div>
+							)}
+							{!!description && (
+								<div className="sui-setting-block__info-desc">
+									{description}
+								</div>
+							)}
+						</div>
+					)}
+					{actions && (
+						<div className="sui-setting-block__actions">{actions}</div>
+					)}
+				</div>
+			)}
 			{children && <div className="sui-setting-block__body">{children}</div>}
 		</div>
 	)
