@@ -36,8 +36,7 @@
 					display: inline-flex;
 
 					a {
-						// Change to variable after color update
-						color: #4c4c4c;
+						color: $color-grey-70;
 						font-size: $font-size-xs;
 						line-height: normal;
 						text-decoration: none;
@@ -45,7 +44,7 @@
 
 						&:hover,
 						&:focus {
-							color: $color-primary-40;
+							color: $color-primary-60;
 						}
 					}
 
@@ -107,7 +106,7 @@
 						&,
 						&:hover,
 						&:focus {
-							color: $color-extended-neutral-0;
+							color: $color-base-black;
 						}
 					}
 				}

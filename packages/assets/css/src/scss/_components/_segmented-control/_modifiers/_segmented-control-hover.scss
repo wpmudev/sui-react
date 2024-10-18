@@ -15,7 +15,7 @@
 		@include block($block) {
 			@include element(label) {
 				@include modifier(hover) {
-					background: $color-extended-neutral-90;
+					background: $color-grey-05;
 				}
 			}
 		}

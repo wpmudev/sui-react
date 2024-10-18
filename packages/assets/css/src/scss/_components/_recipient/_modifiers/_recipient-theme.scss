@@ -14,7 +14,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(secondary) {
-				background: $color-extended-neutral-95;
+				background: $color-grey-02;
 				border-width: 0;
 			}
 		}
@@ -25,7 +25,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include modifier(secondary) {
-				background: $color-extended-neutral-100;
+				background: $color-base-white;
 				border-width: $border-width-sm;
 			}
 		}

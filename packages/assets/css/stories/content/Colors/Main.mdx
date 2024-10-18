@@ -2,6 +2,7 @@ import { Source } from '@storybook/addon-docs';
 import { Page } from '@wpmudev/sui-docs';
 import { Unstyled } from '@storybook/blocks';
 
+import Base from './PaletteBase.mdx';
 import Primary from './PalettePrimary.mdx';
 import Secondary from './PaletteSecondary.mdx';
 import Extended from './PaletteExtended.mdx';
@@ -18,6 +19,9 @@ import Extended from './PaletteExtended.mdx';
 		}
 		status="ready"
 	>
+		<div id="base" label="Base">
+			<Base />
+		</div>
 		<div id="primary" label="Primary">
 			<Primary />
 		</div>

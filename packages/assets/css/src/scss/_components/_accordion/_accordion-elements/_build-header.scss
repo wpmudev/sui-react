@@ -23,7 +23,7 @@
 				position: relative;
 
 				svg {
-					color: $color-extended-neutral-60;
+					color: $color-grey-60;
 				}
 
 				@include media(min-width, sm) {
@@ -65,7 +65,7 @@
 		@include block($block) {
 			@include element(header) {
 				svg {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 			}
 		}

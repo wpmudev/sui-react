@@ -46,7 +46,7 @@ module.exports = {
 		options: {},
 	},
 	typescript: {
-		reactDocgen: "none",
+		reactDocgen: "react-docgen-typescript-plugin",
 	},
 	docs: {
 		autodocs: true,

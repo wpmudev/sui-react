@@ -21,7 +21,7 @@
 			}
 
 			@include element(icon) {
-				fill: $color-extended-alpha-black-0;
+				fill: $color-transparent;
 				stroke: $color-primary-50;
 
 				@include modifier(background, stroke) {
@@ -31,7 +31,7 @@
 				}
 
 				@include modifier(background) {
-					stroke: $color-extended-neutral-80;
+					stroke: $color-grey-10;
 				}
 
 				@include modifier(stroke) {
@@ -52,11 +52,11 @@
 
 			@include modifier(dark) {
 				@include modifies-element(icon--background) {
-					stroke: $color-extended-alpha-white-30;
+					stroke: $color-white-a30;
 				}
 
 				@include modifies-element(icon--stroke) {
-					stroke: $color-extended-neutral-0;
+					stroke: $color-base-black;
 				}
 			}
 		}
@@ -69,7 +69,7 @@
 		@include block($block) {
 			@include element(icon) {
 				@include modifier(background) {
-					stroke: $color-extended-neutral-100;
+					stroke: $color-base-white;
 				}
 			}
 

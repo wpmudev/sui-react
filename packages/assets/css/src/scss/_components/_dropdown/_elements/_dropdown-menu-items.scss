@@ -28,7 +28,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(menu-items) {
-				background: $color-extended-neutral-100;
+				background: $color-base-white;
 			}
 		}
 	}

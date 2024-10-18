@@ -18,13 +18,13 @@
 				user-select: none;
 				&.sui-#{$block}--compound,
 				&.sui-#{$block}--default {
-					border: $border-width-sm solid $color-extended-neutral-70;
+					border: $border-width-sm solid $color-grey-30;
 					background: unset;
 					box-shadow: none;
 				}
 
 				&.sui-#{$block}--icon-only {
-					color: $color-extended-neutral-70;
+					color: $color-grey-30;
 				}
 
 				&.sui-#{$block}--image {

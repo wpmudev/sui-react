@@ -13,9 +13,9 @@
 		@include block($block) {
 			@include element(nav-item) {
 				@include modifier(hover) {
-					color: $color-extended-neutral-10;
-					background: $color-primary-90;
-					border-color: $color-primary-80;
+					color: $color-grey-90;
+					background: $color-primary-05;
+					border-color: $color-primary-10;
 				}
 			}
 		}
@@ -28,7 +28,7 @@
 			@include element(nav-item) {
 				@include modifier(hover) {
 					background: transparent;
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 			}
 		}
