@@ -46,9 +46,9 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 			data-testid="setting-block"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			{!title && !description && !actions && (
+			{(title || description || actions) && (
 				<div className="sui-setting-block__header">
-					{!title && !description && (
+					{(title || description) && (
 						<div className="sui-setting-block__info">
 							{!!title && (
 								<div className="sui-setting-block__info-title sui-heading--h5">
