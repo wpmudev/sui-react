@@ -12,6 +12,11 @@
 			@include element(title) {
 				font-size: $font-size-xl;
 				font-weight: $font-weight-lg;
+
+				@include media(max-width, sm) {
+					font-size: $font-size-lg;
+					padding: $spacing-md 0;
+				}
 			}
 		}
 	}
