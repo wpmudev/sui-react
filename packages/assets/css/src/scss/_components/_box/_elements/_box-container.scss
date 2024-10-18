@@ -16,6 +16,16 @@
 			border-radius: $border-radius-sm;
 			background: $color-base-white;
 
+			@include element(container) {
+				display: flex;
+				flex-direction: column;
+			}
+
+			@include element(title) {
+				display: flex;
+				align-items: center;
+			}
+
 			@include modifier(large-radius) {
 				border-radius: $border-radius-xl;
 			}
