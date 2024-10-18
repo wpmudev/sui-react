@@ -51,6 +51,7 @@ interface ModalBodyProps
 interface ModalFooterProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	isSpaced?: boolean
 	// ModalFooter content
 	children?: React.ReactNode
 }

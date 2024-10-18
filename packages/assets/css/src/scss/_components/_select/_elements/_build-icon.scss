@@ -30,16 +30,16 @@
 				@include modifier(search) {
 					left: $spacing-default;
 					font-size: $select-font-size-lg;
-					color: $color-extended-neutral-60;
+					color: $color-grey-60;
 				}
 
 				@include modifier(close-alt) {
 					font-size: $select-font-size-lg;
-					color: $color-extended-neutral-70;
+					color: $color-grey-30;
 					pointer-events: all;
 
 					&:hover {
-						color: $color-extended-neutral-60;
+						color: $color-grey-60;
 					}
 				}
 			}
@@ -128,11 +128,11 @@
 		@include block($block) {
 			@include element(icon) {
 				@include modifier(search) {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 
 				@include modifier(close-alt) {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 			}
 		}

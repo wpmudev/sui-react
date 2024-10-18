@@ -12,7 +12,7 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			background-color: $color-extended-warning-70;
+			background-color: $color-yellow-10;
 			align-items: flex-start;
 			display: flex;
 			gap: $spacing-md;

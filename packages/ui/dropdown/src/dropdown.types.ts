@@ -115,6 +115,7 @@ interface DropdownMenuBaseProps extends SuiStyleType {
 	label: React.ReactNode | string // Content to display as the label for the dropdown menu item.
 	variable?: string // Content to display as the variable for the dropdown menu item.
 	description?: string // Content to display as the description for the dropdown menu item.
+	isSelected?: boolean
 }
 
 // Props for an individual item within the dropdown menu.
@@ -156,13 +157,31 @@ interface DropdownProps
 	 */
 	className?: string
 	/**
+	 * Indicates whether the dropdown should be displayed as small or not.
+	 */
+	isSmall?: boolean
+	/**
+	 * Indicates whether the dropdown should be displayed as small or not.
+	 */
+	selected?:
+		| string
+		| Array<MenuItemProps | MenuGroupProps>
+		| Record<string, any>
+	/**
+	 * Indicates whether the dropdown should be displayed as small or not.
+	 */
+	selectAll?: (
+		options: Array<MenuItemProps | MenuGroupProps>,
+		selected: boolean,
+	) => void
+	/**
 	 * Indicates whether the dropdown has a call-to-action button.
 	 */
 	hasCta?: boolean
 	/**
-	 * Indicates whether the dropdown should be displayed as small or not.
+	 * Indicates whether the dropdown should have multiselect option.
 	 */
-	isSmall?: boolean
+	isMultiSelect?: boolean
 	/**
 	 * Indicates whether the label should be hidden or not.
 	 */
@@ -269,6 +288,22 @@ interface DropdownProps
 	 * Custom search placeholder
 	 */
 	searchPlaceholder?: string
+	/**
+	 * Arrow in dropdown button
+	 */
+	arrow?: boolean
+	/**
+	 * Dropdown arrow in dropdown
+	 */
+	dropdownArrow?: boolean
+	/**
+	 * Button props
+	 */
+	_buttonProps?: ButtonProps
+	/**
+	 * Update options in parent.
+	 */
+	updateOptions?: (options: { [key: string]: any }[]) => void
 }
 
 // Type definition for the modal handling functions

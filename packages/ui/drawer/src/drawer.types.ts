@@ -28,6 +28,11 @@ export interface DrawerTypes
 	isOpen?: boolean
 
 	/**
+	 * Indicates whether the Drawer is open or not
+	 */
+	isFullWidth?: boolean
+
+	/**
 	 * Size of the Drawer, default is "default" or can be "sm"
 	 */
 	size?: "default" | "sm"
@@ -41,6 +46,11 @@ export interface DrawerTypes
 	 * Indicates whether the Drawer has a container
 	 */
 	hasContainer?: boolean
+
+	/**
+	 * Indicates whether the Drawer has a container
+	 */
+	hasOverlay?: boolean
 
 	/**
 	 * Indicates whether shadow should be disabled for the Drawer
@@ -66,6 +76,25 @@ export interface DrawerHeaderTypes extends SuiStyleType {
 	 * Optional class name for styling
 	 */
 	className?: string
+
+	/**
+	 * Has back button.
+	 */
+	back?: {
+		show: boolean
+
+		mobileOnly?: boolean
+
+		/**
+		 * Has back button.
+		 */
+		action?: () => void
+	}
+
+	/**
+	 * Has back button.
+	 */
+	onBack?: () => void
 
 	/**
 	 * Optional hint text to be displayed

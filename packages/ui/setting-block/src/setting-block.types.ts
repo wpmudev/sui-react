@@ -46,6 +46,11 @@ interface SettingBlockProps
 	 * Setting block actions
 	 */
 	actions?: React.ReactNode
+
+	/**
+	 * Setting block actions
+	 */
+	overflowHidden?: boolean
 }
 
 export type { SettingBlockProps }

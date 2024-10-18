@@ -14,11 +14,11 @@
 			@include element(item) {
 				@include modifier(expanded) {
 					.sui-#{$block}__header {
-						background: $color-extended-neutral-95;
+						background: $color-grey-02;
 					}
 
 					.sui-#{$block}__panel {
-						background: $color-extended-neutral-95;
+						background: $color-grey-02;
 						display: block;
 					}
 				}
@@ -28,7 +28,7 @@
 				.sui-#{$block}__item--expanded {
 					.sui-#{$block}__header,
 					.sui-#{$block}__panel {
-						background: $color-extended-neutral-100;
+						background: $color-base-white;
 					}
 
 					.sui-#{$block}__panel--content {

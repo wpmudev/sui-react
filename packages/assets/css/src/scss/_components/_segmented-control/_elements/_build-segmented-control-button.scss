@@ -49,7 +49,7 @@
 					}
 
 					.sui-#{$block}__label--active {
-						border-right-color: $color-primary-80;
+						border-right-color: $color-primary-10;
 						border-left-color: $segmented-border-color;
 					}
 				}
@@ -61,7 +61,7 @@
 					}
 
 					.sui-#{$block}__label--active {
-						border-left-color: $color-primary-80;
+						border-left-color: $color-primary-10;
 						border-right-color: $segmented-border-color;
 					}
 				}

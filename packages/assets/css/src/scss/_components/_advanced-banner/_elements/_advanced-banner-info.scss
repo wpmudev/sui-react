@@ -24,7 +24,7 @@
 			}
 
 			@include element(info-helper) {
-				color: $color-extended-neutral-60;
+				color: $color-grey-60;
 				font-size: $font-size-xs;
 				line-height: $font-height-xs;
 			}
@@ -36,7 +36,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(info-helper, info-desc, info-title) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}

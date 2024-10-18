@@ -75,11 +75,11 @@ $sui-score-design: (
 		@include block($block) {
 			@include element(circle) {
 				@include modifier(bg) {
-					stroke: $color-extended-neutral-100;
+					stroke: $color-base-white;
 				}
 
 				@include modifier(filled) {
-					stroke: $color-extended-neutral-0;
+					stroke: $color-base-black;
 				}
 
 				@include modifier(inner) {

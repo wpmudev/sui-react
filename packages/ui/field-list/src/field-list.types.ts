@@ -27,6 +27,10 @@ interface FieldListProps
 	 */
 	spacing?: string
 	/**
+	 * No Border Radius
+	 */
+	noBorderRadius?: boolean
+	/**
 	 * A callback function to be invoked when when one of the fields state changes
 	 */
 	onToggle?: (id: string, checked: boolean) => void

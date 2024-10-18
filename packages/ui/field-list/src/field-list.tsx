@@ -12,6 +12,7 @@ const FieldList: React.FC<FieldListProps> = ({
 	children,
 	spacing = "",
 	onToggle = () => null,
+	noBorderRadius = false,
 	_htmlProps,
 	_style,
 }) => {
@@ -43,7 +44,11 @@ const FieldList: React.FC<FieldListProps> = ({
 	return (
 		// Render the FieldList component
 		<div
-			className={generateCN("sui-field-list", {}, suiInlineClassname)}
+			className={generateCN(
+				"sui-field-list",
+				{ "no-border-radius": noBorderRadius },
+				suiInlineClassname,
+			)}
 			data-testid="field-list"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>

@@ -36,6 +36,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	maxSize,
 	maxSizeText = "Message to appear when file size exeeds the max given",
 	ariaAttrs = {},
+	onClick,
 	_htmlProps = {},
 	_style = {},
 	...props
@@ -69,7 +70,9 @@ const Uploader: React.FC<UploaderProps> = ({
 
 	// Empty the file input
 	const emptyFileInput = () => {
-		ref.current.value = ""
+		if (ref?.current) {
+			ref.current.value = ""
+		}
 	}
 
 	/**
@@ -144,8 +147,12 @@ const Uploader: React.FC<UploaderProps> = ({
 
 	// Callback to open the file selector dialog
 	const openFileSelector = useCallback(() => {
+		if (onClick) {
+			onClick?.()
+			return
+		}
 		ref.current?.click()
-	}, [ref])
+	}, [ref, onClick])
 
 	// Callback to remove a file from the selected files
 	const onRemoveFile = useCallback(
@@ -179,18 +186,20 @@ const Uploader: React.FC<UploaderProps> = ({
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
 				{/* Hidden input field to handle file selection */}
-				<input
-					type="file"
-					id={uploaderId}
-					ref={ref}
-					onChange={onSelectFile}
-					className="sui-uploader__input"
-					multiple={multiple}
-					accept={accept}
-					hidden={true}
-					{...ariaAttrs}
-					{..._renderHTMLPropsSafely(props)}
-				/>
+				{!onClick && (
+					<input
+						type="file"
+						id={uploaderId}
+						ref={ref}
+						onChange={onSelectFile}
+						className="sui-uploader__input"
+						multiple={multiple}
+						accept={accept}
+						hidden={true}
+						{...ariaAttrs}
+						{..._renderHTMLPropsSafely(props)}
+					/>
+				)}
 
 				{/* Render the uploader button when multiple selection is allowed or no files are selected */}
 				{(multiple || (!multiple && files.length <= 0)) && (

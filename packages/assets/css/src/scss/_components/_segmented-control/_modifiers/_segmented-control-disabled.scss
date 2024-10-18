@@ -17,8 +17,8 @@
 				@include modifier(disabled) {
 					pointer-events: none;
 					user-select: none;
-					background: $color-extended-neutral-90;
-					color: $color-extended-neutral-70;
+					background: $color-grey-05;
+					color: $color-grey-30;
 					cursor: default;
 				}
 			}

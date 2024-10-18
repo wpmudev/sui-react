@@ -15,7 +15,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(item) {
-				border-top: $border-width-sm solid $color-extended-neutral-80;
+				border-top: $border-width-sm solid $color-grey-10;
 				position: relative;
 				transition: 0.3s all ease;
 
@@ -89,12 +89,12 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(item) {
-				border-color: $color-extended-neutral-0;
+				border-color: $color-base-black;
 
 				@include modifier(footer) {
 					> .sui-box {
 						.sui-box-group {
-							border-color: $color-extended-neutral-0;
+							border-color: $color-base-black;
 						}
 					}
 				}
