@@ -16,35 +16,35 @@
 		@include block($block) {
 			@include modifier(disabled) {
 				pointer-events: none;
-				color: $color-extended-neutral-70;
+				color: $color-grey-30;
 
 				@include modifies-element(control) {
 					border: none;
-					background: $color-extended-neutral-90;
+					background: $color-grey-05;
 				}
 
 				@include modifies-element(selection) {
-					background: $color-extended-neutral-90;
-					color: $color-extended-neutral-70;
+					background: $color-grey-05;
+					color: $color-grey-30;
 					pointer-events: none;
 					border: none;
 				}
 
 				@include modifies-element(input) {
-					color: $color-extended-neutral-70;
+					color: $color-grey-30;
 				}
 
 				@include modifies-element(selected-options) {
-					background: $color-extended-neutral-70;
-					color: $color-extended-neutral-90;
+					background: $color-grey-30;
+					color: $color-grey-05;
 
 					.sui-#{$block}__icon {
-						color: $color-extended-neutral-90;
+						color: $color-grey-05;
 					}
 				}
 
 				@include modifies-element(icon) {
-					color: $color-extended-neutral-70;
+					color: $color-grey-30;
 					pointer-events: none;
 				}
 			}

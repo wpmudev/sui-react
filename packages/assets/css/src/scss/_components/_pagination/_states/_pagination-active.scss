@@ -17,8 +17,8 @@
 				@include modifier(active) {
 					cursor: default;
 					pointer-events: none;
-					background: $color-extended-neutral-90;
-					color: $color-extended-neutral-10;
+					background: $color-grey-05;
+					color: $color-grey-90;
 				}
 			}
 		}
@@ -30,8 +30,8 @@
 		@include block($block) {
 			@include element(button) {
 				@include modifier(active) {
-					background: $color-extended-neutral-0;
-					color: $color-extended-neutral-100;
+					background: $color-base-black;
+					color: $color-base-white;
 				}
 			}
 		}

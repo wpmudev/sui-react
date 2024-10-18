@@ -14,7 +14,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-			border: $border-width-sm solid $color-extended-neutral-80;
+			border: $border-width-sm solid $color-grey-10;
 			border-radius: $accordion-border-radius-sm;
 
 			@include modifier(no-border-radius) {
@@ -40,7 +40,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		// Block wrapper.
 		@include block($block) {
-			border-color: $color-extended-neutral-0;
+			border-color: $color-base-black;
 		}
 	}
 }

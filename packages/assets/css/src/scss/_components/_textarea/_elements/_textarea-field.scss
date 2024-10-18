@@ -26,7 +26,7 @@
 			&:after {
 				content: "";
 				position: absolute;
-				border: $border-width-sm solid $color-extended-neutral-70;
+				border: $border-width-sm solid $color-grey-30;
 				border-radius: $border-radius-sm;
 				inset: -#{$border-width-sm};
 				pointer-events: none;
@@ -39,7 +39,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			&:after {
-				border-color: $color-extended-neutral-0;
+				border-color: $color-base-black;
 			}
 		}
 	}

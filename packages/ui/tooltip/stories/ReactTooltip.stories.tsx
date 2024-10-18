@@ -6,8 +6,6 @@ import { IconsName } from "@wpmudev/sui-icons"
 
 // Import documentation main page.
 import docs from "./ReactTooltip.mdx"
-import { informative } from "@wpmudev/sui-icons/stories/content/Examples/Colors.mdx"
-import { success } from "@wpmudev/sui-icons/stories/content/Examples/Colors.mdx"
 
 // Configure default options.
 export default {

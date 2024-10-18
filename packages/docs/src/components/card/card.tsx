@@ -106,7 +106,7 @@ interface ColorProps {
 	overWhite?: boolean
 	content?: {
 		palette?: string
-		shade?: number
+		shade?: string | number
 		prefix?: string
 		hex?: string
 		variables?: boolean
@@ -142,6 +142,10 @@ const Color: React.FunctionComponent<
 	const hasPrefix = !isEmpty(objContent.prefix)
 	const hasHex = !isEmpty(objContent.hex)
 	const hasVariables = objContent.variables
+
+	if (hasPalette && objContent.palette.includes("alpha")) {
+		objContent.shade = `a${objContent.shade}`
+	}
 
 	return (
 		<div

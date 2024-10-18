@@ -12,9 +12,9 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			border: $border-width-sm solid $color-extended-neutral-80;
+			border: $border-width-sm solid $color-grey-10;
 			border-radius: $border-radius-md;
-			background: $color-extended-neutral-100;
+			background: $color-base-white;
 
 			@include modifier(no-border-radius) {
 				border-radius: 0;
@@ -26,8 +26,8 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			border-color: $color-extended-neutral-0;
-			color: $color-extended-neutral-0;
+			border-color: $color-base-black;
+			color: $color-base-black;
 		}
 	}
 }

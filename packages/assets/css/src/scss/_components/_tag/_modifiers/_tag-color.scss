@@ -19,13 +19,13 @@
 				@if $name == default {
 					border-color: $value;
 					background: $value;
-					color: $color-extended-neutral-100;
+					color: $color-base-white;
 				} @else {
 					@include modifier($name) {
 						border-color: $value;
 						background: $value;
 						@if $name == yellow or $name == white {
-							color: $color-extended-neutral-10;
+							color: $color-grey-90;
 						}
 					}
 				}
@@ -53,13 +53,13 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block-name) {
-			border-color: $color-extended-neutral-0;
-			background: $color-extended-neutral-0;
-			color: $color-extended-neutral-100;
+			border-color: $color-base-black;
+			background: $color-base-black;
+			color: $color-base-white;
 
 			@include modifier("outlined") {
-				border-color: $color-extended-neutral-0;
-				color: $color-extended-neutral-0;
+				border-color: $color-base-black;
+				color: $color-base-black;
 				background: transparent;
 			}
 		}
