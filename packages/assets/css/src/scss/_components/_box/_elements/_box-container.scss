@@ -15,6 +15,10 @@
 			border: $border-width-sm solid $color-grey-10;
 			border-radius: $border-radius-sm;
 			background: $color-base-white;
+
+			@include modifier(large-radius) {
+				border-radius: $border-radius-xl;
+			}
 		}
 	}
 

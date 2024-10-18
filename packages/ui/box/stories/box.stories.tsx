@@ -70,6 +70,7 @@ Box.args = {
 	],
 	hasPadding: true,
 	hideMobileIcon: false,
+	hasLargeRadius: false,
 }
 
 // Set controls for story arguments.
