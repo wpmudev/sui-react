@@ -33,7 +33,6 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 			hover: isHovered && !isFocused,
 			pro: isPro,
 			fluid: isFluid,
-			"no-info": !title && !description,
 			hidden: overflowHidden,
 		},
 		suiInlineClassname,
