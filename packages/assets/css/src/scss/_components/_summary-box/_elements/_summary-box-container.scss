@@ -37,6 +37,10 @@
 					margin-top: $spacing-lg;
 				}
 			}
+
+			@include element(info) {
+				flex: 1;
+			}
 		}
 	}
 

@@ -12,13 +12,14 @@ import { useStyles } from "@wpmudev/sui-hooks"
 const BoxGroup: React.FC<BoxGroupProps> = ({
 	isInline = true,
 	children,
+	className = "",
 	isHeader = false,
 	isFooter = false,
 	hasPadding = true,
 	_htmlProps = {},
 	_style = {},
 }) => {
-	const { suiInlineClassname } = useStyles(_style)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Build content based in slots
 	const slots = Children.map(children, (child, index) => {

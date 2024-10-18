@@ -21,6 +21,10 @@ interface BoxGroupProps
 	 */
 	isHeader?: boolean
 	/**
+	 * Indicates whether the boxes should be displayed as box header.
+	 */
+	className?: string
+	/**
 	 * Indicates whether the boxes should be displayed as footer.
 	 */
 	isFooter?: boolean
