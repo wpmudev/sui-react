@@ -3,6 +3,11 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 /**
+ * Represents the alignment options for a row component.
+ */
+type RowAlignments = "xs" | "sm" | "md" | "lg" | "xl" | "default"
+
+/**
  * Represents the properties for a column component.
  */
 interface ColProps
@@ -11,7 +16,7 @@ interface ColProps
 	/**
 	 * The size of the column.
 	 */
-	size?: number | string
+	size?: number | string | { [key in RowAlignments]?: number }
 	/**
 	 * Additional className
 	 */
@@ -21,11 +26,6 @@ interface ColProps
 	 */
 	children?: React.ReactNode
 }
-
-/**
- * Represents the alignment options for a row component.
- */
-type RowAlignments = "xs" | "sm" | "md" | "lg" | "xl"
 
 /**
  * Represents the properties for a row component.

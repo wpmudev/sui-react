@@ -59,5 +59,21 @@
 				}
 			}
 		}
+
+		@each $bp-label, $bp-value in $breakpoints {
+			@include media(min-width, $bp-label) {
+				@for $size from 1 through 12 {
+					$value: math.div(($size * 100), $sui-grid);
+					$width: #{$value + "%"};
+
+					.sui-row {
+						.sui-#{$block}--#{$bp-label}-#{$size} {
+							width: $width;
+							flex: 0 0 auto;
+						}
+					}
+				}
+			}
+		}
 	}
 }
