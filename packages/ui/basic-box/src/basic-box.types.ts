@@ -53,6 +53,11 @@ interface BasicBoxProps
 	 * When set to "true" footer actions will be centered
 	 */
 	centerFooterActions?: boolean
+
+	/**
+	 * whether it has large radius or not
+	 */
+	hasLargeRadius?: boolean
 }
 
 export type { BasicBoxProps }

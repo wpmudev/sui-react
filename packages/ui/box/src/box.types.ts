@@ -49,10 +49,6 @@ interface BoxProps
 	 * The content of the box.
 	 */
 	children?: React.ReactNode
-	/**
-	 * Has large radius
-	 */
-	hasLargeRadius?: boolean
 }
 
 export type { BoxProps }

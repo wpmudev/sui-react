@@ -24,7 +24,6 @@ const Box: React.FC<BoxProps> = ({
 	isSmall = false,
 	className = "",
 	style = {},
-	hasLargeRadius = false,
 	_htmlProps = {},
 	_style,
 }) => {
@@ -40,7 +39,7 @@ const Box: React.FC<BoxProps> = ({
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN(
 		"sui-box",
-		{ "size-sm": isSmall, "large-radius": hasLargeRadius },
+		{ "size-sm": isSmall },
 		suiInlineClassname,
 	)
 

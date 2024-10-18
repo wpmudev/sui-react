@@ -20,6 +20,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	isPro = false,
 	isFluid = false,
 	children,
+	hasLargeRadius,
 	_htmlProps,
 	_style,
 }) => {
@@ -39,6 +40,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 			pro: isPro,
 			"is-fluid": isFluid,
 			"center-footer-actions": centerFooterActions,
+			"large-radius": hasLargeRadius,
 		},
 		suiInlineClassname,
 	)

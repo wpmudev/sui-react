@@ -99,6 +99,7 @@ BasicBox.args = {
 		</Button>,
 	],
 	centerFooterActions: false,
+	hasLargeRadius: false,
 }
 
 // Set controls for story arguments.
