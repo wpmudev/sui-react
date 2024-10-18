@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React, { createRef } from "react"
 import { Navigation, NavigationUser } from "@wpmudev/sui-navigation"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
@@ -15,6 +14,11 @@ import {
 import { DrawerActions } from "@wpmudev/sui-drawer"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { Link } from "@wpmudev/sui-link"
+import {
+	NavigationBrandProps,
+	NavigationUserProps,
+} from "@wpmudev/sui-navigation/src/navigation.types"
+import { Notifications, Resources } from "../src/navigation-wpmudev.types"
 
 // Configure default options
 export default {
@@ -29,10 +33,19 @@ export default {
 }
 export const NavigationStory = ({
 	isPro = false,
-	brand = [],
-	user = [],
-	notifications = [],
-	resources = [],
+	brand = { title: "title", description: "" },
+	user,
+	notifications,
+	resources,
+}: {
+	isPro: boolean
+	brand: NavigationBrandProps
+	user: NavigationUserProps
+	notifications: Notifications
+	resources: Array<{
+		link: string
+		label: string
+	}>
 }) => {
 	const ref = createRef<DrawerActions | null>()
 	const drawerRef = createRef<DrawerActions | null>()

@@ -25,6 +25,23 @@ type Plugin = {
 	props?: SuiHTMLAttributes
 }
 
+type Notifications = Array<{
+	version: string
+	time: string
+	title: string
+	actions: Array<ReactNode>
+}>
+
+type Resources = {
+	title: string
+	content: Array<{
+		icon: PluginIconTypes
+		title: string
+		description: string
+		link: string
+	}>
+}
+
 /**
  * Represents the properties for a WPMUDEV button props.
  */
@@ -51,15 +68,7 @@ interface WPMUDEVHelpProps extends DropdownProps, SuiStyleType {
 		link: string
 		label: string
 	}>
-	resources?: {
-		title: string
-		content: Array<{
-			icon: PluginIconTypes
-			title: string
-			description: string
-			link: string
-		}>
-	}
+	resources?: Resources
 	support?: {
 		icon: PluginIconTypes
 		title: string
@@ -74,12 +83,7 @@ interface WPMUDEVHelpProps extends DropdownProps, SuiStyleType {
 interface WPMUDEVNotificationProps extends DropdownProps, SuiStyleType {
 	title?: string
 	label?: string
-	notifications: Array<{
-		version: string
-		time: string
-		title: string
-		actions: Array<ReactNode>
-	}>
+	notifications: Notifications
 	footerActions?: Array<ReactNode>
 }
 
@@ -118,6 +122,8 @@ interface NavigationWrapperProps extends SuiHTMLAttributes, SuiStyleType {
 }
 
 export type {
+	Resources,
+	Notifications,
 	WPMUDEVButtonProps,
 	WPMUDEVHelpProps,
 	WPMUDEVNotificationProps,
