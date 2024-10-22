@@ -83,7 +83,7 @@ const Upsell: React.FC<UpsellProps> = ({
 						{/* Map and render each feature with a checkmark */}
 						{features?.map((feature, index) => (
 							<li key={index} className="sui-upsell__features-item">
-								<FeatureIcon />
+								<FeatureIcon size="sm" />
 								<span>{feature}</span>
 							</li>
 						))}
