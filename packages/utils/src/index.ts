@@ -1,7 +1,5 @@
 import React, { MouseEvent, KeyboardEvent } from "react"
 import classnames from "classnames"
-import { render } from "@testing-library/react"
-import { axe } from "jest-axe"
 import { CSS_SHORTHAND_MAPS, useStylesTypes } from "@wpmudev/sui-hooks"
 
 type DataAttributeKey = `data-${string}`
@@ -254,6 +252,9 @@ export type PluginsSlug =
 	| "blc"
 	| "thc"
 	| "dashboard"
+	| "ivt"
+	| "uptime"
+	| "hosting"
 
 export type PluginIconTypes = {
 	bg?: string
@@ -327,6 +328,41 @@ const PluginsIcons: Record<PluginsSlug, PluginIconTypes> = {
 		color: "#FFF",
 		icon: "PluginDashboard",
 	},
+	ivt: {
+		bg: "#65DE63",
+		color: "#FFF",
+		icon: "PluginIvt",
+	},
+	uptime: {
+		bg: "#05AE7B",
+		color: "#FFF",
+		icon: "PluginUptime",
+	},
+	hosting: {
+		bg: "#9F62CE",
+		color: "#FFF",
+		icon: "Cloud",
+	},
+}
+
+export type CustomIconsSlug = "documentation" | "feedback" | "contact"
+
+const CustomIcons: Record<CustomIconsSlug, PluginIconTypes> = {
+	documentation: {
+		bg: "#E6EEFF",
+		color: "#1A1A1A",
+		icon: "Poll",
+	},
+	feedback: {
+		bg: "#D3BEF2",
+		color: "#1A1A1A",
+		icon: "Tutorials",
+	},
+	contact: {
+		bg: "#A3DCB5",
+		color: "#1A1A1A",
+		icon: "Submit",
+	},
 }
 
 /**
@@ -350,23 +386,6 @@ const chunkArray = (arr: any[], size: number): any[][] => {
 	}
 
 	return chunkedArray
-}
-
-/**
- * It is a utility function for performing accessibility testing on a React component.
- *
- * Note: It only runs the test if an environment variable, `SUI_A11Y_TEST`, is turned on.
- * If the test is on, it checks the component for accessibility issues using the Axe library.
- *
- * @param {React.ReactElement} component - The React component to be tested for accessibility.
- * @param {Object}             config    - axe configuration
- */
-const a11yTest = async (component: React.ReactElement, config?: object) => {
-	if (process.env.SUI_A11Y_TEST) {
-		const { container } = render(component)
-		const results = await axe(container, config)
-		expect(results).toHaveNoViolations()
-	}
 }
 
 /**
@@ -410,11 +429,10 @@ export {
 	handleOnKeyDown,
 	handleEventDefault,
 	PluginsIcons,
+	CustomIcons,
 	chunkArray,
 	isValidCSSProperty,
 	_renderHTMLPropsSafely,
-	// jest utilities
-	a11yTest,
 	_isTestingMode,
 }
 

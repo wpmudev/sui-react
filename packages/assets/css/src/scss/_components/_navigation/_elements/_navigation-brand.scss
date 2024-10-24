@@ -26,7 +26,7 @@
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
-				background-color: $color-extended-neutral-80;
+				background-color: $color-grey-10;
 				border-radius: $border-radius-xl;
 				height: $navigation-size-height-lg;
 				width: $navigation-size-width-lg;
@@ -44,7 +44,7 @@
 				}
 				@include modifier(desc) {
 					display: block;
-					color: $color-extended-neutral-60;
+					color: $color-grey-60;
 					font-size: $font-size-xs;
 					line-height: $font-height-xs;
 					font-weight: $font-weight-md;
@@ -65,7 +65,7 @@
 		@include block($block) {
 			@include element(info) {
 				@include modifier(desc) {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 			}
 		}

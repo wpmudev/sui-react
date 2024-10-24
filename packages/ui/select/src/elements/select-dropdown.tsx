@@ -30,6 +30,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	isCustomVar = false,
 	dropdownRef = null,
 	onToggle = (isOpen: boolean) => {},
+	updateOptions,
 	onSearch = (value: string) => {},
 	onChange,
 	_htmlProps,
@@ -45,11 +46,42 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			if ((!e.key || (!!e.key && e.key === "Enter")) && onEvent) {
 				onEvent(option)
 				if (onChange) {
-					onChange(option)
+					let values: SelectOptionType | SelectOptionType[] = option
+					// If multi-select or custom variable mode is active
+					if (isMultiSelect) {
+						const newSelected: SelectOptionType[] = Array.isArray(selected)
+							? [...selected]
+							: []
+						const optionIndex = newSelected.findIndex(
+							(selOption: SelectOptionType) => selOption.id === option.id,
+						)
+
+						if (optionIndex !== -1) {
+							newSelected.splice(optionIndex, 1)
+						} else {
+							newSelected.push(option)
+						}
+
+						values = newSelected
+
+						onChange(option, values)
+					} else if (isCustomVar) {
+						const newSelected: SelectOptionType[] = Array.isArray(selected)
+							? [...selected]
+							: []
+
+						newSelected.push(option)
+
+						values = newSelected
+
+						onChange(option, values)
+					} else {
+						onChange(option)
+					}
 				}
 			}
 		},
-		[onChange, onEvent],
+		[isCustomVar, isMultiSelect, onChange, onEvent, selected],
 	)
 
 	const getOptProps = (option: SelectOptionType) => ({
@@ -71,7 +103,11 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			}}
 			isSmall={isSmall}
 			{...(isMultiSelect && {
+				isMultiSelect,
+				updateOptions,
 				type: "select-checkbox",
+				selected,
+				selectAll,
 			})}
 			{...((isMultiSelect || isCustomVar) && {
 				onSearch,
@@ -127,38 +163,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 
 	// Render options for the multiselect dropdown
 	const renderMultiselectOptions = () => {
-		const allSelected = options?.every((option) => option?.isSelected)
-		const isIndeterminate = options?.find((option) => option?.isSelected)
-		const newOptions = options
-			? [
-					{
-						id: "select-all",
-						label: "Select all",
-						props: {
-							_checkboxProps: {
-								isChecked: allSelected,
-								isIndeterminate: !allSelected && !!isIndeterminate,
-								onChange: selectAll,
-								isSmall,
-							},
-						},
-					},
-					...options.map((option) => {
-						return {
-							...option,
-							props: {
-								...option.props,
-								_checkboxProps: {
-									...option?.props?._checkboxProps,
-									isChecked: option?.isSelected,
-									isSmall,
-								},
-							},
-						}
-					}),
-			  ]
-			: []
-		return wrapper(newOptions)
+		return wrapper(options ?? [])
 	}
 
 	// Render the appropriate dropdown options based on isMultiSelect

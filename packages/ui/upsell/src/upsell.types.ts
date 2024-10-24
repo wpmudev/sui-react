@@ -1,5 +1,6 @@
 import { ReactNode, HTMLProps } from "react"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 // Define the UpsellProps interface to specify the expected props for the Upsell component
 interface UpsellProps
@@ -33,6 +34,13 @@ interface UpsellProps
 		| "defender"
 		| "branda"
 		| "beehive"
+		| "dashboard"
+
+	// The icon to be used for features
+	featuresIcon?: IconsNamesType
+
+	// Adds a title for the features
+	featuresTitle?: string
 }
 
 export type { UpsellProps }

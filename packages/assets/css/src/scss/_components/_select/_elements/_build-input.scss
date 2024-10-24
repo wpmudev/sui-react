@@ -42,7 +42,7 @@
 				input[type="text"] {
 					border-width: $border-width-sm;
 					border-style: solid;
-					border-color: $color-extended-neutral-80;
+					border-color: $color-grey-10;
 				}
 			}
 
@@ -78,7 +78,7 @@
 		@include block($block) {
 			@include element(search) {
 				input[type="text"] {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 			}
 		}

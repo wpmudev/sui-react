@@ -71,6 +71,7 @@
     "./packages/react",
     "./packages/hooks",
     "./packages/utils",
+    "./packages/dev-utils",
     "./packages/ui/*",
     "./packages/common/*"
   ],

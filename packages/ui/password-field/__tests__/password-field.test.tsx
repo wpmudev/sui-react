@@ -2,7 +2,7 @@ import React from "react"
 import { PasswordField } from "../src"
 import "@testing-library/jest-dom"
 import { render, screen, prettyDOM } from "@testing-library/react"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 
 describe("@wpmudev/sui-password-field", () => {
 	const Component = () => <PasswordField id="password-field-1" />

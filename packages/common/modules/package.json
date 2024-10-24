@@ -45,6 +45,7 @@
   "dependencies": {
     "@wpmudev/sui-dashboard-widget": "^0.0.1",
     "@wpmudev/sui-integration": "^0.0.1",
+    "@wpmudev/sui-navigation-wpmudev": "^0.0.1",
     "@wpmudev/sui-navigation": "^0.0.1",
     "@wpmudev/sui-table": "^0.0.1"
   },

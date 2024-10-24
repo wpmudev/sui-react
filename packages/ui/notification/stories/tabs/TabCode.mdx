@@ -25,6 +25,12 @@ import dedent from "dedent"
     		<p> Custom icon besides the title   </p>
     	</PropSection>
 
+		<PropSection title="className" type="string">
+			<p>
+				Additional custom className for further styling.
+			</p>
+		</PropSection>
+
     	<PropSection title="size" type="string">
     		<p> Size of the notification</p>
     		<p>
@@ -60,6 +66,10 @@ import dedent from "dedent"
 
     	<PropSection title="isDismissible" type="boolean" defaultValue="false">
     		<p> When set to <Code small={true}>true</Code>, the notification will have a dismissing button  </p>
+    	</PropSection>
+
+		<PropSection title="isFluid" type="boolean" defaultValue="false">
+    		<p>When set to <Code isSmall={true}>true</Code> the notification will have a full width</p>
     	</PropSection>
 
     	<PropSection title="timeout" type="boolean" defaultValue="5000">

@@ -14,6 +14,10 @@ interface BoxProps
 	 */
 	title?: string
 	/**
+	 * The title of the box.
+	 */
+	description?: string
+	/**
 	 * The icon for the box.
 	 */
 	icon?: IconsNamesType
@@ -45,6 +49,10 @@ interface BoxProps
 	 * The content of the box.
 	 */
 	children?: React.ReactNode
+	/**
+	 * Has large radius
+	 */
+	hasLargeRadius?: boolean
 }
 
 export type { BoxProps }

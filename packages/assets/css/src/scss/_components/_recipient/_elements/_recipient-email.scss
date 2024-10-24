@@ -14,7 +14,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(email) {
-				color: $color-extended-neutral-50;
+				color: $color-grey-50;
 				flex: 1;
 			}
 		}
@@ -25,7 +25,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(email) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}

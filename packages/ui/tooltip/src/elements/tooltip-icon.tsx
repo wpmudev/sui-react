@@ -17,6 +17,12 @@ interface TooltipIconProps {
 	 */
 	size?: IconProps["size"]
 	/**
+	 * Color
+	 *
+	 * @type {string}
+	 */
+	colorScheme?: IconProps["colorScheme"]
+	/**
 	 * Callback function to be invoked onClick
 	 */
 	onClick?: () => void
@@ -26,6 +32,7 @@ interface TooltipIconProps {
 const Icon: React.FC<TooltipIconProps> = ({
 	name = "Info",
 	size = "sm",
+	colorScheme = "",
 	onClick = () => null,
 }) => {
 	const hasIcon = !isUndefined(name) && !isEmpty(name ?? "")
@@ -43,7 +50,7 @@ const Icon: React.FC<TooltipIconProps> = ({
 
 	return (
 		<span className="sui-tooltip__icon" aria-hidden="true" onClick={onClick}>
-			<IconTag size={size} />
+			<IconTag size={size} colorScheme={colorScheme} />
 		</span>
 	)
 }

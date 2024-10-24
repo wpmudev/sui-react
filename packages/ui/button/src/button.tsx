@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react"
 import {
-	InteractionTypes,
 	useDefaultChildren,
 	useInteraction,
 	useStyles,
@@ -63,7 +62,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 		ref,
 	) => {
 		// base className
-		const baseClassName: string = "sui-button"
+		const baseClassName = "sui-button"
 
 		// Default children content
 		children = useDefaultChildren(children, "button label")

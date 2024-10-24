@@ -14,6 +14,11 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
+			background: $color-base-white;
+
+			@include modifier(large-radius) {
+				border-radius: $border-radius-xl;
+			}
 		}
 	}
 }

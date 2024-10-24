@@ -18,6 +18,7 @@
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);
+				display: flex;
 			}
 
 			// if input has icon
@@ -67,7 +68,7 @@
 	@include sui-class($rtl: false, $theme: "dark") {
 		@include block($block) {
 			@include element(icon) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}

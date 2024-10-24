@@ -14,6 +14,7 @@ const Notification: React.FC<NotificationProps> = ({
 	message = "message",
 	action,
 	icon = "Info",
+	className = "",
 	isInline = true,
 	isFluid = false,
 	isDismissible = false,
@@ -54,7 +55,7 @@ const Notification: React.FC<NotificationProps> = ({
 		}
 	}, [id, isInline, notifications])
 
-	const { suiInlineClassname } = useStyles(_style)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// do not render
 	if (!isVisible) return null

@@ -10,7 +10,6 @@ import React, {
 	useState,
 } from "react"
 import { ChevronLeft, ChevronRight } from "@wpmudev/sui-icons"
-
 import { useDetectRTL, useStyles } from "@wpmudev/sui-hooks"
 import { TabNavProps, TabNavScrollDirection } from "../tabs.types"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
@@ -24,7 +23,12 @@ import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
  * @param {TabNavProps} props - Props for the TabNav component.
  * @return {JSX.Element} The TabNav component.
  */
-const TabNav: FC<TabNavProps> = ({ children, _style = {}, _htmlProps }) => {
+const TabNav: FC<TabNavProps> = ({
+	children,
+	_style = {},
+	_htmlProps,
+	isNarrow = false,
+}) => {
 	const [isScrollableRight, setIsScrollableRight] = useState<boolean>(false)
 	const [isScrollableLeft, setIsScrollableLeft] = useState<boolean>(false)
 	const [navRefCurrent, setNavRefCurrent] = useState<HTMLDivElement | null>(
@@ -103,9 +107,17 @@ const TabNav: FC<TabNavProps> = ({ children, _style = {}, _htmlProps }) => {
 
 	const { suiInlineClassname } = useStyles(_style)
 
+	const classes = generateCN(
+		"sui-tab__nav",
+		{
+			narrow: isNarrow,
+		},
+		suiInlineClassname,
+	)
+
 	return (
 		<div
-			className={generateCN("sui-tab__nav", {}, suiInlineClassname)}
+			className={classes}
 			role="tablist"
 			aria-orientation="horizontal"
 			{..._renderHTMLPropsSafely(_htmlProps)}

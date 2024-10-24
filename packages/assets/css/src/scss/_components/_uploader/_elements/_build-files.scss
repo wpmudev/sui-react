@@ -19,7 +19,7 @@
 				flex-wrap: wrap;
 				align-items: center;
 				border-radius: $uploader-border-radius;
-				background: $color-extended-neutral-95;
+				background: $color-grey-02;
 				gap: $uploader-spacing-horizontal;
 				margin-top: $uploader-spacing-vertical;
 
@@ -30,7 +30,7 @@
 				}
 
 				@include modifier(image) {
-					background-color: $color-extended-neutral-80;
+					background-color: $color-grey-10;
 					background-position: 50%;
 					background-size: cover;
 					background-repeat: no-repeat;
@@ -64,9 +64,9 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(file) {
-				color: $color-extended-neutral-0;
-				background: $color-extended-neutral-100;
-				border: $uploader-border-width solid $color-extended-neutral-0;
+				color: $color-base-black;
+				background: $color-base-white;
+				border: $uploader-border-width solid $color-base-black;
 			}
 		}
 	}

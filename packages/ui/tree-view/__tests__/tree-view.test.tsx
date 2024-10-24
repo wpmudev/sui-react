@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen, prettyDOM, fireEvent } from "@testing-library/react"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 import { TreeView, TreeViewGroup, TreeViewItem, TreeViewProps } from "../src"
 
 describe("@wpmudev/sui-tree-view", () => {

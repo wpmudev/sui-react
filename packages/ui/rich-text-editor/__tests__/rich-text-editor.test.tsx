@@ -2,7 +2,7 @@ import React from "react"
 import { RichTextEditor } from "../src"
 import "@testing-library/jest-dom"
 import { fireEvent, prettyDOM, render, screen } from "@testing-library/react"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 
 declare global {
 	interface Window {

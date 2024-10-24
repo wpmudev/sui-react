@@ -15,6 +15,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 // Create box component
 const Box: React.FC<BoxProps> = ({
 	title,
+	description,
 	icon,
 	hideMobileIcon = false,
 	headerLeft,
@@ -23,21 +24,23 @@ const Box: React.FC<BoxProps> = ({
 	isSmall = false,
 	className = "",
 	style = {},
+	hasLargeRadius = false,
 	_htmlProps = {},
 	_style,
 }) => {
 	// Prop(s) validation
 	const hasTitle = !isUndefined(title) && !isEmpty(title)
 	const hasIcon = !isUndefined(icon) && !isEmpty(icon)
-	const hasLeft = !isUndefined(headerRight) && !!headerLeft
+	const hasLeft = !isUndefined(headerLeft) && !!headerLeft
 	const hasRight = !isUndefined(headerRight) && !!headerRight
+	const hasDesc = !isUndefined(description) && !!description
 
 	// Determine the IconTag based on the provided icon value
 	const IconTag: React.ComponentType<IconProps> = Icons[icon as IconsNamesType]
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN(
 		"sui-box",
-		{ "size-sm": isSmall },
+		{ "size-sm": isSmall, "large-radius": hasLargeRadius },
 		suiInlineClassname,
 	)
 
@@ -53,26 +56,31 @@ const Box: React.FC<BoxProps> = ({
 			{hasTitle && (
 				<BoxGroup isInline={true}>
 					<div slot="left">
-						{hasIcon && IconTag && (
-							<span
-								className={generateCN(
-									"suicons",
-									{},
-									hideMobileIcon
-										? "sui-box-group__item sui-icon--hide-sm"
-										: "sui-box-group__item",
-								)}
-								aria-hidden="true"
-							>
-								<IconTag size="md" />
-							</span>
-						)}
-						{hasTitle && (
-							<h2 className="sui-heading sui-heading--h3 sui-box-group__item">
-								{title}
-							</h2>
-						)}
-						{hasLeft && headerLeft}
+						<div className="sui-box__container">
+							{hasTitle && (
+								<div className="sui-box__title">
+									{hasIcon && IconTag && (
+										<span
+											className={generateCN(
+												"suicons",
+												{},
+												hideMobileIcon
+													? "sui-box-group__item sui-icon--hide-sm"
+													: "sui-box-group__item",
+											)}
+											aria-hidden="true"
+										>
+											<IconTag size="md" />
+										</span>
+									)}
+									<h2 className="sui-heading sui-heading--h3 sui-box-group__item">
+										{title}
+									</h2>
+									{hasLeft && headerLeft}
+								</div>
+							)}
+							{description && <p>{description}</p>}
+						</div>
 					</div>
 					<div {...(hasRight && { slot: "right" })}>
 						{hasRight && headerRight}

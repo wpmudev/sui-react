@@ -54,7 +54,11 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 	}
 
 	return (
-		<BoxGroup isInline={true} _htmlProps={_htmlProps}>
+		<BoxGroup
+			isInline={true}
+			className="sui-summary-box__info"
+			_htmlProps={_htmlProps}
+		>
 			<Row align={{ md: "inline" }} className={classNames}>
 				{cols.map((col) => col)}
 			</Row>

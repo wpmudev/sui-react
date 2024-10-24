@@ -1,7 +1,6 @@
 import React, { Children } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
-
 import { NavigationProps } from "./navigation.types"
 import { NavigationBrand } from "./navigation-brand"
 import { NavigationUser } from "./navigation-user"
@@ -12,6 +11,7 @@ const Navigation: React.FC<NavigationProps> = ({
 	children,
 	brand = { title: "title", description: "" },
 	user,
+	actions = [],
 	_htmlProps,
 	_style,
 }) => {
@@ -21,6 +21,7 @@ const Navigation: React.FC<NavigationProps> = ({
 
 	return (
 		// Render the navigation component
+
 		<nav
 			className={classNames}
 			data-testid="navigation"
@@ -36,8 +37,14 @@ const Navigation: React.FC<NavigationProps> = ({
 					</li>
 				))}
 			</ul>
-			{/* Render the navigation user component */}
-			<NavigationUser {...user} />
+			{(actions.length > 0 || user) && (
+				<div className="sui-navigation__actions">
+					{/* Show actions  */}
+					{actions.length > 0 && actions.map((action, index) => action)}
+					{/* Render the navigation user component */}
+					{user && <NavigationUser {...user} />}
+				</div>
+			)}
 		</nav>
 	)
 }
