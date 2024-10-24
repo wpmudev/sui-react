@@ -2,7 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { userEvent } from "@testing-library/user-event"
 import { screen, render, fireEvent } from "@testing-library/react"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 import { CodeSnippet, CodeSnippetProps } from "../src"
 
 describe("@wpmudev/sui-code-snippet", () => {

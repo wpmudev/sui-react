@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import "@testing-library/jest-dom"
 import { screen, render, fireEvent, waitFor } from "@testing-library/react"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 import { ColorPicker, ColorPickerProps } from "../src"
 
 describe("@wpmudev/sui-color-picker", () => {
