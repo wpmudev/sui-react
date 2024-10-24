@@ -2,7 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { Row, Col } from "../src"
 import { render, screen } from "@testing-library/react"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 
 describe("@wpmudev/sui-grid", () => {
 	const Component = () => (
