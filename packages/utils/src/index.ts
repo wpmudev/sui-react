@@ -408,7 +408,7 @@ const chunkArray = (arr: any[], size: number): any[][] => {
  */
 const _isTestingMode = () => {
 	try {
-		return Boolean(process?.env?.JEST_WORKER_ID)
+		return process?.env?.JEST_WORKER_ID !== undefined
 	} catch {
 		return false
 	}
