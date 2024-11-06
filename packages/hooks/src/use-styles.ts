@@ -4,7 +4,7 @@ import createEmotion from "@emotion/css/create-instance"
 import {
 	_isTestingMode,
 	generateCN,
-	isValidCSSProperty,
+	isValidCSSRule,
 	isObjectEmpty,
 	isNestedStyleProperty,
 } from "@wpmudev/sui-utils"
@@ -202,8 +202,8 @@ const createStyles = (styleObject: Record<string, any>) =>
  *
  * @param {Object} props expected to be CSSProperties
  */
-const isValidCSSPropExists = (props: object): boolean =>
-	Object.keys(props).filter((p) => !!isValidCSSProperty(p)).length > 0
+const isValidCSSPropExists = (props: Record<string, any>): boolean =>
+	Object.keys(props).filter((p) => !!isValidCSSRule(p, props[p])).length > 0
 
 /**
  * SUI custom hook for generating className based on passed CSS properties

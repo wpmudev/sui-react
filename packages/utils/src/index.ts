@@ -36,18 +36,33 @@ export const isNestedStyleProperty = (name: string) => {
 /**
  * Check if a key is valid CSS property
  *
- * @param {string}  name             prop key
+ * @param {string}  prop             prop key
+ * @param {boolean} value            value of the css rule
  * @param {boolean} includeShorthand include shorthand props
  */
-const isValidCSSProperty = (name: string, includeShorthand: boolean = true) => {
-	let cssProps = Object.keys(document?.body?.style)
-
-	// include shorthand css properties
-	if (includeShorthand) {
-		cssProps = [...cssProps, ...Object.keys(CSS_SHORTHAND_MAPS)]
+const isValidCSSRule = (
+	prop: string,
+	value: string,
+	includeShorthand: boolean = true,
+) => {
+	// Return true if it's a shorthand
+	if (includeShorthand && Object.keys(CSS_SHORTHAND_MAPS).indexOf(prop) > -1) {
+		return true
 	}
 
-	return cssProps?.indexOf(name) > -1 || isNestedStyleProperty(name)
+	// Return true if it's a nested style property
+	if (isNestedStyleProperty(prop)) {
+		return true
+	}
+
+	// Check if it's a valid rule otherwise ( Support for Both Chrome and Safari )
+	if (!CSS.supports(prop, value)) {
+		// eslint-disable-next-line no-console
+		console.error(`Invalid css rule on _style property`, `"${prop}: ${value}"`)
+		return false
+	}
+
+	return true
 }
 
 /**
@@ -393,11 +408,12 @@ const chunkArray = (arr: any[], size: number): any[][] => {
  */
 const _isTestingMode = () => {
 	try {
-		return process?.env?.JEST_WORKER_ID !== undefined
+		return Boolean(process?.env?.JEST_WORKER_ID)
 	} catch {
 		return false
 	}
 }
+
 /**
  * It is an internal method to render rest props list safely
  *
@@ -431,7 +447,7 @@ export {
 	PluginsIcons,
 	CustomIcons,
 	chunkArray,
-	isValidCSSProperty,
+	isValidCSSRule,
 	_renderHTMLPropsSafely,
 	_isTestingMode,
 }
