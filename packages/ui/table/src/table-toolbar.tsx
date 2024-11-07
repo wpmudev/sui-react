@@ -80,7 +80,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 							<Select
 								id={bulkDropdown}
 								className="sui-table__toolbar-actions"
-								isSmall={true}
 								options={ctx?.bulkActions}
 								onChange={(action) =>
 									setBulkAction(action as Record<string, any>)
@@ -89,7 +88,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 							<Button
 								type="primary"
 								colorScheme="black"
-								isSmall={true}
 								isDisabled={!bulkAction}
 								onClick={onApplyBulkAction}
 							>
@@ -112,7 +110,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 						onChange={onSearch}
 						icon="Search"
 						iconPosition="start"
-						isSmall={true}
 					/>
 					{ctx?.showFiltersBtn && (
 						<>
@@ -123,7 +120,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 									buttonIcon="Filter"
 									placement="left"
 									colorScheme="black"
-									isSmall={true}
 									isFixedHeight={false}
 									menuCustomWidth={300}
 								>
@@ -136,7 +132,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 									icon="Filter"
 									colorScheme="black"
 									type="secondary"
-									isSmall={true}
 									onClick={() => setIsExpanded(!isExpanded)}
 									_htmlProps={{
 										"aria-controls": bodyId,
