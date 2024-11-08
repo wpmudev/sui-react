@@ -28,6 +28,13 @@
 					margin: 0;
 				}
 			}
+
+			@include element(body) {
+				@include media(max-width, lg) {
+					margin-left: 0;
+					margin-right: 0;
+				}
+			}
 		}
 	}
 
