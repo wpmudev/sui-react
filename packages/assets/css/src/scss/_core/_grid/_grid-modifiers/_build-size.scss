@@ -29,7 +29,7 @@
 
 		@each $bp-label, $bp-value in $breakpoints {
 			.sui-row-#{$bp-label} {
-				&--inline {
+				&--inline > {
 					@include block($block) {
 						@include media(min-width, $bp-label) {
 							width: auto;
@@ -50,7 +50,7 @@
 					}
 				}
 
-				&--stacked {
+				&--stacked > {
 					@include block($block) {
 						@include media(min-width, $bp-label) {
 							width: 100%;

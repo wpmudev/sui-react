@@ -19,7 +19,7 @@
 
 		@each $bp-label, $bp-value in $breakpoints {
 			.sui-row-#{$bp-label} {
-				&--inline {
+				&--inline > {
 					@include block($block) {
 						@include media(min-width, $bp-label) {
 							margin: 0;
@@ -28,7 +28,7 @@
 					}
 				}
 
-				&--stacked {
+				&--stacked > {
 					@include block($block) {
 						@include media(min-width, $bp-label) {
 							margin: 0 0 map.get($sui-grid-spacing, $bp-label);
