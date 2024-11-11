@@ -15,6 +15,7 @@
 		// Block wrapper.
 		@include block($block) {
 			background: $color-base-white;
+			border: $border-width-sm solid $color-grey-10;
 
 			@include modifier(large-radius) {
 				border-radius: $border-radius-xl;
