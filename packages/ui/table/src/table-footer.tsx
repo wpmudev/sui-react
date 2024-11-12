@@ -19,7 +19,7 @@ const TableFooter: React.FC<TableSectionProps> = ({
 			>
 				{Children.toArray(children).map((child: React.ReactNode) =>
 					cloneElement(child as React.ReactElement, {
-						...(child as React.ReactElement).props,
+						...(child as React.ReactElement)?.props,
 						isUnderFooter: true,
 					}),
 				)}

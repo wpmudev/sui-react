@@ -50,7 +50,6 @@ const TableRow: React.FC<TableRowProps> = ({
 	isGroup = false,
 	_htmlProps = {},
 	_style = {},
-	...props
 }) => {
 	// State for row expansion
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
@@ -140,7 +139,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	children = Children.toArray(children).map((child, index) => {
 		const p: Record<string, any> = {
 			hasDragIcon: false,
-			colSpan: (child as React.ReactElement).props.colSpan || undefined,
+			colSpan: (child as React.ReactElement)?.props?.colSpan || undefined,
 		}
 
 		if (0 === index) {

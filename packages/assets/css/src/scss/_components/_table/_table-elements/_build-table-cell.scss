@@ -21,7 +21,6 @@
 				white-space: nowrap;
 
 				@include media(max-width, sm) {
-					display: none;
 					padding: $spacing-lg $spacing-md;
 
 					@include modifier(actions, primary, selection) {
