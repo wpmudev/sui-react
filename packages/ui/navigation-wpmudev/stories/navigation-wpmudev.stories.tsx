@@ -1,6 +1,6 @@
 import React, { createRef } from "react"
-import { Navigation, NavigationUser } from "@wpmudev/sui-navigation"
-import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
+import { Navigation } from "@wpmudev/sui-navigation"
+import { _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 import {
 	MoreFromWPMUDEV,
@@ -21,7 +21,7 @@ import {
 	NavigationBrandProps,
 	NavigationUserProps,
 } from "@wpmudev/sui-navigation/src/navigation.types"
-import { Notifications, Resources } from "../src/navigation-wpmudev.types"
+import { Notifications } from "../src/navigation-wpmudev.types"
 
 // Configure default options
 export default {
