@@ -8,8 +8,11 @@ import {
 	NotificationWPMUDEV,
 	NotificationWPMUDEVContent,
 	WPMUDEVDrawer,
+	HamburgerWPMUDEV,
+	NavActionsWPMUDEV,
 	NavigationWrapper,
 	UserWPMUDEV,
+	HamburgerButtonWPMUDEV,
 } from "../src"
 import { DrawerActions } from "@wpmudev/sui-drawer"
 import { Tooltip } from "@wpmudev/sui-tooltip"
@@ -58,7 +61,7 @@ export const NavigationStory = ({
 	)
 
 	const navActions = (
-		<div className="sui-wpmudev__navigation--actions sui-wpmudev__navigation--hide-mobile">
+		<NavActionsWPMUDEV>
 			<Tooltip
 				customWidth={136}
 				buttonProps={{
@@ -74,34 +77,31 @@ export const NavigationStory = ({
 				Help and resources
 			</Tooltip>
 			<NotificationWPMUDEV notifications={notifications} />
-		</div>
+		</NavActionsWPMUDEV>
 	)
 
 	const hamburgerMenu = (
-		<ul className="sui-wpmudev__hamburger-menu">
-			<li>
-				<Button
-					startIcon="Question"
-					isFullWidth={true}
-					onClick={() => {
-						drawerRef?.current?.toggle()
-					}}
-				>
-					Help and resources
-				</Button>
-			</li>
-			<li>
-				<Button
-					startIcon="Bell"
-					isFullWidth={true}
-					onClick={() => {
-						notificationRef?.current?.toggle()
-					}}
-				>
-					What&apos;s new
-				</Button>
-			</li>
-		</ul>
+		<HamburgerWPMUDEV>
+			<Button
+				startIcon="Question"
+				isFullWidth={true}
+				onClick={() => {
+					drawerRef?.current?.toggle()
+				}}
+			>
+				Help and resources
+			</Button>
+
+			<Button
+				startIcon="Bell"
+				isFullWidth={true}
+				onClick={() => {
+					notificationRef?.current?.toggle()
+				}}
+			>
+				What&apos;s new
+			</Button>
+		</HamburgerWPMUDEV>
 	)
 
 	const drawer = (
@@ -113,7 +113,7 @@ export const NavigationStory = ({
 				disableShadow={true}
 				isFullWidth={true}
 				outerClickClose={false}
-				className="sui-wpmudev__hamburger-drawer sui-wpmudev__navigation--hide-desktop"
+				type="hamburger"
 				footer={
 					!isPro
 						? [upgradeButton]
@@ -154,7 +154,7 @@ export const NavigationStory = ({
 				placement="right"
 				hasContainer={false}
 				hasOverlay={false}
-				className={generateCN("sui-wpmudev__help", {}, "")}
+				type="helper"
 				back={{
 					show: true,
 					mobileOnly: true,
@@ -204,32 +204,29 @@ export const NavigationStory = ({
 									Upgrade to pro
 								</Button>
 							),
-							<NavigationUser
+							<UserWPMUDEV
 								key="user"
-								user={{ icon: "Logo" }}
-								status="not-connected"
-								className="sui-wpmudev__navigation-user sui-wpmudev__navigation--hide-mobile"
-								dropdownProps={{
-									menuCustomWidth: 360,
+								userProps={{
+									user: { icon: "Logo" },
+									status: "not-connected",
+									dropdownProps: {
+										menuCustomWidth: 360,
+									},
 								}}
-							>
-								<UserWPMUDEV
-									key="user-field"
-									title="Connect your site with WPMU DEV"
-									description="BLC isn't connected to a WPMU DEV account. Connect to unlock Cloud engine."
-									action={
-										<Button
-											type="primary"
-											colorScheme="blue"
-											icon="Logo"
-											isFullWidth={true}
-										>
-											Connect site
-										</Button>
-									}
-								/>
-							</NavigationUser>,
-							<Button
+								title="Connect your site with WPMU DEV"
+								description="BLC isn't connected to a WPMU DEV account. Connect to unlock Cloud engine."
+								action={
+									<Button
+										type="primary"
+										colorScheme="blue"
+										icon="Logo"
+										isFullWidth={true}
+									>
+										Connect site
+									</Button>
+								}
+							/>,
+							<HamburgerButtonWPMUDEV
 								key="hamburger"
 								type="tertiary"
 								iconOnly={true}
@@ -238,10 +235,9 @@ export const NavigationStory = ({
 								onClick={() => {
 									ref?.current?.toggle()
 								}}
-								className="sui-wpmudev__navigation--hide-desktop"
 							>
 								Hamburger
-							</Button>,
+							</HamburgerButtonWPMUDEV>,
 						]}
 					>
 						{navActions}

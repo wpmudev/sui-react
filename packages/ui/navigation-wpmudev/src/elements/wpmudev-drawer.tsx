@@ -11,6 +11,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 
 const WPMUDEVDrawer: React.FC<WPMUDEVDrawerProps> = ({
 	title = "",
+	type = "default",
 	toggleRef,
 	children,
 	footer,
@@ -21,7 +22,20 @@ const WPMUDEVDrawer: React.FC<WPMUDEVDrawerProps> = ({
 	_htmlProps = {},
 	...props
 }) => {
-	const { suiInlineClassname } = useStyles(_style, className)
+	let customClass
+
+	switch (type) {
+		case "hamburger":
+			customClass = `sui-wpmudev__hamburger-drawer sui-wpmudev__navigation--hide-desktop ${className}`
+			break
+		case "helper":
+			customClass = `sui-wpmudev__help ${className}`
+			break
+		default:
+			customClass = className
+	}
+
+	const { suiInlineClassname } = useStyles(_style, customClass)
 	const classNames = generateCN("sui-wpmudev__drawer", {}, suiInlineClassname)
 
 	return (
