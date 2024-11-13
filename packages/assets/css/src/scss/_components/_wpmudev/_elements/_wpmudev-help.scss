@@ -33,10 +33,28 @@
 			}
 
 			@include element(help-title) {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: $spacing-md;
 				font-size: $font-size-xs;
+				font-weight: $font-weight-md;
 				letter-spacing: $font-spacing-2xl;
 				color: $color-grey-50;
 				text-transform: uppercase;
+			}
+
+			@include element(help-title-link) {
+				font-size: $font-size-xs;
+				color: $color-base-black;
+				letter-spacing: normal;
+				text-transform: none;
+				text-decoration: none;
+				padding: $spacing-md 0;
+
+				&:hover {
+					color: $color-base-black;
+				}
 			}
 
 			@include element(help-content) {
@@ -68,7 +86,9 @@
 
 				@include modifier(item) {
 					display: flex;
-					gap: $spacing-lg;
+					column-gap: $spacing-lg;
+					row-gap: $spacing-default;
+					flex-wrap: wrap;
 					text-decoration: none;
 				}
 
@@ -95,6 +115,17 @@
 				background: $color-green-05;
 				border-radius: $border-radius-md;
 				margin-top: $spacing-default;
+			}
+
+			@include element(list-chat-message) {
+				display: flex;
+				flex: 1;
+				gap: $spacing-lg;
+				align-items: center;
+
+				img {
+					max-width: 48px;
+				}
 			}
 
 			@include element(list-text-small) {

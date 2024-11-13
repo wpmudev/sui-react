@@ -14,6 +14,7 @@ import {
 import { AvatarProps } from "@wpmudev/sui-avatar"
 import { ButtonProps } from "@wpmudev/sui-button"
 import { NavigationUserProps } from "@wpmudev/sui-navigation"
+import { LinkProps } from "@wpmudev/sui-link"
 
 /**
  * Represents a plugin's details.
@@ -35,6 +36,7 @@ type Notifications = Array<{
 
 type Resources = {
 	title: string
+	titleLink?: LinkProps
 	content: Array<{
 		icon: PluginIconTypes
 		title: string
@@ -64,6 +66,7 @@ interface WPMUDEVButtonProps extends DropdownProps, SuiStyleType {
 interface WPMUDEVHelpProps extends DropdownProps, SuiStyleType {
 	label?: string
 	title?: string
+	titleLink?: LinkProps
 	isPro?: boolean
 	content: Array<{
 		link: string
@@ -71,8 +74,9 @@ interface WPMUDEVHelpProps extends DropdownProps, SuiStyleType {
 	}>
 	resources?: Resources
 	support?: {
-		icon: PluginIconTypes
+		icon: string
 		title: string
+		image: string
 		description: string
 		message: string
 	}

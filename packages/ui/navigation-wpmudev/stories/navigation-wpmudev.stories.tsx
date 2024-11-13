@@ -22,6 +22,7 @@ import {
 	NavigationUserProps,
 } from "@wpmudev/sui-navigation/src/navigation.types"
 import { Notifications } from "../src/navigation-wpmudev.types"
+import ChatAvatar from "./images/chat-avatar.png"
 
 // Configure default options
 export default {
@@ -161,7 +162,24 @@ export const NavigationStory = ({
 				}}
 				outerClickClose={false}
 			>
-				<HelpWPMUDEVContent content={resources} />
+				<HelpWPMUDEVContent
+					title="Tutorials"
+					titleLink={{
+						href: "https://google.com",
+						isExternal: true,
+						hasExternalIcon: true,
+						children: "View all",
+					}}
+					content={resources}
+					isPro={isPro}
+					support={{
+						icon: "contact",
+						title: "Contact support",
+						description: "Get expert and in-depth help from WPMU DEV staff.",
+						image: ChatAvatar,
+						message: "Reply usual time 2 mins",
+					}}
+				/>
 			</WPMUDEVDrawer>
 			<WPMUDEVDrawer
 				title="What’s new on Smush?"
