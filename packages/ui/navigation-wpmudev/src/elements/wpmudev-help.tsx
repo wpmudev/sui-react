@@ -63,10 +63,10 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 			IconTag = Icons?.[PluginIcon.icon as IconsNamesType]
 		}
 		return (
-			<li key={item.title}>
+			<li key={item.title} className="sui-wpmudev__help-item">
 				<a
 					href={item.link}
-					className="sui-wpmudev__help-list--item"
+					className="sui-wpmudev__help-list--item sui-wpmudev__help-list--link"
 					target="_blank"
 					rel="noreferrer"
 				>

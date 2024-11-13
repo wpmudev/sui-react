@@ -1,0 +1,110 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Notifications
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-notifications($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			// Notifications
+			@include element(notifications) {
+				.sui-dropdown__popover {
+					padding: 0;
+				}
+
+				@include modifier(header, footer) {
+					padding: $spacing-xl;
+				}
+
+				@include modifier(header, item) {
+					border-bottom: $border-width-sm solid $color-grey-10;
+				}
+
+				@include modifier(footer) {
+					border-top: $border-width-sm solid $color-grey-10;
+				}
+
+				.sui-wpmudev__notifications--list {
+					max-height: 444px;
+					overflow-y: scroll;
+				}
+
+				@include modifier(item) {
+					display: flex;
+					flex-direction: column;
+					gap: $spacing-md;
+					padding: $spacing-lg $spacing-xl;
+
+					&:first-child {
+						.sui-wpmudev__notifications--item-action {
+							flex: 1;
+							.sui-button {
+								width: 100%;
+							}
+						}
+					}
+
+					&:last-child {
+						border-bottom: none;
+					}
+
+					&:hover {
+						background: $color-primary-05;
+					}
+				}
+
+				@include modifier(item-actions) {
+					display: flex;
+					gap: $spacing-lg;
+				}
+
+				@include modifier(item-meta) {
+					display: flex;
+					gap: $spacing-lg;
+					font-size: $font-size-xs;
+					line-height: $font-height-xs;
+					color: $color-grey-90;
+				}
+
+				@include modifier(item-title) {
+					font-weight: $font-weight-md;
+					color: $color-grey-90;
+					margin: 0;
+				}
+
+				@include modifier(version) {
+					font-weight: $font-weight-md;
+				}
+
+				@include modifier(time) {
+					position: relative;
+					color: $color-grey-50;
+
+					&:after {
+						content: "";
+						position: absolute;
+						border-radius: 100%;
+						background: $color-grey-50;
+						width: 5px;
+						height: 5px;
+						top: 50%;
+						transform: translateY(-50%);
+						left: -#{$spacing-md + 3px};
+					}
+				}
+			}
+
+			@include element(notifications-drawer) {
+				.sui-drawer__footer {
+					justify-content: flex-start;
+				}
+			}
+		}
+	}
+}

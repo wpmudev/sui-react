@@ -1,0 +1,41 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Hamburger
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-hamburger($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			// hamburger
+			@include element(hamburger-menu) {
+				display: flex;
+				gap: $spacing-sm;
+				flex-direction: column;
+				margin: $spacing-sm 0;
+
+				li {
+					margin: 0;
+
+					.sui-button {
+						border: none;
+						background: transparent;
+						border-radius: 0;
+						justify-content: flex-start;
+						color: $color-grey-50;
+
+						&:hover {
+							background: $color-grey-05;
+							color: $color-grey-90;
+						}
+					}
+				}
+			}
+		}
+	}
+}
