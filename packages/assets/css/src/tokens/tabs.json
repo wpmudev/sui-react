@@ -57,7 +57,7 @@
 					"type": "fontWeight"
 				},
 				"color": {
-					"value": "{color.grey.50}",
+					"value": "{color.grey.70}",
 					"type": "color"
 				}
 			},
