@@ -13,10 +13,9 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			outline-color: $color-primary-50;
-
 			@include modifier(focus) {
 				&.sui-#{$block} {
+					outline: $link-outline-size $link-outline-style $link-outline-color;
 					color: $color-primary-50;
 				}
 
