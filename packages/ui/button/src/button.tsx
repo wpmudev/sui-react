@@ -106,7 +106,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 		const attrs = {
 			ref,
 			href: isLink && !!href ? href : undefined,
-			...(isLink && { target: target || "_blank" }),
+			...(isLink && target && { target }),
 			htmlFor: condContent(label),
 			// classname
 			className: generateCN(baseClassName, attrClasses, suiInlineClassname),
