@@ -12,9 +12,12 @@ import { useStyles } from "@wpmudev/sui-hooks"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 import { IconProps } from "@wpmudev/sui-icon"
 import { Tag } from "@wpmudev/sui-tag"
+import { Link } from "@wpmudev/sui-link"
+import ChatAvatar from "../images/chat-avatar.png"
 
 const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 	title = "Recommended Readings",
+	titleLink,
 	isPro = false,
 	content = [],
 	resources = {
@@ -38,6 +41,7 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 		icon: "contact",
 		title: "Contact support",
 		description: "Get expert and in-depth help from WPMU DEV staff.",
+		image: ChatAvatar,
 		message: "Reply usual time 2 mins",
 	},
 	className = "",
@@ -63,10 +67,10 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 			IconTag = Icons?.[PluginIcon.icon as IconsNamesType]
 		}
 		return (
-			<li key={item.title}>
+			<li key={item.title} className="sui-wpmudev__help-item">
 				<a
 					href={item.link}
-					className="sui-wpmudev__help-list--item"
+					className="sui-wpmudev__help-list--item sui-wpmudev__help-list--link"
 					target="_blank"
 					rel="noreferrer"
 				>
@@ -122,6 +126,13 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 							)}
 						</div>
 						<p className="sui-wpmudev__list-desc">{support.description}</p>
+					</div>
+					<div className="sui-wpmudev__list-chat-message">
+						<img
+							src={ChatAvatar}
+							alt="Support team member avatar"
+							loading="lazy"
+						/>
 						<p className="sui-wpmudev__list-text-small">
 							<small>{support.message}</small>
 						</p>
@@ -140,7 +151,19 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 
 	return (
 		<div className={classNames} {..._renderHTMLPropsSafely(_htmlProps)}>
-			<div className="sui-wpmudev__help-title">{title}</div>
+			<div className="sui-wpmudev__help-title">
+				{title}
+				{titleLink && (
+					<Link
+						isExternal={true}
+						hasExternalIcon={true}
+						className="sui-wpmudev__help-title-link"
+						{...titleLink}
+					>
+						{titleLink?.children}
+					</Link>
+				)}
+			</div>
 			{content && (
 				<div className="sui-wpmudev__help-readings">
 					{content.map((item, index) => (
@@ -156,7 +179,19 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 					))}
 				</div>
 			)}
-			<div className="sui-wpmudev__help-title">{resources.title}</div>
+			<div className="sui-wpmudev__help-title">
+				{resources.title}
+				{resources.titleLink && (
+					<Link
+						isExternal={true}
+						hasExternalIcon={true}
+						className="sui-wpmudev__help-title-link"
+						{...resources.titleLink}
+					>
+						{resources.titleLink.children}
+					</Link>
+				)}
+			</div>
 			<ul className="sui-wpmudev__help-list">
 				{resourcesSection}
 				{supportSection()}

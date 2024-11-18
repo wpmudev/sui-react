@@ -1,0 +1,47 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Upsell
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-upsell($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(upsell) {
+				display: flex;
+				text-decoration: none;
+				gap: $spacing-lg;
+				padding: $spacing-lg;
+				background: $color-primary-05;
+				border-radius: $border-radius-md;
+				border: $border-width-md solid transparent;
+
+				&:hover {
+					background: $color-primary-10;
+				}
+
+				&:focus,
+				&:active {
+					border-color: $color-primary-50;
+				}
+			}
+
+			@include element(upsell-title) {
+				display: flex;
+				align-items: center;
+				gap: $spacing-sm;
+			}
+
+			@include element(upsell-content) {
+				display: flex;
+				flex-direction: column;
+				gap: $spacing-sm;
+			}
+		}
+	}
+}
