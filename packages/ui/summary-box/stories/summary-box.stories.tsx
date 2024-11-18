@@ -16,6 +16,8 @@ import {
 	SummaryBoxBody,
 	SummaryBoxItem,
 	SummaryFooterBody,
+	SummaryBoxContent,
+	SummaryBoxRow,
 } from "../src"
 import { IconsName } from "@wpmudev/sui-icons"
 
@@ -92,9 +94,16 @@ const SummaryBox = ({ ...props }) => {
 								/>,
 							]}
 						>
-							<Score bar={95} isSmall={false} value={10} state="success" />
-							<h4>Desktop Site Performance Score</h4>
-							<p>Last Checked : May 14, 2023 at 08:24am</p>
+							<SummaryBoxRow>
+								<SummaryBoxContent span="full">
+									<Score bar={95} isSmall={false} value={10} state="success" />
+									<h4>Desktop Site Performance Score</h4>
+									<p>Last Checked : May 14, 2023 at 08:24am</p>
+								</SummaryBoxContent>
+								<SummaryBoxContent span="full" padding="md">
+									Check
+								</SummaryBoxContent>
+							</SummaryBoxRow>
 						</SummaryBoxBody>
 						<SummaryFooterBody>
 							<Notification

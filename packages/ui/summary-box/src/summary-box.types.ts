@@ -131,9 +131,55 @@ interface SummaryFooterBodyProps
 	children?: React.ReactNode
 }
 
+/**
+ * SummaryBoxContentProps Interface
+ *
+ * Represents the props for the SummaryBox component.
+ */
+interface SummaryBoxContentProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+		SuiStyleType {
+	/**
+	 * Additional CSS class names for the summary box content
+	 */
+	className?: string
+	/**
+	 * Content to be displayed inside the summary box content
+	 */
+	children?: React.ReactNode
+	/**
+	 * Whether for the content box to have full width or half
+	 */
+	span?: "half" | "full"
+	/**
+	 * Padding size of the Box
+	 */
+	padding?: "sm" | "md" | "lg"
+}
+
+/**
+ * SummaryBoxContentProps Interface
+ *
+ * Represents the props for the SummaryBox component.
+ */
+interface SummaryBoxRowProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
+		SuiStyleType {
+	/**
+	 * Additional CSS class names for the summary box row
+	 */
+	className?: string
+	/**
+	 * Content to be displayed inside the summary box row
+	 */
+	children?: React.ReactNode
+}
+
 export type {
 	SummaryBoxProps,
 	SummaryBoxBodyProps,
 	SummaryBoxItemProps,
 	SummaryFooterBodyProps,
+	SummaryBoxContentProps,
+	SummaryBoxRowProps,
 }

@@ -1,12 +1,50 @@
 {
-    "summary": {
-        "size": {
-            "height": {
-                "md": {
-                    "value": "24px",
-                    "type": "sizing"
-                }
-            }
-        }
-    }
+	"summary": {
+		"size": {
+			"height": {
+				"md": {
+					"value": "24px",
+					"type": "sizing"
+				}
+			}
+		},
+		"content": {
+			"padding": {
+				"lg": {
+					"value": "24px",
+					"type": "padding"
+				},
+				"md": {
+					"value": "16px",
+					"type": "padding"
+				},
+				"sm": {
+					"value": "12px",
+					"type": "padding"
+				}
+			},
+			"background": {
+				"value": "{color.extended.neutral.100}",
+				"type": "background"
+			},
+			"border": {
+				"radius": {
+					"value": "{border.radius.md}",
+					"type": "radius"
+				}
+			}
+		},
+		"row": {
+			"gap": {
+				"md": {
+					"value": "16px",
+					"type": "gap"
+				},
+				"sm": {
+					"value": "8px",
+					"type": "gap"
+				}
+			}
+		}
+	}
 }
