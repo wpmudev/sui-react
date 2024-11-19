@@ -24,6 +24,9 @@ import {
 import { Notifications } from "../src/navigation-wpmudev.types"
 import ChatAvatar from "./images/chat-avatar.png"
 
+// Import documentation main page
+import docs from "./navigation-wpmudev.mdx"
+
 // Configure default options
 export default {
 	title: "SUI/Components/Modules/Navigation WPMUDEV",
@@ -31,18 +34,20 @@ export default {
 	parameters: {
 		layout: "fullscreen",
 		docs: {
-			// page: docs,
+			page: docs,
 		},
 	},
 }
 export const NavigationStory = ({
 	isPro = false,
+	connected = false,
 	brand = { title: "title", description: "" },
 	user,
 	notifications,
 	resources,
 }: {
 	isPro: boolean
+	connected: boolean
 	brand: NavigationBrandProps
 	user: NavigationUserProps
 	notifications: Notifications
@@ -212,7 +217,7 @@ export const NavigationStory = ({
 					{drawer}
 					<Navigation
 						brand={brand}
-						{...(isPro && {
+						{...(connected && {
 							user,
 						})}
 						actions={[
@@ -222,28 +227,30 @@ export const NavigationStory = ({
 									Upgrade to pro
 								</Button>
 							),
-							<UserWPMUDEV
-								key="user"
-								userProps={{
-									user: { icon: "Logo" },
-									status: "not-connected",
-									dropdownProps: {
-										menuCustomWidth: 360,
-									},
-								}}
-								title="Connect your site with WPMU DEV"
-								description="BLC isn't connected to a WPMU DEV account. Connect to unlock Cloud engine."
-								action={
-									<Button
-										type="primary"
-										colorScheme="blue"
-										icon="Logo"
-										isFullWidth={true}
-									>
-										Connect site
-									</Button>
-								}
-							/>,
+							!connected && (
+								<UserWPMUDEV
+									key="user"
+									userProps={{
+										user: { icon: "Logo" },
+										status: "not-connected",
+										dropdownProps: {
+											menuCustomWidth: 360,
+										},
+									}}
+									title="Connect your site with WPMU DEV"
+									description="BLC isn't connected to a WPMU DEV account. Connect to unlock Cloud engine."
+									action={
+										<Button
+											type="primary"
+											colorScheme="blue"
+											icon="Logo"
+											isFullWidth={true}
+										>
+											Connect site
+										</Button>
+									}
+								/>
+							),
 							<HamburgerButtonWPMUDEV
 								key="hamburger"
 								type="tertiary"
@@ -373,4 +380,43 @@ NavigationStory.args = {
 			link: "https://wpmudev.com",
 		},
 	],
+}
+
+NavigationStory.argTypes = {
+	isPro: {
+		name: "Pro",
+		control: {
+			type: "boolean",
+		},
+	},
+	connected: {
+		name: "Connected",
+		control: {
+			type: "boolean",
+		},
+	},
+	brand: {
+		name: "Brand",
+		control: {
+			type: "object",
+		},
+	},
+	user: {
+		name: "User",
+		control: {
+			type: "object",
+		},
+	},
+	notifications: {
+		name: "Notifications",
+		control: {
+			type: "object",
+		},
+	},
+	resources: {
+		name: "Resources",
+		control: {
+			type: "object",
+		},
+	},
 }
