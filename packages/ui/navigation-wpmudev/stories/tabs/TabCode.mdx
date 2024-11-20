@@ -13,11 +13,11 @@ import {
   contained={true}
   style={{ paddingTop: 30, paddingBottom: 0 }}
 >
-  <p>
-    The `NavigationWPMUDEV` component provides a customizable navigation system
-    tailored for WPMU DEV modules, offering options to manage navigation,
-    drawers, user states, and more.
-  </p>
+	<p>
+		The `NavigationWPMUDEV` component provides a customizable navigation system
+		tailored for WPMU DEV modules, offering options to manage navigation,
+		drawers, user states, and more.
+	</p>
 </Section>
 
 <Section title="Props" contained={true}>
@@ -30,74 +30,64 @@ import {
       Array of notification objects displayed in the notification drawer. Each
       notification includes:
     </p>
-    <ul>
-      <li>
-        <Code small={true}>version</Code>: Notification version (e.g., release
-        version).
-      </li>
-      <li>
-        <Code small={true}>time</Code>: Time since the notification was issued.
-      </li>
-      <li>
-        <Code small={true}>title</Code>: Main notification title.
-      </li>
-      <li>
-        <Code small={true}>actions</Code>: Array of actionable buttons
-        (optional).
-      </li>
-    </ul>
+	<ul>
+		<li>
+			<Code small={true}>version</Code>: Notification version (e.g., release version).
+		</li>
+		<li>
+			<Code small={true}>time</Code>: Time since the notification was issued.
+		</li>
+		<li>
+			<Code small={true}>title</Code>: Main notification title.
+		</li>
+		<li>
+			<Code small={true}>actions</Code>: Array of actionable buttons (optional).
+		</li>
+	</ul>
   </PropSection>
 
   <PropSection title="resources" type="array" isRequired={true}>
-    <p>
-      List of external resources displayed in the help drawer. Each resource
-      contains:
-    </p>
-    <ul>
-      <li>
-        <Code small={true}>label</Code>: Resource title.
-      </li>
-      <li>
-        <Code small={true}>link</Code>: URL of the resource.
-      </li>
-    </ul>
+	<p>
+		List of external resources displayed in the help drawer. Each resource
+		contains:
+	</p>
+	<ul>
+		<li>
+			<Code small={true}>label</Code>: Resource title.
+		</li>
+		<li>
+			<Code small={true}>link</Code>: URL of the resource.
+		</li>
+	</ul>
   </PropSection>
 </Section>
 
 <Section title="Sub components" contained={true}>
-  <Section title="NavigationWrapper" contained={true} style={{ paddingTop: 0 }}>
+	<h3>1. NavigationWrapper</h3>
     <p>
       A wrapper component for navigation elements. This should be the parent
       for all navigation-related components to ensure proper layout and
       functionality.
     </p>
-  </Section>
 
-  <Section title="WPMUDEVDrawer" contained={true} style={{ paddingTop: 0 }}>
+	<h3>2. WPMUDEVDrawer</h3>
     <p>
       Represents a drawer component. It provides a sliding panel for displaying
       additional content such as notifications or help resources. Check docs 
 	  <a href="?path=/docs/sui-components-advanced-drawer--docs" target="_blank">here</a>
     </p>
-  </Section>
 
-  <Section
-    title="HamburgerWPMUDEV"
-    contained={true}
-    style={{ paddingTop: 0 }}
-  >
+	<h3>3. HamburgerWPMUDEV</h3>
     <p>
-      A component that provides a collapsible menu for mobile or compact
-      layouts.
+		A component that provides a collapsible menu for mobile or compact
+		layouts.
     </p>
-  </Section>
 
-  <Section title="NavActionsWPMUDEV" contained={true} style={{ paddingTop: 0 }}>
+	<h3>4. NavActionsWPMUDEV</h3>
     <p>
-      Displays actionable items (e.g., notifications or help links) in the
-      navigation bar.
+		Displays actionable items (e.g., notifications or help links) in the
+		navigation bar.
     </p>
-  </Section>
 </Section>
 
 <CommonPropsNotice />
