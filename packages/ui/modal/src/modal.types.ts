@@ -39,6 +39,7 @@ interface ModalHeaderProps
 		| "success"
 		| "warning"
 		| "critical"
+	hasCloseButton?: boolean
 }
 
 interface ModalBodyProps

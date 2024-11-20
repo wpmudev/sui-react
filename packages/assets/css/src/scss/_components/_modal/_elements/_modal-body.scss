@@ -23,10 +23,7 @@
 
 			@include modifier(advanced) {
 				@include modifies-element(body) {
-					overflow-y: scroll;
-					&::-webkit-scrollbar {
-						background: transparent;
-					}
+					overflow-y: auto;
 				}
 			}
 		}
@@ -37,7 +34,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(body) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}

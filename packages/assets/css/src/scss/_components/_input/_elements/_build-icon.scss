@@ -26,6 +26,12 @@
 				@include modifies-element(icon) {
 					right: 12px;
 				}
+
+				// If the icon has a tooltip
+				.sui-tooltip {
+					right: 12px;
+					position: relative;
+				}
 			}
 
 			// if input has icon
