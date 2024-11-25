@@ -17,6 +17,7 @@
 				gap: $summary-row-gap-md;
 				flex-wrap: wrap;
 				justify-content: space-between;
+				width: 100%;
 
 				// Smaller gap on mobile
 				@include media(max-width, sm) {

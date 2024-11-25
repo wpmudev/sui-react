@@ -21,10 +21,8 @@ import {
 } from "../src"
 import { IconsName } from "@wpmudev/sui-icons"
 
-// Build "SummaryBox" story.
-const SummaryBox = ({ ...props }) => {
+const SummaryBoxStory = (props: Record<string, any>) => {
 	const [mode, setMode] = useState<string>("desktop")
-
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
@@ -94,16 +92,7 @@ const SummaryBox = ({ ...props }) => {
 								/>,
 							]}
 						>
-							<SummaryBoxRow>
-								<SummaryBoxContent span="full">
-									<Score bar={95} isSmall={false} value={10} state="success" />
-									<h4>Desktop Site Performance Score</h4>
-									<p>Last Checked : May 14, 2023 at 08:24am</p>
-								</SummaryBoxContent>
-								<SummaryBoxContent span="full" padding="md">
-									Check
-								</SummaryBoxContent>
-							</SummaryBoxRow>
+							{props.children}
 						</SummaryBoxBody>
 						<SummaryFooterBody>
 							<Notification
@@ -134,11 +123,64 @@ const SummaryBox = ({ ...props }) => {
 	)
 }
 
+// Build "SummaryBox" story.
+const SummaryBox = (props: Record<string, any>) => {
+	const { layout } = props
+
+	const renderLayout = () => {
+		if ("basic" === layout) {
+			return (
+				<SummaryBoxContent span="full">
+					<Score bar={95} isSmall={false} value={10} state="success" />
+					<h4>Desktop Site Performance Score</h4>
+					<p>Last Checked : May 14, 2023 at 08:24am</p>
+				</SummaryBoxContent>
+			)
+		}
+
+		if ("stack" === layout) {
+			return (
+				<SummaryBoxRow>
+					<SummaryBoxContent span="full">
+						<Score bar={95} isSmall={false} value={10} state="success" />
+						<h4>Desktop Site Performance Score</h4>
+						<p>Last Checked : May 14, 2023 at 08:24am</p>
+					</SummaryBoxContent>
+					<SummaryBoxContent span="full" padding="md">
+						Check
+					</SummaryBoxContent>
+				</SummaryBoxRow>
+			)
+		}
+
+		if ("grid" === layout) {
+			return (
+				<SummaryBoxRow>
+					<SummaryBoxContent>
+						<h3>Custom Heading</h3>
+						<p>Custom Sub Heading</p>
+					</SummaryBoxContent>
+					<SummaryBoxContent>
+						<h3>Custom Heading</h3>
+						<p>Custom Sub Heading</p>
+					</SummaryBoxContent>
+					<SummaryBoxContent span="full" padding="md">
+						Last refresh: May 14, 2023 at 08:24 am
+					</SummaryBoxContent>
+				</SummaryBoxRow>
+			)
+		}
+	}
+
+	return <SummaryBoxStory {...props}>{renderLayout()}</SummaryBoxStory>
+}
+
 // Set story arguments.
 SummaryBox.args = {
 	icon: "Performance",
 	title: "Performance Summary",
 	hideMobileIcon: true,
+	layout: "basic",
 }
 
 // Set controls for story arguments.
@@ -157,6 +199,13 @@ SummaryBox.argTypes = {
 	hideMobileIcon: {
 		name: "Hide icon on mobile",
 		control: "boolean",
+	},
+	layout: {
+		name: "Layout",
+		options: ["basic", "stack", "grid"],
+		control: {
+			type: "select",
+		},
 	},
 }
 
