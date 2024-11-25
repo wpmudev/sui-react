@@ -147,7 +147,7 @@ const SummaryBox = (props: Record<string, any>) => {
 						<p>Last Checked : May 14, 2023 at 08:24am</p>
 					</SummaryBoxContent>
 					<SummaryBoxContent span="full" padding="md">
-						Check
+						Last refresh: May 14, 2023 at 08:24 am
 					</SummaryBoxContent>
 				</SummaryBoxRow>
 			)
