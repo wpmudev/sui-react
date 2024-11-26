@@ -24,6 +24,10 @@
 				height: 100%;
 				padding: $spacing-lg;
 
+				@include media(max-width, sm) {
+					padding: $spacing-md;
+				}
+
 				* {
 					margin: 0;
 				}
