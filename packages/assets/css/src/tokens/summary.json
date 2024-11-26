@@ -24,7 +24,7 @@
 				}
 			},
 			"background": {
-				"value": "{color.extended.neutral.100}",
+				"value": "{color.base.white}",
 				"type": "background"
 			},
 			"border": {
