@@ -129,7 +129,7 @@ export const BasicExample = ({
 					content={[
 						{
 							label:
-								"Instantly Turn Keywords Into SEO Links: This SmartCrawl Tool Automates It For You",
+								"Instantly Turn Keywords Into SEO Links: This SmartCrawl Tool Automates It For You",
 							link: "https://wpmudev.com",
 						},
 						{
