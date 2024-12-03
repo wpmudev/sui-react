@@ -16,6 +16,7 @@
 			@include element(label) {
 				@include modifier(hover) {
 					background: $color-grey-05;
+					color: $color-grey-90;
 				}
 			}
 		}
