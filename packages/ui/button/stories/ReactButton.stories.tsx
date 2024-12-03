@@ -51,12 +51,6 @@ const Button = ({
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyle}>
-					<StandardButton
-						icon="Bell"
-						isLoading={true}
-						type="primary"
-						isSmall={true}
-					/>
 					{(() => {
 						switch (example) {
 							case "label-icon":
