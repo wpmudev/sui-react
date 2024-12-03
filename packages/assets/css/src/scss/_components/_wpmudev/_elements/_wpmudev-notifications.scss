@@ -30,7 +30,7 @@
 					border-top: $border-width-sm solid $color-grey-10;
 				}
 
-				.sui-wpmudev__notifications--list {
+				.sui-#{$block}__notifications--list {
 					max-height: 444px;
 					overflow-y: scroll;
 				}
@@ -56,6 +56,12 @@
 
 					&:hover {
 						background: $color-primary-05;
+
+						.sui-#{$block}__notifications--time {
+							&:after {
+								background: $color-primary-50;
+							}
+						}
 					}
 				}
 
@@ -84,13 +90,13 @@
 
 				@include modifier(time) {
 					position: relative;
-					color: $color-grey-50;
+					color: $color-grey-70;
 
 					&:after {
 						content: "";
 						position: absolute;
 						border-radius: 100%;
-						background: $color-grey-50;
+						background: $color-grey-30;
 						width: 5px;
 						height: 5px;
 						top: 50%;

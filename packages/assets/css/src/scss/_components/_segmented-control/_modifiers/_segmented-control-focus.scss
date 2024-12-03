@@ -25,7 +25,7 @@
 
 			@include element(label) {
 				&:focus-visible {
-					outline: $border-width-md solid $color-grey-50;
+					outline: $border-width-md solid $color-grey-90;
 					outline-offset: -#{$border-width-sm};
 					color: $color-grey-70;
 					position: relative;
