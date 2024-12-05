@@ -16,8 +16,12 @@
 				font-weight: $font-weight-md;
 			}
 
-			@include element(text, value) {
-				color: $color-grey-50;
+			@include element(value) {
+				color: $color-grey-70;
+			}
+
+			@include element(text) {
+				color: $color-grey-90;
 			}
 		}
 	}

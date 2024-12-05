@@ -16,11 +16,7 @@
 				box-shadow: none;
 
 				@include modifier(hover) {
-					background: $color-primary-05;
-
-					.sui-#{$block}__item-info {
-						color: $color-primary-50;
-					}
+					background: $color-grey-05;
 				}
 			}
 		}

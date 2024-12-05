@@ -14,7 +14,6 @@
 		@include block($block) {
 			@include element(row) {
 				padding: $fieldlist-spacing-md $spacing-xl;
-				color: $color-grey-50;
 				font-weight: $font-weight-md;
 				border-bottom: $border-width-sm solid $color-grey-10;
 

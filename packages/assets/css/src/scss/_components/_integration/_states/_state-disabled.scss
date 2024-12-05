@@ -21,6 +21,10 @@
 				@include modifies-element(icon) {
 					opacity: $integration-disabled-opacity;
 				}
+
+				@include modifies-element(title, description) {
+					color: $color-grey-50;
+				}
 			}
 		}
 	}

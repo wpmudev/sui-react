@@ -73,14 +73,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 		>
 			{/* Display item info, including optional icon and title */}
 			<div className="sui-sidebar__item-info">
-				{IconTag && (
-					<IconTag
-						size="sm"
-						colorScheme={
-							(isHovered && !isFocused) || isActive ? "informative" : ""
-						}
-					/>
-				)}
+				{IconTag && <IconTag size="sm" />}
 				<span>{title}</span>
 			</div>
 
