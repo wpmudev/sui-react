@@ -9,6 +9,8 @@
 @mixin edit-states($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
+			border-color: $color-grey-50;
+
 			@include modifier(info) {
 				border-color: $color-primary-50;
 
@@ -45,6 +47,8 @@
 
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block-name) {
+			border-color: $color-base-black;
+
 			@include element(icon) {
 				color: $color-base-black;
 			}

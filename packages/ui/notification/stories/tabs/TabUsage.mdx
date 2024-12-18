@@ -1,6 +1,7 @@
 import { Section, Row, Col } from "@wpmudev/sui-docs"
 
 import InlineAnatomy from "../images/inline-anatomy.svg"
+import InlineVariationNeutral from "../images/inline-variation-neutral.svg"
 import InlineVariationInformative from "../images/inline-variation-informative.svg"
 import InlineVariationSuccess from "../images/inline-variation-success.svg"
 import InlineVariationWarning from "../images/inline-variation-warning.svg"
@@ -15,19 +16,18 @@ import NotificationLocation from "../images/location.svg"
 
 <Section title="1. Inline Notifications">
 	<p>
-		Inline notifications can be located near the item that requires attention or at the top of the main content.
+		Inline notifications notify users about the status of an action or system. They can be located near the item that requires attention or at the top of the main content.
 	</p>
 	<h2 style={{ paddingTop: 0 }}>Anatomy</h2>
 	<img src={InlineAnatomy} alt="Inline Notification Anatomy" />
 	<h2> Status Indicator </h2>
 	<p>
-		All notifications must include a status indication. Users will find it
-		useful to visually identify the type of notice.
+		All toast must include a status indication. Users will find it useful to visually identify the type of notice.
 	</p>
 
     <h2 style={{ paddingTop: 15 }}> Content </h2>
     <p>
-    	Every notification has a title, which is optional, and a short description of the alert. The title and message must be distinct from one another in terms of linguistic weight. If necessary, a link can be added as well.
+    	Every notification has a title, which is optional, and a short description of the alert. The title and message must be distinct from one another in terms of linguistic weight.
     </p>
 
     <h2 style={{ paddingTop: 15 }}> Action </h2>
@@ -37,31 +37,31 @@ import NotificationLocation from "../images/location.svg"
 
     <h2 style={{ paddingTop: 15 }}> Dismiss </h2>
     <p>
-    	A dismiss icon is an optional component for notifications that close the
-    	notification with direct action.
+    	A dismiss icon is an optional component for notifications that close the notification with direct action.
     </p>
 
 
     <h2 style={{ paddingTop: 15 }}>Variations</h2>
-    <h3>1. Informative</h3>
+	<h3>1. Neutral</h3>
+    <img src={InlineVariationNeutral} alt="Notification Inline Neutral" />
+
+    <h3>2. Informative</h3>
     <img src={InlineVariationInformative} alt="Notification Inline Informative" />
 
-    <h3>2. Success</h3>
+    <h3>3. Success</h3>
     <img src={InlineVariationSuccess} alt="Notification Inline Success" />
 
-    <h3>2. Warning</h3>
+    <h3>4. Warning</h3>
     <img src={InlineVariationWarning} alt="Notification Inline Warning" />
 
-    <h3>2. Error</h3>
+    <h3>5. Error</h3>
     <img src={InlineVariationError} alt="Notification Inline Error" />
 
 </Section>
 
 <Section title="2. Toast Notifications">
 	<p>
-		Toast is a non-intrusive modal to display low-attention notifications that
-		floats on the top of the screen. Primarily toast is used for confirming task
-		receipt and completion.
+		Toast is a non-intrusive modal to display low-attention notifications that floats on the top of the screen. Primarily toast is used for confirming task receipt and completion.
 	</p>
 	<h2 style={{ marginTop: 0 }}>Anatomy</h2>
 	<img src={ToastAnatomy} alt="Toast Anatomy" />
