@@ -14,8 +14,9 @@
 		@include block($block) {
 			@include element(item) {
 				@include modifier(focus) {
+					background: $color-black-a10;
 					&:after {
-						border: $border-width-md solid $color-grey-70;
+						border: $border-width-md solid $color-primary-50;
 					}
 				}
 			}

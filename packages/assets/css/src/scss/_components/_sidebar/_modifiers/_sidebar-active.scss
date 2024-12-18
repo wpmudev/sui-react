@@ -14,7 +14,7 @@
 		@include block($block) {
 			@include element(item) {
 				@include modifier(active) {
-					background: $color-grey-10;
+					background: $color-black-a05;
 				}
 			}
 		}
