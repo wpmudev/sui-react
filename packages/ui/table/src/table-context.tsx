@@ -141,6 +141,7 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 				setColumns,
 				// table selected rows
 				selected,
+				setSelected,
 				onSelect,
 				// force-collapse all table rows
 				forceCollapse,

@@ -387,6 +387,11 @@ interface TableContextProps {
 	selected: Array<unknown>
 
 	/**
+	 * function to update selected rows
+	 */
+	setSelected: (rows: Array<unknown>) => void
+
+	/**
 	 * Function to handle row selection.
 	 */
 	onSelect: (

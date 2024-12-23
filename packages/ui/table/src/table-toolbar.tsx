@@ -44,11 +44,16 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 	const ctx = useContext(TableContext)
 	// const dropdownRef = useRef<DropdownRefProps | null>(null)
 
+	const hasSelectedRows = ctx?.selected && ctx?.selected?.length > 0
+
 	const onSearch = useCallback(
 		(e: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 			if (typeof e !== "string") {
 				ctx?.triggerAction("search-items", e?.target?.value)
 			}
+
+			// Deselect all rows on search
+			ctx?.setSelected([])
 		},
 		[ctx],
 	)
@@ -81,6 +86,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 								id={bulkDropdown}
 								className="sui-table__toolbar-actions"
 								options={ctx?.bulkActions}
+								isDisabled={!hasSelectedRows}
 								onChange={(action) =>
 									setBulkAction(action as Record<string, any>)
 								}
@@ -88,7 +94,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 							<Button
 								type="primary"
 								colorScheme="black"
-								isDisabled={!bulkAction}
+								isDisabled={!bulkAction || !hasSelectedRows}
 								onClick={onApplyBulkAction}
 							>
 								Apply
@@ -100,7 +106,16 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 				<div className="sui-table__toolbar-header-actions">
 					{ctx?.showToggleBtn && (
 						<div className="sui-table__toolbar-toggle">
-							<Toggle {...ctx.toggleBtnProps} />
+							<Toggle
+								{...ctx?.toggleBtnProps}
+								onClick={(e) => {
+									// Deselected all selected rows
+									ctx?.setSelected([])
+
+									// Call onClick function if exists
+									ctx?.toggleBtnProps?.onClick?.(e)
+								}}
+							/>
 						</div>
 					)}
 					<Input
