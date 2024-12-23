@@ -76,6 +76,11 @@ interface TableProps extends SuiHTMLAttributes, SuiStyleType {
 	allowCheck?: boolean
 
 	/**
+	 * Whether the selection checkboxes are allowed or not
+	 */
+	disableCheck?: boolean
+
+	/**
 	 * Determines if the table supports drag-and-drop reordering of rows.
 	 */
 	isDraggable?: boolean
@@ -294,6 +299,11 @@ interface TableContextProps {
 	allowCheck?: boolean
 
 	/**
+	 * Whether to disable the selection checkboxes or not
+	 */
+	disableCheck?: boolean
+
+	/**
 	 * Make columns sticky
 	 */
 	stickyCols?: boolean
@@ -447,6 +457,7 @@ interface TableContextProviderProps {
 	} & Pick<
 		TableContextProps,
 		| "allowCheck"
+		| "disableCheck"
 		| "isDraggable"
 		| "bulkActions"
 		| "stickyCols"

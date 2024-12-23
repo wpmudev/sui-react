@@ -13,6 +13,7 @@ const Table: React.FC<TableProps> = ({
 	hasToolbar = true,
 	ariaLabel = "",
 	allowCheck = false,
+	disableCheck = false,
 	isDraggable = false,
 	filtersPopover = false,
 	showFiltersBtn = true,
@@ -64,6 +65,7 @@ const Table: React.FC<TableProps> = ({
 		<TableContextProvider
 			props={{
 				allowCheck,
+				disableCheck,
 				isDraggable,
 				filters,
 				onAction,

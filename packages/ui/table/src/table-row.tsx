@@ -86,8 +86,11 @@ const TableRow: React.FC<TableRowProps> = ({
 	// @todo: need improvement
 	let isChecked = (ctx?.selected ?? [])?.indexOf(parseInt(`${id}`)) > -1
 
-	// If we have at least one row in the table
+	// Whether the table has rows or not
 	const hasRows = ctx?.rows?.length && ctx?.rows?.length > 0
+
+	// If we have at least one row in the table
+	const disableCheck = !hasRows || ctx?.disableCheck
 
 	let isIndeterminate = false
 
@@ -248,7 +251,7 @@ const TableRow: React.FC<TableRowProps> = ({
 							onChange={onCheckToggle}
 							isChecked={isChecked}
 							isIndeterminate={isIndeterminate}
-							isDisabled={!hasRows}
+							isDisabled={disableCheck}
 						/>
 					</TableCell>
 				)}
