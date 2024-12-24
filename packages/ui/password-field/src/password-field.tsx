@@ -18,6 +18,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	validate,
 	validateOnMount,
 	resetValidation,
+	name,
 	_htmlProps,
 	_style = {},
 }) => {
@@ -45,6 +46,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 		validate,
 		validateOnMount,
 		resetValidation,
+		name,
 		onKeyUp: () => {
 			const inputElement = document.getElementById(
 				id as string,
