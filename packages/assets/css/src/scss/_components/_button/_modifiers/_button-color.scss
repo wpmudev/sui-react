@@ -37,6 +37,12 @@ $colors-high-contrast: (
 							background: transparent;
 							color: $value;
 
+							// To override rules when button is disabled
+							&.sui-button--disabled {
+								border-color: transparent;
+								background: transparent;
+							}
+
 							&.sui-#{$block-name}--hover {
 								border-color: if($name == white, $value, tint($value, 90%));
 								background: if($name == white, $value, tint($value, 90%));

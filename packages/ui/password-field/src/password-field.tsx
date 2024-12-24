@@ -58,7 +58,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	// Button settings
 	const buttonProps = {
 		label: isVisible ? "Hide" : "Show",
-		type: "secondary",
+		type: "tertiary",
 		colorScheme: "black",
 		className: "sui-password__button",
 		isDisabled: isDisabled || !hasValue,
@@ -70,6 +70,9 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 			iconSize: isSmall ? "sm" : "md",
 		}),
 		isSmall,
+		_htmlProps: {
+			type: "button",
+		},
 	}
 
 	return (
