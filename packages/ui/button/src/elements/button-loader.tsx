@@ -14,14 +14,29 @@ interface ButtonLoaderProps {
 	/**
 	 * Color Scheme of the button
 	 *
-	 * @type {React.ReactNode | undefined}
+	 * @type {string}
 	 */
 	colorScheme?: ButtonProps["colorScheme"]
+
+	/**
+	 * true when the button is disabled
+	 *
+	 * @type {boolean}
+	 */
+	isDisabled?: boolean
 }
 
 // Build "Loader" component.
-const Loader: React.FC<ButtonLoaderProps> = ({ children, colorScheme }) => {
-	const spinnerColorScheme = colorScheme === "white" ? "dark" : "white"
+const Loader: React.FC<ButtonLoaderProps> = ({
+	children,
+	colorScheme,
+	isDisabled,
+}) => {
+	let spinnerColorScheme = colorScheme === "white" ? "dark" : "white"
+
+	if (isDisabled) {
+		spinnerColorScheme = "gray"
+	}
 
 	return (
 		<Fragment>

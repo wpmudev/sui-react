@@ -108,7 +108,7 @@ Spinner.argTypes = {
 	},
 	colorScheme: {
 		name: "Color Scheme",
-		options: ["primary", "dark", "white"],
+		options: ["primary", "dark", "white", "gray"],
 		control: {
 			type: "select",
 			labels: { primary: "Primary", dark: "Dark" },

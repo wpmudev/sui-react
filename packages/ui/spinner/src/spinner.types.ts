@@ -14,7 +14,7 @@ interface SpinnerProps
 	/**
 	 * Color of the spinner
 	 */
-	colorScheme?: "primary" | "dark" | "white"
+	colorScheme?: "primary" | "dark" | "white" | "gray"
 	/**
 	 * Whether the spinner should be absolutely positioned
 	 */
