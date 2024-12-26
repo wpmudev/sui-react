@@ -70,7 +70,11 @@ const Button: React.FC<ButtonProps> = forwardRef<
 
 		if (isLoading) {
 			isUnwrapped = true
-			children = <Loader colorScheme={colorScheme}>{children}</Loader>
+			children = (
+				<Loader colorScheme={colorScheme} isDisabled={isDisabled}>
+					{children}
+				</Loader>
+			)
 		}
 
 		// Manage interaction methods
