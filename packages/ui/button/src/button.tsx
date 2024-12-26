@@ -130,15 +130,23 @@ const Button: React.FC<ButtonProps> = forwardRef<
 
 		return (
 			<TagName {...attrs}>
-				{(startIcon || icon) && !isLoading && (
-					<Icon name={startIcon ?? ""} size={iconSize} />
+				{(startIcon || icon) && (
+					<Icon
+						name={startIcon ?? ""}
+						size={iconSize}
+						{...(isLoading ? { className: "sui-button__icon--hidden" } : {})}
+					/>
 				)}
 				{isUnwrapped && children}
 				{!isUnwrapped && (
 					<Label {...(iconOnly && { hidden: true })}>{children}</Label>
 				)}
-				{isEndIcon && !isLoading && (
-					<Icon name={endIcon ?? ""} size={iconSize} />
+				{isEndIcon && (
+					<Icon
+						name={endIcon ?? ""}
+						size={iconSize}
+						{...(isLoading ? { className: "sui-button__icon--hidden" } : {})}
+					/>
 				)}
 			</TagName>
 		)

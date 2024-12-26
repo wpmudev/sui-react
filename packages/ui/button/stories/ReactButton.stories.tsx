@@ -111,7 +111,6 @@ Button.args = {
 	isFullWidth: false,
 	icon: "Add",
 	iconSize: "sm",
-	isLoading: false,
 }
 
 Button.argTypes = {
@@ -256,17 +255,10 @@ Button.argTypes = {
 		},
 	},
 
-	isLoading: {
-		name: "Is Loading",
-		control: {
-			type: "boolean",
-		},
-	},
-
 	_htmlProps: { table: { disable: true } },
 	isUnwrapped: { table: { disable: true } },
 	startIcon: { table: { disable: true } },
-	//isLoading: { table: { disable: true } },
+	isLoading: { table: { disable: true } },
 }
 
 // Publish required stories.
