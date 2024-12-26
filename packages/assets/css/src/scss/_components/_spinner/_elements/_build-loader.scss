@@ -59,6 +59,16 @@
 					stroke: $color-base-black;
 				}
 			}
+
+			@include modifier(white) {
+				@include modifies-element(icon--background) {
+					stroke: transparent;
+				}
+
+				@include modifies-element(icon--stroke) {
+					stroke: $color-base-white;
+				}
+			}
 		}
 	}
 

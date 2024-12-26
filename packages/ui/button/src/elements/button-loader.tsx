@@ -1,5 +1,7 @@
 import React, { Fragment } from "react"
 import { SpinnerAlt } from "@wpmudev/sui-icons"
+import { Spinner } from "@wpmudev/sui-spinner"
+import { ButtonProps } from "../button.types"
 
 interface ButtonLoaderProps {
 	/**
@@ -8,17 +10,32 @@ interface ButtonLoaderProps {
 	 * @type {React.ReactNode | undefined}
 	 */
 	children?: React.ReactNode
+
+	/**
+	 * Color Scheme of the button
+	 *
+	 * @type {React.ReactNode | undefined}
+	 */
+	colorScheme?: ButtonProps["colorScheme"]
 }
 
 // Build "Loader" component.
-const Loader: React.FC<ButtonLoaderProps> = ({ children }) => {
+const Loader: React.FC<ButtonLoaderProps> = ({ children, colorScheme }) => {
+	const spinnerColorScheme = colorScheme === "white" ? "dark" : "white"
+
 	return (
 		<Fragment>
-			<span className="sui-button__icon" aria-hidden="true">
-				<SpinnerAlt className="suicons--spin" size="sm" />
+			<span
+				className="sui-button__icon sui-button__icon--loader"
+				aria-hidden="true"
+			>
+				<Spinner loaderSize="sm" colorScheme={spinnerColorScheme} />
 			</span>
 			{children ? (
-				<span className="sui-button__label sui-hidden" tabIndex={-1}>
+				<span
+					className="sui-button__label sui-button__label--hidden"
+					tabIndex={-1}
+				>
 					{children}
 				</span>
 			) : (

@@ -24,7 +24,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 		{
 			absolute: isAbsolute,
 			[loaderSize]: !isEmpty(loaderSize ?? ""),
-			dark: !isEmpty(colorScheme) && "dark" === colorScheme,
+			[colorScheme]: !isEmpty(colorScheme) && colorScheme !== "primary",
 			contained: isContained,
 			inactive: !isSpinning,
 		},

@@ -17,6 +17,11 @@
 				.suicons--spin {
 					@include animation(spin);
 				}
+
+				@include modifier(loader) {
+					position: absolute;
+					margin-top: -1px;
+				}
 			}
 
 			@include modifier(is-icon) {
