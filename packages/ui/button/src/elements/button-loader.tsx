@@ -1,6 +1,6 @@
 import React, { Fragment } from "react"
 import { SpinnerAlt } from "@wpmudev/sui-icons"
-import { Spinner } from "@wpmudev/sui-spinner"
+import { Spinner, SpinnerProps } from "@wpmudev/sui-spinner"
 import { ButtonProps } from "../button.types"
 
 interface ButtonLoaderProps {
@@ -32,7 +32,11 @@ const Loader: React.FC<ButtonLoaderProps> = ({
 	colorScheme,
 	isDisabled,
 }) => {
-	let spinnerColorScheme = colorScheme === "white" ? "dark" : "white"
+	let spinnerColorScheme: SpinnerProps["colorScheme"] = "white"
+
+	if (colorScheme === "white") {
+		spinnerColorScheme = "dark"
+	}
 
 	if (isDisabled) {
 		spinnerColorScheme = "gray"
