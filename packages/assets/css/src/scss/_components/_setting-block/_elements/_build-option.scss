@@ -8,27 +8,21 @@
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin build-content($block) {
+@mixin build-option($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
-			@include element(body) {
-				flex: 1;
-				display: flex;
-				flex-direction: column;
-				gap: $spacing-2xl;
+			@include element(option-title) {
+				font-size: $font-size-default;
+				font-weight: $font-weight-md;
+				margin: 0 0 $spacing-sm 0;
+			}
 
-				@include media(max-width, sm) {
-					gap: $spacing-lg;
-				}
-
-				p {
-					&:first-child {
-						margin-top: 0;
-					}
-				}
+			@include element(option-description) {
+				font-size: $font-size-default;
+				margin: 0 0 $spacing-md 0;
 			}
 		}
 	}

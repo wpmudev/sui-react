@@ -1,7 +1,7 @@
 import React from "react"
 
 // Import required component
-import { SettingBlock as SuiSettingBlock } from "../src"
+import { SettingBlock as SuiSettingBlock, SettingBlockOption } from "../src"
 
 // Import documentation main page
 import docs from "./setting-block.mdx"
@@ -24,7 +24,21 @@ const SettingBlock = ({ ...props }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={{ backgroundColor: "white" }}>
-					<SuiSettingBlock {...props}>Controls</SuiSettingBlock>
+					<SuiSettingBlock {...props}>
+						<SettingBlockOption
+							title="Optional block title"
+							description="Setting block optional description"
+						>
+							Body content here
+						</SettingBlockOption>
+
+						<SettingBlockOption
+							title="Optional block title"
+							description="Setting block optional description"
+						>
+							Body content here
+						</SettingBlockOption>
+					</SuiSettingBlock>
 				</div>
 			</div>
 		</div>
