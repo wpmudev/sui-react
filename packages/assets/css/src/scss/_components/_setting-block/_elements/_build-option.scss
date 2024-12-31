@@ -14,6 +14,13 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
+			@include element(option-title-row) {
+				display: flex;
+				gap: $spacing-sm;
+				align-items: flex-start;
+				justify-content: flex-start;
+			}
+
 			@include element(option-title) {
 				font-size: $font-size-default;
 				font-weight: $font-weight-md;

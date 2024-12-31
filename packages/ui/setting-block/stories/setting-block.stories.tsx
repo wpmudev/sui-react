@@ -2,6 +2,7 @@ import React from "react"
 
 // Import required component
 import { SettingBlock as SuiSettingBlock, SettingBlockOption } from "../src"
+import { Tag } from "@wpmudev/sui-tag"
 
 // Import documentation main page
 import docs from "./setting-block.mdx"
@@ -35,6 +36,7 @@ const SettingBlock = ({ ...props }) => {
 						<SettingBlockOption
 							title="Optional block title"
 							description="Setting block optional description"
+							actions={<Tag>Tag</Tag>}
 						>
 							Body content here
 						</SettingBlockOption>
