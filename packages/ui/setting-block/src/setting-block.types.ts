@@ -83,7 +83,7 @@ interface SettingBlockProps
 	actions?: React.ReactNode
 
 	/**
-	 * Setting block actions
+	 * Applies a style to hide overflowing content.
 	 */
 	overflowHidden?: boolean
 }
