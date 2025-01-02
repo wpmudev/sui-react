@@ -96,7 +96,7 @@ const Toggle: React.FC<ToggleProps> = ({
 				onChange={handleOnChange}
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			/>
-			<span tabIndex={-1} className="sui-toggle__switch" aria-hidden={true} />
+			<span tabIndex={-1} className="sui-toggle__switch" />
 			{isLabelHidden && <span className="sui-screen-reader-only">{label}</span>}
 			{!isLabelHidden && (
 				<span className="sui-toggle__label" data-testid="toggle-label">
