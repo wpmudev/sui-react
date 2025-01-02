@@ -25,6 +25,7 @@
 				font-size: $font-size-default;
 				font-weight: $font-weight-md;
 				margin: 0 0 $spacing-sm 0;
+				color: $color-grey-90;
 			}
 
 			@include element(option-description) {
