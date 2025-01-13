@@ -90,7 +90,7 @@ const Toggle: React.FC<ToggleProps> = ({
 	}
 
 	return (
-		<Fragment>
+		<div className="sui-toggle__container">
 			<label {...containerProps} htmlFor={id} data-testid="toggle">
 				<input
 					{...(inputProps as HTMLProps<HTMLInputElement>)}
@@ -113,7 +113,7 @@ const Toggle: React.FC<ToggleProps> = ({
 					{description}
 				</p>
 			)}
-		</Fragment>
+		</div>
 	)
 }
 
