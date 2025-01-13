@@ -4,6 +4,7 @@ import React, {
 	useId,
 	useCallback,
 	HTMLProps,
+	Fragment,
 } from "react"
 
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
@@ -89,26 +90,30 @@ const Toggle: React.FC<ToggleProps> = ({
 	}
 
 	return (
-		<label {...containerProps} htmlFor={id} data-testid="toggle">
-			<input
-				{...(inputProps as HTMLProps<HTMLInputElement>)}
-				id={id}
-				onChange={handleOnChange}
-				{..._renderHTMLPropsSafely(_htmlProps)}
-			/>
-			<span tabIndex={-1} className="sui-toggle__switch" />
-			{isLabelHidden && <span className="sui-screen-reader-only">{label}</span>}
-			{!isLabelHidden && (
-				<span className="sui-toggle__label" data-testid="toggle-label">
-					{label}
-				</span>
-			)}
+		<Fragment>
+			<label {...containerProps} htmlFor={id} data-testid="toggle">
+				<input
+					{...(inputProps as HTMLProps<HTMLInputElement>)}
+					id={id}
+					onChange={handleOnChange}
+					{..._renderHTMLPropsSafely(_htmlProps)}
+				/>
+				<span tabIndex={-1} className="sui-toggle__switch" />
+				{isLabelHidden && (
+					<span className="sui-screen-reader-only">{label}</span>
+				)}
+				{!isLabelHidden && (
+					<span className="sui-toggle__label" data-testid="toggle-label">
+						{label}
+					</span>
+				)}
+			</label>
 			{description && (
 				<p className="sui-toggle__description" data-testid="toggle-description">
 					{description}
 				</p>
 			)}
-		</label>
+		</Fragment>
 	)
 }
 

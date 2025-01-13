@@ -18,6 +18,10 @@
 				margin: 0 0 0 $toggle-spacing-lg;
 			}
 
+			@include element(description) {
+				margin-top: $spacing-sm;
+			}
+
 			@include element(label) {
 				font-weight: $font-weight-md;
 				font-size: $font-size-default;
