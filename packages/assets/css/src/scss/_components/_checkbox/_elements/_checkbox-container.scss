@@ -12,6 +12,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			align-items: flex-start;
+			align-self: flex-start; // Prevent expansion to 100% width
 			cursor: pointer;
 			user-select: none;
 			position: relative;
