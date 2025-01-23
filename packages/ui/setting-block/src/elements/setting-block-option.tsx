@@ -23,15 +23,28 @@ export const SettingBlockOption: React.FC<SettingBlockOptionProps> = ({
 		suiInlineClassname,
 	)
 
+	// Render the option header
+	const renderHeader = () => {
+		if (!title) return null
+
+		const heading = <h6 className="sui-setting-block__option-title">{title}</h6>
+
+		if (actions) {
+			return (
+				<div className="sui-setting-block__option-title-row">
+					{heading}
+					<div className="sui-setting-block__option-actions">{actions}</div>
+				</div>
+			)
+		}
+
+		return heading
+	}
+
 	return (
 		<div className={classNames} {..._renderHTMLPropsSafely(_htmlProps)}>
 			<div className="sui-setting-block__option-header">
-				{!!title && (
-					<div className="sui-setting-block__option-title-row">
-						<h6 className="sui-setting-block__option-title">{title}</h6>
-						<div className="sui-setting-block__option-actions">{actions}</div>
-					</div>
-				)}
+				{renderHeader()}
 				{!!description && (
 					<p className="sui-setting-block__option-description">{description}</p>
 				)}

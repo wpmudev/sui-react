@@ -62,7 +62,7 @@ export const fullLayout = dedent`
 <Section style={{ paddingTop: 30 }}>
 	<p>Below is a general example of the Setting Block component</p>
 	<Preview wrapper={true}>
-		<div style={{ background: "#f1f1f1", padding: 25 }}>
+		<div style={{ background: "#f1f1f1" }}>
 			<div style={{ background: "white" }}>
 				<SettingBlock
 					title="Title"
@@ -95,17 +95,15 @@ export const fullLayout = dedent`
 		An example with a full layout setting block
 	</p>
 	<Preview wrapper={true}>
-		<div style={{ background: "#f1f1f1", padding: 25 }}>
-			<div style={{ background: "white" }}>
-				<SettingBlock
-					title="Title"
-					description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
-					isFluid={true}
-				>
-					Body content here. This section contains valuable information designed to keep you informed and engaged. Take your time to read through and discover everything it offers. 
-    				Explore additional insights below to enrich your understanding further.
-				</SettingBlock>
-			</div>
+		<div style={{ background: "white" }}>
+			<SettingBlock
+				title="Title"
+				description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+				isFluid={true}
+			>
+				Body content here. This section contains valuable information designed to keep you informed and engaged. Take your time to read through and discover everything it offers. 
+    			Explore additional insights below to enrich your understanding further.
+			</SettingBlock>
 		</div>
 	</Preview>
 	<Snippet language="js">{proExample}</Snippet>
@@ -117,29 +115,27 @@ export const fullLayout = dedent`
 		Set the prop <Code small={true}>isPro=\{true\}</Code> to change the variation to the Pro variation
 	</p>
 	<Preview wrapper={true}>
-		<div style={{ background: "#f1f1f1", padding: 25 }}>
-			<div style={{ background: "white" }}>
-				<SettingBlock
-					title="Title"
-					isPro={true}
-					description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+		<div style={{ background: "white" }}>
+			<SettingBlock
+				title="Title"
+				isPro={true}
+				description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+			>
+				<SettingBlockOption
+					title="Optional block title"
+					description="Setting block optional description"
 				>
-					<SettingBlockOption
-						title="Optional block title"
-						description="Setting block optional description"
-					>
-						Body content here
-					</SettingBlockOption>
+					Body content here
+				</SettingBlockOption>
 
-					<SettingBlockOption
-						title="Optional block title"
-						description="Setting block optional description"
-						actions={<Tag>Tag</Tag>}
-					>
-						Body content here
-					</SettingBlockOption>
-				</SettingBlock>
-			</div>
+				<SettingBlockOption
+					title="Optional block title"
+					description="Setting block optional description"
+					actions={<Tag>Tag</Tag>}
+				>
+					Body content here
+				</SettingBlockOption>
+			</SettingBlock>
 		</div>
 	</Preview>
 	<Snippet language="js">{proExample}</Snippet>
