@@ -14,6 +14,10 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
+			@include element(option) {
+				width: 100%;
+			}
+
 			@include element(option-title-row) {
 				display: flex;
 				gap: $spacing-sm;
