@@ -1,17 +1,18 @@
 import React, { Fragment } from "react"
 
 // Import required component.
-import { Popover as SuiPopover, PopoverBaseProps } from "../src"
+import { TemplateCard as SuiTemplateCard } from "../src"
 import { Button } from "@wpmudev/sui-button"
 import { Tag } from "@wpmudev/sui-tag"
 
 // Import documentation main page.
-import docs from "./Popover.mdx"
+import docs from "./TemplateCard.mdx"
+import { IconsName } from "@wpmudev/sui-icons"
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Advanced/Popover",
-	component: SuiPopover,
+	title: "SUI/Components/Advanced/TemplateCard",
+	component: SuiTemplateCard,
 	parameters: {
 		layout: "fullscreen",
 		docs: {
@@ -21,46 +22,45 @@ export default {
 }
 
 // Build "Popover" story.
-const Popover = ({
-	placement,
-	displayOnHover,
-	footer,
-	header,
-	src,
-}: PopoverBaseProps & { src?: string }) => {
+const TemplateCard = (props: PopoverBaseProps & { src?: string }) => {
 	const boxStyles = {
+		padding: 20,
 		borderRadius: 4,
+		background: "#fff",
 	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiPopover
-						placement={placement ?? "bottom"}
-						displayOnHover={displayOnHover ?? false}
-						header={header}
-						footer={
-							footer ? (
-								<Fragment>{footer}</Fragment>
-							) : (
-								<Button isSmall={true} type="secondary" colorScheme="black">
-									Know more
-								</Button>
-							)
+					<SuiTemplateCard
+						title={"This is a title."}
+						description={"This is a description."}
+						tag={
+							<Tag isSmall={true} colorScheme={"red"}>
+								Pro
+							</Tag>
 						}
-						trigger={
-							<Button isSmall={true} type="primary" colorScheme="blue">
-								Open popup
-							</Button>
-						}
-						image={src}
-					>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry standard dummy text ever
-						since the 1500s, when an unknown printer took a galley of type and
-						scrambled it to make a type specimen book.
-					</SuiPopover>
+						actions={[
+							<Button
+								key={"key-1"}
+								colorScheme={"blue"}
+								type={"primary"}
+								isSmall={true}
+							>
+								Primary Button
+							</Button>,
+							<Button
+								key={"key-2"}
+								colorScheme={"white"}
+								type={"tertiary"}
+								isSmall={true}
+							>
+								Primary Button
+							</Button>,
+						]}
+						{...props}
+					/>
 				</div>
 			</div>
 		</div>
@@ -68,29 +68,14 @@ const Popover = ({
 }
 
 // Set story arguments.
-Popover.args = {
+TemplateCard.args = {
 	example: "title",
-	header: (
-		<Fragment>
-			This is popover title
-			<Tag isSmall={true}>Tag</Tag>
-		</Fragment>
-	),
 	src: "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR",
-	footer: (
-		<Fragment>
-			1/2
-			<Button isSmall={true} type="secondary" colorScheme="black">
-				Know more
-			</Button>
-		</Fragment>
-	),
-	placement: "right-bottom",
-	displayOnHover: false,
+	icon: "File",
 }
 
 // Set controls for story arguments.
-Popover.argTypes = {
+TemplateCard.argTypes = {
 	example: {
 		name: "Example",
 		options: ["image", "title"],
@@ -107,64 +92,13 @@ Popover.argTypes = {
 		control: {
 			type: "text",
 		},
-		if: {
-			arg: "example",
-			eq: "image",
-		},
 	},
-	header: {
-		name: "Title",
-		controls: {
-			type: "object",
-		},
-	},
-	footer: {
-		name: "Footer",
-		controls: {
-			type: "object",
-		},
-	},
-	placement: {
-		name: "Placement",
-		options: [
-			"top",
-			"top-left",
-			"top-right",
-			"bottom",
-			"bottom-left",
-			"bottom-right",
-			"left",
-			"left-top",
-			"left-bottom",
-			"right",
-			"right-top",
-			"right-bottom",
-		],
-		control: {
-			type: "select",
-			labels: {
-				top: "Top",
-				"top-left": "Top Left",
-				"top-right": "Top Right",
-				bottom: "Bottom",
-				"bottom-left": "Bottom Left",
-				"bottom-right": "Bottom Right",
-				left: "Left",
-				"left-top": "Left Top",
-				"left-bottom": "Left Bottom",
-				right: "Right",
-				"right-top": "Right Top",
-				"right-bottom": "Right Bottom",
-			},
-		},
-	},
-	displayOnHover: {
-		name: "On Hover",
-		control: {
-			type: "boolean",
-		},
+	icon: {
+		name: "Icon",
+		options: IconsName,
+		control: "select",
 	},
 }
 
 // Publish required stories.
-export { Popover }
+export { TemplateCard }
