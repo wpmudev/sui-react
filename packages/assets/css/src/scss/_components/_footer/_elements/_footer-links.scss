@@ -12,15 +12,6 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			a {
-				text-decoration: none;
-				box-shadow: none;
-
-				&:focus {
-					text-decoration: underline;
-				}
-			}
-
 			@include element(links) {
 				align-items: center;
 				display: flex;
@@ -29,6 +20,15 @@
 
 				li {
 					margin: 0;
+				}
+
+				a {
+					text-decoration: none;
+					box-shadow: none;
+
+					&:focus {
+						text-decoration: underline;
+					}
 				}
 
 				@include modifier(item) {
