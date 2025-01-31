@@ -5,6 +5,7 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 type FooterLinkType = {
 	url: string // URL associated with the link.
 	title: string // Title or text to be displayed for the link.
+	target?: string
 }
 
 // Structure of a social media link in the footer.

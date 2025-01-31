@@ -93,7 +93,9 @@ const Footer: React.FC<FooterProps> = ({
 						<ul className="sui-footer__links">
 							{(links ?? [])?.map((list: FooterLinkType, index) => (
 								<li key={index} className="sui-footer__links--item">
-									<a href={list.url}>{list.title}</a>
+									<a href={list.url} target={list?.target ?? "_blank"}>
+										{list.title}
+									</a>
 								</li>
 							))}
 						</ul>
