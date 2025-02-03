@@ -1,7 +1,11 @@
 import React, { Fragment } from "react"
 
 // Import required component.
-import { TemplateCard as SuiTemplateCard } from "../src"
+import {
+	PopoverBaseProps,
+	TemplateCard as SuiTemplateCard,
+	TemplateCardWrapper as SuiTemplateCardWrapper,
+} from "../src"
 import { Button } from "@wpmudev/sui-button"
 import { Tag } from "@wpmudev/sui-tag"
 
@@ -11,7 +15,7 @@ import { IconsName } from "@wpmudev/sui-icons"
 
 // Configure default options.
 export default {
-	title: "SUI/Components/Advanced/TemplateCard",
+	title: "SUI/Components/Advanced/Template Card",
 	component: SuiTemplateCard,
 	parameters: {
 		layout: "fullscreen",
@@ -33,34 +37,97 @@ const TemplateCard = (props: PopoverBaseProps & { src?: string }) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiTemplateCard
-						title={"This is a title."}
-						description={"This is a description."}
-						tag={
-							<Tag isSmall={true} colorScheme={"red"}>
-								Pro
-							</Tag>
-						}
-						actions={[
-							<Button
-								key={"key-1"}
-								colorScheme={"blue"}
-								type={"primary"}
-								isSmall={true}
-							>
-								Primary Button
-							</Button>,
-							<Button
-								key={"key-2"}
-								colorScheme={"white"}
-								type={"tertiary"}
-								isSmall={true}
-							>
-								Primary Button
-							</Button>,
-						]}
-						{...props}
-					/>
+					<SuiTemplateCardWrapper name="checkbox-same" type="radio">
+						<SuiTemplateCard
+							title={"This is a title.This is a title.This is a title."}
+							description={
+								"This is a description.This is a description.This is a description."
+							}
+							selected={true}
+							tag={
+								<Tag isSmall={true} isUppercase={true} colorScheme={"red"}>
+									Pro
+								</Tag>
+							}
+							actions={[
+								<Button
+									key={"key-2"}
+									colorScheme={"white"}
+									type={"secondary"}
+									isSmall={true}
+								>
+									Preview
+								</Button>,
+								<Button
+									key={"key-1"}
+									colorScheme={"blue"}
+									type={"primary"}
+									isSmall={true}
+								>
+									Create form
+								</Button>,
+							]}
+							{...props}
+						/>
+						<SuiTemplateCard
+							title={"This is a title."}
+							description={"This is a description."}
+							tag={
+								<Tag isSmall={true} isUppercase={true} colorScheme={"red"}>
+									Pro
+								</Tag>
+							}
+							selectable={true}
+							actions={[
+								<Button
+									key={"key-2"}
+									colorScheme={"white"}
+									type={"secondary"}
+									isSmall={true}
+								>
+									Preview
+								</Button>,
+								<Button
+									key={"key-1"}
+									colorScheme={"blue"}
+									type={"primary"}
+									isSmall={true}
+								>
+									Create form
+								</Button>,
+							]}
+							{...props}
+							src=""
+						/>
+						<SuiTemplateCard
+							title={"This is a title."}
+							description={"This is a description."}
+							tag={
+								<Tag isSmall={true} isUppercase={true} colorScheme={"red"}>
+									Pro
+								</Tag>
+							}
+							actions={[
+								<Button
+									key={"key-2"}
+									colorScheme={"white"}
+									type={"secondary"}
+									isSmall={true}
+								>
+									Preview
+								</Button>,
+								<Button
+									key={"key-1"}
+									colorScheme={"blue"}
+									type={"primary"}
+									isSmall={true}
+								>
+									Create form
+								</Button>,
+							]}
+							{...props}
+						/>
+					</SuiTemplateCardWrapper>
 				</div>
 			</div>
 		</div>
