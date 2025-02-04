@@ -2,12 +2,11 @@ import React, { Fragment } from "react"
 
 // Import required component.
 import {
-	PopoverBaseProps,
 	TemplateCard as SuiTemplateCard,
-	TemplateCardWrapper as SuiTemplateCardWrapper,
+	TemplateCardInput as SuiTemplateCardInput,
+	TemplateCardGroup as SuiTemplateCardGroup,
 } from "../src"
 import { Button } from "@wpmudev/sui-button"
-import { Tag } from "@wpmudev/sui-tag"
 
 // Import documentation main page.
 import docs from "./TemplateCard.mdx"
@@ -31,24 +30,26 @@ const TemplateCard = (props: PopoverBaseProps & { src?: string }) => {
 		padding: 20,
 		borderRadius: 4,
 		background: "#fff",
+		display: "flex",
+		"flex-direction": "column",
+		gap: "16px",
 	}
 
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
-					<SuiTemplateCardWrapper name="checkbox-same" type="radio">
-						<SuiTemplateCard
-							title={"This is a title.This is a title.This is a title."}
+					<SuiTemplateCardGroup name="radio-group" defaultValue="radio 2">
+						<SuiTemplateCardInput
+							value="radio 1"
+							title={"Return Merchandise Authorization Form"}
 							description={
-								"This is a description.This is a description.This is a description."
+								"For processing returns, including fields for product information, reason for return, and customer details."
 							}
-							selected={true}
-							tag={
-								<Tag isSmall={true} isUppercase={true} colorScheme={"red"}>
-									Pro
-								</Tag>
-							}
+							tag={{
+								children: "Pro",
+								colorScheme: "red",
+							}}
 							actions={[
 								<Button
 									key={"key-2"}
@@ -69,15 +70,14 @@ const TemplateCard = (props: PopoverBaseProps & { src?: string }) => {
 							]}
 							{...props}
 						/>
-						<SuiTemplateCard
-							title={"This is a title."}
-							description={"This is a description."}
-							tag={
-								<Tag isSmall={true} isUppercase={true} colorScheme={"red"}>
-									Pro
-								</Tag>
-							}
-							selectable={true}
+						<SuiTemplateCardInput
+							value="radio 2"
+							title={"Return Merchandise Form"}
+							description={"For processing returns, including."}
+							tag={{
+								children: "Pro",
+								colorScheme: "red",
+							}}
 							actions={[
 								<Button
 									key={"key-2"}
@@ -99,35 +99,35 @@ const TemplateCard = (props: PopoverBaseProps & { src?: string }) => {
 							{...props}
 							src=""
 						/>
-						<SuiTemplateCard
-							title={"This is a title."}
-							description={"This is a description."}
-							tag={
-								<Tag isSmall={true} isUppercase={true} colorScheme={"red"}>
-									Pro
-								</Tag>
-							}
-							actions={[
-								<Button
-									key={"key-2"}
-									colorScheme={"white"}
-									type={"secondary"}
-									isSmall={true}
-								>
-									Preview
-								</Button>,
-								<Button
-									key={"key-1"}
-									colorScheme={"blue"}
-									type={"primary"}
-									isSmall={true}
-								>
-									Create form
-								</Button>,
-							]}
-							{...props}
-						/>
-					</SuiTemplateCardWrapper>
+					</SuiTemplateCardGroup>
+
+					<SuiTemplateCard
+						title={"Return Merchandise Form"}
+						description={"For processing returns, including."}
+						tag={{
+							children: "Pro",
+							colorScheme: "red",
+						}}
+						actions={[
+							<Button
+								key={"key-2"}
+								colorScheme={"white"}
+								type={"secondary"}
+								isSmall={true}
+							>
+								Preview
+							</Button>,
+							<Button
+								key={"key-1"}
+								colorScheme={"blue"}
+								type={"primary"}
+								isSmall={true}
+							>
+								Create form
+							</Button>,
+						]}
+						{...props}
+					/>
 				</div>
 			</div>
 		</div>

@@ -1,66 +1,107 @@
-import React, { HTMLProps } from "react"
+import React, { HTMLProps, ReactNode } from "react"
 
 import { ButtonProps } from "@wpmudev/sui-button"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
+import { TagProps } from "@wpmudev/sui-tag"
+
+// Define a type that represents the possible values for a Card button.
+type CardValueType = string | number | undefined
 
 /**
- * Props for the Popover component.
+ * Define the props for a RadioGroup component.
  */
-interface PopoverBaseProps
-	extends SuiHTMLAttributes<
-			HTMLProps<HTMLButtonElement | HTMLSpanElement | HTMLAnchorElement>
-		>,
+interface CardGroupProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
-	 * Open popup on initial load
+	 * The id of the radio group.
 	 */
-	isOpen?: boolean
+	id?: string
+
 	/**
-	 * Popup thumbnail
+	 * The name of the radio group.
 	 */
-	image?: string
+	name?: string
+
 	/**
-	 * Popup header
+	 * The children components rendered inside the radio group.
 	 */
-	header?: React.ReactNode
+	children?: ReactNode
+
 	/**
-	 * Optional child elements.
+	 * A callback function to handle radio button selection changes.
 	 */
-	children?: React.ReactNode
+	onChange?(value: CardValueType): void
+
 	/**
-	 * Popup footer
+	 * The default value for the radio group (optional).
 	 */
-	footer?: React.ReactNode
+	defaultValue?: CardValueType
+
 	/**
-	 * Popup trigger element
-	 */
-	trigger?: React.ReactNode
-	/**
-	 * Popup directions
-	 */
-	placement?:
-		| "top"
-		| "top-left"
-		| "top-right"
-		| "bottom"
-		| "bottom-left"
-		| "bottom-right"
-		| "left"
-		| "left-top"
-		| "left-bottom"
-		| "right"
-		| "right-top"
-		| "right-bottom"
-	/**
-	 * Additional className
+	 * Add additional className
 	 */
 	className?: string
-	/**
-	 * When true, it will display popup on hover
-	 */
-	displayOnHover?: boolean
 }
 
-type PopoverProps = PopoverBaseProps & ButtonProps
+interface CardProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
+		SuiStyleType {
+	/**
+	 * The unique identifier for the radio button (optional).
+	 */
+	id?: string
 
-export type { PopoverProps, PopoverBaseProps }
+	/**
+	 * The label text for the radio button (optional).
+	 */
+	label?: string
+
+	/**
+	 * A description or additional information about the radio button (optional).
+	 */
+	description?: string
+
+	/**
+	 * Radio value
+	 */
+	value?: string
+
+	/**
+	 * A tag associated with the radio button (optional).
+	 */
+	tag?: TagProps
+
+	/**
+	 * Add additional className
+	 */
+	className?: string
+}
+
+interface CardInputProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
+		SuiStyleType,
+		CardProps {}
+
+/**
+ * Define the props for the context of a Radio component, which includes properties inherited from RadioGroupProps.
+ */
+interface CardContextProps extends CardGroupProps {
+	/**
+	 * The currently selected value within the radio group (optional).
+	 */
+	current?: CardValueType
+
+	/**
+	 * A function to set the currently selected value within the radio group.
+	 */
+	setCurrent(value: CardValueType): void
+}
+
+export type {
+	CardValueType,
+	CardGroupProps,
+	CardContextProps,
+	CardProps,
+	CardInputProps,
+}

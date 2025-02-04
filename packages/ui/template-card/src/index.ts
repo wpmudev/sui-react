@@ -1,3 +1,4 @@
 export { TemplateCard } from "./template-card"
-export { TemplateCardWrapper } from "./template-wrapper"
-export type { TemplateCardProps, PopoverBaseProps } from "./template-card.types"
+export { TemplateCardGroup } from "./template-card-group"
+export { TemplateCardInput } from "./template-card-input"
+// export type { TemplateCardProps, PopoverBaseProps } from "./template-card.types"

@@ -1,5 +1,5 @@
 {
-  "name": "@wpmudev/sui-popover",
+  "name": "@wpmudev/sui-card",
   "version": "0.0.1",
   "description": "A popover is displayed to provide additional information about specific element when the user hovers or focuses on them.",
   "keywords": [],
