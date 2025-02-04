@@ -10,12 +10,13 @@ const TemplateCardInput = forwardRef<HTMLInputElement, CardInputProps>(
 	(
 		{
 			id,
-			label,
+			title,
 			description,
 			className = "",
 			value = "",
 			_htmlProps = {},
 			_style = {},
+			...props
 		},
 		ref,
 	) => {
@@ -55,7 +56,7 @@ const TemplateCardInput = forwardRef<HTMLInputElement, CardInputProps>(
 			value,
 			className: "sui-template-card__input sui-screen-reader-only",
 			checked,
-			"aria-label": label || "radio input",
+			"aria-label": title || "radio input",
 			onChange: handleOnChange,
 			"aria-labelledby": `${uuid}-label`,
 			...(description && { "aria-describedby": `${uuid}-description` }),
@@ -84,7 +85,11 @@ const TemplateCardInput = forwardRef<HTMLInputElement, CardInputProps>(
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
 				<input {...inputProps} data-testid="radio-input" />
-				<TemplateCardContent {...props} />
+				<TemplateCardContent
+					title={title}
+					description={description}
+					{...props}
+				/>
 			</label>
 		)
 	},

@@ -1,22 +1,15 @@
-import React, {
-	forwardRef,
-	useId,
-	useState,
-	useEffect,
-	useLayoutEffect,
-	useCallback,
-	useRef,
-} from "react"
+import React, { useRef } from "react"
 
-import { useStyles } from "@wpmudev/sui-hooks"
+import { useStyles, useIsOverflowing } from "@wpmudev/sui-hooks"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 import { IconProps } from "@wpmudev/sui-icon"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { Tag } from "@wpmudev/sui-tag"
+import { CardContentProps } from "../template-card.types"
 
 // Popover component
-const TemplateCardContent = ({
+const TemplateCardContent: React.FC<CardContentProps> = ({
 	id,
 	title = "",
 	description = "",
@@ -26,34 +19,16 @@ const TemplateCardContent = ({
 	imgProps = {},
 	actions = [],
 }) => {
+	// Unique id
+	const titleId = `${id}-title`
+	const descriptionId = `${id}-description`
+
 	const titleRef = useRef<HTMLDivElement | null>(null)
 	const descriptionRef = useRef<HTMLDivElement | null>(null)
-	const [isTitleOverflow, setIsTitleOverflow] = useState(false)
-	const [isDescriptionOverflow, setIsDescriptionOverflow] = useState(false)
+	const isTitleOverflow = useIsOverflowing(titleRef, 1, title)
+	const isDescriptionOverflow = useIsOverflowing(descriptionRef, 2, description)
 
 	const IconTag: React.ComponentType<IconProps> = Icons[icon as IconsNamesType]
-
-	// Check if title overflows (more then 1 lines)
-	useLayoutEffect(() => {
-		if (titleRef.current) {
-			const lineHeight = parseFloat(
-				window.getComputedStyle(titleRef.current).lineHeight,
-			)
-			const maxHeight = lineHeight * 1 // Allow max 2 lines
-			setIsTitleOverflow(titleRef.current.scrollHeight > maxHeight)
-		}
-	}, [title])
-
-	// Check if description overflows (more than 2 lines)
-	useLayoutEffect(() => {
-		if (descriptionRef.current) {
-			const lineHeight = parseFloat(
-				window.getComputedStyle(descriptionRef.current).lineHeight,
-			)
-			const maxHeight = lineHeight * 2 // Allow max 2 lines
-			setIsDescriptionOverflow(descriptionRef.current.scrollHeight > maxHeight)
-		}
-	}, [description])
 
 	return (
 		<>
@@ -73,6 +48,7 @@ const TemplateCardContent = ({
 				<div className="sui-template-card__content">
 					{title && isTitleOverflow ? (
 						<Tooltip
+							id={titleId}
 							type="text"
 							label={title}
 							customWidth={216}
@@ -83,6 +59,7 @@ const TemplateCardContent = ({
 					) : (
 						<h5
 							ref={titleRef}
+							id={titleId}
 							className="sui-heading--h5 sui-template-card__heading"
 						>
 							{title}
@@ -90,6 +67,7 @@ const TemplateCardContent = ({
 					)}
 					{description && isDescriptionOverflow ? (
 						<Tooltip
+							id={descriptionId}
 							type="text"
 							label={description}
 							customWidth={216}
@@ -98,7 +76,11 @@ const TemplateCardContent = ({
 							{description}
 						</Tooltip>
 					) : (
-						<p ref={descriptionRef} className="sui-template-card__body">
+						<p
+							id={descriptionId}
+							ref={descriptionRef}
+							className="sui-template-card__body"
+						>
 							{description}
 						</p>
 					)}

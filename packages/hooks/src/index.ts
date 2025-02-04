@@ -35,6 +35,9 @@ export { useDebounce } from "./use-debounce"
 // useResponsive
 export { useResponsive } from "./use-responsive"
 
+// useIsOverflowing
+export { useIsOverflowing } from "./use-is-overflowing"
+
 // useStyles
 export * from "./use-styles"
 

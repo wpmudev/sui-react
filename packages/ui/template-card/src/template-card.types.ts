@@ -1,6 +1,5 @@
 import React, { HTMLProps, ReactNode } from "react"
 
-import { ButtonProps } from "@wpmudev/sui-button"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 import { TagProps } from "@wpmudev/sui-tag"
 
@@ -53,9 +52,9 @@ interface CardProps
 	id?: string
 
 	/**
-	 * The label text for the radio button (optional).
+	 * The title text for the radio button (optional).
 	 */
-	label?: string
+	title?: string
 
 	/**
 	 * A description or additional information about the radio button (optional).
@@ -83,6 +82,11 @@ interface CardInputProps
 		SuiStyleType,
 		CardProps {}
 
+interface CardContentProps
+	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
+		SuiStyleType,
+		CardProps {}
+
 /**
  * Define the props for the context of a Radio component, which includes properties inherited from RadioGroupProps.
  */
@@ -104,4 +108,5 @@ export type {
 	CardContextProps,
 	CardProps,
 	CardInputProps,
+	CardContentProps,
 }

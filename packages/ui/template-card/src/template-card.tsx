@@ -11,7 +11,7 @@ const TemplateCard: React.FC<CardProps> = ({
 	className = "",
 	_htmlProps = {},
 	_style = {},
-	...delegated
+	...props
 }) => {
 	const uniqueId = useId()
 
@@ -33,7 +33,7 @@ const TemplateCard: React.FC<CardProps> = ({
 			className={classNames}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<TemplateCardContent {...delegated} />
+			<TemplateCardContent {...props} />
 		</div>
 	)
 }
