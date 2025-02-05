@@ -32,7 +32,7 @@ const TemplateCardGroup: React.FC<CardGroupProps> = ({
 
 	// template group classname
 	const templateClassNames = generateCN(
-		"sui-template-card__wrapper",
+		"sui-template-card__group",
 		{},
 		suiInlineClassname,
 	)
@@ -58,7 +58,7 @@ const TemplateCardGroup: React.FC<CardGroupProps> = ({
 			<div
 				id={uuid}
 				role="radiogroup"
-				data-testid="template-card-group"
+				data-testid="sui-template-card-group"
 				className={templateClassNames}
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>

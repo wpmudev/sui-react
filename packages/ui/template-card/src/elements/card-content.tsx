@@ -32,16 +32,20 @@ const TemplateCardContent: React.FC<CardContentProps> = ({
 	return (
 		<>
 			<div className="sui-template-card__hero">
-				{tag && <Tag isSmall={true} isUppercase={true} {...tag} />}
-				<div className="sui-template-card__hero-media">
+				<div className="sui-template-card__hero--media">
 					{IconTag && !image?.src && (
-						<div className="sui-template-card__hero-icon">
+						<div className="sui-template-card__hero--icon">
 							<IconTag size={"md"} />
 						</div>
 					)}
 					{image?.src && <img src={image?.src} alt={image?.alt} />}
 				</div>
-				{actions && <div className="sui-template-card__actions">{actions}</div>}
+				{tag && <Tag isSmall={true} isUppercase={true} {...tag} />}
+				{actions && (
+					<div className="sui-template-card__actions" style={{ opacity: 1 }}>
+						{actions}
+					</div>
+				)}
 			</div>
 			{(title || description) && (
 				<div className="sui-template-card__content">
@@ -51,7 +55,7 @@ const TemplateCardContent: React.FC<CardContentProps> = ({
 							type="default"
 							label={title}
 							customWidth={216}
-							className="sui-heading--h5 sui-template-card__heading"
+							className="sui-heading--h5 sui-template-card__content--heading"
 						>
 							{title}
 						</Tooltip>
@@ -59,7 +63,7 @@ const TemplateCardContent: React.FC<CardContentProps> = ({
 						<h5
 							id={titleId}
 							ref={titleRef}
-							className="sui-heading--h5 sui-template-card__heading"
+							className="sui-heading--h5 sui-template-card__content--heading"
 						>
 							{title}
 						</h5>
@@ -70,7 +74,7 @@ const TemplateCardContent: React.FC<CardContentProps> = ({
 							type="default"
 							label={description}
 							customWidth={216}
-							className="sui-template-card__body"
+							className="sui-template-card__content--body"
 						>
 							{description}
 						</Tooltip>
@@ -78,7 +82,7 @@ const TemplateCardContent: React.FC<CardContentProps> = ({
 						<p
 							id={descriptionId}
 							ref={descriptionRef}
-							className="sui-template-card__body"
+							className="sui-template-card__content--body"
 						>
 							{description}
 						</p>

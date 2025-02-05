@@ -24,7 +24,7 @@ const TemplateCardInput = forwardRef<HTMLInputElement, CardInputProps>(
 
 		const uniqueId = useId()
 
-		let uuid = `sui-card-template-${uniqueId}`
+		let uuid = `sui-template-card-${uniqueId}`
 
 		// If value not provided add a unique one
 		if (!value) {

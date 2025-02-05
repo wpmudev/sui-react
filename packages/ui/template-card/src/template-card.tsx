@@ -17,7 +17,7 @@ const TemplateCard: React.FC<CardProps> = ({
 
 	const uniqueId = useId()
 
-	let uuid = `sui-card-template-${uniqueId}`
+	let uuid = `sui-template-card-${uniqueId}`
 
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
 

@@ -1,0 +1,69 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Template Hero
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-hero($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(hero) {
+				position: relative;
+				padding-top: 80%;
+				height: 0;
+				overflow: hidden;
+				background-color: $color-grey-02;
+
+				.sui-tag {
+					position: absolute;
+					right: $spacing-md;
+					top: $spacing-md;
+					margin: 0;
+				}
+
+				@include modifier(media, icon) {
+					position: absolute;
+					inset: 0;
+					width: 100%;
+					height: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+				@include modifier(icon) {
+					color: $color-grey-50;
+					z-index: -1;
+				}
+
+				@include modifier(media) {
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+
+					img {
+						width: auto;
+						max-width: unset;
+						height: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(hero) {
+				background-color: $color-base-white;
+			}
+		}
+	}
+}
