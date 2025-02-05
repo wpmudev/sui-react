@@ -68,7 +68,7 @@ const TemplateCardInput = forwardRef<HTMLInputElement, CardInputProps>(
 			className: generateCN(
 				"sui-template-card",
 				{
-					hover: isHovered && !checked,
+					hover: isHovered,
 					focus: isFocused,
 					checked,
 				},
@@ -82,8 +82,8 @@ const TemplateCardInput = forwardRef<HTMLInputElement, CardInputProps>(
 				htmlFor={uuid}
 				data-testid="radio"
 				tabIndex={-1}
-				{...methods}
 				{..._renderHTMLPropsSafely(_htmlProps)}
+				{...methods}
 			>
 				<input {...inputProps} data-testid="radio-input" />
 				<TemplateCardContent

@@ -25,8 +25,8 @@ const TemplateCard: React.FC<CardProps> = ({
 	const classNames = generateCN(
 		"sui-template-card",
 		{
-			hover: isHovered,
 			focus: isFocused,
+			hover: isHovered,
 		},
 		suiInlineClassname,
 	)
@@ -40,8 +40,9 @@ const TemplateCard: React.FC<CardProps> = ({
 		<div
 			id={uuid}
 			className={classNames}
-			{...methods}
+			tabIndex={-1}
 			{..._renderHTMLPropsSafely(_htmlProps)}
+			{...methods}
 		>
 			<TemplateCardContent id={uuid} {...props} />
 		</div>
