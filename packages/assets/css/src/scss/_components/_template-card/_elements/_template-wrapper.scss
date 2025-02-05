@@ -20,21 +20,22 @@
 			box-shadow: 0 0 0 $border-width-sm $color-grey-10;
 			overflow: hidden;
 
-			&:has(.sui-template-card__input:checked) {
-				box-shadow: 0 0 0 $border-width-md $color-primary-50,
-					// Selection glow
-					0px 2px 4px 0px #7373731a,
-					0px 1px 16px 0px #7373730d, 0px 6px 12px 0px #73737314;
-			}
-
-			&:hover {
+			@include modifier(hover, focus) {
 				box-shadow: 0px 4px 8px 0px #7373731a, 0px 2px 20px 0px #7373730d,
 					0px 8px 16px 0px #73737314, 0 0 0 $border-width-md transparent; // Placeholder for selection glow
+			}
 
+			@include modifier(hover, focus) {
 				.sui-template-card__actions {
 					opacity: 1;
 					pointer-events: all;
 				}
+			}
+
+			@include modifier(checked) {
+				box-shadow: 0 0 0 $border-width-md $color-primary-50,
+					0px 2px 4px 0px #7373731a, 0px 1px 16px 0px #7373730d,
+					0px 6px 12px 0px #73737314;
 			}
 
 			@include element(wrapper) {
@@ -112,19 +113,20 @@
 				border-top: $border-width-sm solid $color-grey-10;
 			}
 
-			@include element(heading) {
+			@include element(heading, body) {
 				display: -webkit-box;
-				font-weight: $font-weight-md;
-				-webkit-line-clamp: 1; /* Change this to the number of lines you want */
+				line-height: $font-height-sm;
+				-webkit-line-clamp: 1;
 				-webkit-box-orient: vertical;
 				overflow: hidden;
 			}
 
+			@include element(heading) {
+				font-weight: $font-weight-md;
+			}
+
 			@include element(body) {
-				display: -webkit-box;
-				-webkit-line-clamp: 2; /* Change this to the number of lines you want */
-				-webkit-box-orient: vertical;
-				overflow: hidden;
+				-webkit-line-clamp: 2;
 				margin: 0;
 			}
 		}

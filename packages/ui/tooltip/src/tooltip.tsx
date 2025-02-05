@@ -26,6 +26,7 @@ import { TooltipProps } from "./tooltip.types"
 
 // Build "Tooltip" component.
 const Tooltip: React.FC<TooltipProps> = ({
+	id,
 	label,
 	type = "button",
 	className,
@@ -47,6 +48,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	// detect RTL
 	const isRTL = useDetectRTL()
 	const uniqueId = useId()
+	let triggerId = `sui-tooltip-trigger-${uniqueId}`
 
 	const [isVisible, setIsVisible] = useState(false)
 	const [pos, setPos] = useState({ top: 0, left: 0 })
@@ -238,6 +240,11 @@ const Tooltip: React.FC<TooltipProps> = ({
 		} as CSSProperties
 	}
 
+	// If id is passed.
+	if (!!id) {
+		triggerId = id
+	}
+
 	// when escape key is pressed close the tooltip
 	const escFunction = useCallback(
 		(event: Event | KeyboardEvent) => {
@@ -269,6 +276,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			case "button":
 				return (
 					<Button
+						id={triggerId}
 						{...(buttonProps as ButtonProps)}
 						{...(icon && { icon })}
 						{...(iconSize && { iconSize })}
@@ -280,6 +288,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			case "text":
 				return (
 					<span
+						id={triggerId}
 						role="button"
 						tabIndex={0}
 						onClick={onClickCallback}
@@ -292,11 +301,19 @@ const Tooltip: React.FC<TooltipProps> = ({
 				)
 			case "icon":
 				if (!onClick) {
-					return <Icon name={icon} size={iconSize} colorScheme={iconColor} />
+					return (
+						<Icon
+							id={triggerId}
+							name={icon}
+							size={iconSize}
+							colorScheme={iconColor}
+						/>
+					)
 				}
 
 				return (
 					<span
+						id={triggerId}
 						className="sui-tooltip__trigger--icon"
 						role="button"
 						tabIndex={0}
@@ -307,7 +324,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 					</span>
 				)
 			default:
-				return <span>{label}</span>
+				return <span id={triggerId}>{label}</span>
 		}
 	}
 

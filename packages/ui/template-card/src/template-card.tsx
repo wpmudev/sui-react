@@ -1,6 +1,6 @@
 import React, { useId } from "react"
 
-import { useStyles } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 import { TemplateCardContent } from "./elements/card-content"
 import { CardProps } from "./template-card.types"
@@ -13,6 +13,8 @@ const TemplateCard: React.FC<CardProps> = ({
 	_style = {},
 	...props
 }) => {
+	const [isHovered, isFocused, methods] = useInteraction({})
+
 	const uniqueId = useId()
 
 	let uuid = `sui-card-template-${uniqueId}`
@@ -20,7 +22,14 @@ const TemplateCard: React.FC<CardProps> = ({
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 	// class names
-	const classNames = generateCN("sui-template-card", {}, suiInlineClassname)
+	const classNames = generateCN(
+		"sui-template-card",
+		{
+			hover: isHovered,
+			focus: isFocused,
+		},
+		suiInlineClassname,
+	)
 
 	// use ID from props list if exists.
 	if (!!id) {
@@ -31,9 +40,10 @@ const TemplateCard: React.FC<CardProps> = ({
 		<div
 			id={uuid}
 			className={classNames}
+			{...methods}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<TemplateCardContent {...props} />
+			<TemplateCardContent id={uuid} {...props} />
 		</div>
 	)
 }

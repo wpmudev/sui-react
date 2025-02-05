@@ -15,12 +15,11 @@ const TemplateCardContent: React.FC<CardContentProps> = ({
 	description = "",
 	tag,
 	icon = "File",
-	src,
-	imgProps = {},
+	image = {},
 	actions = [],
 }) => {
 	// Unique id
-	const titleId = `${id}-title`
+	const titleId = `${id}-label`
 	const descriptionId = `${id}-description`
 
 	const titleRef = useRef<HTMLDivElement | null>(null)
@@ -28,19 +27,19 @@ const TemplateCardContent: React.FC<CardContentProps> = ({
 	const isTitleOverflow = useIsOverflowing(titleRef, 1, title)
 	const isDescriptionOverflow = useIsOverflowing(descriptionRef, 2, description)
 
-	const IconTag: React.ComponentType<IconProps> = Icons[icon as IconsNamesType]
+	const IconTag: React.ComponentType<IconProps> = Icons[icon]
 
 	return (
 		<>
 			<div className="sui-template-card__hero">
 				{tag && <Tag isSmall={true} isUppercase={true} {...tag} />}
 				<div className="sui-template-card__hero-media">
-					{IconTag && (
+					{IconTag && !image?.src && (
 						<div className="sui-template-card__hero-icon">
 							<IconTag size={"md"} />
 						</div>
 					)}
-					{src && <img src={src} alt="Card hero" {...imgProps} />}
+					{image?.src && <img src={image?.src} alt={image?.alt} />}
 				</div>
 				{actions && <div className="sui-template-card__actions">{actions}</div>}
 			</div>
@@ -49,7 +48,7 @@ const TemplateCardContent: React.FC<CardContentProps> = ({
 					{title && isTitleOverflow ? (
 						<Tooltip
 							id={titleId}
-							type="text"
+							type="default"
 							label={title}
 							customWidth={216}
 							className="sui-heading--h5 sui-template-card__heading"
@@ -58,8 +57,8 @@ const TemplateCardContent: React.FC<CardContentProps> = ({
 						</Tooltip>
 					) : (
 						<h5
-							ref={titleRef}
 							id={titleId}
+							ref={titleRef}
 							className="sui-heading--h5 sui-template-card__heading"
 						>
 							{title}
@@ -68,7 +67,7 @@ const TemplateCardContent: React.FC<CardContentProps> = ({
 					{description && isDescriptionOverflow ? (
 						<Tooltip
 							id={descriptionId}
-							type="text"
+							type="default"
 							label={description}
 							customWidth={216}
 							className="sui-template-card__body"

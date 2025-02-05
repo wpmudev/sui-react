@@ -16,6 +16,11 @@ interface TooltipBaseProps
 		SuiStyleType,
 		InteractionTypes {
 	/**
+	 * The id of the tooltip.
+	 */
+	id?: string
+
+	/**
 	 * Button link
 	 */
 	href?: string
@@ -69,6 +74,35 @@ interface TooltipBaseProps
 	onClick?: () => void
 }
 
+interface TooltipIconProps {
+	/**
+	 * The id of the tooltip.
+	 */
+	id?: string
+	/**
+	 * Icon name
+	 *
+	 * @type {string | undefined}
+	 */
+	name?: string
+	/**
+	 * Icon size
+	 *
+	 * @type {string}
+	 */
+	size?: IconProps["size"]
+	/**
+	 * Color
+	 *
+	 * @type {string}
+	 */
+	colorScheme?: IconProps["colorScheme"]
+	/**
+	 * Callback function to be invoked onClick
+	 */
+	onClick?: () => void
+}
+
 type TooltipProps = TooltipBaseProps
 
-export type { TooltipProps, TooltipBaseProps }
+export type { TooltipProps, TooltipBaseProps, TooltipIconProps }

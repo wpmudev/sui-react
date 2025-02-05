@@ -69,6 +69,7 @@ const TemplateCard = (props: PopoverBaseProps & { src?: string }) => {
 								</Button>,
 							]}
 							{...props}
+							image={{}}
 						/>
 						<SuiTemplateCardInput
 							value="radio 2"
@@ -97,7 +98,6 @@ const TemplateCard = (props: PopoverBaseProps & { src?: string }) => {
 								</Button>,
 							]}
 							{...props}
-							src=""
 						/>
 					</SuiTemplateCardGroup>
 
@@ -137,7 +137,10 @@ const TemplateCard = (props: PopoverBaseProps & { src?: string }) => {
 // Set story arguments.
 TemplateCard.args = {
 	example: "title",
-	src: "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR",
+	image: {
+		src: "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR",
+		alt: "Template Card",
+	},
 	icon: "File",
 }
 
@@ -156,9 +159,7 @@ TemplateCard.argTypes = {
 	},
 	src: {
 		name: "Image Src",
-		control: {
-			type: "text",
-		},
+		control: {},
 	},
 	icon: {
 		name: "Icon",

@@ -2,6 +2,7 @@ import React, { HTMLProps, ReactNode } from "react"
 
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 import { TagProps } from "@wpmudev/sui-tag"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 // Define a type that represents the possible values for a Card button.
 type CardValueType = string | number | undefined
@@ -85,7 +86,25 @@ interface CardInputProps
 interface CardContentProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
 		SuiStyleType,
-		CardProps {}
+		CardProps {
+	/**
+	 * The image source for the card.
+	 */
+	image?: {
+		alt: string
+		src: string
+	}
+
+	/**
+	 * The icon for the card.
+	 */
+	icon?: IconsNamesType
+
+	/**
+	 * Alert banner actions
+	 */
+	actions?: ReactNode[]
+}
 
 /**
  * Define the props for the context of a Radio component, which includes properties inherited from RadioGroupProps.
