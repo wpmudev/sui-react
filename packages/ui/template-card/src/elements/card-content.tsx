@@ -42,8 +42,8 @@ const TemplateCardContent: React.FC<CardContentProps> = ({
 				</div>
 				{tag && <Tag isSmall={true} isUppercase={true} {...tag} />}
 				{actions && (
-					<div className="sui-template-card__actions" style={{ opacity: 1 }}>
-						{actions}
+					<div className="sui-template-card__actions">
+						<div className="sui-template-card__actions--wrapper">{actions}</div>
 					</div>
 				)}
 			</div>

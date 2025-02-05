@@ -57,6 +57,18 @@
 		}
 	}
 
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(hero) {
+				@include modifier(media) {
+					right: -50%;
+				}
+			}
+		}
+	}
+
 	// DIR: Left to right.
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
