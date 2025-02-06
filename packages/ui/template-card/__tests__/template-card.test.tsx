@@ -1,64 +1,119 @@
 import React from "react"
 import "@testing-library/jest-dom"
-import { render, screen } from "@testing-library/react"
-import { a11yTest } from "@wpmudev/sui-dev-utils"
-import { Popover } from "../src"
+import { render, screen, fireEvent } from "@testing-library/react"
+import { TemplateCard, TemplateCardInput, TemplateCardGroup } from "../src"
+import { Button } from "@wpmudev/sui-button"
 
-describe("@wpmudev/sui-popover", () => {
-	const label = "Popover Title"
-	const description = "Popover Content"
-
-	// Test case to check if the Popover renders correctly
-	it("Renders correctly", () => {
-		// Render the Popover component with the provided label and description
-		render(<Popover header={label}>{description}</Popover>)
-
-		// Use assertions to check if the label and description are present in the rendered content
-		expect(screen.getByText(label)).toBeInTheDocument()
-		expect(screen.getByText(description)).toBeInTheDocument()
-	})
-
-	// Test case to check if the Popover renders correctly
-	it("image renders properly", () => {
-		const imgUrl = "https://placehold.co/600x400/EEE/31343C"
-
-		// Render the Popover component with the provided label and description
-		const { container } = render(
-			<Popover header="Popup is opened by default" image={imgUrl}>
-				{description}
-			</Popover>,
-		)
-
-		// Find all month blocks within the component
-		const imgEL = container.querySelector(".sui-popover__popup-image")
-		expect(imgEL).toBeInTheDocument()
-	})
-
-	// Test case to check if the placement prop works as expected
-	it("Placement prop works correctly", () => {
-		// Render the Popover component with the provided label, description, and placement="bottom"
+describe("@wpmudev/sui-template-card", () => {
+	// Test case to check if TemplateCard renders with correct title and description
+	it("Renders TemplateCard with title and description", () => {
 		render(
-			<Popover header={label} placement="bottom" trigger="Test Button">
-				{description}
-			</Popover>,
+			<TemplateCard
+				title="Test Template Card"
+				description="This is a description of the template card."
+			/>,
 		)
 
-		// Get the popover element by its data-testid attribute
-		const popoverEl = screen.getByTestId("popover")
-
-		// Use assertions to check if the popover element has the expected CSS class
-		expect(popoverEl).toHaveClass("sui-popover--bottom")
-
-		// Use an assertion to check if the description is present in the rendered content
-		expect(screen.getByText(description)).toBeInTheDocument()
+		expect(screen.getByText("Test Template Card")).toBeInTheDocument()
+		expect(
+			screen.getByText("This is a description of the template card."),
+		).toBeInTheDocument()
 	})
 
-	// eslint-disable-next-line jest/expect-expect
-	it("passes a11y test", async () => {
-		await a11yTest(
-			<Popover header={label} trigger="Test Button" placement="top">
-				{description}
-			</Popover>,
+	// Test case to check if TemplateCardGroup renders with correct input values
+	it("Renders TemplateCardGroup with TemplateCardInput", () => {
+		render(
+			<TemplateCardGroup name="test-group" defaultValue="Card 1">
+				<TemplateCardInput
+					value="Card 1"
+					title="Card 1 Title"
+					description="Card 1 Description"
+				/>
+				<TemplateCardInput
+					value="Card 2"
+					title="Card 2 Title"
+					description="Card 2 Description"
+				/>
+			</TemplateCardGroup>,
 		)
+
+		expect(screen.getByLabelText("Card 1 Title")).toBeInTheDocument()
+		expect(screen.getByLabelText("Card 2 Title")).toBeInTheDocument()
+		expect(screen.getByText("Card 1 Description")).toBeInTheDocument()
+		expect(screen.getByText("Card 2 Description")).toBeInTheDocument()
+	})
+
+	// Test case to check if the TemplateCardInput component fires an onChange event
+	it("TemplateCardInput fires onChange event when radio option is clicked", () => {
+		const handleChange = jest.fn()
+
+		render(
+			<TemplateCardGroup
+				name="test-group"
+				defaultValue="Card 1"
+				onChange={handleChange}
+			>
+				<TemplateCardInput value="Card 1" title="Card 1" />
+				<TemplateCardInput
+					value="Card 2"
+					title="Card 2 Title"
+					description="Card 2 Description"
+				/>
+			</TemplateCardGroup>,
+		)
+
+		// Find the second radio button by its title or label text
+		const card2RadioButton = screen.getByLabelText("Card 2 Title")
+
+		// Simulate a click event on the second radio button
+		fireEvent.click(card2RadioButton)
+
+		// Check if the onChange handler was called
+		expect(handleChange).toHaveBeenCalledTimes(1)
+		expect(handleChange).toHaveBeenCalledWith("Card 2")
+	})
+
+	// Test case to check if the actions are rendered inside the TemplateCard
+	it("Renders actions inside TemplateCard", () => {
+		const actions = [
+			<Button key="key-1" colorScheme="blue" type="primary" isSmall={true}>
+				Preview
+			</Button>,
+			<Button key="key-2" colorScheme="white" type="secondary" isSmall={true}>
+				Create form
+			</Button>,
+		]
+
+		const props = {
+			actions,
+		}
+
+		render(
+			<TemplateCard
+				title="Test Template Card"
+				description="This is a description of the template card."
+				{...props}
+			/>,
+		)
+
+		expect(screen.getByText("Preview")).toBeInTheDocument()
+		expect(screen.getByText("Create form")).toBeInTheDocument()
+	})
+
+	it("TemplateCardGroup uses defaultValue correctly", () => {
+		render(
+			<TemplateCardGroup name="test-group" defaultValue="Card 1">
+				<TemplateCardInput value="Card 1" title="Card 1" />
+				<TemplateCardInput value="Card 2" title="Card 2" />
+			</TemplateCardGroup>,
+		)
+
+		// Check if the radio button with value="Card 1" is selected by default
+		const card1Input = screen.getByDisplayValue("Card 1")
+		expect(card1Input).toBeChecked()
+
+		// Ensure that the radio button with value="Card 2" is not selected
+		const card2Input = screen.getByDisplayValue("Card 2")
+		expect(card2Input).not.toBeChecked()
 	})
 })

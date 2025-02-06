@@ -80,12 +80,12 @@ const TemplateCardInput = forwardRef<HTMLInputElement, CardInputProps>(
 			<label
 				{...containerProps}
 				htmlFor={uuid}
-				data-testid="radio"
+				data-testid="sui-template-card-radio"
 				tabIndex={-1}
 				{..._renderHTMLPropsSafely(_htmlProps)}
 				{...methods}
 			>
-				<input {...inputProps} data-testid="radio-input" />
+				<input {...inputProps} data-testid="sui-template-card-radio-input" />
 				<TemplateCardContent
 					id={uuid}
 					title={title}

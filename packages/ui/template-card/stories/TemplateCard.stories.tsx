@@ -44,7 +44,13 @@ const TemplateCard = ({
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					{"group" === example && (
-						<SuiTemplateCardGroup name={name} defaultValue="Card 1">
+						<SuiTemplateCardGroup
+							name={name}
+							defaultValue="Card 1"
+							onChange={(val) => {
+								console.log(val)
+							}}
+						>
 							<SuiTemplateCardInput value="Card 1" {...props} />
 							<SuiTemplateCardInput
 								{...props}
