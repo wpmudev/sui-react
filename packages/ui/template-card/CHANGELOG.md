@@ -6,9 +6,11 @@
 
 - Initial release
 - Updated dependencies
-  - @wpmudev/sui-button@0.0.1
-  - @wpmudev/sui-hooks@0.0.1
-  - @wpmudev/sui-utils@0.0.1
+  - @wpmudev/sui-tooltip: 0.0.1
+  - @wpmudev/sui-button: 0.0.1
+  - @wpmudev/sui-hooks: 0.0.1
+  - @wpmudev/sui-utils: 0.0.1
+  - @wpmudev/sui-icons: 0.0.1
 
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org/) for commit guidelines.

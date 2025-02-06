@@ -51,6 +51,5 @@
     "@wpmudev/sui-hooks": "^0.0.1",
     "@wpmudev/sui-utils": "^0.0.1",
     "@wpmudev/sui-icons": "^0.0.1",
-    "@wpmudev/sui-icon": "^0.0.1"
   }
 }
