@@ -1,5 +1,5 @@
 {
-  "name": "@wpmudev/sui-card",
+  "name": "@wpmudev/sui-template-card",
   "version": "0.0.1",
   "description": "A popover is displayed to provide additional information about specific element when the user hovers or focuses on them.",
   "keywords": [],
@@ -46,6 +46,7 @@
     "react": "^18.2.0"
   },
   "dependencies": {
+    "@wpmudev/sui-tooltip": "^0.0.1",
     "@wpmudev/sui-button": "^0.0.1",
     "@wpmudev/sui-hooks": "^0.0.1",
     "@wpmudev/sui-utils": "^0.0.1",
