@@ -37,9 +37,6 @@ const TemplateCard = ({
 		padding: 20,
 		borderRadius: 4,
 		background: "#fff",
-		display: "flex",
-		"flex-direction": "column",
-		gap: "16px",
 	}
 
 	return (
