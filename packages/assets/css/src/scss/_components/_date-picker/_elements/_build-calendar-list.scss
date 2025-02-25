@@ -14,10 +14,147 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
+			@include element(calendar-month) {
+				position: relative;
+				font-size: $datepicker-font-size;
+				flex: 1;
+				width: $datepicker-size-width-lg;
+
+				@include media(max-width, sm) {
+					&:last-child {
+						border-top: $border-width-sm solid $color-grey-10;
+					}
+				}
+			}
+
+			@include modifier(range) {
+				@include modifies-element(calendar-month) {
+					&:last-child::before {
+						content: "";
+						position: absolute;
+						width: $border-width-sm;
+						height: 100%;
+						left: 0;
+						top: 0;
+						bottom: 0;
+						background: $color-grey-10;
+						z-index: 1;
+
+						@include media(max-width, sm) {
+							content: unset;
+						}
+					}
+				}
+			}
+
+			@include element(calendar-weekdays) {
+				align-items: center;
+				color: $color-grey-60;
+				background: $color-grey-02;
+				display: flex;
+			}
+
+			@include element(calendar-weekday) {
+				padding: $datepicker-spacing-md;
+				width: $datepicker-size-width-md;
+				text-align: center;
+			}
+
+			@include element(calendar-days) {
+				background: $color-base-white;
+				align-items: center;
+				color: $color-grey-90;
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			@include element(calendar-list) {
+				border-top: $border-width-sm solid $color-grey-10;
+				max-height: $datepicker-size-height-lg;
+				overflow-y: auto;
+				margin: 0;
+			}
+
+			@include element(calendar-list-item) {
+				list-style: none;
+				cursor: pointer;
+
+				@include modifier(active) {
+					span {
+						color: $color-primary-50;
+					}
+				}
+
+				span {
+					display: inline-block;
+					padding: $spacing-sm $spacing-lg;
+				}
+			}
+
 			@include modifier(single) {
 				@include modifies-element(calendar-list-item) {
 					border-radius: $datepicker-border-radius-lg;
 					display: inline-flex;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(range) {
+				@include modifies-element(calendar-month) {
+					&:last-child::before {
+						left: auto;
+						right: 0;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(range) {
+				@include modifies-element(calendar-month) {
+					&:last-child::before {
+						background: $color-base-black;
+					}
+				}
+			}
+
+			@include element(calendar-weekdays) {
+				color: $color-base-black;
+				background: $color-base-white;
+				border-top: $border-width-sm solid $color-base-black;
+				border-bottom: $border-width-sm solid $color-base-black;
+			}
+
+			@include element(calendar-days) {
+				color: $color-base-black;
+			}
+
+			@include element(calendar-list) {
+				border-top: $border-width-sm solid $color-base-black;
+			}
+
+			@include element(calendar-list-item) {
+				span {
+					color: $color-base-black;
+				}
+			}
+
+			@include element(calendar-month) {
+				@include media(max-width, sm) {
+					&:last-child {
+						border-top: $border-width-sm solid $color-base-black;
+					}
 				}
 			}
 		}

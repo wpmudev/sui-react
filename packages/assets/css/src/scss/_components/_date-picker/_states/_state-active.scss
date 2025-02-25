@@ -11,15 +11,30 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			@include element(calendar-list-item) {
+				@include modifier(active) {
+					span {
+						color: $color-primary-50;
+					}
+				}
+			}
+
 			@include modifier(single) {
 				@include modifies-element(calendar-list-item) {
-					.sui-#{$block}__calendar-list-item--active {
+					&.sui-#{$block}__calendar-list-item--active {
 						background: $color-primary-50;
 
 						span {
 							color: $color-base-white;
 						}
 					}
+				}
+			}
+
+			@include element(range-button) {
+				@include modifier(active) {
+					color: $color-base-white;
+					background: $color-primary-50;
 				}
 			}
 		}
@@ -32,13 +47,20 @@
 		@include block($block) {
 			@include modifier(single) {
 				@include modifies-element(calendar-list-item) {
-					.sui-#{$block}__calendar-list-item--active {
+					&.sui-#{$block}__calendar-list-item--active {
 						background: $color-base-black;
 
 						span {
 							color: $color-base-white;
 						}
 					}
+				}
+			}
+
+			@include element(range-button) {
+				@include modifier(active) {
+					color: $color-base-white;
+					background: $color-base-black;
 				}
 			}
 		}

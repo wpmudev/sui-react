@@ -18,6 +18,15 @@
 					}
 				}
 			}
+
+			// Day element.
+			@include element(day) {
+				@include modifier(hover) {
+					span {
+						background: $color-primary-05;
+					}
+				}
+			}
 		}
 	}
 
@@ -33,6 +42,16 @@
 						span {
 							color: $color-base-white;
 						}
+					}
+				}
+			}
+
+			// Day element.
+			@include element(day) {
+				@include modifier(hover) {
+					span {
+						background: $color-base-black;
+						color: $color-base-white;
 					}
 				}
 			}

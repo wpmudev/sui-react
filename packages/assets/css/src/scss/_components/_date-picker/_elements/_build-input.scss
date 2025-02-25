@@ -22,12 +22,6 @@
 				.sui-input__icon--calendar {
 					pointer-events: none;
 				}
-
-				@include modifier(disabled) {
-					cursor: default;
-					pointer-events: none;
-					opacity: 0.5;
-				}
 			}
 		}
 	}
