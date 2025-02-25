@@ -1,0 +1,46 @@
+@use "../../../_utils/utils" as *;
+
+/// Active State
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-active($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(single) {
+				@include modifies-element(calendar-list-item) {
+					.sui-#{$block}__calendar-list-item--active {
+						background: $color-primary-50;
+
+						span {
+							color: $color-base-white;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(single) {
+				@include modifies-element(calendar-list-item) {
+					.sui-#{$block}__calendar-list-item--active {
+						background: $color-base-black;
+
+						span {
+							color: $color-base-white;
+						}
+					}
+				}
+			}
+		}
+	}
+}
