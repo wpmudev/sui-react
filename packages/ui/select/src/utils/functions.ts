@@ -103,12 +103,20 @@ const RemoveSelection = (
 		}
 		return option
 	})
-	setFilterItems(updatedOptions)
+	// Get the new selected items
 	setSelectedItems((prevSelected: SelectOptionType[]) => {
 		const _selected = prevSelected.filter((option) => option.id !== id)
-		const removedOption = prevSelected.filter((option) => option.id === id)?.[0]
-		callback?.(removedOption, _selected)
-		return _selected
+		const removedOption = prevSelected.find((option) => option.id === id)
+
+		// Only update state if the selection actually changed
+		if (prevSelected.length !== _selected.length) {
+			setFilterItems(updatedOptions)
+			callback?.(removedOption, _selected)
+			return _selected
+		}
+
+		// Return previous state if nothing changed
+		return prevSelected
 	})
 }
 
