@@ -231,7 +231,10 @@ const Tooltip: React.FC<TooltipProps> = ({
 	if (customWidth || customMobileWidth) {
 		attrs.style = {
 			...pos,
-			...(customWidth && { "--tooltip-width": `${customWidth}px` }),
+			...(customWidth && {
+				"--tooltip-width": `${customWidth}px`,
+				"--tooltip-width-mobile": `${customWidth}px`,
+			}),
 			...(customMobileWidth && {
 				"--tooltip-width-mobile": `${customMobileWidth}px`,
 			}),
