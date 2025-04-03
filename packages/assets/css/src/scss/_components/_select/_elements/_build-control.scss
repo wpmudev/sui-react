@@ -54,6 +54,7 @@
 			@include modifier(multiselect) {
 				@include modifies-element(selected-options) {
 					padding-right: $spacing-xl;
+					width: 100%;
 				}
 
 				@include modifies-element(dropdown) {
