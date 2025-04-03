@@ -15,9 +15,17 @@
 		@include block($block) {
 			display: flex;
 			align-items: stretch;
-			overflow-y: scroll;
-			overflow-x: hidden;
+			overflow: hidden;
+			scroll-behavior: smooth;
 			padding: $spacing-2xs;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			@include element(container) {
+				position: relative;
+			}
 		}
 	}
 }
