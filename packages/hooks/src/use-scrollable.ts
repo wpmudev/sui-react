@@ -46,6 +46,24 @@ const useScrollable = ({ amount = 100 }: { amount?: number } = {}) => {
 		return () => window.removeEventListener("resize", handleResize)
 	}, [handleScroll])
 
+	// Observe the container.
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting) {
+					handleScroll()
+				}
+			},
+			{ threshold: 0.1 },
+		)
+
+		if (containerRef.current) {
+			observer.observe(containerRef.current)
+		}
+
+		return () => observer.disconnect()
+	}, [handleScroll])
+
 	return { containerRef, isScrollableLeft, isScrollableRight, scroll }
 }
 
