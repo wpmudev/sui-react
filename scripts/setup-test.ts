@@ -30,5 +30,13 @@ global.Headers = fetch.Headers
 // @ts-ignore
 global.Request = fetch.Request
 
+// 🆕 Add IntersectionObserver mock
+// @ts-ignore
+global.IntersectionObserver = class {
+	observe() {}
+	unobserve() {}
+	disconnect() {}
+}
+
 // Add "toHaveNoViolations" accessibility matcher to jest
 expect.extend(toHaveNoViolations)
