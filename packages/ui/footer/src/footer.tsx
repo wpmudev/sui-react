@@ -28,6 +28,7 @@ const Footer: React.FC<FooterProps> = ({
 	renderBlocks,
 	removeBGColor = false,
 	className,
+	customFooter = false,
 	_htmlProps,
 	_style,
 }) => {
@@ -66,72 +67,74 @@ const Footer: React.FC<FooterProps> = ({
 					))}
 				</div>
 			)}
-			<div className="sui-footer__group sui-footer__group--links">
-				<div className="sui-footer__block">
-					<a
-						href={logoHref || "https://wpmudev.com"}
-						target="_blank"
-						rel="noreferrer nofollow"
-						aria-label="wpmudev-logo"
-					>
-						{logoImageLink ? (
-							<img
-								src={logoImageLink}
-								className="sui-footer__block--logo"
-								alt="WPMU DEV"
-							/>
-						) : (
-							<Logo />
-						)}
-					</a>
-				</div>
-				{(links ?? []).length > 0 && (
-					<div
-						className="sui-footer__block sui-footer__block--pages"
-						data-testid="footer-links"
-					>
-						<ul className="sui-footer__links">
-							{(links ?? [])?.map((list: FooterLinkType, index) => (
-								<li key={index} className="sui-footer__links--item">
-									<a href={list.url} target={list?.target ?? "_blank"}>
-										{list.title}
-									</a>
-								</li>
-							))}
-						</ul>
-					</div>
-				)}
-				<div className="sui-footer__block">
-					{(socialLinks ?? [])?.length > 0 && (
-						<ul
-							className="sui-footer__links sui-footer__links--social"
-							data-testid="footer-social-links"
+			{!customFooter && (
+				<div className="sui-footer__group sui-footer__group--links">
+					<div className="sui-footer__block">
+						<a
+							href={logoHref || "https://wpmudev.com"}
+							target="_blank"
+							rel="noreferrer nofollow"
+							aria-label="wpmudev-logo"
 						>
-							{(socialLinks ?? [])?.map(
-								(socialLink: FooterSocialLinkType, index) => {
-									const SocialIcon = socialIcons[socialLink?.type]
-									return (
-										<li key={index} className="sui-footer__links--item">
-											<a
-												href={socialLink.url}
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												<SocialIcon size="sm" />
-												{socialLink?.type && (
-													<span className="sui-screen-reader-only">
-														{socialLink?.type}
-													</span>
-												)}
-											</a>
-										</li>
-									)
-								},
+							{logoImageLink ? (
+								<img
+									src={logoImageLink}
+									className="sui-footer__block--logo"
+									alt="WPMU DEV"
+								/>
+							) : (
+								<Logo />
 							)}
-						</ul>
+						</a>
+					</div>
+					{(links ?? []).length > 0 && (
+						<div
+							className="sui-footer__block sui-footer__block--pages"
+							data-testid="footer-links"
+						>
+							<ul className="sui-footer__links">
+								{(links ?? [])?.map((list: FooterLinkType, index) => (
+									<li key={index} className="sui-footer__links--item">
+										<a href={list.url} target={list?.target ?? "_blank"}>
+											{list.title}
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
 					)}
+					<div className="sui-footer__block">
+						{(socialLinks ?? [])?.length > 0 && (
+							<ul
+								className="sui-footer__links sui-footer__links--social"
+								data-testid="footer-social-links"
+							>
+								{(socialLinks ?? [])?.map(
+									(socialLink: FooterSocialLinkType, index) => {
+										const SocialIcon = socialIcons[socialLink?.type]
+										return (
+											<li key={index} className="sui-footer__links--item">
+												<a
+													href={socialLink.url}
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													<SocialIcon size="sm" />
+													{socialLink?.type && (
+														<span className="sui-screen-reader-only">
+															{socialLink?.type}
+														</span>
+													)}
+												</a>
+											</li>
+										)
+									},
+								)}
+							</ul>
+						)}
+					</div>
 				</div>
-			</div>
+			)}
 		</div>
 	)
 }

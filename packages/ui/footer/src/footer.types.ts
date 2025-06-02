@@ -54,6 +54,11 @@ interface FooterProps
 	 * the url the logo points to
 	 */
 	logoHref?: string
+
+	/**
+	 * When true, it renders a custom footer
+	 */
+	customFooter?: boolean
 }
 
 export type { FooterProps, FooterLinkType, FooterSocialLinkType }
