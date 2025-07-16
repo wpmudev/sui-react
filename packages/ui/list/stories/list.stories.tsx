@@ -1,0 +1,137 @@
+import React from "react"
+
+// Import required component(s)
+import { List as SuiList, ListItem, ListProps } from "../src"
+
+// Import documentation main page
+// import docs from "./list.mdx"
+
+export default {
+	title: "SUI/Components/List",
+	component: SuiList,
+	parameters: {
+		layout: "fullscreen",
+		// docs: {
+		// 	page: docs,
+		// },
+	},
+}
+
+// Build story
+export const List = ({ ...props }: ListProps) => {
+	const box = {
+		margin: "0 0 20px",
+		padding: "30px",
+		border: "1px solid #E6E6E6",
+		borderRadius: "4px",
+		background: "#fff",
+	}
+
+	return (
+		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
+			<div className="sui-layout__content">
+				<div style={box}>
+					<SuiList {...props}></SuiList>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+List.args = {
+	type: "ul",
+	border: false,
+	flush: false,
+	unstyled: true,
+	className: "",
+	children: (
+		<>
+			<ListItem>List Item 1</ListItem>
+			<ListItem>List Item 2</ListItem>
+			<ListItem>List Item 3</ListItem>
+		</>
+	),
+	_style: {},
+	_htmlProps: {},
+}
+
+List.argTypes = {
+	type: {
+		name: "Type",
+		description:
+			"HTML list type to render (`ul` for unordered, `ol` for ordered).",
+		options: ["ul", "ol"],
+		control: {
+			type: "select",
+			labels: {
+				ul: "Unordered List (ul)",
+				ol: "Ordered List (ol)",
+			},
+		},
+		table: {
+			type: { summary: "'ul' | 'ol'" },
+			defaultValue: { summary: "'ul'" },
+		},
+	},
+	border: {
+		name: "Border",
+		description: "Adds a border around the list.",
+		control: "boolean",
+		table: {
+			type: { summary: "boolean" },
+			defaultValue: { summary: false },
+		},
+	},
+	flush: {
+		name: "Flush",
+		description: "Removes spacing between list items.",
+		control: "boolean",
+		table: {
+			type: { summary: "boolean" },
+			defaultValue: { summary: false },
+		},
+	},
+	unstyled: {
+		name: "Unstyled",
+		description: "Removes all default list styles.",
+		control: "boolean",
+		table: {
+			type: { summary: "boolean" },
+			defaultValue: { summary: true },
+		},
+	},
+	className: {
+		name: "Class Name",
+		description: "Additional class names for the list.",
+		control: "text",
+		table: {
+			type: { summary: "string" },
+			defaultValue: { summary: "''" },
+		},
+	},
+	_style: {
+		name: "_style",
+		description: "Inline styles applied to the list.",
+		control: "object",
+		table: {
+			type: { summary: "React.CSSProperties" },
+			defaultValue: { summary: "{}" },
+		},
+	},
+	_htmlProps: {
+		name: "_htmlProps",
+		description: "Additional HTML props to be spread on the list element.",
+		control: "object",
+		table: {
+			type: { summary: "object" },
+			defaultValue: { summary: "{}" },
+		},
+	},
+	children: {
+		name: "Children",
+		description: "List items to render inside the list.",
+		table: {
+			type: { summary: "React.ReactNode" },
+		},
+	},
+}
