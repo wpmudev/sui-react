@@ -26,6 +26,10 @@ interface ListProps
 	 */
 	unstyled?: boolean
 	/**
+	 * Whether the list should have overflow hidden
+	 */
+	overflow?: boolean
+	/**
 	 * The CSS class name to apply to the list
 	 */
 	className?: string
@@ -55,6 +59,14 @@ interface ListItemProps extends SuiHTMLAttributes<HTMLLIElement>, SuiStyleType {
 	 * The CSS class name to apply to the list item
 	 */
 	className?: string
+	/**
+	 * The variant of the list item, e.g., "neutral", "info", "success", "warning", "critical"
+	 */
+	variant?: "neutral" | "info" | "success" | "warning" | "critical"
+	/**
+	 * Whether the list item should have an action (e.g., a button or link)
+	 */
+	action?: boolean
 	/**
 	 * The text of the list item
 	 */

@@ -8,7 +8,8 @@ const List: React.FC<ListProps> = ({
 	type = "ul",
 	border = false,
 	flush = false,
-	unstyled = true,
+	unstyled = false,
+	overflow = true,
 	className = "",
 	children,
 	_style = {},
@@ -25,6 +26,7 @@ const List: React.FC<ListProps> = ({
 			border: !unstyled && border,
 			flush: !unstyled && flush,
 			unstyled,
+			overflow,
 		},
 		suiInlineClassname,
 	)

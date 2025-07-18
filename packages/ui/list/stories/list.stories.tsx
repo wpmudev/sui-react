@@ -3,11 +3,13 @@ import React from "react"
 // Import required component(s)
 import { List as SuiList, ListItem, ListProps } from "../src"
 
+import { PluginBeehive } from "@wpmudev/sui-icons"
+
 // Import documentation main page
 // import docs from "./list.mdx"
 
 export default {
-	title: "SUI/Components/List",
+	title: "SUI/Components/Core/List",
 	component: SuiList,
 	parameters: {
 		layout: "fullscreen",
@@ -31,7 +33,7 @@ export const List = ({ ...props }: ListProps) => {
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
 				<div style={box}>
-					<SuiList {...props}></SuiList>
+					<SuiList {...props} />
 				</div>
 			</div>
 		</div>
@@ -46,9 +48,26 @@ List.args = {
 	className: "",
 	children: (
 		<>
-			<ListItem>List Item 1</ListItem>
-			<ListItem>List Item 2</ListItem>
-			<ListItem>List Item 3</ListItem>
+			<ListItem variant="neutral">
+				<PluginBeehive />
+				Automated firewall protection
+			</ListItem>
+			<ListItem variant="info">
+				<PluginBeehive />
+				Regularly Reviewed IP Database
+			</ListItem>
+			<ListItem variant="warning">
+				<PluginBeehive />
+				Millions of IPs Checked Daily
+			</ListItem>
+			<ListItem variant="success">
+				<PluginBeehive />
+				Millions of IPs Checked Daily
+			</ListItem>
+			<ListItem variant="critical">
+				<PluginBeehive />
+				Millions of IPs Checked Daily
+			</ListItem>
 		</>
 	),
 	_style: {},

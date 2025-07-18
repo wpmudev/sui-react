@@ -18,11 +18,58 @@
 			gap: $spacing-md;
 
 			@include element(item) {
+				position: relative;
+				display: flex;
+				gap: $spacing-md;
 				margin: 0;
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: -1px;
+					left: 0;
+					bottom: -1px;
+					width: 4px;
+					background-color: transparent;
+				}
+
+				@include modifier(neutral) {
+					&:before {
+						background-color: $color-extended-neutral-50;
+					}
+				}
+
+				@include modifier(info) {
+					&:before {
+						background-color: $color-primary-50;
+					}
+				}
+
+				@include modifier(warning) {
+					&:before {
+						background-color: $color-extended-warning-50;
+					}
+				}
+
+				@include modifier(success) {
+					&:before {
+						background-color: $color-extended-success-50;
+					}
+				}
+
+				@include modifier(critical) {
+					&:before {
+						background-color: $color-extended-error-50;
+					}
+				}
 			}
 
 			@include modifier(unordered, ordered) {
 				list-style: none;
+			}
+
+			@include modifier(overflow) {
+				overflow: hidden;
 			}
 
 			@include modifier(unstyled) {
