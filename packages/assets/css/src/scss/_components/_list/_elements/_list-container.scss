@@ -33,6 +33,17 @@
 					background-color: transparent;
 				}
 
+				@include modifier(pro) {
+					background: $color-extended-neutral-95;
+					pointer-events: none;
+				}
+
+				@include modifier("pro-tag") {
+					display: flex;
+					align-items: center;
+					margin-left: auto;
+				}
+
 				@include modifier(neutral) {
 					&:before {
 						background-color: $color-extended-neutral-50;

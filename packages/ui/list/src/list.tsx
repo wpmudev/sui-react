@@ -1,7 +1,7 @@
 import React from "react"
 import { ListProps } from "./list.types"
 import { ListContext } from "./list-context"
-import { useStyles } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 const List: React.FC<ListProps> = ({
@@ -15,6 +15,7 @@ const List: React.FC<ListProps> = ({
 	_style = {},
 	_htmlProps = {},
 }) => {
+	const [isHovered, isFocused, methods] = useInteraction({})
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Generate CSS class names for the Accordion component

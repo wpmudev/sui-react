@@ -68,6 +68,14 @@ interface ListItemProps extends SuiHTMLAttributes<HTMLLIElement>, SuiStyleType {
 	 */
 	action?: boolean
 	/**
+	 * Whether the list item is a Pro feature
+	 */
+	isPro?: boolean
+	/**
+	 * Whether the list item is disabled
+	 */
+	isDisabled?: boolean
+	/**
 	 * The text of the list item
 	 */
 	children?: React.ReactNode

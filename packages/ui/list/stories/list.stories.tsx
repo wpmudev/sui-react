@@ -3,7 +3,13 @@ import React from "react"
 // Import required component(s)
 import { List as SuiList, ListItem, ListProps } from "../src"
 
-import { PluginBeehive } from "@wpmudev/sui-icons"
+import {
+	PluginBeehive,
+	PluginBlc,
+	PluginDefender,
+	PluginAutomate,
+	PluginDashboard,
+} from "@wpmudev/sui-icons"
 
 // Import documentation main page
 // import docs from "./list.mdx"
@@ -48,24 +54,24 @@ List.args = {
 	className: "",
 	children: (
 		<>
-			<ListItem variant="neutral">
+			<ListItem variant="neutral" isPro={true}>
 				<PluginBeehive />
 				Automated firewall protection
 			</ListItem>
 			<ListItem variant="info">
-				<PluginBeehive />
+				<PluginDashboard />
 				Regularly Reviewed IP Database
 			</ListItem>
 			<ListItem variant="warning">
-				<PluginBeehive />
+				<PluginBlc />
 				Millions of IPs Checked Daily
 			</ListItem>
 			<ListItem variant="success">
-				<PluginBeehive />
+				<PluginAutomate />
 				Millions of IPs Checked Daily
 			</ListItem>
 			<ListItem variant="critical">
-				<PluginBeehive />
+				<PluginDefender />
 				Millions of IPs Checked Daily
 			</ListItem>
 		</>
