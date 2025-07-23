@@ -1,0 +1,84 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build popover
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-popover($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popup) {
+				width: $popover-size-width-lg;
+				margin: 0;
+				position: absolute;
+				display: none;
+				z-index: 9999;
+
+				@include media(max-width, sm) {
+					width: 100%;
+				}
+			}
+
+			@include element(popup-arrow) {
+				left: -#{$popover-spacing-2xl};
+				position: absolute;
+				top: $spacing-lg;
+				width: $spacing-lg;
+				height: $spacing-lg;
+				overflow: hidden;
+
+				&:before {
+					position: absolute;
+					box-shadow: 0 0 0 $border-width-sm $color-extended-neutral-80;
+					content: "";
+					height: 100%;
+					width: 100%;
+					background: $color-extended-neutral-100;
+					transform: rotate(45deg);
+					right: -#{$spacing-default};
+				}
+			}
+
+			@include element(popup-inner) {
+				padding: $spacing-lg;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popup-arrow) {
+				&:before {
+					box-shadow: 0 0 0 $border-width-sm $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popup-arrow) {
+				right: -#{$popover-spacing-2xl};
+				left: unset;
+
+				&:before {
+					left: -#{$spacing-default};
+					right: unset;
+				}
+			}
+		}
+	}
+}

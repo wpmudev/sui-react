@@ -1,0 +1,52 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-link" />
+
+<Section title="Props" border={true}>
+
+    	<PropSection title="theme" type="string" defaultValue="primary">
+    		<p>Theme of the link</p>
+    		<p>
+    		Allowed options:
+    			<List>
+    				<span label={<Code small={true}>primary</Code>} />
+    				<span label={<Code small={true}>secondary</Code>} />
+    			</List>
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="as" type="string" defaultValue="a">
+    		<p>The html tag for the link, default is <Code small={true}> a </Code> tag </p>
+    	</PropSection>
+
+    	<PropSection title="href" type="string" defaultValue="#">
+    		<p>The link to navigate to</p>
+    	</PropSection>
+
+    	<PropSection title="isInline" type="boolean" defaultValue="false">
+    		<p>If set to true, the link will be displayed inline with surrounding text.</p>
+    	</PropSection>
+
+    	<PropSection title="isDisabled" type="boolean" defaultValue="false">
+    		<p>If true, the link won't be interactive and it will have a different visual style.</p>
+    	</PropSection>
+
+    	<PropSection title="isExternal" type="boolean" defaultValue="false">
+    		<p>If set to <Code small={true}> true</Code> the link will be opened in a new tab </p>
+    	</PropSection>
+
+    	<PropSection title="hasExternalIcon" type="boolean" defaultValue="false">
+    		<p>If set to <Code small={true}> true </Code> an external link icon will be displayed at the end of the link text, note that <Code small={true}> isExternal </Code> should also be set to <Code small={true}> true </Code> for this to take effect</p>
+    	</PropSection>
+
+    	<PropSection title="className" type="string">
+    		<p>A custom css className(s) for the link</p>
+    	</PropSection>
+
+    	<PropSection title="children" type="string">
+    		<p>The link text</p>
+    	</PropSection>
+
+</Section>
+
+<CommonPropsNotice />

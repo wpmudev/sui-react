@@ -1,0 +1,167 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Color picker
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-color-picker($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			display: inline-block;
+			@include element(saturation, hue, alpha) {
+				border-radius: $border-radius-md;
+				background: $color-extended-alpha-black-10;
+				overflow: hidden;
+			}
+
+			@include element(saturation) {
+				position: relative;
+				height: $colorpicker-size-height-2xl;
+				margin: 0 0 $spacing-default;
+			}
+
+			@include element(hue, alpha) {
+				position: relative;
+				height: $colorpicker-size-height-xs;
+				margin: $spacing-default 0;
+			}
+
+			@include element(pointer) {
+				border: $border-width-md solid $color-extended-neutral-100;
+				cursor: pointer;
+				width: $colorpicker-size-width-xs;
+				height: $colorpicker-size-height-sm;
+				border-radius: 100%;
+				margin-top: $colorpicker-spacing-2xs;
+				filter: drop-shadow(
+					0px 0px $shadow-offset-2xs $color-extended-alpha-grey-20
+				);
+			}
+
+			@include element(fields) {
+				display: flex;
+				gap: $spacing-sm;
+				margin: $spacing-default 0;
+
+				@include modifier(select) {
+					padding: $colorpicker-spacing-sm $spacing-sm;
+					border: none;
+					cursor: pointer;
+					font-size: $font-size-xs;
+					line-height: $font-height-2xs;
+					outline-color: $color-primary-50;
+					-webkit-appearance: auto;
+					background: none;
+					min-height: unset;
+					max-width: unset;
+					margin: 0;
+				}
+
+				@include modifier(has-alpha) {
+					flex: 0 0 $colorpicker-size-width-md;
+				}
+
+				@include modifier(input) {
+					display: flex;
+					width: 100%;
+
+					&:focus-within {
+						box-shadow: 0px 0px 0px $shadow-offset-xs $color-primary-50;
+						border-radius: $border-radius-md;
+					}
+
+					input {
+						font-size: $font-size-xs;
+						line-height: $font-height-2xs;
+						color: $color-extended-neutral-10;
+						padding: $colorpicker-spacing-sm $spacing-md;
+						border: $border-width-sm solid $color-extended-neutral-80;
+						border-radius: 0;
+						width: 100%;
+						outline: none;
+						margin: 0;
+
+						&:first-child {
+							border-radius: $border-radius-md 0 0 $border-radius-md;
+						}
+
+						&:last-child {
+							border-radius: 0 $border-radius-md $border-radius-md 0;
+						}
+
+						/* Chrome, Safari, Edge, Opera */
+						&::-webkit-outer-spin-button,
+						&::-webkit-inner-spin-button {
+							-webkit-appearance: none;
+							margin: 0;
+						}
+
+						/* Firefox */
+						&[type="number"] {
+							-moz-appearance: textfield;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(fields) {
+				@include modifier(input) {
+					&:focus-within {
+						box-shadow: 0px 0px 0px $shadow-offset-xs $color-extended-neutral-0;
+					}
+
+					input {
+						color: $color-extended-neutral-0;
+						border-color: $color-extended-neutral-0;
+					}
+				}
+
+				@include modifier(select) {
+					outline-color: $color-extended-neutral-0;
+					color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(fields) {
+				@include modifier(input) {
+					input {
+						&:first-child {
+							border-top-right-radius: $border-radius-md;
+							border-bottom-right-radius: $border-radius-md;
+							border-top-left-radius: 0;
+							border-bottom-left-radius: 0;
+						}
+
+						&:last-child {
+							border-top-left-radius: $border-radius-md;
+							border-bottom-left-radius: $border-radius-md;
+							border-top-right-radius: 0;
+							border-bottom-right-radius: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

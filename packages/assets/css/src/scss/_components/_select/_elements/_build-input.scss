@@ -1,0 +1,86 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Select Input
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-input($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(input) {
+				&.sui-input {
+					&:before {
+						border: none;
+					}
+
+					.sui-input__input {
+						background: none;
+					}
+				}
+			}
+
+			@include element(search) {
+				@include modifier(input) {
+					font-size: $font-size-2xs;
+					line-height: $font-height-2xs;
+					width: 100%;
+					border-radius: $border-radius-xs;
+					padding-top: $spacing-md;
+					padding-right: $spacing-default;
+					padding-bottom: $spacing-md;
+					padding-left: $spacing-2xl;
+					cursor: text;
+					outline: none;
+				}
+
+				input[type="text"] {
+					border-width: $border-width-sm;
+					border-style: solid;
+					border-color: $color-extended-neutral-80;
+				}
+			}
+
+			@include element(hidden-input) {
+				width: 0;
+				height: 0;
+				overflow: hidden;
+				clip: rect(1px, 1px, 1px, 1px);
+				clip-path: inset(50%);
+				display: block;
+				margin-bottom: -4px;
+				padding: 0;
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(search) {
+				@include modifier(input) {
+					padding-right: $spacing-2xl;
+					padding-left: $spacing-default;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(search) {
+				input[type="text"] {
+					border-color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+}

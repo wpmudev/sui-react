@@ -1,0 +1,40 @@
+{
+	"popover": {
+		"size": {
+			"height": {
+				"md": {
+					"value": "180px",
+					"type": "size"
+				}
+			},
+			"width": {
+				"md": {
+					"value": "300px",
+					"type": "size"
+				},
+				"lg": {
+					"value": "360px",
+					"type": "size"
+				}
+			}
+		},
+		"spacing": {
+			"sm": {
+				"value": "3px",
+				"type": "spacing"
+			},
+			"md": {
+				"value": "6px",
+				"type": "spacing"
+			},
+			"xl": {
+				"value": "14px",
+				"type": "spacing"
+			},
+			"2xl": {
+				"value": "15px",
+				"type": "spacing"
+			}
+		}
+	}
+}

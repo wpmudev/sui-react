@@ -1,0 +1,45 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Focus
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $item - Main item name
+@mixin build-focus($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(item) {
+				@include modifier(focus) {
+					&:after {
+						border: $border-width-md solid $color-extended-neutral-50;
+					}
+				}
+			}
+
+			@include element(dropdown) {
+				.sui-#{$block}__item {
+					outline: none;
+					&:after {
+						content: unset;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(item) {
+				&:after {
+					border: none;
+				}
+			}
+		}
+	}
+}

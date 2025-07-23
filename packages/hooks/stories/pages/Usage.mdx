@@ -1,0 +1,371 @@
+import { Section, Code, Snippet, List } from '@wpmudev/sui-docs';
+
+<Section contained={true} style={{ paddingTop: 0 }}>
+	<p>
+		Once you've installed @wpmudev/sui-hooks in your application, you can use following custom react hooks that may help in your development.
+	</p>
+</Section>
+<Section contained={true} border={true} title="1. useOuterClick" >
+	<Code>useOuterClick</Code> is custom hook used to detect click outside of an element.
+	<p>
+		It accepts following parameters:
+		<ol>
+			<li><strong>ref</strong>: element ref object</li>
+			<li><strong>callback</strong>: function to get executed when outer click is detected.</li>
+		</ol>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```javascript
+		import React, { useRef } from 'react';
+		import { useOuterClick } from '@wpmudev/sui-hooks';
+
+		const useOuterClickDemo = () => {
+			const ref = useRef(null);
+
+			useOuterClick(ref, () => {
+				alert('Outer click detected!')
+			})
+
+			return (
+				<div ref={ref}>
+					{/* Your content inside the container */}
+				</div>
+			);
+		};
+
+		export default useOuterClickDemo;
+		```
+	</p>
+</Section>
+<Section contained={true} border={true} title="2. usePortal" >
+	<Code>usePortal</Code> hook is designed to render content outside of the current React tree hierarchy. It takes a parameter called wrapperId, where you can specify the ID or class of an element outside the current hierarchy in which you want to render the content.
+	<p>
+		It accepts following parameters:
+		<ol>
+			<li><strong>wrapperId</strong>: ID or className as string of an element, it is an optional param, it uses ".sui-wrap" if not passed.</li>
+		</ol>
+	</p>
+	<p>This hook returns "render" method in array, use this method to render the content outside of the React Tree Hierarchy.</p>
+	<p>
+		<h4>Example</h4>
+		```javascript
+		import React, { Fragment, useRef } from 'react';
+		import { usePortal } from '@wpmudev/sui-hooks';
+
+		const usePortalDemo = () => {
+			const [render] = usePortal()
+
+			return (
+				<Fragment>
+					{render('CONTENT TO BE RENDERED OUTSIDE OF THIS COMPONENT')}
+				</Fragment>
+			);
+	};
+
+		export default usePortalDemo;
+		```
+	</p>
+</Section>
+
+<Section contained={true} border={true} title="3. useDragAndDrop" >
+	<p>
+		The `useDragAndDrop` hook is designed to enable drag-and-drop functionality within a React application for a specified element container. This hook enhances the container element's capability to handle drag events
+
+		#### Parameters:
+
+		1. `containerRef`: A React reference object that points to the target container element where the drag-and-drop functionality will be enabled.
+
+		2. `methods`: An object containing two methods used to handle specific drag events
+				- `onDrop`: method invoked when a draggable element is dropped onto the specified container.
+				- `onDragOver`: method invoked when a draggable element is being dragged over the specified container.
+	</p>
+
+	<p>This hook returns the isDragging variable in an array, which holds the dragging state.</p>
+
+	<p>
+		#### Example:
+	</p>
+
+	```javascript
+	import React, { useRef } from 'react';
+	import { useDragAndDrop } from '@wpmudev/sui-hooks';
+
+	const DragAndDropExample = () => {
+		const containerRef = useRef(null);
+
+		const handleDrop = (event) => {
+			console.log('Element dropped!', event);
+		};
+
+		const handleDragOver = (event) => {
+			console.log('Element is being dragged over!', event);
+		};
+
+		useDragAndDrop(containerRef, { onDrop: handleDrop, onDragOver: handleDragOver });
+
+		return (
+			<div ref={containerRef}>
+				{/* Your content inside the container */}
+			</div>
+		);
+	};
+
+	export default DragAndDropExample;
+	```
+</Section>
+
+<Section contained={true} border={true} title="4. useDetectRTL" >
+	<Code>useDetectRTL</Code> hook is designed to detect if rtl language is enabeld on the page or not.
+	<p>This hook returns `true` when RTL language is enabled, and `false` if not.</p>
+	<p>
+		<h4>Example</h4>
+		```javascript
+		import React from 'react';
+		import { useDetectRTL } from '@wpmudev/sui-hooks';
+
+		const usePortalDemo = () => {
+			// detect RTL
+			const isRTL = useDetectRTL()
+
+			return `RTL is ${ isRTL ? 'enabled' : 'disabled'}`
+		};
+
+		export default usePortalDemo;
+		```
+	</p>
+</Section>
+
+<Section contained={true} border={true} title="5. usePrevious" >
+	<p>
+	The `usePrevious` hook is a custom React hook designed to retain the previous value of a state or any other variable across different renders in a functional component. Its primary purpose is to store the previous value of a variable and provide access to that value during subsequent renders.
+	</p>
+	<p>
+		It accepts following parameters:
+		<ol>
+			<li><strong>value</strong>: value to retain</li>
+		</ol>
+	</p>
+	<p>
+		<h4>Example</h4>
+		```javascript
+		const YourComponent = () => {
+			const [count, setCount] = useState(0);
+			const previousCount = usePrevious(count);
+
+			useEffect(() => {
+					// Comparing current and previous values
+					if (count > previousCount) {
+						console.log('Count increased!');
+					} else if (count < previousCount) {
+						console.log('Count decreased!');
+					}
+				}, [count, previousCount]);
+
+				// Function to update count
+				const increment = () => {
+				setCount((prevCount) => prevCount + 1);
+			};
+
+			return (
+				<div>
+					<p>Count: {count}</p>
+					<button onClick={increment}>Increment</button>
+				</div>
+			);
+		};
+
+		export default YourComponent;
+		```
+	</p>
+</Section>
+
+<Section contained={true} border={true} title="6. useStyles" >
+	<p>
+		The `useStyle` hook can be used to add inline style support for custom components. 
+	</p>
+
+	<p>
+		The `useStyles` hook accepts two parameters
+		<ol>
+			<li><strong>styles*</strong>: An object containing the styles to be applied to the component.</li>
+			<li><strong>className</strong>: optional className to be combined with the returned className</li>
+		</ol>
+	</p>
+
+	The hook returns an object with a single property `suiInlineClassname` which can be used to apply the styles to the component.
+
+	<p>
+		<h4>Example</h4>
+		```javascript
+		import React from 'react';
+		import { useStyles } from '@wpmudev/sui-hooks';
+
+		const YourCustomComponent = ( { _style, className = "" } ) => {
+		
+			const { suiInlineClassname } = useStyles(_style, className);
+
+			return (
+				<div className={suiInlineClassname}>
+					{/* Your component content */}
+				</div>
+			);
+		};
+
+		export default YourComponent;
+		```
+	</p>
+	
+	and then your component can be used as follow:
+
+	```javascript	
+	<YourCustomComponent _style={{ color: 'red', fontSize: '20px' }} />
+	```
+
+	All the ways on how to use the `_style` prop can be found <a href="/?path=/docs/sui-common-props--docs" target="_blank">here</a>
+</Section>
+
+<Section contained={true} border={true} title="7. useValidation" id="use-validation">
+	<p>
+		The `useValidation` hook is designed to validate SUI form fields and manage thier validation state. It provides a set of methods that works specifically with SUI form fields. 
+	</p>
+	<p>
+		It accepts <strong>2 parameters</strong> as an object:
+		<ol>
+			<li><strong>validationRules*</strong>: validation rules for the form field</li>	
+			<li><strong>settings</strong>: optional settings for validation </li>
+		</ol>
+	</p>
+	<h3> validationRules </h3>
+	<p>
+		`validationRules` could be one of three types:
+		<ol>
+			<li><strong>function</strong>: A custom validator that takes the field value as the first argument, in case of validation error, the function must return the message to be displayed in the form of a string, otherwise it should return `null` or `false`</li>
+			<li><strong>object</strong>: A predefined object rule such as: `required`, `pattern` or similar to function above `validator`</li>
+			<li><strong>array</strong>: To add multiple object rules in a form of an array, the rules will be applied in order from left to right</li>
+		</ol>
+	</p>
+	<h3> settings </h3>
+	<p>
+		`settings` is an object that has a single property:
+		<ul>
+			<li><strong>validateOnMount</strong>: boolean to enable/disable validation on mount, when set to true, the form field will be validated on mount</li>
+		</ul>
+	</p>
+
+	<h4> Predefined validators </h4>
+
+	`useValidation` hook provides a set of predefined validators that can be used to validate form fields:
+
+
+	```javascript
+         {
+            required: true, // boolean 
+            message: "This field is required" 
+        }
+	```
+
+	```javascript
+         {
+            url: true, // boolean
+            message: "Please enter a valid url"
+        }
+	```
+
+	```javascript
+        {
+            pattern: "^[a-zA-Z0-9]+$", // pattern in string format 
+            message: "Only letters and numbers are allowed"
+        }
+	```
+
+	You can also use custom validator function in the object form:
+
+	```javascript
+        {
+            validator: (fieldValue) => {
+               // your validation logic
+            }
+        }
+	```
+	<p>
+		<strong>Note that predefined rules can only be used with the following components:</strong>
+	</p>
+	
+	<p>
+		<List>
+			<span label="Input" />
+			<span label="Password Field" />
+			<span label="Textarea" />
+		</List>
+	</p>
+
+	For other components, you should use the custom validator function.
+
+	<h3>Example</h3>
+	
+	```javascript
+	import React from 'react';
+	import { useValidation } from "@wpmudev/sui-hooks";
+	import { FormField } from "@wpmudev/sui-form-field";
+	import { Input } from "@wpmudev/sui-input";
+
+	const YourComponent = () => {
+		
+		const  validator = (fieldValue) => {
+			// Remove blank spaces
+			const val = fieldValue?.toString()?.trim() ?? "";
+
+			// Required field
+			if (val === "") {
+				return "This field is required";
+			}
+			
+			// prevent HTML tags
+			if (typeof value === "string" && "" !== val) {
+				if (!new RegExp("^(?:^(?:(?!<[^>]*>).)*$)$", "gm").test(val)) {
+					return "Please enter a valid brand name.";
+				}
+			}
+		};
+
+		const [status, validationProps] = useValidation(validator, { validateOnMount: true });
+
+		return (
+			<FormField error={status.error}>
+				<Input
+					defaultValue={value}
+					onChange={onChange}
+					isError={status.error}
+					{...validationProps}
+				/>
+			</div>
+		);
+	};
+	```
+
+	Same example above can be written as follow:
+
+	```javascript
+	const [status, validationProps] = useValidation(
+		[
+			{
+				required:  true,
+				message:  "This field is required"
+			}, 
+			{
+				pattern:  "^(?:^(?:(?!<[^>]*>).)*$)$",
+				message:  "Please enter a valid brand name."
+			}
+		], 
+		{ 
+			validateOnMount: true 
+		}
+	);
+	```
+
+
+
+	
+
+</Section>

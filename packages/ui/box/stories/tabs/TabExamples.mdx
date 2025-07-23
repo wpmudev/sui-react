@@ -1,0 +1,109 @@
+import { Section, Preview, Snippet } from "@wpmudev/sui-docs"
+
+import { Box, BoxGroup } from "../../src"
+import { Col, Row } from "@wpmudev/sui-grid"
+import { Button } from "@wpmudev/sui-button"
+
+import dedent from "dedent"
+
+export const basicCode = dedent`
+    <Box title="Box label" icon="hub" headerLeft="Left content" headerRight="Right content">
+        <BoxGroup>
+            <Row align={{ md: "inline" }}>
+                <Col size="6">
+                    <div
+                        style={{
+                                padding: 20,
+                                borderRadius: 4,
+                                background: "#F8F8F8",
+                            }}
+                        >Left block</div>
+                    </Col>
+                    <Col size="6">
+                        <div style={{
+                            padding: 20,
+                            borderRadius: 4,
+                            background: "#F8F8F8",
+                        }}
+                        >Right block</div>
+                    </Col>
+                </Row>
+            </BoxGroup>
+    </Box>
+`
+
+export const errorCode = dedent`
+    <FormField
+            error={{ state: true, text: "Name must have at least 3 characters" }}
+            label="Name"
+    >
+        <Input value="ab" id="input-example" placeholder="Placeholder" />
+    </FormField>
+`
+export const selectCode = dedent`
+    <FormField label="Settings" helper="Please Select one option">
+        <Select
+            id="select-example"
+            options={[
+                    {
+                        icon: "settings",
+                        id: "option-1",
+                        label: "Option 1",
+                        isSelected: false,
+                    },
+                    {
+                        icon: "settings",
+                        id: "option-2",
+                        label: "Option 2",
+                        isSelected: false,
+                    },
+                    {
+                        icon: "settings",
+                        id: "option-3",
+                        label: "Option 3",
+                        isSelected: false,
+                    },
+                ]}
+        />
+    </FormField>
+`
+
+<Section
+	title="A Form Field with a basic Input"
+	contained={true}
+	style={{ paddingTop: 30 }}
+>
+	<Preview wrapper={true}>
+		<Box title="Box label" icon="hub" headerLeft={[
+			<span
+				key="1"
+				className="sui-tag sui-tag--outlined-navy sui-tag--sm sui-tag--uppercase"
+			>
+			<span className="sui-tag__label">Pro</span>
+		</span>
+		]} headerRight={[<Button key="1" type="primary" colorScheme="blue" isSmall={true}>
+			Run Action
+		</Button>]}>
+			<BoxGroup>
+				<Row align={{ md: "inline" }}>
+					<Col size="6">
+						<div style={{
+							padding: 20,
+							borderRadius: 4,
+							background: "#F8F8F8",
+						}}>Left block</div>
+					</Col>
+					<Col size="6">
+						<div style={{
+							padding: 20,
+							borderRadius: 4,
+							background: "#F8F8F8",
+						}}>Right block</div>
+					</Col>
+				</Row>
+			</BoxGroup>
+		</Box>
+	</Preview>
+	<Snippet language="js">{basicCode}</Snippet>
+</Section>
+

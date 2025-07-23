@@ -1,0 +1,82 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Design
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-design($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			pre[class*="language-"]::selection,
+			code[class*="language-"]::selection,
+			pre[class*="language-"]::mozselection,
+			code[class*="language-"]::mozselection {
+				text-shadow: none;
+				background: $color-primary-50;
+			}
+
+			.token.comment,
+			.token.prolog,
+			.token.doctype,
+			.token.cdata {
+				color: $color-extended-neutral-70;
+			}
+
+			.token.punctuation,
+			.token.operator,
+			.token.entity,
+			.token.url,
+			.language-css .token.string,
+			.style .token.string {
+				color: $color-extended-neutral-10;
+			}
+
+			.token.property,
+			.token.tag,
+			.token.boolean,
+			.token.number,
+			.token.constant,
+			.token.symbol,
+			.token.deleted {
+				color: $color-primary-40;
+			}
+
+			.token.selector,
+			.token.attr-name,
+			.token.string,
+			.token.char,
+			.token.builtin,
+			.token.inserted,
+			.token.function,
+			.token.regex,
+			.token.important,
+			.token.variable {
+				color: $color-extended-error-50;
+			}
+
+			.token.atrule,
+			.token.attr-value,
+			.token.keyword {
+				color: $color-primary-50;
+			}
+
+			.token.entity {
+				cursor: help;
+			}
+
+			@media print {
+				pre[class*="language-"],
+				code[class*="language-"] {
+					text-shadow: none;
+				}
+			}
+		}
+	}
+}

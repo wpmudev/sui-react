@@ -1,0 +1,12 @@
+{
+	"accordion": {
+		"border": {
+			"radius": {
+				"sm": {
+					"value": "10px",
+					"type": "borderRadius"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,34 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build input
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-input($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(input) {
+				@include modifier(element) {
+					color: $color-extended-neutral-10;
+				}
+
+				.sui-input__icon--calendar {
+					pointer-events: none;
+				}
+
+				@include modifier(disabled) {
+					cursor: default;
+					pointer-events: none;
+					opacity: 0.5;
+				}
+			}
+		}
+	}
+}

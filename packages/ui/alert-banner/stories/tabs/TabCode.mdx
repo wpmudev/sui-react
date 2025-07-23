@@ -1,0 +1,48 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-advanced-banner" />
+
+<Section title="Props" border={true}>
+
+    <PropSection title="variation" type="string" defaultValue="informative">
+    	<p>Alert Banner variations</p>
+    	<p>
+    	Allowed options:
+    		<List>
+    			<span label={<Code small={true}>informative</Code>} />
+    			<span label={<Code small={true}>success</Code>} />
+    			<span label={<Code small={true}>warning</Code>} />
+    			<span label={<Code small={true}>critical</Code>} />
+				<span label={<Code small={true}>plugin-upsell</Code>} />
+				<span label={<Code small={true}>hub-upsell</Code>} />
+    		</List>
+    	</p>
+    </PropSection>
+
+	<PropSection title="isCenter" type="boolean" defaultValue="false">
+    	<p>When set to <Code small={true}>true</Code>, the banner text will be centered </p>
+    </PropSection>
+
+	<PropSection title="actions" type="React Node">
+    	<p>The Banner actions, You can add any react elements to be displayed on the right, this is usually a button or a list of buttons  </p>
+    </PropSection>
+
+	<PropSection title="displayIcon" type="boolean" defaultValue="true">
+    	<p>When set to <Code small={true}> true </Code>, the banner will have an icon on the left</p>
+    </PropSection>
+
+	<PropSection title="isDismissible" type="boolean" defaultValue="true">
+    	<p>When set to <Code small={true}> true </Code>, the banner will include a dismiss button</p>
+    </PropSection>
+
+	 <PropSection title="onDismiss" type="function">
+    	<p>A callback function to be invoked when the banner get dismissed</p>
+    </PropSection>
+
+	<PropSection title="children" type="React Node">
+    	<p>Alert Banner content</p>
+    </PropSection>
+
+</Section>
+
+<CommonPropsNotice />

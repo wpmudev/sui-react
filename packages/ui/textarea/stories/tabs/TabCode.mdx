@@ -1,0 +1,58 @@
+import { 
+	Section, 
+	Row, 
+	Col, 
+	Table, 
+	List, 
+	Code, 
+	Tag, 
+	PackageInstallGuide, 
+	PropSection, 
+	CommonPropsNotice,
+	FormValidationProps 
+} from '@wpmudev/sui-docs';
+
+<PackageInstallGuide packageName="@wpmudev/sui-textarea" />
+
+<Section title="Props" border={true}>
+	<p>Textarea component have the following props.</p>
+
+	<PropSection title="id" type="string">
+		<p>Add a unique id to the textarea.</p>
+	</PropSection>
+	
+	<PropSection title="label" type="string">
+		<p>Label for screen readers</p>
+	</PropSection>
+
+	<PropSection title="customWidth" type="number" >
+    	<p>Custom width in <Code isSmall={true}>pixels</Code></p>
+    </PropSection>
+
+	<PropSection title="className" type="string">
+		<p>Add a class name to the textarea.</p>
+	</PropSection>
+
+	<PropSection title="value" type="string">
+		<p>Reflects the value of the input field.</p>
+	</PropSection>
+	
+	<PropSection title="isSmall" type="boolean" defaultValue="false">
+		<p>Set if the input is small.</p>
+	</PropSection>
+
+	<PropSection title="isDisabled" type="boolean" defaultValue="false">
+		<p>Set if the input is disabled.</p>
+	</PropSection>
+
+	<PropSection title="isError" type="boolean" defaultValue="false">
+		<p>Set if the input is disabled.</p>
+	</PropSection>
+
+	<PropSection title="onChange" type="boolean" defaultValue="false">
+		<p>A callback function to be invoked when the textarea value changes, the first parameter represents the change event object</p>
+	</PropSection>
+	<FormValidationProps />
+</Section>
+
+<CommonPropsNotice />

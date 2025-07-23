@@ -1,0 +1,140 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Select Icon
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-icon($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(control) {
+				.sui-#{$block}__icon {
+					position: absolute;
+					line-height: 0;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+			}
+
+			@include element(icon) {
+				@include modifier(chevron-down, chevron-up, close-alt) {
+					right: $spacing-default;
+				}
+
+				@include modifier(search) {
+					left: $spacing-default;
+					font-size: $select-font-size-lg;
+					color: $color-extended-neutral-60;
+				}
+
+				@include modifier(close-alt) {
+					font-size: $select-font-size-lg;
+					color: $color-extended-neutral-70;
+					pointer-events: all;
+
+					&:hover {
+						color: $color-extended-neutral-60;
+					}
+				}
+			}
+
+			@include element(search) {
+				.sui-#{$block}__icon {
+					font-size: $font-size-xs;
+					line-height: 1;
+					position: absolute;
+					bottom: $select-spacing-sm;
+					left: $select-spacing-lg;
+				}
+			}
+
+			@include element(dropdown) {
+				@include modifier(option) {
+					.sui-#{$block}__icon {
+						padding-right: $spacing-md;
+						line-height: 1;
+					}
+				}
+			}
+
+			@include modifier(multiselect) {
+				.sui-#{$block}__icon--close {
+					right: $select-spacing-xs;
+					font-size: $select-font-size-xs;
+				}
+
+				.sui-#{$block}__icon--close-alt {
+					right: $select-spacing-2xl;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(icon) {
+				@include modifier(chevron-down, chevron-up, close-alt) {
+					left: $spacing-default;
+					right: unset;
+				}
+
+				@include modifier(search) {
+					left: unset;
+					right: $spacing-default;
+				}
+			}
+
+			@include element(search) {
+				.sui-#{$block}__icon {
+					right: $select-spacing-lg;
+					left: unset;
+				}
+			}
+
+			@include element(dropdown) {
+				@include modifier(option) {
+					.sui-#{$block}__icon {
+						padding-left: $spacing-md;
+						padding-right: 0;
+					}
+				}
+			}
+
+			@include modifier(multiselect) {
+				.sui-#{$block}__icon--close {
+					left: $select-spacing-xs;
+					right: unset;
+				}
+
+				.sui-#{$block}__icon--close-alt {
+					left: $select-spacing-2xl;
+					right: unset;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(icon) {
+				@include modifier(search) {
+					color: $color-extended-neutral-0;
+				}
+
+				@include modifier(close-alt) {
+					color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+}

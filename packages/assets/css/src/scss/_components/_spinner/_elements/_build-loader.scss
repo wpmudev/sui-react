@@ -1,0 +1,82 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Loader
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-loader($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(loader) {
+				width: $spinner-size-width-md;
+				height: $spinner-size-height-md;
+			}
+
+			@include element(icon) {
+				fill: $color-extended-alpha-black-0;
+				stroke: $color-primary-50;
+
+				@include modifier(background, stroke) {
+					stroke-width: $spinner-stroke-width-lg;
+					stroke-dasharray: $spinner-stroke-dasharray $spinner-stroke-dasharray;
+					stroke-linecap: butt;
+				}
+
+				@include modifier(background) {
+					stroke: $color-extended-neutral-80;
+				}
+
+				@include modifier(stroke) {
+					stroke-dashoffset: $spinner-stroke-dashoffset;
+					animation: init-stroke 0.8s linear infinite;
+					transform-origin: center;
+				}
+
+				@keyframes init-stroke {
+					0% {
+						transform: rotate(0deg);
+					}
+					100% {
+						transform: rotate(360deg);
+					}
+				}
+			}
+
+			@include modifier(dark) {
+				@include modifies-element(icon--background) {
+					stroke: $color-extended-alpha-white-30;
+				}
+
+				@include modifies-element(icon--stroke) {
+					stroke: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(icon) {
+				@include modifier(background) {
+					stroke: $color-extended-neutral-100;
+				}
+			}
+
+			@include modifier(dark) {
+				@include modifies-element(icon--stroke) {
+					stroke-width: $spinner-stroke-width-md;
+				}
+			}
+		}
+	}
+}

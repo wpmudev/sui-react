@@ -1,0 +1,43 @@
+import { Section, Snippet, Preview, Code } from '@wpmudev/sui-docs';
+import dedent from 'dedent';
+import { Button } from "../../../src"
+
+export const LoadingButtonCode = dedent`
+import { Button } from '@wpmudev/sui-button';\n
+
+    const App = () => {
+         return <Button isLoading={true} />
+    }
+`;
+
+<Section
+	title="Loading button"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set <Code small={true}>isLoading</Code> prop to
+		<Code small={true}> true </Code> to show a spinner
+	</p>
+	<Preview>
+		<Button isLoading={true}><p>Loading Button</p></Button>
+	</Preview>
+	<Snippet language="js">{LoadingButtonCode}</Snippet>
+</Section>
+
+<Section
+	title="Icon only"
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<p>
+		Set <Code small={true}>isLoading</Code> prop to
+		<Code small={true}> true </Code> to show a spinner
+	</p>
+	<Preview>
+		<Button colorScheme="blue" iconOnly={true} icon="CheckAlt" />
+	</Preview>
+	<Snippet language="js">{LoadingButtonCode}</Snippet>
+</Section>

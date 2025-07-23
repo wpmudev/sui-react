@@ -1,0 +1,18 @@
+@use "../../../_utils/utils" as *;
+
+/// Build CTA
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-cta($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include element(cta) {
+				padding: $spacing-lg 0;
+				text-align: center;
+			}
+		}
+	}
+}

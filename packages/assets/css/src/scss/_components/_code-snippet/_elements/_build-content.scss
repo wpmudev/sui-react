@@ -1,0 +1,42 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Content
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-content($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			code {
+				direction: ltr;
+				position: relative;
+				z-index: 1;
+				margin: 0;
+				padding: 0;
+				background: transparent;
+				text-align: left;
+				white-space: pre;
+				word-spacing: normal;
+				word-break: normal;
+				tab-size: 4;
+				hyphens: none;
+				color: $color-extended-neutral-10;
+				font-weight: $font-weight-default;
+				font-size: $font-size-2xs;
+				line-height: $code-snippet-font-height-sm;
+				letter-spacing: $font-spacing-default;
+
+				* {
+					font-family: $code-snippet-font-family;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+@use "../../../_utils/utils" as *;
+
+///  Focus State
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin state-focus($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(nav-item) {
+				@include modifier(focus) {
+					border-color: $tabs-color-focus-border-color;
+				}
+
+				&:focus-visible {
+					&:after {
+						border: $border-width-md solid $tabs-color-focus-border-color;
+					}
+					border-bottom-color: transparent;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(nav-item) {
+				@include modifier(focus) {
+					border-color: $color-extended-neutral-0;
+				}
+
+				&:focus-visible {
+					&:after {
+						border-color: $color-extended-neutral-0;
+					}
+					border-bottom-color: transparent;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+@use "./_elements/elements" as sui-dropdown--element;
+@use "./_modifiers/modifiers" as sui-dropdown--modifier;
+@use "./_states/states" as sui-dropdown--state;
+
+@include sui-dropdown--element.build-container(dropdown);
+@include sui-dropdown--element.build-popover(dropdown);
+@include sui-dropdown--element.build-menu(dropdown);
+@include sui-dropdown--element.build-cta(dropdown);
+@include sui-dropdown--element.build-menu-group(dropdown);
+@include sui-dropdown--element.build-menu-item(dropdown);
+@include sui-dropdown--element.build-menu-items(dropdown);
+
+@include sui-dropdown--modifier.modify-size(dropdown);
+@include sui-dropdown--modifier.modify-placement(dropdown);
+
+@include sui-dropdown--state.edit-open(dropdown);
+@include sui-dropdown--state.edit-hover(dropdown);
+@include sui-dropdown--state.edit-disabled(dropdown);
+@include sui-dropdown--state.edit-variation(dropdown);
+@include sui-dropdown--state.edit-fluid(dropdown);
+@include sui-dropdown--state.edit-current(dropdown);
+@include sui-dropdown--state.edit-type(dropdown);

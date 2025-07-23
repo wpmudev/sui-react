@@ -1,0 +1,71 @@
+import { Section, Preview, Snippet } from "@wpmudev/sui-docs"
+import { UpsellNotice } from "../../../src"
+import { Button } from "@wpmudev/sui-button"
+import dedent from "dedent"
+
+export const Code = dedent`
+    <UpsellNotice
+      variation="shipper"
+      features={[
+        "Performance Test Reporting",
+        "Uptime monitoring",
+        "Enhanced file minification with CDN",
+        "Database Cleanup notifications",
+      ]}
+      actions={[
+        <div key={0}>
+          <Button type="primary" colorScheme="black" isSmall={true}>
+            Upgrade now
+          </Button>
+        </div>,
+        <div key={1}>
+          <Button
+            href="#"
+            target="_blank"
+            type="tertiary"
+            colorScheme="black"
+            isSmall={true}
+          >
+            Learn more
+          </Button>
+        </div>,
+      ]}
+    />
+`
+
+<Section
+	contained={true}
+	border={true}
+	style={{ paddingRight: 0, paddingLeft: 0 }}
+>
+	<Preview wrapper={true}>
+		<UpsellNotice
+			variation="shipper"
+			features={[
+				"Performance Test Reporting",
+				"Uptime monitoring",
+				"Enhanced file minification with CDN",
+				"Database Cleanup notifications",
+			]}
+			actions={[
+				<div key={0}>
+					<Button type="primary" colorScheme="black" isSmall={true}>
+						Upgrade now
+					</Button>
+				</div>,
+				<div key={1}>
+					<Button
+						href="#"
+						target="_blank"
+						type="tertiary"
+						colorScheme="black"
+						isSmall={true}
+					>
+						Learn more
+					</Button>
+				</div>,
+			]}
+		/>
+	</Preview>
+	<Snippet language="js">{Code}</Snippet>
+</Section>

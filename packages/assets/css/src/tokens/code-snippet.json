@@ -1,0 +1,48 @@
+{
+	"code-snippet": {
+		"font": {
+			"family": {
+				"value": "{font.family.code}",
+				"type": "fontFamily"
+			},
+			"size": {
+				"xs": {
+					"value": "{font.size.2xs}",
+					"type": "fontSizes"
+				},
+				"sm": {
+					"value": "{font.size.2xs}+1px",
+					"type": "fontSizes"
+				}
+			},
+			"spacing": {
+				"value": "{font.spacing.default}",
+				"type": "letterSpacing"
+			},
+			"height": {
+				"xs": {
+					"value": "{font.height.2xs}",
+					"type": "lineHeights"
+				},
+				"sm": {
+					"value": "{font.height.sm}-4px",
+					"type": "lineHeights"
+				}
+			},
+			"weight": {
+				"value": "400",
+				"type": "fontWeights"
+			}
+		},
+		"spacing": {
+			"right": {
+				"value": "{spacing.lg}+70px",
+				"type": "spacing"
+			}
+		},
+		"height": {
+			"value": "75px",
+			"type": "sizing"
+		}
+	}
+}

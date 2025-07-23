@@ -1,0 +1,67 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-date-picker" />
+
+<Section title="Props" border={true}>
+
+    	<PropSection title="type" type="string" defaultValue="single">
+    		<p>Specifies the type of the DatePicker </p>
+    		<p>
+    		Allowed options:
+    			<List>
+    				<span label={<Code small={true}>single</Code>} />
+    				<span label={<Code small={true}>range</Code>} />
+    			</List>
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="minDate" type="string">
+    		<p>Minimum selectable date</p>
+    	</PropSection>
+
+    	<PropSection title="maxDate" type="string">
+    		<p>Maximum selectable date</p>
+    	</PropSection>
+
+    	<PropSection title="isDisabled" type="boolean" defaultValue="false">
+    		<p>When set to <Code small={true}>true</Code> the date picker will be disabled</p>
+    	</PropSection>
+
+    	<PropSection title="startDate" type="string">
+    		<p>The initial date value </p>
+    	</PropSection>
+
+    	<PropSection title="endDate" type="string">
+    		<p>In the range Date Picker type, this represents the end date value </p>
+    	</PropSection>
+
+    	<PropSection title="onChange" type="function">
+    		<p>A callback function to be invoked when the date changes, the first parameter is the new selected date(s)  </p>
+    	</PropSection>
+
+    	<PropSection title="className" type="string">
+    		<p>Additional css classname(s)</p>
+    	</PropSection>
+
+		<PropSection title="error" type="string">
+    		<p>If datepicker field has error set the error message.</p>
+    	</PropSection>
+
+</Section>
+
+<Section>
+	<h3>Note. </h3>
+	<p>
+		props with date values should be in the format{" "}
+		<Code small={true}>DD/MM/YYYY</Code>
+	</p>
+	<p>
+		Examples:
+		<List>
+			<span label={<Code small={true}>01/05/2023</Code>} />
+			<span label={<Code small={true}>30/10/2023</Code>} />
+		</List>
+	</p>
+</Section>
+
+<CommonPropsNotice />

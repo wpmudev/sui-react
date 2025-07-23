@@ -1,0 +1,65 @@
+{
+  "name": "@wpmudev/sui-css",
+  "description": "SUI CSS Framework, the WPMU DEV Products styles library.",
+  "version": "0.0.1",
+  "license": "GPL-2.0",
+  "keywords": [
+    "incsub",
+    "wpmudev",
+    "shared-ui",
+    "css",
+    "scss",
+    "css-framework"
+  ],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Leighton Sapir",
+      "email": "2328848+iamleigh@users.noreply.github.com",
+      "url": "https://iamleigh.com"
+    },
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
+    },
+    {
+      "name": "Pawan Kumar",
+      "email": "40248406+creador-dev@users.noreply.github.com",
+      "url": "https://creador.dev/"
+    }
+  ],
+  "input": "./src",
+  "output": "./dist",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "dist"
+  ],
+  "style": "dist/css/sui-css.min.css",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-css.git"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "tokens": "style-dictionary build",
+    "build": "npm run tokens && gulp",
+    "prepare": "npm run clean && gulp",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "publish:test": "npm run prepare && npm version prerelease --git-tag-version=false && npm pack",
+    "publish:patch": "npm run prepare && npm version patch -m \"📦️ SUI CSS Framework %s\" && npm publish",
+    "publish:minor": "npm run prepare && npm version minor -m \"📦️ SUI CSS Framework %s\" && npm publish",
+    "publish:major": "npm run prepare && npm version major -m \"📦️ SUI CSS Framework %s\" && npm publish"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/sui-css"
+  },
+  "homepage": "https://github.com/wpmudev/sui-css#readme",
+  "clean-package": "./postpack.config.json"
+}

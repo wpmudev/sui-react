@@ -1,0 +1,25 @@
+@use "../../../_utils/utils" as *;
+
+/// Icon
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-icon($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include element(icon) {
+				margin: $spacing-sm $spacing-md $spacing-sm 0;
+			}
+		}
+	}
+
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block-name) {
+			@include element(icon) {
+				margin: $spacing-sm 0 $spacing-sm $spacing-md;
+			}
+		}
+	}
+}

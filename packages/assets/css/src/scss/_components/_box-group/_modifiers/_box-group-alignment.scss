@@ -1,0 +1,27 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Box Alignment
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-alignment($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(inline) {
+				@include media(min-width, md) {
+					display: flex;
+					flex-flow: row wrap;
+				}
+			}
+
+			@include modifier(no-padding) {
+				padding: 0;
+			}
+		}
+	}
+}

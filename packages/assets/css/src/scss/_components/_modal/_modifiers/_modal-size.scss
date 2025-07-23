@@ -1,0 +1,36 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Size
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-size($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// by default variant is "sm"
+		@include block($block) {
+			// variant: sm
+			@include modifier(sm) {
+				@include modifies-element(container) {
+					max-width: $modal-size-width-md;
+				}
+			}
+			// variant: lg
+			@include modifier(lg) {
+				@include modifies-element(container) {
+					max-width: $modal-size-width-lg;
+				}
+			}
+			// variant: xl
+			@include modifier(xl) {
+				@include modifies-element(container) {
+					max-width: $modal-size-width-xl;
+				}
+			}
+		}
+	}
+}

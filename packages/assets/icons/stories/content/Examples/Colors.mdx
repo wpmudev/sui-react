@@ -1,0 +1,87 @@
+import { Section, Switcher, Preview, Snippet } from '@wpmudev/sui-docs';
+import { ClockAlt, ArrowRight } from '../../../src/components';
+import dedent from 'dedent';
+
+export const neutral = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => <ClockAlt colorScheme="neutral" />;
+`;
+
+export const informative = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => <ClockAlt colorScheme="informative" />;
+`;
+
+export const success = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => <ClockAlt colorScheme="success" />;
+`;
+
+export const warning = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => <ClockAlt colorScheme="warning" />;
+`;
+
+export const critical = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => <ClockAlt colorScheme="critical" />;
+`;
+
+export const customColor = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => <ClockAlt fill="#C756FF" />;
+`;
+
+<Section title="neutral" contained={true} style={{ paddingLeft: 0 }}>
+	
+	<Preview wrapper={true}>
+		<ClockAlt colorScheme="neutral" />
+	</Preview>
+	<Snippet language="js">{neutral}</Snippet>
+</Section>
+
+<Section title="informative" contained={true} style={{ paddingLeft: 0 }}>
+	
+	<Preview wrapper={true}>
+		<ClockAlt colorScheme="informative" />
+	</Preview>
+	<Snippet language="js">{informative}</Snippet>
+</Section>
+
+<Section title="success" contained={true} style={{ paddingLeft: 0 }}>
+	
+	<Preview wrapper={true}>
+		<ClockAlt colorScheme="success" />
+	</Preview>
+	<Snippet language="js">{success}</Snippet>
+</Section>
+
+<Section title="warning" contained={true} style={{ paddingLeft: 0 }}>
+	<Preview wrapper={true}>
+		<ClockAlt colorScheme="warning" />
+	</Preview>
+	<Snippet language="js">{warning}</Snippet>
+</Section>
+
+<Section title="critical" contained={true} style={{ paddingLeft: 0 }}>
+	<Preview wrapper={true}>
+		<ClockAlt colorScheme="critical" />
+	</Preview>
+	<Snippet language="js">{critical}</Snippet>
+</Section>
+
+<Section title="Custom Color " contained={true} style={{ paddingLeft: 0 }}>
+    <p>
+        You can also use custom colors by using `fill` property
+    </p>
+	<Preview wrapper={true}>
+		<ClockAlt fill="#C756FF" />
+	</Preview>
+	<Snippet language="js">{customColor}</Snippet>
+</Section>

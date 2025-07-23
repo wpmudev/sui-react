@@ -1,0 +1,35 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Delete
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-delete($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(option-delete) {
+				left: auto;
+				position: absolute;
+				right: 5px;
+				top: 5px;
+				z-index: 2;
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(option-delete) {
+				left: 5px;
+				right: unset;
+			}
+		}
+	}
+}

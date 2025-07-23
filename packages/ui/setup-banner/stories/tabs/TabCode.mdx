@@ -1,0 +1,33 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-setup-banner" />
+
+<Section title="Props" border={true}>
+	<PropSection title="title" type="string" defaultValue="title">
+		<p>The main title for the Banner</p>
+	</PropSection>
+	<PropSection title="type" type="string" defaultValue="smush">
+		<p>The Banner variation, essentially the plugin name</p>
+		<p>Allowed options:</p>
+		<List>
+			<span label={<Code small={true}>smush</Code>} />
+			<span label={<Code small={true}>defender</Code>} />
+			<span label={<Code small={true}>snapshot</Code>} />
+			<span label={<Code small={true}>humingbird</Code>} />
+			<span label={<Code small={true}>forminator</Code>} />
+			<span label={<Code small={true}>beehive</Code>} />
+			<span label={<Code small={true}>hustle</Code>} />
+			<span label={<Code small={true}>smartcrawl</Code>} />
+			<span label={<Code small={true}>shipper</Code>} />
+			<span label={<Code small={true}>branda</Code>} />
+		</List>
+	</PropSection>
+	<PropSection title="description" type="React Node">
+		<p>Description text for the banner</p>
+	</PropSection>
+	<PropSection title="className" type="string">
+		<p>Custom css className(s)</p>
+	</PropSection>
+</Section>
+
+<CommonPropsNotice />

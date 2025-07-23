@@ -1,0 +1,36 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// State fluid
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin state-fluid($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(fluid) {
+				flex-direction: column;
+				gap: $spacing-lg;
+
+				.sui-#{$block}__header {
+					align-items: center;
+					display: flex;
+
+					@include media(max-width, sm) {
+						align-items: flex-start;
+					}
+				}
+
+				.sui-#{$block}__info,
+				.sui-#{$block}__body {
+					max-width: initial;
+				}
+			}
+		}
+	}
+}

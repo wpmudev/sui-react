@@ -1,0 +1,28 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Edit Read Only
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-readonly($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(readonly) {
+				// pointer-events: none;
+				&:before {
+					border-color: $input-border-color-readonly;
+				}
+
+				@include modifies-element(input) {
+					background: $input-bg-readonly;
+				}
+			}
+		}
+	}
+}

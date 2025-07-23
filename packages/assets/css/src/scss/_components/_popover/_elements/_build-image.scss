@@ -1,0 +1,69 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build image popup
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-image($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block image.
+		@include block($block) {
+			@include modifier(image) {
+				@include modifies-element(popup-close) {
+					.sui-button {
+						border: $border-width-sm solid $color-extended-alpha-grey-10;
+						background: $color-extended-alpha-white-50;
+
+						&.sui-button--hover {
+							border-color: $color-extended-alpha-grey-30;
+							background: $color-extended-alpha-white-30;
+						}
+
+						&.sui-button--focus {
+							background: $color-extended-alpha-white-90;
+						}
+					}
+				}
+
+				@include modifies-element(popup-header) {
+					max-width: 100%;
+				}
+			}
+
+			@include element(popup-image) {
+				background-color: $color-extended-neutral-80;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: 50%;
+				height: $popover-size-height-md;
+				width: 100%;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block image.
+		@include block($block) {
+			@include modifier(image) {
+				@include modifies-element(popup-close) {
+					.sui-button {
+						border-color: $color-extended-neutral-0;
+						background: $color-extended-neutral-100;
+					}
+				}
+
+				@include modifies-element(popup-header) {
+					max-width: 100%;
+				}
+			}
+		}
+	}
+}

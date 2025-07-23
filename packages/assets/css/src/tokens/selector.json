@@ -1,0 +1,40 @@
+{
+	"selector": {
+		"spacing": {
+			"xs": {
+				"value": "3px",
+				"type": "spacing"
+			},
+			"lg": {
+				"value": "12px",
+				"type": "spacing"
+			}
+		},
+		"border": {
+			"width": {
+				"value": "37px",
+				"type": "borderWidth"
+			}
+		},
+		"size": {
+			"width": {
+				"xs": {
+					"value": "32px",
+					"type": "sizing"
+				},
+				"sm": {
+					"value": "72px",
+					"type": "sizing"
+				},
+				"md": {
+					"value": "130px",
+					"type": "sizing"
+				},
+				"lg": {
+					"value": "208px",
+					"type": "sizing"
+				}
+			}
+		}
+	}
+}

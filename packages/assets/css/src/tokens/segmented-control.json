@@ -1,0 +1,44 @@
+{
+	"segmented": {
+		"border": {
+			"radius": {
+				"value": "4px",
+				"type": "borderRadius"
+			},
+			"width": {
+				"value": "1px",
+				"type": "borderWidth"
+			},
+			"color": {
+				"value": "{color.extended.neutral.80}",
+				"type": "borderColor"
+			}
+		},
+		"font": {
+			"size": {
+				"value": "{font.size.sm}-1px",
+				"type": "fontSize"
+			},
+			"weight": {
+				"value": "{font.weight.md}",
+				"type": "fontWeight"
+			}
+		},
+		"spacing": {
+			"horizontal": {
+				"value": "{spacing.lg}",
+				"type": "spacing"
+			},
+			"vertical": {
+				"value": "{spacing.md}",
+				"type": "spacing"
+			}
+		},
+		"size": {
+			"height": {
+				"value": "42px",
+				"type": "sizing"
+			}
+		}
+	}
+}

@@ -1,0 +1,43 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Copy Button
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-button($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			.sui-tooltip {
+				position: absolute;
+				top: $spacing-lg;
+				right: $spacing-lg;
+
+				.sui-button {
+					margin: 0;
+					min-width: auto;
+					font-size: $font-size-xs;
+					line-height: $code-snippet-font-height-xs;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			.sui-tooltip {
+				left: $spacing-lg;
+				right: unset;
+			}
+		}
+	}
+}

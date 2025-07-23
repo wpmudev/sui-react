@@ -1,0 +1,72 @@
+{
+	"colorpicker": {
+		"border": {
+			"radius": {
+				"md": {
+					"value": "10px",
+					"type": "borderRadius"
+				}
+			}
+		},
+		"spacing": {
+			"lg": {
+				"value": "40px",
+				"type": "spacing"
+			},
+			"sm": {
+				"value": "6px",
+				"type": "spacing"
+			},
+			"xs": {
+				"value": "5px",
+				"type": "spacing"
+			},
+			"2xs": {
+				"value": "-1px",
+				"type": "sizing"
+			}
+		},
+		"size": {
+			"height": {
+				"2xl": {
+					"value": "120px",
+					"type": "sizing"
+				},
+				"md": {
+					"value": "24px",
+					"type": "sizing"
+				},
+				"sm": {
+					"value": "10px",
+					"type": "sizing"
+				},
+				"xs": {
+					"value": "8px",
+					"type": "sizing"
+				}
+			},
+			"width": {
+				"xl": {
+					"value": "280px",
+					"type": "width"
+				},
+				"lg": {
+					"value": "240px",
+					"type": "sizing"
+				},
+				"md": {
+					"value": "150px",
+					"type": "sizing"
+				},
+				"sm": {
+					"value": "24px",
+					"type": "sizing"
+				},
+				"xs": {
+					"value": "10px",
+					"type": "sizing"
+				}
+			}
+		}
+	}
+}

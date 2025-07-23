@@ -1,0 +1,69 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build focus
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block-name - Main block name
+@mixin build-segmented-control-focus($block) {
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(input) {
+				&:active + .sui-segmented-control__label {
+					outline: $border-width-md solid $color-extended-neutral-50;
+					outline-offset: -#{$border-width-sm};
+					color: $color-extended-neutral-50;
+					position: relative;
+					z-index: 1;
+				}
+			}
+
+			@include element(label) {
+				&:focus-visible {
+					outline: $border-width-md solid $color-extended-neutral-50;
+					outline-offset: -#{$border-width-sm};
+					color: $color-extended-neutral-50;
+					position: relative;
+					z-index: 1;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(input) {
+				&:active + .sui-segmented-control__label {
+					color: $color-extended-neutral-0;
+				}
+
+				&,
+				&:active {
+					& + .sui-segmented-control__label--active {
+						color: $color-extended-neutral-100;
+					}
+				}
+			}
+
+			@include element(label) {
+				&:focus-visible {
+					color: $color-extended-neutral-0;
+				}
+
+				@include modifier(active) {
+					&,
+					&:focus-visible {
+						color: $color-extended-neutral-100;
+					}
+				}
+			}
+		}
+	}
+}

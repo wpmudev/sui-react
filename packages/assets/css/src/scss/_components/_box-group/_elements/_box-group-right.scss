@@ -1,0 +1,42 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Right Slot
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-right-slot($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(right) {
+				flex: 0 0 auto;
+
+				@include media(max-width, md) {
+					margin-top: $spacing-lg;
+				}
+
+				@include media(min-width, md) {
+					justify-content: flex-end;
+					margin-left: $spacing-lg;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(right) {
+				@include media(min-width, md) {
+					margin-left: 0;
+					margin-right: $spacing-lg;
+				}
+			}
+		}
+	}
+}

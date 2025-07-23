@@ -1,0 +1,87 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Variations
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-variation($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			border-width: $border-width-sm;
+			border-style: solid;
+			@include modifier(hummingbird) {
+				background: $color-secondary-hummingbird-variant-90;
+				border-color: $color-secondary-hummingbird-variant-70;
+			}
+
+			@include modifier(smush) {
+				background: $color-secondary-smush-general-90;
+				border-color: $color-secondary-smush-general-70;
+			}
+
+			@include modifier(snapshot) {
+				background: $color-secondary-snapshot-general-90;
+				border-color: $color-secondary-snapshot-general-70;
+			}
+
+			@include modifier(smartcrawl) {
+				background: $color-secondary-smartcrawl-variant-70;
+				border-color: $color-secondary-smartcrawl-variant-50;
+			}
+
+			@include modifier(shipper) {
+				background: $color-secondary-shipper-variant-90;
+				border-color: $color-secondary-shipper-variant-70;
+			}
+
+			@include modifier(ivt) {
+				background: $color-secondary-ivt-general-90;
+				border-color: $color-secondary-ivt-general-70;
+			}
+
+			@include modifier(hustle) {
+				background: $color-secondary-hustle-variant-90;
+				border-color: $color-secondary-hustle-variant-70;
+			}
+
+			@include modifier(forminator) {
+				background: $color-secondary-forminator-variant-70;
+				border-color: $color-secondary-forminator-variant-50;
+			}
+
+			@include modifier(defender) {
+				background: $color-secondary-defender-variant-90;
+				border-color: $color-secondary-defender-variant-70;
+			}
+
+			@include modifier(branda) {
+				background: $color-secondary-branda-variant-90;
+				border-color: $color-secondary-branda-variant-70;
+			}
+
+			@include modifier(beehive) {
+				background: $color-secondary-beehive-variant-90;
+				border-color: $color-secondary-beehive-variant-70;
+			}
+
+			@include modifier(hub) {
+				background: $color-primary-90;
+				border-color: $color-primary-80;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			background: $color-extended-neutral-100;
+			border-color: $color-extended-neutral-0;
+		}
+	}
+}

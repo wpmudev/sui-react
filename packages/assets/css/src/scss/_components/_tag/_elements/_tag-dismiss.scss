@@ -1,0 +1,51 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Tag Label
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-dismiss($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(cta) {
+				color: inherit;
+				background: transparent;
+				border: none;
+				padding: 0 0 0 $spacing-sm;
+				line-height: 0;
+				cursor: pointer;
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(cta) {
+				padding: 0 $spacing-sm 0 0;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(cta) {
+				.sui-icon {
+					color: inherit;
+				}
+			}
+		}
+	}
+}

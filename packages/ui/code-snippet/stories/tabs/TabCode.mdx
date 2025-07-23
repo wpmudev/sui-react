@@ -1,0 +1,48 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-code-snippet" />
+
+<Section title="Props" border={true}>
+	<PropSection title="language" type="string" defaultValue="javascript">
+		<p>The language for the code snippet for correct code highlighting</p>
+		<p>Allowed options:</p>
+		<List>
+			<span
+				label={
+					<>
+						<Code small={true}>markup</Code>: HTML code.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>javascript</Code>: Javascript code.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>css</Code>: CSS code.
+					</>
+				}
+			/>
+		</List>
+	</PropSection>
+	<PropSection title="copy" type="boolean" defaultValue="true">
+		<p>
+			If set to <Code small={true}>true</Code>, it will show a copy button to
+			copy the code. By default it is set to
+			<Code small={true}>true</Code>.
+		</p>
+	</PropSection>
+	<PropSection title="className" type="string">
+		<p>Add a class name to the code snippet.</p>
+	</PropSection>
+	<PropSection title="children" type="React Node">
+		<p>The content of the code Snippet</p>
+	</PropSection>
+</Section>
+
+<CommonPropsNotice />

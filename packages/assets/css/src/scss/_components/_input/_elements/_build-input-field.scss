@@ -1,0 +1,71 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Input Field
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-input-field($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			// if input has icon
+			@include element(input-field) {
+				width: 100%;
+
+				@include modifier(has-hint) {
+					position: relative;
+				}
+			}
+
+			@include element(input-field-hint) {
+				color: $color-extended-neutral-70;
+				left: $spacing-lg;
+				position: absolute;
+				top: $spacing-md;
+			}
+
+			@include element(input-field-text) {
+				color: $color-extended-neutral-10;
+				left: $spacing-lg;
+				position: absolute;
+				top: $spacing-md;
+				z-index: 1;
+			}
+
+			@include modifier(icon-end) {
+				@include modifies-element(input-field-hint) {
+					left: $spacing-lg;
+				}
+
+				@include modifies-element(input-field-text) {
+					left: $spacing-lg;
+				}
+			}
+
+			@include modifier(icon-start) {
+				@include modifies-element(input-field-hint) {
+					left: $input-spacing-lg;
+				}
+
+				@include modifies-element(input-field-text) {
+					left: $input-spacing-lg;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include modifies-element(input-field-hint, input-field-text) {
+				display: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,83 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Tooltip
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-tooltip($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include body-class($rtl: false) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popup) {
+				min-width: var(--tooltip-width, $tooltip-size-width-sm);
+				opacity: 0;
+				position: absolute;
+				padding: $tooltip-spacing-padding-vertical
+					$tooltip-spacing-padding-horizontal;
+				border-radius: $border-radius-sm;
+				background-color: $color-extended-neutral-10;
+				color: $color-extended-neutral-100;
+				font-size: $tooltip-font-size;
+				line-height: $font-height-xs;
+				letter-spacing: $tooltip-font-spacing;
+				text-align: center;
+				transition: opacity 0.2s;
+				pointer-events: none;
+				z-index: 99999999;
+				width: 0;
+
+				&:after {
+					content: "";
+					position: absolute;
+				}
+
+				@include modifier(show) {
+					opacity: 1;
+					transition: opacity 0.2s;
+				}
+			}
+
+			@include modifier(custom-width) {
+				@include modifies-element(content) {
+					white-space: normal;
+
+					@include media(max-width, sm) {
+						min-width: var(--tooltip-width-mobile, $tooltip-size-width-md);
+					}
+				}
+			}
+
+			.sui-button {
+				margin: 0;
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			.sui-button {
+				margin: 0;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(content) {
+				background-color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

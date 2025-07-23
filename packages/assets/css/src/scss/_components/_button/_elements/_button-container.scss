@@ -1,0 +1,76 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Button Container
+///
+/// @type item
+/// @author WPMU DEV
+///
+/// @param {String} $item - Main item name
+@mixin build-container($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			position: relative;
+			cursor: pointer;
+			min-width: $button-container-size-md;
+			max-width: 100%;
+			display: inline-flex;
+			justify-content: center;
+			margin: $button-container-margin-vertical
+				$button-container-margin-horizontal;
+			padding: $button-container-padding-vertical
+				$button-container-padding-horizontal;
+			border-width: $button-container-border-width;
+			border-style: $button-container-border-style;
+			border-radius: $border-radius-sm;
+			outline: none;
+			background-image: none;
+			box-shadow: none;
+			font-weight: $button-label-font-weight;
+			font-size: $button-label-font-size-md;
+			line-height: $button-label-font-height-md;
+			letter-spacing: $button-label-font-spacing-md;
+			text-decoration: none;
+			transition: 0.3s all ease;
+			user-select: none;
+			vertical-align: middle;
+
+			&:after {
+				content: "";
+				position: absolute;
+				border-width: 0;
+				border-color: inherit;
+				border-style: $button-container-border-style;
+				border-radius: $border-radius-sm;
+				pointer-events: none;
+			}
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			@include modifier(is-icon) {
+				min-width: auto;
+				padding: #{$spacing-lg - 5px};
+			}
+		}
+	}
+
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block-name) {
+			margin: $button-container-margin-vertical
+				$button-container-margin-horizontal;
+
+			&:first-child {
+				margin-right: 0;
+			}
+
+			&:last-child {
+				margin-left: 0;
+			}
+		}
+	}
+}

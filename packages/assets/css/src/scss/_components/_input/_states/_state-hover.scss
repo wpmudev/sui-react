@@ -1,0 +1,23 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Edit Hover
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-hover($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(hover) {
+				&:before {
+					border-color: $input-border-color-active;
+				}
+			}
+		}
+	}
+}

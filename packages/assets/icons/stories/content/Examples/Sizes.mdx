@@ -1,0 +1,90 @@
+import { Section, Switcher, Preview, Snippet } from '@wpmudev/sui-docs';
+import { ClockAlt, ArrowRight } from '../../../src/components';
+import dedent from 'dedent';
+
+export const xs = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => <ClockAlt size="sm" />;
+`;
+
+export const sm = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => <ClockAlt size="sm" />;
+`;
+
+export const md = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => <ClockAlt md="md" />;
+`;
+
+export const lg = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => <ClockAlt size="lg" />;
+`;
+
+export const xl = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => <ClockAlt size="xl" />;
+`;
+
+export const customWidth = dedent`
+import { ClockAlt } from '@wpmudev/sui-icons';
+
+const TestComponent = () => <ClockAlt iconWidth={250} iconHeight={250} />;
+`;
+
+
+<Section title="Extra Small" contained={true} style={{ paddingLeft: 0 }}>
+	
+	<Preview wrapper={true}>
+		<ClockAlt size="xs" />
+	</Preview>
+	<Snippet language="js">{xs}</Snippet>
+</Section>
+
+<Section title="Small" contained={true} style={{ paddingLeft: 0 }}>
+	
+	<Preview wrapper={true}>
+		<ClockAlt size="sm" />
+	</Preview>
+	<Snippet language="js">{sm}</Snippet>
+</Section>
+
+<Section title="Medium" contained={true} style={{ paddingLeft: 0 }}>
+	
+	<Preview wrapper={true}>
+		<ClockAlt size="md" />
+	</Preview>
+	<Snippet language="js">{md}</Snippet>
+</Section>
+
+<Section title="Large" contained={true} style={{ paddingLeft: 0 }}>
+	<Preview wrapper={true}>
+		<ClockAlt size="lg" />
+	</Preview>
+	<Snippet language="js">{lg}</Snippet>
+</Section>
+
+<Section title="Extra Large" contained={true} style={{ paddingLeft: 0 }}>
+	<Preview wrapper={true}>
+		<ClockAlt size="xl" />
+	</Preview>
+	<Snippet language="js">{xl}</Snippet>
+</Section>
+
+
+<Section title="Custom Size" contained={true} style={{ paddingLeft: 0 }}>
+    <p>
+        You can also set a custom width and height by using `width` and `height` properties.
+    </p>
+	<Preview wrapper={true}>
+		<ClockAlt iconWidth={250} iconHeight={250} />
+	</Preview>
+	<Snippet language="js">{xl}</Snippet>
+</Section>
+

@@ -1,0 +1,34 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Label
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-label($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(label) {
+				display: block;
+				margin: 0 0 $spacing-sm;
+				font-weight: $font-weight-md;
+				font-size: $font-size-default;
+				line-height: $font-height-sm;
+				letter-spacing: $font-spacing-default;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: "dark") {
+		@include block($block) {
+			@include element(label) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

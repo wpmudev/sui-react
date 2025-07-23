@@ -1,0 +1,203 @@
+@use "../../../_utils/utils" as *;
+
+$themes: primary, secondary, tertiary;
+
+$colors: (
+	blue: $color-primary-50,
+	black: $color-extended-neutral-10,
+	red: $color-extended-error-50,
+	navy: $color-primary-40,
+	white: $color-extended-neutral-100,
+);
+
+$colors-high-contrast: (
+	blue: $color-extended-neutral-0,
+	black: $color-extended-neutral-0,
+	red: $color-extended-neutral-0,
+	navy: $color-extended-neutral-0,
+	white: $color-extended-neutral-100,
+);
+
+/// Color
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin modify-color($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@each $theme in $themes {
+				@each $name, $value in $colors {
+					$modifier-name: #{$theme + "-" + $name};
+
+					@include modifier($modifier-name) {
+						@if $theme == tertiary {
+							border-color: transparent;
+							background: transparent;
+							color: $value;
+
+							&.sui-#{$block-name}--hover {
+								border-color: if($name == white, $value, tint($value, 90%));
+								background: if($name == white, $value, tint($value, 90%));
+								color: if($name == white, $color-extended-neutral-10, $value);
+							}
+
+							&.sui-#{$block-name}--focus {
+								background: if(
+									$name == white,
+									transparent,
+									$color-extended-neutral-100
+								);
+								color: $value;
+
+								&:after {
+									border-width: $border-width-md;
+									inset: -#{$border-width-md};
+									border-radius: $border-radius-default;
+									border-color: $value;
+								}
+							}
+						} @else if $theme == secondary {
+							border-color: $value;
+							background: transparent;
+							color: $value;
+
+							&.sui-#{$block-name}--hover {
+								background: if($name == white, $value, tint($value, 90%));
+								color: if($name == white, $color-extended-neutral-10, $value);
+							}
+
+							&.sui-#{$block-name}--focus {
+								background: if($name == white, $value, tint($value, 90%));
+								color: if($name == white, $color-extended-neutral-10, $value);
+
+								&:after {
+									border-width: $border-width-md;
+									inset: if($name == white, -5px, -#{$border-width-md});
+									border-radius: if(
+										$name == white,
+										$border-radius-md,
+										$border-radius-sm
+									);
+								}
+							}
+						} @else {
+							border-color: $value;
+							background: $value;
+							color: if(
+								$name == white,
+								$color-extended-neutral-10,
+								$color-extended-neutral-100
+							);
+
+							&.sui-#{$block-name}--hover {
+								border-color: if(
+									$name == white,
+									shade($value, 5%),
+									shade($value, 40%)
+								);
+								background: if(
+									$name == white,
+									shade($value, 5%),
+									shade($value, 40%)
+								);
+								color: if(
+									$name == white,
+									$color-extended-neutral-10,
+									$color-extended-neutral-100
+								);
+							}
+
+							&.sui-#{$block-name}--focus {
+								border-color: $value;
+								background: $value;
+								color: if(
+									$name == white,
+									$color-extended-neutral-10,
+									$color-extended-neutral-100
+								);
+
+								&:after {
+									border-width: $border-width-md;
+									inset: -5px;
+									border-radius: $border-radius-md;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include sui-class($rtl: false, $theme: "dark") {
+		@include block($block-name) {
+			@each $theme in $themes {
+				@each $name, $value in $colors-high-contrast {
+					$modifier-name: #{$theme + "-" + $name};
+
+					@include modifier($modifier-name) {
+						@if $theme == tertiary {
+							color: $value;
+
+							&.sui-#{$block-name}--hover {
+								@if $name == white {
+									background: tint($value, 90%);
+									color: $color-extended-neutral-10;
+								}
+								@if $name != white {
+									background: none;
+									border-color: $color-extended-neutral-0;
+								}
+							}
+
+							&.sui-#{$block-name}--focus {
+								background: transparent;
+								color: inherit;
+								@if $name == white {
+									color: $value;
+								}
+
+								&:after {
+									border-color: $value;
+								}
+							}
+						} @else if $theme == secondary {
+							border-color: $value;
+							color: $value;
+
+							&.sui-#{$block-name}--hover {
+								@if $name != white {
+									background: tint($value, 90%);
+								}
+								@if $name == white {
+									color: $color-extended-neutral-10;
+									background: $value;
+								}
+							}
+
+							&.sui-#{$block-name}--focus {
+								border-color: $value;
+								@if $name != white {
+									background: tint($value, 90%);
+								}
+								@if $name == white {
+									color: $color-extended-neutral-10;
+								}
+							}
+						} @else {
+							border-color: $value;
+							background: $value;
+							color: $color-extended-neutral-100;
+
+							&.sui-#{$block-name}--focus {
+								background: $value;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

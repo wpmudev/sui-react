@@ -1,0 +1,22 @@
+{
+	"notification": {
+		"size": {
+			"width": {
+				"md": {
+					"value": "360px",
+					"type": "sizing"
+				},
+				"lg": {
+					"value": "640px",
+					"type": "sizing"
+				}
+			}
+		},
+		"spacing": {
+			"md": {
+				"value": "10px",
+				"type": "spacing"
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Left Slot
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-left-slot($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(left) {
+				flex: 1;
+				justify-content: flex-start;
+			}
+		}
+	}
+}

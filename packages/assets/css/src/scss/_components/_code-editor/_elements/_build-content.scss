@@ -1,0 +1,176 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Content
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-content($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(content) {
+				padding: 0;
+				position: relative;
+			}
+
+			&:first-child {
+				.line-numbers-rows {
+					border-bottom-left-radius: $border-radius-md;
+				}
+
+				.module-theme-default pre[class*="language-"] {
+					border-bottom-left-radius: $border-radius-md;
+				}
+
+				&.sui-#{$block}--numbers {
+					.module-theme-default pre[class*="language-"] {
+						border-bottom-left-radius: 0;
+					}
+				}
+			}
+
+			&:last-child {
+				.module-theme-default pre[class*="language-"] {
+					border-bottom-right-radius: $border-radius-md;
+				}
+			}
+
+			// line numbers
+			.line-numbers-rows {
+				background: $color-extended-neutral-60;
+				bottom: 0;
+				overflow: hidden;
+				top: 0;
+				border: none;
+				left: $code-editor-position-left;
+				width: $code-editor-size-width;
+				padding-top: $spacing-lg;
+				font-size: $font-size-xs;
+				line-height: $font-height-xs;
+
+				> span:before {
+					color: $color-extended-neutral-100;
+					padding-right: $spacing-lg;
+				}
+			}
+
+			.module-theme-default pre[class*="language-"] {
+				position: unset;
+				font-weight: $font-weight-default;
+				font-size: $font-size-xs;
+				min-height: $code-snippet-height;
+				overflow: auto;
+				margin: 0;
+				padding: $spacing-lg;
+				background: $color-extended-neutral-95;
+				border: $border-width-sm solid $color-extended-neutral-80;
+				outline: none;
+
+				> code {
+					position: unset;
+					z-index: 1;
+					margin: 0;
+					padding: 0;
+					background: transparent;
+					text-align: left;
+					white-space: pre;
+					word-spacing: normal;
+					word-break: normal;
+					tab-size: 4;
+					hyphens: none;
+					color: $color-extended-neutral-10;
+
+					* {
+						font-family: $code-snippet-font-family;
+					}
+				}
+			}
+
+			@include modifier(numbers) {
+				@include modifies-element(content) {
+					margin-left: $code-editor-spacing-lg;
+				}
+
+				.module-theme-default pre[class*="language-"] {
+					border-left: 0;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			// line numbers
+			.line-numbers-rows {
+				background: $color-extended-neutral-0;
+			}
+
+			.module-theme-default pre[class*="language-"] {
+				background: $color-extended-neutral-100;
+				border: $border-width-sm solid $color-extended-neutral-0;
+
+				> code {
+					color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: Dark.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			&:first-child {
+				.line-numbers-rows {
+					border-bottom-right-radius: $border-radius-md;
+					border-bottom-left-radius: 0;
+				}
+
+				.module-theme-default pre[class*="language-"] {
+					border-bottom-right-radius: $border-radius-md;
+					border-bottom-left-radius: 0;
+				}
+
+				&.sui-#{$block}--numbers {
+					.module-theme-default pre[class*="language-"] {
+						border-bottom-right-radius: 0;
+					}
+				}
+			}
+
+			&:last-child {
+				.module-theme-default pre[class*="language-"] {
+					border-bottom-left-radius: $border-radius-md;
+					border-bottom-right-radius: 0;
+				}
+			}
+
+			.module-theme-default pre[class*="language-"] {
+				text-align: right;
+			}
+
+			// line numbers
+			.line-numbers-rows {
+				left: unset;
+				right: $code-editor-position-left;
+			}
+
+			@include modifier(numbers) {
+				@include modifies-element(content) {
+					margin-right: $code-editor-spacing-lg;
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}

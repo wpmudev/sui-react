@@ -1,0 +1,61 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Checkbox Box
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-box($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(box) {
+				width: $checkbox-size-md;
+				height: $checkbox-size-md;
+				display: flex;
+				position: relative;
+				align-items: center;
+				justify-content: center;
+				margin: $spacing-xs 0;
+				margin-right: $spacing-md;
+				border: $border-width-sm solid $color-extended-neutral-70;
+				border-radius: $border-radius-sm;
+				background: $color-extended-neutral-100;
+
+				&:after {
+					content: "";
+					position: absolute;
+					inset: -5px;
+					border-width: 0;
+					border-style: solid;
+					border-radius: $border-radius-md;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(box) {
+				margin-right: 0;
+				margin-left: $spacing-md;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(box) {
+				background: $color-extended-neutral-0;
+				border-color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

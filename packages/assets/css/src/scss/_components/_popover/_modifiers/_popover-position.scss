@@ -1,0 +1,136 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build popover Position
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-position($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(right-top, left-top) {
+				@include modifies-element(popup-arrow) {
+					top: auto;
+					bottom: $spacing-lg;
+				}
+			}
+
+			@include modifier(right, left) {
+				@include modifies-element(popup-arrow) {
+					top: 50%;
+					transform: translateY(-50%);
+				}
+			}
+
+			@include modifier(left, left-top, left-bottom) {
+				@include modifies-element(popup-arrow) {
+					left: unset;
+					right: -#{$popover-spacing-2xl};
+					&:before {
+						right: auto;
+						left: -#{$spacing-default};
+					}
+				}
+			}
+
+			@include modifier(bottom, bottom-left, bottom-right) {
+				@include modifies-element(popup-arrow) {
+					left: unset;
+					top: -#{$popover-spacing-2xl};
+					&:before {
+						right: unset;
+						bottom: -#{$spacing-default};
+					}
+				}
+			}
+
+			@include modifier(top, bottom) {
+				@include modifies-element(popup-arrow) {
+					left: 50%;
+					transform: translateX(-50%);
+				}
+			}
+
+			@include modifier(bottom-left, top-left) {
+				@include modifies-element(popup-arrow) {
+					left: unset;
+					right: $spacing-lg;
+				}
+			}
+
+			@include modifier(top, top-left, top-right) {
+				@include modifies-element(popup-arrow) {
+					top: unset;
+					bottom: -#{$popover-spacing-2xl};
+					&:before {
+						right: unset;
+						top: -#{$spacing-default};
+					}
+				}
+			}
+
+			@include modifier(bottom-right, top-right) {
+				@include modifies-element(popup-arrow) {
+					left: $spacing-lg;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(left, left-top, left-bottom) {
+				@include modifies-element(popup-arrow) {
+					left: -#{$popover-spacing-2xl};
+					right: unset;
+					&:before {
+						right: -#{$spacing-default};
+						left: unset;
+					}
+				}
+			}
+
+			@include modifier(bottom-left, top-left, bottom-right, top-right) {
+				@include modifies-element(popup-arrow) {
+					&:before {
+						left: unset;
+					}
+				}
+			}
+
+			@include modifier(bottom-left, top-left) {
+				@include modifies-element(popup-arrow) {
+					right: unset;
+					left: $spacing-lg;
+				}
+			}
+
+			@include modifier(bottom-right, top-right) {
+				@include modifies-element(popup-arrow) {
+					left: unset;
+					right: $spacing-lg;
+				}
+			}
+
+			@include modifier(top, bottom) {
+				@include modifies-element(popup-arrow) {
+					left: 50%;
+					right: unset;
+
+					&:before {
+						left: unset;
+					}
+				}
+			}
+		}
+	}
+}

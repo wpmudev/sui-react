@@ -1,0 +1,36 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build textarea error
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-error($block) {
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(error) {
+				&:after {
+					border: $border-width-sm solid $color-extended-error-50;
+					inset: -#{$border-width-sm};
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(error) {
+				&:after {
+					border-color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+}

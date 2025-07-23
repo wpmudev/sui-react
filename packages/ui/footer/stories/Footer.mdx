@@ -1,0 +1,24 @@
+import { Page } from "@wpmudev/sui-docs"
+import { Unstyled } from "@storybook/blocks"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+
+<Unstyled>
+	<Page.Tabs
+		title="Footer"
+		subtitle="The Footer component serves as the bottom section of a web page, it contains information like copyright notices, contact details, and links to important resources."
+		status="ready"
+	>
+		<div id="usage" label="Usage">
+			<TabUsage />
+		</div>
+		<div id="code" label="Code">
+			<TabCode />
+		</div>
+		<div id="examples" label="Examples">
+			<TabExamples />
+		</div>
+	</Page.Tabs>
+</Unstyled>

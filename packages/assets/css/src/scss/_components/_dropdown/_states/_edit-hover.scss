@@ -1,0 +1,39 @@
+@use "../../../_utils/utils" as *;
+
+/// Edit Hover State
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-hover($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(menu) {
+				.sui-#{$block}__menu-item--hover {
+					background-color: $color-extended-neutral-90;
+					color: $color-extended-neutral-10;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(menu) {
+				.sui-#{$block}__menu-item--hover {
+					background-color: $color-extended-neutral-0;
+					color: $color-extended-neutral-100;
+
+					.sui-icon {
+						color: $color-extended-neutral-100;
+					}
+				}
+			}
+		}
+	}
+}

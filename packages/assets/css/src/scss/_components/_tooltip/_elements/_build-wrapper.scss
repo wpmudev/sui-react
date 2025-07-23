@@ -1,0 +1,35 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Tooltip Wrapper
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-wrapper($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			position: relative;
+			display: inline-block;
+			line-height: normal;
+
+			@include element(icon) {
+				display: flex;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			color: $color-extended-neutral-0;
+		}
+	}
+}

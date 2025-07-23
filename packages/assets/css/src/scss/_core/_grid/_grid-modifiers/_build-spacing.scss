@@ -1,0 +1,42 @@
+@use "sass:map";
+@use "sass:math";
+
+// Import main blocks of styles.
+@use "../../../_utils/bem" as *;
+@use "../../../_utils/mixins" as *;
+
+// Import grid variables.
+@use "../_grid-utils/variables" as *;
+
+@mixin build-spacing($block) {
+	@include sui-class($rtl: false, $theme: null) {
+		.sui-row--inline {
+			@include block($block) {
+				margin: 0;
+				padding: 0 math.div(map.get($sui-grid-spacing, sm), 2);
+			}
+		}
+
+		@each $bp-label, $bp-value in $breakpoints {
+			.sui-row-#{$bp-label} {
+				&--inline {
+					@include block($block) {
+						@include media(min-width, $bp-label) {
+							margin: 0;
+							padding: 0 math.div(map.get($sui-grid-spacing, $bp-label), 2);
+						}
+					}
+				}
+
+				&--stacked {
+					@include block($block) {
+						@include media(min-width, $bp-label) {
+							margin: 0 0 map.get($sui-grid-spacing, $bp-label);
+							padding: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

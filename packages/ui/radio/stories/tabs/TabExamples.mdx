@@ -1,0 +1,41 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { RadioGroup, Radio } from "../../src"
+import dedent from "dedent"
+
+{/* Import Variations */}
+
+import States from "./Examples/States.mdx"
+import Types from "./Examples/Types.mdx"
+import Validation from "./Examples/Validation.mdx"
+
+export const sampleCode = dedent`
+  <RadioGroup>
+    <Radio label="Radio Label" value="radio-1" />
+    <Radio label="Radio Label" value="radio-2" />
+  </RadioGroup>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>Below is the default form of the Radio Component</p>
+	<Preview wrapper={true}>
+		<RadioGroup>
+			<Radio label="Radio Label" value="radio-1" />
+			<Radio label="Radio Label" value="radio-2" />
+		</RadioGroup>
+	</Preview>
+	<Snippet language="js">{sampleCode}</Snippet>
+</Section>
+
+<Section title="States & Types" style={{ paddingTop: 0 }}>
+	<Switcher>
+		<div label="States" value="states">
+			<States />
+		</div>
+		<div label="Types" value="types">
+			<Types />
+		</div>
+		<div label="Validation" value="validation">
+			<Validation />
+		</div>
+	</Switcher>
+</Section>

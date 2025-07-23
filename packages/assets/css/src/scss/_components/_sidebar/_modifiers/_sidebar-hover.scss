@@ -1,0 +1,44 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Hover
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $item - Main item name
+@mixin build-hover($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(item) {
+				box-shadow: none;
+
+				@include modifier(hover) {
+					background: $color-primary-90;
+
+					.sui-#{$block}__item-info {
+						color: $color-primary-50;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(item) {
+				@include modifier(hover) {
+					background: $color-extended-neutral-100;
+
+					.sui-#{$block}__item-info {
+						color: $color-extended-neutral-0;
+					}
+				}
+			}
+		}
+	}
+}

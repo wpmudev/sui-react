@@ -1,0 +1,56 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Overlay
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-overlay($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(wrapper) {
+				position: relative;
+			}
+
+			@include element(overlay) {
+				background-color: $color-extended-alpha-white-90;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+
+				@include modifier(dark) {
+					background-color: $color-extended-alpha-grey-70;
+
+					+ .sui-#{$block} .sui-#{$block}__icon--stroke {
+						stroke: $color-extended-neutral-100;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(overlay) {
+				background-color: $color-extended-neutral-10;
+
+				@include modifier(dark) {
+					+ .sui-#{$block} .sui-#{$block}__icon--stroke {
+						stroke: $color-extended-neutral-0;
+					}
+				}
+			}
+		}
+	}
+}

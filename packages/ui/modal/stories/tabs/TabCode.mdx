@@ -1,0 +1,142 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-modal" />
+
+<Section title="Props" border={true}>
+
+    	<PropSection title="id" type="string">
+    		<p>Unique id for the modal</p>
+    	</PropSection>
+
+    	<PropSection title="variant" type="string" defaultValue="simple">
+    		<p>Variant type of the modal </p>
+    		<p>
+    		Allowed options:
+    			<List>
+    				<span label={<Code small={true}>simple</Code>} />
+    				<span label={<Code small={true}>advanced</Code>} />
+    				<span label={<Code small={true}>app-connect</Code>} />
+    			</List>
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="size" type="string" defaultValue="size">
+    		<p>Indicates the size of the modal</p>
+    		<p>
+    		Allowed options:
+    			<List>
+    				<span label={<Code small={true}>sm</Code>} />
+    				<span label={<Code small={true}>md</Code>} />
+    				<span label={<Code small={true}>lg</Code>} />
+    				<span label={<Code small={true}>xl</Code>} />
+    			</List>
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="ref" type="object" isRequired={true}>
+    		<p>The React ref object is utilized to access the methods responsible for opening and closing the modal. these functions are available in the <Code small={true}>current</Code> object property of the ref</p>
+    			<List>
+    				<span label={<><Code small={true}>ref.current.openModal</Code> Opens the modal</>} />
+    				<span label={<><Code small={true}>ref.current.closeModal</Code> Closes the modal</>} />
+    			</List>
+    	</PropSection>
+
+		<PropSection title="ref" type="object" isRequired={true}>
+    		<p>A callback function to be invoked upon closing the modal, it could be used to reset the modal data for proExample=""</p>
+    	</PropSection>
+
+    	<PropSection title="children" type="React Node">
+    		<p>Content of the modal</p>
+    	</PropSection>
+
+</Section>
+
+<Section
+	title="Sub Components"
+	contained={true}
+	style={{ paddingTop: 30, paddingBottom: 0 }}
+>
+		<p>The Modal component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+
+    <Section title="ModalHeader" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the modal header
+    	</p>
+
+    	<PropSection title="title" type="string" defaultValue="header title">
+    		<p>
+    			Title for the modal header
+    		</p>
+    	</PropSection>
+
+    	<PropSection title="children" type="React Node" >
+    		<p>
+    			The content of the component
+    		</p>
+    	</PropSection>
+
+		<PropSection title="icon" type="string">
+    		<p>
+    			Icon to appear above the title
+    		</p>
+    	</PropSection>
+
+		<PropSection title="iconSize" type="string" defaultValue="sm">
+    		<p>
+    			The size of the icon, it could be one of these values.
+    		</p>
+			<p>Allowed Values:</p>
+			<List>
+				<span label="xms" />
+				<span label="xs" />
+				<span label="sm" />
+				<span label="md" />
+				<span label="lg" />
+				<span label="xl" />
+			</List>
+    	</PropSection>
+
+		<PropSection title="iconColor" type="string">
+    		<p>
+    			The color of the icon.
+    		</p>
+			<p>Allowed Values:</p>
+			<List>
+				<span label="" />
+				<span label="neutral" />
+				<span label="informative" />
+				<span label="success" />
+				<span label="warning" />
+				<span label="critical" />
+			</List>
+    	</PropSection>
+
+    </Section>
+
+    <Section title="ModalBody" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the modal body
+    	</p>
+
+    	<PropSection title="children" type="React Node">
+    		<p>
+    			The content of the component
+    		</p>
+    	</PropSection>
+    </Section>
+
+    <Section title="ModalFooter" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		This component represents the modal footer
+    	</p>
+
+    	<PropSection title="children" type="React Node">
+    		<p>
+    			The content of the component
+    		</p>
+    	</PropSection>
+    </Section>
+
+</Section>
+
+<CommonPropsNotice />

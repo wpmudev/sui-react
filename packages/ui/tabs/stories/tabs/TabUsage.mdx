@@ -1,0 +1,137 @@
+import { Section, Row, Col, List } from "@wpmudev/sui-docs"
+
+import Example from "../images/example.svg"
+import Anatomy from "../images/anatomy.svg"
+import TabItemAnatomy from "../images/item-anatomy.svg"
+import StatesAndSizes from "../images/item-states-size.svg"
+import ItemVariations from "../images/item-variations.svg"
+import ItemVariationsStatus from "../images/item-variations-status.svg"
+import NavigationDefault from "../images/navigation-default.svg"
+import NavigationPositions from "../images/navigation-positions.svg"
+import BehaviorDefault from "../images/behavior-default.svg"
+import BehaviorNavigationRight from "../images/behavior-navigation-right.svg"
+import BehaviorNavigationLeftHover from "../images/behavior-navigation-left-hover.svg"
+import BehaviorNavigationFocus from "../images/behavior-navigation-focus.svg"
+import BehaviorNavigationBoth from "../images/behavior-navigation-both.svg"
+import BehaviorNavigationLeft from "../images/behavior-navigation-both.svg"
+import BehaviorNavigationEnd from "../images/behavior-navigation-end.svg"
+import BehaviorNavigationActive from "../images/behavior-navigation-active.svg"
+
+<Section title="Example" border={true} style={{ paddingTop: 0 }}>
+	<img src={Example} alt="Tabs Example" />
+</Section>
+
+<Section title="Anatomy">
+	<img src={Anatomy} alt="Tabs Anatomy" />
+	<div style={{ paddingTop: 30 }}>
+		<h3>1. Tab Item List</h3>
+		<h3>2. Tab EditorToolbar</h3>
+	</div>
+</Section>
+
+<Section title="1. Tab Item">
+	<img src={TabItemAnatomy} alt="Tab Item Anatomy" />
+
+    	<h3>1. Left Icon</h3>
+    	<p>Left icon is always relevant to the Label</p>
+
+    	<h3>2. Label</h3>
+    	<p>
+    		Label relavent about the present information in logical chunks for
+    		Particular tabs.
+    	</p>
+
+    	<h3>3. Right Icon/Pro Tag</h3>
+    	<p>
+    		Once the Tab services are active, it indicates with the icons. If the user
+    		is on the Free version of the plugin, the Right icons will replace with
+    		the Tag for Pro Features only.
+    	</p>
+
+    <h2 style={{ paddingTop: 30 }}>Tab Item States and Size</h2>
+    <img src={StatesAndSizes} alt="Tab Item States and Sizes" />
+
+    <h3>1. Default</h3>
+    <p>By default, the tab will have a light gray background.</p>
+
+ 	<h3>2. Hover</h3>
+    <p>
+    	When a user hovers a tab, it will change to Focus State.
+    </p>
+
+    <h3>3. Active</h3>
+    <p>
+    	An active tab is one that is open and functional.
+    </p>
+
+    <h3>4. Inactive</h3>
+    <p>
+    	When a particular tab is unavailable for a user, it will be in inactive state.
+    </p>
+
+    <h2 style={{ paddingTop: 30 }}>Tab Item Variations</h2>
+
+    <p>SUI tab items may have a help icon to provide additional context on the label. Similarly, if the tab needs to mention a premium feature, a PRO tag can be used on the right side of the label.</p>
+
+    <img src={ItemVariations} alt="Tab Item Variations" />
+
+    <p>On the right of the label, there may be either a tag or a status.</p>
+    <img src={ItemVariationsStatus} alt="Item Variations Status"/>
+
+</Section>
+
+<Section title="2. Tab EditorToolbar">
+	<p>
+		Tab navigation appears on the tab only if the tab items exceed the tab
+		wrapper. Users can easily switch between tabs with its assistance.
+	</p>
+
+    <img src={NavigationDefault} alt="Tab EditorToolbar Default"/>
+
+    <h2 style={{ paddingTop: 30 }}>Tab Navigations Positions</h2>
+    <img src={NavigationPositions} alt="Tab navigation positions" />
+
+</Section>
+
+<Section title="Usage" contained={true}>
+	<p>When is it a good idea to use tabbed navigation in your interface?</p>
+	<List>
+		<span label="You have between 2 and 9 different content categories." />
+		<span label="Category names are relatively short but meaningful." />
+		<span label="The number of categories is fixed." />
+		<span label="The categories are similar and won't be perceived as site navigation." />
+		<span label="The categories fit into a single row." />
+		<span label="Only use icons for primary navigational tabs and keep state changes in mind." />
+		<span label="Truncate the long label of tabs." />
+	</List>
+	<p>
+		You shouldn't use navigation tabs if users need to compare multiple content
+		groups simultaneously. It strains their short-term memory and remarkably
+		increases their cognitive load.
+	</p>
+
+    <h2 style={{ paddingTop: 30 }}>Tab Behavior</h2>
+    <p>SUI tab will be scrollable when the tab exceeds the width of the tab wrapper. There will be tab navigation to let users know that the tab is scrollable, which will be helpful to navigate the tab as well.</p>
+
+    <p>If tabs have enough space to fit in the tab wrapper, the tab won’t be scrollable and will be general by design.</p>
+    <img src={BehaviorDefault} alt="Tab behavior default" />
+
+    <p>When the tab items on the wrapper exceed it, the navigation with the chevron icon becomes visible.</p>
+    <img src={BehaviorNavigationRight} alt="Tab behavior navigation right"/>
+
+    <p>There will be a light color change on the chevron icon on the navigation. </p>
+    <img src={BehaviorNavigationLeftHover} alt="Tab behavior navigation left hover" />
+
+    <p>There will be a light background on the focus state. The interaction will be only on click so that users will not be disturbed by the navigation. </p>
+    <img src={BehaviorNavigationFocus} alt="Tab behavior navigation focus" />
+
+    <p>When the tab reaches the center, there will be left and right navigation to scroll left and right.</p>
+    <img src={BehaviorNavigationBoth} alt="Tab behavior navigation both" />
+
+    <p>If the tabs reach the end when scrolling, there will be only left navigation.</p>
+    <img src={BehaviorNavigationEnd} alt="Tab Behavior navigation end"/>
+
+    <p>There will be a specific width of offset when the active tab item is in the center of the tab wrapper so that the tab navigation won't overlap with the active tab item.</p>
+    <img src={BehaviorNavigationActive} alt="Behavior navigation item active"/>
+
+</Section>

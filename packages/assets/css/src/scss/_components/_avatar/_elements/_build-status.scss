@@ -1,0 +1,47 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Status
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-status($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			// Element: Status Container
+			@include element(status) {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: absolute;
+				right: $avatar-status-margin-md;
+				bottom: $avatar-status-margin-md;
+				padding: $spacing-2xs;
+				border-radius: 100%;
+				background: $color-extended-neutral-100;
+			}
+
+			// Element: Status Element
+			@include element(status-icon) {
+				width: $avatar-status-size-md;
+				height: $avatar-status-size-md;
+				display: block;
+				position: relative;
+				font-size: $avatar-status-size-md;
+
+				&:before {
+					position: absolute;
+					margin-top: -0.5px;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,52 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-integration" />
+
+<Section title="Props" border={true}>
+	<PropSection title="title" type="string" defaultValue="title">
+		<p>Represents the heading text of the integration</p>
+	</PropSection>
+
+    <PropSection title="description" type="string">
+    	<p>Additional descriptive text that accompanies the title</p>
+    </PropSection>
+
+    <PropSection title="image" type="object" defaultValue='{ alt: "amazon", src: "https://placehold.co/50" }'>
+    	<p>This specifies the integration image, the object accespts two keys:</p>
+    	<List>
+    		<span label={<><Code small={true}>alt</Code> Represents the alternative text</>}/>
+    		<span label={<><Code small={true}>src</Code> Represents the image url</>} />
+    	</List>
+    </PropSection>
+
+    <PropSection title="additionalInfo" type="string">
+    	<p>Displays a Tooltip for additional information</p>
+    </PropSection>
+
+    <PropSection title="isDisabled" type="boolean" defaultValue="false">
+    	<p>When set to <Code small={true}>true</Code>, the integration will be non-interactable </p>
+    </PropSection>
+
+    <PropSection title="active" type="boolean" defaultValue="true">
+    	<p>The default state of the integration, set this to <Code small={true}> true </Code> if you want the integration to appear active on load</p>
+    </PropSection>
+
+    <PropSection title="isSettings" type="boolean" defaultValue="false">
+    	<p>Set this to <Code small={true}> true </Code> if you want to display the settings icon when the integration is active</p>
+    </PropSection>
+
+    <PropSection title="isPro" type="boolean" defaultValue="false">
+    	<p> Whether the integration requires a Pro account or not</p>
+    </PropSection>
+
+    <PropSection title="onClick" type="function">
+    	<p>A callback function to be invoked upon clicking the toggle, the first parameter represents the click event object</p>
+    </PropSection>
+
+    <PropSection title="onSettingsClick" type="function">
+    	<p>A callback function to be invoked upon clicking the settings button</p>
+    </PropSection>
+
+</Section>
+
+<CommonPropsNotice />

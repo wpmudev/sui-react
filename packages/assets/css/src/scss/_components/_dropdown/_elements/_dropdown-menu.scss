@@ -1,0 +1,22 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Menu
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-menu($block-name) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			@include element(menu) {
+				margin: 0;
+				padding: 0;
+			}
+
+			@include element(menu-nav-search) {
+				padding: 0px 12px 8px 12px;
+			}
+		}
+	}
+}

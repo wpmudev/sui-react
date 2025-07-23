@@ -1,0 +1,40 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Group
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-group($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(group) {
+				padding-left: $spacing-xl;
+			}
+
+			[role="treeitem"][aria-expanded="false"] {
+				> ul {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(group) {
+				padding-right: $spacing-xl;
+				padding-left: 0;
+			}
+		}
+	}
+}

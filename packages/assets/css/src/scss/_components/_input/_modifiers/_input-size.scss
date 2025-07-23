@@ -1,0 +1,79 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Edit Size
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-size($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(sm) {
+				@include modifies-element(input) {
+					padding: $input-spacing-padding-vertical-sm
+						$input-spacing-padding-horizontal-sm;
+					font-size: $font-size-xs;
+					line-height: $input-font-height-sm;
+				}
+
+				// if input has icon
+				&.sui-#{$block}--icon-end {
+					.sui-input__input {
+						padding-right: 35px;
+					}
+				}
+
+				// if input has icon
+				&.sui-#{$block}--icon-start {
+					.sui-input__input {
+						padding-left: 35px;
+					}
+
+					.sui-input__input-field-hint,
+					.sui-input__input-field-text {
+						left: 35px;
+					}
+				}
+			}
+
+			@include modifier(multiline) {
+				@include modifies-element(input) {
+					min-height: 120px;
+				}
+			}
+
+			@include modifier(multiline-sm) {
+				@include modifies-element(input) {
+					min-height: 84px;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include modifier(sm) {
+				&.sui-#{$block}--icon-end {
+					@include modifies-element(input) {
+						padding-left: 35px;
+						padding-right: $spacing-lg;
+					}
+				}
+
+				&.sui-#{$block}--icon-start {
+					@include modifies-element(input) {
+						padding-right: 35px;
+						padding-left: $spacing-lg;
+					}
+				}
+			}
+		}
+	}
+}

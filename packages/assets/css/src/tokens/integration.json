@@ -1,0 +1,10 @@
+{
+	"integration": {
+		"disabled": {
+			"opacity": {
+				"value": "0.5",
+				"type": "other"
+			}
+		}
+	}
+}

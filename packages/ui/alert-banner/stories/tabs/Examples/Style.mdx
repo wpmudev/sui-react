@@ -1,0 +1,115 @@
+import { Section, Preview, Snippet, Code } from "@wpmudev/sui-docs";
+import { AlertBanner } from "../../../src"
+import { Button } from "@wpmudev/sui-button"
+
+import dedent from "dedent";
+
+export const actions = [
+    <Button
+        key={0}
+        type="primary"
+        colorScheme="blue"
+        isSmall={true}
+        isFullWidth={true}
+    >
+        Primary
+    </Button>,
+    <Button
+        key={1}
+        type="secondary"
+        colorScheme="blue"
+        isSmall={true}
+        isFullWidth={true}
+    >
+        Secondary
+    </Button>
+]
+
+export const persistantCode = dedent`
+    <AlertBanner isDismissible={false}>
+        Hello! This is an example content.
+        <a href="https://wpmudev.com"> Add link </a>
+        if necessary.
+    </AlertBanner>
+`
+
+export const iconCode = dedent`
+    <AlertBanner displayIcon={true} variation="informative">
+        Hello! This is an example content.
+        <a href="https://wpmudev.com"> Add link </a>
+        if necessary.
+    </AlertBanner>
+`;
+
+export const centerTextCode = dedent`
+    <AlertBanner isCenter={true}>
+        Hello! This is an example content.
+        <a href="https://wpmudev.com"> Add link </a>
+        if necessary.
+    </AlertBanner>
+`;
+
+export const actionsCode = dedent`
+    <AlertBanner actions={[
+        <Button
+            key={0}
+            type="primary"
+            color="blue"
+            isSmall={true}
+            isFullWidth={true}
+        >
+            Primary
+        </Button>,
+        <Button
+            key={1}
+            type="secondary"
+            color="blue"
+            isSmall={true}
+            isFullWidth={true}
+        >
+           Secondary
+        </Button>
+    ]}>
+        Alert Banner with actions.
+    </AlertBanner>
+`;
+
+<Section title="Persistant" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p> To remove the closing button set the prop <Code small={true}>isDismissabe=\{false\}</Code></p>
+	<Preview wrapper={true}>
+	<div style={{padding: 20}}>
+		<AlertBanner isDismissible={false}>Hello! This is example content. <a href="https://wpmudev.com"> Add link </a> if necessary.</AlertBanner>
+	</div>
+	</Preview>
+	<Snippet language="js">{persistantCode}</Snippet>
+</Section>
+
+<Section title="With Icon" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p>You can display an icon with the following variations: <Code small={true}>informative</Code>, <Code small={true}>success</Code>, <Code small={true}>warning</Code>, <Code small={true}>critical</Code></p>
+	<Preview wrapper={true}>
+	<div style={{padding: 20}}>
+		<AlertBanner displayIcon={true} variation="informative">Hello! This is example content. <a href="https://wpmudev.com"> Add link </a> if necessary.</AlertBanner>
+	</div>
+	</Preview>
+	<Snippet language="js">{iconCode}</Snippet>
+</Section>
+
+<Section title="Centered Text" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+	<p>To center the text set the prop <Code small={true}>isCenter=\{true\}</Code></p>
+	<Preview wrapper={true}>
+	<div style={{padding: 20}}>
+		<AlertBanner isCenter={true}>Hello! This is example content. <a href="https://wpmudev.com"> Add link </a> if necessary.</AlertBanner>
+	</div>
+	</Preview>
+	<Snippet language="js">{centerTextCode}</Snippet>
+</Section>
+
+<Section title="With Actions" contained={true} style={{ paddingRight: 0, paddingLeft: 0 }}>
+    <p> You can add action buttons to the right of the banner using the <Code>actions</Code> prop</p>
+	<Preview wrapper={true}>
+	<div style={{padding: 20}}>
+		<AlertBanner actions={actions}>Alert Banner with actions</AlertBanner>
+	</div>
+	</Preview>
+	<Snippet language="js">{actionsCode}</Snippet>
+</Section>

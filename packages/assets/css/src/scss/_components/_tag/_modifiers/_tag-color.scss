@@ -1,0 +1,67 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+@use "../_utils/colors" as *;
+
+/// Build Tag Colors
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block-name - Main block name
+@mixin build-color($block-name) {
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block-name) {
+			// Variation: Semantic (Solid)
+			@each $name, $value in $colors {
+				@if $name == default {
+					border-color: $value;
+					background: $value;
+					color: $color-extended-neutral-100;
+				} @else {
+					@include modifier($name) {
+						border-color: $value;
+						background: $value;
+						@if $name == yellow or $name == white {
+							color: $color-extended-neutral-10;
+						}
+					}
+				}
+			}
+
+			// Variation: Structured (Outlined)
+			@each $name, $value in $colors {
+				@if $name == default {
+					@include modifier(outlined) {
+						background: transparent;
+						color: $value;
+					}
+				} @else {
+					@include modifier(#{"outlined-" + $name}) {
+						border-color: $value;
+						background: transparent;
+						color: $value;
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block-name) {
+			border-color: $color-extended-neutral-0;
+			background: $color-extended-neutral-0;
+			color: $color-extended-neutral-100;
+
+			@include modifier("outlined") {
+				border-color: $color-extended-neutral-0;
+				color: $color-extended-neutral-0;
+				background: transparent;
+			}
+		}
+	}
+}

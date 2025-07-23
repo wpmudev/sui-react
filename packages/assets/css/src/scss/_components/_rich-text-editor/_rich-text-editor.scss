@@ -1,0 +1,8 @@
+@use "./_elements/elements" as sui-rich-text-editor--element;
+
+@include sui-rich-text-editor--element.build-rich-text-editor(rich-text-editor);
+@include sui-rich-text-editor--element.build-content(rich-text-editor);
+@include sui-rich-text-editor--element.build-header(rich-text-editor);
+@include sui-rich-text-editor--element.build-textarea(rich-text-editor);
+@include sui-rich-text-editor--element.build-textarea-input(rich-text-editor);
+@include sui-rich-text-editor--element.build-tinymce(rich-text-editor);

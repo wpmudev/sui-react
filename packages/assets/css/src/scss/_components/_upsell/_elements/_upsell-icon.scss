@@ -1,0 +1,23 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Icon
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-icon($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(icon) {
+				align-items: center;
+				border-radius: $upsell-border-radius-md;
+				display: flex;
+				padding: $spacing-md;
+			}
+		}
+	}
+}

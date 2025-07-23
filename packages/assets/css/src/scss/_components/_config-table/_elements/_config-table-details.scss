@@ -1,0 +1,43 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Details
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-details($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(details-header) {
+				margin-bottom: $spacing-2xl;
+
+				@include media(max-width, sm) {
+					margin-bottom: $spacing-lg;
+				}
+			}
+
+			@include element(details-item) {
+				display: flex;
+				gap: $spacing-sm;
+				align-items: center;
+			}
+
+			@include element(tag) {
+				line-height: 1;
+			}
+
+			@include modifier(title) {
+				margin: 0;
+			}
+
+			@include modifier(content) {
+				color: $color-extended-neutral-50;
+				margin: $spacing-md 0 0 0;
+			}
+		}
+	}
+}

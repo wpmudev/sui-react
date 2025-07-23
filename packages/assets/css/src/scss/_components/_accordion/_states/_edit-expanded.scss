@@ -1,0 +1,68 @@
+@use "../../../_utils/utils" as *;
+
+/// Edit expanded state
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-expanded($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(item) {
+				@include modifier(expanded) {
+					.sui-#{$block}__header {
+						background: $color-extended-neutral-95;
+					}
+
+					.sui-#{$block}__panel {
+						background: $color-extended-neutral-95;
+						display: block;
+					}
+				}
+			}
+
+			@include modifier(flushed) {
+				.sui-#{$block}__item--expanded {
+					.sui-#{$block}__header,
+					.sui-#{$block}__panel {
+						background: $color-extended-neutral-100;
+					}
+
+					.sui-#{$block}__panel--content {
+						box-shadow: none;
+					}
+				}
+
+				.sui-#{$block}__panel--content {
+					padding-top: $spacing-md;
+				}
+
+				.sui-#{$block}__item--footer {
+					padding-top: $spacing-xl;
+					border: none;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(item) {
+				@include modifier(expanded) {
+					.sui-#{$block}__header {
+						background: transparent;
+					}
+
+					.sui-#{$block}__panel {
+						background: transparent;
+					}
+				}
+			}
+		}
+	}
+}

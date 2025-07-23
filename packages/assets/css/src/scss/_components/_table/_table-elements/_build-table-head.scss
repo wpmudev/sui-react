@@ -1,0 +1,45 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Table head
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-table-head($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(head) {
+				td,
+				th {
+					font-weight: $font-weight-md;
+					color: $color-extended-neutral-10;
+					min-height: $table-height-sm;
+				}
+
+				.sui-#{$block}__row {
+					border-top: 0;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(head) {
+				td,
+				th {
+					color: $color-extended-neutral-0;
+				}
+			}
+		}
+	}
+}

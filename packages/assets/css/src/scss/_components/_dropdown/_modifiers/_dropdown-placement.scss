@@ -1,0 +1,36 @@
+@use "../../../_utils/utils" as *;
+
+/// Placement Styles
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin modify-placement($block) {
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(popover) {
+				@include modifier(placement-left) {
+					left: auto;
+					right: 0;
+				}
+
+				@include modifier(placement-top) {
+					top: auto;
+					bottom: 100%;
+				}
+			}
+		}
+	}
+
+	@include sui-class($rtl: true, $theme: null) {
+		@include block($block) {
+			@include element(popover) {
+				@include modifier(placement-left) {
+					left: 0;
+					right: auto;
+				}
+			}
+		}
+	}
+}

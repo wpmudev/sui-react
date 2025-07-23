@@ -1,0 +1,42 @@
+{
+	"modal": {
+		"spacing": {
+			"lg": {
+				"value": "40px",
+				"type": "spacing"
+			}
+		},
+		"border": {
+			"radius": {
+				"value": "24px",
+				"type": "borderRadius"
+			}
+		},
+		"size": {
+			"width": {
+				"xs": {
+					"value": "64px",
+					"type": "sizing"
+				},
+				"md": {
+					"value": "480px",
+					"type": "sizing"
+				},
+				"lg": {
+					"value": "720px",
+					"type": "sizing"
+				},
+				"xl": {
+					"value": "1024px",
+					"type": "sizing"
+				}
+			},
+			"height": {
+				"xs": {
+					"value": "64px",
+					"type": "sizing"
+				}
+			}
+		}
+	}
+}

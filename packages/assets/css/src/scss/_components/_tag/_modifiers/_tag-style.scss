@@ -1,0 +1,37 @@
+@use "../../../_utils/utils" as *;
+
+/// Build Tag Styles
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-style($block) {
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			// Style: Multiline
+			@include modifier(multiline) {
+				max-width: 90px;
+			}
+
+			// Style: Truncated
+			@include modifier(truncated) {
+				max-width: 80px;
+
+				@include modifies-element(label) {
+					max-width: 100%;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+
+			// Style: Uppercase
+			@include modifier(uppercase) {
+				text-transform: uppercase;
+			}
+		}
+	}
+}

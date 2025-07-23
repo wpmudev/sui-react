@@ -1,0 +1,36 @@
+@use "../../../_utils/utils" as *;
+
+/// Sizes
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-size($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(sm) {
+				font-size: $font-size-xs;
+				line-height: $font-size-2xs;
+
+				@include modifies-element(box) {
+					width: $spacing-lg;
+					height: $spacing-lg;
+					margin-bottom: 0;
+					margin-top: 0;
+				}
+
+				@include modifies-element(icon) {
+					width: $checkbox-icon-width-sm;
+					height: $checkbox-icon-height-sm;
+				}
+
+				@include modifies-element(label) {
+					margin-top: $spacing-xs;
+				}
+			}
+		}
+	}
+}

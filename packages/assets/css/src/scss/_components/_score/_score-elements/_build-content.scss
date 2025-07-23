@@ -1,0 +1,33 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Content
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-content($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(content) {
+				color: $score-color-black;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(content) {
+				color: $color-extended-neutral-0;
+			}
+		}
+	}
+}

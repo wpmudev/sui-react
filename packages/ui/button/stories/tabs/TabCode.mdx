@@ -1,0 +1,154 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from '@wpmudev/sui-docs';
+
+<PackageInstallGuide packageName="@wpmudev/sui-button" />
+
+<Section title="Props" border={true}>
+
+	<PropSection title="href" type="string">
+		<p>Link Url for the button</p>
+	</PropSection>
+
+	<PropSection title="htmlFor" type="string">
+		<p>Optional associated form element name for the button.</p>
+	</PropSection>
+
+	<PropSection title="type" type="string">
+		<p>
+			The base styling to apply. It is empty by default to allow you keep
+			the markup and base styles but customize it in case is necessary.
+		</p>
+		<p>Allowed options:</p>
+		<List>
+			<span
+				label={
+					<>
+						<Code small={true}>primary</Code>: Solid button.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>secondary</Code>: Outlined button.
+					</>
+				}
+			/>
+			<span
+				label={
+					<>
+						<Code small={true}>tertiary</Code>: Text button.
+					</>
+				}
+			/>
+		</List>
+	</PropSection>
+
+	<PropSection title="colorScheme" type="string">
+		<p>Color of the button</p>
+		<p>Allowed options:</p>
+		<List>
+			<span label={<Code small={true}>blue</Code>} />
+			<span label={<Code small={true}>black</Code>} />
+			<span label={<Code small={true}>red</Code>} />
+			<span label={<Code small={true}>navy</Code>} />
+			<span label={<Code small={true}>white</Code>} />
+		</List>
+	</PropSection>
+
+	<PropSection title="isSmall" type="boolean" defaultValue="false">
+		<p>When set to <Code small={true}>true</Code> the button will be small</p>
+	</PropSection>
+
+	<PropSection title="isDisabled*" type="boolean" defaultValue="false">
+		<p>When set to <Code small={true}>true</Code> the button will be disabled</p>
+	</PropSection>
+
+	<PropSection title="className" type="string">
+		<p>Custom css className(s) for the button</p>
+	</PropSection>
+
+	<PropSection title="startIcon*" type="string">
+		<p>An icon to be displayed before the label</p>
+	</PropSection>
+
+	<PropSection title="endIcon*" type="string">
+		<p>An Icon to be displayed after the label</p>
+	</PropSection>
+
+	<PropSection title="target" type="string">
+		<p>Optional target window or frame to open the link.</p>
+	</PropSection>
+
+	<PropSection title="isFullWidth" type="boolean" defaultValue="false">
+		<p>When set to <Code small={true}>true</Code> the button will have a full width</p>
+	</PropSection>
+
+	<PropSection title="isUnwrapped" type="boolean" defaultValue="false">
+		<p>When set to <Code small={true}>true</Code> the button will be unwrapped from its container</p>
+	</PropSection>
+
+	<PropSection title="icon" type="string">
+		<p>An icon to be displayed before the label</p>
+	</PropSection>
+
+	<PropSection title="iconSize" type="string" defaultValue="sm">
+		<p>One of the following values to set a size for the icon</p>
+		<List>
+			<span label={<Code small={true}>sm</Code>} />
+            <span label={<Code small={true}>md</Code>} />
+			<span label={<Code small={true}>lg</Code>} />
+			<span label={<Code small={true}>xl</Code>} />
+		</List>
+	</PropSection>
+
+	<PropSection title="children" type="React Node" defaultValue="button label">
+		<p>The button text or any other React element</p>
+	</PropSection>
+
+	<PropSection title="iconOnly" type="boolean" defaultValue="false">
+		<p>When set to <Code small={true}> true </Code> the button will display the icon only</p>
+	</PropSection>
+
+	<PropSection title="isResponsive" type="boolean" defaultValue="false">
+		<p>When set to <Code small={true}> true </Code> the label will be hidden in mobile devices</p>
+	</PropSection>
+
+	<PropSection title="isLoading" type="boolean" defaultValue="false">
+		<p>When set to <Code small={true}> true </Code> a spinner will appear.</p>
+	</PropSection>
+
+	<PropSection title="onMouseEnter" type="function">
+		<p>Triggered when the mouse cursor enters the target element.</p>
+	</PropSection>
+
+	<PropSection title="onMouseLeave" type="function">
+		<p>Triggered when the mouse cursor leaves the target element.</p>
+	</PropSection>
+
+	<PropSection title="onFocus" type="function">
+		<p>Triggered when the target element gains focus.</p>
+	</PropSection>
+
+	<PropSection title="onBlur" type="function">
+		<p>Triggered when the target element loses focus.</p>
+	</PropSection>
+
+	<PropSection title="onMouseUp" type="function" >
+		<p>Triggered when a mouse button is released while the cursor is over the target element.</p>
+	</PropSection>
+
+	<PropSection title="onMouseDownCapture" type="function">
+		<p>Triggered when a mouse button is pressed down on the target element, capturing the event before it reaches any other elements.</p>
+	</PropSection>
+
+	<PropSection title="onMouseUpCapture" type="function">
+		<p>Triggered when a mouse button is released while the cursor is over the target element, capturing the event before it reaches any other elements.</p>
+	</PropSection>
+
+	<PropSection title="onBlurCapture" type="function">
+		<p>Triggered when the target element loses focus, capturing the event before it reaches any other elements.</p>
+	</PropSection>
+
+</Section>
+
+<CommonPropsNotice />

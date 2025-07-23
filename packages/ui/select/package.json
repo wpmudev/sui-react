@@ -1,0 +1,62 @@
+{
+  "name": "@wpmudev/sui-select",
+  "version": "0.0.1",
+  "description": "The Select element is used for a drop-down options. This element is most often used in a form, to collect user input. Select inputs let users select a predefined value from a list of options",
+  "keywords": [],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Pawan Kumar",
+      "email": "40248406+creador-dev@users.noreply.github.com",
+      "url": "https://creador.dev/"
+    },
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
+    },
+    {
+      "name": "Abderrahman DOUARA",
+      "email": "aer17013@gmail.com",
+      "url": "https://douara.me"
+    }
+  ],
+  "license": "GPL-2.0",
+  "main": "src/index.ts",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-react.git"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:dev": "npx tsup --watch",
+    "build:fast": "tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "build:readme": "readme generate --input ../../../blueprint.md"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/sui-docs/issues"
+  },
+  "homepage": "https://github.com/wpmudev/sui-docs#readme",
+  "clean-package": "../../../postpack.config.json",
+  "dependencies": {
+    "@wpmudev/sui-checkbox": "^0.0.1",
+    "@wpmudev/sui-hooks": "^0.0.1",
+    "@wpmudev/sui-input": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1",
+    "react": "^18.2.0"
+  }
+}

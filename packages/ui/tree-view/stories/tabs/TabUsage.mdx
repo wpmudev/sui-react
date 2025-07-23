@@ -1,0 +1,74 @@
+import { Section, Row, Col, List } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import Spacing from "../images/spacing.svg"
+import SelectAnatomy from "../images/select-anatomy.svg"
+import States from "../images/states.svg"
+import Variations from "../images/variations.svg"
+
+<Section title="Tree View Anatomy" contained={false}>
+	<Row>
+		<Col>
+    		<h3 style={{marginTop: 0}}>1. Tree View</h3>
+    		<p>A group of nested tree selectors.</p>
+
+    		<h3>2. Tree Select - Parent</h3>
+    		<p>A parent tree selector which includes child tree select items.</p>
+
+    		<h3>3. Tree list</h3>
+    		<p>A list of tree selectors.</p>
+
+    		<h3>4. Tree Select - Child</h3>
+    		<p>Tree select item with no child items.</p>
+    	</Col>
+    	<Col>
+    		<img src={Anatomy} alt="Tree View Anatomy" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Spacing" contained={false}>
+	<Row>
+		<Col>
+    		<h3 style={{marginTop: 0}}>1. Tree view paddings</h3>
+    		<p>Spacing for a tree view component may vary based on it’s size, but it is recommended that the spacing adheres to a consistent set of values such as 8px, 16px, or 24px to maintain visual harmony across the design system.</p>
+
+    		<h3>2. Tree Select Margins</h3>
+    		<p>The margin between tree selector items should ideally be 4px.</p>
+
+    		<h3>3. Tree list spacings</h3>
+    		<p>To ensure that the list items are visually aligned with their parent node, left padding for the tree list component is recommended 24px.</p>
+    	</Col>
+    	<Col>
+    		<img src={Spacing} alt="Tree View Spacing" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Tree Select Anatomy" contained={false}>
+	<Row>
+		<Col>
+    		<h3 style={{marginTop: 0}}>1. Expand and Collapse icon</h3>
+
+    		<h3>2. Checkbox - optional</h3>
+
+    		<h3>3. Supporting Icon - optional</h3>
+
+    		<h3>3. Label</h3>
+    	</Col>
+    	<Col>
+    		<img src={SelectAnatomy} alt="Tree Select Anatomy" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="States" contained={false}>
+	<img src={States} alt="Tree View States" />
+</Section>
+
+<Section title="Variations" contained={false}>
+	<img src={Variations} alt="Tree View Variations" />
+</Section>

@@ -1,0 +1,24 @@
+import { Page } from "@wpmudev/sui-docs"
+import { Unstyled } from "@storybook/blocks"
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+
+<Unstyled>
+	<Page.Tabs
+		title="Upsell"
+		subtitle="Upsell box provides a list of Features which are part of the Pro tier. It highlights key features of Plugin pro features. The goal of this Upsell is to Highlight the Pro features for the free tier user."
+		status="ready"
+	>
+		<div id="usage" label="Usage">
+			<TabUsage />
+		</div>
+		<div id="code" label="Code">
+			<TabCode />
+		</div>
+		<div id="examples" label="Examples">
+			<TabExamples />
+		</div>
+	</Page.Tabs>
+</Unstyled>

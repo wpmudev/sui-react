@@ -1,0 +1,87 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build file preview section
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-files($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(file) {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				border-radius: $uploader-border-radius;
+				background: $color-extended-neutral-95;
+				gap: $uploader-spacing-horizontal;
+				margin-top: $uploader-spacing-vertical;
+
+				@include modifier(preview) {
+					align-items: center;
+					display: inline-flex;
+					padding: $uploader-preview-spacing;
+				}
+
+				@include modifier(image) {
+					background-color: $color-extended-neutral-80;
+					background-position: 50%;
+					background-size: cover;
+					background-repeat: no-repeat;
+					border-radius: $uploader-border-radius;
+					display: inline-flex;
+					height: $uploader-preview-size;
+					width: $uploader-preview-size;
+				}
+
+				@include modifier(icon) {
+					margin-left: $uploader-icon-margin-horizontal;
+				}
+
+				@include modifier(name) {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					flex: 1;
+				}
+
+				@include modifier(remove) {
+					margin: 0;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(file) {
+				color: $color-extended-neutral-0;
+				background: $color-extended-neutral-100;
+				border: $uploader-border-width solid $color-extended-neutral-0;
+			}
+		}
+	}
+
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(file) {
+				@include modifier(icon) {
+					margin-right: $uploader-icon-margin-horizontal;
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}

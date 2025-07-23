@@ -1,0 +1,39 @@
+import { Section, Code, Snippet, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+import dedent from "dedent"
+
+export const tinyMceCode = dedent`
+add_action('admin_enqueue_scripts', 'sui_load_mce_editor_scripts');
+    
+    function sui_load_mce_editor_scripts() {
+        wp_enqueue_editor()
+    }
+`
+
+<PackageInstallGuide packageName="@wpmudev/sui-rich-text-editor" />
+
+<Section title="Props" border={true}>
+	<p>The RichText Editor has one prop:</p>
+	<PropSection title="defaultValue" type="boolean">
+		<p>The default content set in the editor</p>
+	</PropSection>
+	<PropSection title="isDisabled" type="boolean" defaultValue="false">
+		<p>When set to <Code isSmall={true}>true</Code> the editor will be disabled</p>
+	</PropSection>
+	<PropSection title="textareaId" type="string">
+		<p>The id of the textarea</p>
+	</PropSection>
+	<PropSection title="className" type="string">
+		<p>Custom css className(s)</p>
+	</PropSection>
+	<PropSection title="actions" type="React Node">
+		<p>Rich text editor also has extra button that can be used for additional control.</p>
+	</PropSection>
+	<PropSection title="tinyMCEOptions" type="object">
+		<p>TinyMCE configurations, see here: <a href="https://www.tiny.cloud/docs-3x/reference/Configuration3x/" target="_blank">https://www.tiny.cloud/docs-3x/reference/Configuration3x/</a></p>
+	</PropSection>
+	<PropSection title="onChange" type="function">
+		<p>Catch textarea content</p>
+	</PropSection>
+</Section>
+
+<CommonPropsNotice />

@@ -1,0 +1,97 @@
+@use "sass:map";
+@use "../../../_utils/utils" as *;
+@use "../_score-utils/animation" as *;
+
+$sui-score-design: (
+	success: (
+		stroke: $score-color-green,
+	),
+	warning: (
+		stroke: $score-color-yellow,
+	),
+	error: (
+		stroke: $score-color-red,
+	),
+	default: (
+		stroke: $score-color-blue,
+	),
+);
+
+/// Build SVG
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-svg($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(svg) {
+				height: 100%;
+				transform: rotate(-90deg);
+				transform-origin: center;
+			}
+
+			@include element(circle) {
+				fill: none;
+
+				@include modifier(bg) {
+					stroke: $score-color-grey;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Light.
+	@include sui-class($rtl: false, $theme: light) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(circle) {
+				@include modifier(inner, outer) {
+					display: none;
+				}
+			}
+
+			@each $color, $states in $sui-score-design {
+				@include modifier($color) {
+					@include modifies-element(circle) {
+						&.sui-#{$block}__circle--filled {
+							stroke: map.get($sui-score-design, $color, stroke);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(circle) {
+				@include modifier(bg) {
+					stroke: $color-extended-neutral-100;
+				}
+
+				@include modifier(filled) {
+					stroke: $color-extended-neutral-0;
+				}
+
+				@include modifier(inner) {
+					transform: scale(0.88);
+					transform-origin: center;
+				}
+
+				@include modifier(outer) {
+					transform: scale(1.12);
+					transform-origin: center;
+				}
+			}
+		}
+	}
+}

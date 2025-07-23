@@ -1,0 +1,7 @@
+@use "./_elements/elements" as sui-footer--element;
+
+@include sui-footer--element.build-block(footer);
+@include sui-footer--element.build-group(footer);
+@include sui-footer--element.build-container(footer);
+@include sui-footer--element.build-links(footer);
+

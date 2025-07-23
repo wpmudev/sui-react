@@ -1,0 +1,250 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+@use "../_utils/mixins" as *;
+
+/// Build Tooltip Position
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-position($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include body-class($rtl: false) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popup) {
+				position: absolute;
+
+				@include modifier(top) {
+					transform: translateX(-50%);
+
+					&:after {
+						left: 50%;
+						transform: translateX(-50%);
+					}
+				}
+
+				@include modifier(top-left) {
+					&:after {
+						left: 8px;
+					}
+				}
+
+				@include modifier(top-right) {
+					&:after {
+						right: 8px;
+					}
+				}
+
+				@include modifier(top, top-left, top-right) {
+					&:after {
+						@include equilateral-triangle(
+							down,
+							6px,
+							$color-extended-neutral-20
+						);
+						bottom: -6px;
+					}
+				}
+
+				@include modifier(bottom) {
+					transform: translateX(-50%);
+
+					&:after {
+						left: 50%;
+						transform: translateX(-50%);
+					}
+				}
+
+				@include modifier(bottom-left) {
+					&:after {
+						left: 8px;
+					}
+				}
+
+				@include modifier(bottom-right) {
+					&:after {
+						right: 8px;
+					}
+				}
+
+				@include modifier(bottom, bottom-left, bottom-right) {
+					&:after {
+						@include equilateral-triangle(up, 6px, $color-extended-neutral-20);
+						top: -6px;
+					}
+				}
+
+				@include modifier(left) {
+					transform: translateY(-50%);
+					&:after {
+						top: 50%;
+						transform: translateY(-50%);
+					}
+				}
+
+				@include modifier(left-top) {
+					&:after {
+						top: 8px;
+					}
+				}
+
+				@include modifier(left-bottom) {
+					&:after {
+						bottom: 8px;
+					}
+				}
+
+				@include modifier(left, left-top, left-bottom) {
+					&:after {
+						right: -6px;
+						@include equilateral-triangle(
+							right,
+							6px,
+							$color-extended-neutral-20
+						);
+					}
+				}
+
+				@include modifier(right) {
+					transform: translateY(-50%);
+					&:after {
+						top: 50%;
+						transform: translateY(-50%);
+					}
+				}
+
+				@include modifier(right-top) {
+					&:after {
+						top: 8px;
+					}
+				}
+
+				@include modifier(right-bottom) {
+					&:after {
+						bottom: 8px;
+					}
+				}
+
+				@include modifier(right, right-top, right-bottom) {
+					&:after {
+						left: -6px;
+						@include equilateral-triangle(
+							left,
+							6px,
+							$color-extended-neutral-20
+						);
+					}
+				}
+
+				@include modifier(icon) {
+					&.sui-#{$block}__popup--top-left {
+						&:after {
+							left: 2px;
+							bottom: -5px;
+						}
+					}
+
+					&.sui-#{$block}__popup--top-right {
+						&:after {
+							right: 2px;
+							bottom: -5px;
+						}
+					}
+
+					&.sui-#{$block}__popup--bottom-left {
+						&:after {
+							top: -5px;
+							left: 2px;
+						}
+					}
+
+					&.sui-#{$block}__popup--bottom-right {
+						&:after {
+							top: -5px;
+							right: 2px;
+						}
+					}
+
+					&.sui-#{$block}__popup--left-top {
+						&:after {
+							right: -5px;
+							top: 2px;
+						}
+					}
+
+					&.sui-#{$block}__popup--left-bottom {
+						&:after {
+							right: -5px;
+							bottom: 2px;
+						}
+					}
+
+					&.sui-#{$block}__popup--right-top {
+						&:after {
+							left: -5px;
+							top: 2px;
+						}
+					}
+
+					&.sui-#{$block}__popup--right-bottom {
+						&:after {
+							left: -5px;
+							bottom: 2px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: None.
+	@include body-class($rtl: true) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(popup) {
+				@include modifier(top-left, bottom-left) {
+					&:after {
+						right: 8px;
+						left: unset;
+					}
+				}
+
+				@include modifier(top-right, bottom-right) {
+					&:after {
+						right: unset;
+						left: 8px;
+					}
+				}
+
+				@include modifier(left, left-top, left-bottom) {
+					&:after {
+						left: -6px;
+						right: unset;
+						@include equilateral-triangle(
+							left,
+							6px,
+							$color-extended-neutral-20
+						);
+					}
+				}
+
+				@include modifier(right, right-top, right-bottom) {
+					&:after {
+						right: -6px;
+						left: unset;
+						@include equilateral-triangle(
+							right,
+							6px,
+							$color-extended-neutral-20
+						);
+					}
+				}
+			}
+		}
+	}
+}

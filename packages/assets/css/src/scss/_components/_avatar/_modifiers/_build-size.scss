@@ -1,0 +1,38 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Size
+///
+/// @type modifier
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-size($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(sm) {
+				width: $avatar-container-size-sm;
+				height: $avatar-container-size-sm;
+
+				@include modifies-element(icon) {
+					width: $font-size-sm;
+					height: $font-size-sm;
+				}
+
+				@include modifies-element(status) {
+					right: $avatar-status-margin-sm;
+					bottom: $avatar-status-margin-sm;
+					padding: $spacing-2xs;
+				}
+
+				@include modifies-element(status-icon) {
+					width: $avatar-status-size-sm;
+					height: $avatar-status-size-sm;
+				}
+			}
+		}
+	}
+}

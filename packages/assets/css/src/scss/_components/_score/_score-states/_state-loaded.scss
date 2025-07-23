@@ -1,0 +1,22 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Loading Score
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin state-loaded($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(loaded) {
+				opacity: 1;
+			}
+		}
+	}
+}

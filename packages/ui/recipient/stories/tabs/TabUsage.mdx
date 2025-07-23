@@ -1,0 +1,101 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import Variation from "../images/variation.svg"
+import ActionInteraction from "../images/action-interaction.svg"
+import Status from "../images/status.svg"
+import Responsive from "../images/responsive.svg"
+import Spacings from "../images/spacings.svg"
+
+<Section title="Anatomy" border={true}>
+	<Row>
+		<Col style={{padding: 30}}>
+    		<img src={Anatomy} alt="Recipient Anatomy" />
+    	</Col>
+		<Col>
+    		<h3 style={{marginTop: 0}}>1. Accordion header</h3>
+    		<p>Accordion header contains the section title and chevron icon that expands and collapses accordion content.</p>
+
+    		<h3>2. Progress indicator</h3>
+    		<p>The progress indicator indicates how much the process has been made.</p>
+
+    		<h3>2. Progress indicator</h3>
+    		<p>The progress indicator indicates how much the process has been made.</p>
+
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Variation" border={true}>
+	<Row>
+		<Col
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				justifyContent: "center",
+
+    		}}
+    	>
+    		<h3 style={{ marginTop: 0 }}>1. Default </h3>
+    		<h3>2. Light background</h3>
+    	</Col>
+    	<Col size="4">
+    		<img src={Variation} alt="Recipient Variation" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Action Interaction" border={true}>
+	<Row>
+		<Col size="4">
+			<img src={ActionInteraction} alt="Recipient Action Interaction" />
+		</Col>
+		<Col
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "center",
+				justifyContent: "center",
+				padding: 30,
+			}}
+		>
+			<h3 style={{ marginTop: 0 }}>1. Default </h3>
+			<h3>2. Pending</h3>
+			<h3>3. Success</h3>
+			<h3>4. Error</h3>
+		</Col>
+	</Row>
+</Section>
+
+<Section title="Reciepient Status" border={true}>
+	<Row>
+		<Col
+			style={{
+				display: "flex",
+				flexDirection: "column",
+
+    			justifyContent: "center",
+    			padding: 30,
+    		}}
+    	>
+    		<h3 style={{ marginTop: 0 }}>1. Default </h3>
+    		<h3>2. Pending</h3>
+    		<h3>3. Success</h3>
+    		<h3>4. Error</h3>
+    	</Col>
+    	<Col size="4">
+    		<img src={Status} alt="Recipient Status" />
+    	</Col>
+    </Row>
+
+</Section>
+
+<Section title="Responsive" border={true}>
+	<img src={Responsive} alt="Recipient Responsive" />
+</Section>
+
+<Section title="Spacings" border={true}>
+	<img src={Spacings} alt="Recipient Spacings" />
+</Section>

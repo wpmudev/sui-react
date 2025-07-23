@@ -1,0 +1,39 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// State: Checked
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-checked($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(checked) {
+				@include modifies-element(switch) {
+					justify-content: flex-end;
+					background: $color-primary-50;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include modifier(checked) {
+				@include modifies-element(switch) {
+					background: $color-extended-neutral-0;
+					&:before {
+						background: $color-extended-neutral-100;
+					}
+				}
+			}
+		}
+	}
+}
