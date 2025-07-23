@@ -55,7 +55,7 @@
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
     "@wpmudev/sui-hooks": "^0.0.1",
-    "@wpmudev/sui-icons": "*",
+    "@wpmudev/sui-tag": "^0.0.1",
     "@wpmudev/sui-utils": "^0.0.1",
     "react": "^18.2.0"
   }
