@@ -48,12 +48,14 @@ export const List = ({ ...props }: ListProps) => {
 
 List.args = {
 	type: "ul",
-	border: true,
-	flush: false,
-	unstyled: false,
+	variant: "bordered",
 	className: "",
 	children: (
 		<>
+			<ListItem action={true}>
+				<PluginBeehive />
+				Automated firewall protection
+			</ListItem>
 			<ListItem variant="neutral" isPro={true}>
 				<PluginBeehive />
 				Automated firewall protection
@@ -100,6 +102,24 @@ List.argTypes = {
 		table: {
 			type: { summary: "'ul' | 'ol'" },
 			defaultValue: { summary: "'ul'" },
+		},
+	},
+	variant: {
+		name: "Variant",
+		description:
+			"Variant of the list to render (`unstyled`, `bordered`, `flushed`).",
+		options: ["unstyled", "bordered", "flushed"],
+		control: {
+			type: "select",
+			labels: {
+				unstyled: "Unstyled",
+				bordered: "Bordered",
+				flushed: "Flushed",
+			},
+		},
+		table: {
+			type: { summary: "'unstyled' | 'bordered' | 'flushed'" },
+			defaultValue: { summary: "'unstyled'" },
 		},
 	},
 	border: {

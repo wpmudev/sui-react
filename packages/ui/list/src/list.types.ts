@@ -14,17 +14,9 @@ interface ListProps
 	 */
 	type?: "ul" | "ol"
 	/**
-	 * Whether the list should have borders
+	 * The variant of the list, e.g., "unstyled", "bordered", "flush"
 	 */
-	border?: boolean
-	/**
-	 * Whether the list should be flushed (no border on left and right and radius)
-	 */
-	flush?: boolean
-	/**
-	 * Whether the list should be unstyled
-	 */
-	unstyled?: boolean
+	variant?: "unstyled" | "bordered" | "flushed"
 	/**
 	 * Whether the list should have overflow hidden
 	 */

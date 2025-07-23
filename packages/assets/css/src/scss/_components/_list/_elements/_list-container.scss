@@ -26,7 +26,7 @@
 				&:before {
 					content: "";
 					position: absolute;
-					top: -#{$spacing-2xs};
+					top: 0;
 					left: 0;
 					bottom: -#{$spacing-2xs};
 					width: $spacing-sm;
@@ -98,6 +98,10 @@
 
 			@include modifier(unstyled) {
 				list-style: revert;
+
+				@include modifies-element(item) {
+					display: list-item;
+				}
 			}
 
 			@include modifier(border) {
@@ -136,10 +140,21 @@
 		}
 	}
 
-	// DIR: Left to right.
-	// THEME: Dark.
-	@include sui-class($rtl: false, $theme: dark) {
+	// DIR: Right to left.
+	// THEME: None.
+	@include sui-class($rtl: true, $theme: null) {
 		@include block($block) {
+			@include element(item) {
+				&:before {
+					left: unset;
+					right: 0;
+				}
+
+				@include modifier("pro-tag") {
+					margin-left: 0;
+					margin-right: auto;
+				}
+			}
 		}
 	}
 }

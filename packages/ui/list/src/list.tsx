@@ -6,9 +6,7 @@ import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 const List: React.FC<ListProps> = ({
 	type = "ul",
-	border = false,
-	flush = false,
-	unstyled = false,
+	variant = "unstyled",
 	overflow = true,
 	className = "",
 	children,
@@ -22,12 +20,12 @@ const List: React.FC<ListProps> = ({
 	const classNames = generateCN(
 		"sui-list",
 		{
-			ordered: type === "ol" && !unstyled,
-			unordered: type === "ul" && !unstyled,
-			border: !unstyled && border,
-			flush: !unstyled && flush,
-			unstyled,
-			overflow,
+			ordered: type === "ol",
+			unordered: type === "ul",
+			border: variant === "bordered",
+			flush: variant === "flushed",
+			unstyled: variant === "unstyled",
+			overflow: variant !== "unstyled" && overflow,
 		},
 		suiInlineClassname,
 	)
