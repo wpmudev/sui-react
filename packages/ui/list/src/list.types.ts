@@ -37,6 +37,10 @@ interface ListProps
 	 * The text of the link
 	 */
 	children?: React.ReactNode
+	/**
+	 * The onClick handler for the list
+	 */
+	onClick?: () => void
 }
 
 /**
@@ -48,6 +52,10 @@ interface ListContextProps {
 	 * The type of list, either "ul" or "ol"
 	 */
 	type: "ul" | "ol"
+	/**
+	 * The onClick handler for the list
+	 */
+	onClick?: () => void
 }
 
 /**
@@ -79,6 +87,10 @@ interface ListItemProps extends SuiHTMLAttributes<HTMLLIElement>, SuiStyleType {
 	 * The text of the list item
 	 */
 	children?: React.ReactNode
+	/**
+	 * The onClick handler for the list item
+	 */
+	onItemClick?: (event: React.MouseEvent<HTMLLIElement>) => void
 }
 
 export type { ListProps, ListContextProps, ListItemProps }

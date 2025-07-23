@@ -8,10 +8,19 @@ const ListContext = createContext<ListContextProps>({
 const ListProvider = ListContext.Provider
 
 const useListType = () => {
-	const { type } = useContext(ListContext)
+	const { type, onClick } = useContext(ListContext)
 
 	return {
 		type,
+		onClick: () => {
+			if (onClick) {
+				onClick()
+			} else {
+				throw new Error(
+					"ListItem must be used within a List component. It requires a valid 'type' context (either 'ul' or 'ol').",
+				)
+			}
+		},
 	}
 }
 

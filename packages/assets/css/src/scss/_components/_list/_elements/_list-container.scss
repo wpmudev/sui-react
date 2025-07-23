@@ -26,11 +26,24 @@
 				&:before {
 					content: "";
 					position: absolute;
-					top: -1px;
+					top: -#{$spacing-2xs};
 					left: 0;
-					bottom: -1px;
-					width: 4px;
+					bottom: -#{$spacing-2xs};
+					width: $spacing-sm;
 					background-color: transparent;
+				}
+
+				@include modifier(action) {
+					cursor: pointer;
+				}
+
+				@include modifier(hover) {
+					background: $color-extended-neutral-95;
+				}
+
+				@include modifier(focus) {
+					outline: $spacing-xs solid $color-primary-50;
+					outline-offset: -#{$spacing-xs};
 				}
 
 				@include modifier(pro) {
@@ -89,6 +102,17 @@
 
 			@include modifier(border) {
 				border-radius: $border-radius-xl;
+
+				@include modifies-element(item) {
+					&:first-child {
+						border-top-left-radius: inherit;
+						border-top-right-radius: inherit;
+					}
+					&:last-child {
+						border-bottom-left-radius: inherit;
+						border-bottom-right-radius: inherit;
+					}
+				}
 			}
 
 			@include modifier(border, flush) {

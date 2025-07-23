@@ -12,10 +12,11 @@ const ListItem: React.FC<ListItemProps> = ({
 	isPro = false,
 	isDisabled = false,
 	action = false,
+	onItemClick = () => {},
 	_style = {},
 	_htmlProps = {},
 }) => {
-	const { type } = useListType()
+	const { type, onClick } = useListType()
 
 	if (type !== "ul" && type !== "ol") {
 		throw Error(
@@ -26,6 +27,16 @@ const ListItem: React.FC<ListItemProps> = ({
 	const [isHovered, isFocused, methods] = useInteraction({})
 	const { suiInlineClassname } = useStyles(_style, className)
 
+	// Handle click event for the list item
+	const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
+		if (onItemClick) {
+			onItemClick(event)
+		}
+		if (onClick) {
+			onClick()
+		}
+	}
+
 	// Generate CSS class names for the List Item component.
 	const classNames = generateCN(
 		"sui-list__item",
@@ -33,8 +44,8 @@ const ListItem: React.FC<ListItemProps> = ({
 			action,
 			[variant]: variant && variant !== "default",
 			pro: isPro,
-			hover: isHovered && !isFocused && !isDisabled,
-			focus: isFocused && !isDisabled,
+			hover: isHovered && action && !isFocused && !isDisabled,
+			focus: isFocused && action && !isDisabled,
 			disabled: isDisabled,
 		},
 		suiInlineClassname,
@@ -43,7 +54,20 @@ const ListItem: React.FC<ListItemProps> = ({
 	return (
 		<li
 			className={classNames}
-			{...(methods ?? {})}
+			{...(action ? methods : {})}
+			{...(action && !isDisabled
+				? {
+						onClick: handleClick,
+						tabIndex: 0,
+						role: "button",
+						onKeyDown: (e: React.KeyboardEvent<HTMLLIElement>) => {
+							if (e.key === "Enter" || e.key === " ") {
+								handleClick(e as any)
+							}
+						},
+				  }
+				: {})}
+			data-testid="list-item"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{children}

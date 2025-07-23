@@ -48,9 +48,9 @@ export const List = ({ ...props }: ListProps) => {
 
 List.args = {
 	type: "ul",
-	border: false,
+	border: true,
 	flush: false,
-	unstyled: true,
+	unstyled: false,
 	className: "",
 	children: (
 		<>
@@ -62,15 +62,19 @@ List.args = {
 				<PluginDashboard />
 				Regularly Reviewed IP Database
 			</ListItem>
-			<ListItem variant="warning">
+			<ListItem variant="warning" action={true}>
 				<PluginBlc />
 				Millions of IPs Checked Daily
 			</ListItem>
-			<ListItem variant="success">
+			<ListItem variant="success" action={true}>
 				<PluginAutomate />
 				Millions of IPs Checked Daily
 			</ListItem>
-			<ListItem variant="critical">
+			<ListItem
+				variant="critical"
+				action={true}
+				onItemClick={() => alert("Clicked!")}
+			>
 				<PluginDefender />
 				Millions of IPs Checked Daily
 			</ListItem>
