@@ -60,7 +60,7 @@
     "version": "changeset version",
     "release": "npm run build && changeset publish",
     "deploy": "npm run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\"",
-    "prepare": "husky"
+    "prepare": "husky install"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"
@@ -90,6 +90,8 @@
     "@babel/preset-typescript": "^7.22.15",
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.29.5",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@jest/types": "^29.6.3",
     "@postcss-plugins/console": "^0.2.5",
     "@rollup/plugin-typescript": "^11.1.5",
@@ -158,6 +160,7 @@
     "jest-transform-stub": "^2.0.0",
     "lerna": "^4.0.0",
     "lerna-changelog": "^2.2.0",
+    "lint-staged": "^16.1.2",
     "node-fetch-commonjs": "^3.3.2",
     "path": "^0.12.7",
     "postcss-bem-linter": "^3.3.0",
