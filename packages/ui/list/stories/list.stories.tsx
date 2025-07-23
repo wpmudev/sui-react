@@ -52,7 +52,7 @@ List.args = {
 	className: "",
 	children: (
 		<>
-			<ListItem action={true}>
+			<ListItem>
 				<PluginBeehive />
 				Automated firewall protection
 			</ListItem>
@@ -64,19 +64,15 @@ List.args = {
 				<PluginDashboard />
 				Regularly Reviewed IP Database
 			</ListItem>
-			<ListItem variant="warning" action={true}>
+			<ListItem variant="warning" isDisabled={true}>
 				<PluginBlc />
 				Millions of IPs Checked Daily
 			</ListItem>
-			<ListItem variant="success" action={true}>
+			<ListItem variant="success">
 				<PluginAutomate />
 				Millions of IPs Checked Daily
 			</ListItem>
-			<ListItem
-				variant="critical"
-				action={true}
-				onItemClick={() => alert("Clicked!")}
-			>
+			<ListItem variant="critical" onItemClick={() => alert("Clicked!")}>
 				<PluginDefender />
 				Millions of IPs Checked Daily
 			</ListItem>
@@ -120,33 +116,6 @@ List.argTypes = {
 		table: {
 			type: { summary: "'unstyled' | 'bordered' | 'flushed'" },
 			defaultValue: { summary: "'unstyled'" },
-		},
-	},
-	border: {
-		name: "Border",
-		description: "Adds a border around the list.",
-		control: "boolean",
-		table: {
-			type: { summary: "boolean" },
-			defaultValue: { summary: false },
-		},
-	},
-	flush: {
-		name: "Flush",
-		description: "Removes spacing between list items.",
-		control: "boolean",
-		table: {
-			type: { summary: "boolean" },
-			defaultValue: { summary: false },
-		},
-	},
-	unstyled: {
-		name: "Unstyled",
-		description: "Removes all default list styles.",
-		control: "boolean",
-		table: {
-			type: { summary: "boolean" },
-			defaultValue: { summary: true },
 		},
 	},
 	className: {

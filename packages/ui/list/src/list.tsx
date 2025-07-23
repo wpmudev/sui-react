@@ -10,7 +10,7 @@ const List: React.FC<ListProps> = ({
 	overflow = true,
 	className = "",
 	children,
-	onClick = () => {},
+	onClick,
 	_style = {},
 	_htmlProps = {},
 }) => {

@@ -12,15 +12,7 @@ const useListType = () => {
 
 	return {
 		type,
-		onClick: () => {
-			if (onClick) {
-				onClick()
-			} else {
-				throw new Error(
-					"ListItem must be used within a List component. It requires a valid 'type' context (either 'ul' or 'ol').",
-				)
-			}
-		},
+		onClick,
 	}
 }
 

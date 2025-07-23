@@ -11,17 +11,22 @@ const ListItem: React.FC<ListItemProps> = ({
 	variant = "default",
 	isPro = false,
 	isDisabled = false,
-	action = false,
-	onItemClick = () => {},
+	onItemClick,
 	_style = {},
 	_htmlProps = {},
 }) => {
 	const { type, onClick } = useListType()
+	let action = false
 
 	if (type !== "ul" && type !== "ol") {
 		throw Error(
 			"ListItem must be used within a List component. It requires a valid 'type' context (either 'ul' or 'ol').",
 		)
+	}
+
+	// if we have onCLick then set action to true
+	if (onItemClick || onClick) {
+		action = true
 	}
 
 	const [isHovered, isFocused, methods] = useInteraction({})

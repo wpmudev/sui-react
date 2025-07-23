@@ -86,6 +86,11 @@
 						background-color: $color-extended-error-50;
 					}
 				}
+
+				@include modifier(disabled) {
+					pointer-events: none;
+					color: $color-extended-neutral-70;
+				}
 			}
 
 			@include modifier(unordered, ordered) {
