@@ -1,5 +1,30 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies
+  [[`648732b`](https://github.com/wpmudev/sui-react/commit/648732b0befc6d8f5e043cabbd18d9b9f5cc7e0f)]:
+  - @wpmudev/sui-color-picker@0.0.2
+  - @wpmudev/sui-advanced-banner@0.0.2
+  - @wpmudev/sui-builder@0.0.2
+  - @wpmudev/sui-date-picker@0.0.2
+  - @wpmudev/sui-dropdown@0.0.2
+  - @wpmudev/sui-editor-toolbar@0.0.2
+  - @wpmudev/sui-modal@0.0.2
+  - @wpmudev/sui-notification@0.0.2
+  - @wpmudev/sui-pagination@0.0.2
+  - @wpmudev/sui-password-field@0.0.2
+  - @wpmudev/sui-progress-bar@0.0.2
+  - @wpmudev/sui-sidebar@0.0.2
+  - @wpmudev/sui-uploader@0.0.2
+  - @wpmudev/sui-search@0.0.2
+  - @wpmudev/sui-select@0.0.2
+  - @wpmudev/sui-code-editor@0.0.2
+  - @wpmudev/sui-code-snippet@0.0.2
+  - @wpmudev/sui-recipient@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

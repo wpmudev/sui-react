@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @wpmudev/sui-input@0.0.2
+
 ## 1.0.6
 
 ### Patch Changes
