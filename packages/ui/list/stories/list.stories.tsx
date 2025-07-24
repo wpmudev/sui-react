@@ -72,7 +72,7 @@ List.args = {
 				<PluginAutomate />
 				Millions of IPs Checked Daily
 			</ListItem>
-			<ListItem variant="critical" onItemClick={() => console.log("Clicked!")}>
+			<ListItem variant="critical" onItemClick={() => {}}>
 				<PluginDefender />
 				Millions of IPs Checked Daily
 			</ListItem>
