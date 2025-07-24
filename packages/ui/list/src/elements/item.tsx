@@ -8,7 +8,7 @@ import { ListItemProps } from "../list.types"
 const ListItem: React.FC<ListItemProps> = ({
 	className = "",
 	children,
-	variant = "default",
+	variant = "",
 	isPro = false,
 	isDisabled = false,
 	onItemClick,
@@ -47,7 +47,7 @@ const ListItem: React.FC<ListItemProps> = ({
 		"sui-list__item",
 		{
 			action,
-			[variant]: variant && variant !== "default",
+			[variant]: variant !== "",
 			pro: isPro,
 			hover: isHovered && action && !isFocused && !isDisabled,
 			focus: isFocused && action && !isDisabled,

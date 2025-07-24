@@ -17,13 +17,13 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 	</PropSection>
 	<PropSection title="variant" type="string" defaultValue="unstyled">
 		<p>
-			The variant of the list, can be <Code small={true}> unstyled </Code>, <Code small={true}> icon </Code>, <Code small={true}> bordered </Code>
+			The variant of the list, can be <Code small={true}> unstyled </Code>, <Code small={true}> flushed </Code>, <Code small={true}> bordered </Code>
 		</p>
 		<p>
 			Allowed options:
 			<List>
 				<span label={<Code small={true}> unstyled </Code>} />
-				<span label={<Code small={true}> icon </Code>} />
+				<span label={<Code small={true}> flushed </Code>} />
 				<span label={<Code small={true}> bordered </Code>} />
 			</List>
 		</p>
@@ -41,7 +41,7 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 	</PropSection>
 
 	<PropSection title="onClick" type="function">
-		<p>A function that will be called when the list is clicked</p>
+		<p>A function that will be called when the list item is clicked</p>
 		<p>It will receive the event as an argument</p>	
 	</PropSection>	
 </Section>
@@ -53,16 +53,18 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 	<PropSection title="children" type="ReactNode">
 		<p>The content of the list item</p>
 	</PropSection>
-	<PropSection title="variant" type="string" defaultValue="default">
+	<PropSection title="variant" type="string" defaultValue="">
 		<p>
-			The variant of the list item, can be <Code small={true}> default </Code>, <Code small={true}> icon </Code>, <Code small={true}> bordered </Code>
+			The variant of the list item, can be <Code small={true}> default </Code>, <Code small={true}> neutral </Code>, <Code small={true}> info </Code>, <Code small={true}> success </Code>, <Code small={true}> warning </Code>, <Code small={true}> critical </Code>
 		</p>
 		<p>
 			Allowed options:
 			<List>
-				<span label={<Code small={true}> default </Code>} />
-				<span label={<Code small={true}> icon </Code>} />
-				<span label={<Code small={true}> bordered </Code>} />
+				<span label={<Code small={true}> neutral </Code>} />
+				<span label={<Code small={true}> info </Code>} />
+				<span label={<Code small={true}> success </Code>} />
+				<span label={<Code small={true}> warning </Code>} />
+				<span label={<Code small={true}> critical </Code>} />
 			</List>
 		</p>
 	</PropSection>
