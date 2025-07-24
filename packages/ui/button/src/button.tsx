@@ -141,6 +141,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 				{isEndIcon && !isLoading && (
 					<Icon name={endIcon ?? ""} size={iconSize} />
 				)}
+				Add Something
 			</TagName>
 		)
 	},
