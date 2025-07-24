@@ -1,52 +1,81 @@
 import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
 
-<PackageInstallGuide packageName="@wpmudev/sui-link" />
+<PackageInstallGuide packageName="@wpmudev/sui-list" />
 
-<Section title="Props" border={true}>
+<Section title="Props (List)" border={true}>
+	<PropSection title="type" type="string" defaultValue="ul">
+		<p>
+			The type of the list, can be <Code small={true}> ul </Code> or <Code small={true}> ol </Code>
+		</p>
+		<p>
+			Allowed options:
+			<List>
+				<span label={<Code small={true}> ul </Code>} />
+				<span label={<Code small={true}> ol </Code>} />
+			</List>
+		</p>
+	</PropSection>
+	<PropSection title="variant" type="string" defaultValue="unstyled">
+		<p>
+			The variant of the list, can be <Code small={true}> unstyled </Code>, <Code small={true}> icon </Code>, <Code small={true}> bordered </Code>
+		</p>
+		<p>
+			Allowed options:
+			<List>
+				<span label={<Code small={true}> unstyled </Code>} />
+				<span label={<Code small={true}> icon </Code>} />
+				<span label={<Code small={true}> bordered </Code>} />
+			</List>
+		</p>
+	</PropSection>	
 
-    	<PropSection title="theme" type="string" defaultValue="primary">
-    		<p>Theme of the link</p>
-    		<p>
-    		Allowed options:
-    			<List>
-    				<span label={<Code small={true}>primary</Code>} />
-    				<span label={<Code small={true}>secondary</Code>} />
-    			</List>
-    		</p>
-    	</PropSection>
+	<PropSection title="overflow" type="boolean" defaultValue="true">
+		<p>If set to <Code small={true}> true </Code> the list will have overflow hidden, this is useful for long lists that need to be scrolled</p>
+	</PropSection>
+	<PropSection title="className" type="string">
+		<p>A custom css className(s) for the list</p>
+	</PropSection>
 
-    	<PropSection title="as" type="string" defaultValue="a">
-    		<p>The html tag for the link, default is <Code small={true}> a </Code> tag </p>
-    	</PropSection>
+	<PropSection title="children" type="ReactNode">
+		<p>The list items, can be <Code small={true}> li </Code> or <Code small={true}> ListItem </Code> components</p>
+	</PropSection>
 
-    	<PropSection title="href" type="string" defaultValue="#">
-    		<p>The link to navigate to</p>
-    	</PropSection>
+	<PropSection title="onClick" type="function">
+		<p>A function that will be called when the list is clicked</p>
+		<p>It will receive the event as an argument</p>	
+	</PropSection>	
+</Section>
 
-    	<PropSection title="isInline" type="boolean" defaultValue="false">
-    		<p>If set to true, the link will be displayed inline with surrounding text.</p>
-    	</PropSection>
-
-    	<PropSection title="isDisabled" type="boolean" defaultValue="false">
-    		<p>If true, the link won't be interactive and it will have a different visual style.</p>
-    	</PropSection>
-
-    	<PropSection title="isExternal" type="boolean" defaultValue="false">
-    		<p>If set to <Code small={true}> true</Code> the link will be opened in a new tab </p>
-    	</PropSection>
-
-    	<PropSection title="hasExternalIcon" type="boolean" defaultValue="false">
-    		<p>If set to <Code small={true}> true </Code> an external link icon will be displayed at the end of the link text, note that <Code small={true}> isExternal </Code> should also be set to <Code small={true}> true </Code> for this to take effect</p>
-    	</PropSection>
-
-    	<PropSection title="className" type="string">
-    		<p>A custom css className(s) for the link</p>
-    	</PropSection>
-
-    	<PropSection title="children" type="string">
-    		<p>The link text</p>
-    	</PropSection>
-
+<Section title="Props (ListItem)" border={true}>
+	<PropSection title="className" type="string">
+		<p>A custom css className(s) for the list item</p>
+	</PropSection>
+	<PropSection title="children" type="ReactNode">
+		<p>The content of the list item</p>
+	</PropSection>
+	<PropSection title="variant" type="string" defaultValue="default">
+		<p>
+			The variant of the list item, can be <Code small={true}> default </Code>, <Code small={true}> icon </Code>, <Code small={true}> bordered </Code>
+		</p>
+		<p>
+			Allowed options:
+			<List>
+				<span label={<Code small={true}> default </Code>} />
+				<span label={<Code small={true}> icon </Code>} />
+				<span label={<Code small={true}> bordered </Code>} />
+			</List>
+		</p>
+	</PropSection>
+	<PropSection title="isPro" type="boolean" defaultValue="false">
+		<p>Whether the list item is a pro item, this will add a pro tag to the item</p>
+	</PropSection>
+	<PropSection title="isDisabled" type="boolean" defaultValue="false">
+		<p>Whether the list item is disabled, this will add a disabled class to the item</p>
+	</PropSection>
+	<PropSection title="onItemClick" type="function">
+		<p>A function that will be called when the list item is clicked</p>
+		<p>It will receive the event as an argument</p>
+	</PropSection>
 </Section>
 
 <CommonPropsNotice />

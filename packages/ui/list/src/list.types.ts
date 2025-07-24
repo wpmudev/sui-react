@@ -32,7 +32,9 @@ interface ListProps
 	/**
 	 * The onClick handler for the list
 	 */
-	onClick?: () => void
+	onClick?: (
+		event: React.MouseEvent<HTMLUListElement | HTMLOListElement>,
+	) => void
 }
 
 /**
@@ -47,7 +49,9 @@ interface ListContextProps {
 	/**
 	 * The onClick handler for the list
 	 */
-	onClick?: () => void
+	onClick?: (
+		event: React.MouseEvent<HTMLUListElement | HTMLOListElement>,
+	) => void
 }
 
 /**
@@ -82,7 +86,9 @@ interface ListItemProps extends SuiHTMLAttributes<HTMLLIElement>, SuiStyleType {
 	/**
 	 * The onClick handler for the list item
 	 */
-	onItemClick?: (event: React.MouseEvent<HTMLLIElement>) => void
+	onItemClick?: (
+		event: React.MouseEvent<HTMLUListElement | HTMLOListElement>,
+	) => void
 }
 
 export type { ListProps, ListContextProps, ListItemProps }

@@ -12,16 +12,16 @@ import {
 } from "@wpmudev/sui-icons"
 
 // Import documentation main page
-// import docs from "./list.mdx"
+import docs from "./list.mdx"
 
 export default {
 	title: "SUI/Components/Core/List",
 	component: SuiList,
 	parameters: {
 		layout: "fullscreen",
-		// docs: {
-		// 	page: docs,
-		// },
+		docs: {
+			page: docs,
+		},
 	},
 }
 

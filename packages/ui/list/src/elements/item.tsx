@@ -38,7 +38,7 @@ const ListItem: React.FC<ListItemProps> = ({
 			onItemClick(event)
 		}
 		if (onClick) {
-			onClick()
+			onClick(event)
 		}
 	}
 

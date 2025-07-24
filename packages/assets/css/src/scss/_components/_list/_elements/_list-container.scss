@@ -23,6 +23,10 @@
 				gap: $spacing-md;
 				margin: 0;
 
+				p {
+					margin: 0;
+				}
+
 				&:before {
 					content: "";
 					position: absolute;

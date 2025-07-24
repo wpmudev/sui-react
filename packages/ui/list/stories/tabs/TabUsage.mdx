@@ -1,51 +1,112 @@
-import { Section, Row, Col } from "@wpmudev/sui-docs"
+import { Section, Row, Col, Code, List } from "@wpmudev/sui-docs"
 
 import Anatomy from "../images/anatomy.svg"
+import Unordered from "../images/unordered.svg"
+import Ordered from "../images/ordered.svg"
+import Unstyled from "../images/unstyled.svg"
+import ListIcons from "../images/list-icons.svg"
+import Bordered from "../images/bordered.svg"
+import Flush from "../images/flush.svg"
+import Contextual from "../images/contextual.svg"
+import Pro from "../images/pro.svg"
 import Spacing from "../images/spacing.svg"
-import Types from "../images/types.svg"
-import States from "../images/states.svg"
-import AltColor from "../images/alt-color.svg"
-import Default from "../images/default.svg"
-import Alt from "../images/alt.svg"
+import Action from "../images/action.svg"
+import ExtraOne from "../images/extra-one.svg"
+import ExtraTwo from "../images/extra-two.svg"
+import ExtraThree from "../images/extra-three.svg"
 
 <Section title="Anatomy">
+	<img src={Anatomy} alt="Link Anatomy" />
+	<h3>1. List</h3>
+	<h3>2. List item</h3>
+</Section>
+
+<Section title="Native list">
+	<p>
+		By default, an unordered list <Code theme="red">&lt;ul&gt;</Code> and list items <Code theme="red">&lt;li&gt;</Code> behave as a standard bullet list. However, by applying the <Code theme="red">sui-list</Code> class to the <Code theme="red">&lt;ul&gt;</Code> and the <Code theme="red">sui-list__item</Code> class to each <Code theme="red">&lt;li&gt;</Code>, the list will be unstyled, removing default browser-specific styles.
+	</p>
 	<Row>
 		<Col>
-    		<h3 style={{marginTop: 0}}>1. Link Text</h3>
-    		<p>A label for the context of Rich text editor.</p>
-
-    		<h3>2. External icon</h3>
-    		<p>Only used if the link is external.</p>
-
-    	</Col>
-    	<Col size="4">
-    		 <img src={Anatomy} alt="Link Anatomy" />
-    	</Col>
-    </Row>
-
+			<h3>1. Unordered list</h3>
+			<img src={Unordered} alt="List Unordered" />
+		</Col>
+		<Col>
+			<h3>2. Ordered list</h3>
+			<img src={Ordered} alt="List Ordered" />
+		</Col>
+		<Col>
+			<h3>3. Unstyled list</h3>
+			<img src={Unstyled} alt="List Unstyled" />
+		</Col>
+	</Row>
 </Section>
 
-<Section title="Spacing">
-	<img src={Spacing} alt="Link Spacing" />
+<Section title="List with Icons">
+	<p>
+		To provide greater flexibility in styling, an SVG icon can be placed inside each <Code theme="red">sui-list__item</Code>. This is particularly useful for feature lists or checklists.
+	</p>
+	<h3>Design example</h3>
+	<img src={ListIcons} alt="List with Icons" />
+	<List>
+		<div label={
+			<>The <Code theme="red">&lt;svg&gt;</Code> can be replaced with any icon that fits the use case.</>
+		}/>
+		<div label="Ensure proper alignment of the icon with text for consistency." />
+	</List>
 </Section>
 
-<Section title="Types">
-	<img src={Types} alt="Link Types" />
+<Section title="Bordered List">
+	<p>
+		Adding the <Code theme="red">sui-list--bordered</Code> modifier to the list class will create a list with borders separating each list item.
+	</p>
+	<h3>Design example</h3>
+	<img src={Bordered} alt="List with Borders" />
 </Section>
 
-<Section title="States">
-	<img src={States} alt="Link Types" />
+<Section title="Flush variation">
+	<p>
+		When a bordered list is used inside a card or any other component that already has a border, apply the <Code theme="red">sui-list--bordered-flush</Code> modifier along with <Code theme="red">sui-list--bordered</Code> class on <Code theme="red">sui-list</Code> to remove extra borders and maintain a balanced design.
+	</p>
+	<h3>Design example</h3>
+	<img src={Flush} alt="List with Flush" />
 </Section>
 
-<Section title="Link alt color">
-	<img src={AltColor} alt="Link alt color" />
+<Section title="Contextual List">
+	<p>
+		For contextual purposes, add the contextual modifiers to <Code theme="red">sui-list__item</Code> class.
+	</p>
+	<h3>Design example</h3>
+	<img src={Contextual} alt="List with Contextual" />
 </Section>
 
-<Section title="High contrast mode">
-	<h3>Link Default</h3>
-	<img src={Default} alt="Link Default" />
+<Section title="Pro List">
+	<p>
+		Differentiates pro features from default list items with the help of tag.
+	</p>
+	<h3>Design example</h3>
+	<img src={Pro} alt="List with Pro" />
+</Section>
 
-    <h3>Link Alt</h3>
-    <img src={Alt} alt="Link Alt" />
+<Section title="Action list">
+	<p>
+		When a list consists solely of actions, use the <Code theme="red">sui-list__item--action</Code> modifier on each <Code theme="red">&lt;li&gt;</Code>. Additionally, wrap the interactive element <Code theme="red">&lt;a&gt;</Code> inside the <Code theme="red">&lt;li&gt;</Code>.
+	</p>
+	<h3>Design example</h3>
+	<img src={Action} alt="List with Action" />
+</Section>
 
+<Section title="Spacings">
+	<img src={Spacing} alt="Spacing" />
+</Section>
+
+<Section title="Extra elements and components">
+	<p>
+		The list component supports various elements and components within <Code theme="red">sui-list__item</Code>, such as headings, buttons, tags, product icons, and more.
+	</p>
+	<h3>Design example</h3>
+	<img src={ExtraOne} alt="List with Extra One" />
+	<h3>Design example</h3>
+	<img src={ExtraTwo} alt="List with Extra Two" />
+	<h3>Design example</h3>
+	<img src={ExtraThree} alt="List with Extra Three" />
 </Section>
