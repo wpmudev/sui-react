@@ -12,6 +12,10 @@ interface ColorPickerProps
 	 */
 	id?: string
 	/**
+	 * Default color (initial color)
+	 */
+	defaultColor?: string
+	/**
 	 * Color code
 	 */
 	color?: string

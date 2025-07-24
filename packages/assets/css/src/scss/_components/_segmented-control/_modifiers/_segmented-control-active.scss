@@ -15,7 +15,8 @@
 		@include block($block) {
 			@include element(label) {
 				@include modifier(active) {
-					border-color: $color-primary-80;
+					position: relative;
+					outline-color: $color-primary-50;
 					background-color: $color-primary-90;
 					color: $color-primary-50;
 				}
