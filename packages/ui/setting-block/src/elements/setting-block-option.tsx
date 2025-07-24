@@ -46,7 +46,9 @@ export const SettingBlockOption: React.FC<SettingBlockOptionProps> = ({
 			<div className="sui-setting-block__option-header">
 				{renderHeader()}
 				{!!description && (
-					<p className="sui-setting-block__option-description">{description}</p>
+					<div className="sui-setting-block__option-description">
+						{description}
+					</div>
 				)}
 			</div>
 			{!!children && (

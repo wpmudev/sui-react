@@ -109,9 +109,12 @@ const Toggle: React.FC<ToggleProps> = ({
 				)}
 			</label>
 			{description && (
-				<p className="sui-toggle__description" data-testid="toggle-description">
+				<div
+					className="sui-toggle__description"
+					data-testid="toggle-description"
+				>
 					{description}
-				</p>
+				</div>
 			)}
 		</div>
 	)

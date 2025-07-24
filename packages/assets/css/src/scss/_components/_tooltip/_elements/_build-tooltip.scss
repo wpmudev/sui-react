@@ -32,6 +32,10 @@
 				z-index: 99999999;
 				width: 0;
 
+				@include media(max-width, sm) {
+					min-width: var(--tooltip-width-mobile, $tooltip-size-width-md);
+				}
+
 				&:after {
 					content: "";
 					position: absolute;
@@ -46,10 +50,6 @@
 			@include modifier(custom-width) {
 				@include modifies-element(content) {
 					white-space: normal;
-
-					@include media(max-width, sm) {
-						min-width: var(--tooltip-width-mobile, $tooltip-size-width-md);
-					}
 				}
 			}
 
