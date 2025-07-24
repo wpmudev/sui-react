@@ -136,7 +136,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 				)}
 				{isUnwrapped && children}
 				{!isUnwrapped && (
-					<Label {...(iconOnly && { hidden: true })}>{children}</Label>
+					<Label {...(iconOnly && { hidden: true })}>{children}Add Something</Label>
 				)}
 				{isEndIcon && !isLoading && (
 					<Icon name={endIcon ?? ""} size={iconSize} />
