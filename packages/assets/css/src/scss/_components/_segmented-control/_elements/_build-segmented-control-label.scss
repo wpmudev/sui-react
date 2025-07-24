@@ -15,7 +15,7 @@
 		@include block($block) {
 			@include element(label) {
 				align-items: center;
-				border: $segmented-border-width solid $segmented-border-color;
+				outline: $segmented-border-width solid $segmented-border-color;
 				border-right-width: 0;
 				cursor: pointer;
 				display: flex;
@@ -23,6 +23,7 @@
 				font-weight: $segmented-font-weight;
 				gap: $segmented-spacing-vertical;
 				padding: $segmented-spacing-vertical $segmented-spacing-horizontal;
+				background: $color-base-white;
 			}
 		}
 	}
@@ -32,7 +33,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(label) {
-				border-color: $color-base-black;
+				outline-color: $color-base-black;
 				color: $color-base-black;
 			}
 		}

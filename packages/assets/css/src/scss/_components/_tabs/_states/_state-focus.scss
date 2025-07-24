@@ -17,10 +17,11 @@
 				}
 
 				&:focus-visible {
+					border-bottom-color: transparent;
+
 					&:after {
 						border: $border-width-md solid $tabs-color-focus-border-color;
 					}
-					border-bottom-color: transparent;
 				}
 			}
 		}
@@ -36,10 +37,11 @@
 				}
 
 				&:focus-visible {
+					border-bottom-color: transparent;
+
 					&:after {
 						border-color: $color-base-black;
 					}
-					border-bottom-color: transparent;
 				}
 			}
 		}

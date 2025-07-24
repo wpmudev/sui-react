@@ -1115,6 +1115,10 @@
 	},
 	"border": {
 		"width": {
+			"xs": {
+				"value": "0.5px",
+				"type": "borderWidth"
+			},
 			"sm": {
 				"value": "1px",
 				"type": "borderWidth"

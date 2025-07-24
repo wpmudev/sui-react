@@ -16,18 +16,20 @@
 			@include element(input) {
 				&:active + .sui-segmented-control__label {
 					outline: $border-width-md solid $color-grey-50;
-					outline-offset: -#{$border-width-md};
+					outline-offset: -#{$border-width-sm};
 					color: $color-grey-50;
 					position: relative;
+					z-index: 1;
 				}
 			}
 
 			@include element(label) {
 				&:focus-visible {
 					outline: $border-width-md solid $color-grey-50;
-					outline-offset: -#{$border-width-md};
+					outline-offset: -#{$border-width-sm};
 					color: $color-grey-50;
 					position: relative;
+					z-index: 1;
 				}
 			}
 		}

@@ -18,6 +18,10 @@
 				border-bottom: $border-width-sm solid $color-grey-10;
 			}
 
+			@include element(toolbar-toggle) {
+				width: 100%;
+			}
+
 			@include element(toolbar-header) {
 				align-items: center;
 				display: flex;
@@ -90,6 +94,7 @@
 
 				@include media(max-width, sm) {
 					width: 100%;
+					flex-wrap: wrap;
 				}
 			}
 

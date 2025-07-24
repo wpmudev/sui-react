@@ -64,6 +64,7 @@ BasicBox.args = {
 	description: "This is example of the basic box with setting blocks.",
 	isPro: false,
 	hasBg: true,
+	isFluid: false,
 	headerActions: (
 		<Fragment>
 			<Button type="secondary" colorScheme="black" icon="Upload">
@@ -88,6 +89,7 @@ BasicBox.args = {
 			Deactivate
 		</Button>,
 	],
+	centerFooterActions: false,
 }
 
 // Set controls for story arguments.
@@ -112,6 +114,12 @@ BasicBox.argTypes = {
 	},
 	hasBg: {
 		name: "Background",
+		control: {
+			type: "boolean",
+		},
+	},
+	isFluid: {
+		name: "Fluid",
 		control: {
 			type: "boolean",
 		},

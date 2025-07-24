@@ -98,10 +98,10 @@ Spinner.argTypes = {
 	},
 	loaderSize: {
 		name: "Loader Size",
-		options: ["lg", "sm"],
+		options: ["xs", "sm", "lg"],
 		control: {
 			type: "select",
-			labels: { sm: "Small", lg: "Large - lg ( default )" },
+			labels: { xs: "Extra small", sm: "Small", lg: "Large - lg ( default )" },
 		},
 	},
 	colorScheme: {
@@ -114,6 +114,10 @@ Spinner.argTypes = {
 	},
 	isContained: {
 		name: "Contained",
+		type: "boolean",
+	},
+	isSpinning: {
+		name: "Is Spinning",
 		type: "boolean",
 	},
 }

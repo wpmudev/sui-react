@@ -21,6 +21,14 @@
 				padding: $spacing-lg $spacing-xl;
 			}
 
+			@include element(back) {
+				@include modifier(md) {
+					@include media(min-width, md) {
+						display: none;
+					}
+				}
+			}
+
 			@include element(header-title) {
 				display: flex;
 				align-items: center;

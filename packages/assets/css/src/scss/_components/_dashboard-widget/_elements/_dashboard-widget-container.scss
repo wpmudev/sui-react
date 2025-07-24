@@ -17,6 +17,10 @@
 			border-radius: $border-radius-lg;
 			max-width: $dashboard-size-width-lg;
 			padding: $spacing-xl $spacing-2xl;
+
+			@include modifier(full) {
+				max-width: 100%;
+			}
 		}
 	}
 

@@ -44,10 +44,20 @@ interface BasicBoxProps
 	hasBg?: boolean
 
 	/**
+	 * When set to "true", the block will have "100%" width.
+	 */
+	isFluid?: boolean
+
+	/**
 	 * An optional CSS class name to apply custom styling to the BasicBox.
 	 * Should be a string.
 	 */
 	className?: string
+
+	/**
+	 * When set to "true" footer actions will be centered
+	 */
+	centerFooterActions?: boolean
 }
 
 export type { BasicBoxProps }

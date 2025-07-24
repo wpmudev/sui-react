@@ -84,7 +84,14 @@ interface SelectBaseProps
 	 *
 	 * @param {Record<string, any> | Record<string, any>[]} option option or options list
 	 */
-	onChange?(option: SelectOptionType | SelectOptionType[] | string): void
+	onChange?(
+		option:
+			| SelectOptionType
+			| SelectOptionType[]
+			| string
+			| Record<string, any>,
+		items?: SelectOptionType[],
+	): void
 	/**
 	 * Props passed down to Dropdown component
 	 */
@@ -147,6 +154,7 @@ interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 	options: SelectBaseProps["options"]
 	onEvent?: (option: SelectOptionType) => void
 	selectAll?: () => void
+	updateOptions?: (options: { [key: string]: any }[]) => void
 	onToggle: (isOpen: boolean) => void
 	isSmall?: boolean
 	isDisabled?: boolean
@@ -156,7 +164,7 @@ interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 	selected?: Record<string, any> | string
 	ref?: RefObject<HTMLInputElement>
 	onKeyDown?(e?: any): void
-	onChange?: (option: SelectOptionType) => void
+	onChange?: (option: SelectOptionType, selected?: SelectOptionType[]) => void
 	onSearch?: (value: string) => void
 	dropdownRef?: Ref<DropdownRefProps | null>
 	_dropdownProps?: object

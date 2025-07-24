@@ -65,7 +65,7 @@ const MultiSelectSearch = (
 
 // Remove all selected options.
 const RemoveAll = (
-	setSelectedItem: (options: SelectOptionType[]) => void,
+	updateItem: (options: SelectOptionType[]) => void,
 	options: SelectOptionType[],
 	setFilterItems: (options: SelectOptionType[]) => void,
 ) => {
@@ -76,7 +76,7 @@ const RemoveAll = (
 			...option.props,
 		},
 	}))
-	setSelectedItem([])
+	updateItem([])
 	setFilterItems(updatedOptions)
 }
 
@@ -85,7 +85,12 @@ const RemoveSelection = (
 	id: string | number,
 	options: SelectOptionType[],
 	setFilterItems: (options: SelectOptionType[]) => void,
+	setSelectedItems: (
+		items: (prevItems: SelectOptionType[]) => SelectOptionType[],
+	) => void,
+	callback?: (...args: any[]) => any,
 ) => {
+	// Set the updated selected items
 	const updatedOptions = options.map((option) => {
 		if (option.id === id) {
 			return {
@@ -99,6 +104,12 @@ const RemoveSelection = (
 		return option
 	})
 	setFilterItems(updatedOptions)
+	setSelectedItems((prevSelected: SelectOptionType[]) => {
+		const _selected = prevSelected.filter((option) => option.id !== id)
+		const removedOption = prevSelected.filter((option) => option.id === id)?.[0]
+		callback?.(removedOption, _selected)
+		return _selected
+	})
 }
 
 // Select all options in dropdown.

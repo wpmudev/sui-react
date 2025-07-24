@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { memo } from "react"
+import React, { memo, useEffect, useState } from "react"
 
 import { FileCheck } from "@wpmudev/sui-icons"
 import { Button } from "@wpmudev/sui-button"
@@ -21,6 +21,17 @@ import { useStyles } from "@wpmudev/sui-hooks"
 const UploaderFile: React.FC<UploaderFileProps> = React.memo(
 	({ id, file, onRemove, _style = {} }: UploaderFileProps): JSX.Element => {
 		const { suiInlineClassname } = useStyles(_style)
+		const [previewUrl, setPreviewUrl] = useState()
+
+		const updatePreviewUrl = () => {
+			if (isImageFile(file?.type)) {
+				setPreviewUrl(getFileImagePreview(file))
+			}
+		}
+
+		// Update preview url
+		useEffect(updatePreviewUrl, [])
+		useEffect(updatePreviewUrl, [file])
 
 		// @todo: add error variation support
 		return (
@@ -35,7 +46,7 @@ const UploaderFile: React.FC<UploaderFileProps> = React.memo(
 							role="img"
 							className="sui-uploader__file--image"
 							style={{
-								backgroundImage: `url(${getFileImagePreview(file)})`,
+								backgroundImage: `url(${previewUrl})`,
 							}}
 						/>
 					) : (

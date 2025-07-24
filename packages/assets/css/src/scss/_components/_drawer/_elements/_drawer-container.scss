@@ -21,6 +21,12 @@
 				background: $color-grey-a90;
 			}
 
+			@include modifier(full) {
+				@include modifies-element(inner) {
+					width: 100%;
+				}
+			}
+
 			@include modifier(has-container) {
 				z-index: 1;
 				width: $drawer-size-lg;

@@ -5,7 +5,8 @@ import { ColorPickerProps } from "./color-picker.types"
 import { Button } from "@wpmudev/sui-button"
 import { Input } from "@wpmudev/sui-input"
 
-import PreviewImage from "./static/opaque.png"
+// @todo: Getting 404 error when using this library externally
+// const PreviewImage = require("./static/opaque.png")
 
 import Picker from "./elements/picker"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
@@ -24,6 +25,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	id,
 	type = "hex",
 	color = "",
+	defaultColor,
 	onApply,
 	placeholder = "Select color",
 	isError = false,
@@ -49,9 +51,15 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 	// Update tempColor when color prop value changes
 	useEffect(() => {
 		setTempColor(color)
-
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [color])
+
+	useEffect(() => {
+		// Hide reset button if default and current color matched
+		if (defaultColor && color === defaultColor) {
+			setShowResetBtn(false)
+		}
+	}, [defaultColor, color])
 
 	// Handle reset
 	const handleReset = useCallback(
@@ -165,11 +173,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
 					<span
 						className="sui-color-picker__input-preview-icon"
 						aria-hidden={true}
-						style={
-							tempColor
-								? { backgroundColor: tempColor }
-								: { backgroundImage: `url(${PreviewImage})` }
-						}
+						style={{ backgroundColor: tempColor }}
 					/>
 				</div>
 				<Button
