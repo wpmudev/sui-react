@@ -63,14 +63,47 @@ const TabNav: FC<TabNavProps> = ({ children, _style = {}, _htmlProps }) => {
 		)
 	}, [isRTL, navRefCurrent])
 
-	// Adjust the scroll distance as needed
+	const ARROW_OVERLAY_WIDTH = 48 // px
+
 	const scrollNav = (dir: TabNavScrollDirection) => {
-		// Scroll information from the navRef, if available
-		const { scrollLeft = 0 } = navRefCurrent ?? {}
-		if (!!navRef.current && "scrollLeft" in navRef?.current) {
-			// @ts-ignore
-			navRef.current.scrollLeft =
-				dir === "left" ? scrollLeft - 100 : scrollLeft + 100
+		if (!navRefCurrent) return
+
+		const container = navRefCurrent
+		// eslint-disable-next-line @typescript-eslint/no-shadow
+		const children = Array.from(container.children) as HTMLElement[]
+		const { scrollLeft, clientWidth } = container
+
+		if (children.length === 0) return
+
+		if (dir === "right") {
+			for (let i = 0; i < children.length; i++) {
+				const item = children[i]
+				const itemLeft = item.offsetLeft
+				const itemRight = itemLeft + item.offsetWidth
+
+				// Find the first partially hidden item on the right
+				if (itemRight > scrollLeft + clientWidth - ARROW_OVERLAY_WIDTH) {
+					container.scrollTo({
+						left: itemRight - clientWidth + ARROW_OVERLAY_WIDTH, // leave arrow space
+						behavior: "smooth",
+					})
+					break
+				}
+			}
+		} else if (dir === "left") {
+			for (let i = children.length - 1; i >= 0; i--) {
+				const item = children[i]
+				const itemLeft = item.offsetLeft
+
+				// Find the first partially hidden item on the left
+				if (itemLeft < scrollLeft + ARROW_OVERLAY_WIDTH) {
+					container.scrollTo({
+						left: itemLeft - ARROW_OVERLAY_WIDTH, // leave arrow space
+						behavior: "smooth",
+					})
+					break
+				}
+			}
 		}
 	}
 
