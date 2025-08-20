@@ -30,7 +30,7 @@ const TabNav: FC<TabNavProps> = ({
 	isNarrow = false,
 }) => {
 	const { containerRef, isScrollableLeft, isScrollableRight, scroll } =
-		useScrollable()
+		useScrollable({ scrollOffset: 50 })
 	const { suiInlineClassname } = useStyles(_style)
 
 	const classes = generateCN(

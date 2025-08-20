@@ -1,7 +1,20 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import { useDetectRTL } from "./use-rtl-detect"
 
-const useScrollable = () => {
+const getNormalizedScrollLeft = (el: HTMLElement, isRTL: boolean) => {
+	if (!isRTL) return el.scrollLeft
+
+	// RTL cases
+	// Chrome/Safari: negative scrollLeft
+	if (el.scrollLeft < 0) {
+		return -el.scrollLeft
+	}
+
+	// Firefox: positive but reversed
+	return el.scrollWidth - el.clientWidth - el.scrollLeft
+}
+
+const useScrollable = ({ scrollOffset = 0 }) => {
 	const [isScrollableRight, setIsScrollableRight] = useState(false)
 	const [isScrollableLeft, setIsScrollableLeft] = useState(false)
 	const containerRef = useRef<HTMLDivElement | null>(null)
@@ -23,30 +36,40 @@ const useScrollable = () => {
 	}, [isRTL])
 
 	const scroll = (direction: "left" | "right") => {
-		if (containerRef.current) {
-			const container = containerRef.current
-			const containerRect = container.getBoundingClientRect()
+		if (!containerRef.current) return
+		const container = containerRef.current
+		const children = Array.from(container.children) as HTMLElement[]
+		const currentScroll = getNormalizedScrollLeft(container, isRTL)
 
-			if (direction === "left") {
-				// Find the first child that's partially or fully hidden on the left
-				const hiddenChild = Array.from(container.children).find((child) => {
-					const { left } = (child as HTMLElement).getBoundingClientRect()
-					return left < containerRect.left
+		if (direction === "left") {
+			// Find the last child fully/partially hidden on the left
+			const hiddenChild = [...children]
+				.reverse()
+				.find((child) => child.offsetLeft < currentScroll)
+			if (hiddenChild) {
+				const target = hiddenChild.offsetLeft - scrollOffset
+				container.scrollTo({
+					left: isRTL ? -target : target,
+					behavior: "smooth",
 				})
-
-				if (hiddenChild) {
-					container.scrollLeft -= (hiddenChild as HTMLElement).offsetWidth
-				}
-			} else {
-				// Find the first child that's partially or fully hidden on the right
-				const hiddenChild = Array.from(container.children).find((child) => {
-					const { right } = child.getBoundingClientRect()
-					return right > containerRect.right
+			}
+		} else {
+			// Find the first child fully/partially hidden on the right
+			const hiddenChild = children.find(
+				(child) =>
+					child.offsetLeft + child.offsetWidth >
+					currentScroll + container.clientWidth,
+			)
+			if (hiddenChild) {
+				const target =
+					hiddenChild.offsetLeft +
+					hiddenChild.offsetWidth -
+					container.clientWidth +
+					scrollOffset
+				container.scrollTo({
+					left: isRTL ? -target : target,
+					behavior: "smooth",
 				})
-
-				if (hiddenChild) {
-					container.scrollLeft += (hiddenChild as HTMLElement).offsetWidth
-				}
 			}
 		}
 	}

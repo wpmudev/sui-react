@@ -23,7 +23,7 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	_style = {},
 }) => {
 	const { containerRef, isScrollableLeft, isScrollableRight, scroll } =
-		useScrollable()
+		useScrollable({ scrollOffset: 50 })
 	/**
 	 * State to track the current selected value of the segmented control.
 	 */
