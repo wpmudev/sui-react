@@ -29,6 +29,11 @@ interface AlertBannerProps
 	isDismissible?: boolean
 
 	/**
+	 * Whether make alert banner content fluid or not
+	 */
+	isContentFluid?: boolean
+
+	/**
 	 * Callback function when dismiss the banner
 	 */
 	onDismiss?(): void
