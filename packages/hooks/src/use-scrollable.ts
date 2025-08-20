@@ -1,19 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import { useDetectRTL } from "./use-rtl-detect"
 
-const getNormalizedScrollLeft = (el: HTMLElement, isRTL: boolean) => {
-	if (!isRTL) return el.scrollLeft
-
-	// RTL cases
-	// Chrome/Safari: negative scrollLeft
-	if (el.scrollLeft < 0) {
-		return -el.scrollLeft
-	}
-
-	// Firefox: positive but reversed
-	return el.scrollWidth - el.clientWidth - el.scrollLeft
-}
-
 const useScrollable = ({ scrollOffset = 0 }) => {
 	const [isScrollableRight, setIsScrollableRight] = useState(false)
 	const [isScrollableLeft, setIsScrollableLeft] = useState(false)
@@ -35,43 +22,112 @@ const useScrollable = ({ scrollOffset = 0 }) => {
 		)
 	}, [isRTL])
 
+	const findPartiallyVisibleItem = (direction: "left" | "right") => {
+		if (!containerRef.current) return null
+
+		const container = containerRef.current
+		const children = Array.from(container.children) as HTMLElement[]
+		const containerRect = container.getBoundingClientRect()
+		const currentScroll = container.scrollLeft
+
+		for (let i = 0; i < children.length; i++) {
+			const child = children[i]
+			const childRect = child.getBoundingClientRect()
+
+			// Calculate relative positions within the container
+			const childLeft = childRect.left - containerRect.left + currentScroll
+			const childRight = childLeft + childRect.width
+			const containerLeft = currentScroll
+			const containerRight = currentScroll + container.clientWidth
+
+			// Check if item is partially visible
+			const isPartiallyLeft =
+				childLeft < containerLeft && childRight > containerLeft
+			const isPartiallyRight =
+				childLeft < containerRight && childRight > containerRight
+
+			if (direction === "left" && isPartiallyLeft) {
+				// For left scroll, we want to show the hidden part on the left
+				const hiddenWidth = containerLeft - childLeft
+				return {
+					element: child,
+					hiddenWidth,
+					targetScroll: childLeft - scrollOffset,
+				}
+			}
+
+			if (direction === "right" && isPartiallyRight) {
+				// For right scroll, we want to show the hidden part on the right
+				const hiddenWidth = childRight - containerRight
+				return {
+					element: child,
+					hiddenWidth,
+					targetScroll: childRight - container.clientWidth + scrollOffset,
+				}
+			}
+		}
+
+		// If no partially visible item found, find the next completely hidden item
+		for (let i = 0; i < children.length; i++) {
+			const child = children[i]
+			const childRect = child.getBoundingClientRect()
+
+			const childLeft = childRect.left - containerRect.left + currentScroll
+			const childRight = childLeft + childRect.width
+			const containerLeft = currentScroll
+			const containerRight = currentScroll + container.clientWidth
+
+			if (direction === "left" && childRight <= containerLeft) {
+				// Find the rightmost hidden item on the left
+				let targetItem = child
+				let targetIndex = i
+
+				for (let j = i + 1; j < children.length; j++) {
+					const nextChild = children[j]
+					const nextChildRect = nextChild.getBoundingClientRect()
+					const nextChildRight =
+						nextChildRect.left -
+						containerRect.left +
+						currentScroll +
+						nextChildRect.width
+
+					if (nextChildRight <= containerLeft) {
+						targetItem = nextChild
+						targetIndex = j
+					} else {
+						break
+					}
+				}
+
+				return {
+					element: targetItem,
+					hiddenWidth: targetItem.offsetWidth,
+					targetScroll: childLeft - scrollOffset,
+				}
+			}
+
+			if (direction === "right" && childLeft >= containerRight) {
+				// First completely hidden item on the right
+				return {
+					element: child,
+					hiddenWidth: child.offsetWidth,
+					targetScroll: childLeft - scrollOffset,
+				}
+			}
+		}
+
+		return null
+	}
+
 	const scroll = (direction: "left" | "right") => {
 		if (!containerRef.current) return
 		const container = containerRef.current
-		const children = Array.from(container.children) as HTMLElement[]
-		const currentScroll = getNormalizedScrollLeft(container, isRTL)
+		const targetItem = findPartiallyVisibleItem(direction)
 
-		if (direction === "left") {
-			// Find the last child fully/partially hidden on the left
-			const hiddenChild = [...children]
-				.reverse()
-				.find((child) => child.offsetLeft < currentScroll)
-			if (hiddenChild) {
-				const target = hiddenChild.offsetLeft - scrollOffset
-				container.scrollTo({
-					left: isRTL ? -target : target,
-					behavior: "smooth",
-				})
-			}
-		} else {
-			// Find the first child fully/partially hidden on the right
-			const hiddenChild = children.find(
-				(child) =>
-					child.offsetLeft + child.offsetWidth >
-					currentScroll + container.clientWidth,
-			)
-			if (hiddenChild) {
-				const target =
-					hiddenChild.offsetLeft +
-					hiddenChild.offsetWidth -
-					container.clientWidth +
-					scrollOffset
-				container.scrollTo({
-					left: isRTL ? -target : target,
-					behavior: "smooth",
-				})
-			}
-		}
+		container.scrollTo({
+			left: targetItem?.targetScroll ?? 0,
+			behavior: "smooth",
+		})
 	}
 
 	useEffect(() => {
