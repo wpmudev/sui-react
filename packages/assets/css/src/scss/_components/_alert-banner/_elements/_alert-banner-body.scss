@@ -31,6 +31,12 @@
 					.sui-#{$block}__body-actions {
 						padding-inline-start: $banner-spacing-md;
 					}
+
+					.sui-#{$block}__content {
+						display: flex;
+						gap: $spacing-md;
+						flex-direction: column;
+					}
 				}
 			}
 
