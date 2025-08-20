@@ -43,6 +43,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 		"sui-alert-banner",
 		{
 			[variation as string]: !isEmpty(variation ?? ""),
+			fluid: isContentFluid,
 		},
 		suiInlineClassname,
 	)

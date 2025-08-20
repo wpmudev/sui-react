@@ -23,6 +23,15 @@
 					flex: 1;
 					flex-direction: row;
 				}
+
+				@include modifier(fluid) {
+					flex-direction: column;
+					align-items: flex-start;
+
+					.sui-#{$block}__body-actions {
+						padding-inline-start: $banner-spacing-md;
+					}
+				}
 			}
 
 			@include element(body-content) {
@@ -44,7 +53,7 @@
 				}
 
 				@include media(max-width, sm) {
-					margin-left: $banner-spacing-md;
+					padding-inline-start: $banner-spacing-md;
 				}
 			}
 
