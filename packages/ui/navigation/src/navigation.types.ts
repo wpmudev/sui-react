@@ -131,4 +131,10 @@ interface NavigationProps
 	actions?: ReactNode[]
 }
 
-export type { NavigationProps, NavigationBrandProps, NavigationUserProps }
+export type {
+	NavigationProps,
+	NavigationBrandProps,
+	NavigationUserProps,
+	NavigationUserMenuGroupProps,
+	NavigationUserMenuItemProps,
+}
