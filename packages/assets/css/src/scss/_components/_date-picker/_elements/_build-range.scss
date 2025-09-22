@@ -41,20 +41,6 @@
 				white-space: nowrap;
 				color: $color-grey-90;
 				cursor: pointer;
-
-				@include modifier(active) {
-					color: $color-base-white;
-					background: $color-primary-50;
-				}
-
-				@include modifier(disabled) {
-					pointer-events: none;
-					color: $color-grey-30;
-				}
-
-				@include modifier(focus) {
-					border: $border-width-md solid $color-base-black;
-				}
 			}
 		}
 	}
@@ -68,15 +54,6 @@
 				background: $color-base-white;
 				color: $color-base-black;
 				border: $border-width-sm solid $color-base-black;
-
-				@include modifier(active) {
-					color: $color-base-white;
-					background: $color-base-black;
-				}
-
-				@include modifier(focus) {
-					border: $border-width-md solid $color-base-black;
-				}
 			}
 		}
 	}

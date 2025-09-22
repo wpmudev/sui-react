@@ -20,60 +20,6 @@
 					flex-wrap: wrap;
 					gap: $datepicker-spacing-xs;
 					padding: $datepicker-spacing-sm 0;
-
-					&-item {
-						border-radius: $datepicker-border-radius-lg;
-						display: inline-flex;
-
-						&--active {
-							background: $color-primary-50;
-
-							span {
-								color: $color-base-white;
-							}
-						}
-
-						&:hover {
-							background: $color-primary-10;
-						}
-
-						&--disabled {
-							color: $color-grey-30;
-							cursor: default;
-							&:hover {
-								background: $color-base-white;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	// DIR: Left to right.
-	// THEME: Dark.
-	@include sui-class($rtl: false, $theme: dark) {
-		// Block wrapper.
-		@include block($block) {
-			@include modifier(single) {
-				@include modifies-element(calendar-list) {
-					&-item {
-						&--active {
-							background: $color-base-black;
-
-							span {
-								color: $color-base-white;
-							}
-						}
-
-						&:hover {
-							background: $color-base-black;
-
-							span {
-								color: $color-base-white;
-							}
-						}
-					}
 				}
 			}
 		}
