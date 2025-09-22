@@ -54,8 +54,7 @@
   "dependencies": {
     "@wpmudev/sui-hooks": "^0.0.1",
     "@wpmudev/sui-tag": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1",
-    "react": "^18.2.0"
+    "@wpmudev/sui-utils": "^0.0.1"
   },
   "clean-package": "../../../postpack.config.json"
 }
