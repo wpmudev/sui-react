@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies
+  [[`190911a`](https://github.com/wpmudev/sui-react/commit/190911aac575eb4748915b31403d00e6bf03003d)]:
+  - @wpmudev/sui-footer@1.0.0
+  - @wpmudev/sui-upsell@1.0.0
+  - @wpmudev/sui-upsell-notice@0.0.2
+  - @wpmudev/sui-config-table@0.0.2
+  - @wpmudev/sui-setup-banner@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

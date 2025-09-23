@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-utils",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "WPMU DEV Shared UI React Global Functions",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -38,7 +38,7 @@
     "react": "^18.2.0"
   },
   "peerDependencies": {
-    "@wpmudev/sui-hooks": "^0.0.1"
+    "@wpmudev/sui-hooks": "^0.1.0"
   },
   "clean-package": "../../postpack.config.json"
 }
