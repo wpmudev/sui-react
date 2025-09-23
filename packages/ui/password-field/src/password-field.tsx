@@ -18,6 +18,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	validate,
 	validateOnMount,
 	resetValidation,
+	name,
 	_htmlProps,
 	_style = {},
 }) => {
@@ -45,6 +46,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 		validate,
 		validateOnMount,
 		resetValidation,
+		name,
 		onKeyUp: () => {
 			const inputElement = document.getElementById(
 				id as string,
@@ -58,7 +60,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	// Button settings
 	const buttonProps = {
 		label: isVisible ? "Hide" : "Show",
-		type: "secondary",
+		type: "tertiary",
 		colorScheme: "black",
 		className: "sui-password__button",
 		isDisabled: isDisabled || !hasValue,
@@ -70,6 +72,9 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 			iconSize: isSmall ? "sm" : "md",
 		}),
 		isSmall,
+		_htmlProps: {
+			type: "button",
+		},
 	}
 
 	return (

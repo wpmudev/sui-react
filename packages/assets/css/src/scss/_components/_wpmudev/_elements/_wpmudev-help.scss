@@ -1,0 +1,140 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build help drawer
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-help($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			// Help Section
+			@include element(help) {
+				.sui-#{$block}__list-icon {
+					border-radius: $border-radius-md;
+				}
+
+				.sui-#{$block}__list-title {
+					display: flex;
+					gap: $spacing-md;
+					font-weight: $font-weight-md;
+					align-items: center;
+				}
+
+				.sui-drawer__inner {
+					@include media(max-width, md) {
+						width: 100%;
+					}
+				}
+			}
+
+			@include element(help-title) {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: $spacing-md;
+				font-size: $font-size-xs;
+				font-weight: $font-weight-md;
+				letter-spacing: $font-spacing-2xl;
+				color: $color-grey-70;
+				text-transform: uppercase;
+			}
+
+			@include element(help-title-link) {
+				font-size: $font-size-xs;
+				color: $color-base-black;
+				letter-spacing: normal;
+				text-transform: none;
+				text-decoration: none;
+				padding: $spacing-md 0;
+
+				&:hover {
+					color: $color-base-black;
+				}
+			}
+
+			@include element(help-content) {
+				display: flex;
+				flex-direction: column;
+				padding: $spacing-xl;
+			}
+
+			@include element(help-link) {
+				padding: $spacing-lg 0;
+				border-bottom: $border-width-sm solid $color-grey-10;
+				font-weight: $font-weight-md;
+			}
+
+			@include element(help-readings) {
+				display: flex;
+				flex-direction: column;
+				margin-bottom: $spacing-lg;
+			}
+
+			@include element(help-item) {
+				margin: 0;
+			}
+
+			@include element(help-list) {
+				display: flex;
+				flex-direction: column;
+				margin-top: $spacing-lg;
+
+				@include modifier(item) {
+					display: flex;
+					column-gap: $spacing-lg;
+					row-gap: $spacing-default;
+					flex-wrap: wrap;
+					text-decoration: none;
+				}
+
+				@include modifier(link) {
+					padding: $spacing-default;
+					border: $border-width-md solid transparent;
+					border-radius: $border-radius-xl;
+					margin: 0 -#{$spacing-default} 0;
+
+					&:hover {
+						background: $color-grey-10;
+					}
+
+					&:focus,
+					&:active {
+						border-color: $color-primary-50;
+						background: $color-grey-05;
+					}
+				}
+			}
+
+			@include element(support) {
+				padding: $spacing-lg;
+				background: $color-green-05;
+				border-radius: $border-radius-md;
+				margin-top: $spacing-default;
+			}
+
+			@include element(list-chat-message) {
+				display: flex;
+				flex: 1;
+				gap: $spacing-lg;
+				align-items: center;
+
+				img {
+					max-width: 48px;
+				}
+			}
+
+			@include element(list-text-small) {
+				margin: 0;
+			}
+
+			@include element(list-actions) {
+				padding-top: $spacing-lg;
+			}
+		}
+	}
+}

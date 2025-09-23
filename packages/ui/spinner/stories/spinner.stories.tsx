@@ -71,7 +71,9 @@ const Spinner = ({ ...args }) => {
 				</h5>
 				<div
 					style={{
-						background: args.color === "dark" ? "rgba(0, 0, 0, 0.7)" : "#fff",
+						background: ["white"].includes(args.colorScheme)
+							? "rgba(0, 0, 0, 0.7)"
+							: "#fff",
 						padding: 20,
 					}}
 				>
@@ -98,15 +100,15 @@ Spinner.argTypes = {
 	},
 	loaderSize: {
 		name: "Loader Size",
-		options: ["lg", "sm"],
+		options: ["xs", "sm", "lg"],
 		control: {
 			type: "select",
-			labels: { sm: "Small", lg: "Large - lg ( default )" },
+			labels: { xs: "Extra small", sm: "Small", lg: "Large - lg ( default )" },
 		},
 	},
 	colorScheme: {
 		name: "Color Scheme",
-		options: ["primary", "dark"],
+		options: ["primary", "dark", "white", "gray"],
 		control: {
 			type: "select",
 			labels: { primary: "Primary", dark: "Dark" },
@@ -114,6 +116,10 @@ Spinner.argTypes = {
 	},
 	isContained: {
 		name: "Contained",
+		type: "boolean",
+	},
+	isSpinning: {
+		name: "Is Spinning",
 		type: "boolean",
 	},
 }

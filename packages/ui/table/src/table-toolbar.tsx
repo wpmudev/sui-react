@@ -17,6 +17,7 @@ import { TableToolbarContent } from "./table-toolbar-content"
 import { TableContext } from "./table-context"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useStyles } from "@wpmudev/sui-hooks"
+import { Toggle } from "@wpmudev/sui-toggle"
 
 /**
  * TableToolbar component represents the toolbar section of a table.
@@ -31,7 +32,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 }: TableSectionProps): JSX.Element => {
 	// State for expansion of the toolbar content
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
-	const [bulkAction, setBulkAction] = useState<string>("")
+	const [bulkAction, setBulkAction] = useState<Record<string, any> | null>(null)
 
 	// Generate unique IDs for accessibility
 	const uniqueId = useId()
@@ -43,17 +44,25 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 	const ctx = useContext(TableContext)
 	// const dropdownRef = useRef<DropdownRefProps | null>(null)
 
+	const hasSelectedRows = ctx?.selected && ctx?.selected?.length > 0
+
 	const onSearch = useCallback(
 		(e: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 			if (typeof e !== "string") {
 				ctx?.triggerAction("search-items", e?.target?.value)
 			}
+
+			// Deselect all rows on search
+			ctx?.setSelected([])
 		},
 		[ctx],
 	)
 
 	const onApplyBulkAction = useCallback(() => {
-		ctx?.triggerAction("bulk-action", bulkAction)
+		ctx?.triggerAction("bulk-action", {
+			...bulkAction,
+			selectedRows: ctx?.selected,
+		})
 	}, [bulkAction, ctx])
 
 	const content = (
@@ -76,15 +85,16 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 							<Select
 								id={bulkDropdown}
 								className="sui-table__toolbar-actions"
-								isSmall={true}
 								options={ctx?.bulkActions}
-								onChange={() => setBulkAction}
+								isDisabled={!hasSelectedRows}
+								onChange={(action) =>
+									setBulkAction(action as Record<string, any>)
+								}
 							/>
 							<Button
 								type="primary"
 								colorScheme="black"
-								isSmall={true}
-								isDisabled={isEmpty(bulkAction ?? "")}
+								isDisabled={!bulkAction || !hasSelectedRows}
 								onClick={onApplyBulkAction}
 							>
 								Apply
@@ -94,6 +104,20 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 				</div>
 
 				<div className="sui-table__toolbar-header-actions">
+					{ctx?.showToggleBtn && (
+						<div className="sui-table__toolbar-toggle">
+							<Toggle
+								{...ctx?.toggleBtnProps}
+								onClick={(e) => {
+									// Deselected all selected rows
+									ctx?.setSelected([])
+
+									// Call onClick function if exists
+									ctx?.toggleBtnProps?.onClick?.(e)
+								}}
+							/>
+						</div>
+					)}
 					<Input
 						id="input-id-4"
 						className="sui-table__toolbar-search"
@@ -101,7 +125,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 						onChange={onSearch}
 						icon="Search"
 						iconPosition="start"
-						isSmall={true}
 					/>
 					{ctx?.showFiltersBtn && (
 						<>
@@ -112,7 +135,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 									buttonIcon="Filter"
 									placement="left"
 									colorScheme="black"
-									isSmall={true}
 									isFixedHeight={false}
 									menuCustomWidth={300}
 								>
@@ -125,7 +147,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 									icon="Filter"
 									colorScheme="black"
 									type="secondary"
-									isSmall={true}
 									onClick={() => setIsExpanded(!isExpanded)}
 									_htmlProps={{
 										"aria-controls": bodyId,

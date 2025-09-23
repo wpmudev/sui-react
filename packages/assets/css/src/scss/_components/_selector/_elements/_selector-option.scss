@@ -29,7 +29,7 @@
 				right: 0;
 
 				span {
-					color: $color-extended-neutral-100;
+					color: $color-base-white;
 					padding-right: $selector-spacing-xs;
 					position: relative;
 					z-index: 2;
@@ -60,7 +60,7 @@
 
 			@include modifier(compound) {
 				@include modifies-element(option-header) {
-					border-bottom: $border-width-sm solid $color-extended-neutral-80;
+					border-bottom: $border-width-sm solid $color-grey-10;
 					padding: $selector-spacing-lg $spacing-lg;
 				}
 			}
@@ -83,7 +83,7 @@
 			}
 
 			@include element(option-body-description) {
-				color: $color-extended-neutral-50;
+				color: $color-grey-70;
 				font-size: $font-size-xs;
 				line-height: $font-height-xs;
 				padding: $spacing-lg;
@@ -99,22 +99,22 @@
 		@include block($block) {
 			@include element(option-tip) {
 				.sui-icon {
-					color: $color-extended-neutral-100;
+					color: $color-base-white;
 				}
 
 				&::after {
-					border-top-color: $color-extended-neutral-0;
+					border-top-color: $color-base-black;
 				}
 			}
 
 			@include modifier(compound) {
 				@include modifies-element(option-header) {
-					border-bottom-color: $color-extended-neutral-0;
+					border-bottom-color: $color-base-black;
 				}
 			}
 
 			@include element(option-body-description) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}
@@ -147,7 +147,7 @@
 		@include block($block) {
 			@include element(option-tip) {
 				&::after {
-					border-top-color: $color-extended-neutral-0;
+					border-top-color: $color-base-black;
 				}
 			}
 		}

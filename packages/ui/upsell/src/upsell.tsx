@@ -13,6 +13,8 @@ const Upsell: React.FC<UpsellProps> = ({
 	variation = "hummingbird",
 	features = [],
 	actions = null,
+	featuresIcon = "Check",
+	featuresTitle = "",
 	_htmlProps = {},
 	_style = {},
 }) => {
@@ -33,6 +35,9 @@ const Upsell: React.FC<UpsellProps> = ({
 
 	// Get the appropriate SVG Icon based on variation
 	const Icon = Icons?.[currentVar?.icon as IconsNamesType]
+
+	// Feature icon
+	const FeatureIcon = Icons?.[featuresIcon]
 
 	return (
 		<div
@@ -65,12 +70,20 @@ const Upsell: React.FC<UpsellProps> = ({
 				{!isEmpty((description ?? "") as string)
 					? description
 					: currentVar?.description}
+				{!!featuresTitle && (
+					<h4 className="sui-upsell__features-title">{featuresTitle}</h4>
+				)}
 				{features?.length > 0 && (
-					<ul className="sui-upsell__features" data-testid="features">
+					<ul
+						className={generateCN("sui-upsell__features", {
+							"has-title": !!featuresTitle,
+						})}
+						data-testid="features"
+					>
 						{/* Map and render each feature with a checkmark */}
 						{features?.map((feature, index) => (
 							<li key={index} className="sui-upsell__features-item">
-								<Check />
+								<FeatureIcon size="sm" />
 								<span>{feature}</span>
 							</li>
 						))}

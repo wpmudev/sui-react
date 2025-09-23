@@ -38,12 +38,12 @@
 			@include modifier(checked) {
 				@include modifies-element(option) {
 					&:after {
-						border-color: $color-extended-neutral-0;
+						border-color: $color-base-black;
 					}
 				}
 
 				@include modifies-element(header-icon, header-title) {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 			}
 		}

@@ -69,7 +69,7 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 
 			// Update open state
 			setIsOpen(false)
-		}, [])
+		}, [onCloseModal])
 
 		// Expose 'openModal' and 'closeModal' functions to parent components using 'forwardRef'
 		useImperativeHandle(ref, () => ({

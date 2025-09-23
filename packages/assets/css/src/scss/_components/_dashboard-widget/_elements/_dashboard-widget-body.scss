@@ -15,6 +15,14 @@
 			@include element(body) {
 				margin: $spacing-xl -#{$spacing-xl};
 
+				&:last-child {
+					margin-bottom: -#{$spacing-xl};
+
+					.sui-field-list {
+						border-bottom: 0;
+					}
+				}
+
 				p {
 					margin: 0;
 				}

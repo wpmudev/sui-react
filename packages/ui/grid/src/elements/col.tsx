@@ -13,12 +13,28 @@ const Col: React.FC<ColProps> = ({
 }) => {
 	const { suiInlineClassname } = useStyles(_style, className)
 
+	// Convert the size object into responsive class names
+	const sizeClasses =
+		typeof size === "object"
+			? Object.entries(size).reduce<Record<string, boolean>>(
+					(acc, [breakpoint, value]) => {
+						if (value) {
+							// Handle default breakpoint differently
+							if (breakpoint === "default") {
+								acc[value] = true
+							} else {
+								acc[`${breakpoint}-${value}`] = true
+							}
+						}
+						return acc
+					},
+					{},
+			  )
+			: { [size as string]: !!size }
+
 	const classNames = generateCN(
 		"sui-col",
-		{
-			// Define class based on the column size
-			[size as string]: !!size,
-		},
+		{ ...sizeClasses }, // Add size classes here,
 		suiInlineClassname,
 	)
 

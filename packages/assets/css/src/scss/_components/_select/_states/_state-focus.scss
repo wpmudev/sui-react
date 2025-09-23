@@ -33,7 +33,7 @@
 			@include modifier(focus) {
 				@include modifies-element(control) {
 					&::after {
-						border-color: $color-extended-neutral-0;
+						border-color: $color-base-black;
 					}
 				}
 			}

@@ -27,7 +27,7 @@ import { _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 const TableBody: React.FC<TableSectionProps> = (
 	props: TableSectionProps,
 ): JSX.Element => {
-	const { children, _htmlProps } = props
+	const { children, _htmlProps } = props ?? {}
 	// State to keep track of the table rows
 	const [el, setEl] = useState<ReactNode | ReactNode[]>(
 		Children.toArray(children),
@@ -42,10 +42,33 @@ const TableBody: React.FC<TableSectionProps> = (
 	// Safari 3.0+ "[object HTMLElementConstructor]"
 	const isSafari: boolean = "safari" === name
 
+	const getUpdatedRows = () => {
+		const childrenArray = Children.toArray(children)
+		const combinedRows: React.ReactElement[] = []
+
+		childrenArray.forEach((row) => {
+			// Handling the case of grouping, When there're groups the rows are wrapped in Fragment
+			if ((row as ReactElement).type === Fragment) {
+				// The first element in the array is the group
+
+				const childrenInGroup = (row as ReactElement).props?.children[1]
+
+				childrenInGroup.forEach((elem: ReactElement) => {
+					if ((elem as ReactElement)?.props?.id) {
+						combinedRows.push((elem as ReactElement)?.props?.id)
+					}
+				})
+			} else {
+				combinedRows.push((row as ReactElement)?.props?.id)
+			}
+		})
+
+		return combinedRows
+	}
+
 	useEffect(() => {
-		setRows(
-			Children.toArray(children).map((row) => (row as ReactElement)?.props?.id),
-		)
+		const updatedRows = getUpdatedRows()
+		setRows(updatedRows)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [el])
 
@@ -58,14 +81,18 @@ const TableBody: React.FC<TableSectionProps> = (
 
 	// Effect to update the TableContext's rows when the rows array changes
 	useEffect(() => {
-		ctx?.setRows(
-			Children.toArray(children).map((row) => (row as ReactElement)?.props?.id),
-		)
+		const updatedRows = getUpdatedRows()
+		ctx?.setRows(updatedRows)
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [children, rows])
 
 	// Update order know the new and old indexes
-	function updateOrder(array: any[], oldIndex: number, newIndex: number) {
+	function updateOrder(
+		array: Record<string, any>[],
+		oldIndex: number,
+		newIndex: number,
+	) {
 		// Make a copy of the array to avoid mutating the original array
 		const newArray = [...array]
 
@@ -116,7 +143,7 @@ const TableBody: React.FC<TableSectionProps> = (
 			tag={TableBodyTag}
 			list={(el as ReactNode[]).map((x) => ({
 				...(x as object),
-				id: (x as ReactElement).props.id,
+				id: (x as ReactElement).props?.id,
 				chosen: true,
 			}))}
 			setList={(list) =>

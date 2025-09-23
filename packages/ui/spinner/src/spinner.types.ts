@@ -10,11 +10,11 @@ interface SpinnerProps
 	/**
 	 * Size of the spinner
 	 */
-	loaderSize?: "sm" | "lg"
+	loaderSize?: "xs" | "sm" | "lg"
 	/**
 	 * Color of the spinner
 	 */
-	colorScheme?: "primary" | "dark"
+	colorScheme?: "primary" | "dark" | "white" | "gray"
 	/**
 	 * Whether the spinner should be absolutely positioned
 	 */
@@ -23,6 +23,10 @@ interface SpinnerProps
 	 * Wraps the spinner in a container with 500px height
 	 */
 	isContained?: boolean
+	/**
+	 * Whether it's spinning or not
+	 */
+	isSpinning?: boolean
 }
 
 /**
@@ -32,6 +36,7 @@ interface SpinnerProps
 interface SpinnerLoaderProps extends SuiStyleType {
 	loaderSize: SpinnerProps["loaderSize"]
 	colorScheme: SpinnerProps["colorScheme"]
+	isSpinning: SpinnerProps["isSpinning"]
 }
 
 /**

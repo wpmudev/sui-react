@@ -16,11 +16,7 @@
 				box-shadow: none;
 
 				@include modifier(hover) {
-					background: $color-primary-90;
-
-					.sui-#{$block}__item-info {
-						color: $color-primary-50;
-					}
+					background: $color-black-a05;
 				}
 			}
 		}
@@ -32,10 +28,10 @@
 		@include block($block) {
 			@include element(item) {
 				@include modifier(hover) {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 
 					.sui-#{$block}__item-info {
-						color: $color-extended-neutral-0;
+						color: $color-base-black;
 					}
 				}
 			}

@@ -18,14 +18,12 @@
 				justify-content: flex-end;
 				gap: $spacing-md;
 				margin: 0;
-
-				@include media(max-width, md) {
-					gap: $spacing-lg;
-				}
 			}
 
 			@include element(nav-item) {
+				display: flex;
 				margin: 0;
+				gap: $spacing-md;
 			}
 		}
 	}

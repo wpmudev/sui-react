@@ -49,7 +49,7 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 		order: "asc",
 	})
 
-	const { wrapperRef } = props
+	const { wrapperRef } = props ?? {}
 
 	/**
 	 * When wrapper scroll appears make hasStickyCols true
@@ -141,6 +141,7 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 				setColumns,
 				// table selected rows
 				selected,
+				setSelected,
 				onSelect,
 				// force-collapse all table rows
 				forceCollapse,

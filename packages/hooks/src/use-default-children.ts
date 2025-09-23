@@ -8,7 +8,8 @@ const useDefaultChildren = (
 	children: ReactNode, // the component children prop
 	content?: ReactNode, // the default content to display
 ) => {
-	return children || content || "{children content}"
+	// Explicitly check for null or undefined
+	return children !== null ? children : content || "{children content}"
 }
 
 export { useDefaultChildren }

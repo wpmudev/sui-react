@@ -21,8 +21,8 @@
 				padding: $tooltip-spacing-padding-vertical
 					$tooltip-spacing-padding-horizontal;
 				border-radius: $border-radius-sm;
-				background-color: $color-extended-neutral-10;
-				color: $color-extended-neutral-100;
+				background-color: $color-grey-90;
+				color: $color-base-white;
 				font-size: $tooltip-font-size;
 				line-height: $font-height-xs;
 				letter-spacing: $tooltip-font-spacing;
@@ -31,6 +31,10 @@
 				pointer-events: none;
 				z-index: 99999999;
 				width: 0;
+
+				@include media(max-width, sm) {
+					min-width: var(--tooltip-width-mobile, $tooltip-size-width-md);
+				}
 
 				&:after {
 					content: "";
@@ -46,10 +50,6 @@
 			@include modifier(custom-width) {
 				@include modifies-element(content) {
 					white-space: normal;
-
-					@include media(max-width, sm) {
-						min-width: var(--tooltip-width-mobile, $tooltip-size-width-md);
-					}
 				}
 			}
 
@@ -76,7 +76,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(content) {
-				background-color: $color-extended-neutral-0;
+				background-color: $color-base-black;
 			}
 		}
 	}

@@ -38,23 +38,23 @@
 		},
 		"color": {
 			"black": {
-				"value": "{color.extended.neutral.10}",
+				"value": "{color.grey.90}",
 				"type": "color"
 			},
 			"green": {
-				"value": "{color.extended.success.50}",
+				"value": "{color.green.50}",
 				"type": "color"
 			},
 			"grey": {
-				"value": "{color.extended.neutral.90}",
+				"value": "{color.grey.05}",
 				"type": "color"
 			},
 			"yellow": {
-				"value": "{color.extended.warning.50}",
+				"value": "{color.yellow.50}",
 				"type": "color"
 			},
 			"red": {
-				"value": "{color.extended.error.50}",
+				"value": "{color.red.50}",
 				"type": "color"
 			},
 			"blue": {

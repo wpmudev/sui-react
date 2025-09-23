@@ -20,7 +20,7 @@
 			@include modifier(vertical) {
 				margin-top: $grid-spacing-sm;
 
-				@include media(min-width, md) {
+				@include media(min-width, sm) {
 					margin-top: $grid-spacing-md;
 				}
 

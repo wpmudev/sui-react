@@ -39,6 +39,7 @@ interface TabNavProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	children?: React.ReactNode // Content of the tab navigation (can be any valid React node).
+	isNarrow?: boolean
 }
 
 /**
@@ -74,6 +75,7 @@ interface TabNavItemProps
 	stateIcon?: "InfoAlt" | "CheckAlt" | "" | never
 	stateIconColor?: IconProps["colorScheme"] | never
 	isDisabled?: Boolean
+	onClick?: () => any
 }
 
 // Interface definition for the TabProviderProps

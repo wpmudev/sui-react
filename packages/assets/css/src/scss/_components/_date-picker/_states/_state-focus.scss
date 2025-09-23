@@ -1,0 +1,34 @@
+@use "../../../_utils/utils" as *;
+
+/// Focus State
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-focus($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(range-button) {
+				@include modifier(focus) {
+					border: $border-width-md solid $color-base-black;
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(range-button) {
+				@include modifier(focus) {
+					border: $border-width-md solid $color-base-black;
+				}
+			}
+		}
+	}
+}

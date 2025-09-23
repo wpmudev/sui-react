@@ -24,6 +24,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	statusProps,
 	isExpanded = true,
 	isDisabled = false,
+	isFullWidth = false,
 	canCollapse = false,
 	onToggle = () => {},
 	children,
@@ -39,6 +40,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 		{
 			expanded: isExpanded,
 			disabled: isDisabled,
+			full: isFullWidth,
 		},
 		suiInlineClassname,
 	)
@@ -122,7 +124,9 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 			{/* Display widget content if expanded */}
 			{isExpanded && (
 				<Fragment>
-					<div className="sui-dashboard-widget__body">{children}</div>
+					{children && (
+						<div className="sui-dashboard-widget__body">{children}</div>
+					)}
 					{/* Display widget actions if available */}
 					{actions && (
 						<div className="sui-dashboard-widget__footer">{actions}</div>

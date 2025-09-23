@@ -3,7 +3,11 @@
  */
 import { ReactNode, HTMLProps } from "react"
 
-import { DropdownMenuItemProps } from "@wpmudev/sui-dropdown"
+import {
+	DropdownMenuItemProps,
+	DropdownMenuProps,
+	DropdownProps,
+} from "@wpmudev/sui-dropdown"
 
 import {
 	PluginsSlug,
@@ -13,6 +17,7 @@ import {
 
 import { AvatarProps } from "@wpmudev/sui-avatar"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 // Represents the base props for a DropdownMenu component.
 interface NavigationUserMenuBaseProps {
@@ -70,9 +75,11 @@ type NavigationUserType = {
 	 * Email address of the user.
 	 */
 	email?: string
+
+	icon?: IconsNamesType
 }
 
-interface NavigationUserProps {
+interface NavigationUserProps extends SuiHTMLAttributes, SuiStyleType {
 	/*
 	 * User information.
 	 */
@@ -89,6 +96,16 @@ interface NavigationUserProps {
 	 * The user status
 	 */
 	status?: AvatarProps["status"]
+	/*
+	 * Seperate last item from menu.
+	 */
+	splitLastItem?: boolean
+
+	children?: ReactNode
+
+	className?: string
+
+	dropdownProps?: DropdownProps
 }
 
 // interface definition for the Navigation
@@ -114,4 +131,10 @@ interface NavigationProps
 	actions?: ReactNode[]
 }
 
-export type { NavigationProps, NavigationBrandProps, NavigationUserProps }
+export type {
+	NavigationProps,
+	NavigationBrandProps,
+	NavigationUserProps,
+	NavigationUserMenuGroupProps,
+	NavigationUserMenuItemProps,
+}

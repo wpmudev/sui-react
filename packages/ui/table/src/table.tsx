@@ -13,9 +13,12 @@ const Table: React.FC<TableProps> = ({
 	hasToolbar = true,
 	ariaLabel = "",
 	allowCheck = false,
+	disableCheck = false,
 	isDraggable = false,
 	filtersPopover = false,
 	showFiltersBtn = true,
+	showToggleBtn = false,
+	toggleBtnProps = {},
 	filters,
 	onAction,
 	bulkActions,
@@ -62,6 +65,7 @@ const Table: React.FC<TableProps> = ({
 		<TableContextProvider
 			props={{
 				allowCheck,
+				disableCheck,
 				isDraggable,
 				filters,
 				onAction,
@@ -71,6 +75,8 @@ const Table: React.FC<TableProps> = ({
 				ref,
 				wrapperRef,
 				showFiltersBtn,
+				showToggleBtn,
+				toggleBtnProps,
 			}}
 		>
 			<div className={classNames} data-testid="table">

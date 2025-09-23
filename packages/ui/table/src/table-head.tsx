@@ -34,8 +34,8 @@ const TableHead: React.FC<TableHeadProps> = ({
 			// set columns
 			setColumns(
 				Children.map(cols, (column) => ({
-					title: column.props.children,
-					isPrimary: column.props.isPrimary,
+					title: column?.props?.children,
+					isPrimary: column?.props?.isPrimary,
 				})),
 			)
 		}

@@ -12,6 +12,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 	colorScheme = "primary",
 	isContained = false,
 	isAbsolute = false,
+	isSpinning = true,
 	_htmlProps = {},
 	_style = {},
 }) => {
@@ -23,8 +24,9 @@ const Spinner: React.FC<SpinnerProps> = ({
 		{
 			absolute: isAbsolute,
 			[loaderSize]: !isEmpty(loaderSize ?? ""),
-			dark: !isEmpty(colorScheme) && "dark" === colorScheme,
+			[colorScheme]: !isEmpty(colorScheme) && colorScheme !== "primary",
 			contained: isContained,
+			inactive: !isSpinning,
 		},
 		suiInlineClassname,
 	)
@@ -38,6 +40,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 			<SpinnerLoader
 				colorScheme={colorScheme}
 				loaderSize={loaderSize ?? "lg"}
+				isSpinning={isSpinning}
 			/>
 		</div>
 	)

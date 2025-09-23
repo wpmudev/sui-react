@@ -39,6 +39,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	onBlur = () => {},
 	icon,
 	iconSize = "sm",
+	iconColor,
 	buttonProps,
 	_htmlProps = {},
 	_style = {},
@@ -230,7 +231,10 @@ const Tooltip: React.FC<TooltipProps> = ({
 	if (customWidth || customMobileWidth) {
 		attrs.style = {
 			...pos,
-			...(customWidth && { "--tooltip-width": `${customWidth}px` }),
+			...(customWidth && {
+				"--tooltip-width": `${customWidth}px`,
+				"--tooltip-width-mobile": `${customWidth}px`,
+			}),
 			...(customMobileWidth && {
 				"--tooltip-width-mobile": `${customMobileWidth}px`,
 			}),
@@ -291,7 +295,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 				)
 			case "icon":
 				if (!onClick) {
-					return <Icon name={icon} size={iconSize} />
+					return <Icon name={icon} size={iconSize} colorScheme={iconColor} />
 				}
 
 				return (
@@ -302,7 +306,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 						onClick={onClickCallback}
 						onKeyDown={(e) => handleOnKeyDown(e, onClickCallback)}
 					>
-						<Icon name={icon} size={iconSize} />
+						<Icon name={icon} size={iconSize} colorScheme={iconColor} />
 					</span>
 				)
 			default:

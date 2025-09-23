@@ -49,7 +49,7 @@
 				@include modifier(loading) {
 					align-items: center;
 					align-self: stretch;
-					background: $color-extended-neutral-95;
+					background: $color-grey-02;
 					border-radius: $border-radius-md;
 					display: flex;
 					font: $font-weight-default #{$font-size-xs}/#{$font-height-xs}
@@ -68,7 +68,7 @@
 
 			@include element(menu) {
 				.sui-#{$block}__menu-item {
-					color: $color-extended-neutral-10;
+					color: $color-grey-90;
 				}
 			}
 		}
@@ -80,12 +80,12 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(menu-item) {
-				background: $color-extended-neutral-100;
+				background: $color-base-white;
 			}
 
 			@include element(menu) {
 				.sui-#{$block}__menu-item {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 			}
 		}

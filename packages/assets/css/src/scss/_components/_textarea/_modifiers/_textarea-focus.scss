@@ -21,7 +21,7 @@
 
 				&.sui-#{$block}--error {
 					&:after {
-						border: $border-width-md solid $color-extended-error-50;
+						border: $border-width-md solid $color-red-50;
 						inset: -#{$border-width-md};
 					}
 				}
@@ -35,12 +35,12 @@
 		@include block($block) {
 			@include modifier(focus) {
 				&:after {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 
 				&.sui-#{$block}--error {
 					&:after {
-						border-color: $color-extended-neutral-0;
+						border-color: $color-base-black;
 					}
 				}
 			}

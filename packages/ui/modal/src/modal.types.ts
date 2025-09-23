@@ -39,6 +39,7 @@ interface ModalHeaderProps
 		| "success"
 		| "warning"
 		| "critical"
+	hasCloseButton?: boolean
 }
 
 interface ModalBodyProps
@@ -51,6 +52,7 @@ interface ModalBodyProps
 interface ModalFooterProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	isSpaced?: boolean
 	// ModalFooter content
 	children?: React.ReactNode
 }

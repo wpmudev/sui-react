@@ -1,5 +1,5 @@
 import React from "react"
-import { isUndefined, isEmpty } from "@wpmudev/sui-utils"
+import { isUndefined, isEmpty, generateCN } from "@wpmudev/sui-utils"
 import { IconProps } from "@wpmudev/sui-icon"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 
@@ -16,10 +16,21 @@ interface ButtonIconProps {
 	 * @type {string}
 	 */
 	size?: IconProps["size"]
+
+	/**
+	 * Additional className
+	 *
+	 * @type {string}
+	 */
+	className?: string
 }
 
 // Build "Icon" component.
-const Icon: React.FC<ButtonIconProps> = ({ name, size = "sm" }) => {
+const Icon: React.FC<ButtonIconProps> = ({
+	name,
+	size = "sm",
+	className = "",
+}) => {
 	const hasIcon = !isUndefined(name) && !isEmpty(name ?? "")
 
 	if (!hasIcon) {
@@ -33,12 +44,10 @@ const Icon: React.FC<ButtonIconProps> = ({ name, size = "sm" }) => {
 	// Set Icon & iconColor based on "variation" value
 	const IconTag = Icons[IconName as IconsNamesType]
 
+	const classes = generateCN("sui-button__icon", {}, className)
+
 	return (
-		<span
-			className="sui-button__icon"
-			aria-hidden="true"
-			data-testid="button-icon"
-		>
+		<span className={classes} aria-hidden="true" data-testid="button-icon">
 			<IconTag size={size} />
 		</span>
 	)

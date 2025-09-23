@@ -12,6 +12,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	actions,
 	displayIcon = true,
 	isCenter = false,
+	isContentFluid = false,
 	isDismissible = true,
 	onDismiss = () => {},
 	_style = {},
@@ -42,6 +43,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 		"sui-alert-banner",
 		{
 			[variation as string]: !isEmpty(variation ?? ""),
+			fluid: isContentFluid,
 		},
 		suiInlineClassname,
 	)
@@ -88,7 +90,10 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div
-				className={generateCN("sui-alert-banner__body", { center: isCenter })}
+				className={generateCN("sui-alert-banner__body", {
+					center: isCenter,
+					fluid: isContentFluid,
+				})}
 			>
 				<div className="sui-alert-banner__body-content">
 					{/* Render the Icon if available and displayIcon is true */}
@@ -100,7 +105,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 							<Icon colorScheme={iconColor} />
 						</div>
 					)}
-					{children}
+					<div className="sui-alert-banner__content">{children}</div>
 				</div>
 				{/* Render actions if provided */}
 				{actions && (

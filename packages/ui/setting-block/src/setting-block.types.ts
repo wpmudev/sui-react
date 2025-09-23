@@ -4,6 +4,41 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 /**
  * Defines the props for a SettingBlock component.
  */
+interface SettingBlockOptionProps
+	extends SuiStyleType,
+		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	/**
+	 * The title of the setting block option.
+	 * This prop is required and should be a string.
+	 */
+	title?: React.ReactNode
+
+	/**
+	 * An optional description for the setting block.
+	 * It can be a string.
+	 */
+	description?: React.ReactNode
+
+	/**
+	 * Body content of the block option
+	 */
+	children?: React.ReactNode
+
+	/**
+	 * An optional CSS class name to apply custom styling to the SettingBlock.
+	 * Should be a string.
+	 */
+	className?: string
+
+	/**
+	 * Setting block actions
+	 */
+	actions?: React.ReactNode
+}
+
+/**
+ * Defines the props for a SettingBlock component.
+ */
 interface SettingBlockProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
@@ -46,6 +81,11 @@ interface SettingBlockProps
 	 * Setting block actions
 	 */
 	actions?: React.ReactNode
+
+	/**
+	 * Applies a style to hide overflowing content.
+	 */
+	overflowHidden?: boolean
 }
 
-export type { SettingBlockProps }
+export type { SettingBlockProps, SettingBlockOptionProps }

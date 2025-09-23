@@ -30,6 +30,7 @@ const UploaderFile: React.FC<UploaderFileProps> = React.memo(
 		}
 
 		// Update preview url
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		useEffect(updatePreviewUrl, [])
 		useEffect(updatePreviewUrl, [file])
 
