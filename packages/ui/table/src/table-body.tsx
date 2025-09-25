@@ -45,6 +45,7 @@ const TableBody: React.FC<TableSectionProps> = (
 	const getUpdatedRows = () => {
 		const childrenArray = Children.toArray(children)
 		const combinedRows: React.ReactElement[] = []
+		const disabledRowIds: Array<unknown> = []
 
 		childrenArray.forEach((row) => {
 			// Handling the case of grouping, When there're groups the rows are wrapped in Fragment
@@ -56,12 +57,26 @@ const TableBody: React.FC<TableSectionProps> = (
 				childrenInGroup.forEach((elem: ReactElement) => {
 					if ((elem as ReactElement)?.props?.id) {
 						combinedRows.push((elem as ReactElement)?.props?.id)
+						// Check if this row is disabled
+						if ((elem as ReactElement)?.props?.isDisabled) {
+							disabledRowIds.push((elem as ReactElement)?.props?.id)
+						}
 					}
 				})
 			} else {
-				combinedRows.push((row as ReactElement)?.props?.id)
+				const rowId = (row as ReactElement)?.props?.id
+				if (rowId) {
+					combinedRows.push(rowId)
+					// Check if this row is disabled
+					if ((row as ReactElement)?.props?.isDisabled) {
+						disabledRowIds.push(rowId)
+					}
+				}
 			}
 		})
+
+		// Update disabled rows in context
+		ctx?.setDisabledRows(disabledRowIds)
 
 		return combinedRows
 	}

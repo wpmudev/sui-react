@@ -40,6 +40,8 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 	const [selected, setSelected] = useState<Array<unknown>>([])
 	// state for table rows
 	const [rows, setRows] = useState<Record<string, any>[]>([])
+	// state for disabled rows
+	const [disabledRows, setDisabledRows] = useState<Array<unknown>>([])
 	const [columns, setColumns] = useState<TableColumnType[]>([])
 	// state to force collapse in drag-and-drop reordering
 	const [forceCollapse, setForceCollapse] = useState(false)
@@ -77,7 +79,11 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 			switch (true) {
 				// select all checkbox changed
 				case "select-all" === id:
-					tempSelected = (isChecked ? rows : []) as Array<unknown>
+					// Only select rows that are not disabled
+					const selectableRows = rows.filter(
+						(rowId) => !disabledRows.includes(rowId),
+					)
+					tempSelected = (isChecked ? selectableRows : []) as Array<unknown>
 					break
 				// table row checkbox checked
 				case isChecked:
@@ -91,7 +97,7 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 
 			setSelected(tempSelected)
 		},
-		[rows, selected],
+		[rows, selected, disabledRows],
 	)
 
 	// set a filter value in the table context.
@@ -136,6 +142,9 @@ const TableContextProvider: FC<TableContextProviderProps> = ({
 				// table rows
 				rows,
 				setRows,
+				// disabled rows
+				disabledRows,
+				setDisabledRows,
 				// table columns
 				columns,
 				setColumns,
