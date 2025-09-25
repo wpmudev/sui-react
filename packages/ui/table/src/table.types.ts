@@ -276,6 +276,11 @@ interface TableRowProps
 	 * Specifies if the row is a group row
 	 */
 	isGroup?: boolean
+
+	/**
+	 * Specifies if the row is disabled
+	 */
+	isDisabled?: boolean
 }
 
 /**
@@ -327,6 +332,16 @@ interface TableContextProps {
 	 * Function to set the table rows.
 	 */
 	setRows(rows: Record<string, any>[]): void
+
+	/**
+	 * Array of disabled row IDs
+	 */
+	disabledRows: Array<unknown>
+
+	/**
+	 * Function to set the disabled rows.
+	 */
+	setDisabledRows(rows: Array<unknown>): void
 
 	/**
 	 * Array of table columns
