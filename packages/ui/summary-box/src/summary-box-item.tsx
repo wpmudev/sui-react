@@ -24,6 +24,7 @@ import { SummaryBoxItemProps } from "./summary-box.types"
  * @param {string} [props.tagColor="default"] - The color of the tag (e.g., "default", "primary").
  * @param {string} [props.actionIcon=""]      - An optional action icon for the item.
  * @param {string} [props.actionIconColor=""] - The color of the action icon.
+ * @param {Object} [props.tagProps={}]        - Additional props to be passed to the Tag component (optional).
  *
  * @param          props._htmlProps
  * @param          props._style
@@ -38,6 +39,7 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	tagColor = "default",
 	actionIcon,
 	actionIconColor = "",
+	tagProps = {},
 	_htmlProps = {},
 	_style = {},
 }: SummaryBoxItemProps): JSX.Element => {
@@ -90,7 +92,9 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 							size="md"
 						/>
 					) : (
-						<Tag colorScheme={tagColor}>{tagTitle}</Tag>
+						<Tag colorScheme={tagColor} {...tagProps}>
+							{tagTitle}
+						</Tag>
 					)}
 				</div>
 			)}

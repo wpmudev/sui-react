@@ -111,6 +111,10 @@ interface SummaryBoxItemProps
 	 * Additional CSS class names for the summary item element (optional).
 	 */
 	className?: string
+	/**
+	 * Additional props to be passed to the Tag component (optional).
+	 */
+	tagProps?: Partial<TagProps>
 }
 
 /**
