@@ -115,6 +115,11 @@ interface SummaryBoxItemProps
 	 * Additional props to be passed to the Tag component (optional).
 	 */
 	tagProps?: Partial<TagProps>
+
+	/**
+	 * Additional props to be passed to the link element (if titleUrl is provided).
+	 */
+	linkProps?: React.AnchorHTMLAttributes<HTMLAnchorElement>
 }
 
 /**
