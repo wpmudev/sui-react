@@ -24,6 +24,8 @@ import { SummaryBoxItemProps } from "./summary-box.types"
  * @param {string} [props.tagColor="default"] - The color of the tag (e.g., "default", "primary").
  * @param {string} [props.actionIcon=""]      - An optional action icon for the item.
  * @param {string} [props.actionIconColor=""] - The color of the action icon.
+ * @param {Object} [props.tagProps={}]        - Additional props to be passed to the Tag component (optional).
+ * @param {Object} [props.linkProps={}]       - Additional props to be passed to the link element (if titleUrl is provided).
  *
  * @param          props._htmlProps
  * @param          props._style
@@ -38,6 +40,8 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	tagColor = "default",
 	actionIcon,
 	actionIconColor = "",
+	tagProps = {},
+	linkProps = {},
 	_htmlProps = {},
 	_style = {},
 }: SummaryBoxItemProps): JSX.Element => {
@@ -68,7 +72,13 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 			_htmlProps={{ "data-testid": "summary-box-item", ..._htmlProps }}
 		>
 			<div className="sui-summary-box__list-item-info">
-				{!isEmpty(titleUrl) ? <a href={titleUrl}>{title}</a> : title}
+				{!isEmpty(titleUrl) ? (
+					<a href={titleUrl} {...linkProps}>
+						{title}
+					</a>
+				) : (
+					title
+				)}
 				{!isEmpty(description ?? "") && (
 					<Tooltip
 						label="(info)"
@@ -90,7 +100,9 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 							size="md"
 						/>
 					) : (
-						<Tag colorScheme={tagColor}>{tagTitle}</Tag>
+						<Tag colorScheme={tagColor} {...tagProps}>
+							{tagTitle}
+						</Tag>
 					)}
 				</div>
 			)}
