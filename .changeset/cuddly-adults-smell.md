@@ -1,5 +1,5 @@
 ---
-"@wpmudev/sui-css": major
+"@wpmudev/sui-css": patch
 ---
 
 Hide wordpress footer
