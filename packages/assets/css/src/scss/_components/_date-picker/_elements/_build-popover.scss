@@ -14,6 +14,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
+			position: relative;
 			@include element(popover) {
 				background: $color-base-white;
 				box-shadow: 0 $shadow-offset-xs $shadow-offset-sm 0 $color-shadow-dark,
@@ -28,6 +29,14 @@
 
 				@include modifier(open) {
 					display: block;
+				}
+
+				@include modifier(left) {
+					left: 0;
+				}
+
+				@include modifier(right) {
+					right: 0;
 				}
 			}
 

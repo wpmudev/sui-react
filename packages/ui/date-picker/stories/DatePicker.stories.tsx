@@ -64,6 +64,7 @@ DatePicker.args = {
 	maxDate: "30/10/2023",
 	isDisabled: false,
 	error: "",
+	alignment: "left",
 }
 
 // Set controls for story arguments.
@@ -121,6 +122,19 @@ DatePicker.argTypes = {
 		name: "Error",
 		control: {
 			type: "text",
+		},
+	},
+	alignment: {
+		name: "Alignment",
+		options: ["left", "right"],
+		description:
+			"Specifies the alignment of the popover relative to the input field",
+		control: {
+			type: "select",
+			labels: {
+				left: "Left",
+				right: "Right",
+			},
 		},
 	},
 }

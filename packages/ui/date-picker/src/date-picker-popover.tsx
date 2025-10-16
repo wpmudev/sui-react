@@ -11,6 +11,7 @@ import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 import { DatePickerPopoverProps } from "./date-picker.types"
 
 const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
+	alignment = "left",
 	_style,
 }) => {
 	// Context of the DatePicker, which contains various state variables and functions
@@ -39,7 +40,7 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 		<div
 			className={generateCN(
 				"sui-date-picker__popover",
-				{ open: ctx?.isOpen },
+				{ open: ctx?.isOpen, [alignment]: true },
 				suiInlineClassname,
 			)}
 			data-testid="date-picker-popover"

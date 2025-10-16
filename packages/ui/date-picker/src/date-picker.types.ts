@@ -74,6 +74,10 @@ interface DatePickerProps
 	 * @param {string | Date | DatePickerDateRange} value
 	 */
 	onChange?: (value: string | Date | DatePickerDateRange) => void
+	/**
+	 * Alignment of the popover relative to the input field
+	 */
+	alignment?: "left" | "right"
 }
 interface DatePickerContextProps {
 	/**
@@ -204,7 +208,12 @@ interface DatePickerContextProps {
 	}
 }
 
-interface DatePickerPopoverProps extends SuiStyleType {}
+interface DatePickerPopoverProps extends SuiStyleType {
+	/**
+	 * Alignment of the popover relative to the input field
+	 */
+	alignment?: "left" | "right"
+}
 
 export type {
 	DatePickerDateRange,

@@ -1,5 +1,6 @@
 import React, { HTMLProps } from "react"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
+import { TooltipProps } from "@wpmudev/sui-tooltip"
 
 /**
  * PageHeaderProps is an interface that extends the HTMLDivElement interface
@@ -21,6 +22,10 @@ interface PageHeaderProps
 	 * Additional className
 	 */
 	className?: string
+	/**
+	 * Props for the Tooltip component to display a tooltip icon next to the title
+	 */
+	tooltipProps?: TooltipProps
 }
 
 export type { PageHeaderProps }

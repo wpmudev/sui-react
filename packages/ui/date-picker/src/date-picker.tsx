@@ -26,6 +26,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	endDate,
 	minDate,
 	maxDate,
+	alignment = "left",
 	isDisabled = false,
 	isError = false,
 	onChange = () => null,
@@ -78,7 +79,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 					isError={isError}
 					ariaAttrs={ariaAttrs}
 				/>
-				<DatePickerPopover />
+				<DatePickerPopover alignment={alignment} />
 			</div>
 		</DatePickerProvider>
 	)
