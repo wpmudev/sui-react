@@ -26,6 +26,7 @@ const Toggle: React.FC<ToggleProps> = ({
 	onClick,
 	_htmlProps = {},
 	_style = {},
+	children,
 	...props
 }) => {
 	// use id
@@ -114,6 +115,11 @@ const Toggle: React.FC<ToggleProps> = ({
 					data-testid="toggle-description"
 				>
 					{description}
+				</div>
+			)}
+			{state && children && (
+				<div className="sui-toggle__content">
+					<div className="sui-toggle__content--inner">{children}</div>
 				</div>
 			)}
 		</div>

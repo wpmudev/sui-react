@@ -41,6 +41,7 @@ Toggle.args = {
 		"Toggle description goes here. Lorem Ipsum is simply dummy text of the printing and typesetting industry it has been the industry's Standard.",
 	isLabelHidden: false,
 	isDisabled: false,
+	children: <p>This is additional content shown when toggle is ON.</p>,
 }
 
 // Set controls for story arguments.
