@@ -35,6 +35,10 @@ interface RecipientProps
 	 * Theme of the recipient.
 	 */
 	appearance?: string
+	/**
+	 * Action buttons or elements to be displayed in the recipient component.
+	 */
+	actions?: React.ReactNode
 }
 
 export type { RecipientProps }

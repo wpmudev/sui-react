@@ -37,6 +37,8 @@ const Popover: React.FC<PopoverProps> = ({
 	placement = "top",
 	footer,
 	displayOnHover = false,
+	popupWidth,
+	popupProps,
 	_htmlProps = {},
 	_style = {},
 }) => {
@@ -228,7 +230,8 @@ const Popover: React.FC<PopoverProps> = ({
 			<div
 				ref={popupRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__popup"
-				style={{ ...popupPositions } as CSSProperties}
+				style={{ ...popupPositions, width: popupWidth } as CSSProperties}
+				{...popupProps}
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
 				<div className="sui-popover__popup-arrow"></div>

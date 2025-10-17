@@ -59,6 +59,14 @@ interface PopoverBaseProps
 	 * When true, it will display popup on hover
 	 */
 	displayOnHover?: boolean
+	/**
+	 * Width of the popup
+	 */
+	popupWidth?: string | number
+	/**
+	 * Additional props for the popup container
+	 */
+	popupProps?: SuiHTMLAttributes<HTMLProps<HTMLDivElement>>
 }
 
 type PopoverProps = PopoverBaseProps & ButtonProps

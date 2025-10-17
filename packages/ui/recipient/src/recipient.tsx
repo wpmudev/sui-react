@@ -18,6 +18,7 @@ const Recipient: React.FC<RecipientProps> = ({
 	status = "none",
 	isInvited = false,
 	appearance = "primary",
+	actions,
 	_htmlProps,
 	_style,
 }) => {
@@ -55,7 +56,7 @@ const Recipient: React.FC<RecipientProps> = ({
 				)}
 			</div>
 			<div className="sui-recipient__actions">
-				{!isInvited && (
+				{!isInvited && !actions && (
 					<RecipientButton
 						className="sui-recipient__button"
 						buttonProps={{
@@ -65,7 +66,7 @@ const Recipient: React.FC<RecipientProps> = ({
 						Add recipient
 					</RecipientButton>
 				)}
-				{isInvited && (
+				{isInvited && !actions && (
 					<Fragment>
 						<RecipientButton
 							className="sui-recipient__button"
@@ -87,6 +88,7 @@ const Recipient: React.FC<RecipientProps> = ({
 						</RecipientButton>
 					</Fragment>
 				)}
+				{actions}
 			</div>
 		</div>
 	)
