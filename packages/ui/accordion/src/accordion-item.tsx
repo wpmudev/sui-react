@@ -15,6 +15,7 @@ import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
 import { Checkbox } from "@wpmudev/sui-checkbox"
 import { Toggle } from "@wpmudev/sui-toggle"
 import { AccordionItemProps } from "./accordion.types"
+import { Tooltip } from "@wpmudev/sui-tooltip"
 
 // The AccordionItem component is defined as a functional component using React.FC.
 const AccordionItem: React.FC<AccordionItemProps> = ({
@@ -25,6 +26,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	icon,
 	hasCheckbox,
 	hasToggle = false,
+	tooltipProps,
 	isExpanded,
 	onCheck,
 	_htmlProps = {},
@@ -183,7 +185,11 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				</div>
 				{/* Icon component to display a chevron icon */}
 				<div className="sui-accordion__header-icon">
-					<Icon iconHeight={16} iconWidth={16} />
+					{tooltipProps ? (
+						<Tooltip icon="Info" {...tooltipProps}></Tooltip>
+					) : (
+						<Icon iconHeight={16} iconWidth={16} />
+					)}
 				</div>
 			</div>
 			{/* Content of the accordion item's panel */}
