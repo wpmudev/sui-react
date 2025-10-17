@@ -26,6 +26,7 @@
 				width: auto;
 				border-radius: $border-radius-md;
 				overflow: hidden;
+				z-index: 1;
 
 				@include modifier(open) {
 					display: block;

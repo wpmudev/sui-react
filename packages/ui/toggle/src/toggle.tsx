@@ -24,6 +24,7 @@ const Toggle: React.FC<ToggleProps> = ({
 	isLabelHidden = false,
 	isDisabled = false,
 	onClick,
+	isFluid = false,
 	_htmlProps = {},
 	_style = {},
 	children,
@@ -91,7 +92,7 @@ const Toggle: React.FC<ToggleProps> = ({
 	}
 
 	return (
-		<div className="sui-toggle__container">
+		<div className={generateCN("sui-toggle__container", { fluid: isFluid })}>
 			<label {...containerProps} htmlFor={id} data-testid="toggle">
 				<input
 					{...(inputProps as HTMLProps<HTMLInputElement>)}
