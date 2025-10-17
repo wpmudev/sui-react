@@ -13,6 +13,7 @@ import {
 } from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
 import { Checkbox } from "@wpmudev/sui-checkbox"
+import { Toggle } from "@wpmudev/sui-toggle"
 import { AccordionItemProps } from "./accordion.types"
 
 // The AccordionItem component is defined as a functional component using React.FC.
@@ -23,6 +24,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	isDisabled = false,
 	icon,
 	hasCheckbox,
+	hasToggle = false,
 	isExpanded,
 	onCheck,
 	_htmlProps = {},
@@ -151,8 +153,17 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 
 				{/* Content of the accordion item's header */}
 				<div className="sui-accordion__header-info">
-					{(!!hasCheckbox || !!icon) && (
+					{(!!hasCheckbox || !!hasToggle || !!icon) && (
 						<div className="sui-accordion__header-actions">
+							{hasToggle && (
+								<div className="sui-accordion__header-toggle">
+									<Toggle
+										defaultValue={isCurrentlyExpanded}
+										isDisabled={isDisabled}
+										aria-label="Accordion Toggle"
+									/>
+								</div>
+							)}
 							{hasCheckbox && (
 								<Checkbox
 									name={accordionId}

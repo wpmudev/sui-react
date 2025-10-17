@@ -43,6 +43,7 @@ interface AccordionItemBaseProps
 	isExpanded?: boolean // Indicates whether the accordion item is initially expanded.
 	isDisabled?: boolean // Indicates whether the accordion item is disabled and cannot be interacted with.
 	contentShadow?: boolean // Indicates whether the content have shadow or not
+	hasToggle?: boolean // Indicates whether the accordion item has a toggle button
 }
 
 // Accordion Context Props
