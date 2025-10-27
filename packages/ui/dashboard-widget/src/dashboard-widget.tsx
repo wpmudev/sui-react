@@ -15,8 +15,8 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param {DashboardWidgetProps} props - The component's props.
  */
 const DashboardWidget: React.FC<DashboardWidgetProps> = ({
-	title = "Widget Title",
-	description = "Widget Description",
+	title = "",
+	description = "",
 	icon,
 	tag,
 	tagProps,
