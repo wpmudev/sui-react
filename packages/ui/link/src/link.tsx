@@ -27,6 +27,7 @@ const Link: React.FC<LinkProps> = ({
 	hasExternalIcon = false,
 	children,
 	href = "#",
+	reload = false,
 	_htmlProps = {},
 	_style = {},
 	...props
@@ -69,6 +70,10 @@ const Link: React.FC<LinkProps> = ({
 		handleEventDefault(e, false, true)
 		// Open the link in a new tab or the same tab based on 'isExternal'
 		window.open(href, isExternal ? "_blank" : "_top")
+		// Reload the page if 'reload' is true
+		if (reload) {
+			window.location.reload()
+		}
 	}
 
 	// Handle link behavior based on the selected HTML tag

@@ -50,6 +50,11 @@ interface LinkProps
 	 * The text of the link
 	 */
 	children?: React.ReactNode
+	/**
+	 * Whether to reload the page when the link is clicked.
+	 * If true, clicking the link will cause a full page reload.
+	 */
+	reload?: boolean
 }
 
 export type { LinkProps }
