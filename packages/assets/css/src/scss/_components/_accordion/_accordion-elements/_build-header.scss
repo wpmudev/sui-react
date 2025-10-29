@@ -37,6 +37,11 @@
 				gap: $spacing-sm;
 			}
 
+			@include element(header-icon) {
+				display: flex;
+				align-self: center;
+			}
+
 			@include element(header-actions) {
 				align-items: center;
 				display: inline-flex;

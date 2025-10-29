@@ -26,6 +26,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	icon,
 	hasCheckbox,
 	hasToggle = false,
+	toggleProps,
 	tooltipProps,
 	isExpanded = false,
 	onCheck,
@@ -161,9 +162,10 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 							{hasToggle && (
 								<div className="sui-accordion__header-toggle">
 									<Toggle
+										label={title}
 										defaultValue={isChecked}
 										isDisabled={isDisabled}
-										aria-label="Accordion Toggle"
+										aria-label={title}
 										onClick={() => {
 											if (
 												(!isCurrentlyExpanded && !isChecked) ||
@@ -173,6 +175,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 											}
 											setIsChecked(!isChecked)
 										}}
+										{...toggleProps}
 									/>
 								</div>
 							)}
@@ -188,10 +191,12 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 							{!!icon && icon}
 						</div>
 					)}
-					<div className="sui-accordion__header-title">
-						<h2>{title}</h2>
-						{!isEmpty(description ?? "") && <p>{description}</p>}
-					</div>
+					{!hasToggle && (
+						<div className="sui-accordion__header-title">
+							<h2>{title}</h2>
+							{!isEmpty(description ?? "") && <p>{description}</p>}
+						</div>
+					)}
 				</div>
 				{/* Icon component to display a chevron icon */}
 				<div className="sui-accordion__header-icon">

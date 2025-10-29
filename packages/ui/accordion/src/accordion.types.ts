@@ -1,6 +1,7 @@
 import React, { HTMLProps } from "react"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 import { TooltipProps } from "@wpmudev/sui-tooltip"
+import { ToggleProps } from "@wpmudev/sui-toggle"
 
 /**
  * This interface defines the props for the Score component.
@@ -46,6 +47,7 @@ interface AccordionItemBaseProps
 	contentShadow?: boolean // Indicates whether the content have shadow or not
 	hasToggle?: boolean // Indicates whether the accordion item has a toggle button
 	tooltipProps?: TooltipProps // Props for the tooltip component
+	toggleProps?: ToggleProps // Props for the toggle component
 }
 
 // Accordion Context Props
