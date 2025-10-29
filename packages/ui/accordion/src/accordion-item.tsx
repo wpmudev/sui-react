@@ -27,7 +27,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	hasCheckbox,
 	hasToggle = false,
 	tooltipProps,
-	isExpanded,
+	isExpanded = false,
 	onCheck,
 	_htmlProps = {},
 	contentShadow = true,
@@ -122,21 +122,22 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 					focus: isFocused || isPressed,
 				})}
 				{...(Object.keys(styles).length > 0 && { style: styles })}
-				{...(!hasCheckbox && {
-					tabIndex: isDisabled ? -1 : 0,
-					role: "button",
-					"aria-expanded": isExpanded,
-					"aria-controls": accordionPanelId,
-					onClick: toggle,
-					"data-testid": "accordion-item-button",
-					onKeyDown: (e) => {
-						e.stopPropagation()
-						handleOnKeyDown(e, toggle)
-					},
-				})}
+				{...(!hasCheckbox &&
+					!hasToggle && {
+						tabIndex: isDisabled ? -1 : 0,
+						role: "button",
+						"aria-expanded": isExpanded,
+						"aria-controls": accordionPanelId,
+						onClick: toggle,
+						"data-testid": "accordion-item-button",
+						onKeyDown: (e) => {
+							e.stopPropagation()
+							handleOnKeyDown(e, toggle)
+						},
+					})}
 				{...(interactionMethods ?? {})}
 			>
-				{hasCheckbox && (
+				{(hasCheckbox || (hasToggle && isChecked)) && (
 					<div
 						className="sui-accessible-cta"
 						tabIndex={isDisabled ? -1 : 0}
@@ -160,9 +161,18 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 							{hasToggle && (
 								<div className="sui-accordion__header-toggle">
 									<Toggle
-										defaultValue={isCurrentlyExpanded}
+										defaultValue={isChecked}
 										isDisabled={isDisabled}
 										aria-label="Accordion Toggle"
+										onClick={() => {
+											if (
+												(!isCurrentlyExpanded && !isChecked) ||
+												(isCurrentlyExpanded && isChecked)
+											) {
+												toggle()
+											}
+											setIsChecked(!isChecked)
+										}}
 									/>
 								</div>
 							)}

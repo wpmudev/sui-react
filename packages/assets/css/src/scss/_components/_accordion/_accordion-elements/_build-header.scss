@@ -43,10 +43,6 @@
 				align-self: flex-start;
 			}
 
-			@include element(header-toggle) {
-				pointer-events: none;
-			}
-
 			@include element(header-title) {
 				h2 {
 					font-size: $font-size-default;
