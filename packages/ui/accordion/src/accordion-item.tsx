@@ -166,7 +166,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 										defaultValue={isChecked}
 										isDisabled={isDisabled}
 										aria-label={title}
-										onClick={() => {
+										{...toggleProps}
+										onClick={(event) => {
 											if (
 												(!isCurrentlyExpanded && !isChecked) ||
 												(isCurrentlyExpanded && isChecked)
@@ -174,8 +175,11 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 												toggle()
 											}
 											setIsChecked(!isChecked)
+
+											if (toggleProps?.onClick) {
+												toggleProps.onClick(event)
+											}
 										}}
-										{...toggleProps}
 									/>
 								</div>
 							)}
