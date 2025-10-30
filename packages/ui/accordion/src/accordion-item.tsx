@@ -25,6 +25,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	isDisabled = false,
 	icon,
 	hasCheckbox,
+	isChecked: initialIsChecked = false,
 	hasToggle = false,
 	toggleProps,
 	tooltipProps,
@@ -35,7 +36,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	_style = {},
 }) => {
 	// Checkbox is checked.
-	const [isChecked, setIsChecked] = useState(false)
+	const [isChecked, setIsChecked] = useState(initialIsChecked)
 
 	// Default content when children is empty
 	children = useDefaultChildren(children)

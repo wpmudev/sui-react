@@ -48,6 +48,7 @@ interface AccordionItemBaseProps
 	hasToggle?: boolean // Indicates whether the accordion item has a toggle button
 	tooltipProps?: TooltipProps // Props for the tooltip component
 	toggleProps?: ToggleProps // Props for the toggle component
+	isChecked?: boolean // Initial checked state for the checkbox if hasCheckbox is true
 }
 
 // Accordion Context Props
