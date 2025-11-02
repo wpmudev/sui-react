@@ -48,6 +48,8 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 	// Extract the props passed to the component.
 	const {
 		onChange,
+		onSubmit,
+		onClose,
 		minDate,
 		maxDate,
 		definedRanges = predefinedRanges,
@@ -314,6 +316,8 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 				setDateRangeValidated,
 				helpers,
 				handlers,
+				onSubmit,
+				onClose,
 			}}
 		>
 			{children}

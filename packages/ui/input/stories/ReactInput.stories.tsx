@@ -8,6 +8,7 @@ import { Input as SuiInput, InputProps } from "../src"
 import docs from "./ReactInput.mdx"
 import { IconsName } from "@wpmudev/sui-icons"
 import { background } from "@storybook/theming"
+import { useValidation } from "@wpmudev/sui-hooks"
 
 // Configure default options.
 export default {
@@ -38,6 +39,8 @@ const Input = ({
 		background: "#fff",
 	}
 
+	const [status, validationProps] = useValidation([{ required: true }])
+
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
@@ -48,6 +51,7 @@ const Input = ({
 						helper="Helper Text"
 						isSmall={isSmall}
 						isDisabled={isDisabled}
+						error={status.error}
 					>
 						<SuiInput
 							{...args}
@@ -55,6 +59,8 @@ const Input = ({
 							iconPosition="end"
 							iconHint="Copied"
 							iconTooltipWidth={65}
+							isError={status.isError}
+							{...validationProps}
 						/>
 					</FormField>
 				</div>

@@ -61,6 +61,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			iconSize,
 			iconTooltipWidth,
 			allowClear = false,
+			customAction,
 			disableInteractions = false,
 			isRequired = false, //
 			pattern,
@@ -321,6 +322,31 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 					>
 						Clear
 					</Button>
+				)}
+				{customAction && (
+					// <Tooltip
+					// 	type="button"
+					// 	className="sui-input__input-copy"
+					// 	placement="top"
+					// 	buttonProps={{
+					// 		icon: "Copy",
+					// 		colorScheme: "black",
+					// 		type: "tertiary",
+					// 		iconOnly: true,
+					// 		iconSize: isSmall ? "sm" : "md",
+					// 		onClick: () => {
+					// 			navigator.clipboard.writeText((value as string) || "")
+					// 			if (copyProps.onClick) {
+					// 				copyProps.onClick()
+					// 			}
+					// 		},
+					// 		isSmall: isSmall ?? false,
+					// 	}}
+					// 	{...copyProps}
+					// >
+					// 	{copyProps.tooltipText || "Copy to clipboard"}
+					// </Tooltip>
+					<div className="sui-input__input-custom-action">{customAction}</div>
 				)}
 			</div>
 		)

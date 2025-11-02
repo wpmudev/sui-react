@@ -18,7 +18,7 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 	const ctx = useContext(DatePickerContext)
 	const { suiInlineClassname } = useStyles(_style)
 
-	const { startMonth, endMonth, helpers, handlers } = ctx!
+	const { startMonth, endMonth, helpers, handlers, dateRange } = ctx!
 
 	// Create a ref to access the dropdown's outer container element.
 	const popoverRef = useRef<HTMLDivElement | null>(null)
@@ -81,7 +81,10 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 							type="tertiary"
 							colorScheme="black"
 							isSmall={true}
-							onClick={() => ctx?.setIsOpen(false)}
+							onClick={() => {
+								ctx?.onClose?.(dateRange)
+								ctx?.setIsOpen(false)
+							}}
 						>
 							Close
 						</Button>
@@ -91,7 +94,10 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 							type="secondary"
 							colorScheme="black"
 							isSmall={true}
-							onClick={() => ctx?.setIsOpen(false)}
+							onClick={() => {
+								ctx?.onSubmit?.(dateRange)
+								ctx?.setIsOpen(false)
+							}}
 						>
 							Ok
 						</Button>

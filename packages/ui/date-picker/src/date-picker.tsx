@@ -30,6 +30,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	isDisabled = false,
 	isError = false,
 	onChange = () => null,
+	onSubmit,
+	onClose,
 	ariaAttrs = {},
 	_htmlProps,
 	_style,
@@ -63,6 +65,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
 		maxDate,
 		isDisabled,
 		onChange,
+		onSubmit,
+		onClose,
 	}
 
 	return (

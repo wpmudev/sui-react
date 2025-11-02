@@ -152,6 +152,10 @@ interface InputProps
 	 */
 	allowClear?: boolean
 	/**
+	 * Custom action component to be displayed.
+	 */
+	customAction?: React.ReactNode
+	/**
 	 * Disable interactions such as hover and focus
 	 */
 	disableInteractions?: boolean

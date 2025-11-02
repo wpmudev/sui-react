@@ -75,6 +75,14 @@ interface DatePickerProps
 	 */
 	onChange?: (value: string | Date | DatePickerDateRange) => void
 	/**
+	 * Callback function called when the user submits the selected date(s)
+	 */
+	onSubmit?: (range?: DatePickerDateRange) => void
+	/**
+	 * Callback function called when the date picker is closed
+	 */
+	onClose?: (range?: DatePickerDateRange) => void
+	/**
 	 * Alignment of the popover relative to the input field
 	 */
 	alignment?: "left" | "right"
@@ -206,6 +214,8 @@ interface DatePickerContextProps {
 		 */
 		onMonthNavigate: (marker: symbol) => void
 	}
+	onSubmit?: (range?: DatePickerDateRange) => void
+	onClose?: (range?: DatePickerDateRange) => void
 }
 
 interface DatePickerPopoverProps extends SuiStyleType {
