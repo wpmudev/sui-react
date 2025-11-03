@@ -10,7 +10,7 @@ type DatePickerTypes = "single" | "range"
 type DatePickerNavs = "months" | "years"
 
 type DatePickerPredefined = {
-	label: "Today" | "Tomorrow" | "1 Week" | "30 days" | "Custom"
+	label: string
 } & DatePickerDateRange
 
 /**

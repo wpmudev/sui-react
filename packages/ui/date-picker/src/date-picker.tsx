@@ -29,6 +29,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	alignment = "left",
 	isDisabled = false,
 	isError = false,
+	definedRanges,
 	onChange = () => null,
 	onSubmit,
 	onClose,
@@ -67,6 +68,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 		onChange,
 		onSubmit,
 		onClose,
+		definedRanges,
 	}
 
 	return (
