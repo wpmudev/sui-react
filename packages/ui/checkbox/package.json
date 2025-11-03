@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-checkbox",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Checkboxes are used to allow users to make binary choices or select one or more options from a list.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
