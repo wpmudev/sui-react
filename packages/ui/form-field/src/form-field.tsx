@@ -89,12 +89,13 @@ const FormField: React.FC<FormFieldProps> = ({
 				</Label>
 			)}
 			{Object.keys(ariaAttrs).length > 0
-				? Children.map(children, (child: ReactNode) => {
+				? Children.map(children, (child: ReactNode, index) => {
 						return isValidElement(child)
 							? cloneElement(child, {
 									...fieldAttrs,
 									ariaAttrs,
 									...child.props,
+									key: `form-field-child-${index}`,
 							  })
 							: child
 				  })
