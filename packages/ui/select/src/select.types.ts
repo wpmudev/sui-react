@@ -67,6 +67,8 @@ interface SelectBaseProps
 	isCustomVar?: boolean
 	/** Add a custom width in pixels  */
 	customWidth?: number
+	/** Message to display when no options are available */
+	noResultsMessage?: string
 	/**
 	 * Event handler for mouse enter event.
 	 * It is of type Pick<InteractionTypes, "onMouseEnter">, which means it selects
@@ -168,6 +170,8 @@ interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 	onSearch?: (value: string) => void
 	dropdownRef?: Ref<DropdownRefProps | null>
 	_dropdownProps?: object
+	/** Message to display when no options are available */
+	emptyMessage?: string
 }
 
 interface SelectDropdownOptionProps {

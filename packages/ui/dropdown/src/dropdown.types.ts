@@ -248,6 +248,10 @@ interface DropdownProps
 	 */
 	isDisabled?: boolean
 	/**
+	 * Empty message to display when there are no options.
+	 */
+	emptyMessage?: string
+	/**
 	 * Close dropdown on outer click
 	 */
 	closeOnOuterClick?: boolean

@@ -55,6 +55,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			buttonIcon,
 			onMenuClick,
 			trigger,
+			emptyMessage,
 			renderContentOnTop = false,
 			isResponsive = false,
 			isMultiSelect = false,
@@ -481,6 +482,10 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 								)}
 							</ul>
 						</DropdownMenu>
+					)}
+					{/* Render "no results" message */}
+					{options?.length === 0 && !isLoading && emptyMessage && (
+						<div className="sui-dropdown__menu--no-results">{emptyMessage}</div>
 					)}
 					{/* Render additional children passed to the Dropdown component */}
 					{!!children && !renderContentOnTop && (

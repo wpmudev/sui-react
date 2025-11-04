@@ -41,6 +41,7 @@ const Select: React.FC<SelectBaseProps> = ({
 	onMouseEnter = () => null,
 	onMouseLeave = () => null,
 	customWidth,
+	noResultsMessage = "No results found",
 	onChange,
 	resetValidation,
 	validateOnMount,
@@ -401,6 +402,7 @@ const Select: React.FC<SelectBaseProps> = ({
 			updateSelected(optionId)
 		},
 		isCustomVar,
+		noResultsMessage,
 		_dropdownProps,
 	}
 
