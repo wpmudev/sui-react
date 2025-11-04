@@ -101,8 +101,6 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			menu={content}
 			emptyMessage={emptyMessage}
 			onMenuClick={(option: SelectOptionType, e: MouseEvent<HTMLElement>) => {
-				// Prevent actions on "no results" item
-				if (!content.length) return
 				onSelect(e, option)
 			}}
 			isSmall={isSmall}
