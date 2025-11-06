@@ -11,6 +11,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 const TabPanelItem: React.FC<TabPanelItemProps> = ({
 	children,
 	id,
+	isDisabled = false,
 	_htmlProps = {},
 	_style = {},
 }) => {
@@ -41,6 +42,7 @@ const TabPanelItem: React.FC<TabPanelItemProps> = ({
 				"sui-tab__panel-item",
 				{
 					active: isActive,
+					disabled: isDisabled,
 				},
 				suiInlineClassname,
 			)}

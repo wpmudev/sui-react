@@ -15,11 +15,12 @@ import { AvatarProps } from "@wpmudev/sui-avatar"
 import { ButtonProps } from "@wpmudev/sui-button"
 import { NavigationUserProps } from "@wpmudev/sui-navigation"
 import { LinkProps } from "@wpmudev/sui-link"
+import { TooltipProps } from "@wpmudev/sui-tooltip"
 
 /**
  * Represents a plugin's details.
  */
-type Plugin = {
+export type Plugin = {
 	plugin: PluginsSlug
 	title: string
 	description: string
@@ -90,6 +91,7 @@ interface WPMUDEVNotificationProps extends DropdownProps, SuiStyleType {
 	label?: string
 	notifications: Notifications
 	footerActions?: Array<ReactNode>
+	tooltipProps?: TooltipProps
 }
 
 /**
