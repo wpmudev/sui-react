@@ -17,7 +17,7 @@ const CheckBoxGroups: React.FC<CheckboxGroupsProps> = ({
 	return (
 		<CheckboxProvider onChange={onChange}>
 			<div className={className}>
-				{Children.map(children, (child) => {
+				{Children.map(children, (child, index) => {
 					return cloneElement(
 						child as any,
 						{
@@ -27,6 +27,7 @@ const CheckBoxGroups: React.FC<CheckboxGroupsProps> = ({
 								...(child as ReactElement)?.props?.commonCheckboxProps,
 							},
 							_isMultiGroup: true,
+							key: `checkbox-wrapper-child-${index}`,
 						} as object,
 					)
 				})}

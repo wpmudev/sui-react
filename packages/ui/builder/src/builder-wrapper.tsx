@@ -28,9 +28,10 @@ const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 				"data-testid": "builder-wrapper",
 			}}
 		>
-			{Children.map(children, (child: any) =>
+			{Children.map(children, (child: any, index) =>
 				cloneElement(child, {
 					colSize: Children.count(children),
+					key: `builder-wrapper-child-${index}`,
 				} as object),
 			)}
 		</Row>

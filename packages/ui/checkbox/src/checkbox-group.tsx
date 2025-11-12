@@ -139,6 +139,7 @@ const _CheckboxGroupInner = ({
 							// Individual checkbox props should override: common props and id
 							...(child as ReactElement)?.props,
 							groupId: checkboxGroupId,
+							key: `checkbox-group-item-${index}`,
 							// On First render we should use the initial isChecked value
 							isChecked: isFirstRender
 								? initialIsChecked

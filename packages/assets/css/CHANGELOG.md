@@ -1,5 +1,14 @@
 # @wpmudev/sui-css
 
+## 0.1.2
+
+### Patch Changes
+
+- [#356](https://github.com/wpmudev/sui-react/pull/356)
+  [`3792b7e`](https://github.com/wpmudev/sui-react/commit/3792b7ef6491ee35cc5c1ba6c46795559fe2f7fe)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Fix key errors in
+  react.
+
 ## 0.1.1
 
 ### Patch Changes

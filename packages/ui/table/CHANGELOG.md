@@ -1,5 +1,20 @@
 # Change Log
 
+## 1.0.2
+
+### Patch Changes
+
+- [#356](https://github.com/wpmudev/sui-react/pull/356)
+  [`3792b7e`](https://github.com/wpmudev/sui-react/commit/3792b7ef6491ee35cc5c1ba6c46795559fe2f7fe)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Fix key errors in
+  react.
+
+- Updated dependencies
+  [[`3792b7e`](https://github.com/wpmudev/sui-react/commit/3792b7ef6491ee35cc5c1ba6c46795559fe2f7fe)]:
+  - @wpmudev/sui-form-field@0.0.3
+  - @wpmudev/sui-checkbox@0.0.3
+  - @wpmudev/sui-select@0.1.1
+
 ## 1.0.1
 
 ### Patch Changes
