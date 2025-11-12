@@ -24,6 +24,10 @@ interface RecipientProps
 		src: string
 	}
 	/**
+	 * Custom CSS class name(s) to be applied to the recipient component.
+	 */
+	className?: string
+	/**
 	 * Reflects if the user is confirmed
 	 */
 	status?: AvatarProps["status"]

@@ -15,6 +15,7 @@ const Recipient: React.FC<RecipientProps> = ({
 	userName = "name",
 	userEmail = "",
 	userImage,
+	className = "",
 	status = "none",
 	isInvited = false,
 	appearance = "primary",
@@ -22,10 +23,10 @@ const Recipient: React.FC<RecipientProps> = ({
 	_htmlProps,
 	_style,
 }) => {
-	const { suiInlineClassname } = useStyles(_style)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Define recipient class.
-	const className = generateCN(
+	const classes = generateCN(
 		"sui-recipient",
 		{
 			// Define recipient appearance.
@@ -36,7 +37,7 @@ const Recipient: React.FC<RecipientProps> = ({
 
 	return (
 		<div
-			className={className}
+			className={classes}
 			data-testid="recipients"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
