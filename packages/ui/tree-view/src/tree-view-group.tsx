@@ -114,6 +114,7 @@ const TreeViewGroup: React.FC<TreeViewGroupProps> = ({
 					return React.cloneElement(child as ReactElement, {
 						...(child as React.ReactElement).props,
 						groupId: id,
+						key: `tree-view-child-${index}`,
 						...("TreeViewGroup" === type ? { parentGroupId: id } : {}),
 					})
 				})}

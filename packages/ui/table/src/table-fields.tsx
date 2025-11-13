@@ -38,7 +38,7 @@ const TableFields: React.FC<TableFieldsProps> = ({ children, _style = {} }) => {
 					}
 
 					return (
-						<li className="sui-table__fields-item" key={index}>
+						<li className="sui-table__fields-item" key={`column-${index}`}>
 							<div className="sui-table__fields-item-title">
 								{column?.title}
 							</div>
