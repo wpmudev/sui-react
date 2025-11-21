@@ -45,7 +45,7 @@ const Recipient: React.FC<RecipientProps> = ({
 		>
 			<div className="sui-recipient__info">
 				{hideAvatar && (
-					<p className="sui-recipient__placeholder">{placeholder}</p>
+					<p className="sui-recipient__info--placeholder">{placeholder}</p>
 				)}
 				{!hideAvatar && (
 					<Fragment>
