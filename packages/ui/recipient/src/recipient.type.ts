@@ -43,6 +43,14 @@ interface RecipientProps
 	 * Action buttons or elements to be displayed in the recipient component.
 	 */
 	actions?: React.ReactNode
+	/**
+	 * Placeholder text to display when avatar is hidden
+	 */
+	placeholder?: string
+	/**
+	 * Hides the avatar when set to true
+	 */
+	hideAvatar?: boolean
 }
 
 export type { RecipientProps }

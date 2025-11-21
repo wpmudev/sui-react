@@ -12,10 +12,12 @@ import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build "recipient" component
 const Recipient: React.FC<RecipientProps> = ({
-	userName = "name",
-	userEmail = "",
+	userName,
+	userEmail,
 	userImage,
-	className = "",
+	hideAvatar = false,
+	placeholder = "No Avatar",
+	className,
 	status = "none",
 	isInvited = false,
 	appearance = "primary",
@@ -42,18 +44,27 @@ const Recipient: React.FC<RecipientProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div className="sui-recipient__info">
-				<Avatar
-					className="sui-recipient__avatar"
-					{...(!isEmpty(status) && { status })}
-					{...(userImage?.src && { image: userImage })}
-				/>
-				{(!isEmpty(userName) || !isEmpty(userEmail)) && (
-					<div className="sui-recipient__details">
-						{!isEmpty(userName) && <RecipientName>{userName}</RecipientName>}
-						{!isEmpty(userEmail) && (
-							<RecipientEmail>{userEmail}</RecipientEmail>
+				{hideAvatar && (
+					<p className="sui-recipient__placeholder">{placeholder}</p>
+				)}
+				{!hideAvatar && (
+					<Fragment>
+						<Avatar
+							className="sui-recipient__avatar"
+							{...(!isEmpty(status) && { status })}
+							{...(userImage?.src && { image: userImage })}
+						/>
+						{(!isEmpty(userName) || !isEmpty(userEmail)) && (
+							<div className="sui-recipient__details">
+								{!isEmpty(userName) && (
+									<RecipientName>{userName}</RecipientName>
+								)}
+								{!isEmpty(userEmail) && (
+									<RecipientEmail>{userEmail}</RecipientEmail>
+								)}
+							</div>
 						)}
-					</div>
+					</Fragment>
 				)}
 			</div>
 			<div className="sui-recipient__actions">
