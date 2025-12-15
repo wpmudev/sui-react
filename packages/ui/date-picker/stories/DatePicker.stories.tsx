@@ -63,6 +63,7 @@ DatePicker.args = {
 	minDate: "01/05/2007",
 	maxDate: "30/10/2023",
 	isDisabled: false,
+	closeOnClickOutside: true,
 	error: "",
 }
 
@@ -113,6 +114,13 @@ DatePicker.argTypes = {
 	},
 	isDisabled: {
 		name: "Disabled",
+		control: {
+			type: "boolean",
+		},
+	},
+	closeOnClickOutside: {
+		name: "Close on Click Outside",
+		description: "Close the date picker when clicking outside of it",
 		control: {
 			type: "boolean",
 		},

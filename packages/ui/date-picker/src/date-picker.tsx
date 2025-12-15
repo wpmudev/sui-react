@@ -28,6 +28,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	maxDate,
 	isDisabled = false,
 	isError = false,
+	closeOnClickOutside = true,
 	onChange = () => null,
 	ariaAttrs = {},
 	_htmlProps,
@@ -61,6 +62,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
 		minDate,
 		maxDate,
 		isDisabled,
+		closeOnClickOutside,
 		onChange,
 	}
 

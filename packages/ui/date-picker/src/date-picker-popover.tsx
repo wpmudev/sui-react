@@ -24,7 +24,7 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 
 	// Handle the closing of the dropdown when clicking outside the component.
 	useOuterClick(popoverRef, () => {
-		if (ctx?.isSingle) {
+		if (ctx?.closeOnClickOutside) {
 			ctx?.setIsOpen(false)
 		}
 	})

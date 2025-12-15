@@ -52,6 +52,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		maxDate,
 		definedRanges = predefinedRanges,
 		isDisabled,
+		closeOnClickOutside = true,
 		children,
 	} = props
 
@@ -299,6 +300,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 				isSingle,
 				isOpen,
 				setIsOpen,
+				closeOnClickOutside,
 				listType,
 				toggleId,
 				openToggle,
