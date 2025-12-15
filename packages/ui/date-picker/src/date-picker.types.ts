@@ -69,6 +69,10 @@ interface DatePickerProps
 	 */
 	ariaAttrs?: object
 	/**
+	 * Close the date picker when clicking outside
+	 */
+	closeOnClickOutside?: boolean
+	/**
 	 * Callback function called when the selected date(s) change
 	 *
 	 * @param {string | Date | DatePickerDateRange} value
@@ -100,6 +104,10 @@ interface DatePickerContextProps {
 	 * Flag indicating whether the DatePicker is open (visible)
 	 */
 	isOpen?: boolean
+	/**
+	 * Close the date picker when clicking outside
+	 */
+	closeOnClickOutside?: boolean
 	/**
 	 * Function to set the open state of the DatePicker
 	 *
