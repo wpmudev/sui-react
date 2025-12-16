@@ -8,6 +8,7 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 interface AccordionProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
+	id?: string // Optional custom ID for the accordion item.
 	/** Additional CSS class name for styling the accordion component. */
 	className?: string
 	/** Remove border-radius when true */
