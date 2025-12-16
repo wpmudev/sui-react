@@ -77,7 +77,7 @@ const TreeViewItem: React.FC<TreeViewItemProps> = ({
 			className={classNames}
 			role="treeitem"
 			aria-labelledby={id}
-			aria-describedby={`${id} ${itemId}-info-title`}
+			aria-describedby={`${id} ${itemId}_info_title`}
 			aria-expanded={isExpanded}
 			aria-selected={false}
 			{..._renderHTMLPropsSafely(_htmlProps)}

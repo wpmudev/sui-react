@@ -11,6 +11,10 @@ interface EmptyStateProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the empty state.
+	 */
+	id?: string
+	/**
 	 * The logo to be displayed in the empty state.
 	 * It can be a string representing the URL of an image or an HTML/SVG element.
 	 */

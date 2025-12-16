@@ -29,6 +29,10 @@ interface DropdownMenuProps extends SuiStyleType {
 interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
 	_type?: DropdownProps["type"]
 	/**
+	 * Optional custom ID for the dropdown menu item.
+	 */
+	id?: string
+	/**
 	 * URL to navigate to when the item is clicked (if the item is an anchor).
 	 */
 	href?: string
@@ -99,6 +103,10 @@ interface DropdownMenuGroupProps
 			"className" | "title" | "href"
 		>,
 		SuiStyleType {
+	/**
+	 * Unique identifier for the DropdownMenuGroup.
+	 */
+	id?: string
 	/** Title of the MenuGroup. */
 	title: string
 	/** URL to navigate to when the MenuGroup is clicked. */
@@ -144,6 +152,10 @@ interface DropdownProps
 			"className"
 		>,
 		SuiStyleType {
+	/**
+	 * Optional custom ID for the dropdown.
+	 */
+	id?: string
 	/**
 	 * The type of dropdown.
 	 */

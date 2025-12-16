@@ -32,7 +32,7 @@ const Notification: React.FC<NotificationProps> = ({
 	if (!id) {
 		id = uniqueId
 	}
-	const notificationId = `sui-notification-${uniqueId}`
+	const notificationId = `sui_notification_${uniqueId}`
 
 	useEffect(() => {
 		if (!isInline && !isDismissible) {
@@ -86,8 +86,8 @@ const Notification: React.FC<NotificationProps> = ({
 			id={notificationId}
 			className={classNames}
 			role="alert"
-			aria-labelledby={`${notificationId}-title`}
-			aria-describedby={`${notificationId}-message`}
+			aria-labelledby={`${notificationId}_title`}
+			aria-describedby={`${notificationId}_message`}
 			data-testid="notification"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
@@ -96,7 +96,7 @@ const Notification: React.FC<NotificationProps> = ({
 				{!!title && (
 					<span
 						className="sui-notification__title"
-						id={`${notificationId}-title`}
+						id={`${notificationId}_title`}
 					>
 						{title}
 					</span>
@@ -104,7 +104,7 @@ const Notification: React.FC<NotificationProps> = ({
 				{!!message && (
 					<span
 						className="sui-notification__message"
-						id={`${notificationId}-message`}
+						id={`${notificationId}_message`}
 					>
 						{message}
 					</span>

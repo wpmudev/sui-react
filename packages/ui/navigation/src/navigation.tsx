@@ -1,4 +1,4 @@
-import React, { Children } from "react"
+import React, { useId, Children } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { NavigationProps } from "./navigation.types"
@@ -8,6 +8,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 
 // Navigation component
 const Navigation: React.FC<NavigationProps> = ({
+	id,
 	children,
 	brand = { title: "title", description: "" },
 	user,
@@ -15,6 +16,8 @@ const Navigation: React.FC<NavigationProps> = ({
 	_htmlProps,
 	_style,
 }) => {
+	const generatedId = useId()
+	const navigationId = id || `sui_navigation_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 	// Generate CSS class names for the navigation component
 	const classNames = generateCN("sui-navigation", {}, suiInlineClassname)
@@ -23,6 +26,7 @@ const Navigation: React.FC<NavigationProps> = ({
 		// Render the navigation component
 
 		<nav
+			id={navigationId}
 			className={classNames}
 			data-testid="navigation"
 			{..._renderHTMLPropsSafely(_htmlProps)}

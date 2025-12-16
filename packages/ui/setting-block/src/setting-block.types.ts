@@ -8,6 +8,10 @@ interface SettingBlockOptionProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * Unique identifier for the SettingBlockOption.
+	 */
+	id?: string
+	/**
 	 * The title of the setting block option.
 	 * This prop is required and should be a string.
 	 */
@@ -42,6 +46,10 @@ interface SettingBlockOptionProps
 interface SettingBlockProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	/**
+	 * Unique identifier for the setting block.
+	 */
+	id?: string
 	/**
 	 * The title of the setting block.
 	 * This prop is required and should be a string.

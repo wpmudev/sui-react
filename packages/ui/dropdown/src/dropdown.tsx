@@ -39,6 +39,7 @@ import { Spinner } from "@wpmudev/sui-spinner"
 const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 	(
 		{
+			id,
 			type = "",
 			label,
 			className,
@@ -98,7 +99,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		const popoverRef = useRef<HTMLDivElement | null>(null)
 		const searchInputRef = useRef<HTMLInputElement | null>(null)
 		// Generate a unique identifier for the dropdown component.
-		const id = `sui-dropdown-${useId()}`
+		const generatedId = useId()
+		const dropdownId = id || `sui_dropdown_${generatedId}`
 
 		// Handle the closing of the dropdown when clicking outside the component.
 		useOuterClick(dropdownRef, () => {
@@ -441,16 +443,27 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					}}
 				>
 					{dropdownArrow && (
-						<div className="sui-dropdown__popover--arrow"></div>
+						<div
+							className="sui-dropdown__popover--arrow"
+							id={`${dropdownId}_arrow`}
+						></div>
 					)}
 					{renderContentOnTop && !!children && (
-						<div className="sui-dropdown__menu-content">{children}</div>
+						<div
+							className="sui-dropdown__menu-content"
+							id={`${dropdownId}_menu_content_top`}
+						>
+							{children}
+						</div>
 					)}
 					{/* Render the dropdown menu items */}
 					{(!!menu || isAsync) && (
 						<DropdownMenu>
 							{allowSearch && (
-								<div className="sui-dropdown__menu-nav-search">
+								<div
+									className="sui-dropdown__menu-nav-search"
+									id={`${dropdownId}_search`}
+								>
 									<Input
 										ref={searchInputRef}
 										icon="Search"
@@ -484,7 +497,12 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					)}
 					{/* Render additional children passed to the Dropdown component */}
 					{!!children && !renderContentOnTop && (
-						<div className="sui-dropdown__menu-content">{children}</div>
+						<div
+							className="sui-dropdown__menu-content"
+							id={`${dropdownId}_menu_content_bottom`}
+						>
+							{children}
+						</div>
 					)}
 				</div>
 			</div>

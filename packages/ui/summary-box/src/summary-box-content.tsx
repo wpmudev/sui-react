@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
@@ -20,6 +20,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
  * @return {JSX.Element} The SummaryBoxContent component.
  */
 export const SummaryBoxContent: React.FC<SummaryBoxContentProps> = ({
+	id,
 	className,
 	children,
 	span = "half",
@@ -27,6 +28,8 @@ export const SummaryBoxContent: React.FC<SummaryBoxContentProps> = ({
 	_style,
 	_htmlProps,
 }) => {
+	const generatedId = useId()
+	const summaryBoxContentId = id || `sui_summary_box_content_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
@@ -39,7 +42,7 @@ export const SummaryBoxContent: React.FC<SummaryBoxContentProps> = ({
 	)
 
 	return (
-		<div className={classNames} {..._htmlProps}>
+		<div id={summaryBoxContentId} className={classNames} {..._htmlProps}>
 			{children}
 		</div>
 	)

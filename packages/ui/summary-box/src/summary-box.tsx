@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { Box } from "@wpmudev/sui-box"
@@ -26,6 +26,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @return {JSX.Element} The SummaryBox component.
  */
 const SummaryBox: React.FC<SummaryBoxProps> = ({
+	id,
 	title = "title",
 	icon,
 	hideMobileIcon = true,
@@ -36,11 +37,14 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	_htmlProps = {},
 	_style = {},
 }: SummaryBoxProps): JSX.Element => {
+	const generatedId = useId()
+	const summaryBoxId = id || `sui_summary_box_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-summary-box", {}, suiInlineClassname)
 
 	// Define the attributes for the Box component that will be used to display the summary box.
 	const attrs = {
+		id: summaryBoxId,
 		title,
 		className: classNames,
 		icon, // The icon will be set later based on the provided icon prop or a default value.

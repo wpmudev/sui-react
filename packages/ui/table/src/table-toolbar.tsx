@@ -36,9 +36,9 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 
 	// Generate unique IDs for accessibility
 	const uniqueId = useId()
-	const filterBtnId = `sui-table-toolbar-filter-${uniqueId}`
-	const bodyId = `sui-table-toolbar-body-${uniqueId}`
-	const bulkDropdown = `sui-table-toolbar-bulk-${uniqueId}`
+	const filterBtnId = `sui_table_toolbar_filter_${uniqueId}`
+	const bodyId = `sui_table_toolbar_body_${uniqueId}`
+	const bulkDropdown = `sui_table_toolbar_bulk_${uniqueId}`
 
 	const { suiInlineClassname } = useStyles(_style)
 	const ctx = useContext(TableContext)
@@ -119,7 +119,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 						</div>
 					)}
 					<Input
-						id="input-id-4"
+						id={`${uniqueId}_search`}
 						className="sui-table__toolbar-search"
 						placeholder="Search"
 						onChange={onSearch}

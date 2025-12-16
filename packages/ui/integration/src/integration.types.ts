@@ -5,6 +5,10 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
  * This interface defines the props for the Integration component.
  */
 interface IntegrationProps extends SuiStyleType, SuiHTMLAttributes {
+	/**
+	 * Unique identifier for the integration.
+	 */
+	id?: string
 	/** The title of the integration. */
 	title?: string
 

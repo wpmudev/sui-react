@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from "react"
+import React, { useId, Fragment, useCallback } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import Icons from "@wpmudev/sui-icons"
@@ -15,6 +15,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param {DashboardWidgetProps} props - The component's props.
  */
 const DashboardWidget: React.FC<DashboardWidgetProps> = ({
+	id,
 	title = "Widget Title",
 	description = "Widget Description",
 	icon,
@@ -32,6 +33,8 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	_htmlProps,
 	_style = {},
 }: DashboardWidgetProps) => {
+	const generatedId = useId()
+	const dashboardWidgetId = id || `sui_dashboard_widget_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate classnames for the dashboard widget
@@ -76,6 +79,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 
 	return (
 		<div
+			id={dashboardWidgetId}
 			className={classNames}
 			data-testid="dashboard-widget"
 			{..._renderHTMLPropsSafely(_htmlProps)}

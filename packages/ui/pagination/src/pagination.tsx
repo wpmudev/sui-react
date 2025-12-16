@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react"
+import React, { useId, useState, useEffect, useCallback } from "react"
 
 // import required module(s)
 import { PaginationProps } from "./pagination.types"
 import { PaginationNav } from "./pagination-nav"
 
 const Pagination: React.FC<PaginationProps> = ({
+	id,
 	limit = 5,
 	skip = false,
 	previousLabel = "Previous label",
@@ -16,6 +17,8 @@ const Pagination: React.FC<PaginationProps> = ({
 	_style,
 	_htmlProps,
 }) => {
+	const generatedId = useId()
+	const paginationId = id || `sui_pagination_${generatedId}`
 	// Number of Items should not be 0
 	if (numberOfItems === 0) {
 		throw new Error(
@@ -156,6 +159,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
 	// Properties to pass to PaginationNav component
 	const properties = {
+		id: paginationId,
 		elementsStartIndex,
 		elementsEndIndex,
 		handlePageClick,

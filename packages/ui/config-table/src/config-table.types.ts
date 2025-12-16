@@ -14,6 +14,10 @@ type ConfigObj = Record<string, any>
 interface ConfigTableTypes
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	/**
+	 * Unique identifier for the ConfigTable.
+	 */
+	id?: string
 	// Optional property to specify a custom CSS class for the component.
 	className?: string
 
@@ -35,6 +39,10 @@ interface ConfigTableTypes
 
 // Define the properties and methods config table details component
 interface ConfigTableDetailsTypes {
+	/**
+	 * Unique identifier for the ConfigTableDetails.
+	 */
+	id?: string
 	// Config object that can contain various properties.
 	config?: ConfigObj
 

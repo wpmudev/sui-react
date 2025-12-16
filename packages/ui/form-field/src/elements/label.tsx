@@ -35,7 +35,7 @@ const Label: React.FC<FormFieldLabelProps> = ({
 	return (
 		<label
 			htmlFor={id}
-			id={`${id}-label`}
+			id={`${id}_label`}
 			className={generateCN(classNames, {}, suiInlineClassname)}
 		>
 			{children}

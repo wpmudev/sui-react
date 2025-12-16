@@ -1,4 +1,4 @@
-import React, { KeyboardEvent, useCallback } from "react"
+import React, { KeyboardEvent, useCallback, useId } from "react"
 
 import {
 	_renderHTMLPropsSafely,
@@ -15,6 +15,7 @@ import { SidebarItemProps } from "./sidebar.types"
 // SidebarItem component using the SidebarItemProps interface.
 // This component represents an item within a sidebar navigation.
 const SidebarItem: React.FC<SidebarItemProps> = ({
+	id,
 	url = "#",
 	icon,
 	title = "Sidebar Item",
@@ -26,6 +27,9 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 	_htmlProps = {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const sidebarItemId = id || `sui_sidebar_item_${generatedId}`
+
 	// `useInteraction` returns interaction state and methods.
 	const [isHovered, isFocused, methods] = useInteraction({})
 	const { suiInlineClassname } = useStyles(_style, className)
@@ -62,6 +66,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 	// Return JSX structure representing the SidebarItem.
 	return (
 		<a
+			id={sidebarItemId}
 			className={classNames}
 			href={url}
 			tabIndex={isDisabled ? -1 : 0}

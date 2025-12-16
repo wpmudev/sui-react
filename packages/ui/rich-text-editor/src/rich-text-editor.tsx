@@ -31,7 +31,7 @@ declare const tinymce: Record<string, any>
  * @return {JSX.Element} - JSX Element representing the RichTextEditor component
  */
 const RichTextEditor: React.FC<RichTextEditorProps> = ({
-	id = "",
+	id,
 	actions = null,
 	tinyMCEOptions,
 	className = "",
@@ -47,8 +47,12 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 	const [editor, setEditor] = useState<Record<string, any> | null>(null)
 	const [ref, setRef] = useState<HTMLElement>()
 
+	// Generate unique id if not provided
+	const generatedId = useId()
+	const uniqueId = id || generatedId
+
 	const attrs = {
-		id,
+		id: uniqueId,
 		...ariaAttrs,
 	}
 
@@ -166,7 +170,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 			data-testid="rich-text-editor"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<div className="sui-rich-text-editor__header">
+			<div className="sui-rich-text-editor__header" id={`${uniqueId}_header`}>
 				<SegmentedControl
 					name="type"
 					defaultValue={editorType as string}
@@ -184,7 +188,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 				</SegmentedControl>
 				{!!actions && actions}
 			</div>
-			<div className="sui-rich-text-editor__content">
+			<div className="sui-rich-text-editor__content" id={`${uniqueId}_content`}>
 				<div
 					className={generateCN("sui-rich-text-editor__textarea", {
 						hidden: "visual" !== editorType,

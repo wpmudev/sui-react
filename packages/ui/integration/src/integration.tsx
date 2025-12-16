@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState } from "react"
+import React, { useId, useState } from "react"
 
 import { Toggle } from "@wpmudev/sui-toggle"
 import { Tooltip } from "@wpmudev/sui-tooltip"
@@ -17,6 +17,7 @@ import {
 import { IntegrationProps } from "./integration.types"
 
 const Integration: React.FC<IntegrationProps> = ({
+	id,
 	title = "title",
 	description,
 	additionalInfo = "",
@@ -30,6 +31,8 @@ const Integration: React.FC<IntegrationProps> = ({
 	_htmlProps,
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const integrationId = id || `sui_integration_${generatedId}`
 	// Define image object
 	const icon = Object.assign(
 		{
@@ -92,6 +95,7 @@ const Integration: React.FC<IntegrationProps> = ({
 
 	return (
 		<div
+			id={integrationId}
 			className={classNames}
 			data-testid="integration"
 			{..._renderHTMLPropsSafely(_htmlProps)}

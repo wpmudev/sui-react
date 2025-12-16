@@ -17,6 +17,7 @@ import { AccordionItemProps } from "./accordion.types"
 
 // The AccordionItem component is defined as a functional component using React.FC.
 const AccordionItem: React.FC<AccordionItemProps> = ({
+	id,
 	title = "{title}",
 	description,
 	children,
@@ -40,7 +41,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const [isPressed, setIsPressed] = useState(false)
 
 	// Custom hook to generate a unique ID for the accordion item.
-	const uniqueId = useId()
+	const generatedId = useId()
+	const uniqueId = id || `sui_accordion_${generatedId}`
 
 	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
 	const { toggle, isCurrentlyExpanded } = useAccordion({
@@ -50,8 +52,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const { spacing } = useContext(AccordionContext)
 
 	// IDs for the accordion and its panel to manage accessibility.
-	const accordionId = `sui-accordion-${uniqueId}`
-	const accordionPanelId = `sui-accordion-panel-${uniqueId}`
+	const accordionId = uniqueId
+	const accordionPanelId = `${uniqueId}_panel`
 
 	const onMouseDownCapture = () => {
 		setIsPressed(true)
@@ -150,13 +152,19 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				)}
 
 				{/* Content of the accordion item's header */}
-				<div className="sui-accordion__header-info">
+				<div
+					className="sui-accordion__header-info"
+					id={`${accordionId}_header_info`}
+				>
 					{(!!hasCheckbox || !!icon) && (
-						<div className="sui-accordion__header-actions">
+						<div
+							className="sui-accordion__header-actions"
+							id={`${accordionId}_header_actions`}
+						>
 							{hasCheckbox && (
 								<Checkbox
 									name={accordionId}
-									id={`${accordionId}-checkbox`}
+									id={`${accordionId}_checkbox`}
 									onChange={onCheckBoxChange}
 									isChecked={isChecked}
 									isDisabled={isDisabled ?? false}
@@ -165,13 +173,19 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 							{!!icon && icon}
 						</div>
 					)}
-					<div className="sui-accordion__header-title">
+					<div
+						className="sui-accordion__header-title"
+						id={`${accordionId}_header_title`}
+					>
 						<h2>{title}</h2>
 						{!isEmpty(description ?? "") && <p>{description}</p>}
 					</div>
 				</div>
 				{/* Icon component to display a chevron icon */}
-				<div className="sui-accordion__header-icon">
+				<div
+					className="sui-accordion__header-icon"
+					id={`${accordionId}_header_icon`}
+				>
 					<Icon iconHeight={16} iconWidth={16} />
 				</div>
 			</div>
@@ -188,7 +202,12 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				})}
 				data-testid="accordion-item-panel"
 			>
-				<div className={panelContentClassName}>{children}</div>
+				<div
+					className={panelContentClassName}
+					id={`${accordionId}_panel_content`}
+				>
+					{children}
+				</div>
 			</div>
 		</div>
 	)

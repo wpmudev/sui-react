@@ -1,5 +1,5 @@
 // Import necessary modules and types
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
@@ -9,12 +9,15 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Define the Accordion component as a functional component (React.FC)
 const Tabs: React.FC<TabsProps> = ({
+	id,
 	className,
 	children,
 	_htmlProps,
 	_style = {},
 	...props
 }) => {
+	const generatedId = useId()
+	const tabsId = id || `sui_tabs_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	// Generate CSS class names for the Accordion component
 	const classNames = generateCN("sui-tab", {}, suiInlineClassname)
@@ -29,6 +32,7 @@ const Tabs: React.FC<TabsProps> = ({
 			activeIndex={props?.activeIndex}
 		>
 			<div
+				id={tabsId}
 				className={classNames}
 				{..._renderHTMLPropsSafely(_htmlProps)}
 				data-testid="tabs"

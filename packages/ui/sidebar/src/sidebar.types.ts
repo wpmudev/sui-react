@@ -38,6 +38,10 @@ interface SidebarItemProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLAnchorElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the sidebar item.
+	 */
+	id?: string
+	/**
 	 * The URL associated with the SidebarItem.
 	 */
 	url?: string

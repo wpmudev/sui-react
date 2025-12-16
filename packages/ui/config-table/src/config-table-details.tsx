@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { Table, TableBody, TableCell, TableRow } from "@wpmudev/sui-table"
 import { isEmpty } from "@wpmudev/sui-utils"
@@ -8,9 +8,12 @@ import { ConfigTableDetailsTypes } from "./config-table.types"
 
 // Render config options inside table content
 const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({
+	id,
 	config,
 	proItems,
 }) => {
+	const generatedId = useId()
+	const configTableDetailsId = id || `sui_config_table_details_${generatedId}`
 	let options: Array<any> = []
 
 	// Build options to render in the table
@@ -24,7 +27,7 @@ const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({
 	})
 
 	return (
-		<div className="sui-config-table__details">
+		<div id={configTableDetailsId} className="sui-config-table__details">
 			<div className="sui-config-table__details-header">
 				<h3 className="sui-heading--h5 sui-config-table__details--title">
 					{config?.name}

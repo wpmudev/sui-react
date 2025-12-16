@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { Tag } from "@wpmudev/sui-tag"
 
@@ -9,6 +9,7 @@ import { SettingBlockProps } from "./setting-block.types"
 
 // Build "setting-block" component
 const SettingBlock: React.FC<SettingBlockProps> = ({
+	id,
 	title,
 	description,
 	className,
@@ -20,6 +21,8 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 	_htmlProps,
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const settingBlockId = id || `sui_setting_block_${generatedId}`
 	// Interaction methods
 	const [isHovered, isFocused, methods] = useInteraction({})
 
@@ -40,6 +43,7 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 
 	return (
 		<div
+			id={settingBlockId}
 			className={classNames}
 			{...methods}
 			data-testid="setting-block"

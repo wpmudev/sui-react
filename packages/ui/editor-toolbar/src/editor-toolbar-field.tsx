@@ -1,15 +1,18 @@
-import React, { FC } from "react"
+import React, { FC, useId } from "react"
 import { Refresh, Spinner, CheckAlt } from "@wpmudev/sui-icons"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { EditorToolbarFieldProps } from "./editor-toolbar.types"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 const EditorToolbarField: FC<EditorToolbarFieldProps> = ({
+	id,
 	status = "saved",
 	statusText = "",
 	children,
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const editorToolbarFieldId = id || `sui_editor_toolbar_field_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 	// Generate CSS class names for the editor toolbar component
 	const classNames = generateCN(
@@ -35,7 +38,7 @@ const EditorToolbarField: FC<EditorToolbarFieldProps> = ({
 
 	return (
 		// Render the editor-toolbar component
-		<div className={classNames}>
+		<div id={editorToolbarFieldId} className={classNames}>
 			{children}
 			<div className="sui-editor-toolbar__field--status">
 				{StatusTag}

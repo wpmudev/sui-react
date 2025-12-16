@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { Facebook, Twitter, Instagram } from "@wpmudev/sui-icons"
 import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
@@ -21,6 +21,7 @@ const socialIcons = {
 
 // Build footer component
 const Footer: React.FC<FooterProps> = ({
+	id,
 	links,
 	logoImageLink,
 	logoHref,
@@ -32,6 +33,8 @@ const Footer: React.FC<FooterProps> = ({
 	_htmlProps,
 	_style,
 }) => {
+	const generatedId = useId()
+	const footerId = id || `sui_footer_${generatedId}`
 	let blocks: React.ReactNode[] = []
 
 	if (renderBlocks) {
@@ -50,6 +53,7 @@ const Footer: React.FC<FooterProps> = ({
 
 	return (
 		<div
+			id={footerId}
 			className={footerCN}
 			data-testid="footer"
 			{..._renderHTMLPropsSafely(_htmlProps)}

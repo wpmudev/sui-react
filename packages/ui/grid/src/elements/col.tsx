@@ -1,16 +1,20 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { ColProps } from "../grid.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const Col: React.FC<ColProps> = ({
+	id,
 	size,
 	children,
 	className,
 	_htmlProps = {},
 	_style,
 }) => {
+	const generatedId = useId()
+	const colId = id || `sui_col_${generatedId}`
+
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Convert the size object into responsive class names
@@ -42,7 +46,11 @@ const Col: React.FC<ColProps> = ({
 	children = useDefaultChildren(children, "{Column children content}")
 
 	return (
-		<div className={classNames} {..._renderHTMLPropsSafely(_htmlProps)}>
+		<div
+			id={colId}
+			className={classNames}
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			{children}
 		</div>
 	)

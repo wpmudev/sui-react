@@ -26,6 +26,7 @@ import { TooltipProps } from "./tooltip.types"
 
 // Build "Tooltip" component.
 const Tooltip: React.FC<TooltipProps> = ({
+	id,
 	label,
 	type = "button",
 	className,
@@ -46,7 +47,8 @@ const Tooltip: React.FC<TooltipProps> = ({
 }) => {
 	// detect RTL
 	const isRTL = useDetectRTL()
-	const uniqueId = useId()
+	const generatedId = useId()
+	const uniqueId = id || `sui_tooltip_${generatedId}`
 
 	const [isVisible, setIsVisible] = useState(false)
 	const [pos, setPos] = useState({ top: 0, left: 0 })
@@ -60,7 +62,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 		if (tooltipRef.current) {
 			const parentRect = tooltipRef?.current?.getBoundingClientRect()
 			const trigger = triggerRef?.current?.getBoundingClientRect()
-			const popupEl = document.getElementById(`sui-tooltip-${uniqueId}`)
+			const popupEl = document.getElementById(uniqueId)
 			const tooltipHeight = popupEl?.clientHeight || 0
 			const tooltipWidth = popupEl?.clientWidth || 0
 			const alignName = isRTL ? "right" : "left"
@@ -331,7 +333,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			{!!children &&
 				render(
 					<div
-						id={`sui-tooltip-${uniqueId}`}
+						id={`sui_tooltip_${uniqueId}`}
 						className={generateCN("sui-tooltip__popup", {
 							show: isVisible,
 							focus: isFocused,

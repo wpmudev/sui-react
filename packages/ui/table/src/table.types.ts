@@ -514,6 +514,10 @@ interface TableToolbarContentProps
 }
 
 interface TableFieldsProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the TableFields.
+	 */
+	id?: string
 	children: React.ReactNode
 }
 

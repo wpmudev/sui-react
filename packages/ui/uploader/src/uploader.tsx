@@ -27,6 +27,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 
 // The Uploader component displays a file uploader with drag-and-drop support and file previews.
 const Uploader: React.FC<UploaderProps> = ({
+	id,
 	btnTitle = "Upload File",
 	multiple = true,
 	accept = "",
@@ -48,8 +49,8 @@ const Uploader: React.FC<UploaderProps> = ({
 	const [files, setFiles] = useState<Record<string, any>[]>([])
 
 	// Generate a unique ID for the uploader component
-	const uniqueID = useId()
-	const uploaderId = `sui-uploader-${uniqueID}`
+	const generatedId = useId()
+	const uploaderId = id || `sui_uploader_${generatedId}`
 
 	// load default files
 	useEffect(() => {
@@ -181,6 +182,7 @@ const Uploader: React.FC<UploaderProps> = ({
 		<Fragment>
 			<NotificationRenderer />
 			<div
+				id={uploaderId}
 				className={generateCN("sui-uploader", {}, suiInlineClassname)}
 				data-testid="uploader"
 				{..._renderHTMLPropsSafely(_htmlProps)}
@@ -189,7 +191,7 @@ const Uploader: React.FC<UploaderProps> = ({
 				{!onClick && (
 					<input
 						type="file"
-						id={uploaderId}
+						id={`${uploaderId}_input`}
 						ref={ref}
 						onChange={onSelectFile}
 						className="sui-uploader__input"
@@ -204,6 +206,7 @@ const Uploader: React.FC<UploaderProps> = ({
 				{/* Render the uploader button when multiple selection is allowed or no files are selected */}
 				{(multiple || (!multiple && files.length <= 0)) && (
 					<UploaderButton
+						id={`${uploaderId}_button`}
 						btnTitle={btnTitle ?? ""}
 						multiple={multiple ?? false}
 						allowDragAndDrop={allowDragAndDrop ?? false}
@@ -213,12 +216,12 @@ const Uploader: React.FC<UploaderProps> = ({
 				)}
 				{/* Render the file previews when there are selected files */}
 				{!!files && files.length > 0 && (
-					<div className="sui-uploader__preview">
-						<div className="sui-uploader__files">
+					<div className="sui-uploader__preview" id={`${uploaderId}_preview`}>
+						<div className="sui-uploader__files" id={`${uploaderId}_files`}>
 							{files?.map((file: File, index: number) => (
 								<UploaderFile
 									key={index}
-									id={index}
+									id={`${uploaderId}_file_${index}`}
 									onRemove={onRemoveFile}
 									file={file}
 								/>

@@ -115,7 +115,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	return (
 		<div
 			className={classNames}
-			id={`info-${id}`}
+			id={`info_${id}`}
 			data-testid={_isGroup ? "" : "tree-view-item-info"}
 			{...(!ctx?.allowCheck && {
 				tabIndex: isDisabled ? -1 : 0,
@@ -152,7 +152,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 					<ItemIcon size="sm" className="sui-tree-view__info-icon" />
 				)}
 				{/* Render the item's title */}
-				<span id={`${id}-title`}>{children}</span>
+				<span id={`${id}_title`}>{children}</span>
 			</div>
 		</div>
 	)

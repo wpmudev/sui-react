@@ -19,6 +19,10 @@ interface FooterProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * Unique identifier for the footer.
+	 */
+	id?: string
+	/**
 	 * An optional function that can be used to render additional blocks within the footer.
 	 *
 	 * @param builtWithText - "Made with <3 by WPMU DEV" to be rendered as additional blocks.

@@ -36,6 +36,7 @@ type AccordionCheckboxProps =
 interface AccordionItemBaseProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
+	id?: string // Optional custom ID for the accordion item.
 	title?: string // The title of the accordion item.
 	description?: string // The description of the accordion item.
 	children?: React.ReactNode // The content of the accordion item, which can be any valid React node.

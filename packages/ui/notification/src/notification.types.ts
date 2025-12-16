@@ -27,6 +27,10 @@ interface NotificationProps
 
 // NotificationRendererProps
 interface NotificationRendererProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the NotificationRenderer.
+	 */
+	id?: string
 	className?: string // class name
 }
 
