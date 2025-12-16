@@ -318,6 +318,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
 	return (
 		<div
+			id={uniqueId}
 			{...methods}
 			className={classNames}
 			data-testid="tooltip"
@@ -325,6 +326,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div
+				id={`${uniqueId}_trigger`}
 				className="sui-tooltip__trigger"
 				ref={triggerRef as LegacyRef<HTMLDivElement>}
 			>

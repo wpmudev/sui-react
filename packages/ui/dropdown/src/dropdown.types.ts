@@ -17,6 +17,10 @@ import { CheckboxProps } from "@wpmudev/sui-checkbox"
  * Props for Menu component.
  */
 interface DropdownMenuProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the DropdownMenu.
+	 */
+	id?: string
 	/** Additional class name(s) to be applied to the Menu. */
 	className?: string
 	/** Children elements to be rendered inside the Menu. */

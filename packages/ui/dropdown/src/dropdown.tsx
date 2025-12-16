@@ -398,6 +398,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 		return (
 			<div
+				id={dropdownId}
 				ref={dropdownRef}
 				className={wrapperClasses}
 				data-testid="dropdown"

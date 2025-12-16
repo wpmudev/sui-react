@@ -102,6 +102,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	// Render the AccordionItem component with proper accessibility attributes.
 	return (
 		<div
+			id={uniqueId}
 			className={generateCN(
 				"sui-accordion__item",
 				{

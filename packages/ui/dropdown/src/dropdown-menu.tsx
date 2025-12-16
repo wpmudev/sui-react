@@ -5,7 +5,7 @@ import { DropdownMenuProps } from "./dropdown.types"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 // Define the Menu component
-const DropdownMenu: React.FC<DropdownMenuProps & { id?: string }> = ({
+const DropdownMenu: React.FC<DropdownMenuProps> = ({
 	id,
 	className = "",
 	children,
