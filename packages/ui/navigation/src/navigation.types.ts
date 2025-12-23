@@ -64,6 +64,10 @@ interface NavigationBrandProps extends SuiStyleType, SuiHTMLAttributes {
 	 * Optional: Description for the brand.
 	 */
 	description?: string
+	/*
+	 * Optional: Additional CSS class name.
+	 */
+	className?: string
 }
 
 type NavigationUserType = {
