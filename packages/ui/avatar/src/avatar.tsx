@@ -64,9 +64,17 @@ const Avatar: React.FC<AvatarProps> = ({
 
 	return (
 		<span {...attributes}>
-			{hasImage && <Image source={imageObj.src} text={imageObj.alt} />}
-			{!hasImage && <Icon iconName={icon} />}
-			{hasStatus && status !== "none" && <Status status={status} />}
+			{hasImage && (
+				<Image
+					id={`${avatarId}_image`}
+					source={imageObj.src}
+					text={imageObj.alt}
+				/>
+			)}
+			{!hasImage && <Icon id={`${avatarId}_icon`} iconName={icon} />}
+			{hasStatus && status !== "none" && (
+				<Status id={`${avatarId}_status`} status={status} />
+			)}
 		</span>
 	)
 }

@@ -36,6 +36,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 	// Define the user's avatar button component
 	const userAvatarBtn = (
 		<Avatar
+			id={`${navigationUserId}_avatar`}
 			status={status}
 			image={{
 				src: user?.image ?? "",
