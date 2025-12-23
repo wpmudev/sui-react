@@ -19,6 +19,10 @@ interface TableSectionProps
 			HTMLProps<HTMLTableSectionElement | HTMLDivElement>
 		>,
 		SuiStyleType {
+	/**
+	 * Unique identifier for the table section.
+	 */
+	id?: string
 	children?: React.ReactNode
 	ref?: Ref<HTMLTableSectionElement>
 }
@@ -55,6 +59,11 @@ type TableOnActionType = (action: TableExpectedAction, data: unknown) => void
  * Interface representing the properties of a table.
  */
 interface TableProps extends SuiHTMLAttributes, SuiStyleType {
+	/**
+	 * Unique identifier for the Table.
+	 */
+	id?: string
+
 	/**
 	 * Custom css className(s)
 	 */
