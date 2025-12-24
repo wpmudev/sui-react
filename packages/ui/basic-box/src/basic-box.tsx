@@ -76,6 +76,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 					</div>
 					{!!description && (
 						<div
+							id={`${basicBoxId}_description`}
 							className="sui-basic-box__header-desc"
 							data-testid="basic-box-description"
 						>

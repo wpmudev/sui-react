@@ -22,9 +22,16 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 
 	return (
 		<div id={pageHeaderId} className={classNames}>
-			<h1 className="sui-page-header__title">{title}</h1>
+			<h1 id={`${pageHeaderId}_title`} className="sui-page-header__title">
+				{title}
+			</h1>
 			{actions.length > 0 && (
-				<div className="sui-page-header__actions">{actions}</div>
+				<div
+					id={`${pageHeaderId}_actions`}
+					className="sui-page-header__actions"
+				>
+					{actions}
+				</div>
 			)}
 		</div>
 	)
