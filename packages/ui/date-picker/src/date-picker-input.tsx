@@ -44,7 +44,7 @@ const DatePickerInput: React.FC<any> = ({
 	const { startDate, endDate } = ctx?.dateRange ?? {}
 
 	// Date format string for displaying the selected date(s)
-	const formatStr = "LLLL d, yyyy"
+	const formatStr = ctx?.dateFormat || "LLLL d, yyyy"
 
 	// value to be displayed in the input field based on the context state
 	let value = ``

@@ -55,6 +55,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 		definedRanges = predefinedRanges,
 		isDisabled,
 		closeOnClickOutside = true,
+		dateFormat = "LLLL d, yyyy",
 		children,
 	} = props
 
@@ -311,6 +312,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 				minDateValid,
 				maxDateValid,
 				definedRanges,
+				dateFormat,
 				startMonth,
 				endMonth,
 				setFirstMonthValidated,

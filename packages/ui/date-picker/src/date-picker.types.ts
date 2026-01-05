@@ -146,6 +146,10 @@ interface DatePickerContextProps {
 	 */
 	definedRanges?: DatePickerProps["definedRanges"]
 	/**
+	 * Date format string for displaying dates
+	 */
+	dateFormat?: string
+	/**
 	 * Start month for the displayed calendar (in date range mode)
 	 */
 	startMonth?: Date | number

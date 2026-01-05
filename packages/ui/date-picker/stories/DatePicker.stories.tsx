@@ -66,6 +66,7 @@ DatePicker.args = {
 	closeOnClickOutside: true,
 	error: "",
 	alignment: "left",
+	dateFormat: "LLLL d, yyyy",
 }
 
 // Set controls for story arguments.
@@ -143,6 +144,14 @@ DatePicker.argTypes = {
 				left: "Left",
 				right: "Right",
 			},
+		},
+	},
+	dateFormat: {
+		name: "Date Format",
+		description:
+			"Date format string using date-fns format tokens. Examples: 'LLLL d, yyyy' (January 1, 2026), 'MMM d, yyyy' (Jan 1, 2026), 'MM/dd/yyyy' (01/01/2026)",
+		control: {
+			type: "text",
 		},
 	},
 }
