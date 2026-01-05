@@ -90,6 +90,14 @@ interface DatePickerProps
 	 * Alignment of the popover relative to the input field
 	 */
 	alignment?: "left" | "right"
+	/**
+	 * Date format string for displaying dates (using date-fns format tokens).
+	 *
+	 * @default "LLLL d, yyyy" (e.g., "January 1, 2026")
+	 * @example "MMM d, yyyy" for short month (e.g., "Jan 1, 2026")
+	 * @example "MM/dd/yyyy" for numeric format (e.g., "01/01/2026")
+	 */
+	dateFormat?: string
 }
 interface DatePickerContextProps {
 	/**

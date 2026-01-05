@@ -29,6 +29,7 @@ const DatePicker = ({
 	color: string
 	error: string
 	isDisabled: boolean
+	dateFormat?: string
 }) => {
 	const boxStyles = {
 		padding: 20,
@@ -47,7 +48,11 @@ const DatePicker = ({
 						error={error}
 						isDisabled={isDisabled}
 					>
-						<SuiDatePicker isDisabled={isDisabled} {...props} />
+						<SuiDatePicker
+							isDisabled={isDisabled}
+							dateFormat={props.dateFormat}
+							{...props}
+						/>
 					</FormField>
 				</div>
 			</div>
