@@ -48,11 +48,7 @@ const DatePicker = ({
 						error={error}
 						isDisabled={isDisabled}
 					>
-						<SuiDatePicker
-							isDisabled={isDisabled}
-							dateFormat={props.dateFormat}
-							{...props}
-						/>
+						<SuiDatePicker isDisabled={isDisabled} {...props} />
 					</FormField>
 				</div>
 			</div>
@@ -71,7 +67,7 @@ DatePicker.args = {
 	closeOnClickOutside: true,
 	error: "",
 	alignment: "left",
-	dateFormat: "LLLL d, yyyy",
+	dateFormat: "MMM d, yyyy",
 }
 
 // Set controls for story arguments.
