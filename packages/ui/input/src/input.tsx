@@ -112,16 +112,23 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 		// handle on change
 		const handleChange = useCallback(
 			(e: React.ChangeEvent<HTMLInputElement>) => {
-				// update value if input isn't read-only
+				const newValue = e?.target?.value ?? ""
+
+				// update input value
 				if (!isReadOnly) {
-					setValue((e?.target?.value ?? "") as InputProps["defaultValue"])
+					setValue(newValue as InputProps["defaultValue"])
 				}
 
-				if (!!onChange) {
+				// 🔥 VALIDATE HERE → covers paste + typing + everything else
+				if (validate && isFunction(validate)) {
+					validate(newValue)
+				}
+
+				if (onChange) {
 					onChange(e)
 				}
 			},
-			[isReadOnly, onChange],
+			[isReadOnly, onChange, validate],
 		)
 
 		// Clear input value

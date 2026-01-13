@@ -19,6 +19,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 	validateOnMount,
 	resetValidation,
 	name,
+	onChange,
 	_htmlProps,
 	_style = {},
 }) => {
@@ -54,6 +55,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({
 			const getValue = inputElement?.value
 			setHasValue(getValue?.length > 0)
 		},
+		onChange,
 		isSmall,
 	}
 
