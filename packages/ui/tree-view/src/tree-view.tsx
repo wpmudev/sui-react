@@ -24,7 +24,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @return {JSX.Element} - JSX Element representing the TreeView component
  */
 const TreeView: React.FC<TreeViewProps> = ({
-	id,
+	id: uniqueId,
 	className = "",
 	children,
 	allowCheck = false,
@@ -34,7 +34,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 	_style = {},
 }: TreeViewProps): JSX.Element => {
 	const generatedId = useId()
-	const treeViewId = id || `sui_tree_view_${generatedId}`
+	const treeViewId = uniqueId || `sui_tree_view_${generatedId}`
 	const [items, setItems] = useState<TreeViewCheckType[]>([])
 
 	// Default children content

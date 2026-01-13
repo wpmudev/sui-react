@@ -13,7 +13,7 @@ import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // Build "field list" component
 const FieldList: React.FC<FieldListProps> = ({
-	id,
+	id: uniqueId,
 	label,
 	helper,
 	children,
@@ -24,7 +24,7 @@ const FieldList: React.FC<FieldListProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const fieldListId = id || `sui_field_list_${generatedId}`
+	const fieldListId = uniqueId || `sui_field_list_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Callback function to handle item toggling
