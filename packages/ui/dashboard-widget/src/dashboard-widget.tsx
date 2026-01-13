@@ -86,19 +86,23 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 						{/* Display the icon if available */}
 						{IconTag && <IconTag size="md" />}
 						{/* Display the title and optional tag */}
-						<h4 className="sui-heading--h4 sui-dashboard-widget__header-title">
-							{title}
-							{tag && (
-								<Tag
-									colorScheme="black"
-									design="outlined"
-									{...(tagAttrs ?? {})}
-								>
-									{tag}
-								</Tag>
-							)}
-							{StatusIcon && <StatusIcon size="sm" {...(statusProps ?? {})} />}
-						</h4>
+						{(title || tag || StatusIcon) && (
+							<h4 className="sui-heading--h4 sui-dashboard-widget__header-title">
+								{title}
+								{tag && (
+									<Tag
+										colorScheme="black"
+										design="outlined"
+										{...(tagAttrs ?? {})}
+									>
+										{tag}
+									</Tag>
+								)}
+								{StatusIcon && (
+									<StatusIcon size="sm" {...(statusProps ?? {})} />
+								)}
+							</h4>
+						)}
 					</div>
 					{/* Display collapse/expand button if allowed */}
 					{canCollapse && (
