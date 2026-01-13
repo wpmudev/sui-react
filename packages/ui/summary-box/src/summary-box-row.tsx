@@ -14,6 +14,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
  * @param {React.ReactNode} props.children   - Optional additional content within the summary box.
  * @param                   props._htmlProps
  * @param                   props._style
+ * @param                   props.id
  * @return {JSX.Element} The SummaryBoxRow component.
  */
 export const SummaryBoxRow: React.FC<SummaryBoxRowProps> = ({

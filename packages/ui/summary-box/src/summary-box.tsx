@@ -23,6 +23,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param                      props._htmlProps
  * @param                      props._style
  *
+ * @param                      props.id
  * @return {JSX.Element} The SummaryBox component.
  */
 const SummaryBox: React.FC<SummaryBoxProps> = ({

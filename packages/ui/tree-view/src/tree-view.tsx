@@ -20,6 +20,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param  root0._style
  * @param  root0._htmlProps
  *
+ * @param  root0.id
  * @return {JSX.Element} - JSX Element representing the TreeView component
  */
 const TreeView: React.FC<TreeViewProps> = ({

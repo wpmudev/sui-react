@@ -11,6 +11,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
  * Content for the left box with a white background
  *
  * @param {Object}          props            - The props for the SummaryBoxContent component.
+ * @param {string}          props.id         - Optional ID for the component.
  * @param {string}          props.className  - Additional CSS classes to apply to the component.
  * @param {string}          props.span       - The space the content should take either half or full
  * @param {string}          props.padding    - The space the content should take either half or full

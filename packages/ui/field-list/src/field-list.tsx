@@ -1,10 +1,15 @@
-import React, { Children, cloneElement, ReactElement, useCallback } from "react"
+import React, {
+	Children,
+	cloneElement,
+	ReactElement,
+	useCallback,
+	useId,
+} from "react"
 
 // Import required components
 import { FieldListItemProps, FieldListProps } from "./field-list.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
-import { useId } from "react"
 
 // Build "field list" component
 const FieldList: React.FC<FieldListProps> = ({

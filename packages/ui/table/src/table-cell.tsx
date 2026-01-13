@@ -22,22 +22,22 @@ import { TableContext, TableSortBy } from "./table-context"
  * Represents a cell within a table row, either a regular cell (td) or a heading cell (th).
  * It can display content, optionally have a drag icon, and accepts additional classNames and props.
  *
- * @param  root0
- * @param  root0.id
- * @param  root0.children
- * @param  root0.isHeading
- * @param  root0.className
- * @param  root0.hasDragIcon
- * @param  root0.isAction
- * @param  root0.isSortable
- * @param  root0.isSticky
- * @param  root0.isTrim
- * @param  root0.isPrimary
- * @param  root0.colSpan
- * @param  root0._htmlProps
- * @param  root0._style
- * @param  root0._isGroup
- * @param  root0.icon
+ * @param  props
+ * @param  props.id
+ * @param  props.children
+ * @param  props.isHeading
+ * @param  props.className
+ * @param  props.hasDragIcon
+ * @param  props.isAction
+ * @param  props.isSortable
+ * @param  props.isSticky
+ * @param  props.isTrim
+ * @param  props.isPrimary
+ * @param  props.colSpan
+ * @param  props._htmlProps
+ * @param  props._style
+ * @param  props._isGroup
+ * @param  props.icon
  *
  * @return {JSX.Element} The JSX representation of the TableCell component.
  */

@@ -11,6 +11,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * Component that represents the footer of a summary box. It displays content within a div element.
  *
  * @param {Object} props           - The props for the SummaryFooterBody component.
+ * @param          props.id
  * @param {string} props.className - Additional CSS classes to apply to the component.
  * @param {*}      props.children  - The content to be displayed within the component.
  * @param          props._style

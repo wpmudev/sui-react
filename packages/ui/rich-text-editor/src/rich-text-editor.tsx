@@ -17,17 +17,17 @@ declare const tinymce: Record<string, any>
  *
  * A code editor component that allows displaying and editing code.
  *
- * @param  root0
- * @param  root0.id
- * @param  root0.actions
- * @param  root0.tinyMCEOptions
- * @param  root0.className
- * @param  root0.isDisabled
- * @param  root0.defaultValue
- * @param  root0.onChange
- * @param  root0._style
- * @param  root0._htmlProps
- * @param  root0.ariaAttrs
+ * @param  props
+ * @param  props.id
+ * @param  props.actions
+ * @param  props.tinyMCEOptions
+ * @param  props.className
+ * @param  props.isDisabled
+ * @param  props.defaultValue
+ * @param  props.onChange
+ * @param  props._style
+ * @param  props._htmlProps
+ * @param  props.ariaAttrs
  * @return {JSX.Element} - JSX Element representing the RichTextEditor component
  */
 const RichTextEditor: React.FC<RichTextEditorProps> = ({

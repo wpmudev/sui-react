@@ -29,6 +29,7 @@ import { SummaryBoxItemProps } from "./summary-box.types"
  *
  * @param          props._htmlProps
  * @param          props._style
+ * @param          props.id
  * @return {JSX.Element} The SummaryBoxItem component.
  */
 const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({

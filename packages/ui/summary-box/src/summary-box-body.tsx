@@ -14,6 +14,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * one for the main content and the other for a list of summary items.
  *
  * @param  root0
+ * @param  root0.id
  * @param  root0.className
  * @param  root0.children
  * @param  root0.summaryItems
