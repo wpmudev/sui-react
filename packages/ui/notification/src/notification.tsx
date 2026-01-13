@@ -29,10 +29,7 @@ const Notification: React.FC<NotificationProps> = ({
 
 	// Create notification ID
 	const uniqueId = useId()
-	if (!id) {
-		id = uniqueId
-	}
-	const notificationId = `sui_notification_${uniqueId}`
+	const notificationId = id ? id : `sui_notification_${uniqueId}`
 
 	useEffect(() => {
 		if (!isInline && !isDismissible) {
@@ -91,28 +88,45 @@ const Notification: React.FC<NotificationProps> = ({
 			data-testid="notification"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			{!!Icon && <Icon size="md" className="sui-notification__icon" />}
-			<div className="sui-notification__content">
+			{!!Icon && (
+				<Icon
+					id={`${notificationId}_icon`}
+					size="md"
+					className="sui-notification__icon"
+				/>
+			)}
+			<div
+				id={`${notificationId}_content`}
+				className="sui-notification__content"
+			>
 				{!!title && (
 					<span
-						className="sui-notification__title"
 						id={`${notificationId}_title`}
+						className="sui-notification__title"
 					>
 						{title}
 					</span>
 				)}
 				{!!message && (
 					<span
-						className="sui-notification__message"
 						id={`${notificationId}_message`}
+						className="sui-notification__message"
 					>
 						{message}
 					</span>
 				)}
-				{!!action && <div className="sui-notification__action">{action}</div>}
+				{!!action && (
+					<div
+						id={`${notificationId}_action`}
+						className="sui-notification__action"
+					>
+						{action}
+					</div>
+				)}
 			</div>
 			{isDismissible && (
 				<Button
+					id={`${notificationId}_dismiss`}
 					className="sui-modal__header-actions-close"
 					icon="Close"
 					type="tertiary"
