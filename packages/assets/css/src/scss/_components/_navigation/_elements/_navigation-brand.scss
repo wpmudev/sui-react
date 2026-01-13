@@ -49,6 +49,13 @@
 					}
 				}
 
+				@include media(max-width, md) {
+					h3 {
+						font-size: $font-size-sm;
+						line-height: $font-height-sm;
+					}
+				}
+
 				@include modifier(desc) {
 					display: block;
 					color: $color-grey-60;
