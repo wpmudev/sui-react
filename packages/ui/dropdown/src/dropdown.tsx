@@ -100,7 +100,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		const searchInputRef = useRef<HTMLInputElement | null>(null)
 		// Generate a unique identifier for the dropdown component.
 		const generatedId = useId()
-		const dropdownId = id || `sui_dropdown_${generatedId}`
+		const dropdownId = `${id}_wrapper` || `sui_dropdown_${generatedId}`
 
 		// Handle the closing of the dropdown when clicking outside the component.
 		useOuterClick(dropdownRef, () => {
@@ -295,6 +295,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 			return (
 				<DropdownMenuItem
+					id={`${dropdownId}_select_all`}
 					key="select-all"
 					isSelected={allSelected}
 					onClick={handleSelectAll}
@@ -319,7 +320,11 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						// If it's a group item, render the MenuGroup component.
 						if (!!menuItem?.menus) {
 							return (
-								<DropdownMenuGroup key={index} title={menuItem.label}>
+								<DropdownMenuGroup
+									id={`${dropdownId}_menu_group_${index}`}
+									key={index}
+									title={menuItem.label}
+								>
 									{renderMenus(menuItem?.menus)}
 								</DropdownMenuGroup>
 							)
@@ -366,6 +371,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						// Otherwise, render the MenuItem component.
 						return (
 							<DropdownMenuItem
+								id={`${dropdownId}_menu_item_${index}`}
 								key={index}
 								isSelected={menuItem.isSelected}
 								{...menuItem.props}

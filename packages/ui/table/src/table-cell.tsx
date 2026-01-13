@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback, useContext, useRef } from "react"
+import React, { Fragment, useCallback, useContext, useId, useRef } from "react"
 
 import {
 	_renderHTMLPropsSafely,
@@ -58,6 +58,9 @@ const TableCell: React.FC<TableCellProps> = ({
 	_htmlProps = {},
 	_style = {},
 }): JSX.Element => {
+	const uniqueId = useId()
+	const cellId = id ? id : `sui_table_cell_${uniqueId}`
+
 	// Define element tag name based on whether it's a heading cell (th) or a regular cell (td).
 	const TagName: "td" | "th" = isHeading ? "th" : "td"
 
@@ -126,7 +129,7 @@ const TableCell: React.FC<TableCellProps> = ({
 
 	return (
 		<TagName
-			id={id}
+			id={cellId}
 			ref={ref}
 			className={generateCN(
 				"sui-table__cell",
@@ -147,25 +150,25 @@ const TableCell: React.FC<TableCellProps> = ({
 		>
 			{hasDragIcon && !_isGroup && (
 				<Icons.Grip
-					id={`${id}_drag`}
+					id={`${cellId}_drag`}
 					className="sui-table__cell--drag"
 					size="sm"
 				/>
 			)}
 			{!isAction ? (
-				<div id={`${id}_sort-btn`} {...sortBtnProps}>
-					{PreIcon && <PreIcon id={`${id}_pre-icon`} size="sm" />}
+				<div id={`${cellId}_sort-btn`} {...sortBtnProps}>
+					{PreIcon && <PreIcon id={`${cellId}_pre-icon`} size="sm" />}
 					<span>{children}</span>
 					{isSortable && !_isGroup && (
-						<SortIcon id={`${id}_sort-icon`} size="xs" />
+						<SortIcon id={`${cellId}_sort-icon`} size="xs" />
 					)}
 				</div>
 			) : (
 				<Fragment>
-					{PreIcon && <PreIcon id={`${id}_pre-icon`} size="xs" />}
+					{PreIcon && <PreIcon id={`${cellId}_pre-icon`} size="xs" />}
 					{children}
 					{isSortable && !_isGroup && (
-						<SortIcon id={`${id}_sort-icon`} size="xs" />
+						<SortIcon id={`${cellId}_sort-icon`} size="xs" />
 					)}
 				</Fragment>
 			)}

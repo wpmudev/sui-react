@@ -52,7 +52,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const { spacing } = useContext(AccordionContext)
 
 	// IDs for the accordion and its panel to manage accessibility.
-	const accordionId = uniqueId
+	const accordionId = `${uniqueId}_header`
 	const accordionPanelId = `${uniqueId}_panel`
 
 	const onMouseDownCapture = () => {
@@ -137,6 +137,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			>
 				{hasCheckbox && (
 					<div
+						id={`${accordionId}_accessible_cta`}
 						className="sui-accessible-cta"
 						tabIndex={isDisabled ? -1 : 0}
 						role="button"
