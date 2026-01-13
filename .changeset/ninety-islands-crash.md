@@ -40,6 +40,7 @@
 "@wpmudev/sui-spinner": patch
 "@wpmudev/sui-tooltip": patch
 "@wpmudev/sui-avatar": patch
+"@wpmudev/sui-button": patch
 "@wpmudev/sui-drawer": patch
 "@wpmudev/sui-footer": patch
 "@wpmudev/sui-search": patch
