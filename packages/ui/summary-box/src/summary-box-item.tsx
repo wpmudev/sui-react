@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
@@ -30,9 +30,11 @@ import { SummaryBoxItemProps } from "./summary-box.types"
  *
  * @param                   props._htmlProps
  * @param                   props._style
+ * @param                   props.id
  * @return {JSX.Element} The SummaryBoxItem component.
  */
 const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
+	id,
 	title = "",
 	titleUrl = "",
 	description = "",
@@ -47,6 +49,8 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	_htmlProps = {},
 	_style = {},
 }: SummaryBoxItemProps): JSX.Element => {
+	const generatedId = useId()
+	const summaryBoxItemId = id || `sui_summary_box_item_${generatedId}`
 	// Hook for handling interaction state (hover, focus).
 	const [isHovered, isFocused, methods] = useInteraction({})
 	const { suiInlineClassname } = useStyles(_style, className)
@@ -71,7 +75,11 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 		<Row
 			className={classNames}
 			{...methods}
-			_htmlProps={{ "data-testid": "summary-box-item", ..._htmlProps }}
+			_htmlProps={{
+				id: summaryBoxItemId,
+				"data-testid": "summary-box-item",
+				..._htmlProps,
+			}}
 		>
 			<div className="sui-summary-box__list-item-info">
 				{!isEmpty(titleUrl) ? (

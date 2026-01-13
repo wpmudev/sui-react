@@ -9,6 +9,10 @@ interface BoxGroupProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * The unique identifier for the box group (optional).
+	 */
+	id?: string
+	/**
 	 * Indicates whether the boxes should be displayed inline or not.
 	 */
 	isInline?: boolean

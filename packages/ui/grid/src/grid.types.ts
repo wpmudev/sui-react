@@ -14,6 +14,10 @@ interface ColProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the column.
+	 */
+	id?: string
+	/**
 	 * The size of the column.
 	 */
 	size?: number | string | { [key in RowAlignments]?: number }
@@ -33,6 +37,10 @@ interface ColProps
 interface RowProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		Omit<SuiStyleType, "align" | "height"> {
+	/**
+	 * Unique identifier for the row.
+	 */
+	id?: string
 	/**
 	 * The alignment of the row
 	 */

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
@@ -7,6 +7,7 @@ import { RadioGroupProps, RadioValueType } from "./radio.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const RadioGroup = ({
+	id,
 	isInline = true,
 	children,
 	name = "",
@@ -22,6 +23,8 @@ const RadioGroup = ({
 	_htmlProps = {},
 	_style,
 }: RadioGroupProps) => {
+	const generatedId = useId()
+	const radioGroupId = id || `sui_radio_group_${generatedId}`
 	const [current, setCurrent] = useState<RadioValueType>(defaultValue)
 
 	// update state when default value get changed
@@ -61,6 +64,7 @@ const RadioGroup = ({
 			}}
 		>
 			<div
+				id={radioGroupId}
 				className={radioClassNames}
 				role="radiogroup"
 				data-testid="radio-group"

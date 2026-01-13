@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.0.4
+
+### Patch Changes
+
+- [#358](https://github.com/wpmudev/sui-react/pull/358)
+  [`a98b0db`](https://github.com/wpmudev/sui-react/commit/a98b0dbed76c7d20abae0d027524a4281ca66028)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Added missing ids to
+  components
+
+- Updated dependencies
+  [[`a98b0db`](https://github.com/wpmudev/sui-react/commit/a98b0dbed76c7d20abae0d027524a4281ca66028)]:
+  - @wpmudev/sui-checkbox@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes

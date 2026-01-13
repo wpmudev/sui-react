@@ -288,12 +288,14 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 		// Render component
 		return (
 			<div
+				id={`${id}_wrapper`}
 				className={classNames}
 				data-testid="input"
 				{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
 			>
 				{"start" === iconPosition && renderIcon()}
 				<div
+					id={`${id}_input_field`}
 					className={generateCN("sui-input__input-field", {
 						"has-hint": hasHintText,
 					})}
@@ -302,10 +304,20 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 					{hasHintText && (
 						<Fragment>
 							{!isEmpty(value as string) && (
-								<div className="sui-input__input-field-text">{value}</div>
+								<div
+									className="sui-input__input-field-text"
+									id={`${id}_field_text`}
+								>
+									{value}
+								</div>
 							)}
 							{hasHintText && (
-								<div className="sui-input__input-field-hint">{hint}</div>
+								<div
+									className="sui-input__input-field-hint"
+									id={`${id}_field_hint`}
+								>
+									{hint}
+								</div>
 							)}
 						</Fragment>
 					)}

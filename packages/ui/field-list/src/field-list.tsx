@@ -1,4 +1,10 @@
-import React, { Children, cloneElement, ReactElement, useCallback } from "react"
+import React, {
+	Children,
+	cloneElement,
+	ReactElement,
+	useCallback,
+	useId,
+} from "react"
 
 // Import required components
 import { FieldListItemProps, FieldListProps } from "./field-list.types"
@@ -7,6 +13,7 @@ import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 // Build "field list" component
 const FieldList: React.FC<FieldListProps> = ({
+	id: uniqueId,
 	label,
 	helper,
 	children,
@@ -16,6 +23,8 @@ const FieldList: React.FC<FieldListProps> = ({
 	_htmlProps,
 	_style,
 }) => {
+	const generatedId = useId()
+	const fieldListId = uniqueId || `sui_field_list_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Callback function to handle item toggling
@@ -44,6 +53,7 @@ const FieldList: React.FC<FieldListProps> = ({
 	return (
 		// Render the FieldList component
 		<div
+			id={fieldListId}
 			className={generateCN(
 				"sui-field-list",
 				{ "no-border-radius": noBorderRadius },
@@ -54,7 +64,11 @@ const FieldList: React.FC<FieldListProps> = ({
 		>
 			{/* Render the label and helper elements if they are provided */}
 			{(label || helper) && (
-				<div className="sui-field-list__row" style={styles}>
+				<div
+					id={`${fieldListId}_header`}
+					className="sui-field-list__row"
+					style={styles}
+				>
 					{/* Render the label element if provided */}
 					{label && (
 						<h3 className="sui-heading sui-heading--h4 sui-field-list__title">
@@ -66,7 +80,7 @@ const FieldList: React.FC<FieldListProps> = ({
 				</div>
 			)}
 			{/* Render the list of FieldListItem components */}
-			<div className="sui-field-list__items">
+			<div id={`${fieldListId}_items`} className="sui-field-list__items">
 				{/* Map over and clone each child component with the onChangeItem callback */}
 				{Children.map(
 					children as ReactElement,

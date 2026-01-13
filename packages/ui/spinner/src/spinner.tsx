@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
@@ -8,6 +8,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 
 // Spinner component
 const Spinner: React.FC<SpinnerProps> = ({
+	id,
 	loaderSize = "lg",
 	colorScheme = "primary",
 	isContained = false,
@@ -16,6 +17,8 @@ const Spinner: React.FC<SpinnerProps> = ({
 	_htmlProps = {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const spinnerId = id || `sui_spinner_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate class names for the spinner container
@@ -33,6 +36,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 
 	return (
 		<div
+			id={spinnerId}
 			className={classNames}
 			data-testid="spinner"
 			{..._renderHTMLPropsSafely(_htmlProps)}

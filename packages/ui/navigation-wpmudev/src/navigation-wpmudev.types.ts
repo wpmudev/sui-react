@@ -50,6 +50,10 @@ type Resources = {
  * Represents the properties for a WPMUDEV button props.
  */
 interface WPMUDEVButtonProps extends DropdownProps, SuiStyleType {
+	/**
+	 * Unique identifier for the WPMUDEVButton.
+	 */
+	id?: string
 	title?: string
 	plugins?: Plugin[]
 	upsell?: {
@@ -65,6 +69,10 @@ interface WPMUDEVButtonProps extends DropdownProps, SuiStyleType {
  * Represents the properties for a WPMUDEV help.
  */
 interface WPMUDEVHelpProps extends DropdownProps, SuiStyleType {
+	/**
+	 * Unique identifier for the WPMUDEVHelp.
+	 */
+	id?: string
 	label?: string
 	title?: string
 	titleLink?: LinkProps
@@ -87,6 +95,10 @@ interface WPMUDEVHelpProps extends DropdownProps, SuiStyleType {
  * Represents the properties for a WPMUDEV notification.
  */
 interface WPMUDEVNotificationProps extends DropdownProps, SuiStyleType {
+	/**
+	 * Unique identifier for the WPMUDEVNotification.
+	 */
+	id?: string
 	title?: string
 	label?: string
 	notifications: Notifications
@@ -98,6 +110,10 @@ interface WPMUDEVNotificationProps extends DropdownProps, SuiStyleType {
  * Represents the properties for a WPMUDEV notification.
  */
 interface WPMUDEVDrawerProps extends DrawerTypes, SuiStyleType {
+	/**
+	 * Unique identifier for the WPMUDEVDrawer.
+	 */
+	id?: string
 	title?: string
 	type?: "helper" | "hamburger" | "default"
 	toggleRef: RefObject<DrawerActions | null>
@@ -112,6 +128,10 @@ interface WPMUDEVDrawerProps extends DrawerTypes, SuiStyleType {
  * Represents the properties for a WPMUDEV user.
  */
 interface WPMUDEVUserProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the WPMUDEVUser.
+	 */
+	id?: string
 	title: string
 	description?: string
 	avatarProps?: AvatarProps
@@ -127,6 +147,10 @@ interface WPMUDEVUserProps extends SuiStyleType {
  * Represents the properties for a Navigation Wrapper.
  */
 interface NavigationWrapperProps extends SuiHTMLAttributes, SuiStyleType {
+	/**
+	 * Unique identifier for the NavigationWrapper.
+	 */
+	id?: string
 	children: ReactNode
 }
 

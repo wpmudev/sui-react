@@ -10,7 +10,7 @@ const ErrorMessage: React.FC<FormFieldErrorProps> = ({
 	children,
 }) => (
 	<span
-		id={`${id}-error-message`}
+		id={`${id}_error_message`}
 		className="sui-form-field__helper sui-color-error--50"
 	>
 		{show && children}

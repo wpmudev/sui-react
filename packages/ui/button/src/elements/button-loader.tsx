@@ -5,6 +5,12 @@ import { ButtonProps } from "../button.types"
 
 interface ButtonLoaderProps {
 	/**
+	 * Optional ID for the loader element
+	 *
+	 * @type {string | undefined}
+	 */
+	id?: string
+	/**
 	 * Label Content
 	 *
 	 * @type {React.ReactNode | undefined}
@@ -28,6 +34,7 @@ interface ButtonLoaderProps {
 
 // Build "Loader" component.
 const Loader: React.FC<ButtonLoaderProps> = ({
+	id,
 	children,
 	colorScheme,
 	isDisabled,
@@ -45,20 +52,30 @@ const Loader: React.FC<ButtonLoaderProps> = ({
 	return (
 		<Fragment>
 			<span
+				id={id}
 				className="sui-button__icon sui-button__icon--loader"
 				aria-hidden="true"
 			>
-				<Spinner loaderSize="sm" colorScheme={spinnerColorScheme} />
+				<Spinner
+					id={`${id}_spinner`}
+					loaderSize="sm"
+					colorScheme={spinnerColorScheme}
+				/>
 			</span>
 			{children ? (
 				<span
+					id={`${id}_label`}
 					className="sui-button__label sui-button__label--hidden"
 					tabIndex={-1}
 				>
 					{children}
 				</span>
 			) : (
-				<span className="sui-screen-reader-only" tabIndex={-1}>
+				<span
+					id={`${id}_loading`}
+					className="sui-screen-reader-only"
+					tabIndex={-1}
+				>
 					Loading
 				</span>
 			)}

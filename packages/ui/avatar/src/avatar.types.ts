@@ -10,6 +10,10 @@ interface AvatarProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLSpanElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the avatar.
+	 */
+	id?: string
+	/**
 	 * The image source for the avatar.
 	 */
 	image?: {

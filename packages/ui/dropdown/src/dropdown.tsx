@@ -39,6 +39,7 @@ import { Spinner } from "@wpmudev/sui-spinner"
 const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 	(
 		{
+			id,
 			type = "",
 			label,
 			className,
@@ -99,7 +100,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		const popoverRef = useRef<HTMLDivElement | null>(null)
 		const searchInputRef = useRef<HTMLInputElement | null>(null)
 		// Generate a unique identifier for the dropdown component.
-		const id = `sui-dropdown-${useId()}`
+		const generatedId = useId()
+		const dropdownId = `${id}_wrapper` || `sui_dropdown_${generatedId}`
 
 		// Handle the closing of the dropdown when clicking outside the component.
 		useOuterClick(dropdownRef, () => {
@@ -294,6 +296,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 			return (
 				<DropdownMenuItem
+					id={`${dropdownId}_select_all`}
 					key="select-all"
 					isSelected={allSelected}
 					onClick={handleSelectAll}
@@ -318,7 +321,11 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						// If it's a group item, render the MenuGroup component.
 						if (!!menuItem?.menus) {
 							return (
-								<DropdownMenuGroup key={index} title={menuItem.label}>
+								<DropdownMenuGroup
+									id={`${dropdownId}_menu_group_${index}`}
+									key={index}
+									title={menuItem.label}
+								>
 									{renderMenus(menuItem?.menus)}
 								</DropdownMenuGroup>
 							)
@@ -365,6 +372,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						// Otherwise, render the MenuItem component.
 						return (
 							<DropdownMenuItem
+								id={`${dropdownId}_menu_item_${index}`}
 								key={index}
 								isSelected={menuItem.isSelected}
 								{...menuItem.props}
@@ -397,6 +405,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 		return (
 			<div
+				id={dropdownId}
 				ref={dropdownRef}
 				className={wrapperClasses}
 				data-testid="dropdown"
@@ -442,16 +451,27 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					}}
 				>
 					{dropdownArrow && (
-						<div className="sui-dropdown__popover--arrow"></div>
+						<div
+							className="sui-dropdown__popover--arrow"
+							id={`${dropdownId}_arrow`}
+						></div>
 					)}
 					{renderContentOnTop && !!children && (
-						<div className="sui-dropdown__menu-content">{children}</div>
+						<div
+							className="sui-dropdown__menu-content"
+							id={`${dropdownId}_menu_content_top`}
+						>
+							{children}
+						</div>
 					)}
 					{/* Render the dropdown menu items */}
 					{(!!menu || isAsync) && (
 						<DropdownMenu>
 							{allowSearch && (
-								<div className="sui-dropdown__menu-nav-search">
+								<div
+									className="sui-dropdown__menu-nav-search"
+									id={`${dropdownId}_search`}
+								>
 									<Input
 										ref={searchInputRef}
 										icon="Search"
@@ -489,7 +509,12 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					)}
 					{/* Render additional children passed to the Dropdown component */}
 					{!!children && !renderContentOnTop && (
-						<div className="sui-dropdown__menu-content">{children}</div>
+						<div
+							className="sui-dropdown__menu-content"
+							id={`${dropdownId}_menu_content_bottom`}
+						>
+							{children}
+						</div>
 					)}
 				</div>
 			</div>

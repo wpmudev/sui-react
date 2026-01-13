@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react"
+import React, { forwardRef, useId } from "react"
 import {
 	useDefaultChildren,
 	useInteraction,
@@ -29,6 +29,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 >(
 	(
 		{
+			id,
 			href,
 			target,
 			htmlFor,
@@ -61,6 +62,9 @@ const Button: React.FC<ButtonProps> = forwardRef<
 		},
 		ref,
 	) => {
+		const generatedId = useId()
+		const buttonId = id || `sui_button_${generatedId}`
+
 		// base className
 		const baseClassName = "sui-button"
 
@@ -71,7 +75,11 @@ const Button: React.FC<ButtonProps> = forwardRef<
 		if (isLoading) {
 			isUnwrapped = true
 			children = (
-				<Loader colorScheme={colorScheme} isDisabled={isDisabled}>
+				<Loader
+					id={`${buttonId}_loader`}
+					colorScheme={colorScheme}
+					isDisabled={isDisabled}
+				>
 					{children}
 				</Loader>
 			)
@@ -108,6 +116,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 		}
 
 		const attrs = {
+			id: buttonId,
 			ref,
 			href: isLink && !!href ? href : undefined,
 			...(isLink && target && { target }),
@@ -136,6 +145,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			<TagName {...attrs}>
 				{(startIcon || icon) && (
 					<Icon
+						id={`${buttonId}_start-icon`}
 						name={startIcon ?? ""}
 						size={iconSize}
 						{...(isLoading ? { className: "sui-button__icon--hidden" } : {})}
@@ -143,10 +153,13 @@ const Button: React.FC<ButtonProps> = forwardRef<
 				)}
 				{isUnwrapped && children}
 				{!isUnwrapped && (
-					<Label {...(iconOnly && { hidden: true })}>{children}</Label>
+					<Label id={`${buttonId}_label`} {...(iconOnly && { hidden: true })}>
+						{children}
+					</Label>
 				)}
 				{isEndIcon && (
 					<Icon
+						id={`${buttonId}_end-icon`}
 						name={endIcon ?? ""}
 						size={iconSize}
 						{...(isLoading ? { className: "sui-button__icon--hidden" } : {})}

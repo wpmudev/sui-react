@@ -48,6 +48,10 @@ interface NavigationUserMenuGroupProps extends NavigationUserMenuBaseProps {
 }
 
 interface NavigationBrandProps extends SuiStyleType, SuiHTMLAttributes {
+	/**
+	 * Unique identifier for the NavigationBrand.
+	 */
+	id?: string
 	/*
 	 * Optional: Plugin information for the brand.
 	 */
@@ -68,6 +72,10 @@ interface NavigationBrandProps extends SuiStyleType, SuiHTMLAttributes {
 	 * Show description in mobile view
 	 */
 	showDescriptionInMobile?: boolean
+	/*
+	 * Optional: Additional CSS class name.
+	 */
+	className?: string
 }
 
 type NavigationUserType = {
@@ -88,6 +96,10 @@ type NavigationUserType = {
 }
 
 interface NavigationUserProps extends SuiHTMLAttributes, SuiStyleType {
+	/**
+	 * Unique identifier for the NavigationUser.
+	 */
+	id?: string
 	/*
 	 * User information.
 	 */
@@ -120,6 +132,10 @@ interface NavigationUserProps extends SuiHTMLAttributes, SuiStyleType {
 interface NavigationProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	/**
+	 * Unique identifier for the Navigation.
+	 */
+	id?: string
 	/*
 	 * Brand information.
 	 */

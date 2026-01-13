@@ -9,6 +9,10 @@ interface AlertBannerProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * Unique identifier for the alert banner.
+	 */
+	id?: string
+	/**
 	 * Alert Banner content
 	 */
 	children?: ReactNode

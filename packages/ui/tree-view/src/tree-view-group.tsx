@@ -20,15 +20,15 @@ import { useStyles } from "@wpmudev/sui-hooks"
  *
  * A component that represents a group in the tree view.
  *
- * @param  root0
- * @param  root0.id
- * @param  root0.parentGroupId
- * @param  root0.icon
- * @param  root0.title
- * @param  root0.className
- * @param  root0.children
- * @param  root0.isDisabled
- * @param  root0._style
+ * @param  props
+ * @param  props.id
+ * @param  props.parentGroupId
+ * @param  props.icon
+ * @param  props.title
+ * @param  props.className
+ * @param  props.children
+ * @param  props.isDisabled
+ * @param  props._style
  *
  * @return {JSX.Element} - JSX Element representing the TreeViewGroup component
  */

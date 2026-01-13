@@ -19,6 +19,7 @@ import { Tooltip } from "@wpmudev/sui-tooltip"
 
 // The AccordionItem component is defined as a functional component using React.FC.
 const AccordionItem: React.FC<AccordionItemProps> = ({
+	id,
 	title = "{title}",
 	description,
 	children,
@@ -46,7 +47,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const [isPressed, setIsPressed] = useState(false)
 
 	// Custom hook to generate a unique ID for the accordion item.
-	const uniqueId = useId()
+	const generatedId = useId()
+	const uniqueId = id || `sui_accordion_${generatedId}`
 
 	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
 	const { toggle, isCurrentlyExpanded } = useAccordion({
@@ -56,8 +58,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const { spacing } = useContext(AccordionContext)
 
 	// IDs for the accordion and its panel to manage accessibility.
-	const accordionId = `sui-accordion-${uniqueId}`
-	const accordionPanelId = `sui-accordion-panel-${uniqueId}`
+	const accordionId = `${uniqueId}_header`
+	const accordionPanelId = `${uniqueId}_panel`
 
 	const onMouseDownCapture = () => {
 		setIsPressed(true)
@@ -106,6 +108,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	// Render the AccordionItem component with proper accessibility attributes.
 	return (
 		<div
+			id={uniqueId}
 			className={generateCN(
 				"sui-accordion__item",
 				{
@@ -141,6 +144,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			>
 				{(hasCheckbox || (hasToggle && isChecked)) && (
 					<div
+						id={`${accordionId}_accessible_cta`}
 						className="sui-accessible-cta"
 						tabIndex={isDisabled ? -1 : 0}
 						role="button"
@@ -157,12 +161,22 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				)}
 
 				{/* Content of the accordion item's header */}
-				<div className="sui-accordion__header-info">
+				<div
+					id={`${accordionId}_header_info`}
+					className="sui-accordion__header-info"
+				>
 					{(!!hasCheckbox || !!hasToggle || !!icon) && (
-						<div className="sui-accordion__header-actions">
+						<div
+							id={`${accordionId}_header_actions`}
+							className="sui-accordion__header-actions"
+						>
 							{hasToggle && (
-								<div className="sui-accordion__header-toggle">
+								<div
+									id={`${accordionId}_header_toggle`}
+									className="sui-accordion__header-toggle"
+								>
 									<Toggle
+										id={`${accordionId}_toggle`}
 										label={title}
 										defaultValue={isChecked}
 										isDisabled={isDisabled}
@@ -187,7 +201,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 							{hasCheckbox && (
 								<Checkbox
 									name={accordionId}
-									id={`${accordionId}-checkbox`}
+									id={`${accordionId}_checkbox`}
 									onChange={onCheckBoxChange}
 									isChecked={isChecked}
 									isDisabled={isDisabled ?? false}
@@ -197,14 +211,22 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 						</div>
 					)}
 					{!hasToggle && (
-						<div className="sui-accordion__header-title">
-							<h2>{title}</h2>
-							{!isEmpty(description ?? "") && <p>{description}</p>}
+						<div
+							id={`${accordionId}_header_title`}
+							className="sui-accordion__header-title"
+						>
+							<h2 id={`${accordionId}_title`}>{title}</h2>
+							{!isEmpty(description ?? "") && (
+								<p id={`${accordionId}_description`}>{description}</p>
+							)}
 						</div>
 					)}
 				</div>
 				{/* Icon component to display a chevron icon */}
-				<div className="sui-accordion__header-icon">
+				<div
+					id={`${accordionId}_header_icon`}
+					className="sui-accordion__header-icon"
+				>
 					{tooltipProps ? (
 						<Tooltip icon="Info" {...tooltipProps}></Tooltip>
 					) : (
@@ -225,7 +247,12 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				})}
 				data-testid="accordion-item-panel"
 			>
-				<div className={panelContentClassName}>{children}</div>
+				<div
+					className={panelContentClassName}
+					id={`${accordionId}_panel_content`}
+				>
+					{children}
+				</div>
 			</div>
 		</div>
 	)

@@ -62,8 +62,8 @@ const TableRow: React.FC<TableRowProps> = ({
 
 	// Generate unique IDs for accessibility
 	const uniqueID = useId()
-	const rowId = `sui-table-row-${uniqueID}${!!id ? `-${id}` : ``}`
-	const rowContentId = `${rowId}-content`
+	const rowId = `sui_table_row_${uniqueID}${!!id ? `_${id}` : ``}`
+	const rowContentId = `${rowId}_content`
 
 	// Handle row checkbox toggle
 	const onCheckToggle = useCallback(
@@ -252,7 +252,7 @@ const TableRow: React.FC<TableRowProps> = ({
 					>
 						<Checkbox
 							name={rowId}
-							id={`${rowId}-checkbox`}
+							id={`${rowId}_checkbox`}
 							isDisabled={disableCheck}
 							onChange={onCheckToggle}
 							isChecked={isChecked}

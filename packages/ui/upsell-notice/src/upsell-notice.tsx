@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
@@ -8,6 +8,7 @@ import { Tag } from "@wpmudev/sui-tag"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 const UpsellNotice: React.FC<UpsellNoticeProps> = ({
+	id,
 	title = "Title of Upsell",
 	tagTitle = "",
 	description = "",
@@ -17,6 +18,8 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 	_htmlProps = {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const upsellNoticeId = id || `sui_upsell_notice_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate classnames for the upsell
@@ -30,6 +33,7 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 
 	return (
 		<div
+			id={upsellNoticeId}
 			className={classNames}
 			data-testid="upsell-notice"
 			{..._renderHTMLPropsSafely(_htmlProps)}
