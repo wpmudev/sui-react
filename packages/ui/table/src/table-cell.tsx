@@ -126,6 +126,7 @@ const TableCell: React.FC<TableCellProps> = ({
 
 	return (
 		<TagName
+			id={id}
 			ref={ref}
 			className={generateCN(
 				"sui-table__cell",
@@ -145,19 +146,27 @@ const TableCell: React.FC<TableCellProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{hasDragIcon && !_isGroup && (
-				<Icons.Grip className="sui-table__cell--drag" size="sm" />
+				<Icons.Grip
+					id={`${id}_drag`}
+					className="sui-table__cell--drag"
+					size="sm"
+				/>
 			)}
 			{!isAction ? (
-				<div {...sortBtnProps}>
-					{PreIcon && <PreIcon size="sm" />}
+				<div id={`${id}_sort-btn`} {...sortBtnProps}>
+					{PreIcon && <PreIcon id={`${id}_pre-icon`} size="sm" />}
 					<span>{children}</span>
-					{isSortable && !_isGroup && <SortIcon size="xs" />}
+					{isSortable && !_isGroup && (
+						<SortIcon id={`${id}_sort-icon`} size="xs" />
+					)}
 				</div>
 			) : (
 				<Fragment>
-					{PreIcon && <PreIcon size="xs" />}
+					{PreIcon && <PreIcon id={`${id}_pre-icon`} size="xs" />}
 					{children}
-					{isSortable && !_isGroup && <SortIcon size="xs" />}
+					{isSortable && !_isGroup && (
+						<SortIcon id={`${id}_sort-icon`} size="xs" />
+					)}
 				</Fragment>
 			)}
 		</TagName>
