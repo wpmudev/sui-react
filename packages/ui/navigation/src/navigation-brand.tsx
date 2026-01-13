@@ -15,6 +15,8 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 	plugin,
 	title = "",
 	description = "",
+	showTitleInMobile,
+	showDescriptionInMobile,
 }) => {
 	// Icon for the specified plugin or use a default "Plugin" icon.
 	const PluginIcon: PluginIconTypes = plugin
@@ -35,7 +37,12 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 			>
 				{!!IconTag && <IconTag fill={PluginIcon?.color} />}
 			</div>
-			<div className="sui-navigation__info">
+			<div
+				className={generateCN("sui-navigation__info", {
+					"show-title-in-mobile": showTitleInMobile,
+					"show-description-in-mobile": showDescriptionInMobile,
+				})}
+			>
 				<h3 className="sui-heading--h4">{title}</h3>
 				<span className="sui-navigation__info--desc">{description}</span>
 			</div>

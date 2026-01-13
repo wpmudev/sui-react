@@ -10,6 +10,8 @@ import { useStyles } from "@wpmudev/sui-hooks"
 const Navigation: React.FC<NavigationProps> = ({
 	children,
 	brand = { title: "title", description: "" },
+	showTitleInMobile = false,
+	showDescriptionInMobile = false,
 	user,
 	actions = [],
 	_htmlProps,
@@ -28,7 +30,11 @@ const Navigation: React.FC<NavigationProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{/* Render the navigation brand component */}
-			<NavigationBrand {...brand} />
+			<NavigationBrand
+				{...brand}
+				showTitleInMobile={showTitleInMobile}
+				showDescriptionInMobile={showDescriptionInMobile}
+			/>
 			<ul className="sui-navigation__nav">
 				{/* Map over children components and render each one as a list item */}
 				{Children.map(children, (child, index) => (

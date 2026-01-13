@@ -60,6 +60,14 @@ interface NavigationBrandProps extends SuiStyleType, SuiHTMLAttributes {
 	 * Optional: Description for the brand.
 	 */
 	description?: string
+	/*
+	 * Show title in mobile view
+	 */
+	showTitleInMobile?: boolean
+	/*
+	 * Show description in mobile view
+	 */
+	showDescriptionInMobile?: boolean
 }
 
 type NavigationUserType = {
@@ -129,6 +137,14 @@ interface NavigationProps
 	 * Navigation actions list
 	 */
 	actions?: ReactNode[]
+	/**
+	 * Show title in mobile view
+	 */
+	showTitleInMobile?: boolean
+	/**
+	 * Show description in mobile view
+	 */
+	showDescriptionInMobile?: boolean
 }
 
 export type {

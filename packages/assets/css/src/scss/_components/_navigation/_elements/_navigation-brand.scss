@@ -42,6 +42,13 @@
 				@include media(max-width, sm) {
 					display: none;
 				}
+
+				@include modifier(show-title-in-mobile, show-description-in-mobile) {
+					@include media(max-width, sm) {
+						display: block;
+					}
+				}
+
 				@include modifier(desc) {
 					display: block;
 					color: $color-grey-60;
@@ -53,6 +60,14 @@
 
 					@include media(max-width, md) {
 						display: none;
+					}
+				}
+
+				@include modifier(show-description-in-mobile) {
+					@include media(max-width, md) {
+						.sui-navigation__info--desc {
+							display: block;
+						}
 					}
 				}
 			}
