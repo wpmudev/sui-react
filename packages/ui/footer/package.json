@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-footer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Footer component serves as the bottom section of a web page, it contains information like copyright notices, contact details, and links to important resources.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

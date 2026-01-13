@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-password-field",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The Password Field component provides a secure input field for users to enter and conceal their passwords, ensuring confidentiality and protecting sensitive information",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -58,7 +58,7 @@
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-button": "^0.1.0",
-    "@wpmudev/sui-input": "^0.0.2"
+    "@wpmudev/sui-button": "^0.1.1",
+    "@wpmudev/sui-input": "^0.0.3"
   }
 }

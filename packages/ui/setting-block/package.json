@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-setting-block",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Setting block is used to display the plugin settings.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -54,7 +54,7 @@
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
     "@wpmudev/sui-hooks": "^0.1.0",
-    "@wpmudev/sui-tag": "^0.0.2",
+    "@wpmudev/sui-tag": "^0.0.3",
     "@wpmudev/sui-utils": "^1.0.0"
   }
 }

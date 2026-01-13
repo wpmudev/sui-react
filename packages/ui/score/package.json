@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-score",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The Score displays the data that is collected for an indicator for a rating version and the resulting risk score. It makes it easier for end-user to understand without any technical knowledge.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-button",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Buttons serve as a means to perform various interface actions, spanning from saving settings to initiating a modal. They offer diverse variations tailored to specific design requirements",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -60,7 +60,7 @@
   "dependencies": {
     "@wpmudev/sui-hooks": "^0.1.0",
     "@wpmudev/sui-utils": "^1.0.0",
-    "@wpmudev/sui-icon": "^0.1.0",
+    "@wpmudev/sui-icon": "^0.1.1",
     "@wpmudev/sui-icons": "^0.0.2"
   }
 }
