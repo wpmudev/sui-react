@@ -10,6 +10,10 @@ interface BoxProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * The unique identifier for the box (optional).
+	 */
+	id?: string
+	/**
 	 * The title of the box.
 	 */
 	title?: string

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react"
+import React, { useCallback, useId } from "react"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { DrawerHeaderTypes } from "./drawer.types"
@@ -7,6 +7,7 @@ import { Button } from "@wpmudev/sui-button"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 const DrawerHeader = ({
+	id,
 	className = "",
 	title = "",
 	hintText = "",
@@ -18,6 +19,8 @@ const DrawerHeader = ({
 	tooltipOptions = {},
 	_style,
 }: DrawerHeaderTypes) => {
+	const generatedId = useId()
+	const drawerHeaderId = id || `sui_drawer_header_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-drawer__header", {}, suiInlineClassname)
 
@@ -31,7 +34,7 @@ const DrawerHeader = ({
 	const { show, mobileOnly = false, action = () => {} } = back
 
 	return (
-		<div className={classNames}>
+		<div id={drawerHeaderId} className={classNames}>
 			<div className="sui-drawer__header-title">
 				{show && (
 					<div className={generateCN("sui-drawer__back", { md: mobileOnly })}>

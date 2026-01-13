@@ -8,6 +8,10 @@ interface ProgressBarProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * Unique identifier for the progress bar.
+	 */
+	id?: string
+	/**
 	 * Label for the progress bar.
 	 */
 	label?: string

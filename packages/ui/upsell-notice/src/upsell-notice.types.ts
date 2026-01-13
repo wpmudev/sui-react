@@ -5,6 +5,10 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 interface UpsellNoticeProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	/**
+	 * Unique identifier for the upsell notice.
+	 */
+	id?: string
 	// Optional title of the upsell, can be a string
 	title?: string
 

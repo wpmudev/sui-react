@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
@@ -10,6 +10,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Build builder component
 const Builder: React.FC<BuilderProps> = ({
+	id,
 	className = "",
 	children,
 	allowAddFields = true,
@@ -18,6 +19,8 @@ const Builder: React.FC<BuilderProps> = ({
 	_htmlProps = {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const builderId = id || `sui_builder_${generatedId}`
 	// Default children content
 	children = useDefaultChildren(children)
 	const { suiInlineClassname } = useStyles(_style, `sui-layout ${className}`)
@@ -25,6 +28,7 @@ const Builder: React.FC<BuilderProps> = ({
 
 	return (
 		<div
+			id={builderId}
 			className={classNames}
 			data-testid="builder"
 			{..._renderHTMLPropsSafely(_htmlProps)}

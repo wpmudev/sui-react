@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useId } from "react"
 import { useStyles } from "@wpmudev/sui-hooks"
 import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 
 import type { SkeletonBaseProps } from "./skeleton.types"
 const Skeleton: React.FC<SkeletonBaseProps> = ({
+	id,
 	type = "block",
 	className = "",
 	children,
@@ -17,6 +18,8 @@ const Skeleton: React.FC<SkeletonBaseProps> = ({
 	_style = {},
 	_htmlProps = {},
 }) => {
+	const generatedId = useId()
+	const skeletonId = id || `sui_skeleton_${generatedId}`
 	const classes = `sui-skeleton__${type} ${className}`
 	const { width, height } = size
 	const _calculateStyles = {
@@ -46,7 +49,11 @@ const Skeleton: React.FC<SkeletonBaseProps> = ({
 	)
 
 	return (
-		<div className={classNames} {..._renderHTMLPropsSafely(_htmlProps)}></div>
+		<div
+			id={skeletonId}
+			className={classNames}
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		></div>
 	)
 }
 

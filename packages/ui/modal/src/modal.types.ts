@@ -28,6 +28,7 @@ interface ModalContextProps
 interface ModalHeaderProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	id?: string
 	title?: string
 	children?: React.ReactNode
 	icon?: IconsNamesType
@@ -45,6 +46,7 @@ interface ModalHeaderProps
 interface ModalBodyProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	id?: string
 	children?: React.ReactNode
 }
 
@@ -52,6 +54,7 @@ interface ModalBodyProps
 interface ModalFooterProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	id?: string
 	isSpaced?: boolean
 	// ModalFooter content
 	children?: React.ReactNode

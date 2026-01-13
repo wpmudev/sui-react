@@ -12,6 +12,10 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 interface DashboardWidgetProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	/**
+	 * Unique identifier for the dashboard widget.
+	 */
+	id?: string
 	/** The title of the widget */
 	title?: string
 

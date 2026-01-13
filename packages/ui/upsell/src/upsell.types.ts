@@ -6,6 +6,10 @@ import { IconsNamesType } from "@wpmudev/sui-icons"
 interface UpsellProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	/**
+	 * Unique identifier for the upsell.
+	 */
+	id?: string
 	// Optional title of the upsell, can be a string
 	title?: string
 

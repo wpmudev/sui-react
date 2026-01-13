@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
@@ -9,6 +9,7 @@ import { ModalContext } from "./modal"
 import { ModalHeaderProps } from "./modal.types"
 
 const ModalHeader: React.FC<ModalHeaderProps> = ({
+	id,
 	title = "header title",
 	children,
 	icon,
@@ -18,6 +19,8 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 	_htmlProps,
 	_style,
 }) => {
+	const generatedId = useId()
+	const modalHeaderId = id || `sui_modal_header_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 	const ctx = useContext(ModalContext)
 	const { closeModal, variant } = ctx!
@@ -34,6 +37,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 
 	return (
 		<header
+			id={modalHeaderId}
 			className={generateCN("sui-modal__header", {}, suiInlineClassname)}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>

@@ -5,6 +5,12 @@ import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
 
 interface ButtonIconProps {
 	/**
+	 * Optional ID for the icon element
+	 *
+	 * @type {string | undefined}
+	 */
+	id?: string
+	/**
 	 * Icon name
 	 *
 	 * @type {string | undefined}
@@ -27,6 +33,7 @@ interface ButtonIconProps {
 
 // Build "Icon" component.
 const Icon: React.FC<ButtonIconProps> = ({
+	id,
 	name,
 	size = "sm",
 	className = "",
@@ -47,8 +54,13 @@ const Icon: React.FC<ButtonIconProps> = ({
 	const classes = generateCN("sui-button__icon", {}, className)
 
 	return (
-		<span className={classes} aria-hidden="true" data-testid="button-icon">
-			<IconTag size={size} />
+		<span
+			id={id}
+			className={classes}
+			aria-hidden="true"
+			data-testid="button-icon"
+		>
+			<IconTag id={`${id}_icon`} size={size} />
 		</span>
 	)
 }

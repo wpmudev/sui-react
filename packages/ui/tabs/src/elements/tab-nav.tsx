@@ -6,6 +6,7 @@ import React, {
 	ReactNode,
 	useCallback,
 	useEffect,
+	useId,
 	useRef,
 	useState,
 } from "react"
@@ -24,11 +25,14 @@ import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
  * @return {JSX.Element} The TabNav component.
  */
 const TabNav: FC<TabNavProps> = ({
+	id,
 	children,
 	_style = {},
 	_htmlProps,
 	isNarrow = false,
 }) => {
+	const generatedId = useId()
+	const tabNavId = id || `sui_tab-nav_${generatedId}`
 	const { containerRef, isScrollableLeft, isScrollableRight, scroll } =
 		useScrollable({ scrollOffset: 50 })
 	const { suiInlineClassname } = useStyles(_style)
@@ -43,6 +47,7 @@ const TabNav: FC<TabNavProps> = ({
 
 	return (
 		<div
+			id={tabNavId}
 			className={classes}
 			role="tablist"
 			aria-orientation="horizontal"
@@ -50,13 +55,18 @@ const TabNav: FC<TabNavProps> = ({
 		>
 			{isScrollableLeft && (
 				<button
+					id={`${tabNavId}_scroll-left`}
 					className="sui-tab__arrow sui-tab__arrow--left"
 					onClick={() => scroll("left")}
 				>
-					<ChevronLeft size="sm" />
+					<ChevronLeft id={`${tabNavId}_scroll-left_icon`} size="sm" />
 				</button>
 			)}
-			<div className="sui-tab__navitems" ref={containerRef}>
+			<div
+				id={`${tabNavId}_navitems`}
+				className="sui-tab__navitems"
+				ref={containerRef}
+			>
 				{/* Map through the children to clone and update their props */}
 				{Children.map(children, (child: ReactNode, index: number) => {
 					if (isValidElement(child)) {
@@ -68,10 +78,11 @@ const TabNav: FC<TabNavProps> = ({
 			</div>
 			{isScrollableRight && (
 				<button
+					id={`${tabNavId}_scroll-right`}
 					className="sui-tab__arrow sui-tab__arrow--right"
 					onClick={() => scroll("right")}
 				>
-					<ChevronRight size="sm" />
+					<ChevronRight id={`${tabNavId}_scroll-right_icon`} size="sm" />
 				</button>
 			)}
 		</div>

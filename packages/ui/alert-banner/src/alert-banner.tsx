@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react"
+import React, { useId, useState, useCallback } from "react"
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import Icons from "@wpmudev/sui-icons"
@@ -7,6 +7,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 import { AlertBannerProps } from "./alert-banner.types"
 
 const AlertBanner: React.FC<AlertBannerProps> = ({
+	id,
 	children,
 	variation = "informative",
 	actions,
@@ -18,6 +19,8 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	_style = {},
 	_htmlProps,
 }) => {
+	const generatedId = useId()
+	const alertBannerId = id || `sui_alert_banner_${generatedId}`
 	// State to control the visibility of the alert banner
 	const [isVisible, setIsVisible] = useState(true)
 
@@ -85,6 +88,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 
 	return (
 		<div
+			id={alertBannerId}
 			className={classNames}
 			data-testid="alert-banner"
 			{..._renderHTMLPropsSafely(_htmlProps)}

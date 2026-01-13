@@ -1,4 +1,5 @@
 import React, {
+	useId,
 	useCallback,
 	useState,
 	useRef,
@@ -28,6 +29,7 @@ import { PopoverProps } from "./popover.types"
 
 // Popover component
 const Popover: React.FC<PopoverProps> = ({
+	id,
 	isOpen = false,
 	image,
 	trigger = "Open Popup",
@@ -40,6 +42,8 @@ const Popover: React.FC<PopoverProps> = ({
 	_htmlProps = {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const popoverId = id || `sui_popover_${generatedId}`
 	const [isPopupOpen, setIsPopupOpen] = useState<boolean>(isOpen ?? false)
 	const [popupPositions, setPopupPositions] = useState<Record<string, any>>({
 		top: 0,
@@ -199,6 +203,7 @@ const Popover: React.FC<PopoverProps> = ({
 
 	return (
 		<div
+			id={popoverId}
 			ref={ref as LegacyRef<HTMLDivElement>}
 			className={!!classNames ? classNames : undefined}
 			data-testid="popover"

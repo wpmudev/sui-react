@@ -16,6 +16,10 @@ interface TooltipBaseProps
 		SuiStyleType,
 		InteractionTypes {
 	/**
+	 * Optional custom ID for the tooltip.
+	 */
+	id?: string
+	/**
 	 * Button link
 	 */
 	href?: string

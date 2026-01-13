@@ -1,4 +1,5 @@
 import React, {
+	useId,
 	forwardRef,
 	useCallback,
 	useEffect,
@@ -18,6 +19,7 @@ import { DrawerProvider } from "./drawer-context"
 const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 	(
 		{
+			id,
 			className = "",
 			children,
 			isOpen: propIsOpen = false,
@@ -33,6 +35,8 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 		},
 		ref,
 	) => {
+		const generatedId = useId()
+		const drawerId = id || `sui_drawer_${generatedId}`
 		const [isVisible, setIsVisible] = useState<boolean>(false)
 		const [isOpen, setIsOpen] = useState<boolean>(propIsOpen ?? false)
 		const drawerRef = useRef<HTMLDivElement | null>(null)
@@ -102,6 +106,7 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 		return (
 			<DrawerProvider value={{ isOpen, setIsOpen, toggle }}>
 				<div
+					id={drawerId}
 					className={classNames}
 					data-testid="drawer"
 					{..._renderHTMLPropsSafely(_htmlProps)}

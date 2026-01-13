@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 import {
 	_renderHTMLPropsSafely,
 	generateCN,
@@ -14,6 +14,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Create box component
 const Box: React.FC<BoxProps> = ({
+	id,
 	title,
 	description,
 	icon,
@@ -28,6 +29,9 @@ const Box: React.FC<BoxProps> = ({
 	_htmlProps = {},
 	_style,
 }) => {
+	const generatedId = useId()
+	const boxId = id || `sui_box_${generatedId}`
+
 	// Prop(s) validation
 	const hasTitle = !isUndefined(title) && !isEmpty(title)
 	const hasIcon = !isUndefined(icon) && !isEmpty(icon)
@@ -49,18 +53,20 @@ const Box: React.FC<BoxProps> = ({
 
 	return (
 		<div
+			id={boxId}
 			className={classNames}
 			style={style ?? {}}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{hasTitle && (
-				<BoxGroup isInline={true}>
-					<div slot="left">
-						<div className="sui-box__container">
+				<BoxGroup isInline={true} id={`${boxId}_header_group`}>
+					<div slot="left" id={`${boxId}_header_left`}>
+						<div className="sui-box__container" id={`${boxId}_container`}>
 							{hasTitle && (
-								<div className="sui-box__title">
+								<div className="sui-box__title" id={`${boxId}_title`}>
 									{hasIcon && IconTag && (
 										<span
+											id={`${boxId}_icon`}
 											className={generateCN(
 												"suicons",
 												{},
@@ -73,16 +79,22 @@ const Box: React.FC<BoxProps> = ({
 											<IconTag size="md" />
 										</span>
 									)}
-									<h2 className="sui-heading sui-heading--h3 sui-box-group__item">
+									<h2
+										className="sui-heading sui-heading--h3 sui-box-group__item"
+										id={`${boxId}_heading`}
+									>
 										{title}
 									</h2>
 									{hasLeft && headerLeft}
 								</div>
 							)}
-							{description && <p>{description}</p>}
+							{description && <p id={`${boxId}_description`}>{description}</p>}
 						</div>
 					</div>
-					<div {...(hasRight && { slot: "right" })}>
+					<div
+						{...(hasRight && { slot: "right" })}
+						id={`${boxId}_header_right`}
+					>
 						{hasRight && headerRight}
 					</div>
 				</BoxGroup>

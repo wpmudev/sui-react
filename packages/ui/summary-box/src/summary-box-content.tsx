@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
@@ -11,6 +11,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
  * Content for the left box with a white background
  *
  * @param {Object}          props            - The props for the SummaryBoxContent component.
+ * @param {string}          props.id         - Optional ID for the component.
  * @param {string}          props.className  - Additional CSS classes to apply to the component.
  * @param {string}          props.span       - The space the content should take either half or full
  * @param {string}          props.padding    - The space the content should take either half or full
@@ -20,6 +21,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
  * @return {JSX.Element} The SummaryBoxContent component.
  */
 export const SummaryBoxContent: React.FC<SummaryBoxContentProps> = ({
+	id,
 	className,
 	children,
 	span = "half",
@@ -27,6 +29,8 @@ export const SummaryBoxContent: React.FC<SummaryBoxContentProps> = ({
 	_style,
 	_htmlProps,
 }) => {
+	const generatedId = useId()
+	const summaryBoxContentId = id || `sui_summary_box_content_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
@@ -39,7 +43,7 @@ export const SummaryBoxContent: React.FC<SummaryBoxContentProps> = ({
 	)
 
 	return (
-		<div className={classNames} {..._htmlProps}>
+		<div id={summaryBoxContentId} className={classNames} {..._htmlProps}>
 			{children}
 		</div>
 	)
