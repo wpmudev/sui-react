@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.0.4
+
+### Patch Changes
+
+- [#360](https://github.com/wpmudev/sui-react/pull/360)
+  [`c837d82`](https://github.com/wpmudev/sui-react/commit/c837d828232030b969096d5380f6f30e5a50ee8f)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - added missing ids
+
 ## 1.0.3
 
 ### Patch Changes
