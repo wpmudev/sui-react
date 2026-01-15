@@ -1,4 +1,4 @@
-import React, { createRef } from "react"
+import React, { createRef, useId } from "react"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import {
 	Drawer,
@@ -10,6 +10,7 @@ import { WPMUDEVDrawerProps } from "../navigation-wpmudev.types"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 const WPMUDEVDrawer: React.FC<WPMUDEVDrawerProps> = ({
+	id,
 	title = "",
 	type = "default",
 	toggleRef,
@@ -22,6 +23,8 @@ const WPMUDEVDrawer: React.FC<WPMUDEVDrawerProps> = ({
 	_htmlProps = {},
 	...props
 }) => {
+	const generatedId = useId()
+	const wpmudevDrawerId = id || `sui_wpmudev_drawer_${generatedId}`
 	let customClass
 
 	switch (type) {
@@ -40,6 +43,7 @@ const WPMUDEVDrawer: React.FC<WPMUDEVDrawerProps> = ({
 
 	return (
 		<Drawer
+			id={wpmudevDrawerId}
 			ref={toggleRef}
 			className={classNames}
 			placement={placement}
