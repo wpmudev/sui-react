@@ -5,6 +5,7 @@ import { NavigationWrapperProps } from "./navigation-wpmudev.types"
 
 // Navigation component
 const NavigationWrapper: React.FC<NavigationWrapperProps> = ({
+	id,
 	children,
 	_htmlProps,
 	_style,
@@ -18,7 +19,7 @@ const NavigationWrapper: React.FC<NavigationWrapperProps> = ({
 	)
 
 	return (
-		<div className={classNames} {..._renderHTMLPropsSafely(_htmlProps)}>
+		<div id={id} className={classNames} {..._renderHTMLPropsSafely(_htmlProps)}>
 			{children}
 		</div>
 	)

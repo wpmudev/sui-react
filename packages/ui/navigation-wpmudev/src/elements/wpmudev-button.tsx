@@ -1,4 +1,4 @@
-import React, { createRef } from "react"
+import React, { createRef, useId } from "react"
 import { Dropdown } from "@wpmudev/sui-dropdown"
 import { Button } from "@wpmudev/sui-button"
 import {
@@ -19,6 +19,7 @@ import {
 } from "@wpmudev/sui-drawer"
 
 const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
+	id,
 	label = "More from WPMU DEV",
 	title = "More free plugins from WPMU DEV",
 	className = "",
@@ -99,6 +100,8 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 	_style = {},
 	...props
 }) => {
+	const generatedId = useId()
+	const wpmudevButtonId = id || `sui_wpmudev_button_${generatedId}`
 	const drawerRef = createRef<DrawerActions | null>()
 
 	const classNames = generateCN(
@@ -112,9 +115,12 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 	)
 
 	const dropdownContent = (
-		<div className="sui-wpmudev__dropdown-content">
+		<div
+			id={`${wpmudevButtonId}_content`}
+			className="sui-wpmudev__dropdown-content"
+		>
 			{filteredPlugins && (
-				<ul className="sui-wpmudev__list">
+				<ul id={`${wpmudevButtonId}_list`} className="sui-wpmudev__list">
 					{filteredPlugins.map((pluginItem) => {
 						// Icon for the specified plugin or use a default "Plugin" icon.
 						const PluginIcon: PluginIconTypes = pluginItem.plugin
@@ -127,8 +133,12 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 							IconTag = Icons?.[PluginIcon.icon as IconsNamesType]
 						}
 						return (
-							<li key={pluginItem.plugin}>
+							<li
+								key={pluginItem.plugin}
+								id={`${wpmudevButtonId}_item_${pluginItem.plugin}`}
+							>
 								<a
+									id={`${wpmudevButtonId}_item_${pluginItem.plugin}_link`}
 									href={pluginItem.link}
 									className="sui-wpmudev__list-item"
 									target="_blank"
@@ -136,17 +146,36 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 									{..._renderHTMLPropsSafely(upsell.props)}
 								>
 									<div
+										id={`${wpmudevButtonId}_item_${pluginItem.plugin}_icon`}
 										className="sui-wpmudev__list-icon"
 										style={{ backgroundColor: PluginIcon?.bg }}
 									>
-										{!!IconTag && <IconTag fill={PluginIcon?.color} />}
+										{!!IconTag && (
+											<IconTag
+												id={`${wpmudevButtonId}_item_${pluginItem.plugin}_icon_svg`}
+												fill={PluginIcon?.color}
+											/>
+										)}
 									</div>
-									<div className="sui-wpmudev__list-content">
-										<h5 className="sui-wpmudev__list-title sui-heading--h5">
+									<div
+										id={`${wpmudevButtonId}_item_${pluginItem.plugin}_content`}
+										className="sui-wpmudev__list-content"
+									>
+										<h5
+											id={`${wpmudevButtonId}_item_${pluginItem.plugin}_title`}
+											className="sui-wpmudev__list-title sui-heading--h5"
+										>
 											{pluginItem.title}
 										</h5>
-										<p className="sui-wpmudev__list-desc">
-											<small>{pluginItem.description}</small>
+										<p
+											id={`${wpmudevButtonId}_item_${pluginItem.plugin}_description`}
+											className="sui-wpmudev__list-desc"
+										>
+											<small
+												id={`${wpmudevButtonId}_item_${pluginItem.plugin}_description_small`}
+											>
+												{pluginItem.description}
+											</small>
 										</p>
 									</div>
 								</a>
@@ -157,6 +186,7 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 			)}
 			{upsell && (
 				<a
+					id={`${wpmudevButtonId}_upsell`}
 					href={upsell.link}
 					className="sui-wpmudev__upsell"
 					target="_blank"
@@ -164,12 +194,26 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 					{..._renderHTMLPropsSafely(upsell.props)}
 				>
 					<UpsellIcon />
-					<div className="sui-wpmudev__upsell-content">
-						<h5 className="sui-wpmudev__upsell-title sui-heading--h5">
+					<div
+						id={`${wpmudevButtonId}_upsell_content`}
+						className="sui-wpmudev__upsell-content"
+					>
+						<h5
+							id={`${wpmudevButtonId}_upsell_title`}
+							className="sui-wpmudev__upsell-title sui-heading--h5"
+						>
 							{upsell.title}
-							<ExternalLink size="sm" />
+							<ExternalLink
+								id={`${wpmudevButtonId}_upsell_external_link`}
+								size="sm"
+							/>
 						</h5>
-						<p className="sui-wpmudev__upsell-desc">{upsell.description}</p>
+						<p
+							id={`${wpmudevButtonId}_upsell_description`}
+							className="sui-wpmudev__upsell-desc"
+						>
+							{upsell.description}
+						</p>
 					</div>
 				</a>
 			)}
@@ -178,6 +222,7 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 
 	const mobileDrawer = (
 		<Drawer
+			id={`${wpmudevButtonId}_mobile_drawer`}
 			ref={drawerRef}
 			placement="left"
 			hasContainer={false}
@@ -185,15 +230,22 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 			disableShadow={true}
 			isFullWidth={true}
 		>
-			<DrawerHeader title={label} back={{ show: true }} />
-			<DrawerBody>{dropdownContent}</DrawerBody>
+			<DrawerHeader
+				id={`${wpmudevButtonId}_mobile_drawer_header`}
+				title={label}
+				back={{ show: true }}
+			/>
+			<DrawerBody id={`${wpmudevButtonId}_mobile_drawer_body`}>
+				{dropdownContent}
+			</DrawerBody>
 		</Drawer>
 	)
 
 	return (
 		<>
-			<div className={classNames}>
+			<div id={`${wpmudevButtonId}_wrapper`} className={classNames}>
 				<Dropdown
+					id={wpmudevButtonId}
 					label={label}
 					placement="left"
 					buttonIcon="Logo"
@@ -203,15 +255,19 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 					{...props}
 				>
 					{title && (
-						<div className="sui-wpmudev__title">
+						<div id={`${wpmudevButtonId}_title`} className="sui-wpmudev__title">
 							<h4 className="sui-heading--h4">{title}</h4>
 						</div>
 					)}
 					{dropdownContent}
 				</Dropdown>
 			</div>
-			<div className="sui-wpmudev__drawer sui-wpmudev__navigation--hide-desktop">
+			<div
+				id={`${wpmudevButtonId}_mobile`}
+				className="sui-wpmudev__drawer sui-wpmudev__navigation--hide-desktop"
+			>
 				<Button
+					id={`${wpmudevButtonId}_mobile_button`}
 					key="logo"
 					type="secondary"
 					iconOnly={false}
