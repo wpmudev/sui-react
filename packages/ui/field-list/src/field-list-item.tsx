@@ -22,7 +22,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 	const uniqueId = useId()
 
 	if (!id) {
-		id = `sui_field_list_${uniqueId}`
+		id = `sui-field-list-${uniqueId}`
 	}
 
 	// Default children content

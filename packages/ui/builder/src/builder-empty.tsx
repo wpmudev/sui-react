@@ -14,7 +14,7 @@ const BuilderEmpty: React.FC<BuilderEmptyProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const builderEmptyId = id || `sui_builder_empty_${generatedId}`
+	const builderEmptyId = id || `sui-builder-empty-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	// Class names based on interaction and disabled state.
 	const classNames = generateCN("sui-builder__empty", {}, suiInlineClassname)

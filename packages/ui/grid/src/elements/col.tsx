@@ -13,7 +13,7 @@ const Col: React.FC<ColProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const colId = id || `sui_col_${generatedId}`
+	const colId = id || `sui-col-${generatedId}`
 
 	const { suiInlineClassname } = useStyles(_style, className)
 

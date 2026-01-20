@@ -20,7 +20,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const modalHeaderId = id || `sui_modal_header_${generatedId}`
+	const modalHeaderId = id || `sui-modal-header-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 	const ctx = useContext(ModalContext)
 	const { closeModal, variant } = ctx!

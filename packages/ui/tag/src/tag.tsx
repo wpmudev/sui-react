@@ -25,7 +25,7 @@ const Tag: React.FC<TagProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const tagId = id || `sui_tag_${generatedId}`
+	const tagId = id || `sui-tag-${generatedId}`
 
 	const hasDesign = "outlined" === design
 	const hasColor = !isUndefined(colorScheme) && !isEmpty(colorScheme)

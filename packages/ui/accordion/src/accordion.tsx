@@ -21,7 +21,7 @@ const Accordion: React.FC<AccordionProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const accordionId = id || `sui_accordion_${generatedId}`
+	const accordionId = id || `sui-accordion-${generatedId}`
 	const [expandState, setExpandState] = useState<Record<string, boolean>>({})
 
 	// Default children content

@@ -63,7 +63,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 		ref,
 	) => {
 		const generatedId = useId()
-		const buttonId = id || `sui_button_${generatedId}`
+		const buttonId = id || `sui-button-${generatedId}`
 
 		// base className
 		const baseClassName = "sui-button"

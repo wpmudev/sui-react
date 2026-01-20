@@ -10,7 +10,7 @@ const ModalBody: React.FC<ModalBodyProps> = ({
 	_htmlProps,
 }) => {
 	const generatedId = useId()
-	const modalBodyId = id || `sui_modal_body_${generatedId}`
+	const modalBodyId = id || `sui-modal-body-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Default children content

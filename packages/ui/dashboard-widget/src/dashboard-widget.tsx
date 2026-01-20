@@ -34,7 +34,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	_style = {},
 }: DashboardWidgetProps) => {
 	const generatedId = useId()
-	const dashboardWidgetId = id || `sui_dashboard_widget_${generatedId}`
+	const dashboardWidgetId = id || `sui-dashboard-widget-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate classnames for the dashboard widget

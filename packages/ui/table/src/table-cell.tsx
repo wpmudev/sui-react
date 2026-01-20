@@ -59,7 +59,7 @@ const TableCell: React.FC<TableCellProps> = ({
 	_style = {},
 }): JSX.Element => {
 	const uniqueId = useId()
-	const cellId = id ? id : `sui_table_cell_${uniqueId}`
+	const cellId = id ? id : `sui-table-cell-${uniqueId}`
 
 	// Define element tag name based on whether it's a heading cell (th) or a regular cell (td).
 	const TagName: "td" | "th" = isHeading ? "th" : "td"

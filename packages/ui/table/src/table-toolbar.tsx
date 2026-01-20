@@ -37,10 +37,10 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 
 	// Generate unique IDs for accessibility
 	const uniqueId = useId()
-	const toolbarId = id || `sui_table_toolbar_${uniqueId}`
-	const filterBtnId = `${toolbarId}_filter_btn`
-	const bodyId = `${toolbarId}_body`
-	const bulkDropdown = `${toolbarId}_bulk_dropdown`
+	const toolbarId = id || `sui-table-toolbar-${uniqueId}`
+	const filterBtnId = `${toolbarId}-filter-btn`
+	const bodyId = `${toolbarId}-body`
+	const bulkDropdown = `${toolbarId}-bulk-dropdown`
 
 	const { suiInlineClassname } = useStyles(_style)
 	const ctx = useContext(TableContext)

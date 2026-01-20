@@ -27,7 +27,7 @@ const Avatar: React.FC<AvatarProps> = ({
 	onClick,
 }) => {
 	const generatedId = useId()
-	const avatarId = id || `sui_avatar_${generatedId}`
+	const avatarId = id || `sui-avatar-${generatedId}`
 
 	// Define image object
 	const imageObj = Object.assign(

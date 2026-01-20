@@ -16,7 +16,7 @@ import {
 describe("@wpmudev/sui-modal", () => {
 	// Common props shared among modal components
 	const commonProps = {
-		id: "uniqueId",
+		id: "unique-id",
 		icon: {
 			name: "info-alt",
 			color: "blue",

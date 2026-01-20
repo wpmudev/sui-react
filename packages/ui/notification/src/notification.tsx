@@ -29,7 +29,7 @@ const Notification: React.FC<NotificationProps> = ({
 
 	// Create notification ID
 	const uniqueId = useId()
-	const notificationId = id ? id : `sui_notification_${uniqueId}`
+	const notificationId = id ? id : `sui-notification-${uniqueId}`
 
 	useEffect(() => {
 		if (!isInline && !isDismissible) {

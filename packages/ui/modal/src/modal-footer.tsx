@@ -11,7 +11,7 @@ const ModalFooter: React.FC<ModalFooterProps> = ({
 	_htmlProps,
 }) => {
 	const generatedId = useId()
-	const modalFooterId = id || `sui_modal_footer_${generatedId}`
+	const modalFooterId = id || `sui-modal-footer-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Default children content

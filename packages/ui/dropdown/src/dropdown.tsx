@@ -100,7 +100,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		const searchInputRef = useRef<HTMLInputElement | null>(null)
 		// Generate a unique identifier for the dropdown component.
 		const generatedId = useId()
-		const dropdownId = `${id}_wrapper` || `sui_dropdown_${generatedId}`
+		const dropdownId = `${id}-wrapper` || `sui-dropdown-${generatedId}`
 
 		// Handle the closing of the dropdown when clicking outside the component.
 		useOuterClick(dropdownRef, () => {

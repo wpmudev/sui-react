@@ -36,7 +36,7 @@ const Table: React.FC<TableProps> = ({
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
 
 	const generatedId = useId()
-	const tableId = id || `sui_table_${generatedId}`
+	const tableId = id || `sui-table-${generatedId}`
 
 	const { suiInlineClassname } = useStyles(_style, className)
 

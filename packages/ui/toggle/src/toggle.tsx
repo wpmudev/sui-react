@@ -31,7 +31,7 @@ const Toggle: React.FC<ToggleProps> = ({
 }) => {
 	// use id
 	const generatedId = useId()
-	const toggleId = id || `sui_toggle_${generatedId}`
+	const toggleId = id || `sui-toggle-${generatedId}`
 
 	const [state, setState] = useState<boolean>(defaultValue as boolean)
 	const [isHovered, isFocused, methods] = useInteraction({
