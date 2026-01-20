@@ -7,3 +7,5 @@ coverage
 *.min.css
 *.md
 *.mdx
+
+/.nx/workspace-data
