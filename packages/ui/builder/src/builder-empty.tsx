@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
@@ -7,17 +7,21 @@ import { BuilderEmptyProps } from "./builder.types"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 const BuilderEmpty: React.FC<BuilderEmptyProps> = ({
+	id,
 	title = "No fields added. Insert new field.",
 	className,
 	_htmlProps = {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const builderEmptyId = id || `sui-builder-empty-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	// Class names based on interaction and disabled state.
 	const classNames = generateCN("sui-builder__empty", {}, suiInlineClassname)
 
 	return (
 		<div
+			id={builderEmptyId}
 			className={classNames}
 			data-testid="builder-empty"
 			{..._renderHTMLPropsSafely(_htmlProps)}

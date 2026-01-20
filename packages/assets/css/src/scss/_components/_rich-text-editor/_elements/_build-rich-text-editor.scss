@@ -15,7 +15,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(tinymce) {
-				border: $border-width-sm solid $color-extended-neutral-80;
+				border: $border-width-sm solid $color-grey-10;
 
 				.tox-statusbar,
 				.tox-anchorbar {
@@ -33,7 +33,7 @@
 				.tox-editor-container {
 					.tox-editor-header {
 						box-shadow: unset;
-						border-bottom: $border-width-sm solid $color-extended-neutral-80;
+						border-bottom: $border-width-sm solid $color-grey-10;
 						padding: 0;
 					}
 				}
@@ -52,16 +52,16 @@
 					&.tox-tbtn--enabled:hover,
 					&:hover,
 					&:active {
-						background: $color-extended-neutral-90;
+						background: $color-grey-05;
 					}
 
 					&:focus {
-						outline: $border-width-sm solid $color-extended-neutral-0;
-						background: $color-extended-neutral-100;
+						outline: $border-width-sm solid $color-base-black;
+						background: $color-base-white;
 					}
 
 					svg {
-						fill: $color-extended-neutral-0;
+						fill: $color-base-black;
 					}
 				}
 			}
@@ -74,11 +74,11 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(tinymce) {
-				border-color: $color-extended-neutral-0;
+				border-color: $color-base-black;
 
 				.tox-editor-container {
 					.tox-editor-header {
-						border-color: $color-extended-neutral-0;
+						border-color: $color-base-black;
 					}
 				}
 
@@ -86,15 +86,15 @@
 					&.tox-tbtn--enabled,
 					&.tox-tbtn--enabled:hover,
 					&:hover {
-						background: $color-extended-neutral-0;
+						background: $color-base-black;
 
 						svg {
-							fill: $color-extended-neutral-100;
+							fill: $color-base-white;
 						}
 					}
 
 					&:focus {
-						background: $color-extended-neutral-100;
+						background: $color-base-white;
 					}
 				}
 			}

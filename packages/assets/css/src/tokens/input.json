@@ -3,15 +3,15 @@
 		"font": {
 			"color": {
 				"default": {
-					"value": "{color.extended.neutral.10}",
+					"value": "{color.grey.90}",
 					"type": "color"
 				},
 				"placeholder": {
-					"value": "{color.extended.neutral.60}",
+					"value": "{color.grey.60}",
 					"type": "color"
 				},
 				"disabled": {
-					"value": "{color.extended.neutral.70}",
+					"value": "{color.grey.10}",
 					"type": "color"
 				}
 			},
@@ -77,7 +77,7 @@
 			},
 			"color": {
 				"default": {
-					"value": "{color.extended.neutral.70}",
+					"value": "{color.grey.30}",
 					"type": "color"
 				},
 				"active": {
@@ -85,15 +85,15 @@
 					"type": "color"
 				},
 				"error": {
-					"value": "{color.extended.error.50}",
+					"value": "{color.red.50}",
 					"type": "color"
 				},
 				"disabled": {
-					"value": "{color.extended.neutral.90}",
+					"value": "{color.grey.10}",
 					"type": "color"
 				},
 				"readonly": {
-					"value": "{color.extended.neutral.95}",
+					"value": "{color.grey.10}",
 					"type": "color"
 				}
 			},
@@ -104,15 +104,15 @@
 		},
 		"bg": {
 			"default": {
-				"value": "{color.extended.neutral.100}",
+				"value": "{color.base.white}",
 				"type": "color"
 			},
 			"disabled": {
-				"value": "{color.extended.neutral.90}",
+				"value": "{color.grey.05}",
 				"type": "color"
 			},
 			"readonly": {
-				"value": "{color.extended.neutral.95}",
+				"value": "{color.grey.02}",
 				"type": "color"
 			}
 		}

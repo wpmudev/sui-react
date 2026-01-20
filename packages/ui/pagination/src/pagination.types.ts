@@ -28,6 +28,10 @@ interface PaginationCommonProps
  */
 interface PaginationProps extends PaginationCommonProps {
 	/**
+	 * Unique identifier for the pagination.
+	 */
+	id?: string
+	/**
 	 * The screen reader text for the previous button
 	 */
 	previousLabel?: string
@@ -67,6 +71,10 @@ interface PaginationProps extends PaginationCommonProps {
  * Represents the properties for pagination navigation component
  */
 interface PaginationNavProps extends PaginationCommonProps {
+	/**
+	 * Unique identifier for the PaginationNav.
+	 */
+	id?: string
 	/**
 	 * Array of page numbers
 	 */

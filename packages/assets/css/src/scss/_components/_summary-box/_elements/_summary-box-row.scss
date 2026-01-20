@@ -1,0 +1,29 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Summary box content
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-row($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(row) {
+				display: flex;
+				gap: $summary-row-gap-md;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				width: 100%;
+
+				// Smaller gap on mobile
+				@include media(max-width, sm) {
+					gap: $summary-row-gap-sm;
+				}
+			}
+		}
+	}
+}

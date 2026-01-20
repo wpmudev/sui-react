@@ -13,9 +13,10 @@
 		@include block($block) {
 			@include element(info) {
 				@include modifier(focus) {
-					background: $color-extended-neutral-95;
+					background: $color-grey-02;
+					color: $color-grey-90;
 					&:after {
-						border: $border-width-md solid $color-extended-neutral-10;
+						border: $border-width-md solid $color-grey-90;
 					}
 				}
 			}

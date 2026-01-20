@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React from "react"
+import React, { useId } from "react"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
 
@@ -11,6 +11,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build "progress bar" component
 const ProgressBar: React.FC<ProgressBarProps> = ({
+	id,
 	label,
 	value,
 	size = "md",
@@ -20,10 +21,18 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	showValue = true,
 	onClick,
 	className = "",
+	speed = 0,
 	_htmlProps,
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const progressBarId = id || `sui-progress-bar-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
+
+	// animation speed
+	const { suiInlineClassname: suiAnimateClassname } = useStyles({
+		animationDuration: `${speed}ms`,
+	})
 
 	// generate classnames
 	const classNames = generateCN(
@@ -46,6 +55,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 
 	return (
 		<div
+			id={progressBarId}
 			className={classNames}
 			data-testid="progress-bar"
 			{..._renderHTMLPropsSafely(_htmlProps)}
@@ -67,9 +77,13 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 					})}
 				>
 					<span
-						className={generateCN("sui-progress-bar__indicator-bar", {
-							indeterminate: isIndeterminate,
-						})}
+						className={generateCN(
+							"sui-progress-bar__indicator-bar",
+							{
+								indeterminate: isIndeterminate,
+							},
+							speed ? suiAnimateClassname : "",
+						)}
 						{...attrs}
 					/>
 				</div>

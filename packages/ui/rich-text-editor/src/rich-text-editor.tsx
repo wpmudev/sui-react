@@ -17,21 +17,21 @@ declare const tinymce: Record<string, any>
  *
  * A code editor component that allows displaying and editing code.
  *
- * @param  root0
- * @param  root0.id
- * @param  root0.actions
- * @param  root0.tinyMCEOptions
- * @param  root0.className
- * @param  root0.isDisabled
- * @param  root0.defaultValue
- * @param  root0.onChange
- * @param  root0._style
- * @param  root0._htmlProps
- * @param  root0.ariaAttrs
+ * @param  props
+ * @param  props.id
+ * @param  props.actions
+ * @param  props.tinyMCEOptions
+ * @param  props.className
+ * @param  props.isDisabled
+ * @param  props.defaultValue
+ * @param  props.onChange
+ * @param  props._style
+ * @param  props._htmlProps
+ * @param  props.ariaAttrs
  * @return {JSX.Element} - JSX Element representing the RichTextEditor component
  */
 const RichTextEditor: React.FC<RichTextEditorProps> = ({
-	id = "",
+	id,
 	actions = null,
 	tinyMCEOptions,
 	className = "",
@@ -47,8 +47,12 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 	const [editor, setEditor] = useState<Record<string, any> | null>(null)
 	const [ref, setRef] = useState<HTMLElement>()
 
+	// Generate unique id if not provided
+	const generatedId = useId()
+	const uniqueId = id || generatedId
+
 	const attrs = {
-		id,
+		id: uniqueId,
 		...ariaAttrs,
 	}
 
@@ -166,7 +170,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 			data-testid="rich-text-editor"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<div className="sui-rich-text-editor__header">
+			<div className="sui-rich-text-editor__header" id={`${uniqueId}-header`}>
 				<SegmentedControl
 					name="type"
 					defaultValue={editorType as string}
@@ -184,7 +188,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 				</SegmentedControl>
 				{!!actions && actions}
 			</div>
-			<div className="sui-rich-text-editor__content">
+			<div className="sui-rich-text-editor__content" id={`${uniqueId}-content`}>
 				<div
 					className={generateCN("sui-rich-text-editor__textarea", {
 						hidden: "visual" !== editorType,

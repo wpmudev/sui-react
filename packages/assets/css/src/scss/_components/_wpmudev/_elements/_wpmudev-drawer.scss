@@ -1,0 +1,22 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Drawer
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-drawer($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(drawer) {
+				.sui-drawer__footer {
+					justify-content: flex-start;
+				}
+			}
+		}
+	}
+}

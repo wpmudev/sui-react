@@ -7,6 +7,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 export const PaginationNav: React.FC<PaginationNavProps> = ({
+	id,
 	pagesArray,
 	elements,
 	selectedPage,
@@ -35,12 +36,13 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 
 	return (
 		<div
+			id={id}
 			className={generateCN("sui-pagination", {}, suiInlineClassname)}
 			data-testid="pagination"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<ul className="sui-pagination__nav">
-				<li className="sui-pagination__item">
+			<ul id={`${id}-nav`} className="sui-pagination__nav">
+				<li id={`${id}-prev-item`} className="sui-pagination__item">
 					<Tooltip
 						buttonProps={{
 							type: "tertiary",
@@ -50,14 +52,12 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							isDisabled: selectedPage <= 1,
 							_htmlProps: {
 								"data-testid": "pagination-prev-page",
+								"aria-label": "Previous Page Button",
 							},
 						}}
 						className="sui-pagination__button"
 						icon="ChevronLeft"
 						onClick={handlePreviousPage}
-						_htmlProps={{
-							"aria-label": previousLabel,
-						}}
 					>
 						{previousLabel}
 					</Tooltip>
@@ -71,6 +71,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							isSmall={true}
 							isDisabled={selectedPage <= 1}
 							onClick={handleSkipToFirstPage}
+							_htmlProps={{
+								"aria-label": "Page One Button",
+							}}
 						>
 							1
 						</Button>
@@ -86,6 +89,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							isSmall={true}
 							className="sui-pagination__button"
 							onClick={handlePreviousEllipsis}
+							_htmlProps={{
+								"aria-label": "Skip Pages Button",
+							}}
 						>
 							Skip pages
 						</Button>
@@ -108,6 +114,7 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 									onClick={() => handlePageClick(Math.floor(data))}
 									_htmlProps={{
 										"data-testid": "pagination-item",
+										"aria-label": "Middle Page Button",
 									}}
 								>
 									{data}
@@ -125,6 +132,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							isSmall={true}
 							className="sui-pagination__button"
 							onClick={handleNextEllipsis}
+							_htmlProps={{
+								"aria-label": "Skip Pages Button",
+							}}
 						>
 							Skip pages
 						</Button>
@@ -139,6 +149,9 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							className="sui-pagination__button"
 							isDisabled={selectedPage >= pages}
 							onClick={handleSkipToLastPage}
+							_htmlProps={{
+								"aria-label": "Last Page Button",
+							}}
 						>
 							{pagesArray.length}
 						</Button>
@@ -154,14 +167,12 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 							isDisabled: selectedPage >= pages,
 							_htmlProps: {
 								"data-testid": "pagination-next-page",
+								"aria-label": "Next Page Button",
 							},
 						}}
 						className="sui-pagination__button"
 						icon="ChevronRight"
 						onClick={handleNextPage}
-						_htmlProps={{
-							"aria-label": nextLabel,
-						}}
 					>
 						{nextLabel}
 					</Tooltip>

@@ -1,5 +1,5 @@
 // Import necessary modules and types
-import React, { useState } from "react"
+import React, { useState, useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { AccordionProps } from "./accordion.types"
@@ -8,6 +8,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 // Define the Accordion component as a functional component (React.FC)
 const Accordion: React.FC<AccordionProps> = ({
+	id,
 	className,
 	state = "default",
 	noBorderRadius = false,
@@ -19,6 +20,8 @@ const Accordion: React.FC<AccordionProps> = ({
 	_htmlProps = {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const accordionId = id || `sui-accordion-${generatedId}`
 	const [expandState, setExpandState] = useState<Record<string, boolean>>({})
 
 	// Default children content
@@ -48,7 +51,11 @@ const Accordion: React.FC<AccordionProps> = ({
 				isFlushed,
 			}}
 		>
-			<div className={classNames} {..._renderHTMLPropsSafely(_htmlProps)}>
+			<div
+				id={accordionId}
+				className={classNames}
+				{..._renderHTMLPropsSafely(_htmlProps)}
+			>
 				{children}
 			</div>
 		</AccordionProvider>

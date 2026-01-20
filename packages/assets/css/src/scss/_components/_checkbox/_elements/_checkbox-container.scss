@@ -12,11 +12,12 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			align-items: flex-start;
+			align-self: flex-start; // Prevent expansion to 100% width
 			cursor: pointer;
 			user-select: none;
 			position: relative;
 			display: inline-flex;
-			color: $color-extended-neutral-10;
+			color: $color-grey-70;
 			font-size: $font-size-default;
 			line-height: $font-height-sm;
 
@@ -46,7 +47,7 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			color: $color-extended-neutral-0;
+			color: $color-base-black;
 		}
 	}
 }

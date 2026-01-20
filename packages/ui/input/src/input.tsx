@@ -31,6 +31,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 		{
 			type = "text",
 			defaultValue = "",
+			name,
 			placeholder,
 			hint,
 			id,
@@ -110,16 +111,23 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 		// handle on change
 		const handleChange = useCallback(
 			(e: React.ChangeEvent<HTMLInputElement>) => {
-				// update value if input isn't read-only
+				const newValue = e?.target?.value ?? ""
+
+				// update input value
 				if (!isReadOnly) {
-					setValue((e?.target?.value ?? "") as InputProps["defaultValue"])
+					setValue(newValue as InputProps["defaultValue"])
 				}
 
-				if (!!onChange) {
+				// 🔥 VALIDATE HERE → covers paste + typing + everything else
+				if (validate && isFunction(validate)) {
+					validate(newValue)
+				}
+
+				if (onChange) {
 					onChange(e)
 				}
 			},
-			[isReadOnly, onChange],
+			[isReadOnly, onChange, validate],
 		)
 
 		// Clear input value
@@ -228,6 +236,7 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 			onClick,
 			onFocus,
 			onKeyDown,
+			name,
 			...ariaAttrs,
 			// Interaction methods
 			...(!!disableInteractions ? {} : interactionMethods),
@@ -278,12 +287,14 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 		// Render component
 		return (
 			<div
+				id={`${id}-wrapper`}
 				className={classNames}
 				data-testid="input"
 				{...(customWidth && { style: { maxWidth: `${customWidth}px` } })}
 			>
 				{"start" === iconPosition && renderIcon()}
 				<div
+					id={`${id}-input-field`}
 					className={generateCN("sui-input__input-field", {
 						"has-hint": hasHintText,
 					})}
@@ -292,10 +303,20 @@ const Input = forwardRef<HTMLInputElement | HTMLTextAreaElement, InputProps>(
 					{hasHintText && (
 						<Fragment>
 							{!isEmpty(value as string) && (
-								<div className="sui-input__input-field-text">{value}</div>
+								<div
+									className="sui-input__input-field-text"
+									id={`${id}-field-text`}
+								>
+									{value}
+								</div>
 							)}
 							{hasHintText && (
-								<div className="sui-input__input-field-hint">{hint}</div>
+								<div
+									className="sui-input__input-field-hint"
+									id={`${id}-field-hint`}
+								>
+									{hint}
+								</div>
 							)}
 						</Fragment>
 					)}

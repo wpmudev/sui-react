@@ -21,7 +21,12 @@ import {
 import { DropdownMenu } from "./dropdown-menu"
 import { DropdownMenuItem } from "./dropdown-menu-item"
 import { DropdownMenuGroup } from "./dropdown-menu-group"
-import { DropdownProps, DropdownRefProps } from "./dropdown.types"
+import {
+	DropdownProps,
+	DropdownRefProps,
+	MenuGroupProps,
+	MenuItemProps,
+} from "./dropdown.types"
 import { Input } from "@wpmudev/sui-input"
 import { Spinner } from "@wpmudev/sui-spinner"
 
@@ -34,6 +39,7 @@ import { Spinner } from "@wpmudev/sui-spinner"
 const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 	(
 		{
+			id,
 			type = "",
 			label,
 			className,
@@ -41,13 +47,18 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			iconOnly,
 			isFixedHeight = true,
 			children,
+			selected = "",
+			selectAll = () => {},
 			menu,
 			placement = "right",
+			arrow = true,
+			dropdownArrow = false,
 			buttonIcon,
 			onMenuClick,
 			trigger,
 			renderContentOnTop = false,
 			isResponsive = false,
+			isMultiSelect = false,
 			isFluid = false,
 			size = "md",
 			isDisabled = false,
@@ -60,9 +71,11 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			// async
 			isAsync = false,
 			asyncOptions = {},
+			updateOptions = () => {},
 			getOptions,
 			menuCustomWidth,
 			searchPlaceholder,
+			_buttonProps = {},
 			_htmlProps = {},
 			_style = {},
 		},
@@ -78,7 +91,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		// set alternate loading style
 		const [altLoader, setAltLoader] = useState(false)
 		// Dropdown options list
-		const [options, setOptions] = useState<DropdownProps["menu"]>(menu)
+		const [options, setOptions] = useState<DropdownProps["menu"]>(menu ?? [])
 		// Holds current page number (when loading options from API)
 		const [page, setPage] = useState(1)
 		// Create a ref to access the dropdown's outer container element.
@@ -86,7 +99,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		const popoverRef = useRef<HTMLDivElement | null>(null)
 		const searchInputRef = useRef<HTMLInputElement | null>(null)
 		// Generate a unique identifier for the dropdown component.
-		const id = `sui-dropdown-${useId()}`
+		const generatedId = useId()
+		const dropdownId = `${id}-wrapper` || `sui-dropdown-${generatedId}`
 
 		// Handle the closing of the dropdown when clicking outside the component.
 		useOuterClick(dropdownRef, () => {
@@ -153,10 +167,11 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 		// Update internal options state when menu prop changes
 		useEffect(() => {
-			if (!isAsync) {
-				setOptions(menu)
+			if (isAsync && !isMultiSelect) {
+				return
 			}
-		}, [isAsync, menu])
+			setOptions(menu)
+		}, [isAsync, isMultiSelect, menu])
 
 		/**
 		 * Load options from next page
@@ -170,7 +185,6 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			// return if getOptions prop is missing
 			if (!getOptions) {
 				throw new Error("'getOptions' method is missing")
-				return
 			}
 
 			const { perPage = 5 } = asyncOptions ?? {}
@@ -184,8 +198,24 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			const data = await getOptions(searchQuery, opt, options)
 			const { items, hasMore, additional } = data
 
+			// If selected is an array of objects, map through it to match with options
+			const selectedArray = Array.isArray(selected) ? selected : []
+
+			const updatedItems = items.map((item: Record<string, any>) => {
+				// Check if this item is in the selected array
+				const isSelected = selectedArray.some(
+					(selectedItem) => selectedItem.id === item.id,
+				)
+				return { ...item, isSelected }
+			})
+
 			// Update options list
-			setOptions(1 === page ? items : [...(options ?? []), ...items])
+			setOptions(
+				1 === page ? updatedItems : [...(options ?? []), ...updatedItems],
+			)
+			updateOptions(
+				1 === page ? updatedItems : [...(options ?? []), ...updatedItems],
+			)
 			setIsLoading(false)
 			setAltLoader(false)
 
@@ -204,6 +234,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			page,
 			searchQuery,
 			options,
+			selected,
+			updateOptions,
 		])
 
 		// prev search query
@@ -249,49 +281,108 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 			[isAsync, onToggle],
 		)
 
+		const selectAllItem = () => {
+			const allSelected = options?.every((option) => option?.isSelected)
+			const isIndeterminate = options?.find((option) => option?.isSelected)
+			const handleSelectAll = () => {
+				const updatedOptions = options?.map((option) => ({
+					...option,
+					isSelected: !allSelected,
+				}))
+				setOptions(updatedOptions)
+				selectAll(updatedOptions ?? [], !allSelected)
+			}
+
+			return (
+				<DropdownMenuItem
+					id={`${dropdownId}-select-all`}
+					key="select-all"
+					isSelected={allSelected}
+					onClick={handleSelectAll}
+					_type={type}
+					_checkboxProps={{
+						isChecked: allSelected,
+						isIndeterminate: !allSelected && !!isIndeterminate,
+						isSmall,
+					}}
+				>
+					Select All
+				</DropdownMenuItem>
+			)
+		}
+
 		// Function to recursively render menu items and groups.
 		const renderMenus = (menus: DropdownProps["menu"]) => {
-			return (menus || [])?.map((menuItem: Record<string, any>, index) => {
-				// If it's a group item, render the MenuGroup component.
-				if (!!menuItem?.menus) {
-					return (
-						<DropdownMenuGroup key={index} title={menuItem.label}>
-							{renderMenus(menuItem?.menus)}
-						</DropdownMenuGroup>
-					)
-				}
-
-				// Bind onClick with onMenuClick prop
-				if (onMenuClick) {
-					menuItem.props = menuItem.props ?? {}
-					menuItem.props.onClick = (e: ChangeEvent<unknown>) => {
-						onMenuClick(menuItem, e)
-						// Update isSelected property of all menu items
-						const updatedOptions = options?.map((item) => ({
-							...item,
-							isSelected: item.id === menuItem.id, // Set the clicked item's isSelected to true, and others to false
-						}))
-						setOptions(updatedOptions)
-
-						menuItem.isSelected = true
-						if ("select-checkbox" !== type) {
-							setIsOpen(false)
+			return (
+				<>
+					{isMultiSelect && (options ?? []).length > 0 && selectAllItem()}
+					{(menus || [])?.map((menuItem: Record<string, any>, index) => {
+						// If it's a group item, render the MenuGroup component.
+						if (!!menuItem?.menus) {
+							return (
+								<DropdownMenuGroup
+									id={`${dropdownId}-menu-group-${index}`}
+									key={index}
+									title={menuItem.label}
+								>
+									{renderMenus(menuItem?.menus)}
+								</DropdownMenuGroup>
+							)
 						}
-					}
-				}
 
-				// Otherwise, render the MenuItem component.
-				return (
-					<DropdownMenuItem
-						key={index}
-						isSelected={menuItem.isSelected}
-						{...menuItem.props}
-						_type={type}
-					>
-						{menuItem.label}
-					</DropdownMenuItem>
-				)
-			})
+						// Bind onClick with onMenuClick prop
+						if (onMenuClick) {
+							menuItem.props = menuItem.props ?? {}
+							menuItem.props.onClick = (e: ChangeEvent<unknown>) => {
+								onMenuClick(menuItem, e)
+
+								if ("select-variable" === type) {
+									return
+								}
+								// Update isSelected property of all menu items
+								if (!isMultiSelect) {
+									const updatedOptions = options?.map((item) => ({
+										...item,
+										isSelected: item.id === menuItem.id, // Set the clicked item's isSelected to true, and others to false
+									}))
+									setOptions(updatedOptions)
+
+									menuItem.isSelected = true
+								} else {
+									menuItem.isSelected = !menuItem.isSelected
+								}
+								if ("select-checkbox" !== type) {
+									setIsOpen(false)
+								}
+							}
+						}
+
+						if (isMultiSelect) {
+							menuItem.props = {
+								...menuItem.props,
+								_checkboxProps: {
+									...menuItem?.props?._checkboxProps,
+									isChecked: menuItem.isSelected,
+									isSmall,
+								},
+							}
+						}
+
+						// Otherwise, render the MenuItem component.
+						return (
+							<DropdownMenuItem
+								id={`${dropdownId}-menu-item-${index}`}
+								key={index}
+								isSelected={menuItem.isSelected}
+								{...menuItem.props}
+								_type={type}
+							>
+								{menuItem.label}
+							</DropdownMenuItem>
+						)
+					})}
+				</>
+			)
 		}
 
 		/**
@@ -313,6 +404,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 		return (
 			<div
+				id={dropdownId}
 				ref={dropdownRef}
 				className={wrapperClasses}
 				data-testid="dropdown"
@@ -330,8 +422,9 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							onClick={() => handleOnOpen(!isOpen)}
 							isResponsive={isResponsive}
 							isDisabled={isDisabled}
-							{...(!iconOnly && { endIcon: "ChevronDown" })}
+							{...(!iconOnly && arrow && { endIcon: "ChevronDown" })}
 							colorScheme={colorScheme as ButtonProps["colorScheme"]}
+							{..._buttonProps}
 						>
 							{label}
 						</Button>
@@ -349,21 +442,35 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						[type]: !isEmpty(type ?? ""),
 					})}
 					{...(label && {
-						"aria-labelledby": `${id}__label`,
-						"aria-label": `${id}__label`,
+						"aria-labelledby": `${id}-label`,
+						"aria-label": `${id}-label`,
 					})}
 					style={{
 						width: `${menuCustomWidth}px`,
 					}}
 				>
+					{dropdownArrow && (
+						<div
+							className="sui-dropdown__popover--arrow"
+							id={`${dropdownId}-arrow`}
+						></div>
+					)}
 					{renderContentOnTop && !!children && (
-						<div className="sui-dropdown__menu-content">{children}</div>
+						<div
+							className="sui-dropdown__menu-content"
+							id={`${dropdownId}-menu-content-top`}
+						>
+							{children}
+						</div>
 					)}
 					{/* Render the dropdown menu items */}
 					{(!!menu || isAsync) && (
 						<DropdownMenu>
 							{allowSearch && (
-								<div className="sui-dropdown__menu-nav-search">
+								<div
+									className="sui-dropdown__menu-nav-search"
+									id={`${dropdownId}-search`}
+								>
 									<Input
 										ref={searchInputRef}
 										icon="Search"
@@ -397,7 +504,12 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					)}
 					{/* Render additional children passed to the Dropdown component */}
 					{!!children && !renderContentOnTop && (
-						<div className="sui-dropdown__menu-content">{children}</div>
+						<div
+							className="sui-dropdown__menu-content"
+							id={`${dropdownId}-menu-content-bottom`}
+						>
+							{children}
+						</div>
 					)}
 				</div>
 			</div>

@@ -19,19 +19,19 @@
 
 					@include modifier(success) {
 						> td:first-child::after {
-							background: $color-extended-success-50;
+							background: $color-green-50;
 						}
 					}
 
 					@include modifier(warning) {
 						> td:first-child::after {
-							background: $color-extended-warning-50;
+							background: $color-yellow-50;
 						}
 					}
 
 					@include modifier(error) {
 						> td:first-child::after {
-							background: $color-extended-error-50;
+							background: $color-red-50;
 						}
 					}
 				}
@@ -45,7 +45,7 @@
 				.sui-#{$block}__row {
 					@include modifier(info, success, warning, error) {
 						> td:first-child::after {
-							background: $color-extended-neutral-0;
+							background: $color-base-black;
 						}
 					}
 				}

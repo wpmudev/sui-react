@@ -23,12 +23,29 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     	<p>Sets the type of the Box, the pro version have a disabled box</p>
     </PropSection>
 
+	<PropSection title="hasBg" type="boolean" defaultValue="false">
+    	<p>Sets whether to show the box background.</p>
+    </PropSection>
+
+    <PropSection title="isFluid" type="boolean" defaultValue="false">
+    	<p>When set to true the box will have "100%" width</p>
+    </PropSection>
+
+     <PropSection title="centerFooterActions" type="boolean" defaultValue="false">
+    	<p>When set to true the the actions in the footer will be centered</p>
+    </PropSection>
+
+
     <PropSection title="children" type="React Node">
     	<p>Represents the body content of the Box</p>
     </PropSection>
 
     <PropSection title="className" type="string">
     	<p>Custom css className(s) for further customization</p>
+    </PropSection>
+
+    <PropSection title="hasLargeRadius" type="boolean" defaultValue="false">
+    	<p>The box will have larger  border radius when this is set to true</p>
     </PropSection>
 
 </Section>

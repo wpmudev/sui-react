@@ -47,6 +47,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 				"sui-field-list__item",
 				{
 					disabled: props?.isDisabled,
+					"no-toggle": !hasToggle,
 				},
 				suiInlineClassname,
 			)}
@@ -55,9 +56,14 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{/* Display the item's content */}
-			<div className="sui-field-list__item-label">{children}</div>
+			<div className="sui-field-list__item-label" id={`${uniqueId}-label`}>
+				{children}
+			</div>
 			{hasToggle && (
-				<div className="sui-field-list__item-checkbox">
+				<div
+					className="sui-field-list__item-checkbox"
+					id={`${uniqueId}-checkbox`}
+				>
 					{/* Render the Toggle component with appropriate props */}
 					<Toggle
 						id={id}
@@ -70,7 +76,10 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 				</div>
 			)}
 			{!!actions && (
-				<div className="sui-field-list__item-actions">
+				<div
+					className="sui-field-list__item-actions"
+					id={`${uniqueId}-actions`}
+				>
 					{/* Render the actions here */}
 					{actions}
 				</div>

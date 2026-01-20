@@ -1,0 +1,55 @@
+{
+  "name": "@wpmudev/sui-template-card",
+  "version": "0.0.1",
+  "description": "A popover is displayed to provide additional information about specific element when the user hovers or focuses on them.",
+  "keywords": [],
+  "author": "WPMU DEV (https://wpmudev.com)",
+  "contributors": [
+    {
+      "name": "Govind Kumar",
+      "email": "gkprmr@gmail.com",
+      "url": "https://govind.js.org/"
+    }
+  ],
+  "license": "GPL-2.0",
+  "main": "src/index.ts",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wpmudev/sui-react.git"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf lib",
+    "build": "npx tsup",
+    "build:dev": "npx tsup --watch",
+    "build:fast": "tsup src",
+    "dev": "npm build:fast -- --watch",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "build:readme": "readme generate --input ../../../blueprint.md"
+  },
+  "bugs": {
+    "url": "https://github.com/wpmudev/sui-docs/issues"
+  },
+  "homepage": "https://github.com/wpmudev/sui-docs#readme",
+  "clean-package": "../../../postpack.config.json",
+  "devDependencies": {
+    "react": "^18.2.0"
+  },
+  "dependencies": {
+    "@wpmudev/sui-tooltip": "^0.1.1",
+    "@wpmudev/sui-button": "^0.1.1",
+    "@wpmudev/sui-hooks": "^0.1.0",
+    "@wpmudev/sui-utils": "^1.0.0",
+    "@wpmudev/sui-icons": "^0.0.2"
+  }
+}

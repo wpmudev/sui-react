@@ -1,0 +1,87 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-template-card" />
+
+<Section title="Props" border={true}>
+
+	<PropSection title="title" type="string">
+		<p>The title of the template card.</p>
+	</PropSection>
+
+	<PropSection title="description" type="string">
+		<p>A brief description of the template card.</p>
+	</PropSection>
+
+	<PropSection title="image" type="object">
+		<p>Reflects the profile image of the avatar. the object accepts two properties</p>
+		<List>
+			<span label={<><Code>src</Code> The image link</>} />
+			<span label={<><Code>alt</Code> The image alternative text</>} />
+		</List>
+		<p>If the image is not specified an icon will be displayed instead</p>
+	</PropSection>
+
+	<PropSection title="tag" type="object">
+		<p>An object containing properties for the tag label and color scheme.</p>
+	</PropSection>
+
+	<PropSection title="actions" type="React Node">
+		<p>A list of action buttons that appear in the template card.</p>
+	</PropSection>
+
+	<PropSection title="icon" type="string">
+		<p>The name of the icon to be displayed in the template card.</p>
+	</PropSection>
+
+	<PropSection title="className" type="string">
+		<p>Custom css classNames(s) to be added to the tooltip</p>
+	</PropSection>
+
+</Section>
+
+<Section title="TemplateCardInput" border={true}>
+	<p>This component is designed to be used inside the <Code>TemplateCardGroup</Code> component, as it is intended for handling radio input selection. It inherits all the props.</p>
+
+	<PropSection title="value" type="string">
+    	<p>
+    		The value for the card Radio input.
+    	</p>
+    </PropSection>
+
+</Section>
+
+<Section
+	title="TemplateCardGroup"
+	contained={true}
+	style={{ paddingTop: 30, paddingBottom: 0 }}
+>
+	<p>Always Wrap the Card component within this component, it has some essential props to change the variation and interact with the Card changes </p>
+	<p>The TemplateCardGroup component has the following props</p>
+
+	<PropSection title="name" type="string">
+    	<p>
+    		The name for the RadioGroup
+    	</p>
+    </PropSection>
+
+    <PropSection title="children" type="React Node">
+    	<p>
+    		The content of the RadioGroup
+    	</p>
+    </PropSection>
+
+    <PropSection title="onChange" type="function">
+    	<p>
+    		A callback function to be invoked upon the selection of one of the radio elements, the first parameter represents the <Code small={true}>value</Code> prop of the selected radio
+    	</p>
+    </PropSection>
+
+    <PropSection title="defaultValue" type="string">
+    	<p>
+    		Represents the default selected value
+    	</p>
+    </PropSection>
+
+</Section>
+
+<CommonPropsNotice />

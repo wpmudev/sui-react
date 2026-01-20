@@ -23,6 +23,21 @@
 					flex: 1;
 					flex-direction: row;
 				}
+
+				@include modifier(fluid) {
+					flex-direction: column;
+					align-items: flex-start;
+
+					.sui-#{$block}__body-actions {
+						padding-inline-start: $banner-spacing-md;
+					}
+
+					.sui-#{$block}__content {
+						display: flex;
+						gap: $spacing-md;
+						flex-direction: column;
+					}
+				}
 			}
 
 			@include element(body-content) {
@@ -30,7 +45,7 @@
 				display: flex;
 				align-items: flex-start;
 				gap: $banner-spacing-xxs;
-				color: $color-extended-neutral-10;
+				color: $color-grey-90;
 			}
 
 			@include element(body-actions) {
@@ -44,15 +59,15 @@
 				}
 
 				@include media(max-width, sm) {
-					margin-left: $banner-spacing-md;
+					padding-inline-start: $banner-spacing-md;
 				}
 			}
 
 			@include modifier(plugin-upsell, hub-upsell) {
-				color: $color-extended-neutral-100;
+				color: $color-base-white;
 
 				@include modifies-element(body-content) {
-					color: $color-extended-neutral-100;
+					color: $color-base-white;
 				}
 			}
 		}
@@ -62,11 +77,11 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			color: $color-extended-neutral-0;
-			border: $border-width-sm solid $color-extended-neutral-0;
+			color: $color-base-black;
+			border: $border-width-sm solid $color-base-black;
 
 			@include modifier(plugin-upsell, hub-upsell) {
-				color: $color-extended-neutral-100;
+				color: $color-base-white;
 			}
 		}
 	}

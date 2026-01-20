@@ -17,6 +17,10 @@ import { CheckboxProps } from "@wpmudev/sui-checkbox"
  * Props for Menu component.
  */
 interface DropdownMenuProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the DropdownMenu.
+	 */
+	id?: string
 	/** Additional class name(s) to be applied to the Menu. */
 	className?: string
 	/** Children elements to be rendered inside the Menu. */
@@ -28,6 +32,10 @@ interface DropdownMenuProps extends SuiStyleType {
  */
 interface DropdownMenuItemProps extends SuiStyleType, SuiHTMLAttributes {
 	_type?: DropdownProps["type"]
+	/**
+	 * Optional custom ID for the dropdown menu item.
+	 */
+	id?: string
 	/**
 	 * URL to navigate to when the item is clicked (if the item is an anchor).
 	 */
@@ -99,6 +107,10 @@ interface DropdownMenuGroupProps
 			"className" | "title" | "href"
 		>,
 		SuiStyleType {
+	/**
+	 * Unique identifier for the DropdownMenuGroup.
+	 */
+	id?: string
 	/** Title of the MenuGroup. */
 	title: string
 	/** URL to navigate to when the MenuGroup is clicked. */
@@ -115,6 +127,7 @@ interface DropdownMenuBaseProps extends SuiStyleType {
 	label: React.ReactNode | string // Content to display as the label for the dropdown menu item.
 	variable?: string // Content to display as the variable for the dropdown menu item.
 	description?: string // Content to display as the description for the dropdown menu item.
+	isSelected?: boolean
 }
 
 // Props for an individual item within the dropdown menu.
@@ -144,6 +157,10 @@ interface DropdownProps
 		>,
 		SuiStyleType {
 	/**
+	 * Optional custom ID for the dropdown.
+	 */
+	id?: string
+	/**
 	 * The type of dropdown.
 	 */
 	type?: "" | "default" | "select" | "select-checkbox" | "select-variable"
@@ -156,13 +173,31 @@ interface DropdownProps
 	 */
 	className?: string
 	/**
+	 * Indicates whether the dropdown should be displayed as small or not.
+	 */
+	isSmall?: boolean
+	/**
+	 * Indicates whether the dropdown should be displayed as small or not.
+	 */
+	selected?:
+		| string
+		| Array<MenuItemProps | MenuGroupProps>
+		| Record<string, any>
+	/**
+	 * Indicates whether the dropdown should be displayed as small or not.
+	 */
+	selectAll?: (
+		options: Array<MenuItemProps | MenuGroupProps>,
+		selected: boolean,
+	) => void
+	/**
 	 * Indicates whether the dropdown has a call-to-action button.
 	 */
 	hasCta?: boolean
 	/**
-	 * Indicates whether the dropdown should be displayed as small or not.
+	 * Indicates whether the dropdown should have multiselect option.
 	 */
-	isSmall?: boolean
+	isMultiSelect?: boolean
 	/**
 	 * Indicates whether the label should be hidden or not.
 	 */
@@ -269,6 +304,22 @@ interface DropdownProps
 	 * Custom search placeholder
 	 */
 	searchPlaceholder?: string
+	/**
+	 * Arrow in dropdown button
+	 */
+	arrow?: boolean
+	/**
+	 * Dropdown arrow in dropdown
+	 */
+	dropdownArrow?: boolean
+	/**
+	 * Button props
+	 */
+	_buttonProps?: ButtonProps
+	/**
+	 * Update options in parent.
+	 */
+	updateOptions?: (options: { [key: string]: any }[]) => void
 }
 
 // Type definition for the modal handling functions

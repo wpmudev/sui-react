@@ -49,7 +49,13 @@ const Input = ({
 						isSmall={isSmall}
 						isDisabled={isDisabled}
 					>
-						<SuiInput {...args} _style={{ background: "#000" }} />
+						<SuiInput
+							{...args}
+							icon="Copy"
+							iconPosition="end"
+							iconHint="Copied"
+							iconTooltipWidth={65}
+						/>
 					</FormField>
 				</div>
 			</div>
@@ -60,7 +66,7 @@ const Input = ({
 // Set story arguments.
 Input.args = {
 	type: "text",
-	id: "myCustomId",
+	id: "my-custom-id",
 	defaultValue: "Hello World",
 	icon: "",
 	iconPosition: "start",

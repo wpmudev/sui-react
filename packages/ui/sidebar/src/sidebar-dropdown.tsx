@@ -17,6 +17,7 @@ import { SidebarProps } from "./sidebar.types"
 const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 	(
 		{
+			id,
 			className,
 			selectedItemName = "",
 			children,
@@ -30,7 +31,8 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 		const dropdownRef = useRef<HTMLDivElement | null>(null)
 
 		// Generate a unique identifier for the dropdown component.
-		const id = `sui-dropdown-${useId()}`
+		const generatedId = useId()
+		const sidebarDropdownId = id || `sui-sidebar-dropdown-${generatedId}`
 
 		// State to manage the dropdown's open/closed status.
 		const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -75,15 +77,16 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 
 		return (
 			<div
+				id={sidebarDropdownId}
 				ref={dropdownRef}
 				className={classNames}
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
 				<div>
 					<Button
-						id={`${id}__label`}
+						id={`${sidebarDropdownId}-label`}
 						className="sui-sidebar__dropdown--button"
-						// aria-activedescendant={isOpen ? `${id}-${current}` : ""}
+						// aria-activedescendant={isOpen ? `${sidebarDropdownId}-${current}` : ""}
 						onClick={() => setIsOpen(!isOpen)}
 						endIcon="Hamburger"
 						isFullWidth={true}
@@ -94,11 +97,11 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 				</div>
 				{isOpen && (
 					<div
-						id={id}
+						id={`${sidebarDropdownId}-list`}
 						tabIndex={-1}
 						role="listbox"
 						className="sui-sidebar__dropdown--list"
-						aria-labelledby={`${id}__label`}
+						aria-labelledby={`${sidebarDropdownId}-label`}
 					>
 						{childrenWithProps}
 					</div>

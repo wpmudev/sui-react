@@ -1,31 +1,14 @@
 import React from "react"
 import { isUndefined, isEmpty } from "@wpmudev/sui-utils"
 import Icons, { IconsNamesType } from "@wpmudev/sui-icons"
-import { IconProps } from "@wpmudev/sui-icon"
-
-interface TooltipIconProps {
-	/**
-	 * Icon name
-	 *
-	 * @type {string | undefined}
-	 */
-	name?: string
-	/**
-	 * Icon size
-	 *
-	 * @type {string}
-	 */
-	size?: IconProps["size"]
-	/**
-	 * Callback function to be invoked onClick
-	 */
-	onClick?: () => void
-}
+import { TooltipIconProps } from "../tooltip.types"
 
 // Build "Icon" component.
 const Icon: React.FC<TooltipIconProps> = ({
+	id,
 	name = "Info",
 	size = "sm",
+	colorScheme = "",
 	onClick = () => null,
 }) => {
 	const hasIcon = !isUndefined(name) && !isEmpty(name ?? "")
@@ -42,8 +25,13 @@ const Icon: React.FC<TooltipIconProps> = ({
 	const IconTag = Icons[IconName as IconsNamesType]
 
 	return (
-		<span className="sui-tooltip__icon" aria-hidden="true" onClick={onClick}>
-			<IconTag size={size} />
+		<span
+			id={id}
+			className="sui-tooltip__icon"
+			aria-hidden="true"
+			onClick={onClick}
+		>
+			<IconTag size={size} colorScheme={colorScheme} />
 		</span>
 	)
 }

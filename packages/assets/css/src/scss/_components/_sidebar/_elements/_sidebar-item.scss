@@ -29,7 +29,6 @@
 					inset: -#{$border-width-md};
 					border-radius: inherit;
 					pointer-events: none;
-					z-index: -1;
 				}
 
 				&:last-child {
@@ -42,8 +41,16 @@
 				display: flex;
 				font-weight: $font-weight-md;
 				gap: $spacing-md;
-				color: $color-extended-neutral-10;
+				color: $color-grey-90;
 				transition: 0.3s all ease;
+
+				.sui-icon {
+					color: $color-grey-70;
+				}
+			}
+
+			@include element(item-action) {
+				line-height: 1;
 			}
 		}
 	}

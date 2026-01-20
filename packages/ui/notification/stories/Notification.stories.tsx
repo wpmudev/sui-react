@@ -246,7 +246,7 @@ Notification.argTypes = {
 		control: {
 			type: "select",
 			labels: {
-				"": "Variation: Default",
+				"": "Variation: Neutral",
 				info: "Variation: Informative",
 				success: "Variation: Success",
 				warning: "Variation: Warning",

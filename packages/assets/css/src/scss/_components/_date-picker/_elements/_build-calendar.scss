@@ -30,7 +30,7 @@
 
 				@include media(max-width, sm) {
 					&:last-child {
-						border-top: $border-width-sm solid $color-extended-neutral-80;
+						border-top: $border-width-sm solid $color-grey-10;
 					}
 				}
 			}
@@ -45,7 +45,7 @@
 						left: 0;
 						top: 0;
 						bottom: 0;
-						background: $color-extended-neutral-80;
+						background: $color-grey-10;
 						z-index: 1;
 
 						@include media(max-width, sm) {
@@ -57,8 +57,8 @@
 
 			@include element(calendar-weekdays) {
 				align-items: center;
-				color: $color-extended-neutral-60;
-				background: $color-extended-neutral-95;
+				color: $color-grey-40;
+				background: $color-grey-02;
 				display: flex;
 			}
 
@@ -69,15 +69,15 @@
 			}
 
 			@include element(calendar-days) {
-				background: $color-extended-neutral-100;
+				background: $color-base-white;
 				align-items: center;
-				color: $color-extended-neutral-50;
+				color: $color-grey-90;
 				display: flex;
 				flex-wrap: wrap;
 			}
 
 			@include element(calendar-list) {
-				border-top: $border-width-sm solid $color-extended-neutral-80;
+				border-top: $border-width-sm solid $color-grey-10;
 				max-height: $datepicker-size-height-lg;
 				overflow-y: auto;
 				margin: 0;
@@ -104,27 +104,11 @@
 				display: flex;
 				justify-content: space-between;
 				padding: $spacing-md $datepicker-spacing-xs;
-				color: $color-extended-neutral-10;
+				color: $color-grey-90;
 
 				@include modifier(btn) {
 					font-size: $datepicker-font-size;
 					font-weight: $font-weight-md;
-				}
-			}
-		}
-	}
-
-	// DIR: Right to left.
-	// THEME: None.
-	@include sui-class($rtl: true, $theme: null) {
-		// Block wrapper.
-		@include block($block) {
-			@include modifier(range) {
-				@include modifies-element(calendar-month) {
-					&:last-child::before {
-						left: auto;
-						right: 0;
-					}
 				}
 			}
 		}
@@ -135,45 +119,8 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		// Block wrapper.
 		@include block($block) {
-			@include modifier(range) {
-				@include modifies-element(calendar-month) {
-					&:last-child::before {
-						background: $color-extended-neutral-0;
-					}
-				}
-			}
-
-			@include element(calendar-weekdays) {
-				color: $color-extended-neutral-0;
-				background: $color-extended-neutral-100;
-				border-top: $border-width-sm solid $color-extended-neutral-0;
-				border-bottom: $border-width-sm solid $color-extended-neutral-0;
-			}
-
-			@include element(calendar-days) {
-				color: $color-extended-neutral-0;
-			}
-
-			@include element(calendar-list) {
-				border-top: $border-width-sm solid $color-extended-neutral-0;
-			}
-
-			@include element(calendar-list-item) {
-				span {
-					color: $color-extended-neutral-0;
-				}
-			}
-
-			@include element(calendar-month) {
-				@include media(max-width, sm) {
-					&:last-child {
-						border-top: $border-width-sm solid $color-extended-neutral-0;
-					}
-				}
-			}
-
 			@include element(nav) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}

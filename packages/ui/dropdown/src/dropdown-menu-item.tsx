@@ -15,6 +15,7 @@ import { Checkbox } from "@wpmudev/sui-checkbox"
 
 // Define the MenuItem component
 const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
+	id,
 	icon,
 	href,
 	className = "",
@@ -34,8 +35,8 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 	const [isHovered, isFocused, methods] = useInteraction({})
 
 	// Generate a unique ID for the menu item and its related elements
-	const id = useId()
-	const menuId = `sui-dropdown-menu-item-${id}`
+	const generatedId = useId()
+	const menuId = id || `sui-dropdown-menu-item-${generatedId}`
 	const menuTitleId = `${menuId}-title`
 
 	// Determine the element tag name (either "li" or "a" based on the presence of href)
@@ -122,6 +123,7 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 
 	// Prepare attributes for the menu item element
 	const attrs = {
+		id: menuId,
 		className: classNames,
 		href: !!href ? href : undefined,
 		tabIndex: isDisabled ? -1 : 0,

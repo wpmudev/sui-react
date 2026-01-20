@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 import { Uploader, UploaderProps } from "../src"
 
 describe("@wpmudev/sui-uploader", () => {
@@ -19,6 +19,6 @@ describe("@wpmudev/sui-uploader", () => {
 
 	// eslint-disable-next-line jest/expect-expect
 	it("passes a11y test", async () => {
-		await a11yTest(<Component />)
+		await a11yTest(<Component ariaAttrs={{ "aria-label": "Upload File" }} />)
 	})
 })

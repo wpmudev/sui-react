@@ -5,6 +5,7 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 type FooterLinkType = {
 	url: string // URL associated with the link.
 	title: string // Title or text to be displayed for the link.
+	target?: string
 }
 
 // Structure of a social media link in the footer.
@@ -17,6 +18,10 @@ type FooterSocialLinkType = {
 interface FooterProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	/**
+	 * Unique identifier for the footer.
+	 */
+	id?: string
 	/**
 	 * An optional function that can be used to render additional blocks within the footer.
 	 *
@@ -53,6 +58,11 @@ interface FooterProps
 	 * the url the logo points to
 	 */
 	logoHref?: string
+
+	/**
+	 * When true, it renders a custom footer
+	 */
+	customFooter?: boolean
 }
 
 export type { FooterProps, FooterLinkType, FooterSocialLinkType }

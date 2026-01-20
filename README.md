@@ -16,4 +16,4 @@ Sui React is structured as a collection of individual packages, with each compon
 See [CONTRIBUTING.md](https://github.com/wpmudev/sui-react/blob/development/CONTRIBUTION.md) for guidelines.
 
 ## Releasing
-See [RELEASING.md](https://github.com/wpmudev/sui-react/blob/development/RELEASING.md) for guidelines.
+See [RELEASING.md](https://github.com/wpmudev/sui-react/blob/development/RELEASING.md) for guidelines

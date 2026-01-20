@@ -25,7 +25,7 @@
 				}
 
 				@include modifier(title) {
-					color: $color-extended-neutral-60;
+					color: $color-grey-70;
 					font-weight: $font-weight-md;
 				}
 			}
@@ -38,7 +38,7 @@
 		@include block($block) {
 			@include element(empty) {
 				@include modifier(icon, title) {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 			}
 		}

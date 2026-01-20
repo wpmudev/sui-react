@@ -64,6 +64,7 @@ const Selected: React.FC<SelectSelectedProps> = ({
 									key={isCustomVar ? index : selectedItem?.id}
 								>
 									<span
+										className="sui-select__selected-label"
 										tabIndex={-1}
 										role="button"
 										onClick={(event) => event.stopPropagation()}

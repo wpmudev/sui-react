@@ -23,7 +23,7 @@
 				margin: $toggle-spacing-xs 0;
 				padding: 0;
 				border-radius: $toggle-border-radius;
-				background: $color-extended-neutral-80;
+				background: $color-grey-10;
 				transition: 0.3s all ease;
 
 				&:before {
@@ -33,7 +33,7 @@
 					display: block;
 					margin: 0 $toggle-spacing-xs;
 					border-radius: 50%;
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 				}
 
 				&:after {
@@ -51,11 +51,11 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(switch) {
-				background: $color-extended-neutral-100;
-				box-shadow: 0 0 0 $border-width-sm $color-extended-neutral-0;
+				background: $color-base-white;
+				box-shadow: 0 0 0 $border-width-sm $color-base-black;
 
 				&:before {
-					background: $color-extended-neutral-0;
+					background: $color-base-black;
 				}
 			}
 		}

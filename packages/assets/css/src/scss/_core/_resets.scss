@@ -48,3 +48,9 @@
 		}
 	}
 }
+
+@include body-class($rtl: false) {
+	#wpfooter {
+		display: none;
+	}
+}

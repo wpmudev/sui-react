@@ -32,7 +32,7 @@
 			}
 
 			@include modifier(readonly) {
-				background: $color-extended-neutral-95;
+				background: $color-grey-02;
 				border-radius: $input-border-radius;
 			}
 		}
@@ -43,7 +43,7 @@
 	@include sui-class($rtl: false, $theme: "dark") {
 		@include block($block) {
 			&:before {
-				border-color: $color-extended-neutral-0;
+				border-color: $color-base-black;
 			}
 		}
 	}

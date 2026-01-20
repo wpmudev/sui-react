@@ -20,6 +20,7 @@ const TabNavItem: FC<TabNavItemProps> = ({
 	stateIconColor,
 	children,
 	isDisabled = false,
+	onClick,
 	_htmlProps = {},
 	_style = {},
 }) => {
@@ -44,7 +45,8 @@ const TabNavItem: FC<TabNavItemProps> = ({
 	 */
 	const onTabClick = useCallback(() => {
 		tabCtx?.switchTab(parseInt(id as string))
-	}, [id, tabCtx])
+		onClick?.()
+	}, [id, tabCtx, onClick])
 
 	// List of expected state icons
 	const stateIcons = {

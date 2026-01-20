@@ -4,7 +4,6 @@ import createEmotion from "@emotion/css/create-instance"
 import {
 	_isTestingMode,
 	generateCN,
-	isValidCSSProperty,
 	isObjectEmpty,
 	isNestedStyleProperty,
 } from "@wpmudev/sui-utils"
@@ -102,7 +101,7 @@ export const CSS_SHORTHAND_MAPS: Record<string, string> = {
 }
 
 // We need this to wrap inline styles to prioritize
-const parentSelector: string = "body .sui-wrap &"
+const parentSelector: string = "body #sui-wrap &"
 
 /**
  * Build style object based on prop name and value
@@ -197,13 +196,13 @@ const { css } = createEmotion({
 const createStyles = (styleObject: Record<string, any>) =>
 	!isObjectEmpty(styleObject) ? css(styleObject) : ""
 
-/**
- * Check if an object has valid CSSProperty
- *
- * @param {Object} props expected to be CSSProperties
- */
-const isValidCSSPropExists = (props: object): boolean =>
-	Object.keys(props).filter((p) => !!isValidCSSProperty(p)).length > 0
+// /**
+//  * Check if an object has valid CSSProperty, this one check for native css properties
+//  *
+//  * @param {Object} props expected to be CSSProperties
+//  */
+// const isValidCSSPropExists = (props: Record<string, any>): boolean =>
+// 	Object.keys(props).filter((p) => !!isValidCSSRule(p, props[p])).length > 0
 
 /**
  * SUI custom hook for generating className based on passed CSS properties
@@ -227,8 +226,10 @@ export const useStyles = (
 		const styleObject = JSON.parse(stringifiedStyles)
 		let generatedCSS: Record<string, any> = {}
 
-		// process if styleProps has valid CSS properties
-		if (!isObjectEmpty(styleObject) && isValidCSSPropExists(styleObject)) {
+		/* Process if styleProps has valid CSS propertie 
+		We don't have to check for css properties validity since we are making type checking 
+		and the reason is there's no one way that works with all browsers  */
+		if (!isObjectEmpty(styleObject)) {
 			// go through all props
 			for (const name of Object.keys(styleObject)) {
 				const val = styleObject[name as keyof CSSProperties]
