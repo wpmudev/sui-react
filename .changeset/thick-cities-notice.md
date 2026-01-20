@@ -9,7 +9,6 @@
 "@wpmudev/sui-table": patch
 "@wpmudev/sui-tag": patch
 "@wpmudev/sui-hooks": patch
-"@wpmudev/sui-react": patch
 ---
 
 Add new template card component.

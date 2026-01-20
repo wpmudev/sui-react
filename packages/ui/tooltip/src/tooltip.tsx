@@ -65,7 +65,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 		if (tooltipRef.current) {
 			const parentRect = tooltipRef?.current?.getBoundingClientRect()
 			const trigger = triggerRef?.current?.getBoundingClientRect()
-			const popupEl = document.getElementById(uniqueId)
+			const popupEl = document.getElementById(uniqueId + "-popup")
 			const tooltipHeight = popupEl?.clientHeight || 0
 			const tooltipWidth = popupEl?.clientWidth || 0
 			const alignName = isRTL ? "right" : "left"
@@ -353,7 +353,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			{!!children &&
 				render(
 					<div
-						id={`sui-tooltip-${uniqueId}`}
+						id={`${uniqueId}-popup`}
 						className={generateCN("sui-tooltip__popup", {
 							show: isVisible,
 							focus: isFocused,

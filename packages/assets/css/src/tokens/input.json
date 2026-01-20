@@ -11,7 +11,7 @@
 					"type": "color"
 				},
 				"disabled": {
-					"value": "{color.grey.10}",
+					"value": "{color.grey.50}",
 					"type": "color"
 				}
 			},
