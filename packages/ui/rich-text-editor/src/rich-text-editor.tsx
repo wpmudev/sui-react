@@ -170,7 +170,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 			data-testid="rich-text-editor"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<div className="sui-rich-text-editor__header" id={`${uniqueId}_header`}>
+			<div className="sui-rich-text-editor__header" id={`${uniqueId}-header`}>
 				<SegmentedControl
 					name="type"
 					defaultValue={editorType as string}
@@ -188,7 +188,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 				</SegmentedControl>
 				{!!actions && actions}
 			</div>
-			<div className="sui-rich-text-editor__content" id={`${uniqueId}_content`}>
+			<div className="sui-rich-text-editor__content" id={`${uniqueId}-content`}>
 				<div
 					className={generateCN("sui-rich-text-editor__textarea", {
 						hidden: "visual" !== editorType,

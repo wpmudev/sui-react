@@ -14,7 +14,7 @@ const Row: React.FC<RowProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const rowId = id || `sui_row_${generatedId}`
+	const rowId = id || `sui-row-${generatedId}`
 
 	const { suiInlineClassname } = useStyles(_style, className)
 

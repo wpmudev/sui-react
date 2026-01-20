@@ -34,7 +34,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 	_style = {},
 }: TreeViewProps): JSX.Element => {
 	const generatedId = useId()
-	const treeViewId = uniqueId || `sui_tree_view_${generatedId}`
+	const treeViewId = uniqueId || `sui-tree-view-${generatedId}`
 	const [items, setItems] = useState<TreeViewCheckType[]>([])
 
 	// Default children content
@@ -61,7 +61,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 				data-testid="tree-view"
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
-				<ul id={`${treeViewId}_list`} role="tree">
+				<ul id={`${treeViewId}-list`} role="tree">
 					{children}
 				</ul>
 			</nav>

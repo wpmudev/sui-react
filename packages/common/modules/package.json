@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-modules",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "WPMU DEV Shared UI React sub-package for modules",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -45,9 +45,9 @@
   "dependencies": {
     "@wpmudev/sui-dashboard-widget": "^0.1.1",
     "@wpmudev/sui-integration": "^0.0.3",
-    "@wpmudev/sui-navigation-wpmudev": "^0.0.3",
+    "@wpmudev/sui-navigation-wpmudev": "^0.0.4",
     "@wpmudev/sui-navigation": "^0.1.1",
-    "@wpmudev/sui-table": "^1.0.3"
+    "@wpmudev/sui-table": "^1.0.4"
   },
   "clean-package": "../../../postpack.config.json"
 }

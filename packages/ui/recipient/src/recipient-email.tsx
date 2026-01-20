@@ -13,7 +13,7 @@ const RecipientEmail: React.FC<RecipientEmailProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const recipientEmailId = id || `sui_recipient_email_${generatedId}`
+	const recipientEmailId = id || `sui-recipient-email-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	if (!!children && !isString(children)) {

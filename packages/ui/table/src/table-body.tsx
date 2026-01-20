@@ -8,6 +8,7 @@ import React, {
 	useCallback,
 	useContext,
 	useEffect,
+	useId,
 	useState,
 } from "react"
 import { ReactSortable as Sortable } from "react-sortablejs"
@@ -27,7 +28,11 @@ import { _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 const TableBody: React.FC<TableSectionProps> = (
 	props: TableSectionProps,
 ): JSX.Element => {
-	const { children, _htmlProps } = props ?? {}
+	const { id, children, _htmlProps } = props ?? {}
+
+	const generatedId = useId()
+	const tableBodyId = id || `sui-table-body-${generatedId}`
+
 	// State to keep track of the table rows
 	const [el, setEl] = useState<ReactNode | ReactNode[]>(
 		Children.toArray(children),
@@ -144,6 +149,7 @@ const TableBody: React.FC<TableSectionProps> = (
 		return (
 			<TableBodyTag
 				{...props}
+				id={tableBodyId}
 				_htmlProps={_htmlProps}
 				ref={props?.ref as Ref<HTMLTableSectionElement>}
 			>
@@ -180,8 +186,9 @@ const TableBody: React.FC<TableSectionProps> = (
 // This is just like a normal component, but now has a ref.
 // ForwardRef to forward the ref passed to this component to the underlying tbody element.
 const TableBodyTag = forwardRef<HTMLTableSectionElement, TableSectionProps>(
-	({ _htmlProps, ...props }, ref) => (
+	({ id, _htmlProps, ...props }, ref) => (
 		<tbody
+			id={id}
 			ref={ref}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 			className="sui-table__body"

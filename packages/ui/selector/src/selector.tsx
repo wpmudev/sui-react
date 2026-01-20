@@ -103,7 +103,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 					isPro={isPro}
 				/>
 				{label && (
-					<span className="sui-screen-reader-only" id={`${uniqueId}_label`}>
+					<span className="sui-screen-reader-only" id={`${uniqueId}-label`}>
 						{label}
 					</span>
 				)}

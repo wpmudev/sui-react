@@ -162,7 +162,7 @@ export const multiSelectCode = dedent`
   ]
 
 export const Example = () => {
-    return <Select isMultiSelect={true} id="multiselect" options={options} label="Search..." />
+    return <Select isMultiSelect={true} id="multi-select" options={options} label="Search..." />
 }`
 
 <Section
@@ -187,7 +187,7 @@ export const Example = () => {
 >
     <p>Set the prop <Code small={true}>isMultiSelect=\{true\}</Code> to allow for multiselection of the options</p>
     <div className="sui-wrap sui-theme--light" style={{ marginBottom: 30 }}>
-    	<Select isMultiSelect={true} id="multiselect" options={options}/>
+    	<Select isMultiSelect={true} id="multi-select" options={options}/>
     </div>
     <Snippet language="js">{multiSelectCode}</Snippet>
 

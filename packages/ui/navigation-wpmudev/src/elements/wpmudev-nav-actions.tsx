@@ -1,12 +1,22 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode, useId } from "react"
 
 interface NavActionsWPMUDEVProps {
+	id?: string
 	children: ReactNode
 }
 
-const NavActionsWPMUDEV: React.FC<NavActionsWPMUDEVProps> = ({ children }) => {
+const NavActionsWPMUDEV: React.FC<NavActionsWPMUDEVProps> = ({
+	id,
+	children,
+}) => {
+	const generatedId = useId()
+	const navActionsId = id || `sui-wpmudev-nav-actions-${generatedId}`
+
 	return (
-		<div className="sui-wpmudev__navigation--actions sui-wpmudev__navigation--hide-mobile">
+		<div
+			id={navActionsId}
+			className="sui-wpmudev__navigation--actions sui-wpmudev__navigation--hide-mobile"
+		>
 			{children}
 		</div>
 	)

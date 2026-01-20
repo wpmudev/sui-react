@@ -34,7 +34,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	_style = {},
 }: DashboardWidgetProps) => {
 	const generatedId = useId()
-	const dashboardWidgetId = id || `sui_dashboard_widget_${generatedId}`
+	const dashboardWidgetId = id || `sui-dashboard-widget-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate classnames for the dashboard widget
@@ -85,29 +85,29 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div
-				id={`${dashboardWidgetId}_header`}
+				id={`${dashboardWidgetId}-header`}
 				className="sui-dashboard-widget__header"
 			>
 				<div
-					id={`${dashboardWidgetId}_header_title`}
+					id={`${dashboardWidgetId}-header-title`}
 					className="sui-dashboard-widget__header-title"
 				>
 					<div
-						id={`${dashboardWidgetId}_header_info`}
+						id={`${dashboardWidgetId}-header-info`}
 						className="sui-dashboard-widget__header-info"
 					>
 						{/* Display the icon if available */}
-						{IconTag && <IconTag id={`${dashboardWidgetId}_icon`} size="md" />}
+						{IconTag && <IconTag id={`${dashboardWidgetId}-icon`} size="md" />}
 						{/* Display the title and optional tag */}
 						{(title || tag || StatusIcon) && (
 							<h4
-								id={`${dashboardWidgetId}_title`}
+								id={`${dashboardWidgetId}-title`}
 								className="sui-heading--h4 sui-dashboard-widget__header-title"
 							>
 								{title}
 								{tag && (
 									<Tag
-										id={`${dashboardWidgetId}_tag`}
+										id={`${dashboardWidgetId}-tag`}
 										colorScheme="black"
 										design="outlined"
 										{...(tagAttrs ?? {})}
@@ -117,7 +117,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 								)}
 								{StatusIcon && (
 									<StatusIcon
-										id={`${dashboardWidgetId}_status_icon`}
+										id={`${dashboardWidgetId}-status-icon`}
 										size="sm"
 										{...(statusProps ?? {})}
 									/>
@@ -128,12 +128,12 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 					{/* Display collapse/expand button if allowed */}
 					{canCollapse && (
 						<div
-							id={`${dashboardWidgetId}_header_actions`}
+							id={`${dashboardWidgetId}-header-actions`}
 							className="sui-dashboard-widget__header-actions"
 							data-testid="dashboard-widget-"
 						>
 							<Toggle
-								id={`${dashboardWidgetId}_toggle`}
+								id={`${dashboardWidgetId}-toggle`}
 								isLabelHidden={true}
 								label="Toggle Widget"
 								defaultValue={isExpanded ?? false}
@@ -146,7 +146,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 				{/* Display widget description */}
 				{description && (
 					<div
-						id={`${dashboardWidgetId}_description`}
+						id={`${dashboardWidgetId}-description`}
 						className="sui-dashboard-widget__header-desc"
 					>
 						{description}
@@ -158,7 +158,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 				<Fragment>
 					{children && (
 						<div
-							id={`${dashboardWidgetId}_body`}
+							id={`${dashboardWidgetId}-body`}
 							className="sui-dashboard-widget__body"
 						>
 							{children}
@@ -167,7 +167,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 					{/* Display widget actions if available */}
 					{actions && (
 						<div
-							id={`${dashboardWidgetId}_footer`}
+							id={`${dashboardWidgetId}-footer`}
 							className="sui-dashboard-widget__footer"
 						>
 							{actions}

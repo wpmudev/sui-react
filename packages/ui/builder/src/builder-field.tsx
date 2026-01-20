@@ -27,7 +27,7 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const builderFieldId = id || `sui_builder_field_${generatedId}`
+	const builderFieldId = id || `sui-builder-field-${generatedId}`
 	// State to manage the expanded/collapsed state of the field
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
 

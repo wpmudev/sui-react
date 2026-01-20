@@ -23,7 +23,7 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 	_htmlProps = {},
 }) => {
 	const generatedId = useId()
-	const brandId = id || `sui_navigation_brand_${generatedId}`
+	const brandId = id || `sui-navigation-brand-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Icon for the specified plugin or use a default "Plugin" icon.
@@ -44,24 +44,24 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div
-				id={`${brandId}_icon`}
+				id={`${brandId}-icon`}
 				className="sui-navigation__icon"
 				style={{ backgroundColor: PluginIcon?.bg }}
 			>
 				{!!IconTag && <IconTag fill={PluginIcon?.color} />}
 			</div>
 			<div
-				id={`${brandId}_info`}
+				id={`${brandId}-info`}
 				className={generateCN("sui-navigation__info", {
 					"show-title-in-mobile": showTitleInMobile,
 					"show-description-in-mobile": showDescriptionInMobile,
 				})}
 			>
-				<h3 id={`${brandId}_title`} className="sui-heading--h4">
+				<h3 id={`${brandId}-title`} className="sui-heading--h4">
 					{title}
 				</h3>
 				<span
-					id={`${brandId}_description`}
+					id={`${brandId}-description`}
 					className="sui-navigation__info--desc"
 				>
 					{description}

@@ -27,7 +27,7 @@ const Recipient: React.FC<RecipientProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const recipientId = id || `sui_recipient_${generatedId}`
+	const recipientId = id || `sui-recipient-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Define recipient class.

@@ -26,7 +26,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const progressBarId = id || `sui_progress_bar_${generatedId}`
+	const progressBarId = id || `sui-progress-bar-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	// animation speed

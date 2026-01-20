@@ -32,7 +32,7 @@ const TabNav: FC<TabNavProps> = ({
 	isNarrow = false,
 }) => {
 	const generatedId = useId()
-	const tabNavId = id || `sui_tab-nav_${generatedId}`
+	const tabNavId = id || `sui-tab-nav-${generatedId}`
 	const { containerRef, isScrollableLeft, isScrollableRight, scroll } =
 		useScrollable({ scrollOffset: 50 })
 	const { suiInlineClassname } = useStyles(_style)
@@ -55,15 +55,15 @@ const TabNav: FC<TabNavProps> = ({
 		>
 			{isScrollableLeft && (
 				<button
-					id={`${tabNavId}_scroll-left`}
+					id={`${tabNavId}-scroll-left`}
 					className="sui-tab__arrow sui-tab__arrow--left"
 					onClick={() => scroll("left")}
 				>
-					<ChevronLeft id={`${tabNavId}_scroll-left_icon`} size="sm" />
+					<ChevronLeft id={`${tabNavId}-scroll-left-icon`} size="sm" />
 				</button>
 			)}
 			<div
-				id={`${tabNavId}_navitems`}
+				id={`${tabNavId}-navitems`}
 				className="sui-tab__navitems"
 				ref={containerRef}
 			>
@@ -78,11 +78,11 @@ const TabNav: FC<TabNavProps> = ({
 			</div>
 			{isScrollableRight && (
 				<button
-					id={`${tabNavId}_scroll-right`}
+					id={`${tabNavId}-scroll-right`}
 					className="sui-tab__arrow sui-tab__arrow--right"
 					onClick={() => scroll("right")}
 				>
-					<ChevronRight id={`${tabNavId}_scroll-right_icon`} size="sm" />
+					<ChevronRight id={`${tabNavId}-scroll-right-icon`} size="sm" />
 				</button>
 			)}
 		</div>

@@ -13,7 +13,7 @@ const SearchOptionItem: React.FC<SearchOptionItemProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const searchOptionItemId = id || `sui_search_option_item_${generatedId}`
+	const searchOptionItemId = id || `sui-search-option-item-${generatedId}`
 	const [isHovered, isFocused, methods] = useInteraction({})
 
 	const { suiInlineClassname } = useStyles(_style)

@@ -17,7 +17,7 @@ const Score: React.FC<ScoreProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const scoreId = id || `sui_score_${generatedId}`
+	const scoreId = id || `sui-score-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(

@@ -13,7 +13,7 @@ const useSpinner = (
 
 	// Generate a unique ID for the spinner
 	const id = useId()
-	const spinnerId = `sui_spinner_${id}`
+	const spinnerId = `sui-spinner-${id}`
 
 	useEffect(() => {
 		const currentTargetRef = targetRef?.current

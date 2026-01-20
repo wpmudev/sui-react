@@ -1,0 +1,3 @@
+@use "./_elements/elements" as sui-list--element;
+
+@include sui-list--element.build-container(list);

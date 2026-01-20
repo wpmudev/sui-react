@@ -20,7 +20,7 @@ const Builder: React.FC<BuilderProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const builderId = id || `sui_builder_${generatedId}`
+	const builderId = id || `sui-builder-${generatedId}`
 	// Default children content
 	children = useDefaultChildren(children)
 	const { suiInlineClassname } = useStyles(_style, `sui-layout ${className}`)

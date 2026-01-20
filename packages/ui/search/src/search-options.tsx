@@ -14,7 +14,7 @@ const SearchOptions: React.FC<SearchOptionsProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const searchOptionsId = id || `sui_search_options_${generatedId}`
+	const searchOptionsId = id || `sui-search-options-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 	const className = generateCN("sui-search__options", {}, suiInlineClassname)
 

@@ -15,7 +15,7 @@ const Sidebar: React.FC<Omit<SidebarProps, "selectedItemName">> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const sidebarId = id || `sui_sidebar_${generatedId}`
+	const sidebarId = id || `sui-sidebar-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-sidebar", {}, suiInlineClassname)
 

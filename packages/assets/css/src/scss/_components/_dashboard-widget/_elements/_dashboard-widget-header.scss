@@ -36,6 +36,7 @@
 			}
 
 			@include element(header-desc) {
+				color: $color-grey-70;
 				margin-top: $spacing-md;
 
 				p {

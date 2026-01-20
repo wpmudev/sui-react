@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 import { Button } from "@wpmudev/sui-button"
 import {
 	_renderHTMLPropsSafely,
@@ -16,6 +16,7 @@ import { Link } from "@wpmudev/sui-link"
 import ChatAvatar from "../images/chat-avatar.png"
 
 const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
+	id,
 	title = "Recommended Readings",
 	titleLink,
 	isPro = false,
@@ -48,6 +49,8 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 	_style = {},
 	_htmlProps = {},
 }) => {
+	const generatedId = useId()
+	const wpmudevHelpId = id || `sui-wpmudev-help-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN(
 		"sui-wpmudev__help-content",
@@ -150,8 +153,12 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 	}
 
 	return (
-		<div className={classNames} {..._renderHTMLPropsSafely(_htmlProps)}>
-			<div className="sui-wpmudev__help-title">
+		<div
+			id={wpmudevHelpId}
+			className={classNames}
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
+			<div id={`${wpmudevHelpId}-title`} className="sui-wpmudev__help-title">
 				{title}
 				{titleLink && (
 					<Link
@@ -165,7 +172,10 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 				)}
 			</div>
 			{content && (
-				<div className="sui-wpmudev__help-readings">
+				<div
+					id={`${wpmudevHelpId}-readings`}
+					className="sui-wpmudev__help-readings"
+				>
 					{content.map((item, index) => (
 						<a
 							key={index}
@@ -179,7 +189,10 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 					))}
 				</div>
 			)}
-			<div className="sui-wpmudev__help-title">
+			<div
+				id={`${wpmudevHelpId}-resources-title`}
+				className="sui-wpmudev__help-title"
+			>
 				{resources.title}
 				{resources.titleLink && (
 					<Link
@@ -192,7 +205,7 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 					</Link>
 				)}
 			</div>
-			<ul className="sui-wpmudev__help-list">
+			<ul id={`${wpmudevHelpId}-list`} className="sui-wpmudev__help-list">
 				{resourcesSection}
 				{supportSection()}
 			</ul>

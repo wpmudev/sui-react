@@ -20,7 +20,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 	_htmlProps,
 }) => {
 	const generatedId = useId()
-	const alertBannerId = id || `sui_alert_banner_${generatedId}`
+	const alertBannerId = id || `sui-alert-banner-${generatedId}`
 	// State to control the visibility of the alert banner
 	const [isVisible, setIsVisible] = useState(true)
 

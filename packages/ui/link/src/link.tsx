@@ -35,7 +35,7 @@ const Link: React.FC<LinkProps> = ({
 	...props
 }) => {
 	const generatedId = useId()
-	const linkId = id || `sui_link_${generatedId}`
+	const linkId = id || `sui-link-${generatedId}`
 
 	// Determine the HTML tag name to use
 	const TagName = as ?? "a"

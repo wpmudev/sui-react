@@ -13,7 +13,7 @@ const ConfigTableDetails: React.FC<ConfigTableDetailsTypes> = ({
 	proItems,
 }) => {
 	const generatedId = useId()
-	const configTableDetailsId = id || `sui_config_table_details_${generatedId}`
+	const configTableDetailsId = id || `sui-config-table-details-${generatedId}`
 	let options: Array<any> = []
 
 	// Build options to render in the table

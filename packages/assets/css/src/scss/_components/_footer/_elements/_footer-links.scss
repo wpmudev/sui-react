@@ -12,6 +12,14 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			a {
+				box-shadow: none;
+
+				&:focus {
+					text-decoration: underline;
+				}
+			}
+
 			@include element(links) {
 				align-items: center;
 				display: flex;
@@ -44,7 +52,7 @@
 
 						&:hover,
 						&:focus {
-							color: $color-primary-60;
+							color: $color-primary-50;
 						}
 					}
 

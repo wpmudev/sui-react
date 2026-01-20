@@ -39,7 +39,7 @@ const SummaryBox: React.FC<SummaryBoxProps> = ({
 	_style = {},
 }: SummaryBoxProps): JSX.Element => {
 	const generatedId = useId()
-	const summaryBoxId = id || `sui_summary_box_${generatedId}`
+	const summaryBoxId = id || `sui-summary-box-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-summary-box", {}, suiInlineClassname)
 

@@ -12,7 +12,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const dropdownMenuId = id || `sui_dropdown_menu_${generatedId}`
+	const dropdownMenuId = id || `sui-dropdown-menu-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN("sui-dropdown__menu", {}, suiInlineClassname)

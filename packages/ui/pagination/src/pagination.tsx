@@ -18,7 +18,7 @@ const Pagination: React.FC<PaginationProps> = ({
 	_htmlProps,
 }) => {
 	const generatedId = useId()
-	const paginationId = id || `sui_pagination_${generatedId}`
+	const paginationId = id || `sui-pagination-${generatedId}`
 	// Number of Items should not be 0
 	if (numberOfItems === 0) {
 		throw new Error(

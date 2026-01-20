@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { HTMLProps } from "react"
+import React, { HTMLProps } from "react"
 
 import { useStylesTypes } from "@wpmudev/sui-hooks"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
@@ -53,6 +53,10 @@ interface UploaderProps
 	 * Text to appear in the alert when file size is larger than the max
 	 */
 	maxSizeText?: string
+	/**
+	 * Aria attributes for the file input element
+	 */
+	ariaAttrs?: React.AriaAttributes
 	/**
 	 * Custom click handler
 	 */

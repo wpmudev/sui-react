@@ -48,7 +48,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 
 	// Custom hook to generate a unique ID for the accordion item.
 	const generatedId = useId()
-	const uniqueId = id || `sui_accordion_${generatedId}`
+	const uniqueId = id || `sui-accordion-${generatedId}`
 
 	// Get the "toggle" method and "isCurrentlyExpanded" state from the current AccordionItem
 	const { toggle, isCurrentlyExpanded } = useAccordion({
@@ -58,8 +58,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	const { spacing } = useContext(AccordionContext)
 
 	// IDs for the accordion and its panel to manage accessibility.
-	const accordionId = `${uniqueId}_header`
-	const accordionPanelId = `${uniqueId}_panel`
+	const accordionId = `${uniqueId}-header`
+	const accordionPanelId = `${uniqueId}-panel`
 
 	const onMouseDownCapture = () => {
 		setIsPressed(true)
@@ -144,7 +144,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			>
 				{(hasCheckbox || (hasToggle && isChecked)) && (
 					<div
-						id={`${accordionId}_accessible_cta`}
+						id={`${accordionId}-accessible-cta`}
 						className="sui-accessible-cta"
 						tabIndex={isDisabled ? -1 : 0}
 						role="button"
@@ -162,13 +162,13 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 
 				{/* Content of the accordion item's header */}
 				<div
-					id={`${accordionId}_header_info`}
 					className="sui-accordion__header-info"
+					id={`${accordionId}-header-info`}
 				>
 					{(!!hasCheckbox || !!hasToggle || !!icon) && (
 						<div
-							id={`${accordionId}_header_actions`}
 							className="sui-accordion__header-actions"
+							id={`${accordionId}-header-actions`}
 						>
 							{hasToggle && (
 								<div
@@ -201,7 +201,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 							{hasCheckbox && (
 								<Checkbox
 									name={accordionId}
-									id={`${accordionId}_checkbox`}
+									id={`${accordionId}-checkbox`}
 									onChange={onCheckBoxChange}
 									isChecked={isChecked}
 									isDisabled={isDisabled ?? false}
@@ -212,20 +212,20 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 					)}
 					{!hasToggle && (
 						<div
-							id={`${accordionId}_header_title`}
 							className="sui-accordion__header-title"
+							id={`${accordionId}-header-title`}
 						>
-							<h2 id={`${accordionId}_title`}>{title}</h2>
+							<h2 className={`${accordionId}-title`}>{title}</h2>
 							{!isEmpty(description ?? "") && (
-								<p id={`${accordionId}_description`}>{description}</p>
+								<p className={`${accordionId}-description`}>{description}</p>
 							)}
 						</div>
 					)}
 				</div>
 				{/* Icon component to display a chevron icon */}
 				<div
-					id={`${accordionId}_header_icon`}
 					className="sui-accordion__header-icon"
+					id={`${accordionId}-header-icon`}
 				>
 					{tooltipProps ? (
 						<Tooltip icon="Info" {...tooltipProps}></Tooltip>
@@ -249,7 +249,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			>
 				<div
 					className={panelContentClassName}
-					id={`${accordionId}_panel_content`}
+					id={`${accordionId}-panel-content`}
 				>
 					{children}
 				</div>

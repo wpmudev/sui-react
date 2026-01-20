@@ -45,7 +45,7 @@ const Popover: React.FC<PopoverProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const popoverId = id || `sui_popover_${generatedId}`
+	const popoverId = id || `sui-popover-${generatedId}`
 	const [isPopupOpen, setIsPopupOpen] = useState<boolean>(isOpen ?? false)
 	const [popupPositions, setPopupPositions] = useState<Record<string, any>>({
 		top: 0,

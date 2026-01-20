@@ -17,7 +17,7 @@
 			border-radius: $border-radius-lg;
 			border: $border-width-sm solid $color-grey-10;
 			max-width: $dashboard-size-width-lg;
-			padding: $spacing-xl;
+			padding: $spacing-xl $spacing-2xl;
 
 			@include modifier(full) {
 				max-width: 100%;

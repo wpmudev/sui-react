@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies
+  [[`c837d82`](https://github.com/wpmudev/sui-react/commit/c837d828232030b969096d5380f6f30e5a50ee8f)]:
+  - @wpmudev/sui-navigation-wpmudev@0.0.4
+  - @wpmudev/sui-table@1.0.4
+
 ## 0.0.3
 
 ### Patch Changes

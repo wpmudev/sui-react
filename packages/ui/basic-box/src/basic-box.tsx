@@ -19,6 +19,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	centerFooterActions,
 	className,
 	isPro = false,
+	hasBg = false,
 	isFluid = false,
 	children,
 	hasLargeRadius,
@@ -26,7 +27,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const basicBoxId = id || `sui_basic_box_${generatedId}`
+	const basicBoxId = id || `sui-basic-box-${generatedId}`
 
 	// Interaction methods
 	const [isHovered, isFocused, methods] = useInteraction({})
@@ -42,6 +43,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 			focus: isFocused,
 			hover: isHovered && !isFocused,
 			pro: isPro,
+			bg: hasBg,
 			"is-fluid": isFluid,
 			"center-footer-actions": centerFooterActions,
 			"large-radius": hasLargeRadius,
@@ -57,26 +59,26 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 			data-testid="basic-box"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<div className="sui-basic-box__header" id={`${basicBoxId}_header`}>
+			<div className="sui-basic-box__header" id={`${basicBoxId}-header`}>
 				<div
 					className="sui-basic-box__header-info"
-					id={`${basicBoxId}_header_info`}
+					id={`${basicBoxId}-header-info`}
 				>
 					{!!title && (
-						<h3
-							id={`${basicBoxId}_title`}
-							className="sui-basic-box__header-title sui-heading--h3"
+						<h4
+							id={`${basicBoxId}-title`}
+							className="sui-basic-box__header-title sui-heading--h4"
 							data-testid="basic-box-title"
 						>
 							{title}
-						</h3>
+						</h4>
 					)}
-					<div className="sui-basic-box__actions" id={`${basicBoxId}_actions`}>
+					<div className="sui-basic-box__actions" id={`${basicBoxId}-actions`}>
 						{headerActions && headerActions}
 					</div>
 					{!!description && (
 						<div
-							id={`${basicBoxId}_description`}
+							id={`${basicBoxId}-description`}
 							className="sui-basic-box__header-desc"
 							data-testid="basic-box-description"
 						>
@@ -87,17 +89,17 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 			</div>
 			<div
 				className="sui-basic-box__body"
-				id={`${basicBoxId}_body`}
+				id={`${basicBoxId}-body`}
 				data-testid="basic-box-body"
 			>
 				{children}
 			</div>
 			{!!footerActions && (
-				<div className="sui-basic-box__footer" id={`${basicBoxId}_footer`}>
+				<div className="sui-basic-box__footer" id={`${basicBoxId}-footer`}>
 					{!!footerActions?.[0] && (
 						<div
 							className="sui-basic-box__footer-left"
-							id={`${basicBoxId}_footer_left`}
+							id={`${basicBoxId}-footer-left`}
 						>
 							{footerActions?.[0]}
 						</div>
@@ -105,7 +107,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 					{!!footerActions?.[1] && (
 						<div
 							className="sui-basic-box__footer-right"
-							id={`${basicBoxId}_footer_right`}
+							id={`${basicBoxId}-footer-right`}
 						>
 							{footerActions?.[1]}
 						</div>

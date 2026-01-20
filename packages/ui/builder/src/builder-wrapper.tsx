@@ -13,7 +13,7 @@ const BuilderWrapper: React.FC<BuilderWrapperProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const builderWrapperId = id || `sui_builder_wrapper_${generatedId}`
+	const builderWrapperId = id || `sui-builder-wrapper-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Class names based on interaction and disabled state.

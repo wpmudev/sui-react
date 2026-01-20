@@ -44,7 +44,7 @@ const _CheckboxGroupInner = ({
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate a unique ID for the checkbox group
-	const checkboxGroupId = id ?? `sui_checkbox_group_${uuid}`
+	const checkboxGroupId = id ?? `sui-checkbox-group-${uuid}`
 
 	// Define CSS class names for the checkbox group
 	const className = generateCN(
@@ -123,7 +123,7 @@ const _CheckboxGroupInner = ({
 
 					// Use initial id defined by user or generate a unique ID for the child checkbox
 					const checkboxId =
-						chekboxInitialId || `sui_checkbox_item_${uuid}_${index}` // Find the current item based on ID and group
+						chekboxInitialId || `sui-checkbox-item-${uuid}-${index}` // Find the current item based on ID and group
 					const currItem = items.find(
 						(i) => i.id === checkboxId && i.groupId === checkboxGroupId,
 					)

@@ -78,7 +78,7 @@ const Header: React.FunctionComponent<
 
 				{status && !isEmpty(statusName) && (
 					<Tag
-						id={`page-status--${status}`}
+						id={`page-status-${status}`}
 						color={statusColor}
 						light={true}
 						uppercase={true}

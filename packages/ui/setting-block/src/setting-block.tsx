@@ -22,7 +22,7 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const settingBlockId = id || `sui_setting_block_${generatedId}`
+	const settingBlockId = id || `sui-setting-block-${generatedId}`
 	// Interaction methods
 	const [isHovered, isFocused, methods] = useInteraction({})
 

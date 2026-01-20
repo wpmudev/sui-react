@@ -1,4 +1,4 @@
-import React, { createRef, useRef } from "react"
+import React, { createRef, useRef, useId } from "react"
 import { Dropdown, DropdownRefProps } from "@wpmudev/sui-dropdown"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { WPMUDEVNotificationProps } from "../navigation-wpmudev.types"
@@ -6,6 +6,7 @@ import { Tooltip } from "@wpmudev/sui-tooltip"
 import { Link } from "@wpmudev/sui-link"
 
 const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
+	id,
 	label = "What’s new on Smush?",
 	title = "What's new",
 	notifications = [],
@@ -20,6 +21,8 @@ const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
 	_style = {},
 	...props
 }) => {
+	const generatedId = useId()
+	const wpmudevNotificationId = id || `sui-wpmudev-notification-${generatedId}`
 	// Create a ref for the user dropdown button
 	const notificationRef = useRef<DropdownRefProps | null>(null)
 
@@ -32,6 +35,7 @@ const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
 	return (
 		<>
 			<Dropdown
+				id={wpmudevNotificationId}
 				ref={notificationRef}
 				label={label}
 				placement="left"
@@ -60,13 +64,22 @@ const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
 				{...props}
 			>
 				{label && (
-					<div className="sui-wpmudev__notifications--header">
+					<div
+						id={`${wpmudevNotificationId}-header`}
+						className="sui-wpmudev__notifications--header"
+					>
 						<h4 className="sui-heading--h5">{label}</h4>
 					</div>
 				)}
-				<NotificationWPMUDEVContent notifications={notifications} />
+				<NotificationWPMUDEVContent
+					id={`${wpmudevNotificationId}-content`}
+					notifications={notifications}
+				/>
 				{footerActions && (
-					<div className="sui-wpmudev__notifications--footer">
+					<div
+						id={`${wpmudevNotificationId}-footer`}
+						className="sui-wpmudev__notifications--footer"
+					>
 						{footerActions.map((action, index) => action)}
 					</div>
 				)}
@@ -76,6 +89,7 @@ const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
 }
 
 const NotificationWPMUDEVContent: React.FC<WPMUDEVNotificationProps> = ({
+	id,
 	notifications = [],
 	className = "",
 	_htmlProps = {},
@@ -90,6 +104,7 @@ const NotificationWPMUDEVContent: React.FC<WPMUDEVNotificationProps> = ({
 
 	return (
 		<div
+			id={id}
 			className={classNames}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 			{...props}

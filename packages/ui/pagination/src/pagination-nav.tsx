@@ -41,8 +41,8 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 			data-testid="pagination"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<ul id={`${id}_nav`} className="sui-pagination__nav">
-				<li id={`${id}_prev_item`} className="sui-pagination__item">
+			<ul id={`${id}-nav`} className="sui-pagination__nav">
+				<li id={`${id}-prev-item`} className="sui-pagination__item">
 					<Tooltip
 						buttonProps={{
 							type: "tertiary",

@@ -14,7 +14,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const pageHeaderId = id || `sui_page_header_${generatedId}`
+	const pageHeaderId = id || `sui-page-header-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Generate CSS class names for the link
@@ -22,12 +22,12 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 
 	return (
 		<div id={pageHeaderId} className={classNames}>
-			<h1 id={`${pageHeaderId}_title`} className="sui-page-header__title">
+			<h1 id={`${pageHeaderId}-title`} className="sui-page-header__title">
 				{title}
 			</h1>
 			{actions.length > 0 && (
 				<div
-					id={`${pageHeaderId}_actions`}
+					id={`${pageHeaderId}-actions`}
 					className="sui-page-header__actions"
 				>
 					{actions}

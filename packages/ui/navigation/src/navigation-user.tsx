@@ -21,7 +21,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 	_htmlProps = {},
 }) => {
 	const generatedId = useId()
-	const navigationUserId = id || `sui_navigation_user_${generatedId}`
+	const navigationUserId = id || `sui-navigation-user-${generatedId}`
 	// Create a ref for the user dropdown button
 	const userBtnRef = useRef<DropdownRefProps | null>(null)
 
@@ -36,7 +36,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 	// Define the user's avatar button component
 	const userAvatarBtn = (
 		<Avatar
-			id={`${navigationUserId}_avatar`}
+			id={`${navigationUserId}-avatar`}
 			status={status}
 			image={{
 				src: user?.image ?? "",
@@ -64,12 +64,12 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 		// Render otherwise
 		return (
 			<div
-				id={`${navigationUserId}_user_info`}
+				id={`${navigationUserId}-user-info`}
 				className="sui-navigation__user"
 			>
 				{!isEmpty(user?.name ?? "") && (
 					<div
-						id={`${navigationUserId}_user_name`}
+						id={`${navigationUserId}-user-name`}
 						className="sui-navigation__user--name"
 					>
 						{user?.name}
@@ -77,7 +77,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 				)}
 				{!isEmpty(user?.email ?? "") && (
 					<div
-						id={`${navigationUserId}_user_email`}
+						id={`${navigationUserId}-user-email`}
 						className="sui-navigation__user--email"
 					>
 						{user?.email}
@@ -94,7 +94,7 @@ const NavigationUser: React.FC<NavigationUserProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<Dropdown
-				id={`${navigationUserId}_dropdown`}
+				id={`${navigationUserId}-dropdown`}
 				ref={userBtnRef}
 				label="Menu Button"
 				placement="left"

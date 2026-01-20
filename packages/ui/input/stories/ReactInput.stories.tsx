@@ -72,7 +72,7 @@ const Input = ({
 // Set story arguments.
 Input.args = {
 	type: "text",
-	id: "myCustomId",
+	id: "my-custom-id",
 	defaultValue: "Hello World",
 	icon: "",
 	iconPosition: "start",

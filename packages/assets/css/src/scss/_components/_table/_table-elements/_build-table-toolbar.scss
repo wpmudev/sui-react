@@ -61,6 +61,7 @@
 
 			@include element(toolbar-cta) {
 				text-align: right;
+				padding-top: $spacing-xl;
 			}
 
 			@include element(toolbar-filter) {

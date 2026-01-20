@@ -17,7 +17,7 @@ const Tabs: React.FC<TabsProps> = ({
 	...props
 }) => {
 	const generatedId = useId()
-	const tabsId = id || `sui_tabs_${generatedId}`
+	const tabsId = id || `sui-tabs-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	// Generate CSS class names for the Accordion component
 	const classNames = generateCN("sui-tab", {}, suiInlineClassname)

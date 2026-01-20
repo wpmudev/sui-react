@@ -50,7 +50,7 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	_style = {},
 }: SummaryBoxItemProps): JSX.Element => {
 	const generatedId = useId()
-	const summaryBoxItemId = id || `sui_summary_box_item_${generatedId}`
+	const summaryBoxItemId = id || `sui-summary-box-item-${generatedId}`
 	// Hook for handling interaction state (hover, focus).
 	const [isHovered, isFocused, methods] = useInteraction({})
 	const { suiInlineClassname } = useStyles(_style, className)

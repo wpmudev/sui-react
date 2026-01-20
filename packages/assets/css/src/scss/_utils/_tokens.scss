@@ -1,5 +1,5 @@
 // Do not edit directly
-// Generated on Tue, 13 Jan 2026 11:05:45 GMT
+// Generated on Tue, 20 Jan 2026 09:06:30 GMT
 
 $accordion-border-radius-sm: 10px;
 $advanced-banner-background: linear-gradient(
@@ -429,7 +429,7 @@ $icon-size-lg: 48px;
 $icon-size-xl: 64px;
 $input-font-color-default: #1a1a1a;
 $input-font-color-placeholder: #666666;
-$input-font-color-disabled: #b3b3b3;
+$input-font-color-disabled: #e6e6e6;
 $input-font-size-sm: 12px;
 $input-font-size-md: 16px-1px;
 $input-font-height-sm: 16px;
@@ -445,8 +445,8 @@ $input-border-style: solid;
 $input-border-color-default: #b3b3b3;
 $input-border-color-active: #0059ff;
 $input-border-color-error: #e52400;
-$input-border-color-disabled: #f2f2f2;
-$input-border-color-readonly: #f8f8f8;
+$input-border-color-disabled: #e6e6e6;
+$input-border-color-readonly: #e6e6e6;
 $input-border-radius: 4px;
 $input-bg-default: #ffffff;
 $input-bg-disabled: #f2f2f2;
@@ -617,10 +617,10 @@ $tabs-color-hover: #0059ff;
 $tabs-color-focus-border-color: #0059ff;
 $tabs-color-focus-color: #1a1a1a;
 $tabs-color-focus-background: #b3cdff;
-$tabs-color-disabled: #b3b3b3;
+$tabs-color-disabled: #7f7f7f;
 $tabs-arrow-size-width: 48px;
 $tabs-arrow-size-height: 100%;
-$tabs-arrow-color: #b3b3b3;
+$tabs-arrow-color: #4c4c4c;
 $tabs-arrow-hover-color: #1a1a1a;
 $tabs-arrow-hover-background: #ffffff;
 $tabs-arrow-left-background: linear-gradient(
@@ -656,6 +656,8 @@ $tag-font-size: 12px - 2px;
 $tag-font-spacing: 0px;
 $tag-font-height: 16px - 4px;
 $tag-font-weight: 700;
+$template-card-width: 260px;
+$template-card-spacing: 20px;
 $toggle-spacing-xs: 2px;
 $toggle-spacing-lg: 48px;
 $toggle-size-width-sm: 14px;
