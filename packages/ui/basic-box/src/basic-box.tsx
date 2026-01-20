@@ -19,6 +19,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	centerFooterActions,
 	className,
 	isPro = false,
+	hasBg = true,
 	isFluid = false,
 	children,
 	hasLargeRadius,
