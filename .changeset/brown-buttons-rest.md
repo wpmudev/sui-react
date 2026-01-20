@@ -12,7 +12,6 @@
 "@wpmudev/sui-drawer": patch
 "@wpmudev/sui-table": patch
 "@wpmudev/sui-tag": patch
-"@wpmudev/sui-react": patch
 ---
 
 Update colors
