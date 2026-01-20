@@ -36,8 +36,8 @@ const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
 
 	// Generate a unique ID for the menu item and its related elements
 	const generatedId = useId()
-	const menuId = id || `sui_dropdown_menu_item_${generatedId}`
-	const menuTitleId = `${menuId}_title`
+	const menuId = id || `sui-dropdown-menu-item-${generatedId}`
+	const menuTitleId = `${menuId}-title`
 
 	// Determine the element tag name (either "li" or "a" based on the presence of href)
 	let TagName: string = "li"

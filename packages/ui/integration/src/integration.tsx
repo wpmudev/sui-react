@@ -32,7 +32,7 @@ const Integration: React.FC<IntegrationProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const integrationId = id || `sui_integration_${generatedId}`
+	const integrationId = id || `sui-integration-${generatedId}`
 	// Define image object
 	const icon = Object.assign(
 		{

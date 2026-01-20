@@ -28,7 +28,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const sidebarItemId = id || `sui_sidebar_item_${generatedId}`
+	const sidebarItemId = id || `sui-sidebar-item-${generatedId}`
 
 	// `useInteraction` returns interaction state and methods.
 	const [isHovered, isFocused, methods] = useInteraction({})

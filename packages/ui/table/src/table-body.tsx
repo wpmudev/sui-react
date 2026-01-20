@@ -31,7 +31,7 @@ const TableBody: React.FC<TableSectionProps> = (
 	const { id, children, _htmlProps } = props ?? {}
 
 	const generatedId = useId()
-	const tableBodyId = id || `sui_table_body_${generatedId}`
+	const tableBodyId = id || `sui-table-body-${generatedId}`
 
 	// State to keep track of the table rows
 	const [el, setEl] = useState<ReactNode | ReactNode[]>(

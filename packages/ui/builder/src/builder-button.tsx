@@ -17,7 +17,7 @@ const BuilderButton: FC<BuilderButtonProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const builderButtonId = id || `sui_builder_button_${generatedId}`
+	const builderButtonId = id || `sui-builder-button-${generatedId}`
 	// `useInteraction` returns interaction state and methods.
 	const [isHovered, isFocused, methods] = useInteraction({})
 	const { suiInlineClassname } = useStyles(_style, className)

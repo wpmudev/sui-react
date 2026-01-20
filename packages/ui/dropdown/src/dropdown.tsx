@@ -100,7 +100,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 		const searchInputRef = useRef<HTMLInputElement | null>(null)
 		// Generate a unique identifier for the dropdown component.
 		const generatedId = useId()
-		const dropdownId = `${id}_wrapper` || `sui_dropdown_${generatedId}`
+		const dropdownId = `${id}-wrapper` || `sui-dropdown-${generatedId}`
 
 		// Handle the closing of the dropdown when clicking outside the component.
 		useOuterClick(dropdownRef, () => {
@@ -295,7 +295,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 			return (
 				<DropdownMenuItem
-					id={`${dropdownId}_select_all`}
+					id={`${dropdownId}-select-all`}
 					key="select-all"
 					isSelected={allSelected}
 					onClick={handleSelectAll}
@@ -321,7 +321,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						if (!!menuItem?.menus) {
 							return (
 								<DropdownMenuGroup
-									id={`${dropdownId}_menu_group_${index}`}
+									id={`${dropdownId}-menu-group-${index}`}
 									key={index}
 									title={menuItem.label}
 								>
@@ -371,7 +371,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						// Otherwise, render the MenuItem component.
 						return (
 							<DropdownMenuItem
-								id={`${dropdownId}_menu_item_${index}`}
+								id={`${dropdownId}-menu-item-${index}`}
 								key={index}
 								isSelected={menuItem.isSelected}
 								{...menuItem.props}
@@ -442,8 +442,8 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						[type]: !isEmpty(type ?? ""),
 					})}
 					{...(label && {
-						"aria-labelledby": `${id}__label`,
-						"aria-label": `${id}__label`,
+						"aria-labelledby": `${id}-label`,
+						"aria-label": `${id}-label`,
 					})}
 					style={{
 						width: `${menuCustomWidth}px`,
@@ -452,13 +452,13 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					{dropdownArrow && (
 						<div
 							className="sui-dropdown__popover--arrow"
-							id={`${dropdownId}_arrow`}
+							id={`${dropdownId}-arrow`}
 						></div>
 					)}
 					{renderContentOnTop && !!children && (
 						<div
 							className="sui-dropdown__menu-content"
-							id={`${dropdownId}_menu_content_top`}
+							id={`${dropdownId}-menu-content-top`}
 						>
 							{children}
 						</div>
@@ -469,7 +469,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 							{allowSearch && (
 								<div
 									className="sui-dropdown__menu-nav-search"
-									id={`${dropdownId}_search`}
+									id={`${dropdownId}-search`}
 								>
 									<Input
 										ref={searchInputRef}
@@ -506,7 +506,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					{!!children && !renderContentOnTop && (
 						<div
 							className="sui-dropdown__menu-content"
-							id={`${dropdownId}_menu_content_bottom`}
+							id={`${dropdownId}-menu-content-bottom`}
 						>
 							{children}
 						</div>

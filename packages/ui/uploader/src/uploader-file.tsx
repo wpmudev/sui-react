@@ -41,11 +41,11 @@ const UploaderFile: React.FC<UploaderFileProps> = React.memo(
 				className={generateCN("sui-uploader__file", {}, suiInlineClassname)}
 				data-testid="uploader-file"
 			>
-				<div id={`${id}_preview`} className="sui-uploader__file--preview">
+				<div id={`${id}-preview`} className="sui-uploader__file--preview">
 					{/* Render image preview if the file is an image, otherwise render a generic file icon */}
 					{isImageFile(file?.type) ? (
 						<span
-							id={`${id}_image`}
+							id={`${id}-image`}
 							role="img"
 							className="sui-uploader__file--image"
 							style={{
@@ -54,19 +54,19 @@ const UploaderFile: React.FC<UploaderFileProps> = React.memo(
 						/>
 					) : (
 						<FileCheck
-							id={`${id}_icon`}
+							id={`${id}-icon`}
 							size="sm"
 							className="sui-uploader__file--icon"
 						/>
 					)}
 				</div>
 				{/* Display the file name */}
-				<span id={`${id}_name`} className="sui-uploader__file--name">
+				<span id={`${id}-name`} className="sui-uploader__file--name">
 					{file?.name}
 				</span>
 				{/* Button to remove the file */}
 				<Button
-					id={`${id}_remove`}
+					id={`${id}-remove`}
 					className="sui-uploader__file--remove"
 					iconOnly={true}
 					icon="Close"

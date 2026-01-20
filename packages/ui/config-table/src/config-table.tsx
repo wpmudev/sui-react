@@ -32,7 +32,7 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const configTableId = id || `sui_config_table_${generatedId}`
+	const configTableId = id || `sui-config-table-${generatedId}`
 	/**
 	 * Handle an action click.
 	 *

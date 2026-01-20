@@ -60,7 +60,7 @@ const Icon: React.FC<ButtonIconProps> = ({
 			aria-hidden="true"
 			data-testid="button-icon"
 		>
-			<IconTag id={`${id}_icon`} size={size} />
+			<IconTag id={`${id}-icon`} size={size} />
 		</span>
 	)
 }

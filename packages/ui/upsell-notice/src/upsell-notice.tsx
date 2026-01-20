@@ -19,7 +19,7 @@ const UpsellNotice: React.FC<UpsellNoticeProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const upsellNoticeId = id || `sui_upsell_notice_${generatedId}`
+	const upsellNoticeId = id || `sui-upsell-notice-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate classnames for the upsell

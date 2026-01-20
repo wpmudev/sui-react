@@ -26,7 +26,7 @@ const Image: React.FC<ImageAvatarProps> = ({ id, source, text }) => {
 				data-testid="avatar-image"
 			/>
 			<span
-				id={id ? `${id}_alt` : undefined}
+				id={id ? `${id}-alt` : undefined}
 				className="sui-screen-reader-only"
 				data-testid="avatar-image-alt"
 			>

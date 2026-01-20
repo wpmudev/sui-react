@@ -12,7 +12,7 @@ const NotificationRenderer: React.FC<NotificationRendererProps> = ({
 }) => {
 	const generatedId = useId()
 	const notificationRendererId =
-		id || `sui_notification_renderer_${generatedId}`
+		id || `sui-notification-renderer-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const { queue } = useNotifications()
 

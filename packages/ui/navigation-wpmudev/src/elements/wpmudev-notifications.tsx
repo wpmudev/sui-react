@@ -21,7 +21,7 @@ const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
 	...props
 }) => {
 	const generatedId = useId()
-	const wpmudevNotificationId = id || `sui_wpmudev_notification_${generatedId}`
+	const wpmudevNotificationId = id || `sui-wpmudev-notification-${generatedId}`
 	// Create a ref for the user dropdown button
 	const notificationRef = useRef<DropdownRefProps | null>(null)
 
@@ -62,19 +62,19 @@ const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
 			>
 				{label && (
 					<div
-						id={`${wpmudevNotificationId}_header`}
+						id={`${wpmudevNotificationId}-header`}
 						className="sui-wpmudev__notifications--header"
 					>
 						<h4 className="sui-heading--h5">{label}</h4>
 					</div>
 				)}
 				<NotificationWPMUDEVContent
-					id={`${wpmudevNotificationId}_content`}
+					id={`${wpmudevNotificationId}-content`}
 					notifications={notifications}
 				/>
 				{footerActions && (
 					<div
-						id={`${wpmudevNotificationId}_footer`}
+						id={`${wpmudevNotificationId}-footer`}
 						className="sui-wpmudev__notifications--footer"
 					>
 						{footerActions.map((action, index) => action)}

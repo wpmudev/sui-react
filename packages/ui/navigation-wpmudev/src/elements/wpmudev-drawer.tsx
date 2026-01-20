@@ -24,7 +24,7 @@ const WPMUDEVDrawer: React.FC<WPMUDEVDrawerProps> = ({
 	...props
 }) => {
 	const generatedId = useId()
-	const wpmudevDrawerId = id || `sui_wpmudev_drawer_${generatedId}`
+	const wpmudevDrawerId = id || `sui-wpmudev-drawer-${generatedId}`
 	let customClass
 
 	switch (type) {

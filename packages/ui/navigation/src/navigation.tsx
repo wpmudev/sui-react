@@ -17,7 +17,7 @@ const Navigation: React.FC<NavigationProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const navigationId = id || `sui_navigation_${generatedId}`
+	const navigationId = id || `sui-navigation-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 	// Generate CSS class names for the navigation component
 	const classNames = generateCN("sui-navigation", {}, suiInlineClassname)
@@ -32,12 +32,12 @@ const Navigation: React.FC<NavigationProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{/* Render the navigation brand component */}
-			<NavigationBrand {...brand} id={brand?.id || `${navigationId}_brand`} />
-			<ul id={`${navigationId}_nav`} className="sui-navigation__nav">
+			<NavigationBrand {...brand} id={brand?.id || `${navigationId}-brand`} />
+			<ul id={`${navigationId}-nav`} className="sui-navigation__nav">
 				{/* Map over children components and render each one as a list item */}
 				{Children.map(children, (child, index) => (
 					<li
-						id={`${navigationId}_nav_item_${index}`}
+						id={`${navigationId}-nav-item-${index}`}
 						className="sui-navigation__nav-item"
 						key={index}
 					>
@@ -46,17 +46,17 @@ const Navigation: React.FC<NavigationProps> = ({
 				))}
 			</ul>
 			{(actions.length > 0 || user) && (
-				<div id={`${navigationId}_actions`} className="sui-navigation__actions">
+				<div id={`${navigationId}-actions`} className="sui-navigation__actions">
 					{/* Show actions  */}
 					{actions.length > 0 &&
 						actions.map((action, index) => (
-							<div id={`${navigationId}_action_${index}`} key={index}>
+							<div id={`${navigationId}-action-${index}`} key={index}>
 								{action}
 							</div>
 						))}
 					{/* Render the navigation user component */}
 					{user && (
-						<NavigationUser {...user} id={user?.id || `${navigationId}_user`} />
+						<NavigationUser {...user} id={user?.id || `${navigationId}-user`} />
 					)}
 				</div>
 			)}

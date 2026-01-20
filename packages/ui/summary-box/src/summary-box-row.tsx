@@ -25,7 +25,7 @@ export const SummaryBoxRow: React.FC<SummaryBoxRowProps> = ({
 	_htmlProps,
 }) => {
 	const generatedId = useId()
-	const summaryBoxRowId = id || `sui_summary_box_row_${generatedId}`
+	const summaryBoxRowId = id || `sui-summary-box-row-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN("sui-summary-box__row", {}, suiInlineClassname)

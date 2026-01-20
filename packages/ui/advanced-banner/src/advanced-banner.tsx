@@ -25,7 +25,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const advancedBannerId = id || `sui_advanced_banner_${generatedId}`
+	const advancedBannerId = id || `sui-advanced-banner-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Define class name

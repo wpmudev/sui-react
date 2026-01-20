@@ -20,7 +20,7 @@ const Upsell: React.FC<UpsellProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const upsellId = id || `sui_upsell_${generatedId}`
+	const upsellId = id || `sui-upsell-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate classnames for the upsell

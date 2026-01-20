@@ -18,7 +18,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const codeSnippetId = id || `sui_code_snippet_${generatedId}`
+	const codeSnippetId = id || `sui-code-snippet-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
 	// generate class names
 	const classNames = generateCN("sui-code-snippet", {}, suiInlineClassname)

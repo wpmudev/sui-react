@@ -29,7 +29,7 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 }) => {
 	// Generate a unique ID for the radio button and set its ID attribute.
 	const generatedId = useId()
-	const buttonId = id || `sui_radio_${generatedId}`
+	const buttonId = id || `sui-radio-${generatedId}`
 
 	if (!value) {
 		value = `example-value-${generatedId}`

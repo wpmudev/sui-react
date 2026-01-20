@@ -30,7 +30,7 @@ export const SummaryBoxContent: React.FC<SummaryBoxContentProps> = ({
 	_htmlProps,
 }) => {
 	const generatedId = useId()
-	const summaryBoxContentId = id || `sui_summary_box_content_${generatedId}`
+	const summaryBoxContentId = id || `sui-summary-box-content-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(

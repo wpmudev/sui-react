@@ -34,7 +34,7 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 	_style = {},
 }: SetupBannerProps): JSX.Element => {
 	const generatedId = useId()
-	const setupBannerId = id || `sui_setup_banner_${generatedId}`
+	const setupBannerId = id || `sui-setup-banner-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(

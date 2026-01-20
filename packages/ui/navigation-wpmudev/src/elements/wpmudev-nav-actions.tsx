@@ -10,7 +10,7 @@ const NavActionsWPMUDEV: React.FC<NavActionsWPMUDEVProps> = ({
 	children,
 }) => {
 	const generatedId = useId()
-	const navActionsId = id || `sui_wpmudev_nav_actions_${generatedId}`
+	const navActionsId = id || `sui-wpmudev-nav-actions-${generatedId}`
 
 	return (
 		<div

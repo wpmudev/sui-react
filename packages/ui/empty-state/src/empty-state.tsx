@@ -19,7 +19,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 	_style = {},
 }: EmptyStateProps): JSX.Element => {
 	const generatedId = useId()
-	const emptyStateId = id || `sui_empty_state_${generatedId}`
+	const emptyStateId = id || `sui-empty-state-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-empty-state", {}, suiInlineClassname)
 

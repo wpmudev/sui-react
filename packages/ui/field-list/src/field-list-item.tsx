@@ -22,7 +22,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 	const uniqueId = useId()
 
 	if (!id) {
-		id = `sui_field_list_${uniqueId}`
+		id = `sui-field-list-${uniqueId}`
 	}
 
 	// Default children content
@@ -56,13 +56,13 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{/* Display the item's content */}
-			<div className="sui-field-list__item-label" id={`${uniqueId}_label`}>
+			<div className="sui-field-list__item-label" id={`${uniqueId}-label`}>
 				{children}
 			</div>
 			{hasToggle && (
 				<div
 					className="sui-field-list__item-checkbox"
-					id={`${uniqueId}_checkbox`}
+					id={`${uniqueId}-checkbox`}
 				>
 					{/* Render the Toggle component with appropriate props */}
 					<Toggle
@@ -78,7 +78,7 @@ const FieldListItem: React.FC<FieldListItemProps> = ({
 			{!!actions && (
 				<div
 					className="sui-field-list__item-actions"
-					id={`${uniqueId}_actions`}
+					id={`${uniqueId}-actions`}
 				>
 					{/* Render the actions here */}
 					{actions}

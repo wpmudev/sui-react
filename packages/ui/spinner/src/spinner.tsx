@@ -18,7 +18,7 @@ const Spinner: React.FC<SpinnerProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const spinnerId = id || `sui_spinner_${generatedId}`
+	const spinnerId = id || `sui-spinner-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate class names for the spinner container

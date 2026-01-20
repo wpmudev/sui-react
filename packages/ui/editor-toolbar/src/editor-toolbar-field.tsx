@@ -12,7 +12,7 @@ const EditorToolbarField: FC<EditorToolbarFieldProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const editorToolbarFieldId = id || `sui_editor_toolbar_field_${generatedId}`
+	const editorToolbarFieldId = id || `sui-editor-toolbar-field-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 	// Generate CSS class names for the editor toolbar component
 	const classNames = generateCN(

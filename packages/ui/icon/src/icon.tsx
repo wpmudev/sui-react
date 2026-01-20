@@ -51,7 +51,7 @@ const Icon = forwardRef<"svg", IconProps>(
 		ref,
 	) => {
 		const generatedId = useId()
-		const iconId = id || `sui_icon_${generatedId}`
+		const iconId = id || `sui-icon-${generatedId}`
 		const { suiInlineClassname } = useStyles(_style, className)
 
 		// Add variations to the classnames

@@ -17,11 +17,11 @@ const UserWPMUDEV: React.FC<WPMUDEVUserProps> = ({
 	},
 }) => {
 	const generatedId = useId()
-	const wpmudevUserId = id || `sui_wpmudev_user_${generatedId}`
+	const wpmudevUserId = id || `sui-wpmudev-user-${generatedId}`
 
 	return (
 		<NavigationUser
-			id={`${wpmudevUserId}_navigation_user`}
+			id={`${wpmudevUserId}-navigation-user`}
 			{...userProps}
 			className={`sui-wpmudev__navigation-user sui-wpmudev__navigation--hide-mobile ${
 				userProps?.className || ""
@@ -29,28 +29,28 @@ const UserWPMUDEV: React.FC<WPMUDEVUserProps> = ({
 		>
 			<div id={wpmudevUserId} className="sui-wpmudev__user">
 				<div
-					id={`${wpmudevUserId}_details`}
+					id={`${wpmudevUserId}-details`}
 					className="sui-wpmudev__user--details"
 				>
 					{avatarProps && (
-						<div id={`${wpmudevUserId}_avatar`}>
+						<div id={`${wpmudevUserId}-avatar`}>
 							<Avatar
-								id={`${wpmudevUserId}_avatar_img`}
+								id={`${wpmudevUserId}-avatar-img`}
 								{...avatarProps}
 							></Avatar>
 						</div>
 					)}
 					<div
-						id={`${wpmudevUserId}_content`}
+						id={`${wpmudevUserId}-content`}
 						className="sui-wpmudev__user--content"
 					>
 						{title && <h4>{title}</h4>}
 						{description && <p>{description}</p>}
 					</div>
 					{logout.show && (
-						<div id={`${wpmudevUserId}_logout`}>
+						<div id={`${wpmudevUserId}-logout`}>
 							<Button
-								id={`${wpmudevUserId}_logout_button`}
+								id={`${wpmudevUserId}-logout-button`}
 								icon="Exit"
 								iconOnly={true}
 								type="secondary"
@@ -62,7 +62,7 @@ const UserWPMUDEV: React.FC<WPMUDEVUserProps> = ({
 						</div>
 					)}
 				</div>
-				{action && <div id={`${wpmudevUserId}_action`}>{action}</div>}
+				{action && <div id={`${wpmudevUserId}-action`}>{action}</div>}
 			</div>
 		</NavigationUser>
 	)
