@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useId } from "react"
+import React, { useCallback, useContext, useEffect, useId, useRef } from "react"
 import { format } from "date-fns"
 
 import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
@@ -15,6 +15,9 @@ const DatePickerInput: React.FC<any> = ({
 }) => {
 	// DatePickerContext to handle the date picker state
 	const ctx = useContext(DatePickerContext)!
+
+	// Keep track of the last valid (complete) date range
+	const lastValidRangeRef = useRef<string>("")
 
 	// Generate classNames for the input field based on the provided props
 	const classNames = generateCN("sui-date-picker__input", {
@@ -52,7 +55,13 @@ const DatePickerInput: React.FC<any> = ({
 	if (ctx?.isSingle && !!startDate) {
 		value = `${format(startDate, formatStr)}`
 	} else if (!!startDate && !!endDate) {
+		// Both dates are selected - show the complete range
 		value = `${format(startDate, formatStr)} - ${format(endDate, formatStr)}`
+		// Update the last valid range
+		lastValidRangeRef.current = value
+	} else if (!ctx?.isSingle) {
+		// In range mode, if only start date is selected, keep showing the last valid range
+		value = lastValidRangeRef.current
 	}
 
 	return (
