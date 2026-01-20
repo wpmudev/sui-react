@@ -119,7 +119,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 							className="sui-table__toolbar-toggle"
 						>
 							<Toggle
-								id={`${toolbarId}-toggle_input`}
+								id={`${toolbarId}-toggle-input`}
 								{...ctx?.toggleBtnProps}
 								onClick={(e) => {
 									// Deselected all selected rows

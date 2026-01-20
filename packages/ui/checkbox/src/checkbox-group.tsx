@@ -44,7 +44,7 @@ const _CheckboxGroupInner = ({
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate a unique ID for the checkbox group
-	const checkboxGroupId = id ?? `sui_checkbox_group_${uuid}`
+	const checkboxGroupId = id ?? `sui-checkbox-group-${uuid}`
 
 	// Define CSS class names for the checkbox group
 	const className = generateCN(

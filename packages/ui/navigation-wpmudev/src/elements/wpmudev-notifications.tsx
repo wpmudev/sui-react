@@ -21,7 +21,7 @@ const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
 	...props
 }) => {
 	const generatedId = useId()
-	const wpmudevNotificationId = id || `sui_wpmudev_notification_${generatedId}`
+	const wpmudevNotificationId = id || `sui-wpmudev-notification-${generatedId}`
 	// Create a ref for the user dropdown button
 	const notificationRef = useRef<DropdownRefProps | null>(null)
 

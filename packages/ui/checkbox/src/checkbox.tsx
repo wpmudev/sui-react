@@ -34,7 +34,7 @@ const Checkbox = ({
 
 	// Generate a dynamic ID for the checkbox
 	const generatedId = useId()
-	const uuid = id || `sui_checkbox_${generatedId}`
+	const uuid = id || `sui-checkbox-${generatedId}`
 
 	useEffect(() => {
 		// Add the checkbox details to the context list on component mount

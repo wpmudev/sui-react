@@ -52,7 +52,7 @@ const Uploader: React.FC<UploaderProps> = ({
 
 	// Generate a unique ID for the uploader component
 	const generatedId = useId()
-	const uploaderId = id || `sui_uploader_${generatedId}`
+	const uploaderId = id || `sui-uploader-${generatedId}`
 
 	// load default files
 	useEffect(() => {
@@ -230,7 +230,7 @@ const Uploader: React.FC<UploaderProps> = ({
 							{files?.map((file: File, index: number) => (
 								<UploaderFile
 									key={index}
-									id={`${uploaderId}-file_${index}`}
+									id={`${uploaderId}-file-${index}`}
 									onRemove={onRemoveFile}
 									file={file}
 								/>

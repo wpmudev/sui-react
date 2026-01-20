@@ -17,11 +17,11 @@ const UserWPMUDEV: React.FC<WPMUDEVUserProps> = ({
 	},
 }) => {
 	const generatedId = useId()
-	const wpmudevUserId = id || `sui_wpmudev_user_${generatedId}`
+	const wpmudevUserId = id || `sui-wpmudev-user-${generatedId}`
 
 	return (
 		<NavigationUser
-			id={`${wpmudevUserId}-navigation_user`}
+			id={`${wpmudevUserId}-navigation-user`}
 			{...userProps}
 			className={`sui-wpmudev__navigation-user sui-wpmudev__navigation--hide-mobile ${
 				userProps?.className || ""
@@ -35,7 +35,7 @@ const UserWPMUDEV: React.FC<WPMUDEVUserProps> = ({
 					{avatarProps && (
 						<div id={`${wpmudevUserId}-avatar`}>
 							<Avatar
-								id={`${wpmudevUserId}-avatar_img`}
+								id={`${wpmudevUserId}-avatar-img`}
 								{...avatarProps}
 							></Avatar>
 						</div>
@@ -50,7 +50,7 @@ const UserWPMUDEV: React.FC<WPMUDEVUserProps> = ({
 					{logout.show && (
 						<div id={`${wpmudevUserId}-logout`}>
 							<Button
-								id={`${wpmudevUserId}-logout_button`}
+								id={`${wpmudevUserId}-logout-button`}
 								icon="Exit"
 								iconOnly={true}
 								type="secondary"

@@ -27,7 +27,7 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 	_style = {},
 }: UploaderButtonProps): JSX.Element => {
 	const generatedId = useId()
-	const uploaderButtonId = id || `sui_uploader_button_${generatedId}`
+	const uploaderButtonId = id || `sui-uploader-button-${generatedId}`
 	// Ref for the div used to handle drag-and-drop
 	const dragRef = useRef<HTMLDivElement | null>(null)
 

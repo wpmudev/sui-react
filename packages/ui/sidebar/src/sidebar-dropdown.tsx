@@ -32,7 +32,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 
 		// Generate a unique identifier for the dropdown component.
 		const generatedId = useId()
-		const sidebarDropdownId = id || `sui_sidebar_dropdown_${generatedId}`
+		const sidebarDropdownId = id || `sui-sidebar-dropdown-${generatedId}`
 
 		// State to manage the dropdown's open/closed status.
 		const [isOpen, setIsOpen] = useState<boolean>(false)

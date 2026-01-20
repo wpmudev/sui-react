@@ -36,7 +36,7 @@ const Drawer = forwardRef<DrawerActions | null, DrawerTypes>(
 		ref,
 	) => {
 		const generatedId = useId()
-		const drawerId = id || `sui_drawer_${generatedId}`
+		const drawerId = id || `sui-drawer-${generatedId}`
 		const [isVisible, setIsVisible] = useState<boolean>(false)
 		const [isOpen, setIsOpen] = useState<boolean>(propIsOpen ?? false)
 		const drawerRef = useRef<HTMLDivElement | null>(null)

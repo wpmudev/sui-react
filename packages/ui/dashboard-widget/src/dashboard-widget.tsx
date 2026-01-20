@@ -89,11 +89,11 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 				className="sui-dashboard-widget__header"
 			>
 				<div
-					id={`${dashboardWidgetId}-header_title`}
+					id={`${dashboardWidgetId}-header-title`}
 					className="sui-dashboard-widget__header-title"
 				>
 					<div
-						id={`${dashboardWidgetId}-header_info`}
+						id={`${dashboardWidgetId}-header-info`}
 						className="sui-dashboard-widget__header-info"
 					>
 						{/* Display the icon if available */}
@@ -116,7 +116,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 							)}
 							{StatusIcon && (
 								<StatusIcon
-									id={`${dashboardWidgetId}-status_icon`}
+									id={`${dashboardWidgetId}-status-icon`}
 									size="sm"
 									{...(statusProps ?? {})}
 								/>
@@ -126,7 +126,7 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 					{/* Display collapse/expand button if allowed */}
 					{canCollapse && (
 						<div
-							id={`${dashboardWidgetId}-header_actions`}
+							id={`${dashboardWidgetId}-header-actions`}
 							className="sui-dashboard-widget__header-actions"
 							data-testid="dashboard-widget-"
 						>

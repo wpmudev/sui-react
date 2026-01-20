@@ -13,7 +13,7 @@ const CheckBoxGroups: React.FC<CheckboxGroupsProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const checkboxGroupsId = id || `sui_checkbox_groups_${generatedId}`
+	const checkboxGroupsId = id || `sui-checkbox-groups-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 	const className = generateCN("sui-checkbox-wrapper", {}, suiInlineClassname)
 

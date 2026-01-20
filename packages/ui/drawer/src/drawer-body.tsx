@@ -10,7 +10,7 @@ const DrawerBody = ({
 	_style,
 }: DrawerFooterTypes) => {
 	const generatedId = useId()
-	const drawerBodyId = id || `sui_drawer_body_${generatedId}`
+	const drawerBodyId = id || `sui-drawer-body-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-drawer__body", {}, suiInlineClassname)
 

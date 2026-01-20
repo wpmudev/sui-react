@@ -21,7 +21,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const boxGroupId = id || `sui_box_group_${generatedId}`
+	const boxGroupId = id || `sui-box-group-${generatedId}`
 
 	const { suiInlineClassname } = useStyles(_style, className)
 
@@ -37,7 +37,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 			return (
 				<div
 					key={`sui-box-group--${index}`}
-					id={childId || `${boxGroupId}-slot_${slot}`}
+					id={childId || `${boxGroupId}-slot-${slot}`}
 					className={`sui-box-group__slot sui-box-group__${slot}`}
 				>
 					{content}

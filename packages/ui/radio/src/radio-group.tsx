@@ -24,7 +24,7 @@ const RadioGroup = ({
 	_style,
 }: RadioGroupProps) => {
 	const generatedId = useId()
-	const radioGroupId = id || `sui_radio_group_${generatedId}`
+	const radioGroupId = id || `sui-radio-group-${generatedId}`
 	const [current, setCurrent] = useState<RadioValueType>(defaultValue)
 
 	// update state when default value get changed

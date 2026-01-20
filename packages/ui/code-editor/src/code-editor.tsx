@@ -31,7 +31,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const codeEditorId = id || `sui_code_editor_${generatedId}`
+	const codeEditorId = id || `sui-code-editor-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 	// Generate class names

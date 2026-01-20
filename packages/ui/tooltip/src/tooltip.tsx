@@ -48,7 +48,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 	// detect RTL
 	const isRTL = useDetectRTL()
 	const generatedId = useId()
-	const uniqueId = id || `sui_tooltip_${generatedId}`
+	const uniqueId = id || `sui-tooltip-${generatedId}`
 	let triggerId = id
 		? `sui-tooltip-trigger-${uniqueId}`
 		: `sui-tooltip-trigger-${generatedId}`
@@ -353,7 +353,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			{!!children &&
 				render(
 					<div
-						id={`sui_tooltip_${uniqueId}`}
+						id={`sui-tooltip-${uniqueId}`}
 						className={generateCN("sui-tooltip__popup", {
 							show: isVisible,
 							focus: isFocused,

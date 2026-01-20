@@ -27,7 +27,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const basicBoxId = id || `sui_basic_box_${generatedId}`
+	const basicBoxId = id || `sui-basic-box-${generatedId}`
 
 	// Interaction methods
 	const [isHovered, isFocused, methods] = useInteraction({})

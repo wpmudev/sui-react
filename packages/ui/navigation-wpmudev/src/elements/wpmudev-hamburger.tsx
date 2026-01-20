@@ -12,7 +12,7 @@ const HamburgerWPMUDEV: React.FC<HamburgerWPMUDEVProps> = ({
 	children,
 }) => {
 	const generatedId = useId()
-	const hamburgerMenuId = id || `sui_wpmudev_hamburger_${generatedId}`
+	const hamburgerMenuId = id || `sui-wpmudev-hamburger-${generatedId}`
 
 	return (
 		<ul id={hamburgerMenuId} className="sui-wpmudev__hamburger-menu">
@@ -30,7 +30,7 @@ const HamburgerButtonWPMUDEV: React.FC<ButtonProps> = ({
 	...props
 }) => {
 	const generatedId = useId()
-	const buttonId = id || `sui_wpmudev_hamburger_button_${generatedId}`
+	const buttonId = id || `sui-wpmudev-hamburger-button-${generatedId}`
 	const customClasses = generateCN(
 		"sui-wpmudev__navigation--hide-desktop",
 		{},

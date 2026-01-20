@@ -295,7 +295,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 
 			return (
 				<DropdownMenuItem
-					id={`${dropdownId}-select_all`}
+					id={`${dropdownId}-select-all`}
 					key="select-all"
 					isSelected={allSelected}
 					onClick={handleSelectAll}
@@ -321,7 +321,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						if (!!menuItem?.menus) {
 							return (
 								<DropdownMenuGroup
-									id={`${dropdownId}-menu_group_${index}`}
+									id={`${dropdownId}-menu-group-${index}`}
 									key={index}
 									title={menuItem.label}
 								>
@@ -371,7 +371,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 						// Otherwise, render the MenuItem component.
 						return (
 							<DropdownMenuItem
-								id={`${dropdownId}-menu_item_${index}`}
+								id={`${dropdownId}-menu-item-${index}`}
 								key={index}
 								isSelected={menuItem.isSelected}
 								{...menuItem.props}
@@ -458,7 +458,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					{renderContentOnTop && !!children && (
 						<div
 							className="sui-dropdown__menu-content"
-							id={`${dropdownId}-menu_content_top`}
+							id={`${dropdownId}-menu-content-top`}
 						>
 							{children}
 						</div>
@@ -506,7 +506,7 @@ const Dropdown = forwardRef<DropdownRefProps | null, DropdownProps>(
 					{!!children && !renderContentOnTop && (
 						<div
 							className="sui-dropdown__menu-content"
-							id={`${dropdownId}-menu_content_bottom`}
+							id={`${dropdownId}-menu-content-bottom`}
 						>
 							{children}
 						</div>

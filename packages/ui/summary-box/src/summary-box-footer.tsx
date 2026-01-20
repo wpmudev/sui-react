@@ -25,7 +25,7 @@ const SummaryFooterBody: React.FC<SummaryFooterBodyProps> = ({
 	...props
 }) => {
 	const generatedId = useId()
-	const summaryFooterBodyId = id || `sui_summary_footer_body_${generatedId}`
+	const summaryFooterBodyId = id || `sui-summary-footer-body-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN(
 		"sui-summary-box__footer",

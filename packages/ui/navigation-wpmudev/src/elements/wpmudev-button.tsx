@@ -101,7 +101,7 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 	...props
 }) => {
 	const generatedId = useId()
-	const wpmudevButtonId = id || `sui_wpmudev_button_${generatedId}`
+	const wpmudevButtonId = id || `sui-wpmudev-button-${generatedId}`
 	const drawerRef = createRef<DrawerActions | null>()
 
 	const classNames = generateCN(
@@ -135,10 +135,10 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 						return (
 							<li
 								key={pluginItem.plugin}
-								id={`${wpmudevButtonId}-item_${pluginItem.plugin}`}
+								id={`${wpmudevButtonId}-item-${pluginItem.plugin}`}
 							>
 								<a
-									id={`${wpmudevButtonId}-item_${pluginItem.plugin}-link`}
+									id={`${wpmudevButtonId}-item-${pluginItem.plugin}-link`}
 									href={pluginItem.link}
 									className="sui-wpmudev__list-item"
 									target="_blank"
@@ -146,33 +146,33 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 									{..._renderHTMLPropsSafely(upsell.props)}
 								>
 									<div
-										id={`${wpmudevButtonId}-item_${pluginItem.plugin}-icon`}
+										id={`${wpmudevButtonId}-item-${pluginItem.plugin}-icon`}
 										className="sui-wpmudev__list-icon"
 										style={{ backgroundColor: PluginIcon?.bg }}
 									>
 										{!!IconTag && (
 											<IconTag
-												id={`${wpmudevButtonId}-item_${pluginItem.plugin}-icon_svg`}
+												id={`${wpmudevButtonId}-item-${pluginItem.plugin}-icon-svg`}
 												fill={PluginIcon?.color}
 											/>
 										)}
 									</div>
 									<div
-										id={`${wpmudevButtonId}-item_${pluginItem.plugin}-content`}
+										id={`${wpmudevButtonId}-item-${pluginItem.plugin}-content`}
 										className="sui-wpmudev__list-content"
 									>
 										<h5
-											id={`${wpmudevButtonId}-item_${pluginItem.plugin}-title`}
+											id={`${wpmudevButtonId}-item-${pluginItem.plugin}-title`}
 											className="sui-wpmudev__list-title sui-heading--h5"
 										>
 											{pluginItem.title}
 										</h5>
 										<p
-											id={`${wpmudevButtonId}-item_${pluginItem.plugin}-description`}
+											id={`${wpmudevButtonId}-item-${pluginItem.plugin}-description`}
 											className="sui-wpmudev__list-desc"
 										>
 											<small
-												id={`${wpmudevButtonId}-item_${pluginItem.plugin}-description_small`}
+												id={`${wpmudevButtonId}-item-${pluginItem.plugin}-description-small`}
 											>
 												{pluginItem.description}
 											</small>
@@ -195,21 +195,21 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 				>
 					<UpsellIcon />
 					<div
-						id={`${wpmudevButtonId}-upsell_content`}
+						id={`${wpmudevButtonId}-upsell-content`}
 						className="sui-wpmudev__upsell-content"
 					>
 						<h5
-							id={`${wpmudevButtonId}-upsell_title`}
+							id={`${wpmudevButtonId}-upsell-title`}
 							className="sui-wpmudev__upsell-title sui-heading--h5"
 						>
 							{upsell.title}
 							<ExternalLink
-								id={`${wpmudevButtonId}-upsell_external_link`}
+								id={`${wpmudevButtonId}-upsell-external-link`}
 								size="sm"
 							/>
 						</h5>
 						<p
-							id={`${wpmudevButtonId}-upsell_description`}
+							id={`${wpmudevButtonId}-upsell-description`}
 							className="sui-wpmudev__upsell-desc"
 						>
 							{upsell.description}
@@ -222,7 +222,7 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 
 	const mobileDrawer = (
 		<Drawer
-			id={`${wpmudevButtonId}-mobile_drawer`}
+			id={`${wpmudevButtonId}-mobile-drawer`}
 			ref={drawerRef}
 			placement="left"
 			hasContainer={false}
@@ -231,11 +231,11 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 			isFullWidth={true}
 		>
 			<DrawerHeader
-				id={`${wpmudevButtonId}-mobile_drawer_header`}
+				id={`${wpmudevButtonId}-mobile-drawer-header`}
 				title={label}
 				back={{ show: true }}
 			/>
-			<DrawerBody id={`${wpmudevButtonId}-mobile_drawer_body`}>
+			<DrawerBody id={`${wpmudevButtonId}-mobile-drawer-body`}>
 				{dropdownContent}
 			</DrawerBody>
 		</Drawer>
@@ -267,7 +267,7 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 				className="sui-wpmudev__drawer sui-wpmudev__navigation--hide-desktop"
 			>
 				<Button
-					id={`${wpmudevButtonId}-mobile_button`}
+					id={`${wpmudevButtonId}-mobile-button`}
 					key="logo"
 					type="secondary"
 					iconOnly={false}

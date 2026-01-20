@@ -13,7 +13,7 @@ const RecipientName: React.FC<RecipientNameProps> = ({
 	_style = {},
 }) => {
 	const generatedId = useId()
-	const recipientNameId = id || `sui_recipient_name_${generatedId}`
+	const recipientNameId = id || `sui-recipient-name-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	if (!!children && !isString(children)) {

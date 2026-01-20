@@ -21,7 +21,7 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 	_htmlProps = {},
 }) => {
 	const generatedId = useId()
-	const brandId = id || `sui_navigation_brand_${generatedId}`
+	const brandId = id || `sui-navigation-brand-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Icon for the specified plugin or use a default "Plugin" icon.

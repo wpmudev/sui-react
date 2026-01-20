@@ -25,7 +25,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 		const [isHovered, isFocused, methods] = useInteraction({})
 
 		const generatedId = useId()
-		const uuid = id || `sui_radio_${generatedId}`
+		const uuid = id || `sui-radio-${generatedId}`
 
 		// If value not provided add a unique one
 		if (!value) {

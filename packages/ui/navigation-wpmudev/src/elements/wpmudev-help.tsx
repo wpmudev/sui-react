@@ -50,7 +50,7 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 	_htmlProps = {},
 }) => {
 	const generatedId = useId()
-	const wpmudevHelpId = id || `sui_wpmudev_help_${generatedId}`
+	const wpmudevHelpId = id || `sui-wpmudev-help-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN(
 		"sui-wpmudev__help-content",
@@ -190,7 +190,7 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 				</div>
 			)}
 			<div
-				id={`${wpmudevHelpId}-resources_title`}
+				id={`${wpmudevHelpId}-resources-title`}
 				className="sui-wpmudev__help-title"
 			>
 				{resources.title}

@@ -24,7 +24,7 @@ const FieldList: React.FC<FieldListProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const fieldListId = uniqueId || `sui_field_list_${generatedId}`
+	const fieldListId = uniqueId || `sui-field-list-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Callback function to handle item toggling

@@ -30,7 +30,7 @@ const Box: React.FC<BoxProps> = ({
 	_style,
 }) => {
 	const generatedId = useId()
-	const boxId = id || `sui_box_${generatedId}`
+	const boxId = id || `sui-box-${generatedId}`
 
 	// Prop(s) validation
 	const hasTitle = !isUndefined(title) && !isEmpty(title)
@@ -59,8 +59,8 @@ const Box: React.FC<BoxProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{hasTitle && (
-				<BoxGroup isInline={true} id={`${boxId}-header_group`}>
-					<div slot="left" id={`${boxId}-header_left`}>
+				<BoxGroup isInline={true} id={`${boxId}-header-group`}>
+					<div slot="left" id={`${boxId}-header-left`}>
 						<div className="sui-box__container" id={`${boxId}-container`}>
 							{hasTitle && (
 								<div className="sui-box__title" id={`${boxId}-title`}>
@@ -93,7 +93,7 @@ const Box: React.FC<BoxProps> = ({
 					</div>
 					<div
 						{...(hasRight && { slot: "right" })}
-						id={`${boxId}-header_right`}
+						id={`${boxId}-header-right`}
 					>
 						{hasRight && headerRight}
 					</div>

@@ -115,7 +115,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	return (
 		<div
 			className={classNames}
-			id={`info_${id}`}
+			id={`info-${id}`}
 			data-testid={_isGroup ? "" : "tree-view-item-info"}
 			{...(!ctx?.allowCheck && {
 				tabIndex: isDisabled ? -1 : 0,
