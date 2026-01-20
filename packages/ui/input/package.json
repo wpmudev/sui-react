@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-input",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Input fields are an essential user interface design element, providing users with the means to enter non-standardized responses.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

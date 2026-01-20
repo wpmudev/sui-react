@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-forms",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "WPMU DEV Shared UI React sub-package for form elements",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -45,11 +45,11 @@
   "dependencies": {
     "@wpmudev/sui-button": "^0.1.1",
     "@wpmudev/sui-checkbox": "^0.0.4",
-    "@wpmudev/sui-form-field": "^0.0.4",
-    "@wpmudev/sui-input": "^0.0.3",
+    "@wpmudev/sui-form-field": "^0.1.0",
+    "@wpmudev/sui-input": "^0.1.0",
     "@wpmudev/sui-radio": "^0.0.3",
     "@wpmudev/sui-textarea": "^0.0.2",
-    "@wpmudev/sui-toggle": "^0.1.1"
+    "@wpmudev/sui-toggle": "^0.2.0"
   },
   "clean-package": "../../../postpack.config.json"
 }

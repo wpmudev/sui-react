@@ -1,5 +1,14 @@
 # @wpmudev/sui-css
 
+## 0.2.0
+
+### Minor Changes
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`3638488`](https://github.com/wpmudev/sui-react/commit/36384887285075d1fd068649b5fb40ef5b7e8abc)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - added required
+  changes for beehive plugin
+
 ## 0.1.4
 
 ### Patch Changes

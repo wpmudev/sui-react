@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies
+  [[`3638488`](https://github.com/wpmudev/sui-react/commit/36384887285075d1fd068649b5fb40ef5b7e8abc)]:
+  - @wpmudev/sui-toggle@0.2.0
+
 ## 0.0.3
 
 ### Patch Changes
