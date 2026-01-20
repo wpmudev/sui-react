@@ -252,7 +252,7 @@ const TableRow: React.FC<TableRowProps> = ({
 					>
 						<Checkbox
 							name={rowId}
-							id={`${rowId}_checkbox`}
+							id={`${rowId}-checkbox`}
 							isDisabled={disableCheck}
 							onChange={onCheckToggle}
 							isChecked={isChecked}

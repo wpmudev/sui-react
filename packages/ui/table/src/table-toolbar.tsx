@@ -81,9 +81,9 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 			className={generateCN("sui-table__toolbar", {}, suiInlineClassname)}
 			{..._htmlProps}
 		>
-			<div id={`${toolbarId}_header`} className="sui-table__toolbar-header">
+			<div id={`${toolbarId}-header`} className="sui-table__toolbar-header">
 				<div
-					id={`${toolbarId}_bulk`}
+					id={`${toolbarId}-bulk`}
 					className="sui-table__toolbar-header-bulk"
 				>
 					{!!ctx?.bulkActions && (
@@ -110,16 +110,16 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 				</div>
 
 				<div
-					id={`${toolbarId}_actions`}
+					id={`${toolbarId}-actions`}
 					className="sui-table__toolbar-header-actions"
 				>
 					{ctx?.showToggleBtn && (
 						<div
-							id={`${toolbarId}_toggle`}
+							id={`${toolbarId}-toggle`}
 							className="sui-table__toolbar-toggle"
 						>
 							<Toggle
-								id={`${toolbarId}_toggle_input`}
+								id={`${toolbarId}-toggle_input`}
 								{...ctx?.toggleBtnProps}
 								onClick={(e) => {
 									// Deselected all selected rows
@@ -132,7 +132,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 						</div>
 					)}
 					<Input
-						id={`${toolbarId}_search`}
+						id={`${toolbarId}-search`}
 						className="sui-table__toolbar-search"
 						placeholder="Search"
 						onChange={onSearch}

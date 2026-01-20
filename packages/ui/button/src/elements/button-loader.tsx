@@ -57,14 +57,14 @@ const Loader: React.FC<ButtonLoaderProps> = ({
 				aria-hidden="true"
 			>
 				<Spinner
-					id={`${id}_spinner`}
+					id={`${id}-spinner`}
 					loaderSize="sm"
 					colorScheme={spinnerColorScheme}
 				/>
 			</span>
 			{children ? (
 				<span
-					id={`${id}_label`}
+					id={`${id}-label`}
 					className="sui-button__label sui-button__label--hidden"
 					tabIndex={-1}
 				>
@@ -72,7 +72,7 @@ const Loader: React.FC<ButtonLoaderProps> = ({
 				</span>
 			) : (
 				<span
-					id={`${id}_loading`}
+					id={`${id}-loading`}
 					className="sui-screen-reader-only"
 					tabIndex={-1}
 				>

@@ -200,7 +200,7 @@ const Uploader: React.FC<UploaderProps> = ({
 				{!onClick && (
 					<input
 						type="file"
-						id={`${uploaderId}_input`}
+						id={`${uploaderId}-input`}
 						ref={ref}
 						onChange={onSelectFile}
 						className="sui-uploader__input sui-accessible-cta sui-hidden"
@@ -215,7 +215,7 @@ const Uploader: React.FC<UploaderProps> = ({
 				{/* Render the uploader button when multiple selection is allowed or no files are selected */}
 				{(multiple || (!multiple && files.length <= 0)) && (
 					<UploaderButton
-						id={`${uploaderId}_button`}
+						id={`${uploaderId}-button`}
 						btnTitle={btnTitle ?? ""}
 						multiple={multiple ?? false}
 						allowDragAndDrop={allowDragAndDrop ?? false}
@@ -225,12 +225,12 @@ const Uploader: React.FC<UploaderProps> = ({
 				)}
 				{/* Render the file previews when there are selected files */}
 				{!!files && files.length > 0 && (
-					<div className="sui-uploader__preview" id={`${uploaderId}_preview`}>
-						<div className="sui-uploader__files" id={`${uploaderId}_files`}>
+					<div className="sui-uploader__preview" id={`${uploaderId}-preview`}>
+						<div className="sui-uploader__files" id={`${uploaderId}-files`}>
 							{files?.map((file: File, index: number) => (
 								<UploaderFile
 									key={index}
-									id={`${uploaderId}_file_${index}`}
+									id={`${uploaderId}-file_${index}`}
 									onRemove={onRemoveFile}
 									file={file}
 								/>

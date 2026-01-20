@@ -66,14 +66,14 @@ const Avatar: React.FC<AvatarProps> = ({
 		<span {...attributes}>
 			{hasImage && (
 				<Image
-					id={`${avatarId}_image`}
+					id={`${avatarId}-image`}
 					source={imageObj.src}
 					text={imageObj.alt}
 				/>
 			)}
-			{!hasImage && <Icon id={`${avatarId}_icon`} iconName={icon} />}
+			{!hasImage && <Icon id={`${avatarId}-icon`} iconName={icon} />}
 			{hasStatus && status !== "none" && (
-				<Status id={`${avatarId}_status`} status={status} />
+				<Status id={`${avatarId}-status`} status={status} />
 			)}
 		</span>
 	)

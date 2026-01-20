@@ -344,7 +344,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div
-				id={`${uniqueId}_trigger`}
+				id={`${uniqueId}-trigger`}
 				className="sui-tooltip__trigger"
 				ref={triggerRef as LegacyRef<HTMLDivElement>}
 			>

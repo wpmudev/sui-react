@@ -114,7 +114,7 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 					{..._renderHTMLPropsSafely(_htmlProps)}
 				>
 					<div
-						id={`${uniqueId}_container`}
+						id={`${uniqueId}-container`}
 						className={generateCN("sui-modal__container", {})}
 						role="dialog"
 						aria-modal="true"
@@ -125,7 +125,7 @@ const Modal = forwardRef<ModalActionsProps, ModalProps>(
 				</section>
 				<div
 					className="sui-modal__overlay"
-					id={`${uniqueId}_overlay`}
+					id={`${uniqueId}-overlay`}
 					role="presentation"
 				/>
 			</ModalContext.Provider>,

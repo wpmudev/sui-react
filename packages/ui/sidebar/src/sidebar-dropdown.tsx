@@ -84,7 +84,7 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 			>
 				<div>
 					<Button
-						id={`${sidebarDropdownId}_label`}
+						id={`${sidebarDropdownId}-label`}
 						className="sui-sidebar__dropdown--button"
 						// aria-activedescendant={isOpen ? `${sidebarDropdownId}-${current}` : ""}
 						onClick={() => setIsOpen(!isOpen)}
@@ -97,11 +97,11 @@ const SidebarDropdown: React.FC<SidebarProps> = forwardRef(
 				</div>
 				{isOpen && (
 					<div
-						id={`${sidebarDropdownId}_list`}
+						id={`${sidebarDropdownId}-list`}
 						tabIndex={-1}
 						role="listbox"
 						className="sui-sidebar__dropdown--list"
-						aria-labelledby={`${sidebarDropdownId}_label`}
+						aria-labelledby={`${sidebarDropdownId}-label`}
 					>
 						{childrenWithProps}
 					</div>

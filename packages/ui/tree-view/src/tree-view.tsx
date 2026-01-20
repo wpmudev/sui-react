@@ -61,7 +61,7 @@ const TreeView: React.FC<TreeViewProps> = ({
 				data-testid="tree-view"
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
-				<ul id={`${treeViewId}_list`} role="tree">
+				<ul id={`${treeViewId}-list`} role="tree">
 					{children}
 				</ul>
 			</nav>

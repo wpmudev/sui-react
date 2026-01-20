@@ -59,14 +59,14 @@ const Box: React.FC<BoxProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{hasTitle && (
-				<BoxGroup isInline={true} id={`${boxId}_header_group`}>
-					<div slot="left" id={`${boxId}_header_left`}>
-						<div className="sui-box__container" id={`${boxId}_container`}>
+				<BoxGroup isInline={true} id={`${boxId}-header_group`}>
+					<div slot="left" id={`${boxId}-header_left`}>
+						<div className="sui-box__container" id={`${boxId}-container`}>
 							{hasTitle && (
-								<div className="sui-box__title" id={`${boxId}_title`}>
+								<div className="sui-box__title" id={`${boxId}-title`}>
 									{hasIcon && IconTag && (
 										<span
-											id={`${boxId}_icon`}
+											id={`${boxId}-icon`}
 											className={generateCN(
 												"suicons",
 												{},
@@ -81,19 +81,19 @@ const Box: React.FC<BoxProps> = ({
 									)}
 									<h2
 										className="sui-heading sui-heading--h3 sui-box-group__item"
-										id={`${boxId}_heading`}
+										id={`${boxId}-heading`}
 									>
 										{title}
 									</h2>
 									{hasLeft && headerLeft}
 								</div>
 							)}
-							{description && <p id={`${boxId}_description`}>{description}</p>}
+							{description && <p id={`${boxId}-description`}>{description}</p>}
 						</div>
 					</div>
 					<div
 						{...(hasRight && { slot: "right" })}
-						id={`${boxId}_header_right`}
+						id={`${boxId}-header_right`}
 					>
 						{hasRight && headerRight}
 					</div>

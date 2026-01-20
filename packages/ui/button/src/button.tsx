@@ -76,7 +76,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			isUnwrapped = true
 			children = (
 				<Loader
-					id={`${buttonId}_loader`}
+					id={`${buttonId}-loader`}
 					colorScheme={colorScheme}
 					isDisabled={isDisabled}
 				>
@@ -145,7 +145,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 			<TagName {...attrs}>
 				{(startIcon || icon) && (
 					<Icon
-						id={`${buttonId}_start-icon`}
+						id={`${buttonId}-start-icon`}
 						name={startIcon ?? ""}
 						size={iconSize}
 						{...(isLoading ? { className: "sui-button__icon--hidden" } : {})}
@@ -153,13 +153,13 @@ const Button: React.FC<ButtonProps> = forwardRef<
 				)}
 				{isUnwrapped && children}
 				{!isUnwrapped && (
-					<Label id={`${buttonId}_label`} {...(iconOnly && { hidden: true })}>
+					<Label id={`${buttonId}-label`} {...(iconOnly && { hidden: true })}>
 						{children}
 					</Label>
 				)}
 				{isEndIcon && (
 					<Icon
-						id={`${buttonId}_end-icon`}
+						id={`${buttonId}-end-icon`}
 						name={endIcon ?? ""}
 						size={iconSize}
 						{...(isLoading ? { className: "sui-button__icon--hidden" } : {})}

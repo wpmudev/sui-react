@@ -85,14 +85,14 @@ const Table: React.FC<TableProps> = ({
 		>
 			<div id={tableId} className={classNames} data-testid="table">
 				{/* Render the TableToolbar component if hasToolbar is true */}
-				{hasToolbar && <TableToolbar id={`${tableId}_toolbar`} />}
+				{hasToolbar && <TableToolbar id={`${tableId}-toolbar`} />}
 				<div
-					id={`${tableId}_wrapper`}
+					id={`${tableId}-wrapper`}
 					className="sui-table__wrapper"
 					ref={wrapperRef}
 				>
 					<table
-						id={`${tableId}_table`}
+						id={`${tableId}-table`}
 						className="sui-table__table"
 						ref={ref}
 						// Ignore eslint here as the table have expandable elements which makes it interactive

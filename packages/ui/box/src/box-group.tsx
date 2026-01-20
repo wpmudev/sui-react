@@ -37,7 +37,7 @@ const BoxGroup: React.FC<BoxGroupProps> = ({
 			return (
 				<div
 					key={`sui-box-group--${index}`}
-					id={childId || `${boxGroupId}_slot_${slot}`}
+					id={childId || `${boxGroupId}-slot_${slot}`}
 					className={`sui-box-group__slot sui-box-group__${slot}`}
 				>
 					{content}

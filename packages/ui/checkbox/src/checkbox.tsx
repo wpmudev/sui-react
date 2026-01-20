@@ -65,7 +65,7 @@ const Checkbox = ({
 				propOnchange(e)
 			}
 		},
-		"aria-labelledby": `${uuid}_label`,
+		"aria-labelledby": `${uuid}-label`,
 		..._htmlProps,
 	}
 
@@ -105,7 +105,7 @@ const Checkbox = ({
 		// Checkbox label container
 		<label
 			{...containerProps}
-			id={`${uuid}_label`}
+			id={`${uuid}-label`}
 			htmlFor={uuid}
 			tabIndex={-1}
 			data-testid="checkbox"
@@ -124,11 +124,11 @@ const Checkbox = ({
 			)}
 			{/* Render label or hidden span based on isLabelHidden */}
 			{isLabelHidden ? (
-				<span className="sui-screen-reader-only" id={`${uuid}_label_text`}>
+				<span className="sui-screen-reader-only" id={`${uuid}-label-text`}>
 					{label}
 				</span>
 			) : (
-				<span className="sui-checkbox__label" id={`${uuid}_label_text`}>
+				<span className="sui-checkbox__label" id={`${uuid}-label-text`}>
 					{label}
 				</span>
 			)}

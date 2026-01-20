@@ -83,25 +83,25 @@ const Notification: React.FC<NotificationProps> = ({
 			id={notificationId}
 			className={classNames}
 			role="alert"
-			aria-labelledby={`${notificationId}_title`}
-			aria-describedby={`${notificationId}_message`}
+			aria-labelledby={`${notificationId}-title`}
+			aria-describedby={`${notificationId}-message`}
 			data-testid="notification"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{!!Icon && (
 				<Icon
-					id={`${notificationId}_icon`}
+					id={`${notificationId}-icon`}
 					size="md"
 					className="sui-notification__icon"
 				/>
 			)}
 			<div
-				id={`${notificationId}_content`}
+				id={`${notificationId}-content`}
 				className="sui-notification__content"
 			>
 				{!!title && (
 					<span
-						id={`${notificationId}_title`}
+						id={`${notificationId}-title`}
 						className="sui-notification__title"
 					>
 						{title}
@@ -109,7 +109,7 @@ const Notification: React.FC<NotificationProps> = ({
 				)}
 				{!!message && (
 					<span
-						id={`${notificationId}_message`}
+						id={`${notificationId}-message`}
 						className="sui-notification__message"
 					>
 						{message}
@@ -117,7 +117,7 @@ const Notification: React.FC<NotificationProps> = ({
 				)}
 				{!!action && (
 					<div
-						id={`${notificationId}_action`}
+						id={`${notificationId}-action`}
 						className="sui-notification__action"
 					>
 						{action}
@@ -126,7 +126,7 @@ const Notification: React.FC<NotificationProps> = ({
 			</div>
 			{isDismissible && (
 				<Button
-					id={`${notificationId}_dismiss`}
+					id={`${notificationId}-dismiss`}
 					className="sui-modal__header-actions-close"
 					icon="Close"
 					type="tertiary"

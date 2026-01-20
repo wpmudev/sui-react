@@ -152,7 +152,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 					<ItemIcon size="sm" className="sui-tree-view__info-icon" />
 				)}
 				{/* Render the item's title */}
-				<span id={`${id}_title`}>{children}</span>
+				<span id={`${id}-title`}>{children}</span>
 			</div>
 		</div>
 	)

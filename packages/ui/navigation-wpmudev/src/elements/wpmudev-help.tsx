@@ -158,7 +158,7 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 			className={classNames}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<div id={`${wpmudevHelpId}_title`} className="sui-wpmudev__help-title">
+			<div id={`${wpmudevHelpId}-title`} className="sui-wpmudev__help-title">
 				{title}
 				{titleLink && (
 					<Link
@@ -173,7 +173,7 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 			</div>
 			{content && (
 				<div
-					id={`${wpmudevHelpId}_readings`}
+					id={`${wpmudevHelpId}-readings`}
 					className="sui-wpmudev__help-readings"
 				>
 					{content.map((item, index) => (
@@ -190,7 +190,7 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 				</div>
 			)}
 			<div
-				id={`${wpmudevHelpId}_resources_title`}
+				id={`${wpmudevHelpId}-resources_title`}
 				className="sui-wpmudev__help-title"
 			>
 				{resources.title}
@@ -205,7 +205,7 @@ const HelpWPMUDEVContent: React.FC<WPMUDEVHelpProps> = ({
 					</Link>
 				)}
 			</div>
-			<ul id={`${wpmudevHelpId}_list`} className="sui-wpmudev__help-list">
+			<ul id={`${wpmudevHelpId}-list`} className="sui-wpmudev__help-list">
 				{resourcesSection}
 				{supportSection()}
 			</ul>

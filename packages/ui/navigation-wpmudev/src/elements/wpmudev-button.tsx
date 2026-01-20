@@ -116,11 +116,11 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 
 	const dropdownContent = (
 		<div
-			id={`${wpmudevButtonId}_content`}
+			id={`${wpmudevButtonId}-content`}
 			className="sui-wpmudev__dropdown-content"
 		>
 			{filteredPlugins && (
-				<ul id={`${wpmudevButtonId}_list`} className="sui-wpmudev__list">
+				<ul id={`${wpmudevButtonId}-list`} className="sui-wpmudev__list">
 					{filteredPlugins.map((pluginItem) => {
 						// Icon for the specified plugin or use a default "Plugin" icon.
 						const PluginIcon: PluginIconTypes = pluginItem.plugin
@@ -135,10 +135,10 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 						return (
 							<li
 								key={pluginItem.plugin}
-								id={`${wpmudevButtonId}_item_${pluginItem.plugin}`}
+								id={`${wpmudevButtonId}-item_${pluginItem.plugin}`}
 							>
 								<a
-									id={`${wpmudevButtonId}_item_${pluginItem.plugin}_link`}
+									id={`${wpmudevButtonId}-item_${pluginItem.plugin}-link`}
 									href={pluginItem.link}
 									className="sui-wpmudev__list-item"
 									target="_blank"
@@ -146,33 +146,33 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 									{..._renderHTMLPropsSafely(upsell.props)}
 								>
 									<div
-										id={`${wpmudevButtonId}_item_${pluginItem.plugin}_icon`}
+										id={`${wpmudevButtonId}-item_${pluginItem.plugin}-icon`}
 										className="sui-wpmudev__list-icon"
 										style={{ backgroundColor: PluginIcon?.bg }}
 									>
 										{!!IconTag && (
 											<IconTag
-												id={`${wpmudevButtonId}_item_${pluginItem.plugin}_icon_svg`}
+												id={`${wpmudevButtonId}-item_${pluginItem.plugin}-icon_svg`}
 												fill={PluginIcon?.color}
 											/>
 										)}
 									</div>
 									<div
-										id={`${wpmudevButtonId}_item_${pluginItem.plugin}_content`}
+										id={`${wpmudevButtonId}-item_${pluginItem.plugin}-content`}
 										className="sui-wpmudev__list-content"
 									>
 										<h5
-											id={`${wpmudevButtonId}_item_${pluginItem.plugin}_title`}
+											id={`${wpmudevButtonId}-item_${pluginItem.plugin}-title`}
 											className="sui-wpmudev__list-title sui-heading--h5"
 										>
 											{pluginItem.title}
 										</h5>
 										<p
-											id={`${wpmudevButtonId}_item_${pluginItem.plugin}_description`}
+											id={`${wpmudevButtonId}-item_${pluginItem.plugin}-description`}
 											className="sui-wpmudev__list-desc"
 										>
 											<small
-												id={`${wpmudevButtonId}_item_${pluginItem.plugin}_description_small`}
+												id={`${wpmudevButtonId}-item_${pluginItem.plugin}-description_small`}
 											>
 												{pluginItem.description}
 											</small>
@@ -186,7 +186,7 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 			)}
 			{upsell && (
 				<a
-					id={`${wpmudevButtonId}_upsell`}
+					id={`${wpmudevButtonId}-upsell`}
 					href={upsell.link}
 					className="sui-wpmudev__upsell"
 					target="_blank"
@@ -195,21 +195,21 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 				>
 					<UpsellIcon />
 					<div
-						id={`${wpmudevButtonId}_upsell_content`}
+						id={`${wpmudevButtonId}-upsell_content`}
 						className="sui-wpmudev__upsell-content"
 					>
 						<h5
-							id={`${wpmudevButtonId}_upsell_title`}
+							id={`${wpmudevButtonId}-upsell_title`}
 							className="sui-wpmudev__upsell-title sui-heading--h5"
 						>
 							{upsell.title}
 							<ExternalLink
-								id={`${wpmudevButtonId}_upsell_external_link`}
+								id={`${wpmudevButtonId}-upsell_external_link`}
 								size="sm"
 							/>
 						</h5>
 						<p
-							id={`${wpmudevButtonId}_upsell_description`}
+							id={`${wpmudevButtonId}-upsell_description`}
 							className="sui-wpmudev__upsell-desc"
 						>
 							{upsell.description}
@@ -222,7 +222,7 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 
 	const mobileDrawer = (
 		<Drawer
-			id={`${wpmudevButtonId}_mobile_drawer`}
+			id={`${wpmudevButtonId}-mobile_drawer`}
 			ref={drawerRef}
 			placement="left"
 			hasContainer={false}
@@ -231,11 +231,11 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 			isFullWidth={true}
 		>
 			<DrawerHeader
-				id={`${wpmudevButtonId}_mobile_drawer_header`}
+				id={`${wpmudevButtonId}-mobile_drawer_header`}
 				title={label}
 				back={{ show: true }}
 			/>
-			<DrawerBody id={`${wpmudevButtonId}_mobile_drawer_body`}>
+			<DrawerBody id={`${wpmudevButtonId}-mobile_drawer_body`}>
 				{dropdownContent}
 			</DrawerBody>
 		</Drawer>
@@ -243,7 +243,7 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 
 	return (
 		<>
-			<div id={`${wpmudevButtonId}_wrapper`} className={classNames}>
+			<div id={`${wpmudevButtonId}-wrapper`} className={classNames}>
 				<Dropdown
 					id={wpmudevButtonId}
 					label={label}
@@ -255,7 +255,7 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 					{...props}
 				>
 					{title && (
-						<div id={`${wpmudevButtonId}_title`} className="sui-wpmudev__title">
+						<div id={`${wpmudevButtonId}-title`} className="sui-wpmudev__title">
 							<h4 className="sui-heading--h4">{title}</h4>
 						</div>
 					)}
@@ -263,11 +263,11 @@ const MoreFromWPMUDEV: React.FC<WPMUDEVButtonProps> = ({
 				</Dropdown>
 			</div>
 			<div
-				id={`${wpmudevButtonId}_mobile`}
+				id={`${wpmudevButtonId}-mobile`}
 				className="sui-wpmudev__drawer sui-wpmudev__navigation--hide-desktop"
 			>
 				<Button
-					id={`${wpmudevButtonId}_mobile_button`}
+					id={`${wpmudevButtonId}-mobile_button`}
 					key="logo"
 					type="secondary"
 					iconOnly={false}

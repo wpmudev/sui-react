@@ -60,14 +60,14 @@ const Footer: React.FC<FooterProps> = ({
 		>
 			{blocks.length > 0 && (
 				<div
-					id={`${footerId}_credits`}
+					id={`${footerId}-credits`}
 					className={`sui-footer__group sui-footer__group--credits${
 						blocks.length === 1 ? " sui-footer__group--center" : ""
 					}`}
 				>
 					{(blocks || [])?.map((block, index) => (
 						<div
-							id={`${footerId}_block_${index}`}
+							id={`${footerId}-block_${index}`}
 							className="sui-footer__block"
 							key={index}
 						>
@@ -78,12 +78,12 @@ const Footer: React.FC<FooterProps> = ({
 			)}
 			{!customFooter && (
 				<div
-					id={`${footerId}_links_group`}
+					id={`${footerId}-links_group`}
 					className="sui-footer__group sui-footer__group--links"
 				>
-					<div id={`${footerId}_logo_block`} className="sui-footer__block">
+					<div id={`${footerId}-logo_block`} className="sui-footer__block">
 						<a
-							id={`${footerId}_logo_link`}
+							id={`${footerId}-logo_link`}
 							href={logoHref || "https://wpmudev.com"}
 							target="_blank"
 							rel="noreferrer nofollow"
@@ -91,31 +91,31 @@ const Footer: React.FC<FooterProps> = ({
 						>
 							{logoImageLink ? (
 								<img
-									id={`${footerId}_logo_img`}
+									id={`${footerId}-logo_img`}
 									src={logoImageLink}
 									className="sui-footer__block--logo"
 									alt="WPMU DEV"
 								/>
 							) : (
-								<Logo id={`${footerId}_logo`} />
+								<Logo id={`${footerId}-logo`} />
 							)}
 						</a>
 					</div>
 					{(links ?? []).length > 0 && (
 						<div
-							id={`${footerId}_pages_block`}
+							id={`${footerId}-pages_block`}
 							className="sui-footer__block sui-footer__block--pages"
 							data-testid="footer-links"
 						>
-							<ul id={`${footerId}_links`} className="sui-footer__links">
+							<ul id={`${footerId}-links`} className="sui-footer__links">
 								{(links ?? [])?.map((list: FooterLinkType, index) => (
 									<li
-										id={`${footerId}_link_item_${index}`}
+										id={`${footerId}-link_item_${index}`}
 										key={index}
 										className="sui-footer__links--item"
 									>
 										<a
-											id={`${footerId}_link_${index}`}
+											id={`${footerId}-link_${index}`}
 											href={list.url}
 											target={list?.target ?? "_blank"}
 										>
@@ -126,10 +126,10 @@ const Footer: React.FC<FooterProps> = ({
 							</ul>
 						</div>
 					)}
-					<div id={`${footerId}_social_block`} className="sui-footer__block">
+					<div id={`${footerId}-social_block`} className="sui-footer__block">
 						{(socialLinks ?? [])?.length > 0 && (
 							<ul
-								id={`${footerId}_social_links`}
+								id={`${footerId}-social_links`}
 								className="sui-footer__links sui-footer__links--social"
 								data-testid="footer-social-links"
 							>
@@ -138,23 +138,23 @@ const Footer: React.FC<FooterProps> = ({
 										const SocialIcon = socialIcons[socialLink?.type]
 										return (
 											<li
-												id={`${footerId}_social_item_${index}`}
+												id={`${footerId}-social_item_${index}`}
 												key={index}
 												className="sui-footer__links--item"
 											>
 												<a
-													id={`${footerId}_social_link_${index}`}
+													id={`${footerId}-social_link_${index}`}
 													href={socialLink.url}
 													target="_blank"
 													rel="noopener noreferrer"
 												>
 													<SocialIcon
-														id={`${footerId}_social_icon_${index}`}
+														id={`${footerId}-social_icon_${index}`}
 														size="sm"
 													/>
 													{socialLink?.type && (
 														<span
-															id={`${footerId}_social_label_${index}`}
+															id={`${footerId}-social_label_${index}`}
 															className="sui-screen-reader-only"
 														>
 															{socialLink?.type}

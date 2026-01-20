@@ -137,7 +137,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			>
 				{hasCheckbox && (
 					<div
-						id={`${accordionId}_accessible_cta`}
+						id={`${accordionId}-accessible_cta`}
 						className="sui-accessible-cta"
 						tabIndex={isDisabled ? -1 : 0}
 						role="button"
@@ -156,17 +156,17 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				{/* Content of the accordion item's header */}
 				<div
 					className="sui-accordion__header-info"
-					id={`${accordionId}_header_info`}
+					id={`${accordionId}-header_info`}
 				>
 					{(!!hasCheckbox || !!icon) && (
 						<div
 							className="sui-accordion__header-actions"
-							id={`${accordionId}_header_actions`}
+							id={`${accordionId}-header_actions`}
 						>
 							{hasCheckbox && (
 								<Checkbox
 									name={accordionId}
-									id={`${accordionId}_checkbox`}
+									id={`${accordionId}-checkbox`}
 									onChange={onCheckBoxChange}
 									isChecked={isChecked}
 									isDisabled={isDisabled ?? false}
@@ -177,7 +177,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 					)}
 					<div
 						className="sui-accordion__header-title"
-						id={`${accordionId}_header_title`}
+						id={`${accordionId}-header_title`}
 					>
 						<h2>{title}</h2>
 						{!isEmpty(description ?? "") && <p>{description}</p>}
@@ -186,7 +186,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 				{/* Icon component to display a chevron icon */}
 				<div
 					className="sui-accordion__header-icon"
-					id={`${accordionId}_header_icon`}
+					id={`${accordionId}-header_icon`}
 				>
 					<Icon iconHeight={16} iconWidth={16} />
 				</div>
@@ -206,7 +206,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 			>
 				<div
 					className={panelContentClassName}
-					id={`${accordionId}_panel_content`}
+					id={`${accordionId}-panel_content`}
 				>
 					{children}
 				</div>

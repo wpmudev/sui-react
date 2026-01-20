@@ -92,7 +92,7 @@ const Toggle: React.FC<ToggleProps> = ({
 	}
 
 	return (
-		<div className="sui-toggle__container" id={`${toggleId}_container`}>
+		<div className="sui-toggle__container" id={`${toggleId}-container`}>
 			<label {...containerProps} htmlFor={toggleId} data-testid="toggle">
 				<input
 					{...(inputProps as HTMLProps<HTMLInputElement>)}
@@ -103,17 +103,17 @@ const Toggle: React.FC<ToggleProps> = ({
 				<span
 					tabIndex={-1}
 					className="sui-toggle__switch"
-					id={`${toggleId}_switch`}
+					id={`${toggleId}-switch`}
 				/>
 				{isLabelHidden && (
-					<span className="sui-screen-reader-only" id={`${toggleId}_label`}>
+					<span className="sui-screen-reader-only" id={`${toggleId}-label`}>
 						{label}
 					</span>
 				)}
 				{!isLabelHidden && (
 					<span
 						className="sui-toggle__label"
-						id={`${toggleId}_label`}
+						id={`${toggleId}-label`}
 						data-testid="toggle-label"
 					>
 						{label}
@@ -122,7 +122,7 @@ const Toggle: React.FC<ToggleProps> = ({
 			</label>
 			{description && (
 				<div
-					id={`${toggleId}_description`}
+					id={`${toggleId}-description`}
 					className="sui-toggle__description"
 					data-testid="toggle-description"
 				>

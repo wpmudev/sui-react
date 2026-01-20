@@ -65,7 +65,7 @@ const FieldList: React.FC<FieldListProps> = ({
 			{/* Render the label and helper elements if they are provided */}
 			{(label || helper) && (
 				<div
-					id={`${fieldListId}_header`}
+					id={`${fieldListId}-header`}
 					className="sui-field-list__row"
 					style={styles}
 				>
@@ -80,7 +80,7 @@ const FieldList: React.FC<FieldListProps> = ({
 				</div>
 			)}
 			{/* Render the list of FieldListItem components */}
-			<div id={`${fieldListId}_items`} className="sui-field-list__items">
+			<div id={`${fieldListId}-items`} className="sui-field-list__items">
 				{/* Map over and clone each child component with the onChangeItem callback */}
 				{Children.map(
 					children as ReactElement,

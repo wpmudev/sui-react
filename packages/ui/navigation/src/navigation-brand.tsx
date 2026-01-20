@@ -42,18 +42,18 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div
-				id={`${brandId}_icon`}
+				id={`${brandId}-icon`}
 				className="sui-navigation__icon"
 				style={{ backgroundColor: PluginIcon?.bg }}
 			>
 				{!!IconTag && <IconTag fill={PluginIcon?.color} />}
 			</div>
-			<div id={`${brandId}_info`} className="sui-navigation__info">
-				<h3 id={`${brandId}_title`} className="sui-heading--h4">
+			<div id={`${brandId}-info`} className="sui-navigation__info">
+				<h3 id={`${brandId}-title`} className="sui-heading--h4">
 					{title}
 				</h3>
 				<span
-					id={`${brandId}_description`}
+					id={`${brandId}-description`}
 					className="sui-navigation__info--desc"
 				>
 					{description}

@@ -62,8 +62,8 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			disabled: isRadioDisabled,
 			"aria-label": label || "radio input",
 			onChange: handleOnChange,
-			"aria-labelledby": `${uuid}_label`,
-			...(description && { "aria-describedby": `${uuid}_description` }),
+			"aria-labelledby": `${uuid}-label`,
+			...(description && { "aria-describedby": `${uuid}-description` }),
 			..._renderHTMLPropsSafely(_htmlProps),
 		}
 
@@ -100,10 +100,10 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 				{...methods}
 			>
 				<input {...inputProps} data-testid="radio-input" />
-				<span {...boxProps} id={`${uuid}_box`} tabIndex={-1}>
-					{checked && <span className="sui-radio__icon" id={`${uuid}_icon`} />}
+				<span {...boxProps} id={`${uuid}-box`} tabIndex={-1}>
+					{checked && <span className="sui-radio__icon" id={`${uuid}-icon`} />}
 				</span>
-				<span id={`${uuid}_label`} className="sui-radio__label">
+				<span id={`${uuid}-label`} className="sui-radio__label">
 					{label}
 					{tag && (
 						<Tag
@@ -117,7 +117,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 					)}
 				</span>
 				{description && (
-					<span id={`${uuid}_description`} className="sui-radio__description">
+					<span id={`${uuid}-description`} className="sui-radio__description">
 						{description}
 					</span>
 				)}
