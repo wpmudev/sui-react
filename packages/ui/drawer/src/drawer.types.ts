@@ -13,6 +13,10 @@ export interface DrawerTypes
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * Unique identifier for the drawer.
+	 */
+	id?: string
+	/**
 	 * Optional class name for styling
 	 */
 	className?: string
@@ -68,6 +72,10 @@ export interface DrawerTypes
  */
 export interface DrawerHeaderTypes extends SuiStyleType {
 	/**
+	 * Unique identifier for the DrawerHeader.
+	 */
+	id?: string
+	/**
 	 * Title to be displayed in the DrawerHeader
 	 */
 	title: string
@@ -111,6 +119,10 @@ export interface DrawerHeaderTypes extends SuiStyleType {
  * Define props for the DrawerFooter component
  */
 export interface DrawerFooterTypes extends SuiStyleType {
+	/**
+	 * Unique identifier for the DrawerFooter.
+	 */
+	id?: string
 	/**
 	 * Optional class name for styling
 	 */

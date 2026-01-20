@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import {
 	_renderHTMLPropsSafely,
@@ -14,16 +14,18 @@ import { useStyles } from "@wpmudev/sui-hooks"
 /**
  * SetupBanner renders a banner with optional icon and description.
  *
- * @param  root0
- * @param  root0.type
- * @param  root0.title
- * @param  root0.className
- * @param  root0.description
- * @param  root0._style
- * @param  root0._htmlProps
+ * @param  props
+ * @param  props.type
+ * @param  props.id
+ * @param  props.title
+ * @param  props.className
+ * @param  props.description
+ * @param  props._style
+ * @param  props._htmlProps
  * @return {JSX.Element} - The rendered SetupBanner component.
  */
 const SetupBanner: React.FC<SetupBannerProps> = ({
+	id,
 	type = "smush",
 	title = "title",
 	className,
@@ -31,6 +33,8 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 	_htmlProps = {},
 	_style = {},
 }: SetupBannerProps): JSX.Element => {
+	const generatedId = useId()
+	const setupBannerId = id || `sui_setup_banner_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
@@ -51,6 +55,7 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 
 	return (
 		<div
+			id={setupBannerId}
 			className={classNames}
 			data-testid="setup-banner"
 			{..._renderHTMLPropsSafely(_htmlProps)}

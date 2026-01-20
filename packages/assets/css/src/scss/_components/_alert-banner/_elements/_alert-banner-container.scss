@@ -21,6 +21,10 @@
 			@include media(min-width, sm) {
 				padding: $spacing-md $spacing-2xl;
 			}
+
+			@include modifier(fluid) {
+				padding: $spacing-lg;
+			}
 		}
 	}
 }

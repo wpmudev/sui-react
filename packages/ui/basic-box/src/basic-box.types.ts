@@ -9,6 +9,10 @@ interface BasicBoxProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * The unique identifier for the basic box (optional).
+	 */
+	id?: string
+	/**
 	 * The title of the BasicBox, which can contain React nodes.
 	 */
 	title?: React.ReactNode

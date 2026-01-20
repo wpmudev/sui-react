@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 import { Col, Row } from "@wpmudev/sui-grid"
@@ -14,6 +14,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * one for the main content and the other for a list of summary items.
  *
  * @param  root0
+ * @param  root0.id
  * @param  root0.className
  * @param  root0.children
  * @param  root0.summaryItems
@@ -23,6 +24,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @return {JSX.Element} The SummaryBoxBody component.
  */
 const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
+	id,
 	className,
 	children,
 	summaryItems = [],
@@ -30,6 +32,8 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 	_htmlProps = {},
 	_style = {},
 }): JSX.Element => {
+	const generatedId = useId()
+	const summaryBoxBodyId = id || `sui_summary_box_body_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-summary-box__body", {}, suiInlineClassname)
 
@@ -57,7 +61,7 @@ const SummaryBoxBody: React.FC<SummaryBoxBodyProps> = ({
 		<BoxGroup
 			isInline={true}
 			className="sui-summary-box__info"
-			_htmlProps={_htmlProps}
+			_htmlProps={{ id: summaryBoxBodyId, ..._htmlProps }}
 		>
 			<Row align={{ md: "inline" }} className={classNames}>
 				{cols.map((col) => col)}

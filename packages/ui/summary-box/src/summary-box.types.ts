@@ -14,6 +14,10 @@ interface SummaryBoxProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the summary box.
+	 */
+	id?: string
+	/**
 	 * The title of the summary box (required).
 	 */
 	title?: string
@@ -54,6 +58,10 @@ interface SummaryBoxBodyProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the summary box body.
+	 */
+	id?: string
+	/**
 	 * Additional CSS class names for the summary box body element (optional).
 	 */
 	className?: string
@@ -79,6 +87,10 @@ interface SummaryBoxBodyProps
 interface SummaryBoxItemProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
+	/**
+	 * Unique identifier for the summary box item.
+	 */
+	id?: string
 	/**
 	 * The title of the summary item (optional).
 	 */
@@ -111,6 +123,15 @@ interface SummaryBoxItemProps
 	 * Additional CSS class names for the summary item element (optional).
 	 */
 	className?: string
+	/**
+	 * Additional props to be passed to the Tag component (optional).
+	 */
+	tagProps?: Partial<TagProps>
+
+	/**
+	 * Additional props to be passed to the link element (if titleUrl is provided).
+	 */
+	linkProps?: React.AnchorHTMLAttributes<HTMLAnchorElement>
 }
 
 /**
@@ -121,6 +142,10 @@ interface SummaryBoxItemProps
 interface SummaryFooterBodyProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
+	/**
+	 * Unique identifier for the summary footer body.
+	 */
+	id?: string
 	/**
 	 * Additional CSS class names for the summary box footer element (optional).
 	 */
@@ -139,6 +164,10 @@ interface SummaryFooterBodyProps
 interface SummaryBoxContentProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
+	/**
+	 * Unique identifier for the summary box content.
+	 */
+	id?: string
 	/**
 	 * Additional CSS class names for the summary box content
 	 */
@@ -165,6 +194,10 @@ interface SummaryBoxContentProps
 interface SummaryBoxRowProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
+	/**
+	 * Unique identifier for the summary box row.
+	 */
+	id?: string
 	/**
 	 * Additional CSS class names for the summary box row
 	 */

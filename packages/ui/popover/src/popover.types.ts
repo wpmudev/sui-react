@@ -12,6 +12,10 @@ interface PopoverBaseProps
 		>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the popover.
+	 */
+	id?: string
+	/**
 	 * Open popup on initial load
 	 */
 	isOpen?: boolean

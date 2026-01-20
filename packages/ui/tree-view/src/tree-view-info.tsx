@@ -15,19 +15,19 @@ import { getCheckboxState } from "./helpers"
  * A component that represents the information displayed for each item
  * in the tree view, such as the item's title, icon, and expand/collapse button.
  *
- * @param  root0
- * @param  root0.id
- * @param  root0.icon
- * @param  root0.isExpanded
- * @param  root0.isChecked
- * @param  root0.isIndeterminate
- * @param  root0.isDisabled
- * @param  root0.children
- * @param  root0.onClick
- * @param  root0._onGroupCheckClick
- * @param  root0._groupId
- * @param  root0._isGroup
- * @param  root0._style
+ * @param  props
+ * @param  props.id
+ * @param  props.icon
+ * @param  props.isExpanded
+ * @param  props.isChecked
+ * @param  props.isIndeterminate
+ * @param  props.isDisabled
+ * @param  props.children
+ * @param  props.onClick
+ * @param  props._onGroupCheckClick
+ * @param  props._groupId
+ * @param  props._isGroup
+ * @param  props._style
  *
  * @return {JSX.Element} - JSX Element representing the TreeViewInfo component
  */
@@ -115,7 +115,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 	return (
 		<div
 			className={classNames}
-			id={`info-${id}`}
+			id={`info_${id}`}
 			data-testid={_isGroup ? "" : "tree-view-item-info"}
 			{...(!ctx?.allowCheck && {
 				tabIndex: isDisabled ? -1 : 0,
@@ -152,7 +152,7 @@ const TreeViewInfo: React.FC<TreeViewInfoProps> = ({
 					<ItemIcon size="sm" className="sui-tree-view__info-icon" />
 				)}
 				{/* Render the item's title */}
-				<span id={`${id}-title`}>{children}</span>
+				<span id={`${id}_title`}>{children}</span>
 			</div>
 		</div>
 	)

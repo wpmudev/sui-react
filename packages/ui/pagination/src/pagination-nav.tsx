@@ -7,6 +7,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 export const PaginationNav: React.FC<PaginationNavProps> = ({
+	id,
 	pagesArray,
 	elements,
 	selectedPage,
@@ -35,12 +36,13 @@ export const PaginationNav: React.FC<PaginationNavProps> = ({
 
 	return (
 		<div
+			id={id}
 			className={generateCN("sui-pagination", {}, suiInlineClassname)}
 			data-testid="pagination"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<ul className="sui-pagination__nav">
-				<li className="sui-pagination__item">
+			<ul id={`${id}_nav`} className="sui-pagination__nav">
+				<li id={`${id}_prev_item`} className="sui-pagination__item">
 					<Tooltip
 						buttonProps={{
 							type: "tertiary",

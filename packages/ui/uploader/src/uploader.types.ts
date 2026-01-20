@@ -11,6 +11,10 @@ interface UploaderProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
 		SuiStyleType {
 	/**
+	 * Optional custom ID for the uploader.
+	 */
+	id?: string
+	/**
 	 * Upload button title
 	 */
 	btnTitle?: string

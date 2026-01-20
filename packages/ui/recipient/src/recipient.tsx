@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React, { useId, Fragment } from "react"
 import { isEmpty, generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 
 import { Avatar } from "@wpmudev/sui-avatar"
@@ -12,6 +12,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build "recipient" component
 const Recipient: React.FC<RecipientProps> = ({
+	id,
 	userName = "name",
 	userEmail = "",
 	userImage,
@@ -21,6 +22,8 @@ const Recipient: React.FC<RecipientProps> = ({
 	_htmlProps,
 	_style,
 }) => {
+	const generatedId = useId()
+	const recipientId = id || `sui_recipient_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Define recipient class.
@@ -35,6 +38,7 @@ const Recipient: React.FC<RecipientProps> = ({
 
 	return (
 		<div
+			id={recipientId}
 			className={className}
 			data-testid="recipients"
 			{..._renderHTMLPropsSafely(_htmlProps)}

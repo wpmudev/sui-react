@@ -27,6 +27,7 @@ import { Toggle } from "@wpmudev/sui-toggle"
  * @return {JSX.Element} The JSX representation of the TableToolbar component.
  */
 const TableToolbar: React.FC<TableSectionProps> = ({
+	id,
 	_htmlProps,
 	_style = {},
 }: TableSectionProps): JSX.Element => {
@@ -36,9 +37,10 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 
 	// Generate unique IDs for accessibility
 	const uniqueId = useId()
-	const filterBtnId = `sui-table-toolbar-filter-${uniqueId}`
-	const bodyId = `sui-table-toolbar-body-${uniqueId}`
-	const bulkDropdown = `sui-table-toolbar-bulk-${uniqueId}`
+	const toolbarId = id || `sui_table_toolbar_${uniqueId}`
+	const filterBtnId = `${toolbarId}_filter_btn`
+	const bodyId = `${toolbarId}_body`
+	const bulkDropdown = `${toolbarId}_bulk_dropdown`
 
 	const { suiInlineClassname } = useStyles(_style)
 	const ctx = useContext(TableContext)
@@ -75,11 +77,15 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 
 	return (
 		<div
+			id={toolbarId}
 			className={generateCN("sui-table__toolbar", {}, suiInlineClassname)}
 			{..._htmlProps}
 		>
-			<div className="sui-table__toolbar-header">
-				<div className="sui-table__toolbar-header-bulk">
+			<div id={`${toolbarId}_header`} className="sui-table__toolbar-header">
+				<div
+					id={`${toolbarId}_bulk`}
+					className="sui-table__toolbar-header-bulk"
+				>
 					{!!ctx?.bulkActions && (
 						<Fragment>
 							<Select
@@ -103,10 +109,17 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 					)}
 				</div>
 
-				<div className="sui-table__toolbar-header-actions">
+				<div
+					id={`${toolbarId}_actions`}
+					className="sui-table__toolbar-header-actions"
+				>
 					{ctx?.showToggleBtn && (
-						<div className="sui-table__toolbar-toggle">
+						<div
+							id={`${toolbarId}_toggle`}
+							className="sui-table__toolbar-toggle"
+						>
 							<Toggle
+								id={`${toolbarId}_toggle_input`}
 								{...ctx?.toggleBtnProps}
 								onClick={(e) => {
 									// Deselected all selected rows
@@ -119,7 +132,7 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 						</div>
 					)}
 					<Input
-						id="input-id-4"
+						id={`${toolbarId}_search`}
 						className="sui-table__toolbar-search"
 						placeholder="Search"
 						onChange={onSearch}

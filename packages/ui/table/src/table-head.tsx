@@ -46,10 +46,11 @@ const TableHead: React.FC<TableHeadProps> = ({
 			className={generateCN("sui-table__head", {}, suiInlineClassname)}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			{tableCols.map((child: ReactNode) =>
+			{tableCols.map((child: ReactNode, index) =>
 				cloneElement(child! as ReactElement, {
 					...(child as ReactElement)?.props,
 					isUnderHeader: true,
+					key: `table-col-${index}`,
 				}),
 			)}
 		</thead>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { UpsellProps } from "./upsell.types"
@@ -7,6 +7,7 @@ import { variationsList } from "./helpers"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 const Upsell: React.FC<UpsellProps> = ({
+	id,
 	title,
 	description = "",
 	size,
@@ -18,6 +19,8 @@ const Upsell: React.FC<UpsellProps> = ({
 	_htmlProps = {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const upsellId = id || `sui_upsell_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate classnames for the upsell
@@ -41,6 +44,7 @@ const Upsell: React.FC<UpsellProps> = ({
 
 	return (
 		<div
+			id={upsellId}
 			className={classNames}
 			data-testid="upsell"
 			{..._renderHTMLPropsSafely(_htmlProps)}

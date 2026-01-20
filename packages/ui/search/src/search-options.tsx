@@ -1,4 +1,4 @@
-import React, { useCallback } from "react"
+import React, { useCallback, useId } from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { SearchOptionItem } from "./search-option-item"
@@ -6,12 +6,15 @@ import { SearchOptionsProps } from "./search.types"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 const SearchOptions: React.FC<SearchOptionsProps> = ({
+	id,
 	options,
 	value,
 	setValue,
 	setIsPopoverVisible,
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const searchOptionsId = id || `sui_search_options_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 	const className = generateCN("sui-search__options", {}, suiInlineClassname)
 
@@ -34,7 +37,7 @@ const SearchOptions: React.FC<SearchOptionsProps> = ({
 	}
 
 	return (
-		<div role="menu" className={className}>
+		<div id={searchOptionsId} role="menu" className={className}>
 			{options?.map((option, index) => (
 				<SearchOptionItem key={index} option={option} onClick={onOptionClick}>
 					{!isEmpty(value) && <span>{value}</span>}

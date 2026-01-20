@@ -8,6 +8,10 @@ interface SpinnerProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * Unique identifier for the spinner.
+	 */
+	id?: string
+	/**
 	 * Size of the spinner
 	 */
 	loaderSize?: "xs" | "sm" | "lg"
@@ -34,6 +38,10 @@ interface SpinnerProps
  * using a subset of SpinnerProps (size and color).
  */
 interface SpinnerLoaderProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the SpinnerLoader.
+	 */
+	id?: string
 	loaderSize: SpinnerProps["loaderSize"]
 	colorScheme: SpinnerProps["colorScheme"]
 	isSpinning: SpinnerProps["isSpinning"]
