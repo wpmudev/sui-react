@@ -19,6 +19,6 @@ describe("@wpmudev/sui-uploader", () => {
 
 	// eslint-disable-next-line jest/expect-expect
 	it("passes a11y test", async () => {
-		await a11yTest(<Component />)
+		await a11yTest(<Component ariaAttrs={{ "aria-label": "Upload File" }} />)
 	})
 })
