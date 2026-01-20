@@ -12,6 +12,7 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 interface TabsProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
+	id?: string // Unique identifier for the tabs component.
 	className?: string // Additional CSS class names for the `Tabs` component.
 	children?: React.ReactNode // The children components rendered inside the `Tabs` component.
 	activeIndex?: number
@@ -38,7 +39,9 @@ interface TabContextProps {
 interface TabNavProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	id?: string // Unique identifier for the tab navigation.
 	children?: React.ReactNode // Content of the tab navigation (can be any valid React node).
+	isNarrow?: boolean
 }
 
 /**

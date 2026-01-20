@@ -10,6 +10,10 @@ interface PageHeaderProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the page header.
+	 */
+	id?: string
+	/**
 	 * The page title
 	 */
 	title?: string

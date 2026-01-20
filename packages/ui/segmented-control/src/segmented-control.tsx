@@ -5,7 +5,12 @@ import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { SegmentedControlProps } from "./segmented-control.types"
 import { SegmentedControlContext } from "./segmented-control-context"
-import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
+import {
+	useDefaultChildren,
+	useScrollable,
+	useStyles,
+} from "@wpmudev/sui-hooks"
+import { ChevronLeft, ChevronRight } from "@wpmudev/sui-icons"
 
 const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	name = "segmented-control",
@@ -17,6 +22,8 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 	_htmlProps,
 	_style = {},
 }) => {
+	const { containerRef, isScrollableLeft, isScrollableRight, scroll } =
+		useScrollable({ scrollOffset: 50 })
 	/**
 	 * State to track the current selected value of the segmented control.
 	 */
@@ -73,15 +80,34 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
 				value,
 			}}
 		>
-			{/* Render the segmented control with the provided children inside a div with appropriate class names. */}
-			<div
-				role="radiogroup"
-				className={classNames}
-				data-testid="segmented-control"
-				{...ariaAttrs}
-				{..._renderHTMLPropsSafely(_htmlProps)}
-			>
-				{children}
+			<div className="sui-segmented-control__container">
+				{isScrollableLeft && (
+					<button
+						className="sui-tab__arrow sui-tab__arrow--left"
+						onClick={() => scroll("left")}
+					>
+						<ChevronLeft size="sm" />
+					</button>
+				)}
+				{/* Render the segmented control with the provided children inside a div with appropriate class names. */}
+				<div
+					ref={containerRef}
+					role="radiogroup"
+					className={classNames}
+					data-testid="segmented-control"
+					{...ariaAttrs}
+					{..._renderHTMLPropsSafely(_htmlProps)}
+				>
+					{children}
+				</div>
+				{isScrollableRight && (
+					<button
+						className="sui-tab__arrow sui-tab__arrow--right"
+						onClick={() => scroll("right")}
+					>
+						<ChevronRight size="sm" />
+					</button>
+				)}
 			</div>
 		</SegmentedControlContext.Provider>
 	)

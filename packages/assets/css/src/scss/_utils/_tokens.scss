@@ -1,5 +1,5 @@
 // Do not edit directly
-// Generated on Tue, 30 Jul 2024 06:37:08 GMT
+// Generated on Thu, 15 Jan 2026 09:29:18 GMT
 
 $accordion-border-radius-sm: 10px;
 $advanced-banner-background: linear-gradient(
@@ -101,6 +101,7 @@ $color-white-a30: rgba(255, 255, 255, 0.3);
 $color-white-a50: rgba(255, 255, 255, 0.5);
 $color-white-a70: rgba(255, 255, 255, 0.7);
 $color-white-a90: rgba(255, 255, 255, 0.9);
+$color-black-a05: rgba(0, 0, 0, 0.05);
 $color-black-a10: rgba(0, 0, 0, 0.1);
 $color-black-a30: rgba(0, 0, 0, 0.3);
 $color-black-a50: rgba(0, 0, 0, 0.5);
@@ -457,6 +458,9 @@ $layout-spacing-main-md: -10px;
 $layout-spacing-content-sm: 8px * 2;
 $layout-spacing-content-md: 8px * 3;
 $layout-spacing-content-lg: 8px * 4;
+$link-outline-color: #0059ff;
+$link-outline-style: solid;
+$link-outline-size: 1px;
 $menu-spacing-horizontal: 24px;
 $modal-spacing-lg: 40px;
 $modal-border-radius: 24px;
@@ -475,6 +479,7 @@ $navigation-spacing-md: 20px;
 $notification-size-width-md: 360px;
 $notification-size-width-lg: 640px;
 $notification-spacing-md: 10px;
+$notification-font-color: #4c4c4c;
 $pagination-size-width-md: 32px;
 $pagination-size-height-md: 32px;
 $password-font-size-xs: 10px;
@@ -574,8 +579,15 @@ $spinner-stroke-width-lg: 12px;
 $spinner-stroke-dashoffset: 200;
 $spinner-stroke-dasharray: 276.4608;
 $summary-size-height-md: 24px;
+$summary-content-padding-lg: 24px;
+$summary-content-padding-md: 16px;
+$summary-content-padding-sm: 12px;
+$summary-content-background: #ffffff;
+$summary-content-border-radius: 4px * 2;
+$summary-row-gap-md: 16px;
+$summary-row-gap-sm: 8px;
 $table-width-xs: 100px;
-$table-width-sm: 185px;
+$table-width-sm: 216px;
 $table-width-md: 320px;
 $table-width-lg: 380px;
 $table-height-sm: 60px;

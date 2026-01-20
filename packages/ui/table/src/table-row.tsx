@@ -48,9 +48,9 @@ const TableRow: React.FC<TableRowProps> = ({
 	status,
 	isUnderFooter = false,
 	isGroup = false,
+	isDisabled,
 	_htmlProps = {},
 	_style = {},
-	...props
 }) => {
 	// State for row expansion
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
@@ -62,8 +62,8 @@ const TableRow: React.FC<TableRowProps> = ({
 
 	// Generate unique IDs for accessibility
 	const uniqueID = useId()
-	const rowId = `sui-table-row-${uniqueID}${!!id ? `-${id}` : ``}`
-	const rowContentId = `${rowId}-content`
+	const rowId = `sui_table_row_${uniqueID}${!!id ? `_${id}` : ``}`
+	const rowContentId = `${rowId}_content`
 
 	// Handle row checkbox toggle
 	const onCheckToggle = useCallback(
@@ -86,11 +86,22 @@ const TableRow: React.FC<TableRowProps> = ({
 
 	// @todo: need improvement
 	let isChecked = (ctx?.selected ?? [])?.indexOf(parseInt(`${id}`)) > -1
+
+	// Whether the table has rows or not
+	const hasRows = ctx?.rows?.length && ctx?.rows?.length > 0
+
+	// If we have at least one row in the table
+	const disableCheck = !hasRows || ctx?.disableCheck || isDisabled
+
 	let isIndeterminate = false
 
 	// if it's select all checkbox
 	if (isUnderHeader) {
-		const isAllSelected = ctx?.rows?.length === ctx?.selected.length
+		// Calculate selectable rows (exclude disabled rows)
+		const selectableRowsCount =
+			(ctx?.rows?.length || 0) - (ctx?.disabledRows?.length || 0)
+		const isAllSelected =
+			selectableRowsCount === ctx?.selected.length && selectableRowsCount > 0
 		isIndeterminate = (ctx?.selected ?? [])?.length > 0 && !isAllSelected
 		isChecked = isAllSelected && (ctx?.selected ?? []).length > 0
 	}
@@ -140,7 +151,7 @@ const TableRow: React.FC<TableRowProps> = ({
 	children = Children.toArray(children).map((child, index) => {
 		const p: Record<string, any> = {
 			hasDragIcon: false,
-			colSpan: (child as React.ReactElement).props.colSpan || undefined,
+			colSpan: (child as React.ReactElement)?.props?.colSpan || undefined,
 		}
 
 		if (0 === index) {
@@ -241,7 +252,8 @@ const TableRow: React.FC<TableRowProps> = ({
 					>
 						<Checkbox
 							name={rowId}
-							id={`${rowId}-checkbox`}
+							id={`${rowId}_checkbox`}
+							isDisabled={disableCheck}
 							onChange={onCheckToggle}
 							isChecked={isChecked}
 							isIndeterminate={isIndeterminate}

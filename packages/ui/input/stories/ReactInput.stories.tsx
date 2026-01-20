@@ -49,7 +49,13 @@ const Input = ({
 						isSmall={isSmall}
 						isDisabled={isDisabled}
 					>
-						<SuiInput {...args} />
+						<SuiInput
+							{...args}
+							icon="Copy"
+							iconPosition="end"
+							iconHint="Copied"
+							iconTooltipWidth={65}
+						/>
 					</FormField>
 				</div>
 			</div>

@@ -15,6 +15,7 @@
 			align-items: flex-start;
 			background-color: $color-base-white;
 			border-radius: $border-radius-lg;
+			border: $border-width-sm solid $color-grey-10;
 			max-width: $dashboard-size-width-lg;
 			padding: $spacing-xl $spacing-2xl;
 

@@ -13,6 +13,8 @@ import {
 } from "@wpmudev/sui-drawer"
 import { AvatarProps } from "@wpmudev/sui-avatar"
 import { ButtonProps } from "@wpmudev/sui-button"
+import { NavigationUserProps } from "@wpmudev/sui-navigation"
+import { LinkProps } from "@wpmudev/sui-link"
 
 /**
  * Represents a plugin's details.
@@ -34,6 +36,7 @@ type Notifications = Array<{
 
 type Resources = {
 	title: string
+	titleLink?: LinkProps
 	content: Array<{
 		icon: PluginIconTypes
 		title: string
@@ -46,6 +49,10 @@ type Resources = {
  * Represents the properties for a WPMUDEV button props.
  */
 interface WPMUDEVButtonProps extends DropdownProps, SuiStyleType {
+	/**
+	 * Unique identifier for the WPMUDEVButton.
+	 */
+	id?: string
 	title?: string
 	plugins?: Plugin[]
 	upsell?: {
@@ -61,8 +68,13 @@ interface WPMUDEVButtonProps extends DropdownProps, SuiStyleType {
  * Represents the properties for a WPMUDEV help.
  */
 interface WPMUDEVHelpProps extends DropdownProps, SuiStyleType {
+	/**
+	 * Unique identifier for the WPMUDEVHelp.
+	 */
+	id?: string
 	label?: string
 	title?: string
+	titleLink?: LinkProps
 	isPro?: boolean
 	content: Array<{
 		link: string
@@ -70,8 +82,9 @@ interface WPMUDEVHelpProps extends DropdownProps, SuiStyleType {
 	}>
 	resources?: Resources
 	support?: {
-		icon: PluginIconTypes
+		icon: string
 		title: string
+		image: string
 		description: string
 		message: string
 	}
@@ -81,6 +94,10 @@ interface WPMUDEVHelpProps extends DropdownProps, SuiStyleType {
  * Represents the properties for a WPMUDEV notification.
  */
 interface WPMUDEVNotificationProps extends DropdownProps, SuiStyleType {
+	/**
+	 * Unique identifier for the WPMUDEVNotification.
+	 */
+	id?: string
 	title?: string
 	label?: string
 	notifications: Notifications
@@ -91,7 +108,12 @@ interface WPMUDEVNotificationProps extends DropdownProps, SuiStyleType {
  * Represents the properties for a WPMUDEV notification.
  */
 interface WPMUDEVDrawerProps extends DrawerTypes, SuiStyleType {
+	/**
+	 * Unique identifier for the WPMUDEVDrawer.
+	 */
+	id?: string
 	title?: string
+	type?: "helper" | "hamburger" | "default"
 	toggleRef: RefObject<DrawerActions | null>
 	footer?: ReactNode
 	placement?: "left" | "right"
@@ -104,9 +126,14 @@ interface WPMUDEVDrawerProps extends DrawerTypes, SuiStyleType {
  * Represents the properties for a WPMUDEV user.
  */
 interface WPMUDEVUserProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the WPMUDEVUser.
+	 */
+	id?: string
 	title: string
 	description?: string
 	avatarProps?: AvatarProps
+	userProps?: NavigationUserProps
 	action?: ReactNode
 	logout?: {
 		show: boolean
@@ -118,6 +145,10 @@ interface WPMUDEVUserProps extends SuiStyleType {
  * Represents the properties for a Navigation Wrapper.
  */
 interface NavigationWrapperProps extends SuiHTMLAttributes, SuiStyleType {
+	/**
+	 * Unique identifier for the NavigationWrapper.
+	 */
+	id?: string
 	children: ReactNode
 }
 

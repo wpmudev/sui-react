@@ -2,7 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { Skeleton, SkeletonCircle, SkeletonText } from "../src"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 
 describe("@wpmudev/skeleton", () => {
 	// Define the props for the Skeleton component

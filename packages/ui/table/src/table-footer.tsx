@@ -17,10 +17,11 @@ const TableFooter: React.FC<TableSectionProps> = ({
 				className={generateCN("sui-table__footer", {}, suiInlineClassname)}
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
-				{Children.toArray(children).map((child: React.ReactNode) =>
+				{Children.toArray(children).map((child: React.ReactNode, index) =>
 					cloneElement(child as React.ReactElement, {
-						...(child as React.ReactElement).props,
+						...(child as React.ReactElement)?.props,
 						isUnderFooter: true,
+						key: `table-footer-child-${index}`,
 					}),
 				)}
 			</tfoot>

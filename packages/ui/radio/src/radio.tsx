@@ -24,13 +24,12 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 		// const [checked, setChecked] = useState(isChecked)
 		const [isHovered, isFocused, methods] = useInteraction({})
 
-		const uniqueId = useId()
-
-		let uuid = `sui-radio-${uniqueId}`
+		const generatedId = useId()
+		const uuid = id || `sui_radio_${generatedId}`
 
 		// If value not provided add a unique one
 		if (!value) {
-			value = `value-${uniqueId}`
+			value = `value-${generatedId}`
 		}
 
 		const {
@@ -41,11 +40,6 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			isDisabled: isGroupDisabled,
 			isSmall,
 		} = useRadio()
-
-		// use ID from props list if exists
-		if (!!id) {
-			uuid = id
-		}
 
 		// Handle on change
 		const handleOnChange = useCallback(() => {
@@ -68,8 +62,8 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			disabled: isRadioDisabled,
 			"aria-label": label || "radio input",
 			onChange: handleOnChange,
-			"aria-labelledby": `${uuid}-label`,
-			...(description && { "aria-describedby": `${uuid}-description` }),
+			"aria-labelledby": `${uuid}_label`,
+			...(description && { "aria-describedby": `${uuid}_description` }),
 			..._renderHTMLPropsSafely(_htmlProps),
 		}
 
@@ -106,10 +100,10 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 				{...methods}
 			>
 				<input {...inputProps} data-testid="radio-input" />
-				<span {...boxProps} tabIndex={-1}>
-					{checked && <span className="sui-radio__icon" />}
+				<span {...boxProps} id={`${uuid}_box`} tabIndex={-1}>
+					{checked && <span className="sui-radio__icon" id={`${uuid}_icon`} />}
 				</span>
-				<span id={`${uuid}-label`} className="sui-radio__label">
+				<span id={`${uuid}_label`} className="sui-radio__label">
 					{label}
 					{tag && (
 						<Tag
@@ -123,7 +117,7 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 					)}
 				</span>
 				{description && (
-					<span id={`${uuid}-description`} className="sui-radio__description">
+					<span id={`${uuid}_description`} className="sui-radio__description">
 						{description}
 					</span>
 				)}

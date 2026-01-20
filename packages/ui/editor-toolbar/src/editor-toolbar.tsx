@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, useId } from "react"
 
 import { Button } from "@wpmudev/sui-button"
 import { generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
@@ -7,6 +7,7 @@ import { EditorToolbarProps } from "./editor-toolbar.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const EditorToolbar: FC<EditorToolbarProps> = ({
+	id,
 	title = "Toolbar Title",
 	actions,
 	disableSetting = false,
@@ -19,6 +20,8 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 	_htmlProps,
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const editorToolbarId = id || `sui_editor_toolbar_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 	// Generate CSS class names for the editor toolbar component
 	const classNames = generateCN(
@@ -63,6 +66,7 @@ const EditorToolbar: FC<EditorToolbarProps> = ({
 	return (
 		// Render the editor-toolbar component
 		<div
+			id={editorToolbarId}
 			className={classNames}
 			data-testid="editor-toolbar"
 			{..._renderHTMLPropsSafely(_htmlProps)}

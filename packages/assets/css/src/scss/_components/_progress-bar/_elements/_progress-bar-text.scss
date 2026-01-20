@@ -20,6 +20,10 @@
 			@include element(value) {
 				color: $color-grey-70;
 			}
+
+			@include element(text) {
+				color: $color-grey-90;
+			}
 		}
 	}
 

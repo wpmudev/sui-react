@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 import {
 	_renderHTMLPropsSafely,
 	generateCN,
@@ -16,6 +16,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build "avatar" component
 const Avatar: React.FC<AvatarProps> = ({
+	id,
 	image,
 	status = "none",
 	isSmall = false,
@@ -25,6 +26,9 @@ const Avatar: React.FC<AvatarProps> = ({
 	_style = {},
 	onClick,
 }) => {
+	const generatedId = useId()
+	const avatarId = id || `sui_avatar_${generatedId}`
+
 	// Define image object
 	const imageObj = Object.assign(
 		{
@@ -51,6 +55,7 @@ const Avatar: React.FC<AvatarProps> = ({
 	)
 
 	const attributes = {
+		id: avatarId,
 		className: classNames,
 		..._renderHTMLPropsSafely(_htmlProps),
 		"data-testid": "avatar",
@@ -59,9 +64,17 @@ const Avatar: React.FC<AvatarProps> = ({
 
 	return (
 		<span {...attributes}>
-			{hasImage && <Image source={imageObj.src} text={imageObj.alt} />}
-			{!hasImage && <Icon iconName={icon} />}
-			{hasStatus && status !== "none" && <Status status={status} />}
+			{hasImage && (
+				<Image
+					id={`${avatarId}_image`}
+					source={imageObj.src}
+					text={imageObj.alt}
+				/>
+			)}
+			{!hasImage && <Icon id={`${avatarId}_icon`} iconName={icon} />}
+			{hasStatus && status !== "none" && (
+				<Status id={`${avatarId}_status`} status={status} />
+			)}
 		</span>
 	)
 }

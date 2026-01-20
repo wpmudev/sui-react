@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from "react"
+import React, { useId, Fragment, useCallback } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import Icons from "@wpmudev/sui-icons"
@@ -15,6 +15,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @param {DashboardWidgetProps} props - The component's props.
  */
 const DashboardWidget: React.FC<DashboardWidgetProps> = ({
+	id,
 	title = "Widget Title",
 	description = "Widget Description",
 	icon,
@@ -32,6 +33,8 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	_htmlProps,
 	_style = {},
 }: DashboardWidgetProps) => {
+	const generatedId = useId()
+	const dashboardWidgetId = id || `sui_dashboard_widget_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate classnames for the dashboard widget
@@ -76,20 +79,34 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 
 	return (
 		<div
+			id={dashboardWidgetId}
 			className={classNames}
 			data-testid="dashboard-widget"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<div className="sui-dashboard-widget__header">
-				<div className="sui-dashboard-widget__header-title">
-					<div className="sui-dashboard-widget__header-info">
+			<div
+				id={`${dashboardWidgetId}_header`}
+				className="sui-dashboard-widget__header"
+			>
+				<div
+					id={`${dashboardWidgetId}_header_title`}
+					className="sui-dashboard-widget__header-title"
+				>
+					<div
+						id={`${dashboardWidgetId}_header_info`}
+						className="sui-dashboard-widget__header-info"
+					>
 						{/* Display the icon if available */}
-						{IconTag && <IconTag size="md" />}
+						{IconTag && <IconTag id={`${dashboardWidgetId}_icon`} size="md" />}
 						{/* Display the title and optional tag */}
-						<h4 className="sui-heading--h4 sui-dashboard-widget__header-title">
+						<h4
+							id={`${dashboardWidgetId}_title`}
+							className="sui-heading--h4 sui-dashboard-widget__header-title"
+						>
 							{title}
 							{tag && (
 								<Tag
+									id={`${dashboardWidgetId}_tag`}
 									colorScheme="black"
 									design="outlined"
 									{...(tagAttrs ?? {})}
@@ -97,16 +114,24 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 									{tag}
 								</Tag>
 							)}
-							{StatusIcon && <StatusIcon size="sm" {...(statusProps ?? {})} />}
+							{StatusIcon && (
+								<StatusIcon
+									id={`${dashboardWidgetId}_status_icon`}
+									size="sm"
+									{...(statusProps ?? {})}
+								/>
+							)}
 						</h4>
 					</div>
 					{/* Display collapse/expand button if allowed */}
 					{canCollapse && (
 						<div
+							id={`${dashboardWidgetId}_header_actions`}
 							className="sui-dashboard-widget__header-actions"
 							data-testid="dashboard-widget-"
 						>
 							<Toggle
+								id={`${dashboardWidgetId}_toggle`}
 								isLabelHidden={true}
 								label="Toggle Widget"
 								defaultValue={isExpanded ?? false}
@@ -118,16 +143,33 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 				</div>
 				{/* Display widget description */}
 				{description && (
-					<div className="sui-dashboard-widget__header-desc">{description}</div>
+					<div
+						id={`${dashboardWidgetId}_description`}
+						className="sui-dashboard-widget__header-desc"
+					>
+						{description}
+					</div>
 				)}
 			</div>
 			{/* Display widget content if expanded */}
 			{isExpanded && (
 				<Fragment>
-					<div className="sui-dashboard-widget__body">{children}</div>
+					{children && (
+						<div
+							id={`${dashboardWidgetId}_body`}
+							className="sui-dashboard-widget__body"
+						>
+							{children}
+						</div>
+					)}
 					{/* Display widget actions if available */}
 					{actions && (
-						<div className="sui-dashboard-widget__footer">{actions}</div>
+						<div
+							id={`${dashboardWidgetId}_footer`}
+							className="sui-dashboard-widget__footer"
+						>
+							{actions}
+						</div>
 					)}
 				</Fragment>
 			)}

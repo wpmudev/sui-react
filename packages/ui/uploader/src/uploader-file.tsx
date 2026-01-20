@@ -30,19 +30,22 @@ const UploaderFile: React.FC<UploaderFileProps> = React.memo(
 		}
 
 		// Update preview url
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		useEffect(updatePreviewUrl, [])
 		useEffect(updatePreviewUrl, [file])
 
 		// @todo: add error variation support
 		return (
 			<div
+				id={id}
 				className={generateCN("sui-uploader__file", {}, suiInlineClassname)}
 				data-testid="uploader-file"
 			>
-				<div className="sui-uploader__file--preview">
+				<div id={`${id}_preview`} className="sui-uploader__file--preview">
 					{/* Render image preview if the file is an image, otherwise render a generic file icon */}
 					{isImageFile(file?.type) ? (
 						<span
+							id={`${id}_image`}
 							role="img"
 							className="sui-uploader__file--image"
 							style={{
@@ -50,13 +53,20 @@ const UploaderFile: React.FC<UploaderFileProps> = React.memo(
 							}}
 						/>
 					) : (
-						<FileCheck size="sm" className="sui-uploader__file--icon" />
+						<FileCheck
+							id={`${id}_icon`}
+							size="sm"
+							className="sui-uploader__file--icon"
+						/>
 					)}
 				</div>
 				{/* Display the file name */}
-				<span className="sui-uploader__file--name">{file?.name}</span>
+				<span id={`${id}_name`} className="sui-uploader__file--name">
+					{file?.name}
+				</span>
 				{/* Button to remove the file */}
 				<Button
+					id={`${id}_remove`}
 					className="sui-uploader__file--remove"
 					iconOnly={true}
 					icon="Close"

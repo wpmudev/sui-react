@@ -4,7 +4,10 @@ import Anatomy from "../images/anatomy.svg"
 import SidebarVariations from "../images/sidebar-variations.svg"
 import SidebarSpacing from "../images/sidebar-spacing.svg"
 import NavigationItem from "../images/navigation-item.svg"
-import Responsive from "../images/responsive.png"
+import Responsive from "../images/responsive.svg"
+import TagAndIconSupport from "../images/navigation-item-icon.svg"
+import ErrorStatusHandling from "../images/navigation-item-error.svg"
+import Usage from "../images/usage.svg"
 
 <Section title="Anatomy" style={{ paddingTop: 20 }}>
 	<img src={Anatomy} alt="Sidebar Anatomy" style={{ marginBottom: 20 }} />
@@ -34,16 +37,25 @@ import Responsive from "../images/responsive.png"
 
 <Section title="2. Navigation item">
 	<p>
-		Navigation item helps users to quickly find and access different sections or
-		pages, enhancing usability and efficiency.
+		Navigation item helps users to quickly find and access different sections or pages, enhancing usability and efficiency.
 	</p>
 	<img
 		src={NavigationItem}
 		alt="Navigation Item"
 		style={{ marginBottom: 20 }}
 	/>
+	
+	<h3>Tag and icon support</h3>
+    <img src={TagAndIconSupport} alt="Navigation Item Tag and Icon Support" style={{ marginBottom: 20 }} />
 
-    <h3>Responsive</h3>
+	<h3>Errors and status handling</h3>
+    <img src={ErrorStatusHandling} alt="Navigation Item Errors and Status Handling" style={{ marginBottom: 20 }} />
+
+</Section>
+
+<Section title="Usage">
+	<img src={Usage} alt="Sidebar Usage" style={{ marginBottom: 20 }} />
+
+	<h3>Responsive</h3>
     <img src={Responsive} alt="Navigation Item" style={{ marginBottom: 20 }} />
-
 </Section>

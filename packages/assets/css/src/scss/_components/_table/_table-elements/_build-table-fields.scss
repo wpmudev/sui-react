@@ -35,8 +35,8 @@
 				margin-bottom: $spacing-xl;
 			}
 
-			@include element(fields-item-title, fields-item-value) {
-				color: $color-grey-50;
+			@include element(fields-item-title) {
+				color: $color-grey-90;
 			}
 
 			@include element(fields-item-title) {
@@ -45,7 +45,7 @@
 			}
 
 			@include element(fields-item-value) {
-				color: $color-grey-50;
+				color: $color-grey-70;
 				padding: 0;
 			}
 		}

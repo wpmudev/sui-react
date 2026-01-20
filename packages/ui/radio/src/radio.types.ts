@@ -13,6 +13,10 @@ interface RadioGroupProps
 		SuiStyleType,
 		validationPropsType {
 	/**
+	 * Unique identifier for the RadioGroup.
+	 */
+	id?: string
+	/**
 	 * The name of the radio group.
 	 */
 	name?: string

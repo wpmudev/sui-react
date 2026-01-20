@@ -1,7 +1,5 @@
 import React, { MouseEvent, KeyboardEvent } from "react"
 import classnames from "classnames"
-import { render } from "@testing-library/react"
-import { axe } from "jest-axe"
 import { CSS_SHORTHAND_MAPS, useStylesTypes } from "@wpmudev/sui-hooks"
 
 type DataAttributeKey = `data-${string}`
@@ -38,18 +36,33 @@ export const isNestedStyleProperty = (name: string) => {
 /**
  * Check if a key is valid CSS property
  *
- * @param {string}  name             prop key
+ * @param {string}  prop             prop key
+ * @param {boolean} value            value of the css rule
  * @param {boolean} includeShorthand include shorthand props
  */
-const isValidCSSProperty = (name: string, includeShorthand: boolean = true) => {
-	let cssProps = Object.keys(document?.body?.style)
-
-	// include shorthand css properties
-	if (includeShorthand) {
-		cssProps = [...cssProps, ...Object.keys(CSS_SHORTHAND_MAPS)]
+const isValidCSSRule = (
+	prop: string,
+	value: string,
+	includeShorthand: boolean = true,
+) => {
+	// Return true if it's a shorthand
+	if (includeShorthand && Object.keys(CSS_SHORTHAND_MAPS).indexOf(prop) > -1) {
+		return true
 	}
 
-	return cssProps?.indexOf(name) > -1 || isNestedStyleProperty(name)
+	// Return true if it's a nested style property
+	if (isNestedStyleProperty(prop)) {
+		return true
+	}
+
+	// Check if it's a valid rule otherwise ( Support for Both Chrome and Safari )
+	if (!CSS.supports(prop, value)) {
+		// eslint-disable-next-line no-console
+		console.error(`Invalid css rule on _style property`, `"${prop}: ${value}"`)
+		return false
+	}
+
+	return true
 }
 
 /**
@@ -391,23 +404,6 @@ const chunkArray = (arr: any[], size: number): any[][] => {
 }
 
 /**
- * It is a utility function for performing accessibility testing on a React component.
- *
- * Note: It only runs the test if an environment variable, `SUI_A11Y_TEST`, is turned on.
- * If the test is on, it checks the component for accessibility issues using the Axe library.
- *
- * @param {React.ReactElement} component - The React component to be tested for accessibility.
- * @param {Object}             config    - axe configuration
- */
-const a11yTest = async (component: React.ReactElement, config?: object) => {
-	if (process.env.SUI_A11Y_TEST) {
-		const { container } = render(component)
-		const results = await axe(container, config)
-		expect(results).toHaveNoViolations()
-	}
-}
-
-/**
  * Use this method to detect if code is executed by Jest (test runner)
  */
 const _isTestingMode = () => {
@@ -417,6 +413,7 @@ const _isTestingMode = () => {
 		return false
 	}
 }
+
 /**
  * It is an internal method to render rest props list safely
  *
@@ -450,10 +447,8 @@ export {
 	PluginsIcons,
 	CustomIcons,
 	chunkArray,
-	isValidCSSProperty,
+	isValidCSSRule,
 	_renderHTMLPropsSafely,
-	// jest utilities
-	a11yTest,
 	_isTestingMode,
 }
 

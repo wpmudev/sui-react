@@ -18,6 +18,10 @@
 				gap: $spacing-lg;
 				row-gap: $spacing-md;
 				margin: $spacing-lg 0 $spacing-xl;
+
+				@include modifier(has-title) {
+					margin: $spacing-md 0 $spacing-xl;
+				}
 			}
 
 			@include element(features-item) {

@@ -355,6 +355,12 @@ const Select: React.FC<SelectBaseProps> = ({
 			})),
 			selectAll: (updatedOptions: SelectOptionType[], allSelected: boolean) => {
 				setOptions(updatedOptions)
+
+				// Call the onChnage function
+				const allOptions = allSelected ? updatedOptions : []
+
+				onChange?.({}, allOptions)
+
 				setSelectedItems((prev: SelectOptionType[]) => {
 					if (!prev) {
 						return updatedOptions

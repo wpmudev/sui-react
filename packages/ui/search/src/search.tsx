@@ -33,7 +33,7 @@ const Search: React.FC<SearchProps> = ({
 
 	// Random search ID
 	let inputId = useId()
-	inputId = id ?? `sui-search-${inputId}`
+	inputId = id ?? `sui_search_${inputId}`
 
 	// Search wrapper ref
 	const searchRef = useRef<HTMLDivElement | null>(null)

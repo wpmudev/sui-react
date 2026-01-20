@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { Tag } from "@wpmudev/sui-tag"
 
@@ -9,6 +9,7 @@ import { SettingBlockProps } from "./setting-block.types"
 
 // Build "setting-block" component
 const SettingBlock: React.FC<SettingBlockProps> = ({
+	id,
 	title,
 	description,
 	className,
@@ -20,6 +21,8 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 	_htmlProps,
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const settingBlockId = id || `sui_setting_block_${generatedId}`
 	// Interaction methods
 	const [isHovered, isFocused, methods] = useInteraction({})
 
@@ -33,7 +36,6 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 			hover: isHovered && !isFocused,
 			pro: isPro,
 			fluid: isFluid,
-			"no-info": !title && !description,
 			hidden: overflowHidden,
 		},
 		suiInlineClassname,
@@ -41,31 +43,38 @@ const SettingBlock: React.FC<SettingBlockProps> = ({
 
 	return (
 		<div
+			id={settingBlockId}
 			className={classNames}
 			{...methods}
 			data-testid="setting-block"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			<div className="sui-setting-block__header">
-				{(!!title || !!description) && (
-					<div className="sui-setting-block__info">
-						{!!title && (
-							<div className="sui-setting-block__info-title sui-heading--h5">
-								{title}
-								{isPro && (
-									<Tag design="outlined" colorScheme="black" isSmall={true}>
-										Pro
-									</Tag>
-								)}
-							</div>
-						)}
-						{!!description && (
-							<div className="sui-setting-block__info-desc">{description}</div>
-						)}
-					</div>
-				)}
-				{actions && <div className="sui-setting-block__actions">{actions}</div>}
-			</div>
+			{(title || description || actions) && (
+				<div className="sui-setting-block__header">
+					{(title || description) && (
+						<div className="sui-setting-block__info">
+							{!!title && (
+								<div className="sui-setting-block__info-title sui-heading--h5">
+									{title}
+									{isPro && (
+										<Tag design="outlined" colorScheme="black" isSmall={true}>
+											Pro
+										</Tag>
+									)}
+								</div>
+							)}
+							{!!description && (
+								<div className="sui-setting-block__info-desc">
+									{description}
+								</div>
+							)}
+						</div>
+					)}
+					{actions && (
+						<div className="sui-setting-block__actions">{actions}</div>
+					)}
+				</div>
+			)}
 			{children && <div className="sui-setting-block__body">{children}</div>}
 		</div>
 	)

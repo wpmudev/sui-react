@@ -29,6 +29,12 @@
 		// Block wrapper.
 		@include block($block) {
 			border-color: $color-base-black;
+			background: $color-base-white;
+			border: $border-width-sm solid $color-grey-10;
+
+			@include modifier(large-radius) {
+				border-radius: $border-radius-xl;
+			}
 		}
 	}
 }

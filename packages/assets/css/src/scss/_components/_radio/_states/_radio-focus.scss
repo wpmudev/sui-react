@@ -14,7 +14,7 @@
 			@include modifier(focus) {
 				@include modifies-element(box) {
 					&:after {
-						border: $border-width-md solid $color-grey-50;
+						border: $border-width-md solid $color-grey-70;
 					}
 				}
 
@@ -29,6 +29,7 @@
 				&.sui-#{$block}--block {
 					&:after {
 						border-width: $border-width-md;
+						border-color: $color-primary-50;
 					}
 				}
 			}

@@ -5,7 +5,7 @@ import { fireEvent, render, screen } from "@testing-library/react"
 import { Accordion, AccordionItem, AccordionItemBody } from "../src"
 
 import { InfoAlt } from "@wpmudev/sui-icons"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 
 describe("@wpmudev/sui-accordion", () => {
 	// Common props for the Accordion component

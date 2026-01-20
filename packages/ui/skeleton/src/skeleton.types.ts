@@ -1,6 +1,7 @@
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 
 interface SkeletonProps extends SuiStyleType, SuiHTMLAttributes {
+	id?: string
 	className?: string
 	children?: JSX.Element
 	isLoaded?: boolean
@@ -13,6 +14,7 @@ interface SkeletonProps extends SuiStyleType, SuiHTMLAttributes {
 // Skeleton base props.
 interface SkeletonBaseProps extends SkeletonProps {
 	key?: number
+	id?: string
 	type?: string
 	isInline?: boolean
 	isGrayScale?: boolean
@@ -20,6 +22,7 @@ interface SkeletonBaseProps extends SkeletonProps {
 
 // Skeleton text props.
 interface SkeletonTextProps extends SkeletonProps {
+	id?: string
 	lines?: number
 	gap?: number
 	endLineWidth?: string

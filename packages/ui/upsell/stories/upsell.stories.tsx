@@ -4,6 +4,7 @@ import React from "react"
 import { Upsell as SuiUpsell } from "../src"
 import { Button } from "@wpmudev/sui-button"
 import { Row, Col } from "@wpmudev/sui-grid"
+import { IconsName } from "@wpmudev/sui-icons"
 
 // Import documentation main page
 import docs from "./upsell.mdx"
@@ -125,6 +126,21 @@ Upsell.argTypes = {
 				sm: "Small",
 				lg: "Large",
 			},
+		},
+	},
+
+	featuresTitle: {
+		name: "Features Title",
+		control: {
+			type: "text",
+		},
+	},
+
+	featuresIcon: {
+		name: "Features Icon",
+		options: IconsName,
+		control: {
+			type: "select",
 		},
 	},
 }

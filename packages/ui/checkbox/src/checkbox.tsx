@@ -33,12 +33,8 @@ const Checkbox = ({
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate a dynamic ID for the checkbox
-	let uuid = `sui-checkbox-${useId()}`
-
-	// use ID from props list if it exists
-	if (!!id) {
-		uuid = id
-	}
+	const generatedId = useId()
+	const uuid = id || `sui_checkbox_${generatedId}`
 
 	useEffect(() => {
 		// Add the checkbox details to the context list on component mount
@@ -69,7 +65,7 @@ const Checkbox = ({
 				propOnchange(e)
 			}
 		},
-		"aria-labelledby": `${uuid}-label`,
+		"aria-labelledby": `${uuid}_label`,
 		..._htmlProps,
 	}
 
@@ -109,7 +105,7 @@ const Checkbox = ({
 		// Checkbox label container
 		<label
 			{...containerProps}
-			id={`${uuid}-label`}
+			id={`${uuid}_label`}
 			htmlFor={uuid}
 			tabIndex={-1}
 			data-testid="checkbox"
@@ -128,9 +124,13 @@ const Checkbox = ({
 			)}
 			{/* Render label or hidden span based on isLabelHidden */}
 			{isLabelHidden ? (
-				<span className="sui-screen-reader-only">{label}</span>
+				<span className="sui-screen-reader-only" id={`${uuid}_label_text`}>
+					{label}
+				</span>
 			) : (
-				<span className="sui-checkbox__label">{label}</span>
+				<span className="sui-checkbox__label" id={`${uuid}_label_text`}>
+					{label}
+				</span>
 			)}
 		</label>
 	)

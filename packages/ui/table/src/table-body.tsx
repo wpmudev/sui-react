@@ -8,6 +8,7 @@ import React, {
 	useCallback,
 	useContext,
 	useEffect,
+	useId,
 	useState,
 } from "react"
 import { ReactSortable as Sortable } from "react-sortablejs"
@@ -27,7 +28,11 @@ import { _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 const TableBody: React.FC<TableSectionProps> = (
 	props: TableSectionProps,
 ): JSX.Element => {
-	const { children, _htmlProps } = props
+	const { id, children, _htmlProps } = props ?? {}
+
+	const generatedId = useId()
+	const tableBodyId = id || `sui_table_body_${generatedId}`
+
 	// State to keep track of the table rows
 	const [el, setEl] = useState<ReactNode | ReactNode[]>(
 		Children.toArray(children),
@@ -45,6 +50,7 @@ const TableBody: React.FC<TableSectionProps> = (
 	const getUpdatedRows = () => {
 		const childrenArray = Children.toArray(children)
 		const combinedRows: React.ReactElement[] = []
+		const disabledRowIds: Array<unknown> = []
 
 		childrenArray.forEach((row) => {
 			// Handling the case of grouping, When there're groups the rows are wrapped in Fragment
@@ -56,12 +62,26 @@ const TableBody: React.FC<TableSectionProps> = (
 				childrenInGroup.forEach((elem: ReactElement) => {
 					if ((elem as ReactElement)?.props?.id) {
 						combinedRows.push((elem as ReactElement)?.props?.id)
+						// Check if this row is disabled
+						if ((elem as ReactElement)?.props?.isDisabled) {
+							disabledRowIds.push((elem as ReactElement)?.props?.id)
+						}
 					}
 				})
 			} else {
-				combinedRows.push((row as ReactElement)?.props?.id)
+				const rowId = (row as ReactElement)?.props?.id
+				if (rowId) {
+					combinedRows.push(rowId)
+					// Check if this row is disabled
+					if ((row as ReactElement)?.props?.isDisabled) {
+						disabledRowIds.push(rowId)
+					}
+				}
 			}
 		})
+
+		// Update disabled rows in context
+		ctx?.setDisabledRows(disabledRowIds)
 
 		return combinedRows
 	}
@@ -129,6 +149,7 @@ const TableBody: React.FC<TableSectionProps> = (
 		return (
 			<TableBodyTag
 				{...props}
+				id={tableBodyId}
 				_htmlProps={_htmlProps}
 				ref={props?.ref as Ref<HTMLTableSectionElement>}
 			>
@@ -143,7 +164,7 @@ const TableBody: React.FC<TableSectionProps> = (
 			tag={TableBodyTag}
 			list={(el as ReactNode[]).map((x) => ({
 				...(x as object),
-				id: (x as ReactElement).props.id,
+				id: (x as ReactElement).props?.id,
 				chosen: true,
 			}))}
 			setList={(list) =>
@@ -165,8 +186,9 @@ const TableBody: React.FC<TableSectionProps> = (
 // This is just like a normal component, but now has a ref.
 // ForwardRef to forward the ref passed to this component to the underlying tbody element.
 const TableBodyTag = forwardRef<HTMLTableSectionElement, TableSectionProps>(
-	({ _htmlProps, ...props }, ref) => (
+	({ id, _htmlProps, ...props }, ref) => (
 		<tbody
+			id={id}
 			ref={ref}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 			className="sui-table__body"

@@ -31,6 +31,9 @@
 				margin-bottom: $spacing-lg;
 				padding: $spacing-lg;
 				position: relative;
+				margin-right: 0;
+				margin-left: 0;
+				flex-direction: row;
 
 				@include media(max-width, md) {
 					margin-bottom: $spacing-md;

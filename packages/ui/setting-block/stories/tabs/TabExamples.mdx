@@ -1,36 +1,87 @@
 import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
-import { SettingBlock } from "../../src"
+import { SettingBlock, SettingBlockOption } from "../../src"
+import { Tag } from "@wpmudev/sui-tag"
 import dedent from "dedent"
 
 export const generalExample = dedent`
     <SettingBlock
-      title="Title"
-      description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+        title="Title"
+        description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
     >
-       The Setting Block Content
+        <SettingBlockOption
+            title="Optional block title"
+            description="Setting block optional description"
+        >
+            Body content here
+        </SettingBlockOption>
+
+        <SettingBlockOption
+            title="Optional block title"
+            description="Setting block optional description"
+            actions={<Tag>Tag</Tag>}
+        >
+            Body content here
+        </SettingBlockOption>
     </SettingBlock>
 `
 
 export const proExample = dedent`
     <SettingBlock
-      isPro={true}
-      title="Title"
-      description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+        title="Title"
+		isPro={true}
+        description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
     >
-       The Setting Block Content
+        <SettingBlockOption
+            title="Optional block title"
+            description="Setting block optional description"
+        >
+            Body content here
+        </SettingBlockOption>
+
+        <SettingBlockOption
+            title="Optional block title"
+            description="Setting block optional description"
+            actions={<Tag>Tag</Tag>}
+        >
+            Body content here
+        </SettingBlockOption>
+    </SettingBlock>
+`
+
+export const fullLayout = dedent`
+    <SettingBlock
+        title="Title"
+        description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+        isFluid={true}
+    >
+        Body content here. This section contains valuable information designed to keep you informed and engaged. Take your time to read through and discover everything it offers. 
+        Explore additional insights below to enrich your understanding further.
     </SettingBlock>
 `
 
 <Section style={{ paddingTop: 30 }}>
 	<p>Below is a general example of the Setting Block component</p>
 	<Preview wrapper={true}>
-		<div style={{ background: "#f1f1f1", padding: 25 }}>
+		<div style={{ background: "#f1f1f1" }}>
 			<div style={{ background: "white" }}>
 				<SettingBlock
 					title="Title"
 					description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
 				>
-					The Setting Block Content
+					<SettingBlockOption
+						title="Optional block title"
+						description="Setting block optional description"
+					>
+						Body content here
+					</SettingBlockOption>
+
+					<SettingBlockOption
+						title="Optional block title"
+						description="Setting block optional description"
+						actions={<Tag>Tag</Tag>}
+					>
+						Body content here
+					</SettingBlockOption>
 				</SettingBlock>
 			</div>
 		</div>
@@ -38,21 +89,53 @@ export const proExample = dedent`
 	<Snippet language="js">{generalExample}</Snippet>
 </Section>
 
+
+<Section title="Full Layout" style={{ paddingTop: 30 }}>
+	<p>
+		An example with a full layout setting block
+	</p>
+	<Preview wrapper={true}>
+		<div style={{ background: "white" }}>
+			<SettingBlock
+				title="Title"
+				description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+				isFluid={true}
+			>
+				Body content here. This section contains valuable information designed to keep you informed and engaged. Take your time to read through and discover everything it offers. 
+    			Explore additional insights below to enrich your understanding further.
+			</SettingBlock>
+		</div>
+	</Preview>
+	<Snippet language="js">{proExample}</Snippet>
+</Section>
+
+
 <Section title="Pro variation" style={{ paddingTop: 30 }}>
 	<p>
 		Set the prop <Code small={true}>isPro=\{true\}</Code> to change the variation to the Pro variation
 	</p>
 	<Preview wrapper={true}>
-		<div style={{ background: "#f1f1f1", padding: 25 }}>
-			<div style={{ background: "white" }}>
-				<SettingBlock
-          isPro={true}
-					title="Title"
-					description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+		<div style={{ background: "white" }}>
+			<SettingBlock
+				title="Title"
+				isPro={true}
+				description="Block IP addresses that send POST requests with empty Referer and User-Agent headers."
+			>
+				<SettingBlockOption
+					title="Optional block title"
+					description="Setting block optional description"
 				>
-					The Setting Block Content
-				</SettingBlock>
-			</div>
+					Body content here
+				</SettingBlockOption>
+
+				<SettingBlockOption
+					title="Optional block title"
+					description="Setting block optional description"
+					actions={<Tag>Tag</Tag>}
+				>
+					Body content here
+				</SettingBlockOption>
+			</SettingBlock>
 		</div>
 	</Preview>
 	<Snippet language="js">{proExample}</Snippet>

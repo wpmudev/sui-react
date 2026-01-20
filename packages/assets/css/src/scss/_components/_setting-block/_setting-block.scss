@@ -5,8 +5,8 @@
 @include sui-setting-block--element.build-content(setting-block);
 @include sui-setting-block--element.build-info(setting-block);
 @include sui-setting-block--element.build-header(setting-block);
+@include sui-setting-block--element.build-option(setting-block);
 
 @include sui-setting-block--modifier.state-pro(setting-block);
 @include sui-setting-block--modifier.state-fluid(setting-block);
-@include sui-setting-block--modifier.state-no-info(setting-block);
 @include sui-setting-block--modifier.state-hidden(setting-block);

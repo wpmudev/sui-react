@@ -11,6 +11,10 @@ interface FieldListProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * The ID for the field list item.
+	 */
+	id?: string
+	/**
 	 * The label for the field list.
 	 */
 	label?: string

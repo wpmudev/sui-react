@@ -13,8 +13,19 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			align-items: stretch;
 			display: flex;
+			align-items: stretch;
+			overflow: hidden;
+			scroll-behavior: smooth;
+			padding: $spacing-2xs;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			@include element(container) {
+				position: relative;
+			}
 		}
 	}
 }

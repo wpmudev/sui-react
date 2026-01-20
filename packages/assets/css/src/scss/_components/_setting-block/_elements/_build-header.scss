@@ -17,9 +17,12 @@
 			@include element(header) {
 				display: flex;
 				gap: $spacing-lg;
+				width: 30%;
+				min-width: 240px;
 
 				@include media(max-width, sm) {
 					flex-direction: column;
+					width: 100%;
 				}
 			}
 		}

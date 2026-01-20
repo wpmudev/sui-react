@@ -48,6 +48,10 @@ interface NavigationUserMenuGroupProps extends NavigationUserMenuBaseProps {
 }
 
 interface NavigationBrandProps extends SuiStyleType, SuiHTMLAttributes {
+	/**
+	 * Unique identifier for the NavigationBrand.
+	 */
+	id?: string
 	/*
 	 * Optional: Plugin information for the brand.
 	 */
@@ -60,6 +64,10 @@ interface NavigationBrandProps extends SuiStyleType, SuiHTMLAttributes {
 	 * Optional: Description for the brand.
 	 */
 	description?: string
+	/*
+	 * Optional: Additional CSS class name.
+	 */
+	className?: string
 }
 
 type NavigationUserType = {
@@ -80,6 +88,10 @@ type NavigationUserType = {
 }
 
 interface NavigationUserProps extends SuiHTMLAttributes, SuiStyleType {
+	/**
+	 * Unique identifier for the NavigationUser.
+	 */
+	id?: string
 	/*
 	 * User information.
 	 */
@@ -112,6 +124,10 @@ interface NavigationUserProps extends SuiHTMLAttributes, SuiStyleType {
 interface NavigationProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	/**
+	 * Unique identifier for the Navigation.
+	 */
+	id?: string
 	/*
 	 * Brand information.
 	 */
@@ -131,4 +147,10 @@ interface NavigationProps
 	actions?: ReactNode[]
 }
 
-export type { NavigationProps, NavigationBrandProps, NavigationUserProps }
+export type {
+	NavigationProps,
+	NavigationBrandProps,
+	NavigationUserProps,
+	NavigationUserMenuGroupProps,
+	NavigationUserMenuItemProps,
+}

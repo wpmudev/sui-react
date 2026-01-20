@@ -21,14 +21,27 @@
 				padding: $spacing-lg $spacing-xl;
 				width: 100%;
 
+				.sui-button__icon {
+					color: $color-grey-50;
+				}
+
 				@include modifier(hover) {
-					border-color: $color-grey-70;
+					border-color: $color-grey-40;
 					color: $color-grey-90;
-					background: $color-grey-05;
+
+					.sui-button__icon {
+						color: $color-grey-70;
+					}
 				}
 
 				&:active {
-					background: $color-grey-a10;
+					background: $color-grey-05;
+					color: $color-grey-90;
+					border-color: $color-grey-70;
+
+					.sui-button__icon {
+						color: $color-grey-70;
+					}
 				}
 			}
 		}
@@ -42,6 +55,10 @@
 				background: $color-base-white;
 				border-color: $color-base-black;
 				color: $color-base-black;
+
+				.sui-button__icon {
+					color: $color-base-black;
+				}
 			}
 		}
 	}

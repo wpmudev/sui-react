@@ -151,6 +151,10 @@ interface SelectSearchInputProps
 }
 
 interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
+	/**
+	 * Unique identifier for the SelectDropdown.
+	 */
+	id?: string
 	options: SelectBaseProps["options"]
 	onEvent?: (option: SelectOptionType) => void
 	selectAll?: () => void
@@ -171,6 +175,10 @@ interface SelectDropdownProps extends useStylesTypes, SuiHTMLAttributes {
 }
 
 interface SelectDropdownOptionProps {
+	/**
+	 * Unique identifier for the SelectDropdownOption.
+	 */
+	id?: string
 	option: SelectOptionType
 	children: JSX.Element
 	[props: string]: any

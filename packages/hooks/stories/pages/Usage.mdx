@@ -1,4 +1,5 @@
 import { Section, Code, Snippet, List } from '@wpmudev/sui-docs';
+import { usePreventUnload } from '../../src';
 
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>
@@ -490,4 +491,65 @@ import { Section, Code, Snippet, List } from '@wpmudev/sui-docs';
 	};
 	```
 
+</Section>
+
+
+<Section contained={true} border={true} title="9. usePreventUnload" id="use-prevent-unload">
+	<p>
+		The <code>usePreventUnload</code> hook is designed to trigger a browser-generated confirmation dialog that asks users to confirm if they really want to leave the page when they try to close or reload it, or navigate somewhere else. This's intended to help prevent loss of unsaved data or to wait for processies to finish
+	</p>
+	<p>
+		It accepts <strong>1 parameter</strong>:
+		<ol>
+			<li><strong>preventUnload</strong>: a boolean to indicate whether to prevent unload or not</li>
+		</ol>
+	</p>
+
+	<h3>Example</h3>
+
+	```javascript
+	import React, { useState } from "react";
+	import { usePreventUnload } from "@wpmudev/sui-hooks";
+
+	export const SaveDataComponent: React.FC = () => {
+		const [isSaving, setIsSaving] = useState(false);
+		const [data, setData] = useState("");
+
+		// Prevent unload when saving data
+		usePreventUnload(isSaving);
+
+		const handleSave = async () => {
+			setIsSaving(true);
+			try {
+				await fetch("https://api.example.com/save", {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ data }),
+				});
+				alert("Data saved successfully!");
+			} catch (error) {
+				console.error("Error saving data:", error);
+			} finally {
+				setIsSaving(false);
+			}
+		};
+
+		return (
+			<div>
+				<textarea
+					value={data}
+					onChange={(e) => setData(e.target.value)}
+					placeholder="Enter some data to save"
+				/>
+				<button onClick={handleSave} disabled={isSaving}>
+					{isSaving ? "Saving..." : "Save"}
+				</button>
+			</div>
+		);
+	};
+
+	```
+	<p>
+		This example uses the <strong>usePreventUnload</strong> hook to prevent the user from leaving the page while data is saving. The isSaving state tracks the save process, and <strong>usePreventUnload(isSaving)</strong> triggers a confirmation dialog if the user tries to leave before the data has finished saving.
+	</p>
 </Section>
