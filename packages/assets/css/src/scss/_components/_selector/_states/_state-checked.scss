@@ -24,7 +24,7 @@
 					}
 				}
 
-				@include modifies-element(header-icon, header-title) {
+				@include modifies-element(option-header-icon, option-header-title) {
 					color: $color-primary-50;
 				}
 			}

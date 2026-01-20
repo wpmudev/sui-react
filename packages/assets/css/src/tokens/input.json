@@ -11,7 +11,7 @@
 					"type": "color"
 				},
 				"disabled": {
-					"value": "{color.grey.30}",
+					"value": "{color.grey.10}",
 					"type": "color"
 				}
 			},
@@ -89,11 +89,11 @@
 					"type": "color"
 				},
 				"disabled": {
-					"value": "{color.grey.05}",
+					"value": "{color.grey.10}",
 					"type": "color"
 				},
 				"readonly": {
-					"value": "{color.grey.02}",
+					"value": "{color.grey.10}",
 					"type": "color"
 				}
 			},

@@ -13,7 +13,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(overlay) {
-				background: $color-grey-a90;
+				background: $color-grey-a70;
 				bottom: 0;
 				left: 0;
 				position: fixed;

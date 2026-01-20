@@ -14,6 +14,21 @@
 	@include sui-class($rtl: false, $theme: null) {
 		// Block wrapper.
 		@include block($block) {
+			border: $border-width-sm solid $color-grey-10;
+			border-radius: $border-radius-xl;
+
+			@include modifier(bg) {
+				background: $color-base-white;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		// Block wrapper.
+		@include block($block) {
+			border-color: $color-base-black;
 			background: $color-base-white;
 			border: $border-width-sm solid $color-grey-10;
 

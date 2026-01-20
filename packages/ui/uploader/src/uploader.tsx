@@ -23,7 +23,7 @@ import {
 	getObjectFileFromUrl,
 } from "./helper"
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { useStyles } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 
 // The Uploader component displays a file uploader with drag-and-drop support and file previews.
 const Uploader: React.FC<UploaderProps> = ({
@@ -47,6 +47,8 @@ const Uploader: React.FC<UploaderProps> = ({
 
 	// State to keep track of selected files
 	const [files, setFiles] = useState<Record<string, any>[]>([])
+
+	const [isHovered, isFocused, methods] = useInteraction({})
 
 	// Generate a unique ID for the uploader component
 	const generatedId = useId()
@@ -183,7 +185,14 @@ const Uploader: React.FC<UploaderProps> = ({
 			<NotificationRenderer />
 			<div
 				id={uploaderId}
-				className={generateCN("sui-uploader", {}, suiInlineClassname)}
+				className={generateCN(
+					"sui-uploader",
+					{
+						hover: isHovered,
+						focus: isFocused,
+					},
+					suiInlineClassname,
+				)}
 				data-testid="uploader"
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
@@ -194,11 +203,11 @@ const Uploader: React.FC<UploaderProps> = ({
 						id={`${uploaderId}_input`}
 						ref={ref}
 						onChange={onSelectFile}
-						className="sui-uploader__input"
+						className="sui-uploader__input sui-accessible-cta sui-hidden"
 						multiple={multiple}
 						accept={accept}
-						hidden={true}
 						{...ariaAttrs}
+						{...methods}
 						{..._renderHTMLPropsSafely(props)}
 					/>
 				)}

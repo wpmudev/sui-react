@@ -1,20 +1,22 @@
 @use "../../../_utils/utils" as *;
 
-/// Active State
+/// Edit Focus
 ///
 /// @type state
 /// @author WPMU DEV
 ///
 /// @param {String} $block - Main block name
-@mixin state-active($block) {
+@mixin edit-focus($block) {
 	// DIR: Left to right.
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
-			@include element(info) {
-				@include modifier(active) {
-					background: $color-grey-05;
+			@include modifier(focus) {
+				@include modifies-element(pick) {
+					background: $color-base-white;
 					color: $color-grey-90;
+					border-color: $color-grey-90;
+					border-style: solid;
 				}
 			}
 		}

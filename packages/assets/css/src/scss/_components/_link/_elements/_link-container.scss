@@ -33,6 +33,7 @@
 
 			@include modifier(secondary) {
 				color: $color-base-white;
+				outline-color: $color-base-white;
 			}
 		}
 	}
