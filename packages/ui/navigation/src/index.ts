@@ -1,2 +1,8 @@
 export { Navigation } from "./navigation"
-export type { NavigationProps, NavigationUserProps } from "./navigation.types"
+export { NavigationUser } from "./navigation-user"
+export type {
+	NavigationProps,
+	NavigationUserProps,
+	NavigationUserMenuGroupProps,
+	NavigationUserMenuItemProps,
+} from "./navigation.types"

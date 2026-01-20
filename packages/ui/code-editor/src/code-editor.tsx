@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useEffect, useCallback } from "react"
+import React, { useId, useState, useEffect, useCallback } from "react"
 // @ts-ignore
 import ReactPrismEditor from "react-prism-editor"
 
@@ -19,6 +19,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @return {JSX.Element} - JSX Element representing the CodeEditor component
  */
 const CodeEditor: React.FC<CodeEditorProps> = ({
+	id,
 	filename = "App.js",
 	language = "javascript",
 	allowCopy = true,
@@ -29,6 +30,8 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 	_htmlProps,
 	_style,
 }) => {
+	const generatedId = useId()
+	const codeEditorId = id || `sui_code_editor_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
 	// Generate class names
@@ -60,6 +63,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({
 
 	return (
 		<div
+			id={codeEditorId}
 			className={classNames}
 			data-testid="code-editor"
 			{..._renderHTMLPropsSafely(_htmlProps)}

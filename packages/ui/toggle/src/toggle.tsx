@@ -4,6 +4,7 @@ import React, {
 	useId,
 	useCallback,
 	HTMLProps,
+	Fragment,
 } from "react"
 
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
@@ -17,6 +18,7 @@ import { ToggleProps } from "./toggle.types"
 
 // Build "Toggle" component
 const Toggle: React.FC<ToggleProps> = ({
+	id,
 	label,
 	description,
 	defaultValue = false,
@@ -28,7 +30,8 @@ const Toggle: React.FC<ToggleProps> = ({
 	...props
 }) => {
 	// use id
-	const id = `sui-toggle-${useId()}`
+	const generatedId = useId()
+	const toggleId = id || `sui_toggle_${generatedId}`
 
 	const [state, setState] = useState<boolean>(defaultValue as boolean)
 	const [isHovered, isFocused, methods] = useInteraction({
@@ -42,6 +45,8 @@ const Toggle: React.FC<ToggleProps> = ({
 	useEffect(() => {
 		if (!isBoolean(defaultValue)) {
 			setState(defaultValue ?? false)
+		} else {
+			setState(defaultValue)
 		}
 	}, [defaultValue])
 
@@ -87,26 +92,44 @@ const Toggle: React.FC<ToggleProps> = ({
 	}
 
 	return (
-		<label {...containerProps} htmlFor={id} data-testid="toggle">
-			<input
-				{...(inputProps as HTMLProps<HTMLInputElement>)}
-				id={id}
-				onChange={handleOnChange}
-				{..._renderHTMLPropsSafely(_htmlProps)}
-			/>
-			<span tabIndex={-1} className="sui-toggle__switch" aria-hidden={true} />
-			{isLabelHidden && <span className="sui-screen-reader-only">{label}</span>}
-			{!isLabelHidden && (
-				<span className="sui-toggle__label" data-testid="toggle-label">
-					{label}
-				</span>
-			)}
+		<div className="sui-toggle__container" id={`${toggleId}_container`}>
+			<label {...containerProps} htmlFor={toggleId} data-testid="toggle">
+				<input
+					{...(inputProps as HTMLProps<HTMLInputElement>)}
+					id={toggleId}
+					onChange={handleOnChange}
+					{..._renderHTMLPropsSafely(_htmlProps)}
+				/>
+				<span
+					tabIndex={-1}
+					className="sui-toggle__switch"
+					id={`${toggleId}_switch`}
+				/>
+				{isLabelHidden && (
+					<span className="sui-screen-reader-only" id={`${toggleId}_label`}>
+						{label}
+					</span>
+				)}
+				{!isLabelHidden && (
+					<span
+						className="sui-toggle__label"
+						id={`${toggleId}_label`}
+						data-testid="toggle-label"
+					>
+						{label}
+					</span>
+				)}
+			</label>
 			{description && (
-				<p className="sui-toggle__description" data-testid="toggle-description">
+				<div
+					id={`${toggleId}_description`}
+					className="sui-toggle__description"
+					data-testid="toggle-description"
+				>
 					{description}
-				</p>
+				</div>
 			)}
-		</label>
+		</div>
 	)
 }
 

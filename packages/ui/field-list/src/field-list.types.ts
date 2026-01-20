@@ -11,6 +11,10 @@ interface FieldListProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * The ID for the field list item.
+	 */
+	id?: string
+	/**
 	 * The label for the field list.
 	 */
 	label?: string
@@ -26,6 +30,10 @@ interface FieldListProps
 	 * The helper text for the field list.
 	 */
 	spacing?: string
+	/**
+	 * No Border Radius
+	 */
+	noBorderRadius?: boolean
 	/**
 	 * A callback function to be invoked when when one of the fields state changes
 	 */

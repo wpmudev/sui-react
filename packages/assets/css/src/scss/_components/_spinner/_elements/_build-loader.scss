@@ -15,12 +15,13 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(loader) {
+				display: flex;
 				width: $spinner-size-width-md;
 				height: $spinner-size-height-md;
 			}
 
 			@include element(icon) {
-				fill: $color-extended-alpha-black-0;
+				fill: $color-transparent;
 				stroke: $color-primary-50;
 
 				@include modifier(background, stroke) {
@@ -30,7 +31,7 @@
 				}
 
 				@include modifier(background) {
-					stroke: $color-extended-neutral-80;
+					stroke: $color-grey-10;
 				}
 
 				@include modifier(stroke) {
@@ -51,11 +52,31 @@
 
 			@include modifier(dark) {
 				@include modifies-element(icon--background) {
-					stroke: $color-extended-alpha-white-30;
+					stroke: $color-white-a30;
 				}
 
 				@include modifies-element(icon--stroke) {
-					stroke: $color-extended-neutral-0;
+					stroke: $color-base-black;
+				}
+			}
+
+			@include modifier(white) {
+				@include modifies-element(icon--background) {
+					stroke: transparent;
+				}
+
+				@include modifies-element(icon--stroke) {
+					stroke: $color-base-white;
+				}
+			}
+
+			@include modifier(gray) {
+				@include modifies-element(icon--background) {
+					stroke: transparent;
+				}
+
+				@include modifies-element(icon--stroke) {
+					stroke: $color-grey-40;
 				}
 			}
 		}
@@ -68,7 +89,7 @@
 		@include block($block) {
 			@include element(icon) {
 				@include modifier(background) {
-					stroke: $color-extended-neutral-100;
+					stroke: $color-base-white;
 				}
 			}
 

@@ -10,6 +10,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
 			@include element(content) {
+				color: $notification-font-color;
 				flex: 1;
 				margin: 0 $spacing-sm;
 

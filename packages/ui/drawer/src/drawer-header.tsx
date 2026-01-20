@@ -1,4 +1,4 @@
-import React, { useCallback } from "react"
+import React, { useCallback, useId } from "react"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Tooltip } from "@wpmudev/sui-tooltip"
 import { DrawerHeaderTypes } from "./drawer.types"
@@ -7,12 +7,20 @@ import { Button } from "@wpmudev/sui-button"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 const DrawerHeader = ({
+	id,
 	className = "",
 	title = "",
 	hintText = "",
+	back = {
+		show: false,
+		mobileOnly: false,
+		action: () => {},
+	},
 	tooltipOptions = {},
 	_style,
 }: DrawerHeaderTypes) => {
+	const generatedId = useId()
+	const drawerHeaderId = id || `sui_drawer_header_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-drawer__header", {}, suiInlineClassname)
 
@@ -23,9 +31,29 @@ const DrawerHeader = ({
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ctx.isOpen])
 
+	const { show, mobileOnly = false, action = () => {} } = back
+
 	return (
-		<div className={classNames}>
+		<div id={drawerHeaderId} className={classNames}>
 			<div className="sui-drawer__header-title">
+				{show && (
+					<div className={generateCN("sui-drawer__back", { md: mobileOnly })}>
+						<Button
+							icon="ChevronLeft"
+							type="tertiary"
+							colorScheme="black"
+							isSmall={true}
+							iconOnly={true}
+							onClick={() => {
+								onClose()
+								action()
+							}}
+							_htmlProps={{
+								"aria-label": "close",
+							}}
+						/>
+					</div>
+				)}
 				<span className="sui-heading--h4">{title}</span>
 				{!isEmpty(hintText) && (
 					<Tooltip

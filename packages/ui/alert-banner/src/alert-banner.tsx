@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react"
+import React, { useId, useState, useCallback } from "react"
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
 import Icons from "@wpmudev/sui-icons"
@@ -7,16 +7,20 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 import { AlertBannerProps } from "./alert-banner.types"
 
 const AlertBanner: React.FC<AlertBannerProps> = ({
+	id,
 	children,
 	variation = "informative",
 	actions,
 	displayIcon = true,
 	isCenter = false,
+	isContentFluid = false,
 	isDismissible = true,
 	onDismiss = () => {},
 	_style = {},
 	_htmlProps,
 }) => {
+	const generatedId = useId()
+	const alertBannerId = id || `sui_alert_banner_${generatedId}`
 	// State to control the visibility of the alert banner
 	const [isVisible, setIsVisible] = useState(true)
 
@@ -42,6 +46,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 		"sui-alert-banner",
 		{
 			[variation as string]: !isEmpty(variation ?? ""),
+			fluid: isContentFluid,
 		},
 		suiInlineClassname,
 	)
@@ -83,12 +88,16 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 
 	return (
 		<div
+			id={alertBannerId}
 			className={classNames}
 			data-testid="alert-banner"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div
-				className={generateCN("sui-alert-banner__body", { center: isCenter })}
+				className={generateCN("sui-alert-banner__body", {
+					center: isCenter,
+					fluid: isContentFluid,
+				})}
 			>
 				<div className="sui-alert-banner__body-content">
 					{/* Render the Icon if available and displayIcon is true */}
@@ -100,7 +109,7 @@ const AlertBanner: React.FC<AlertBannerProps> = ({
 							<Icon colorScheme={iconColor} />
 						</div>
 					)}
-					{children}
+					<div className="sui-alert-banner__content">{children}</div>
 				</div>
 				{/* Render actions if provided */}
 				{actions && (

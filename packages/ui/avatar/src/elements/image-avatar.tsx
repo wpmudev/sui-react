@@ -4,7 +4,7 @@ import { isEmpty, isUndefined } from "@wpmudev/sui-utils"
 import { ImageAvatarProps } from "./image-avatar.types"
 
 // Build "image avatar" element
-const Image: React.FC<ImageAvatarProps> = ({ source, text }) => {
+const Image: React.FC<ImageAvatarProps> = ({ id, source, text }) => {
 	// Props validation
 	const hasSrc = !isUndefined(source) && !isEmpty(source)
 	const hasAlt = !isUndefined(text) && !isEmpty(text)
@@ -19,12 +19,17 @@ const Image: React.FC<ImageAvatarProps> = ({ source, text }) => {
 	return (
 		<Fragment>
 			<span
+				id={id}
 				className="sui-avatar__image"
 				style={{ backgroundImage: `url(${source})` }}
 				tabIndex={-1}
 				data-testid="avatar-image"
 			/>
-			<span className="sui-screen-reader-only" data-testid="avatar-image-alt">
+			<span
+				id={id ? `${id}_alt` : undefined}
+				className="sui-screen-reader-only"
+				data-testid="avatar-image-alt"
+			>
 				{hasAlt ? text : "Logged in user avatar"}
 			</span>
 		</Fragment>

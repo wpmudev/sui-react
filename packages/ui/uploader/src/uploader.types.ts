@@ -11,6 +11,10 @@ interface UploaderProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLInputElement>>,
 		SuiStyleType {
 	/**
+	 * Optional custom ID for the uploader.
+	 */
+	id?: string
+	/**
 	 * Upload button title
 	 */
 	btnTitle?: string
@@ -49,6 +53,10 @@ interface UploaderProps
 	 * Text to appear in the alert when file size is larger than the max
 	 */
 	maxSizeText?: string
+	/**
+	 * Custom click handler
+	 */
+	onClick?: (...args: any[]) => any
 }
 
 /**

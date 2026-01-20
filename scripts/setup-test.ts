@@ -13,6 +13,10 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
 	disconnect: jest.fn(),
 }))
 
+// 🆕 Add IntersectionObserver mock
+// @ts-ignore
+global.IntersectionObserver = global.ResizeObserver
+
 // Escape testing "react-prism-editor" package
 jest.mock(
 	"react-prism-editor",

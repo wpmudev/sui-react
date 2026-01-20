@@ -170,6 +170,77 @@ const Select = ({
 							/>
 						</FormField>
 					)}
+					{"multiselect-async" === example && (
+						<FormField
+							id={id}
+							label="Label"
+							helper="Description"
+							error={errorMessage}
+							isSmall={isSmall}
+							isDisabled={isDisabled}
+						>
+							<MultiSelect
+								customWidth={props.customWidth}
+								isError={props.isError}
+								selected={[
+									{
+										id: 1,
+										label: "Essence Mascara Lash Princess",
+									},
+									{
+										id: 2,
+										label: "Eyeshadow Palette with Mirror",
+									},
+									{
+										id: 16,
+										label: "Apple",
+									},
+								]}
+								_dropdownProps={{
+									isAsync: true,
+									allowSearch: true,
+									searchPlaceholder: "Search...",
+									asyncOptions: {
+										perPage,
+									},
+									getOptions: async (
+										search: string,
+										{ page }: any,
+										prevLoadedItems = [],
+									) => {
+										// calculate how many items to skip
+										const skip = page * perPage - 10
+										// store all menu items here
+										const items: SelectBaseProps["options"] = []
+										const baseAPI = `https://dummyjson.com/products/search`
+										let total = 0
+
+										// fetch data from API
+										await fetch(
+											`${baseAPI}?limit=${perPage}&skip=${skip}&total=50&q=${search}`,
+										)
+											.then((res) => res.json())
+											.then((result) => {
+												total = result.total
+
+												result.products.forEach((item: any) => {
+													items.push({
+														id: item?.id,
+														label: item?.title,
+														isSelected: false,
+													})
+												})
+											})
+
+										return {
+											items,
+											hasMore: [...items, ...prevLoadedItems].length < 100,
+										}
+									},
+								}}
+							/>
+						</FormField>
+					)}
 					{"multi-select" === example && (
 						<FormField
 							id={id}
@@ -252,12 +323,19 @@ Select.args = {
 Select.argTypes = {
 	example: {
 		name: "Example",
-		options: ["select", "select-async", "select-variable", "multi-select"],
+		options: [
+			"select",
+			"select-async",
+			"multiselect-async",
+			"select-variable",
+			"multi-select",
+		],
 		control: {
 			type: "select",
 			labels: {
 				select: "Example: Select",
 				"select-async": "Example: Select Async",
+				"multiselect-async": "Example: Multi-Select Async",
 				"select-variable": "Example: Select Variable",
 				"multi-select": "Example: Multiselect",
 			},

@@ -3,6 +3,11 @@
  */
 interface StatusProps {
 	/**
+	 * Optional unique identifier for the status.
+	 */
+	id?: string
+
+	/**
 	 * Status text or value.
 	 */
 	status?: string

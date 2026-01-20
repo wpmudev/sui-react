@@ -4,7 +4,7 @@ import { Clock, CheckAlt, Warning } from "@wpmudev/sui-icons"
 import { StatusProps } from "./status.types"
 
 // Build "status" element
-const Status: React.FC<StatusProps> = ({ status }) => {
+const Status: React.FC<StatusProps> = ({ id, status }) => {
 	// Determine the IconTag based on the provided icon value
 	let IconName,
 		classes = "sui-avatar__status-icon"
@@ -38,6 +38,7 @@ const Status: React.FC<StatusProps> = ({ status }) => {
 	// Return element
 	return (
 		<span
+			id={id}
 			className="sui-avatar__status"
 			data-testid="avatar-status"
 			aria-hidden="true"

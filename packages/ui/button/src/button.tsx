@@ -1,6 +1,5 @@
-import React, { forwardRef } from "react"
+import React, { forwardRef, useId } from "react"
 import {
-	InteractionTypes,
 	useDefaultChildren,
 	useInteraction,
 	useStyles,
@@ -30,6 +29,7 @@ const Button: React.FC<ButtonProps> = forwardRef<
 >(
 	(
 		{
+			id,
 			href,
 			target,
 			htmlFor,
@@ -62,8 +62,11 @@ const Button: React.FC<ButtonProps> = forwardRef<
 		},
 		ref,
 	) => {
+		const generatedId = useId()
+		const buttonId = id || `sui_button_${generatedId}`
+
 		// base className
-		const baseClassName: string = "sui-button"
+		const baseClassName = "sui-button"
 
 		// Default children content
 		children = useDefaultChildren(children, "button label")
@@ -71,7 +74,15 @@ const Button: React.FC<ButtonProps> = forwardRef<
 
 		if (isLoading) {
 			isUnwrapped = true
-			children = <Loader>{children}</Loader>
+			children = (
+				<Loader
+					id={`${buttonId}_loader`}
+					colorScheme={colorScheme}
+					isDisabled={isDisabled}
+				>
+					{children}
+				</Loader>
+			)
 		}
 
 		// Manage interaction methods
@@ -105,9 +116,10 @@ const Button: React.FC<ButtonProps> = forwardRef<
 		}
 
 		const attrs = {
+			id: buttonId,
 			ref,
 			href: isLink && !!href ? href : undefined,
-			...(isLink && { target: target || "_blank" }),
+			...(isLink && target && { target }),
 			htmlFor: condContent(label),
 			// classname
 			className: generateCN(baseClassName, attrClasses, suiInlineClassname),
@@ -131,15 +143,27 @@ const Button: React.FC<ButtonProps> = forwardRef<
 
 		return (
 			<TagName {...attrs}>
-				{(startIcon || icon) && !isLoading && (
-					<Icon name={startIcon ?? ""} size={iconSize} />
+				{(startIcon || icon) && (
+					<Icon
+						id={`${buttonId}_start-icon`}
+						name={startIcon ?? ""}
+						size={iconSize}
+						{...(isLoading ? { className: "sui-button__icon--hidden" } : {})}
+					/>
 				)}
 				{isUnwrapped && children}
 				{!isUnwrapped && (
-					<Label {...(iconOnly && { hidden: true })}>{children}</Label>
+					<Label id={`${buttonId}_label`} {...(iconOnly && { hidden: true })}>
+						{children}
+					</Label>
 				)}
-				{isEndIcon && !isLoading && (
-					<Icon name={endIcon ?? ""} size={iconSize} />
+				{isEndIcon && (
+					<Icon
+						id={`${buttonId}_end-icon`}
+						name={endIcon ?? ""}
+						size={iconSize}
+						{...(isLoading ? { className: "sui-button__icon--hidden" } : {})}
+					/>
 				)}
 			</TagName>
 		)

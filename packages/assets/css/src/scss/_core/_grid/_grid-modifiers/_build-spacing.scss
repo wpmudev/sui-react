@@ -14,21 +14,37 @@
 			@include block($block) {
 				margin: 0;
 				padding: 0 math.div(map.get($sui-grid-spacing, sm), 2);
+
+				@include media(min-width, sm) {
+					padding: 0 math.div(map.get($sui-grid-spacing, md), 2);
+				}
+
+				@include media(min-width, lg) {
+					padding: 0 math.div(map.get($sui-grid-spacing, lg), 2);
+				}
 			}
 		}
 
 		@each $bp-label, $bp-value in $breakpoints {
 			.sui-row-#{$bp-label} {
-				&--inline {
+				&--inline > {
 					@include block($block) {
 						@include media(min-width, $bp-label) {
 							margin: 0;
 							padding: 0 math.div(map.get($sui-grid-spacing, $bp-label), 2);
 						}
+
+						@include media(min-width, sm) {
+							padding: 0 math.div(map.get($sui-grid-spacing, md), 2);
+						}
+
+						@include media(min-width, lg) {
+							padding: 0 math.div(map.get($sui-grid-spacing, lg), 2);
+						}
 					}
 				}
 
-				&--stacked {
+				&--stacked > {
 					@include block($block) {
 						@include media(min-width, $bp-label) {
 							margin: 0 0 map.get($sui-grid-spacing, $bp-label);

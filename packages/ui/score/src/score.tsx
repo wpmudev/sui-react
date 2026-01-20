@@ -1,10 +1,11 @@
-import React from "react"
+import React, { useId } from "react"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
 import { ScoreProps } from "./score.types"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 const Score: React.FC<ScoreProps> = ({
+	id,
 	bar = 50,
 	value = 50,
 	description,
@@ -15,6 +16,8 @@ const Score: React.FC<ScoreProps> = ({
 	_htmlProps = {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const scoreId = id || `sui_score_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	const classNames = generateCN(
@@ -33,6 +36,7 @@ const Score: React.FC<ScoreProps> = ({
 
 	return (
 		<div
+			id={scoreId}
 			className={classNames}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 			data-testid="score"

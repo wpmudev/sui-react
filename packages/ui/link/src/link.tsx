@@ -1,4 +1,4 @@
-import React, { KeyboardEvent, MouseEvent } from "react"
+import React, { KeyboardEvent, MouseEvent, useId } from "react"
 
 import {
 	_renderHTMLPropsSafely,
@@ -18,6 +18,7 @@ import { LinkProps } from "./link.types"
 // Link component represents a clickable link element with optional features
 // like inline display, external link indication, and more.
 const Link: React.FC<LinkProps> = ({
+	id,
 	theme = "primary",
 	as = "a",
 	className = "",
@@ -31,6 +32,9 @@ const Link: React.FC<LinkProps> = ({
 	_style = {},
 	...props
 }) => {
+	const generatedId = useId()
+	const linkId = id || `sui_link_${generatedId}`
+
 	// Determine the HTML tag name to use
 	const TagName = as ?? "a"
 
@@ -58,6 +62,7 @@ const Link: React.FC<LinkProps> = ({
 	// Prepare the link props
 	const linkProps: Record<string, any> = {
 		...props,
+		id: linkId,
 		href,
 		className: classNames,
 		"data-testid": "link",

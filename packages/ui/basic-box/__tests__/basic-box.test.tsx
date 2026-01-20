@@ -1,6 +1,6 @@
 import React from "react"
 import "@testing-library/jest-dom"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 import { screen, render, fireEvent } from "@testing-library/react"
 import { BasicBox } from "../src"
 

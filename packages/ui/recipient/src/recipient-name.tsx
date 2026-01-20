@@ -1,15 +1,19 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useId } from "react"
 import { generateCN, isString, SuiStyleType } from "@wpmudev/sui-utils"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 interface RecipientNameProps extends SuiStyleType {
+	id?: string
 	children?: React.ReactNode
 }
 
 const RecipientName: React.FC<RecipientNameProps> = ({
+	id,
 	children,
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const recipientNameId = id || `sui_recipient_name_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	if (!!children && !isString(children)) {
@@ -22,6 +26,7 @@ const RecipientName: React.FC<RecipientNameProps> = ({
 		<Fragment>
 			{children && (
 				<span
+					id={recipientNameId}
 					className={generateCN("sui-recipient__name", {}, suiInlineClassname)}
 				>
 					{children}

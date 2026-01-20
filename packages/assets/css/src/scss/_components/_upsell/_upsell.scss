@@ -6,7 +6,7 @@
 @include sui-upsell--element.build-body(upsell);
 @include sui-upsell--element.build-footer(upsell);
 @include sui-upsell--element.build-features(upsell);
+@include sui-upsell--element.build-features-title(upsell);
 @include sui-upsell--element.build-icon(upsell);
-
 @include sui-upsell--modifier.edit-variation(upsell);
 @include sui-upsell--modifier.edit-size(upsell);

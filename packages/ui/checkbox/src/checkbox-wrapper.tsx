@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, ReactElement } from "react"
+import React, { Children, cloneElement, ReactElement, useId } from "react"
 
 import { generateCN } from "@wpmudev/sui-utils"
 import { CheckboxProvider } from "./checkbox-context"
@@ -6,18 +6,21 @@ import { CheckboxGroupsProps } from "./checkbox.types"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 const CheckBoxGroups: React.FC<CheckboxGroupsProps> = ({
+	id,
 	children,
 	commonCheckboxProps = {},
 	onChange = () => {},
 	_style,
 }) => {
+	const generatedId = useId()
+	const checkboxGroupsId = id || `sui_checkbox_groups_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 	const className = generateCN("sui-checkbox-wrapper", {}, suiInlineClassname)
 
 	return (
 		<CheckboxProvider onChange={onChange}>
-			<div className={className}>
-				{Children.map(children, (child) => {
+			<div id={checkboxGroupsId} className={className}>
+				{Children.map(children, (child, index) => {
 					return cloneElement(
 						child as any,
 						{
@@ -27,6 +30,7 @@ const CheckBoxGroups: React.FC<CheckboxGroupsProps> = ({
 								...(child as ReactElement)?.props?.commonCheckboxProps,
 							},
 							_isMultiGroup: true,
+							key: `checkbox-wrapper-child-${index}`,
 						} as object,
 					)
 				})}

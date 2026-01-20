@@ -4,7 +4,7 @@ import "@testing-library/jest-dom"
 import { screen, render, fireEvent, prettyDOM } from "@testing-library/react"
 
 import { Checkbox, CheckboxGroup, CheckBoxGroups } from "../src"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 
 describe("@wpmudev/sui-checkbox", () => {
 	// Test case for rendering Checkbox component correctly

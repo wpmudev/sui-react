@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-recipient",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "The Recipient component simplifies user onboarding by providing a user-friendly interface for inviting users",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -57,10 +57,9 @@
   },
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "dependencies": {
-    "@wpmudev/sui-avatar": "^0.0.1",
-    "@wpmudev/sui-tooltip": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1",
-    "react": "^18.2.0"
+    "@wpmudev/sui-avatar": "^0.0.3",
+    "@wpmudev/sui-tooltip": "^0.1.1",
+    "@wpmudev/sui-utils": "^1.0.0"
   },
   "clean-package": "../../../postpack.config.json"
 }

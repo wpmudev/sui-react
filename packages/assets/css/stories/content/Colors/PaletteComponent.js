@@ -86,11 +86,30 @@ const BuildSections = ({
 // Build "rows builder" component.
 const BuildRows = ({ data, palette }) => {
 	const colsLimit = 3
-
 	const contents = Object.keys(data)
 		.map((key, index) => {
-			const setTheme = key > 60 ? "light" : "dark"
-			const setPrefix = key === 50 ? "Base" : key > 60 ? "Light" : "Dark"
+			let processedKey = key.startsWith("a") ? key.slice(1) : key
+			let setTheme = processedKey < 40 ? "light" : "dark"
+			let setPrefix =
+				processedKey == 50 ? "Base" : processedKey < 40 ? "Light" : "Dark"
+
+			switch (key) {
+				case "white":
+				case "transparent": {
+					setTheme = "light"
+					setPrefix = ""
+					break
+				}
+				case "black": {
+					setTheme = "dark"
+					setPrefix = ""
+					break
+				}
+			}
+
+			if ("white" === palette) {
+				setTheme = "light"
+			}
 
 			return (
 				<Col key={index} size="2">

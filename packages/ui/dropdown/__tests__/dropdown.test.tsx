@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import "@testing-library/jest-dom"
 import { screen, render, fireEvent, waitFor } from "@testing-library/react"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 import { Button } from "@wpmudev/sui-button"
 import { Dropdown, DropdownRefProps } from "../src"
 import { MenuGroupProps, MenuItemProps } from "../src/dropdown.types"

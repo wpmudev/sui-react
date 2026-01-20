@@ -17,6 +17,12 @@
 				"value": "10px",
 				"type": "spacing"
 			}
+		},
+		"font": {
+			"color": {
+				"value": "{color.grey.70}",
+				"type": "color"
+			}
 		}
 	}
 }

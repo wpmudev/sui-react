@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from "react"
+import React, { useId, Fragment, useCallback } from "react"
 
 import {
 	Table,
@@ -21,6 +21,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 
 // Render options to be displayed in a table.
 const ConfigTable: React.FC<ConfigTableTypes> = ({
+	id,
 	className = "",
 	configs,
 	onActionClick,
@@ -30,6 +31,8 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	_htmlProps,
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const configTableId = id || `sui_config_table_${generatedId}`
 	/**
 	 * Handle an action click.
 	 *
@@ -51,7 +54,11 @@ const ConfigTable: React.FC<ConfigTableTypes> = ({
 	const classNames = generateCN("sui-config-table", {}, suiInlineClassname)
 
 	return (
-		<Table className={classNames} hasToolbar={false} _htmlProps={_htmlProps}>
+		<Table
+			className={classNames}
+			hasToolbar={false}
+			_htmlProps={{ ..._htmlProps, id: configTableId }}
+		>
 			<TableHead>
 				<TableRow actions={() => null}>
 					<TableCell isHeading={true} isPrimary={true}>

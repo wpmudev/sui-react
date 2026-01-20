@@ -12,6 +12,10 @@
 			@include element(label) {
 				display: block;
 				padding: $button-label-padding-vertical $button-label-padding-horizontal;
+
+				@include modifier(hidden) {
+					visibility: hidden;
+				}
 			}
 		}
 	}

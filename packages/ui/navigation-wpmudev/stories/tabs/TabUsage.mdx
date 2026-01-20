@@ -1,0 +1,91 @@
+import { Section, Row, Col } from "@wpmudev/sui-docs"
+
+import Anatomy from "../images/anatomy.svg"
+import Connected from "../images/connected.svg"
+import NotConnected from "../images/not-connected.svg"
+import Help from "../images/help.svg"
+import New from "../images/new.svg"
+import Recommendations from "../images/recommendations.svg"
+import Status from "../images/status.svg"
+import Collapse from "../images/collapse.svg"
+import Header from "../images/header.svg"
+import CollapseMenu from "../images/collapse-menu.svg"
+
+<Section title="Anatomy" style={{ paddingTop: 20 }}>
+	<img src={Anatomy} alt="Navigation Anatomy" style={{ marginBottom: 20 }} />
+	<h3>1. Branding</h3>
+	<p>Ensures brand recognition including the brand icon, name and tagline.</p>
+	<h3>2. Primary navigation</h3>
+	<p>
+		The navigation menu includes the links of helpful resources for the plugin.
+	</p>
+	<h3>3. Action group</h3>
+	<p>
+		The action group includes additional actions based on user status (free or premium) and site connectivity if necessary.
+	</p>
+</Section>
+
+<Section title="Free and Pro" style={{ paddingTop: 20 }}>
+	<h3>1. Site connectivity - Not necessary</h3>
+	<img
+		src={Connected}
+		alt="Navigation Accounts States"
+		style={{ marginBottom: 20 }}
+	/>
+	<h3>2. Site connectivity - Need to connect</h3>
+	<img
+		src={NotConnected}
+		alt="Navigation Accounts States"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+
+<Section title="Hover Interactions" style={{ paddingTop: 20 }}>
+	<h3>1. Help</h3>
+	<img
+		src={Help}
+		alt="Hover Interactions"
+		style={{ marginBottom: 20 }}
+	/>
+	<h3>2. What’s new</h3>
+	<img
+		src={New}
+		alt="Hover Interactions"
+		style={{ marginBottom: 20 }}
+	/>
+	<h3>3. WPMU DEV Recommendations</h3>
+	<img
+		src={Recommendations}
+		alt="Hover Interactions"
+		style={{ marginBottom: 20 }}
+	/>
+	<h3>4. Site connection status</h3>
+	<img
+		src={Status}
+		alt="Hover Interactions"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+
+<Section title="Collapse menu" style={{ paddingTop: 20 }}>
+	<p>
+		To maintain flexibility in header menus, we implement collapsible menus for responsive design. Utilise the <a href="/?path=/docs/sui-components-advanced-drawer--docs" target="_blank" alt="Drawer Component">Drawer component</a> to create sliding panels for navigation or display additional information.
+	</p>
+	<img src={Collapse} alt="Collapse menu" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="Spacings" style={{ paddingTop: 20 }}>
+	<h3>1. Header</h3>
+	<img
+		src={Header}
+		alt="Header"
+		style={{ marginBottom: 20 }}
+	/>
+	<h3>2. Collapse menu</h3>
+	<img
+		src={CollapseMenu}
+		alt="Collapse Menu"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+

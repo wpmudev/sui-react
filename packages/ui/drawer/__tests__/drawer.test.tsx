@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render } from "@testing-library/react"
-// import { a11yTest } from "@wpmudev/sui-utils"
+// import { a11yTest } from "@wpmudev/sui-dev-utils"
 import {
 	Drawer,
 	DrawerHeader,
@@ -9,7 +9,7 @@ import {
 	DrawerFooter,
 	DrawerTypes,
 } from "../src"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 
 describe("@wpmudev/sui-drawer", () => {
 	const Component = (propsList: DrawerTypes) => {

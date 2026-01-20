@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { UpsellProps } from "./upsell.types"
@@ -7,15 +7,20 @@ import { variationsList } from "./helpers"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 const Upsell: React.FC<UpsellProps> = ({
+	id,
 	title,
 	description = "",
 	size,
 	variation = "hummingbird",
 	features = [],
 	actions = null,
+	featuresIcon = "Check",
+	featuresTitle = "",
 	_htmlProps = {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const upsellId = id || `sui_upsell_${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 
 	// Generate classnames for the upsell
@@ -34,8 +39,12 @@ const Upsell: React.FC<UpsellProps> = ({
 	// Get the appropriate SVG Icon based on variation
 	const Icon = Icons?.[currentVar?.icon as IconsNamesType]
 
+	// Feature icon
+	const FeatureIcon = Icons?.[featuresIcon]
+
 	return (
 		<div
+			id={upsellId}
 			className={classNames}
 			data-testid="upsell"
 			{..._renderHTMLPropsSafely(_htmlProps)}
@@ -65,12 +74,20 @@ const Upsell: React.FC<UpsellProps> = ({
 				{!isEmpty((description ?? "") as string)
 					? description
 					: currentVar?.description}
+				{!!featuresTitle && (
+					<h4 className="sui-upsell__features-title">{featuresTitle}</h4>
+				)}
 				{features?.length > 0 && (
-					<ul className="sui-upsell__features" data-testid="features">
+					<ul
+						className={generateCN("sui-upsell__features", {
+							"has-title": !!featuresTitle,
+						})}
+						data-testid="features"
+					>
 						{/* Map and render each feature with a checkmark */}
 						{features?.map((feature, index) => (
 							<li key={index} className="sui-upsell__features-item">
-								<Check />
+								<FeatureIcon size="sm" />
 								<span>{feature}</span>
 							</li>
 						))}

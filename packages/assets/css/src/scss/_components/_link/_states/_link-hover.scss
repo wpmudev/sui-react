@@ -15,11 +15,11 @@
 		@include block($block) {
 			@include modifier(hover) {
 				&.sui-#{$block} {
-					color: $color-primary-40;
+					color: $color-primary-60;
 				}
 
 				&.sui-#{$block}--secondary {
-					color: $color-extended-neutral-100;
+					color: $color-base-white;
 				}
 			}
 		}

@@ -9,6 +9,10 @@ interface BasicBoxProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * The unique identifier for the basic box (optional).
+	 */
+	id?: string
+	/**
 	 * The title of the BasicBox, which can contain React nodes.
 	 */
 	title?: React.ReactNode
@@ -39,10 +43,25 @@ interface BasicBoxProps
 	isPro?: boolean
 
 	/**
+	 * When set to "true", the block will have "100%" width.
+	 */
+	isFluid?: boolean
+
+	/**
 	 * An optional CSS class name to apply custom styling to the BasicBox.
 	 * Should be a string.
 	 */
 	className?: string
+
+	/**
+	 * When set to "true" footer actions will be centered
+	 */
+	centerFooterActions?: boolean
+
+	/**
+	 * whether it has large radius or not
+	 */
+	hasLargeRadius?: boolean
 }
 
 export type { BasicBoxProps }
