@@ -6,7 +6,6 @@
 "@wpmudev/sui-table": patch
 "@wpmudev/sui-list": patch
 "@wpmudev/sui-tag": patch
-"@wpmudev/sui-react": patch
 "@wpmudev/sui-docs": patch
 ---
 
