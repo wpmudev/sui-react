@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-dropdown",
-  "version": "0.2.0",
+  "version": "0.1.1",
   "description": "A dropdown component is used to show a list of options for users to choose from.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

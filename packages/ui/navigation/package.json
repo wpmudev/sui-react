@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-navigation",
-  "version": "0.2.0",
+  "version": "0.1.1",
   "description": "The Navigation component provides a user-friendly and intuitive way to navigate through different sections",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -56,7 +56,7 @@
   "dependencies": {
     "@wpmudev/sui-avatar": "^0.0.3",
     "@wpmudev/sui-icon": "^0.1.1",
-    "@wpmudev/sui-dropdown": "^0.2.0",
+    "@wpmudev/sui-dropdown": "^0.1.1",
     "@wpmudev/sui-icons": "^0.0.2",
     "@wpmudev/sui-utils": "^1.0.0"
   }

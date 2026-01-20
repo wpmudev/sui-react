@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-accordion",
-  "version": "0.1.0",
+  "version": "0.0.4",
   "description": "The Accordion component allows users to show and hide the content of related titles on a page.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

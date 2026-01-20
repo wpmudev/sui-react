@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-toggle",
-  "version": "0.2.0",
+  "version": "0.1.1",
   "description": "Toggle switches are digital on/off switches. They prompt users to choose between two mutually exclusive options and always have a default value.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

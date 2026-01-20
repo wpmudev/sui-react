@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-popover",
-  "version": "0.1.0",
+  "version": "0.0.3",
   "description": "A popover is displayed to provide additional information about specific element when the user hovers or focuses on them.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

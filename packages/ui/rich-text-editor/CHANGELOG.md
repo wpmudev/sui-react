@@ -1,13 +1,5 @@
 # Change Log
 
-## 0.0.5
-
-### Patch Changes
-
-- Updated dependencies
-  [[`3638488`](https://github.com/wpmudev/sui-react/commit/36384887285075d1fd068649b5fb40ef5b7e8abc)]:
-  - @wpmudev/sui-form-field@0.1.0
-
 ## 0.0.4
 
 ### Patch Changes

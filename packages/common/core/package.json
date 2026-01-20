@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-core",
-  "version": "0.0.5",
+  "version": "0.0.4",
   "description": "WPMU DEV Shared UI React sub-package for core elements",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -49,8 +49,8 @@
     "@wpmudev/sui-checkbox": "^0.0.4",
     "@wpmudev/sui-grid": "^0.1.1",
     "@wpmudev/sui-icon": "^0.1.1",
-    "@wpmudev/sui-input": "^0.1.0",
-    "@wpmudev/sui-link": "^0.1.0",
+    "@wpmudev/sui-input": "^0.0.3",
+    "@wpmudev/sui-link": "^0.0.3",
     "@wpmudev/sui-radio": "^0.0.3",
     "@wpmudev/sui-score": "^0.0.3",
     "@wpmudev/sui-segmented-control": "^0.1.1",
@@ -58,7 +58,7 @@
     "@wpmudev/sui-spinner": "^0.1.1",
     "@wpmudev/sui-tag": "^0.0.3",
     "@wpmudev/sui-textarea": "^0.0.2",
-    "@wpmudev/sui-toggle": "^0.2.0",
+    "@wpmudev/sui-toggle": "^0.1.1",
     "@wpmudev/sui-tooltip": "^0.1.1"
   }
 }
