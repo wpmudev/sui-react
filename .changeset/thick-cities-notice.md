@@ -12,4 +12,4 @@
 "@wpmudev/sui-react": patch
 ---
 
-Update colors
+Add new template card component.
