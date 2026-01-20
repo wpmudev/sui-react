@@ -42,7 +42,7 @@
 				}
 
 				@include modifier(hover) {
-					background: $color-extended-neutral-95;
+					background: $color-grey-02;
 				}
 
 				@include modifier(focus) {
@@ -51,7 +51,7 @@
 				}
 
 				@include modifier(pro) {
-					background: $color-extended-neutral-95;
+					background: $color-grey-02;
 					pointer-events: none;
 				}
 
@@ -63,7 +63,7 @@
 
 				@include modifier(neutral) {
 					&:before {
-						background-color: $color-extended-neutral-50;
+						background-color: $color-grey-50;
 					}
 				}
 
@@ -75,25 +75,25 @@
 
 				@include modifier(warning) {
 					&:before {
-						background-color: $color-extended-warning-50;
+						background-color: $color-yellow-50;
 					}
 				}
 
 				@include modifier(success) {
 					&:before {
-						background-color: $color-extended-success-50;
+						background-color: $color-green-50;
 					}
 				}
 
 				@include modifier(critical) {
 					&:before {
-						background-color: $color-extended-error-50;
+						background-color: $color-red-50;
 					}
 				}
 
 				@include modifier(disabled) {
 					pointer-events: none;
-					color: $color-extended-neutral-70;
+					color: $color-grey-50;
 				}
 			}
 
@@ -130,11 +130,11 @@
 
 			@include modifier(border, flush) {
 				gap: 0;
-				border: $border-width-sm solid $color-extended-neutral-80;
+				border: $border-width-sm solid $color-grey-10;
 
 				@include modifies-element(item) {
 					padding: 20px $spacing-2xl;
-					border-bottom: $border-width-sm solid $color-extended-neutral-80;
+					border-bottom: $border-width-sm solid $color-grey-10;
 
 					&:last-child {
 						border-bottom: none;
