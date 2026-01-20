@@ -1,0 +1,11 @@
+@use "./_elements/elements" as sui-template-card--element;
+@use "./_states/states" as sui-template-card--state;
+
+@include sui-template-card--element.build-card(template-card);
+@include sui-template-card--element.build-group(template-card);
+@include sui-template-card--element.build-actions(template-card);
+@include sui-template-card--element.build-content(template-card);
+@include sui-template-card--element.build-hero(template-card);
+
+@include sui-template-card--state.build-hover-focus(template-card);
+@include sui-template-card--state.build-checked(template-card);
