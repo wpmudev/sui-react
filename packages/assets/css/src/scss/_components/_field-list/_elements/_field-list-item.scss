@@ -27,6 +27,10 @@
 					border-bottom: 0;
 				}
 			}
+
+			@include element(item-label) {
+				font-weight: $font-weight-md;
+			}
 		}
 	}
 

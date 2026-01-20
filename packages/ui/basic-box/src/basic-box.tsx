@@ -19,6 +19,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 	centerFooterActions,
 	className,
 	isPro = false,
+	hasBg = false,
 	isFluid = false,
 	children,
 	hasLargeRadius,
@@ -42,6 +43,7 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 			focus: isFocused,
 			hover: isHovered && !isFocused,
 			pro: isPro,
+			bg: hasBg,
 			"is-fluid": isFluid,
 			"center-footer-actions": centerFooterActions,
 			"large-radius": hasLargeRadius,
@@ -63,13 +65,13 @@ const BasicBox: React.FC<BasicBoxProps> = ({
 					id={`${basicBoxId}_header_info`}
 				>
 					{!!title && (
-						<h3
+						<h4
 							id={`${basicBoxId}_title`}
-							className="sui-basic-box__header-title sui-heading--h3"
+							className="sui-basic-box__header-title sui-heading--h4"
 							data-testid="basic-box-title"
 						>
 							{title}
-						</h3>
+						</h4>
 					)}
 					<div className="sui-basic-box__actions" id={`${basicBoxId}_actions`}>
 						{headerActions && headerActions}

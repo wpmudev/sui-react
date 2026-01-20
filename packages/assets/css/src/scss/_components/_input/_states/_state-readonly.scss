@@ -20,6 +20,7 @@
 				}
 
 				@include modifies-element(input) {
+					color: $color-grey-70;
 					background: $input-bg-readonly;
 				}
 			}

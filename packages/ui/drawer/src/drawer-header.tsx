@@ -60,12 +60,13 @@ const DrawerHeader = ({
 						type="icon"
 						icon="Info"
 						customWidth={160}
-						iconSize="sm"
+						iconSize="md"
 						{...tooltipOptions}
 					>
 						{hintText}
 					</Tooltip>
 				)}
+				<span className="sui-heading--h4">{title}</span>
 			</div>
 			<div className="sui-drawer__header-close">
 				<Button

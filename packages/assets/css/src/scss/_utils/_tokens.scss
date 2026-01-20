@@ -1,9 +1,13 @@
-
 // Do not edit directly
 // Generated on Thu, 15 Jan 2026 09:29:18 GMT
 
 $accordion-border-radius-sm: 10px;
-$advanced-banner-background: linear-gradient(90deg, #222 0%, #383323 48.96%, #514524 100%);
+$advanced-banner-background: linear-gradient(
+	90deg,
+	#222 0%,
+	#383323 48.96%,
+	#514524 100%
+);
 $advanced-banner-size-width: 260px;
 $avatar-container-size-sm: 24px;
 $avatar-container-size-md: 32px;
@@ -345,10 +349,10 @@ $border-width-md: 2px;
 $border-width-xl: 4px;
 $border-radius-xs: 3px;
 $border-radius-sm: 4px;
-$border-radius-md: 4px*2;
-$border-radius-lg: 4px*3;
-$border-radius-xl: 4px*4;
-$border-radius-2xl: 4px*5;
+$border-radius-md: 4px * 2;
+$border-radius-lg: 4px * 3;
+$border-radius-xl: 4px * 4;
+$border-radius-2xl: 4px * 5;
 $border-radius-default: 6px;
 $font-weight-sm: 400;
 $font-weight-md: 500;
@@ -374,7 +378,8 @@ $font-spacing-md: 0.2px;
 $font-spacing-lg: 0.5px;
 $font-spacing-2xl: 1px;
 $font-spacing-default: 0px;
-$font-family-default: "Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+$font-family-default: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
+	Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 $font-family-code: "Roboto Mono", monospace;
 $dashboard-size-width-lg: 440px;
 $datepicker-font-size: 14px-1px;
@@ -424,14 +429,14 @@ $icon-size-lg: 48px;
 $icon-size-xl: 64px;
 $input-font-color-default: #1a1a1a;
 $input-font-color-placeholder: #666666;
-$input-font-color-disabled: #b3b3b3;
+$input-font-color-disabled: #e6e6e6;
 $input-font-size-sm: 12px;
 $input-font-size-md: 16px-1px;
 $input-font-height-sm: 16px;
 $input-font-height-md: 24px;
 $input-spacing-padding-vertical-sm: 8px;
 $input-spacing-padding-vertical-md: 8px;
-$input-spacing-padding-horizontal-sm: 4px*3;
+$input-spacing-padding-horizontal-sm: 4px * 3;
 $input-spacing-padding-horizontal-md: 16px;
 $input-spacing-lg: 44px;
 $input-border-width-sm: 1px;
@@ -440,8 +445,8 @@ $input-border-style: solid;
 $input-border-color-default: #b3b3b3;
 $input-border-color-active: #0059ff;
 $input-border-color-error: #e52400;
-$input-border-color-disabled: #f2f2f2;
-$input-border-color-readonly: #f8f8f8;
+$input-border-color-disabled: #e6e6e6;
+$input-border-color-readonly: #e6e6e6;
 $input-border-radius: 4px;
 $input-bg-default: #ffffff;
 $input-bg-disabled: #f2f2f2;
@@ -450,9 +455,9 @@ $integration-disabled-opacity: 0.5;
 $layout-content-width: 1600px;
 $layout-spacing-main-sm: -20px;
 $layout-spacing-main-md: -10px;
-$layout-spacing-content-sm: 8px*2;
-$layout-spacing-content-md: 8px*3;
-$layout-spacing-content-lg: 8px*4;
+$layout-spacing-content-sm: 8px * 2;
+$layout-spacing-content-md: 8px * 3;
+$layout-spacing-content-lg: 8px * 4;
 $link-outline-color: #0059ff;
 $link-outline-style: solid;
 $link-outline-size: 1px;
@@ -556,7 +561,11 @@ $selector-size-width-md: 130px;
 $selector-size-width-lg: 208px;
 $sidebar-spacing-md: 12px;
 $sidebar-size-width-md: 260px;
-$skeleton-background: linear-gradient(93.77deg, $color-grey-10 -10.31%, #f5f5f5 -4.92%);
+$skeleton-background: linear-gradient(
+	93.77deg,
+	$color-grey-10 -10.31%,
+	#f5f5f5 -4.92%
+);
 $skeleton-height: 18px;
 $skeleton-animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 $spinner-size-height-lg: 36px;
@@ -574,7 +583,7 @@ $summary-content-padding-lg: 24px;
 $summary-content-padding-md: 16px;
 $summary-content-padding-sm: 12px;
 $summary-content-background: #ffffff;
-$summary-content-border-radius: 4px*2;
+$summary-content-border-radius: 4px * 2;
 $summary-row-gap-md: 16px;
 $summary-row-gap-sm: 8px;
 $table-width-xs: 100px;
@@ -602,20 +611,30 @@ $tabs-navitem-spacing-vertical: 26px;
 $tabs-navitem-spacing-horizontal: 16px;
 $tabs-navitem-gap: 4px;
 $tabs-navitem-border-width: 4px;
-$tabs-panel-spacing: 16px*2;
+$tabs-panel-spacing: 16px * 2;
 $tabs-color-active: #0059ff;
 $tabs-color-hover: #0059ff;
 $tabs-color-focus-border-color: #0059ff;
 $tabs-color-focus-color: #1a1a1a;
 $tabs-color-focus-background: #b3cdff;
-$tabs-color-disabled: #b3b3b3;
+$tabs-color-disabled: #7f7f7f;
 $tabs-arrow-size-width: 48px;
 $tabs-arrow-size-height: 100%;
-$tabs-arrow-color: #b3b3b3;
+$tabs-arrow-color: #4c4c4c;
 $tabs-arrow-hover-color: #1a1a1a;
 $tabs-arrow-hover-background: #ffffff;
-$tabs-arrow-left-background: linear-gradient(90deg, #FFF 0%, #FFF 71.63%, rgba(248, 248, 248, 0.00) 100%);
-$tabs-arrow-right-background: linear-gradient(270deg, #FFF 0%, #FFF 71.63%, rgba(248, 248, 248, 0.00) 100%);
+$tabs-arrow-left-background: linear-gradient(
+	90deg,
+	#fff 0%,
+	#fff 71.63%,
+	rgba(248, 248, 248, 0) 100%
+);
+$tabs-arrow-right-background: linear-gradient(
+	270deg,
+	#fff 0%,
+	#fff 71.63%,
+	rgba(248, 248, 248, 0) 100%
+);
 $tag-font-size-sm: 10px;
 $tag-font-size-md: 12px;
 $tag-font-spacing-sm: -0.1px;

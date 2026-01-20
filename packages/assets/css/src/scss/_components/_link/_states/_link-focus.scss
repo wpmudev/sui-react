@@ -17,6 +17,8 @@
 				&.sui-#{$block} {
 					outline: $link-outline-size $link-outline-style $link-outline-color;
 					color: $color-primary-50;
+					outline: solid;
+					outline-width: thin;
 				}
 
 				&.sui-#{$block}--secondary {

@@ -43,6 +43,11 @@ interface BasicBoxProps
 	isPro?: boolean
 
 	/**
+	 * Whether box has background or not.
+	 */
+	hasBg?: boolean
+
+	/**
 	 * When set to "true", the block will have "100%" width.
 	 */
 	isFluid?: boolean
