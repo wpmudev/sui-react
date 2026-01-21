@@ -79,9 +79,8 @@
   ],
   "dependencies": {
     "@emotion/css": "^11.11.2",
-    "@types/dedent": "^0.7.0",
     "classnames": "^2.3.2",
-    "msw": "^1.3.3"
+    "dedent": "^0.7.0"
   },
   "devDependencies": {
     "@appnest/readme": "^1.2.7",
@@ -119,6 +118,7 @@
     "@testing-library/jest-dom": "^6.1.3",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
+    "@types/dedent": "^0.7.0",
     "@types/jest": "^29.5.5",
     "@types/jest-axe": "^3.5.7",
     "@types/mdx": "^2.0.8",
@@ -162,6 +162,7 @@
     "lerna": "^4.0.0",
     "lerna-changelog": "^2.2.0",
     "lint-staged": "^16.1.2",
+    "msw": "^1.3.3",
     "node-fetch-commonjs": "^3.3.2",
     "path": "^0.12.7",
     "postcss-bem-linter": "^3.3.0",
