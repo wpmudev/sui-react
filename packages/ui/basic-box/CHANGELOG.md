@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.0.5
+
+### Patch Changes
+
+- [#365](https://github.com/wpmudev/sui-react/pull/365)
+  [`ae10f01`](https://github.com/wpmudev/sui-react/commit/ae10f018b327e88055f9bb5cfccbdcb49000d3fa)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Basic box bg css
+  issue
+
 ## 0.0.4
 
 ### Patch Changes

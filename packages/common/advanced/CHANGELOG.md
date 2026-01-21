@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ae10f01`](https://github.com/wpmudev/sui-react/commit/ae10f018b327e88055f9bb5cfccbdcb49000d3fa)]:
+  - @wpmudev/sui-basic-box@0.0.5
+
 ## 0.0.5
 
 ### Patch Changes
