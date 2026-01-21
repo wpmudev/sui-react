@@ -1,5 +1,49 @@
 # Change Log
 
+## 0.0.5
+
+### Patch Changes
+
+- [#313](https://github.com/wpmudev/sui-react/pull/313)
+  [`0a9e7dd`](https://github.com/wpmudev/sui-react/commit/0a9e7dda13f63ed410df711027ef032d05a41654)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Update colors
+
+- [#334](https://github.com/wpmudev/sui-react/pull/334)
+  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490)
+  Thanks [@abder](https://github.com/abder)! - Remove sui react package.
+
+- [#342](https://github.com/wpmudev/sui-react/pull/342)
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Add new template card
+  component.
+
+- [#361](https://github.com/wpmudev/sui-react/pull/361)
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Change ids to
+  kebab-case
+
+- [#344](https://github.com/wpmudev/sui-react/pull/344)
+  [`4658f19`](https://github.com/wpmudev/sui-react/commit/4658f19e9cc77b2a5f15c911d26cf55c21889ec1)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Add new list
+  component
+
+- Updated dependencies
+  [[`0a9e7dd`](https://github.com/wpmudev/sui-react/commit/0a9e7dda13f63ed410df711027ef032d05a41654),
+  [`761d6ab`](https://github.com/wpmudev/sui-react/commit/761d6abcf1a5bbee08f92d37405e0d9a8de666e9),
+  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490),
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1),
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f),
+  [`4658f19`](https://github.com/wpmudev/sui-react/commit/4658f19e9cc77b2a5f15c911d26cf55c21889ec1)]:
+  - @wpmudev/sui-avatar@0.0.4
+  - @wpmudev/sui-drawer@0.1.2
+  - @wpmudev/sui-tag@0.0.4
+  - @wpmudev/sui-tooltip@0.1.2
+  - @wpmudev/sui-dropdown@0.1.2
+  - @wpmudev/sui-button@0.1.2
+  - @wpmudev/sui-icon@0.1.2
+  - @wpmudev/sui-link@0.0.4
+  - @wpmudev/sui-hooks@0.1.1
+
 ## 0.0.4
 
 ### Patch Changes

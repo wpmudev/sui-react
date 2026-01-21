@@ -1,5 +1,36 @@
 # Change Log
 
+## 0.1.2
+
+### Patch Changes
+
+- [#362](https://github.com/wpmudev/sui-react/pull/362)
+  [`761d6ab`](https://github.com/wpmudev/sui-react/commit/761d6abcf1a5bbee08f92d37405e0d9a8de666e9)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Input disabled styles
+  and tooltip positon fix
+
+- [#334](https://github.com/wpmudev/sui-react/pull/334)
+  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490)
+  Thanks [@abder](https://github.com/abder)! - Remove sui react package.
+
+- [#342](https://github.com/wpmudev/sui-react/pull/342)
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Add new template card
+  component.
+
+- [#361](https://github.com/wpmudev/sui-react/pull/361)
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Change ids to
+  kebab-case
+
+- Updated dependencies
+  [[`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490),
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1),
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f)]:
+  - @wpmudev/sui-button@0.1.2
+  - @wpmudev/sui-icon@0.1.2
+  - @wpmudev/sui-hooks@0.1.1
+
 ## 0.1.1
 
 ### Patch Changes

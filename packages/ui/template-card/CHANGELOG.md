@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- [#342](https://github.com/wpmudev/sui-react/pull/342)
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Add new template card
+  component.
+
+- Updated dependencies
+  [[`761d6ab`](https://github.com/wpmudev/sui-react/commit/761d6abcf1a5bbee08f92d37405e0d9a8de666e9),
+  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490),
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1),
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f)]:
+  - @wpmudev/sui-tooltip@0.1.2
+  - @wpmudev/sui-button@0.1.2
+  - @wpmudev/sui-hooks@0.1.1
+
 ## 0.0.1
 
 ### Patch Changes
