@@ -66,22 +66,10 @@
     "url": "https://incsub.atlassian.net/browse/SUI"
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
-  "workspaces": [
-    "./packages/assets/css",
-    "./packages/assets/icons",
-    "./packages/docs",
-    "./packages/react",
-    "./packages/hooks",
-    "./packages/utils",
-    "./packages/dev-utils",
-    "./packages/ui/*",
-    "./packages/common/*"
-  ],
   "dependencies": {
     "@emotion/css": "^11.11.2",
-    "@types/dedent": "^0.7.0",
     "classnames": "^2.3.2",
-    "msw": "^1.3.3"
+    "dedent": "^0.7.0"
   },
   "devDependencies": {
     "@appnest/readme": "^1.2.7",
@@ -119,6 +107,7 @@
     "@testing-library/jest-dom": "^6.1.3",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.5.1",
+    "@types/dedent": "^0.7.0",
     "@types/jest": "^29.5.5",
     "@types/jest-axe": "^3.5.7",
     "@types/mdx": "^2.0.8",
@@ -130,10 +119,8 @@
     "@wordpress/eslint-plugin": "^14.9.0",
     "@wordpress/stylelint-config": "^21.2.0",
     "babel-loader": "^8.2.5",
-    "classnames": "^2.3.2",
     "clean-package": "^2.2.0",
     "css-loader": "^6.7.1",
-    "dedent": "^0.7.0",
     "esbuild-sass-plugin": "^2.16.0",
     "eslint": "^8.44.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -143,8 +130,8 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-storybook": "^0.6.14",
-    "gh-pages": "^4.0.0",
-    "glob": "^10.3.1",
+    "gh-pages": "^6.3.0",
+    "glob": "^13.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
@@ -162,13 +149,13 @@
     "lerna": "^4.0.0",
     "lerna-changelog": "^2.2.0",
     "lint-staged": "^16.1.2",
+    "msw": "^2.12.7",
     "node-fetch-commonjs": "^3.3.2",
+    "nvm": "^0.0.4",
     "path": "^0.12.7",
     "postcss-bem-linter": "^3.3.0",
     "prettier": "^2.8.8",
-    "react": "^18.2.0",
     "react-docgen-typescript-plugin": "^1.0.5",
-    "react-dom": "^18.2.0",
     "sass": "^1.54.0",
     "sass-loader": "^13.0.2",
     "storybook": "^7.4.5",
@@ -178,13 +165,13 @@
     "ts-jest": "^29.1.1",
     "ts-loader": "^9.4.4",
     "ts-node": "^10.9.1",
-    "tsup": "^7.2.0",
+    "tsup": "^8.5.1",
     "typescript": "^5.1.6",
     "webpack": "^5.88.1"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "resolutions": {
     "glob-parent": "^6.0.2",

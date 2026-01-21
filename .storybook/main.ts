@@ -39,6 +39,13 @@ module.exports = {
 		// add typescript extensions
 		config.resolve.extensions.push(".ts", ".tsx")
 
+		config.node = {
+			...config.node,
+			crypto: false,
+			stream: false,
+			buffer: false,
+		}
+
 		return config
 	},
 	framework: {
