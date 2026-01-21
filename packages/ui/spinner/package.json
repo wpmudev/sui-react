@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-spinner",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A Spinner is used to indicate a process or task is ongoing and that the user should wait for the operation to complete. It is displayed as a simple rotating circled animation, to provide feedback that the system is working on something in the background.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-tabs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Organize the similar content with the tabs that helps users to move between the related content.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -53,9 +53,9 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-hooks": "^0.1.0",
+    "@wpmudev/sui-hooks": "^0.1.1",
     "@wpmudev/sui-icons": "^0.0.2",
-    "@wpmudev/sui-icon": "^0.1.1",
+    "@wpmudev/sui-icon": "^0.1.2",
     "@wpmudev/sui-utils": "^1.0.0"
   }
 }

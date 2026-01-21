@@ -58,7 +58,7 @@
   },
   "homepage": "https://github.com/wpmudev/sui-icons#readme",
   "devDependencies": {
-    "@wpmudev/sui-docs": "^0.0.1",
+    "@wpmudev/sui-docs": "^0.0.2",
     "dedent": "^0.7.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -71,7 +71,7 @@
     "ts-dedent": "^2.2.0"
   },
   "dependencies": {
-    "@wpmudev/sui-icon": "^0.1.0"
+    "@wpmudev/sui-icon": "^0.1.2"
   },
   "clean-package": "./postpack.config.json"
 }
