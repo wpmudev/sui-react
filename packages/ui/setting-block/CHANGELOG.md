@@ -1,5 +1,28 @@
 # Change Log
 
+## 0.1.2
+
+### Patch Changes
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Remove sui react
+  package.
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Change ids to
+  kebab-case
+
+- Updated dependencies
+  [[`0a9e7dd`](https://github.com/wpmudev/sui-react/commit/0a9e7dda13f63ed410df711027ef032d05a41654),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b),
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b),
+  [`4658f19`](https://github.com/wpmudev/sui-react/commit/4658f19e9cc77b2a5f15c911d26cf55c21889ec1)]:
+  - @wpmudev/sui-tag@0.0.4
+  - @wpmudev/sui-hooks@0.1.1
+
 ## 0.1.1
 
 ### Patch Changes

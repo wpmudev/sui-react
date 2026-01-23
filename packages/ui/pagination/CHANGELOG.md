@@ -1,5 +1,27 @@
 # Change Log
 
+## 0.0.4
+
+### Patch Changes
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Remove sui react
+  package.
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Change ids to
+  kebab-case
+
+- Updated dependencies
+  [[`761d6ab`](https://github.com/wpmudev/sui-react/commit/761d6abcf1a5bbee08f92d37405e0d9a8de666e9),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b),
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)]:
+  - @wpmudev/sui-tooltip@0.1.2
+  - @wpmudev/sui-button@0.1.2
+
 ## 0.0.3
 
 ### Patch Changes

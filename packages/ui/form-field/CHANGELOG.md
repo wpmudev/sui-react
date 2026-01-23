@@ -1,5 +1,26 @@
 # Change Log
 
+## 0.1.0
+
+### Minor Changes
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - added required
+  changes for beehive plugin
+
+### Patch Changes
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Remove sui react
+  package.
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Change ids to
+  kebab-case
+
 ## 0.0.4
 
 ### Patch Changes

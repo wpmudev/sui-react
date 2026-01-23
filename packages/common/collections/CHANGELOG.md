@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies
+  [[`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)]:
+  - @wpmudev/sui-upsell-notice@0.0.4
+  - @wpmudev/sui-config-table@0.0.4
+  - @wpmudev/sui-setup-banner@0.0.4
+  - @wpmudev/sui-footer@1.0.2
+  - @wpmudev/sui-upsell@1.0.2
+
 ## 0.0.3
 
 ### Patch Changes
