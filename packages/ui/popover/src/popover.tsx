@@ -61,6 +61,7 @@ const Popover: React.FC<PopoverProps> = ({
 	const ref = useRef<HTMLDivElement | null>(null)
 	const triggerRef = useRef<HTMLDivElement | null>(null)
 	const popupRef = useRef<HTMLDivElement | null>(null)
+	const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
 
@@ -97,6 +98,12 @@ const Popover: React.FC<PopoverProps> = ({
 			return
 		}
 
+		// Clear any pending close timeout
+		if (closeTimeoutRef.current) {
+			clearTimeout(closeTimeoutRef.current)
+			closeTimeoutRef.current = null
+		}
+
 		setIsPopupOpen(true)
 	}, [displayOnHover])
 
@@ -106,8 +113,21 @@ const Popover: React.FC<PopoverProps> = ({
 			return
 		}
 
-		setIsPopupOpen(false)
+		// Delay closing to allow mouse to reach the popup
+		closeTimeoutRef.current = setTimeout(() => {
+			setIsPopupOpen(false)
+			closeTimeoutRef.current = null
+		}, 500)
 	}, [displayOnHover])
+
+	// Cleanup timeout on unmount
+	useEffect(() => {
+		return () => {
+			if (closeTimeoutRef.current) {
+				clearTimeout(closeTimeoutRef.current)
+			}
+		}
+	}, [])
 
 	useEffect(() => {
 		const el = triggerRef?.current
@@ -236,6 +256,7 @@ const Popover: React.FC<PopoverProps> = ({
 				ref={popupRef as LegacyRef<HTMLDivElement>}
 				className="sui-popover__popup"
 				style={{ ...popupPositions, width: popupWidth } as CSSProperties}
+				onMouseEnter={onMouseEnter}
 				{...popupProps}
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
