@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-modal",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The modal dialog purpose is to notify and inform users or ask them certain question about their preferences",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -59,8 +59,8 @@
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-button": "^0.1.1",
-    "@wpmudev/sui-hooks": "^0.1.0",
+    "@wpmudev/sui-button": "^0.1.2",
+    "@wpmudev/sui-hooks": "^0.1.1",
     "@wpmudev/sui-icons": "*",
     "@wpmudev/sui-utils": "^1.0.0"
   }

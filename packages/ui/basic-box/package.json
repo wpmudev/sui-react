@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-basic-box",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Basic box is a component that is used to display page settings or page content.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -54,6 +54,6 @@
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
     "@wpmudev/sui-utils": "^1.0.0",
-    "@wpmudev/sui-hooks": "^0.1.0"
+    "@wpmudev/sui-hooks": "^0.1.1"
   }
 }

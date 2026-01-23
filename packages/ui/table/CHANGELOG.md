@@ -1,5 +1,49 @@
 # Change Log
 
+## 1.0.5
+
+### Patch Changes
+
+- [#313](https://github.com/wpmudev/sui-react/pull/313)
+  [`0a9e7dd`](https://github.com/wpmudev/sui-react/commit/0a9e7dda13f63ed410df711027ef032d05a41654)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Update colors
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Remove sui react
+  package.
+
+- [#342](https://github.com/wpmudev/sui-react/pull/342)
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Add new template card
+  component.
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Change ids to
+  kebab-case
+
+- [#344](https://github.com/wpmudev/sui-react/pull/344)
+  [`4658f19`](https://github.com/wpmudev/sui-react/commit/4658f19e9cc77b2a5f15c911d26cf55c21889ec1)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Add new list
+  component
+
+- Updated dependencies
+  [[`0a9e7dd`](https://github.com/wpmudev/sui-react/commit/0a9e7dda13f63ed410df711027ef032d05a41654),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b),
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)]:
+  - @wpmudev/sui-checkbox@0.0.5
+  - @wpmudev/sui-form-field@0.1.0
+  - @wpmudev/sui-dropdown@0.2.0
+  - @wpmudev/sui-select@0.2.0
+  - @wpmudev/sui-input@0.1.0
+  - @wpmudev/sui-button@0.1.2
+  - @wpmudev/sui-grid@0.1.2
+  - @wpmudev/sui-box@0.1.2
+  - @wpmudev/sui-hooks@0.1.1
+
 ## 1.0.4
 
 ### Patch Changes

@@ -1,5 +1,40 @@
 # Change Log
 
+## 0.1.0
+
+### Minor Changes
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - added required
+  changes for beehive plugin
+
+### Patch Changes
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Remove sui react
+  package.
+
+- [#342](https://github.com/wpmudev/sui-react/pull/342)
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Add new template card
+  component.
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Change ids to
+  kebab-case
+
+- Updated dependencies
+  [[`0a9e7dd`](https://github.com/wpmudev/sui-react/commit/0a9e7dda13f63ed410df711027ef032d05a41654),
+  [`761d6ab`](https://github.com/wpmudev/sui-react/commit/761d6abcf1a5bbee08f92d37405e0d9a8de666e9),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b),
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)]:
+  - @wpmudev/sui-avatar@0.0.4
+  - @wpmudev/sui-tooltip@0.1.2
+
 ## 0.0.3
 
 ### Patch Changes

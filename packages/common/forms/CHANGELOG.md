@@ -1,5 +1,22 @@
 # Change Log
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies
+  [[`0a9e7dd`](https://github.com/wpmudev/sui-react/commit/0a9e7dda13f63ed410df711027ef032d05a41654),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)]:
+  - @wpmudev/sui-checkbox@0.0.5
+  - @wpmudev/sui-form-field@0.1.0
+  - @wpmudev/sui-toggle@0.2.0
+  - @wpmudev/sui-input@0.1.0
+  - @wpmudev/sui-textarea@0.0.3
+  - @wpmudev/sui-button@0.1.2
+  - @wpmudev/sui-radio@0.0.4
+
 ## 0.0.4
 
 ### Patch Changes
