@@ -57,6 +57,10 @@ interface NavigationBrandProps extends SuiStyleType, SuiHTMLAttributes {
 	 */
 	plugin?: PluginsSlug
 	/*
+	 * Optional: Custom icon URL for the brand.
+	 */
+	customIcon?: string
+	/*
 	 * Optional: Title for the brand.
 	 */
 	title?: string
