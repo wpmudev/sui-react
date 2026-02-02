@@ -27,6 +27,7 @@
   [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
   Thanks [@creador-dev](https://github.com/creador-dev)! - added required
   changes for beehive plugin
+## 0.1.5
 
 ### Patch Changes
 
@@ -43,6 +44,9 @@
   [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
   Thanks [@creador-dev](https://github.com/creador-dev)! - Remove sui react
   package.
+- [#334](https://github.com/wpmudev/sui-react/pull/334)
+  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490)
+  Thanks [@abder](https://github.com/abder)! - Remove sui react package.
 
 - [#342](https://github.com/wpmudev/sui-react/pull/342)
   [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1)

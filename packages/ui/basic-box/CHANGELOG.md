@@ -32,6 +32,16 @@
   [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
   Thanks [@creador-dev](https://github.com/creador-dev)! - added required
   changes for beehive plugin
+## 0.0.5
+
+### Patch Changes
+
+- [#365](https://github.com/wpmudev/sui-react/pull/365)
+  [`ae10f01`](https://github.com/wpmudev/sui-react/commit/ae10f018b327e88055f9bb5cfccbdcb49000d3fa)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Basic box bg css
+  issue
+
+## 0.0.4
 
 ### Patch Changes
 
@@ -46,6 +56,12 @@
 
 - [#355](https://github.com/wpmudev/sui-react/pull/355)
   [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+- [#334](https://github.com/wpmudev/sui-react/pull/334)
+  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490)
+  Thanks [@abder](https://github.com/abder)! - Remove sui react package.
+
+- [#361](https://github.com/wpmudev/sui-react/pull/361)
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f)
   Thanks [@creador-dev](https://github.com/creador-dev)! - Change ids to
   kebab-case
 

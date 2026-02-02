@@ -45,6 +45,9 @@
   - @wpmudev/sui-select@0.2.1
   - @wpmudev/sui-modal@0.1.3
   - @wpmudev/sui-tabs@0.2.1
+- Updated dependencies
+  [[`ae10f01`](https://github.com/wpmudev/sui-react/commit/ae10f018b327e88055f9bb5cfccbdcb49000d3fa)]:
+  - @wpmudev/sui-basic-box@0.0.5
 
 ## 0.0.5
 
@@ -68,6 +71,14 @@
   - @wpmudev/sui-dropdown@0.2.0
   - @wpmudev/sui-select@0.2.0
   - @wpmudev/sui-tabs@0.2.0
+  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490),
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1),
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f),
+  [`4658f19`](https://github.com/wpmudev/sui-react/commit/4658f19e9cc77b2a5f15c911d26cf55c21889ec1)]:
+  - @wpmudev/sui-color-picker@0.0.4
+  - @wpmudev/sui-basic-box@0.0.4
+  - @wpmudev/sui-uploader@0.1.3
+  - @wpmudev/sui-sidebar@0.1.2
   - @wpmudev/sui-rich-text-editor@0.0.5
   - @wpmudev/sui-advanced-banner@0.0.4
   - @wpmudev/sui-editor-toolbar@0.0.4
@@ -84,6 +95,20 @@
   - @wpmudev/sui-builder@0.0.5
   - @wpmudev/sui-search@0.0.4
   - @wpmudev/sui-modal@0.1.2
+  - @wpmudev/sui-date-picker@0.0.4
+  - @wpmudev/sui-empty-state@0.0.4
+  - @wpmudev/sui-summary-box@0.1.3
+  - @wpmudev/sui-field-list@0.1.2
+  - @wpmudev/sui-pagination@0.0.4
+  - @wpmudev/sui-accordion@0.0.5
+  - @wpmudev/sui-recipient@0.0.4
+  - @wpmudev/sui-tree-view@0.0.5
+  - @wpmudev/sui-dropdown@0.1.2
+  - @wpmudev/sui-builder@0.0.5
+  - @wpmudev/sui-search@0.0.4
+  - @wpmudev/sui-select@0.1.3
+  - @wpmudev/sui-modal@0.1.2
+  - @wpmudev/sui-tabs@0.1.2
 
 ## 0.0.4
 

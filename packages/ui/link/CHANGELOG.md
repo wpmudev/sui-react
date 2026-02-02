@@ -43,6 +43,16 @@
 
 - [#355](https://github.com/wpmudev/sui-react/pull/355)
   [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+## 0.0.4
+
+### Patch Changes
+
+- [#334](https://github.com/wpmudev/sui-react/pull/334)
+  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490)
+  Thanks [@abder](https://github.com/abder)! - Remove sui react package.
+
+- [#361](https://github.com/wpmudev/sui-react/pull/361)
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f)
   Thanks [@creador-dev](https://github.com/creador-dev)! - Change ids to
   kebab-case
 

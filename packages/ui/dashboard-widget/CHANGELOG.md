@@ -36,6 +36,7 @@
   [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
   Thanks [@creador-dev](https://github.com/creador-dev)! - added required
   changes for beehive plugin
+## 0.1.2
 
 ### Patch Changes
 
@@ -50,6 +51,12 @@
 
 - [#355](https://github.com/wpmudev/sui-react/pull/355)
   [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+- [#334](https://github.com/wpmudev/sui-react/pull/334)
+  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490)
+  Thanks [@abder](https://github.com/abder)! - Remove sui react package.
+
+- [#361](https://github.com/wpmudev/sui-react/pull/361)
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f)
   Thanks [@creador-dev](https://github.com/creador-dev)! - Change ids to
   kebab-case
 
@@ -62,6 +69,12 @@
   [`4658f19`](https://github.com/wpmudev/sui-react/commit/4658f19e9cc77b2a5f15c911d26cf55c21889ec1)]:
   - @wpmudev/sui-tag@0.0.4
   - @wpmudev/sui-toggle@0.2.0
+  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490),
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1),
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f),
+  [`4658f19`](https://github.com/wpmudev/sui-react/commit/4658f19e9cc77b2a5f15c911d26cf55c21889ec1)]:
+  - @wpmudev/sui-tag@0.0.4
+  - @wpmudev/sui-toggle@0.1.2
   - @wpmudev/sui-icon@0.1.2
 
 ## 0.1.1

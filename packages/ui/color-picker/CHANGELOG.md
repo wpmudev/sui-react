@@ -45,6 +45,10 @@
   [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)]:
   - @wpmudev/sui-input@0.1.0
   - @wpmudev/sui-button@0.1.2
+  [[`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490),
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f)]:
+  - @wpmudev/sui-button@0.1.2
+  - @wpmudev/sui-input@0.0.4
 
 ## 0.0.3
 

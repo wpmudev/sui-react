@@ -54,6 +54,15 @@
   - @wpmudev/sui-table@1.0.5
   - @wpmudev/sui-navigation@0.2.0
   - @wpmudev/sui-integration@0.0.4
+  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490),
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1),
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f),
+  [`4658f19`](https://github.com/wpmudev/sui-react/commit/4658f19e9cc77b2a5f15c911d26cf55c21889ec1)]:
+  - @wpmudev/sui-navigation-wpmudev@0.0.5
+  - @wpmudev/sui-dashboard-widget@0.1.2
+  - @wpmudev/sui-table@1.0.5
+  - @wpmudev/sui-integration@0.0.4
+  - @wpmudev/sui-navigation@0.1.2
 
 ## 0.0.4
 
