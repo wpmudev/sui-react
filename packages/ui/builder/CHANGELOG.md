@@ -1,5 +1,28 @@
 # @wpmudev/sui-builder
 
+## 0.0.6
+
+### Patch Changes
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`503754f`](https://github.com/wpmudev/sui-react/commit/503754fe4f0d7745369493f06311bbc55d9322f6)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Popover popup
+  automatic placement.
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`c37ddcb`](https://github.com/wpmudev/sui-react/commit/c37ddcb96d23a3af499de507cec2100b75264c4e)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Setup banner and
+  navigation custom icon prop
+
+- Updated dependencies
+  [[`503754f`](https://github.com/wpmudev/sui-react/commit/503754fe4f0d7745369493f06311bbc55d9322f6),
+  [`c37ddcb`](https://github.com/wpmudev/sui-react/commit/c37ddcb96d23a3af499de507cec2100b75264c4e)]:
+  - @wpmudev/sui-icons@0.0.3
+  - @wpmudev/sui-button@0.1.3
+  - @wpmudev/sui-grid@0.1.3
+  - @wpmudev/sui-icon@0.1.3
+  - @wpmudev/sui-hooks@0.1.2
+
 ## 0.0.5
 
 ### Patch Changes

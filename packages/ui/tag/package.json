@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-tag",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Use tag for label and categorising items. Also known as chips,etc.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

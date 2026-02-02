@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-grid",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "The Grid is composed of two fundamental components: Row and Column. It empowers you to create layouts and align content with precision on your web page",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",

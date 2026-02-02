@@ -1,7 +1,7 @@
 {
   "name": "@wpmudev/sui-icons",
   "description": "SUI Icons Pack, the WPMU DEV Products icons package.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "GPL-2.0",
   "keywords": [
     "wpmudev",
@@ -58,7 +58,7 @@
   },
   "homepage": "https://github.com/wpmudev/sui-icons#readme",
   "devDependencies": {
-    "@wpmudev/sui-docs": "^0.0.2",
+    "@wpmudev/sui-docs": "^0.0.3",
     "dedent": "^0.7.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -71,7 +71,7 @@
     "ts-dedent": "^2.2.0"
   },
   "dependencies": {
-    "@wpmudev/sui-icon": "^0.1.2"
+    "@wpmudev/sui-icon": "^0.1.3"
   },
   "clean-package": "./postpack.config.json"
 }

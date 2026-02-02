@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-builder",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Builder is a drag and drop interface that allows to create or customize content layouts and arrangements by dragging and dropping various components into a canvas.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -53,11 +53,11 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-button": "^0.1.2",
-    "@wpmudev/sui-grid": "^0.1.2",
-    "@wpmudev/sui-hooks": "^0.1.1",
-    "@wpmudev/sui-icon": "^0.1.2",
-    "@wpmudev/sui-icons": "^0.0.2",
+    "@wpmudev/sui-button": "^0.1.3",
+    "@wpmudev/sui-grid": "^0.1.3",
+    "@wpmudev/sui-hooks": "^0.1.2",
+    "@wpmudev/sui-icon": "^0.1.3",
+    "@wpmudev/sui-icons": "^0.0.3",
     "@wpmudev/sui-utils": "^1.0.0"
   }
 }
