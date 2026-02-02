@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-editor-toolbar",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Editor Toolbar is used at the top of the editing page replacing the main navigation.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -54,7 +54,7 @@
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-button": "^0.1.3",
+    "@wpmudev/sui-button": "^0.1.4",
     "@wpmudev/sui-utils": "^1.0.0"
   }
 }

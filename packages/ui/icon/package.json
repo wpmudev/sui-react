@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-icon",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "The Icon component serves as a container for SVG components, enabling the rendering of any SVG icon.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
