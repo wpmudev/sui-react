@@ -51,6 +51,7 @@ const Popover: React.FC<PopoverProps> = ({
 		top: 0,
 		right: "auto",
 	})
+	const [adjustedPlacement, setAdjustedPlacement] = useState<string>(placement)
 
 	// default children content
 	children = useDefaultChildren(children)
@@ -71,7 +72,7 @@ const Popover: React.FC<PopoverProps> = ({
 		{
 			open: isPopupOpen,
 			image: !isUndefined(image) && !isEmpty(image),
-			[`${placement}`]: true,
+			[`${adjustedPlacement}`]: true,
 		},
 		suiInlineClassname,
 	)
@@ -129,6 +130,175 @@ const Popover: React.FC<PopoverProps> = ({
 		}
 	}, [])
 
+	/**
+	 * Check if popover fits in viewport and adjust placement if needed
+	 */
+	const getAdjustedPlacement = useCallback(
+		(
+			triggerRect: DOMRect,
+			popupW: number,
+			popupH: number,
+			currentPlacement: string,
+		): string => {
+			const viewportWidth = window.innerWidth
+			const viewportHeight = window.innerHeight
+			const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+			const scrollLeft =
+				window.pageXOffset || document.documentElement.scrollLeft
+
+			// Calculate absolute positions for the trigger element
+			const triggerTop = triggerRect.top + scrollTop
+			const triggerLeft = triggerRect.left + scrollLeft
+			const triggerBottom = triggerTop + triggerRect.height
+			const triggerRight = triggerLeft + triggerRect.width
+
+			// Helper to check if a position fits
+			const checkFit = (positionToCheck: string): boolean => {
+				let popupTop = 0
+				let popupLeft = 0
+
+				switch (positionToCheck) {
+					case "top":
+					case "top-left":
+					case "top-right":
+						popupTop = triggerTop - popupH - 16
+						break
+					case "bottom":
+					case "bottom-left":
+					case "bottom-right":
+						popupTop = triggerBottom + 16
+						break
+					case "left":
+					case "left-top":
+					case "left-bottom":
+						popupTop = triggerTop + triggerRect.height / 2 - popupH / 2
+						break
+					case "right":
+					case "right-top":
+					case "right-bottom":
+						popupTop = triggerTop + triggerRect.height / 2 - popupH / 2
+						break
+				}
+
+				switch (positionToCheck) {
+					case "top":
+					case "bottom":
+						popupLeft = triggerLeft + triggerRect.width / 2 - popupW / 2
+						break
+					case "top-left":
+					case "bottom-left":
+						popupLeft = triggerLeft - popupW + triggerRect.width / 2 + 26
+						break
+					case "top-right":
+					case "bottom-right":
+						popupLeft = triggerLeft + triggerRect.width / 2 - 26
+						break
+					case "left":
+					case "left-top":
+					case "left-bottom":
+						popupLeft = triggerLeft - popupW - 16
+						break
+					case "right":
+					case "right-top":
+					case "right-bottom":
+						popupLeft = triggerRight + 16
+						break
+				}
+
+				// Check if popup fits in viewport
+				const fitsVertically =
+					popupTop >= scrollTop &&
+					popupTop + popupH <= scrollTop + viewportHeight
+				const fitsHorizontally =
+					popupLeft >= scrollLeft &&
+					popupLeft + popupW <= scrollLeft + viewportWidth
+
+				return fitsVertically && fitsHorizontally
+			}
+
+			// First, check if current placement fits
+			if (checkFit(currentPlacement)) {
+				return currentPlacement
+			}
+
+			// Define fallback order based on current placement
+			const fallbackOrder: Record<string, string[]> = {
+				top: ["bottom", "right", "left", "top-right", "top-left"],
+				"top-left": [
+					"bottom-left",
+					"top-right",
+					"bottom-right",
+					"right",
+					"left",
+				],
+				"top-right": [
+					"bottom-right",
+					"top-left",
+					"bottom-left",
+					"left",
+					"right",
+				],
+				bottom: ["top", "right", "left", "bottom-right", "bottom-left"],
+				"bottom-left": [
+					"top-left",
+					"bottom-right",
+					"top-right",
+					"right",
+					"left",
+				],
+				"bottom-right": [
+					"top-right",
+					"bottom-left",
+					"top-left",
+					"left",
+					"right",
+				],
+				left: ["right", "top", "bottom", "left-top", "left-bottom"],
+				"left-top": [
+					"right-top",
+					"left-bottom",
+					"right-bottom",
+					"top",
+					"bottom",
+				],
+				"left-bottom": [
+					"right-bottom",
+					"left-top",
+					"right-top",
+					"bottom",
+					"top",
+				],
+				right: ["left", "top", "bottom", "right-top", "right-bottom"],
+				"right-top": [
+					"left-top",
+					"right-bottom",
+					"left-bottom",
+					"top",
+					"bottom",
+				],
+				"right-bottom": [
+					"left-bottom",
+					"right-top",
+					"left-top",
+					"bottom",
+					"top",
+				],
+			}
+
+			// Try fallback positions
+			const fallbacks = fallbackOrder[currentPlacement] || []
+			for (const fallbackPlacement of fallbacks) {
+				if (checkFit(fallbackPlacement)) {
+					return fallbackPlacement
+				}
+			}
+
+			// If nothing fits, return the original placement
+			return currentPlacement
+		},
+		[],
+	)
+
 	useEffect(() => {
 		const el = triggerRef?.current
 		const { clientWidth, clientHeight } = el as HTMLDivElement
@@ -139,9 +309,19 @@ const Popover: React.FC<PopoverProps> = ({
 			return
 		}
 
+		// Get trigger element's position and check for best placement
+		const triggerRect = el?.getBoundingClientRect() as DOMRect
+		const bestPlacement = getAdjustedPlacement(
+			triggerRect,
+			popupW,
+			popupH,
+			placement,
+		)
+		setAdjustedPlacement(bestPlacement)
+
 		let pos = {}
 
-		switch (placement) {
+		switch (bestPlacement) {
 			case "top":
 				pos = {
 					[isRTL ? "right" : "left"]: 0 - popupW / 2 + clientWidth / 2,
@@ -221,7 +401,7 @@ const Popover: React.FC<PopoverProps> = ({
 			...pos,
 		})
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [trigger, popupRef, isPopupOpen, placement])
+	}, [trigger, popupRef, isPopupOpen, placement, getAdjustedPlacement])
 
 	return (
 		<div
