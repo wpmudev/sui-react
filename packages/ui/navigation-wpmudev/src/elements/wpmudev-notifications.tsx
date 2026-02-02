@@ -16,6 +16,7 @@ const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
 		</Link>,
 	],
 	className = "",
+	tooltipProps = {},
 	_htmlProps = {},
 	_style = {},
 	...props
@@ -41,6 +42,7 @@ const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
 				buttonIcon="Logo"
 				trigger={
 					<Tooltip
+						placement="top-right"
 						buttonProps={{
 							type: "tertiary",
 							colorScheme: "black",
@@ -50,6 +52,7 @@ const NotificationWPMUDEV: React.FC<WPMUDEVNotificationProps> = ({
 						onClick={() => {
 							notificationRef?.current?.toggle()
 						}}
+						{...tooltipProps}
 					>
 						{title}
 					</Tooltip>

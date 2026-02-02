@@ -124,6 +124,10 @@ interface SummaryBoxItemProps
 	 */
 	className?: string
 	/**
+	 * Optional children elements to be rendered within the item.
+	 */
+	children?: React.ReactNode
+	/**
 	 * Additional props to be passed to the Tag component (optional).
 	 */
 	tagProps?: Partial<TagProps>

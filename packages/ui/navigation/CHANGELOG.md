@@ -1,5 +1,51 @@
 # Change Log
 
+## 0.2.1
+
+### Patch Changes
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`503754f`](https://github.com/wpmudev/sui-react/commit/503754fe4f0d7745369493f06311bbc55d9322f6)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Popover popup
+  automatic placement.
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`c37ddcb`](https://github.com/wpmudev/sui-react/commit/c37ddcb96d23a3af499de507cec2100b75264c4e)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Setup banner and
+  navigation custom icon prop
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`36ba29c`](https://github.com/wpmudev/sui-react/commit/36ba29c920888612cf431d0a419cbf8a42e9838e)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Popover visibility
+  issue
+
+- Updated dependencies
+  [[`503754f`](https://github.com/wpmudev/sui-react/commit/503754fe4f0d7745369493f06311bbc55d9322f6),
+  [`c37ddcb`](https://github.com/wpmudev/sui-react/commit/c37ddcb96d23a3af499de507cec2100b75264c4e),
+  [`36ba29c`](https://github.com/wpmudev/sui-react/commit/36ba29c920888612cf431d0a419cbf8a42e9838e)]:
+  - @wpmudev/sui-icons@0.0.3
+  - @wpmudev/sui-dropdown@0.2.1
+  - @wpmudev/sui-avatar@0.0.5
+  - @wpmudev/sui-icon@0.1.3
+
+## 0.2.0
+
+### Minor Changes
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - added required
+  changes for beehive plugin
+
+### Patch Changes
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Remove sui react
+  package.
+
+- [#355](https://github.com/wpmudev/sui-react/pull/355)
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)
 ## 0.1.2
 
 ### Patch Changes
@@ -15,6 +61,11 @@
 
 - Updated dependencies
   [[`0a9e7dd`](https://github.com/wpmudev/sui-react/commit/0a9e7dda13f63ed410df711027ef032d05a41654),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b),
+  [`ef804ad`](https://github.com/wpmudev/sui-react/commit/ef804adbfb5d783e066897e4771bc201f704351b)]:
+  - @wpmudev/sui-avatar@0.0.4
+  - @wpmudev/sui-dropdown@0.2.0
   [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490),
   [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f)]:
   - @wpmudev/sui-avatar@0.0.4

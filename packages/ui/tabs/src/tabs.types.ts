@@ -61,6 +61,7 @@ interface TabPanelProps extends TabNavProps {}
  */
 interface TabPanelItemProps extends TabNavProps {
 	id?: string // Unique ID for the tab panel.
+	isDisabled?: boolean
 }
 
 /**

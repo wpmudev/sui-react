@@ -29,6 +29,7 @@ const DatePicker = ({
 	color: string
 	error: string
 	isDisabled: boolean
+	dateFormat?: string
 }) => {
 	const boxStyles = {
 		padding: 20,
@@ -63,7 +64,10 @@ DatePicker.args = {
 	minDate: "01/05/2007",
 	maxDate: "30/10/2023",
 	isDisabled: false,
+	closeOnClickOutside: true,
 	error: "",
+	alignment: "left",
+	dateFormat: "MMM d, yyyy",
 }
 
 // Set controls for story arguments.
@@ -117,8 +121,36 @@ DatePicker.argTypes = {
 			type: "boolean",
 		},
 	},
+	closeOnClickOutside: {
+		name: "Close on Click Outside",
+		description: "Close the date picker when clicking outside of it",
+		control: {
+			type: "boolean",
+		},
+	},
 	error: {
 		name: "Error",
+		control: {
+			type: "text",
+		},
+	},
+	alignment: {
+		name: "Alignment",
+		options: ["left", "right"],
+		description:
+			"Specifies the alignment of the popover relative to the input field",
+		control: {
+			type: "select",
+			labels: {
+				left: "Left",
+				right: "Right",
+			},
+		},
+	},
+	dateFormat: {
+		name: "Date Format",
+		description:
+			"Date format string using date-fns format tokens. Examples: 'LLLL d, yyyy' (January 1, 2026), 'MMM d, yyyy' (Jan 1, 2026), 'MM/dd/yyyy' (01/01/2026)",
 		control: {
 			type: "text",
 		},

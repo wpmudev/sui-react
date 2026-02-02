@@ -129,6 +129,7 @@ const Select = ({
 									isAsync: true,
 									allowSearch: true,
 									searchPlaceholder: "Search...",
+									emptyMessage: "No options found",
 									asyncOptions: {
 										perPage,
 									},

@@ -12,6 +12,16 @@
 			@include element(menu) {
 				margin: 0;
 				padding: 0;
+
+				@include modifier(no-results) {
+					font: $font-weight-default #{$font-size-xs}/#{$font-height-xs}
+						$font-family-default;
+					border-radius: $border-radius-md;
+					margin: $spacing-md;
+					padding: $spacing-md $spacing-lg;
+					background: $color-grey-02;
+					font-size: $font-size-sm;
+				}
 			}
 
 			@include element(menu-nav-search) {

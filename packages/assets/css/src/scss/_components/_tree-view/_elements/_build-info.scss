@@ -55,6 +55,11 @@
 				display: flex;
 				margin-left: $spacing-md;
 				width: $treeview-size-md;
+
+				.sui-checkbox__box {
+					position: relative;
+					display: flex;
+				}
 			}
 		}
 	}

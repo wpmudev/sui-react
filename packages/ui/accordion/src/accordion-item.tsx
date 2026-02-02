@@ -13,7 +13,9 @@ import {
 } from "@wpmudev/sui-utils"
 import { ChevronDown, ChevronUp } from "@wpmudev/sui-icons"
 import { Checkbox } from "@wpmudev/sui-checkbox"
+import { Toggle } from "@wpmudev/sui-toggle"
 import { AccordionItemProps } from "./accordion.types"
+import { Tooltip } from "@wpmudev/sui-tooltip"
 
 // The AccordionItem component is defined as a functional component using React.FC.
 const AccordionItem: React.FC<AccordionItemProps> = ({
@@ -24,14 +26,18 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 	isDisabled = false,
 	icon,
 	hasCheckbox,
-	isExpanded,
+	isChecked: initialIsChecked = false,
+	hasToggle = false,
+	toggleProps,
+	tooltipProps,
+	isExpanded = false,
 	onCheck,
 	_htmlProps = {},
 	contentShadow = true,
 	_style = {},
 }) => {
 	// Checkbox is checked.
-	const [isChecked, setIsChecked] = useState(false)
+	const [isChecked, setIsChecked] = useState(initialIsChecked)
 
 	// Default content when children is empty
 	children = useDefaultChildren(children)
@@ -121,21 +127,22 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 					focus: isFocused || isPressed,
 				})}
 				{...(Object.keys(styles).length > 0 && { style: styles })}
-				{...(!hasCheckbox && {
-					tabIndex: isDisabled ? -1 : 0,
-					role: "button",
-					"aria-expanded": isExpanded,
-					"aria-controls": accordionPanelId,
-					onClick: toggle,
-					"data-testid": "accordion-item-button",
-					onKeyDown: (e) => {
-						e.stopPropagation()
-						handleOnKeyDown(e, toggle)
-					},
-				})}
+				{...(!hasCheckbox &&
+					!hasToggle && {
+						tabIndex: isDisabled ? -1 : 0,
+						role: "button",
+						"aria-expanded": isExpanded,
+						"aria-controls": accordionPanelId,
+						onClick: toggle,
+						"data-testid": "accordion-item-button",
+						onKeyDown: (e) => {
+							e.stopPropagation()
+							handleOnKeyDown(e, toggle)
+						},
+					})}
 				{...(interactionMethods ?? {})}
 			>
-				{hasCheckbox && (
+				{(hasCheckbox || (hasToggle && isChecked)) && (
 					<div
 						id={`${accordionId}-accessible-cta`}
 						className="sui-accessible-cta"
@@ -158,11 +165,39 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 					className="sui-accordion__header-info"
 					id={`${accordionId}-header-info`}
 				>
-					{(!!hasCheckbox || !!icon) && (
+					{(!!hasCheckbox || !!hasToggle || !!icon) && (
 						<div
 							className="sui-accordion__header-actions"
 							id={`${accordionId}-header-actions`}
 						>
+							{hasToggle && (
+								<div
+									id={`${accordionId}_header_toggle`}
+									className="sui-accordion__header-toggle"
+								>
+									<Toggle
+										id={`${accordionId}_toggle`}
+										label={title}
+										defaultValue={isChecked}
+										isDisabled={isDisabled}
+										aria-label={title}
+										{...toggleProps}
+										onClick={(event) => {
+											if (
+												(!isCurrentlyExpanded && !isChecked) ||
+												(isCurrentlyExpanded && isChecked)
+											) {
+												toggle()
+											}
+											setIsChecked(!isChecked)
+
+											if (toggleProps?.onClick) {
+												toggleProps.onClick(event)
+											}
+										}}
+									/>
+								</div>
+							)}
 							{hasCheckbox && (
 								<Checkbox
 									name={accordionId}
@@ -175,20 +210,28 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 							{!!icon && icon}
 						</div>
 					)}
-					<div
-						className="sui-accordion__header-title"
-						id={`${accordionId}-header-title`}
-					>
-						<h2>{title}</h2>
-						{!isEmpty(description ?? "") && <p>{description}</p>}
-					</div>
+					{!hasToggle && (
+						<div
+							className="sui-accordion__header-title"
+							id={`${accordionId}-header-title`}
+						>
+							<h2 className={`${accordionId}-title`}>{title}</h2>
+							{!isEmpty(description ?? "") && (
+								<p className={`${accordionId}-description`}>{description}</p>
+							)}
+						</div>
+					)}
 				</div>
 				{/* Icon component to display a chevron icon */}
 				<div
 					className="sui-accordion__header-icon"
 					id={`${accordionId}-header-icon`}
 				>
-					<Icon iconHeight={16} iconWidth={16} />
+					{tooltipProps ? (
+						<Tooltip icon="Info" {...tooltipProps}></Tooltip>
+					) : (
+						<Icon iconHeight={16} iconWidth={16} />
+					)}
 				</div>
 			</div>
 			{/* Content of the accordion item's panel */}

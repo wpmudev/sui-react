@@ -28,6 +28,8 @@ const Link: React.FC<LinkProps> = ({
 	hasExternalIcon = false,
 	children,
 	href = "#",
+	reload = false,
+	onClick = () => {},
 	_htmlProps = {},
 	_style = {},
 	...props
@@ -69,11 +71,21 @@ const Link: React.FC<LinkProps> = ({
 		..._renderHTMLPropsSafely(_htmlProps),
 	}
 
-	const onClickCallback = (e: MouseEvent<unknown> | KeyboardEvent<unknown>) => {
+	const onClickCallback = (e: React.MouseEvent | React.KeyboardEvent) => {
 		// Prevent the default link behavior
 		handleEventDefault(e, false, true)
+
+		// If the link is disabled, do nothing
+		if (onClick && !isDisabled) {
+			onClick(e)
+		}
+
 		// Open the link in a new tab or the same tab based on 'isExternal'
 		window.open(href, isExternal ? "_blank" : "_top")
+		// Reload the page if 'reload' is true
+		if (reload) {
+			window.location.reload()
+		}
 	}
 
 	// Handle link behavior based on the selected HTML tag

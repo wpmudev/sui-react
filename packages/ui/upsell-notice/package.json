@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-upsell-notice",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "The upsell notice is used to upsell any features in the plugins.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -57,8 +57,8 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@wpmudev/sui-icons": "*",
-    "@wpmudev/sui-tag": "^0.0.4",
+    "@wpmudev/sui-icons": "^0.0.4",
+    "@wpmudev/sui-tag": "^0.0.6",
     "@wpmudev/sui-utils": "^1.0.0"
   }
 }
