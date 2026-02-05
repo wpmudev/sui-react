@@ -14,11 +14,10 @@
 		@include block($block) {
 			@include element(field) {
 				position: relative;
-				background-color: $color-extended-neutral-100;
+				background-color: $color-base-white;
 				border-radius: $border-radius-md;
-				box-shadow: 0 $shadow-offset-xs $shadow-offset-2xs 0
-						$color-extended-shadow-light,
-					0 $shadow-offset-2xs $shadow-offset-xs 0 $color-extended-shadow-light;
+				box-shadow: 0 $shadow-offset-xs $shadow-offset-2xs 0 $color-shadow-light,
+					0 $shadow-offset-2xs $shadow-offset-xs 0 $color-shadow-light;
 				flex: 1;
 
 				&:after {
@@ -46,7 +45,7 @@
 
 			@include element(field-body) {
 				border-radius: 0 0 $border-radius-md $border-radius-md;
-				border-top: $border-width-sm solid $color-extended-neutral-80;
+				border-top: $border-width-sm solid $color-grey-10;
 			}
 
 			@include element(field-content) {
@@ -67,13 +66,13 @@
 
 			@include element(field-move) {
 				align-items: center;
-				color: $color-extended-neutral-70;
+				color: $color-grey-30;
 				cursor: grab;
 				display: flex;
 				transition: ease all 0.2s;
 
 				&:hover {
-					color: $color-extended-neutral-60;
+					color: $color-grey-60;
 				}
 			}
 
@@ -93,7 +92,7 @@
 						left: 50%;
 						transform: translate(-50%, -50%);
 						position: absolute;
-						border: $border-width-sm solid $color-extended-alpha-grey-10;
+						border: $border-width-sm solid $color-grey-a10;
 						border-radius: $border-radius-sm;
 						max-width: unset;
 					}
@@ -101,7 +100,7 @@
 			}
 
 			@include element(field-info-name) {
-				color: $color-extended-neutral-10;
+				color: $color-grey-70;
 				font-weight: $font-weight-md;
 				text-wrap: nowrap;
 				text-overflow: ellipsis;
@@ -109,7 +108,7 @@
 			}
 
 			@include element(field-code) {
-				color: $color-extended-neutral-60;
+				color: $color-grey-70;
 				font-size: $font-size-xs;
 				flex: 1;
 				text-wrap: nowrap;
@@ -124,7 +123,7 @@
 
 				@include modifier(hover) {
 					.sui-builder__field-actions-item {
-						border-left: $border-width-md solid $color-extended-neutral-80;
+						border-left: $border-width-md solid $color-grey-10;
 					}
 				}
 			}
@@ -137,7 +136,7 @@
 			}
 
 			@include element(field-body) {
-				background: $color-extended-neutral-100;
+				background: $color-base-white;
 				display: none;
 				padding: $spacing-xl;
 			}
@@ -156,21 +155,21 @@
 		@include block($block) {
 			@include element(field) {
 				box-shadow: unset;
-				border: $border-width-sm solid $color-extended-neutral-0;
+				border: $border-width-sm solid $color-base-black;
 			}
 
 			@include element(field-body) {
-				border-color: $color-extended-neutral-0;
-				color: $color-extended-neutral-0;
+				border-color: $color-base-black;
+				color: $color-base-black;
 			}
 
 			@include element(field-info-name, field-code) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 
 			@include element(field-actions-item) {
 				@include modifier(accordion) {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 			}
 		}

@@ -34,7 +34,8 @@ const DatePicker: React.FC<DatePickerProps> = ({
 	_style,
 }) => {
 	// Generate a unique id for the input field using the useId hook
-	let uid = useId()
+	const generatedId = useId()
+	const uid = id || generatedId
 
 	const pickType: string = type ?? "single"
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
@@ -48,10 +49,6 @@ const DatePicker: React.FC<DatePickerProps> = ({
 		// Append any custom className provided by the parent component
 		suiInlineClassname,
 	)
-
-	if (!isEmpty(id)) {
-		uid = id
-	}
 
 	// Define aria attributes.
 	const datepickerProps = {

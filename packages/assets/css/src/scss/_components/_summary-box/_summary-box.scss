@@ -5,3 +5,5 @@
 @include sui-summary-box--element.build-body(summary-box);
 @include sui-summary-box--element.build-list(summary-box);
 @include sui-summary-box--element.build-footer(summary-box);
+@include sui-summary-box--element.build-content(summary-box);
+@include sui-summary-box--element.build-row(summary-box);

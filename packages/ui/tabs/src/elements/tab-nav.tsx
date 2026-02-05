@@ -6,12 +6,12 @@ import React, {
 	ReactNode,
 	useCallback,
 	useEffect,
+	useId,
 	useRef,
 	useState,
 } from "react"
 import { ChevronLeft, ChevronRight } from "@wpmudev/sui-icons"
-
-import { useDetectRTL, useStyles } from "@wpmudev/sui-hooks"
+import { useDetectRTL, useScrollable, useStyles } from "@wpmudev/sui-hooks"
 import { TabNavProps, TabNavScrollDirection } from "../tabs.types"
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 
@@ -24,101 +24,49 @@ import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
  * @param {TabNavProps} props - Props for the TabNav component.
  * @return {JSX.Element} The TabNav component.
  */
-const TabNav: FC<TabNavProps> = ({ children, _style = {}, _htmlProps }) => {
-	const [isScrollableRight, setIsScrollableRight] = useState<boolean>(false)
-	const [isScrollableLeft, setIsScrollableLeft] = useState<boolean>(false)
-	const [navRefCurrent, setNavRefCurrent] = useState<HTMLDivElement | null>(
-		null,
-	)
-
-	const navRef = useRef<HTMLDivElement | null>(null)
-
-	useEffect(() => {
-		setNavRefCurrent(navRef?.current)
-	}, [navRef])
-
-	// use RTL detector
-	const isRTL = useDetectRTL()
-
-	// Function to handle scroll events and determine scrollability
-	const handleScroll = useCallback(() => {
-		if (!navRefCurrent) {
-			return
-		}
-
-		// Scroll information from the navRef, if available
-		const {
-			scrollLeft = 0,
-			scrollWidth = 0,
-			clientWidth = 0,
-		} = navRefCurrent ?? {}
-
-		const navLeft = Math.abs(scrollLeft ?? 0)
-
-		setIsScrollableRight(
-			isRTL ? navLeft > 0 : navLeft < scrollWidth - clientWidth,
-		)
-		setIsScrollableLeft(
-			isRTL ? navLeft < scrollWidth - clientWidth : navLeft > 0,
-		)
-	}, [isRTL, navRefCurrent])
-
-	// Adjust the scroll distance as needed
-	const scrollNav = (dir: TabNavScrollDirection) => {
-		// Scroll information from the navRef, if available
-		const { scrollLeft = 0 } = navRefCurrent ?? {}
-		if (!!navRef.current && "scrollLeft" in navRef?.current) {
-			// @ts-ignore
-			navRef.current.scrollLeft =
-				dir === "left" ? scrollLeft - 100 : scrollLeft + 100
-		}
-	}
-
-	// Check if content is scrollable on mount and add scroll event listener
-	useEffect(() => {
-		const currentNavRef = navRef?.current
-
-		handleScroll()
-		currentNavRef?.addEventListener("scroll", handleScroll)
-
-		// Clean up the event listener when the component unmounts
-		return () => {
-			currentNavRef?.removeEventListener("scroll", handleScroll)
-		}
-	}, [handleScroll])
-
-	// Recalculate scrollable states on window resize
-	useEffect(() => {
-		const handleResize = () => {
-			handleScroll()
-		}
-
-		window.addEventListener("resize", handleResize)
-
-		// Clean up the event listener when the component unmounts
-		return () => {
-			window.removeEventListener("resize", handleResize)
-		}
-	}, [handleScroll])
-
+const TabNav: FC<TabNavProps> = ({
+	id,
+	children,
+	_style = {},
+	_htmlProps,
+	isNarrow = false,
+}) => {
+	const generatedId = useId()
+	const tabNavId = id || `sui-tab-nav-${generatedId}`
+	const { containerRef, isScrollableLeft, isScrollableRight, scroll } =
+		useScrollable({ scrollOffset: 50 })
 	const { suiInlineClassname } = useStyles(_style)
+
+	const classes = generateCN(
+		"sui-tab__nav",
+		{
+			narrow: isNarrow,
+		},
+		suiInlineClassname,
+	)
 
 	return (
 		<div
-			className={generateCN("sui-tab__nav", {}, suiInlineClassname)}
+			id={tabNavId}
+			className={classes}
 			role="tablist"
 			aria-orientation="horizontal"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{isScrollableLeft && (
 				<button
+					id={`${tabNavId}-scroll-left`}
 					className="sui-tab__arrow sui-tab__arrow--left"
-					onClick={() => scrollNav("left")}
+					onClick={() => scroll("left")}
 				>
-					<ChevronLeft size="sm" />
+					<ChevronLeft id={`${tabNavId}-scroll-left-icon`} size="sm" />
 				</button>
 			)}
-			<div className="sui-tab__navitems" ref={navRef}>
+			<div
+				id={`${tabNavId}-navitems`}
+				className="sui-tab__navitems"
+				ref={containerRef}
+			>
 				{/* Map through the children to clone and update their props */}
 				{Children.map(children, (child: ReactNode, index: number) => {
 					if (isValidElement(child)) {
@@ -130,10 +78,11 @@ const TabNav: FC<TabNavProps> = ({ children, _style = {}, _htmlProps }) => {
 			</div>
 			{isScrollableRight && (
 				<button
+					id={`${tabNavId}-scroll-right`}
 					className="sui-tab__arrow sui-tab__arrow--right"
-					onClick={() => scrollNav("right")}
+					onClick={() => scroll("right")}
 				>
-					<ChevronRight size="sm" />
+					<ChevronRight id={`${tabNavId}-scroll-right-icon`} size="sm" />
 				</button>
 			)}
 		</div>

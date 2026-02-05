@@ -5,6 +5,10 @@ export interface AdvancedBannerBasePros
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the advanced banner.
+	 */
+	id?: string
+	/**
 	 * Sets the headline text
 	 */
 	title?: ReactNode

@@ -17,6 +17,7 @@ import { TableToolbarContent } from "./table-toolbar-content"
 import { TableContext } from "./table-context"
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useStyles } from "@wpmudev/sui-hooks"
+import { Toggle } from "@wpmudev/sui-toggle"
 
 /**
  * TableToolbar component represents the toolbar section of a table.
@@ -26,34 +27,44 @@ import { useStyles } from "@wpmudev/sui-hooks"
  * @return {JSX.Element} The JSX representation of the TableToolbar component.
  */
 const TableToolbar: React.FC<TableSectionProps> = ({
+	id,
 	_htmlProps,
 	_style = {},
 }: TableSectionProps): JSX.Element => {
 	// State for expansion of the toolbar content
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
-	const [bulkAction, setBulkAction] = useState<string>("")
+	const [bulkAction, setBulkAction] = useState<Record<string, any> | null>(null)
 
 	// Generate unique IDs for accessibility
 	const uniqueId = useId()
-	const filterBtnId = `sui-table-toolbar-filter-${uniqueId}`
-	const bodyId = `sui-table-toolbar-body-${uniqueId}`
-	const bulkDropdown = `sui-table-toolbar-bulk-${uniqueId}`
+	const toolbarId = id || `sui-table-toolbar-${uniqueId}`
+	const filterBtnId = `${toolbarId}-filter-btn`
+	const bodyId = `${toolbarId}-body`
+	const bulkDropdown = `${toolbarId}-bulk-dropdown`
 
 	const { suiInlineClassname } = useStyles(_style)
 	const ctx = useContext(TableContext)
 	// const dropdownRef = useRef<DropdownRefProps | null>(null)
+
+	const hasSelectedRows = ctx?.selected && ctx?.selected?.length > 0
 
 	const onSearch = useCallback(
 		(e: string | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 			if (typeof e !== "string") {
 				ctx?.triggerAction("search-items", e?.target?.value)
 			}
+
+			// Deselect all rows on search
+			ctx?.setSelected([])
 		},
 		[ctx],
 	)
 
 	const onApplyBulkAction = useCallback(() => {
-		ctx?.triggerAction("bulk-action", bulkAction)
+		ctx?.triggerAction("bulk-action", {
+			...bulkAction,
+			selectedRows: ctx?.selected,
+		})
 	}, [bulkAction, ctx])
 
 	const content = (
@@ -66,25 +77,30 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 
 	return (
 		<div
+			id={toolbarId}
 			className={generateCN("sui-table__toolbar", {}, suiInlineClassname)}
 			{..._htmlProps}
 		>
-			<div className="sui-table__toolbar-header">
-				<div className="sui-table__toolbar-header-bulk">
+			<div id={`${toolbarId}-header`} className="sui-table__toolbar-header">
+				<div
+					id={`${toolbarId}-bulk`}
+					className="sui-table__toolbar-header-bulk"
+				>
 					{!!ctx?.bulkActions && (
 						<Fragment>
 							<Select
 								id={bulkDropdown}
 								className="sui-table__toolbar-actions"
-								isSmall={true}
 								options={ctx?.bulkActions}
-								onChange={() => setBulkAction}
+								isDisabled={!hasSelectedRows}
+								onChange={(action) =>
+									setBulkAction(action as Record<string, any>)
+								}
 							/>
 							<Button
 								type="primary"
 								colorScheme="black"
-								isSmall={true}
-								isDisabled={isEmpty(bulkAction ?? "")}
+								isDisabled={!bulkAction || !hasSelectedRows}
 								onClick={onApplyBulkAction}
 							>
 								Apply
@@ -93,15 +109,35 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 					)}
 				</div>
 
-				<div className="sui-table__toolbar-header-actions">
+				<div
+					id={`${toolbarId}-actions`}
+					className="sui-table__toolbar-header-actions"
+				>
+					{ctx?.showToggleBtn && (
+						<div
+							id={`${toolbarId}-toggle`}
+							className="sui-table__toolbar-toggle"
+						>
+							<Toggle
+								id={`${toolbarId}-toggle-input`}
+								{...ctx?.toggleBtnProps}
+								onClick={(e) => {
+									// Deselected all selected rows
+									ctx?.setSelected([])
+
+									// Call onClick function if exists
+									ctx?.toggleBtnProps?.onClick?.(e)
+								}}
+							/>
+						</div>
+					)}
 					<Input
-						id="input-id-4"
+						id={`${toolbarId}-search`}
 						className="sui-table__toolbar-search"
 						placeholder="Search"
 						onChange={onSearch}
 						icon="Search"
 						iconPosition="start"
-						isSmall={true}
 					/>
 					{ctx?.showFiltersBtn && (
 						<>
@@ -112,7 +148,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 									buttonIcon="Filter"
 									placement="left"
 									colorScheme="black"
-									isSmall={true}
 									isFixedHeight={false}
 									menuCustomWidth={300}
 								>
@@ -125,7 +160,6 @@ const TableToolbar: React.FC<TableSectionProps> = ({
 									icon="Filter"
 									colorScheme="black"
 									type="secondary"
-									isSmall={true}
 									onClick={() => setIsExpanded(!isExpanded)}
 									_htmlProps={{
 										"aria-controls": bodyId,

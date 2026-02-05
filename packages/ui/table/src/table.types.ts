@@ -3,11 +3,13 @@ import React, { CSSProperties, HTMLProps, Ref, RefObject } from "react"
 import { InputProps } from "@wpmudev/sui-input"
 import { SelectBaseProps, SelectOptionType } from "@wpmudev/sui-select"
 import { TableColumnType, TableSortBy } from "./table-context"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 import {
 	OmitNestedKey,
 	SuiHTMLAttributes,
 	SuiStyleType,
 } from "@wpmudev/sui-utils"
+import { ToggleProps } from "@wpmudev/sui-toggle"
 
 /**
  * Interface representing the properties of a table section.
@@ -17,6 +19,10 @@ interface TableSectionProps
 			HTMLProps<HTMLTableSectionElement | HTMLDivElement>
 		>,
 		SuiStyleType {
+	/**
+	 * Unique identifier for the table section.
+	 */
+	id?: string
 	children?: React.ReactNode
 	ref?: Ref<HTMLTableSectionElement>
 }
@@ -54,6 +60,11 @@ type TableOnActionType = (action: TableExpectedAction, data: unknown) => void
  */
 interface TableProps extends SuiHTMLAttributes, SuiStyleType {
 	/**
+	 * Unique identifier for the Table.
+	 */
+	id?: string
+
+	/**
 	 * Custom css className(s)
 	 */
 	className?: string
@@ -72,6 +83,11 @@ interface TableProps extends SuiHTMLAttributes, SuiStyleType {
 	 * Determines if the table allows checkable rows with checkboxes.
 	 */
 	allowCheck?: boolean
+
+	/**
+	 * Whether the selection checkboxes are allowed or not
+	 */
+	disableCheck?: boolean
 
 	/**
 	 * Determines if the table supports drag-and-drop reordering of rows.
@@ -127,6 +143,16 @@ interface TableProps extends SuiHTMLAttributes, SuiStyleType {
 	 * Whether to show filters or not
 	 */
 	showFiltersBtn?: boolean
+
+	/**
+	 * Whether to show filters or not
+	 */
+	showToggleBtn?: boolean
+
+	/**
+	 * Whether to show filters or not
+	 */
+	toggleBtnProps?: ToggleProps
 }
 
 /**
@@ -163,6 +189,10 @@ type TableCellBaseProps = {
 	 */
 	isPrimary?: boolean
 	/**
+	 * Whether the cell is a group cell ( passed from row parent)
+	 */
+	_isGroup?: boolean
+	/**
 	 * Style
 	 */
 	style?: CSSProperties
@@ -170,6 +200,10 @@ type TableCellBaseProps = {
 	 * If table cell is under action cell column
 	 */
 	isAction?: boolean
+	/**
+	 * Adds icon to the cell
+	 */
+	icon?: IconsNamesType
 	/**
 	 * Display drag icon when true
 	 */
@@ -246,6 +280,16 @@ interface TableRowProps
 	 * Specifies if the row is under the table footer
 	 */
 	actions?(options: Record<string, any>): React.ReactNode
+
+	/**
+	 * Specifies if the row is a group row
+	 */
+	isGroup?: boolean
+
+	/**
+	 * Specifies if the row is disabled
+	 */
+	isDisabled?: boolean
 }
 
 /**
@@ -267,6 +311,11 @@ interface TableContextProps {
 	 * Allows row selection with checkboxes.
 	 */
 	allowCheck?: boolean
+
+	/**
+	 * Whether to disable the selection checkboxes or not
+	 */
+	disableCheck?: boolean
 
 	/**
 	 * Make columns sticky
@@ -292,6 +341,16 @@ interface TableContextProps {
 	 * Function to set the table rows.
 	 */
 	setRows(rows: Record<string, any>[]): void
+
+	/**
+	 * Array of disabled row IDs
+	 */
+	disabledRows: Array<unknown>
+
+	/**
+	 * Function to set the disabled rows.
+	 */
+	setDisabledRows(rows: Array<unknown>): void
 
 	/**
 	 * Array of table columns
@@ -352,6 +411,11 @@ interface TableContextProps {
 	selected: Array<unknown>
 
 	/**
+	 * function to update selected rows
+	 */
+	setSelected: (rows: Array<unknown>) => void
+
+	/**
 	 * Function to handle row selection.
 	 */
 	onSelect: (
@@ -389,6 +453,16 @@ interface TableContextProps {
 	 * Whether to show filters or not
 	 */
 	showFiltersBtn?: boolean
+
+	/**
+	 * Whether to show filters or not
+	 */
+	showToggleBtn?: boolean
+
+	/**
+	 * Whether to show filters or not
+	 */
+	toggleBtnProps?: ToggleProps
 }
 
 /**
@@ -412,10 +486,13 @@ interface TableContextProviderProps {
 	} & Pick<
 		TableContextProps,
 		| "allowCheck"
+		| "disableCheck"
 		| "isDraggable"
 		| "bulkActions"
 		| "stickyCols"
 		| "showFiltersBtn"
+		| "showToggleBtn"
+		| "toggleBtnProps"
 	>
 }
 
@@ -446,6 +523,10 @@ interface TableToolbarContentProps
 }
 
 interface TableFieldsProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the TableFields.
+	 */
+	id?: string
 	children: React.ReactNode
 }
 

@@ -1,0 +1,35 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Template Card
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-card($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			flex: 1;
+			border-radius: $border-radius-md;
+			transition: box-shadow 0.2s ease-in-out;
+			box-shadow: 0 0 0 $border-width-sm $color-grey-10;
+			overflow: hidden;
+
+			@include media(min-width, sm) {
+				max-width: $template-card-width;
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			box-shadow: 0 0 0 $border-width-sm $color-base-black;
+		}
+	}
+}

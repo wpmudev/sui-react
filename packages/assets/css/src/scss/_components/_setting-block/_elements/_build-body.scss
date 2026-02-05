@@ -16,6 +16,15 @@
 		@include block($block) {
 			@include element(body) {
 				flex: 1;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: $spacing-2xl;
+
+				@include media(max-width, sm) {
+					gap: $spacing-lg;
+				}
+
 				p {
 					&:first-child {
 						margin-top: 0;

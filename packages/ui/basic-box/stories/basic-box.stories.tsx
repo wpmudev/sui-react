@@ -26,7 +26,7 @@ const BasicBox = ({ ...props }) => {
 	return (
 		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
 			<div className="sui-layout__content">
-				<div style={{ backgroundColor: "white", borderRadius: "4px" }}>
+				<div>
 					<SuiBasicBlock {...props}>
 						<SettingBlock
 							title="Import"
@@ -38,12 +38,7 @@ const BasicBox = ({ ...props }) => {
 								existing blocklist and allowlist.
 							</p>
 							<div>
-								<Button
-									type="secondary"
-									icon="Upload"
-									colorScheme="black"
-									isSmall={true}
-								>
+								<Button type="secondary" icon="Upload" colorScheme="black">
 									Upload file
 								</Button>
 							</div>
@@ -52,12 +47,7 @@ const BasicBox = ({ ...props }) => {
 							title="Export"
 							description="Export your blocklist and allowlist for use on another website."
 						>
-							<Button
-								type="secondary"
-								icon="Upload"
-								colorScheme="black"
-								isSmall={true}
-							>
+							<Button type="secondary" icon="Upload" colorScheme="black">
 								Export
 							</Button>
 						</SettingBlock>
@@ -73,18 +63,20 @@ BasicBox.args = {
 	title: "Example with setting block",
 	description: "This is example of the basic box with setting blocks.",
 	isPro: false,
+	hasBg: true,
+	isFluid: false,
 	headerActions: (
 		<Fragment>
-			<Button type="secondary" colorScheme="black" isSmall={true} icon="Upload">
+			<Button type="secondary" colorScheme="black" icon="Upload">
 				Upload
 			</Button>
-			<Button type="primary" colorScheme="blue" isSmall={true}>
+			<Button type="primary" colorScheme="blue">
 				Create new
 			</Button>
 		</Fragment>
 	),
 	footerActions: [
-		<Button key={0} type="primary" colorScheme="blue" isSmall={true}>
+		<Button key={0} type="primary" colorScheme="blue">
 			Save changes
 		</Button>,
 		<Button
@@ -97,6 +89,8 @@ BasicBox.args = {
 			Deactivate
 		</Button>,
 	],
+	centerFooterActions: false,
+	hasLargeRadius: false,
 }
 
 // Set controls for story arguments.
@@ -115,6 +109,18 @@ BasicBox.argTypes = {
 	},
 	isPro: {
 		name: "Pro",
+		control: {
+			type: "boolean",
+		},
+	},
+	hasBg: {
+		name: "Background",
+		control: {
+			type: "boolean",
+		},
+	},
+	isFluid: {
+		name: "Fluid",
 		control: {
 			type: "boolean",
 		},

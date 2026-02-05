@@ -75,7 +75,7 @@ const _internalDrawer = ({
 			</DrawerBody>
 			<DrawerFooter>
 				<div>
-					<Button type="secondary" colorScheme="blue" isSmall={true}>
+					<Button type="secondary" colorScheme="black" isSmall={true}>
 						Secondary
 					</Button>
 					<Button type="primary" colorScheme="blue" isSmall={true}>

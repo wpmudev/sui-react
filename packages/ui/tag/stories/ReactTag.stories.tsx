@@ -27,7 +27,7 @@ const Tag = ({ children, ...props }: TagProps & { color?: string }) => {
 		padding: "30px",
 		border: "1px solid #E6E6E6",
 		borderRadius: "4px",
-		background: props?.color === "white" ? "#333" : "#fff",
+		background: props?.colorScheme === "white" ? "#333" : "#fff",
 	}
 
 	return (

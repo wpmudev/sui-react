@@ -14,21 +14,34 @@
 		@include block($block) {
 			@include element(button) {
 				align-items: center;
-				background: $color-extended-neutral-95;
-				border: $border-width-md dashed $color-extended-neutral-70;
+				background: $color-grey-02;
+				border: $border-width-md dashed $color-grey-20;
 				border-radius: $border-radius-md;
-				color: $color-extended-neutral-50;
+				color: $color-grey-70;
 				padding: $spacing-lg $spacing-xl;
 				width: 100%;
 
+				.sui-button__icon {
+					color: $color-grey-50;
+				}
+
 				@include modifier(hover) {
-					border-color: $color-extended-neutral-60;
-					color: $color-extended-neutral-10;
-					background: $color-extended-alpha-grey-01;
+					border-color: $color-grey-40;
+					color: $color-grey-90;
+
+					.sui-button__icon {
+						color: $color-grey-70;
+					}
 				}
 
 				&:active {
-					background: $color-extended-alpha-grey-10;
+					background: $color-grey-05;
+					color: $color-grey-90;
+					border-color: $color-grey-70;
+
+					.sui-button__icon {
+						color: $color-grey-70;
+					}
 				}
 			}
 		}
@@ -39,9 +52,13 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(button) {
-				background: $color-extended-neutral-100;
-				border-color: $color-extended-neutral-0;
-				color: $color-extended-neutral-0;
+				background: $color-base-white;
+				border-color: $color-base-black;
+				color: $color-base-black;
+
+				.sui-button__icon {
+					color: $color-base-black;
+				}
 			}
 		}
 	}

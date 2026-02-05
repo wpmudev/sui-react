@@ -15,7 +15,7 @@
 		@include block($block) {
 			@include modifier(disabled) {
 				cursor: pointer;
-				color: $color-extended-neutral-70;
+				color: $color-grey-30;
 				pointer-events: none;
 				user-select: none;
 			}
@@ -27,7 +27,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include modifier(disabled) {
-				color: $color-extended-neutral-70;
+				color: $color-grey-30;
 			}
 		}
 	}

@@ -14,18 +14,29 @@
 		@include block($block) {
 			@include element(body-content) {
 				align-items: center;
-				background-color: $color-extended-neutral-95;
+				background-color: $color-grey-02;
 				border-radius: $border-radius-md;
 				display: flex;
 				justify-content: center;
 				flex-direction: column;
 				text-align: center;
-				gap: $spacing-md;
+				gap: $spacing-lg;
 				height: 100%;
 				padding: $spacing-lg;
 
+				@include media(max-width, sm) {
+					padding: $spacing-md;
+				}
+
 				* {
 					margin: 0;
+				}
+			}
+
+			@include element(body) {
+				@include media(max-width, lg) {
+					margin-left: 0;
+					margin-right: 0;
 				}
 			}
 		}
@@ -36,8 +47,8 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(body-content) {
-				border: $border-width-sm solid $color-extended-neutral-0;
-				background-color: $color-extended-neutral-100;
+				border: $border-width-sm solid $color-base-black;
+				background-color: $color-base-white;
 			}
 		}
 	}

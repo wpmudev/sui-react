@@ -13,7 +13,8 @@
 		@include block($block) {
 			@include element(info) {
 				@include modifier(active) {
-					background: $color-extended-neutral-90;
+					background: $color-grey-05;
+					color: $color-grey-90;
 				}
 			}
 		}

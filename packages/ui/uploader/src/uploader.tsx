@@ -23,10 +23,11 @@ import {
 	getObjectFileFromUrl,
 } from "./helper"
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
-import { useStyles } from "@wpmudev/sui-hooks"
+import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 
 // The Uploader component displays a file uploader with drag-and-drop support and file previews.
 const Uploader: React.FC<UploaderProps> = ({
+	id,
 	btnTitle = "Upload File",
 	multiple = true,
 	accept = "",
@@ -36,6 +37,7 @@ const Uploader: React.FC<UploaderProps> = ({
 	maxSize,
 	maxSizeText = "Message to appear when file size exeeds the max given",
 	ariaAttrs = {},
+	onClick,
 	_htmlProps = {},
 	_style = {},
 	...props
@@ -46,9 +48,11 @@ const Uploader: React.FC<UploaderProps> = ({
 	// State to keep track of selected files
 	const [files, setFiles] = useState<Record<string, any>[]>([])
 
+	const [isHovered, isFocused, methods] = useInteraction({})
+
 	// Generate a unique ID for the uploader component
-	const uniqueID = useId()
-	const uploaderId = `sui-uploader-${uniqueID}`
+	const generatedId = useId()
+	const uploaderId = id || `sui-uploader-${generatedId}`
 
 	// load default files
 	useEffect(() => {
@@ -69,7 +73,9 @@ const Uploader: React.FC<UploaderProps> = ({
 
 	// Empty the file input
 	const emptyFileInput = () => {
-		ref.current.value = ""
+		if (ref?.current) {
+			ref.current.value = ""
+		}
 	}
 
 	/**
@@ -144,8 +150,12 @@ const Uploader: React.FC<UploaderProps> = ({
 
 	// Callback to open the file selector dialog
 	const openFileSelector = useCallback(() => {
+		if (onClick) {
+			onClick?.()
+			return
+		}
 		ref.current?.click()
-	}, [ref])
+	}, [ref, onClick])
 
 	// Callback to remove a file from the selected files
 	const onRemoveFile = useCallback(
@@ -174,27 +184,38 @@ const Uploader: React.FC<UploaderProps> = ({
 		<Fragment>
 			<NotificationRenderer />
 			<div
-				className={generateCN("sui-uploader", {}, suiInlineClassname)}
+				id={uploaderId}
+				className={generateCN(
+					"sui-uploader",
+					{
+						hover: isHovered,
+						focus: isFocused,
+					},
+					suiInlineClassname,
+				)}
 				data-testid="uploader"
 				{..._renderHTMLPropsSafely(_htmlProps)}
 			>
 				{/* Hidden input field to handle file selection */}
-				<input
-					type="file"
-					id={uploaderId}
-					ref={ref}
-					onChange={onSelectFile}
-					className="sui-uploader__input"
-					multiple={multiple}
-					accept={accept}
-					hidden={true}
-					{...ariaAttrs}
-					{..._renderHTMLPropsSafely(props)}
-				/>
+				{!onClick && (
+					<input
+						type="file"
+						id={`${uploaderId}-input`}
+						ref={ref}
+						onChange={onSelectFile}
+						className="sui-uploader__input sui-accessible-cta sui-hidden"
+						multiple={multiple}
+						accept={accept}
+						{...ariaAttrs}
+						{...methods}
+						{..._renderHTMLPropsSafely(props)}
+					/>
+				)}
 
 				{/* Render the uploader button when multiple selection is allowed or no files are selected */}
 				{(multiple || (!multiple && files.length <= 0)) && (
 					<UploaderButton
+						id={`${uploaderId}-button`}
 						btnTitle={btnTitle ?? ""}
 						multiple={multiple ?? false}
 						allowDragAndDrop={allowDragAndDrop ?? false}
@@ -204,12 +225,12 @@ const Uploader: React.FC<UploaderProps> = ({
 				)}
 				{/* Render the file previews when there are selected files */}
 				{!!files && files.length > 0 && (
-					<div className="sui-uploader__preview">
-						<div className="sui-uploader__files">
+					<div className="sui-uploader__preview" id={`${uploaderId}-preview`}>
+						<div className="sui-uploader__files" id={`${uploaderId}-files`}>
 							{files?.map((file: File, index: number) => (
 								<UploaderFile
 									key={index}
-									id={index}
+									id={`${uploaderId}-file-${index}`}
 									onRemove={onRemoveFile}
 									file={file}
 								/>

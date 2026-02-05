@@ -14,8 +14,9 @@
 		@include block($block) {
 			@include element(item) {
 				@include modifier(focus) {
+					background: $color-black-a10;
 					&:after {
-						border: $border-width-md solid $color-extended-neutral-50;
+						border: $border-width-md solid $color-primary-50;
 					}
 				}
 			}
@@ -36,8 +37,10 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(item) {
-				&:after {
-					border: none;
+				@include modifier(focus) {
+					&:after {
+						border: $border-width-md solid $color-base-black;
+					}
 				}
 			}
 		}

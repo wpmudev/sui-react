@@ -15,10 +15,10 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(switch) {
-					background: $color-extended-neutral-80;
+					background: $color-grey-10;
 
 					&:after {
-						border: $border-width-md solid $color-extended-neutral-80;
+						border: $border-width-md solid $color-grey-10;
 					}
 				}
 			}
@@ -41,18 +41,18 @@
 		@include block($block) {
 			@include modifier(focus) {
 				@include modifies-element(switch) {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 					&:after {
-						border-color: $color-extended-neutral-0;
+						border-color: $color-base-black;
 					}
 				}
 			}
 
 			@include modifier(checked-focus) {
 				@include modifies-element(switch) {
-					background: $color-extended-neutral-0;
+					background: $color-base-black;
 					&:after {
-						border-color: $color-extended-neutral-0;
+						border-color: $color-base-black;
 					}
 				}
 			}

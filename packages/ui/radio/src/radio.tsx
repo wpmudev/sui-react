@@ -24,13 +24,12 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 		// const [checked, setChecked] = useState(isChecked)
 		const [isHovered, isFocused, methods] = useInteraction({})
 
-		const uniqueId = useId()
-
-		let uuid = `sui-radio-${uniqueId}`
+		const generatedId = useId()
+		const uuid = id || `sui-radio-${generatedId}`
 
 		// If value not provided add a unique one
 		if (!value) {
-			value = `value-${uniqueId}`
+			value = `value-${generatedId}`
 		}
 
 		const {
@@ -41,11 +40,6 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 			isDisabled: isGroupDisabled,
 			isSmall,
 		} = useRadio()
-
-		// use ID from props list if exists
-		if (!!id) {
-			uuid = id
-		}
 
 		// Handle on change
 		const handleOnChange = useCallback(() => {
@@ -106,8 +100,8 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
 				{...methods}
 			>
 				<input {...inputProps} data-testid="radio-input" />
-				<span {...boxProps} tabIndex={-1}>
-					{checked && <span className="sui-radio__icon" />}
+				<span {...boxProps} id={`${uuid}-box`} tabIndex={-1}>
+					{checked && <span className="sui-radio__icon" id={`${uuid}-icon`} />}
 				</span>
 				<span id={`${uuid}-label`} className="sui-radio__label">
 					{label}

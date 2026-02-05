@@ -18,12 +18,19 @@
 				position: absolute;
 				top: 50%;
 				transform: translateY(-50%);
+				display: flex;
 			}
 
 			// if input has icon
 			@include modifier("icon-end") {
 				@include modifies-element(icon) {
 					right: 12px;
+				}
+
+				// If the icon has a tooltip
+				.sui-tooltip {
+					right: 12px;
+					position: relative;
 				}
 			}
 
@@ -67,7 +74,7 @@
 	@include sui-class($rtl: false, $theme: "dark") {
 		@include block($block) {
 			@include element(icon) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}

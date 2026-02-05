@@ -17,8 +17,16 @@
 				justify-content: space-between;
 				align-items: center;
 				gap: $spacing-md;
-				border-bottom: $border-width-sm solid $color-extended-neutral-80;
+				border-bottom: $border-width-sm solid $color-grey-10;
 				padding: $spacing-lg $spacing-xl;
+			}
+
+			@include element(back) {
+				@include modifier(md) {
+					@include media(min-width, md) {
+						display: none;
+					}
+				}
 			}
 
 			@include element(header-title) {
@@ -26,6 +34,7 @@
 				align-items: center;
 				font-weight: $font-weight-lg;
 				gap: $spacing-sm;
+				color: $color-grey-90;
 			}
 		}
 	}
@@ -35,7 +44,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(header) {
-				border-color: $color-extended-neutral-0;
+				border-color: $color-base-black;
 			}
 		}
 	}

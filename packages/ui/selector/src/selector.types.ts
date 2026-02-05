@@ -22,6 +22,8 @@ interface SelectorProps
 		>,
 		SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLLabelElement>> {
+	/** Optional custom ID for the selector */
+	id?: string
 	/** The label text for the radio input */
 	label?: string
 	/** The name attribute for the radio input */
@@ -61,6 +63,10 @@ interface SelectorProps
 }
 
 interface SelectorOptionProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the SelectorOption.
+	 */
+	id?: string
 	iconOrBrandUrl: SelectorProps["iconOrBrandUrl"]
 	title: SelectorProps["title"]
 	description: SelectorProps["description"]

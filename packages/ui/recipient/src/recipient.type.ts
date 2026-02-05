@@ -9,6 +9,10 @@ interface RecipientProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the recipient.
+	 */
+	id?: string
+	/**
 	 * Name of the receipient
 	 */
 	userName?: string

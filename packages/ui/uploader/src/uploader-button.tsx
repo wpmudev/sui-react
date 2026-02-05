@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useRef } from "react"
+import React, { useId, useRef } from "react"
 
 import { Button } from "@wpmudev/sui-button"
 import { generateCN, handleOnKeyDown, isEmpty } from "@wpmudev/sui-utils"
@@ -19,12 +19,15 @@ import { UploaderButtonProps } from "./uploader.types"
  * @return {JSX.Element} The JSX representation of the UploaderButton component.
  */
 const UploaderButton: React.FC<UploaderButtonProps> = ({
+	id,
 	btnTitle = "",
 	allowDragAndDrop = false,
 	onClick = () => {},
 	onDrag = () => {},
 	_style = {},
 }: UploaderButtonProps): JSX.Element => {
+	const generatedId = useId()
+	const uploaderButtonId = id || `sui-uploader-button-${generatedId}`
 	// Ref for the div used to handle drag-and-drop
 	const dragRef = useRef<HTMLDivElement | null>(null)
 
@@ -52,6 +55,7 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 	if (allowDragAndDrop) {
 		return (
 			<div
+				id={uploaderButtonId}
 				tabIndex={0}
 				role="button"
 				ref={dragRef}
@@ -72,6 +76,7 @@ const UploaderButton: React.FC<UploaderButtonProps> = ({
 
 	return (
 		<Button
+			id={uploaderButtonId}
 			className={generateCN("sui-uploader__button", {}, suiInlineClassname)}
 			type="primary"
 			colorScheme="blue"

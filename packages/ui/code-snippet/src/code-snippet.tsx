@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react"
+import React, { useId, useState, useEffect, useCallback } from "react"
 import Prism from "prismjs"
 // import dedent from "dedent"
 
@@ -9,6 +9,7 @@ import { CodeSnippetProps } from "./code-snippet.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const CodeSnippet: React.FC<CodeSnippetProps> = ({
+	id,
 	language = "javascript",
 	copy = true,
 	className,
@@ -16,6 +17,8 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 	_htmlProps,
 	_style,
 }) => {
+	const generatedId = useId()
+	const codeSnippetId = id || `sui-code-snippet-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className ?? "")
 	// generate class names
 	const classNames = generateCN("sui-code-snippet", {}, suiInlineClassname)
@@ -37,6 +40,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({
 
 	return (
 		<div
+			id={codeSnippetId}
 			className={classNames}
 			data-testid="code-snippet"
 			{..._renderHTMLPropsSafely(_htmlProps)}

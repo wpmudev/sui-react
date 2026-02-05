@@ -9,6 +9,7 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 interface TreeViewProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	id?: string // Unique ID for the tree view item
 	title?: string // Title for the tree view
 	className?: string // CSS class name for the tree view
 	children?: React.ReactNode // Content of the tree view

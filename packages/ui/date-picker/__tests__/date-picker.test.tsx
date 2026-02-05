@@ -2,7 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { screen, render, fireEvent } from "@testing-library/react"
 import { DatePicker, DatePickerProps } from "../src"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 
 describe("@wpmudev/sui-date-picker", () => {
 	const Component = (propsList: DatePickerProps) => {

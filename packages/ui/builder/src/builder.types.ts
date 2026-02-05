@@ -10,6 +10,10 @@ interface BuilderProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the Builder.
+	 */
+	id?: string
+	/**
 	 * An optional class name to be applied to the Builder component.
 	 */
 	className?: string
@@ -32,6 +36,10 @@ interface BuilderProps
 }
 
 interface BuilderButtonProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the BuilderButton.
+	 */
+	id?: string
 	/**
 	 * An optional icon to be displayed within in button.
 	 */
@@ -60,6 +68,10 @@ interface BuilderEmptyProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the BuilderEmpty.
+	 */
+	id?: string
+	/**
 	 * Optional title for the BuilderEmpty component.
 	 */
 	title?: string
@@ -76,6 +88,10 @@ interface BuilderEmptyProps
 interface BuilderFieldProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	/**
+	 * Unique identifier for the BuilderField.
+	 */
+	id?: string
 	/**
 	 * Optional number specifying the column size.
 	 */
@@ -148,6 +164,10 @@ interface BuilderFieldProps
 interface BuilderWrapperProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
+	/**
+	 * Unique identifier for the BuilderWrapper.
+	 */
+	id?: string
 	/**
 	 * Optional CSS class name for styling the BuilderWrapper component.
 	 */

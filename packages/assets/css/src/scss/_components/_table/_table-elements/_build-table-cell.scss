@@ -21,7 +21,6 @@
 				white-space: nowrap;
 
 				@include media(max-width, sm) {
-					display: none;
 					padding: $spacing-lg $spacing-md;
 
 					@include modifier(actions, primary, selection) {
@@ -77,8 +76,8 @@
 				}
 
 				@include modifier(sticky) {
-					background-color: $color-extended-neutral-100;
-					left: calc(62px - $border-width-md);
+					background-color: $color-base-white;
+					//left: calc(62px - $border-width-md);
 					position: sticky;
 					width: $table-width-xs;
 
@@ -91,7 +90,7 @@
 							border-width: 0;
 							border-right-width: $border-width-md;
 							border-style: solid;
-							border-color: $color-extended-neutral-80;
+							border-color: $color-grey-10;
 						}
 					}
 
@@ -127,11 +126,22 @@
 				@include modifier(trim) {
 					text-overflow: ellipsis;
 					overflow: hidden;
-					div {
+					& > div {
 						max-width: $table-width-lg;
 						white-space: nowrap;
 						overflow: hidden;
 						text-overflow: ellipsis;
+					}
+				}
+
+				@include modifier(is-group) {
+					left: 0;
+					background: $color-grey-02;
+					color: $color-grey-70;
+					> div {
+						display: flex;
+						align-items: center;
+						gap: $spacing-md;
 					}
 				}
 			}
@@ -167,10 +177,10 @@
 		@include block($block) {
 			@include element(cell) {
 				@include modifier(sticky) {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 
 					&.sui-#{$block}__cell--actions {
-						border-color: $color-extended-neutral-0;
+						border-color: $color-base-black;
 					}
 				}
 			}

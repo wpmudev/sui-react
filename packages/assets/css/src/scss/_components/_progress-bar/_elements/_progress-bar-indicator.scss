@@ -13,7 +13,7 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include element(indicator) {
-				background: $color-extended-neutral-90;
+				background: $color-grey-05;
 				height: $progress-size-height-sm;
 				overflow: hidden;
 				display: block;
@@ -46,7 +46,7 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(indicator-bar) {
-				background-color: $color-extended-neutral-0;
+				background-color: $color-base-black;
 			}
 		}
 	}

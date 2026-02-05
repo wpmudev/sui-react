@@ -8,6 +8,10 @@ interface CodeSnippetProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * Unique identifier for the code snippet.
+	 */
+	id?: string
+	/**
 	 * The language of the code snippet.
 	 */
 	language?: string

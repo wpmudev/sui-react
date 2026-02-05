@@ -9,5 +9,5 @@
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#license)
 
 ## ➤ License
-	
+
 Licensed under [GPL-2.0](https://opensource.org/licenses/GPL-2.0).
