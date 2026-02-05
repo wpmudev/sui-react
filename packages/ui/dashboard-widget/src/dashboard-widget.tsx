@@ -16,8 +16,8 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  */
 const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 	id,
-	title = "Widget Title",
-	description = "Widget Description",
+	title = "",
+	description = "",
 	icon,
 	tag,
 	tagProps,
@@ -99,29 +99,31 @@ const DashboardWidget: React.FC<DashboardWidgetProps> = ({
 						{/* Display the icon if available */}
 						{IconTag && <IconTag id={`${dashboardWidgetId}-icon`} size="md" />}
 						{/* Display the title and optional tag */}
-						<h4
-							id={`${dashboardWidgetId}-title`}
-							className="sui-heading--h4 sui-dashboard-widget__header-title"
-						>
-							{title}
-							{tag && (
-								<Tag
-									id={`${dashboardWidgetId}-tag`}
-									colorScheme="black"
-									design="outlined"
-									{...(tagAttrs ?? {})}
-								>
-									{tag}
-								</Tag>
-							)}
-							{StatusIcon && (
-								<StatusIcon
-									id={`${dashboardWidgetId}-status-icon`}
-									size="sm"
-									{...(statusProps ?? {})}
-								/>
-							)}
-						</h4>
+						{(title || tag || StatusIcon) && (
+							<h4
+								id={`${dashboardWidgetId}-title`}
+								className="sui-heading--h4 sui-dashboard-widget__header-title"
+							>
+								{title}
+								{tag && (
+									<Tag
+										id={`${dashboardWidgetId}-tag`}
+										colorScheme="black"
+										design="outlined"
+										{...(tagAttrs ?? {})}
+									>
+										{tag}
+									</Tag>
+								)}
+								{StatusIcon && (
+									<StatusIcon
+										id={`${dashboardWidgetId}-status-icon`}
+										size="sm"
+										{...(statusProps ?? {})}
+									/>
+								)}
+							</h4>
+						)}
 					</div>
 					{/* Display collapse/expand button if allowed */}
 					{canCollapse && (

@@ -15,21 +15,22 @@ import { SummaryBoxItemProps } from "./summary-box.types"
  *
  * A React functional component that represents an item in the list of summary items within a summary box.
  *
- * @param {Object} props                      - The props for the SummaryBoxItem component.
- * @param {string} [props.title=""]           - The title of the item.
- * @param {string} [props.titleUrl=""]        - The URL for the title.
- * @param {string} [props.description=""]     - A description for the item.
- * @param {string} props.className            - Additional CSS classes to apply to the component.
- * @param {string} [props.tagTitle=""]        - The title for a tag associated with the item.
- * @param {string} [props.tagColor="default"] - The color of the tag (e.g., "default", "primary").
- * @param {string} [props.actionIcon=""]      - An optional action icon for the item.
- * @param {string} [props.actionIconColor=""] - The color of the action icon.
- * @param {Object} [props.tagProps={}]        - Additional props to be passed to the Tag component (optional).
- * @param {Object} [props.linkProps={}]       - Additional props to be passed to the link element (if titleUrl is provided).
+ * @param {Object}          props                      - The props for the SummaryBoxItem component.
+ * @param {string}          [props.title=""]           - The title of the item.
+ * @param {string}          [props.titleUrl=""]        - The URL for the title.
+ * @param {string}          [props.description=""]     - A description for the item.
+ * @param {string}          props.className            - Additional CSS classes to apply to the component.
+ * @param {string}          [props.tagTitle=""]        - The title for a tag associated with the item.
+ * @param {string}          [props.tagColor="default"] - The color of the tag (e.g., "default", "primary").
+ * @param {string}          [props.actionIcon=""]      - An optional action icon for the item.
+ * @param {string}          [props.actionIconColor=""] - The color of the action icon.
+ * @param {Object}          [props.tagProps={}]        - Additional props to be passed to the Tag component (optional).
+ * @param {Object}          [props.linkProps={}]       - Additional props to be passed to the link element (if titleUrl is provided).
+ * @param {React.ReactNode} [props.children]           - Optional children elements to be rendered within the item.
  *
- * @param          props._htmlProps
- * @param          props._style
- * @param          props.id
+ * @param                   props._htmlProps
+ * @param                   props._style
+ * @param                   props.id
  * @return {JSX.Element} The SummaryBoxItem component.
  */
 const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
@@ -41,6 +42,7 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	tagTitle = "",
 	tagColor = "default",
 	actionIcon,
+	children,
 	actionIconColor = "",
 	tagProps = {},
 	linkProps = {},
@@ -100,7 +102,7 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 					</Tooltip>
 				)}
 			</div>
-			{(!isEmpty(tagTitle) || !isEmpty(actionIcon)) && (
+			{(!isEmpty(tagTitle) || !!actionIcon) && (
 				<div className="sui-summary-box__list-item-status">
 					{IconTag ? (
 						<IconTag
@@ -113,6 +115,9 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 						</Tag>
 					)}
 				</div>
+			)}
+			{children && (
+				<div className="sui-summary-box__list-item-children">{children}</div>
 			)}
 		</Row>
 	)

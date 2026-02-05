@@ -48,10 +48,14 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 	// Extract the props passed to the component.
 	const {
 		onChange,
+		onSubmit,
+		onClose,
 		minDate,
 		maxDate,
 		definedRanges = predefinedRanges,
 		isDisabled,
+		closeOnClickOutside = true,
+		dateFormat = "LLLL d, yyyy",
 		children,
 	} = props
 
@@ -299,6 +303,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 				isSingle,
 				isOpen,
 				setIsOpen,
+				closeOnClickOutside,
 				listType,
 				toggleId,
 				openToggle,
@@ -307,6 +312,7 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 				minDateValid,
 				maxDateValid,
 				definedRanges,
+				dateFormat,
 				startMonth,
 				endMonth,
 				setFirstMonthValidated,
@@ -314,6 +320,8 @@ const DatePickerProvider: React.FC<DatePickerProps> = (props) => {
 				setDateRangeValidated,
 				helpers,
 				handlers,
+				onSubmit,
+				onClose,
 			}}
 		>
 			{children}

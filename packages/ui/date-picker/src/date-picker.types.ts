@@ -10,7 +10,7 @@ type DatePickerTypes = "single" | "range"
 type DatePickerNavs = "months" | "years"
 
 type DatePickerPredefined = {
-	label: "Today" | "Tomorrow" | "1 Week" | "30 days" | "Custom"
+	label: string
 } & DatePickerDateRange
 
 /**
@@ -69,11 +69,35 @@ interface DatePickerProps
 	 */
 	ariaAttrs?: object
 	/**
+	 * Close the date picker when clicking outside
+	 */
+	closeOnClickOutside?: boolean
+	/**
 	 * Callback function called when the selected date(s) change
 	 *
 	 * @param {string | Date | DatePickerDateRange} value
 	 */
 	onChange?: (value: string | Date | DatePickerDateRange) => void
+	/**
+	 * Callback function called when the user submits the selected date(s)
+	 */
+	onSubmit?: (range?: DatePickerDateRange) => void
+	/**
+	 * Callback function called when the date picker is closed
+	 */
+	onClose?: (range?: DatePickerDateRange) => void
+	/**
+	 * Alignment of the popover relative to the input field
+	 */
+	alignment?: "left" | "right"
+	/**
+	 * Date format string for displaying dates (using date-fns format tokens).
+	 *
+	 * @default "LLLL d, yyyy" (e.g., "January 1, 2026")
+	 * @example "MMM d, yyyy" for short month (e.g., "Jan 1, 2026")
+	 * @example "MM/dd/yyyy" for numeric format (e.g., "01/01/2026")
+	 */
+	dateFormat?: string
 }
 interface DatePickerContextProps {
 	/**
@@ -88,6 +112,10 @@ interface DatePickerContextProps {
 	 * Flag indicating whether the DatePicker is open (visible)
 	 */
 	isOpen?: boolean
+	/**
+	 * Close the date picker when clicking outside
+	 */
+	closeOnClickOutside?: boolean
 	/**
 	 * Function to set the open state of the DatePicker
 	 *
@@ -125,6 +153,10 @@ interface DatePickerContextProps {
 	 * Predefined date ranges to be shown in the DatePicker (in date range mode)
 	 */
 	definedRanges?: DatePickerProps["definedRanges"]
+	/**
+	 * Date format string for displaying dates
+	 */
+	dateFormat?: string
 	/**
 	 * Start month for the displayed calendar (in date range mode)
 	 */
@@ -202,9 +234,16 @@ interface DatePickerContextProps {
 		 */
 		onMonthNavigate: (marker: symbol) => void
 	}
+	onSubmit?: (range?: DatePickerDateRange) => void
+	onClose?: (range?: DatePickerDateRange) => void
 }
 
-interface DatePickerPopoverProps extends SuiStyleType {}
+interface DatePickerPopoverProps extends SuiStyleType {
+	/**
+	 * Alignment of the popover relative to the input field
+	 */
+	alignment?: "left" | "right"
+}
 
 export type {
 	DatePickerDateRange,

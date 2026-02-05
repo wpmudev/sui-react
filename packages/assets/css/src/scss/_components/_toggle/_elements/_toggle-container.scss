@@ -20,6 +20,10 @@
 				align-items: flex-start;
 				flex-direction: column;
 				gap: $spacing-sm;
+
+				@include modifier(fluid) {
+					width: 100%;
+				}
 			}
 		}
 	}

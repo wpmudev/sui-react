@@ -31,6 +31,17 @@
 				display: inline-flex;
 				padding: $banner-spacing-xs;
 			}
+
+			@include element(custom-icon) {
+				display: inline-flex;
+				width: 48px;
+				height: auto;
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
 		}
 	}
 }

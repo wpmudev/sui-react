@@ -16,6 +16,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
  *
  * @param  props
  * @param  props.type
+ * @param  props.customIcon
  * @param  props.id
  * @param  props.title
  * @param  props.className
@@ -27,6 +28,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 const SetupBanner: React.FC<SetupBannerProps> = ({
 	id,
 	type = "smush",
+	customIcon,
 	title = "title",
 	className,
 	description,
@@ -60,19 +62,27 @@ const SetupBanner: React.FC<SetupBannerProps> = ({
 			data-testid="setup-banner"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
-			{IconTag && (
+			{IconTag && !customIcon && (
 				<div className="sui-setup-banner__bg" data-testid="setup-banner-bg">
 					<IconTag className="sui-setup-banner__bg-icon" />
 				</div>
 			)}
 			<div className="sui-setup-banner__subtitle">Quick Setup</div>
 			<div className="sui-setup-banner__info">
-				{!!IconTag && (
+				{!!IconTag && !customIcon && (
 					<div
 						className="sui-setup-banner__info-logo"
 						data-testid="setup-banner-icon"
 					>
 						<IconTag fill="#FFFFFF" />
+					</div>
+				)}
+				{!!customIcon && (
+					<div
+						className="sui-setup-banner__custom-icon"
+						data-testid="setup-banner-icon"
+					>
+						<img src={customIcon} alt={`${type} icon`} />
 					</div>
 				)}
 				{!!title && <h2 className="sui-setup-banner__info-title">{title}</h2>}
