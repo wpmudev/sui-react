@@ -1,5 +1,29 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- 0784d2c: Updated and improved components used by the Dash plugin
+- Updated dependencies [0784d2c]
+  - @wpmudev/sui-segmented-control@0.0.2
+  - @wpmudev/sui-checkbox@0.0.2
+  - @wpmudev/sui-selector@0.0.2
+  - @wpmudev/sui-textarea@0.0.2
+  - @wpmudev/sui-spinner@0.0.2
+  - @wpmudev/sui-tooltip@0.0.2
+  - @wpmudev/sui-avatar@0.0.2
+  - @wpmudev/sui-button@0.0.2
+  - @wpmudev/sui-toggle@0.0.2
+  - @wpmudev/sui-input@0.0.2
+  - @wpmudev/sui-radio@0.0.2
+  - @wpmudev/sui-score@0.0.2
+  - @wpmudev/sui-grid@0.0.2
+  - @wpmudev/sui-icon@0.0.2
+  - @wpmudev/sui-link@0.0.2
+  - @wpmudev/sui-box@0.0.2
+  - @wpmudev/sui-tag@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

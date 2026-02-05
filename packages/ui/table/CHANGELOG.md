@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- 0784d2c: Updated and improved components used by the Dash plugin
+- Updated dependencies [0784d2c]
+  - @wpmudev/sui-form-field@0.0.2
+  - @wpmudev/sui-icons@0.0.2
+  - @wpmudev/sui-checkbox@0.0.2
+  - @wpmudev/sui-dropdown@0.0.2
+  - @wpmudev/sui-button@0.0.2
+  - @wpmudev/sui-select@0.0.2
+  - @wpmudev/sui-input@0.0.2
+  - @wpmudev/sui-grid@0.0.2
+  - @wpmudev/sui-box@0.0.2
+  - @wpmudev/sui-hooks@0.0.2
+  - @wpmudev/sui-utils@0.0.2
+
 ## 1.0.5
 
 ### Patch Changes

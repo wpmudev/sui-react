@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-integration",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An Integration is a module that is designed to seamlessly integrate with third party apps or services within WPMU DEV plugins.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -52,12 +52,12 @@
   },
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "dependencies": {
-    "@wpmudev/sui-button": "^0.0.1",
-    "@wpmudev/sui-tag": "^0.0.1",
-    "@wpmudev/sui-toggle": "^0.0.1",
-    "@wpmudev/sui-tooltip": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1",
-    "@wpmudev/sui-hooks": "^0.0.1"
+    "@wpmudev/sui-button": "^0.0.2",
+    "@wpmudev/sui-tag": "^0.0.2",
+    "@wpmudev/sui-toggle": "^0.0.2",
+    "@wpmudev/sui-tooltip": "^0.0.2",
+    "@wpmudev/sui-utils": "^0.0.2",
+    "@wpmudev/sui-hooks": "^0.0.2"
   },
   "clean-package": "../../../postpack.config.json"
 }

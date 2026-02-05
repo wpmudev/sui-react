@@ -1,5 +1,14 @@
 # @wpmudev/sui-page-header
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies [0784d2c]
+  - @wpmudev/sui-icons@0.0.2
+  - @wpmudev/sui-hooks@0.0.2
+  - @wpmudev/sui-utils@0.0.2
+
 ## 0.1.2
 
 ### Patch Changes

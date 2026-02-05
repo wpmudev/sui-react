@@ -4,6 +4,18 @@
 
 ### Patch Changes
 
+- 0784d2c: Updated and improved components used by the Dash plugin
+- Updated dependencies [0784d2c]
+  - @wpmudev/sui-icons@0.0.2
+  - @wpmudev/sui-tooltip@0.0.2
+  - @wpmudev/sui-button@0.0.2
+  - @wpmudev/sui-hooks@0.0.2
+  - @wpmudev/sui-utils@0.0.2
+
+## 0.0.2
+
+### Patch Changes
+
 - [#342](https://github.com/wpmudev/sui-react/pull/342)
   [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1)
   Thanks [@creador-dev](https://github.com/creador-dev)! - Add new template card
