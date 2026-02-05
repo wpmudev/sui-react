@@ -250,6 +250,7 @@ jobs:
         if: success() && steps.check_changesets.outputs.found == 'true'
         with:
           message-id: 'deployment-status' # MATCHES the ID above
+          issue: ${{ env.RELEASE_PR_NUMBER }}
           message: |
             ## ${{ env.TAG == 'rc' && 'Release Candidate' || 'Snapshot' }} Deployment Successful
 
@@ -262,8 +263,8 @@ jobs:
             - **Branch:** `${{ github.head_ref || github.ref_name }}`
 
             **Preview Links**
-            - [View Storybook Components](${{ vars.UI_DOC }}/${{ env.TAG }})
-            - [NPM Registry](${{ env.REGISTRY }})
+            - [View UI Doc](${{ vars.UI_DOC }}/${{ env.TAG }})
+            - [Package Registry](${{ env.REGISTRY }})
 
             **Installation**
             ```bash
