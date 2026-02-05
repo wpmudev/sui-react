@@ -63,7 +63,6 @@
     "@wpmudev/sui-button": "^0.0.1",
     "@wpmudev/sui-input": "^0.0.1",
     "@wpmudev/sui-utils": "^0.0.1",
-    "react": "^18.2.0",
     "react-color": "^2.19.3",
     "tinycolor2": "^1.6.0"
   }
