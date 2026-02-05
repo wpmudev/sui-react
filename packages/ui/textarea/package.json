@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-textarea",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "description": "A textarea element is used to create a multi-line text input field on a web page.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -58,7 +58,7 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-hooks": "^0.1.1",
-    "@wpmudev/sui-utils": "^1.0.0"
+    "@wpmudev/sui-hooks": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1"
   }
 }

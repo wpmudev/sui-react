@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-upsell",
-  "version": "1.0.2",
+  "version": "0.0.1",
   "description": "Upsell box provides a list of Features which are part of the Pro tier. It highlights key features of Plugin pro features. The goal of this Upsell is to Highlight the Pro features for the free tier user.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -57,7 +57,7 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@wpmudev/sui-icons": "^0.0.2",
-    "@wpmudev/sui-utils": "^1.0.0"
+    "@wpmudev/sui-icons": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1"
   }
 }

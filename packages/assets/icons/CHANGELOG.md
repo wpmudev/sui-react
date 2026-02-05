@@ -1,18 +1,5 @@
 # Change Log
 
-## 0.0.2
-
-### Patch Changes
-
-- [#307](https://github.com/wpmudev/sui-react/pull/307)
-  [`190911a`](https://github.com/wpmudev/sui-react/commit/190911aac575eb4748915b31403d00e6bf03003d)
-  Thanks [@emgk](https://github.com/emgk)! - Update SUI for wpmudev-dashboard
-  5
-
-- Updated dependencies
-  [[`190911a`](https://github.com/wpmudev/sui-react/commit/190911aac575eb4748915b31403d00e6bf03003d)]:
-  - @wpmudev/sui-icon@0.1.0
-
 ## 0.0.1
 
 ### Patch Changes

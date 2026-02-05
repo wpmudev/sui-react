@@ -1,31 +1,5 @@
 # Change Log
 
-## 0.0.3
-
-### Patch Changes
-
-- [#334](https://github.com/wpmudev/sui-react/pull/334)
-  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490)
-  Thanks [@abder](https://github.com/abder)! - Remove sui react package.
-
-- Updated dependencies
-  [[`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1)]:
-  - @wpmudev/sui-hooks@0.1.1
-
-## 0.0.2
-
-### Patch Changes
-
-- [#307](https://github.com/wpmudev/sui-react/pull/307)
-  [`190911a`](https://github.com/wpmudev/sui-react/commit/190911aac575eb4748915b31403d00e6bf03003d)
-  Thanks [@emgk](https://github.com/emgk)! - Update SUI for wpmudev-dashboard 5
-
-- Updated dependencies
-  [[`334ea9e`](https://github.com/wpmudev/sui-react/commit/334ea9e237fee28bf3fa3c6671f7a2a0bd5ea0a8),
-  [`190911a`](https://github.com/wpmudev/sui-react/commit/190911aac575eb4748915b31403d00e6bf03003d)]:
-  - @wpmudev/sui-utils@1.0.0
-  - @wpmudev/sui-hooks@0.1.0
-
 ## 1.0.6
 
 ### Patch Changes
