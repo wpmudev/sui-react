@@ -250,6 +250,7 @@ jobs:
         if: success() && steps.check_changesets.outputs.found == 'true'
         with:
           message-id: 'deployment-status' # MATCHES the ID above
+          issue: ${{ env.RELEASE_PR_NUMBER }}
           message: |
             ## ${{ env.TAG == 'rc' && 'Release Candidate' || 'Snapshot' }} Deployment Successful
 
