@@ -1,0 +1,273 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ development ]
+  pull_request:
+    branches: [ development, plugin/* ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  pull-requests: write
+  contents: write
+  packages: write
+
+jobs:
+  pipeline:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Detect changeset files
+        id: check_changesets
+        run: |
+          [ -n "$(ls .changeset/*.md 2>/dev/null | grep -v 'README.md')" ] && echo "found=true" >> $GITHUB_OUTPUT || echo "found=false" >> $GITHUB_OUTPUT
+
+      - name: Configure Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install project dependencies
+        if: (github.event_name == 'pull_request' && steps.check_changesets.outputs.found == 'true') || github.event_name == 'push'
+        run: npm ci && npm rebuild
+
+      - name: Run security audit and accessibility tests
+        if: steps.check_changesets.outputs.found == 'true'
+        run: |
+          npm audit --audit-level=high --omit=dev
+          npm run test:a11y -- --coverage
+
+      - name: Calculate registry configuration and version tags
+        if: steps.check_changesets.outputs.found == 'true'
+        id: vars
+        run: |
+          BRANCH_NAME=${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
+
+          if [[ "$BRANCH_NAME" == "development" ]]; then
+            TAG="rc"
+            SNAPSHOT_ID="rc-$(date +'%Y%m%d%H%M%S')"
+          elif [[ "$BRANCH_NAME" == plugin/* ]]; then
+            CLEAN_NAME=$(echo "$BRANCH_NAME" | sed 's/\//-/g')
+            TAG="$CLEAN_NAME"
+            SNAPSHOT_ID="$CLEAN_NAME"
+          else
+            TAG=${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.number) || '${BRANCH_NAME//\//-}' }}
+            SNAPSHOT_ID="$TAG"
+          fi
+
+          {
+            echo "REGISTRY=${{ vars.NPM_STAGING }}"
+            echo "TAG=$TAG"
+            echo "SNAPSHOT_ID=$SNAPSHOT_ID"
+            echo "TIMESTAMP=$(date +'%b %d, %I:%M %p')"
+            echo "SHORT_SHA=${GITHUB_SHA::7}"
+          } >> $GITHUB_ENV
+
+          echo "Strategy Selected: [TAG=$TAG, SNAPSHOT=$SNAPSHOT_ID]"
+
+      - name: Publish snapshot packages to staging registry
+        if: steps.check_changesets.outputs.found == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REGISTRY_NO_PROTO=$(echo "${{ vars.NPM_STAGING }}" | sed 's/^https\?:\/\///' | sed 's/\/$//')
+          cat > .npmrc << EOF
+          registry=${{ vars.NPM_STAGING }}
+          //$REGISTRY_NO_PROTO/:_authToken=${{ secrets.PAT_DEV }}
+          //$REGISTRY_NO_PROTO/:always-auth=true
+          EOF
+          export NPM_CONFIG_USERCONFIG=$(pwd)/.npmrc
+          npx changeset version --snapshot ${{ env.TAG }}
+          npx changeset publish --tag ${{ env.TAG }} --registry ${{ vars.NPM_STAGING }} --no-git-tag
+
+      - name: Remove outdated snapshot versions
+        if: env.TAG != 'latest' && (steps.check_changesets.outputs.found == 'true')
+        run: |
+          node -e "
+          const { exec } = require('child_process');
+          const { promisify } = require('util');
+          const execPromise = promisify(exec);
+          const tag = '${{ env.TAG }}';
+          const registry = '${{ env.REGISTRY }}';
+
+          const getPackages = async () => {
+            try {
+              const { stdout } = await execPromise('npx lerna list --json --all --loglevel silent');
+              return JSON.parse(stdout).map(p => p.name);
+            } catch { return []; }
+          };
+
+          const processPackage = async (pkg) => {
+            try {
+              const { stdout } = await execPromise(\`npm view \${pkg} versions --registry \${registry} --json\`);
+              const allVersions = JSON.parse(stdout);
+              if (!Array.isArray(allVersions)) return;
+
+              const tagVersions = allVersions.filter(v => v.includes(tag)).sort();
+              if (tagVersions.length <= 1) return;
+
+              await Promise.all(tagVersions.slice(0, -1).map(ver =>
+                execPromise(\`npm unpublish \${pkg}@\${ver} --force --registry \${registry}\`).catch(() => {})
+              ));
+            } catch {}
+          };
+
+          (async () => {
+            const packages = await getPackages();
+            await Promise.all(packages.map(processPackage));
+          })();
+          "
+
+      - name: Generate Storybook static site
+        if: steps.check_changesets.outputs.found == 'true'
+        run: npm run build-storybook
+
+      - name: Upload Storybook to preview server
+        if: steps.check_changesets.outputs.found == 'true'
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "storybook-static/*"
+          target: "/root/storybook-sites/${{ env.TAG }}"
+          strip_components: 1
+          rm: true
+
+      - name: Prepare production release pull request
+        if: |
+          github.event_name == 'push' &&
+          github.ref_name == 'development' &&
+          steps.check_changesets.outputs.found == 'true' &&
+          !contains(github.event.head_commit.message, 'chore: version packages')
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_CHANGESETS }}
+        run: |
+          git reset --hard origin/development
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          BRANCH_NAME="changeset-release/production"
+          git checkout -b "$BRANCH_NAME"
+          npx changeset version
+          git add .
+          git commit -m "chore: version packages for production release"
+          git push origin "$BRANCH_NAME" --force
+
+          cat > pr_body.md << 'EOF'
+          # Production Release
+
+          **Storybook Preview:** [View RC Components](${{ vars.UI_DOC }}/rc)
+
+          This PR contains production-ready versions (changesets have been consumed).
+
+          Merging will automatically publish to production NPM.
+
+          ---
+
+          EOF
+
+          CHANGED_DIRS=$(git diff --name-only HEAD~1 HEAD | grep "package.json$" | xargs -n 1 dirname)
+          CHANGED_PACKAGES_COUNT=0
+          PACKAGE_CONTENT=""
+
+          for DIR in $CHANGED_DIRS; do
+            PKG_JSON="$DIR/package.json"
+            [ ! -f "$PKG_JSON" ] && continue
+
+            NAME=$(jq -r .name "$PKG_JSON")
+            VERSION=$(jq -r .version "$PKG_JSON")
+
+            [ ! -f "$DIR/CHANGELOG.md" ] && continue
+
+            SEARCH_PATTERN=""
+            if grep -q "^## \[$VERSION\]" "$DIR/CHANGELOG.md"; then
+              SEARCH_PATTERN="^## \[$VERSION\]"
+            elif grep -q "^## $VERSION" "$DIR/CHANGELOG.md"; then
+              SEARCH_PATTERN="^## $VERSION"
+            fi
+
+            [ -z "$SEARCH_PATTERN" ] && continue
+
+            CHANGED_PACKAGES_COUNT=$((CHANGED_PACKAGES_COUNT + 1))
+            CHANGELOG_ENTRY=$(sed -n "/$SEARCH_PATTERN/,/^## /{/$SEARCH_PATTERN/d;/^## /q;p;}" "$DIR/CHANGELOG.md")
+
+            PACKAGE_CONTENT="${PACKAGE_CONTENT}## $NAME @ $VERSION\n\n"
+            PACKAGE_CONTENT="${PACKAGE_CONTENT}<details>\n<summary>View Changelog</summary>\n\n"
+            PACKAGE_CONTENT="${PACKAGE_CONTENT}${CHANGELOG_ENTRY}\n\n</details>\n\n"
+          done
+
+          if [ "$CHANGED_PACKAGES_COUNT" -eq 0 ]; then
+            echo -e "\nNo package changes detected in this release." >> pr_body.md
+          else
+            echo -e "\n**Packages Changed:** $CHANGED_PACKAGES_COUNT\n\n---\n" >> pr_body.md
+            echo -e "$PACKAGE_CONTENT" >> pr_body.md
+          fi
+
+          PR_EXISTS=$(gh pr list --base master --head "$BRANCH_NAME" --json number --jq '.[0].number')
+
+          if [ -z "$PR_EXISTS" ]; then
+            PR_URL=$(gh pr create --base master --head "$BRANCH_NAME" --title "Production Release" --body-file pr_body.md)
+            PR_NUMBER=$(echo "$PR_URL" | grep -oE '[0-9]+$')
+            echo "Created new version PR #$PR_NUMBER with $CHANGED_PACKAGES_COUNT changed package(s)"
+            echo "RELEASE_PR_NUMBER=$PR_NUMBER" >> $GITHUB_ENV
+            echo "RELEASE_PR_ACTION=created" >> $GITHUB_ENV
+          else
+            gh pr edit "$PR_EXISTS" --body-file pr_body.md
+            echo "Updated existing version PR #$PR_EXISTS with $CHANGED_PACKAGES_COUNT changed package(s)"
+            echo "RELEASE_PR_NUMBER=$PR_EXISTS" >> $GITHUB_ENV
+            echo "RELEASE_PR_ACTION=updated" >> $GITHUB_ENV
+          fi
+
+      - name: Comment - No Changesets Found
+        uses: mshick/add-pr-comment@v2
+        if: always() && steps.check_changesets.outputs.found != 'true'
+        with:
+          message-id: 'deployment-status' # Unique key to identify this specific comment thread
+          message: |
+            ## ⚠️ No Changesets Found
+
+            No packages were changed, or you might have forgotten to add a changeset file.
+
+            **Action Required**
+            Run the following command to generate the required `.md` files:
+            ```bash
+            npm run changeset
+            ```
+
+      - name: Comment - Deployment Successful
+        uses: mshick/add-pr-comment@v2
+        if: success() && steps.check_changesets.outputs.found == 'true'
+        with:
+          message-id: 'deployment-status' # MATCHES the ID above
+          message: |
+            ## ${{ env.TAG == 'rc' && 'Release Candidate' || 'Snapshot' }} Deployment Successful
+
+            **Deployment Details**
+            - **Type:** ${{ env.TAG == 'rc' && 'Release Candidate' || 'Snapshot Build' }}
+            - **Registry:** `${{ env.REGISTRY }}`
+            - **Tag:** `${{ env.TAG }}`
+            - **Commit:** [`${{ env.SHORT_SHA }}`](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+            - **Deployed:** ${{ env.TIMESTAMP }}
+            - **Branch:** `${{ github.head_ref || github.ref_name }}`
+
+            **Preview Links**
+            - [View Storybook Components](${{ vars.UI_DOC }}/${{ env.TAG }})
+            - [NPM Registry](${{ env.REGISTRY }})
+
+            **Installation**
+            ```bash
+            npm install <package-name>@${{ env.TAG }} --registry ${{ env.REGISTRY }}
+            ```
+
+            **Next Steps**
+            ${{ env.TAG == 'rc' && '- This release candidate is ready for testing \n- Merge to master to publish to production' || '- Review the changes in Storybook \n - Test the snapshot packages in your project' }}
