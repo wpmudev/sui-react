@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-setup-banner",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "description": "The setup banner is designed to provide users with important information or guidance on how to set up or use certain features.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -53,7 +53,8 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-utils": "^1.0.0",
-    "@wpmudev/sui-icons": "^0.0.2"
+    "@wpmudev/sui-utils": "^0.0.1",
+    "@wpmudev/sui-icons": "^0.0.1",
+    "react": "^18.2.0"
   }
 }

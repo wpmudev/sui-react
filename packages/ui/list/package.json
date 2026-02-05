@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-list",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "Links are clickable elements that allow users to navigate to different sections, pages, or external resources. They may appear within a phrase or paragraph, or directly following the content.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
