@@ -263,8 +263,8 @@ jobs:
             - **Branch:** `${{ github.head_ref || github.ref_name }}`
 
             **Preview Links**
-            - [View Storybook Components](${{ vars.UI_DOC }}/${{ env.TAG }})
-            - [NPM Registry](${{ env.REGISTRY }})
+            - [View UI Doc](${{ vars.UI_DOC }}/${{ env.TAG }})
+            - [Package Registry](${{ env.REGISTRY }})
 
             **Installation**
             ```bash
