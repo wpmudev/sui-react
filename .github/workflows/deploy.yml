@@ -87,6 +87,7 @@ jobs:
           EOF
           export NPM_CONFIG_USERCONFIG=$(pwd)/.npmrc
           npx changeset version --snapshot ${{ env.TAG }}
+          npm run build
           npx changeset publish --tag ${{ env.TAG }} --registry ${{ vars.NPM_STAGING }} --no-git-tag
 
       - name: Remove outdated snapshot versions
