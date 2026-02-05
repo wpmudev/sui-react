@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-dropdown",
-  "version": "0.2.2",
+  "version": "0.0.1",
   "description": "A dropdown component is used to show a list of options for users to choose from.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -59,10 +59,10 @@
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-button": "^0.1.4",
-    "@wpmudev/sui-hooks": "^0.1.3",
-    "@wpmudev/sui-icon": "^0.1.4",
-    "@wpmudev/sui-icons": "^0.0.4",
-    "@wpmudev/sui-utils": "^1.0.0"
+    "@wpmudev/sui-button": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1",
+    "@wpmudev/sui-hooks": "^0.0.1",
+    "@wpmudev/sui-icons": "^0.0.1",
+    "@wpmudev/sui-icon": "^0.0.1"
   }
 }

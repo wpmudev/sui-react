@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-hooks",
-  "version": "0.1.3",
+  "version": "0.0.1",
   "description": "WPMU DEV Shared UI React Global Hooks",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -37,7 +37,7 @@
   "clean-package": "../../postpack.config.json",
   "dependencies": {
     "@emotion/css": "^11.11.2",
-    "@wpmudev/sui-utils": "^1.0.0"
+    "@wpmudev/sui-utils": "^0.0.1"
   },
   "devDependencies": {
     "@emotion/hash": "^0.9.1"

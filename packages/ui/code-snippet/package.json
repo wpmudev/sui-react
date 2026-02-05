@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-code-snippet",
-  "version": "0.0.6",
+  "version": "0.0.1",
   "description": "Code Snippet is a dedicated block designed to showcase code segments in a clear, formatted manner.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -58,9 +58,9 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
+    "@wpmudev/sui-tooltip": "^0.0.1",
+    "@wpmudev/sui-utils": "^0.0.1",
     "@types/prismjs": "1.26.1",
-    "@wpmudev/sui-tooltip": "^0.1.4",
-    "@wpmudev/sui-utils": "^1.0.0",
     "prismjs": "^1.29.0"
   }
 }
