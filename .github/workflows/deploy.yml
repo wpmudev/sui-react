@@ -230,7 +230,7 @@ jobs:
 
       - name: Comment - No Changesets Found
         uses: mshick/add-pr-comment@v2
-        if: always() && steps.check_changesets.outputs.found != 'true'
+        if: success() && steps.check_changesets.outputs.found != 'true'
         with:
           message-id: 'deployment-status' # Unique key to identify this specific comment thread
           message: |
