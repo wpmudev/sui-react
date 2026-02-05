@@ -257,7 +257,7 @@ jobs:
             - **Registry:** `${{ env.REGISTRY }}`
             - **Tag:** `${{ env.TAG }}`
             - **Commit:** [`${{ env.SHORT_SHA }}`](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
-            - **Deployed:** ${{ env.TIMESTAMP }}
+            - **Deployed:** ${{ env.TIMESTAMP }} (UTC)
             - **Branch:** `${{ github.head_ref || github.ref_name }}`
 
             **Preview Links**
@@ -270,4 +270,6 @@ jobs:
             ```
 
             **Next Steps**
-            ${{ env.TAG == 'rc' && '- This release candidate is ready for testing \n- Merge to master to publish to production' || '- Review the changes in Storybook \n - Test the snapshot packages in your project' }}
+            ${{ env.TAG == 'rc' && '- This release candidate is ready for testing
+            - Merge to master to publish to production' || '- Review the changes in Storybook
+            - Test the snapshot packages in your project' }}
