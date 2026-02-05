@@ -43,6 +43,7 @@
     "url": "git+https://github.com/wpmudev/sui-react.git"
   },
   "scripts": {
+    "preinstall": "nvm use || echo 'Please use the correct Node.js version defined in .nvmrc'",
     "format-files": "clear && npm run prettier --write .",
     "build-css": "clear && lerna run build",
     "storybook": "storybook dev -p 6006",
@@ -58,7 +59,8 @@
     "changeset": "changeset",
     "version": "changeset version",
     "release": "npm run build && changeset publish",
-    "deploy": "npm run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\""
+    "deploy": "npm run build-storybook && gh-pages -d storybook-static -b gh-pages -m \"🚀 Update showcase with latest changes.\"",
+    "prepare": "husky install"
   },
   "bugs": {
     "url": "https://incsub.atlassian.net/browse/SUI"

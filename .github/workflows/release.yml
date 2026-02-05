@@ -1,0 +1,252 @@
+name: Production Release
+on:
+  push:
+    branches: [ master ]
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Get Published Package Info
+        id: package_info
+        env:
+          NPM_PROD: ${{ vars.NPM_PROD }}
+        run: |
+          echo "Gathering package information..."
+
+          # 1. Get list of all package directories
+          PACKAGES=$(npx lerna list --json --all --loglevel silent | jq -r '.[].location')
+
+          PACKAGE_LIST=""
+          PACKAGE_COUNT=0
+
+          for DIR in $PACKAGES; do
+            PKG_JSON="$DIR/package.json"
+            [ ! -f "$PKG_JSON" ] && continue
+
+            # 2. Get the NEW version (from the file currently on disk)
+            NAME=$(jq -r .name "$PKG_JSON")
+            NEW_VERSION=$(jq -r .version "$PKG_JSON")
+
+            # 3. Get the OLD version (from git history of the previous commit on master)
+            # We use HEAD^ to look at the state before the current commit
+            # git show HEAD^:path/to/package.json
+
+            # Get relative path for git command
+            REL_PATH=$(realpath --relative-to="$PWD" "$PKG_JSON")
+
+            # Fetch old content. If file didn't exist (new package), default to 0.0.0
+            OLD_CONTENT=$(git show HEAD^:"$REL_PATH" 2>/dev/null || echo '{"version": "0.0.0"}')
+            OLD_VERSION=$(echo "$OLD_CONTENT" | jq -r .version)
+
+            # 4. Compare Versions
+            if [ "$NEW_VERSION" != "$OLD_VERSION" ]; then
+              echo "Detected change in $NAME: $OLD_VERSION -> $NEW_VERSION"
+
+              PACKAGE_LIST="${PACKAGE_LIST}- [\`${NAME}@${NEW_VERSION}\`](${NPM_PROD}/-/web/detail/${NAME}/v/${NEW_VERSION})"$'\n'
+              PACKAGE_COUNT=$((PACKAGE_COUNT + 1))
+            else
+              echo "Skipping $NAME (Version $NEW_VERSION matches old version)"
+            fi
+          done
+
+          # 5. Export to Env
+          {
+            echo "PACKAGE_LIST<<EOF"
+            echo -e "$PACKAGE_LIST"
+            echo "EOF"
+            echo "PACKAGE_COUNT=$PACKAGE_COUNT"
+          } >> $GITHUB_ENV
+
+          echo "Found $PACKAGE_COUNT actually published packages"
+
+      - name: Check Release Status
+        if: env.PACKAGE_COUNT == '0'
+        run: echo "No packages were changed or published. Skipping GitHub Release."
+
+      - name: Setup NPM Auth (Production)
+        if: env.PACKAGE_COUNT != '0'
+        run: |
+          CLEAN_REGISTRY=$(echo "${{ vars.NPM_PROD }}" | sed 's/^https\?:\/\///')
+          cat > .npmrc << EOF
+          registry=${{ vars.NPM_PROD }}
+          //$CLEAN_REGISTRY:_authToken=${{ secrets.PAT_PROD }}
+          //$CLEAN_REGISTRY:always-auth=true
+          EOF
+          echo "NPM authentication configured for production"
+
+      - name: Publish to Production NPM
+        if: env.PACKAGE_COUNT != '0'
+        id: publish
+        run: |
+          echo "Publishing packages to production..."
+          npx changeset publish --no-git-tag
+          echo "published=true" >> $GITHUB_OUTPUT
+          echo "Publishing complete"
+        env:
+          NPM_CONFIG_USERCONFIG: ${{ github.workspace }}/.npmrc
+
+      - name: Build Storybook (Production)
+        if: steps.publish.outputs.published == 'true' && env.PACKAGE_COUNT != '0'
+        run: |
+          echo "Building Storybook for production..."
+          npm run build-storybook
+          echo "Storybook built successfully"
+
+      - name: Deploy Storybook to Production
+        uses: appleboy/scp-action@v1
+        if: steps.publish.outputs.published == 'true' && env.PACKAGE_COUNT != '0'
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "storybook-static/*"
+          target: "/root/storybook-sites/prod"
+          strip_components: 1
+          rm: true
+
+      - name: Create GitHub Release
+        if: steps.publish.outputs.published == 'true' && env.PACKAGE_COUNT != '0'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          UI_DOC: ${{ vars.UI_DOC }}
+          NPM_PROD: ${{ vars.NPM_PROD }}
+          # We map the Env var from the previous step so the script can read it
+          PACKAGE_LIST: ${{ env.PACKAGE_LIST }}
+          PACKAGE_COUNT: ${{ env.PACKAGE_COUNT }}
+        run: |
+          RELEASE_DATE=$(date +'%Y-%m-%d')
+          RELEASE_TIME=$(date +'%H:%M:%S UTC')
+          SHORT_SHA=${GITHUB_SHA:0:7}
+
+          # Default to 0/empty if variables are missing
+          : ${PACKAGE_LIST:=""}
+          : ${PACKAGE_COUNT:="0"}
+
+          cat > release_notes.md << EOF
+          This release contains $PACKAGE_COUNT package(s) published to production NPM registry.
+
+          ## Release Information
+
+          - **Release Date:** $RELEASE_DATE
+          - **Release Time:** $RELEASE_TIME
+          - **Commit:** [\`$SHORT_SHA\`](https://github.com/${{ github.repository }}/commit/${GITHUB_SHA})
+          - **Packages Published:** $PACKAGE_COUNT
+
+          - [View Component Library (Storybook)](${UI_DOC}/prod)
+          - [NPM Registry](${NPM_PROD})
+
+          ## Installation
+
+          Install the latest version of any package:
+
+          \`\`\`bash
+          npm install @your-org/package-name@latest
+          \`\`\`
+
+          ## Published Packages
+
+          $PACKAGE_LIST
+
+          ---
+
+          ## Changelog Details
+
+          EOF
+
+          # 1. We still list all directories to find where files live...
+          PACKAGES=$(npx lerna list --json --all --loglevel silent | jq -r '.[].location')
+          HAS_RELEASES=false
+
+          for DIR in $PACKAGES; do
+            PKG_JSON="$DIR/package.json"
+            [ ! -f "$PKG_JSON" ] && continue
+
+            NAME=$(jq -r .name "$PKG_JSON")
+            VERSION=$(jq -r .version "$PKG_JSON")
+
+            # --- CRITICAL FILTER ---
+            # We strictly check if this package name exists in the list we generated in the previous step.
+            # If the name isn't in PACKAGE_LIST, we skip generating a changelog section for it.
+            if [[ "$PACKAGE_LIST" != *"$NAME"* ]]; then
+              continue
+            fi
+
+            [ ! -f "$DIR/CHANGELOG.md" ] && continue
+
+            # Search for ## [1.0.0] or ## 1.0.0
+            SEARCH_PATTERN=""
+            if grep -q "^## \[$VERSION\]" "$DIR/CHANGELOG.md"; then
+              SEARCH_PATTERN="^## \[$VERSION\]"
+            elif grep -q "^## $VERSION" "$DIR/CHANGELOG.md"; then
+              SEARCH_PATTERN="^## $VERSION"
+            fi
+
+            [ -z "$SEARCH_PATTERN" ] && continue
+
+            # Extract only the relevant section
+            LATEST_ENTRY=$(sed -n "/$SEARCH_PATTERN/,/^## /{/$SEARCH_PATTERN/d;/^## /q;p;}" "$DIR/CHANGELOG.md")
+
+            [ -z "$LATEST_ENTRY" ] && continue
+
+            HAS_RELEASES=true
+            cat >> release_notes.md << EOF
+          ### [\`$NAME@$VERSION\`](${NPM_PROD}/-/web/detail/$NAME/v/$VERSION)
+
+          <details open>
+          <summary>View Changelog</summary>
+
+          $LATEST_ENTRY
+
+          </details>
+
+          **Installation:**
+          \`\`\`bash
+          npm install $NAME@$VERSION
+          \`\`\`
+
+          ---
+
+          EOF
+          done
+
+          if [ "$HAS_RELEASES" = false ]; then
+            cat >> release_notes.md << EOF
+          No detailed changelog entries were found for the published packages.
+          EOF
+          fi
+
+          cat >> release_notes.md << EOF
+
+          To upgrade your project to use these latest packages:
+
+          1. Update your package.json dependencies to the versions listed above
+          2. Run \`npm install\` to install the new versions
+
+          EOF
+
+          TAG_NAME="release-$(date +'%Y%m%d-%H%M%S')"
+
+          gh release create "$TAG_NAME" \
+            --title "Production Release" \
+            --notes-file release_notes.md \
+            --target master \
+            --latest
+
+          echo "Created GitHub Release: $TAG_NAME"
