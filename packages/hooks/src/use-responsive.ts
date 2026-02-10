@@ -64,6 +64,9 @@ const useResponsive = (config: ConfigType = {}) => {
 	useEffect(() => {
 		const handleResize = () => setDevice(getDevice(defaultBreakpoints))
 
+		// Add window resize listener as fallback
+		window.addEventListener("resize", handleResize)
+
 		// initialize matchMedia for each device and listen for changes
 		const mediaQueries = Object.values(defaultBreakpoints).map((value) => {
 			const mediaList = window.matchMedia(getMediaQuery(value))
@@ -73,6 +76,7 @@ const useResponsive = (config: ConfigType = {}) => {
 
 		// cleanup event listeners on unmount
 		return () => {
+			window.removeEventListener("resize", handleResize)
 			mediaQueries.forEach((mediaList) =>
 				mediaList.removeEventListener("change", handleResize),
 			)
