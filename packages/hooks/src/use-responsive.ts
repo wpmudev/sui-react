@@ -62,7 +62,17 @@ const useResponsive = (config: ConfigType = {}) => {
 	const [device, setDevice] = useState(() => getDevice(defaultBreakpoints))
 
 	useEffect(() => {
-		const handleResize = () => setDevice(getDevice(defaultBreakpoints))
+		let timeoutId: ReturnType<typeof setTimeout> | null = null
+
+		const handleResize = () => {
+			if (timeoutId) {
+				clearTimeout(timeoutId)
+			}
+			timeoutId = setTimeout(() => {
+				const newDevice = getDevice(defaultBreakpoints)
+				setDevice(newDevice)
+			}, 100)
+		}
 
 		// Add window resize listener as fallback
 		window.addEventListener("resize", handleResize)
@@ -76,6 +86,9 @@ const useResponsive = (config: ConfigType = {}) => {
 
 		// cleanup event listeners on unmount
 		return () => {
+			if (timeoutId) {
+				clearTimeout(timeoutId)
+			}
 			window.removeEventListener("resize", handleResize)
 			mediaQueries.forEach((mediaList) =>
 				mediaList.removeEventListener("change", handleResize),
