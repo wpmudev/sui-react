@@ -266,6 +266,7 @@ const TableRow: React.FC<TableRowProps> = ({
 						className="sui-table__cell--actions"
 						isSticky={!!ctx?.stickyCols}
 						isAction={true}
+						key={`${rowId}-action`}
 					>
 						{"function" === typeof actions &&
 							actions({ id, content: toggleBtn })}
