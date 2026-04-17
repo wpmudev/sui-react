@@ -70,7 +70,7 @@ interface UploaderFileProps extends SuiStyleType {
 	/**
 	 * The unique ID of the file.
 	 */
-	id: number
+	id: string
 
 	/**
 	 * The File object representing the uploaded file.
@@ -80,9 +80,9 @@ interface UploaderFileProps extends SuiStyleType {
 	/**
 	 * Callback function to remove the file.
 	 *
-	 * @param fileIndex - The index of the file to remove.
+	 * Called when the file should be removed.
 	 */
-	onRemove?: (fileIndex: number) => void
+	onRemove?: () => void
 }
 
 /**

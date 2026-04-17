@@ -160,22 +160,22 @@ const Uploader: React.FC<UploaderProps> = ({
 	// Callback to remove a file from the selected files
 	const onRemoveFile = useCallback(
 		(fileIndex: number) => {
-			// New files list
-			const _files = files.filter(
-				(file: File, index: number) => index !== fileIndex,
-			)
+			setFiles((prevFiles) => {
+				const _files = prevFiles.filter(
+					(file: File, index: number) => index !== fileIndex,
+				)
 
-			// Update Files state
-			setFiles(_files)
+				// Call onChange callback with the updated list
+				onChange(_files)
 
-			// Call onChange callback
-			onChange(_files)
+				return _files
+			})
 
 			// Empty the file input value
 			emptyFileInput()
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[files, onChange],
+		[onChange],
 	)
 
 	const { suiInlineClassname } = useStyles(_style)
@@ -231,7 +231,7 @@ const Uploader: React.FC<UploaderProps> = ({
 								<UploaderFile
 									key={index}
 									id={`${uploaderId}-file-${index}`}
-									onRemove={onRemoveFile}
+									onRemove={() => onRemoveFile(index)}
 									file={file}
 								/>
 							))}

@@ -70,7 +70,7 @@ const UploaderFile: React.FC<UploaderFileProps> = React.memo(
 					className="sui-uploader__file--remove"
 					iconOnly={true}
 					icon="Close"
-					onClick={() => onRemove(id)}
+					onClick={() => onRemove?.()}
 				/>
 			</div>
 		)
