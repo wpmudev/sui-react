@@ -9,6 +9,7 @@ import { useNotifications } from "./use-notification"
 import { useStyles } from "@wpmudev/sui-hooks"
 
 const Notification: React.FC<NotificationProps> = ({
+	count,
 	id,
 	title,
 	message = "message",
@@ -34,10 +35,10 @@ const Notification: React.FC<NotificationProps> = ({
 	useEffect(() => {
 		if (!isInline && !isDismissible) {
 			setTimeout(() => {
-				notifications.remove(id)
+				notifications.removeByCount(count)
 			}, timeout ?? 5000)
 		}
-	}, [id, isInline, notifications, timeout, isDismissible])
+	}, [id, count, isInline, notifications, timeout, isDismissible])
 
 	/**
 	 * Hide notification when click on dismiss button

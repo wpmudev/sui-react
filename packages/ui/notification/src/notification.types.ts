@@ -11,6 +11,7 @@ interface NotificationProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	id?: string // unique ID for the notification
+	count?: number // notification count
 	title?: ReactNode // title content of the notification (can be any valid React node)
 	message?: ReactNode // message content of the notification (can be any valid React node)
 	action?: ReactNode // notification action

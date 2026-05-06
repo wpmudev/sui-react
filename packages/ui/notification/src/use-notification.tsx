@@ -18,7 +18,13 @@ const notificationStore = {
 	// function to remove a notification from the store based on its ID
 	remove: (idStr: string | undefined) => {
 		notifications = notifications.filter(
-			(alert: any) => alert?.id !== (idStr ?? ""),
+			(alert: NotificationProps) => alert?.id !== (idStr ?? ""),
+		)
+		emitChange()
+	},
+	removeByCount: (count?: number) => {
+		notifications = notifications.filter(
+			(alert: NotificationProps) => alert?.count !== count,
 		)
 		emitChange()
 	},
@@ -50,6 +56,7 @@ const useNotifications = () => {
 	return {
 		push: notificationStore.push,
 		remove: notificationStore.remove,
+		removeByCount: notificationStore.removeByCount,
 		queue,
 	}
 }
