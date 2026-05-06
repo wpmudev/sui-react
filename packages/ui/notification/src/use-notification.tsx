@@ -12,7 +12,7 @@ let listeners: Function[] = []
 const notificationStore = {
 	// function to push a new notification to the store
 	push: (options: NotificationProps) => {
-		notifications = [...notifications, { ...options, id: id++ }]
+		notifications = [...notifications, { ...options, count: id++ }]
 		emitChange()
 	},
 	// function to remove a notification from the store based on its ID
