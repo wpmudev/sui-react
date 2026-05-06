@@ -12,13 +12,19 @@ let listeners: Function[] = []
 const notificationStore = {
 	// function to push a new notification to the store
 	push: (options: NotificationProps) => {
-		notifications = [...notifications, { ...options, id: id++ }]
+		notifications = [...notifications, { ...options, count: id++ }]
 		emitChange()
 	},
 	// function to remove a notification from the store based on its ID
 	remove: (idStr: string | undefined) => {
 		notifications = notifications.filter(
-			(alert: any) => alert?.id !== (idStr ?? ""),
+			(alert: NotificationProps) => alert?.id !== (idStr ?? ""),
+		)
+		emitChange()
+	},
+	removeByCount: (count?: number) => {
+		notifications = notifications.filter(
+			(alert: NotificationProps) => alert?.count !== count,
 		)
 		emitChange()
 	},
@@ -50,6 +56,7 @@ const useNotifications = () => {
 	return {
 		push: notificationStore.push,
 		remove: notificationStore.remove,
+		removeByCount: notificationStore.removeByCount,
 		queue,
 	}
 }
