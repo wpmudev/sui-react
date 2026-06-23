@@ -12,6 +12,9 @@ import {
 import { NavActionsWPMUDEV } from "./elements/wpmudev-nav-actions"
 import { NavigationWrapper } from "./navigation-wpmudev"
 import { UserWPMUDEV } from "./elements/wpmudev-user"
+import { Plugin } from "./navigation-wpmudev.types"
+
+export type { Plugin }
 
 export {
 	MoreFromWPMUDEV,

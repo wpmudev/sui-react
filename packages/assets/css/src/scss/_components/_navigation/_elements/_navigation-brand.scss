@@ -22,6 +22,23 @@
 				}
 			}
 
+			@include element(custom-icon) {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				height: $navigation-size-height-lg;
+				width: $navigation-size-width-lg;
+
+				img {
+					width: 100%;
+				}
+
+				@include media(max-width, md) {
+					height: $navigation-size-height-md;
+					width: $navigation-size-width-md;
+				}
+			}
+
 			@include element(icon) {
 				display: inline-flex;
 				align-items: center;
@@ -42,6 +59,20 @@
 				@include media(max-width, sm) {
 					display: none;
 				}
+
+				@include modifier(show-title-in-mobile, show-description-in-mobile) {
+					@include media(max-width, sm) {
+						display: block;
+					}
+				}
+
+				@include media(max-width, sm) {
+					h3 {
+						font-size: $font-size-sm;
+						line-height: $font-height-sm;
+					}
+				}
+
 				@include modifier(desc) {
 					display: block;
 					color: $color-grey-60;
@@ -53,6 +84,14 @@
 
 					@include media(max-width, md) {
 						display: none;
+					}
+				}
+
+				@include modifier(show-description-in-mobile) {
+					@include media(max-width, md) {
+						.sui-navigation__info--desc {
+							display: block;
+						}
 					}
 				}
 			}

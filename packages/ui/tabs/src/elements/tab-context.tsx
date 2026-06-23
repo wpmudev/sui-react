@@ -1,4 +1,11 @@
-import React, { createContext, FC, useCallback, useId, useState } from "react"
+import React, {
+	createContext,
+	FC,
+	useCallback,
+	useEffect,
+	useId,
+	useState,
+} from "react"
 import { TabContextProps, TabProviderProps } from "../tabs.types"
 
 // Create a TabContext using createContext with an initial value of null
@@ -28,6 +35,11 @@ const TabProvider: FC<TabProviderProps> = ({
 		},
 		[id, onSwitchTab],
 	)
+
+	//  if activeIndex prop changes, update the currentIndex state
+	useEffect(() => {
+		setCurrentIndex(activeIndex ?? 0)
+	}, [activeIndex])
 
 	// Provide the TabContext value to its children using the provided state and functions
 	return (

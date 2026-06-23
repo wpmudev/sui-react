@@ -33,6 +33,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 	updateOptions,
 	onSearch = (value: string) => {},
 	onChange,
+	emptyMessage = "",
 	_htmlProps,
 	_dropdownProps,
 	...props
@@ -98,6 +99,7 @@ const Dropdown: React.FC<SelectDropdownProps> = ({
 			isFixedHeight={true}
 			className={generateCN("sui-select__dropdown", {}, suiInlineClassname)}
 			menu={content}
+			emptyMessage={emptyMessage}
 			onMenuClick={(option: SelectOptionType, e: MouseEvent<HTMLElement>) => {
 				onSelect(e, option)
 			}}

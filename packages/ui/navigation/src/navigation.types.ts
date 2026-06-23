@@ -57,6 +57,10 @@ interface NavigationBrandProps extends SuiStyleType, SuiHTMLAttributes {
 	 */
 	plugin?: PluginsSlug
 	/*
+	 * Optional: Custom icon URL for the brand.
+	 */
+	customIcon?: string
+	/*
 	 * Optional: Title for the brand.
 	 */
 	title?: string
@@ -64,6 +68,14 @@ interface NavigationBrandProps extends SuiStyleType, SuiHTMLAttributes {
 	 * Optional: Description for the brand.
 	 */
 	description?: string
+	/*
+	 * Show title in mobile view
+	 */
+	showTitleInMobile?: boolean
+	/*
+	 * Show description in mobile view
+	 */
+	showDescriptionInMobile?: boolean
 	/*
 	 * Optional: Additional CSS class name.
 	 */
@@ -145,6 +157,14 @@ interface NavigationProps
 	 * Navigation actions list
 	 */
 	actions?: ReactNode[]
+	/**
+	 * Show title in mobile view
+	 */
+	showTitleInMobile?: boolean
+	/**
+	 * Show description in mobile view
+	 */
+	showDescriptionInMobile?: boolean
 }
 
 export type {

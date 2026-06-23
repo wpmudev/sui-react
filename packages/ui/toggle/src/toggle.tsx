@@ -25,8 +25,10 @@ const Toggle: React.FC<ToggleProps> = ({
 	isLabelHidden = false,
 	isDisabled = false,
 	onClick,
+	isFluid = false,
 	_htmlProps = {},
 	_style = {},
+	children,
 	...props
 }) => {
 	// use id
@@ -92,7 +94,10 @@ const Toggle: React.FC<ToggleProps> = ({
 	}
 
 	return (
-		<div className="sui-toggle__container" id={`${toggleId}-container`}>
+		<div
+			className={generateCN("sui-toggle__container", { fluid: isFluid })}
+			id={`${toggleId}-container`}
+		>
 			<label {...containerProps} htmlFor={toggleId} data-testid="toggle">
 				<input
 					{...(inputProps as HTMLProps<HTMLInputElement>)}
@@ -127,6 +132,11 @@ const Toggle: React.FC<ToggleProps> = ({
 					data-testid="toggle-description"
 				>
 					{description}
+				</div>
+			)}
+			{state && children && (
+				<div className="sui-toggle__content">
+					<div className="sui-toggle__content--inner">{children}</div>
 				</div>
 			)}
 		</div>

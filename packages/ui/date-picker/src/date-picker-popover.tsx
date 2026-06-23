@@ -11,20 +11,21 @@ import { useOuterClick, useStyles } from "@wpmudev/sui-hooks"
 import { DatePickerPopoverProps } from "./date-picker.types"
 
 const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
+	alignment = "left",
 	_style,
 }) => {
 	// Context of the DatePicker, which contains various state variables and functions
 	const ctx = useContext(DatePickerContext)
 	const { suiInlineClassname } = useStyles(_style)
 
-	const { startMonth, endMonth, helpers, handlers } = ctx!
+	const { startMonth, endMonth, helpers, handlers, dateRange } = ctx!
 
 	// Create a ref to access the dropdown's outer container element.
 	const popoverRef = useRef<HTMLDivElement | null>(null)
 
 	// Handle the closing of the dropdown when clicking outside the component.
 	useOuterClick(popoverRef, () => {
-		if (ctx?.isSingle) {
+		if (ctx?.closeOnClickOutside) {
 			ctx?.setIsOpen(false)
 		}
 	})
@@ -39,7 +40,7 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 		<div
 			className={generateCN(
 				"sui-date-picker__popover",
-				{ open: ctx?.isOpen },
+				{ open: ctx?.isOpen, [alignment]: true },
 				suiInlineClassname,
 			)}
 			data-testid="date-picker-popover"
@@ -80,7 +81,10 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 							type="tertiary"
 							colorScheme="black"
 							isSmall={true}
-							onClick={() => ctx?.setIsOpen(false)}
+							onClick={() => {
+								ctx?.onClose?.(dateRange)
+								ctx?.setIsOpen(false)
+							}}
 						>
 							Close
 						</Button>
@@ -90,7 +94,10 @@ const DatePickerPopover: React.FunctionComponent<DatePickerPopoverProps> = ({
 							type="secondary"
 							colorScheme="black"
 							isSmall={true}
-							onClick={() => ctx?.setIsOpen(false)}
+							onClick={() => {
+								ctx?.onSubmit?.(dateRange)
+								ctx?.setIsOpen(false)
+							}}
 						>
 							Ok
 						</Button>

@@ -7,6 +7,7 @@ import { Tag } from "@wpmudev/sui-tag"
 
 // Import documentation main page.
 import docs from "./Popover.mdx"
+import { Info } from "@wpmudev/sui-icons"
 
 // Configure default options.
 export default {
@@ -49,10 +50,15 @@ const Popover = ({
 								</Button>
 							)
 						}
+						// trigger={
+						// 	<Button isSmall={true} type="primary" colorScheme="blue">
+						// 		Open popup
+						// 	</Button>
+						// }
 						trigger={
-							<Button isSmall={true} type="primary" colorScheme="blue">
-								Open popup
-							</Button>
+							<span>
+								<Info as="button" colorScheme="neutral" />
+							</span>
 						}
 						image={src}
 					>

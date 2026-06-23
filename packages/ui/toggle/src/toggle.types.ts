@@ -34,6 +34,14 @@ interface ToggleProps
 	 */
 	isDisabled?: boolean
 	/**
+	 * Children elements to be rendered within the toggle component.
+	 */
+	children?: React.ReactNode
+	/**
+	 * isFluid: When true, the toggle component will take the full width of its container.
+	 */
+	isFluid?: boolean
+	/**
 	 * A Callback function to be invoked upon clicking.
 	 */
 	onClick?(e: React.ChangeEvent<HTMLInputElement>): void

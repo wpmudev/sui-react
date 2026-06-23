@@ -14,8 +14,11 @@ import { useStyles } from "@wpmudev/sui-hooks"
 const NavigationBrand: React.FC<NavigationBrandProps> = ({
 	id,
 	plugin,
+	customIcon,
 	title = "",
 	description = "",
+	showTitleInMobile,
+	showDescriptionInMobile,
 	className,
 	_style,
 	_htmlProps = {},
@@ -41,14 +44,30 @@ const NavigationBrand: React.FC<NavigationBrandProps> = ({
 			className={generateCN("sui-navigation__brand", {}, suiInlineClassname)}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
+			{customIcon && (
+				<div
+					id={`${brandId}-custom-icon`}
+					className="sui-navigation__custom-icon"
+				>
+					<img alt={title} src={customIcon} />
+				</div>
+			)}
+			{!customIcon && (
+				<div
+					id={`${brandId}-icon`}
+					className="sui-navigation__icon"
+					style={{ backgroundColor: PluginIcon?.bg }}
+				>
+					{!!IconTag && <IconTag fill={PluginIcon?.color} />}
+				</div>
+			)}
 			<div
-				id={`${brandId}-icon`}
-				className="sui-navigation__icon"
-				style={{ backgroundColor: PluginIcon?.bg }}
+				id={`${brandId}-info`}
+				className={generateCN("sui-navigation__info", {
+					"show-title-in-mobile": showTitleInMobile,
+					"show-description-in-mobile": showDescriptionInMobile,
+				})}
 			>
-				{!!IconTag && <IconTag fill={PluginIcon?.color} />}
-			</div>
-			<div id={`${brandId}-info`} className="sui-navigation__info">
 				<h3 id={`${brandId}-title`} className="sui-heading--h4">
 					{title}
 				</h3>

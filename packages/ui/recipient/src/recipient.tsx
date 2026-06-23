@@ -16,18 +16,22 @@ const Recipient: React.FC<RecipientProps> = ({
 	userName = "name",
 	userEmail = "",
 	userImage,
+	hideAvatar = false,
+	placeholder = "No Avatar",
+	className,
 	status = "none",
 	isInvited = false,
 	appearance = "primary",
+	actions,
 	_htmlProps,
 	_style,
 }) => {
 	const generatedId = useId()
 	const recipientId = id || `sui-recipient-${generatedId}`
-	const { suiInlineClassname } = useStyles(_style)
+	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Define recipient class.
-	const className = generateCN(
+	const classes = generateCN(
 		"sui-recipient",
 		{
 			// Define recipient appearance.
@@ -39,27 +43,36 @@ const Recipient: React.FC<RecipientProps> = ({
 	return (
 		<div
 			id={recipientId}
-			className={className}
+			className={classes}
 			data-testid="recipients"
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div className="sui-recipient__info">
-				<Avatar
-					className="sui-recipient__avatar"
-					{...(!isEmpty(status) && { status })}
-					{...(userImage?.src && { image: userImage })}
-				/>
-				{(!isEmpty(userName) || !isEmpty(userEmail)) && (
-					<div className="sui-recipient__details">
-						{!isEmpty(userName) && <RecipientName>{userName}</RecipientName>}
-						{!isEmpty(userEmail) && (
-							<RecipientEmail>{userEmail}</RecipientEmail>
+				{hideAvatar && (
+					<p className="sui-recipient__info--placeholder">{placeholder}</p>
+				)}
+				{!hideAvatar && (
+					<Fragment>
+						<Avatar
+							className="sui-recipient__avatar"
+							{...(!isEmpty(status) && { status })}
+							{...(userImage?.src && { image: userImage })}
+						/>
+						{(!isEmpty(userName) || !isEmpty(userEmail)) && (
+							<div className="sui-recipient__details">
+								{!isEmpty(userName) && (
+									<RecipientName>{userName}</RecipientName>
+								)}
+								{!isEmpty(userEmail) && (
+									<RecipientEmail>{userEmail}</RecipientEmail>
+								)}
+							</div>
 						)}
-					</div>
+					</Fragment>
 				)}
 			</div>
 			<div className="sui-recipient__actions">
-				{!isInvited && (
+				{!isInvited && !actions && (
 					<RecipientButton
 						className="sui-recipient__button"
 						buttonProps={{
@@ -69,7 +82,7 @@ const Recipient: React.FC<RecipientProps> = ({
 						Add recipient
 					</RecipientButton>
 				)}
-				{isInvited && (
+				{isInvited && !actions && (
 					<Fragment>
 						<RecipientButton
 							className="sui-recipient__button"
@@ -91,6 +104,7 @@ const Recipient: React.FC<RecipientProps> = ({
 						</RecipientButton>
 					</Fragment>
 				)}
+				{actions}
 			</div>
 		</div>
 	)

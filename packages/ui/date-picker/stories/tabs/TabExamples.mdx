@@ -14,6 +14,14 @@ export const disabledCode = dedent`
     <DatePicker isDisabled={true} type="single" startDate="15/07/2023" />
 `
 
+export const shortMonthCode = dedent`
+    <DatePicker type="single" startDate="15/07/2023" dateFormat="MMM d, yyyy" />
+`
+
+export const numericFormatCode = dedent`
+    <DatePicker type="range" startDate="15/08/2023" endDate="21/08/2023" dateFormat="MM/dd/yyyy" />
+`
+
 <Section contained={true} style={{ paddingTop: 0 }}>
 	<p>Basic Date Picker example used for most cases </p>
 	<div className="sui-wrap sui-theme--light" style={{marginBottom: "20px", position: "relative", zIndex: 3, width: "400px"}}>
@@ -36,5 +44,23 @@ export const disabledCode = dedent`
     	<DatePicker isDisabled={true} type="single" startDate="15/07/2023" />
 	</div>
     <Snippet language="js">{disabledCode}</Snippet>
+
+</Section>
+
+<Section title="Short Month Format" contained={true} style={{ paddingTop: 0 }}>
+	<p>Date Picker with shorthand month format (e.g., "Jan 1, 2026" instead of "January 1, 2026")</p>
+	<div className="sui-wrap sui-theme--light" style={{marginBottom: "20px", position: "relative", zIndex: 1, width: "400px"}}>
+    	<DatePicker type="single" startDate="15/07/2023" dateFormat="MMM d, yyyy" />
+	</div>
+    <Snippet language="js">{shortMonthCode}</Snippet>
+
+</Section>
+
+<Section title="Numeric Date Format" contained={true} style={{ paddingTop: 0 }}>
+	<p>Date Picker with numeric date format (e.g., "08/15/2023")</p>
+	<div className="sui-wrap sui-theme--light" style={{marginBottom: "20px", position: "relative", zIndex: 1, width: "400px"}}>
+    	<DatePicker type="range" startDate="15/08/2023" endDate="21/08/2023" dateFormat="MM/dd/yyyy" />
+	</div>
+    <Snippet language="js">{numericFormatCode}</Snippet>
 
 </Section>

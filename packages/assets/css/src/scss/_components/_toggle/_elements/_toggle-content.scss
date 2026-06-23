@@ -18,6 +18,16 @@
 				margin: 0 0 0 $toggle-spacing-lg;
 			}
 
+			@include element(content) {
+				width: 100%;
+				@include modifier(inner) {
+					margin: 0 0 0 $toggle-spacing-lg;
+					padding: $spacing-2xl;
+					border: $border-width-sm solid $color-grey-10;
+					border-radius: $border-radius-md;
+				}
+			}
+
 			@include element(label) {
 				font-weight: $font-weight-md;
 				font-size: $font-size-default;
@@ -32,6 +42,12 @@
 		@include block($block) {
 			@include element(label, description) {
 				margin: 0 $toggle-spacing-lg 0 0;
+			}
+
+			@include element(content) {
+				@include modifier(inner) {
+					margin: 0 $toggle-spacing-lg 0 0;
+				}
 			}
 		}
 	}

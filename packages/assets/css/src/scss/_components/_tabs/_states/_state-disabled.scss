@@ -11,6 +11,12 @@
 	// THEME: None.
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			@include element(panel-item) {
+				@include modifier(disabled) {
+					background: $color-grey-02;
+					pointer-events: none;
+				}
+			}
 			@include element(nav-item) {
 				@include modifier(disabled) {
 					pointer-events: none;

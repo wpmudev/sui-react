@@ -25,6 +25,10 @@
 				}
 			}
 
+			.suicons {
+				display: flex;
+			}
+
 			@include element(quick-actions) {
 				display: flex;
 				justify-content: space-between;

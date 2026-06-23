@@ -28,6 +28,10 @@ interface RecipientProps
 		src: string
 	}
 	/**
+	 * Custom CSS class name(s) to be applied to the recipient component.
+	 */
+	className?: string
+	/**
 	 * Reflects if the user is confirmed
 	 */
 	status?: AvatarProps["status"]
@@ -39,6 +43,18 @@ interface RecipientProps
 	 * Theme of the recipient.
 	 */
 	appearance?: string
+	/**
+	 * Action buttons or elements to be displayed in the recipient component.
+	 */
+	actions?: React.ReactNode
+	/**
+	 * Placeholder text to display when avatar is hidden
+	 */
+	placeholder?: string
+	/**
+	 * Hides the avatar when set to true
+	 */
+	hideAvatar?: boolean
 }
 
 export type { RecipientProps }

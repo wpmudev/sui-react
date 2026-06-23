@@ -23,7 +23,7 @@ interface FormFieldProps
 	/**
 	 * The label for the field.
 	 */
-	label?: string
+	label?: string | React.ReactNode
 	/**
 	 * The helper text for the field.
 	 */

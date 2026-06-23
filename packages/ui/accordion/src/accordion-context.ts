@@ -22,30 +22,37 @@ const useAccordion = ({
 	const { allowMultipleExpand, expandState, setExpandState } =
 		useContext(AccordionContext)
 
-	// Set initail expand state
+	// Set initial expand state only once when component mounts
 	useEffect(() => {
-		if (!isUndefined(isExpanded)) {
-			setExpandState({
+		if (!isUndefined(isExpanded) && isUndefined(expandState[uniqueId])) {
+			setExpandState((prevState: Record<string, boolean>) => ({
+				...prevState,
 				[uniqueId]: isExpanded,
-			})
+			}))
 		}
-	}, [isExpanded, uniqueId, setExpandState])
+	}, [uniqueId, setExpandState, isExpanded, expandState])
 
 	// toggle the expand state
 	const toggle = useCallback(() => {
-		if (!allowMultipleExpand) {
-			return setExpandState({
-				[uniqueId]: !expandState[uniqueId],
-			})
-		}
-		setExpandState({
-			...expandState,
-			[uniqueId]: !expandState[uniqueId],
+		setExpandState((prevState: Record<string, boolean>) => {
+			if (!allowMultipleExpand) {
+				// When not allowing multiple expand, close all others and toggle current
+				const newState: Record<string, boolean> = {}
+				Object.keys(prevState).forEach((key) => {
+					newState[key] = key === uniqueId ? !prevState[uniqueId] : false
+				})
+				return newState
+			}
+			// When allowing multiple expand, just toggle current item
+			return {
+				...prevState,
+				[uniqueId]: !prevState[uniqueId],
+			}
 		})
-	}, [allowMultipleExpand, setExpandState, expandState, uniqueId])
+	}, [allowMultipleExpand, uniqueId, setExpandState])
 
 	// Expand state of item with "uniqueId"
-	const isCurrentlyExpanded = expandState[uniqueId]
+	const isCurrentlyExpanded = expandState[uniqueId] ?? false
 
 	return {
 		toggle,

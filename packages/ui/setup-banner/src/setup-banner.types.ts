@@ -20,6 +20,10 @@ interface SetupBannerProps extends SuiStyleType, SuiHTMLAttributes {
 	 */
 	title?: string
 	/**
+	 * Custom icon component to be displayed in the banner.
+	 */
+	customIcon?: string
+	/**
 	 * Subtitle or additional information for the banner.
 	 */
 	type?: PluginsSlug

@@ -11,6 +11,8 @@ const Navigation: React.FC<NavigationProps> = ({
 	id,
 	children,
 	brand = { title: "title", description: "" },
+	showTitleInMobile = false,
+	showDescriptionInMobile = false,
 	user,
 	actions = [],
 	_htmlProps,
@@ -32,7 +34,12 @@ const Navigation: React.FC<NavigationProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			{/* Render the navigation brand component */}
-			<NavigationBrand {...brand} id={brand?.id || `${navigationId}-brand`} />
+			<NavigationBrand
+				{...brand}
+				id={brand?.id || `${navigationId}-brand`}
+				showTitleInMobile={showTitleInMobile}
+				showDescriptionInMobile={showDescriptionInMobile}
+			/>
 			<ul id={`${navigationId}-nav`} className="sui-navigation__nav">
 				{/* Map over children components and render each one as a list item */}
 				{Children.map(children, (child, index) => (
