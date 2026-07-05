@@ -18,7 +18,6 @@ import { chunkArray } from "@wpmudev/sui-utils"
 
 // Import documentation main page
 import docs from "./ReactTable.mdx"
-import { Box, BoxGroup } from "@wpmudev/sui-box"
 
 // Configure default options
 export default {
@@ -207,12 +206,19 @@ Table.args = {
 	ariaLabel: "",
 	bulkActions: [
 		{
-			id: "delete",
-			label: "Delete",
+			id: "edit",
+			label: "Edit",
 		},
 		{
 			id: "publish",
 			label: "Publish",
+		},
+		{
+			id: "delete",
+			label: "Delete",
+			props: {
+				variation: "danger",
+			},
 		},
 	],
 	showFiltersBtn: true,

@@ -151,7 +151,8 @@
 						}
 
 						&.sui-#{$block}__menu-item--hover {
-							background: #feefee;
+							background: $color-red-05;
+							color: $color-red-60;
 						}
 					}
 				}
