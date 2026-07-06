@@ -481,7 +481,7 @@ interface TableContextProviderProps {
 		ref: RefObject<HTMLTableElement>
 		wrapperRef: RefObject<HTMLDivElement>
 		filtersPopover?: boolean
-		filters?: TableToolbarFilterText[] | TableToolbarFilterSelect[]
+		filters?: Array<TableToolbarFilterText | TableToolbarFilterSelect>
 		onAction?: TableOnActionType
 	} & Pick<
 		TableContextProps,
