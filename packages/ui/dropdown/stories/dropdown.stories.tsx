@@ -1,14 +1,11 @@
 import React, { useState } from "react"
 
 // Import required component(s)
-import { Dropdown as SuiDropdown } from "../src"
-import { Button } from "@wpmudev/sui-button"
-
+import { Dropdown as SuiDropdown, MenuItemProps, MenuGroupProps } from "../src"
 import { IconsName } from "@wpmudev/sui-icons"
 
 // Import documentation main page
 import docs from "./ReactDropdown.mdx"
-import { MenuItemProps, MenuGroupProps } from "../src/dropdown.types"
 
 // Configure default options
 export default {

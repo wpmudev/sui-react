@@ -117,7 +117,7 @@ interface TableProps extends SuiHTMLAttributes, SuiStyleType {
 	/**
 	 * An array of filters that can be used in the table toolbar.
 	 */
-	filters?: TableToolbarFilterText[] | TableToolbarFilterSelect[]
+	filters?: Array<TableToolbarFilterText | TableToolbarFilterSelect>
 
 	/**
 	 * An array of bulk actions available in the table toolbar.
@@ -481,7 +481,7 @@ interface TableContextProviderProps {
 		ref: RefObject<HTMLTableElement>
 		wrapperRef: RefObject<HTMLDivElement>
 		filtersPopover?: boolean
-		filters?: TableToolbarFilterText[] | TableToolbarFilterSelect[]
+		filters?: Array<TableToolbarFilterText | TableToolbarFilterSelect>
 		onAction?: TableOnActionType
 	} & Pick<
 		TableContextProps,

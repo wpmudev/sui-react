@@ -5,4 +5,6 @@ export type {
 	DropdownMenuGroupProps,
 	DropdownMenuItemProps,
 	DropdownMenuProps,
+	MenuItemProps,
+	MenuGroupProps,
 } from "./dropdown.types"

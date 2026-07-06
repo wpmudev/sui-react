@@ -87,6 +87,23 @@ const Table = ({ ...args }) => {
 			<div className="sui-layout__content">
 				<SUITable
 					{...args}
+					bulkActions={[
+						{
+							id: "edit",
+							label: "Edit",
+						},
+						{
+							id: "publish",
+							label: "Publish",
+						},
+						{
+							id: "delete",
+							label: "Delete",
+							props: {
+								variation: "danger",
+							},
+						},
+					]}
 					stickyCols={true}
 					_htmlProps={{
 						disabled: true,
