@@ -6,8 +6,7 @@ import {
 	validationPropsType,
 } from "@wpmudev/sui-hooks"
 import { IconsNamesType } from "@wpmudev/sui-icons"
-import { DropdownRefProps } from "@wpmudev/sui-dropdown"
-import { MenuItemProps } from "@wpmudev/sui-dropdown/src/dropdown.types"
+import { DropdownRefProps, MenuItemProps } from "@wpmudev/sui-dropdown"
 
 interface SelectOptionType extends MenuItemProps {
 	id: string

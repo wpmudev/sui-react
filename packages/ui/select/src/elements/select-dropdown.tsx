@@ -4,19 +4,17 @@ import React, {
 	KeyboardEvent,
 	MouseEvent,
 	useId,
-	HTMLProps,
-	ChangeEvent,
 } from "react"
 
-import { InteractionTypes, useInteraction, useStyles } from "@wpmudev/sui-hooks"
-import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
-import { Dropdown as SuiDropdown } from "@wpmudev/sui-dropdown"
-
-import { SelectDropdownProps, SelectOptionType } from "../select.types"
+import { useStyles } from "@wpmudev/sui-hooks"
+import { generateCN } from "@wpmudev/sui-utils"
 import {
+	Dropdown as SuiDropdown,
 	MenuItemProps,
 	MenuGroupProps,
-} from "@wpmudev/sui-dropdown/src/dropdown.types"
+} from "@wpmudev/sui-dropdown"
+
+import { SelectDropdownProps, SelectOptionType } from "../select.types"
 
 const Dropdown: React.FC<SelectDropdownProps> = ({
 	options,
