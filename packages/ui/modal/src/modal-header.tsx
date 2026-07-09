@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button } from "@wpmudev/sui-button"
@@ -9,14 +9,18 @@ import { ModalContext } from "./modal"
 import { ModalHeaderProps } from "./modal.types"
 
 const ModalHeader: React.FC<ModalHeaderProps> = ({
+	id,
 	title = "header title",
 	children,
 	icon,
 	iconSize = "md",
 	iconColor = "success",
+	hasCloseButton = true,
 	_htmlProps,
 	_style,
 }) => {
+	const generatedId = useId()
+	const modalHeaderId = id || `sui-modal-header-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style)
 	const ctx = useContext(ModalContext)
 	const { closeModal, variant } = ctx!
@@ -33,6 +37,7 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 
 	return (
 		<header
+			id={modalHeaderId}
 			className={generateCN("sui-modal__header", {}, suiInlineClassname)}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
@@ -41,17 +46,19 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({
 				{!isEmpty(title ?? "") && "app-connect" !== variant && (
 					<h4 className="sui-heading--h4">{title}</h4>
 				)}
-				<Button
-					className="sui-modal__header-actions-close"
-					icon="Close"
-					type="tertiary"
-					colorScheme="black"
-					onClick={!!closeModal ? closeModal : () => {}}
-					isSmall={true}
-					iconOnly={true}
-				>
-					Close Modal
-				</Button>
+				{hasCloseButton && (
+					<Button
+						className="sui-modal__header-actions-close"
+						icon="Close"
+						type="tertiary"
+						colorScheme="black"
+						onClick={!!closeModal ? closeModal : () => {}}
+						isSmall={true}
+						iconOnly={true}
+					>
+						Close Modal
+					</Button>
+				)}
 			</div>
 			{"app-connect" === variant && (
 				<div className="sui-modal__header-info">

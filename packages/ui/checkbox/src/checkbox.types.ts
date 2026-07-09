@@ -13,6 +13,10 @@ interface _CheckboxGroupInnerProps
  */
 interface CheckboxGroupsProps extends SuiStyleType {
 	/**
+	 * Unique identifier for the CheckboxGroups.
+	 */
+	id?: string
+	/**
 	 * The children elements of the groups
 	 */
 	children: React.ReactNode

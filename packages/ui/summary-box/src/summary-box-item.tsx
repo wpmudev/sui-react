@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
@@ -24,12 +24,16 @@ import { SummaryBoxItemProps } from "./summary-box.types"
  * @param {string} [props.tagColor="default"] - The color of the tag (e.g., "default", "primary").
  * @param {string} [props.actionIcon=""]      - An optional action icon for the item.
  * @param {string} [props.actionIconColor=""] - The color of the action icon.
+ * @param {Object} [props.tagProps={}]        - Additional props to be passed to the Tag component (optional).
+ * @param {Object} [props.linkProps={}]       - Additional props to be passed to the link element (if titleUrl is provided).
  *
  * @param          props._htmlProps
  * @param          props._style
+ * @param          props.id
  * @return {JSX.Element} The SummaryBoxItem component.
  */
 const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
+	id,
 	title = "",
 	titleUrl = "",
 	description = "",
@@ -38,9 +42,13 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 	tagColor = "default",
 	actionIcon,
 	actionIconColor = "",
+	tagProps = {},
+	linkProps = {},
 	_htmlProps = {},
 	_style = {},
 }: SummaryBoxItemProps): JSX.Element => {
+	const generatedId = useId()
+	const summaryBoxItemId = id || `sui-summary-box-item-${generatedId}`
 	// Hook for handling interaction state (hover, focus).
 	const [isHovered, isFocused, methods] = useInteraction({})
 	const { suiInlineClassname } = useStyles(_style, className)
@@ -65,10 +73,20 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 		<Row
 			className={classNames}
 			{...methods}
-			_htmlProps={{ "data-testid": "summary-box-item", ..._htmlProps }}
+			_htmlProps={{
+				id: summaryBoxItemId,
+				"data-testid": "summary-box-item",
+				..._htmlProps,
+			}}
 		>
 			<div className="sui-summary-box__list-item-info">
-				{!isEmpty(titleUrl) ? <a href={titleUrl}>{title}</a> : title}
+				{!isEmpty(titleUrl) ? (
+					<a href={titleUrl} {...linkProps}>
+						{title}
+					</a>
+				) : (
+					title
+				)}
 				{!isEmpty(description ?? "") && (
 					<Tooltip
 						label="(info)"
@@ -90,7 +108,9 @@ const SummaryBoxItem: React.FC<SummaryBoxItemProps> = ({
 							size="md"
 						/>
 					) : (
-						<Tag colorScheme={tagColor}>{tagTitle}</Tag>
+						<Tag colorScheme={tagColor} {...tagProps}>
+							{tagTitle}
+						</Tag>
 					)}
 				</div>
 			)}

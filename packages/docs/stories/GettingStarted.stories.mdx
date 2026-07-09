@@ -32,27 +32,19 @@ import { Unstyled } from '@storybook/blocks';
 			title="Installing Shared UI"
 		>
 			<p>
-				To get all the components packages, run the following command:
-				```
-					npm install @wpmudev/sui-react
-				```
-				When you install this package, additional packages will also be installed.
-				<List>
-					<span label="@wpmudev/sui-hooks" />
-					<span label="@wpmudev/sui-utils" />
-				</List>
-				
-				You will also need to install `sui-css` and `sui-icons` packages: 
+				Install `sui-css` package:
 				```
                     npm install @wpmudev/sui-css @wpmudev/sui-icons
 				``` 
 
-				Finally, make sure to import the styles in your app, you can add this line to your top-most component in your application: 
+				Make sure to import the styles in your app, you can add this line to your top-most component in your application: 
 				```
 					import '@wpmudev/sui-css/dist/css/sui-css.min.css'
 				```
-			</p>
+				
+			Sui React is organized into a collection of individual packages, with each component developed as a standalone package. For detailed installation guidance, please refer to the documentation for each component.
 			
+			</p>
 		</Section>
 		<Section title="How we work" contained={ true }>
 			<p>

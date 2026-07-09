@@ -9,6 +9,10 @@ interface EditorToolbarProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * Unique identifier for the EditorToolbar.
+	 */
+	id?: string
+	/**
 	 * The title displayed in the editor toolbar.
 	 */
 	title?: string
@@ -57,6 +61,10 @@ interface EditorToolbarProps
 
 // interface definition for the EditorToolbar
 interface EditorToolbarFieldProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the EditorToolbarField.
+	 */
+	id?: string
 	/**
 	 * The title displayed in the editor toolbar.
 	 */

@@ -1,0 +1,23 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Skeleton Grayscale
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-grayscale($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include modifier(grayscale) {
+				-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+				filter: grayscale(100%);
+			}
+		}
+	}
+}

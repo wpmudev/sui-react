@@ -24,24 +24,25 @@
 					&-item {
 						border-radius: $datepicker-border-radius-lg;
 						display: inline-flex;
+						font-weight: $font-weight-md;
 
 						&--active {
 							background: $color-primary-50;
 
 							span {
-								color: $color-extended-neutral-100;
+								color: $color-base-white;
 							}
 						}
 
 						&:hover {
-							background: $color-primary-80;
+							background: $color-primary-05;
 						}
 
 						&--disabled {
-							color: $color-extended-neutral-70;
+							color: $color-grey-30;
 							cursor: default;
 							&:hover {
-								background: $color-extended-neutral-100;
+								background: $color-base-white;
 							}
 						}
 					}
@@ -59,18 +60,18 @@
 				@include modifies-element(calendar-list) {
 					&-item {
 						&--active {
-							background: $color-extended-neutral-0;
+							background: $color-base-black;
 
 							span {
-								color: $color-extended-neutral-100;
+								color: $color-base-white;
 							}
 						}
 
 						&:hover {
-							background: $color-extended-neutral-0;
+							background: $color-base-black;
 
 							span {
-								color: $color-extended-neutral-100;
+								color: $color-base-white;
 							}
 						}
 					}

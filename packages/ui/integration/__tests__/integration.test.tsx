@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 import { fireEvent, render, screen } from "@testing-library/react"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 import { Integration } from "../src"
 
 describe("@wpmudev/sui-integration", () => {

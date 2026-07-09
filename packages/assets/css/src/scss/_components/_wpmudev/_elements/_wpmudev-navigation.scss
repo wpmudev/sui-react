@@ -1,0 +1,48 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Navigation
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-navigation($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(navigation) {
+				.sui-navigation__actions {
+					@include media(max-width, md) {
+						border: none;
+					}
+				}
+
+				.sui-navigation__avatar {
+					@include media(max-width, md) {
+						display: none;
+					}
+				}
+
+				@include modifier(actions) {
+					display: flex;
+					gap: $spacing-md;
+				}
+
+				@include modifier(hide-mobile) {
+					display: none;
+					@include media(min-width, md) {
+						display: flex;
+					}
+				}
+
+				@include modifier(hide-desktop) {
+					@include media(min-width, md) {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

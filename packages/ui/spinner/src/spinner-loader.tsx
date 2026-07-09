@@ -4,7 +4,7 @@ import { SpinnerLoaderProps } from "./spinner.types"
 import { useStyles } from "@wpmudev/sui-hooks"
 import { generateCN } from "@wpmudev/sui-utils"
 
-const SpinnerLoader = ({ colorScheme, _style }: SpinnerLoaderProps) => {
+const SpinnerLoader = ({ isSpinning, _style }: SpinnerLoaderProps) => {
 	const { suiInlineClassname } = useStyles(_style)
 
 	// const colors = {
@@ -25,7 +25,9 @@ const SpinnerLoader = ({ colorScheme, _style }: SpinnerLoaderProps) => {
 			<svg className="sui-spinner__icon" viewBox="0 0 100 100">
 				<title>loading</title>
 				<circle className="sui-spinner__icon--background" {...attrs} />
-				<circle className="sui-spinner__icon--stroke" {...attrs} />
+				{isSpinning && (
+					<circle className="sui-spinner__icon--stroke" {...attrs} />
+				)}
 			</svg>
 		</div>
 	)

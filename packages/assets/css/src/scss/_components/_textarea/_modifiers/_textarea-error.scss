@@ -15,7 +15,7 @@
 		@include block($block) {
 			@include modifier(error) {
 				&:after {
-					border: $border-width-sm solid $color-extended-error-50;
+					border: $border-width-sm solid $color-red-50;
 					inset: -#{$border-width-sm};
 				}
 			}
@@ -28,7 +28,7 @@
 		@include block($block) {
 			@include modifier(error) {
 				&:after {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 			}
 		}

@@ -4,7 +4,7 @@ import dedent from 'dedent';
 
 export const DisabledInputCode = dedent`
 import React from 'react';\n
-import { Input } from '@wpmudev/sui-react';\n
+import { Input } from '@wpmudev/sui-input';\n
 const Example() => {
 	return <Input id="input-id-1" label="Label" placeholder="Placeholder" isDisabled={true} />;
 }\n
@@ -13,7 +13,7 @@ export default Example;
 
 export const ValueEnteredInputCode = dedent`
 import React from 'react';\n
-import { Input } from '@wpmudev/sui-react';\n
+import { Input } from '@wpmudev/sui-input';\n
 const Example() => {
 	return <Input id="input-id-1" value="Default" label="Label" placeholder="Placeholder" />;
 }\n
@@ -22,7 +22,7 @@ export default Example;
 
 export const ReadOnlyInputCode = dedent`
 import React from 'react';\n
-import { Input } from '@wpmudev/sui-react';\n
+import { Input } from '@wpmudev/sui-input';\n
 const Example() => {
 	return <Input id="input-id-1" label="Label" placeholder="Placeholder" isReadOnly={true} />;
 }\n
@@ -31,7 +31,7 @@ export default Example;
 
 export const ErrorInputCode = dedent`
 import React from 'react';\n
-import { Input } from '@wpmudev/sui-react';\n
+import { Input } from '@wpmudev/sui-input';\n
 const Example() => {
 	return <Input id="input-id-1" label="Label" isError={true} placeholder="Placeholder" />;
 }\n

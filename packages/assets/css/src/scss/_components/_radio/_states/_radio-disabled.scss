@@ -14,29 +14,29 @@
 			@include modifier(disabled) {
 				pointer-events: none;
 				user-select: none;
-				color: $color-extended-neutral-70;
+				color: $color-grey-30;
 
 				@include modifies-element(box) {
-					background: $color-extended-neutral-80;
+					background: $color-grey-10;
 
 					&:after {
-						border-color: $color-extended-neutral-80;
+						border-color: $color-grey-10;
 					}
 				}
 
 				@include modifies-element(icon) {
-					background: $color-extended-neutral-70;
+					background: $color-grey-30;
 				}
 
 				@include modifies-element(label) {
-					color: $color-extended-neutral-70;
+					color: $color-grey-30;
 				}
 
 				&.sui-#{$block}--block {
-					background: $color-extended-neutral-95;
+					background: $color-grey-02;
 
 					&:after {
-						border-color: $color-extended-neutral-80;
+						border-color: $color-grey-10;
 					}
 				}
 			}
@@ -48,27 +48,27 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include modifier(disabled) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 
 				@include modifies-element(box) {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 					&:after {
-						border-color: $color-extended-neutral-0;
+						border-color: $color-base-black;
 					}
 				}
 
 				@include modifies-element(icon) {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 				}
 
 				@include modifies-element(label) {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 
 				&.sui-#{$block}--block {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 					&:after {
-						border-color: $color-extended-neutral-0;
+						border-color: $color-base-black;
 					}
 				}
 			}

@@ -18,6 +18,13 @@
 					height: $spinner-size-height-lg;
 				}
 			}
+
+			@include modifier(xs) {
+				@include modifies-element(loader) {
+					width: $spinner-size-width-xs;
+					height: $spinner-size-height-xs;
+				}
+			}
 		}
 	}
 }

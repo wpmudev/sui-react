@@ -1,0 +1,31 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Template Group
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-group($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(group) {
+				display: flex;
+				flex-direction: column;
+				gap: $spacing-xl;
+
+				@include media(min-width, sm) {
+					flex-direction: row;
+				}
+
+				.sui-#{$block} {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

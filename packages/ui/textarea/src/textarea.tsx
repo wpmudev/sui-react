@@ -29,8 +29,13 @@ const Textarea: React.FC<TextareaProps> = ({
 	_htmlProps = {},
 	_style = {},
 }) => {
-	const [currentValue, setCurrentValue] = useState(value)
+	const [currentValue, setCurrentValue] = useState("")
 	const [isHovered, isFocused, methods] = useInteraction({})
+
+	// Update value state when change
+	useEffect(() => {
+		setCurrentValue(value)
+	}, [value])
 
 	// generate a unique id if not provided
 	const uniqueId = useId()

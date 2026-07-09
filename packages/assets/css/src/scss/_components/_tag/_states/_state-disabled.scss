@@ -12,9 +12,9 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(disabled) {
-				background: $color-extended-neutral-80;
-				color: $color-extended-neutral-70;
-				border-color: $color-extended-neutral-80;
+				background: $color-grey-10;
+				color: $color-grey-30;
+				border-color: $color-grey-10;
 				pointer-events: none;
 				user-select: none;
 			}

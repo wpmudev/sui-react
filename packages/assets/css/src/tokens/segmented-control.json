@@ -10,7 +10,7 @@
 				"type": "borderWidth"
 			},
 			"color": {
-				"value": "{color.extended.neutral.80}",
+				"value": "{color.grey.10}",
 				"type": "borderColor"
 			}
 		},

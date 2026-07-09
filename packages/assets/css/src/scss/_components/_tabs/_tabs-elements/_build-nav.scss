@@ -38,7 +38,7 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(nav) {
-				border-color: $color-extended-neutral-0;
+				border-color: $color-base-black;
 			}
 		}
 	}

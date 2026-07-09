@@ -1,0 +1,31 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build Template Hover and focus
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-hover-focus($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include modifier(hover, focus) {
+				box-shadow: 0px $spacing-sm $spacing-md 0px $color-shadow-dark,
+					0px $spacing-xs $template-card-spacing 0px $color-shadow-light,
+					0px $spacing-md $spacing-lg 0px $color-shadow-default,
+					0 0 0 $border-width-md transparent;
+			}
+
+			@include modifier(hover, focus) {
+				@include modifies-element(actions) {
+					opacity: 1;
+					pointer-events: all;
+				}
+			}
+		}
+	}
+}

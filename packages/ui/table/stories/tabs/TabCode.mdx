@@ -16,6 +16,10 @@ import { doesNotMatch, notDeepEqual } from "assert"
     	<p>Determines if the table allows checkable rows with checkboxes.</p>
     </PropSection>
 
+	<PropSection title="disableCheck" type="boolean" defaultValue="false">
+    	<p>Determines if select checkboxes should be disabled.</p>
+    </PropSection>
+
     <PropSection title="isDraggable" type="boolean" defaultValue="false">
     	<p>Determines if the table supports drag-and-drop reordering of rows.</p>
     </PropSection>
@@ -64,9 +68,20 @@ import { doesNotMatch, notDeepEqual } from "assert"
     	<p>Makes columns sticky when set to <Code small={true}>true</Code></p>
     </PropSection>
 
-	 <PropSection title="showFiltersBtn" type="boolean" defaultValue="true">
+	<PropSection title="showFiltersBtn" type="boolean" defaultValue="true">
     	<p>Whether to show the filters' button or not</p>
     </PropSection>
+
+	<PropSection title="showToggleBtn" type="boolean" defaultValue="false">
+    	<p>Whether to show the toggle button or not</p>
+    </PropSection>
+
+	<PropSection title="toggleBtnProps" type="object">
+		<p>
+			You can use any of <a href="/?path=/docs/sui-components-core-toggle--docs" target="_blank"> the Toggle component props </a>
+			to customize it.
+		</p>
+	</PropSection>
 
 </Section>
 
@@ -180,6 +195,12 @@ import { doesNotMatch, notDeepEqual } from "assert"
     		</p>
     	</PropSection>
 
+		<PropSection title="isGroup" type="boolean" defaultValue="false">
+    		<p>
+    			Use this prop to display the row as a group, useful when displaying rows into multiple categories, notice that it should have a single cell with a label as children, the logic for showing the records into groups should be done by the host application
+    		</p>
+    	</PropSection>
+
     </Section>
 
      <Section title="TableCell" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
@@ -256,6 +277,12 @@ import { doesNotMatch, notDeepEqual } from "assert"
 		<PropSection title="isAction" type="boolean" defaultValue="false">
     		<p>
     			Indicates if the cell is an Action cell
+    		</p>
+    	</PropSection>
+
+		<PropSection title="icon" type="string">
+    		<p>
+    			icon name to be displayed precending the cell content, use this only for the group row
     		</p>
     	</PropSection>
 

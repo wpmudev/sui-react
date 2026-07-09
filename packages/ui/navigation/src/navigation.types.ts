@@ -3,7 +3,11 @@
  */
 import { ReactNode, HTMLProps } from "react"
 
-import { DropdownMenuItemProps } from "@wpmudev/sui-dropdown"
+import {
+	DropdownMenuItemProps,
+	DropdownMenuProps,
+	DropdownProps,
+} from "@wpmudev/sui-dropdown"
 
 import {
 	PluginsSlug,
@@ -13,6 +17,7 @@ import {
 
 import { AvatarProps } from "@wpmudev/sui-avatar"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 // Represents the base props for a DropdownMenu component.
 interface NavigationUserMenuBaseProps {
@@ -43,6 +48,10 @@ interface NavigationUserMenuGroupProps extends NavigationUserMenuBaseProps {
 }
 
 interface NavigationBrandProps extends SuiStyleType, SuiHTMLAttributes {
+	/**
+	 * Unique identifier for the NavigationBrand.
+	 */
+	id?: string
 	/*
 	 * Optional: Plugin information for the brand.
 	 */
@@ -55,6 +64,10 @@ interface NavigationBrandProps extends SuiStyleType, SuiHTMLAttributes {
 	 * Optional: Description for the brand.
 	 */
 	description?: string
+	/*
+	 * Optional: Additional CSS class name.
+	 */
+	className?: string
 }
 
 type NavigationUserType = {
@@ -70,9 +83,15 @@ type NavigationUserType = {
 	 * Email address of the user.
 	 */
 	email?: string
+
+	icon?: IconsNamesType
 }
 
-interface NavigationUserProps {
+interface NavigationUserProps extends SuiHTMLAttributes, SuiStyleType {
+	/**
+	 * Unique identifier for the NavigationUser.
+	 */
+	id?: string
 	/*
 	 * User information.
 	 */
@@ -89,12 +108,26 @@ interface NavigationUserProps {
 	 * The user status
 	 */
 	status?: AvatarProps["status"]
+	/*
+	 * Seperate last item from menu.
+	 */
+	splitLastItem?: boolean
+
+	children?: ReactNode
+
+	className?: string
+
+	dropdownProps?: DropdownProps
 }
 
 // interface definition for the Navigation
 interface NavigationProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
+	/**
+	 * Unique identifier for the Navigation.
+	 */
+	id?: string
 	/*
 	 * Brand information.
 	 */
@@ -114,4 +147,10 @@ interface NavigationProps
 	actions?: ReactNode[]
 }
 
-export type { NavigationProps, NavigationBrandProps, NavigationUserProps }
+export type {
+	NavigationProps,
+	NavigationBrandProps,
+	NavigationUserProps,
+	NavigationUserMenuGroupProps,
+	NavigationUserMenuItemProps,
+}

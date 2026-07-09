@@ -10,6 +10,7 @@ import Stripe from "./Examples/Stripe.mdx"
 import Selection from "./Examples/Selection.mdx"
 import Drag from "./Examples/Drag.mdx"
 import Toolbar from "./Examples/Toolbar.mdx"
+import Group from "./Examples/Group.mdx"
 
 export const generalCode = (props = "") => dedent`
   import React, { useEffect, useState } from "react"
@@ -594,7 +595,7 @@ export const TableExample = ({ ...props }) => {
                                     <strong>{record.title}</strong>
                                 </TableCell>
                                 <TableCell>
-                                    <Tag color={"Published" === record.tag ? "blue" : "default"}>
+                                    <Tag colorScheme={"Published" === record.tag ? "blue" : "default"}>
                                         {record.tag}
                                     </Tag>
                                 </TableCell>
@@ -641,6 +642,9 @@ export const TableExample = ({ ...props }) => {
 		</div>
 		<div label="Toolbar" value="toolbar">
 			<Toolbar />
+		</div>
+        <div label="Group" value="grouped">
+			<Group />
 		</div>
 	</Switcher>
 </Section>

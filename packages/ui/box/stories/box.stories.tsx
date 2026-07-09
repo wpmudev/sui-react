@@ -55,6 +55,7 @@ export const Box = ({ ...props }: BoxGroupProps) => {
 Box.args = {
 	title: "Box Label",
 	icon: "PluginThc",
+	description: "This is a description.",
 	headerLeft: [
 		<span
 			key="1"
@@ -70,6 +71,7 @@ Box.args = {
 	],
 	hasPadding: true,
 	hideMobileIcon: false,
+	hasLargeRadius: false,
 }
 
 // Set controls for story arguments.

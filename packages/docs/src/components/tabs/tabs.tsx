@@ -33,12 +33,12 @@ const Tabs: React.FunctionComponent<
 		return (
 			<button
 				key={`tab-button--${index}`}
-				id={`tabmenu__${item?.props.id}`}
+				id={`tabmenu-${item?.props.id}`}
 				className="csb-tabs__button"
 				type="button"
 				role="tab"
 				aria-selected={isSelected}
-				aria-controls={`tabpanel__${item?.props.id}`}
+				aria-controls={`tabpanel-${item?.props.id}`}
 				{...(!isSelected && { tabIndex: -1 })}
 				onClick={() => setSelected(index)}
 			>
@@ -55,10 +55,10 @@ const Tabs: React.FunctionComponent<
 		return (
 			<div
 				key={`tab-content--${index}`}
-				id={`tabpanel__${item?.props.id}`}
+				id={`tabpanel-${item?.props.id}`}
 				className="csb-tabs__panel"
 				role="tabpanel"
-				aria-labelledby={`tabmenu__${item?.props.id}`}
+				aria-labelledby={`tabmenu-${item?.props.id}`}
 				{...(!isSelected && { hidden: true })}
 			>
 				{item?.props.children}

@@ -1,0 +1,18 @@
+{
+	"link": {
+		"outline": {
+			"color": {
+				"value": "{color.primary.50}",
+				"type": "color"
+			},
+			"style": {
+				"value": "solid",
+				"type": "style"
+			},
+			"size": {
+				"value": "1px",
+				"type": "size"
+			}
+		}
+	}
+}

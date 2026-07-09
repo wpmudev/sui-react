@@ -151,7 +151,8 @@
 						}
 
 						&.sui-#{$block}__menu-item--hover {
-							background: #feefee;
+							background: $color-red-05;
+							color: $color-red-60;
 						}
 					}
 				}
@@ -166,7 +167,7 @@
 					color: inherit;
 				}
 				@include modifier(hover) {
-					background: $color-extended-neutral-0;
+					background: $color-base-black;
 				}
 			}
 		}

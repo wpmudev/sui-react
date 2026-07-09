@@ -1,6 +1,7 @@
 import { HTMLProps } from "react"
 import { useStylesTypes } from "@wpmudev/sui-hooks"
 import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
+import { IconsNamesType } from "@wpmudev/sui-icons"
 
 /**
  * Represents the properties for an avatar component.
@@ -8,6 +9,10 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 interface AvatarProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLSpanElement>>,
 		SuiStyleType {
+	/**
+	 * Unique identifier for the avatar.
+	 */
+	id?: string
 	/**
 	 * The image source for the avatar.
 	 */
@@ -27,6 +32,11 @@ interface AvatarProps
 	 * The CSS class name for the avatar.
 	 */
 	className?: string
+
+	/**
+	 * The icon for the avatar.
+	 */
+	icon?: IconsNamesType
 	/**
 	 * Callback function when click on avatar
 	 */

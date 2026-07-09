@@ -17,7 +17,7 @@
 			@include element(nav-item) {
 				display: flex;
 				align-items: center;
-				background-color: $color-extended-neutral-100;
+				background-color: $color-base-white;
 				border: none;
 				border-bottom: $tabs-navitem-border-width solid transparent;
 				color: $tabs-navitem-font-color;
@@ -49,10 +49,10 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(nav-item) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 
 				svg {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 			}
 		}

@@ -19,7 +19,7 @@
 			padding: $spacing-2xl;
 
 			& + .sui-#{$block} {
-				border-top: $border-width-sm solid $color-extended-neutral-80;
+				border-top: $border-width-sm solid $color-grey-10;
 			}
 
 			@include media(max-width, md) {
@@ -40,8 +40,8 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		// Block wrapper.
 		@include block($block) {
-			border-color: $color-extended-neutral-0;
-			color: $color-extended-neutral-0;
+			border-color: $color-base-black;
+			color: $color-base-black;
 		}
 	}
 }

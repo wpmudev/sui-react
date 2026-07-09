@@ -1,0 +1,72 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build Container
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-container($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			.sui-dropdown__popover {
+				margin-top: $spacing-xs;
+			}
+
+			@include element(title, dropdown-content) {
+				padding: $spacing-xl;
+			}
+
+			@include element(title) {
+				padding-bottom: $spacing-xl;
+			}
+
+			@include element(list) {
+				display: grid;
+				gap: $spacing-lg;
+				margin: 0 0 $spacing-lg;
+
+				@include media(min-width, sm) {
+					grid-template-columns: auto auto;
+				}
+			}
+
+			@include element(list-item) {
+				display: flex;
+				gap: $spacing-default;
+				padding: $spacing-lg;
+				border-radius: $border-radius-xl;
+				background: $color-grey-02;
+				text-decoration: none;
+				border: $border-width-md solid transparent;
+
+				&:hover {
+					background: $color-grey-10;
+				}
+
+				&:focus,
+				&:active {
+					border-color: $color-primary-50;
+					background: $color-grey-05;
+				}
+			}
+
+			@include element(list-icon) {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				background-color: $color-grey-10;
+				border-radius: $border-radius-xl;
+				height: $navigation-size-height-lg;
+				width: $navigation-size-width-lg;
+			}
+
+			@include element(list-desc, upsell-desc) {
+				margin: 0;
+			}
+		}
+	}
+}

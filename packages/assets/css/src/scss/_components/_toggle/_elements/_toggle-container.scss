@@ -14,10 +14,13 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			cursor: pointer;
-			display: flex;
-			align-items: flex-start;
-			flex-direction: column;
-			gap: $spacing-sm;
+
+			@include element(container) {
+				display: inline-flex;
+				align-items: flex-start;
+				flex-direction: column;
+				gap: $spacing-sm;
+			}
 		}
 	}
 }

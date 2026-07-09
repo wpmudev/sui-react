@@ -18,7 +18,7 @@
 				td,
 				th {
 					font-weight: $font-weight-md;
-					color: $color-extended-neutral-10;
+					color: $color-grey-90;
 					min-height: $table-height-sm;
 				}
 
@@ -37,7 +37,7 @@
 			@include element(head) {
 				td,
 				th {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 			}
 		}

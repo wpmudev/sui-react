@@ -16,15 +16,15 @@
 		@include block($block) {
 			@include element(header) {
 				align-items: center;
-				background: $color-extended-neutral-90;
-				border: $border-width-sm solid $color-extended-neutral-80;
+				background: $color-grey-02;
+				border: $border-width-sm solid $color-grey-10;
 				border-bottom: 0;
 				display: flex;
 				justify-content: space-between;
 				padding: $spacing-sm $spacing-lg;
 
 				@include modifier(title) {
-					color: $color-extended-neutral-10;
+					color: $color-grey-90;
 					display: inline-block;
 					font-size: $font-size-xs;
 					font-weight: $font-weight-md;
@@ -53,12 +53,12 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(header) {
-				background: $color-extended-neutral-100;
-				border: $border-width-sm solid $color-extended-neutral-0;
+				background: $color-base-white;
+				border: $border-width-sm solid $color-base-black;
 				border-bottom: 0;
 
 				@include modifier(title) {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 			}
 		}

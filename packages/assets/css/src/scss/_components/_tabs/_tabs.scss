@@ -12,3 +12,5 @@
 @include sui-tab--state.state-hover(tab);
 @include sui-tab--state.state-focus(tab);
 @include sui-tab--state.state-active(tab);
+
+@include sui-tab--modifier.narrow-nav(tab);

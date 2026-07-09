@@ -26,4 +26,39 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
 
 </Section>
 
+<Section
+	title="Sub Components"
+	contained={true}
+	style={{ paddingTop: 30, paddingBottom: 0 }}
+>
+	<p>The Accordion component offers a collection of nested subcomponents to be utilized within it. These subcomponents include:</p>
+
+    <Section title="SettingBlockOption" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+    	<p>
+    		The SettingBlockOption is a component designed to display individual setting options. and it has the following props
+    	</p>
+
+		<PropSection title="title" type="React Node">
+    		Optional title for the option
+    	</PropSection>
+        
+        <PropSection title="actions" type="React Node">
+    		Optional actions to display beside the title like a tag 
+    	</PropSection>
+
+        <PropSection title="description" type="React Node">
+    		Optional description for the option
+    	</PropSection>
+
+        <PropSection title="children" type="React Node">
+    		The body content of the option
+    	</PropSection>
+
+		 <PropSection title="className" type="string">
+    		An additional css className for further styling
+    	</PropSection>
+
+    </Section>
+ </Section>
+
 <CommonPropsNotice />

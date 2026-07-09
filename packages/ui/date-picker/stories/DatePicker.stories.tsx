@@ -41,7 +41,7 @@ const DatePicker = ({
 			<div className="sui-layout__content">
 				<div style={boxStyles}>
 					<FormField
-						id="datepicker"
+						id="date-picker"
 						label="Datepicker"
 						helper="This is a description"
 						error={error}

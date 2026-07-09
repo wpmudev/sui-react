@@ -10,6 +10,10 @@ interface SidebarProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the Sidebar.
+	 */
+	id?: string
+	/**
 	 * An optional class name to be applied to the Sidebar component.
 	 */
 	className?: string
@@ -37,6 +41,10 @@ interface SidebarProps
 interface SidebarItemProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLAnchorElement>>,
 		SuiStyleType {
+	/**
+	 * Unique identifier for the sidebar item.
+	 */
+	id?: string
 	/**
 	 * The URL associated with the SidebarItem.
 	 */

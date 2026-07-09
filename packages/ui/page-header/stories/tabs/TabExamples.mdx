@@ -1,0 +1,37 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { PageHeader } from "../../src"
+import { Button } from "@wpmudev/sui-button"
+import dedent from "dedent"
+
+export const basicCode = dedent`
+   <PageHeader 
+   		title="Page Title" 
+		actions={[
+			<Button key={0} type="primary" colorScheme="blue">
+				Primary Action
+			</Button>,
+			<Button key={1} type="secondary" colorScheme="black">
+				Secondary Action
+			</Button>		
+		]} 
+	/>
+`
+
+<Section title="Basic Header Example" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<PageHeader 
+			title="Page Title" 
+			actions={
+				[
+					<Button key={0} type="primary" colorScheme="blue">
+						Primary Action
+					</Button>,
+					<Button key={1} type="secondary" colorScheme="black">
+						Secondary Action
+					</Button>
+				]
+			} 
+			/>
+	</Preview>
+	<Snippet language="js">{basicCode}</Snippet>
+</Section>

@@ -1,0 +1,189 @@
+import { Section, Preview, Snippet } from "@wpmudev/sui-docs"
+import { TemplateCard, TemplateCardInput, TemplateCardGroup } from "../../src"
+import { Button } from "@wpmudev/sui-button"
+import dedent from "dedent"
+
+export const defaultTemplateCard = dedent`
+<TemplateCard 
+	title="Return Merchandise Form"
+	description="For processing returns, including fields." 
+	image={{
+		src: "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR",
+		alt: "Template Card",
+	}}
+	tag={{
+		children: "Pro",
+		colorScheme: "red",
+	}}
+	actions={[
+		<Button
+			key={"key-2"}
+			colorScheme={"white"}
+			type={"secondary"}
+			isSmall={true}
+		>
+			Preview
+		</Button>,
+		<Button key={"key-1"} colorScheme={"blue"} type={"primary"} isSmall={true}>
+			Create form
+		</Button>,
+	]}
+/>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<p>The default template card component</p>
+	<Preview wrapper={true} >
+		<div style={ {  background: "#fff", padding: 10 } }>
+			<TemplateCard
+				title="Return Merchandise Form"
+				description="For processing returns, including fields." 
+				image={{
+					src: "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR",
+					alt: "Template Card",
+				}}
+				tag={{
+					children: "Pro",
+					colorScheme: "red",
+				}}
+				actions={[
+					<Button
+						key={"key-2"}
+						colorScheme={"white"}
+						type={"secondary"}
+						isSmall={true}
+					>
+						Preview
+					</Button>,
+					<Button key={"key-1"} colorScheme={"blue"} type={"primary"} isSmall={true}>
+						Create form
+					</Button>,
+				]}
+			/>
+		</div>
+	</Preview>
+	<Snippet language="js">{defaultTemplateCard}</Snippet>
+</Section>
+
+export const templateGroup = dedent`
+<TemplateCardGroup name="test-radio" defaultValue="Card 2">
+	<TemplateCardInput
+		value="Card 1"
+		title="Return Merchandise Form"
+		description="For processing returns, including fields." 
+		image={{
+			src: "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR",
+			alt: "Template Card",
+		}}
+		tag={{
+			children: "Pro",
+			colorScheme: "red",
+		}}
+		actions={[
+			<Button
+				key={"key-2"}
+				colorScheme={"white"}
+				type={"secondary"}
+				isSmall={true}
+			>
+				Preview
+			</Button>,
+			<Button key={"key-1"} colorScheme={"blue"} type={"primary"} isSmall={true}>
+				Create form
+			</Button>,
+		]}
+	/>
+	<TemplateCardInput
+		value="Card 2"
+		title="Return Merchandise Form"
+		description="For processing returns, including fields." 
+		image={{
+			src: "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR",
+			alt: "Template Card",
+		}}
+		tag={{
+			children: "Pro",
+			colorScheme: "red",
+		}}
+		actions={[
+			<Button
+				key={"key-2"}
+				colorScheme={"white"}
+				type={"secondary"}
+				isSmall={true}
+			>
+				Preview
+			</Button>,
+			<Button key={"key-1"} colorScheme={"blue"} type={"primary"} isSmall={true}>
+				Create form
+			</Button>,
+		]}
+	/>
+</TemplateCardGroup>
+`
+
+<Section contained={true} style={{ paddingTop: 30 }}>
+	<h3>Template card (Radio Group)</h3>
+	<p>The template card radio group component</p>
+	<Preview wrapper={true}>
+		<div style={ {  background: "#fff", padding: 10 } }>
+			<TemplateCardGroup name="test-radio" defaultValue="Card 2">
+				<TemplateCardInput
+					value="Card 1"
+					title="Return Merchandise Form"
+					description="For processing returns, including fields." 
+					image={{
+						src: "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR",
+						alt: "Template Card",
+					}}
+					tag={{
+						children: "Pro",
+						colorScheme: "red",
+					}}
+					actions={[
+						<Button
+							key={"key-2"}
+							colorScheme={"white"}
+							type={"secondary"}
+							isSmall={true}
+						>
+							Preview
+						</Button>,
+						<Button key={"key-1"} colorScheme={"blue"} type={"primary"} isSmall={true}>
+							Create form
+						</Button>,
+					]}
+				/>
+				<TemplateCardInput
+					value="Card 2"
+					title="Return Merchandise Form"
+					description="For processing returns, including fields." 
+					image={{
+						src: "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/3061f01a175c457af10a05953daf0d47?_a=AQAEufR",
+						alt: "Template Card",
+					}}
+					tag={{
+						children: "Pro",
+						colorScheme: "red",
+					}}
+					actions={[
+						<Button
+							key={"key-2"}
+							colorScheme={"white"}
+							type={"secondary"}
+							isSmall={true}
+						>
+							Preview
+						</Button>,
+						<Button key={"key-1"} colorScheme={"blue"} type={"primary"} isSmall={true}>
+							Create form
+						</Button>,
+					]}
+				/>
+			</TemplateCardGroup>
+		</div>
+	</Preview>
+	<Snippet language="js">{templateGroup}</Snippet>
+</Section>
+
+

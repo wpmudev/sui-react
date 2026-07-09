@@ -17,6 +17,7 @@ import { useSegmentedControl } from "./segmented-control-context"
 
 // Build segmented button
 const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
+	id,
 	value,
 	icon,
 	children,
@@ -27,11 +28,11 @@ const SegmentedControlButton: React.FC<SegmentedControlButtonProps> = ({
 	_style = {},
 }) => {
 	// Generate a unique ID for the radio button and set its ID attribute.
-	const uniqueId = useId()
-	const buttonId = `sui-radio-${uniqueId}`
+	const generatedId = useId()
+	const buttonId = id || `sui-radio-${generatedId}`
 
 	if (!value) {
-		value = `example-value-${uniqueId}`
+		value = `example-value-${generatedId}`
 	}
 
 	if (!children && !icon) {

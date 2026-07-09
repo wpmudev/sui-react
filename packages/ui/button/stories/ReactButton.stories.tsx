@@ -28,7 +28,7 @@ const Button = ({
 	example: string
 	attributes: ButtonProps
 }) => {
-	let content = "Cancel"
+	let content = "Long Text Button"
 
 	// @ts-ignore
 	const { colorScheme } = attributes

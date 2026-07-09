@@ -11,6 +11,10 @@ interface LinkProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLAnchorElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the link.
+	 */
+	id?: string
+	/**
 	 * Link location
 	 */
 	href?: string

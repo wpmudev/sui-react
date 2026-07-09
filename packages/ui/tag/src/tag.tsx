@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 import {
 	_renderHTMLPropsSafely,
 	generateCN,
@@ -10,6 +10,7 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 import { Close } from "@wpmudev/sui-icons"
 
 const Tag: React.FC<TagProps> = ({
+	id,
 	design,
 	colorScheme,
 	contentWrap = "default",
@@ -23,6 +24,9 @@ const Tag: React.FC<TagProps> = ({
 	_htmlProps = {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const tagId = id || `sui-tag-${generatedId}`
+
 	const hasDesign = "outlined" === design
 	const hasColor = !isUndefined(colorScheme) && !isEmpty(colorScheme)
 	const hasStyle = ["multiline", "truncated"].includes(contentWrap)
@@ -50,6 +54,7 @@ const Tag: React.FC<TagProps> = ({
 
 	return (
 		<span
+			id={tagId}
 			className={classNames}
 			{..._renderHTMLPropsSafely(_htmlProps)}
 			data-testid="tag"

@@ -2,6 +2,10 @@
 	"dropdown": {
 		"size": {
 			"width": {
+				"2xs": {
+					"value": "12px",
+					"type": "sizing"
+				},
 				"sm": {
 					"value": "160px",
 					"type": "sizing"
@@ -16,10 +20,32 @@
 				}
 			},
 			"height": {
+				"3xs": {
+					"value": "10px",
+					"type": "sizing"
+				},
+				"2xs": {
+					"value": "12px",
+					"type": "sizing"
+				},
 				"md": {
 					"value": "225px",
 					"type": "sizing"
 				}
+			}
+		},
+		"position": {
+			"xs": {
+				"value": "7px",
+				"type": "sizing"
+			},
+			"sm": {
+				"value": "10px",
+				"type": "sizing"
+			},
+			"md": {
+				"value": "20px",
+				"type": "sizing"
 			}
 		},
 		"spacing": {

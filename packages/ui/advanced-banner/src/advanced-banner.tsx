@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { Button, ButtonProps } from "@wpmudev/sui-button"
@@ -7,6 +7,7 @@ import { useStyles } from "@wpmudev/sui-hooks"
 
 // Build "advanced-banner" component
 const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
+	id,
 	variation = "plugin",
 	imageUrl = "https://placehold.co/100",
 	title = "Banner Title",
@@ -23,6 +24,8 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 	_htmlProps = {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const advancedBannerId = id || `sui-advanced-banner-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	// Define class name
@@ -43,6 +46,7 @@ const AdvancedBanner: React.FC<AdvancedBannerProps> = ({
 
 	return (
 		<div
+			id={advancedBannerId}
 			className={classNames}
 			data-testid="advanced-banner"
 			{..._renderHTMLPropsSafely(_htmlProps)}

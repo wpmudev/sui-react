@@ -21,7 +21,7 @@
 		font-weight: $body-font-weight;
 		line-height: $body-font-height;
 		letter-spacing: $body-font-spacing;
-		color: $color-extended-neutral-50;
+		color: $color-grey-70;
 
 		small {
 			font-size: $body-sm-font-size;
@@ -38,7 +38,7 @@
 
 		&:hover,
 		&:focus {
-			color: $color-primary-40;
+			color: $color-primary-60;
 		}
 	}
 
@@ -47,7 +47,7 @@
 	h3,
 	h4,
 	h5 {
-		color: $color-extended-neutral-10;
+		color: $color-grey-90;
 	}
 
 	@include block(heading) {
@@ -87,7 +87,7 @@
 		}
 
 		@include modifier(h1, h2, h3, h4, h5) {
-			color: $color-extended-neutral-10;
+			color: $color-grey-90;
 		}
 	}
 
@@ -143,6 +143,6 @@
 	h5,
 	p,
 	a {
-		color: $color-extended-neutral-0;
+		color: $color-base-black;
 	}
 }

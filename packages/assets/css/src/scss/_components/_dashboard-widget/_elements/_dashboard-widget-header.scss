@@ -27,7 +27,7 @@
 				align-items: center;
 				display: flex;
 				gap: $spacing-md;
-				color: $color-extended-neutral-10;
+				color: $color-grey-90;
 
 				h4 {
 					font-weight: $font-weight-lg;
@@ -36,7 +36,7 @@
 			}
 
 			@include element(header-desc) {
-				color: $color-extended-neutral-50;
+				color: $color-grey-70;
 				margin-top: $spacing-md;
 
 				p {

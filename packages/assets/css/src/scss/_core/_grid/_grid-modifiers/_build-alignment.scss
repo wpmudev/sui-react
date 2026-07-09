@@ -11,11 +11,23 @@
 @mixin build-alignment($block) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			display: flex;
+			flex-direction: column;
+
 			@include modifier(inline) {
-				display: flex;
 				flex-flow: row wrap;
 				margin-left: -#{math.div(map.get($sui-grid-spacing, sm), 2)};
 				margin-right: -#{math.div(map.get($sui-grid-spacing, sm), 2)};
+
+				@include media(min-width, sm) {
+					margin-left: -#{math.div(map.get($sui-grid-spacing, md), 2)};
+					margin-right: -#{math.div(map.get($sui-grid-spacing, md), 2)};
+				}
+
+				@include media(min-width, lg) {
+					margin-left: -#{math.div(map.get($sui-grid-spacing, lg), 2)};
+					margin-right: -#{math.div(map.get($sui-grid-spacing, lg), 2)};
+				}
 			}
 
 			@each $bp-label, $bp-value in $breakpoints {
@@ -32,6 +44,16 @@
 									map.get($sui-grid-spacing, $bp-label),
 									2
 								)};
+						}
+
+						@include media(min-width, sm) {
+							margin-left: -#{math.div(map.get($sui-grid-spacing, md), 2)};
+							margin-right: -#{math.div(map.get($sui-grid-spacing, md), 2)};
+						}
+
+						@include media(min-width, lg) {
+							margin-left: -#{math.div(map.get($sui-grid-spacing, lg), 2)};
+							margin-right: -#{math.div(map.get($sui-grid-spacing, lg), 2)};
 						}
 					}
 

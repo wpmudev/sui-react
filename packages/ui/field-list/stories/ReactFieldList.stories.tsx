@@ -35,7 +35,7 @@ const FieldList = ({ ...args }: { label: string; helper: string }) => {
 						})
 					}}
 				>
-					<FieldListItem id="field-1" isChecked={false}>
+					<FieldListItem id="field-1" isChecked={false} hasToggle={false}>
 						Field 1
 					</FieldListItem>
 					<FieldListItem id="field-2">Field 2</FieldListItem>
@@ -53,6 +53,7 @@ const FieldList = ({ ...args }: { label: string; helper: string }) => {
 FieldList.args = {
 	label: "This is the title",
 	helper: "This is example the description for field list.",
+	noBorderRadius: false,
 }
 
 // Set controls for story arguments.

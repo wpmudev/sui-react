@@ -9,6 +9,8 @@
 @mixin edit-states($block-name) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block-name) {
+			border-color: $color-grey-50;
+
 			@include modifier(info) {
 				border-color: $color-primary-50;
 
@@ -18,26 +20,26 @@
 			}
 
 			@include modifier(success) {
-				border-color: $color-extended-success-50;
+				border-color: $color-green-50;
 
 				@include modifies-element(icon) {
-					color: $color-extended-success-50;
+					color: $color-green-50;
 				}
 			}
 
 			@include modifier(warning) {
-				border-color: $color-extended-warning-50;
+				border-color: $color-yellow-50;
 
 				@include modifies-element(icon) {
-					color: $color-extended-warning-50;
+					color: $color-yellow-50;
 				}
 			}
 
 			@include modifier(error) {
-				border-color: $color-extended-error-50;
+				border-color: $color-red-50;
 
 				@include modifies-element(icon) {
-					color: $color-extended-error-50;
+					color: $color-red-50;
 				}
 			}
 		}
@@ -45,8 +47,10 @@
 
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block-name) {
+			border-color: $color-base-black;
+
 			@include element(icon) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}

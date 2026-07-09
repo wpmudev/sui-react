@@ -24,9 +24,8 @@
 
 				@include modifier(content) {
 					box-shadow: 0px $shadow-offset-xs $shadow-offset-2xs 0px
-							$color-extended-shadow-light,
-						0px $shadow-offset-2xs $shadow-offset-xs 0px
-							$color-extended-shadow-light;
+							$color-shadow-light,
+						0px $shadow-offset-2xs $shadow-offset-xs 0px $color-shadow-light;
 					border-radius: $border-radius-md;
 				}
 
@@ -44,7 +43,7 @@
 		@include block($block) {
 			@include element(panel) {
 				@include modifier(content, content-no-shadow) {
-					border: $border-width-sm solid $color-extended-neutral-0;
+					border: $border-width-sm solid $color-base-black;
 				}
 			}
 

@@ -9,6 +9,10 @@ import { SuiHTMLAttributes, SuiStyleType } from "@wpmudev/sui-utils"
 interface ScoreProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
+	/**
+	 * Unique identifier for the score.
+	 */
+	id?: string
 	/** The length of the score bar to be displayed. */
 	bar: number
 	/** The value to be displayed in the score component. */

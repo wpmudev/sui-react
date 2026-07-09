@@ -1,41 +1,99 @@
-import { Section, Row, Col } from "@wpmudev/sui-docs"
+import { Section, Row, Col, List } from "@wpmudev/sui-docs"
 
 import Anatomy from "../images/anatomy.svg"
-import Spacings from "../images/spacings.svg"
+import SpacingMainWrap from "../images/spacing-main-wrap.svg"
+import SpacingBlockBody from "../images/spacing-block-body.svg"
+import SettingBlockBody from "../images/setting-block-body.svg"
+import SettingBlockOption from "../images/setting-block-option.svg"
+import LayoutVariation from "../images/layout-variation.svg"
+import HeaderWidth from "../images/header-width.svg"
 import Types from "../images/types.svg"
-import Examples from "../images/examples.svg"
 
 <Section title="Anatomy" style={{ paddingTop: 20 }}>
 	<img src={Anatomy} alt="Setting Block Anatomy" style={{ marginBottom: 20 }} />
-	<h3>1. Block title</h3>
+	<h3>1. Setting block header</h3>
 	<p>
-		The left column is for setting block the title and description. It gives a
-		glance of the setting block to users.
+		The setting block header includes a title and a brief description to summarize its purpose.
 	</p>
 
-    <h3>2. Block Option</h3>
-    <p>
-    	Box body is a flexible area where the main content can be inserted. It may include list, table or any type of content that is available for settings.
-    </p>
-
+	<h3>2. Setting block body</h3>
+	<p>
+		The setting block body is designed to display setting options. It accommodates multiple options within a single settings block, providing a structured area to organize and present them clearly.
+	</p>
 </Section>
 
-<Section title="Spacings" style={{ paddingTop: 20 }}>
+<Section title="Setting block body" style={{ paddingTop: 20 }}>
+	<p>The setting block body is designed to display setting options. It accommodates multiple options within a single settings block, providing a structured area to organize and present them clearly.</p>
 	<img
-		src={Spacings}
-		alt="Setting Block Anatomy"
+		src={SettingBlockBody}
+		alt="Setting Block Body"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+
+<Section title="Setting block option" style={{ paddingTop: 20 }}>
+	<p>The Setting Block Option is a component designed to display individual setting options. It is divided into two sections: Setting block option header and Setting block option body</p>
+	<img
+		src={SettingBlockOption}
+		alt="Setting Block Option"
+		style={{ marginBottom: 20 }}
+	/>
+
+	<p>
+	<strong>1. Setting block option header</strong>
+	<List>
+		<span label="Includes a title and an optional description to provide context or details about the setting." />
+		<span label="It is a boolean property, making it optional and configurable based on design needs." />
+	</List>
+	</p>
+
+	<p>
+	<strong>2. Setting block option body</strong>
+	<List>
+		<span label="This is the main area where setting components or elements are displayed." />
+		<span label="This section supports full customization and layout flexibility, including the use of utilities such as margins, borders, columns, and more." />
+	</List>
+	</p>
+</Section>
+
+<Section title="Layout variation" style={{ paddingTop: 20 }}>
+	<img
+		src={LayoutVariation}
+		alt="Layout variation"
 		style={{ marginBottom: 20 }}
 	/>
 </Section>
 
 <Section title="Types" style={{ paddingTop: 20 }}>
-	<img src={Types} alt="Setting Block Types" style={{ marginBottom: 20 }} />
-</Section>
-
-<Section title="Examples" style={{ paddingTop: 20 }}>
 	<img
-		src={Examples}
-		alt="Setting Block Examples"
+		src={Types}
+		alt="Types"
 		style={{ marginBottom: 20 }}
 	/>
 </Section>
+
+<Section title="Setting block header width for default layout" style={{ paddingTop: 20 }}>
+	<p>The Setting Block Header is designed to occupy 30% of the available width to ensure responsive content management. However, to prevent the header from shrinking excessively, a minimum width of 240px is enforced. This ensures readability and maintains a consistent layout across various screen sizes.</p>
+	<img
+		src={HeaderWidth}
+		alt="Header Width"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+
+<Section title="Spacings" style={{ paddingTop: 20 }}>
+	<h3>Setting block main wrap</h3>
+	<img
+		src={SpacingMainWrap}
+		alt="Spacing Wrap"
+		style={{ marginBottom: 20 }}
+	/>
+
+	<h3>Setting block body</h3>
+	<img
+		src={SpacingBlockBody}
+		alt="Spacing Block Body"
+		style={{ marginBottom: 20 }}
+	/>
+</Section>
+

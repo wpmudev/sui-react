@@ -1,0 +1,4 @@
+@use "./_elements/elements" as sui-header--element;
+
+@include sui-header--element.build-container(page-header);
+@include sui-header--element.build-title(page-header);

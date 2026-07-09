@@ -12,9 +12,9 @@
 			@include modifier(disabled) {
 				cursor: default;
 				pointer-events: none;
-				border-color: $color-extended-neutral-80;
-				background: $color-extended-neutral-80;
-				color: $color-extended-neutral-70;
+				border-color: $color-grey-10;
+				background: $color-grey-10;
+				color: $color-grey-30;
 			}
 		}
 	}

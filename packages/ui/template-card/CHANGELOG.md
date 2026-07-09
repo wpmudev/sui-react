@@ -1,0 +1,56 @@
+# Change Log
+
+## 0.0.2
+
+### Patch Changes
+
+- 0784d2c: Updated and improved components used by the Dash plugin
+- Updated dependencies [0784d2c]
+  - @wpmudev/sui-icons@0.0.2
+  - @wpmudev/sui-tooltip@0.0.2
+  - @wpmudev/sui-button@0.0.2
+  - @wpmudev/sui-hooks@0.0.2
+  - @wpmudev/sui-utils@0.0.2
+
+## 0.0.2
+
+### Patch Changes
+
+- [#342](https://github.com/wpmudev/sui-react/pull/342)
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1)
+  Thanks [@creador-dev](https://github.com/creador-dev)! - Add new template card
+  component.
+
+- Updated dependencies
+  [[`761d6ab`](https://github.com/wpmudev/sui-react/commit/761d6abcf1a5bbee08f92d37405e0d9a8de666e9),
+  [`de4695f`](https://github.com/wpmudev/sui-react/commit/de4695feb4886a3af66e5c4b51031915907e2490),
+  [`4a48b89`](https://github.com/wpmudev/sui-react/commit/4a48b899de749dd8e73169dd0096f293e557b0a1),
+  [`a9ead37`](https://github.com/wpmudev/sui-react/commit/a9ead374fd02ebd63882d55bc01ab2fc7375732f)]:
+  - @wpmudev/sui-tooltip@0.1.2
+  - @wpmudev/sui-button@0.1.2
+  - @wpmudev/sui-hooks@0.1.1
+
+## 0.0.1
+
+### Patch Changes
+
+- Initial release
+- Updated dependencies
+  - @wpmudev/sui-tooltip: 0.0.1
+  - @wpmudev/sui-button: 0.0.1
+  - @wpmudev/sui-hooks: 0.0.1
+  - @wpmudev/sui-utils: 0.0.1
+  - @wpmudev/sui-icons: 0.0.1
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org/) for commit guidelines.
+
+## Unreleased (2023-03-20)
+
+#### ✨ New Features
+
+- feat: Initial release ([@creador-dev](https://github.com/creador-dev))
+
+#### Committers: 1
+
+- Pawan Kumar ([@creador-dev](https://github.com/creador-dev))

@@ -16,7 +16,7 @@ import "./code.scss"
 
 interface CodeProps {
 	small?: boolean
-	theme?: "dark" | "ghost" | "light"
+	theme?: "dark" | "ghost" | "light" | "red"
 	fullWidth?: boolean
 	children: React.ReactNode
 	className?: string

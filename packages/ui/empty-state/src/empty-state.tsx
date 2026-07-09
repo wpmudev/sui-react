@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN } from "@wpmudev/sui-utils"
 import { EmptyStateProps } from "./empty-state.types"
@@ -11,12 +11,15 @@ import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
  * @return {JSX.Element} The rendered component.
  */
 const EmptyState: React.FC<EmptyStateProps> = ({
+	id,
 	logo,
 	className,
 	children,
 	_htmlProps = {},
 	_style = {},
 }: EmptyStateProps): JSX.Element => {
+	const generatedId = useId()
+	const emptyStateId = id || `sui-empty-state-${generatedId}`
 	const { suiInlineClassname } = useStyles(_style, className)
 	const classNames = generateCN("sui-empty-state", {}, suiInlineClassname)
 
@@ -27,7 +30,11 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 	children = useDefaultChildren(children)
 
 	return (
-		<div className={classNames} {..._renderHTMLPropsSafely(_htmlProps)}>
+		<div
+			id={emptyStateId}
+			className={classNames}
+			{..._renderHTMLPropsSafely(_htmlProps)}
+		>
 			<div className="sui-empty-state__wrapper">
 				{/* Render the logo if provided. If it's an image URL, display it as an <img> element; otherwise, render it as is. */}
 				{!!logo && (

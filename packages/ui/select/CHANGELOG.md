@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.0.2
+
+### Patch Changes
+
+- 16d5fd3: update issue with types
+- 0784d2c: Updated and improved components used by the Dash plugin
+- Updated dependencies [0784d2c]
+  - @wpmudev/sui-checkbox@0.0.2
+  - @wpmudev/sui-input@0.0.2
+  - @wpmudev/sui-hooks@0.0.2
+  - @wpmudev/sui-utils@0.0.2
+
 ## 1.0.6
 
 ### Patch Changes

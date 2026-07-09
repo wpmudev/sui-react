@@ -2,7 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { Search, SearchProps } from "../src"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 
 describe("@wpmudev/sui-search", () => {
 	const Component = (propsList: SearchProps) => {

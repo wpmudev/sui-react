@@ -1,0 +1,19 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+@mixin narrow-nav($block) {
+	// DIR: Left to right.
+	// THEME: None.
+
+	// Block wrapper.
+	@include block($block) {
+		@include element(nav) {
+			@include modifier(narrow) {
+				.sui-tab__nav-item {
+					padding: $spacing-lg $tabs-navitem-spacing-horizontal;
+				}
+			}
+		}
+	}
+}

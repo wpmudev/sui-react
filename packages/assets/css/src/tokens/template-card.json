@@ -1,0 +1,12 @@
+{
+	"template-card": {
+		"width": {
+			"value": "260px",
+			"type": "width"
+		},
+		"spacing": {
+			"value": "20px",
+			"type": "spacing"
+		}
+	}
+}

@@ -8,6 +8,10 @@ interface CodeEditorProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * Unique identifier for the code editor.
+	 */
+	id?: string
+	/**
 	 * File name
 	 */
 	filename?: string

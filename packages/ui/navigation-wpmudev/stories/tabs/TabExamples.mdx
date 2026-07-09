@@ -1,0 +1,13 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { BasicExample, generalCode } from "./Examples/BasicExample"
+import dedent from "dedent"
+
+<Section style={{ paddingTop: 0 }}>
+	<p>Below is a general example of the Navigation component</p>
+	<div className="sui-wrap sui-theme--light" style={{ margin: "50px 0" }}>
+		<div className="sui-layout sui-layout--horizontal sui-layout--vertical">
+			<BasicExample />
+		</div>
+	</div>
+	<Snippet language="js">{generalCode}</Snippet>
+</Section>

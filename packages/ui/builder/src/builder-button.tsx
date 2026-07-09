@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from "react"
+import React, { FC, useId, useCallback } from "react"
 
 import { generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
@@ -8,6 +8,7 @@ import { Button } from "@wpmudev/sui-button"
 import { BuilderButtonProps } from "./builder.types"
 
 const BuilderButton: FC<BuilderButtonProps> = ({
+	id,
 	icon = "Add",
 	title = "Insert new field",
 	className,
@@ -15,6 +16,8 @@ const BuilderButton: FC<BuilderButtonProps> = ({
 	onClick = () => {},
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const builderButtonId = id || `sui-builder-button-${generatedId}`
 	// `useInteraction` returns interaction state and methods.
 	const [isHovered, isFocused, methods] = useInteraction({})
 	const { suiInlineClassname } = useStyles(_style, className)
@@ -38,6 +41,7 @@ const BuilderButton: FC<BuilderButtonProps> = ({
 
 	return (
 		<Button
+			id={builderButtonId}
 			icon={icon}
 			className={classNames}
 			{...methods}

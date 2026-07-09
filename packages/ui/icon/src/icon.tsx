@@ -1,4 +1,5 @@
 import React, {
+	useId,
 	forwardRef,
 	Fragment,
 	Children,
@@ -33,6 +34,7 @@ const params = {
 const Icon = forwardRef<"svg", IconProps>(
 	(
 		{
+			id,
 			children,
 			className,
 			title, // use fallback values
@@ -48,6 +50,8 @@ const Icon = forwardRef<"svg", IconProps>(
 		},
 		ref,
 	) => {
+		const generatedId = useId()
+		const iconId = id || `sui-icon-${generatedId}`
 		const { suiInlineClassname } = useStyles(_style, className)
 
 		// Add variations to the classnames
@@ -62,6 +66,7 @@ const Icon = forwardRef<"svg", IconProps>(
 
 		// SVG props
 		const svgProps: Record<string, any> = {
+			id: iconId,
 			ref,
 			className,
 			title,

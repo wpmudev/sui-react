@@ -1,0 +1,105 @@
+import { Section, Preview, Snippet } from "@wpmudev/sui-docs"
+
+import { Skeleton, SkeletonCircle, SkeletonText } from "../../src"
+import { Col, Row } from "@wpmudev/sui-grid"
+import { Button } from "@wpmudev/sui-button"
+import { Box, BoxGroup } from "@wpmudev/sui-box"
+
+import image from "../images/unreal-person.jpg"
+
+import dedent from "dedent"
+
+export const skeletonCode = dedent`
+    <Skeleton size={{ width: "300px", height: "100px" }}>
+		<span>Content inside skeleton.</span>
+	</Skeleton>
+`
+
+export const skeletonTextCode = dedent`
+    <SkeletonText lines={8} endLineWidth="65%">
+		<span>Content inside skeleton.</span>
+	</SkeletonText>
+`
+
+export const skeletonCircleCode = dedent`
+    <SkeletonCircle>
+		<img
+			src={image}
+			style={{
+				borderRadius: "100%",
+				height: "50px",
+				width: "50px",
+			}}
+			alt="Unreal Person avatar"
+		/>
+	</SkeletonCircle>
+`
+
+<Section
+	title="Basic Skeleton Component"
+	contained={true}
+	style={{ paddingTop: 30 }}
+>
+	<Preview wrapper={true}>
+		<Box>
+			<BoxGroup>
+				<Skeleton
+					size={{ width: "300px", height: "100px" }}
+					{...props}
+				>
+					<span>Content inside skeleton.</span>
+				</Skeleton>
+			</BoxGroup>
+		</Box>
+	</Preview>
+	<Snippet language="js">{skeletonCode}</Snippet>
+</Section>
+
+<Section
+	title="Skeleton Component with Multiple Lines"
+	contained={true}
+	style={{ paddingTop: 30 }}
+>
+	<Preview wrapper={true}>
+		<Box>
+			<BoxGroup>
+				 <SkeletonText lines={8} endLineWidth="65%" {...props}>
+					<span>Content inside skeleton.</span>
+				</SkeletonText>
+			</BoxGroup>
+		</Box>
+	</Preview>
+	<Snippet language="js">{skeletonTextCode}</Snippet>
+</Section>
+
+<Section
+	title="Skeleton Component for Circular Avatars"
+	contained={true}
+	style={{ paddingTop: 30 }}
+>
+	<Preview wrapper={true}>
+		<Box>
+			<BoxGroup>
+				<SkeletonCircle
+					size={{
+						width: "50px",
+						height: "50px",
+					}}
+					{...props}
+				>
+					<img
+						src={image}
+						style={{
+							borderRadius: "100%",
+							height: "50px",
+							width: "50px",
+						}}
+						alt="Unreal Person avatar"
+					/>
+				</SkeletonCircle>
+			</BoxGroup>
+		</Box>
+	</Preview>
+	<Snippet language="js">{skeletonCircleCode}</Snippet>
+</Section>
+

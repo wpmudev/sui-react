@@ -6,3 +6,7 @@
 @include sui-uploader--element.build-uploader(uploader);
 @include sui-uploader--element.build-button(uploader);
 @include sui-uploader--element.build-pick(uploader);
+
+@include sui-uploader--state.edit-disabled(uploader);
+@include sui-uploader--state.edit-hover(uploader);
+@include sui-uploader--state.edit-focus(uploader);

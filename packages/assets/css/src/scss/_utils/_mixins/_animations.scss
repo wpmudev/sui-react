@@ -24,6 +24,16 @@
 	}
 }
 
+@keyframes skeleton-pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.8;
+	}
+}
+
 @mixin animation($name, $duration: null) {
 	@if $name == spin {
 		animation-name: spin;
@@ -36,7 +46,7 @@
 		animation-timing-function: linear;
 	}
 
-	@if ( $name == indeterminate-progress-bar ) {
+	@if ($name == indeterminate-progress-bar) {
 		animation-duration: 3s;
 		animation-iteration-count: infinite;
 		animation-name: indeterminate-progress-bar;

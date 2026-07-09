@@ -1,4 +1,4 @@
-import React, { useRef, Children as RChild } from "react"
+import React, { useRef, Children as RChild, useId } from "react"
 
 import { isEmpty, generateCN, _renderHTMLPropsSafely } from "@wpmudev/sui-utils"
 
@@ -9,13 +9,17 @@ import { useStyles } from "@wpmudev/sui-hooks"
 
 // Table component to display a table with optional toolbar and context
 const Table: React.FC<TableProps> = ({
+	id,
 	children,
 	hasToolbar = true,
 	ariaLabel = "",
 	allowCheck = false,
+	disableCheck = false,
 	isDraggable = false,
 	filtersPopover = false,
 	showFiltersBtn = true,
+	showToggleBtn = false,
+	toggleBtnProps = {},
 	filters,
 	onAction,
 	bulkActions,
@@ -30,6 +34,9 @@ const Table: React.FC<TableProps> = ({
 	// Reference to the table element
 	const ref = useRef<HTMLTableElement | null>(null)
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
+
+	const generatedId = useId()
+	const tableId = id || `sui-table-${generatedId}`
 
 	const { suiInlineClassname } = useStyles(_style, className)
 
@@ -62,6 +69,7 @@ const Table: React.FC<TableProps> = ({
 		<TableContextProvider
 			props={{
 				allowCheck,
+				disableCheck,
 				isDraggable,
 				filters,
 				onAction,
@@ -71,13 +79,20 @@ const Table: React.FC<TableProps> = ({
 				ref,
 				wrapperRef,
 				showFiltersBtn,
+				showToggleBtn,
+				toggleBtnProps,
 			}}
 		>
-			<div className={classNames} data-testid="table">
+			<div id={tableId} className={classNames} data-testid="table">
 				{/* Render the TableToolbar component if hasToolbar is true */}
-				{hasToolbar && <TableToolbar />}
-				<div className="sui-table__wrapper" ref={wrapperRef}>
+				{hasToolbar && <TableToolbar id={`${tableId}-toolbar`} />}
+				<div
+					id={`${tableId}-wrapper`}
+					className="sui-table__wrapper"
+					ref={wrapperRef}
+				>
 					<table
+						id={`${tableId}-table`}
 						className="sui-table__table"
 						ref={ref}
 						// Ignore eslint here as the table have expandable elements which makes it interactive

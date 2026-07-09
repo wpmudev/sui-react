@@ -75,7 +75,7 @@ export const PasswordField = ({
 
 // Story props defaults
 PasswordField.args = {
-	id: "myPasswordField",
+	id: "my-password-field",
 	placeholder: "Enter your password",
 	label: "Password",
 	helper: "Create a password of minimum 8 characters",

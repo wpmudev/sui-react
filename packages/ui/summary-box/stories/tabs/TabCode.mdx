@@ -1,3 +1,4 @@
+import { Fragment } from "react"
 import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
 
 <PackageInstallGuide packageName="@wpmudev/sui-summary-box" />
@@ -140,6 +141,63 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     	</PropSection>
 
     </Section>
+
+	<Section title="SummaryBoxContent" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+		<p>
+    		This component represents an content white box and it can be nested under the SummaryFooterBody component or SummaryBoxRow component
+    	</p>
+
+    	<PropSection title="padding" type="string" defaultValue="lg">
+    		<p>
+    			The size of padding
+    		</p>
+			<p>
+				Allowed values
+				<List>
+					<span label={<Fragment><Code isSmall={true}>lg</Code> This is the default value</Fragment>} />
+					<span label={<Fragment><Code isSmall={true}>md</Code> For slightly smaller padding</Fragment>} />
+				</List>
+			</p>
+    	</PropSection>
+		<PropSection title="span" type="string" defaultValue="half">
+			<p>
+    			When nested under the SummaryBoxRow component it will have 50% by default, to make it take full width use <Code isSmall={true}>full</Code> instead
+    		</p>
+			<p>
+				Allowed values
+				<List>
+					<span  label={<Fragment><Code isSmall={true}>half</Code> This is the default value, component will take 50% width</Fragment>} />
+					<span label={<Fragment><Code isSmall={true}>full</Code> For the component to take 100% width</Fragment>} /> 
+				</List>
+			</p>
+		</PropSection>
+		<PropSection title="className" type="string">
+			<p>
+    			additional className(s) for further styling 
+    		</p>
+		</PropSection>
+		<PropSection title="children" type="React Node">
+			<p>
+    			For nested children elements
+    		</p>
+		</PropSection>
+	</Section>
+
+	<Section title="SummaryBoxRow" contained={true} style={{ paddingTop: 0, paddingLeft: 20, paddingRight: 0 }}>
+		<p>
+			Use this component to create double columns layout using SummaryBoxContent component for child elements
+    	</p>
+		<PropSection title="className" type="string">
+			<p>
+    			additional className(s) for further styling 
+    		</p>
+		</PropSection>
+		<PropSection title="children" type="React Node">
+			<p>
+    			For nested children elements
+    		</p>
+		</PropSection>
+	</Section>
 
 </Section>
 

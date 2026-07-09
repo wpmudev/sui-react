@@ -15,9 +15,9 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(row) {
-				border-top: $border-width-sm solid $color-extended-neutral-80;
+				border-top: $border-width-sm solid $color-grey-10;
 				position: relative;
-				background: $color-extended-neutral-100;
+				background: $color-base-white;
 
 				.sui-#{$block}__footer & {
 					border-top: none;
@@ -25,12 +25,20 @@
 
 				@include modifier(expanded) {
 					.sui-#{$block}__cell--sticky {
-						background: $color-extended-neutral-95;
+						background: $color-grey-02;
 					}
 				}
 
 				@include modifier(expanded, content) {
-					background: $color-extended-neutral-95;
+					background: $color-grey-02;
+
+					td {
+						background: $color-grey-02;
+					}
+				}
+
+				@include modifier(is-group) {
+					background: $color-grey-02;
 				}
 
 				@include modifier(content) {
@@ -64,7 +72,7 @@
 
 			@include element(table) {
 				@include modifier(footer) {
-					border-top: $border-width-sm solid $color-extended-neutral-80;
+					border-top: $border-width-sm solid $color-grey-10;
 				}
 			}
 
@@ -122,15 +130,15 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(row) {
-				border-color: $color-extended-neutral-0;
+				border-color: $color-base-black;
 
 				@include modifier(expanded, content) {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 				}
 
 				@include modifier(expanded) {
 					.sui-#{$block}__cell--sticky {
-						background: $color-extended-neutral-100;
+						background: $color-base-white;
 					}
 				}
 
@@ -141,7 +149,7 @@
 
 			@include element(table) {
 				@include modifier(footer) {
-					border-color: $color-extended-neutral-0;
+					border-color: $color-base-black;
 				}
 			}
 		}

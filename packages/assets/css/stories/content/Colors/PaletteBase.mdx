@@ -1,0 +1,21 @@
+import { Section } from '@wpmudev/sui-docs';
+import { Palettes } from './PaletteComponent.js';
+
+<Section style={{ paddingTop: 0 }}>
+	<div className="csb-section__contained" style={{ marginBottom: 20 }}>
+		<p>
+			Our base palette consists of white, black, and transparent. These colors provide the fundamental contrasts that are essential for readability and clean design.
+		</p>
+		<p>
+			White and black offer stark contrast, ensuring clear text and element visibility, while transparent allows for seamless integration and layering within our designs.
+		</p>
+	</div>
+	<Palettes
+		name="base"
+		colors={{
+			"white": "#ffffff",
+			"black": "#000000",
+			"transparent": "rgba(0, 0, 0, 0)",
+		}}
+	/>
+</Section>

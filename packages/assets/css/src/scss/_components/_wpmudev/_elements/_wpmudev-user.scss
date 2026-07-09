@@ -1,0 +1,43 @@
+@use "sass:math";
+@use "../../../_utils/utils" as *;
+
+/// Build User
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-user($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			// User
+			@include element(user) {
+				display: flex;
+				gap: $spacing-lg;
+				flex-direction: column;
+				width: 100%;
+
+				@include modifier(details) {
+					display: flex;
+					gap: $spacing-lg;
+
+					p {
+						margin: 0;
+					}
+				}
+
+				@include modifier(content) {
+					flex: 1;
+				}
+			}
+
+			@include element(navigation-user) {
+				.sui-dropdown__popover {
+					padding: $spacing-lg;
+				}
+			}
+		}
+	}
+}

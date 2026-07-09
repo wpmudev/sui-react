@@ -26,6 +26,7 @@ import { TooltipProps } from "./tooltip.types"
 
 // Build "Tooltip" component.
 const Tooltip: React.FC<TooltipProps> = ({
+	id,
 	label,
 	type = "button",
 	className,
@@ -39,13 +40,18 @@ const Tooltip: React.FC<TooltipProps> = ({
 	onBlur = () => {},
 	icon,
 	iconSize = "sm",
+	iconColor,
 	buttonProps,
 	_htmlProps = {},
 	_style = {},
 }) => {
 	// detect RTL
 	const isRTL = useDetectRTL()
-	const uniqueId = useId()
+	const generatedId = useId()
+	const uniqueId = id || `sui-tooltip-${generatedId}`
+	let triggerId = id
+		? `sui-tooltip-trigger-${uniqueId}`
+		: `sui-tooltip-trigger-${generatedId}`
 
 	const [isVisible, setIsVisible] = useState(false)
 	const [pos, setPos] = useState({ top: 0, left: 0 })
@@ -59,7 +65,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 		if (tooltipRef.current) {
 			const parentRect = tooltipRef?.current?.getBoundingClientRect()
 			const trigger = triggerRef?.current?.getBoundingClientRect()
-			const popupEl = document.getElementById(`sui-tooltip-${uniqueId}`)
+			const popupEl = document.getElementById(uniqueId + "-popup")
 			const tooltipHeight = popupEl?.clientHeight || 0
 			const tooltipWidth = popupEl?.clientWidth || 0
 			const alignName = isRTL ? "right" : "left"
@@ -230,11 +236,19 @@ const Tooltip: React.FC<TooltipProps> = ({
 	if (customWidth || customMobileWidth) {
 		attrs.style = {
 			...pos,
-			...(customWidth && { "--tooltip-width": `${customWidth}px` }),
+			...(customWidth && {
+				"--tooltip-width": `${customWidth}px`,
+				"--tooltip-width-mobile": `${customWidth}px`,
+			}),
 			...(customMobileWidth && {
 				"--tooltip-width-mobile": `${customMobileWidth}px`,
 			}),
 		} as CSSProperties
+	}
+
+	// If id is passed.
+	if (!!id) {
+		triggerId = id
 	}
 
 	// when escape key is pressed close the tooltip
@@ -268,6 +282,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			case "button":
 				return (
 					<Button
+						id={triggerId}
 						{...(buttonProps as ButtonProps)}
 						{...(icon && { icon })}
 						{...(iconSize && { iconSize })}
@@ -279,6 +294,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			case "text":
 				return (
 					<span
+						id={triggerId}
 						role="button"
 						tabIndex={0}
 						onClick={onClickCallback}
@@ -291,27 +307,36 @@ const Tooltip: React.FC<TooltipProps> = ({
 				)
 			case "icon":
 				if (!onClick) {
-					return <Icon name={icon} size={iconSize} />
+					return (
+						<Icon
+							id={triggerId}
+							name={icon}
+							size={iconSize}
+							colorScheme={iconColor}
+						/>
+					)
 				}
 
 				return (
 					<span
+						id={triggerId}
 						className="sui-tooltip__trigger--icon"
 						role="button"
 						tabIndex={0}
 						onClick={onClickCallback}
 						onKeyDown={(e) => handleOnKeyDown(e, onClickCallback)}
 					>
-						<Icon name={icon} size={iconSize} />
+						<Icon name={icon} size={iconSize} colorScheme={iconColor} />
 					</span>
 				)
 			default:
-				return <span>{label}</span>
+				return <span id={triggerId}>{label}</span>
 		}
 	}
 
 	return (
 		<div
+			id={uniqueId}
 			{...methods}
 			className={classNames}
 			data-testid="tooltip"
@@ -319,6 +344,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			{..._renderHTMLPropsSafely(_htmlProps)}
 		>
 			<div
+				id={`${uniqueId}-trigger`}
 				className="sui-tooltip__trigger"
 				ref={triggerRef as LegacyRef<HTMLDivElement>}
 			>
@@ -327,7 +353,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 			{!!children &&
 				render(
 					<div
-						id={`sui-tooltip-${uniqueId}`}
+						id={`${uniqueId}-popup`}
 						className={generateCN("sui-tooltip__popup", {
 							show: isVisible,
 							focus: isFocused,

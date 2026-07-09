@@ -17,11 +17,15 @@
 				cursor: default;
 				pointer-events: none;
 
+				@include modifies-element(label, description) {
+					color: $color-grey-50;
+				}
+
 				@include modifies-element(switch) {
-					background: $color-extended-neutral-80;
+					background: $color-grey-10;
 
 					&:before {
-						background: $color-extended-neutral-70;
+						background: $color-grey-30;
 					}
 				}
 			}
@@ -34,10 +38,10 @@
 		@include block($block) {
 			@include modifier(disabled) {
 				@include modifies-element(switch) {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 
 					&:before {
-						background: $color-extended-neutral-0;
+						background: $color-base-black;
 					}
 				}
 			}

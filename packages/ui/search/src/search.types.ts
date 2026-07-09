@@ -71,12 +71,20 @@ type SearchBasicType = {
 type SearchProps = SearchSmartType | SearchBasicType
 
 interface SearchOptionItemProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the SearchOptionItem.
+	 */
+	id?: string
 	children?: React.ReactNode
 	option: SearchOptionType
 	onClick(option: SearchOptionType): void
 }
 
 interface SearchOptionsProps extends SuiStyleType {
+	/**
+	 * Unique identifier for the SearchOptions.
+	 */
+	id?: string
 	options: SearchOptionType[]
 	value: string
 	setValue(label: string): void

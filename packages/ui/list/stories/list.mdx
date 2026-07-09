@@ -1,0 +1,26 @@
+import { Page } from "@wpmudev/sui-docs"
+import { Unstyled } from "@storybook/blocks"
+
+
+import TabUsage from "./tabs/TabUsage.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+import TabExamples from "./tabs/TabExamples.mdx"
+
+<Unstyled>
+	<Page.Tabs
+		title="List"
+		subtitle="Use list to display a group of related content in a row. This component enhances the native <ul> and <li> elements by adding flexibility and customization options, including unstyled lists, icon-based lists, and bordered list variations."
+    	status="ready"
+    >
+    		<div id="usage" label="Usage">
+    			<TabUsage />
+    		</div>
+    		<div id="code" label="Code">
+    			<TabCode />
+    		</div>
+    		<div id="examples" label="Examples">
+    			<TabExamples />
+    		</div>
+    </Page.Tabs>
+
+</Unstyled>

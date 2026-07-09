@@ -16,17 +16,11 @@
 		@include block($block) {
 			@include element(input) {
 				@include modifier(element) {
-					color: $color-extended-neutral-10;
+					color: $color-grey-90;
 				}
 
 				.sui-input__icon--calendar {
 					pointer-events: none;
-				}
-
-				@include modifier(disabled) {
-					cursor: default;
-					pointer-events: none;
-					opacity: 0.5;
 				}
 			}
 		}

@@ -12,7 +12,7 @@ import { Palettes } from './PaletteComponent.js';
 		</p>
 	</div>
 	<Switcher>
-		<div label="Neutrals" value="neutrals">
+		<div label="Neutrals" value="grey">
 			<Palettes
 				arrays={[
 					{
@@ -43,12 +43,14 @@ import { Palettes } from './PaletteComponent.js';
 								primarily use them for typography.
 							</p>
 						),
-						palette: 'extended-neutral',
+						palette: 'grey',
 						colors: {
-							10: '#1A1A1A',
-							30: '#333333',
-							50: '#505050',
-							60: '#737373',
+							40: "#999999",
+							50: "#7f7f7f",
+							60: "#666666",
+							70: "#4c4c4c",
+							80: "#333333",
+							90: "#1a1a1a",
 						},
 					},
 					{
@@ -62,10 +64,10 @@ import { Palettes } from './PaletteComponent.js';
 								contrast to remain AA compliant.
 							</p>
 						),
-						palette: 'extended-neutral',
+						palette: 'grey',
 						colors: {
-							70: '#AAAAAA',
-							80: '#E6E6E6',
+							20: "#cccccc",
+							30: "#b3b3b3",
 						},
 					},
 					{
@@ -89,11 +91,60 @@ import { Palettes } from './PaletteComponent.js';
 								</p>
 							</>
 						),
-						palette: 'extended-neutral',
+						palette: 'grey',
 						colors: {
-							90: '#F2F2F2',
-							95: '#F8F8F8',
-							100: '#FFFFFF',
+							"02": "#f8f8f8",
+							"05": "#f2f2f2",
+							10: "#e6e6e6",
+						},
+					},
+					{
+						title: 'Alpha (Grey)',
+						description: (
+							<>
+								<p>
+									Our Alpha palette consists of various shades of grey, ranging from very light to nearly black. These shades are used to create depth and hierarchy in our designs, providing subtle backgrounds and highlighting different interactive states such as hover and disabled.
+								</p>
+								<p>
+									Shades of grey in the Alpha palette are essential for maintaining a clean and modern aesthetic, offering balance and contrast without overwhelming the primary content. They are frequently used for backgrounds, shadows, and secondary components, enhancing the overall visual experience while preserving warmth and clarity in predominantly white layouts.
+								</p>
+							</>
+						),
+						palette: 'grey',
+						colors: {
+							a01: "rgba(26, 26, 26, 0.01)",
+							a05: "rgba(26, 26, 26, 0.05)",
+							a10: "rgba(26, 26, 26, 0.1)",
+							a20: "rgba(26, 26, 26, 0.2)",
+							a30: "rgba(26, 26, 26, 0.3)",
+							a70: "rgba(26, 26, 26, 0.7)",
+							a90: "rgba(26, 26, 26, 0.9)",
+						},
+					},
+				]}
+			/>
+		</div>
+		<div label="General" value="blue">
+			<Palettes
+				arrays={[
+					{
+						intro: (
+							<p>
+								To indicate information or a neutral state, use blue colors. These are ideal for components like notifications and tags where you want to convey messages or statuses that are informational and non-urgent.
+							</p>
+						),
+						palette: 'blue',
+						colors: {
+							"05": "#e6eeff",
+							10: "#b3cdff",
+							20: "#99bdff",
+							30: "#669bff",
+							40: "#337aff",
+							50: "#0059ff",
+							60: "#0047cc",
+							70: "#003599",
+							80: "#002466",
+							90: "#001233",
 						},
 					},
 				]}
@@ -110,13 +161,18 @@ import { Palettes } from './PaletteComponent.js';
 								badges, icons, and successful messages.
 							</p>
 						),
-						palette: 'extended-success',
+						palette: 'green',
 						colors: {
-							10: '#05250F',
-							30: '#0C5E26',
-							50: '#18BB4B',
-							70: '#BAEBC9',
-							90: '#E8F8ED',
+							"05": "#e8f6ed",
+							10: "#d1eeda",
+							20: "#a3dcb5",
+							30: "#74cb91",
+							40: "#46b96c",
+							50: "#18a847",
+							60: "#138639",
+							70: "#0e652b",
+							80: "#0a431c",
+							90: "#05220e",
 						},
 					},
 				]}
@@ -133,13 +189,18 @@ import { Palettes } from './PaletteComponent.js';
 								components like notifications and tags.
 							</p>
 						),
-						palette: 'extended-warning',
+						palette: 'yellow',
 						colors: {
-							10: '#191609',
-							30: '#5B502B',
-							50: '#FFCC20',
-							70: '#FFF4CE',
-							90: '#FFFBEF',
+							"05": "#fffae9",
+							10: "#fff5d2",
+							20: "#ffeba6",
+							30: "#ffe079",
+							40: "#ffd64d",
+							50: "#ffcc20",
+							60: "#cca31a",
+							70: "#997a13",
+							80: "#66520d",
+							90: "#332906",
 						},
 					},
 				]}
@@ -159,13 +220,103 @@ import { Palettes } from './PaletteComponent.js';
 								typography.
 							</p>
 						),
-						palette: 'extended-error',
+						palette: 'red',
 						colors: {
-							10: '#180909',
-							30: '#AB403E',
-							50: '#F45C59',
-							70: '#FCCECD',
-							90: '#FEEFEE',
+							"05": "#fce9e6",
+							10: "#fad3cc",
+							20: "#f5a799",
+							30: "#ef7c66",
+							40: "#ea5033",
+							50: "#e52400",
+							60: "#b71d00",
+							70: "#891600",
+							80: "#5c0e00",
+							90: "#2e0700",
+						},
+					},
+					{
+						title: 'Alpha (Red)',
+						description: (
+							<>
+								<p>
+									Our Alpha (Red) palette consists of various shades of red, ranging from very light to deep and intense. These shades are used to create visual impact and hierarchy in our designs, providing subtle backgrounds and highlighting different interactive states such as hover and active.
+								</p>
+								<p>
+									Shades of red in the Alpha palette are essential for adding warmth and energy to our designs, offering contrast and emphasis without overwhelming the primary content. They are frequently used for backgrounds, accents, and interactive elements, enhancing the overall visual experience while maintaining a cohesive and dynamic look in predominantly neutral layouts.
+								</p>
+							</>
+						),
+						palette: 'red',
+						colors: {
+							a10: "rgba(229, 36, 0, 0.1)",
+							a30: "rgba(229, 36, 0, 0.3)",
+							a50: "rgba(229, 36, 0, 0.5)",
+							a70: "rgba(229, 36, 0, 0.7)",
+							a90: "rgba(229, 36, 0, 0.9)",
+						},
+					},
+				]}
+			/>
+		</div>
+		<div label="White" value="white">
+			<Palettes
+				arrays={[
+					{
+						intro: (
+							<p>
+								Mainly use white colors for backgrounds and overlays to create a sense of space and cleanliness. White is used to provide contrast and clarity in designs, ensuring that other colors and elements stand out. You'll find white in components such as backgrounds, modals, tooltips, and typography.
+							</p>
+						),
+						title: 'Alpha (White)',
+						description: (
+							<>
+								<p>
+									Our Alpha (White) palette consists of various shades of white, ranging from very light to slightly more opaque. These shades are used to create a sense of lightness and transparency in our designs, providing subtle backgrounds and enhancing different interactive states such as hover and focus.
+								</p>
+								<p>
+									Shades of white in the Alpha palette are essential for maintaining a clean and modern aesthetic, offering subtle contrast and clarity without overwhelming the primary content. They are frequently used for backgrounds, overlays, and highlighting elements, enhancing the overall visual experience while preserving brightness and openness in predominantly dark or colorful layouts.
+								</p>
+							</>
+						),
+						palette: 'white',
+						colors: {
+							a10: "rgba(255, 255, 255, 0.1)",
+							a30: "rgba(255, 255, 255, 0.3)",
+							a50: "rgba(255, 255, 255, 0.5)",
+							a70: "rgba(255, 255, 255, 0.7)",
+							a90: "rgba(255, 255, 255, 0.9)",
+						},
+					},
+				]}
+			/>
+		</div>
+		<div label="Black" value="black">
+			<Palettes
+				arrays={[
+					{
+						intro: (
+							<p>
+								Mainly use black colors for text and essential elements to provide maximum contrast and readability. Black is used to highlight important information, create a strong visual hierarchy, and ensure accessibility. You'll find black in components such as text, icons, borders, and shadows.
+							</p>
+						),
+						title: 'Alpha (Black)',
+						description: (
+							<>
+								<p>
+									Our Alpha (Black) palette consists of various shades of black, ranging from very light to deep and intense. These shades are used to create depth and hierarchy in our designs, providing subtle backgrounds and highlighting different interactive states such as hover and focus.
+								</p>
+								<p>
+									Shades of black in the Alpha palette are essential for maintaining a clean and modern aesthetic, offering strong contrast and emphasis without overwhelming the primary content. They are frequently used for text, shadows, and key components, enhancing the overall visual experience while preserving clarity and structure in predominantly light or colorful layouts.
+								</p>
+							</>
+						),
+						palette: 'black',
+						colors: {
+							a10: "rgba(0, 0, 0, 0.1)",
+							a30: "rgba(0, 0, 0, 0.3)",
+							a50: "rgba(0, 0, 0, 0.5)",
+							a70: "rgba(0, 0, 0, 0.7)",
+							a90: "rgba(0, 0, 0, 0.9)",
 						},
 					},
 				]}

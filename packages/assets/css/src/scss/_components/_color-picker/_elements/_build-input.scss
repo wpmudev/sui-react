@@ -51,7 +51,7 @@
 				width: $colorpicker-size-width-sm;
 				background-position: center;
 				background-size: $colorpicker-size-width-xs;
-				border: $border-width-sm solid $color-extended-alpha-grey-10;
+				border: $border-width-sm solid $color-grey-a10;
 			}
 
 			@include element(input-preview-code) {
@@ -61,11 +61,11 @@
 
 			@include element(icon) {
 				cursor: pointer;
-				color: $color-extended-neutral-70;
+				color: $color-grey-30;
 				right: 0;
 
 				&:hover {
-					color: $color-extended-neutral-60;
+					color: $color-grey-60;
 				}
 			}
 
@@ -80,21 +80,21 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		// Block wrapper.
 		@include block($block) {
-			color: $color-extended-neutral-0;
+			color: $color-base-black;
 			@include element(input) {
-				box-shadow: 0 0 0 $border-width-sm $color-extended-neutral-0;
+				box-shadow: 0 0 0 $border-width-sm $color-base-black;
 			}
 
 			@include element(input-preview-icon) {
-				border: $border-width-sm solid $color-extended-neutral-0;
+				border: $border-width-sm solid $color-base-black;
 			}
 
 			@include element(input-close) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 
 			@include element(icon) {
-				color: $color-extended-neutral-0;
+				color: $color-base-black;
 			}
 		}
 	}

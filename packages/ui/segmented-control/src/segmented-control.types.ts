@@ -30,6 +30,8 @@ interface SegmentedControlProps
 interface SegmentedControlButtonProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLSpanElement>> {
+	// Optional custom ID for the button.
+	id?: string
 	// The value associated with the button.
 	value?: string | number
 	// A boolean indicating whether the button is disabled (optional).

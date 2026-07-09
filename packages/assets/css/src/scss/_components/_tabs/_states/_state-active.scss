@@ -32,8 +32,8 @@
 		@include block($block) {
 			@include element(nav-item) {
 				@include modifier(active) {
-					border-color: $color-extended-neutral-0;
-					color: $color-extended-neutral-0;
+					border-color: $color-base-black;
+					color: $color-base-black;
 				}
 			}
 		}

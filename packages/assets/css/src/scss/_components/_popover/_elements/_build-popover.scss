@@ -36,11 +36,11 @@
 
 				&:before {
 					position: absolute;
-					box-shadow: 0 0 0 $border-width-sm $color-extended-neutral-80;
+					box-shadow: 0 0 0 $border-width-sm $color-grey-10;
 					content: "";
 					height: 100%;
 					width: 100%;
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 					transform: rotate(45deg);
 					right: -#{$spacing-default};
 				}
@@ -59,7 +59,7 @@
 		@include block($block) {
 			@include element(popup-arrow) {
 				&:before {
-					box-shadow: 0 0 0 $border-width-sm $color-extended-neutral-0;
+					box-shadow: 0 0 0 $border-width-sm $color-base-black;
 				}
 			}
 		}

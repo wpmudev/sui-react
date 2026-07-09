@@ -14,11 +14,7 @@
 		@include block($block) {
 			@include element(item) {
 				@include modifier(active) {
-					background: $color-primary-90;
-
-					.sui-#{$block}__item-info {
-						color: $color-primary-50;
-					}
+					background: $color-black-a05;
 				}
 			}
 		}
@@ -30,14 +26,14 @@
 		@include block($block) {
 			@include element(item) {
 				@include modifier(active) {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 
 					.sui-#{$block}__item-info {
-						color: $color-extended-neutral-0;
+						color: $color-base-black;
 					}
 
 					&:after {
-						border: $border-width-sm solid $color-extended-neutral-0;
+						border: $border-width-sm solid $color-base-black;
 					}
 				}
 			}
@@ -46,10 +42,10 @@
 				@include modifier(list) {
 					.sui-#{$block}__item--active {
 						border: none;
-						background: $color-extended-neutral-0;
+						background: $color-base-black;
 
 						.sui-#{$block}__item-info {
-							color: $color-extended-neutral-100;
+							color: $color-base-white;
 						}
 					}
 				}

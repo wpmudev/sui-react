@@ -13,8 +13,8 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			@include modifier(hub) {
-				background: $color-primary-40;
-				border: $border-width-sm solid $color-primary-40;
+				background: $color-primary-60;
+				border: $border-width-sm solid $color-primary-60;
 			}
 
 			@include modifier(black-friday) {
@@ -22,7 +22,7 @@
 
 				@include modifies-element(graphic) {
 					display: flex;
-					background: $color-extended-warning-50;
+					background: $color-yellow-50;
 					border-radius: 0 0 $border-radius-lg $border-radius-lg;
 					height: fit-content;
 					margin-top: -#{$spacing-2xl};
@@ -30,7 +30,7 @@
 				}
 
 				@include modifies-element(graphic-text) {
-					color: $color-extended-neutral-10;
+					color: $color-grey-90;
 					font-weight: $font-weight-lg;
 
 					span {
@@ -41,7 +41,7 @@
 
 			@include modifier(hub, black-friday) {
 				@include modifies-element(info-title, info-desc, info-helper) {
-					color: $color-extended-neutral-100;
+					color: $color-base-white;
 				}
 			}
 		}
@@ -52,17 +52,17 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include modifier(hub, black-friday) {
-				background: $color-extended-neutral-0;
-				border-color: $color-extended-neutral-0;
+				background: $color-base-black;
+				border-color: $color-base-black;
 			}
 
 			@include modifier(black-friday) {
 				@include modifies-element(graphic) {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 				}
 
 				@include modifies-element(graphic-text) {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 			}
 		}

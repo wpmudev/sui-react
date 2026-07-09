@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback, useState } from "react"
+import React, { Fragment, useId, useCallback, useState } from "react"
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { Col } from "@wpmudev/sui-grid"
@@ -10,6 +10,7 @@ import Icons from "@wpmudev/sui-icons"
 import { BuilderFieldProps } from "./builder.types"
 
 const BuilderField: React.FC<BuilderFieldProps> = ({
+	id,
 	columnSize = 12,
 	icon,
 	title = "Field Title",
@@ -25,6 +26,8 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 	_htmlProps,
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const builderFieldId = id || `sui-builder-field-${generatedId}`
 	// State to manage the expanded/collapsed state of the field
 	const [isExpanded, setIsExpanded] = useState<boolean>(false)
 
@@ -129,7 +132,11 @@ const BuilderField: React.FC<BuilderFieldProps> = ({
 
 	return (
 		<Col size={columnSize ?? 12} {...methods} _htmlProps={_htmlProps}>
-			<div className={classNames} data-testid="builder-field">
+			<div
+				id={builderFieldId}
+				className={classNames}
+				data-testid="builder-field"
+			>
 				<div className="sui-builder__field-header">
 					{allowDrag && (
 						<div

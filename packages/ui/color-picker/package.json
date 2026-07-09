@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-color-picker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The Color Picker Component enables users to select and apply colors in a consistent and efficient manner.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -60,10 +60,9 @@
   "dependencies": {
     "@types/react-color": "^3.0.7",
     "@types/tinycolor2": "^1.4.4",
-    "@wpmudev/sui-button": "^0.0.1",
-    "@wpmudev/sui-input": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1",
-    "react": "^18.2.0",
+    "@wpmudev/sui-button": "^0.0.2",
+    "@wpmudev/sui-input": "^0.0.2",
+    "@wpmudev/sui-utils": "^0.0.2",
     "react-color": "^2.19.3",
     "tinycolor2": "^1.6.0"
   }

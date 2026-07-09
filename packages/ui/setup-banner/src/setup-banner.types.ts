@@ -12,6 +12,10 @@ import { useStylesTypes } from "@wpmudev/sui-hooks"
  */
 interface SetupBannerProps extends SuiStyleType, SuiHTMLAttributes {
 	/**
+	 * Unique identifier for the setup banner.
+	 */
+	id?: string
+	/**
 	 * The title to be displayed in the empty state (optional).
 	 */
 	title?: string

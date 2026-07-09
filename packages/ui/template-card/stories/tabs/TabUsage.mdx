@@ -1,0 +1,113 @@
+import { Section, Row, Col, List } from '@wpmudev/sui-docs';
+
+import Anatomy from '../images/anatomy.svg';
+import Empty from '../images/empty.svg';
+import States from '../images/states.svg';
+import StatesSelect from '../images/states-select.svg';
+import Tags from '../images/tags.svg';
+import ButtonUsage from '../images/button-usage.svg';
+import TitleDescription from '../images/title-and-description.svg';
+import LayoutStructure from '../images/layout-structure.svg';
+import LayoutDoDont from '../images/layout-do-dont.svg';
+import Usage from '../images/usage.svg';
+import HighContrast from '../images/high-contrast.svg';
+import ProTemplate from '../images/pro-template.svg';
+
+<Section title="Anatomy" contained={true} border={true}>
+	<Row gutter="sm">
+		<Col size="4">
+			<h3>1. Image area:</h3>
+			<p>A visual preview area that displays the template thumbnail and supports multiple aspect ratios. Can include optional status tags in the top-right corner.</p>
+			<h3>2. Title</h3>
+			<p>The primary identifier for the template, displayed below the image area.</p>
+			<h3>3. Description (optional)</h3>
+			<p>A brief descriptive text that provides additional context or details about the template's purpose and features.</p>
+		</Col>
+		<Col size="4">
+			<img
+				src={Anatomy}
+				alt="Template card anatomy"
+				style={{ marginBottom: 20 }}
+			/>
+		</Col>
+	</Row>
+</Section>
+
+<Section title="Empty Template" contained={true} border={true}>
+	<Row gutter="sm">
+		<Col size="4">
+			<p>By default, templates are used for template previews, but if a template is empty, we use an empty variation instead.</p>
+		</Col>
+		<Col size="4">
+			<img
+				src={Empty}
+				alt="Template card empty"
+				style={{ marginBottom: 20 }}
+			/>
+		</Col>
+	</Row>
+</Section>
+
+<Section title="States" border={true}>
+	<p>The template card provides three interactive states: default, hover, and selected. It can be used either as part of a multi-step selection process or as a standalone action element.</p>
+	<img src={States} alt="States" style={{ marginBottom: 20 }} />
+	<p>By default, users can trigger actions directly from templates. Alternatively, template cards can also be used as part of the multi-step workflows for more complex processes.</p>
+	<img src={StatesSelect} alt="State Select" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="Tag support" border={true}>
+	<p>Optionally, template cards can display status tags like New, Pro, or Coming Soon in the top corner. Empty templates are shown without tags.</p>
+	<img src={Tags} alt="Tags" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="Pro Template Card" contained={true} border={true}>
+	<Row gutter="sm">
+		<Col size="4">
+			<p>Pro template cards are used for those templates which are available in premium plan, with an upgrade prompt shown on hover.</p>
+		</Col>
+		<Col size="4">
+			<img
+				src={ProTemplate}
+				alt="Template card empty"
+				style={{ marginBottom: 20 }}
+			/>
+		</Col>
+	</Row>
+</Section>
+
+<Section title="Buttons Usage" border={true}>
+	<img src={ButtonUsage} alt="Button Usage" style={{ marginBottom: 20 }} />
+	<h3>Buttons usage</h3>
+	<p>
+		Template cards can display action buttons on hover. There are a few key guidelines:	
+		<List>
+			<span label="Width: both buttons maintain equal width, with shorter buttons expanding to match the wider button." />
+			<span label="Actions: a maximum of two buttons can appear: one primary and one secondary action. " />
+			<span label="Start from Scratch: empty templates default to a single primary action button on hover." />
+		</List>
+	</p>
+</Section>
+
+<Section title="Title and Description" border={true}>
+	<img src={TitleDescription} alt="Title and description" style={{ marginBottom: 20 }} />
+	<h3>Text truncation</h3>
+	<List>
+		<span label="Title: limited to maximum 1 lines, with longer titles truncated by ellipsis. Full text appears in a Tooltip on hover. The title field is mandatory for all template cards." />
+		<span label="Description: optional text limited to maximum 2 lines, with longer descriptions truncated by ellipsis. Full text appears in a tooltip on hover." />
+	</List>
+</Section>
+
+<Section title="Layout structure" border={true}>
+	<p>Template cards automatically stretch to match the height of the tallest card in their group, maintaining a consistent grid layout.</p>
+	<img src={LayoutStructure} alt="Layout Structure" style={{ marginBottom: 20 }} />
+	<img src={LayoutDoDont} alt="Layout Do Dont" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="Spacings and Size" border={true}>
+	<p>Template cards adapt flexibly to their container dimensions and content while maintaining consistent internal spacing. The size is responsive to accommodate different product needs.</p>
+	<img src={Usage} alt="Usage" style={{ marginBottom: 20 }} />
+</Section>
+
+<Section title="High Contrast Mode" border={true}>
+	<img src={HighContrast} alt="High Contrast" style={{ marginBottom: 20 }} />
+</Section>

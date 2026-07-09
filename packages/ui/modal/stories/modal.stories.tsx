@@ -79,7 +79,7 @@ const Modal = ({ ...props }) => {
 
 // Set story arguments.
 Modal.args = {
-	id: "uniqueId",
+	id: "unique-id",
 	icon: {
 		name: "info-alt",
 		color: "blue",

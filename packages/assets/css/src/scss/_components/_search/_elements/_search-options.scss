@@ -14,9 +14,9 @@
 		@include block($block) {
 			@include element(popover) {
 				border-radius: $border-radius-md;
-				box-shadow: 0 $spacing-xs $spacing-sm 0 $color-extended-shadow-dark,
-					0 $spacing-2xs $spacing-lg 0 $color-extended-shadow-light,
-					0 #{$spacing-sm + 2px} $spacing-default 0 $color-extended-shadow-default;
+				box-shadow: 0 $spacing-xs $spacing-sm 0 $color-shadow-dark,
+					0 $spacing-2xs $spacing-lg 0 $color-shadow-light,
+					0 #{$spacing-sm + 2px} $spacing-default 0 $color-shadow-default;
 			}
 
 			@include element(options) {
@@ -42,7 +42,7 @@
 
 				@include modifier(hover, focus) {
 					background: $color-primary-50;
-					color: $color-extended-neutral-100;
+					color: $color-base-white;
 				}
 
 				span {
@@ -68,8 +68,8 @@
 		@include block($block) {
 			@include element(options-item) {
 				@include modifier(hover, focus) {
-					background: $color-extended-neutral-0;
-					color: $color-extended-neutral-100;
+					background: $color-base-black;
+					color: $color-base-white;
 				}
 			}
 		}

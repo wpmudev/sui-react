@@ -1,4 +1,4 @@
-import React, { useCallback } from "react"
+import React, { useCallback, useId } from "react"
 
 import { generateCN, handleOnKeyDown } from "@wpmudev/sui-utils"
 import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
@@ -6,11 +6,14 @@ import { useInteraction, useStyles } from "@wpmudev/sui-hooks"
 import { SearchOptionItemProps } from "./search.types"
 
 const SearchOptionItem: React.FC<SearchOptionItemProps> = ({
+	id,
 	children,
 	option,
 	onClick,
 	_style = {},
 }) => {
+	const generatedId = useId()
+	const searchOptionItemId = id || `sui-search-option-item-${generatedId}`
 	const [isHovered, isFocused, methods] = useInteraction({})
 
 	const { suiInlineClassname } = useStyles(_style)
@@ -33,6 +36,7 @@ const SearchOptionItem: React.FC<SearchOptionItemProps> = ({
 
 	return (
 		<button
+			id={searchOptionItemId}
 			role="menuitem"
 			className={className}
 			onClick={handleOnClick}

@@ -9,6 +9,10 @@ interface IconProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLOrSVGElement>>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the icon.
+	 */
+	id?: string
+	/**
 	 * Custom element type to be used for rendering the icon.
 	 */
 	as?: string

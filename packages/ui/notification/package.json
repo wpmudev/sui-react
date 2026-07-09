@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-notification",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Notifications promptly update users about the status of an action or system, ensuring they stay informed without interruption. Positioned strategically, these alerts provide essential information while maintaining a seamless user experience.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -59,10 +59,9 @@
   "homepage": "https://github.com/wpmudev/sui-react#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-button": "^0.0.1",
-    "@wpmudev/sui-icons": "^0.0.1",
-    "@wpmudev/sui-icon": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1",
-    "react": "^18.2.0"
+    "@wpmudev/sui-button": "^0.0.2",
+    "@wpmudev/sui-icons": "^0.0.2",
+    "@wpmudev/sui-icon": "^0.0.2",
+    "@wpmudev/sui-utils": "^0.0.2"
   }
 }

@@ -21,9 +21,9 @@
 				justify-content: center;
 				margin: $spacing-xs 0;
 				margin-right: $spacing-md;
-				border: $border-width-sm solid $color-extended-neutral-70;
+				border: $border-width-sm solid $color-grey-30;
 				border-radius: $border-radius-sm;
-				background: $color-extended-neutral-100;
+				background: $color-base-white;
 
 				&:after {
 					content: "";
@@ -53,8 +53,8 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(box) {
-				background: $color-extended-neutral-0;
-				border-color: $color-extended-neutral-0;
+				background: $color-base-black;
+				border-color: $color-base-black;
 			}
 		}
 	}

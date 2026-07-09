@@ -119,7 +119,7 @@
 			}
 
 			@include element(bg) {
-				color: $color-extended-alpha-white-10;
+				color: $color-white-a10;
 			}
 		}
 	}
@@ -128,10 +128,10 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			background: $color-extended-neutral-0;
+			background: $color-base-black;
 
 			@include element(bg) {
-				color: $color-extended-alpha-white-30;
+				color: $color-white-a30;
 			}
 		}
 	}

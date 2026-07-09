@@ -70,6 +70,7 @@ AlertBanner.args = {
 	variation: "informative",
 	displayIcon: true,
 	isDismissible: true,
+	isContentFluid: false,
 }
 
 AlertBanner.argTypes = {
@@ -103,6 +104,12 @@ AlertBanner.argTypes = {
 	},
 	isDismissible: {
 		name: "Is Dismissible",
+		control: {
+			type: "boolean",
+		},
+	},
+	isContentFluid: {
+		name: "Is Content Fluid",
 		control: {
 			type: "boolean",
 		},

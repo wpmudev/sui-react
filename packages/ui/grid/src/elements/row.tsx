@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useId } from "react"
 
 import { _renderHTMLPropsSafely, generateCN, isEmpty } from "@wpmudev/sui-utils"
 
@@ -6,12 +6,16 @@ import { RowProps } from "../grid.types"
 import { useDefaultChildren, useStyles } from "@wpmudev/sui-hooks"
 
 const Row: React.FC<RowProps> = ({
+	id,
 	align = { md: "inline" },
 	className,
 	children,
 	_htmlProps = {},
 	_style,
 }) => {
+	const generatedId = useId()
+	const rowId = id || `sui-row-${generatedId}`
+
 	const { suiInlineClassname } = useStyles(_style, className)
 
 	const expectedAligns: Record<string, any> = {
@@ -48,6 +52,7 @@ const Row: React.FC<RowProps> = ({
 
 	return (
 		<div
+			id={rowId}
 			className={classNames}
 			data-testid="grid"
 			{..._renderHTMLPropsSafely(_htmlProps)}

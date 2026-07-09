@@ -18,12 +18,12 @@
 				display: inline-flex;
 				align-items: center;
 				cursor: pointer;
-				background: $color-extended-neutral-95;
+				background: $color-grey-02;
 				border: $uploader-border-width dashed $uploader-border-color;
 				border-radius: $uploader-border-radius;
 				gap: $uploader-spacing-vertical;
 				padding: $uploader-spacing-vertical $uploader-spacing-horizontal;
-				color: $color-extended-neutral-50;
+				color: $color-grey-70;
 
 				@include modifier(label) {
 					font-weight: $font-weight-md;
@@ -44,8 +44,8 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(pick) {
-				border-color: $color-extended-neutral-0;
-				color: $color-extended-neutral-0;
+				border-color: $color-base-black;
+				color: $color-base-black;
 			}
 		}
 	}

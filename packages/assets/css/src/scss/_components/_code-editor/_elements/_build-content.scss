@@ -43,7 +43,7 @@
 
 			// line numbers
 			.line-numbers-rows {
-				background: $color-extended-neutral-60;
+				background: $color-grey-70;
 				bottom: 0;
 				overflow: hidden;
 				top: 0;
@@ -55,7 +55,7 @@
 				line-height: $font-height-xs;
 
 				> span:before {
-					color: $color-extended-neutral-100;
+					color: $color-base-white;
 					padding-right: $spacing-lg;
 				}
 			}
@@ -68,8 +68,8 @@
 				overflow: auto;
 				margin: 0;
 				padding: $spacing-lg;
-				background: $color-extended-neutral-95;
-				border: $border-width-sm solid $color-extended-neutral-80;
+				background: $color-grey-02;
+				border: $border-width-sm solid $color-grey-10;
 				outline: none;
 
 				> code {
@@ -84,7 +84,7 @@
 					word-break: normal;
 					tab-size: 4;
 					hyphens: none;
-					color: $color-extended-neutral-10;
+					color: $color-grey-90;
 
 					* {
 						font-family: $code-snippet-font-family;
@@ -111,15 +111,15 @@
 		@include block($block) {
 			// line numbers
 			.line-numbers-rows {
-				background: $color-extended-neutral-0;
+				background: $color-base-black;
 			}
 
 			.module-theme-default pre[class*="language-"] {
-				background: $color-extended-neutral-100;
-				border: $border-width-sm solid $color-extended-neutral-0;
+				background: $color-base-white;
+				border: $border-width-sm solid $color-base-black;
 
 				> code {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 				}
 			}
 		}

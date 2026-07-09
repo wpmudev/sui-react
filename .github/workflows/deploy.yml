@@ -87,6 +87,7 @@ jobs:
           EOF
           export NPM_CONFIG_USERCONFIG=$(pwd)/.npmrc
           npx changeset version --snapshot ${{ env.TAG }}
+          npm run build
           npx changeset publish --tag ${{ env.TAG }} --registry ${{ vars.NPM_STAGING }} --no-git-tag
 
       - name: Remove outdated snapshot versions
@@ -230,7 +231,7 @@ jobs:
 
       - name: Comment - No Changesets Found
         uses: mshick/add-pr-comment@v2
-        if: always() && steps.check_changesets.outputs.found != 'true'
+        if: success() && steps.check_changesets.outputs.found != 'true'
         with:
           message-id: 'deployment-status' # Unique key to identify this specific comment thread
           message: |
@@ -249,6 +250,7 @@ jobs:
         if: success() && steps.check_changesets.outputs.found == 'true'
         with:
           message-id: 'deployment-status' # MATCHES the ID above
+          issue: ${{ env.RELEASE_PR_NUMBER }}
           message: |
             ## ${{ env.TAG == 'rc' && 'Release Candidate' || 'Snapshot' }} Deployment Successful
 
@@ -257,12 +259,12 @@ jobs:
             - **Registry:** `${{ env.REGISTRY }}`
             - **Tag:** `${{ env.TAG }}`
             - **Commit:** [`${{ env.SHORT_SHA }}`](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
-            - **Deployed:** ${{ env.TIMESTAMP }}
+            - **Deployed:** ${{ env.TIMESTAMP }} (UTC)
             - **Branch:** `${{ github.head_ref || github.ref_name }}`
 
             **Preview Links**
-            - [View Storybook Components](${{ vars.UI_DOC }}/${{ env.TAG }})
-            - [NPM Registry](${{ env.REGISTRY }})
+            - [View UI Doc](${{ vars.UI_DOC }}/${{ env.TAG }})
+            - [Package Registry](${{ env.REGISTRY }})
 
             **Installation**
             ```bash
@@ -270,4 +272,6 @@ jobs:
             ```
 
             **Next Steps**
-            ${{ env.TAG == 'rc' && '- This release candidate is ready for testing \n- Merge to master to publish to production' || '- Review the changes in Storybook \n - Test the snapshot packages in your project' }}
+            ${{ env.TAG == 'rc' && '- This release candidate is ready for testing
+            - Merge to master to publish to production' || '- Review the changes in Storybook
+            - Test the snapshot packages in your project' }}

@@ -1,0 +1,83 @@
+import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSection, CommonPropsNotice } from "@wpmudev/sui-docs"
+
+<PackageInstallGuide packageName="@wpmudev/sui-list" />
+
+<Section title="Props (List)" border={true}>
+	<PropSection title="type" type="string" defaultValue="ul">
+		<p>
+			The type of the list, can be <Code small={true}> ul </Code> or <Code small={true}> ol </Code>
+		</p>
+		<p>
+			Allowed options:
+			<List>
+				<span label={<Code small={true}> ul </Code>} />
+				<span label={<Code small={true}> ol </Code>} />
+			</List>
+		</p>
+	</PropSection>
+	<PropSection title="variant" type="string" defaultValue="unstyled">
+		<p>
+			The variant of the list, can be <Code small={true}> unstyled </Code>, <Code small={true}> flushed </Code>, <Code small={true}> bordered </Code>
+		</p>
+		<p>
+			Allowed options:
+			<List>
+				<span label={<Code small={true}> unstyled </Code>} />
+				<span label={<Code small={true}> flushed </Code>} />
+				<span label={<Code small={true}> bordered </Code>} />
+			</List>
+		</p>
+	</PropSection>	
+
+	<PropSection title="overflow" type="boolean" defaultValue="true">
+		<p>If set to <Code small={true}> true </Code> the list will have overflow hidden, this is useful for long lists that need to be scrolled</p>
+	</PropSection>
+	<PropSection title="className" type="string">
+		<p>A custom css className(s) for the list</p>
+	</PropSection>
+
+	<PropSection title="children" type="ReactNode">
+		<p>The list items, can be <Code small={true}> li </Code> or <Code small={true}> ListItem </Code> components</p>
+	</PropSection>
+
+	<PropSection title="onClick" type="function">
+		<p>A function that will be called when the list item is clicked</p>
+		<p>It will receive the event as an argument</p>	
+	</PropSection>	
+</Section>
+
+<Section title="Props (ListItem)" border={true}>
+	<PropSection title="className" type="string">
+		<p>A custom css className(s) for the list item</p>
+	</PropSection>
+	<PropSection title="children" type="ReactNode">
+		<p>The content of the list item</p>
+	</PropSection>
+	<PropSection title="variant" type="string" defaultValue="">
+		<p>
+			The variant of the list item, can be <Code small={true}> default </Code>, <Code small={true}> neutral </Code>, <Code small={true}> info </Code>, <Code small={true}> success </Code>, <Code small={true}> warning </Code>, <Code small={true}> critical </Code>
+		</p>
+		<p>
+			Allowed options:
+			<List>
+				<span label={<Code small={true}> neutral </Code>} />
+				<span label={<Code small={true}> info </Code>} />
+				<span label={<Code small={true}> success </Code>} />
+				<span label={<Code small={true}> warning </Code>} />
+				<span label={<Code small={true}> critical </Code>} />
+			</List>
+		</p>
+	</PropSection>
+	<PropSection title="isPro" type="boolean" defaultValue="false">
+		<p>Whether the list item is a pro item, this will add a pro tag to the item</p>
+	</PropSection>
+	<PropSection title="isDisabled" type="boolean" defaultValue="false">
+		<p>Whether the list item is disabled, this will add a disabled class to the item</p>
+	</PropSection>
+	<PropSection title="onItemClick" type="function">
+		<p>A function that will be called when the list item is clicked</p>
+		<p>It will receive the event as an argument</p>
+	</PropSection>
+</Section>
+
+<CommonPropsNotice />

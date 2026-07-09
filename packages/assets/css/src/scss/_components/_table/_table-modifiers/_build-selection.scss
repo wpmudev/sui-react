@@ -17,7 +17,7 @@
 			@include element(cell) {
 				@include modifier(selection) {
 					text-align: center;
-					width: 0;
+					width: 1px; // This fixes a spacing issue in safari
 				}
 			}
 		}

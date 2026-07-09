@@ -3,6 +3,12 @@ import { isUndefined, isBoolean } from "@wpmudev/sui-utils"
 
 interface ButtonLabelProps {
 	/**
+	 * Optional ID for the label element
+	 *
+	 * @type {string | undefined}
+	 */
+	id?: string
+	/**
 	 * Icon name
 	 *
 	 * @type {string | undefined}
@@ -23,7 +29,11 @@ interface ButtonLabelProps {
 }
 
 // Build "Label" component.
-const Label: React.FC<ButtonLabelProps> = ({ hidden = false, children }) => {
+const Label: React.FC<ButtonLabelProps> = ({
+	id,
+	hidden = false,
+	children,
+}) => {
 	// throw exception
 	if (isUndefined(hidden) && !isBoolean(hidden)) {
 		throw new Error(
@@ -34,12 +44,12 @@ const Label: React.FC<ButtonLabelProps> = ({ hidden = false, children }) => {
 	return (
 		<Fragment>
 			{hidden && (
-				<span className="sui-screen-reader-only" tabIndex={-1}>
+				<span id={id} className="sui-screen-reader-only" tabIndex={-1}>
 					{children}
 				</span>
 			)}
 			{!hidden && (
-				<span className="sui-button__label" data-testid="button-label">
+				<span id={id} className="sui-button__label" data-testid="button-label">
 					{children}
 				</span>
 			)}

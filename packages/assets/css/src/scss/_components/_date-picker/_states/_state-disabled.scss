@@ -1,0 +1,49 @@
+@use "../../../_utils/utils" as *;
+
+/// Disabled State
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin edit-disabled($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(calendar-list-item) {
+				@include modifier(disabled) {
+					color: $color-grey-30;
+					cursor: default;
+					pointer-events: none;
+				}
+			}
+
+			// Day element.
+			@include element(day) {
+				@include modifier(disabled) {
+					background-color: $color-base-white;
+					color: $color-grey-50;
+					cursor: default;
+				}
+			}
+
+			// Input element.
+			@include element(input) {
+				@include modifier(disabled) {
+					cursor: default;
+					pointer-events: none;
+					opacity: 0.5;
+				}
+			}
+
+			// Range element.
+			@include element(range-button) {
+				@include modifier(disabled) {
+					pointer-events: none;
+					color: $color-grey-30;
+				}
+			}
+		}
+	}
+}

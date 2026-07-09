@@ -18,7 +18,7 @@
 					border: none;
 				}
 				@include modifies-element(field) {
-					background: $color-extended-neutral-90;
+					background: $color-grey-05;
 				}
 			}
 		}
@@ -30,7 +30,7 @@
 		@include block($block-name) {
 			@include modifier(disabled) {
 				&:after {
-					border: $border-width-sm solid $color-extended-neutral-0;
+					border: $border-width-sm solid $color-base-black;
 				}
 			}
 		}

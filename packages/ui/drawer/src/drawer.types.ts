@@ -13,6 +13,10 @@ export interface DrawerTypes
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * Unique identifier for the drawer.
+	 */
+	id?: string
+	/**
 	 * Optional class name for styling
 	 */
 	className?: string
@@ -26,6 +30,11 @@ export interface DrawerTypes
 	 * Indicates whether the Drawer is open or not
 	 */
 	isOpen?: boolean
+
+	/**
+	 * Indicates whether the Drawer is open or not
+	 */
+	isFullWidth?: boolean
 
 	/**
 	 * Size of the Drawer, default is "default" or can be "sm"
@@ -43,6 +52,11 @@ export interface DrawerTypes
 	hasContainer?: boolean
 
 	/**
+	 * Indicates whether the Drawer has a container
+	 */
+	hasOverlay?: boolean
+
+	/**
 	 * Indicates whether shadow should be disabled for the Drawer
 	 */
 	disableShadow?: boolean
@@ -58,6 +72,10 @@ export interface DrawerTypes
  */
 export interface DrawerHeaderTypes extends SuiStyleType {
 	/**
+	 * Unique identifier for the DrawerHeader.
+	 */
+	id?: string
+	/**
 	 * Title to be displayed in the DrawerHeader
 	 */
 	title: string
@@ -66,6 +84,25 @@ export interface DrawerHeaderTypes extends SuiStyleType {
 	 * Optional class name for styling
 	 */
 	className?: string
+
+	/**
+	 * Has back button.
+	 */
+	back?: {
+		show: boolean
+
+		mobileOnly?: boolean
+
+		/**
+		 * Has back button.
+		 */
+		action?: () => void
+	}
+
+	/**
+	 * Has back button.
+	 */
+	onBack?: () => void
 
 	/**
 	 * Optional hint text to be displayed
@@ -82,6 +119,10 @@ export interface DrawerHeaderTypes extends SuiStyleType {
  * Define props for the DrawerFooter component
  */
 export interface DrawerFooterTypes extends SuiStyleType {
+	/**
+	 * Unique identifier for the DrawerFooter.
+	 */
+	id?: string
 	/**
 	 * Optional class name for styling
 	 */

@@ -13,11 +13,11 @@
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
 			align-items: center;
-			background-color: $color-extended-neutral-100;
+			background-color: $color-base-white;
 			display: flex;
 			gap: $spacing-lg;
 			justify-content: space-between;
-			padding: $spacing-lg $spacing-2xl;
+			padding: $spacing-default $spacing-2xl;
 
 			.sui-dropdown__popover {
 				.sui-dropdown__menu-group-title {
@@ -28,11 +28,34 @@
 					padding: $spacing-md $spacing-xl;
 					font: $font-weight-md #{$font-size-default}/#{$font-height-sm}
 						$font-family-default;
-					color: $color-extended-neutral-50;
+					color: $color-grey-70;
 
 					&.sui-dropdown__menu-item--hover {
-						color: $color-extended-neutral-0;
+						color: $color-base-black;
 					}
+				}
+			}
+
+			@include element(drawer) {
+				.sui-drawer {
+					top: 118px;
+					border-top: $border-width-sm solid $color-grey-10;
+				}
+			}
+
+			@include element(actions) {
+				display: flex;
+				align-items: center;
+				gap: $spacing-lg;
+				padding-left: $spacing-lg;
+				border-left: $border-width-sm solid $color-grey-10;
+
+				.sui-dropdown {
+					display: flex;
+				}
+
+				.sui-button {
+					margin: 0;
 				}
 			}
 
@@ -50,14 +73,14 @@
 	// THEME: Dark.
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
-			border: $border-width-sm solid $color-extended-neutral-0;
+			border: $border-width-sm solid $color-base-black;
 
 			.sui-dropdown__popover {
 				.sui-dropdown__menu-item {
-					color: $color-extended-neutral-0;
+					color: $color-base-black;
 
 					&.sui-dropdown__menu-item--hover {
-						color: $color-extended-neutral-100;
+						color: $color-base-white;
 					}
 				}
 			}

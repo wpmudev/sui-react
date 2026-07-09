@@ -8,6 +8,10 @@ interface ProgressBarProps
 	extends SuiStyleType,
 		SuiHTMLAttributes<HTMLProps<HTMLDivElement>> {
 	/**
+	 * Unique identifier for the progress bar.
+	 */
+	id?: string
+	/**
 	 * Label for the progress bar.
 	 */
 	label?: string
@@ -51,6 +55,11 @@ interface ProgressBarProps
 	 * Callback function when the progress bar is clicked.
 	 */
 	onClick?: MouseEventHandler
+
+	/**
+	 * Animation speed in (ms).
+	 */
+	speed?: number
 }
 
 export type { ProgressBarProps }

@@ -25,7 +25,7 @@
 					border-bottom-left-radius: 0;
 					border-bottom-right-radius: 0;
 					border-bottom-color: transparent;
-					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px $color-primary-80;
+					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px $color-primary-10;
 				}
 
 				@include modifies-element(search) {
@@ -42,16 +42,15 @@
 			@include modifier(open) {
 				@include modifies-element(control) {
 					border-bottom-color: transparent;
+					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px $color-base-black;
+
 					&::after {
-						border-color: $color-extended-neutral-0;
+						border-color: $color-base-black;
 					}
-					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px
-						$color-extended-neutral-0;
 				}
 
 				@include modifies-element(input) {
-					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px
-						$color-extended-neutral-0;
+					box-shadow: inset 0px -#{$shadow-offset-2xs} 0px $color-base-black;
 				}
 			}
 		}

@@ -13,7 +13,7 @@
 		@include block($block) {
 			@include element(item) {
 				@include modifier(hover) {
-					background: $color-extended-neutral-95;
+					background: $color-grey-02;
 				}
 			}
 		}
@@ -25,7 +25,7 @@
 		@include block($block) {
 			@include element(item) {
 				@include modifier(hover) {
-					background: $color-extended-neutral-100;
+					background: $color-base-white;
 				}
 			}
 		}

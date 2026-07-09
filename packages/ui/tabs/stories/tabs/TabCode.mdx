@@ -24,6 +24,12 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		This component represents the container for tab navigation
     	</p>
 
+		<PropSection title="isNarrow" type="boolean" defaultValue="false">
+    		<p>
+    			When set to true the Navigation will be have less padding vertically 
+    		</p>
+    	</PropSection>
+
     	<PropSection title="children" type="React Node">
     		<p>
     			Content of the tab navigation
@@ -88,6 +94,12 @@ import { Section, Row, Col, Table, List, Code, Tag, PackageInstallGuide, PropSec
     		<PropSection title="children" type="React Node">
     			<p>
     				Content of tab item
+    			</p>
+    		</PropSection>
+
+			<PropSection title="onClick" type="Function">
+    			<p>
+    				A custom call back function to be invoked upon clicking an item
     			</p>
     		</PropSection>
     	</Section>

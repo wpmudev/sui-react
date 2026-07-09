@@ -1,0 +1,20 @@
+import { Page, Section } from '@wpmudev/sui-docs';
+import { Unstyled } from "@storybook/blocks"
+
+import TabExamples from "./tabs/TabExamples.mdx"
+import TabCode from "./tabs/TabCode.mdx"
+
+<Unstyled>
+	<Page.Tabs
+		title="Skeleton"
+		subtitle="Skeleton components are used as placeholders while content is loading, providing a visual cue that the content is being loaded."
+    	status="ready"
+	>
+			<div id="code" label="Code">
+				<TabCode/>
+			</div>
+			<div id="examples" label="Examples">
+				<TabExamples/>
+			</div>
+	</Page.Tabs>
+</Unstyled>

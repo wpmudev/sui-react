@@ -62,10 +62,18 @@ interface ColorPickerProps
 }
 
 interface ColorPickerColorProps {
+	/**
+	 * Unique identifier for the ColorPickerColor.
+	 */
+	id?: string
 	colorCode: string
 }
 
 interface ColorPickerPickerProps {
+	/**
+	 * Unique identifier for the ColorPickerPicker.
+	 */
+	id?: string
 	color: ColorPickerProps["color"]
 	type: ColorPickerProps["type"]
 	disableAlpha: ColorPickerProps["disableAlpha"]

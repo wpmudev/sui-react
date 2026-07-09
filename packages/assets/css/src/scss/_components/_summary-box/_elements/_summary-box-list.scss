@@ -24,13 +24,16 @@
 
 			@include element(list-item) {
 				align-items: center;
-				background-color: $color-extended-neutral-95;
+				background-color: $color-grey-02;
 				border-radius: $border-radius-md;
 				display: flex;
 				justify-content: space-between;
 				margin-bottom: $spacing-lg;
 				padding: $spacing-lg;
 				position: relative;
+				margin-right: 0;
+				margin-left: 0;
+				flex-direction: row;
 
 				@include media(max-width, md) {
 					margin-bottom: $spacing-md;
@@ -54,21 +57,21 @@
 
 				@include modifier(focus) {
 					&:after {
-						border: $border-width-sm solid $color-extended-neutral-60;
+						border: $border-width-sm solid $color-grey-60;
 					}
 				}
 			}
 
 			@include element(list-item-info) {
 				align-items: center;
-				color: $color-extended-neutral-10;
+				color: $color-grey-90;
 				display: flex;
 				font-weight: $font-weight-md;
 				font-size: $font-size-md;
 				gap: $spacing-md;
 
 				a {
-					color: $color-extended-neutral-10;
+					color: $color-grey-90;
 				}
 			}
 
@@ -84,8 +87,8 @@
 	@include sui-class($rtl: false, $theme: dark) {
 		@include block($block) {
 			@include element(list-item) {
-				background-color: $color-extended-neutral-100;
-				border: $border-width-sm solid $color-extended-neutral-0;
+				background-color: $color-base-white;
+				border: $border-width-sm solid $color-base-black;
 			}
 		}
 	}

@@ -10,9 +10,17 @@ interface BoxProps
 	extends SuiHTMLAttributes<HTMLProps<HTMLDivElement>>,
 		SuiStyleType {
 	/**
+	 * The unique identifier for the box (optional).
+	 */
+	id?: string
+	/**
 	 * The title of the box.
 	 */
 	title?: string
+	/**
+	 * The title of the box.
+	 */
+	description?: string
 	/**
 	 * The icon for the box.
 	 */
@@ -45,6 +53,10 @@ interface BoxProps
 	 * The content of the box.
 	 */
 	children?: React.ReactNode
+	/**
+	 * Has large radius
+	 */
+	hasLargeRadius?: boolean
 }
 
 export type { BoxProps }

@@ -14,7 +14,7 @@
 			@include element(field) {
 				@include modifier(hover) {
 					&:after {
-						border-color: $color-extended-alpha-grey-10;
+						border-color: $color-grey-a10;
 					}
 				}
 			}

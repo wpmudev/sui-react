@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom" // This is still needed to extend Jest's expect
 import { within } from "@testing-library/dom"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 import { render, screen } from "@testing-library/react"
 import { Button } from "@wpmudev/sui-button"
 

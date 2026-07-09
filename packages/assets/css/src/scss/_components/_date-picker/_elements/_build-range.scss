@@ -32,29 +32,15 @@
 			}
 
 			@include element(range-button) {
-				background: $color-extended-neutral-90;
+				background: $color-grey-05;
 				border-radius: $border-radius-lg;
 				font-size: $datepicker-font-size;
 				line-height: $datepicker-font-height-sm;
 				font-weight: $font-weight-md;
 				padding: $spacing-sm $spacing-md;
 				white-space: nowrap;
-				color: $color-extended-neutral-10;
+				color: $color-grey-90;
 				cursor: pointer;
-
-				@include modifier(active) {
-					color: $color-extended-neutral-100;
-					background: $color-primary-50;
-				}
-
-				@include modifier(disabled) {
-					pointer-events: none;
-					color: $color-extended-neutral-70;
-				}
-
-				@include modifier(focus) {
-					border: $border-width-md solid $color-extended-neutral-0;
-				}
 			}
 		}
 	}
@@ -65,18 +51,9 @@
 		// Block wrapper.
 		@include block($block) {
 			@include element(range-button) {
-				background: $color-extended-neutral-100;
-				color: $color-extended-neutral-0;
-				border: $border-width-sm solid $color-extended-neutral-0;
-
-				@include modifier(active) {
-					color: $color-extended-neutral-100;
-					background: $color-extended-neutral-0;
-				}
-
-				@include modifier(focus) {
-					border: $border-width-md solid $color-extended-neutral-0;
-				}
+				background: $color-base-white;
+				color: $color-base-black;
+				border: $border-width-sm solid $color-base-black;
 			}
 		}
 	}

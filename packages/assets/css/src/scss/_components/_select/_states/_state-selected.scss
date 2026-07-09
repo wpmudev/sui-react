@@ -1,0 +1,44 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Select Selected
+/// This function creates styles for selected dropdown items
+///
+/// @type state
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin select-selected($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		@include block($block) {
+			@include element(dropdown) {
+				.sui-dropdown__menu {
+					.sui-dropdown__menu-item--selected,
+					.sui-select__dropdown--selected {
+						&:not(.sui-dropdown__menu-item--danger):not(:hover) {
+							color: $color-primary-50;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// DIR: Left to right.
+	// THEME: Dark.
+	@include sui-class($rtl: false, $theme: dark) {
+		@include block($block) {
+			@include element(dropdown) {
+				.sui-dropdown__menu {
+					.sui-select__dropdown--selected,
+					.sui-dropdown__menu-item--selected {
+						color: $color-base-black;
+					}
+				}
+			}
+		}
+	}
+}

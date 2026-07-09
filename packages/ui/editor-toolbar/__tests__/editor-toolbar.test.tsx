@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react"
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
-import { a11yTest } from "@wpmudev/sui-utils"
+import { a11yTest } from "@wpmudev/sui-dev-utils"
 import { EditorToolbar } from "../src"
 
 describe("@wpmudev/sui-editor-toolbar", () => {

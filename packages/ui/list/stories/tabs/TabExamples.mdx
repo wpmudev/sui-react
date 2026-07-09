@@ -1,0 +1,243 @@
+import { Section, Switcher, Preview, Snippet, Code } from "@wpmudev/sui-docs"
+import { List, ListItem } from "../../src"
+import dedent from "dedent"
+import {
+	PluginBeehive,
+	PluginBlc,
+	PluginDefender,
+	PluginAutomate,
+	PluginDashboard,
+} from "@wpmudev/sui-icons"
+
+export const basicCode = dedent`
+    <List>
+        <ListItem>
+            Automated firewall protection
+        </ListItem>
+		<ListItem>
+            Regularly Reviewed IP Database
+        </ListItem>
+		<ListItem>
+            Millions of IPs Checked Daily
+        </ListItem>
+		<ListItem>
+            Millions of IPs Checked Daily
+        </ListItem>
+    </List>
+`
+
+export const listWithIconCode = dedent`
+    <List variant="bordered">
+        <ListItem>
+            <PluginBeehive />
+            Automated firewall protection
+        </ListItem>
+        <ListItem>
+            <PluginBlc />
+            Regularly Reviewed IP Database
+        </ListItem>
+        <ListItem>
+            <PluginDefender />
+            Millions of IPs Checked Daily
+        </ListItem>
+        <ListItem>
+            <PluginAutomate />
+            Millions of IPs Checked Daily
+        </ListItem>
+		<ListItem>
+			<PluginDashboard />
+			Regularly Reviewed IP Database
+		</ListItem>
+    </List>
+`
+
+export const proCode = dedent`
+	<List variant="bordered">
+		<ListItem isPro={true}>
+			Automated firewall protection
+		</ListItem>
+		<ListItem>
+			Regularly Reviewed IP Database
+		</ListItem>
+	</List>
+`
+
+export const colorVariantsCode = dedent`
+	<List variant="bordered">
+		<ListItem variant="neutral">
+			Automated firewall protection
+		</ListItem>
+		<ListItem variant="info">
+			Regularly Reviewed IP Database
+		</ListItem>
+		<ListItem variant="warning">
+			Millions of IPs Checked Daily
+		</ListItem>
+		<ListItem variant="success">
+			Millions of IPs Checked Daily
+		</ListItem>
+		<ListItem variant="critical">
+			Millions of IPs Checked Daily
+		</ListItem>
+	</List>
+`
+
+export const flushCode = dedent`
+	<List variant="flushed">
+		<ListItem>
+			Automated firewall protection
+		</ListItem>
+		<ListItem>
+			Regularly Reviewed IP Database
+		</ListItem>
+	</List>
+`
+
+export const listClickedCode = dedent`
+	<List variant="bordered" onClick={(e) => console.log(e)}>
+		<ListItem>
+			Automated firewall protection
+		</ListItem>
+		<ListItem>
+			Regularly Reviewed IP Database
+		</ListItem>
+	</List>
+`
+
+export const disabledCode = dedent`
+     <List variant="bordered">
+		<ListItem>
+			Automated firewall protection
+		</ListItem>
+        <ListItem isDisabled={true}>
+            Regularly Reviewed IP Database
+        </ListItem>
+    </List>
+`
+
+<Section title="Basic List Example" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<List>
+			<ListItem>
+				Automated firewall protection
+			</ListItem>
+			<ListItem>
+				Regularly Reviewed IP Database
+			</ListItem>
+			<ListItem>
+				Millions of IPs Checked Daily
+			</ListItem>
+			<ListItem>
+				Millions of IPs Checked Daily
+			</ListItem>
+		</List>
+	</Preview>
+	<Snippet language="js">{basicCode}</Snippet>
+</Section>
+
+<Section title="List with Icons" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<List variant="bordered">
+			<ListItem>
+				<PluginBeehive />
+				Automated firewall protection
+			</ListItem>
+			<ListItem>
+				<PluginBlc />
+				Regularly Reviewed IP Database
+			</ListItem>
+			<ListItem>
+				<PluginDefender />
+				Millions of IPs Checked Daily
+			</ListItem>
+			<ListItem>
+				<PluginAutomate />
+				Millions of IPs Checked Daily
+			</ListItem>
+			<ListItem>
+				<PluginDashboard />
+				Regularly Reviewed IP Database
+			</ListItem>
+		</List>
+	</Preview>
+	<Snippet language="js">{listWithIconCode}</Snippet>
+</Section>
+
+<Section title="Pro List Item" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<List variant="bordered">
+			<ListItem isPro={true}>
+				Automated firewall protection
+			</ListItem>
+			<ListItem>
+				Regularly Reviewed IP Database
+			</ListItem>
+		</List>
+	</Preview>
+	<Snippet language="js">{proCode}</Snippet>
+</Section>
+
+<Section title="Color Variants" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<List variant="bordered">
+			<ListItem variant="neutral">
+				Automated firewall protection
+			</ListItem>
+			<ListItem variant="info">
+				Regularly Reviewed IP Database
+			</ListItem>
+			<ListItem variant="warning">
+				Millions of IPs Checked Daily
+			</ListItem>
+			<ListItem variant="success">
+				Millions of IPs Checked Daily
+			</ListItem>
+			<ListItem variant="critical">
+				Millions of IPs Checked Daily
+			</ListItem>
+		</List>
+	</Preview>
+	<Snippet language="js">{colorVariantsCode}</Snippet>
+</Section>
+
+<Section title="Flush List" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<List variant="flushed">
+			<ListItem>
+				Automated firewall protection
+			</ListItem>
+			<ListItem>
+				Regularly Reviewed IP Database
+			</ListItem>
+		</List>
+	</Preview>
+	<Snippet language="js">{flushCode}</Snippet>
+</Section>
+
+<Section title="List Clicked" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<List variant="bordered" onClick={(e) => console.log(e)}>
+			<ListItem>
+				Automated firewall protection
+			</ListItem>
+			<ListItem>
+				Regularly Reviewed IP Database
+			</ListItem>
+		</List>
+	</Preview>
+	<Snippet language="js">{listClickedCode}</Snippet>
+</Section>
+
+<Section title="Disabled List Item" contained={true} style={{ paddingTop: 30 }}>
+	<Preview wrapper={true}>
+		<List variant="bordered">
+			<ListItem>
+				Automated firewall protection
+			</ListItem>
+			<ListItem isDisabled={true}>
+				Automated firewall protection
+			</ListItem>
+		</List>
+	</Preview>
+	<Snippet language="js">{disabledCode}</Snippet>
+</Section>

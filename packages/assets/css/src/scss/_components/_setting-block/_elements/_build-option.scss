@@ -1,0 +1,41 @@
+@use "sass:map";
+
+@use "../../../_utils/utils" as *;
+
+/// Build body content
+///
+/// @type block
+/// @author WPMU DEV
+///
+/// @param {String} $block - Main block name
+@mixin build-option($block) {
+	// DIR: Left to right.
+	// THEME: None.
+	@include sui-class($rtl: false, $theme: null) {
+		// Block wrapper.
+		@include block($block) {
+			@include element(option) {
+				width: 100%;
+			}
+
+			@include element(option-title-row) {
+				display: flex;
+				gap: $spacing-sm;
+				align-items: flex-start;
+				justify-content: flex-start;
+			}
+
+			@include element(option-title) {
+				font-size: $font-size-default;
+				font-weight: $font-weight-md;
+				margin: 0 0 $spacing-sm 0;
+				color: $color-grey-90;
+			}
+
+			@include element(option-description) {
+				font-size: $font-size-default;
+				margin: 0 0 $spacing-md 0;
+			}
+		}
+	}
+}

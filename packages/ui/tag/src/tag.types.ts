@@ -20,6 +20,10 @@ interface TagProps
 		>,
 		SuiStyleType {
 	/**
+	 * Unique identifier for the tag.
+	 */
+	id?: string
+	/**
 	 * Design of the tag.
 	 */
 	design?: string

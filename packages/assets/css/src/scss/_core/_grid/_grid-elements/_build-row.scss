@@ -15,14 +15,17 @@
 @mixin build-row($block) {
 	@include sui-class($rtl: false, $theme: null) {
 		@include block($block) {
+			row-gap: map.get($sui-grid-spacing, sm);
 			flex: 1; // Special fix when inside a box group
 			margin-bottom: map.get($sui-grid-spacing, sm);
 
-			@include media(min-width, md) {
+			@include media(min-width, sm) {
+				row-gap: map.get($sui-grid-spacing, md);
 				margin-bottom: map.get($sui-grid-spacing, md);
 			}
 
 			@include media(min-width, lg) {
+				row-gap: map.get($sui-grid-spacing, lg);
 				margin-bottom: map.get($sui-grid-spacing, lg);
 			}
 

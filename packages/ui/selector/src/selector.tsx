@@ -12,6 +12,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 >(
 	(
 		{
+			id,
 			label,
 			name = "",
 			value = "",
@@ -36,7 +37,8 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 		ref,
 	) => {
 		// Generate a dynamic ID for the checkbox
-		const id = useId()
+		const generatedId = useId()
+		const uniqueId = id || generatedId
 
 		// Interaction methods for handling hover and focus
 		const [isHovered, isFocused, interactionMethods] = useInteraction({})
@@ -53,7 +55,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 
 		return (
 			<label
-				htmlFor={id}
+				htmlFor={uniqueId}
 				tabIndex={isDisabled ? -1 : 0}
 				data-testid="selector"
 				className={generateCN(
@@ -75,7 +77,7 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 				{/* Hidden radio input */}
 				<input
 					ref={ref}
-					id={id}
+					id={uniqueId}
 					name={name}
 					type="radio"
 					tabIndex={isDisabled ? -1 : 0}
@@ -100,7 +102,11 @@ const Selector: React.FC<SelectorProps> = forwardRef<
 					variation={variation ?? "default"}
 					isPro={isPro}
 				/>
-				{label && <span className="sui-screen-reader-only">{label}</span>}
+				{label && (
+					<span className="sui-screen-reader-only" id={`${uniqueId}-label`}>
+						{label}
+					</span>
+				)}
 			</label>
 		)
 	},
