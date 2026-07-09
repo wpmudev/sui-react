@@ -18,7 +18,7 @@
 				.sui-dropdown__menu {
 					.sui-dropdown__menu-item--selected,
 					.sui-select__dropdown--selected {
-						&:not(.sui-dropdown__menu-item--danger) {
+						&:not(.sui-dropdown__menu-item--danger):not(:hover) {
 							color: $color-primary-50;
 						}
 					}
