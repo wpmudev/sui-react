@@ -1,6 +1,6 @@
 {
   "name": "@wpmudev/sui-search",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Search is an input field that allow users to find and access content or information within the plugin.",
   "keywords": [],
   "author": "WPMU DEV (https://wpmudev.com)",
@@ -53,8 +53,8 @@
   "homepage": "https://github.com/wpmudev/sui-docs#readme",
   "clean-package": "../../../postpack.config.json",
   "dependencies": {
-    "@wpmudev/sui-hooks": "^0.0.1",
-    "@wpmudev/sui-input": "^0.0.1",
-    "@wpmudev/sui-utils": "^0.0.1"
+    "@wpmudev/sui-hooks": "^0.0.2",
+    "@wpmudev/sui-input": "^0.0.2",
+    "@wpmudev/sui-utils": "^0.0.2"
   }
 }
